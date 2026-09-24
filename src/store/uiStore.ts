@@ -31,6 +31,7 @@ interface UiState extends Prefs {
   hiddenSignals: SignalFamily[]
   dockTab: DockTab
   paletteOpen: boolean
+  settingsOpen: boolean
   /** Élément à centrer dans le canevas (clic dans une liste) */
   focusRequest: { kind: 'equipment' | 'link'; id: string; at: number } | null
 
@@ -40,6 +41,7 @@ interface UiState extends Prefs {
   setPref: <K extends keyof Prefs>(key: K, value: Prefs[K]) => void
   setDockTab: (t: DockTab) => void
   setPaletteOpen: (open: boolean) => void
+  setSettingsOpen: (open: boolean) => void
   focus: (kind: 'equipment' | 'link', id: string) => void
 }
 
@@ -50,6 +52,7 @@ export const useUi = create<UiState>((set, get) => ({
   hiddenSignals: [],
   dockTab: 'cables',
   paletteOpen: false,
+  settingsOpen: false,
   focusRequest: null,
 
   select: (equipment, links) => {
@@ -79,6 +82,7 @@ export const useUi = create<UiState>((set, get) => ({
   },
   setDockTab: (t) => set({ dockTab: t, dockOpen: true }),
   setPaletteOpen: (open) => set({ paletteOpen: open }),
+  setSettingsOpen: (open) => set({ settingsOpen: open }),
   focus: (kind, id) =>
     set({
       focusRequest: { kind, id, at: Date.now() },

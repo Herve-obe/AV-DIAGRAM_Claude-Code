@@ -14,7 +14,8 @@
     "redo": "Redo",
     "search": "Search, command",
     "newProjectName": "New project",
-    "openError": "This file is not a valid AV Diagram project (.avd)."
+    "openError": "This file is not a valid AV Diagram project (.avd).",
+    "exportPdf": "PDF sheet (A3 with title block)"
   },
   "mode": {
     "beginner": "Beginner",
@@ -44,7 +45,11 @@
       "verified": "Verified",
       "community": "Community",
       "user": "Custom"
-    }
+    },
+    "mine": "My models",
+    "removeMine": "Remove from my models",
+    "newBlock": "New block",
+    "blankName": "Custom block"
   },
   "family": {
     "capture": "Capture",
@@ -122,7 +127,13 @@
     "compatible": "Compatible",
     "ignore": "Ignore",
     "delete": "Delete",
-    "duplicate": "Duplicate"
+    "duplicate": "Duplicate",
+    "family": "Family",
+    "pictogram": "Pictogram",
+    "userSource": "custom model, values entered by the user.",
+    "saveTemplate": "Save as model",
+    "saveTemplateHint": "Adds this block to \"My models\" to reuse it in other projects",
+    "templateSaved": "Model saved"
   },
   "severity": {
     "error": "Error",
@@ -218,9 +229,76 @@
     "toggleMode": "Switch mode (beginner / expert)",
     "toggleTheme": "Switch theme",
     "toggleLang": "Passer en français",
-    "fit": "Fit view"
+    "fit": "Fit view",
+    "settings": "Project settings",
+    "exportPdf": "Export PDF sheet"
   },
   "filters": {
     "label": "Visible signals"
+  },
+  "ports": {
+    "name": "Port name",
+    "direction": "Direction",
+    "signal": "Signal",
+    "connector": "Connector",
+    "level": "Level",
+    "format": "Format / protocol",
+    "remove": "Delete port",
+    "add": "Add a port",
+    "newName": "New port"
+  },
+  "pictogram": {
+    "mic": "Mic",
+    "di": "DI",
+    "console": "Console",
+    "stagebox": "Stagebox",
+    "processor": "Processor",
+    "amp": "Amp",
+    "speaker": "Speaker",
+    "wireless": "Wireless",
+    "recorder": "Recorder",
+    "camera": "Camera",
+    "switcher": "Switcher",
+    "router": "Router",
+    "display": "Display",
+    "projector": "Projector",
+    "intercom": "Intercom",
+    "switch": "Switch",
+    "clock": "Clock",
+    "control": "Control",
+    "power": "Power",
+    "patch": "Patch"
+  },
+  "settings": {
+    "title": "Project settings",
+    "close": "Close",
+    "info": "Title block",
+    "infoHint": "These details appear in the title block of PDF sheets.",
+    "projectName": "Project name",
+    "client": "Client",
+    "venue": "Venue",
+    "author": "Author",
+    "revision": "Revision",
+    "zones": "Zones",
+    "zonesHint": "The zone code prefixes cable numbers (2 to 6 letters or digits).",
+    "zoneName": "Name",
+    "zoneCode": "Code",
+    "zoneCount": "Equipment",
+    "removeZone": "Delete zone",
+    "newZoneName": "New zone",
+    "addZone": "Add",
+    "numbering": "Cable numbering",
+    "cableFormat": "Format",
+    "defaultZone": "Code without zone",
+    "formatHint": "Variables: {ZONE}, {TYPE}, {NUM:000} (number of zeros = number of digits). Example:",
+    "power": "Power",
+    "voltage": "Mains voltage (V)"
+  },
+  "pdf": {
+    "title": "Project",
+    "date": "Date",
+    "sheet": "Sheet",
+    "legend": "Legend",
+    "error": "PDF export failed. Try again after fitting the view (F key)."
   }
 }

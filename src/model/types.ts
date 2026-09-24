@@ -142,6 +142,16 @@ export interface Project {
   links: Record<string, Link>
   zones: Zone[]
   settings: ProjectSettings
+  info?: ProjectInfo
+}
+
+/** Informations reportées dans le cartouche d'impression. */
+export interface ProjectInfo {
+  client?: string
+  venue?: string
+  author?: string
+  /** Indice de révision (ex. "A", "B", "1.2") */
+  revision?: string
 }
 
 export interface ProjectSettings {

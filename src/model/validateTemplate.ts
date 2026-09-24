@@ -16,7 +16,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
   const where = t.id || '(sans id)'
   if (!t.id) errors.push('id manquant')
   if (!t.model) errors.push(`${where} : modèle manquant`)
-  if (t.status !== 'generic' && !t.manufacturer) errors.push(`${where} : fabricant manquant`)
+  if ((t.status === 'verified' || t.status === 'community') && !t.manufacturer) errors.push(`${where} : fabricant manquant`)
   if (t.status === 'verified') {
     if (!t.sources?.length) errors.push(`${where} : une fiche vérifiée doit citer une source`)
     for (const s of t.sources ?? []) {

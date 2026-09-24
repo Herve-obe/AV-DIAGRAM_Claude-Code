@@ -163,3 +163,50 @@ describe('fiches constructeur', () => {
     expect(errors.join()).toContain('source')
   })
 })
+
+describe('éditeur de blocs et zones', () => {
+  it('ajoute un port avec un identifiant libre', () => {
+    const { p, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const n = p.equipment[b].ports.length
+    const r = ops.addPort(p, b, { name: 'Aux', direction: 'in', signal: 'audioAnalog', connector: 'jack-trs', level: 'line+4' })
+    expect(r.project.equipment[b].ports).toHaveLength(n + 1)
+    expect(r.id).toBe(`p${n + 1}`)
+  })
+  it('supprimer un port supprime ses liaisons', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const after = ops.removePort(r.project, b, 'p1')
+    expect(Object.keys(after.links)).toHaveLength(0)
+    expect(after.equipment[b].ports.find((x) => x.id === 'p1')).toBeUndefined()
+  })
+  it('changer le code d\'une zone renomme les câbles', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const after = ops.updateZone(r.project, 'z-scn', { code: 'stage' })
+    expect(after.links[r.id!].label).toBe('STAGE-AUD-001')
+  })
+  it('supprimer une zone renvoie ses câbles sur le code par défaut', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const after = ops.removeZone(r.project, 'z-scn')
+    expect(after.equipment[a].zoneId).toBeUndefined()
+    expect(after.links[r.id!].label).toBe('GEN-AUD-001')
+  })
+  it('un modèle perso issu d\'un équipement est une fiche valide', async () => {
+    const { validateTemplate } = await import('./validateTemplate')
+    const { p, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const tpl = ops.templateFromEquipment(p.equipment[b])
+    expect(tpl.status).toBe('user')
+    expect(validateTemplate(tpl)).toEqual([])
+  })
+})
+
+describe('traductions', () => {
+  it('le français et l\'anglais ont exactement les mêmes clés', async () => {
+    const fr = (await import('../i18n/fr.json')).default
+    const en = (await import('../i18n/en.json')).default
+    const keys = (o: object, p = ''): string[] =>
+      Object.entries(o).flatMap(([k, v]) => (typeof v === 'object' ? keys(v, `${p}${k}.`) : [`${p}${k}`]))
+    expect(keys(en).sort()).toEqual(keys(fr).sort())
+  })
+})

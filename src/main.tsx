@@ -5,9 +5,10 @@ import './styles/tokens.css'
 import './styles/app.css'
 import './i18n'
 import App from './App'
+import { restoreUserLibrary } from './store/libraryStore'
 import { restoreProject, startAutosave } from './store/persistence'
 
-restoreProject().finally(() => {
+Promise.all([restoreProject(), restoreUserLibrary()]).finally(() => {
   startAutosave()
   createRoot(document.getElementById('root')!).render(
     <StrictMode>

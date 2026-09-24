@@ -1,6 +1,8 @@
 // Barre supérieure : identité, projet, fichier, annulation, recherche, mode, thème, langue.
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useReactFlow } from '@xyflow/react'
+import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
@@ -23,6 +25,7 @@ export function TopBar() {
   const [exportOpen, setExportOpen] = useState(false)
   const [name, setName] = useState(project.name)
   const exportRef = useRef<HTMLDivElement>(null)
+  const rf = useReactFlow()
 
   useEffect(() => setName(project.name), [project.name])
   useEffect(() => {
@@ -70,12 +73,14 @@ export function TopBar() {
           <button className="icon-btn" onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} title={t('menu.export')} aria-label={t('menu.export')}><Icon name="download" /></button>
           {exportOpen && (
             <div className="menu-pop" role="menu">
+              <button role="menuitem" onClick={() => { setExportOpen(false); exportPdfWithLabels(rf, t) }}>{t('menu.exportPdf')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCanvasImage(project, 'png') }}>{t('menu.exportPng')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCanvasImage(project, 'svg') }}>{t('menu.exportSvg')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCableCsv(project, csvHeaders(t)) }}>{t('menu.exportCsv')}</button>
             </div>
           )}
         </div>
+        <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
         <span className="sep" />
         <button className="icon-btn" onClick={undo} disabled={!canUndo} title={`${t('menu.undo')} (Ctrl+Z)`} aria-label={t('menu.undo')}><Icon name="undo" /></button>
         <button className="icon-btn" onClick={redo} disabled={!canRedo} title={`${t('menu.redo')} (Ctrl+Maj+Z)`} aria-label={t('menu.redo')}><Icon name="redo" /></button>

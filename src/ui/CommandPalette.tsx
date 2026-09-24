@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
+import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 
@@ -36,6 +37,8 @@ export function CommandPalette() {
       { id: 'video', label: t('palette.showVideo'), hint: 'Alt 2', run: () => ui.showOnly(['video', 'videoIp']) },
       { id: 'net', label: t('palette.showNetwork'), hint: 'Alt 3', run: () => ui.showOnly(['network', 'audioIp', 'videoIp', 'sync']) },
       { id: 'issues', label: t('palette.issues'), run: () => ui.setDockTab('issues') },
+      { id: 'settings', label: t('palette.settings'), run: () => ui.setSettingsOpen(true) },
+      { id: 'pdf', label: t('palette.exportPdf'), run: () => exportPdfWithLabels(rf, t) },
       { id: 'renumber', label: t('palette.renumber'), run: () => useProject.getState().renumber() },
       { id: 'fit', label: t('palette.fit'), hint: 'F', run: () => rf.fitView({ duration: 300, padding: 0.15 }) },
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },

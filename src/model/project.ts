@@ -2,7 +2,7 @@
 // Le store (src/store) les appelle et gère l'historique d'annulation.
 import { formatCableLabel } from './numbering'
 import type { SignalFamily } from './signals'
-import type { Equipment, EquipmentTemplate, Link, Project } from './types'
+import type { Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from './types'
 
 export function uid(prefix: string): string {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}`
@@ -203,4 +203,89 @@ export function renumberLinks(project: Project): Project {
 export function isProject(value: unknown): value is Project {
   const v = value as Project
   return !!v && v.format === 1 && typeof v.name === 'string' && typeof v.equipment === 'object' && typeof v.links === 'object'
+}
+
+/* ---------- Ports (éditeur de blocs) ---------- */
+
+/** Prochain identifiant de port libre : p1, p2, ... */
+function nextPortId(ports: PortDef[]): string {
+  const nums = ports.map((p) => Number(/^p(\d+)$/.exec(p.id)?.[1] ?? 0))
+  return `p${Math.max(0, ...nums) + 1}`
+}
+
+export function addPort(project: Project, equipmentId: string, port: Omit<PortDef, 'id'>): { project: Project; id: string | null } {
+  const eq = project.equipment[equipmentId]
+  if (!eq) return { project, id: null }
+  const id = nextPortId(eq.ports)
+  return { project: updateEquipment(project, equipmentId, { ports: [...eq.ports, { ...port, id }] }), id }
+}
+
+export function updatePort(project: Project, equipmentId: string, portId: string, patch: Partial<Omit<PortDef, 'id'>>): Project {
+  const eq = project.equipment[equipmentId]
+  if (!eq) return project
+  const ports = eq.ports.map((p) => (p.id === portId ? { ...p, ...patch } : p))
+  // Le signal détermine la série de numérotation des câbles
+  return relabelAll(updateEquipment(project, equipmentId, { ports }))
+}
+
+/** Supprime un port et les liaisons qui l'utilisent. */
+export function removePort(project: Project, equipmentId: string, portId: string): Project {
+  const eq = project.equipment[equipmentId]
+  if (!eq) return project
+  const uses = (r: { equipmentId: string; portId: string }) => r.equipmentId === equipmentId && r.portId === portId
+  const linkIds = Object.values(project.links).filter((l) => uses(l.source) || uses(l.target)).map((l) => l.id)
+  const p = removeElements(project, [], linkIds)
+  return updateEquipment(p, equipmentId, { ports: eq.ports.filter((x) => x.id !== portId) })
+}
+
+/** Crée une fiche "utilisateur" à partir d'un équipement du projet (modèle perso réutilisable). */
+export function templateFromEquipment(eq: Equipment): EquipmentTemplate {
+  return {
+    id: uid('usr'),
+    family: eq.family,
+    manufacturer: eq.manufacturer,
+    model: eq.name,
+    pictogram: eq.pictogram,
+    ports: eq.ports.map((p) => ({ ...p })),
+    powerW: eq.powerW,
+    weightKg: eq.weightKg,
+    rackU: eq.rackU,
+    status: 'user',
+  }
+}
+
+/* ---------- Zones et réglages ---------- */
+
+/** Code de zone : majuscules et chiffres, 2 à 6 caractères. */
+export function normalizeZoneCode(code: string): string {
+  return code.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6)
+}
+
+export function addZone(project: Project, name: string, code: string): { project: Project; id: string } {
+  const id = uid('z')
+  const zone: Zone = { id, name, code: normalizeZoneCode(code) || 'Z' }
+  return { project: touch({ ...project, zones: [...project.zones, zone] }), id }
+}
+
+export function updateZone(project: Project, id: string, patch: Partial<Omit<Zone, 'id'>>): Project {
+  const zones = project.zones.map((z) =>
+    z.id === id ? { ...z, ...patch, code: patch.code !== undefined ? normalizeZoneCode(patch.code) || z.code : z.code } : z,
+  )
+  return relabelAll(touch({ ...project, zones }))
+}
+
+/** Supprime une zone : les équipements concernés n'ont plus de zone. */
+export function removeZone(project: Project, id: string): Project {
+  const equipment = Object.fromEntries(
+    Object.entries(project.equipment).map(([k, e]) => [k, e.zoneId === id ? { ...e, zoneId: undefined } : e]),
+  )
+  return relabelAll(touch({ ...project, zones: project.zones.filter((z) => z.id !== id), equipment }))
+}
+
+export function updateSettings(project: Project, patch: Partial<ProjectSettings>): Project {
+  return relabelAll(touch({ ...project, settings: { ...project.settings, ...patch } }))
+}
+
+export function updateInfo(project: Project, patch: Partial<ProjectInfo>): Project {
+  return touch({ ...project, info: { ...project.info, ...patch } })
 }

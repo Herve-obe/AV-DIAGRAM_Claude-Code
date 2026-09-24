@@ -23,13 +23,14 @@ const FILTERS: Record<string, { name: string; extensions: string[] }> = {
   csv: { name: 'CSV', extensions: ['csv'] },
   png: { name: 'Image PNG', extensions: ['png'] },
   svg: { name: 'Image SVG', extensions: ['svg'] },
+  pdf: { name: 'PDF', extensions: ['pdf'] },
 }
 
 /**
  * Enregistre un contenu : fenêtre "Enregistrer sous" native dans l'application bureau.
  * Renvoie false si l'utilisateur annule.
  */
-async function saveContent(filename: string, content: string | Uint8Array, mime: string): Promise<boolean> {
+export async function saveContent(filename: string, content: string | Uint8Array, mime: string): Promise<boolean> {
   const ext = filename.split('.').pop() ?? ''
   if (isTauri()) {
     const { save } = await import('@tauri-apps/plugin-dialog')

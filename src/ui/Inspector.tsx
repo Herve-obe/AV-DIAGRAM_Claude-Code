@@ -1,53 +1,19 @@
 // Inspecteur : propriétés de l'équipement ou de la liaison sélectionnés.
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
-import type { Equipment, Link, PortDef } from '../model/types'
+import { templateFromEquipment } from '../model/project'
+import type { Equipment, EquipmentFamily, Link, PictogramId, PortDef } from '../model/types'
+import { getTemplate, useLibrary } from '../store/libraryStore'
 import { useProject } from '../store/projectStore'
 import { useIssues } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
+import { Field, toNumber } from './Field'
 import { Icon } from './Icon'
 import { Pictogram } from './Pictogram'
-
-/** Champ texte ou nombre validé à la sortie du champ (un seul pas d'annulation par saisie). */
-function Field(props: {
-  id: string
-  label: string
-  value: string | number | undefined
-  type?: 'text' | 'number'
-  multiline?: boolean
-  onCommit: (v: string) => void
-}) {
-  const { id, label, value, type = 'text', multiline, onCommit } = props
-  const [draft, setDraft] = useState(String(value ?? ''))
-  useEffect(() => setDraft(String(value ?? '')), [value])
-  const commit = () => {
-    if (draft !== String(value ?? '')) onCommit(draft)
-  }
-  return (
-    <div className="field">
-      <label htmlFor={id}>{label}</label>
-      {multiline ? (
-        <textarea id={id} value={draft} rows={3} onChange={(e) => setDraft(e.target.value)} onBlur={commit} />
-      ) : (
-        <input
-          id={id}
-          type={type}
-          value={draft}
-          step="any"
-          min={type === 'number' ? 0 : undefined}
-          onChange={(e) => setDraft(e.target.value)}
-          onBlur={commit}
-          onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
-        />
-      )}
-    </div>
-  )
-}
-
-const toNumber = (v: string) => (v.trim() === '' ? undefined : Math.max(0, Number(v.replace(',', '.'))) || 0)
+import { PortEditor } from './PortEditor'
 
 function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
   const { t } = useTranslation()
@@ -72,12 +38,45 @@ function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
   )
 }
 
+const FAMILIES: EquipmentFamily[] = [
+  'capture', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'wireless', 'recording', 'camera',
+  'videoSwitcher', 'videoRouting', 'display', 'intercom', 'network', 'sync', 'control', 'power', 'passive',
+]
+const PICTOGRAMS: PictogramId[] = [
+  'mic', 'di', 'console', 'stagebox', 'processor', 'amp', 'speaker', 'wireless', 'recorder', 'camera', 'switcher',
+  'router', 'display', 'projector', 'intercom', 'switch', 'clock', 'control', 'power', 'patch',
+]
+
+/** Provenance des caractéristiques : fiche constructeur (avec ses sources), bloc générique ou modèle perso. */
+function SourceNote({ templateId }: { templateId: string }) {
+  const { t } = useTranslation()
+  const tpl = getTemplate(templateId)
+  if (tpl?.status === 'verified' || tpl?.status === 'community') {
+    return (
+      <div className="source-note">
+        <span className={`tag tag-${tpl.status}`}>{t(`library.status.${tpl.status}`)}</span>
+        <ul>
+          {tpl.sources?.map((s, i) => (
+            <li key={i}>{s.document ?? s.url} <span className="dim">({s.accessed})</span></li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  return <p className="source-note">{t('inspector.source')} : {tpl?.status === 'user' ? t('inspector.userSource') : t('inspector.genericSource')}</p>
+}
+
 function EquipmentInspector({ eq }: { eq: Equipment }) {
   const { t } = useTranslation()
   const zones = useProject((s) => s.project.zones)
   const { updateEquipment, duplicate, remove } = useProject.getState()
   const expert = useUi((s) => s.mode) === 'expert'
+  const [savedTpl, setSavedTpl] = useState(false)
   const set = (patch: Partial<Equipment>) => updateEquipment(eq.id, patch)
+  const saveAsTemplate = () => {
+    useLibrary.getState().addUserTemplate(templateFromEquipment(eq))
+    setSavedTpl(true)
+  }
   return (
     <>
       <div className="insp-head">
@@ -101,17 +100,44 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
       </div>
       {expert && (
         <div className="field-row">
+          <div className="field">
+            <label htmlFor="eq-family">{t('inspector.family')}</label>
+            <select id="eq-family" value={eq.family} onChange={(e) => set({ family: e.target.value as EquipmentFamily })}>
+              {FAMILIES.map((f) => <option key={f} value={f}>{t(`family.${f}`)}</option>)}
+            </select>
+          </div>
+          <div className="field">
+            <label htmlFor="eq-pict">{t('inspector.pictogram')}</label>
+            <select id="eq-pict" value={eq.pictogram} onChange={(e) => set({ pictogram: e.target.value as PictogramId })}>
+              {PICTOGRAMS.map((p) => <option key={p} value={p}>{t(`pictogram.${p}`)}</option>)}
+            </select>
+          </div>
+        </div>
+      )}
+      {expert && (
+        <div className="field-row">
           <Field id="eq-power" type="number" label={t('inspector.power')} value={eq.powerW} onCommit={(v) => set({ powerW: toNumber(v) })} />
           <Field id="eq-weight" type="number" label={t('inspector.weight')} value={eq.weightKg} onCommit={(v) => set({ weightKg: toNumber(v) })} />
         </div>
       )}
       {expert && <Field id="eq-notes" label={t('inspector.notes')} value={eq.notes} multiline onCommit={(v) => set({ notes: v || undefined })} />}
-      <PortList title={t('inspector.inputs')} ports={eq.ports.filter((p) => p.direction === 'in')} />
-      <PortList title={t('inspector.outputs')} ports={eq.ports.filter((p) => p.direction === 'out')} />
-      <PortList title={t('inspector.bidir')} ports={eq.ports.filter((p) => p.direction === 'bidir')} />
-      {expert && <p className="source-note">{t('inspector.source')} : {t('inspector.genericSource')}</p>}
-      <div className="insp-actions">
+      {expert ? (
+        <PortEditor eq={eq} />
+      ) : (
+        <>
+          <PortList title={t('inspector.inputs')} ports={eq.ports.filter((p) => p.direction === 'in')} />
+          <PortList title={t('inspector.outputs')} ports={eq.ports.filter((p) => p.direction === 'out')} />
+          <PortList title={t('inspector.bidir')} ports={eq.ports.filter((p) => p.direction === 'bidir')} />
+        </>
+      )}
+      {expert && <SourceNote templateId={eq.templateId} />}
+      <div className="insp-actions wrap">
         <button className="btn" onClick={() => useUi.getState().select(duplicate([eq.id]), [])}><Icon name="copy" size={14} />{t('inspector.duplicate')}</button>
+        {expert && (
+          <button className="btn" onClick={saveAsTemplate} disabled={savedTpl || eq.ports.length === 0} title={t('inspector.saveTemplateHint')}>
+            <Icon name={savedTpl ? 'check' : 'bookmark'} size={14} />{savedTpl ? t('inspector.templateSaved') : t('inspector.saveTemplate')}
+          </button>
+        )}
         <button className="btn btn-danger" onClick={() => remove([eq.id], [])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
     </>

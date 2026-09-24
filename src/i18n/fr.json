@@ -14,7 +14,8 @@
     "redo": "Rétablir",
     "search": "Rechercher, commande",
     "newProjectName": "Nouveau projet",
-    "openError": "Ce fichier n'est pas un projet AV Diagram valide (.avd)."
+    "openError": "Ce fichier n'est pas un projet AV Diagram valide (.avd).",
+    "exportPdf": "Planche PDF (A3 avec cartouche)"
   },
   "mode": {
     "beginner": "Débutant",
@@ -44,7 +45,11 @@
       "verified": "Vérifié",
       "community": "Communauté",
       "user": "Perso"
-    }
+    },
+    "mine": "Mes modèles",
+    "removeMine": "Retirer de mes modèles",
+    "newBlock": "Nouveau bloc",
+    "blankName": "Bloc personnalisé"
   },
   "family": {
     "capture": "Captation",
@@ -122,7 +127,13 @@
     "compatible": "Compatible",
     "ignore": "Ignorer",
     "delete": "Supprimer",
-    "duplicate": "Dupliquer"
+    "duplicate": "Dupliquer",
+    "family": "Famille",
+    "pictogram": "Pictogramme",
+    "userSource": "modèle perso, caractéristiques saisies par l'utilisateur.",
+    "saveTemplate": "Enregistrer comme modèle",
+    "saveTemplateHint": "Ajoute ce bloc à « Mes modèles » pour le réutiliser dans d'autres projets",
+    "templateSaved": "Modèle enregistré"
   },
   "severity": {
     "error": "Erreur",
@@ -218,9 +229,76 @@
     "toggleMode": "Changer de mode (débutant / expert)",
     "toggleTheme": "Changer de thème",
     "toggleLang": "Switch to English",
-    "fit": "Ajuster la vue"
+    "fit": "Ajuster la vue",
+    "settings": "Réglages du projet",
+    "exportPdf": "Exporter la planche PDF"
   },
   "filters": {
     "label": "Signaux affichés"
+  },
+  "ports": {
+    "name": "Nom du port",
+    "direction": "Sens",
+    "signal": "Signal",
+    "connector": "Connecteur",
+    "level": "Niveau",
+    "format": "Format / protocole",
+    "remove": "Supprimer le port",
+    "add": "Ajouter un port",
+    "newName": "Nouveau port"
+  },
+  "pictogram": {
+    "mic": "Micro",
+    "di": "DI",
+    "console": "Console",
+    "stagebox": "Stagebox",
+    "processor": "Processeur",
+    "amp": "Ampli",
+    "speaker": "Enceinte",
+    "wireless": "HF",
+    "recorder": "Enregistreur",
+    "camera": "Caméra",
+    "switcher": "Mélangeur",
+    "router": "Grille",
+    "display": "Écran",
+    "projector": "Projecteur",
+    "intercom": "Intercom",
+    "switch": "Switch",
+    "clock": "Horloge",
+    "control": "Contrôle",
+    "power": "Électrique",
+    "patch": "Patch"
+  },
+  "settings": {
+    "title": "Réglages du projet",
+    "close": "Fermer",
+    "info": "Cartouche",
+    "infoHint": "Ces informations apparaissent dans le cartouche des planches PDF.",
+    "projectName": "Nom du projet",
+    "client": "Client",
+    "venue": "Lieu",
+    "author": "Auteur",
+    "revision": "Révision",
+    "zones": "Zones",
+    "zonesHint": "Le code de zone sert de préfixe aux numéros de câbles (2 à 6 lettres ou chiffres).",
+    "zoneName": "Nom",
+    "zoneCode": "Code",
+    "zoneCount": "Équipements",
+    "removeZone": "Supprimer la zone",
+    "newZoneName": "Nouvelle zone",
+    "addZone": "Ajouter",
+    "numbering": "Numérotation des câbles",
+    "cableFormat": "Format",
+    "defaultZone": "Code sans zone",
+    "formatHint": "Variables : {ZONE}, {TYPE}, {NUM:000} (nombre de zéros = nombre de chiffres). Exemple :",
+    "power": "Électricité",
+    "voltage": "Tension secteur (V)"
+  },
+  "pdf": {
+    "title": "Projet",
+    "date": "Date",
+    "sheet": "Planche",
+    "legend": "Légende",
+    "error": "L'export PDF a échoué. Réessaie après avoir ajusté la vue (touche F)."
   }
 }

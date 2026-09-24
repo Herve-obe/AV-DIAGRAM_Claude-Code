@@ -2,7 +2,7 @@
 // Toute modification passe par commit() qui empile l'état précédent.
 import { create } from 'zustand'
 import * as ops from '../model/project'
-import type { Equipment, EquipmentTemplate, Link, Project } from '../model/types'
+import type { Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import { buildSampleProject } from '../library/sample'
 
 const HISTORY_LIMIT = 200
@@ -31,6 +31,15 @@ interface ProjectState {
   duplicate: (ids: string[]) => string[]
   renumber: () => void
   markSaved: () => void
+
+  addPort: (equipmentId: string, port: Omit<PortDef, 'id'>) => string | null
+  updatePort: (equipmentId: string, portId: string, patch: Partial<Omit<PortDef, 'id'>>) => void
+  removePort: (equipmentId: string, portId: string) => void
+  addZone: (name: string, code: string) => string
+  updateZone: (id: string, patch: Partial<Omit<Zone, 'id'>>) => void
+  removeZone: (id: string) => void
+  updateSettings: (patch: Partial<ProjectSettings>) => void
+  updateInfo: (patch: Partial<ProjectInfo>) => void
 }
 
 export const useProject = create<ProjectState>((set, get) => {
@@ -92,5 +101,22 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     renumber: () => commit(ops.renumberLinks(get().project)),
     markSaved: () => set({ saved: true }),
+
+    addPort: (eqId, port) => {
+      const r = ops.addPort(get().project, eqId, port)
+      commit(r.project)
+      return r.id
+    },
+    updatePort: (eqId, portId, patch) => commit(ops.updatePort(get().project, eqId, portId, patch)),
+    removePort: (eqId, portId) => commit(ops.removePort(get().project, eqId, portId)),
+    addZone: (name, code) => {
+      const r = ops.addZone(get().project, name, code)
+      commit(r.project)
+      return r.id
+    },
+    updateZone: (id, patch) => commit(ops.updateZone(get().project, id, patch)),
+    removeZone: (id) => commit(ops.removeZone(get().project, id)),
+    updateSettings: (patch) => commit(ops.updateSettings(get().project, patch)),
+    updateInfo: (patch) => commit(ops.updateInfo(get().project, patch)),
   }
 })

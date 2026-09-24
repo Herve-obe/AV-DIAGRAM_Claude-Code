@@ -13,6 +13,7 @@ import { FilterBar } from './ui/FilterBar'
 import { Inspector } from './ui/Inspector'
 import { LibraryPanel } from './ui/LibraryPanel'
 import { PageBar } from './ui/PageBar'
+import { ProjectSettings } from './ui/ProjectSettings'
 import { TopBar } from './ui/TopBar'
 
 /** Alt+0..3 : filtres rapides d'affichage (null = tout afficher) */
@@ -90,6 +91,7 @@ export default function App() {
         <PageBar />
       </div>
       <CommandPalette />
+      <ProjectSettings />
       <Shortcuts />
       <ThemeSync />
     </ReactFlowProvider>
