@@ -92,7 +92,8 @@ export function checkLink(project: Project, link: Link): Issue[] {
   const sameSource = all.filter(
     (l) => l.source.equipmentId === link.source.equipmentId && l.source.portId === link.source.portId,
   )
-  if (sameSource.length > 1) {
+  // Une ligne d'intercom partyline est un bus : plusieurs postes sur la même ligne est normal
+  if (sameSource.length > 1 && src.signal !== 'intercom') {
     codes.push({ code: POINT_TO_POINT.has(src.signal) ? 'output-busy' : 'output-split' })
   }
 

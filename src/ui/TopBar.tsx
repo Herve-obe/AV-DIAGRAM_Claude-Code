@@ -20,7 +20,7 @@ export function TopBar() {
   const project = useProject((s) => s.project)
   const canUndo = useProject((s) => s.past.length > 0)
   const canRedo = useProject((s) => s.future.length > 0)
-  const { undo, redo, rename, load, newProject } = useProject.getState()
+  const { undo, redo, rename, load } = useProject.getState()
   const { mode, theme, lang, setPref, setPaletteOpen } = useUi()
   const [exportOpen, setExportOpen] = useState(false)
   const [name, setName] = useState(project.name)
@@ -66,7 +66,7 @@ export function TopBar() {
       />
 
       <nav className="toolbar" aria-label="Fichier">
-        <button className="icon-btn" onClick={() => newProject(t('menu.newProjectName'))} title={t('menu.new')} aria-label={t('menu.new')}><Icon name="file" /></button>
+        <button className="icon-btn" onClick={() => useUi.getState().setNewProjectOpen(true)} title={t('menu.new')} aria-label={t('menu.new')}><Icon name="file" /></button>
         <button className="icon-btn" onClick={open} title={`${t('menu.open')} (Ctrl+O)`} aria-label={t('menu.open')}><Icon name="folder" /></button>
         <button className="icon-btn" onClick={() => saveProjectFile(project)} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
         <div className="menu" ref={exportRef}>
@@ -80,6 +80,7 @@ export function TopBar() {
             </div>
           )}
         </div>
+        <button className="icon-btn" onClick={() => useUi.getState().setPresenting(true)} title={`${t('presentation.enter')} (F5)`} aria-label={t('presentation.enter')}><Icon name="present" /></button>
         <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
         <span className="sep" />
         <button className="icon-btn" onClick={undo} disabled={!canUndo} title={`${t('menu.undo')} (Ctrl+Z)`} aria-label={t('menu.undo')}><Icon name="undo" /></button>

@@ -106,6 +106,8 @@ export interface Equipment {
   weightKg?: number
   rackU?: number
   zoneId?: string
+  /** Feuille du projet sur laquelle l'équipement est dessiné */
+  sheetId?: string
   notes?: string
   position: { x: number; y: number }
 }
@@ -133,6 +135,24 @@ export interface Zone {
   code: string
 }
 
+/** Feuille : une page de dessin du projet (ex. "Scène", "Régie vidéo"). */
+export interface Sheet {
+  id: string
+  name: string
+}
+
+/** Annotation libre, sans valeur métier : note de texte ou cadre de zone coloré. */
+export interface Annotation {
+  id: string
+  kind: 'note' | 'frame'
+  sheetId: string
+  position: { x: number; y: number }
+  size: { w: number; h: number }
+  text: string
+  /** Couleur de famille de signal ou d'accent, sous forme de variable CSS */
+  color?: string
+}
+
 export interface Project {
   /** Version du format de fichier .avd */
   format: 1
@@ -145,6 +165,8 @@ export interface Project {
   zones: Zone[]
   settings: ProjectSettings
   info?: ProjectInfo
+  sheets?: Sheet[]
+  annotations?: Record<string, Annotation>
 }
 
 /** Informations reportées dans le cartouche d'impression. */

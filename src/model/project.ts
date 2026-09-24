@@ -2,7 +2,7 @@
 // Le store (src/store) les appelle et gère l'historique d'annulation.
 import { formatCableLabel } from './numbering'
 import type { SignalFamily } from './signals'
-import type { Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from './types'
+import type { Annotation, Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from './types'
 
 export function uid(prefix: string): string {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}`
@@ -25,7 +25,24 @@ export function createProject(name: string): Project {
       { id: 'z-vid', name: 'Régie vidéo', code: 'VID' },
     ],
     settings: { cableFormat: '{ZONE}-{TYPE}-{NUM:000}', defaultZoneCode: 'GEN', mainsVoltage: 230 },
+    sheets: [{ id: DEFAULT_SHEET_ID, name: 'Synoptique' }],
+    annotations: {},
   }
+}
+
+export const DEFAULT_SHEET_ID = 'sh-1'
+
+/**
+ * Complète un projet ancien ou importé : feuilles, annotations, feuille de chaque équipement.
+ * À appeler à chaque ouverture de fichier.
+ */
+export function normalizeProject(project: Project): Project {
+  const sheets = project.sheets?.length ? project.sheets : [{ id: DEFAULT_SHEET_ID, name: 'Synoptique' }]
+  const ids = new Set(sheets.map((s) => s.id))
+  const equipment = Object.fromEntries(
+    Object.entries(project.equipment).map(([k, e]) => [k, e.sheetId && ids.has(e.sheetId) ? e : { ...e, sheetId: sheets[0].id }]),
+  )
+  return { ...project, sheets, equipment, annotations: project.annotations ?? {} }
 }
 
 function touch(p: Project): Project {
@@ -45,7 +62,7 @@ export function addEquipment(
   project: Project,
   template: EquipmentTemplate,
   position: { x: number; y: number },
-  extra: Partial<Pick<Equipment, 'name' | 'zoneId'>> = {},
+  extra: Partial<Pick<Equipment, 'name' | 'zoneId' | 'sheetId'>> = {},
 ): { project: Project; id: string } {
   const id = uid('eq')
   const eq: Equipment = {
@@ -61,6 +78,7 @@ export function addEquipment(
     weightKg: template.weightKg,
     rackU: template.rackU,
     zoneId: extra.zoneId,
+    sheetId: extra.sheetId ?? project.sheets?.[0]?.id ?? DEFAULT_SHEET_ID,
     position,
   }
   return { project: touch({ ...project, equipment: { ...project.equipment, [id]: eq } }), id }
@@ -289,3 +307,50 @@ export function updateSettings(project: Project, patch: Partial<ProjectSettings>
 export function updateInfo(project: Project, patch: Partial<ProjectInfo>): Project {
   return touch({ ...project, info: { ...project.info, ...patch } })
 }
+
+/* ---------- Feuilles ---------- */
+
+export function addSheet(project: Project, name: string): { project: Project; id: string } {
+  const id = uid('sh')
+  const sheets = [...(normalizeProject(project).sheets ?? []), { id, name }]
+  return { project: touch({ ...project, sheets }), id }
+}
+
+export function renameSheet(project: Project, id: string, name: string): Project {
+  return touch({ ...project, sheets: (project.sheets ?? []).map((s) => (s.id === id ? { ...s, name } : s)) })
+}
+
+/** Supprime une feuille et tout ce qu'elle contient. La dernière feuille ne peut pas être supprimée. */
+export function removeSheet(project: Project, id: string): Project {
+  const sheets = project.sheets ?? []
+  if (sheets.length <= 1) return project
+  const eqIds = Object.values(project.equipment).filter((e) => e.sheetId === id).map((e) => e.id)
+  const p = removeElements(project, eqIds, [])
+  const annotations = Object.fromEntries(Object.entries(p.annotations ?? {}).filter(([, a]) => a.sheetId !== id))
+  return touch({ ...p, sheets: sheets.filter((s) => s.id !== id), annotations })
+}
+
+/** Nom de la feuille d'un équipement (pour les renvois entre feuilles). */
+export function sheetName(project: Project, sheetId: string | undefined): string {
+  return project.sheets?.find((s) => s.id === sheetId)?.name ?? ''
+}
+
+/* ---------- Annotations ---------- */
+
+export function addAnnotation(project: Project, a: Omit<Annotation, 'id'>): { project: Project; id: string } {
+  const id = uid('an')
+  return { project: touch({ ...project, annotations: { ...project.annotations, [id]: { ...a, id } } }), id }
+}
+
+export function updateAnnotation(project: Project, id: string, patch: Partial<Omit<Annotation, 'id'>>): Project {
+  const a = project.annotations?.[id]
+  if (!a) return project
+  return { ...project, annotations: { ...project.annotations, [id]: { ...a, ...patch } }, updatedAt: new Date().toISOString() }
+}
+
+export function removeAnnotations(project: Project, ids: string[]): Project {
+  if (!ids.length) return project
+  const set = new Set(ids)
+  return touch({ ...project, annotations: Object.fromEntries(Object.entries(project.annotations ?? {}).filter(([k]) => !set.has(k))) })
+}
+

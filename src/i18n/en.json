@@ -239,7 +239,8 @@
     "toggleLang": "Passer en français",
     "fit": "Fit view",
     "settings": "Project settings",
-    "exportPdf": "Export PDF sheet"
+    "exportPdf": "Export PDF sheet",
+    "newProject": "New project (templates)"
   },
   "filters": {
     "label": "Visible signals"
@@ -315,5 +316,48 @@
     "supplied": "Supplied",
     "none": "None",
     "unknown": "Not specified"
+  },
+  "sheets": {
+    "label": "Project sheets",
+    "newName": "Sheet {{n}}",
+    "rename": "Rename sheet",
+    "renameHint": "Double-click to rename",
+    "remove": "Delete this sheet and its content",
+    "add": "Add a sheet",
+    "sheet": "Sheet"
+  },
+  "annotations": {
+    "note": "Note",
+    "frame": "Frame",
+    "noteText": "Note",
+    "frameText": "Area",
+    "text": "Text",
+    "color": "Colour",
+    "hint": "Double-click on the canvas to edit the text in place."
+  },
+  "presentation": {
+    "enter": "Presentation mode",
+    "exit": "Exit presentation",
+    "escKey": "Esc"
+  },
+  "newProject": {
+    "title": "New project",
+    "hint": "Start from a blank project or an editable template. The current project can be restored with Undo (Ctrl+Z) until you close the app.",
+    "blank": {
+      "name": "Blank project",
+      "desc": "An empty sheet."
+    },
+    "concert": {
+      "name": "Concert",
+      "desc": "Mics, Dante stagebox, console, FOH system, recording."
+    },
+    "tvStudio": {
+      "name": "3-camera TV studio",
+      "desc": "Cameras, switcher, sync, multiviewer, intercom on a 2nd sheet."
+    },
+    "conference": {
+      "name": "Conference room",
+      "desc": "Wireless and lectern mics, PA, camera and projection."
+    }
   }
 }

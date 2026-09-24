@@ -225,3 +225,34 @@ describe('alimentation fantôme', () => {
     expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('phantom-missing')
   })
 })
+
+describe('feuilles, annotations et modèles de projets', () => {
+  it('un projet ancien sans feuille est complété à l\'ouverture', () => {
+    const { p, a } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const old = { ...p, sheets: undefined, annotations: undefined, equipment: { ...p.equipment, [a]: { ...p.equipment[a], sheetId: undefined } } }
+    const n = ops.normalizeProject(old)
+    expect(n.sheets).toHaveLength(1)
+    expect(n.equipment[a].sheetId).toBe(n.sheets![0].id)
+  })
+  it('supprimer une feuille supprime ses équipements et ses annotations, jamais la dernière', () => {
+    let p = ops.createProject('t')
+    const s2 = ops.addSheet(p, 'Régie')
+    p = s2.project
+    const eq = ops.addEquipment(p, tpl('gen-console'), { x: 0, y: 0 }, { sheetId: s2.id })
+    p = ops.addAnnotation(eq.project, { kind: 'note', sheetId: s2.id, position: { x: 0, y: 0 }, size: { w: 10, h: 10 }, text: 'x' }).project
+    p = ops.removeSheet(p, s2.id)
+    expect(Object.keys(p.equipment)).toHaveLength(0)
+    expect(Object.keys(p.annotations ?? {})).toHaveLength(0)
+    expect(ops.removeSheet(p, p.sheets![0].id).sheets).toHaveLength(1)
+  })
+  it('les modèles de projets se construisent sans erreur de compatibilité', async () => {
+    const { buildTemplate } = await import('../library/templates')
+    for (const id of ['blank', 'concert', 'tvStudio', 'conference'] as const) {
+      const p = buildTemplate(id, 'Nouveau')
+      expect(checkProject(p).filter((i) => i.severity === 'error'), id).toEqual([])
+    }
+    const tv = buildTemplate('tvStudio', 'x')
+    expect(tv.sheets).toHaveLength(2)
+    expect(Object.keys(tv.links).length).toBeGreaterThan(8)
+  })
+})

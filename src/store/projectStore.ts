@@ -2,7 +2,7 @@
 // Toute modification passe par commit() qui empile l'état précédent.
 import { create } from 'zustand'
 import * as ops from '../model/project'
-import type { Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
+import type { Annotation, Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import { buildSampleProject } from '../library/sample'
 
 const HISTORY_LIMIT = 200
@@ -16,18 +16,21 @@ interface ProjectState {
 
   load: (p: Project) => void
   newProject: (name: string) => void
+  /** Remplace le projet en gardant l'historique : Annuler revient au projet précédent */
+  replaceProject: (p: Project) => void
   undo: () => void
   redo: () => void
   /** Ouvre une transaction (ex. déplacement à la souris) : un seul pas d'annulation */
   beginGesture: () => void
 
   rename: (name: string) => void
-  addEquipment: (tpl: EquipmentTemplate, pos: { x: number; y: number }) => string
+  addEquipment: (tpl: EquipmentTemplate, pos: { x: number; y: number }, sheetId?: string) => string
   updateEquipment: (id: string, patch: Partial<Omit<Equipment, 'id'>>) => void
   moveEquipment: (id: string, pos: { x: number; y: number }) => void
   connect: (a: { equipmentId: string; portId: string }, b: { equipmentId: string; portId: string }) => string | null
   updateLink: (id: string, patch: Partial<Omit<Link, 'id' | 'source' | 'target'>>) => void
-  remove: (equipmentIds: string[], linkIds: string[]) => void
+  /** Supprime des éléments du canevas : équipements et annotations (nodeIds) et liaisons */
+  remove: (nodeIds: string[], linkIds: string[]) => void
   duplicate: (ids: string[]) => string[]
   renumber: () => void
   markSaved: () => void
@@ -40,6 +43,15 @@ interface ProjectState {
   removeZone: (id: string) => void
   updateSettings: (patch: Partial<ProjectSettings>) => void
   updateInfo: (patch: Partial<ProjectInfo>) => void
+
+  addSheet: (name: string) => string
+  renameSheet: (id: string, name: string) => void
+  removeSheet: (id: string) => void
+  moveToSheet: (equipmentIds: string[], sheetId: string) => void
+  addAnnotation: (a: Omit<Annotation, 'id'>) => string
+  updateAnnotation: (id: string, patch: Partial<Omit<Annotation, 'id'>>) => void
+  /** Déplacement ou redimensionnement pendant un geste (pas de pas d'annulation supplémentaire) */
+  moveAnnotation: (id: string, patch: Partial<Pick<Annotation, 'position' | 'size'>>) => void
 }
 
 export const useProject = create<ProjectState>((set, get) => {
@@ -56,8 +68,9 @@ export const useProject = create<ProjectState>((set, get) => {
     future: [],
     saved: true,
 
-    load: (p) => set({ project: p, past: [], future: [], saved: true }),
+    load: (p) => set({ project: ops.normalizeProject(p), past: [], future: [], saved: true }),
     newProject: (name) => commit(ops.createProject(name)),
+    replaceProject: (p) => commit(ops.normalizeProject(p)),
 
     undo: () => {
       const { past, project, future } = get()
@@ -77,8 +90,8 @@ export const useProject = create<ProjectState>((set, get) => {
     },
 
     rename: (name) => commit({ ...get().project, name }),
-    addEquipment: (tpl, pos) => {
-      const r = ops.addEquipment(get().project, tpl, pos)
+    addEquipment: (tpl, pos, sheetId) => {
+      const r = ops.addEquipment(get().project, tpl, pos, { sheetId })
       commit(r.project)
       return r.id
     },
@@ -91,8 +104,12 @@ export const useProject = create<ProjectState>((set, get) => {
       return r.id
     },
     updateLink: (id, patch) => commit(ops.updateLink(get().project, id, patch)),
-    remove: (eqIds, lkIds) => {
-      if (eqIds.length || lkIds.length) commit(ops.removeElements(get().project, eqIds, lkIds))
+    remove: (nodeIds, lkIds) => {
+      if (!nodeIds.length && !lkIds.length) return
+      const p = get().project
+      const annIds = nodeIds.filter((id) => p.annotations?.[id])
+      const eqIds = nodeIds.filter((id) => p.equipment[id])
+      commit(ops.removeAnnotations(ops.removeElements(p, eqIds, lkIds), annIds))
     },
     duplicate: (ids) => {
       const r = ops.duplicateEquipment(get().project, ids)
@@ -118,5 +135,25 @@ export const useProject = create<ProjectState>((set, get) => {
     removeZone: (id) => commit(ops.removeZone(get().project, id)),
     updateSettings: (patch) => commit(ops.updateSettings(get().project, patch)),
     updateInfo: (patch) => commit(ops.updateInfo(get().project, patch)),
+
+    addSheet: (name) => {
+      const r = ops.addSheet(get().project, name)
+      commit(r.project)
+      return r.id
+    },
+    renameSheet: (id, name) => commit(ops.renameSheet(get().project, id, name)),
+    removeSheet: (id) => commit(ops.removeSheet(get().project, id)),
+    moveToSheet: (ids, sheetId) => {
+      let p = get().project
+      for (const id of ids) p = ops.updateEquipment(p, id, { sheetId })
+      commit(p)
+    },
+    addAnnotation: (a) => {
+      const r = ops.addAnnotation(get().project, a)
+      commit(r.project)
+      return r.id
+    },
+    updateAnnotation: (id, patch) => commit(ops.updateAnnotation(get().project, id, patch)),
+    moveAnnotation: (id, patch) => set({ project: ops.updateAnnotation(get().project, id, patch), saved: false }),
   }
 })

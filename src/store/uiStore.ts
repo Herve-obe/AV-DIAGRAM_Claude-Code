@@ -1,6 +1,7 @@
 // État de l'interface (hors projet, hors annulation) : sélection, filtres, mode, thème, langue.
 // Les préférences sont mémorisées dans le navigateur (localStorage).
 import { create } from 'zustand'
+import { DEFAULT_SHEET_ID } from '../model/project'
 import type { SignalFamily } from '../model/signals'
 
 export type UiMode = 'beginner' | 'expert'
@@ -32,6 +33,11 @@ interface UiState extends Prefs {
   dockTab: DockTab
   paletteOpen: boolean
   settingsOpen: boolean
+  newProjectOpen: boolean
+  /** Feuille affichée dans le canevas */
+  currentSheetId: string
+  /** Mode présentation : schéma seul, sans outils d'édition */
+  presenting: boolean
   /** Élément à centrer dans le canevas (clic dans une liste) */
   focusRequest: { kind: 'equipment' | 'link'; id: string; at: number } | null
 
@@ -42,6 +48,9 @@ interface UiState extends Prefs {
   setDockTab: (t: DockTab) => void
   setPaletteOpen: (open: boolean) => void
   setSettingsOpen: (open: boolean) => void
+  setNewProjectOpen: (open: boolean) => void
+  setSheet: (id: string) => void
+  setPresenting: (on: boolean) => void
   focus: (kind: 'equipment' | 'link', id: string) => void
 }
 
@@ -53,6 +62,9 @@ export const useUi = create<UiState>((set, get) => ({
   dockTab: 'cables',
   paletteOpen: false,
   settingsOpen: false,
+  newProjectOpen: false,
+  currentSheetId: DEFAULT_SHEET_ID,
+  presenting: false,
   focusRequest: null,
 
   select: (equipment, links) => {
@@ -83,6 +95,9 @@ export const useUi = create<UiState>((set, get) => ({
   setDockTab: (t) => set({ dockTab: t, dockOpen: true }),
   setPaletteOpen: (open) => set({ paletteOpen: open }),
   setSettingsOpen: (open) => set({ settingsOpen: open }),
+  setNewProjectOpen: (open) => set({ newProjectOpen: open }),
+  setSheet: (id) => set({ currentSheetId: id, selectedEquipment: [], selectedLinks: [] }),
+  setPresenting: (on) => set({ presenting: on, paletteOpen: false }),
   focus: (kind, id) =>
     set({
       focusRequest: { kind, id, at: Date.now() },

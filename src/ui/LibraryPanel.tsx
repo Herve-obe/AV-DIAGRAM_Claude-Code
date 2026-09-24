@@ -41,7 +41,7 @@ export function LibraryPanel() {
   const addAtCenter = (tpl: EquipmentTemplate) => {
     const el = document.querySelector('.react-flow')?.getBoundingClientRect()
     const pos = el ? rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 }) : { x: 0, y: 0 }
-    const id = useProject.getState().addEquipment(tpl, { x: Math.round(pos.x / 10) * 10, y: Math.round(pos.y / 10) * 10 })
+    const id = useProject.getState().addEquipment(tpl, { x: Math.round(pos.x / 10) * 10, y: Math.round(pos.y / 10) * 10 }, useUi.getState().currentSheetId)
     useUi.getState().select([id], [])
   }
 

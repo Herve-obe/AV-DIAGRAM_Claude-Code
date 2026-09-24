@@ -29,7 +29,7 @@ export function CommandPalette() {
       const el = document.querySelector('.react-flow')?.getBoundingClientRect()
       if (!tpl || !el) return
       const pos = rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 })
-      ui.select([useProject.getState().addEquipment(tpl, pos)], [])
+      ui.select([useProject.getState().addEquipment(tpl, pos, ui.currentSheetId)], [])
     }
     return [
       { id: 'all', label: t('palette.showAll'), hint: 'Alt 0', run: () => ui.showOnly(null) },
@@ -37,7 +37,9 @@ export function CommandPalette() {
       { id: 'video', label: t('palette.showVideo'), hint: 'Alt 2', run: () => ui.showOnly(['video', 'videoIp']) },
       { id: 'net', label: t('palette.showNetwork'), hint: 'Alt 3', run: () => ui.showOnly(['network', 'audioIp', 'videoIp', 'sync']) },
       { id: 'issues', label: t('palette.issues'), run: () => ui.setDockTab('issues') },
+      { id: 'new', label: t('palette.newProject'), run: () => ui.setNewProjectOpen(true) },
       { id: 'settings', label: t('palette.settings'), run: () => ui.setSettingsOpen(true) },
+      { id: 'present', label: t('presentation.enter'), hint: 'F5', run: () => ui.setPresenting(true) },
       { id: 'pdf', label: t('palette.exportPdf'), run: () => exportPdfWithLabels(rf, t) },
       { id: 'renumber', label: t('palette.renumber'), run: () => useProject.getState().renumber() },
       { id: 'fit', label: t('palette.fit'), hint: 'F', run: () => rf.fitView({ duration: 300, padding: 0.15 }) },

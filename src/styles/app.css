@@ -478,3 +478,99 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
   font-size: 13px;
 }
 .zone-table input:focus { border-color: var(--accent); outline: none; }
+
+/* ---------- Feuilles (onglets au-dessus du canevas) ---------- */
+.sheetbar {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;
+  padding: 6px 10px 0;
+  background: var(--bg-0);
+  border-bottom: 1px solid var(--border);
+}
+.sheet-tabs { display: flex; align-items: flex-end; gap: 2px; min-width: 0; overflow-x: auto; }
+.sheet-tab {
+  display: flex; align-items: center; gap: 2px;
+  border: 1px solid transparent; border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  color: var(--text-3);
+}
+.sheet-tab button[role='tab'] { padding: 6px 12px; font-size: 12.5px; white-space: nowrap; }
+.sheet-tab:hover { color: var(--text-2); }
+.sheet-tab.is-active { background: var(--bg-1); border-color: var(--border); color: var(--text); margin-bottom: -1px; box-shadow: inset 0 2px 0 var(--accent); }
+.sheet-tab input { width: 140px; margin: 3px 6px; padding: 3px 6px; background: var(--bg-2); border: 1px solid var(--accent); border-radius: 4px; font-size: 12.5px; }
+.sheet-close { width: 18px; height: 18px; margin-right: 6px; display: grid; place-items: center; border-radius: 4px; color: var(--text-3); }
+.sheet-close:hover { background: var(--bg-3); color: var(--err); }
+.annotation-tools { display: flex; gap: 2px; padding-bottom: 4px; }
+
+/* ---------- Annotations ---------- */
+.annotation { position: relative; border-radius: 6px; font-size: 13px; }
+.annotation-note {
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--ann-color);
+  box-shadow: var(--shadow-1);
+  padding: 8px 10px;
+  overflow: hidden;
+}
+.annotation-frame {
+  background: color-mix(in srgb, var(--ann-color) 7%, transparent);
+  border: 1.5px dashed color-mix(in srgb, var(--ann-color) 70%, transparent);
+  padding: 8px 12px;
+}
+.annotation-frame .annotation-text {
+  font: 600 12px var(--font-label);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ann-color);
+}
+.annotation.is-selected { outline: 1px solid var(--accent); outline-offset: 2px; }
+.annotation-text { white-space: pre-wrap; color: var(--text); line-height: 1.35; }
+.annotation-edit {
+  width: 100%; height: 100%;
+  resize: none; border: 0; outline: none; background: transparent;
+  font: inherit; color: var(--text);
+}
+.react-flow__resize-control.resizer-handle { width: 9px; height: 9px; background: var(--accent); border: 1.5px solid var(--bg-0); border-radius: 2px; }
+.react-flow__resize-control.resizer-line { border-color: var(--accent); }
+
+/* ---------- Renvois entre feuilles ---------- */
+.off-page {
+  font: 500 9.5px var(--font-mono);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  border-radius: 3px;
+  padding: 0 4px;
+  margin: 0 4px;
+  white-space: nowrap;
+}
+
+/* ---------- Pastilles de couleur ---------- */
+.swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.swatch-btn { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--bg-1); box-shadow: 0 0 0 1px var(--border-strong); }
+.swatch-btn[aria-checked='true'] { box-shadow: 0 0 0 2px var(--accent); }
+
+/* ---------- Mode présentation ---------- */
+.app.is-presenting .workspace { grid-template-columns: minmax(0, 1fr); }
+.app.is-presenting { grid-template-rows: auto 1fr; }
+.presentation-bar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 8px 14px;
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--border);
+}
+.brand-mini { font: 600 11px var(--font-label); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+.presentation-title { flex: 1; font-size: 15px; font-weight: 600; }
+
+/* ---------- Nouveau projet : cartes de modèles ---------- */
+.template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding: 6px 14px 4px; }
+.template-card {
+  display: grid; gap: 6px; align-content: start; justify-items: start;
+  padding: 14px;
+  text-align: left;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.template-card:hover { border-color: var(--accent); background: var(--bg-3); }
+.template-icon { color: var(--accent); }
+.template-name { font-weight: 600; font-size: 14px; }
+.template-desc { font-size: 12.5px; color: var(--text-2); }

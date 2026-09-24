@@ -5,7 +5,7 @@ import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
 import { templateFromEquipment } from '../model/project'
-import type { Equipment, EquipmentFamily, Link, PictogramId, PortDef } from '../model/types'
+import type { Annotation, Equipment, EquipmentFamily, Link, PictogramId, PortDef } from '../model/types'
 import { getTemplate, useLibrary } from '../store/libraryStore'
 import { useProject } from '../store/projectStore'
 import { useIssues } from '../store/useIssues'
@@ -69,6 +69,7 @@ function SourceNote({ templateId }: { templateId: string }) {
 function EquipmentInspector({ eq }: { eq: Equipment }) {
   const { t } = useTranslation()
   const zones = useProject((s) => s.project.zones)
+  const sheets = useProject((s) => s.project.sheets ?? [])
   const { updateEquipment, duplicate, remove } = useProject.getState()
   const expert = useUi((s) => s.mode) === 'expert'
   const [savedTpl, setSavedTpl] = useState(false)
@@ -98,6 +99,18 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
           {zones.map((z) => <option key={z.id} value={z.id}>{z.name} ({z.code})</option>)}
         </select>
       </div>
+      {sheets.length > 1 && (
+        <div className="field">
+          <label htmlFor="eq-sheet">{t('sheets.sheet')}</label>
+          <select
+            id="eq-sheet"
+            value={eq.sheetId ?? sheets[0].id}
+            onChange={(e) => { useProject.getState().moveToSheet([eq.id], e.target.value); useUi.getState().setSheet(e.target.value) }}
+          >
+            {sheets.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+          </select>
+        </div>
+      )}
       {expert && (
         <div className="field-row">
           <div className="field">
@@ -196,6 +209,48 @@ function LinkInspector({ link }: { link: Link }) {
   )
 }
 
+const ANNOTATION_COLORS = [
+  'var(--sig-audio-analog)', 'var(--sig-audio-digital)', 'var(--sig-audio-ip)', 'var(--sig-video)',
+  'var(--sig-sync)', 'var(--sig-intercom)', 'var(--sig-network)', 'var(--sig-power)', 'var(--text-3)',
+]
+
+function AnnotationInspector({ a }: { a: Annotation }) {
+  const { t } = useTranslation()
+  const { updateAnnotation, remove } = useProject.getState()
+  return (
+    <>
+      <div className="insp-head">
+        <span className="insp-pict"><Icon name={a.kind === 'frame' ? 'frame' : 'note'} size={20} /></span>
+        <div>
+          <div className="insp-kind">{t(`annotations.${a.kind}`)}</div>
+          <div className="insp-title">{a.text.split('\n')[0] || '-'}</div>
+        </div>
+      </div>
+      <Field id="an-text" label={t('annotations.text')} value={a.text} multiline onCommit={(v) => updateAnnotation(a.id, { text: v })} />
+      <div className="field">
+        <label>{t('annotations.color')}</label>
+        <div className="swatches" role="radiogroup" aria-label={t('annotations.color')}>
+          {ANNOTATION_COLORS.map((c) => (
+            <button
+              key={c}
+              role="radio"
+              aria-checked={(a.color ?? 'var(--accent)') === c}
+              className="swatch-btn"
+              style={{ background: c }}
+              onClick={() => updateAnnotation(a.id, { color: c })}
+              aria-label={c}
+            />
+          ))}
+        </div>
+      </div>
+      <p className="source-note">{t('annotations.hint')}</p>
+      <div className="insp-actions">
+        <button className="btn btn-danger" onClick={() => remove([a.id], [])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
+      </div>
+    </>
+  )
+}
+
 /** Traduit les paramètres des messages : familles de signal et connecteurs. */
 export function translateParams(params: Record<string, string>, t: (k: string) => string): Record<string, string> {
   const out: Record<string, string> = {}
@@ -212,6 +267,7 @@ export function Inspector() {
   const count = selectedEquipment.length + selectedLinks.length
   const eq = selectedEquipment.length === 1 && selectedLinks.length === 0 ? project.equipment[selectedEquipment[0]] : undefined
   const link = selectedLinks.length === 1 && selectedEquipment.length === 0 ? project.links[selectedLinks[0]] : undefined
+  const annotation = selectedEquipment.length === 1 && selectedLinks.length === 0 ? project.annotations?.[selectedEquipment[0]] : undefined
 
   return (
     <aside className="panel inspector" aria-label={t('inspector.title')}>
@@ -219,7 +275,8 @@ export function Inspector() {
       <div className="insp-body">
         {eq && <EquipmentInspector key={eq.id} eq={eq} />}
         {link && <LinkInspector key={link.id} link={link} />}
-        {!eq && !link && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
+        {annotation && <AnnotationInspector key={annotation.id} a={annotation} />}
+        {!eq && !link && !annotation && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
       </div>
     </aside>
   )

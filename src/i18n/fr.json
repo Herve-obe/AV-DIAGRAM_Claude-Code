@@ -239,7 +239,8 @@
     "toggleLang": "Switch to English",
     "fit": "Ajuster la vue",
     "settings": "Réglages du projet",
-    "exportPdf": "Exporter la planche PDF"
+    "exportPdf": "Exporter la planche PDF",
+    "newProject": "Nouveau projet (modèles)"
   },
   "filters": {
     "label": "Signaux affichés"
@@ -315,5 +316,48 @@
     "supplied": "Fourni",
     "none": "Absent",
     "unknown": "Non précisé"
+  },
+  "sheets": {
+    "label": "Feuilles du projet",
+    "newName": "Feuille {{n}}",
+    "rename": "Renommer la feuille",
+    "renameHint": "Double-clic pour renommer",
+    "remove": "Supprimer cette feuille et son contenu",
+    "add": "Ajouter une feuille",
+    "sheet": "Feuille"
+  },
+  "annotations": {
+    "note": "Note",
+    "frame": "Cadre",
+    "noteText": "Note",
+    "frameText": "Zone",
+    "text": "Texte",
+    "color": "Couleur",
+    "hint": "Double-clic sur le canevas pour modifier le texte directement."
+  },
+  "presentation": {
+    "enter": "Mode présentation",
+    "exit": "Quitter la présentation",
+    "escKey": "Échap"
+  },
+  "newProject": {
+    "title": "Nouveau projet",
+    "hint": "Pars d'un projet vide ou d'un modèle modifiable. Le projet en cours reste récupérable avec Annuler (Ctrl+Z) tant que tu ne fermes pas l'application.",
+    "blank": {
+      "name": "Projet vide",
+      "desc": "Une feuille blanche."
+    },
+    "concert": {
+      "name": "Concert",
+      "desc": "Micros, stagebox Dante, console, diffusion façade, enregistrement."
+    },
+    "tvStudio": {
+      "name": "Plateau TV 3 caméras",
+      "desc": "Caméras, mélangeur, synchro, multiviewer, intercom sur une 2e feuille."
+    },
+    "conference": {
+      "name": "Salle de conférence",
+      "desc": "Micros HF et pupitre, diffusion, caméra et vidéoprojection."
+    }
   }
 }
