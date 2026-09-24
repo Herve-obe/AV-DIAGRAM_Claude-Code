@@ -58,29 +58,30 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] Radial ProDI
 
 ### Microphones
-- [ ] Audio-Technica AT2050
-- [ ] Audio-Technica BP4029
-- [ ] Audio-Technica PRO 37
+- [x] Audio-Technica AT2050
+- [x] Audio-Technica BP4029
+- [x] Audio-Technica PRO 37
 - [ ] Audix i5
-- [ ] Neumann TLM 103
+- [x] Neumann TLM 103
 - [ ] Oktava MK-012 MSP6 (paire appairée)
 - [ ] Oktava MK-220 (paire appairée)
 - [ ] Rode NTG-1
 - [ ] Rode NTG-4
-- [ ] Sennheiser K6P + ME64 / ME66
+- [x] Sennheiser K6P + ME64 / ME66
 - [x] Sennheiser MKH 416 P48U3
-- [ ] Sennheiser e602 II
+- [x] Sennheiser e602 II
 - [ ] Sennheiser e604
-- [ ] Sennheiser e609 Silver
+- [x] Sennheiser e609 Silver
 - [ ] Sennheiser e835
-- [ ] Sennheiser e840
-- [ ] Sennheiser MD 421 II
-- [ ] Sennheiser MKE 40
-- [ ] Shure Beta 52A (?) (liste : « Beta 52 »)
-- [ ] Shure Beta 91A
-- [ ] Shure SM57
-- [ ] Shure SM58
-- [ ] Shure SM7B
+- [x] Sennheiser e840
+- [x] Sennheiser MD 421 II
+- [x] Sennheiser MKE 40
+- [x] Shure Beta 52A (confirmé par le dossier du Drive)
+- [x] Shure Beta 91A
+- [x] Shure SM57
+- [x] Shure SM58
+- [x] Shure SM7B
+- [x] Shure SM81 (présent sur le Drive, hors liste initiale)
 
 ### Systèmes HF
 - [ ] Sennheiser ew 100 ENG G3
