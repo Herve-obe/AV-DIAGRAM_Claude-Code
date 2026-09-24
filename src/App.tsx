@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import { ReactFlowProvider, useReactFlow } from '@xyflow/react'
 import { Canvas } from './editor/Canvas'
 import type { SignalFamily } from './model/signals'
-import { openProjectFile, saveProjectFile } from './io/files'
+import i18n from './i18n'
+import { notifyError, openProjectFile, saveProjectFile } from './io/files'
 import { useProject } from './store/projectStore'
 import { useUi } from './store/uiStore'
 import { CommandPalette } from './ui/CommandPalette'
@@ -40,7 +41,7 @@ function Shortcuts() {
       if (mod && key === 's') { e.preventDefault(); saveProjectFile(store.project); return }
       if (mod && key === 'o') {
         e.preventDefault()
-        try { const p = await openProjectFile(); if (p) store.load(p) } catch { /* message affiché par la barre */ }
+        try { const p = await openProjectFile(); if (p) store.load(p) } catch { notifyError(i18n.t('menu.openError')) }
         return
       }
       if (isTyping(e)) return

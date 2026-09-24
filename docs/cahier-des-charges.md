@@ -3,8 +3,8 @@
 | Champ | Valeur |
 |---|---|
 | Projet | AV Diagram |
-| Version du document | 0.2 |
-| Date | 2026-09-24 (v0.2 : décisions Q1 à Q8 intégrées) |
+| Version du document | 0.3 |
+| Date | 2026-09-24 (v0.3 : application bureau uniquement, IA locale dédiée) |
 | Porteur | Hervé Obejero |
 | Statut | Validé pour démarrer. Lot 0 livré, lot 1 en cours (section 17) |
 
@@ -14,15 +14,15 @@
 
 Les professionnels de l'audiovisuel dessinent aujourd'hui leurs synoptiques avec des outils généralistes (draw.io, Visio) ou des logiciels de CAO lourds. Ces outils ne connaissent ni les signaux, ni les connecteurs, ni les équipements du métier. Le technicien doit donc tout ressaisir à la main : liste de câblage, patch, nomenclature, bilan électrique.
 
-**AV Diagram** est une application web libre et gratuite qui sert à concevoir des synoptiques d'installations audiovisuelles professionnelles (concert, plateau TV, installation fixe) à partir d'un modèle de données métier. Le schéma est la source unique. Toutes les listes et tous les calculs en sont déduits automatiquement.
+**AV Diagram** est une application de bureau gratuite (Windows, macOS, Linux) qui sert à concevoir des synoptiques d'installations audiovisuelles professionnelles (concert, plateau TV, installation fixe) à partir d'un modèle de données métier. Le schéma est la source unique. Toutes les listes et tous les calculs en sont déduits automatiquement.
 
 Objectifs mesurables :
 
 1. Produire le synoptique d'un concert type (environ 40 équipements, 150 liaisons) en moins de 30 minutes pour un utilisateur expert.
 2. Générer la liste de câblage, le patch et la nomenclature sans aucune ressaisie.
 3. Signaler 100 % des incompatibilités couvertes par les règles de la section 5.4.
-4. Fonctionner entièrement hors ligne une fois l'application installée (PWA).
-5. Rester gratuit pour l'utilisateur et à 0 € de coût d'exploitation tant que le cloud (lot 4) n'est pas ouvert.
+4. Fonctionner entièrement hors ligne : c'est une application de bureau pour Windows, macOS et Linux.
+5. Rester gratuit pour l'utilisateur, avec 0 € de coût d'exploitation : pas de serveur ni d'hébergement.
 6. Garder toutes les données (projets, comptes, journaux) dans l'Union européenne, sans exception.
 
 ## 2. Utilisateurs
@@ -279,14 +279,14 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 
 ## 9. Plateforme, hors ligne, langues
 
-- **Deux versions, sur le modèle de draw.io** : une **version web** (PWA installable, qui fonctionne hors ligne) et une **version bureau** pour Windows, macOS et Linux, empaquetée avec Tauri (licences MIT et Apache 2.0, plus léger qu'Electron). Les deux versions partagent le même code et ouvrent les mêmes fichiers `.avd`.
-- **Priorité à l'ordinateur** (Chrome, Edge, Firefox, Safari récents). La tablette est d'abord en consultation, le portage complet vient plus tard.
-- **PWA installable**, fonctionnement 100 % hors ligne. Les données restent dans le navigateur (IndexedDB) et peuvent être sauvegardées dans un fichier `.avd`.
-- **Local d'abord** : l'application est complète sans compte. Le cloud (lot 4) ajoute la synchronisation, la collaboration et le partage. Au retour du réseau, les modifications faites hors ligne sont fusionnées automatiquement, grâce à des structures de données CRDT.
-- **Langues** : français et anglais dès le départ, avec des fichiers de traduction séparés pour accueillir d'autres langues.
+- **Application de bureau uniquement (décision Q6)** : Windows, macOS et Linux, empaquetée avec **Tauri 2** (licences MIT et Apache 2.0). Il n'y a pas de version web : sans budget, on ne peut pas payer d'hébergement.
+- **Installateurs** : ils sont construits automatiquement par GitHub Actions (workflow `desktop.yml`) quand une version est étiquetée : `.msi` et `.exe` pour Windows, `.dmg` pour macOS (Intel et Apple Silicon), `.AppImage` et `.deb` pour Linux.
+- **Signature du code** : sans certificat, Windows (SmartScreen) et macOS (Gatekeeper) affichent un avertissement au premier lancement. Les certificats de signature sont payants ; ce point est reporté.
+- **100 % hors ligne** : les projets restent sur l'ordinateur, avec une sauvegarde automatique locale et des fichiers `.avd` ouverts et enregistrés par les fenêtres natives du système.
+- **Langues** : français et anglais dès le départ, avec des fichiers de traduction séparés.
 - **Thèmes** : sombre, clair ou automatique (celui de l'appareil). Palette professionnelle par défaut, couleur d'accent et couleurs de signaux personnalisables.
 
-## 10. Collaboration, comptes, données (lot 4)
+## 10. Collaboration, comptes, données (lot 4, reporté)
 
 - Comptes par e-mail et mot de passe, lien magique, puis SSO Google et Microsoft.
 - Organisation en projets et dossiers, rôles (section 2.3).
@@ -294,7 +294,8 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 - Partage par lien en lecture seule, avec expiration optionnelle.
 - **Historique des versions** : instantanés automatiques et nommés, comparaison et restauration.
 - **RGPD, exigence impérative (décision Q1)** : toutes les données personnelles et tous les projets restent **dans l'Union européenne**, chez un **hébergeur de droit européen** (par exemple OVHcloud, Scaleway ou Hetzner). Aucun service d'un éditeur non européen ne traite de données : ni analytics, ni polices chargées depuis un CDN, ni traceurs. Les polices sont embarquées dans l'application. Il faut aussi un registre des traitements, une politique de confidentialité, et l'export et la suppression du compte.
-- **Conséquence budgétaire** : le lot 4 demande un petit serveur européen, qui coûte quelques euros par mois selon l'offre choisie au moment du déploiement. Jusqu'au lot 4, tout reste sur l'appareil de l'utilisateur, donc aucune donnée n'est hébergée.
+- **Décision v0.3** : ce lot est **reporté**, car un serveur coûte de l'argent. En attendant, la collaboration passe par l'échange de fichiers `.avd`. La fusion de deux versions d'un même projet sera étudiée au lot 2.
+- **Conséquence budgétaire, si le lot est un jour réactivé** : le lot 4 demande un petit serveur européen, qui coûte quelques euros par mois selon l'offre choisie au moment du déploiement. Jusqu'au lot 4, tout reste sur l'appareil de l'utilisateur, donc aucune donnée n'est hébergée.
 
 ## 11. Mode formation
 
@@ -304,29 +305,41 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 - **Fiches pédagogiques** liées aux équipements et aux signaux : rôle, niveaux nominaux, connectique, pièges courants, liens vers des ressources. Le contenu des fiches cite ses sources.
 - **Vidéos IA** : hors périmètre pour l'instant. Les fiches prévoient un champ pour lier des médias externes.
 
-## 12. Assistance IA (lot 6)
+## 12. Assistant IA local et dédié (lot 6)
 
-### 12.1 Deux niveaux
+### 12.1 Principe (décisions Q5 et Q10)
 
-1. **Assistance sans IA, gratuite et toujours active** : le moteur de règles de la section 5.4, la numérotation, les bilans et les listes. Ce moteur est déterministe : il ne se trompe pas et ne coûte rien. Il couvre déjà une grande partie de la « détection d'erreurs ».
-2. **Assistance IA, optionnelle** : elle utilise un modèle de langage (LLM) pour les tâches où il faut comprendre du texte ou proposer une conception.
+Un assistant spécialisé en audiovisuel qui **tourne entièrement sur l'ordinateur de l'utilisateur** : il est gratuit, fonctionne sans Internet, et aucune donnée ne sort de la machine. Il aide à concevoir les synoptiques et guide l'utilisateur, en particulier en mode Débutant.
 
-### 12.2 Fonctions IA envisagées
+Entraîner un modèle de langage de zéro est hors de portée : il faudrait des moyens de calcul considérables. L'assistant s'appuie donc sur un **modèle ouvert existant**, rendu « dédié » par trois couches :
 
-| Fonction | Exemple |
-|---|---|
-| Génération d'un premier synoptique | « Plateau TV 3 caméras, mélangeur, intercom 4 postes » : l'IA propose les blocs et les liaisons, que l'utilisateur valide |
-| Lecture d'une fiche technique (rider) | Import d'un PDF de rider, extraction de la liste des entrées, création du patch |
-| Suggestion de câblage | Proposer les liaisons probables entre les équipements posés |
-| Revue de conception | Relever des oublis que les règles ne voient pas (pas d'intercom en régie, pas de redondance réseau) |
-| Explication pédagogique | Expliquer un schéma à un étudiant, étape par étape |
-| Aide à la fiche équipement | Préremplir une fiche à partir d'un manuel PDF fourni par l'utilisateur. L'utilisateur relit tout, et la fiche reste au statut « Utilisateur » tant qu'elle n'est pas vérifiée |
+| Couche | Rôle | Coût |
+|---|---|---|
+| 1. Connaissances métier (RAG) | Une base de connaissances rédigée et vérifiée pour le projet : fiches pédagogiques, glossaire, bonnes pratiques, bibliothèque d'équipements, règles de compatibilité. L'assistant y cherche les passages pertinents avant de répondre et cite ses sources. | Gratuit, mais demande de la rédaction (ton expertise) |
+| 2. Outils (appel de fonctions) | L'assistant agit sur le schéma **uniquement via les fonctions de l'application** : chercher dans la bibliothèque, poser un équipement, relier deux ports, lancer les vérifications. Il ne peut pas inventer un équipement ou une caractéristique absents de la bibliothèque. | Gratuit : ces fonctions existent déjà dans `src/model/` |
+| 3. Spécialisation du modèle (optionnel) | Un affinage de type LoRA sur un jeu d'exemples : synoptiques commentés, questions et réponses de formation. | Demande une carte graphique pendant l'entraînement. À évaluer plus tard |
 
-### 12.3 Coût et données
+Chaque proposition passe ensuite par le **moteur de règles déterministe** (section 5.4), puis s'affiche en aperçu. L'utilisateur l'accepte ou la refuse. L'IA propose, les règles vérifient et l'humain décide.
 
-- Chaque appel à un LLM est facturé par le fournisseur. Le projet n'a pas de budget, donc **chaque utilisateur fournit sa propre clé API** (« bring your own key »). La clé est stockée uniquement sur son appareil, et il paie directement sa consommation.
-- Pour respecter l'exigence européenne, le fournisseur par défaut proposé doit **traiter les données dans l'UE**. Un fournisseur européen ou une offre avec résidence des données dans l'UE sont à retenir, à vérifier au moment du lot 6. L'utilisateur peut aussi brancher un **modèle local** qui tourne sur sa machine : aucune donnée ne sort, et c'est gratuit, mais il faut un ordinateur assez puissant.
-- Seules les données nécessaires sont envoyées (la liste des équipements et des liaisons), jamais le fichier entier sans l'accord de l'utilisateur. Chaque proposition de l'IA s'affiche en aperçu et doit être acceptée avant d'être appliquée.
+### 12.2 Fonctions visées
+
+- Guide pas à pas pour les débutants : « Tu as posé une console et une stagebox. Il te manque la liaison réseau entre les deux. Veux-tu que je la crée ? »
+- Génération d'un premier synoptique à partir d'une description (« concert, 24 entrées, façade et retours, stagebox Dante »), avec des équipements tirés de la bibliothèque.
+- Lecture d'une fiche technique (rider) importée, puis création du patch.
+- Revue de conception : oublis, absence de redondance, horloge maître manquante.
+- Réponses aux questions de cours (« Pourquoi une DI sur un clavier ? »), avec citation de la fiche pédagogique utilisée.
+
+### 12.3 Technique
+
+- **Moteur** : llama.cpp (licence MIT), lancé par l'application bureau comme processus local. Le format de modèle est GGUF, quantifié pour tenir en mémoire.
+- **Modèle** : il n'est pas inclus dans l'installateur, car il pèse plusieurs gigaoctets. On le télécharge une fois, depuis l'application, au premier usage de l'assistant. On choisira un modèle **multilingue (français)**, **capable d'appeler des fonctions**, et sous une **licence qui autorise la redistribution** (Apache 2.0 ou MIT de préférence). Le choix se fera au lot 6, par des essais comparatifs sur un jeu de questions audiovisuelles.
+- **Matériel** : un modèle de petite taille (quelques milliards de paramètres, quantifié) tourne sur un ordinateur portable récent. Il sera plus lent sans carte graphique. La configuration minimale sera mesurée au lot 6 et affichée à l'utilisateur.
+- **Sans assistant** : l'application reste complète. L'assistant est un module optionnel.
+
+### 12.4 Limites à connaître
+
+- Un petit modèle local est moins performant qu'un grand modèle en ligne. C'est pour cela que les couches 1 et 2 et le moteur de règles sont essentiels : ils cadrent ce qu'il peut faire et vérifient ce qu'il produit.
+- La qualité de l'assistant dépend directement de la base de connaissances. Ta rédaction de fiches pédagogiques, prévue au lot 5, sert donc aussi à l'IA.
 
 ## 13. Interface et design
 
@@ -351,10 +364,10 @@ Critères de choix : 0 € de coût, outils libres, code lisible et maintenable 
 | Stockage local | IndexedDB (idb-keyval) + fichiers `.avd` | Hors ligne natif |
 | UI | Composants maison + variables CSS (tokens) | Contrôle total du rendu, aucune dépendance lourde |
 | i18n | i18next | Français et anglais |
-| PWA | vite-plugin-pwa | Installation et cache hors ligne |
+| Installateurs | GitHub Actions + tauri-action | Windows, macOS, Linux construits automatiquement |
 | Tests | Vitest + Playwright | Tests unitaires du modèle et des règles, tests de bout en bout de l'éditeur |
-| Version bureau | Tauri 2 | Binaire léger, même code que la version web |
-| Hébergement de l'application web | Hébergeur européen (à choisir, question Q9) | Même la simple visite d'un site transmet l'adresse IP, qui est une donnée personnelle au sens du RGPD |
+| Application bureau | Tauri 2 + plugins dialog et fs | Binaire léger, fenêtres natives, aucun serveur |
+| Assistant IA (lot 6) | llama.cpp (MIT) + modèle ouvert GGUF téléchargé à la demande | Local, gratuit, hors ligne |
 | Backend (lot 4) | PocketBase + serveur Hocuspocus (Yjs), auto-hébergés sur un serveur d'un hébergeur européen | Retenu suite à la décision Q1. Supabase et les autres services américains sont écartés |
 
 Organisation du code, pour faciliter la reprise en vibe coding :
@@ -391,8 +404,8 @@ Il reste un point d'attention : je ne suis pas juriste. Avant une diffusion à g
 
 ### 15.2 Modèle économique (Q6), inspiré de draw.io
 
-- **Gratuit** : l'application complète, en version web et en version bureau, avec stockage local et fichiers `.avd`.
-- **Payant, plus tard** : le **cloud européen** (lot 4), c'est-à-dire la synchronisation, l'édition à plusieurs, le partage et l'espace de stockage au-delà d'un quota gratuit. Le paiement couvre le coût d'hébergement.
+- **Gratuit** : l'application de bureau complète, avec stockage local et fichiers `.avd`.
+- **Payant, éventuellement plus tard** : un **cloud européen** (lot 4, reporté) pour la synchronisation et l'édition à plusieurs. Le paiement couvrirait le coût d'hébergement.
 - **Contributions extérieures** : chaque contributeur signe un accord de contribution (CLA) qui cède à l'auteur le droit de redistribuer sa contribution. Sans cet accord, l'auteur ne pourrait pas garder la maîtrise de la licence.
 - **Marque** : le nom « AV Diagram » peut être protégé par un dépôt de marque, par exemple à l'INPI. C'est ce qui empêche un tiers de reprendre le nom.
 
@@ -414,15 +427,15 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 
 | Lot | Contenu | État |
 |---|---|---|
-| 0 | Socle : Vite/React/TS, design system (thèmes sombre, clair et système), i18n FR/EN, PWA hors ligne, tests, CI | **Livré** |
+| 0 | Socle : Vite/React/TS, design system (thèmes sombre, clair et système), i18n FR/EN, application bureau Tauri, tests, CI, workflow d'installateurs | **Livré** |
 | 1 | Synoptique (V1) : bibliothèque générique, blocs et ports, liaisons typées, filtres par signal, règles de compatibilité, inspecteur, modes Débutant et Expert, Ctrl+K, sauvegarde locale et fichier, liste de câblage, nomenclature, alertes, export PNG / SVG / CSV | **Largement livré.** Restent : export PDF, éditeur de blocs (ports personnalisés), gestion des zones |
 | 2 | Câble et flux, multipaires, numérotation configurable dans l'interface, groupes et sous-schémas, pages, modèles, cartouche et impression multi-planches, dessin libre, mode présentation, catalogue de câbles | À faire |
 | 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | À faire |
-| 4 | Cloud européen : comptes, projets et dossiers, rôles, collaboration temps réel, partage, versions | À faire |
+| 4 | Cloud européen : comptes, rôles, collaboration temps réel, partage, versions | Reporté (pas de budget serveur) |
 | 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | À faire |
-| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistance IA | À faire |
-| 7 | Version bureau (Tauri), portage tablette | À faire |
-| Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md` | Commencé (liste établie) |
+| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | À faire |
+| 7 | Signature des installateurs, portage tablette | À faire |
+| Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md`, en commençant par le son | Mécanisme de fiches et de validation prêt, fiches en attente des documents des constructeurs |
 
 ## 18. Décisions et questions ouvertes
 
@@ -433,12 +446,15 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 | Q3 | Conventions graphiques | Liberté de choix : code couleur et styles de trait du projet (5.1), cartouche selon l'ISO 7200 |
 | Q4 | Bibliothèque | Parc de l'école fourni, voir `docs/bibliotheque-a-documenter.md` |
 | Q5 | IA | Voir section 12 |
-| Q6 | Modèle | Inspiré de draw.io : web + bureau gratuits, cloud payant |
+| Q6 | Modèle | Inspiré de draw.io : application gratuite, fichiers locaux (révisé en v0.3 : bureau uniquement) |
 | Q7 | Design | Inspiration DaVinci Resolve, ajustements au fil de l'eau |
 | Q8 | Dépôt | https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code |
 
+| Q1 (v0.3) | Données | Question reportée. Solution de repli : application locale uniquement, donc aucune donnée hébergée |
+| Q5 / Q10 | IA | Assistant local et dédié (section 12), sans service en ligne |
+| Q6 (v0.3) | Plateforme | Application de bureau Windows, macOS et Linux uniquement, pas de version web |
+| Q11 | Bibliothèque | Commencer par le son (lot A) |
+
 Questions ouvertes :
 
-- **Q9** : hébergement de la version web. Faut-il un hébergeur européen payant dès maintenant (quelques euros par mois) ? L'autre option est de n'utiliser qu'en local (`npm run dev` ou version bureau) jusqu'au lot 4.
-- **Q10** : modèle retenu pour l'IA. Faut-il la clé personnelle de l'utilisateur, un fournisseur européen par défaut, un modèle local, ou les trois ?
-- **Q11** : ordre de documentation de la bibliothèque. Je propose le lot A (régie son SSL, SQ5, Avid) en premier.
+- **Q12** : accès aux documents des constructeurs. Il faut soit ouvrir l'accès réseau de l'environnement de développement aux sites des fabricants, soit déposer les fiches techniques PDF dans le projet.

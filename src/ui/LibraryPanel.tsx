@@ -3,7 +3,7 @@ import { useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { DND_MIME } from '../editor/Canvas'
-import { GENERIC_LIBRARY } from '../library/generic'
+import { LIBRARY } from '../library'
 import type { EquipmentTemplate } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
@@ -19,7 +19,7 @@ export function LibraryPanel() {
   const groups = useMemo(() => {
     const q = query.trim().toLowerCase()
     const map = new Map<string, EquipmentTemplate[]>()
-    for (const tpl of GENERIC_LIBRARY) {
+    for (const tpl of LIBRARY) {
       const hay = `${tpl.model} ${tpl.manufacturer ?? ''} ${t(`family.${tpl.family}`)}`.toLowerCase()
       if (q && !hay.includes(q)) continue
       map.set(tpl.family, [...(map.get(tpl.family) ?? []), tpl])
@@ -43,7 +43,7 @@ export function LibraryPanel() {
     <aside className="panel library" aria-label={t('library.title')}>
       <div className="panel-title">
         {t('library.title')}
-        <span className="count-chip">{GENERIC_LIBRARY.length}</span>
+        <span className="count-chip">{LIBRARY.length}</span>
       </div>
       <label className="search">
         <Icon name="search" size={14} />
@@ -81,7 +81,7 @@ export function LibraryPanel() {
                     <span className="lib-name">{tpl.model}</span>
                     <span className="lib-meta">{ins} in · {outs} out</span>
                   </span>
-                  {mode === 'expert' && <span className="tag">{t('library.generic')}</span>}
+                  {mode === 'expert' && <span className={`tag tag-${tpl.status}`}>{t(`library.status.${tpl.status}`)}</span>}
                 </div>
               )
             })}

@@ -1,11 +1,14 @@
 // Fichiers : enregistrement et ouverture du format natif .avd (JSON), exports image et CSV.
+// Dans l'application bureau (Tauri), on utilise les fenêtres natives du système ;
+// dans un navigateur (développement), on retombe sur le téléchargement classique.
+import { isTauri } from '@tauri-apps/api/core'
 import { toPng, toSvg } from 'html-to-image'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { isProject } from '../model/project'
 import type { Project } from '../model/types'
 
-function download(filename: string, href: string) {
+function browserDownload(filename: string, href: string) {
   const a = document.createElement('a')
   a.href = href
   a.download = filename
@@ -14,10 +17,49 @@ function download(filename: string, href: string) {
   a.remove()
 }
 
-function downloadBlob(filename: string, blob: Blob) {
+/** Extension et libellé du filtre proposé dans la fenêtre d'enregistrement. */
+const FILTERS: Record<string, { name: string; extensions: string[] }> = {
+  avd: { name: 'Projet AV Diagram', extensions: ['avd'] },
+  csv: { name: 'CSV', extensions: ['csv'] },
+  png: { name: 'Image PNG', extensions: ['png'] },
+  svg: { name: 'Image SVG', extensions: ['svg'] },
+}
+
+/**
+ * Enregistre un contenu : fenêtre "Enregistrer sous" native dans l'application bureau.
+ * Renvoie false si l'utilisateur annule.
+ */
+async function saveContent(filename: string, content: string | Uint8Array, mime: string): Promise<boolean> {
+  const ext = filename.split('.').pop() ?? ''
+  if (isTauri()) {
+    const { save } = await import('@tauri-apps/plugin-dialog')
+    const { writeFile, writeTextFile } = await import('@tauri-apps/plugin-fs')
+    const path = await save({ defaultPath: filename, filters: FILTERS[ext] ? [FILTERS[ext]] : [] })
+    if (!path) return false
+    if (typeof content === 'string') await writeTextFile(path, content)
+    else await writeFile(path, content)
+    return true
+  }
+  const blob = new Blob([content as BlobPart], { type: mime })
   const url = URL.createObjectURL(blob)
-  download(filename, url)
+  browserDownload(filename, url)
   setTimeout(() => URL.revokeObjectURL(url), 1000)
+  return true
+}
+
+/** Message d'erreur : boîte de dialogue native dans l'application bureau. */
+export async function notifyError(message: string) {
+  if (isTauri()) {
+    const { message: show } = await import('@tauri-apps/plugin-dialog')
+    await show(message, { title: 'AV Diagram', kind: 'error' })
+  } else {
+    window.alert(message)
+  }
+}
+
+function dataUrlToBytes(dataUrl: string): Uint8Array {
+  const bin = atob(dataUrl.split(',')[1] ?? '')
+  return Uint8Array.from(bin, (c) => c.charCodeAt(0))
 }
 
 /** Nom de fichier sûr à partir du nom de projet. */
@@ -25,11 +67,25 @@ export function slug(name: string): string {
   return name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projet'
 }
 
-export function saveProjectFile(project: Project) {
-  downloadBlob(`${slug(project.name)}.avd`, new Blob([JSON.stringify(project, null, 2)], { type: 'application/json' }))
+export function saveProjectFile(project: Project): Promise<boolean> {
+  return saveContent(`${slug(project.name)}.avd`, JSON.stringify(project, null, 2), 'application/json')
 }
 
-export function openProjectFile(): Promise<Project | null> {
+function parseProject(text: string): Project {
+  const data: unknown = JSON.parse(text)
+  if (!isProject(data)) throw new Error('invalid')
+  return data
+}
+
+/** Ouvre un fichier .avd. Renvoie null si l'utilisateur annule, lève une erreur si le fichier est invalide. */
+export async function openProjectFile(): Promise<Project | null> {
+  if (isTauri()) {
+    const { open } = await import('@tauri-apps/plugin-dialog')
+    const { readTextFile } = await import('@tauri-apps/plugin-fs')
+    const path = await open({ multiple: false, directory: false, filters: [FILTERS.avd] })
+    if (!path) return null
+    return parseProject(await readTextFile(path))
+  }
   return new Promise((resolve, reject) => {
     const input = document.createElement('input')
     input.type = 'file'
@@ -38,9 +94,7 @@ export function openProjectFile(): Promise<Project | null> {
       const file = input.files?.[0]
       if (!file) return resolve(null)
       try {
-        const data: unknown = JSON.parse(await file.text())
-        if (isProject(data)) resolve(data)
-        else reject(new Error('invalid'))
+        resolve(parseProject(await file.text()))
       } catch {
         reject(new Error('invalid'))
       }
@@ -74,7 +128,7 @@ export function cableListCsv(project: Project, headers: string[]): string {
 }
 
 export function exportCableCsv(project: Project, headers: string[]) {
-  downloadBlob(`${slug(project.name)}-cablage.csv`, new Blob([cableListCsv(project, headers)], { type: 'text/csv' }))
+  return saveContent(`${slug(project.name)}-cablage.csv`, cableListCsv(project, headers), 'text/csv')
 }
 
 /** Exporte la vue du canevas (sans les contrôles) en PNG ou SVG. */
@@ -85,6 +139,8 @@ export async function exportCanvasImage(project: Project, format: 'png' | 'svg')
   const filter = (node: HTMLElement) =>
     !node.classList?.contains('react-flow__minimap') && !node.classList?.contains('react-flow__controls') && !node.classList?.contains('react-flow__attribution')
   const opts = { backgroundColor: bg, filter, pixelRatio: 2 }
-  const url = format === 'png' ? await toPng(el, opts) : await toSvg(el, opts)
-  download(`${slug(project.name)}.${format}`, url)
+  const name = `${slug(project.name)}.${format}`
+  if (format === 'png') return saveContent(name, dataUrlToBytes(await toPng(el, opts)), 'image/png')
+  const svg = decodeURIComponent((await toSvg(el, opts)).split(',')[1] ?? '')
+  return saveContent(name, svg, 'image/svg+xml')
 }

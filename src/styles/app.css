@@ -416,3 +416,5 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+.tag.tag-verified { color: var(--ok); border-color: var(--ok); }

@@ -1,7 +1,7 @@
 // Barre supérieure : identité, projet, fichier, annulation, recherche, mode, thème, langue.
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { exportCableCsv, exportCanvasImage, openProjectFile, saveProjectFile } from '../io/files'
+import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
 import { Icon, type IconName } from './Icon'
@@ -37,7 +37,7 @@ export function TopBar() {
       const p = await openProjectFile()
       if (p) load(p)
     } catch {
-      window.alert(t('menu.openError'))
+      notifyError(t('menu.openError'))
     }
   }
 

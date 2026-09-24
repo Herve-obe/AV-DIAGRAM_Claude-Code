@@ -1,27 +1,19 @@
-// Configuration Vite : React + PWA installable (fonctionnement hors ligne)
+// Configuration Vite pour l'application bureau (Tauri) : le front est servi en local,
+// sans service web ni hébergement.
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   base: './',
-  plugins: [
-    react(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
-      workbox: { globPatterns: ['**/*.{js,css,html,svg,woff2}'] },
-      manifest: {
-        name: 'AV Diagram',
-        short_name: 'AV Diagram',
-        description: "Synoptiques d'installations audiovisuelles professionnelles",
-        lang: 'fr',
-        theme_color: '#16181b',
-        background_color: '#16181b',
-        display: 'standalone',
-        icons: [{ src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
-      },
-    }),
-  ],
+  plugins: [react()],
+  // Tauri affiche ses propres messages : on garde la console lisible
+  clearScreen: false,
+  server: { port: 5173, strictPort: true },
+  envPrefix: ['VITE_', 'TAURI_ENV_'],
+  build: {
+    // Webviews des systèmes : WebView2 (Windows), WebKit (macOS, Linux)
+    target: process.env.TAURI_ENV_PLATFORM === 'windows' ? 'chrome105' : 'safari15',
+    chunkSizeWarningLimit: 1500,
+  },
   test: { environment: 'node' },
 })

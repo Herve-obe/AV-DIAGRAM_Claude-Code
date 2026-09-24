@@ -14,7 +14,7 @@ import {
   type NodeChange,
   type OnSelectionChangeParams,
 } from '@xyflow/react'
-import { LIBRARY_BY_ID } from '../library/generic'
+import { LIBRARY_INDEX } from '../library'
 import { SIGNAL_STYLE } from '../model/signals'
 import { useProject } from '../store/projectStore'
 import { useIssues, worstByLink } from '../store/useIssues'
@@ -99,7 +99,7 @@ export function Canvas() {
   const onDrop = useCallback(
     (ev: DragEvent) => {
       ev.preventDefault()
-      const tpl = LIBRARY_BY_ID.get(ev.dataTransfer.getData(DND_MIME))
+      const tpl = LIBRARY_INDEX.get(ev.dataTransfer.getData(DND_MIME))
       if (!tpl) return
       const pos = rf.screenToFlowPosition({ x: ev.clientX, y: ev.clientY })
       const id = addEquipment(tpl, { x: Math.round(pos.x / 10) * 10, y: Math.round(pos.y / 10) * 10 })

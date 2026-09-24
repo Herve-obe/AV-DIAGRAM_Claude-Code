@@ -143,3 +143,23 @@ describe('bilans', () => {
     expect(bom.find((l) => l.model === 'Micro dynamique')?.quantity).toBe(2)
   })
 })
+
+describe('fiches constructeur', () => {
+  it('toutes les fiches de src/library/devices sont valides', async () => {
+    const { readdirSync, readFileSync } = await import('node:fs')
+    const { validateTemplate } = await import('./validateTemplate')
+    const dir = new URL('../library/devices/', import.meta.url)
+    for (const f of readdirSync(dir).filter((n) => n.endsWith('.json'))) {
+      expect(validateTemplate(JSON.parse(readFileSync(new URL(f, dir), 'utf8'))), f).toEqual([])
+    }
+  })
+  it('refuse une fiche vérifiée sans source', async () => {
+    const { validateTemplate } = await import('./validateTemplate')
+    // Données de test fictives, pas un produit réel
+    const errors = validateTemplate({
+      id: 'test-x', family: 'console', manufacturer: 'Test', model: 'X', pictogram: 'console', status: 'verified',
+      ports: [{ id: 'p1', name: 'In', direction: 'in', signal: 'audioAnalog', connector: 'xlr3' }],
+    })
+    expect(errors.join()).toContain('source')
+  })
+})

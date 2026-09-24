@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
-import { GENERIC_LIBRARY } from '../library/generic'
+import { LIBRARY } from '../library'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 
@@ -24,7 +24,7 @@ export function CommandPalette() {
   const commands = useMemo<Command[]>(() => {
     const ui = useUi.getState()
     const addAtCenter = (tplId: string) => {
-      const tpl = GENERIC_LIBRARY.find((x) => x.id === tplId)
+      const tpl = LIBRARY.find((x) => x.id === tplId)
       const el = document.querySelector('.react-flow')?.getBoundingClientRect()
       if (!tpl || !el) return
       const pos = rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 })
@@ -41,7 +41,7 @@ export function CommandPalette() {
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },
       { id: 'theme', label: t('palette.toggleTheme'), run: () => ui.setPref('theme', ui.theme === 'light' ? 'dark' : 'light') },
       { id: 'lang', label: t('palette.toggleLang'), run: () => ui.setPref('lang', ui.lang === 'fr' ? 'en' : 'fr') },
-      ...GENERIC_LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: tpl.model }), run: () => addAtCenter(tpl.id) })),
+      ...LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: tpl.model }), run: () => addAtCenter(tpl.id) })),
     ]
   }, [t, rf])
 
