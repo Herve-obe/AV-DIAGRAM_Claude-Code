@@ -3,8 +3,8 @@
 | Champ | Valeur |
 |---|---|
 | Projet | AV Diagram |
-| Version du document | 0.3 |
-| Date | 2026-09-24 (v0.3 : application bureau uniquement, IA locale dédiée) |
+| Version du document | 0.4 |
+| Date | 2026-09-24 (v0.4 : assistant IA à deux options, local ou compte personnel) |
 | Porteur | Hervé Obejero |
 | Statut | Validé pour démarrer. Lot 0 livré, lot 1 en cours (section 17) |
 
@@ -305,23 +305,56 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 - **Fiches pédagogiques** liées aux équipements et aux signaux : rôle, niveaux nominaux, connectique, pièges courants, liens vers des ressources. Le contenu des fiches cite ses sources.
 - **Vidéos IA** : hors périmètre pour l'instant. Les fiches prévoient un champ pour lier des médias externes.
 
-## 12. Assistant IA local et dédié (lot 6)
+## 12. Assistant IA dédié (lot 6)
 
-### 12.1 Principe (décisions Q5 et Q10)
+### 12.1 Deux options, au choix de l'utilisateur (décision v0.4)
 
-Un assistant spécialisé en audiovisuel qui **tourne entièrement sur l'ordinateur de l'utilisateur** : il est gratuit, fonctionne sans Internet, et aucune donnée ne sort de la machine. Il aide à concevoir les synoptiques et guide l'utilisateur, en particulier en mode Débutant.
+L'assistant est le même dans les deux cas : mêmes connaissances métier, mêmes outils, même moteur de règles. Seul change le « cerveau » qui répond. Le réglage se fait dans **Préférences > Assistant IA**.
 
-Entraîner un modèle de langage de zéro est hors de portée : il faudrait des moyens de calcul considérables. L'assistant s'appuie donc sur un **modèle ouvert existant**, rendu « dédié » par trois couches :
+| | Option A : IA locale | Option B : mon compte IA |
+|---|---|---|
+| Coût pour le projet | 0 € | 0 € |
+| Coût pour l'utilisateur | 0 € | Facturation à l'usage par son fournisseur. Gemini propose une offre gratuite limitée (à vérifier au moment du développement) |
+| Qualité | Correcte, limitée par la taille du modèle | La meilleure (grands modèles) |
+| Internet | Inutile | Nécessaire |
+| Confidentialité | Aucune donnée ne sort de l'ordinateur | Le schéma envoyé est traité par le fournisseur choisi, parfois hors UE. L'utilisateur doit donner son accord explicite |
+| Matériel | Ordinateur assez récent, plusieurs Go de disque et de mémoire | Aucun |
+
+**Point important sur les abonnements** : un abonnement grand public (Claude Pro ou Max, ChatGPT Plus, Gemini) **ne donne pas accès à l'API** qu'utilise une application tierce comme AV Diagram. L'utilisateur doit créer une **clé API** sur la console de son fournisseur, facturée séparément à la consommation. Anthropic et OpenAI l'indiquent dans leurs centres d'aide (voir 12.6). L'assistant pas à pas doit l'expliquer clairement, pour éviter toute mauvaise surprise.
+
+### 12.2 Parcours de configuration guidé
+
+**Option A, IA locale (3 étapes)** :
+
+1. Choisir la taille du modèle. L'application propose une valeur adaptée à la mémoire détectée de l'ordinateur.
+2. Télécharger le modèle, avec une barre de progression et la taille affichée avant de commencer.
+3. Faire un test automatique, avec une question audiovisuelle simple. L'assistant est alors prêt.
+
+Variante pour les utilisateurs avancés : détecter un serveur local déjà installé, comme Ollama ou LM Studio, et s'y connecter.
+
+**Option B, mon compte IA (5 étapes)** :
+
+1. **Choisir le fournisseur** : Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google), Mistral, ou « Autre (compatible OpenAI) ».
+2. **Créer la clé** : un bouton ouvre la bonne page de la console du fournisseur dans le navigateur. Une fiche illustrée, propre à chaque fournisseur, montre où cliquer. Elle rappelle que l'abonnement de chat ne suffit pas et qu'il faut activer la facturation API. Pour Gemini, elle signale l'offre gratuite et ses limites, y compris sur l'usage des données.
+3. **Coller la clé** : elle est vérifiée immédiatement (format attendu), puis stockée dans le **trousseau sécurisé du système** (Trousseau macOS, Gestionnaire d'identification Windows, Secret Service sous Linux), jamais en clair dans un fichier.
+4. **Tester la connexion** : l'application envoie une toute petite requête. Les messages d'erreur disent en clair ce qui ne va pas : clé invalide, facturation non activée, quota dépassé.
+5. **Choisir le modèle** : la liste vient du fournisseur, avec un modèle recommandé présélectionné. L'écran rappelle l'estimation des coûts et ce qui est envoyé au fournisseur, et l'utilisateur donne son accord.
+
+L'utilisateur peut à tout moment changer d'option, supprimer la clé ou désactiver l'assistant.
+
+### 12.3 Principe « dédié »
+
+Il est hors de portée d'entraîner un modèle de zéro. L'assistant s'appuie donc sur un modèle existant, rendu « dédié » par trois couches :
 
 | Couche | Rôle | Coût |
 |---|---|---|
-| 1. Connaissances métier (RAG) | Une base de connaissances rédigée et vérifiée pour le projet : fiches pédagogiques, glossaire, bonnes pratiques, bibliothèque d'équipements, règles de compatibilité. L'assistant y cherche les passages pertinents avant de répondre et cite ses sources. | Gratuit, mais demande de la rédaction (ton expertise) |
-| 2. Outils (appel de fonctions) | L'assistant agit sur le schéma **uniquement via les fonctions de l'application** : chercher dans la bibliothèque, poser un équipement, relier deux ports, lancer les vérifications. Il ne peut pas inventer un équipement ou une caractéristique absents de la bibliothèque. | Gratuit : ces fonctions existent déjà dans `src/model/` |
-| 3. Spécialisation du modèle (optionnel) | Un affinage de type LoRA sur un jeu d'exemples : synoptiques commentés, questions et réponses de formation. | Demande une carte graphique pendant l'entraînement. À évaluer plus tard |
+| 1. Connaissances métier (RAG) | Une base de connaissances rédigée et vérifiée pour le projet : fiches pédagogiques, glossaire, bonnes pratiques, bibliothèque, règles de compatibilité. L'assistant y cherche les passages pertinents et cite ses sources. | Gratuit, mais demande de la rédaction |
+| 2. Outils (appel de fonctions) | L'assistant agit sur le schéma **uniquement via les fonctions de l'application** : chercher dans la bibliothèque, poser un équipement, relier deux ports, lancer les vérifications. Il ne peut pas inventer un équipement ou une caractéristique. | Gratuit : ces fonctions existent déjà dans `src/model/` |
+| 3. Spécialisation du modèle (option A seulement, optionnel) | Un affinage de type LoRA sur un jeu d'exemples (synoptiques commentés, questions et réponses de formation). | Demande une carte graphique pendant l'entraînement. À évaluer plus tard |
 
-Chaque proposition passe ensuite par le **moteur de règles déterministe** (section 5.4), puis s'affiche en aperçu. L'utilisateur l'accepte ou la refuse. L'IA propose, les règles vérifient et l'humain décide.
+Chaque proposition passe par le **moteur de règles déterministe** (section 5.4), puis s'affiche en aperçu. L'utilisateur l'accepte ou la refuse.
 
-### 12.2 Fonctions visées
+### 12.4 Fonctions visées
 
 - Guide pas à pas pour les débutants : « Tu as posé une console et une stagebox. Il te manque la liaison réseau entre les deux. Veux-tu que je la crée ? »
 - Génération d'un premier synoptique à partir d'une description (« concert, 24 entrées, façade et retours, stagebox Dante »), avec des équipements tirés de la bibliothèque.
@@ -329,17 +362,22 @@ Chaque proposition passe ensuite par le **moteur de règles déterministe** (sec
 - Revue de conception : oublis, absence de redondance, horloge maître manquante.
 - Réponses aux questions de cours (« Pourquoi une DI sur un clavier ? »), avec citation de la fiche pédagogique utilisée.
 
-### 12.3 Technique
+### 12.5 Technique
 
-- **Moteur** : llama.cpp (licence MIT), lancé par l'application bureau comme processus local. Le format de modèle est GGUF, quantifié pour tenir en mémoire.
-- **Modèle** : il n'est pas inclus dans l'installateur, car il pèse plusieurs gigaoctets. On le télécharge une fois, depuis l'application, au premier usage de l'assistant. On choisira un modèle **multilingue (français)**, **capable d'appeler des fonctions**, et sous une **licence qui autorise la redistribution** (Apache 2.0 ou MIT de préférence). Le choix se fera au lot 6, par des essais comparatifs sur un jeu de questions audiovisuelles.
-- **Matériel** : un modèle de petite taille (quelques milliards de paramètres, quantifié) tourne sur un ordinateur portable récent. Il sera plus lent sans carte graphique. La configuration minimale sera mesurée au lot 6 et affichée à l'utilisateur.
-- **Sans assistant** : l'application reste complète. L'assistant est un module optionnel.
+- **Une interface commune** (`AiProvider`) avec plusieurs adaptateurs : Anthropic (SDK officiel), OpenAI, Gemini, et « compatible OpenAI ». Ce dernier couvre Mistral, Ollama, LM Studio et le serveur llama.cpp. Les connaissances, les outils et les règles sont partagés par tous les adaptateurs.
+- **Appels réseau faits par la partie native** de l'application (Rust, via Tauri), avec une liste stricte d'adresses autorisées (uniquement le fournisseur choisi). La clé ne transite pas par l'interface web interne.
+- **IA locale** : llama.cpp (licence MIT), lancé comme processus local. Le modèle est au format GGUF et se télécharge à la demande ; il n'est pas inclus dans l'installateur. On choisira un modèle multilingue, capable d'appeler des fonctions, et sous une licence qui autorise la redistribution.
+- **Sans assistant**, l'application reste complète.
 
-### 12.4 Limites à connaître
+### 12.6 Limites et sources
 
 - Un petit modèle local est moins performant qu'un grand modèle en ligne. C'est pour cela que les couches 1 et 2 et le moteur de règles sont essentiels : ils cadrent ce qu'il peut faire et vérifient ce qu'il produit.
 - La qualité de l'assistant dépend directement de la base de connaissances. Ta rédaction de fiches pédagogiques, prévue au lot 5, sert donc aussi à l'IA.
+- Les offres des fournisseurs (prix, offres gratuites, modèles) changent souvent. Elles seront revérifiées au moment du développement, et les fiches d'aide seront mises à jour.
+- Sources, consultées le 2026-09-24 :
+  - Anthropic, [abonnement Claude et API facturés séparément](https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-do-i-have-to-pay-separately-to-use-the-claude-api-and-console) ;
+  - OpenAI, [facturation ChatGPT et plateforme API](https://help.openai.com/en/articles/9039756-billing-settings-in-chatgpt-vs-platform) ;
+  - Google, [facturation de l'API Gemini](https://ai.google.dev/gemini-api/docs/billing).
 
 ## 13. Interface et design
 
@@ -451,10 +489,10 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 | Q8 | Dépôt | https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code |
 
 | Q1 (v0.3) | Données | Question reportée. Solution de repli : application locale uniquement, donc aucune donnée hébergée |
-| Q5 / Q10 | IA | Assistant local et dédié (section 12), sans service en ligne |
+| Q5 / Q10 | IA | Assistant dédié, à deux options : IA locale gratuite, ou compte IA personnel de l'utilisateur (section 12) |
 | Q6 (v0.3) | Plateforme | Application de bureau Windows, macOS et Linux uniquement, pas de version web |
 | Q11 | Bibliothèque | Commencer par le son (lot A) |
 
 Questions ouvertes :
 
-- **Q12** : accès aux documents des constructeurs. Il faut soit ouvrir l'accès réseau de l'environnement de développement aux sites des fabricants, soit déposer les fiches techniques PDF dans le projet.
+- **Q12** : accès aux documents des constructeurs. Solution retenue : un dossier Google Drive, lu via le connecteur Drive de la session. Les manuels ne sont pas copiés dans le dépôt.

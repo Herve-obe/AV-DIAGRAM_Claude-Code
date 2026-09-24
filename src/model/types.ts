@@ -21,8 +21,11 @@ export interface PortDef {
 
 export type LibraryStatus = 'generic' | 'verified' | 'community' | 'user'
 
+/** Source d'une fiche : page ou PDF officiel (url) et/ou document constructeur identifié (titre, révision). */
 export interface EquipmentSource {
-  url: string
+  url?: string
+  /** Ex. "SSL SB 32.24 and SB 16.12 User Guide, rev. 1.5" */
+  document?: string
   /** Date de consultation, format AAAA-MM-JJ */
   accessed: string
 }

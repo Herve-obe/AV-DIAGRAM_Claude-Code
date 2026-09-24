@@ -5,7 +5,7 @@ Un fichier JSON par modèle, nommé `fabricant-modele.json` (minuscules, tirets)
 Règles :
 
 1. Chaque valeur (ports, connecteurs, puissance, poids, hauteur en U) vient de la **documentation du fabricant** : fiche technique, manuel ou page produit officielle.
-2. `sources` cite cette documentation (`url`) et la date de consultation (`accessed`, au format AAAA-MM-JJ).
+2. `sources` cite cette documentation : l'URL officielle (`url`), et/ou le titre exact et la révision du manuel (`document`), avec la date de consultation (`accessed`, au format AAAA-MM-JJ). Les manuels eux-mêmes ne sont **jamais** copiés dans le dépôt : ils sont protégés par le droit d'auteur.
 3. Une valeur inconnue est **omise**, jamais estimée.
 4. `status` vaut `verified` seulement après relecture. Sinon, il vaut `community`.
 5. Les identifiants de connecteurs et de signaux sont ceux de `src/model/connectors.ts` et `src/model/signals.ts`.
@@ -25,7 +25,7 @@ Structure :
   "powerW": 0,
   "weightKg": 0,
   "rackU": 0,
-  "sources": [{ "url": "https://…", "accessed": "2026-09-24" }],
+  "sources": [{ "url": "https://…", "document": "Titre du manuel, rév. X", "accessed": "2026-09-24" }],
   "ports": [
     { "id": "in1", "name": "In 1", "direction": "in", "signal": "audioAnalog", "connector": "xlr3", "level": "mic" }
   ]

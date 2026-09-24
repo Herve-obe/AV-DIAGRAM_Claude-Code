@@ -20,7 +20,8 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
   if (t.status === 'verified') {
     if (!t.sources?.length) errors.push(`${where} : une fiche vérifiée doit citer une source`)
     for (const s of t.sources ?? []) {
-      if (!/^https?:\/\//.test(s.url)) errors.push(`${where} : URL de source invalide (${s.url})`)
+      if (!s.url && !s.document) errors.push(`${where} : une source doit indiquer une URL ou un document constructeur`)
+      if (s.url && !/^https?:\/\//.test(s.url)) errors.push(`${where} : URL de source invalide (${s.url})`)
       if (!DATE_RE.test(s.accessed)) errors.push(`${where} : date de consultation attendue au format AAAA-MM-JJ`)
     }
   }
