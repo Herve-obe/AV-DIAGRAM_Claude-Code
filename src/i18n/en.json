@@ -1,0 +1,73 @@
+{
+  "app": { "tagline": "AV system diagrams" },
+  "menu": {
+    "new": "New", "open": "Open…", "save": "Save", "export": "Export",
+    "exportPng": "PNG image", "exportSvg": "SVG image", "exportCsv": "Cable list (CSV)",
+    "undo": "Undo", "redo": "Redo", "search": "Search, command", "newProjectName": "New project",
+    "openError": "This file is not a valid AV Diagram project (.avd)."
+  },
+  "mode": { "beginner": "Beginner", "expert": "Expert" },
+  "theme": { "system": "Device theme", "dark": "Dark theme", "light": "Light theme" },
+  "pages": {
+    "synoptic": "Schematic", "rack": "Racks", "plan": "Floor plan", "network": "Network", "lists": "Lists", "deliver": "Deliverables",
+    "soon": "Planned for phase {{lot}}"
+  },
+  "library": {
+    "title": "Library", "search": "Console, stagebox, SDI…", "empty": "No matching equipment.",
+    "hint": "Drag equipment onto the canvas (or double-click it). Then drag a link from an output port, on the right of a block, to an input port, on the left.",
+    "generic": "Generic"
+  },
+  "family": {
+    "capture": "Capture", "console": "Consoles", "stagebox": "Stageboxes", "processing": "Processing",
+    "amplification": "Amplification", "speaker": "Speakers", "wireless": "Wireless", "recording": "Recording",
+    "camera": "Cameras", "videoSwitcher": "Video switchers", "videoRouting": "Routing and conversion", "display": "Displays",
+    "intercom": "Intercom", "network": "Network", "sync": "Sync", "control": "Control", "power": "Power", "passive": "Passive"
+  },
+  "signal": {
+    "audioAnalog": "Analog audio", "audioDigital": "Digital audio", "audioIp": "Audio over IP", "video": "Video",
+    "videoIp": "Video over IP", "sync": "Sync", "intercom": "Intercom", "control": "Control", "network": "Network", "power": "Power"
+  },
+  "level": { "mic": "Mic", "instrument": "Instrument", "line+4": "Line +4 dBu", "line-10": "Line -10 dBV", "speaker": "Speaker", "none": "N/A" },
+  "direction": { "in": "Input", "out": "Output", "bidir": "Bidirectional" },
+  "inspector": {
+    "title": "Inspector", "empty": "Select equipment or a link to see its properties.",
+    "multi": "{{count}} items selected", "equipment": "Equipment", "link": "Link",
+    "name": "Name", "model": "Model", "manufacturer": "Manufacturer", "zone": "Zone", "noZone": "No zone",
+    "power": "Power (W)", "weight": "Weight (kg)", "rackU": "Height (U)", "notes": "Notes",
+    "inputs": "Inputs", "outputs": "Outputs", "bidir": "Network and bidirectional ports",
+    "source": "Source", "genericSource": "Generic block, no manufacturer data.",
+    "cable": "Cable no.", "from": "From", "to": "To", "signal": "Signal", "connectors": "Connectors",
+    "length": "Length (m)", "cableRef": "Cable reference", "checks": "Checks", "compatible": "Compatible",
+    "ignore": "Ignore", "delete": "Delete", "duplicate": "Duplicate"
+  },
+  "severity": { "error": "Error", "warning": "Warning", "info": "Info" },
+  "rules": {
+    "direction": { "msg": "Two outputs or two inputs connected.", "fix": "Connect an output to an input." },
+    "signal-mismatch": { "msg": "Incompatible signal: {{from}} to {{to}}.", "fix": "Check the port or add a converter." },
+    "level-mic-to-line": { "msg": "Mic level into a line input (+4 dBu).", "fix": "Use a preamp or a mic input." },
+    "level-line-to-mic": { "msg": "Line level into a mic input: risk of clipping.", "fix": "Use a line input or a pad." },
+    "level-speaker-to-line": { "msg": "Amplified speaker output into a low-level input: risk of damage.", "fix": "Connect the speaker output to a passive speaker." },
+    "level-line-to-speaker": { "msg": "Unamplified signal into a passive speaker.", "fix": "Add an amplifier or use a powered speaker." },
+    "adapter-needed": { "msg": "Different connectors: {{from}} to {{to}}.", "fix": "Plan an adapter or a dedicated cable." },
+    "input-busy": { "msg": "Several sources on the same input.", "fix": "Use another input or a mixer." },
+    "output-busy": { "msg": "This digital or network output feeds several destinations.", "fix": "Add a distribution amp, a switch or a router." },
+    "output-split": { "msg": "Analog output shared between several inputs.", "fix": "Check impedance or use a splitter." }
+  },
+  "dock": {
+    "cables": "Cabling", "bom": "Bill of materials", "issues": "Issues", "none": "No links yet.",
+    "noIssues": "No issues: all links are compatible.",
+    "number": "No.", "from": "From", "to": "To", "signal": "Signal", "connectors": "Connectors", "length": "Length",
+    "designation": "Item", "qty": "Qty", "unitPower": "Unit power", "unitWeight": "Unit weight",
+    "total": "Total", "current": "Current at {{v}} V: {{a}} A", "missingPower": "{{n}} item(s) without declared power: minimum total.",
+    "severity": "Severity", "problem": "Problem", "fix": "Suggested fix", "renumber": "Renumber", "undefined": "not set",
+    "collapse": "Collapse panel", "expand": "Show panel"
+  },
+  "status": { "equipment": "{{count}} items", "links": "{{count}} links", "saved": "Saved on this device", "unsaved": "Saving…", "offline": "Works offline" },
+  "palette": {
+    "placeholder": "Type a command or equipment", "none": "No results", "add": "Add: {{name}}",
+    "showAll": "Show all signals", "showAudio": "Show audio only", "showVideo": "Show video only",
+    "showNetwork": "Show network and sync only", "issues": "Go to issues", "renumber": "Renumber cables",
+    "toggleMode": "Switch mode (beginner / expert)", "toggleTheme": "Switch theme", "toggleLang": "Passer en français", "fit": "Fit view"
+  },
+  "filters": { "label": "Visible signals" }
+}

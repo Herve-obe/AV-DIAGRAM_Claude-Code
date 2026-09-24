@@ -1,0 +1,135 @@
+/* Design system AV Diagram. Direction : logiciels de post-production (DaVinci Resolve) :
+   gris graphite neutres, panneaux denses, un seul accent orange, couleurs réservées aux signaux.
+   Le thème sombre est la référence (travail en régie) ; le thème clair suit les mêmes rôles. */
+
+@import '@fontsource/barlow/400.css';
+@import '@fontsource/barlow/500.css';
+@import '@fontsource/barlow/600.css';
+@import '@fontsource/barlow-condensed/500.css';
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+:root {
+  color-scheme: dark;
+  /* Surfaces, du fond vers l'avant */
+  --bg-0: #0f1012;
+  --bg-1: #16171a;
+  --bg-2: #1c1e21;
+  --bg-3: #24262a;
+  --bg-4: #2d3035;
+  --canvas: #131416;
+  --grid-dot: #26292d;
+  --border: #2a2d31;
+  --border-strong: #3a3e44;
+  /* Texte */
+  --text: #dcdfe3;
+  --text-2: #9ba1a9;
+  --text-3: #6a7079;
+  /* Accent unique (sélection, état actif) */
+  --accent: #f0883e;
+  --accent-hover: #ff9a52;
+  --accent-soft: rgba(240, 136, 62, 0.14);
+  --on-accent: #1a0f06;
+  /* États */
+  --ok: #3fc98f;
+  --warn: #f2b54a;
+  --err: #f0594f;
+  /* Signaux (code couleur du projet, cahier des charges 5.1) */
+  --sig-audio-analog: #5b9df2;
+  --sig-audio-digital: #a88cf7;
+  --sig-audio-ip: #3fcf9c;
+  --sig-video: #f1cb4f;
+  --sig-sync: #f06caa;
+  --sig-intercom: #f39a4c;
+  --sig-control: #9aa3ad;
+  --sig-network: #3cc2da;
+  --sig-power: #ef5b54;
+  /* Nœuds */
+  --node-bg: #1f2124;
+  --node-head: #26292d;
+  --node-border: #34373c;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* Typographie */
+  --font-ui: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-label: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --bg-0: #dfe2e6;
+    --bg-1: #eceef1;
+    --bg-2: #f5f6f8;
+    --bg-3: #e6e8ec;
+    --bg-4: #d9dce1;
+    --canvas: #f8f9fa;
+    --grid-dot: #d3d7dc;
+    --border: #d2d6db;
+    --border-strong: #bcc1c8;
+    --text: #1d2025;
+    --text-2: #5a616b;
+    --text-3: #8a9099;
+    --accent: #d8691f;
+    --accent-hover: #c35b14;
+    --accent-soft: rgba(216, 105, 31, 0.12);
+    --on-accent: #ffffff;
+    --ok: #1e9e6b;
+    --warn: #b7800d;
+    --err: #d23c33;
+    --sig-audio-analog: #2c78dc;
+    --sig-audio-digital: #7f57e0;
+    --sig-audio-ip: #15986c;
+    --sig-video: #b88d06;
+    --sig-sync: #d4458a;
+    --sig-intercom: #d9731c;
+    --sig-control: #6f7985;
+    --sig-network: #1590a8;
+    --sig-power: #d23c33;
+    --node-bg: #ffffff;
+    --node-head: #f0f2f4;
+    --node-border: #c9ced4;
+    --shadow-1: 0 1px 2px rgba(20, 24, 30, 0.1);
+    --shadow-2: 0 10px 30px rgba(20, 24, 30, 0.16);
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg-0: #dfe2e6;
+  --bg-1: #eceef1;
+  --bg-2: #f5f6f8;
+  --bg-3: #e6e8ec;
+  --bg-4: #d9dce1;
+  --canvas: #f8f9fa;
+  --grid-dot: #d3d7dc;
+  --border: #d2d6db;
+  --border-strong: #bcc1c8;
+  --text: #1d2025;
+  --text-2: #5a616b;
+  --text-3: #8a9099;
+  --accent: #d8691f;
+  --accent-hover: #c35b14;
+  --accent-soft: rgba(216, 105, 31, 0.12);
+  --on-accent: #ffffff;
+  --ok: #1e9e6b;
+  --warn: #b7800d;
+  --err: #d23c33;
+  --sig-audio-analog: #2c78dc;
+  --sig-audio-digital: #7f57e0;
+  --sig-audio-ip: #15986c;
+  --sig-video: #b88d06;
+  --sig-sync: #d4458a;
+  --sig-intercom: #d9731c;
+  --sig-control: #6f7985;
+  --sig-network: #1590a8;
+  --sig-power: #d23c33;
+  --node-bg: #ffffff;
+  --node-head: #f0f2f4;
+  --node-border: #c9ced4;
+  --shadow-1: 0 1px 2px rgba(20, 24, 30, 0.1);
+  --shadow-2: 0 10px 30px rgba(20, 24, 30, 0.16);
+}

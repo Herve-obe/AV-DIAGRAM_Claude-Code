@@ -1,0 +1,73 @@
+{
+  "app": { "tagline": "Synoptiques audiovisuels" },
+  "menu": {
+    "new": "Nouveau", "open": "Ouvrir…", "save": "Enregistrer", "export": "Exporter",
+    "exportPng": "Image PNG", "exportSvg": "Image SVG", "exportCsv": "Liste de câblage (CSV)",
+    "undo": "Annuler", "redo": "Rétablir", "search": "Rechercher, commande", "newProjectName": "Nouveau projet",
+    "openError": "Ce fichier n'est pas un projet AV Diagram valide (.avd)."
+  },
+  "mode": { "beginner": "Débutant", "expert": "Expert" },
+  "theme": { "system": "Thème de l'appareil", "dark": "Thème sombre", "light": "Thème clair" },
+  "pages": {
+    "synoptic": "Synoptique", "rack": "Racks", "plan": "Plan", "network": "Réseau", "lists": "Listes", "deliver": "Livrables",
+    "soon": "Prévu au lot {{lot}}"
+  },
+  "library": {
+    "title": "Bibliothèque", "search": "Console, stagebox, SDI…", "empty": "Aucun équipement ne correspond.",
+    "hint": "Glisse un équipement sur le canevas (ou double-clique). Tire ensuite une liaison depuis un port de sortie, à droite d'un bloc, vers un port d'entrée, à gauche.",
+    "generic": "Générique"
+  },
+  "family": {
+    "capture": "Captation", "console": "Consoles", "stagebox": "Stageboxes", "processing": "Traitement",
+    "amplification": "Amplification", "speaker": "Enceintes", "wireless": "Systèmes HF", "recording": "Enregistrement",
+    "camera": "Caméras", "videoSwitcher": "Mélangeurs vidéo", "videoRouting": "Grilles et conversion", "display": "Affichage",
+    "intercom": "Intercom", "network": "Réseau", "sync": "Synchro", "control": "Contrôle", "power": "Électrique", "passive": "Passifs"
+  },
+  "signal": {
+    "audioAnalog": "Audio analogique", "audioDigital": "Audio numérique", "audioIp": "Audio sur IP", "video": "Vidéo",
+    "videoIp": "Vidéo sur IP", "sync": "Synchro", "intercom": "Intercom", "control": "Contrôle", "network": "Réseau", "power": "Électrique"
+  },
+  "level": { "mic": "Micro", "instrument": "Instrument", "line+4": "Ligne +4 dBu", "line-10": "Ligne -10 dBV", "speaker": "HP", "none": "Sans objet" },
+  "direction": { "in": "Entrée", "out": "Sortie", "bidir": "Bidirectionnel" },
+  "inspector": {
+    "title": "Inspecteur", "empty": "Sélectionne un équipement ou une liaison pour voir ses propriétés.",
+    "multi": "{{count}} éléments sélectionnés", "equipment": "Équipement", "link": "Liaison",
+    "name": "Nom", "model": "Modèle", "manufacturer": "Fabricant", "zone": "Zone", "noZone": "Aucune zone",
+    "power": "Puissance (W)", "weight": "Poids (kg)", "rackU": "Hauteur (U)", "notes": "Notes",
+    "inputs": "Entrées", "outputs": "Sorties", "bidir": "Ports réseau et bidirectionnels",
+    "source": "Source", "genericSource": "Bloc générique, sans fiche constructeur.",
+    "cable": "N° de câble", "from": "De", "to": "Vers", "signal": "Signal", "connectors": "Connecteurs",
+    "length": "Longueur (m)", "cableRef": "Référence câble", "checks": "Contrôle", "compatible": "Compatible",
+    "ignore": "Ignorer", "delete": "Supprimer", "duplicate": "Dupliquer"
+  },
+  "severity": { "error": "Erreur", "warning": "Avertissement", "info": "Info" },
+  "rules": {
+    "direction": { "msg": "Deux sorties ou deux entrées reliées.", "fix": "Relie une sortie à une entrée." },
+    "signal-mismatch": { "msg": "Signal incompatible : {{from}} vers {{to}}.", "fix": "Vérifie le port ou ajoute un convertisseur." },
+    "level-mic-to-line": { "msg": "Niveau micro vers une entrée ligne (+4 dBu).", "fix": "Passe par un préampli ou une entrée micro." },
+    "level-line-to-mic": { "msg": "Niveau ligne vers une entrée micro : risque de saturation.", "fix": "Utilise une entrée ligne ou un atténuateur (pad)." },
+    "level-speaker-to-line": { "msg": "Sortie HP amplifiée vers une entrée à bas niveau : risque de destruction.", "fix": "Relie la sortie HP à une enceinte passive." },
+    "level-line-to-speaker": { "msg": "Signal non amplifié vers une enceinte passive.", "fix": "Ajoute un amplificateur ou utilise une enceinte amplifiée." },
+    "adapter-needed": { "msg": "Connecteurs différents : {{from}} vers {{to}}.", "fix": "Prévois un adaptateur ou un câble spécifique." },
+    "input-busy": { "msg": "Plusieurs sources sur la même entrée.", "fix": "Utilise une autre entrée ou un mélangeur." },
+    "output-busy": { "msg": "Cette sortie numérique ou réseau alimente plusieurs destinations.", "fix": "Ajoute un distributeur, un switch ou une grille." },
+    "output-split": { "msg": "Sortie analogique partagée entre plusieurs entrées.", "fix": "Vérifie l'impédance ou utilise un splitter." }
+  },
+  "dock": {
+    "cables": "Câblage", "bom": "Nomenclature", "issues": "Alertes", "none": "Aucune liaison pour l'instant.",
+    "noIssues": "Aucune alerte : toutes les liaisons sont compatibles.",
+    "number": "N°", "from": "De", "to": "Vers", "signal": "Signal", "connectors": "Connecteurs", "length": "Longueur",
+    "designation": "Désignation", "qty": "Qté", "unitPower": "Puissance unit.", "unitWeight": "Poids unit.",
+    "total": "Total", "current": "Courant à {{v}} V : {{a}} A", "missingPower": "{{n}} équipement(s) sans puissance déclarée : total minimal.",
+    "severity": "Gravité", "problem": "Problème", "fix": "Correction proposée", "renumber": "Renuméroter", "undefined": "à définir",
+    "collapse": "Réduire le panneau", "expand": "Afficher le panneau"
+  },
+  "status": { "equipment": "{{count}} équipements", "links": "{{count}} liaisons", "saved": "Enregistré sur cet appareil", "unsaved": "Enregistrement…", "offline": "Utilisable hors ligne" },
+  "palette": {
+    "placeholder": "Tape une commande ou un équipement", "none": "Aucun résultat", "add": "Ajouter : {{name}}",
+    "showAll": "Afficher tous les signaux", "showAudio": "Afficher seulement l'audio", "showVideo": "Afficher seulement la vidéo",
+    "showNetwork": "Afficher seulement le réseau et la synchro", "issues": "Aller aux alertes", "renumber": "Renuméroter les câbles",
+    "toggleMode": "Changer de mode (débutant / expert)", "toggleTheme": "Changer de thème", "toggleLang": "Switch to English", "fit": "Ajuster la vue"
+  },
+  "filters": { "label": "Signaux affichés" }
+}

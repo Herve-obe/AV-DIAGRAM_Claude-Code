@@ -3,10 +3,10 @@
 | Champ | Valeur |
 |---|---|
 | Projet | AV Diagram |
-| Version du document | 0.1 (brouillon à valider) |
-| Date | 2026-09-24 |
+| Version du document | 0.2 |
+| Date | 2026-09-24 (v0.2 : décisions Q1 à Q8 intégrées) |
 | Porteur | Hervé Obejero |
-| Statut | En attente des réponses aux questions ouvertes (section 18) |
+| Statut | Validé pour démarrer. Lot 0 livré, lot 1 en cours (section 17) |
 
 ---
 
@@ -23,6 +23,7 @@ Objectifs mesurables :
 3. Signaler 100 % des incompatibilités couvertes par les règles de la section 5.4.
 4. Fonctionner entièrement hors ligne une fois l'application installée (PWA).
 5. Rester gratuit pour l'utilisateur et à 0 € de coût d'exploitation tant que le cloud (lot 4) n'est pas ouvert.
+6. Garder toutes les données (projets, comptes, journaux) dans l'Union européenne, sans exception.
 
 ## 2. Utilisateurs
 
@@ -278,6 +279,7 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 
 ## 9. Plateforme, hors ligne, langues
 
+- **Deux versions, sur le modèle de draw.io** : une **version web** (PWA installable, qui fonctionne hors ligne) et une **version bureau** pour Windows, macOS et Linux, empaquetée avec Tauri (licences MIT et Apache 2.0, plus léger qu'Electron). Les deux versions partagent le même code et ouvrent les mêmes fichiers `.avd`.
 - **Priorité à l'ordinateur** (Chrome, Edge, Firefox, Safari récents). La tablette est d'abord en consultation, le portage complet vient plus tard.
 - **PWA installable**, fonctionnement 100 % hors ligne. Les données restent dans le navigateur (IndexedDB) et peuvent être sauvegardées dans un fichier `.avd`.
 - **Local d'abord** : l'application est complète sans compte. Le cloud (lot 4) ajoute la synchronisation, la collaboration et le partage. Au retour du réseau, les modifications faites hors ligne sont fusionnées automatiquement, grâce à des structures de données CRDT.
@@ -291,7 +293,8 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 - **Édition simultanée** en temps réel : curseurs des participants, présence, commentaires.
 - Partage par lien en lecture seule, avec expiration optionnelle.
 - **Historique des versions** : instantanés automatiques et nommés, comparaison et restauration.
-- **RGPD** : hébergement de toutes les données personnelles et de tous les projets **dans l'Union européenne**. Il faut aussi un registre des traitements, une politique de confidentialité, l'export et la suppression du compte, et aucun traceur publicitaire. Le niveau de souveraineté exigé est à préciser (question Q1).
+- **RGPD, exigence impérative (décision Q1)** : toutes les données personnelles et tous les projets restent **dans l'Union européenne**, chez un **hébergeur de droit européen** (par exemple OVHcloud, Scaleway ou Hetzner). Aucun service d'un éditeur non européen ne traite de données : ni analytics, ni polices chargées depuis un CDN, ni traceurs. Les polices sont embarquées dans l'application. Il faut aussi un registre des traitements, une politique de confidentialité, et l'export et la suppression du compte.
+- **Conséquence budgétaire** : le lot 4 demande un petit serveur européen, qui coûte quelques euros par mois selon l'offre choisie au moment du déploiement. Jusqu'au lot 4, tout reste sur l'appareil de l'utilisateur, donc aucune donnée n'est hébergée.
 
 ## 11. Mode formation
 
@@ -303,18 +306,31 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 
 ## 12. Assistance IA (lot 6)
 
-Fonctions envisagées :
+### 12.1 Deux niveaux
 
-1. Suggestion de câblage : proposer les liaisons probables entre les équipements posés.
-2. Détection d'erreurs avancée, en complément des règles de la section 5.4.
-3. Génération d'un premier synoptique à partir d'une description ou d'une fiche technique (rider) importée.
-4. Explication pédagogique d'un schéma.
+1. **Assistance sans IA, gratuite et toujours active** : le moteur de règles de la section 5.4, la numérotation, les bilans et les listes. Ce moteur est déterministe : il ne se trompe pas et ne coûte rien. Il couvre déjà une grande partie de la « détection d'erreurs ».
+2. **Assistance IA, optionnelle** : elle utilise un modèle de langage (LLM) pour les tâches où il faut comprendre du texte ou proposer une conception.
 
-Contrainte : 0 € de budget. Les appels à un modèle de langage ont un coût. L'option retenue par défaut est que **l'utilisateur fournit sa propre clé API**, stockée localement. Sans clé, seules les règles déterministes de la section 5.4 fonctionnent. À confirmer (question Q5).
+### 12.2 Fonctions IA envisagées
+
+| Fonction | Exemple |
+|---|---|
+| Génération d'un premier synoptique | « Plateau TV 3 caméras, mélangeur, intercom 4 postes » : l'IA propose les blocs et les liaisons, que l'utilisateur valide |
+| Lecture d'une fiche technique (rider) | Import d'un PDF de rider, extraction de la liste des entrées, création du patch |
+| Suggestion de câblage | Proposer les liaisons probables entre les équipements posés |
+| Revue de conception | Relever des oublis que les règles ne voient pas (pas d'intercom en régie, pas de redondance réseau) |
+| Explication pédagogique | Expliquer un schéma à un étudiant, étape par étape |
+| Aide à la fiche équipement | Préremplir une fiche à partir d'un manuel PDF fourni par l'utilisateur. L'utilisateur relit tout, et la fiche reste au statut « Utilisateur » tant qu'elle n'est pas vérifiée |
+
+### 12.3 Coût et données
+
+- Chaque appel à un LLM est facturé par le fournisseur. Le projet n'a pas de budget, donc **chaque utilisateur fournit sa propre clé API** (« bring your own key »). La clé est stockée uniquement sur son appareil, et il paie directement sa consommation.
+- Pour respecter l'exigence européenne, le fournisseur par défaut proposé doit **traiter les données dans l'UE**. Un fournisseur européen ou une offre avec résidence des données dans l'UE sont à retenir, à vérifier au moment du lot 6. L'utilisateur peut aussi brancher un **modèle local** qui tourne sur sa machine : aucune donnée ne sort, et c'est gratuit, mais il faut un ordinateur assez puissant.
+- Seules les données nécessaires sont envoyées (la liste des équipements et des liaisons), jamais le fichier entier sans l'accord de l'utilisateur. Chaque proposition de l'IA s'affiche en aperçu et doit être acceptée avant d'être appliquée.
 
 ## 13. Interface et design
 
-- **Références** : DaVinci Resolve et Pro Tools. L'interface doit être professionnelle, moderne et épurée, dense mais lisible, optimisée pour le travail dans une régie sombre.
+- **Direction retenue (décision Q7)** : s'inspirer de **DaVinci Resolve**. Les gris sont neutres (graphite), les panneaux denses, et il n'y a qu'un seul accent orange pour la sélection et l'état actif. Les couleurs vives sont réservées aux signaux. Les vues se changent par une **barre de pages en bas de l'écran**, comme les pages Media / Cut / Edit / Fairlight / Deliver de Resolve. Le rendu est ajusté au fil des retours.
 - **Structure de l'écran** : barre supérieure (projet, pages, mode, thème, recherche), outils à gauche, bibliothèque, canevas central, inspecteur à droite, dock inférieur (listes, patch, alertes), barre d'état.
 - **Typographie** : Barlow et Barlow Condensed pour l'interface et les étiquettes, JetBrains Mono pour les données (numéros de câbles, ports, adresses IP). Ces polices sont sous licence SIL Open Font License.
 - **Accessibilité** : contraste conforme au niveau AA des WCAG 2.2, navigation au clavier, signaux distingués par la couleur et par le style de trait.
@@ -331,14 +347,15 @@ Critères de choix : 0 € de coût, outils libres, code lisible et maintenable 
 | Canevas nœuds et ports | React Flow (@xyflow/react, licence MIT) | Ports, liaisons, zoom, mini-carte, sous-flux |
 | Dessin libre | perfect-freehand (MIT) sur une couche SVG | Léger. tldraw est écarté car sa licence n'est pas une licence open source (à revérifier au moment du choix) |
 | Routage et disposition | ELK.js (licence EPL-2.0) pour la disposition, routage orthogonal maison ou libavoid-js | Compatibilité des licences à valider |
-| État et données | Yjs (CRDT, MIT) + Zustand | Un seul modèle de données pour l'annulation, le hors-ligne et la collaboration future |
-| Stockage local | IndexedDB via y-indexeddb | Hors ligne natif |
-| UI | Radix UI + Tailwind CSS | Composants accessibles, thèmes par variables CSS |
+| État et données | Zustand + historique d'annulation maison (lots 0 à 3), Yjs (CRDT, MIT) au lot 4 | Simple à lire aujourd'hui. Le modèle métier est isolé, ce qui permet de passer à Yjs pour la collaboration sans réécrire l'interface |
+| Stockage local | IndexedDB (idb-keyval) + fichiers `.avd` | Hors ligne natif |
+| UI | Composants maison + variables CSS (tokens) | Contrôle total du rendu, aucune dépendance lourde |
 | i18n | i18next | Français et anglais |
 | PWA | vite-plugin-pwa | Installation et cache hors ligne |
 | Tests | Vitest + Playwright | Tests unitaires du modèle et des règles, tests de bout en bout de l'éditeur |
-| Hébergement de l'application | Pages statiques gratuites (GitHub Pages, ou Codeberg Pages hébergé en Allemagne) | Aucune donnée personnelle ne transite par un hébergement statique |
-| Backend (lot 4) | Option A : PocketBase + serveur Hocuspocus (Yjs) auto-hébergés sur un VPS d'un hébergeur européen (OVHcloud, Scaleway, Hetzner). Option B : Supabase, région UE | L'option A est souveraine mais coûte quelques euros par mois. L'option B a une offre gratuite, mais l'éditeur est américain (question Q1) |
+| Version bureau | Tauri 2 | Binaire léger, même code que la version web |
+| Hébergement de l'application web | Hébergeur européen (à choisir, question Q9) | Même la simple visite d'un site transmet l'adresse IP, qui est une donnée personnelle au sens du RGPD |
+| Backend (lot 4) | PocketBase + serveur Hocuspocus (Yjs), auto-hébergés sur un serveur d'un hébergeur européen | Retenu suite à la décision Q1. Supabase et les autres services américains sont écartés |
 
 Organisation du code, pour faciliter la reprise en vibe coding :
 
@@ -358,11 +375,26 @@ Le modèle métier et les règles sont indépendants de l'interface. Ils sont do
 
 ## 15. Licence et modèle économique
 
-- **Recommandation : GNU AGPL v3.** C'est une licence copyleft : quiconque modifie le logiciel et le propose en service en ligne doit publier son code source sous la même licence. Une entreprise ne peut donc pas en faire un produit fermé.
-- **Limite importante** : aucune licence reconnue comme open source ne peut interdire l'usage commercial. La définition de l'Open Source Initiative, critère 6, interdit toute discrimination selon le domaine d'usage. Si l'objectif est d'interdire toute vente, il faut une licence « source disponible » comme PolyForm Noncommercial, qui n'est pas open source au sens de l'OSI.
-- **Alternative européenne** : l'EUPL 1.2, licence copyleft de la Commission européenne, qui couvre aussi l'usage en ligne.
-- **Freemium** : la licence AGPL reste compatible si le code est entièrement libre et que seul le **service hébergé** a des options payantes (stockage, collaboration). Pour pouvoir proposer plus tard une double licence, il faut faire signer un accord de contribution (CLA) aux contributeurs extérieurs.
-- **Bibliothèque d'équipements** : licence de données distincte, CC BY-SA 4.0, recommandée pour que les ajouts restent libres.
+### 15.1 Décision (Q2) : PolyForm Shield 1.0.0
+
+L'objectif est un logiciel **gratuit, qui ne peut être ni détourné ni vendu sans l'accord de l'auteur**. La licence retenue est **PolyForm Shield 1.0.0** (fichier `LICENSE.md`). C'est une licence « source disponible », pas une licence open source au sens de l'OSI.
+
+| Ce qui est permis, gratuitement | Ce qui est interdit sans accord de l'auteur |
+|---|---|
+| Utiliser AV Diagram pour tout usage, y compris pour un travail rémunéré (un prestataire qui fait ses synoptiques de tournée) | Fournir un produit qui **concurrence** AV Diagram : le revendre, le renommer, le proposer en service en ligne concurrent, même gratuitement |
+| Lire le code, le modifier pour ses besoins | Fournir un produit qui concurrence une offre de l'auteur basée sur AV Diagram (par exemple son futur cloud) |
+| Contribuer au projet | |
+
+J'ai écarté la licence **PolyForm Noncommercial**, qui interdit tout usage commercial. Elle empêcherait les techniciens et les prestataires, qui sont le public cible, d'utiliser l'application dans leur travail.
+
+Il reste un point d'attention : je ne suis pas juriste. Avant une diffusion à grande échelle ou une offre payante, il faut faire relire la licence et le modèle économique par un professionnel du droit.
+
+### 15.2 Modèle économique (Q6), inspiré de draw.io
+
+- **Gratuit** : l'application complète, en version web et en version bureau, avec stockage local et fichiers `.avd`.
+- **Payant, plus tard** : le **cloud européen** (lot 4), c'est-à-dire la synchronisation, l'édition à plusieurs, le partage et l'espace de stockage au-delà d'un quota gratuit. Le paiement couvre le coût d'hébergement.
+- **Contributions extérieures** : chaque contributeur signe un accord de contribution (CLA) qui cède à l'auteur le droit de redistribuer sa contribution. Sans cet accord, l'auteur ne pourrait pas garder la maîtrise de la licence.
+- **Marque** : le nom « AV Diagram » peut être protégé par un dépôt de marque, par exemple à l'INPI. C'est ce qui empêche un tiers de reprendre le nom.
 
 ## 16. Normes et conventions de référence
 
@@ -380,26 +412,33 @@ Je n'ai pas trouvé de norme SMPTE ou AES qui définisse la **représentation gr
 
 Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lot livre une application utilisable :
 
-| Lot | Contenu |
-|---|---|
-| 0 | Socle : projet Vite/React/TS, design system (thèmes sombre et clair, tokens), i18n, PWA, CI de tests, déploiement automatique |
-| 1 | Synoptique (V1) : bibliothèque générique, blocs et ports, liaisons typées, filtres par signal, règles de compatibilité, inspecteur, modes Débutant et Expert, Ctrl+K, sauvegarde locale et fichier, liste de câblage (V2), export PNG / SVG / PDF / CSV |
-| 2 | Câble et flux, multipaires, numérotation automatique, groupes et sous-schémas, pages, modèles, cartouche et impression multi-planches, dessin libre, mode présentation |
-| 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage, nomenclature complète |
-| 4 | Cloud européen : comptes, projets et dossiers, rôles, collaboration temps réel, partage, versions, formulaire de contribution à la bibliothèque |
-| 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques |
-| 6 | Import et export avancés : DXF, draw.io, Visio, XLSX, puis assistance IA |
-| 7 | Bibliothèque de modèles réels vérifiés (alimentée en continu à partir du lot 1), portage tablette |
+| Lot | Contenu | État |
+|---|---|---|
+| 0 | Socle : Vite/React/TS, design system (thèmes sombre, clair et système), i18n FR/EN, PWA hors ligne, tests, CI | **Livré** |
+| 1 | Synoptique (V1) : bibliothèque générique, blocs et ports, liaisons typées, filtres par signal, règles de compatibilité, inspecteur, modes Débutant et Expert, Ctrl+K, sauvegarde locale et fichier, liste de câblage, nomenclature, alertes, export PNG / SVG / CSV | **Largement livré.** Restent : export PDF, éditeur de blocs (ports personnalisés), gestion des zones |
+| 2 | Câble et flux, multipaires, numérotation configurable dans l'interface, groupes et sous-schémas, pages, modèles, cartouche et impression multi-planches, dessin libre, mode présentation, catalogue de câbles | À faire |
+| 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | À faire |
+| 4 | Cloud européen : comptes, projets et dossiers, rôles, collaboration temps réel, partage, versions | À faire |
+| 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | À faire |
+| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistance IA | À faire |
+| 7 | Version bureau (Tauri), portage tablette | À faire |
+| Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md` | Commencé (liste établie) |
 
-## 18. Questions ouvertes
+## 18. Décisions et questions ouvertes
 
-Voir le message de synthèse associé à cette version.
+| N° | Sujet | Décision |
+|---|---|---|
+| Q1 | Données | Toutes les données restent dans l'UE, chez un hébergeur européen (impératif) |
+| Q2 | Licence | Logiciel gratuit, non détournable : PolyForm Shield 1.0.0 |
+| Q3 | Conventions graphiques | Liberté de choix : code couleur et styles de trait du projet (5.1), cartouche selon l'ISO 7200 |
+| Q4 | Bibliothèque | Parc de l'école fourni, voir `docs/bibliotheque-a-documenter.md` |
+| Q5 | IA | Voir section 12 |
+| Q6 | Modèle | Inspiré de draw.io : web + bureau gratuits, cloud payant |
+| Q7 | Design | Inspiration DaVinci Resolve, ajustements au fil de l'eau |
+| Q8 | Dépôt | https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code |
 
-- **Q1** : niveau de souveraineté des données exigé, et budget d'hébergement pour le lot 4.
-- **Q2** : validation de la licence AGPL v3 (ou EUPL 1.2), et CLA pour les contributeurs.
-- **Q3** : normes ou conventions graphiques spécifiques visées.
-- **Q4** : liste prioritaire des équipements réels à intégrer.
-- **Q5** : modèle retenu pour l'IA (clé personnelle de l'utilisateur).
-- **Q6** : périmètre gratuit et périmètre payant du freemium.
-- **Q7** : validation du design de la maquette.
-- **Q8** : passage du dépôt en public, et nom de domaine.
+Questions ouvertes :
+
+- **Q9** : hébergement de la version web. Faut-il un hébergeur européen payant dès maintenant (quelques euros par mois) ? L'autre option est de n'utiliser qu'en local (`npm run dev` ou version bureau) jusqu'au lot 4.
+- **Q10** : modèle retenu pour l'IA. Faut-il la clé personnelle de l'utilisateur, un fournisseur européen par défaut, un modèle local, ou les trois ?
+- **Q11** : ordre de documentation de la bibliothèque. Je propose le lot A (régie son SSL, SQ5, Avid) en premier.
