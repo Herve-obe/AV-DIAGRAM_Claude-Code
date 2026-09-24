@@ -122,7 +122,7 @@ describe('projet d\'exemple et bibliothèque', () => {
   it('l\'exemple contient les alertes volontaires : micro vers ligne et sortie partagée', () => {
     const p = buildSampleProject()
     const issues = checkProject(p)
-    expect(issues.map((i) => i.code)).toEqual(['level-mic-to-line', 'output-split', 'output-split'])
+    expect(issues.map((i) => i.code).sort()).toEqual(['level-mic-to-line', 'output-split', 'output-split', 'phantom-unknown'])
     expect(Object.keys(p.links)).toHaveLength(14)
   })
 })
@@ -208,5 +208,20 @@ describe('traductions', () => {
     const keys = (o: object, p = ''): string[] =>
       Object.entries(o).flatMap(([k, v]) => (typeof v === 'object' ? keys(v, `${p}${k}.`) : [`${p}${k}`]))
     expect(keys(en).sort()).toEqual(keys(fr).sort())
+  })
+})
+
+describe('alimentation fantôme', () => {
+  it('micro statique sur entrée console générique (fantôme fourni) : aucune alerte fantôme', () => {
+    const { p, a, b } = twoBoxes('gen-mic-cond', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).not.toContain('phantom-missing')
+  })
+  it('micro statique sur une entrée sans fantôme : avertissement', () => {
+    const boxes = twoBoxes('gen-mic-cond', 'gen-console')
+    const { a, b } = boxes
+    const p = ops.updatePort(boxes.p, b, 'p1', { phantom: 'none' })
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('phantom-missing')
   })
 })

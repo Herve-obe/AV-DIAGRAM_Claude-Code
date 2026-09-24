@@ -180,6 +180,14 @@
     "output-split": {
       "msg": "Sortie analogique partagée entre plusieurs entrées.",
       "fix": "Vérifie l'impédance ou utilise un splitter."
+    },
+    "phantom-missing": {
+      "msg": "Micro statique sur une entrée sans alimentation fantôme 48 V.",
+      "fix": "Utilise une entrée micro avec fantôme, ou une alimentation fantôme externe."
+    },
+    "phantom-unknown": {
+      "msg": "Micro statique : vérifie que l'entrée fournit le fantôme 48 V.",
+      "fix": "Active le 48 V sur l'entrée, ou indique la capacité fantôme du port."
     }
   },
   "dock": {
@@ -245,7 +253,8 @@
     "format": "Format / protocole",
     "remove": "Supprimer le port",
     "add": "Ajouter un port",
-    "newName": "Nouveau port"
+    "newName": "Nouveau port",
+    "phantom": "Fantôme 48 V"
   },
   "pictogram": {
     "mic": "Micro",
@@ -300,5 +309,11 @@
     "sheet": "Planche",
     "legend": "Légende",
     "error": "L'export PDF a échoué. Réessaie après avoir ajusté la vue (touche F)."
+  },
+  "phantom": {
+    "required": "Exigé",
+    "supplied": "Fourni",
+    "none": "Absent",
+    "unknown": "Non précisé"
   }
 }

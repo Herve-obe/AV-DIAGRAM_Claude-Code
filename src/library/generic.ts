@@ -19,7 +19,7 @@ export const GENERIC_LIBRARY: EquipmentTemplate[] = [
   tpl({ id: 'gen-mic-dyn', family: 'capture', model: 'Micro dynamique', pictogram: 'mic',
     ports: [{ name: 'Sortie', direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'mic' }] }),
   tpl({ id: 'gen-mic-cond', family: 'capture', model: 'Micro statique (48 V)', pictogram: 'mic',
-    ports: [{ name: 'Sortie', direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'mic' }] }),
+    ports: [{ name: 'Sortie', direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'mic', phantom: 'required' }] }),
   tpl({ id: 'gen-di', family: 'capture', model: 'Boîte de direct (DI)', pictogram: 'di',
     ports: [
       { name: 'Entrée', direction: 'in', signal: 'audioAnalog', connector: 'jack-ts', level: 'instrument' },
@@ -35,7 +35,7 @@ export const GENERIC_LIBRARY: EquipmentTemplate[] = [
   // Consoles et stageboxes
   tpl({ id: 'gen-console', family: 'console', model: 'Console numérique', pictogram: 'console',
     ports: [
-      ...range('In', 8, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'mic' }),
+      ...range('In', 8, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'mic', phantom: 'supplied' }),
       ...range('Out', 4, { direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'line+4' }),
       { name: 'AES out', direction: 'out', signal: 'audioDigital', connector: 'xlr3', format: 'AES3' },
       { name: 'Dante pri.', direction: 'bidir', signal: 'audioIp', connector: 'ethercon', format: 'Dante' },
@@ -43,13 +43,13 @@ export const GENERIC_LIBRARY: EquipmentTemplate[] = [
     ] }),
   tpl({ id: 'gen-stagebox-ip', family: 'stagebox', model: 'Stagebox audio sur IP', pictogram: 'stagebox',
     ports: [
-      ...range('In', 8, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'mic' }),
+      ...range('In', 8, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'mic', phantom: 'supplied' }),
       ...range('Out', 4, { direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'line+4' }),
       { name: 'Réseau pri.', direction: 'bidir', signal: 'audioIp', connector: 'ethercon', format: 'Dante' },
     ] }),
   tpl({ id: 'gen-stagebox-madi', family: 'stagebox', model: 'Stagebox MADI', pictogram: 'stagebox',
     ports: [
-      ...range('In', 8, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'mic' }),
+      ...range('In', 8, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'mic', phantom: 'supplied' }),
       { name: 'MADI out', direction: 'out', signal: 'audioDigital', connector: 'bnc', format: 'MADI coax' },
       { name: 'MADI in', direction: 'in', signal: 'audioDigital', connector: 'bnc', format: 'MADI coax' },
     ] }),

@@ -16,6 +16,8 @@ export type RuleCode =
   | 'input-busy'
   | 'output-busy'
   | 'output-split'
+  | 'phantom-missing'
+  | 'phantom-unknown'
 
 export interface Issue {
   code: RuleCode
@@ -53,6 +55,8 @@ const SEVERITY: Record<RuleCode, Severity> = {
   'input-busy': 'error',
   'output-busy': 'error',
   'output-split': 'info',
+  'phantom-missing': 'warning',
+  'phantom-unknown': 'info',
 }
 
 /** Vérifie une liaison dans le contexte du projet (les ports déjà occupés comptent). */
@@ -69,6 +73,10 @@ export function checkLink(project: Project, link: Link): Issue[] {
   } else {
     const lvl = levelIssue(src.level, dst.level)
     if (lvl) codes.push({ code: lvl })
+  }
+
+  if (src.phantom === 'required' && dst.phantom !== 'supplied') {
+    codes.push({ code: dst.phantom === 'none' ? 'phantom-missing' : 'phantom-unknown' })
   }
 
   if (!connectorsMate(src.connector, dst.connector)) {

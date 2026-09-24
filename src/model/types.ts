@@ -17,6 +17,8 @@ export interface PortDef {
   channels?: number
   /** Détail libre : format, débit, protocole (ex. "3G-SDI", "AES3", "Dante primaire") */
   format?: string
+  /** Alimentation fantôme 48 V : exigée par un micro statique, fournie par une entrée micro, ou absente */
+  phantom?: 'required' | 'supplied' | 'none'
 }
 
 export type LibraryStatus = 'generic' | 'verified' | 'community' | 'user'

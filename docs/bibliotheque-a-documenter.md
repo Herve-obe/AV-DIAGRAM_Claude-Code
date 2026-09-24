@@ -68,7 +68,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] Rode NTG-1
 - [ ] Rode NTG-4
 - [ ] Sennheiser K6P + ME64 / ME66
-- [ ] Sennheiser MKH 416 P48U3
+- [x] Sennheiser MKH 416 P48U3
 - [ ] Sennheiser e602 II
 - [ ] Sennheiser e604
 - [ ] Sennheiser e609 Silver

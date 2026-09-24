@@ -33,6 +33,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
     if (!DIRECTIONS.has(p.direction)) errors.push(`${where}/${p.id} : sens inconnu (${p.direction})`)
     if (!(SIGNAL_FAMILIES as readonly string[]).includes(p.signal)) errors.push(`${where}/${p.id} : signal inconnu (${p.signal})`)
     if (!CONNECTOR_IDS.has(p.connector)) errors.push(`${where}/${p.id} : connecteur inconnu (${p.connector})`)
+    if (p.phantom && !['required', 'supplied', 'none'].includes(p.phantom)) errors.push(`${where}/${p.id} : valeur fantôme inconnue (${p.phantom})`)
     if (p.level && !LEVELS.has(p.level)) errors.push(`${where}/${p.id} : niveau inconnu (${p.level})`)
   }
   for (const [k, v] of [['powerW', t.powerW], ['weightKg', t.weightKg], ['rackU', t.rackU]] as const) {

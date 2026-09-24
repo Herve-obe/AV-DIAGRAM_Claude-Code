@@ -50,6 +50,21 @@ function PortForm({ eq, port }: { eq: Equipment; port: PortDef }) {
           </div>
         )}
       </div>
+      {port.signal === AUDIO_ANALOG && (
+        <div className="field">
+          <label htmlFor={`${fid}-ph`}>{t('ports.phantom')}</label>
+          <select
+            id={`${fid}-ph`}
+            value={port.phantom ?? ''}
+            onChange={(e) => set({ phantom: (e.target.value || undefined) as PortDef['phantom'] })}
+          >
+            <option value="">{t('phantom.unknown')}</option>
+            <option value="required">{t('phantom.required')}</option>
+            <option value="supplied">{t('phantom.supplied')}</option>
+            <option value="none">{t('phantom.none')}</option>
+          </select>
+        </div>
+      )}
       <Field id={`${fid}-fmt`} label={t('ports.format')} value={port.format} onCommit={(v) => set({ format: v.trim() || undefined })} />
       <div className="port-form-actions">
         <button className="btn btn-danger" onClick={() => removePort(eq.id, port.id)}>

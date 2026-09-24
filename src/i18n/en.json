@@ -180,6 +180,14 @@
     "output-split": {
       "msg": "Analog output shared between several inputs.",
       "fix": "Check impedance or use a splitter."
+    },
+    "phantom-missing": {
+      "msg": "Condenser mic on an input without 48 V phantom power.",
+      "fix": "Use a mic input with phantom power, or an external phantom supply."
+    },
+    "phantom-unknown": {
+      "msg": "Condenser mic: check that the input provides 48 V phantom.",
+      "fix": "Enable 48 V on the input, or set the port's phantom capability."
     }
   },
   "dock": {
@@ -245,7 +253,8 @@
     "format": "Format / protocol",
     "remove": "Delete port",
     "add": "Add a port",
-    "newName": "New port"
+    "newName": "New port",
+    "phantom": "48 V phantom"
   },
   "pictogram": {
     "mic": "Mic",
@@ -300,5 +309,11 @@
     "sheet": "Sheet",
     "legend": "Legend",
     "error": "PDF export failed. Try again after fitting the view (F key)."
+  },
+  "phantom": {
+    "required": "Required",
+    "supplied": "Supplied",
+    "none": "None",
+    "unknown": "Not specified"
   }
 }
