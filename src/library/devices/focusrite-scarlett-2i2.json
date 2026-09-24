@@ -1,0 +1,72 @@
+{
+  "id": "focusrite-scarlett-2i2",
+  "family": "recording",
+  "manufacturer": "Focusrite",
+  "model": "Scarlett 2i2 (guide FFFA001093)",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 0.5,
+  "sources": [
+    {
+      "document": "Focusrite, Scarlett 2i2 User Guide FFFA001093, © 2014",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo Neutrik : micro (XLR), ligne ou instrument (jack)"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo Neutrik : micro (XLR), ligne ou instrument (jack)"
+    },
+    {
+      "id": "out1",
+      "name": "Line out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique"
+    },
+    {
+      "id": "out2",
+      "name": "Line out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie casque stéréo"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 2,
+      "format": "Interface audio USB, alimentation par le bus USB"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "bss-ar-133",
+  "family": "capture",
+  "manufacturer": "BSS Audio",
+  "model": "AR-133 (DI active)",
+  "pictogram": "di",
+  "status": "verified",
+  "weightKg": 0.65,
+  "sources": [
+    {
+      "document": "BSS Audio, AR-133 User Manual, Part Number ZM0199-01 Issue 1",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "injack",
+      "name": "Entrée jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Asymétrique, 1 Mohm (atténuateur 0 dB), pad 20 / 40 dB"
+    },
+    {
+      "id": "inxlr",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Asymétrique, en parallèle avec l'entrée jack"
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Renvoi parallèle de l'entrée vers l'ampli"
+    },
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Symétrique par transformateur, ground lift ; alimentation fantôme 20 à 48 V (moins de 8 mA) ou pile"
+    }
+  ]
+}

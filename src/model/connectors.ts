@@ -5,6 +5,8 @@ export interface ConnectorDef {
   id: string
   label: string
   mate: string
+  /** Familles supplémentaires acceptées (ex. embase combo : XLR et jack) */
+  alsoMates?: string[]
 }
 
 export const CONNECTORS: ConnectorDef[] = [
@@ -15,6 +17,9 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'jack-trs', label: 'Jack 6,35 TRS', mate: 'jack635' },
   { id: 'minijack', label: 'Mini-jack 3,5', mate: 'minijack' },
   { id: 'rca', label: 'RCA', mate: 'rca' },
+  { id: 'combo', label: 'Combo XLR / jack 6,35', mate: 'combo', alsoMates: ['xlr3', 'jack635'] },
+  { id: 'toslink', label: 'Optique TOSLINK (ADAT / S/PDIF)', mate: 'toslink' },
+  { id: 'digilink-mini', label: 'DigiLink Mini (Avid)', mate: 'digilink' },
   { id: 'speakon-nl2', label: 'Speakon NL2', mate: 'speakon' },
   { id: 'speakon-nl4', label: 'Speakon NL4', mate: 'speakon' },
   { id: 'speakon-nl8', label: 'Speakon NL8', mate: 'speakon8' },
@@ -45,6 +50,10 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'p17-63-tri', label: 'P17 63 A tri', mate: 'p17-63-tri' },
   { id: 'powerlock', label: 'Powerlock', mate: 'powerlock' },
   { id: 'terminal', label: 'Bornier Phoenix', mate: 'terminal' },
+  { id: 'binding-post', label: 'Bornes haut-parleur (binding posts)', mate: 'binding-post' },
+  { id: 'dc-barrel', label: 'Jack d\'alimentation DC', mate: 'dc-barrel' },
+  { id: 'minidin8', label: 'Mini-DIN 8', mate: 'minidin8' },
+  { id: 'unspecified', label: 'Non précisé par le constructeur', mate: 'unspecified' },
 ]
 
 const BY_ID = new Map(CONNECTORS.map((c) => [c.id, c]))
@@ -58,5 +67,5 @@ export function connectorsMate(a: string, b: string): boolean {
   const ca = BY_ID.get(a)
   const cb = BY_ID.get(b)
   if (!ca || !cb) return a === b
-  return ca.mate === cb.mate
+  return ca.mate === cb.mate || !!ca.alsoMates?.includes(cb.mate) || !!cb.alsoMates?.includes(ca.mate)
 }

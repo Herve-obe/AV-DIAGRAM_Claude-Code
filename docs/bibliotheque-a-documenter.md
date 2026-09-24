@@ -11,7 +11,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 ## Lot A : régie son (priorité 1)
 
 ### Consoles, moteurs, surfaces
-- [ ] Allen & Heath SQ5 (avec carte Dante)
+- [x] Allen & Heath SQ5 (fiche sans la carte Dante, à ajouter)
 - [ ] SSL System T S300-32 (surface)
 - [ ] SSL System T T25 1 Core (moteur Dante 512/512)
 - [ ] Avid C|24 (surface de contrôle Ethernet)
@@ -20,12 +20,12 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] SSL SB32.24 (32 entrées, 16 sorties analogiques, 8 entrées / 8 sorties AES3, Dante)
 - [ ] SSL SB8.8 (8 entrées, 8 sorties analogiques, Dante)
 - [ ] SSL A16.D16 (16 entrées, 16 sorties analogiques, 16 E/S AES3, Dante)
-- [ ] Avid HD I/O
+- [x] Avid HD I/O (configuration 8x8x8 de base, à confirmer)
 - [ ] Avid MTRX Studio
-- [ ] Focusrite Scarlett 2i2
+- [x] Focusrite Scarlett 2i2 (génération du guide FFFA001093, à confirmer)
 
 ### Synchro audio
-- [ ] Avid Sync HD
+- [x] Avid Sync HD
 - [ ] Avid Sync I/O
 - [ ] Tentacle Sync E mkII
 
@@ -34,17 +34,17 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] Sound Devices MixPre-10T
 
 ### Amplification, écoute, casques
-- [ ] QSC PL230A
+- [x] QSC PL230A
 - [ ] The t.amp E-800
-- [ ] Mackie HM-400
-- [ ] Mackie HM-800
-- [ ] PreSonus HP4
+- [x] Mackie HM-400
+- [x] Mackie HM-800
+- [x] PreSonus HP4
 - [ ] dB Technologies LVX P8
-- [ ] L-Acoustics MTD112b
+- [x] L-Acoustics MTD112b
 - [ ] Fostex PM0.4n
-- [ ] Yamaha MSP5 Studio
+- [ ] Yamaha MSP5 Studio (seul le manuel MSP7 est sur le Drive)
 - [ ] Yamaha HS5
-- [ ] Beyerdynamic DT 770 Pro 250 Ω
+- [x] Beyerdynamic DT 770 Pro 250 Ω
 
 ### Distribution et mesure audio
 - [ ] RAMI SEL110 (sélecteur audio numérique 10 sources)
@@ -53,7 +53,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] Tektronix 764
 
 ### Boîtes de direct
-- [ ] BSS AR-133
+- [x] BSS AR-133
 - [ ] Radial Pro48
 - [ ] Radial ProDI
 

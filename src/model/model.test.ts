@@ -256,3 +256,11 @@ describe('feuilles, annotations et modèles de projets', () => {
     expect(Object.keys(tv.links).length).toBeGreaterThan(8)
   })
 })
+
+describe('connecteurs combo', () => {
+  it('une embase combo accepte un XLR et un jack', () => {
+    expect(connectorsMate('xlr3', 'combo')).toBe(true)
+    expect(connectorsMate('combo', 'jack-trs')).toBe(true)
+    expect(connectorsMate('combo', 'bnc')).toBe(false)
+  })
+})
