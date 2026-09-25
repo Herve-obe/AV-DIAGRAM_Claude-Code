@@ -1,0 +1,41 @@
+{
+  "id": "rts-bp-319",
+  "family": "intercom",
+  "manufacturer": "RTS",
+  "model": "BP-319 (beltpack filaire)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 0.4,
+  "sources": [
+    {
+      "document": "RTS, BP-319 / BP-351 Beltpacks Operating Instructions 9350-7753-000 Rev J (06/2010)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line",
+      "name": "Ligne intercom",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR-3 femelle ; alimenté par la ligne (30 VDC, 40 à 100 mA) ; canal choisi par cavalier"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne (bouclage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle, repiquage vers le beltpack suivant"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4F ou XLR-5F selon la version ; micro dynamique ou électret, écouteurs 150 à 600 Ω"
+    }
+  ]
+}

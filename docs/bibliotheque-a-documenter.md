@@ -8,6 +8,21 @@ Ne figurent pas dans cette liste les accessoires sans connectique utile au synop
 
 Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à confirmer.
 
+## Points en suspens (à traiter plus tard)
+
+Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points à reprendre ultérieurement.
+
+- Avid HD I/O : le parc a une carte d'extension 8 entrées analogiques ; la fiche reste en 8x8x8 de base.
+- Pas de manuel sur le Drive (lot A) : Avid Sync I/O (le guide SYNC HD renvoie à un guide séparé), Tentacle Sync E mkII, The t.amp E-800, dB Technologies LVX P8, Fostex PM0.4n, Yamaha HS5 (seul le HS8 est présent), RAMI SEL110 et EXT208S, Videotek APM200, Tektronix 764, Radial Pro48 et ProDI, Audix i5, Oktava MK-220, Rode NTG-1 et NTG-4, Sennheiser e604, e835 et EM 10.
+- Pas de manuel sur le Drive (lot B) : RTS HR-1, beyerdynamic DT 108, Datavideo ITC-100 et ITC-100SL.
+- Sound Devices : le Drive contient le guide MixPre-10 II, l'inventaire indique MixPre-10T ; confirmer le modèle.
+- RTS KP-12-CLD : fiche du KP-12 standard, la variante CLD n'est pas décrite dans le manuel.
+- RTS Zeus III LE+ : connecteurs relais, GPI et GPIO-16 repris du manuel de la Zeus III 32 ports.
+- Données absentes des documents, laissées vides : poids et consommation de la C|24, poids du 633, connecteur Dante de l'A16.D16, nombre de broches du casque XLR des BTR-700 / TR-700.
+- Connecteurs RJ-12 et RJ45 : une fiche RJ-12 entre physiquement dans une embase RJ45, mais aucun document ne le confirme ; la liaison poste RTS vers Zeus signale donc un adaptateur.
+- Yamaha MSP5 : le manuel déposé est celui de la MSP5 ; l'inventaire indique « MSP5 Studio ».
+- PreSonus HP4 : le manuel se contredit sur l'alimentation (16 VAC ou +12 VDC).
+
 ## Lot A : régie son (priorité 1)
 
 ### Consoles, moteurs, surfaces
@@ -87,14 +102,14 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [x] Sennheiser ew 100 ENG G3 (EK 100 G3, SK 100 G3, SKP 100 G3)
 - [x] Sennheiser ew 100 ENG G4 (EK 100 G4, SK 100 G4 et émetteur plug-on SKP 100 G3 ; EM 100 G4 et SKM 100 G4 en plus)
 - [ ] Sennheiser EM 10
-- [ ] Shure SLX2 / SLX4 (bande P4)
+- [x] Shure SLX2 / SLX4 (bande P4)
 
 ## Lot B : intercom (priorité 2)
 - [x] RTS Zeus III LE+
 - [x] RTS MKP-12
 - [x] RTS KP-12-CLD (fiche KP-12 ; variante CLD non décrite dans le manuel)
-- [ ] RTS PS-20
-- [ ] RTS BP-319
+- [x] RTS PS-20
+- [x] RTS BP-319
 - [x] RTS BTR-700 + TR-700
 - [ ] RTS HR-1 (versions A4M et A4F)
 - [ ] Beyerdynamic DT 108 (versions K109.28 XLR femelle et K109.38 XLR mâle)
