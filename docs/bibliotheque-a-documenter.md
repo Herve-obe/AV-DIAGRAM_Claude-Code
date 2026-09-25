@@ -33,7 +33,7 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - [x] Allen & Heath SQ5 (fiche seule et fiche avec carte Dante M-SQ-DANT64)
 - [x] SSL System T S300-32 (surface)
 - [x] SSL System T T25 1 Core (moteur Dante 512/512)
-- [x] Avid C|24 (surface de contrôle Ethernet ; guides 2008 et 2011 ; poids 20,4 kg (45 lb) et 450 W d'après Hervé Obejero, absents des guides ; DB-25 au brochage Tascam)
+- [x] Avid C|24 (surface de contrôle Ethernet ; guides 2008 et 2011 ; poids 20,4 kg (45 lb) et 450 W d'après la communauté Avid, absents des guides ; DB-25 au brochage Tascam)
 
 ### Stageboxes et interfaces
 - [x] SSL SB32.24 (32 entrées, 16 sorties analogiques, 8 entrées / 8 sorties AES3, Dante)
