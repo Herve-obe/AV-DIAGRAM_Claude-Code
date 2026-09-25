@@ -1,12 +1,39 @@
 # Construit les installateurs Windows, macOS et Linux quand on pousse une étiquette de version (ex. v0.2.0).
 # Les fichiers sont joints à un brouillon de "Release" GitHub, à publier manuellement.
 name: Desktop
+# Version de test Windows : un commit de la branche de travail dont le message contient [build]
+# produit l'installateur, à télécharger depuis l'onglet Actions (artefact « AV-Diagram-windows »).
 on:
   push:
     tags: ['v*']
+    branches: ['claude/**']
   workflow_dispatch:
 jobs:
+  windows-test:
+    if: github.ref_type == 'branch' && contains(github.event.head_commit.message, '[build]')
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: npm ci
+      - uses: tauri-apps/tauri-action@v0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-windows
+          path: |
+            src-tauri/target/release/bundle/msi/*.msi
+            src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error
+
   build:
+    if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
     strategy:
