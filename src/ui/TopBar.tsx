@@ -12,7 +12,7 @@ const THEME_NEXT: Record<ThemePref, ThemePref> = { system: 'dark', dark: 'light'
 const THEME_ICON: Record<ThemePref, IconName> = { system: 'monitor', dark: 'moon', light: 'sun' }
 
 export function csvHeaders(t: (k: string) => string) {
-  return ['number', 'signal', 'from', 'to', 'connectors', 'length'].map((k) => t(`dock.${k}`))
+  return ['number', 'signal', 'from', 'to', 'connectors', 'cable', 'length'].map((k) => t(`dock.${k}`))
 }
 
 export function TopBar() {

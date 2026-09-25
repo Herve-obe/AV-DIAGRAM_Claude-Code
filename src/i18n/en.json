@@ -116,7 +116,7 @@
     "bidir": "Network and bidirectional ports",
     "source": "Source",
     "genericSource": "Generic block, no manufacturer data.",
-    "cable": "Cable no.",
+    "cable": "Cable",
     "from": "From",
     "to": "To",
     "signal": "Signal",
@@ -133,7 +133,11 @@
     "userSource": "custom model, values entered by the user.",
     "saveTemplate": "Save as model",
     "saveTemplateHint": "Adds this block to \"My models\" to reuse it in other projects",
-    "templateSaved": "Model saved"
+    "templateSaved": "Model saved",
+    "cableNone": "None (direct connectors)",
+    "cableFitting": "Compatible with these connectors",
+    "cableOthers": "Other catalogue cables",
+    "stockLengths": "Stock lengths"
   },
   "severity": {
     "error": "Error",
@@ -188,6 +192,10 @@
     "phantom-unknown": {
       "msg": "Condenser mic: check that the input provides 48 V phantom.",
       "fix": "Enable 48 V on the input, or set the port's phantom capability."
+    },
+    "cable-mismatch": {
+      "msg": "The cable \"{{cable}}\" does not connect {{from}} to {{to}}.",
+      "fix": "Choose a compatible cable in the link inspector."
     }
   },
   "dock": {
@@ -215,7 +223,11 @@
     "renumber": "Renumber",
     "undefined": "not set",
     "collapse": "Collapse panel",
-    "expand": "Show panel"
+    "expand": "Show panel",
+    "cableType": "Cables to prepare",
+    "cableTotal": "Total length",
+    "cableUnassigned": "No cable chosen",
+    "cable": "Cable"
   },
   "status": {
     "equipment": "{{count}} items",

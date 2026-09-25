@@ -264,3 +264,40 @@ describe('connecteurs combo', () => {
     expect(connectorsMate('combo', 'bnc')).toBe(false)
   })
 })
+
+describe('catalogue de câbles', () => {
+  it('le CL 100 relie un jack 3,5 à une XLR, dans les deux sens', async () => {
+    const { cableFits, getCable, cablesFor } = await import('./cables')
+    const cl100 = getCable('cl100')!
+    expect(cableFits(cl100, 'minijack', 'xlr3')).toBe(true)
+    expect(cableFits(cl100, 'xlr3', 'minijack')).toBe(true)
+    expect(cableFits(cl100, 'xlr3', 'xlr3')).toBe(false)
+    expect(cablesFor('xlr3', 'xlr3').map((c) => c.id)).toContain('mod-xlr3')
+  })
+  it('un câble adaptateur choisi lève l’alerte, un câble inadapté en crée une autre', async () => {
+    const { LIBRARY } = await import('../library')
+    const ek = LIBRARY.find((t) => t.id === 'sennheiser-ek-100-g4')!
+    let p = ops.createProject('test')
+    const ra = ops.addEquipment(p, ek, { x: 0, y: 0 })
+    const rb = ops.addEquipment(ra.project, tpl('gen-console'), { x: 300, y: 0 })
+    const r = ops.connect(rb.project, { equipmentId: ra.id, portId: 'out' }, { equipmentId: rb.id, portId: 'p1' })
+    p = r.project
+    const codes = () => checkLink(p, p.links[r.id!]).map((i) => i.code)
+    expect(codes()).toContain('adapter-needed')
+    p = ops.updateLink(p, r.id!, { cableTypeId: 'cl100' })
+    expect(codes()).not.toContain('adapter-needed')
+    p = ops.updateLink(p, r.id!, { cableTypeId: 'hdmi' })
+    expect(codes()).toContain('cable-mismatch')
+  })
+  it('la liste des câbles regroupe par type et par longueur', async () => {
+    const { buildCableBom } = await import('./cables')
+    const p = buildSampleProject()
+    const ids = Object.keys(p.links)
+    let q = p
+    for (const id of ids.slice(0, 2)) q = ops.updateLink(q, id, { cableTypeId: 'mod-xlr3', lengthM: 10 })
+    const bom = buildCableBom(q, () => ['xlr3', 'xlr3'])
+    const line = bom.find((l) => l.cableId === 'mod-xlr3' && l.lengthM === 10)
+    expect(line?.quantity).toBe(2)
+    expect(bom.reduce((s, l) => s + l.quantity, 0)).toBe(ids.length)
+  })
+})

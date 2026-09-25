@@ -1,4 +1,5 @@
 // Règles de compatibilité des liaisons. Elles signalent sans bloquer (cahier des charges, 5.4).
+import { cableFits, getCable } from './cables'
 import { connectorsMate } from './connectors'
 import { familiesCompatible } from './signals'
 import type { Level, Link, PortDef, Project } from './types'
@@ -13,6 +14,7 @@ export type RuleCode =
   | 'level-speaker-to-line'
   | 'level-line-to-speaker'
   | 'adapter-needed'
+  | 'cable-mismatch'
   | 'input-busy'
   | 'output-busy'
   | 'output-split'
@@ -52,6 +54,7 @@ const SEVERITY: Record<RuleCode, Severity> = {
   'level-mic-to-line': 'warning',
   'level-line-to-mic': 'warning',
   'adapter-needed': 'warning',
+  'cable-mismatch': 'warning',
   'input-busy': 'error',
   'output-busy': 'error',
   'output-split': 'info',
@@ -79,7 +82,10 @@ export function checkLink(project: Project, link: Link): Issue[] {
     codes.push({ code: dst.phantom === 'none' ? 'phantom-missing' : 'phantom-unknown' })
   }
 
-  if (!connectorsMate(src.connector, dst.connector)) {
+  const cable = getCable(link.cableTypeId)
+  if (cable && !cableFits(cable, src.connector, dst.connector)) {
+    codes.push({ code: 'cable-mismatch', params: { cable: cable.label, from: src.connector, to: dst.connector } })
+  } else if (!cable && !connectorsMate(src.connector, dst.connector)) {
     codes.push({ code: 'adapter-needed', params: { from: src.connector, to: dst.connector } })
   }
 

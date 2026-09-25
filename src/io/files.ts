@@ -3,6 +3,7 @@
 // dans un navigateur (développement), on retombe sur le téléchargement classique.
 import { isTauri } from '@tauri-apps/api/core'
 import { toPng, toSvg } from 'html-to-image'
+import { getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { isProject } from '../model/project'
@@ -104,6 +105,11 @@ export async function openProjectFile(): Promise<Project | null> {
   })
 }
 
+const cableName = (id?: string) => {
+  const c = getCable(id)
+  return c ? (c.reference ? `${c.label} (${c.reference})` : c.label) : ''
+}
+
 /** Échappe une valeur CSV (séparateur point-virgule, lisible par Excel en français). */
 const csvCell = (v: string | number | undefined) => `"${String(v ?? '').replace(/"/g, '""')}"`
 
@@ -121,6 +127,7 @@ export function cableListCsv(project: Project, headers: string[]): string {
         `${se?.name} / ${sp?.name}`,
         `${te?.name} / ${tp?.name}`,
         `${sp ? connectorLabel(sp.connector) : ''} > ${tp ? connectorLabel(tp.connector) : ''}`,
+        cableName(l.cableTypeId),
         l.lengthM,
       ]
     })

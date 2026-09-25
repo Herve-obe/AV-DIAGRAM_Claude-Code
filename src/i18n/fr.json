@@ -116,7 +116,7 @@
     "bidir": "Ports réseau et bidirectionnels",
     "source": "Source",
     "genericSource": "Bloc générique, sans fiche constructeur.",
-    "cable": "N° de câble",
+    "cable": "Câble",
     "from": "De",
     "to": "Vers",
     "signal": "Signal",
@@ -133,7 +133,11 @@
     "userSource": "modèle perso, caractéristiques saisies par l'utilisateur.",
     "saveTemplate": "Enregistrer comme modèle",
     "saveTemplateHint": "Ajoute ce bloc à « Mes modèles » pour le réutiliser dans d'autres projets",
-    "templateSaved": "Modèle enregistré"
+    "templateSaved": "Modèle enregistré",
+    "cableNone": "Aucun (connecteurs directs)",
+    "cableFitting": "Compatibles avec ces connecteurs",
+    "cableOthers": "Autres câbles du catalogue",
+    "stockLengths": "Longueurs du parc"
   },
   "severity": {
     "error": "Erreur",
@@ -188,6 +192,10 @@
     "phantom-unknown": {
       "msg": "Micro statique : vérifie que l'entrée fournit le fantôme 48 V.",
       "fix": "Active le 48 V sur l'entrée, ou indique la capacité fantôme du port."
+    },
+    "cable-mismatch": {
+      "msg": "Le câble « {{cable}} » ne relie pas {{from}} à {{to}}.",
+      "fix": "Choisis un câble compatible dans l’inspecteur de la liaison."
     }
   },
   "dock": {
@@ -215,7 +223,11 @@
     "renumber": "Renuméroter",
     "undefined": "à définir",
     "collapse": "Réduire le panneau",
-    "expand": "Afficher le panneau"
+    "expand": "Afficher le panneau",
+    "cableType": "Câbles à préparer",
+    "cableTotal": "Longueur totale",
+    "cableUnassigned": "Câble non choisi",
+    "cable": "Câble"
   },
   "status": {
     "equipment": "{{count}} équipements",

@@ -2,6 +2,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { buildBom, computeTotals } from '../model/bom'
+import { buildCableBom, getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
@@ -22,7 +23,7 @@ function CablesTable() {
   return (
     <table>
       <thead>
-        <tr><th>{t('dock.number')}</th><th>{t('dock.signal')}</th><th>{t('dock.from')}</th><th>{t('dock.to')}</th><th>{t('dock.connectors')}</th><th className="num">{t('dock.length')}</th></tr>
+        <tr><th>{t('dock.number')}</th><th>{t('dock.signal')}</th><th>{t('dock.from')}</th><th>{t('dock.to')}</th><th>{t('dock.connectors')}</th><th>{t('dock.cable')}</th><th className="num">{t('dock.length')}</th></tr>
       </thead>
       <tbody>
         {rows.map((l) => {
@@ -35,6 +36,7 @@ function CablesTable() {
               <td>{project.equipment[l.source.equipmentId]?.name} <span className="dim">/ {sp?.name}</span></td>
               <td>{project.equipment[l.target.equipmentId]?.name} <span className="dim">/ {tp?.name}</span></td>
               <td className="mono">{sp && tp ? `${connectorLabel(sp.connector)} → ${connectorLabel(tp.connector)}` : ''}</td>
+              <td>{getCable(l.cableTypeId)?.label ?? <span className="dim">{t('dock.undefined')}</span>}</td>
               <td className="num mono">{l.lengthM !== undefined ? `${fmt(l.lengthM, 1)} m` : <span className="dim">{t('dock.undefined')}</span>}</td>
             </tr>
           )
@@ -49,7 +51,16 @@ function BomTable() {
   const project = useProject((s) => s.project)
   const bom = useMemo(() => buildBom(project), [project])
   const totals = useMemo(() => computeTotals(project), [project])
+  const cables = useMemo(
+    () => buildCableBom(project, (l) => {
+      const sp = findPort(project, l.source)
+      const tp = findPort(project, l.target)
+      return sp && tp ? [sp.connector, tp.connector] : undefined
+    }),
+    [project],
+  )
   return (
+    <>
     <table>
       <thead>
         <tr><th>{t('dock.designation')}</th><th className="num">{t('dock.qty')}</th><th className="num">{t('dock.unitPower')}</th><th className="num">{t('dock.unitWeight')}</th></tr>
@@ -77,6 +88,29 @@ function BomTable() {
         </tr>
       </tfoot>
     </table>
+    {cables.length > 0 && (
+      <table className="bom-cables">
+        <thead>
+          <tr><th>{t('dock.cableType')}</th><th className="num">{t('dock.qty')}</th><th className="num">{t('dock.length')}</th><th className="num">{t('dock.cableTotal')}</th></tr>
+        </thead>
+        <tbody>
+          {cables.map((c) => {
+            const cable = getCable(c.cableId)
+            return (
+              <tr key={c.key}>
+                <td>
+                  {cable ? <>{cable.label}{cable.reference && <span className="dim"> · {cable.reference}</span>}</> : <span className="dim">{t('dock.cableUnassigned')}{c.connectors ? ` : ${connectorLabel(c.connectors[0])} / ${connectorLabel(c.connectors[1])}` : ''}</span>}
+                </td>
+                <td className="num mono">{c.quantity}</td>
+                <td className="num mono">{c.lengthM !== undefined ? `${fmt(c.lengthM, 1)} m` : <span className="dim">{t('dock.undefined')}</span>}</td>
+                <td className="num mono">{c.lengthM !== undefined ? `${fmt(c.lengthM * c.quantity, 1)} m` : ''}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    )}
+    </>
   )
 }
 

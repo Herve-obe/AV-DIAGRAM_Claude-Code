@@ -1,6 +1,7 @@
 // Inspecteur : propriétés de l'équipement ou de la liaison sélectionnés.
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { CABLE_CATALOG, cablesFor, getCable, type CableType } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
@@ -167,6 +168,7 @@ function LinkInspector({ link }: { link: Link }) {
   const tp = findPort(project, link.target)
   const se = project.equipment[link.source.equipmentId]
   const te = project.equipment[link.target.equipmentId]
+  const cable = getCable(link.cableTypeId)
   if (!sp || !tp || !se || !te) return null
   return (
     <>
@@ -181,7 +183,15 @@ function LinkInspector({ link }: { link: Link }) {
       <div className="field"><label>{t('inspector.from')}</label><div className="readonly">{se.name} / {sp.name}</div></div>
       <div className="field"><label>{t('inspector.to')}</label><div className="readonly">{te.name} / {tp.name}</div></div>
       <div className="field"><label>{t('inspector.connectors')}</label><div className="readonly mono">{connectorLabel(sp.connector)} → {connectorLabel(tp.connector)}</div></div>
+      <CablePicker link={link} from={sp.connector} to={tp.connector} />
       <Field id="lk-length" type="number" label={t('inspector.length')} value={link.lengthM} onCommit={(v) => updateLink(link.id, { lengthM: toNumber(v) })} />
+      {cable?.lengthsM && (
+        <div className="chips" role="group" aria-label={t('inspector.stockLengths')}>
+          {cable.lengthsM.map((m) => (
+            <button key={m} className="chip" aria-pressed={link.lengthM === m} onClick={() => updateLink(link.id, { lengthM: m })}>{m} m</button>
+          ))}
+        </div>
+      )}
       {expert && <Field id="lk-ref" label={t('inspector.cableRef')} value={link.cableRef} onCommit={(v) => updateLink(link.id, { cableRef: v || undefined })} />}
       {expert && <Field id="lk-notes" label={t('inspector.notes')} value={link.notes} multiline onCommit={(v) => updateLink(link.id, { notes: v || undefined })} />}
       <section className="insp-section">
@@ -206,6 +216,24 @@ function LinkInspector({ link }: { link: Link }) {
         <button className="btn btn-danger" onClick={() => remove([], [link.id])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
     </>
+  )
+}
+
+/** Choix du câble du catalogue : les câbles compatibles avec les deux connecteurs sont proposés en premier. */
+function CablePicker({ link, from, to }: { link: Link; from: string; to: string }) {
+  const { t } = useTranslation()
+  const fitting = cablesFor(from, to)
+  const others = CABLE_CATALOG.filter((c) => !fitting.includes(c))
+  const label = (c: CableType) => (c.reference ? `${c.label} (${c.reference})` : c.label)
+  return (
+    <div className="field">
+      <label htmlFor="lk-cable">{t('inspector.cable')}</label>
+      <select id="lk-cable" value={link.cableTypeId ?? ''} onChange={(e) => useProject.getState().updateLink(link.id, { cableTypeId: e.target.value || undefined })}>
+        <option value="">{t('inspector.cableNone')}</option>
+        {fitting.length > 0 && <optgroup label={t('inspector.cableFitting')}>{fitting.map((c) => <option key={c.id} value={c.id}>{label(c)}</option>)}</optgroup>}
+        <optgroup label={t('inspector.cableOthers')}>{others.map((c) => <option key={c.id} value={c.id}>{label(c)}</option>)}</optgroup>
+      </select>
+    </div>
   )
 }
 

@@ -209,11 +209,15 @@ Une famille « Éclairage » est à ajouter au modèle : alimentation, DMX entr�
 - [ ] APC Smart-UPS 1500
 
 ## Catalogue de câbles et adaptateurs (lot 2)
-- Modulation XLR 3 points : 3 m, 5 m, 10 m, 20 m
-- Ethernet RJ45 Cat6 : court, moyen, long (longueurs à préciser)
-- Vidéo HD-SDI : court, moyen, long (longueurs à préciser)
-- HDMI : court, moyen, long (longueurs à préciser)
-- Triax Sony CCFN-100 (versions Fischer et fibre)
-- Prolongateurs H07RN-F 3G2,5 : 5 m, 10 m, 20 m
-- Adaptateur Neutrik NJ3FC6C-BAG (jack TRS femelle vers XLR 3 femelle)
-- Câbles Sound Devices : TA3-F vers XLR-3 mâle et femelle, Lemo 5 vers 2 x BNC
+
+Le catalogue est dans `src/model/cables.ts`. `[x]` : présent dans le catalogue.
+
+- [x] Modulation XLR 3 points : 3 m, 5 m, 10 m, 20 m
+- [x] Ethernet RJ45 Cat6 (longueurs à préciser)
+- [x] Vidéo HD-SDI (longueurs à préciser)
+- [x] HDMI (longueurs à préciser)
+- [ ] Triax Sony CCFN-100 (versions Fischer et fibre) : connecteurs triax à ajouter avec le lot vidéo
+- [ ] Prolongateurs H07RN-F 3G2,5 : 5 m, 10 m, 20 m ; type de fiches à confirmer
+- [x] Adaptateur Neutrik NJ3FC6C-BAG (jack TRS femelle vers XLR 3 femelle)
+- [x] Câbles Sound Devices : TA3-F vers XLR-3, LEMO 5 vers 2 x BNC
+- [x] Câbles Sennheiser CL 100, CL 2, CL 1 et Ci 1-N (d'après les notices EK 100 G3 et ew 100 G4)

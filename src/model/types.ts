@@ -122,6 +122,8 @@ export interface Link {
   source: { equipmentId: string; portId: string }
   target: { equipmentId: string; portId: string }
   lengthM?: number
+  /** Type de câble choisi dans le catalogue (model/cables.ts) */
+  cableTypeId?: string
   cableRef?: string
   notes?: string
   /** Alertes volontairement ignorées par l'utilisateur, par code de règle */
