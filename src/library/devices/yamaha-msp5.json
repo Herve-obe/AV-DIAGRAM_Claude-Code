@@ -1,0 +1,44 @@
+{
+  "id": "yamaha-msp5",
+  "family": "speaker",
+  "manufacturer": "Yamaha",
+  "model": "MSP5",
+  "pictogram": "speaker",
+  "status": "verified",
+  "powerW": 60,
+  "weightKg": 7.5,
+  "sources": [
+    {
+      "document": "Yamaha, MSP5 Monitor Speaker Owner's Manual (MSP5E.pdf, V243540)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +4 dB, 10 kΩ"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Asymétrique, -10 dB, 10 kΩ"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "230 V 50 Hz (Europe), 60 W ; type de raccordement non précisé"
+    }
+  ]
+}

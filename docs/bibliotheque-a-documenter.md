@@ -11,7 +11,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 ## Lot A : régie son (priorité 1)
 
 ### Consoles, moteurs, surfaces
-- [x] Allen & Heath SQ5 (fiche sans la carte Dante, à ajouter)
+- [x] Allen & Heath SQ5 (fiche seule et fiche avec carte Dante M-SQ-DANT64)
 - [ ] SSL System T S300-32 (surface)
 - [ ] SSL System T T25 1 Core (moteur Dante 512/512)
 - [ ] Avid C|24 (surface de contrôle Ethernet)
@@ -20,9 +20,9 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] SSL SB32.24 (32 entrées, 16 sorties analogiques, 8 entrées / 8 sorties AES3, Dante)
 - [ ] SSL SB8.8 (8 entrées, 8 sorties analogiques, Dante)
 - [ ] SSL A16.D16 (16 entrées, 16 sorties analogiques, 16 E/S AES3, Dante)
-- [x] Avid HD I/O (configuration 8x8x8 de base, à confirmer)
+- [x] Avid HD I/O (fiche 8x8x8 de base ; le parc a une carte 8 entrées analogiques en plus, non modélisée pour l'instant)
 - [ ] Avid MTRX Studio
-- [x] Focusrite Scarlett 2i2 (génération du guide FFFA001093, à confirmer)
+- [ ] Focusrite Scarlett 2i2 3e génération (guide absent du Drive, site Focusrite bloqué par le proxy)
 
 ### Synchro audio
 - [x] Avid Sync HD
@@ -42,7 +42,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] dB Technologies LVX P8
 - [x] L-Acoustics MTD112b
 - [ ] Fostex PM0.4n
-- [ ] Yamaha MSP5 Studio (seul le manuel MSP7 est sur le Drive)
+- [x] Yamaha MSP5 (manuel V243540 ; désignation « Studio » à confirmer)
 - [ ] Yamaha HS5
 - [x] Beyerdynamic DT 770 Pro 250 Ω
 
@@ -63,7 +63,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [x] Audio-Technica PRO 37
 - [ ] Audix i5
 - [x] Neumann TLM 103
-- [ ] Oktava MK-012 MSP6 (paire appairée)
+- [ ] Oktava MK-012 MSP6 (paire appairée) : source unique oktava-shop.com, bloquée par le proxy
 - [ ] Oktava MK-220 (paire appairée)
 - [ ] Rode NTG-1
 - [ ] Rode NTG-4
@@ -84,7 +84,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [x] Shure SM81 (présent sur le Drive, hors liste initiale)
 
 ### Systèmes HF
-- [ ] Sennheiser ew 100 ENG G3
+- [x] Sennheiser ew 100 ENG G3 (EK 100 G3, SK 100 G3, SKP 100 G3)
 - [ ] Sennheiser ew 100 ENG G4
 - [ ] Sennheiser EM 10
 - [ ] Shure SLX2 / SLX4 (bande P4)
