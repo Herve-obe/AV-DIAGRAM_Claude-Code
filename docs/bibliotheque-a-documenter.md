@@ -12,8 +12,8 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 
 ### Consoles, moteurs, surfaces
 - [x] Allen & Heath SQ5 (fiche seule et fiche avec carte Dante M-SQ-DANT64)
-- [ ] SSL System T S300-32 (surface)
-- [ ] SSL System T T25 1 Core (moteur Dante 512/512)
+- [x] SSL System T S300-32 (surface)
+- [x] SSL System T T25 1 Core (moteur Dante 512/512)
 - [x] Avid C|24 (surface de contrôle Ethernet ; poids et consommation absents du guide)
 
 ### Stageboxes et interfaces

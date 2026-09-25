@@ -1,0 +1,88 @@
+{
+  "id": "ssl-system-t-s300-32",
+  "family": "console",
+  "manufacturer": "Solid State Logic",
+  "model": "System T S300-32 (surface)",
+  "pictogram": "console",
+  "status": "verified",
+  "powerW": 210,
+  "weightKg": 80,
+  "sources": [
+    {
+      "document": "SSL, System T Installation Guide Rev H",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ocpP",
+      "name": "OCP primaire",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau de contrôle vers le Tempest Engine"
+    },
+    {
+      "id": "ocpS",
+      "name": "OCP secondaire",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "danteP",
+      "name": "Dante primaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Audio de la surface (écoute, talkback) sur le réseau Dante"
+    },
+    {
+      "id": "danteS",
+      "name": "Dante secondaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45"
+    },
+    {
+      "id": "conn",
+      "name": "Connectivity",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Surfaces supplémentaires ou distantes"
+    },
+    {
+      "id": "studio",
+      "name": "Studio Integration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Automatisation de production et contrôle de STAN"
+    },
+    {
+      "id": "hdmi",
+      "name": "Écran Overview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1920 x 1080 vers écran tactile externe"
+    },
+    {
+      "id": "usb",
+      "name": "Tactile écran externe",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB-A, 3 m max en câble passif"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentations 600 W max, 100-240 VAC ; consommation 200 W typ., 210 W max ; embase non précisée"
+    }
+  ]
+}
