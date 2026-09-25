@@ -53,6 +53,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'binding-post', label: 'Bornes haut-parleur (binding posts)', mate: 'binding-post' },
   { id: 'dc-barrel', label: 'Jack d\'alimentation DC', mate: 'dc-barrel' },
   { id: 'minidin8', label: 'Mini-DIN 8', mate: 'minidin8' },
+  { id: 'rj10', label: 'RJ-10', mate: 'rj10' },
   { id: 'rf', label: 'Liaison radio (HF)', mate: 'rf' },
   { id: 'unspecified', label: 'Non précisé par le constructeur', mate: 'unspecified' },
 ]
