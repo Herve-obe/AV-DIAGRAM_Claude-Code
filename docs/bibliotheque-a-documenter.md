@@ -14,6 +14,8 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 
 - Avid HD I/O : le parc a une carte d'extension 8 entrées analogiques ; la fiche reste en 8x8x8 de base.
 - Pas de manuel sur le Drive (lot A) : Avid Sync I/O (le guide SYNC HD renvoie à un guide séparé), Tentacle Sync E mkII, The t.amp E-800, dB Technologies LVX P8, Fostex PM0.4n, Yamaha HS5 (seul le HS8 est présent), RAMI SEL110 et EXT208S, Videotek APM200, Tektronix 764, Radial Pro48 et ProDI, Audix i5, Oktava MK-220, Rode NTG-1 et NTG-4, Sennheiser e604, e835 et EM 10.
+- Pas de manuel sur le Drive (lot C, vidéo) : ATEM Television Studio Pro 4K, Datavideo SE-2800-8, TriCaster 455 + 450CS, panneau ICP-3016 (manuel de 28 Mo non lu), Sierra Aspen, Web Presenter 4K, Shogun Connect, convertisseurs Blackmagic, Teranex, Decimator, Canopus, Kramer, ADVC G4, SmartScope, SmartView, Tektronix, Hamlet, Lilliput, SWIT, Sony HXCU-TX70 / FB70, Panasonic AW-HE40 / AW-RP50, Canon XF205, Sony PXW-FS5, écrans.
+- Sony HXC-D70 : le manuel décrit une liaison CCU sur CCZ (HXCU-D70) ; l'inventaire associe des CCU triax / fibre (HXCU-TX70 / FB70), à vérifier.
 - Pas de manuel sur le Drive (lot B) : RTS HR-1, beyerdynamic DT 108, Datavideo ITC-100 et ITC-100SL.
 - Sound Devices : le Drive contient le guide MixPre-10 II, l'inventaire indique MixPre-10T ; confirmer le modèle.
 - RTS KP-12-CLD : fiche du KP-12 standard, la variante CLD n'est pas décrite dans le manuel.
@@ -126,7 +128,7 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - [ ] Sierra Video Aspen 3232HD + panneau RCP-3232
 
 ### Enregistrement, streaming, lecture
-- [ ] Blackmagic HyperDeck Studio Pro
+- [x] Blackmagic HyperDeck Studio Pro (statut Communauté : fiche Blackmagic reproduite par un revendeur)
 - [ ] Blackmagic Web Presenter 4K
 - [ ] Atomos Shogun Connect
 - [ ] Supermicro PC rack CasparCG (configuration à décrire)

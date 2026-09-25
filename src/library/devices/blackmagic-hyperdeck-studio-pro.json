@@ -1,0 +1,169 @@
+{
+  "id": "blackmagic-hyperdeck-studio-pro",
+  "family": "recording",
+  "manufacturer": "Blackmagic Design",
+  "model": "HyperDeck Studio Pro",
+  "pictogram": "recorder",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Blackmagic Design, HyperDeck Studio Pro Spécifications techniques (fiche reproduite par le revendeur Atreid, © 2015)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiin",
+      "name": "SDI IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 4,
+      "format": "3 entrées SD/HD/3G + 1 entrée 6G-SDI, 10 bits"
+    },
+    {
+      "id": "sdiout",
+      "name": "SDI OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 4,
+      "format": "4 sorties SD/HD/3G/6G-SDI"
+    },
+    {
+      "id": "sdimon",
+      "name": "SDI MONITOR",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie de monitoring SD/HD/3G-SDI"
+    },
+    {
+      "id": "compin",
+      "name": "Composante IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 3,
+      "format": "YUV sur 3 BNC, HD et SD"
+    },
+    {
+      "id": "compout",
+      "name": "Composante OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 3,
+      "format": "YUV sur 3 BNC, HD et SD"
+    },
+    {
+      "id": "hdmiin",
+      "name": "HDMI IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Type A, Ultra HD 4K"
+    },
+    {
+      "id": "hdmiout",
+      "name": "HDMI OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Type A, Ultra HD 4K"
+    },
+    {
+      "id": "ain",
+      "name": "Audio IN (XLR)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "channels": 2,
+      "level": "line+4",
+      "format": "2 entrées symétriques XLR"
+    },
+    {
+      "id": "ainrca",
+      "name": "Audio IN (RCA)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "level": "line-10",
+      "format": "2 entrées asymétriques RCA"
+    },
+    {
+      "id": "aout",
+      "name": "Audio OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "channels": 2,
+      "level": "line+4",
+      "format": "2 sorties symétriques XLR"
+    },
+    {
+      "id": "tcin",
+      "name": "Timecode IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "tcout",
+      "name": "Timecode OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "ref",
+      "name": "Référence",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Black burst ou tri-level ; connecteur non précisé"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Protocole compatible Sony ; connecteur non précisé"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle"
+    },
+    {
+      "id": "tb",
+      "name": "Thunderbolt",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Acquisition sur ordinateur"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-B : installation, mises à jour, HyperDeck Utility"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C14, 110-240 V, 50-60 Hz"
+    }
+  ]
+}
