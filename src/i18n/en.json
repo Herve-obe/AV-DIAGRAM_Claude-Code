@@ -137,7 +137,12 @@
     "cableNone": "None (direct connectors)",
     "cableFitting": "Compatible with these connectors",
     "cableOthers": "Other catalogue cables",
-    "stockLengths": "Stock lengths"
+    "stockLengths": "Stock lengths",
+    "multicore": "Multicore",
+    "multicoreNone": "None (single cable)",
+    "multicoreNew": "New multicore",
+    "pair": "Pair",
+    "pairUsed": "used"
   },
   "severity": {
     "error": "Error",
@@ -196,6 +201,18 @@
     "cable-mismatch": {
       "msg": "The cable \"{{cable}}\" does not connect {{from}} to {{to}}.",
       "fix": "Choose a compatible cable in the link inspector."
+    },
+    "pair-busy": {
+      "msg": "Pair {{pair}} of multicore {{cable}} is already used by another link.",
+      "fix": "Choose a free pair in the link inspector."
+    },
+    "pair-range": {
+      "msg": "Pair {{pair}} does not exist: multicore {{cable}} has {{pairs}} pairs.",
+      "fix": "Choose a pair between 1 and the pair count, or enlarge the multicore."
+    },
+    "pair-missing": {
+      "msg": "Link assigned to multicore {{cable}} without a pair number.",
+      "fix": "Choose the pair used in the link inspector."
     }
   },
   "dock": {
@@ -227,7 +244,17 @@
     "cableType": "Cables to prepare",
     "cableTotal": "Total length",
     "cableUnassigned": "No cable chosen",
-    "cable": "Cable"
+    "cable": "Cable",
+    "multicores": "Multicores",
+    "multicoreNew": "New multicore",
+    "pairs": "Pairs",
+    "usage": "Usage",
+    "contents": "Contents",
+    "multicoreConnectors": "Connectors",
+    "noMulticore": "No multicore yet. Create one, then assign links to its pairs from the inspector.",
+    "delete": "Delete",
+    "multicoreLine": "Multicore, {{n}} pairs",
+    "free": "free"
   },
   "status": {
     "equipment": "{{count}} items",

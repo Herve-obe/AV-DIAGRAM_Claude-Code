@@ -125,9 +125,26 @@ export interface Link {
   /** Type de câble choisi dans le catalogue (model/cables.ts) */
   cableTypeId?: string
   cableRef?: string
+  /** Multipaire qui transporte cette liaison, et numéro de paire (à partir de 1) */
+  multicoreId?: string
+  pair?: number
   notes?: string
   /** Alertes volontairement ignorées par l'utilisateur, par code de règle */
   ignoredRules?: string[]
+}
+
+/** Multipaire : câble physique à N paires ; chaque liaison qui l'emprunte occupe une paire. */
+export interface Multicore {
+  id: string
+  /** Étiquette du câble (ex. MP-01) */
+  label: string
+  pairs: number
+  /** Type de câble du catalogue, s'il y en a un */
+  cableTypeId?: string
+  lengthM?: number
+  /** Connecteurs d'extrémité, en texte libre (ex. Harting 16 broches, DB-25) */
+  connectors?: string
+  notes?: string
 }
 
 export interface Zone {
@@ -169,6 +186,7 @@ export interface Project {
   info?: ProjectInfo
   sheets?: Sheet[]
   annotations?: Record<string, Annotation>
+  multicores?: Record<string, Multicore>
 }
 
 /** Informations reportées dans le cartouche d'impression. */

@@ -137,7 +137,12 @@
     "cableNone": "Aucun (connecteurs directs)",
     "cableFitting": "Compatibles avec ces connecteurs",
     "cableOthers": "Autres câbles du catalogue",
-    "stockLengths": "Longueurs du parc"
+    "stockLengths": "Longueurs du parc",
+    "multicore": "Multipaire",
+    "multicoreNone": "Aucun (câble simple)",
+    "multicoreNew": "Nouveau multipaire",
+    "pair": "Paire",
+    "pairUsed": "occupée"
   },
   "severity": {
     "error": "Erreur",
@@ -196,6 +201,18 @@
     "cable-mismatch": {
       "msg": "Le câble « {{cable}} » ne relie pas {{from}} à {{to}}.",
       "fix": "Choisis un câble compatible dans l’inspecteur de la liaison."
+    },
+    "pair-busy": {
+      "msg": "Paire {{pair}} du multipaire {{cable}} déjà occupée par une autre liaison.",
+      "fix": "Choisis une paire libre dans l’inspecteur de la liaison."
+    },
+    "pair-range": {
+      "msg": "Paire {{pair}} inexistante : le multipaire {{cable}} a {{pairs}} paires.",
+      "fix": "Choisis une paire entre 1 et le nombre de paires, ou agrandis le multipaire."
+    },
+    "pair-missing": {
+      "msg": "Liaison affectée au multipaire {{cable}} sans numéro de paire.",
+      "fix": "Choisis la paire utilisée dans l’inspecteur de la liaison."
     }
   },
   "dock": {
@@ -227,7 +244,17 @@
     "cableType": "Câbles à préparer",
     "cableTotal": "Longueur totale",
     "cableUnassigned": "Câble non choisi",
-    "cable": "Câble"
+    "cable": "Câble",
+    "multicores": "Multipaires",
+    "multicoreNew": "Nouveau multipaire",
+    "pairs": "Paires",
+    "usage": "Occupation",
+    "contents": "Contenu",
+    "multicoreConnectors": "Connecteurs",
+    "noMulticore": "Aucun multipaire. Crée-en un, puis affecte des liaisons à ses paires depuis l’inspecteur.",
+    "delete": "Supprimer",
+    "multicoreLine": "Multipaire {{n}} paires",
+    "free": "libre"
   },
   "status": {
     "equipment": "{{count}} équipements",

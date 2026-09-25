@@ -127,7 +127,7 @@ export function cableListCsv(project: Project, headers: string[]): string {
         `${se?.name} / ${sp?.name}`,
         `${te?.name} / ${tp?.name}`,
         `${sp ? connectorLabel(sp.connector) : ''} > ${tp ? connectorLabel(tp.connector) : ''}`,
-        cableName(l.cableTypeId),
+        l.multicoreId && project.multicores?.[l.multicoreId] ? `${project.multicores[l.multicoreId].label} / ${l.pair ?? '?'}` : cableName(l.cableTypeId),
         l.lengthM,
       ]
     })

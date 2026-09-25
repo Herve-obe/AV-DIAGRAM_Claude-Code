@@ -17,6 +17,7 @@ import {
 import { getTemplate } from '../store/libraryStore'
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { SIGNAL_STYLE } from '../model/signals'
+import type { Link } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useIssues, worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
@@ -89,6 +90,11 @@ export function Canvas() {
 
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)
+    // Liaison dans un multipaire : l'étiquette indique le câble et la paire (ex. FOH-AUD-001 · MP-01/3)
+    const via = (l: Link) => {
+      const mc = l.multicoreId ? project.multicores?.[l.multicoreId] : undefined
+      return mc ? `${l.label} · ${mc.label}/${l.pair ?? '?'}` : l.label
+    }
     return Object.values(project.links).flatMap((l) => {
       const se = project.equipment[l.source.equipmentId]
       const te = project.equipment[l.target.equipmentId]
@@ -105,10 +111,10 @@ export function Canvas() {
         targetHandle: l.target.portId,
         selected: selectedLinks.includes(l.id),
         hidden: hiddenSignals.includes(signal),
-        data: { signal, label: l.label, severity: worst.get(l.id), showLabel: mode === 'expert' || presenting },
+        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting },
       }]
     })
-  }, [project.links, project.equipment, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting])
+  }, [project.links, project.equipment, project.multicores, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting])
 
   const onNodesChange = useCallback(
     (changes: NodeChange<CanvasNode>[]) => {

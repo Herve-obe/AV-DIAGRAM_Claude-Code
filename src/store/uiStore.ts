@@ -6,7 +6,7 @@ import type { SignalFamily } from '../model/signals'
 
 export type UiMode = 'beginner' | 'expert'
 export type ThemePref = 'system' | 'dark' | 'light'
-export type DockTab = 'cables' | 'bom' | 'issues'
+export type DockTab = 'cables' | 'multicores' | 'bom' | 'issues'
 
 interface Prefs {
   mode: UiMode

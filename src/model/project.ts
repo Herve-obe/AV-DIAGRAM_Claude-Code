@@ -2,7 +2,7 @@
 // Le store (src/store) les appelle et gère l'historique d'annulation.
 import { formatCableLabel } from './numbering'
 import type { SignalFamily } from './signals'
-import type { Annotation, Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from './types'
+import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from './types'
 
 export function uid(prefix: string): string {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}`
@@ -42,7 +42,7 @@ export function normalizeProject(project: Project): Project {
   const equipment = Object.fromEntries(
     Object.entries(project.equipment).map(([k, e]) => [k, e.sheetId && ids.has(e.sheetId) ? e : { ...e, sheetId: sheets[0].id }]),
   )
-  return { ...project, sheets, equipment, annotations: project.annotations ?? {} }
+  return { ...project, sheets, equipment, annotations: project.annotations ?? {}, multicores: project.multicores ?? {} }
 }
 
 function touch(p: Project): Project {
@@ -354,3 +354,55 @@ export function removeAnnotations(project: Project, ids: string[]): Project {
   return touch({ ...project, annotations: Object.fromEntries(Object.entries(project.annotations ?? {}).filter(([k]) => !set.has(k))) })
 }
 
+
+// ---------- Multipaires ----------
+
+/** Crée un multipaire ; l'étiquette par défaut suit la série MP-01, MP-02... */
+export function addMulticore(project: Project, init: Partial<Omit<Multicore, 'id'>> = {}): { project: Project; id: string } {
+  const id = uid('mc')
+  const existing = new Set(Object.values(project.multicores ?? {}).map((m) => m.label))
+  let n = 1
+  while (existing.has(`MP-${String(n).padStart(2, '0')}`)) n++
+  const mc: Multicore = { id, label: `MP-${String(n).padStart(2, '0')}`, pairs: 8, ...init }
+  return { project: touch({ ...project, multicores: { ...project.multicores, [id]: mc } }), id }
+}
+
+export function updateMulticore(project: Project, id: string, patch: Partial<Omit<Multicore, 'id'>>): Project {
+  const m = project.multicores?.[id]
+  if (!m) return project
+  return touch({ ...project, multicores: { ...project.multicores, [id]: { ...m, ...patch } } })
+}
+
+/** Supprime un multipaire ; les liaisons qui l'empruntaient redeviennent des câbles simples. */
+export function removeMulticore(project: Project, id: string): Project {
+  const multicores = Object.fromEntries(Object.entries(project.multicores ?? {}).filter(([k]) => k !== id))
+  const links = Object.fromEntries(
+    Object.entries(project.links).map(([k, l]) => {
+      if (l.multicoreId !== id) return [k, l]
+      const rest = { ...l }
+      delete rest.multicoreId
+      delete rest.pair
+      return [k, rest]
+    }),
+  )
+  return touch({ ...project, multicores, links })
+}
+
+/** Occupation d'un multipaire : numéro de paire vers identifiants des liaisons. */
+export function multicoreUsage(project: Project, id: string): Map<number, string[]> {
+  const used = new Map<number, string[]>()
+  for (const l of Object.values(project.links)) {
+    if (l.multicoreId !== id || !l.pair) continue
+    used.set(l.pair, [...(used.get(l.pair) ?? []), l.id])
+  }
+  return used
+}
+
+/** Première paire libre d'un multipaire, ou undefined s'il est plein. */
+export function firstFreePair(project: Project, id: string): number | undefined {
+  const m = project.multicores?.[id]
+  if (!m) return undefined
+  const used = multicoreUsage(project, id)
+  for (let i = 1; i <= m.pairs; i++) if (!used.has(i)) return i
+  return undefined
+}

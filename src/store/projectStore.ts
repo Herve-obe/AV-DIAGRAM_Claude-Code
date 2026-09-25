@@ -2,7 +2,7 @@
 // Toute modification passe par commit() qui empile l'état précédent.
 import { create } from 'zustand'
 import * as ops from '../model/project'
-import type { Annotation, Equipment, EquipmentTemplate, Link, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
+import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import { buildSampleProject } from '../library/sample'
 
 const HISTORY_LIMIT = 200
@@ -52,6 +52,9 @@ interface ProjectState {
   updateAnnotation: (id: string, patch: Partial<Omit<Annotation, 'id'>>) => void
   /** Déplacement ou redimensionnement pendant un geste (pas de pas d'annulation supplémentaire) */
   moveAnnotation: (id: string, patch: Partial<Pick<Annotation, 'position' | 'size'>>) => void
+  addMulticore: (init?: Partial<Omit<Multicore, 'id'>>) => string
+  updateMulticore: (id: string, patch: Partial<Omit<Multicore, 'id'>>) => void
+  removeMulticore: (id: string) => void
 }
 
 export const useProject = create<ProjectState>((set, get) => {
@@ -155,5 +158,12 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     updateAnnotation: (id, patch) => commit(ops.updateAnnotation(get().project, id, patch)),
     moveAnnotation: (id, patch) => set({ project: ops.updateAnnotation(get().project, id, patch), saved: false }),
+    addMulticore: (init) => {
+      const r = ops.addMulticore(get().project, init)
+      commit(r.project)
+      return r.id
+    },
+    updateMulticore: (id, patch) => commit(ops.updateMulticore(get().project, id, patch)),
+    removeMulticore: (id) => commit(ops.removeMulticore(get().project, id)),
   }
 })

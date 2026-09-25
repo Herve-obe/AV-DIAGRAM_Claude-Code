@@ -575,3 +575,28 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .template-icon { color: var(--accent); }
 .template-name { font-weight: 600; font-size: 14px; }
 .template-desc { font-size: 12.5px; color: var(--text-2); }
+
+/* ---------- Multipaires (dock) ---------- */
+.mc-toolbar { display: flex; gap: 8px; padding: 8px 14px; }
+.cell-input {
+  width: 100%; min-width: 0;
+  padding: 3px 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--text);
+  font: inherit;
+}
+.cell-input:hover { border-color: var(--border); }
+.cell-input:focus { border-color: var(--accent); outline: none; background: var(--bg-2); }
+.cell-input.num { text-align: right; max-width: 90px; }
+.mc-pairs { display: flex; flex-wrap: wrap; gap: 3px; }
+.mc-pair {
+  width: 22px; height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font: 500 10px var(--font-mono);
+  color: var(--text-3);
+}
+.mc-pair.is-used { background: var(--accent); border-color: var(--accent); color: #111; cursor: pointer; }
+.mc-pair.is-conflict { background: var(--err); border-color: var(--err); color: #fff; cursor: pointer; }

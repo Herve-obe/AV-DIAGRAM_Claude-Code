@@ -301,3 +301,49 @@ describe('catalogue de câbles', () => {
     expect(bom.reduce((s, l) => s + l.quantity, 0)).toBe(ids.length)
   })
 })
+
+describe('multipaires', () => {
+  const sample = () => {
+    let p = buildSampleProject()
+    const r = ops.addMulticore(p, { pairs: 2 })
+    p = r.project
+    return { p, mc: r.id, links: Object.keys(p.links) }
+  }
+  it('crée MP-01 puis MP-02 et trouve la première paire libre', () => {
+    const s0 = sample()
+    const { mc, links } = s0
+    let p = s0.p
+    expect(p.multicores?.[mc].label).toBe('MP-01')
+    expect(ops.addMulticore(p).project.multicores && Object.values(ops.addMulticore(p).project.multicores!).map((m) => m.label)).toContain('MP-02')
+    p = ops.updateLink(p, links[0], { multicoreId: mc, pair: 1 })
+    expect(ops.firstFreePair(p, mc)).toBe(2)
+    p = ops.updateLink(p, links[1], { multicoreId: mc, pair: 2 })
+    expect(ops.firstFreePair(p, mc)).toBeUndefined()
+  })
+  it('signale une paire occupée deux fois, hors capacité ou manquante', () => {
+    const s0 = sample()
+    const { mc, links } = s0
+    let p = s0.p
+    p = ops.updateLink(p, links[0], { multicoreId: mc, pair: 1 })
+    p = ops.updateLink(p, links[1], { multicoreId: mc, pair: 1 })
+    expect(checkLink(p, p.links[links[1]]).map((i) => i.code)).toContain('pair-busy')
+    p = ops.updateLink(p, links[1], { pair: 5 })
+    expect(checkLink(p, p.links[links[1]]).map((i) => i.code)).toContain('pair-range')
+    p = ops.updateLink(p, links[1], { pair: undefined })
+    expect(checkLink(p, p.links[links[1]]).map((i) => i.code)).toContain('pair-missing')
+  })
+  it('la suppression libère les liaisons et le multipaire compte dans les câbles', async () => {
+    const { buildCableBom } = await import('./cables')
+    const s0 = sample()
+    const { mc, links } = s0
+    let p = s0.p
+    p = ops.updateMulticore(p, mc, { lengthM: 30 })
+    p = ops.updateLink(p, links[0], { multicoreId: mc, pair: 1 })
+    const bom = buildCableBom(p, () => ['xlr3', 'xlr3'])
+    expect(bom.find((l) => l.multicorePairs === 2)?.lengthM).toBe(30)
+    expect(bom.reduce((s, l) => s + l.quantity, 0)).toBe(links.length) // 1 multipaire + (n - 1) câbles
+    p = ops.removeMulticore(p, mc)
+    expect(p.links[links[0]].multicoreId).toBeUndefined()
+    expect(p.links[links[0]].pair).toBeUndefined()
+  })
+})

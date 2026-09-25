@@ -5,7 +5,7 @@ import { CABLE_CATALOG, cablesFor, getCable, type CableType } from '../model/cab
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
-import { templateFromEquipment } from '../model/project'
+import { firstFreePair, multicoreUsage, templateFromEquipment } from '../model/project'
 import type { Annotation, Equipment, EquipmentFamily, Link, PictogramId, PortDef } from '../model/types'
 import { getTemplate, useLibrary } from '../store/libraryStore'
 import { useProject } from '../store/projectStore'
@@ -183,7 +183,8 @@ function LinkInspector({ link }: { link: Link }) {
       <div className="field"><label>{t('inspector.from')}</label><div className="readonly">{se.name} / {sp.name}</div></div>
       <div className="field"><label>{t('inspector.to')}</label><div className="readonly">{te.name} / {tp.name}</div></div>
       <div className="field"><label>{t('inspector.connectors')}</label><div className="readonly mono">{connectorLabel(sp.connector)} → {connectorLabel(tp.connector)}</div></div>
-      <CablePicker link={link} from={sp.connector} to={tp.connector} />
+      <MulticorePicker link={link} />
+      {!link.multicoreId && <CablePicker link={link} from={sp.connector} to={tp.connector} />}
       <Field id="lk-length" type="number" label={t('inspector.length')} value={link.lengthM} onCommit={(v) => updateLink(link.id, { lengthM: toNumber(v) })} />
       {cable?.lengthsM && (
         <div className="chips" role="group" aria-label={t('inspector.stockLengths')}>
@@ -215,6 +216,48 @@ function LinkInspector({ link }: { link: Link }) {
       <div className="insp-actions">
         <button className="btn btn-danger" onClick={() => remove([], [link.id])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
+    </>
+  )
+}
+
+/** Affectation de la liaison à une paire d'un multipaire. */
+function MulticorePicker({ link }: { link: Link }) {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const { updateLink, addMulticore } = useProject.getState()
+  const multicores = Object.values(project.multicores ?? {}).sort((a, b) => a.label.localeCompare(b.label))
+  const mc = link.multicoreId ? project.multicores?.[link.multicoreId] : undefined
+  const usage = mc ? multicoreUsage(project, mc.id) : new Map<number, string[]>()
+  const choose = (value: string) => {
+    if (value === '__new') {
+      const id = addMulticore()
+      const p = useProject.getState().project
+      updateLink(link.id, { multicoreId: id, pair: firstFreePair(p, id) })
+    } else if (!value) updateLink(link.id, { multicoreId: undefined, pair: undefined })
+    else updateLink(link.id, { multicoreId: value, pair: firstFreePair(project, value) })
+  }
+  return (
+    <>
+      <div className="field">
+        <label htmlFor="lk-mc">{t('inspector.multicore')}</label>
+        <select id="lk-mc" value={link.multicoreId ?? ''} onChange={(e) => choose(e.target.value)}>
+          <option value="">{t('inspector.multicoreNone')}</option>
+          {multicores.map((m) => <option key={m.id} value={m.id}>{m.label} ({m.pairs})</option>)}
+          <option value="__new">+ {t('inspector.multicoreNew')}</option>
+        </select>
+      </div>
+      {mc && (
+        <div className="field">
+          <label htmlFor="lk-pair">{t('inspector.pair')}</label>
+          <select id="lk-pair" value={link.pair ?? ''} onChange={(e) => updateLink(link.id, { pair: e.target.value ? Number(e.target.value) : undefined })}>
+            <option value="">-</option>
+            {Array.from({ length: mc.pairs }, (_, i) => i + 1).map((n) => {
+              const others = (usage.get(n) ?? []).filter((id) => id !== link.id)
+              return <option key={n} value={n}>{n}{others.length ? ` (${t('inspector.pairUsed')} : ${project.links[others[0]]?.label})` : ''}</option>
+            })}
+          </select>
+        </div>
+      )}
     </>
   )
 }

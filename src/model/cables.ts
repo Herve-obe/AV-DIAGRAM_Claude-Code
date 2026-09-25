@@ -55,6 +55,8 @@ export interface CableBomLine {
   /** Libellé du câble, ou paire de connecteurs si aucun câble n'est choisi */
   cableId?: string
   connectors?: [string, string]
+  /** Nombre de paires, pour une ligne de multipaire */
+  multicorePairs?: number
   lengthM?: number
   quantity: number
 }
@@ -62,7 +64,15 @@ export interface CableBomLine {
 /** Câbles à préparer : regroupés par type de câble et par longueur. */
 export function buildCableBom(project: Project, connectorOf: (l: Link) => [string, string] | undefined): CableBomLine[] {
   const lines = new Map<string, CableBomLine>()
+  for (const m of Object.values(project.multicores ?? {})) {
+    const key = `m:${m.cableTypeId ?? ''}:${m.pairs}|${m.lengthM ?? ''}`
+    const line = lines.get(key)
+    if (line) line.quantity += 1
+    else lines.set(key, { key, cableId: m.cableTypeId, multicorePairs: m.pairs, lengthM: m.lengthM, quantity: 1 })
+  }
   for (const l of Object.values(project.links)) {
+    // Une liaison qui emprunte un multipaire ne demande pas de câble séparé
+    if (l.multicoreId && project.multicores?.[l.multicoreId]) continue
     const pair = connectorOf(l)
     const cable = getCable(l.cableTypeId)
     const base = cable ? `c:${cable.id}` : pair ? `p:${[...pair].sort().join('/')}` : 'p:?'

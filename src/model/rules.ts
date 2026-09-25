@@ -15,6 +15,9 @@ export type RuleCode =
   | 'level-line-to-speaker'
   | 'adapter-needed'
   | 'cable-mismatch'
+  | 'pair-busy'
+  | 'pair-range'
+  | 'pair-missing'
   | 'input-busy'
   | 'output-busy'
   | 'output-split'
@@ -55,6 +58,9 @@ const SEVERITY: Record<RuleCode, Severity> = {
   'level-line-to-mic': 'warning',
   'adapter-needed': 'warning',
   'cable-mismatch': 'warning',
+  'pair-busy': 'error',
+  'pair-range': 'error',
+  'pair-missing': 'warning',
   'input-busy': 'error',
   'output-busy': 'error',
   'output-split': 'info',
@@ -90,6 +96,15 @@ export function checkLink(project: Project, link: Link): Issue[] {
   }
 
   const all = Object.values(project.links)
+
+  const mc = link.multicoreId ? project.multicores?.[link.multicoreId] : undefined
+  if (mc) {
+    if (!link.pair) codes.push({ code: 'pair-missing', params: { cable: mc.label } })
+    else if (link.pair < 1 || link.pair > mc.pairs) codes.push({ code: 'pair-range', params: { cable: mc.label, pair: String(link.pair), pairs: String(mc.pairs) } })
+    else if (all.some((l) => l.id !== link.id && l.multicoreId === mc.id && l.pair === link.pair)) {
+      codes.push({ code: 'pair-busy', params: { cable: mc.label, pair: String(link.pair) } })
+    }
+  }
   const sameTarget = all.filter(
     (l) => l.target.equipmentId === link.target.equipmentId && l.target.portId === link.target.portId,
   )
