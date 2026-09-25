@@ -3,7 +3,7 @@
 // qu'aucune caractéristique n'est inventée.
 import { CONNECTORS } from './connectors'
 import { SIGNAL_FAMILIES } from './signals'
-import type { EquipmentTemplate } from './types'
+import { LIBRARY_DOMAINS, type EquipmentTemplate } from './types'
 
 const CONNECTOR_IDS = new Set(CONNECTORS.map((c) => c.id))
 const LEVELS = new Set(['mic', 'instrument', 'line+4', 'line-10', 'speaker', 'none'])
@@ -25,6 +25,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
       if (!DATE_RE.test(s.accessed)) errors.push(`${where} : date de consultation attendue au format AAAA-MM-JJ`)
     }
   }
+  if (t.domain && !(LIBRARY_DOMAINS as readonly string[]).includes(t.domain)) errors.push(`${where} : menu inconnu (${t.domain})`)
   if (!t.ports.length) errors.push(`${where} : aucun port`)
   const ids = new Set<string>()
   for (const p of t.ports) {

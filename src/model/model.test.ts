@@ -440,3 +440,19 @@ describe('fusion de deux versions', () => {
     expect(r2.project.equipment[moved.id].position.x).toBe(moved.position.x + 100)
   })
 })
+
+describe('bibliothèque : menus', () => {
+  it('range chaque modèle dans un menu, sans en perdre', async () => {
+    const { LIBRARY } = await import('../library')
+    const { groupByDomain, domainOf } = await import('../library/domains')
+    const groups = groupByDomain(LIBRARY)
+    const placed = groups.flatMap((g) => g.families.flatMap((f) => f.items))
+    expect(placed).toHaveLength(LIBRARY.length)
+    expect(groups.map((g) => g.domain)).toEqual(['sound', 'image', 'light', 'network', 'misc'])
+    expect(domainOf(tpl('gen-mic-dyn'))).toBe('sound')
+    expect(domainOf(tpl('gen-camera'))).toBe('image')
+    expect(domainOf(tpl('gen-switch8'))).toBe('network')
+    // Enregistreur vidéo de la famille « Enregistrement » : rangé en Image par sa fiche
+    expect(domainOf(LIBRARY.find((t) => t.id === 'blackmagic-hyperdeck-studio-pro')!)).toBe('image')
+  })
+})

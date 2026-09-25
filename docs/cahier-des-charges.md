@@ -381,6 +381,8 @@ Chaque proposition passe par le **moteur de règles déterministe** (section 5.4
 
 ### 12.7 État de réalisation (2026-09-25)
 
+**Assistant IA en attente (décision d'Hervé Obejero, 2026-09-25)** : le développement est suspendu après un premier test de l'application Windows. Le code reste en place et désactivé par défaut. À reprendre : téléchargement de modèles intégré (catalogue vérifié : adresse, taille, empreinte SHA-256, licence), essais réels avec Ollama (qwen2.5:7b) et avec un compte en ligne.
+
 Fait :
 
 - **Partie native** (`src-tauri/src/ai.rs`) : seule partie de l'application qui parle au réseau. Adresses fixes pour Anthropic, OpenAI, Gemini (point d'accès compatible OpenAI) et Mistral. Une adresse saisie par l'utilisateur est acceptée seulement si elle est locale (localhost, 127.0.0.1), ou en HTTPS pour « compatible OpenAI ». Seuls trois chemins sont autorisés : discussion, messages et liste des modèles. Les redirections sont refusées. La clé est rangée dans le trousseau du système (crate keyring) et n'est jamais renvoyée à l'interface.
@@ -496,7 +498,7 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 | 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | À faire |
 | 4 | Cloud européen : comptes, rôles, collaboration temps réel, partage, versions | Reporté (pas de budget serveur) |
 | 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | À faire |
-| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | En cours : fait = assistant IA, 1re partie, et aperçu des propositions sur le canevas (voir 12.7) ; à faire = téléchargement d'un modèle depuis l'application (lancement de llama-server fait), base de connaissances (RAG), imports et exports avancés |
+| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | Assistant IA en attente (décision du 2026-09-25). Fait = assistant IA, 1re partie, et aperçu des propositions sur le canevas (voir 12.7) ; à faire = téléchargement d'un modèle depuis l'application (lancement de llama-server fait), base de connaissances (RAG), imports et exports avancés |
 | 7 | Signature des installateurs, portage tablette | À faire |
 | Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md`, en commençant par le son | Mécanisme de fiches et de validation prêt, fiches en attente des documents des constructeurs |
 

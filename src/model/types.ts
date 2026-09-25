@@ -48,7 +48,13 @@ export interface EquipmentTemplate {
   rackU?: number
   status: LibraryStatus
   sources?: EquipmentSource[]
+  /** Menu de la bibliothèque, quand la famille ne suffit pas (ex. enregistreur vidéo) */
+  domain?: LibraryDomain
 }
+
+/** Menus de la bibliothèque : son, image, lumière, réseau, et divers (électrique, passifs). */
+export const LIBRARY_DOMAINS = ['sound', 'image', 'light', 'network', 'misc'] as const
+export type LibraryDomain = (typeof LIBRARY_DOMAINS)[number]
 
 export type EquipmentFamily =
   | 'capture'

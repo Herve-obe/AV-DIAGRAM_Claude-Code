@@ -14,6 +14,7 @@ const ICONS = {
   trash: 'M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13',
   copy: 'M8 8h12v12H8zM4 16V4h12',
   chevronDown: 'M6 9l6 6 6-6',
+  chevronRight: 'M9 6l6 6-6 6',
   chevronUp: 'M6 15l6-6 6 6',
   synoptic: 'M3 5h6v5H3zM15 14h6v5h-6zM9 7.5h3v9h3',
   rack: 'M5 3h14v18H5zM5 8h14M5 13h14M5 18h14',
