@@ -9,6 +9,10 @@
     {
       "document": "Digidesign, C|24 Guide Version 7.4, © 2008",
       "accessed": "2026-09-25"
+    },
+    {
+      "document": "Avid, C|24 Guide, Part Number 9320-65042-00 REV A 10/11",
+      "accessed": "2026-09-25"
     }
   ],
   "ports": [
@@ -21,7 +25,7 @@
       "level": "mic",
       "phantom": "supplied",
       "channels": 8,
-      "format": "DB-25 femelle, symétrique ; fantôme par groupe de 8"
+      "format": "DB-25 femelle, symétrique ; fantôme par groupe de 8, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "line1_8",
@@ -31,7 +35,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "DB-25 femelle"
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "di1",
@@ -59,7 +63,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "Sorties des préamplis, DB-25 femelle"
+      "format": "Sorties des préamplis, DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "mic9_16",
@@ -70,7 +74,7 @@
       "level": "mic",
       "phantom": "supplied",
       "channels": 8,
-      "format": "DB-25 femelle, symétrique ; fantôme par groupe de 8"
+      "format": "DB-25 femelle, symétrique ; fantôme par groupe de 8, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "line9_16",
@@ -80,7 +84,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "DB-25 femelle"
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "di9",
@@ -108,7 +112,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "Sorties des préamplis, DB-25 femelle"
+      "format": "Sorties des préamplis, DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "sub1_4",
@@ -118,7 +122,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "4 entrées stéréo"
+      "format": "4 entrées stéréo ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "sub5_8",
@@ -128,7 +132,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "4 entrées stéréo"
+      "format": "4 entrées stéréo ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "subL",
@@ -153,7 +157,8 @@
       "signal": "audioAnalog",
       "connector": "dsub25",
       "level": "line+4",
-      "channels": 8
+      "channels": 8,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "surin",
@@ -162,7 +167,8 @@
       "signal": "audioAnalog",
       "connector": "dsub25",
       "level": "line+4",
-      "channels": 6
+      "channels": 6,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "extin",
@@ -171,7 +177,8 @@
       "signal": "audioAnalog",
       "connector": "dsub25",
       "level": "line+4",
-      "channels": 4
+      "channels": 4,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "crout",
@@ -181,7 +188,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "Main 5.1 / LCRS / stéréo et Alt"
+      "format": "Main 5.1 / LCRS / stéréo et Alt ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
     },
     {
       "id": "cueout",
@@ -190,7 +197,8 @@
       "signal": "audioAnalog",
       "connector": "dsub25",
       "level": "line+4",
-      "format": "Cue, haut-parleur studio et talkback slate"
+      "format": "Cue L/R, Studio LS L/R, Talkback Slate (canaux 6 à 8 inutilisés) ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)",
+      "channels": 5
     },
     {
       "id": "altL",
@@ -235,21 +243,23 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Façade, alimenté par Control Room Main L/R"
+      "format": "Façade ; source commutable : Control Room L/R (canaux 1 et 3, avant fader) ou départ Cue (après fader)"
     },
     {
       "id": "fs1",
       "name": "Footswitch 1",
       "direction": "in",
       "signal": "control",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "format": "Jack TRS ; punch in/out, lecture/arrêt Pro Tools ou talkback, au choix"
     },
     {
       "id": "fs2",
       "name": "Footswitch 2",
       "direction": "in",
       "signal": "control",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "format": "Jack TRS ; punch in/out, lecture/arrêt Pro Tools ou talkback, au choix"
     },
     {
       "id": "eth",
@@ -257,7 +267,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Liaison avec Pro Tools"
+      "format": "Liaison avec Pro Tools ; câble croisé fourni pour une liaison directe, sinon passer par un switch"
     },
     {
       "id": "psu",

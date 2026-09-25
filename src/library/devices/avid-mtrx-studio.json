@@ -60,7 +60,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "> 10 kΩ, niveau max réglable de +9 à +24 dBu"
+      "format": "> 10 kΩ, niveau max réglable de +9 à +24 dBu ; DB-25 femelle, brochage Tascam (canal 1 : + 24, - 12, masse 25)"
     },
     {
       "id": "li9_16",
@@ -69,7 +69,8 @@
       "signal": "audioAnalog",
       "connector": "dsub25",
       "level": "line+4",
-      "channels": 8
+      "channels": 8,
+      "format": "DB-25 femelle, brochage Tascam (canal 1 : + 24, - 12, masse 25)"
     },
     {
       "id": "lo1_8",
@@ -79,7 +80,7 @@
       "connector": "dsub25",
       "level": "line+4",
       "channels": 8,
-      "format": "Niveau max réglable jusqu'à +18 dBu"
+      "format": "Niveau max réglable jusqu'à +18 dBu ; DB-25 femelle, brochage Tascam (canal 1 : + 24, - 12, masse 25)"
     },
     {
       "id": "lo9_16",
@@ -88,7 +89,8 @@
       "signal": "audioAnalog",
       "connector": "dsub25",
       "level": "line+4",
-      "channels": 8
+      "channels": 8,
+      "format": "DB-25 femelle, brochage Tascam (canal 1 : + 24, - 12, masse 25)"
     },
     {
       "id": "monL",
@@ -227,8 +229,8 @@
       "name": "Footswitch",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Talkback ou profil de monitoring DADman ; connecteur non précisé"
+      "connector": "jack-ts",
+      "format": "Jack 6,35 (mono ou stéréo non précisé) ; profil de monitoring DADman ou talkback"
     },
     {
       "id": "ac",
@@ -236,7 +238,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "100-240 VAC, 45 VA max, fusible T1AH dans l'embase IEC"
+      "format": "100-240 VAC nominal (plage 90-260 VAC), 47-63 Hz, 45 VA max, fusible T1AH dans l'embase IEC"
     }
   ]
 }

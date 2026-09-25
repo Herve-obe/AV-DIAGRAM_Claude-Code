@@ -22,7 +22,7 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - Sound Devices : le Drive contient le guide MixPre-10 II, l'inventaire indique MixPre-10T ; confirmer le modèle.
 - RTS KP-12-CLD : fiche du KP-12 standard, la variante CLD n'est pas décrite dans le manuel.
 - RTS Zeus III LE+ : connecteurs relais, GPI et GPIO-16 repris du manuel de la Zeus III 32 ports.
-- Données absentes des documents, laissées vides : poids et consommation de la C|24, poids du 633, connecteur Dante de l'A16.D16, nombre de broches du casque XLR des BTR-700 / TR-700.
+- Données absentes des documents, laissées vides : poids et consommation de la C|24 (absents aussi du guide REV A 10/11), poids du 633, connecteur Dante de l'A16.D16, nombre de broches du casque XLR des BTR-700 / TR-700.
 - Connecteurs RJ-12 et RJ45 : une fiche RJ-12 entre physiquement dans une embase RJ45, mais aucun document ne le confirme ; la liaison poste RTS vers Zeus signale donc un adaptateur.
 - Yamaha MSP5 : le manuel déposé est celui de la MSP5 ; l'inventaire indique « MSP5 Studio ».
 - PreSonus HP4 : le manuel se contredit sur l'alimentation (16 VAC ou +12 VDC).
@@ -33,14 +33,14 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - [x] Allen & Heath SQ5 (fiche seule et fiche avec carte Dante M-SQ-DANT64)
 - [x] SSL System T S300-32 (surface)
 - [x] SSL System T T25 1 Core (moteur Dante 512/512)
-- [x] Avid C|24 (surface de contrôle Ethernet ; poids et consommation absents du guide)
+- [x] Avid C|24 (surface de contrôle Ethernet ; guides 2008 et 2011 ; poids et consommation absents des deux ; DB-25 au brochage Tascam)
 
 ### Stageboxes et interfaces
 - [x] SSL SB32.24 (32 entrées, 16 sorties analogiques, 8 entrées / 8 sorties AES3, Dante)
 - [x] SSL SB8.8 (8 entrées, 8 sorties analogiques, Dante)
 - [x] SSL A16.D16 (16 entrées, 16 sorties analogiques, 16 E/S AES3, Dante)
 - [x] Avid HD I/O (fiche 8x8x8 de base ; le parc a une carte 8 entrées analogiques en plus, non modélisée pour l'instant)
-- [x] Avid MTRX Studio
+- [x] Avid MTRX Studio (pédale sur jack 6,35 corrigée le 2026-09-25 ; DB-25 au brochage Tascam, compatibles avec ceux de la C|24)
 - [x] Focusrite Scarlett 2i2 3e génération
 
 ### Synchro audio
