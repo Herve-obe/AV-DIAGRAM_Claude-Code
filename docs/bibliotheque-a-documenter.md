@@ -90,12 +90,12 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] Shure SLX2 / SLX4 (bande P4)
 
 ## Lot B : intercom (priorité 2)
-- [ ] RTS Zeus III LE+
-- [ ] RTS MKP-12
-- [ ] RTS KP-12-CLD
+- [x] RTS Zeus III LE+
+- [x] RTS MKP-12
+- [x] RTS KP-12-CLD (fiche KP-12 ; variante CLD non décrite dans le manuel)
 - [ ] RTS PS-20
 - [ ] RTS BP-319
-- [ ] RTS BTR-700 + TR-700
+- [x] RTS BTR-700 + TR-700
 - [ ] RTS HR-1 (versions A4M et A4F)
 - [ ] Beyerdynamic DT 108 (versions K109.28 XLR femelle et K109.38 XLR mâle)
 - [ ] Datavideo ITC-100

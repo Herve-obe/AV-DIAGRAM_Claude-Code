@@ -1,0 +1,55 @@
+{
+  "id": "rts-kp-12",
+  "family": "intercom",
+  "manufacturer": "RTS",
+  "model": "KP-12 (poste)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "RTS, DKP-8, DKP-12 and KP-12 Keypanels User Instructions F.01U.193.243 Rev. 11 (décembre 2011)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "matrix",
+      "name": "Intercom (DB9S)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle en parallèle avec la RJ-12 ; +8 dBu nominal, +20 dBu max"
+    },
+    {
+      "id": "matrix12",
+      "name": "Intercom (RJ-12)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4 femelle"
+    },
+    {
+      "id": "mic",
+      "name": "Micro col de cygne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "EGM-12 / EGM-18, MCP-90 ; connecteur non précisé"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90-230 VAC, 50/60 Hz, embase IEC 320"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "rts-mkp-12",
+  "family": "intercom",
+  "manufacturer": "RTS",
+  "model": "MKP-12 (poste)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "RTS/Telex, Zeus Keypanel User Manual 9350-7646-000 Rev L (11/2004)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "matrix",
+      "name": "Intercom (DE9)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle en parallèle avec la RJ-12 ; +8 dBu nominal, +20 dBu max"
+    },
+    {
+      "id": "matrix12",
+      "name": "Intercom (RJ-12)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "En parallèle avec la DE9"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4 femelle (A4M côté casque) ; micro dynamique, écouteur 50 à 600 Ω"
+    },
+    {
+      "id": "mic",
+      "name": "Micro de pupitre",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Jack 6,35 TRS, électret alimenté en +5 V (MCP5 / MCP6)"
+    },
+    {
+      "id": "spk",
+      "name": "Haut-parleur externe",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "speaker",
+      "format": "4 W sous 8 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90-240 VAC, 47-63 Hz ; cordon IEC fourni"
+    }
+  ]
+}

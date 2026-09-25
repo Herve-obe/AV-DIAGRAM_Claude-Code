@@ -56,6 +56,8 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'ta3', label: 'TA3 (mini-XLR 3)', mate: 'ta3' },
   { id: 'hirose4', label: 'Hirose 4 broches', mate: 'hirose4' },
   { id: 'lemo5', label: 'LEMO 5 broches', mate: 'lemo5' },
+  { id: 'rj12', label: 'RJ-12 / RJ-11', mate: 'rj12' },
+  { id: 'tnc', label: 'TNC (antenne)', mate: 'tnc' },
   { id: 'rj10', label: 'RJ-10', mate: 'rj10' },
   { id: 'rf', label: 'Liaison radio (HF)', mate: 'rf' },
   { id: 'unspecified', label: 'Non précisé par le constructeur', mate: 'unspecified' },
