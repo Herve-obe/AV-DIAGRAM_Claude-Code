@@ -217,6 +217,19 @@ export function renumberLinks(project: Project): Project {
   return touch({ ...project, links })
 }
 
+/** Donne à une liaison le prochain numéro libre de sa série (zone + type), et recalcule son étiquette. */
+export function assignFreshNum(project: Project, linkId: string): Project {
+  const l = project.links[linkId]
+  if (!l) return project
+  const series = seriesOf(project, l)
+  const num = 1 + Math.max(0, ...Object.values(project.links)
+    .filter((x) => x.id !== linkId)
+    .filter((x) => { const s = seriesOf(project, x); return s.zone === series.zone && s.signal === series.signal })
+    .map((x) => x.num))
+  const next = { ...l, num }
+  return { ...project, links: { ...project.links, [linkId]: { ...next, label: labelOf(project, next) } } }
+}
+
 /** Contrôle minimal d'un fichier .avd importé. */
 export function isProject(value: unknown): value is Project {
   const v = value as Project

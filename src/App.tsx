@@ -13,6 +13,7 @@ import { Dock } from './ui/Dock'
 import { FilterBar } from './ui/FilterBar'
 import { Inspector } from './ui/Inspector'
 import { LibraryPanel } from './ui/LibraryPanel'
+import { MergeDialog } from './ui/MergeDialog'
 import { NewProjectDialog } from './ui/NewProjectDialog'
 import { PageBar } from './ui/PageBar'
 import { ProjectSettings } from './ui/ProjectSettings'
@@ -132,6 +133,7 @@ export default function App() {
       <CommandPalette />
       <ProjectSettings />
       <NewProjectDialog />
+      <MergeDialog />
       <Shortcuts />
       <ThemeSync />
       <SheetSync />

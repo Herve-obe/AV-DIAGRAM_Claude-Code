@@ -426,5 +426,32 @@
     "flows": "Flows",
     "cables": "Cables",
     "hint": "Cables: one line per multicore"
+  },
+  "merge": {
+    "title": "Merge another version",
+    "hint": "Version to merge: \"{{name}}\". Here is what the merge will change in the open project.",
+    "added": "Additions",
+    "nothingAdded": "Nothing new in the other version.",
+    "renumbered_one": "{{count}} added link gets a new cable number (duplicate).",
+    "renumbered_other": "{{count}} added links get a new cable number (duplicates).",
+    "conflicts_one": "{{count}} conflict",
+    "conflicts_other": "{{count}} conflicts",
+    "noConflict": "No element changed on both sides.",
+    "policy": "On conflict",
+    "ours": "Keep my version",
+    "theirs": "Take the other version",
+    "more": "and {{count}} more",
+    "limit": "Limit: a deletion made in the other version is not carried over (the element stays). The merge can be undone with Ctrl+Z.",
+    "cancel": "Cancel",
+    "apply": "Merge",
+    "kind": {
+      "equipment": "device(s)",
+      "links": "link(s)",
+      "multicores": "multicore(s)",
+      "sheets": "sheet(s)",
+      "zones": "zone(s)",
+      "annotations": "annotation(s)"
+    },
+    "menu": "Merge another version…"
   }
 }

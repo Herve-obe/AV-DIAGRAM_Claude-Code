@@ -426,5 +426,32 @@
     "flows": "Flux",
     "cables": "Câbles",
     "hint": "Câbles : un trait par multipaire"
+  },
+  "merge": {
+    "title": "Fusionner une autre version",
+    "hint": "Version à fusionner : « {{name}} ». Voici ce que la fusion va changer dans le projet ouvert.",
+    "added": "Ajouts",
+    "nothingAdded": "Rien de nouveau dans l’autre version.",
+    "renumbered_one": "{{count}} liaison ajoutée reçoit un nouveau numéro de câble (doublon).",
+    "renumbered_other": "{{count}} liaisons ajoutées reçoivent un nouveau numéro de câble (doublons).",
+    "conflicts_one": "{{count}} conflit",
+    "conflicts_other": "{{count}} conflits",
+    "noConflict": "Aucun élément modifié des deux côtés.",
+    "policy": "En cas de conflit",
+    "ours": "Garder ma version",
+    "theirs": "Prendre l’autre version",
+    "more": "et {{count}} autre(s)",
+    "limit": "Limite : une suppression faite dans l’autre version n’est pas reportée (l’élément reste). La fusion peut être annulée avec Ctrl+Z.",
+    "cancel": "Annuler",
+    "apply": "Fusionner",
+    "kind": {
+      "equipment": "équipement(s)",
+      "links": "liaison(s)",
+      "multicores": "multipaire(s)",
+      "sheets": "feuille(s)",
+      "zones": "zone(s)",
+      "annotations": "annotation(s)"
+    },
+    "menu": "Fusionner une autre version…"
   }
 }

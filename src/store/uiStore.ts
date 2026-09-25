@@ -3,6 +3,7 @@
 import { create } from 'zustand'
 import { DEFAULT_SHEET_ID } from '../model/project'
 import type { SignalFamily } from '../model/signals'
+import type { Project } from '../model/types'
 
 export type UiMode = 'beginner' | 'expert'
 export type ThemePref = 'system' | 'dark' | 'light'
@@ -37,6 +38,8 @@ interface UiState extends Prefs {
   paletteOpen: boolean
   settingsOpen: boolean
   newProjectOpen: boolean
+  /** Autre version d'un projet, ouverte pour fusion (fenêtre de bilan) */
+  mergeCandidate: Project | null
   /** Feuille affichée dans le canevas */
   currentSheetId: string
   /** Mode présentation : schéma seul, sans outils d'édition */
@@ -52,6 +55,7 @@ interface UiState extends Prefs {
   setPaletteOpen: (open: boolean) => void
   setSettingsOpen: (open: boolean) => void
   setNewProjectOpen: (open: boolean) => void
+  setMergeCandidate: (p: Project | null) => void
   setSheet: (id: string) => void
   setPresenting: (on: boolean) => void
   focus: (kind: 'equipment' | 'link', id: string) => void
@@ -61,6 +65,7 @@ export const useUi = create<UiState>((set, get) => ({
   ...readPrefs(),
   selectedEquipment: [],
   selectedLinks: [],
+  mergeCandidate: null,
   hiddenSignals: [],
   dockTab: 'cables',
   paletteOpen: false,
@@ -98,6 +103,7 @@ export const useUi = create<UiState>((set, get) => ({
   setDockTab: (t) => set({ dockTab: t, dockOpen: true }),
   setPaletteOpen: (open) => set({ paletteOpen: open }),
   setSettingsOpen: (open) => set({ settingsOpen: open }),
+  setMergeCandidate: (p) => set({ mergeCandidate: p }),
   setNewProjectOpen: (open) => set({ newProjectOpen: open }),
   setSheet: (id) => set({ currentSheetId: id, selectedEquipment: [], selectedLinks: [] }),
   setPresenting: (on) => set({ presenting: on, paletteOpen: false }),

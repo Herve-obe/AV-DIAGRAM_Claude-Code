@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
+import { startMerge } from './MergeDialog'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
@@ -68,6 +69,7 @@ export function TopBar() {
       <nav className="toolbar" aria-label="Fichier">
         <button className="icon-btn" onClick={() => useUi.getState().setNewProjectOpen(true)} title={t('menu.new')} aria-label={t('menu.new')}><Icon name="file" /></button>
         <button className="icon-btn" onClick={open} title={`${t('menu.open')} (Ctrl+O)`} aria-label={t('menu.open')}><Icon name="folder" /></button>
+        <button className="icon-btn" onClick={() => startMerge(t)} title={t('merge.menu')} aria-label={t('merge.menu')}><Icon name="copy" /></button>
         <button className="icon-btn" onClick={() => saveProjectFile(project)} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
         <div className="menu" ref={exportRef}>
           <button className="icon-btn" onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} title={t('menu.export')} aria-label={t('menu.export')}><Icon name="download" /></button>
