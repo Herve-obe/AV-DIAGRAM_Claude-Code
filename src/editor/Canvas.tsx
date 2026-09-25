@@ -28,6 +28,7 @@ import { useUi } from '../store/uiStore'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
 import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
+import { EdgeRouter } from './EdgeRouter'
 import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
 
 /** Bandeau d'aperçu : la proposition de l'assistant s'applique ou se refuse aussi depuis le canevas. */
@@ -74,7 +75,7 @@ export function Canvas() {
   const proposedEq = useMemo(() => new Set(preview?.addedEquipment ?? []), [preview])
   const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
-  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView } = useUi()
+  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute } = useUi()
   const issues = useMemo(() => checkProject(project), [project])
   const rf = useReactFlow()
 
@@ -304,6 +305,7 @@ export function Canvas() {
         defaultEdgeOptions={{ type: 'signal' }}
         connectionLineStyle={{ stroke: 'var(--accent)', strokeWidth: 2 }}
       >
+        <EdgeRouter enabled={autoRoute} />
         <Background variant={BackgroundVariant.Dots} gap={20} size={1.4} color="var(--grid-dot)" />
         <Controls showInteractive={false} position="bottom-left" />
         <MiniMap

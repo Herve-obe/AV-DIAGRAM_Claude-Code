@@ -456,3 +456,66 @@ describe('bibliothèque : menus', () => {
     expect(domainOf(LIBRARY.find((t) => t.id === 'blackmagic-hyperdeck-studio-pro')!)).toBe('image')
   })
 })
+
+describe('routage des liaisons', () => {
+  const crosses = (pts: { x: number; y: number }[], r: { x: number; y: number; w: number; h: number }) =>
+    pts.slice(0, -1).some((a, i) => {
+      const b = pts[i + 1]
+      // Échantillonnage du segment
+      for (let k = 0; k <= 20; k++) {
+        const x = a.x + ((b.x - a.x) * k) / 20
+        const y = a.y + ((b.y - a.y) * k) / 20
+        if (x > r.x && x < r.x + r.w && y > r.y && y < r.y + r.h) return true
+      }
+      return false
+    })
+
+  it('contourne un bloc placé entre deux équipements, avec des segments orthogonaux', async () => {
+    const { routeAll } = await import('./routing')
+    const a = { x: 0, y: 0, w: 100, h: 100 }
+    const mid = { x: 250, y: -20, w: 100, h: 140 }
+    const b = { x: 500, y: 0, w: 100, h: 100 }
+    const r = routeAll([a, mid, b], [{ id: 'l', source: { x: 100, y: 50, side: 'right' }, target: { x: 500, y: 50, side: 'left' } }])
+    const pts = r.get('l')!
+    expect(pts[0]).toEqual({ x: 100, y: 50 })
+    expect(pts[pts.length - 1]).toEqual({ x: 500, y: 50 })
+    expect(crosses(pts, mid)).toBe(false)
+    for (let i = 0; i < pts.length - 1; i++) expect(pts[i].x === pts[i + 1].x || pts[i].y === pts[i + 1].y).toBe(true)
+  })
+
+  it('va droit quand rien ne gêne', async () => {
+    const { routeAll } = await import('./routing')
+    const r = routeAll([{ x: 0, y: 0, w: 100, h: 100 }, { x: 300, y: 0, w: 100, h: 100 }], [
+      { id: 'l', source: { x: 100, y: 40, side: 'right' }, target: { x: 300, y: 40, side: 'left' } },
+    ])
+    expect(r.get('l')).toEqual([{ x: 100, y: 40 }, { x: 300, y: 40 }])
+  })
+
+  it('place les étiquettes sans chevauchement', async () => {
+    const { placeLabels } = await import('./routing')
+    const routes = new Map([
+      ['a', [{ x: 0, y: 0 }, { x: 300, y: 0 }]],
+      ['b', [{ x: 0, y: 8 }, { x: 300, y: 8 }]],
+    ])
+    const size = { w: 80, h: 16 }
+    const at = placeLabels(routes, new Map([['a', size], ['b', size]]), [])
+    const a = at.get('a')!
+    const b = at.get('b')!
+    const overlap = Math.abs(a.x - b.x) < size.w && Math.abs(a.y - b.y) < size.h
+    expect(overlap).toBe(false)
+  })
+
+  it('écarte deux tronçons verticaux superposés', async () => {
+    const { nudge } = await import('./routing')
+    const routes = [
+      [{ x: 0, y: 0 }, { x: 50, y: 0 }, { x: 50, y: 100 }, { x: 100, y: 100 }],
+      [{ x: 0, y: 20 }, { x: 50, y: 20 }, { x: 50, y: 120 }, { x: 100, y: 120 }],
+    ]
+    const out = nudge(routes, 8, 12)
+    expect(out[0][1].x).not.toBe(out[1][1].x)
+    expect(Math.abs(out[0][1].x - out[1][1].x)).toBe(8)
+    // Les amorces gardent la hauteur des ports
+    expect(out[0][0].y).toBe(0)
+    expect(out[1][3].y).toBe(120)
+  })
+})

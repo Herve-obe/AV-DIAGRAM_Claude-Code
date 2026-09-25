@@ -1,7 +1,9 @@
 // Liaison typée : couleur et style de trait selon le signal, étiquette = numéro de câble.
 import { memo } from 'react'
 import { BaseEdge, EdgeLabelRenderer, getSmoothStepPath, type Edge, type EdgeProps } from '@xyflow/react'
+import { labelPoint, toSvgPath } from '../model/routing'
 import type { Severity } from '../model/rules'
+import { useRoutes } from './EdgeRouter'
 import { SIGNAL_STYLE, type SignalFamily } from '../model/signals'
 
 export type SignalEdgeData = {
@@ -16,9 +18,16 @@ export type SignalFlowEdge = Edge<SignalEdgeData, 'signal'>
 
 function SignalEdgeView(props: EdgeProps<SignalFlowEdge>) {
   const { id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data, selected } = props
-  const [path, labelX, labelY] = getSmoothStepPath({
+  // Tracé calculé par le routeur (contourne les blocs, voies écartées) ; sinon tracé simple
+  const route = useRoutes((s) => s.routes.get(id))
+  const labelAt = useRoutes((s) => s.labels.get(id))
+  let [path, labelX, labelY] = getSmoothStepPath({
     sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, borderRadius: 8, offset: 18,
   })
+  if (route && route.length >= 2) {
+    path = toSvgPath(route)
+    ;({ x: labelX, y: labelY } = labelAt ?? labelPoint(route))
+  }
   if (!data) return null
   const st = SIGNAL_STYLE[data.signal]
   return (

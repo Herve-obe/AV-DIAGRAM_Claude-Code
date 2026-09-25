@@ -17,12 +17,14 @@ interface Prefs {
   lang: 'fr' | 'en'
   dockOpen: boolean
   linkView: LinkView
+  /** Tracé automatique des liaisons (contournement des blocs, voies écartées) */
+  autoRoute: boolean
 }
 
 const PREFS_KEY = 'avd.prefs'
 
 function readPrefs(): Prefs {
-  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows' }
+  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows', autoRoute: true }
   try {
     return { ...fallback, ...JSON.parse(localStorage.getItem(PREFS_KEY) ?? '{}') }
   } catch {
