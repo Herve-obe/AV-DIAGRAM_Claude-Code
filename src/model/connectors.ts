@@ -63,6 +63,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'ieee1394', label: 'IEEE 1394 (FireWire, DV)', mate: 'ieee1394' },
   { id: 'triax', label: 'Triax (Fischer ou LEMO)', mate: 'triax' },
   { id: 'smpte-fiber', label: 'Fibre hybride SMPTE 311M (LEMO 3K.93C)', mate: 'smpte-fiber' },
+  { id: 'hdmi-micro', label: 'Micro HDMI (type D)', mate: 'hdmi-micro' },
   { id: 'dvi', label: 'DVI', mate: 'dvi' },
   { id: 'vga', label: 'VGA (HD-15)', mate: 'vga' },
   { id: 'rj10', label: 'RJ-10', mate: 'rj10' },

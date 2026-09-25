@@ -1,0 +1,47 @@
+{
+  "id": "panasonic-dmc-gh4",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "Lumix DMC-GH4",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Panasonic, DMC-GH4 Owner's Manual for advanced features",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi-micro",
+      "format": "Micro HDMI (le manuel parle d'un câble HDMI micro)"
+    },
+    {
+      "id": "av",
+      "name": "AV OUT/DIGITAL",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Sortie AV et USB"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified"
+    },
+    {
+      "id": "hp",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2
+    }
+  ]
+}

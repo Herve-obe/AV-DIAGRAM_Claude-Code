@@ -1,0 +1,139 @@
+{
+  "id": "panasonic-ag-hpx371e",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AG-HPX371E",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Panasonic, AG-HPX370 / AG-HPX371E Mode d'emploi VQT2T24-4 (F)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI OUT 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI ou SD-SDI (AUTO, 1080i, 576i)"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI OUT 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Mêmes signaux que SDI OUT 1"
+    },
+    {
+      "id": "vout",
+      "name": "VIDEO OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite (convertie en mode HD)"
+    },
+    {
+      "id": "genlock",
+      "name": "GENLOCK IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence de synchronisation"
+    },
+    {
+      "id": "tcin",
+      "name": "TC IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcout",
+      "name": "TC OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "mic",
+      "name": "MIC IN (avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; alimentation fantôme par menu"
+    },
+    {
+      "id": "a1",
+      "name": "AUDIO IN CH1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; ligne, micro ou micro + fantôme"
+    },
+    {
+      "id": "a2",
+      "name": "AUDIO IN CH2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; ligne, micro ou micro + fantôme"
+    },
+    {
+      "id": "aout",
+      "name": "AUDIO OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2,
+      "format": "Canaux 1/2 ou 3/4 (MONITOR SELECT) ; connecteur non précisé"
+    },
+    {
+      "id": "dv",
+      "name": "DVCPRO/DV",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "IEEE 1394 : entrée et sortie vidéo, audio et données"
+    },
+    {
+      "id": "usbd",
+      "name": "USB 2.0 DEVICE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "usbh",
+      "name": "USB 2.0 HOST",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande AJ-RC10G ou unité d'extension AG-EC4G"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "Alimentation externe, XLR 4 broches"
+    }
+  ]
+}

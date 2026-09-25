@@ -163,12 +163,12 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - [x] Sony RCP-1500 (fiche RCP-1530 : seul manuel présent sur le Drive, à confirmer)
 - [ ] Panasonic AW-HE40SKE
 - [ ] Panasonic AW-RP50
-- [ ] Panasonic AG-HPX371EJ + AG-EC4
+- [x] Panasonic AG-HPX371EJ + AG-EC4 (caméra d'après le manuel AG-HPX370/371E ; AG-EC4 à faire)
 - [x] JVC GY-HM790E (poids absent de l'extrait du manuel)
 - [ ] Canon XF205
 - [ ] Sony PXW-FS5
-- [ ] Panasonic Lumix GH4
-- [ ] Panasonic Lumix GH5
+- [x] Panasonic Lumix GH4 (extrait du manuel partiel : connecteurs audio non précisés)
+- [x] Panasonic Lumix GH5 (extrait du manuel partiel : type HDMI et prises audio non précisés)
 
 ### Écrans
 - [ ] JVC DT-V17L2DU
