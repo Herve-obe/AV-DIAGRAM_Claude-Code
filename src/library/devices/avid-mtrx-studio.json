@@ -1,0 +1,242 @@
+{
+  "id": "avid-mtrx-studio",
+  "family": "recording",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX Studio",
+  "pictogram": "stagebox",
+  "status": "verified",
+  "weightKg": 2.8,
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Avid, Pro Tools | MTRX Studio Installation Guide, Part Number 9320-70136-00 REV C 04/20",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inst1",
+      "name": "Inst In 1 (façade)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 mono, 1 MΩ ; partagée avec Mic 1"
+    },
+    {
+      "id": "inst2",
+      "name": "Inst In 2 (façade)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 mono, 1 MΩ ; partagée avec Mic 2"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic/Line In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR et jack 6,35 symétrique d'après le guide ; 2 kΩ, +21 dBu max"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic/Line In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR et jack 6,35 symétrique d'après le guide ; 2 kΩ, +21 dBu max"
+    },
+    {
+      "id": "li1_8",
+      "name": "Line In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "> 10 kΩ, niveau max réglable de +9 à +24 dBu"
+    },
+    {
+      "id": "li9_16",
+      "name": "Line In 9-16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "lo1_8",
+      "name": "Line Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "Niveau max réglable jusqu'à +18 dBu"
+    },
+    {
+      "id": "lo9_16",
+      "name": "Line Out 9-16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "monL",
+      "name": "Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, jusqu'à +24 dBu"
+    },
+    {
+      "id": "monR",
+      "name": "Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, jusqu'à +24 dBu"
+    },
+    {
+      "id": "hp1",
+      "name": "Casque 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Façade, 30 à 600 Ω"
+    },
+    {
+      "id": "hp2",
+      "name": "Casque 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Façade, 30 à 600 Ω"
+    },
+    {
+      "id": "dl1",
+      "name": "DigiLink Mini 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Port principal vers carte HDX / HD Native"
+    },
+    {
+      "id": "dl2",
+      "name": "DigiLink Mini 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Principal ou extension (DADman) ; 64 canaux au total avec les 2 ports"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1 (Network / Dante)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "Gigabit, contrôle et Dante 64 x 64 ; switch interne ou redondance (contrôle sur le port 1)"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2 (Network / Dante)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "Gigabit, second port du switch ou Dante secondaire"
+    },
+    {
+      "id": "adin1",
+      "name": "ADAT In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "adout1",
+      "name": "ADAT Out 1",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "adin2",
+      "name": "ADAT In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "adout2",
+      "name": "ADAT Out 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lsin",
+      "name": "Loop Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lsout",
+      "name": "Loop Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "fs",
+      "name": "Footswitch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Talkback ou profil de monitoring DADman ; connecteur non précisé"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 VAC, 45 VA max, fusible T1AH dans l'embase IEC"
+    }
+  ]
+}

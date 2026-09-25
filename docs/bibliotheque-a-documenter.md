@@ -14,14 +14,14 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [x] Allen & Heath SQ5 (fiche seule et fiche avec carte Dante M-SQ-DANT64)
 - [ ] SSL System T S300-32 (surface)
 - [ ] SSL System T T25 1 Core (moteur Dante 512/512)
-- [ ] Avid C|24 (surface de contrôle Ethernet)
+- [x] Avid C|24 (surface de contrôle Ethernet ; poids et consommation absents du guide)
 
 ### Stageboxes et interfaces
 - [ ] SSL SB32.24 (32 entrées, 16 sorties analogiques, 8 entrées / 8 sorties AES3, Dante)
 - [ ] SSL SB8.8 (8 entrées, 8 sorties analogiques, Dante)
 - [ ] SSL A16.D16 (16 entrées, 16 sorties analogiques, 16 E/S AES3, Dante)
 - [x] Avid HD I/O (fiche 8x8x8 de base ; le parc a une carte 8 entrées analogiques en plus, non modélisée pour l'instant)
-- [ ] Avid MTRX Studio
+- [x] Avid MTRX Studio
 - [x] Focusrite Scarlett 2i2 3e génération
 
 ### Synchro audio
