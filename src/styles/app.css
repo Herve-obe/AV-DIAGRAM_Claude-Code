@@ -665,3 +665,15 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .ai-status.is-running { color: var(--text-3); }
 .ai-consent { display: flex; align-items: flex-start; gap: 8px; margin: 6px 14px; font-size: 13px; }
 .ai-url { margin-right: auto; align-self: center; overflow-wrap: anywhere; }
+
+/* ---------- Aperçu des propositions de l'assistant ---------- */
+.react-flow__node.is-proposed .eq-node { outline: 2px dashed var(--accent); outline-offset: 3px; opacity: 0.85; }
+.react-flow__edge.is-proposed path.react-flow__edge-path { stroke-dasharray: 6 4; opacity: 0.8; }
+.proposal-banner {
+  position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 5;
+  display: flex; align-items: center; gap: 8px; max-width: calc(100% - 24px);
+  padding: 6px 8px 6px 12px;
+  background: var(--bg-2); border: 1px solid var(--accent); border-radius: 8px; box-shadow: var(--shadow-2);
+  font-size: 12.5px;
+}
+.proposal-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }

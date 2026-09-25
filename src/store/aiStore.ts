@@ -149,7 +149,9 @@ export const useAi = create<AiState>((set, get) => ({
       return
     }
     store.replaceProject(p.project)
-    useUi.getState().select(p.addedEquipment, p.addedLinks)
+    // Équipements seulement : sélectionner en même temps blocs et liaisons par programme fait boucler
+    // la synchronisation de sélection avec React Flow (erreur React #185)
+    useUi.getState().select(p.addedEquipment, [])
     set((s) => ({ proposal: null, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.applied') }] }))
   },
   discardProposal: () => set((s) => ({ proposal: null, contextNote: DISCARD_NOTE, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.discarded') }] })),

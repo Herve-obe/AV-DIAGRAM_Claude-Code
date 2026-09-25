@@ -392,13 +392,13 @@ Fait :
 
   Les propositions sont faites sur un brouillon. L'utilisateur l'applique (une seule étape d'annulation) ou le refuse. L'assistant ne peut ni supprimer ni modifier l'existant.
 - **Configuration guidée** : IA locale en 3 étapes (serveur local, modèle, test), compte IA en 5 étapes (fournisseur, création de la clé, clé, test de connexion, modèle et accord). L'accord sur l'envoi des données est obligatoire pour un compte en ligne.
+- **Aperçu sur le canevas** (2026-09-25) : les équipements et liaisons proposés s'affichent en pointillés sur le schéma, avec un bandeau Appliquer / Refuser. Ils ne peuvent être ni déplacés ni supprimés tant qu'ils ne sont pas appliqués. Si le schéma est modifié entre-temps, la proposition est écartée.
 - **Messages d'erreur clairs** : clé refusée, facturation non activée, quota, trop de requêtes, modèle introuvable, serveur local arrêté.
 
 Limites actuelles :
 
 - L'option A demande pour l'instant un serveur local déjà installé (Ollama, LM Studio ou llama-server). Le téléchargement et le lancement d'un modèle depuis AV Diagram restent à faire.
 - Pas encore de base de connaissances (RAG) : l'assistant s'appuie sur la bibliothèque, le moteur de règles et quelques repères métier du prompt système. Elle dépend des fiches pédagogiques du lot 5.
-- La proposition s'affiche sous forme de liste dans le panneau, pas encore en aperçu sur le canevas.
 - La clé passe une fois par l'interface, au moment où l'utilisateur la colle ; ensuite, seule la partie native la lit.
 - Adresses des consoles et préfixes des clés relevés le 2026-09-25, à revérifier à chaque version.
 - Testé avec un faux fournisseur (tests automatiques et navigateur). Pas encore testé avec un vrai compte ni un vrai serveur local.
@@ -495,7 +495,7 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 | 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | À faire |
 | 4 | Cloud européen : comptes, rôles, collaboration temps réel, partage, versions | Reporté (pas de budget serveur) |
 | 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | À faire |
-| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | En cours : fait = assistant IA, 1re partie (voir 12.7) ; à faire = téléchargement et lancement d'un modèle local intégré, base de connaissances (RAG), aperçu des propositions sur le canevas, imports et exports avancés |
+| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | En cours : fait = assistant IA, 1re partie, et aperçu des propositions sur le canevas (voir 12.7) ; à faire = téléchargement et lancement d'un modèle local intégré, base de connaissances (RAG), imports et exports avancés |
 | 7 | Signature des installateurs, portage tablette | À faire |
 | Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md`, en commençant par le son | Mécanisme de fiches et de validation prêt, fiches en attente des documents des constructeurs |
 

@@ -1,6 +1,7 @@
 // Canevas du synoptique (React Flow). Le store du projet est la source de vérité ;
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useState, type DragEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   Background,
   BackgroundVariant,
@@ -19,13 +20,31 @@ import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, shee
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { SIGNAL_STYLE } from '../model/signals'
 import type { Link, Project } from '../model/types'
+import { checkProject } from '../model/rules'
+import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
-import { useIssues, worstByLink } from '../store/useIssues'
+import { worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
 import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
 import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
+
+/** Bandeau d'aperçu : la proposition de l'assistant s'applique ou se refuse aussi depuis le canevas. */
+function ProposalBanner({ equipment, links, sheetId }: { equipment: number; links: number; sheetId: string }) {
+  const { t } = useTranslation()
+  const currentSheetId = useUi((s) => s.currentSheetId)
+  const ai = useAi.getState()
+  return (
+    <div className="proposal-banner" role="status">
+      <span className="proposal-dot" />
+      <span>{t('ai.preview', { equipment, links })}</span>
+      {sheetId !== currentSheetId && <button className="btn btn-ghost" onClick={() => useUi.getState().setSheet(sheetId)}>{t('ai.showSheet')}</button>}
+      <button className="btn btn-ghost" onClick={() => ai.discardProposal()}>{t('ai.discard')}</button>
+      <button className="btn btn-primary" onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
+    </div>
+  )
+}
 
 export const DND_MIME = 'application/x-avd-template'
 
@@ -47,10 +66,16 @@ function endpointOnView(project: Project, ref: PortRef, viewId: string): { node:
 }
 
 export function Canvas() {
-  const project = useProject((s) => s.project)
+  const stored = useProject((s) => s.project)
+  // Proposition de l'assistant en attente : le canevas montre le brouillon, ajouts en pointillés
+  const proposal = useAi((s) => s.proposal)
+  const preview = proposal && proposal.base === stored ? proposal : null
+  const project = preview?.project ?? stored
+  const proposedEq = useMemo(() => new Set(preview?.addedEquipment ?? []), [preview])
+  const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
   const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView } = useUi()
-  const issues = useIssues()
+  const issues = useMemo(() => checkProject(project), [project])
   const rf = useReactFlow()
 
   // Nœuds de la feuille courante, reconstruits depuis le projet en conservant les mesures de React Flow
@@ -109,12 +134,16 @@ export function Canvas() {
           data: { equipment: eq, compact: mode === 'beginner', offPage: offPage.get(eq.id) ?? {} },
           selected: selectedEquipment.includes(eq.id),
           measured: measured.get(eq.id),
+          // Un équipement proposé n'existe pas encore dans le projet : ni déplaçable, ni supprimable
+          ...(proposedEq.has(eq.id)
+            ? { className: 'is-proposed', draggable: false, selectable: false, deletable: false, connectable: false }
+            : {}),
         }))
       const groupsWithSize = groupNodes.map((g) => ({ ...g, measured: measured.get(g.id) }))
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, selectedEquipment, mode, currentSheetId, presenting])
+  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq])
 
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)
@@ -154,7 +183,8 @@ export function Canvas() {
         targetHandle: b.handle,
         selected: selectedLinks.includes(l.id),
         hidden: hiddenSignals.includes(signal),
-        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting },
+        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting || proposedLinks.has(l.id) },
+        ...(proposedLinks.has(l.id) ? { className: 'is-proposed', selectable: false, deletable: false } : {}),
       }]
     })
     for (const e of bundles.values()) {
@@ -164,7 +194,7 @@ export function Canvas() {
       e.selected = ids.some((id) => selectedLinks.includes(id))
     }
     return [...flows, ...bundles.values()]
-  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView])
+  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks])
 
   const onNodesChange = useCallback(
     (changes: NodeChange<CanvasNode>[]) => {
@@ -237,6 +267,14 @@ export function Canvas() {
     } else fit()
   }, [focusRequest, rf])
 
+  // Nouvelle proposition : on recadre pour que les ajouts soient visibles
+  const proposedCount = preview?.addedEquipment.length ?? 0
+  useEffect(() => {
+    if (!proposedCount) return
+    const id = setTimeout(() => rf.fitView({ duration: 300, padding: 0.15 }), 60)
+    return () => clearTimeout(id)
+  }, [proposedCount, rf])
+
   return (
     <div className="canvas" onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
       <ReactFlow<CanvasNode, SignalFlowEdge>
@@ -277,6 +315,9 @@ export function Canvas() {
           style={{ background: 'var(--bg-1)' }}
         />
       </ReactFlow>
+      {preview && !presenting && (
+        <ProposalBanner equipment={preview.addedEquipment.length} links={preview.addedLinks.length} sheetId={preview.sheetId} />
+      )}
     </div>
   )
 }
