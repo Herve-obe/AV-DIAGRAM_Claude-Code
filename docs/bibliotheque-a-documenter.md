@@ -30,8 +30,8 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] Tentacle Sync E mkII
 
 ### Enregistreurs de terrain
-- [ ] Sound Devices 633
-- [ ] Sound Devices MixPre-10T
+- [x] Sound Devices 633 (poids absent de l'extrait du guide)
+- [x] Sound Devices MixPre-10 II (le Drive contient le guide MixPre II, pas celui du MixPre-10T)
 
 ### Amplification, écoute, casques
 - [x] QSC PL230A
