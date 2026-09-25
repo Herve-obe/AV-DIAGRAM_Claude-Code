@@ -1,0 +1,86 @@
+{
+  "id": "shure-slxd4d",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "SLXD4D",
+  "pictogram": "wireless",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/SLXD/en-US",
+      "document": "Shure, guide d'utilisation SLX-D (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec les émetteurs compatibles"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "xlr1",
+      "name": "Sortie XLR 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; une par canal par analogie avec le SLXD4, à vérifier"
+    },
+    {
+      "id": "xlr2",
+      "name": "Sortie XLR 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; une par canal par analogie avec le SLXD4, à vérifier"
+    },
+    {
+      "id": "jack1",
+      "name": "Sortie jack 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Instrument/auxiliaire, symétrie d'impédance ; une par canal, à vérifier"
+    },
+    {
+      "id": "jack2",
+      "name": "Sortie jack 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Instrument/auxiliaire, symétrie d'impédance ; une par canal, à vérifier"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ]
+}

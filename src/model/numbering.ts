@@ -12,6 +12,8 @@ export const SIGNAL_CODE: Record<SignalFamily, string> = {
   control: 'CTL',
   network: 'NET',
   power: 'PWR',
+  rf: 'ANT',
+  dmx: 'DMX',
 }
 
 export function formatCableLabel(

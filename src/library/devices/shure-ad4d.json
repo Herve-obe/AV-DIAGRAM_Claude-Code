@@ -1,0 +1,174 @@
+{
+  "id": "shure-ad4d",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD4D",
+  "pictogram": "wireless",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD4D/en-US",
+      "document": "Shure, guide d'utilisation AD4D (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec les émetteurs compatibles"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Entrée coaxiale 50 Ω ; alimentation d'antenne 12 V commutable"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Entrée coaxiale 50 Ω ; alimentation d'antenne 12 V commutable"
+    },
+    {
+      "id": "casC",
+      "name": "Cascade RF C",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Recopie de l'antenne A vers un récepteur supplémentaire"
+    },
+    {
+      "id": "casD",
+      "name": "Cascade RF D",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Recopie de l'antenne B vers un récepteur supplémentaire"
+    },
+    {
+      "id": "xlr1",
+      "name": "Sortie XLR 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique à transformateur ; commutateur Mic/Line (-30 dB)"
+    },
+    {
+      "id": "jack1",
+      "name": "Sortie jack 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35, symétrique à transformateur"
+    },
+    {
+      "id": "xlr2",
+      "name": "Sortie XLR 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique à transformateur ; commutateur Mic/Line (-30 dB)"
+    },
+    {
+      "id": "jack2",
+      "name": "Sortie jack 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35, symétrique à transformateur"
+    },
+    {
+      "id": "aes",
+      "name": "Sortie AES3",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2,
+      "format": "Connecteur AES3 dédié (type non précisé dans le guide)"
+    },
+    {
+      "id": "ctrl1",
+      "name": "Ethernet ctrl 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle réseau (PoE selon le guide)"
+    },
+    {
+      "id": "ctrl2",
+      "name": "Ethernet ctrl 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle réseau"
+    },
+    {
+      "id": "dante1",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Dante"
+    },
+    {
+      "id": "dante2",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Dante (redondant ou commuté)"
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Horloge externe pour la sortie AES3"
+    },
+    {
+      "id": "wcthru",
+      "name": "Word Clock Thru",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Recopie ; terminaison 75 Ω commutable"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Face avant, 6,35 mm"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC verrouillable, 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Cascade d'alimentation IEC verrouillable"
+    }
+  ]
+}

@@ -12,6 +12,8 @@ export const SIGNAL_FAMILIES = [
   'control',
   'network',
   'power',
+  'rf',
+  'dmx',
 ] as const
 
 export type SignalFamily = (typeof SIGNAL_FAMILIES)[number]
@@ -36,6 +38,8 @@ export const SIGNAL_STYLE: Record<SignalFamily, SignalStyle> = {
   control: { color: 'var(--sig-control)', dash: '4 3', width: 1.5 },
   network: { color: 'var(--sig-network)', dash: '', width: 2 },
   power: { color: 'var(--sig-power)', dash: '', width: 3 },
+  rf: { color: 'var(--sig-rf)', dash: '1 3', width: 2 },
+  dmx: { color: 'var(--sig-dmx)', dash: '6 2', width: 2 },
 }
 
 /**

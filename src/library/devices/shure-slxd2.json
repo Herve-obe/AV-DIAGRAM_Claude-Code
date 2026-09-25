@@ -1,0 +1,32 @@
+{
+  "id": "shure-slxd2",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "SLXD2",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/SLXD/en-US",
+      "document": "Shure, guide d'utilisation SLX-D (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    }
+  ]
+}

@@ -34,7 +34,7 @@ export interface Issue {
 }
 
 /** Sorties qui ne peuvent alimenter qu'une seule entrée (liaisons point à point). */
-const POINT_TO_POINT = new Set(['audioDigital', 'audioIp', 'video', 'videoIp', 'network', 'sync', 'power'])
+const POINT_TO_POINT = new Set(['audioDigital', 'audioIp', 'video', 'videoIp', 'network', 'sync', 'power', 'rf', 'dmx'])
 
 export function findPort(project: Project, ref: { equipmentId: string; portId: string }): PortDef | undefined {
   return project.equipment[ref.equipmentId]?.ports.find((p) => p.id === ref.portId)
