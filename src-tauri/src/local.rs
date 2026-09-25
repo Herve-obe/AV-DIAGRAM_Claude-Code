@@ -48,8 +48,14 @@ fn spawn(server: &Path, model: &Path, port: u16, context: u32) -> Result<Child, 
     if port < 1024 {
         return Err("port réservé : choisir un port à partir de 1024".into());
     }
-    Command::new(server)
-        .arg("-m")
+    let mut cmd = Command::new(server);
+    // Windows : pas de fenêtre de console pour ce processus de fond (CREATE_NO_WINDOW)
+    #[cfg(windows)]
+    {
+        use std::os::windows::process::CommandExt;
+        cmd.creation_flags(0x0800_0000);
+    }
+    cmd.arg("-m")
         .arg(model)
         .args(["--host", "127.0.0.1", "--port", &port.to_string()])
         // Gabarit de discussion du modèle, nécessaire à l'appel d'outils
