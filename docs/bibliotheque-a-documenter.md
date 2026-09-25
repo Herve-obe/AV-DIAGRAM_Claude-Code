@@ -85,7 +85,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 
 ### Systèmes HF
 - [x] Sennheiser ew 100 ENG G3 (EK 100 G3, SK 100 G3, SKP 100 G3)
-- [ ] Sennheiser ew 100 ENG G4 : SK 100 G4 fait ; EK 100 G4 et SKP 100 G4 absents du manuel ew 100 G4 (EM 100 G4 et SKM 100 G4 ajoutés en bonus)
+- [x] Sennheiser ew 100 ENG G4 (EK 100 G4, SK 100 G4 et émetteur plug-on SKP 100 G3 ; EM 100 G4 et SKM 100 G4 en plus)
 - [ ] Sennheiser EM 10
 - [ ] Shure SLX2 / SLX4 (bande P4)
 
