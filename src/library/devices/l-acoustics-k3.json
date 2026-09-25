@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-k3",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "K3",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 43,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/k3/",
+      "document": "L-Acoustics, page produit K3, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "speakON A",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Ligne source 2 voies active, LF 8 Ω / HF 8 Ω ; Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    },
+    {
+      "id": "b",
+      "name": "speakON B",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    }
+  ]
+}

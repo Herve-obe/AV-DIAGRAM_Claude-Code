@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-x8",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "X8",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 12,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/x8/",
+      "document": "L-Acoustics, page produit X8, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Coaxiale 2 voies passive, 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "Link speakON",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Recopie de l'entrée (chaînage)"
+    }
+  ]
+}

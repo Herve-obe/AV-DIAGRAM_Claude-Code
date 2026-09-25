@@ -68,6 +68,10 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'vga', label: 'VGA (HD-15)', mate: 'vga' },
   { id: 'rj10', label: 'RJ-10', mate: 'rj10' },
   { id: 'rf', label: 'Liaison radio (HF)', mate: 'rf' },
+  { id: 'ca-com', label: 'CA-COM 8 points (L-Acoustics)', mate: 'ca-com' },
+  { id: 'pa-com', label: 'PA-COM 8 points (L-Acoustics)', mate: 'pa-com' },
+  { id: 'sc32', label: 'SC32 (L-Acoustics, 32 points)', mate: 'sc32' },
+  { id: 'multipin-37', label: 'Multipoint 37 points', mate: 'multipin-37' },
   { id: 'unspecified', label: 'Non précisé par le constructeur', mate: 'unspecified' },
 ]
 

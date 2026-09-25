@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-sb18",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "SB18",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 52,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/sb18/",
+      "document": "L-Acoustics, page produit SB18, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "speakON A",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Caisson de grave 18\", 8 Ω ; Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    },
+    {
+      "id": "b",
+      "name": "speakON B",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    }
+  ]
+}

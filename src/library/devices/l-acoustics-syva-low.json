@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-syva-low",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "Syva Low",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 29,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/syva-low/",
+      "document": "L-Acoustics, page produit Syva Low, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Renfort de grave de Syva, 4 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "AutoConnect",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Liaison AutoConnect entre éléments Syva (voir la documentation)"
+    }
+  ]
+}

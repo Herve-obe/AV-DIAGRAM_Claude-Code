@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-sb15m",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "SB15m",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 36,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/sb15m/",
+      "document": "L-Acoustics, page produit SB15m, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "speakON A",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Caisson de grave 15\", 8 Ω ; Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    },
+    {
+      "id": "b",
+      "name": "speakON B",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    }
+  ]
+}

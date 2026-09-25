@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-syva-sub",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "Syva Sub",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 27,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/syva-sub/",
+      "document": "L-Acoustics, page produit Syva Sub, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Caisson de grave de Syva, 8 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "AutoConnect",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Liaison AutoConnect entre éléments Syva (voir la documentation)"
+    }
+  ]
+}
