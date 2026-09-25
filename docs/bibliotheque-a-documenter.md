@@ -22,7 +22,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [ ] SSL A16.D16 (16 entrées, 16 sorties analogiques, 16 E/S AES3, Dante)
 - [x] Avid HD I/O (fiche 8x8x8 de base ; le parc a une carte 8 entrées analogiques en plus, non modélisée pour l'instant)
 - [ ] Avid MTRX Studio
-- [ ] Focusrite Scarlett 2i2 3e génération (guide absent du Drive, site Focusrite bloqué par le proxy)
+- [x] Focusrite Scarlett 2i2 3e génération
 
 ### Synchro audio
 - [x] Avid Sync HD
@@ -63,7 +63,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 - [x] Audio-Technica PRO 37
 - [ ] Audix i5
 - [x] Neumann TLM 103
-- [ ] Oktava MK-012 MSP6 (paire appairée) : source unique oktava-shop.com, bloquée par le proxy
+- [x] Oktava MK-012 MSP6 (paire appairée : une fiche, à poser deux fois)
 - [ ] Oktava MK-220 (paire appairée)
 - [ ] Rode NTG-1
 - [ ] Rode NTG-4
@@ -85,7 +85,7 @@ Légende : `[ ]` à documenter, `[x]` fiche vérifiée, `(?)` désignation à co
 
 ### Systèmes HF
 - [x] Sennheiser ew 100 ENG G3 (EK 100 G3, SK 100 G3, SKP 100 G3)
-- [ ] Sennheiser ew 100 ENG G4
+- [ ] Sennheiser ew 100 ENG G4 (le PDF du Drive ne contient que la couverture)
 - [ ] Sennheiser EM 10
 - [ ] Shure SLX2 / SLX4 (bande P4)
 
