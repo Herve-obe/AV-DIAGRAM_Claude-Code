@@ -379,6 +379,30 @@ Chaque proposition passe par le **moteur de règles déterministe** (section 5.4
   - OpenAI, [facturation ChatGPT et plateforme API](https://help.openai.com/en/articles/9039756-billing-settings-in-chatgpt-vs-platform) ;
   - Google, [facturation de l'API Gemini](https://ai.google.dev/gemini-api/docs/billing).
 
+### 12.7 État de réalisation (2026-09-25)
+
+Fait :
+
+- **Partie native** (`src-tauri/src/ai.rs`) : seule partie de l'application qui parle au réseau. Adresses fixes pour Anthropic, OpenAI, Gemini (point d'accès compatible OpenAI) et Mistral. Une adresse saisie par l'utilisateur est acceptée seulement si elle est locale (localhost, 127.0.0.1), ou en HTTPS pour « compatible OpenAI ». Seuls trois chemins sont autorisés : discussion, messages et liste des modèles. Les redirections sont refusées. La clé est rangée dans le trousseau du système (crate keyring) et n'est jamais renvoyée à l'interface.
+- **Deux formats d'échange** (`src/ai/providers.ts`) : l'API Messages d'Anthropic, et l'API « chat completions » d'OpenAI. Le second couvre OpenAI, Gemini, Mistral, Ollama, LM Studio et llama-server.
+- **Outils** (`src/ai/tools.ts`) :
+  - lecture : chercher dans la bibliothèque, lire une fiche, lire le schéma, lire un équipement ;
+  - proposition : poser un équipement, relier deux ports ;
+  - vérification : lancer le moteur de règles.
+
+  Les propositions sont faites sur un brouillon. L'utilisateur l'applique (une seule étape d'annulation) ou le refuse. L'assistant ne peut ni supprimer ni modifier l'existant.
+- **Configuration guidée** : IA locale en 3 étapes (serveur local, modèle, test), compte IA en 5 étapes (fournisseur, création de la clé, clé, test de connexion, modèle et accord). L'accord sur l'envoi des données est obligatoire pour un compte en ligne.
+- **Messages d'erreur clairs** : clé refusée, facturation non activée, quota, trop de requêtes, modèle introuvable, serveur local arrêté.
+
+Limites actuelles :
+
+- L'option A demande pour l'instant un serveur local déjà installé (Ollama, LM Studio ou llama-server). Le téléchargement et le lancement d'un modèle depuis AV Diagram restent à faire.
+- Pas encore de base de connaissances (RAG) : l'assistant s'appuie sur la bibliothèque, le moteur de règles et quelques repères métier du prompt système. Elle dépend des fiches pédagogiques du lot 5.
+- La proposition s'affiche sous forme de liste dans le panneau, pas encore en aperçu sur le canevas.
+- La clé passe une fois par l'interface, au moment où l'utilisateur la colle ; ensuite, seule la partie native la lit.
+- Adresses des consoles et préfixes des clés relevés le 2026-09-25, à revérifier à chaque version.
+- Testé avec un faux fournisseur (tests automatiques et navigateur). Pas encore testé avec un vrai compte ni un vrai serveur local.
+
 ## 13. Interface et design
 
 - **Direction retenue (décision Q7)** : s'inspirer de **DaVinci Resolve**. Les gris sont neutres (graphite), les panneaux denses, et il n'y a qu'un seul accent orange pour la sélection et l'état actif. Les couleurs vives sont réservées aux signaux. Les vues se changent par une **barre de pages en bas de l'écran**, comme les pages Media / Cut / Edit / Fairlight / Deliver de Resolve. Le rendu est ajusté au fil des retours.
@@ -471,7 +495,7 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 | 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | À faire |
 | 4 | Cloud européen : comptes, rôles, collaboration temps réel, partage, versions | Reporté (pas de budget serveur) |
 | 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | À faire |
-| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | À faire |
+| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | En cours : fait = assistant IA, 1re partie (voir 12.7) ; à faire = téléchargement et lancement d'un modèle local intégré, base de connaissances (RAG), aperçu des propositions sur le canevas, imports et exports avancés |
 | 7 | Signature des installateurs, portage tablette | À faire |
 | Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md`, en commençant par le son | Mécanisme de fiches et de validation prêt, fiches en attente des documents des constructeurs |
 

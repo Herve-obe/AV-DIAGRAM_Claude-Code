@@ -5,6 +5,7 @@ import { useReactFlow } from '@xyflow/react'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { startMerge } from './MergeDialog'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
+import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
 import { Icon, type IconName } from './Icon'
@@ -27,6 +28,7 @@ export function TopBar() {
   const [name, setName] = useState(project.name)
   const exportRef = useRef<HTMLDivElement>(null)
   const rf = useReactFlow()
+  const aiOpen = useAi((s) => s.panelOpen)
 
   useEffect(() => setName(project.name), [project.name])
   useEffect(() => {
@@ -97,6 +99,7 @@ export function TopBar() {
         <kbd>Ctrl K</kbd>
       </button>
 
+      <button className="icon-btn" aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t('ai.title')} aria-label={t('ai.title')}><Icon name="assistant" /></button>
       <div className="segmented" role="group" aria-label="Mode">
         <button aria-pressed={mode === 'beginner'} onClick={() => setPref('mode', 'beginner')}>{t('mode.beginner')}</button>
         <button aria-pressed={mode === 'expert'} onClick={() => setPref('mode', 'expert')}>{t('mode.expert')}</button>

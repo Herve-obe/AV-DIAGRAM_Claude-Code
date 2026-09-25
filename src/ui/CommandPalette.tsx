@@ -5,6 +5,7 @@ import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { groupSelected, ungroupSelected } from './groupActions'
+import { useAi } from '../store/aiStore'
 import { startMerge } from './MergeDialog'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
@@ -41,6 +42,8 @@ export function CommandPalette() {
       { id: 'issues', label: t('palette.issues'), run: () => ui.setDockTab('issues') },
       { id: 'new', label: t('palette.newProject'), run: () => ui.setNewProjectOpen(true) },
       { id: 'merge', label: t('merge.menu'), run: () => startMerge(t) },
+      { id: 'assistant', label: t('ai.open'), run: () => useAi.getState().setPanelOpen(true) },
+      { id: 'assistant-setup', label: t('ai.setup.title'), run: () => useAi.getState().setSetupOpen(true) },
       { id: 'settings', label: t('palette.settings'), run: () => ui.setSettingsOpen(true) },
       { id: 'present', label: t('presentation.enter'), hint: 'F5', run: () => ui.setPresenting(true) },
       { id: 'pdf', label: t('palette.exportPdf'), run: () => exportPdfWithLabels(rf, t) },

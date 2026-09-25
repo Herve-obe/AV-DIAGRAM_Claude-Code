@@ -3,11 +3,14 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ReactFlowProvider, useReactFlow } from '@xyflow/react'
 import { Canvas } from './editor/Canvas'
+import { useAi } from './store/aiStore'
 import type { SignalFamily } from './model/signals'
 import i18n from './i18n'
 import { notifyError, openProjectFile, saveProjectFile } from './io/files'
 import { useProject } from './store/projectStore'
 import { useUi } from './store/uiStore'
+import { AiSetupDialog } from './ui/AiSetupDialog'
+import { AssistantPanel } from './ui/AssistantPanel'
 import { CommandPalette } from './ui/CommandPalette'
 import { Dock } from './ui/Dock'
 import { FilterBar } from './ui/FilterBar'
@@ -114,6 +117,7 @@ function PresentationBar() {
 export default function App() {
   const mode = useUi((s) => s.mode)
   const presenting = useUi((s) => s.presenting)
+  const assistant = useAi((s) => s.panelOpen)
   return (
     <ReactFlowProvider>
       <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''}`}>
@@ -125,7 +129,7 @@ export default function App() {
             {!presenting && <FilterBar />}
             <Canvas />
           </main>
-          {!presenting && <Inspector />}
+          {!presenting && (assistant ? <AssistantPanel /> : <Inspector />)}
         </div>
         {!presenting && <Dock />}
         {!presenting && <PageBar />}
@@ -134,6 +138,7 @@ export default function App() {
       <ProjectSettings />
       <NewProjectDialog />
       <MergeDialog />
+      <AiSetupDialog />
       <Shortcuts />
       <ThemeSync />
       <SheetSync />
