@@ -491,7 +491,8 @@
       "get_equipment": "Lecture d'un équipement…",
       "add_equipment": "Préparation d'un équipement…",
       "connect_ports": "Préparation d'une liaison…",
-      "check_project": "Vérification par le moteur de règles…"
+      "check_project": "Vérification par le moteur de règles…",
+      "start_local": "Démarrage du modèle local…"
     },
     "error": {
       "auth": "Clé refusée par le fournisseur : vérifie-la ou crée-en une nouvelle.",
@@ -524,7 +525,7 @@
         "connect": "Tester la connexion"
       },
       "serverHint": "Choisis le logiciel qui fait tourner le modèle sur ton ordinateur, puis lance la détection. Il doit être démarré et avoir au moins un modèle installé (capable d'appeler des fonctions).",
-      "downloadLater": "Le téléchargement d'un modèle depuis AV Diagram arrive dans une prochaine version. En attendant, installe Ollama ou LM Studio et un modèle depuis ces logiciels.",
+      "downloadLater": "Le téléchargement d'un modèle depuis AV Diagram arrive dans une prochaine version. En attendant, utilise Ollama ou LM Studio, ou llama-server avec un modèle .gguf téléchargé toi-même.",
       "url": "Adresse du serveur",
       "detect": "Détecter le serveur",
       "testing": "Test en cours…",
@@ -563,7 +564,15 @@
       "consent": "J'accepte l'envoi de ces données à {{provider}}.",
       "back": "Retour",
       "next": "Suivant",
-      "finish": "Terminer"
+      "finish": "Terminer",
+      "managed": "AV Diagram lance llama-server lui-même",
+      "managedHint": "Choisis le programme llama-server (archive llama.cpp pour ton système) et un modèle au format .gguf. AV Diagram démarre le serveur sur ton ordinateur (127.0.0.1) quand tu poses une question, et l'arrête à la fermeture.",
+      "serverFile": "Programme llama-server",
+      "modelFile": "Modèle (.gguf)",
+      "noFile": "Aucun fichier choisi",
+      "choose": "Choisir…",
+      "launch": "Démarrer et charger le modèle",
+      "launching": "Démarrage de llama-server et chargement du modèle (jusqu'à 3 min)…"
     },
     "preview": "Aperçu de l'assistant : {{equipment}} équipement(s) et {{links}} liaison(s) proposés, en pointillés",
     "showSheet": "Voir la feuille"

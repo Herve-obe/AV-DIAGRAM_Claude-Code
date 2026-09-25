@@ -491,7 +491,8 @@
       "get_equipment": "Reading a device…",
       "add_equipment": "Preparing a device…",
       "connect_ports": "Preparing a link…",
-      "check_project": "Running the rules engine…"
+      "check_project": "Running the rules engine…",
+      "start_local": "Starting the local model…"
     },
     "error": {
       "auth": "Key rejected by the provider: check it or create a new one.",
@@ -524,7 +525,7 @@
         "connect": "Test the connection"
       },
       "serverHint": "Pick the software that runs the model on your computer, then detect it. It must be running with at least one model installed (able to call functions).",
-      "downloadLater": "Downloading a model from AV Diagram comes in a later version. Meanwhile, install Ollama or LM Studio and a model from there.",
+      "downloadLater": "Downloading a model from AV Diagram comes in a later version. Meanwhile, use Ollama or LM Studio, or llama-server with a .gguf model you downloaded.",
       "url": "Server address",
       "detect": "Detect the server",
       "testing": "Testing…",
@@ -563,7 +564,15 @@
       "consent": "I agree to send this data to {{provider}}.",
       "back": "Back",
       "next": "Next",
-      "finish": "Finish"
+      "finish": "Finish",
+      "managed": "AV Diagram starts llama-server itself",
+      "managedHint": "Pick the llama-server program (llama.cpp archive for your system) and a .gguf model. AV Diagram starts the server on your computer (127.0.0.1) when you ask a question, and stops it on exit.",
+      "serverFile": "llama-server program",
+      "modelFile": "Model (.gguf)",
+      "noFile": "No file selected",
+      "choose": "Choose…",
+      "launch": "Start and load the model",
+      "launching": "Starting llama-server and loading the model (up to 3 min)…"
     },
     "preview": "Assistant preview: {{equipment}} device(s) and {{links}} link(s) proposed, dashed",
     "showSheet": "Show the sheet"

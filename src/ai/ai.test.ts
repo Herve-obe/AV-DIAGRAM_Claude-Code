@@ -154,3 +154,12 @@ describe('assistant : boucle', () => {
     await expect(run).rejects.toBeInstanceOf(AiError)
   })
 })
+
+describe('assistant : serveur local géré', () => {
+  it('déduit le port de l\'adresse du serveur', async () => {
+    const { portOf } = await import('./local')
+    expect(portOf('http://localhost:8081/v1')).toBe(8081)
+    expect(portOf('http://localhost/v1')).toBe(8080)
+    expect(portOf(undefined)).toBe(8080)
+  })
+})

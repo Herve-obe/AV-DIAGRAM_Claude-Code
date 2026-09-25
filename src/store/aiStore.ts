@@ -5,6 +5,7 @@ import { create } from 'zustand'
 import i18n from '../i18n'
 import { AiError, buildSystemPrompt, runTurn } from '../ai/agent'
 import { providerInfo, type ChatMessage, type ProviderId } from '../ai/providers'
+import { ensureServer, type ManagedServer } from '../ai/local'
 import { createDraft, hasChanges, type Draft } from '../ai/tools'
 import { nativeTransport } from '../ai/transport'
 import { LIBRARY } from '../library'
@@ -20,6 +21,8 @@ export interface AiSettings {
   model?: string
   /** Accord explicite pour l'envoi du schéma à un fournisseur en ligne (section 12.1) */
   consent: boolean
+  /** llama-server lancé par AV Diagram (option A), avec les fichiers choisis par l'utilisateur */
+  managed?: ManagedServer
 }
 
 export type Bubble =
@@ -113,6 +116,11 @@ export const useAi = create<AiState>((set, get) => ({
     draft ??= createDraft(project, ui.currentSheetId)
     set({ busy: true, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question }] })
     try {
+      if (settings.provider === 'llamacpp' && settings.managed) {
+        set({ activeTool: 'start_local' })
+        await ensureServer(settings.managed, settings.baseUrl)
+        set({ activeTool: null })
+      }
       const res = await runTurn({
         transport: nativeTransport,
         connection: { provider: settings.provider, baseUrl: settings.baseUrl, model: settings.model },

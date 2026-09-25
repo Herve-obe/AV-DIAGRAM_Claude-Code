@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AiError, listModels, testChat } from '../ai/agent'
 import { checkKeyShape, pickRecommended, PROVIDERS, providerInfo, type ProviderId } from '../ai/providers'
+import { startServer, stopServer } from '../ai/local'
 import { keyStore, nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
@@ -48,6 +49,10 @@ export function AiSetupDialog() {
   const [keyPresent, setKeyPresent] = useState(false)
   const [consent, setConsent] = useState(false)
   const [status, setStatus] = useState<Status>({ state: 'idle' })
+  // llama-server lancé par AV Diagram
+  const [managedOn, setManagedOn] = useState(false)
+  const [serverPath, setServerPath] = useState('')
+  const [modelPath, setModelPath] = useState('')
   const native = nativeAvailable()
   const info = providerInfo(provider)
   const close = () => useAi.getState().setSetupOpen(false)
@@ -65,6 +70,9 @@ export function AiSetupDialog() {
     setConsent(settings.consent)
     setKey('')
     setStatus({ state: 'idle' })
+    setManagedOn(!!settings.managed)
+    setServerPath(settings.managed?.serverPath ?? '')
+    setModelPath(settings.managed?.modelPath ?? '')
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -109,6 +117,31 @@ export function AiSetupDialog() {
     }
   }
 
+  const pickFile = async (kind: 'server' | 'model') => {
+    const { open: openDialog } = await import('@tauri-apps/plugin-dialog')
+    const path = await openDialog({
+      multiple: false,
+      directory: false,
+      filters: kind === 'model' ? [{ name: 'GGUF', extensions: ['gguf'] }] : undefined,
+    })
+    if (typeof path !== 'string') return
+    if (kind === 'server') setServerPath(path)
+    else setModelPath(path)
+    setModels([])
+  }
+
+  const launch = async () => {
+    setStatus({ state: 'running', text: t('ai.setup.launching') })
+    try {
+      const list = await startServer({ serverPath, modelPath }, url)
+      setModels(list)
+      setModel(list[0] ?? '')
+      setStatus({ state: 'ok', text: t('ai.setup.connected', { count: list.length }) })
+    } catch (e) {
+      setStatus({ state: 'error', text: errorText(t, e) })
+    }
+  }
+
   const runTest = async () => {
     setStatus({ state: 'running', text: t('ai.setup.testing') })
     try {
@@ -140,11 +173,15 @@ export function AiSetupDialog() {
   }
 
   const finish = () => {
-    useAi.getState().saveSettings({ enabled: true, provider, baseUrl: usesUrl ? url : undefined, model, consent: info.kind === 'local' ? false : consent })
+    const managed = provider === 'llamacpp' && managedOn && serverPath && modelPath ? { serverPath, modelPath } : undefined
+    useAi.getState().saveSettings({ enabled: true, provider, baseUrl: usesUrl ? url : undefined, model, consent: info.kind === 'local' ? false : consent, managed })
+    // Serveur local lancé pendant la configuration mais plus utilisé
+    if (!managed && native) void stopServer().catch(() => undefined)
     close()
   }
   const disable = () => {
     useAi.getState().saveSettings({ ...settings, enabled: false })
+    if (native) void stopServer().catch(() => undefined)
     close()
   }
 
@@ -223,7 +260,35 @@ export function AiSetupDialog() {
                   <p className="dialog-hint">{t('ai.setup.serverHint')}</p>
                   {providerList('local')}
                   {urlField}
-                  <div className="dialog-actions"><button className="btn" onClick={fetchModels} disabled={!native || status.state === 'running'}>{t('ai.setup.detect')}</button></div>
+                  {provider === 'llamacpp' && (
+                    <>
+                      <label className="ai-consent">
+                        <input type="checkbox" checked={managedOn} onChange={(e) => { setManagedOn(e.target.checked); setModels([]) }} />
+                        {t('ai.setup.managed')}
+                      </label>
+                      {managedOn && (
+                        <>
+                          <p className="dialog-hint">{t('ai.setup.managedHint')}</p>
+                          {(['server', 'model'] as const).map((kind) => (
+                            <div className="field" key={kind}>
+                              <label>{t(`ai.setup.${kind}File`)}</label>
+                              <div className="ai-file">
+                                <span className="mono dim" title={kind === 'server' ? serverPath : modelPath}>{(kind === 'server' ? serverPath : modelPath) || t('ai.setup.noFile')}</span>
+                                <button className="btn" onClick={() => void pickFile(kind)} disabled={!native}>{t('ai.setup.choose')}</button>
+                              </div>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </>
+                  )}
+                  <div className="dialog-actions">
+                    {provider === 'llamacpp' && managedOn ? (
+                      <button className="btn" onClick={launch} disabled={!native || !serverPath || !modelPath || status.state === 'running'}>{t('ai.setup.launch')}</button>
+                    ) : (
+                      <button className="btn" onClick={fetchModels} disabled={!native || status.state === 'running'}>{t('ai.setup.detect')}</button>
+                    )}
+                  </div>
                   <p className="field-hint">{t('ai.setup.downloadLater')}</p>
                 </>
               )}

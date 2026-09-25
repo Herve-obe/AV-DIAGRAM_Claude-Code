@@ -677,3 +677,5 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
   font-size: 12.5px;
 }
 .proposal-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+.ai-file { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.ai-file .mono { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
