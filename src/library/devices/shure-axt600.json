@@ -1,0 +1,90 @@
+{
+  "id": "shure-axt600",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AXT600",
+  "pictogram": "wireless",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AXT600/en-US",
+      "document": "Shure, guide d'utilisation AXT600 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Entrée d'antenne ; connecteur non précisé dans l'extrait du guide"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Entrée d'antenne"
+    },
+    {
+      "id": "casA",
+      "name": "Cascade RF A",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Recopie vers d'autres appareils"
+    },
+    {
+      "id": "casB",
+      "name": "Cascade RF B",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Recopie vers d'autres appareils"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PoE classe 1"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PoE classe 1"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute en façade"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC (type non précisé)"
+    },
+    {
+      "id": "acout",
+      "name": "Cascade secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ]
+}

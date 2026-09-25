@@ -1,0 +1,40 @@
+{
+  "id": "shure-ad610",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD610",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD610/en-US",
+      "document": "Shure, guide d'utilisation AD610 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Alimenté en PoE classe 1"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "showlink",
+      "name": "ShowLink 2,4 GHz",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rf",
+      "format": "Liaison radio de télécommande avec les émetteurs"
+    }
+  ]
+}

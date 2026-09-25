@@ -1,0 +1,27 @@
+{
+  "id": "shure-beta-87a",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "Beta 87A",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/BETA87A/en-US",
+      "document": "Shure, guide d'utilisation Beta 87A (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique électret supercardioïde ; 48 V conseillé, fonctionne dès 11 V",
+      "phantom": "required"
+    }
+  ]
+}
