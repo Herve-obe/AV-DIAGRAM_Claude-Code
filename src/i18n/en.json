@@ -142,7 +142,9 @@
     "multicoreNone": "None (single cable)",
     "multicoreNew": "New multicore",
     "pair": "Pair",
-    "pairUsed": "used"
+    "pairUsed": "used",
+    "channels": "Channels carried",
+    "channelsHint": "Capacity: {{max}}"
   },
   "severity": {
     "error": "Error",
@@ -213,6 +215,10 @@
     "pair-missing": {
       "msg": "Link assigned to multicore {{cable}} without a pair number.",
       "fix": "Choose the pair used in the link inspector."
+    },
+    "channels-over": {
+      "msg": "{{n}} channels carried for a declared capacity of {{max}}.",
+      "fix": "Reduce the number of flows, or check the port capacity."
     }
   },
   "dock": {

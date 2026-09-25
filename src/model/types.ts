@@ -125,6 +125,8 @@ export interface Link {
   /** Type de câble choisi dans le catalogue (model/cables.ts) */
   cableTypeId?: string
   cableRef?: string
+  /** Nombre de canaux (flux) transportés, pour un lien multicanal (Dante, MADI, ADAT...) */
+  channels?: number
   /** Multipaire qui transporte cette liaison, et numéro de paire (à partir de 1) */
   multicoreId?: string
   pair?: number

@@ -18,6 +18,7 @@ export type RuleCode =
   | 'pair-busy'
   | 'pair-range'
   | 'pair-missing'
+  | 'channels-over'
   | 'input-busy'
   | 'output-busy'
   | 'output-split'
@@ -61,6 +62,7 @@ const SEVERITY: Record<RuleCode, Severity> = {
   'pair-busy': 'error',
   'pair-range': 'error',
   'pair-missing': 'warning',
+  'channels-over': 'warning',
   'input-busy': 'error',
   'output-busy': 'error',
   'output-split': 'info',
@@ -96,6 +98,11 @@ export function checkLink(project: Project, link: Link): Issue[] {
   }
 
   const all = Object.values(project.links)
+
+  if (link.channels) {
+    const cap = Math.min(src.channels ?? Infinity, dst.channels ?? Infinity)
+    if (link.channels > cap) codes.push({ code: 'channels-over', params: { n: String(link.channels), max: String(cap) } })
+  }
 
   const mc = link.multicoreId ? project.multicores?.[link.multicoreId] : undefined
   if (mc) {

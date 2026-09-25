@@ -357,3 +357,15 @@ describe('codes de type personnalisés', () => {
     expect(labels.some((l) => l.includes('-AUD-'))).toBe(false)
   })
 })
+
+describe('flux réseau', () => {
+  it('alerte quand une liaison transporte plus de canaux que la capacité déclarée', () => {
+    let p = buildSampleProject()
+    const l = Object.values(p.links)[0]
+    p = ops.updatePort(p, l.source.equipmentId, l.source.portId, { channels: 64 })
+    p = ops.updateLink(p, l.id, { channels: 64 })
+    expect(checkLink(p, p.links[l.id]).map((i) => i.code)).not.toContain('channels-over')
+    p = ops.updateLink(p, l.id, { channels: 65 })
+    expect(checkLink(p, p.links[l.id]).map((i) => i.code)).toContain('channels-over')
+  })
+})

@@ -93,7 +93,8 @@ export function Canvas() {
     // Liaison dans un multipaire : l'étiquette indique le câble et la paire (ex. FOH-AUD-001 · MP-01/3)
     const via = (l: Link) => {
       const mc = l.multicoreId ? project.multicores?.[l.multicoreId] : undefined
-      return mc ? `${l.label} · ${mc.label}/${l.pair ?? '?'}` : l.label
+      const base = mc ? `${l.label} · ${mc.label}/${l.pair ?? '?'}` : l.label
+      return l.channels ? `${base} · ${l.channels} ch` : base
     }
     return Object.values(project.links).flatMap((l) => {
       const se = project.equipment[l.source.equipmentId]

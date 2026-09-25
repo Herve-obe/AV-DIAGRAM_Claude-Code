@@ -183,6 +183,12 @@ function LinkInspector({ link }: { link: Link }) {
       <div className="field"><label>{t('inspector.from')}</label><div className="readonly">{se.name} / {sp.name}</div></div>
       <div className="field"><label>{t('inspector.to')}</label><div className="readonly">{te.name} / {tp.name}</div></div>
       <div className="field"><label>{t('inspector.connectors')}</label><div className="readonly mono">{connectorLabel(sp.connector)} → {connectorLabel(tp.connector)}</div></div>
+      {((sp.channels ?? 1) > 1 || (tp.channels ?? 1) > 1) && (
+        <>
+          <Field id="lk-channels" type="number" label={t('inspector.channels')} value={link.channels} onCommit={(v) => updateLink(link.id, { channels: toNumber(v) ? Math.round(toNumber(v)!) : undefined })} />
+          <p className="field-hint">{t('inspector.channelsHint', { max: Math.min(sp.channels ?? Infinity, tp.channels ?? Infinity) })}</p>
+        </>
+      )}
       <MulticorePicker link={link} />
       {!link.multicoreId && <CablePicker link={link} from={sp.connector} to={tp.connector} />}
       <Field id="lk-length" type="number" label={t('inspector.length')} value={link.lengthM} onCommit={(v) => updateLink(link.id, { lengthM: toNumber(v) })} />

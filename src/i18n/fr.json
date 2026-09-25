@@ -142,7 +142,9 @@
     "multicoreNone": "Aucun (câble simple)",
     "multicoreNew": "Nouveau multipaire",
     "pair": "Paire",
-    "pairUsed": "occupée"
+    "pairUsed": "occupée",
+    "channels": "Canaux transportés",
+    "channelsHint": "Capacité : {{max}}"
   },
   "severity": {
     "error": "Erreur",
@@ -213,6 +215,10 @@
     "pair-missing": {
       "msg": "Liaison affectée au multipaire {{cable}} sans numéro de paire.",
       "fix": "Choisis la paire utilisée dans l’inspecteur de la liaison."
+    },
+    "channels-over": {
+      "msg": "{{n}} canaux transportés pour une capacité déclarée de {{max}}.",
+      "fix": "Réduis le nombre de flux, ou vérifie la capacité des ports."
     }
   },
   "dock": {
