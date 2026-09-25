@@ -327,7 +327,10 @@ export function removeSheet(project: Project, id: string): Project {
   const eqIds = Object.values(project.equipment).filter((e) => e.sheetId === id).map((e) => e.id)
   const p = removeElements(project, eqIds, [])
   const annotations = Object.fromEntries(Object.entries(p.annotations ?? {}).filter(([, a]) => a.sheetId !== id))
-  return touch({ ...p, sheets: sheets.filter((s) => s.id !== id), annotations })
+  // Les sous-schémas de la feuille supprimée remontent d'un niveau
+  const removed = sheets.find((s) => s.id === id)
+  const rest = sheets.filter((s) => s.id !== id).map((s) => (s.parentId === id ? { ...s, parentId: removed?.parentId } : s))
+  return touch({ ...p, sheets: rest, annotations })
 }
 
 /** Nom de la feuille d'un équipement (pour les renvois entre feuilles). */

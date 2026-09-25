@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
+import { depthOf, sheetTree } from '../model/groups'
 import type { Annotation } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
@@ -9,8 +10,10 @@ import { Icon } from './Icon'
 
 export function SheetTabs() {
   const { t } = useTranslation()
-  const sheets = useProject((s) => s.project.sheets ?? [])
+  const project = useProject((s) => s.project)
+  const sheets = sheetTree(project)
   const { currentSheetId, setSheet, presenting } = useUi()
+  const current = sheets.find((s) => s.id === currentSheetId)
   const [renaming, setRenaming] = useState<string | null>(null)
   const rf = useReactFlow()
 
@@ -39,6 +42,11 @@ export function SheetTabs() {
   return (
     <div className="sheetbar">
       <div className="sheet-tabs" role="tablist" aria-label={t('sheets.label')}>
+        {current?.parentId && (
+          <button className="icon-btn small" onClick={() => setSheet(current.parentId!)} title={t('groups.parent')} aria-label={t('groups.parent')}>
+            <Icon name="undo" size={13} />
+          </button>
+        )}
         {sheets.map((s) => (
           <div key={s.id} className={`sheet-tab ${s.id === currentSheetId ? 'is-active' : ''}`}>
             {renaming === s.id ? (
@@ -57,6 +65,7 @@ export function SheetTabs() {
                 onDoubleClick={() => !presenting && setRenaming(s.id)}
                 title={presenting ? undefined : t('sheets.renameHint')}
               >
+                {depthOf(project, s.id) > 0 && <span className="sheet-depth" aria-hidden="true">{'›'.repeat(depthOf(project, s.id))} </span>}
                 {s.name}
               </button>
             )}

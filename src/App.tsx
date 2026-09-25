@@ -18,6 +18,7 @@ import { PageBar } from './ui/PageBar'
 import { ProjectSettings } from './ui/ProjectSettings'
 import { SheetTabs } from './ui/SheetTabs'
 import { TopBar } from './ui/TopBar'
+import { groupSelected, ungroupSelected } from './ui/groupActions'
 
 /** Alt+0..3 : filtres rapides d'affichage (null = tout afficher) */
 const SIGNAL_SETS: Record<string, SignalFamily[] | null> = {
@@ -57,6 +58,12 @@ function Shortcuts() {
         e.preventDefault()
         const ids = store.duplicate(ui.selectedEquipment)
         if (ids.length) ui.select(ids, [])
+        return
+      }
+      if (mod && key === 'g') {
+        e.preventDefault()
+        if (e.shiftKey) ungroupSelected()
+        else groupSelected()
         return
       }
       if (!mod && key === 'f') rf.fitView({ duration: 300, padding: 0.15 })

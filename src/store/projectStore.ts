@@ -1,6 +1,7 @@
 // Store du projet : état courant + historique d'annulation (Ctrl+Z / Ctrl+Maj+Z).
 // Toute modification passe par commit() qui empile l'état précédent.
 import { create } from 'zustand'
+import * as groups from '../model/groups'
 import * as ops from '../model/project'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import { buildSampleProject } from '../library/sample'
@@ -55,6 +56,11 @@ interface ProjectState {
   addMulticore: (init?: Partial<Omit<Multicore, 'id'>>) => string
   updateMulticore: (id: string, patch: Partial<Omit<Multicore, 'id'>>) => void
   removeMulticore: (id: string) => void
+  /** Regroupe des équipements (et annotations) de la feuille dans un sous-schéma ; renvoie son id */
+  groupSelection: (sheetId: string, nodeIds: string[], name: string) => string | null
+  ungroup: (groupId: string) => void
+  /** Déplacement du bloc replié pendant un geste (pas de pas d'annulation supplémentaire) */
+  moveGroup: (groupId: string, position: { x: number; y: number }) => void
 }
 
 export const useProject = create<ProjectState>((set, get) => {
@@ -112,7 +118,10 @@ export const useProject = create<ProjectState>((set, get) => {
       const p = get().project
       const annIds = nodeIds.filter((id) => p.annotations?.[id])
       const eqIds = nodeIds.filter((id) => p.equipment[id])
-      commit(ops.removeAnnotations(ops.removeElements(p, eqIds, lkIds), annIds))
+      // Supprimer le bloc d'un groupe le dissout : son contenu remonte, rien n'est perdu
+      let next = ops.removeAnnotations(ops.removeElements(p, eqIds, lkIds), annIds)
+      for (const id of nodeIds.filter(groups.isGroupNodeId)) next = groups.ungroup(next, groups.sheetIdOfGroupNode(id))
+      commit(next)
     },
     duplicate: (ids) => {
       const r = ops.duplicateEquipment(get().project, ids)
@@ -165,5 +174,15 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     updateMulticore: (id, patch) => commit(ops.updateMulticore(get().project, id, patch)),
     removeMulticore: (id) => commit(ops.removeMulticore(get().project, id)),
+    groupSelection: (sheetId, nodeIds, name) => {
+      const p = get().project
+      const eqIds = nodeIds.filter((id) => p.equipment[id])
+      const annIds = nodeIds.filter((id) => p.annotations?.[id])
+      const r = groups.groupSelection(p, sheetId, eqIds, name, annIds)
+      if (r.id) commit(r.project)
+      return r.id
+    },
+    ungroup: (groupId) => commit(groups.ungroup(get().project, groupId)),
+    moveGroup: (groupId, position) => set({ project: groups.moveGroup(get().project, groupId, position), saved: false }),
   }
 })

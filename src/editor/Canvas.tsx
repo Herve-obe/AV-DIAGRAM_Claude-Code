@@ -15,26 +15,40 @@ import {
   type OnSelectionChangeParams,
 } from '@xyflow/react'
 import { getTemplate } from '../store/libraryStore'
+import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, sheetIdOfGroupNode } from '../model/groups'
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { SIGNAL_STYLE } from '../model/signals'
-import type { Link } from '../model/types'
+import type { Link, Project } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useIssues, worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
+import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
 import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
 
 export const DND_MIME = 'application/x-avd-template'
 
-const nodeTypes = { equipment: EquipmentNode, annotation: AnnotationNode }
+const nodeTypes = { equipment: EquipmentNode, annotation: AnnotationNode, subsheet: GroupNode }
 const edgeTypes = { signal: SignalEdge }
 
-type CanvasNode = EquipmentFlowNode | AnnotationFlowNode
+type CanvasNode = EquipmentFlowNode | AnnotationFlowNode | GroupFlowNode
+
+type PortRef = { equipmentId: string; portId: string }
+
+/** Où se dessine l'extrémité d'une liaison sur la feuille affichée : bloc de l'équipement ou bloc du groupe qui le contient. */
+function endpointOnView(project: Project, ref: PortRef, viewId: string): { node: string; handle: string } | null {
+  const eq = project.equipment[ref.equipmentId]
+  if (!eq) return null
+  const place = placeOnView(project, eq.sheetId ?? DEFAULT_SHEET_ID, viewId)
+  if (!place) return null
+  if (place.kind === 'self') return { node: eq.id, handle: ref.portId }
+  return { node: groupNodeId(place.groupId), handle: `${eq.id}:${ref.portId}` }
+}
 
 export function Canvas() {
   const project = useProject((s) => s.project)
-  const { moveEquipment, moveAnnotation, beginGesture, connect, remove, addEquipment } = useProject.getState()
+  const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
   const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting } = useUi()
   const issues = useIssues()
   const rf = useReactFlow()
@@ -43,17 +57,30 @@ export function Canvas() {
   const [nodes, setNodes] = useState<CanvasNode[]>([])
   useEffect(() => {
     const onSheet = (sheetId?: string) => (sheetId ?? DEFAULT_SHEET_ID) === currentSheetId
-    // Renvois : ports reliés à un équipement d'une autre feuille
+    // Renvois : poignée affichée dont l'autre extrémité n'est pas visible sur cette feuille
     const offPage = new Map<string, Record<string, string>>()
+    const mark = (end: { node: string; handle: string }, otherSheet: string | undefined) =>
+      offPage.set(end.node, { ...offPage.get(end.node), [end.handle]: sheetName(project, otherSheet) })
     for (const l of Object.values(project.links)) {
-      const se = project.equipment[l.source.equipmentId]
-      const te = project.equipment[l.target.equipmentId]
-      if (!se || !te || se.sheetId === te.sheetId) continue
-      const mark = (eqId: string, portId: string, other: string | undefined) =>
-        offPage.set(eqId, { ...offPage.get(eqId), [portId]: sheetName(project, other) })
-      mark(se.id, l.source.portId, te.sheetId)
-      mark(te.id, l.target.portId, se.sheetId)
+      const a = endpointOnView(project, l.source, currentSheetId)
+      const b = endpointOnView(project, l.target, currentSheetId)
+      if (a && !b) mark(a, project.equipment[l.target.equipmentId]?.sheetId)
+      if (b && !a) mark(b, project.equipment[l.source.equipmentId]?.sheetId)
     }
+    const groupNodes: GroupFlowNode[] = (project.sheets ?? [])
+      .filter((sh) => sh.parentId === currentSheetId)
+      .map((sh) => ({
+        id: groupNodeId(sh.id),
+        type: 'subsheet',
+        position: sh.groupPosition ?? { x: 0, y: 0 },
+        data: {
+          name: sh.name,
+          count: Object.values(project.equipment).filter((e) => isInside(project, e.sheetId ?? DEFAULT_SHEET_ID, sh.id)).length,
+          ports: groupInterface(project, sh.id),
+          offPage: offPage.get(groupNodeId(sh.id)) ?? {},
+        },
+        selected: selectedEquipment.includes(groupNodeId(sh.id)),
+      }))
     setNodes((prev) => {
       const measured = new Map(prev.map((n) => [n.id, n.measured]))
       const frames: AnnotationFlowNode[] = []
@@ -83,8 +110,9 @@ export function Canvas() {
           selected: selectedEquipment.includes(eq.id),
           measured: measured.get(eq.id),
         }))
-      // Les cadres d'abord (dessous), puis les équipements, puis les notes
-      return [...frames, ...equipment, ...notes]
+      const groupsWithSize = groupNodes.map((g) => ({ ...g, measured: measured.get(g.id) }))
+      // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
+      return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
   }, [project, selectedEquipment, mode, currentSheetId, presenting])
 
@@ -97,25 +125,25 @@ export function Canvas() {
       return l.channels ? `${base} · ${l.channels} ch` : base
     }
     return Object.values(project.links).flatMap((l) => {
-      const se = project.equipment[l.source.equipmentId]
-      const te = project.equipment[l.target.equipmentId]
-      // Une liaison entre deux feuilles n'est pas tracée : elle apparaît comme renvoi sur les ports
-      if (!se || !te || se.sheetId !== te.sheetId || (se.sheetId ?? DEFAULT_SHEET_ID) !== currentSheetId) return []
-      const port = se.ports.find((p) => p.id === l.source.portId)
+      const a = endpointOnView(project, l.source, currentSheetId)
+      const b = endpointOnView(project, l.target, currentSheetId)
+      // Non visible ici, ou interne à un même groupe replié : pas de trait (renvoi sur les ports)
+      if (!a || !b || (a.node === b.node && isGroupNodeId(a.node))) return []
+      const port = project.equipment[l.source.equipmentId]?.ports.find((p) => p.id === l.source.portId)
       const signal = port?.signal ?? 'audioAnalog'
       return [{
         id: l.id,
         type: 'signal' as const,
-        source: l.source.equipmentId,
-        sourceHandle: l.source.portId,
-        target: l.target.equipmentId,
-        targetHandle: l.target.portId,
+        source: a.node,
+        sourceHandle: a.handle,
+        target: b.node,
+        targetHandle: b.handle,
         selected: selectedLinks.includes(l.id),
         hidden: hiddenSignals.includes(signal),
         data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting },
       }]
     })
-  }, [project.links, project.equipment, project.multicores, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting])
+  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting])
 
   const onNodesChange = useCallback(
     (changes: NodeChange<CanvasNode>[]) => {
@@ -124,10 +152,11 @@ export function Canvas() {
       for (const c of changes) {
         if (c.type !== 'position' || !c.position || !c.dragging) continue
         if (annotations[c.id]) moveAnnotation(c.id, { position: c.position })
+        else if (isGroupNodeId(c.id)) moveGroup(sheetIdOfGroupNode(c.id), c.position)
         else moveEquipment(c.id, c.position)
       }
     },
-    [moveEquipment, moveAnnotation],
+    [moveEquipment, moveAnnotation, moveGroup],
   )
 
   const onConnect = useCallback(
@@ -195,6 +224,7 @@ export function Canvas() {
         edgeTypes={edgeTypes}
         onNodesChange={onNodesChange}
         onNodeDragStart={beginGesture}
+        onNodeDoubleClick={(_e, n) => isGroupNodeId(n.id) && useUi.getState().setSheet(sheetIdOfGroupNode(n.id))}
         nodesDraggable={!presenting}
         nodesConnectable={!presenting}
         elementsSelectable={!presenting}

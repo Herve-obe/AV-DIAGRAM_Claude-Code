@@ -160,6 +160,10 @@ export interface Zone {
 export interface Sheet {
   id: string
   name: string
+  /** Feuille parente : la feuille est alors un sous-schéma (groupe) replié sur sa parente */
+  parentId?: string
+  /** Position du bloc replié sur la feuille parente */
+  groupPosition?: { x: number; y: number }
 }
 
 /** Annotation libre, sans valeur métier : note de texte ou cadre de zone coloré. */

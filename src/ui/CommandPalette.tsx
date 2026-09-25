@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
+import { groupSelected, ungroupSelected } from './groupActions'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 
@@ -41,6 +42,8 @@ export function CommandPalette() {
       { id: 'settings', label: t('palette.settings'), run: () => ui.setSettingsOpen(true) },
       { id: 'present', label: t('presentation.enter'), hint: 'F5', run: () => ui.setPresenting(true) },
       { id: 'pdf', label: t('palette.exportPdf'), run: () => exportPdfWithLabels(rf, t) },
+      { id: 'group', label: t('groups.group'), hint: 'Ctrl G', run: () => groupSelected() },
+      { id: 'ungroup', label: t('groups.ungroup'), hint: 'Ctrl Maj G', run: () => ungroupSelected() },
       { id: 'renumber', label: t('palette.renumber'), run: () => useProject.getState().renumber() },
       { id: 'fit', label: t('palette.fit'), hint: 'F', run: () => rf.fitView({ duration: 300, padding: 0.15 }) },
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },

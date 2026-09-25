@@ -5,13 +5,15 @@ import { CABLE_CATALOG, cablesFor, getCable, type CableType } from '../model/cab
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
-import { firstFreePair, multicoreUsage, templateFromEquipment } from '../model/project'
+import { groupInterface, isGroupNodeId, isInside, sheetIdOfGroupNode } from '../model/groups'
+import { DEFAULT_SHEET_ID, firstFreePair, multicoreUsage, templateFromEquipment } from '../model/project'
 import type { Annotation, Equipment, EquipmentFamily, Link, PictogramId, PortDef } from '../model/types'
 import { getTemplate, useLibrary } from '../store/libraryStore'
 import { useProject } from '../store/projectStore'
 import { useIssues } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
 import { Field, toNumber } from './Field'
+import { groupSelected, ungroupSelected } from './groupActions'
 import { Icon } from './Icon'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
@@ -337,6 +339,33 @@ export function translateParams(params: Record<string, string>, t: (k: string) =
   return out
 }
 
+/** Sous-schéma replié : nom, contenu, ouverture et dissolution. */
+function GroupInspector({ sheetId }: { sheetId: string }) {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const sheet = project.sheets?.find((sh) => sh.id === sheetId)
+  if (!sheet) return null
+  const count = Object.values(project.equipment).filter((e) => isInside(project, e.sheetId ?? DEFAULT_SHEET_ID, sheetId)).length
+  const ports = groupInterface(project, sheetId)
+  return (
+    <>
+      <div className="insp-head">
+        <span className="insp-swatch" style={{ background: 'var(--accent)' }} />
+        <div>
+          <div className="insp-kind">{t('groups.kind')}</div>
+          <div className="insp-title">{sheet.name}</div>
+        </div>
+      </div>
+      <Field id="grp-name" label={t('groups.name')} value={sheet.name} onCommit={(v) => v.trim() && useProject.getState().renameSheet(sheetId, v.trim())} />
+      <div className="field"><label>{t('groups.contents')}</label><div className="readonly">{t('groups.summary', { count })} · {t('groups.interface', { count: ports.length })}</div></div>
+      <div className="insp-actions">
+        <button className="btn" onClick={() => useUi.getState().setSheet(sheetId)}><Icon name="select" size={14} />{t('groups.open')}</button>
+        <button className="btn" onClick={ungroupSelected} title="Ctrl+Maj+G"><Icon name="close" size={14} />{t('groups.ungroup')}</button>
+      </div>
+    </>
+  )
+}
+
 export function Inspector() {
   const { t } = useTranslation()
   const { selectedEquipment, selectedLinks } = useUi()
@@ -345,6 +374,10 @@ export function Inspector() {
   const eq = selectedEquipment.length === 1 && selectedLinks.length === 0 ? project.equipment[selectedEquipment[0]] : undefined
   const link = selectedLinks.length === 1 && selectedEquipment.length === 0 ? project.links[selectedLinks[0]] : undefined
   const annotation = selectedEquipment.length === 1 && selectedLinks.length === 0 ? project.annotations?.[selectedEquipment[0]] : undefined
+  const groupSheet = selectedEquipment.length === 1 && selectedLinks.length === 0 && isGroupNodeId(selectedEquipment[0])
+    ? project.sheets?.find((sh) => sh.id === sheetIdOfGroupNode(selectedEquipment[0]))
+    : undefined
+  const canGroup = selectedEquipment.some((id) => project.equipment[id])
 
   return (
     <aside className="panel inspector" aria-label={t('inspector.title')}>
@@ -353,7 +386,13 @@ export function Inspector() {
         {eq && <EquipmentInspector key={eq.id} eq={eq} />}
         {link && <LinkInspector key={link.id} link={link} />}
         {annotation && <AnnotationInspector key={annotation.id} a={annotation} />}
-        {!eq && !link && !annotation && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
+        {groupSheet && <GroupInspector key={groupSheet.id} sheetId={groupSheet.id} />}
+        {!eq && !link && !annotation && !groupSheet && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
+        {count > 1 && canGroup && (
+          <div className="insp-actions">
+            <button className="btn" onClick={groupSelected} title="Ctrl+G"><Icon name="frame" size={14} />{t('groups.group')}</button>
+          </div>
+        )}
       </div>
     </aside>
   )
