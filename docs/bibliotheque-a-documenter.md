@@ -122,7 +122,7 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - [ ] Blackmagic ATEM Television Studio Pro 4K (?) (liste : « ATEM Studio Pro 4K, 8 canaux 12G-SDI »)
 - [ ] Datavideo SE-2800-8
 - [ ] NewTek TriCaster 455 + surface 450CS
-- [ ] Sony MVS-3000A + panneau ICP-3016
+- [x] Sony MVS-3000A + panneau ICP-3016 (processeur MVS-3000 d'après son manuel d'installation ; panneau ICP à faire)
 - [ ] Sierra Video Aspen 3232HD + panneau RCP-3232
 
 ### Enregistrement, streaming, lecture
@@ -159,12 +159,12 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 
 ### Caméras et voies de commande
 - [ ] Sony HXCU-TX70 (CCU, liaison triax) et HXCU-FB70 (CCU, liaison fibre)
-- [ ] Sony HXC-D70 (caméra associée aux CCU)
-- [ ] Sony RCP-1500
+- [x] Sony HXC-D70 (caméra associée aux CCU ; liaison CCU sur CCZ multiconducteur d'après le manuel)
+- [x] Sony RCP-1500 (fiche RCP-1530 : seul manuel présent sur le Drive, à confirmer)
 - [ ] Panasonic AW-HE40SKE
 - [ ] Panasonic AW-RP50
 - [ ] Panasonic AG-HPX371EJ + AG-EC4
-- [ ] JVC GY-HM790E
+- [x] JVC GY-HM790E (poids absent de l'extrait du manuel)
 - [ ] Canon XF205
 - [ ] Sony PXW-FS5
 - [ ] Panasonic Lumix GH4

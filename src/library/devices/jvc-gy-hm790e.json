@@ -1,0 +1,141 @@
+{
+  "id": "jvc-gy-hm790e",
+  "family": "camera",
+  "manufacturer": "JVC",
+  "model": "GY-HM790E",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "JVC, GY-HM790U / GY-HM790E HD Memory Card Camera Recorder Instructions (LST1108-001A)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "HD/SD-SDI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie HD-SDI ou SD-SDI"
+    },
+    {
+      "id": "y",
+      "name": "Y/VIDEO",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Y ou composite"
+    },
+    {
+      "id": "pb",
+      "name": "PB",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Pb"
+    },
+    {
+      "id": "pr",
+      "name": "PR",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Pr"
+    },
+    {
+      "id": "genlock",
+      "name": "GENLOCK INPUT",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchro externe (modèle E)"
+    },
+    {
+      "id": "tcin",
+      "name": "TC IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Entrée timecode"
+    },
+    {
+      "id": "tcout",
+      "name": "TC OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie timecode"
+    },
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; micro, micro +48 V ou ligne"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; micro, micro +48 V ou ligne"
+    },
+    {
+      "id": "aout",
+      "name": "AUDIO OUTPUT CH-1/CH-2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "fw",
+      "name": "IEEE1394",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "4 broches ; entrée et sortie HD/DV"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mode stockage de masse ; type de prise non précisé"
+    },
+    {
+      "id": "studio",
+      "name": "STUDIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "10 broches, liaison studio"
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande RM-LP25U / RM-LP55U / RM-P210"
+    },
+    {
+      "id": "dc",
+      "name": "DC INPUT",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V DC ; XLR 4 broches d'après le schéma des accessoires"
+    }
+  ]
+}

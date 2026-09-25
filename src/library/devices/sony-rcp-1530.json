@@ -1,0 +1,40 @@
+{
+  "id": "sony-rcp-1530",
+  "family": "control",
+  "manufacturer": "Sony",
+  "model": "RCP-1530 (panneau de réglage caméra)",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Sony, RCP-1530 Remote Control Panel Maintenance Manual 1st Edition (Revised 1)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ccu",
+      "name": "CCU/CNU REMOTE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sony-remote8",
+      "format": "8 broches femelle ; données série et alimentation du RCP (+10,5 à +30 V) par la CCU ; câble CCA-5"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10Base-T / 100Base-TX, système caméra sur réseau"
+    },
+    {
+      "id": "extio",
+      "name": "EXT I/O",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle : contacts PREVIEW, entrée alimentation +10,5 à +17 V"
+    }
+  ]
+}
