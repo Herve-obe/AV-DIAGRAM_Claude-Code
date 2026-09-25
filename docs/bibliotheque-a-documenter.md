@@ -27,6 +27,10 @@ Décision d'Hervé Obejero le 2026-09-25 : fiches laissées en l'état, points �
 - Yamaha MSP5 : le manuel déposé est celui de la MSP5 ; l'inventaire indique « MSP5 Studio ».
 - PreSonus HP4 : le manuel se contredit sur l'alimentation (16 VAC ou +12 VDC).
 
+## Catalogues de prestataires
+
+Inventaire de Novelty et d'Audio Pro, avec les priorités : voir `inventaire-prestataires.md` et le dossier `inventaire/`.
+
 ## Lot A : régie son (priorité 1)
 
 ### Consoles, moteurs, surfaces
