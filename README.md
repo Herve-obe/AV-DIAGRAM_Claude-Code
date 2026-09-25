@@ -4,6 +4,10 @@ Logiciel de bureau (Windows, macOS, Linux) pour concevoir les synoptiques d'inst
 
 Logiciel gratuit, sous licence [PolyForm Shield 1.0.0](LICENSE.md) : l'usage est libre, y compris dans un cadre professionnel, mais il est interdit de redistribuer ou de vendre un produit concurrent sans l'accord de l'auteur.
 
+## État d'avancement
+
+Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/etat-avancement.md](docs/etat-avancement.md).
+
 ## Fonctions disponibles
 
 - Bibliothèque de blocs génériques, par glisser-déposer ou double-clic
