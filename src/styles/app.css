@@ -608,3 +608,9 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .group-node { border-style: dashed; border-color: var(--accent); }
 .group-node .eq-head { background: color-mix(in srgb, var(--accent) 12%, var(--bg-2)); }
 .sheet-depth { color: var(--accent); margin-right: 2px; }
+
+/* ---------- Vue flux / câbles ---------- */
+.seg { display: inline-flex; margin-left: auto; border: 1px solid var(--border-strong); border-radius: 99px; overflow: hidden; }
+.seg-btn { padding: 3px 12px; font-size: 12px; color: var(--text-3); }
+.seg-btn[aria-pressed='true'] { background: var(--accent); color: #111; }
+.edge-label.is-bundle { font-weight: 600; border-color: var(--text-2); }

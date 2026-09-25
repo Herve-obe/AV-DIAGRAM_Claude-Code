@@ -4,7 +4,14 @@ import { BaseEdge, EdgeLabelRenderer, getSmoothStepPath, type Edge, type EdgePro
 import type { Severity } from '../model/rules'
 import { SIGNAL_STYLE, type SignalFamily } from '../model/signals'
 
-export type SignalEdgeData = { signal: SignalFamily; label: string; severity?: Severity; showLabel: boolean }
+export type SignalEdgeData = {
+  signal: SignalFamily
+  label: string
+  severity?: Severity
+  showLabel: boolean
+  /** Trait de câble regroupant plusieurs liaisons (vue « Câbles ») */
+  linkIds?: string[]
+}
 export type SignalFlowEdge = Edge<SignalEdgeData, 'signal'>
 
 function SignalEdgeView(props: EdgeProps<SignalFlowEdge>) {
@@ -21,16 +28,16 @@ function SignalEdgeView(props: EdgeProps<SignalFlowEdge>) {
         path={path}
         interactionWidth={14}
         style={{
-          stroke: st.color,
-          strokeWidth: selected ? st.width + 1.5 : st.width,
-          strokeDasharray: st.dash || undefined,
+          stroke: data.linkIds ? 'var(--text-2)' : st.color,
+          strokeWidth: (data.linkIds ? 5 : st.width) + (selected ? 1.5 : 0),
+          strokeDasharray: data.linkIds ? undefined : st.dash || undefined,
           filter: selected ? 'drop-shadow(0 0 3px var(--accent))' : undefined,
         }}
       />
       {(data.showLabel || selected || data.severity) && (
         <EdgeLabelRenderer>
           <div
-            className={`edge-label ${data.severity ? `sev-${data.severity}` : ''} ${selected ? 'is-selected' : ''}`}
+            className={`edge-label ${data.linkIds ? 'is-bundle' : ''} ${data.severity ? `sev-${data.severity}` : ''} ${selected ? 'is-selected' : ''}`}
             style={{ transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)` }}
           >
             {data.label}

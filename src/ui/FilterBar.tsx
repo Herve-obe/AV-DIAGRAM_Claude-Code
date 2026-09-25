@@ -5,7 +5,7 @@ import { useUi } from '../store/uiStore'
 
 export function FilterBar() {
   const { t } = useTranslation()
-  const { hiddenSignals, toggleSignal, mode } = useUi()
+  const { hiddenSignals, toggleSignal, mode, linkView, setPref } = useUi()
   // En mode débutant, seules les familles les plus courantes sont proposées
   const families = mode === 'beginner'
     ? SIGNAL_FAMILIES.filter((f) => ['audioAnalog', 'audioDigital', 'audioIp', 'video', 'network'].includes(f))
@@ -24,6 +24,11 @@ export function FilterBar() {
           </button>
         )
       })}
+      <div className="seg" role="group" aria-label={t('linkView.label')} title={t('linkView.hint')}>
+        {(['flows', 'cables'] as const).map((v) => (
+          <button key={v} className="seg-btn" aria-pressed={linkView === v} onClick={() => setPref('linkView', v)}>{t(`linkView.${v}`)}</button>
+        ))}
+      </div>
     </div>
   )
 }

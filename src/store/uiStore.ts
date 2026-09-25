@@ -7,18 +7,21 @@ import type { SignalFamily } from '../model/signals'
 export type UiMode = 'beginner' | 'expert'
 export type ThemePref = 'system' | 'dark' | 'light'
 export type DockTab = 'cables' | 'multicores' | 'bom' | 'issues'
+/** Vue des liaisons : chaque flux, ou les câbles physiques (un trait par multipaire) */
+export type LinkView = 'flows' | 'cables'
 
 interface Prefs {
   mode: UiMode
   theme: ThemePref
   lang: 'fr' | 'en'
   dockOpen: boolean
+  linkView: LinkView
 }
 
 const PREFS_KEY = 'avd.prefs'
 
 function readPrefs(): Prefs {
-  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true }
+  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows' }
   try {
     return { ...fallback, ...JSON.parse(localStorage.getItem(PREFS_KEY) ?? '{}') }
   } catch {

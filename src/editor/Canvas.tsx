@@ -49,7 +49,7 @@ function endpointOnView(project: Project, ref: PortRef, viewId: string): { node:
 export function Canvas() {
   const project = useProject((s) => s.project)
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
-  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting } = useUi()
+  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView } = useUi()
   const issues = useIssues()
   const rf = useReactFlow()
 
@@ -124,13 +124,27 @@ export function Canvas() {
       const base = mc ? `${l.label} · ${mc.label}/${l.pair ?? '?'}` : l.label
       return l.channels ? `${base} · ${l.channels} ch` : base
     }
-    return Object.values(project.links).flatMap((l) => {
+    // Vue « Câbles » : les liaisons d'un même multipaire entre deux blocs forment un seul trait
+    const bundles = new Map<string, SignalFlowEdge>()
+    const flows = Object.values(project.links).flatMap((l) => {
       const a = endpointOnView(project, l.source, currentSheetId)
       const b = endpointOnView(project, l.target, currentSheetId)
       // Non visible ici, ou interne à un même groupe replié : pas de trait (renvoi sur les ports)
       if (!a || !b || (a.node === b.node && isGroupNodeId(a.node))) return []
       const port = project.equipment[l.source.equipmentId]?.ports.find((p) => p.id === l.source.portId)
       const signal = port?.signal ?? 'audioAnalog'
+      const mc = linkView === 'cables' && l.multicoreId ? project.multicores?.[l.multicoreId] : undefined
+      if (mc) {
+        const key = `mc:${mc.id}:${[a.node, b.node].sort().join('|')}`
+        const prev = bundles.get(key)
+        if (prev) prev.data!.linkIds!.push(l.id)
+        else bundles.set(key, {
+          id: key, type: 'signal', source: a.node, sourceHandle: a.handle, target: b.node, targetHandle: b.handle,
+          deletable: false,
+          data: { signal, label: mc.label, showLabel: true, linkIds: [l.id] },
+        })
+        return []
+      }
       return [{
         id: l.id,
         type: 'signal' as const,
@@ -143,7 +157,14 @@ export function Canvas() {
         data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting },
       }]
     })
-  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting])
+    for (const e of bundles.values()) {
+      const ids = e.data!.linkIds!
+      const mc = project.multicores?.[ids.length ? project.links[ids[0]].multicoreId ?? '' : '']
+      e.data!.label = `${e.data!.label} · ${ids.length}/${mc?.pairs ?? '?'}`
+      e.selected = ids.some((id) => selectedLinks.includes(id))
+    }
+    return [...flows, ...bundles.values()]
+  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView])
 
   const onNodesChange = useCallback(
     (changes: NodeChange<CanvasNode>[]) => {
@@ -172,7 +193,8 @@ export function Canvas() {
   )
 
   const onSelectionChange = useCallback(
-    ({ nodes: n, edges: e }: OnSelectionChangeParams) => select(n.map((x) => x.id), e.map((x) => x.id)),
+    ({ nodes: n, edges: e }: OnSelectionChangeParams) =>
+      select(n.map((x) => x.id), e.flatMap((x) => (x.data as SignalFlowEdge['data'])?.linkIds ?? [x.id])),
     [select],
   )
 
