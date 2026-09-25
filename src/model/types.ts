@@ -52,8 +52,8 @@ export interface EquipmentTemplate {
   domain?: LibraryDomain
 }
 
-/** Menus de la bibliothèque : son, image, lumière, réseau, et divers (électrique, passifs). */
-export const LIBRARY_DOMAINS = ['sound', 'image', 'light', 'network', 'misc'] as const
+/** Menus de la bibliothèque : audio, image, lumière, réseau, distribution électrique, divers. */
+export const LIBRARY_DOMAINS = ['sound', 'image', 'light', 'network', 'distribution', 'misc'] as const
 export type LibraryDomain = (typeof LIBRARY_DOMAINS)[number]
 
 export type EquipmentFamily =

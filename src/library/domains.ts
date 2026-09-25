@@ -1,4 +1,4 @@
-// Classement de la bibliothèque en menus (Son, Image, Lumière, Réseau, Divers) puis en familles.
+// Classement de la bibliothèque en menus (Audio, Image, Lumière, Réseau, Distribution, Divers) puis en familles.
 // Le menu vient de la famille ; une fiche peut le préciser (champ domain) quand la famille est
 // partagée, par exemple un enregistreur vidéo dans la famille « Enregistrement ».
 import type { EquipmentFamily, EquipmentTemplate, LibraryDomain } from '../model/types'
@@ -9,7 +9,8 @@ export const DOMAIN_FAMILIES: Record<LibraryDomain, EquipmentFamily[]> = {
   image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync'],
   light: [],
   network: ['network'],
-  misc: ['power', 'passive'],
+  distribution: ['power'],
+  misc: ['passive'],
 }
 
 const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
@@ -29,7 +30,7 @@ const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
   videoRouting: 'image',
   display: 'image',
   network: 'network',
-  power: 'misc',
+  power: 'distribution',
   passive: 'misc',
 }
 

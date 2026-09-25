@@ -1,4 +1,4 @@
-// Bibliothèque : recherche, "Mes modèles", menus dépliables (Son, Image, Lumière, Réseau, Divers)
+// Bibliothèque : recherche, "Mes modèles", menus dépliables (Audio, Image, Lumière, Réseau, Distribution, Divers)
 // puis sous-menus par famille ; glisser-déposer vers le canevas (ou double-clic).
 import { useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'

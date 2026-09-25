@@ -448,7 +448,7 @@ describe('bibliothèque : menus', () => {
     const groups = groupByDomain(LIBRARY)
     const placed = groups.flatMap((g) => g.families.flatMap((f) => f.items))
     expect(placed).toHaveLength(LIBRARY.length)
-    expect(groups.map((g) => g.domain)).toEqual(['sound', 'image', 'light', 'network', 'misc'])
+    expect(groups.map((g) => g.domain)).toEqual(['sound', 'image', 'light', 'network', 'distribution', 'misc'])
     expect(domainOf(tpl('gen-mic-dyn'))).toBe('sound')
     expect(domainOf(tpl('gen-camera'))).toBe('image')
     expect(domainOf(tpl('gen-switch8'))).toBe('network')
