@@ -108,7 +108,7 @@ function seriesOf(project: Project, link: Pick<Link, 'source'>): { zone: string;
 
 function labelOf(project: Project, link: Pick<Link, 'source' | 'num'>): string {
   const s = seriesOf(project, link)
-  return formatCableLabel(project.settings.cableFormat, { ...s, num: link.num })
+  return formatCableLabel(project.settings.cableFormat, { ...s, num: link.num }, project.settings.typeCodes)
 }
 
 /** Recalcule toutes les étiquettes (après un changement de zone ou de format). */

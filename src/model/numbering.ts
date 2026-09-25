@@ -14,9 +14,13 @@ export const SIGNAL_CODE: Record<SignalFamily, string> = {
   power: 'PWR',
 }
 
-export function formatCableLabel(format: string, values: { zone: string; signal: SignalFamily; num: number }): string {
+export function formatCableLabel(
+  format: string,
+  values: { zone: string; signal: SignalFamily; num: number },
+  typeCodes?: Partial<Record<SignalFamily, string>>,
+): string {
   return format
     .replace(/\{ZONE\}/g, values.zone)
-    .replace(/\{TYPE\}/g, SIGNAL_CODE[values.signal])
+    .replace(/\{TYPE\}/g, typeCodes?.[values.signal] || SIGNAL_CODE[values.signal])
     .replace(/\{NUM(?::(0+))?\}/g, (_m, pad: string | undefined) => String(values.num).padStart(pad?.length ?? 1, '0'))
 }

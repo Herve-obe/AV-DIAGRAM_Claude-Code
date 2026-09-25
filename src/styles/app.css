@@ -600,3 +600,5 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 }
 .mc-pair.is-used { background: var(--accent); border-color: var(--accent); color: #111; cursor: pointer; }
 .mc-pair.is-conflict { background: var(--err); border-color: var(--err); color: #fff; cursor: pointer; }
+.subgroup-title { margin: 10px 14px 2px; font: 600 11px var(--font-label); letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-3); }
+.code-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }

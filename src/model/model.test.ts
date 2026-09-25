@@ -347,3 +347,13 @@ describe('multipaires', () => {
     expect(p.links[links[0]].pair).toBeUndefined()
   })
 })
+
+describe('codes de type personnalisés', () => {
+  it('un code personnalisé remplace AUD et renumérote les étiquettes', () => {
+    expect(formatCableLabel('{TYPE}-{NUM:00}', { zone: 'X', signal: 'audioAnalog', num: 3 }, { audioAnalog: 'MOD' })).toBe('MOD-03')
+    const p = ops.updateSettings(buildSampleProject(), { typeCodes: { audioAnalog: 'MOD' } })
+    const labels = Object.values(p.links).map((l) => l.label)
+    expect(labels.some((l) => l.includes('-MOD-'))).toBe(true)
+    expect(labels.some((l) => l.includes('-AUD-'))).toBe(false)
+  })
+})

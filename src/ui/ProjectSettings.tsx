@@ -1,7 +1,8 @@
 // Réglages du projet : informations du cartouche, zones, format de numérotation, tension secteur.
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { formatCableLabel } from '../model/numbering'
+import { SIGNAL_CODE, formatCableLabel } from '../model/numbering'
+import { SIGNAL_FAMILIES } from '../model/signals'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Field, toNumber } from './Field'
@@ -26,7 +27,7 @@ export function ProjectSettings() {
 
   if (!open) return null
   const info = project.info ?? {}
-  const preview = formatCableLabel(project.settings.cableFormat, { zone: project.zones[0]?.code ?? 'FOH', signal: 'audioAnalog', num: 12 })
+  const preview = formatCableLabel(project.settings.cableFormat, { zone: project.zones[0]?.code ?? 'FOH', signal: 'audioAnalog', num: 12 }, project.settings.typeCodes)
   const addZone = () => {
     if (!newZone.name.trim() || !newZone.code.trim()) return
     store.addZone(newZone.name.trim(), newZone.code)
@@ -93,6 +94,24 @@ export function ProjectSettings() {
               <Field id="set-default-zone" label={t('settings.defaultZone')} value={project.settings.defaultZoneCode} onCommit={(v) => v.trim() && store.updateSettings({ defaultZoneCode: v.trim().toUpperCase() })} />
             </div>
             <p className="dialog-hint">{t('settings.formatHint')} <span className="mono">{preview}</span></p>
+            <h4 className="subgroup-title">{t('settings.typeCodes')}</h4>
+            <div className="field-grid code-grid">
+              {SIGNAL_FAMILIES.map((f) => (
+                <Field
+                  key={f}
+                  id={`set-code-${f}`}
+                  label={t(`signal.${f}`)}
+                  value={project.settings.typeCodes?.[f] ?? SIGNAL_CODE[f]}
+                  onCommit={(v) => {
+                    const code = v.trim().toUpperCase()
+                    const typeCodes = { ...project.settings.typeCodes }
+                    if (!code || code === SIGNAL_CODE[f]) delete typeCodes[f]
+                    else typeCodes[f] = code
+                    store.updateSettings({ typeCodes })
+                  }}
+                />
+              ))}
+            </div>
           </section>
 
           <section>

@@ -205,4 +205,6 @@ export interface ProjectSettings {
   defaultZoneCode: string
   /** Tension d'alimentation pour le calcul du courant (V) */
   mainsVoltage: number
+  /** Codes {TYPE} personnalisés par famille de signal (sinon AUD, AES, VID...) */
+  typeCodes?: Partial<Record<SignalFamily, string>>
 }
