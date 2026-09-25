@@ -27,6 +27,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'din5', label: 'DIN 5 (MIDI)', mate: 'din5' },
   { id: 'dsub9', label: 'D-Sub 9', mate: 'dsub9' },
   { id: 'dsub25', label: 'D-Sub 25', mate: 'dsub25' },
+  { id: 'dsub15', label: 'D-Sub 15', mate: 'dsub15' },
   { id: 'rj45', label: 'RJ45', mate: 'rj45' },
   { id: 'ethercon', label: 'etherCON', mate: 'rj45' },
   { id: 'opticalcon', label: 'opticalCON', mate: 'opticalcon' },
