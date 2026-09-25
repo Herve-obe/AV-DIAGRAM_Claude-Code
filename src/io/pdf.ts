@@ -1,4 +1,4 @@
-// Export PDF : planche A3 paysage avec le synoptique, la légende des signaux et un cartouche
+// Export PDF : une planche A3 paysage par feuille du projet, avec le synoptique, la légende des signaux et un cartouche
 // (champs inspirés de l'ISO 7200). Le schéma est capturé en thème clair pour l'impression.
 import { jsPDF } from 'jspdf'
 import { toJpeg } from 'html-to-image'
@@ -10,7 +10,7 @@ const PAGE = { w: 420, h: 297, margin: 10 } // A3 paysage, en mm
 const TITLE_BLOCK = { w: 170, h: 34 }
 
 /** Capture le canevas en forçant temporairement le thème clair. */
-async function captureCanvasLight(): Promise<{ dataUrl: string; width: number; height: number } | null> {
+export async function captureCanvasLight(): Promise<{ dataUrl: string; width: number; height: number } | null> {
   const el = document.querySelector<HTMLElement>('.react-flow')
   if (!el) return null
   const root = document.documentElement
@@ -52,10 +52,24 @@ export interface PdfLabels {
   signals: Record<string, string>
 }
 
-export async function exportPdf(project: Project, labels: PdfLabels): Promise<boolean> {
-  const shot = await captureCanvasLight()
-  if (!shot) return false
+export interface SheetShot {
+  name: string
+  dataUrl: string
+  width: number
+  height: number
+}
+
+export async function exportPdf(project: Project, labels: PdfLabels, shots: SheetShot[]): Promise<boolean> {
+  if (!shots.length) return false
   const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a3' })
+  shots.forEach((shot, i) => {
+    if (i > 0) doc.addPage('a3', 'landscape')
+    drawSheet(doc, project, labels, shot, `${i + 1} / ${shots.length}`)
+  })
+  return saveContent(`${slug(project.name)}.pdf`, new Uint8Array(doc.output('arraybuffer')), 'application/pdf')
+}
+
+function drawSheet(doc: jsPDF, project: Project, labels: PdfLabels, shot: SheetShot, pageLabel: string) {
   const { w, h, margin } = PAGE
 
   // Cadre de la planche
@@ -119,17 +133,16 @@ export async function exportPdf(project: Project, labels: PdfLabels): Promise<bo
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(12)
   doc.setTextColor(20)
-  doc.text(doc.splitTextToSize(project.name, TITLE_BLOCK.w - 4)[0] ?? '', tx + 2, ty + 9.5)
+  const heading = shot.name ? `${project.name} · ${shot.name}` : project.name
+  doc.text(doc.splitTextToSize(heading, TITLE_BLOCK.w - 4)[0] ?? '', tx + 2, ty + 9.5)
   doc.setFont('helvetica', 'normal')
   cell(labels.client, info.client ?? '', tx, ty + 12)
   cell(labels.venue, info.venue ?? '', tx + colW, ty + 12)
   cell(labels.author, info.author ?? '', tx + 2 * colW, ty + 12)
   cell(labels.date, new Date().toLocaleDateString(), tx, ty + 23)
   cell(labels.revision, info.revision ?? '', tx + colW, ty + 23)
-  cell(labels.sheet, '1 / 1', tx + 2 * colW, ty + 23)
+  cell(labels.sheet, pageLabel, tx + 2 * colW, ty + 23)
   doc.setFontSize(6)
   doc.setTextColor(140)
   doc.text('AV Diagram', tx + TITLE_BLOCK.w - 2, ty + TITLE_BLOCK.h + 3.5, { align: 'right' })
-
-  return saveContent(`${slug(project.name)}.pdf`, new Uint8Array(doc.output('arraybuffer')), 'application/pdf')
 }
