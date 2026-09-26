@@ -1,4 +1,4 @@
-# État d'avancement (arrêt du 2026-09-25)
+# État d'avancement (mise à jour du 2026-09-26)
 
 ## Fait
 
@@ -19,27 +19,40 @@
   AXT600, AD600, AD610, Beta 57A, Beta 58A, Beta 87A, KSM9.
 - Avid C|24 complétée (poids et consommation : communauté Avid), MTRX Studio corrigée (pédale sur jack 6,35).
 
+**Bibliothèque, ajouts du 2026-09-26** (222 fiches au total) :
+- Blackmagic Design (20), Yamaha DM7 / DM3 / TF / M7CL / 01V96i (11), DiGiCo SD10 et SD-Rack (2).
+- Micros : Sennheiser e 604, e 825-S, e 835, e 845, e 845-S, e 904, e 906, e 935, MD 441 U ; DPA 4060, 4061, 4066,
+  4080, 4088, 4099 CORE+, 4466, 4488 (connecteur selon version : MicroLock, TA4F, LEMO, mini-jack) ;
+  Shure Beta 56A, Beta 98A, Beta 98AMP, KSM137 ; AKG C214, C451 B, C414 XLS / XLII, C1000 S, C430 ;
+  Audix i5, D2, D4, D6, OM7 ; Audio-Technica AT8035, AT8015 ; Electro-Voice RE20, RE27N/D (connecteur non précisé).
+- DI Radial : J48, JDI, ProD2, ProAV1, JPC (Communauté), Twin-Iso, HotShot DM1.
+- Intercom Green-GO : MCX, MCXD, BPX, WBPX, WAA, Interface X, RDX.
+- Réseau : Swisson XES-8G, Luminex GigaCore 20t (avec et sans PoE++), Netgear GS516UP, GS108.
+- Connecteurs ajoutés : MicroDot, MicroLock (DPA), Mini-USB.
+
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
 
-## En cours au moment de l'arrêt
+## Sources bloquées ou incomplètes
 
-- **Blackmagic Design** : fiches techniques téléchargées et lues, fiches pas encore écrites pour ATEM Mini Pro, ATEM Mini
-  Extreme, ATEM Television Studio HD8, ATEM 2 M/E Constellation HD, ATEM 4 M/E Constellation 4K, ATEM Micro Panel,
-  HyperDeck Studio HD Mini / HD Plus / HD Pro / 4K Pro, Mini Converters (Analog to SDI, SDI to Analog, Audio to SDI,
-  SDI Distribution, SDI to HDMI 6G, HDMI to SDI 6G), Micro Converters (HDMI to SDI 3G, SDI to HDMI 3G).
-  Refusés par limitation de débit, à retélécharger : ATEM Mini Pro ISO, 1 M/E Constellation HD, UpDownCross HD,
-  Micro Converter bidirectionnel 3G.
+- Blackmagic : 1 M/E Constellation HD et Micro Converter bidirectionnel 3G refusés (limitation de débit), à retenter.
+- Midas (mediadl.musictribe.com, cdn.mediavalet.com) : erreurs 500 / 502.
+- Electro-Voice : products.electrovoice.com présente un certificat incomplet ; seules les pages www.electrovoice.com sont
+  lisibles (ND868, ND308, ND408, RE200 non trouvés).
+- Cisco SG300 : fiche technique refusée (403). Neumann KM 184 / KMS 105 : page sans alimentation ni connecteur.
+- beyerdynamic M 88 / M 201 / Opus 87 : caractéristiques non affichées sur le site du constructeur.
+- Martin, Sony Pro, Panasonic : 403 → déposer leurs manuels sur le Drive.
 
 ## Reste à faire
 
 1. **Bibliothèque, catalogues Novelty et Audio Pro** (environ 850 références ; ordre proposé) :
    - Audio : Yamaha DM7, DM3, TF, 01V96i, M7CL, MG, SPX ; Midas (Pro, M32, DL, Heritage) ; DiGiCo SD ; Allen & Heath ;
-     Sennheiser, DPA, Neumann, AKG, Audio-Technica… ; périphériques (BSS, TC, Lexicon) ; intercom Green-GO, Altair, Riedel ;
+     Neumann, beyerdynamic, Shure MX412, AKG C411 / C3000, Audio-Technica ES925 (version à préciser) ; Klark Teknik DN100 / DN200,
+     Avalon U5 ; périphériques (BSS, TC, Lexicon) ; intercom Altair, Clear-Com ;
      Shure UHF-R (UR4D+, UR1, UR2) et PSM encore sans guide trouvé ; modèles L-Acoustics arrêtés (Kara, SB28, LA8,
      108P, 112P, 115XT HiQ, V-DOSC, dV-DOSC, ARCS) : manuels d'archive nécessaires.
-   - Image : Blackmagic (voir ci-dessus), projecteurs, écrans, caméras, convertisseurs, grilles.
-   - Réseau : Luminex, Netgear, Cisco, Swisson, Oxo.
+   - Image : projecteurs, écrans, caméras, convertisseurs, grilles.
+   - Réseau : Cisco SG300-10P / SG300-20, Oxo Core8 Pro, Netgear RG6220 (désignation à vérifier).
    - Lumière (227 références Novelty) : signaux DMX prêts ; fiches à créer (DMX, Art-Net/sACN, alimentation).
    - Distribution : armoires des prestataires, statut Communauté (source : catalogues).
    - Sites refusant l'accès automatique (erreur 403) : Martin, Sony Pro, Panasonic → déposer leurs manuels sur le Drive.
