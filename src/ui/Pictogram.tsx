@@ -22,6 +22,8 @@ const PATHS: Record<PictogramId, string> = {
   control: 'M4 6h16v12H4zM8 10h.01M12 10h.01M16 10h.01M8 14h8',
   power: 'M13 3L6 13h5l-1 8 7-10h-5z',
   patch: 'M3 8h18v8H3zM7 12h.01M10 12h.01M13 12h.01M16 12h.01',
+  // Projecteur sur lyre : corps, lentille et étrier
+  light: 'M8 5h8l2 9H6zM9 14a3 3 0 0 0 6 0M4 9v8h16V9M12 17v3M9 20h6',
 }
 
 export function Pictogram({ id, size = 18 }: { id: PictogramId; size?: number }) {

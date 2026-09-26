@@ -1,0 +1,51 @@
+{
+  "id": "robe-ledbeam-150",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "LEDBeam 150",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 220.0,
+  "weightKg": 5.7,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_668.pdf",
+      "document": "Robe lighting, fiche produit LEDBeam 150",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Chaînage secteur"
+    }
+  ]
+}

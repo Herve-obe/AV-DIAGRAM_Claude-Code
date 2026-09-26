@@ -7,7 +7,7 @@ import type { EquipmentFamily, EquipmentTemplate, LibraryDomain } from '../model
 export const DOMAIN_FAMILIES: Record<LibraryDomain, EquipmentFamily[]> = {
   sound: ['capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom', 'sync', 'control'],
   image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync'],
-  light: [],
+  light: ['luminaire', 'lightingControl', 'dmxDistribution'],
   network: ['network'],
   distribution: ['power'],
   misc: ['passive'],
@@ -32,6 +32,9 @@ const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
   network: 'network',
   power: 'distribution',
   passive: 'misc',
+  luminaire: 'light',
+  lightingControl: 'light',
+  dmxDistribution: 'light',
 }
 
 export const domainOf = (t: Pick<EquipmentTemplate, 'family' | 'domain'>): LibraryDomain => t.domain ?? DEFAULT_DOMAIN[t.family]

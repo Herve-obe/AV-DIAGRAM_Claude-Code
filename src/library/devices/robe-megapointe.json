@@ -1,0 +1,67 @@
+{
+  "id": "robe-megapointe",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "MegaPointe",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 670.0,
+  "weightKg": 22.0,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_635.pdf",
+      "document": "Robe lighting, fiche produit MegaPointe",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in3",
+      "name": "DMX In (XLR3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out (XLR3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "ArtNet, MA Net, MA Net2, sACN"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1"
+    }
+  ]
+}

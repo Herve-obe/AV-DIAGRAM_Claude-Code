@@ -44,10 +44,11 @@ function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
 const FAMILIES: EquipmentFamily[] = [
   'capture', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'wireless', 'recording', 'camera',
   'videoSwitcher', 'videoRouting', 'display', 'intercom', 'network', 'sync', 'control', 'power', 'passive',
+  'luminaire', 'lightingControl', 'dmxDistribution',
 ]
 const PICTOGRAMS: PictogramId[] = [
   'mic', 'di', 'console', 'stagebox', 'processor', 'amp', 'speaker', 'wireless', 'recorder', 'camera', 'switcher',
-  'router', 'display', 'projector', 'intercom', 'switch', 'clock', 'control', 'power', 'patch',
+  'router', 'display', 'projector', 'intercom', 'switch', 'clock', 'control', 'power', 'patch', 'light',
 ]
 
 /** Provenance des caractéristiques : fiche constructeur (avec ses sources), bloc générique ou modèle perso. */

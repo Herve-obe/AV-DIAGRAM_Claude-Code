@@ -75,6 +75,9 @@ export type EquipmentFamily =
   | 'control'
   | 'power'
   | 'passive'
+  | 'luminaire'
+  | 'lightingControl'
+  | 'dmxDistribution'
 
 export type PictogramId =
   | 'mic'
@@ -97,6 +100,7 @@ export type PictogramId =
   | 'control'
   | 'power'
   | 'patch'
+  | 'light'
 
 /** Instance d'un équipement posé dans un projet. */
 export interface Equipment {
