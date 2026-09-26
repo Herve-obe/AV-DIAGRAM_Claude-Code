@@ -1,0 +1,43 @@
+{
+  "id": "astera-nyx-bulb",
+  "family": "luminaire",
+  "manufacturer": "Astera",
+  "model": "NYX Bulb",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 10,
+  "weightKg": 0.24,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_NYX-Bulb_V3.pdf",
+      "document": "Astera, Datasheet NYX Bulb V3",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur CRMX intégré ; protocoles sans fil : CRMX, UHF, Bluetooth, WiFi ; portée CRMX/UHF jusqu'à 300 m"
+    },
+    {
+      "id": "socket",
+      "name": "Culot",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Culot E27 (UE) ou E26 (US)"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 à 18 V CC 2,1 A (batterie externe), jack 3,5 x 1,35 mm"
+    }
+  ]
+}

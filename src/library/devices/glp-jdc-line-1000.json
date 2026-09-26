@@ -1,0 +1,65 @@
+{
+  "id": "glp-jdc-line-1000",
+  "family": "luminaire",
+  "manufacturer": "GLP",
+  "model": "JDC Line 1000",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://glp.de/files/products/jdc-line-1000-product-data/JDC_Line_1000_User_Manual_EN_Rev_20240618-01.pdf",
+      "document": "GLP, JDC Line 1000 User Manual Rev. 20240618-01",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx-thru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "net-a",
+      "name": "Réseau A",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN ; recopie maintenue hors tension (fail-safe)"
+    },
+    {
+      "id": "net-b",
+      "name": "Réseau B",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    }
+  ]
+}

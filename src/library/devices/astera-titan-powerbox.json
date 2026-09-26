@@ -1,0 +1,138 @@
+{
+  "id": "astera-titan-powerbox",
+  "family": "dmxDistribution",
+  "manufacturer": "Astera",
+  "model": "Titan PowerBox",
+  "pictogram": "power",
+  "status": "verified",
+  "weightKg": 3.8,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_Titan_PowerBox_V2.pdf",
+      "document": "Astera, Datasheet Titan PowerBox V2",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    },
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX filaire, XLR 5 points"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "net",
+      "name": "Art-Net / sACN",
+      "direction": "in",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 univers Art-Net ou sACN"
+    },
+    {
+      "id": "dc1",
+      "name": "Sortie DC 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc2",
+      "name": "Sortie DC 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc3",
+      "name": "Sortie DC 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc4",
+      "name": "Sortie DC 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc5",
+      "name": "Sortie DC 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc6",
+      "name": "Sortie DC 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc7",
+      "name": "Sortie DC 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc8",
+      "name": "Sortie DC 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc9",
+      "name": "Sortie DC 9",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc10",
+      "name": "Sortie DC 10",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC, 2 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    }
+  ]
+}

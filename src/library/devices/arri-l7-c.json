@@ -1,0 +1,51 @@
+{
+  "id": "arri-l7-c",
+  "family": "luminaire",
+  "manufacturer": "ARRI",
+  "model": "L7-C",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 220,
+  "weightKg": 8.2,
+  "sources": [
+    {
+      "url": "https://www.arri.com/resource/blob/83474/885c4ff07e12bd13800ef83c7269aeb9/80-0024376-arri-l-series-technical-specifications-poster-en-data.pdf",
+      "document": "ARRI, L-Series technical specifications (poster)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM, XLR 5 points verrouillable"
+    },
+    {
+      "id": "dmx-thru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "usb",
+      "name": "Mini-USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Réglages DMX, état et mise à jour depuis un ordinateur"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 TOP, 100-240 V"
+    }
+  ]
+}

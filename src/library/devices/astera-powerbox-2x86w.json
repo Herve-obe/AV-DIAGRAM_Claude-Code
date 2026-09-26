@@ -1,0 +1,74 @@
+{
+  "id": "astera-powerbox-2x86w",
+  "family": "dmxDistribution",
+  "manufacturer": "Astera",
+  "model": "PowerBox 2x86 W",
+  "pictogram": "power",
+  "status": "verified",
+  "weightKg": 1.5,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_PowerBox_2x86W_V4.pdf",
+      "document": "Astera, Datasheet PowerBox 2x86W V4",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    },
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX filaire, XLR 5 points"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "net",
+      "name": "Art-Net / sACN",
+      "direction": "in",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 univers Art-Net ou sACN"
+    },
+    {
+      "id": "dc1",
+      "name": "Sortie DC 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V, 86 W, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    },
+    {
+      "id": "dc2",
+      "name": "Sortie DC 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V, 86 W, jack 5,5 x 2,1 mm ; transporte aussi le DMX"
+    }
+  ]
+}

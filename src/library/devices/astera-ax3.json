@@ -1,0 +1,35 @@
+{
+  "id": "astera-ax3",
+  "family": "luminaire",
+  "manufacturer": "Astera",
+  "model": "AX3 LightDrop",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 15,
+  "weightKg": 0.68,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_AX3_LightDrop_V4.pdf",
+      "document": "Astera, Datasheet AX3 LightDrop V4",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur CRMX intégré ; protocoles sans fil : CRMX, UHF, Bluetooth, WiFi ; portée CRMX/UHF jusqu'à 300 m"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 V CC 2,5 A, jack 5,5 x 2,5 mm"
+    }
+  ]
+}
