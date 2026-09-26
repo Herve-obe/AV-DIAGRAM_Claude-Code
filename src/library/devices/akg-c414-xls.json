@@ -1,0 +1,28 @@
+{
+  "id": "akg-c414-xls",
+  "family": "capture",
+  "manufacturer": "AKG",
+  "model": "C414 XLS",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.3,
+  "sources": [
+    {
+      "url": "https://www.akg.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw02043c47/pdfs/AKG_CutSheet_C414&C414XLII_072516.pdf",
+      "document": "AKG, fiche produit C414 XLS et C414 XLII",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique grande membrane multidirectivité, fantôme 48 V (IEC 61938), XLR 3 points (point 2 chaud)",
+      "phantom": "required"
+    }
+  ]
+}

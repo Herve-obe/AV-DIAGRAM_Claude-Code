@@ -1,0 +1,28 @@
+{
+  "id": "shure-ksm137",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "KSM137",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/KSM137/en-US",
+      "document": "Shure, guide d'utilisation KSM137 (pubs.shure.com)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique électret cardioïde, fantôme 11 à 52 V (48 V recommandé), XLR 3 points mâle",
+      "phantom": "required"
+    }
+  ]
+}
