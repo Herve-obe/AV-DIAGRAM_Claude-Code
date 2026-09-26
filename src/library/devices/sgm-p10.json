@@ -1,0 +1,50 @@
+{
+  "id": "sgm-p10",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "P-10",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1400,
+  "weightKg": 20.9,
+  "sources": [
+    {
+      "url": "https://www.sgmlighting.com/products/p%C2%B710",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Embase IP65 XLR 5 points mâle ; DMX sans fil LumenRadio avec RDM"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Embase IP65 XLR 5 points femelle"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Embase d'entrée secteur (modèle non précisé)"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Embase de recopie secteur (modèle non précisé)"
+    }
+  ]
+}
