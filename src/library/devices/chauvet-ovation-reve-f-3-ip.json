@@ -1,0 +1,41 @@
+{
+  "id": "chauvet-ovation-reve-f-3-ip",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "Ovation Rêve F-3 IP",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 532,
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/product/ovation-reve-f-3-ip/",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "DMX / RDM ; connecteur non précisé sur la page"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerkon-ip65",
+      "format": "Seetronic Powerkon IP65, 100-240 V"
+    }
+  ]
+}

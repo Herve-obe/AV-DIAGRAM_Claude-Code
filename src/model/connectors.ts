@@ -44,6 +44,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'multipin', label: 'Multipaire (Harting, Socapex, CPC)', mate: 'multipin' },
   { id: 'powercon', label: 'powerCON', mate: 'powercon' },
   { id: 'powercon-true1', label: 'powerCON TRUE1', mate: 'powercon-true1' },
+  { id: 'powerkon-ip65', label: 'Seetronic Powerkon IP65', mate: 'powerkon-ip65' },
   { id: 'iec-c13', label: 'IEC C13/C14', mate: 'iec-c13' },
   { id: 'iec-c19', label: 'IEC C19/C20', mate: 'iec-c19' },
   { id: 'schuko', label: 'Schuko CEE 7/4', mate: 'schuko' },

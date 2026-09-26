@@ -1,0 +1,66 @@
+{
+  "id": "chauvet-colorado-2-quad-zoom",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "COLORado 2-Quad Zoom",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 208,
+  "weightKg": 8.6,
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/product/colorado-2-quad-zoom/",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in3",
+      "name": "DMX In (XLR3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX / RDM"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out (XLR3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerkon-ip65",
+      "format": "Seetronic Powerkon IP65, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powerkon-ip65",
+      "format": "Seetronic Powerkon IP65"
+    }
+  ]
+}
