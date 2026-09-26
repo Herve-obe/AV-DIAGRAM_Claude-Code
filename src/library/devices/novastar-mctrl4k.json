@@ -1,0 +1,251 @@
+{
+  "id": "novastar-mctrl4k",
+  "family": "display",
+  "manufacturer": "NovaStar",
+  "model": "MCTRL4K",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "image",
+  "weightKg": 4.6,
+  "sources": [
+    {
+      "url": "https://oss.novastar.tech/uploads/2024/11/MCTRL4K-LED-Display-Controller-Specifications-V1.2.1.pdf",
+      "document": "NovaStar, MCTRL4K Specifications V1.2.1",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dp-in",
+      "name": "DP In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, jusqu'à 4096 x 2160 à 60 Hz"
+    },
+    {
+      "id": "hdmi-in",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, HDCP 1.4 et 2.2"
+    },
+    {
+      "id": "dvi-in1",
+      "name": "Dual DVI-D1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Dual-link DVI"
+    },
+    {
+      "id": "dvi-in2",
+      "name": "Dual DVI-D2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Dual-link DVI"
+    },
+    {
+      "id": "out1",
+      "name": "Ethernet 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out2",
+      "name": "Ethernet 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out3",
+      "name": "Ethernet 3",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out4",
+      "name": "Ethernet 4",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out5",
+      "name": "Ethernet 5",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out6",
+      "name": "Ethernet 6",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out7",
+      "name": "Ethernet 7",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out8",
+      "name": "Ethernet 8",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out9",
+      "name": "Ethernet 9",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out10",
+      "name": "Ethernet 10",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out11",
+      "name": "Ethernet 11",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out12",
+      "name": "Ethernet 12",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out13",
+      "name": "Ethernet 13",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out14",
+      "name": "Ethernet 14",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out15",
+      "name": "Ethernet 15",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "out16",
+      "name": "Ethernet 16",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik NE8FBH"
+    },
+    {
+      "id": "opt1",
+      "name": "OPT 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "unspecified",
+      "format": "Port fibre optique (OPT2 transporte les ports 9 à 16)"
+    },
+    {
+      "id": "opt2",
+      "name": "OPT 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "unspecified",
+      "format": "Port fibre optique (OPT2 transporte les ports 9 à 16)"
+    },
+    {
+      "id": "opt3",
+      "name": "OPT 3",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "unspecified",
+      "format": "Port fibre optique (OPT2 transporte les ports 9 à 16)"
+    },
+    {
+      "id": "opt4",
+      "name": "OPT 4",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "unspecified",
+      "format": "Port fibre optique (OPT2 transporte les ports 9 à 16)"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet (contrôle)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ordinateur de contrôle"
+    },
+    {
+      "id": "usb-in",
+      "name": "USB In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Cascade"
+    },
+    {
+      "id": "usb-out",
+      "name": "USB Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A ; cascade jusqu'à 10 appareils"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In-Loop",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Signal de synchronisation"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+    }
+  ]
+}

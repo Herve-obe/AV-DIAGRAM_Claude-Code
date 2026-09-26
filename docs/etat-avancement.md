@@ -19,7 +19,7 @@
   AXT600, AD600, AD610, Beta 57A, Beta 58A, Beta 87A, KSM9.
 - Avid C|24 complétée (poids et consommation : communauté Avid), MTRX Studio corrigée (pédale sur jack 6,35).
 
-**Bibliothèque, ajouts du 2026-09-26** (258 fiches au total) :
+**Bibliothèque, ajouts du 2026-09-26** (309 fiches au total) :
 - Blackmagic Design (20), Yamaha DM7 / DM3 / TF / M7CL / 01V96i (11), DiGiCo SD10 et SD-Rack (2).
 - Micros : Sennheiser e 604, e 825-S, e 835, e 845, e 845-S, e 904, e 906, e 935, MD 441 U ; DPA 4060, 4061, 4066,
   4080, 4088, 4099 CORE+, 4466, 4488 (connecteur selon version : MicroLock, TA4F, LEMO, mini-jack) ;
@@ -33,7 +33,14 @@
   MiniMe, Tarrantula, Spiider, Spikie, iBOLT, LEDBeam 150, PATT 2013, ONEPATT) ; Ayrton Rivale Profile, Ghibli,
   MagicBlade-R ; MA Lighting (12 : grandMA3 full-size / light / compact XT, processing units M / L / XL, grandMA2
   full-size / light / ultra-light, NPU, onPC command wing, dot2 XL-F) ; Luminex LumiNode 12 / 4 / 2 ; Swisson XPD-28.
-- Connecteurs ajoutés : MicroDot, MicroLock (DPA), Mini-USB.
+- Lumière (suite) : ARRI SkyPanel S30-C / S60-C / S360-C, L5-C / L7-C / L10-C ; GLP JDC Line 1000 / 500, JDC1 ;
+  Astera AX1, AX2 (50 et 100), AX3, AX5, AX9, Hyperion, Titan Tube, NYX Bulb, PixelBrick, PowerBox 2x86 W, Titan PowerBox ;
+  Elation Proteus Maximus / Hybrid, KL Panel / XL, TVL2000 II, DTW Blinder 700 IP, KL Fresnel 6 CW ;
+  SGM P-2, P-5, P-6, P-10, Q-7 POI, Q-10 POI, G-Spot POI ; Chauvet COLORado 2-Quad Zoom, Ovation Rêve E-3 / F-3 IP,
+  WELL Fit ; ETC Source Four LED Series 2 Lustr.
+- Image : Kiloview N50 / N60 ; AJA Ki Pro Ultra 12G, Ki Pro Rack, 3G-AMA, HD10AMA ; Roland V-160HD ;
+  NovaStar MCTRL660, MCTRL4K, VX6s, VX1000.
+- Connecteurs ajoutés : MicroDot, MicroLock (DPA), Mini-USB, Seetronic Powerkon IP65.
 
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
@@ -44,7 +51,10 @@
 - Midas (mediadl.musictribe.com, cdn.mediavalet.com) : erreurs 500 / 502.
 - Electro-Voice : products.electrovoice.com présente un certificat incomplet ; seules les pages www.electrovoice.com sont
   lisibles (ND868, ND308, ND408, RE200 non trouvés).
-- Cisco SG300 : fiche technique refusée (403). Neumann KM 184 / KMS 105 : page sans alimentation ni connecteur.
+- Cisco SG300 : fiche technique refusée (403). Decimator : certificat du site incomplet. Ross : page de
+  caractéristiques servie dans une autre langue, manuel introuvable (404).
+- Écrans Samsung : fiches incohérentes (nombre de DisplayPort, poids) ; désignations du catalogue à préciser
+  (génération exacte : DB55D, DB55E…) avant de créer les fiches. Neumann KM 184 / KMS 105 : page sans alimentation ni connecteur.
 - beyerdynamic M 88 / M 201 / Opus 87 : caractéristiques non affichées sur le site du constructeur.
 - Martin, Sony Pro, Panasonic : 403 → déposer leurs manuels sur le Drive.
 

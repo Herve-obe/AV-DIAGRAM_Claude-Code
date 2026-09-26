@@ -1,0 +1,180 @@
+{
+  "id": "novastar-vx6s",
+  "family": "display",
+  "manufacturer": "NovaStar",
+  "model": "VX6s",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "image",
+  "powerW": 65,
+  "weightKg": 2.71,
+  "sources": [
+    {
+      "url": "https://oss.novastar.tech/uploads/2019/11/VX6s-All-in-One-Controller-Specifications-V1.3.0.pdf",
+      "document": "NovaStar, VX6s Specifications V1.3.0",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in1",
+      "name": "3G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 1920 x 1080 à 60 Hz, progressif et entrelacé"
+    },
+    {
+      "id": "sdi-in2",
+      "name": "3G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 1920 x 1080 à 60 Hz, progressif et entrelacé"
+    },
+    {
+      "id": "dvi-in1",
+      "name": "DVI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Jusqu'à 1920 x 1200 à 60 Hz, HDCP"
+    },
+    {
+      "id": "dvi-in2",
+      "name": "DVI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Jusqu'à 1920 x 1200 à 60 Hz, HDCP"
+    },
+    {
+      "id": "dvi-loop",
+      "name": "DVI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Bouclage DVI"
+    },
+    {
+      "id": "hdmi-in1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, HDCP"
+    },
+    {
+      "id": "hdmi-in2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, HDCP"
+    },
+    {
+      "id": "usb-play1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Lecture sur clé USB, souris ou clavier"
+    },
+    {
+      "id": "usb-play2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Lecture sur clé USB, souris ou clavier"
+    },
+    {
+      "id": "out1",
+      "name": "Ethernet 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out2",
+      "name": "Ethernet 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out3",
+      "name": "Ethernet 3",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out4",
+      "name": "Ethernet 4",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out5",
+      "name": "Ethernet 5",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out6",
+      "name": "Ethernet 6",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "dvi-mon",
+      "name": "DVI Monitor",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Sortie de contrôle (prévisualisation)"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet (contrôle)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PC ou réseau"
+    },
+    {
+      "id": "usb-pc",
+      "name": "USB (PC)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Contrôle depuis un PC"
+    },
+    {
+      "id": "usb-cascade",
+      "name": "USB (cascade)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Cascade"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+    }
+  ]
+}

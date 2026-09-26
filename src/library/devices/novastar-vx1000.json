@@ -1,0 +1,210 @@
+{
+  "id": "novastar-vx1000",
+  "family": "display",
+  "manufacturer": "NovaStar",
+  "model": "VX1000",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "image",
+  "powerW": 35,
+  "weightKg": 4,
+  "sources": [
+    {
+      "url": "https://oss.novastar.tech/uploads/2024/07/VX1000-All-in-One-Controller-Specifications-V1.6.0.pdf",
+      "document": "NovaStar, VX1000 Specifications V1.6.0",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI, désentrelacement ; bouclage 3G-SDI"
+    },
+    {
+      "id": "hdmi-in1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4, HDCP 1.4"
+    },
+    {
+      "id": "hdmi-in2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4, HDCP 1.4"
+    },
+    {
+      "id": "dvi-in1",
+      "name": "DVI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI (HDMI 1.4)"
+    },
+    {
+      "id": "dvi-in2",
+      "name": "DVI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI (HDMI 1.4)"
+    },
+    {
+      "id": "out1",
+      "name": "Ethernet 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out2",
+      "name": "Ethernet 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out3",
+      "name": "Ethernet 3",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out4",
+      "name": "Ethernet 4",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out5",
+      "name": "Ethernet 5",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out6",
+      "name": "Ethernet 6",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out7",
+      "name": "Ethernet 7",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out8",
+      "name": "Ethernet 8",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out9",
+      "name": "Ethernet 9",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "out10",
+      "name": "Ethernet 10",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit ; ports 1 et 2 avec sortie audio"
+    },
+    {
+      "id": "hdmi-mon",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3"
+    },
+    {
+      "id": "opt1",
+      "name": "OPT 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "unspecified",
+      "format": "Fibre 10G (OPT2 copie ou secourt les 10 ports Ethernet)"
+    },
+    {
+      "id": "opt2",
+      "name": "OPT 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "unspecified",
+      "format": "Fibre 10G (OPT2 copie ou secourt les 10 ports Ethernet)"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet (contrôle)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PC ou routeur"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In-Loop",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Synchro externe"
+    },
+    {
+      "id": "sensor",
+      "name": "Capteur de lumière",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Capteur de luminosité ambiante"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+    }
+  ]
+}
