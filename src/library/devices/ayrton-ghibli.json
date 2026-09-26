@@ -1,0 +1,58 @@
+{
+  "id": "ayrton-ghibli",
+  "family": "luminaire",
+  "manufacturer": "Ayrton",
+  "model": "Ghibli",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 800,
+  "weightKg": 35.6,
+  "sources": [
+    {
+      "url": "https://www.ayrton.eu/produit/ghibli/",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR5, DMX-512 / RDM ; récepteur sans fil CRMX LumenRadio intégré"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie Ethernet"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, 100-240 V"
+    }
+  ]
+}

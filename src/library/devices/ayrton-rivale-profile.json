@@ -1,0 +1,66 @@
+{
+  "id": "ayrton-rivale-profile",
+  "family": "luminaire",
+  "manufacturer": "Ayrton",
+  "model": "Rivale Profile",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 700,
+  "weightKg": 30.8,
+  "sources": [
+    {
+      "url": "https://www.ayrton.eu/produit/rivale-profile/",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR5 IP65, DMX-512 / RDM ; récepteur sans fil CRMX LumenRadio intégré"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Recopie Ethernet"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 TOP IP65, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 TOP IP65, chaînage"
+    }
+  ]
+}

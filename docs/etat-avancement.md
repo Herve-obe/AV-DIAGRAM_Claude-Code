@@ -19,7 +19,7 @@
   AXT600, AD600, AD610, Beta 57A, Beta 58A, Beta 87A, KSM9.
 - Avid C|24 complétée (poids et consommation : communauté Avid), MTRX Studio corrigée (pédale sur jack 6,35).
 
-**Bibliothèque, ajouts du 2026-09-26** (222 fiches au total) :
+**Bibliothèque, ajouts du 2026-09-26** (258 fiches au total) :
 - Blackmagic Design (20), Yamaha DM7 / DM3 / TF / M7CL / 01V96i (11), DiGiCo SD10 et SD-Rack (2).
 - Micros : Sennheiser e 604, e 825-S, e 835, e 845, e 845-S, e 904, e 906, e 935, MD 441 U ; DPA 4060, 4061, 4066,
   4080, 4088, 4099 CORE+, 4466, 4488 (connecteur selon version : MicroLock, TA4F, LEMO, mini-jack) ;
@@ -28,6 +28,11 @@
 - DI Radial : J48, JDI, ProD2, ProAV1, JPC (Communauté), Twin-Iso, HotShot DM1.
 - Intercom Green-GO : MCX, MCXD, BPX, WBPX, WAA, Interface X, RDX.
 - Réseau : Swisson XES-8G, Luminex GigaCore 20t (avec et sans PoE++), Netgear GS516UP, GS108.
+- Lumière : nouvelles familles Projecteurs, Contrôle lumière, Distribution DMX et pictogramme projecteur.
+  Robe (17 : BMFL Blade / FollowSpot LT / WashBeam, MegaPointe, Pointe, iFORTE LTX, iFORTE Fresnel, FORTE, ESPRITE,
+  MiniMe, Tarrantula, Spiider, Spikie, iBOLT, LEDBeam 150, PATT 2013, ONEPATT) ; Ayrton Rivale Profile, Ghibli,
+  MagicBlade-R ; MA Lighting (12 : grandMA3 full-size / light / compact XT, processing units M / L / XL, grandMA2
+  full-size / light / ultra-light, NPU, onPC command wing, dot2 XL-F) ; Luminex LumiNode 12 / 4 / 2 ; Swisson XPD-28.
 - Connecteurs ajoutés : MicroDot, MicroLock (DPA), Mini-USB.
 
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
@@ -53,7 +58,9 @@
      108P, 112P, 115XT HiQ, V-DOSC, dV-DOSC, ARCS) : manuels d'archive nécessaires.
    - Image : projecteurs, écrans, caméras, convertisseurs, grilles.
    - Réseau : Cisco SG300-10P / SG300-20, Oxo Core8 Pro, Netgear RG6220 (désignation à vérifier).
-   - Lumière (227 références Novelty) : signaux DMX prêts ; fiches à créer (DMX, Art-Net/sACN, alimentation).
+   - Lumière, reste à faire : Robe Robospot et RDM Communicator ; Ayrton MagicDot-SX / R, Arcaline 2 (manuels sans texte
+     exploitable) ; Chauvet, ETC, Astera, SGM, Elation, ARRI, GLP, Robert Juliat, Enttec, ChamSys et petites marques ;
+     Swisson XSR (nombre de ports par modèle seulement sur les schémas) ; Martin (403).
    - Distribution : armoires des prestataires, statut Communauté (source : catalogues).
    - Sites refusant l'accès automatique (erreur 403) : Martin, Sony Pro, Panasonic → déposer leurs manuels sur le Drive.
 2. **Lot 3** : vues liées (baie / rack, plan, réseau, intercom, synchro, électrique).
