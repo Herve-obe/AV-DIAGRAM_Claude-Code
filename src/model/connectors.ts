@@ -57,6 +57,9 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'ta4', label: 'Mini XLR 4 (TA4)', mate: 'ta4' },
   { id: 'lemo3', label: 'LEMO 3 points', mate: 'lemo3' },
   { id: 'sma', label: 'SMA', mate: 'sma' },
+  { id: 'microdot', label: 'MicroDot (DPA)', mate: 'microdot' },
+  // DPA : MicroLock reste compatible avec les accessoires MicroDot (documentation DPA 4099 CORE+)
+  { id: 'microlock', label: 'MicroLock (DPA)', mate: 'microlock', alsoMates: ['microdot'] },
   { id: 'ta3', label: 'TA3 (mini-XLR 3)', mate: 'ta3' },
   { id: 'hirose4', label: 'Hirose 4 broches', mate: 'hirose4' },
   { id: 'lemo5', label: 'LEMO 5 broches', mate: 'lemo5' },

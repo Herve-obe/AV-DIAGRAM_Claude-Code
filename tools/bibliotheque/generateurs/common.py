@@ -1,7 +1,7 @@
 # Aide à l'écriture des fiches de bibliothèque (src/library/devices/*.json).
 import json, os
 DEV = '/home/user/av-diagram_claude-code/src/library/devices'
-ACCESSED = '2026-09-25'
+ACCESSED = '2026-09-26'
 written = []
 
 def P(id, name, direction, signal, connector, **kw):
