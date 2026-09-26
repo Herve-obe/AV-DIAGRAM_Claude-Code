@@ -47,4 +47,39 @@ p = [P('sdi12-in', '12G-SDI In', 'in', 'video', 'bnc', format='12G-SDI (SMPTE 20
      P('dc', 'Alimentation', 'in', 'power', 'xlr4', format='12-18 V CC, XLR 4 points (châssis) ; alimentation double redondante ; bloc secteur 100-240 V')]
 sheet('aja-ki-pro-ultra-12g', 'recording', 'AJA', 'Ki Pro Ultra 12G', 'recorder', AJA, p, domain='image', powerW=65, weightKg=2.6)
 
+# AJA Ki Pro Rack
+KPR = [src('https://www.aja.com/assets/support/files/8949/en/AJA_Ki_Pro_Rack_Manual_v6.8r2.pdf', 'AJA, Ki Pro Rack Manual v6.8r2, Appendix A')]
+p = [P('sdi-in1', 'SDI In 1', 'in', 'video', 'bnc', format='SD/HD-SDI ; entrée choisie par logiciel'),
+     P('sdi-in2', 'SDI In 2', 'in', 'video', 'bnc', format='SD/HD-SDI'),
+     P('sdi-out', 'SDI Out', 'out', 'video', 'bnc', format='SD/HD-SDI'),
+     P('hdmi-in', 'HDMI In', 'in', 'video', 'hdmi', format='HDMI 1.3'),
+     P('hdmi-out', 'HDMI Out', 'out', 'video', 'hdmi', format='HDMI 1.3'),
+     *[P(f'comp-in-{c}', f'Composante In {c}', 'in', 'video', 'bnc', format='Composante SD/HD (composite sur Y)') for c in ('Y', 'Pb', 'Pr')],
+     *[P(f'comp-out-{c}', f'Composante Out {c}', 'out', 'video', 'bnc', format='Composante (composite sur Y)') for c in ('Y', 'Pb', 'Pr')],
+     *[P(f'aes-in{i}', f'AES In {i}', 'in', 'audioDigital', 'bnc', channels=2, format='AES/EBU') for i in range(1, 5)],
+     *[P(f'aes-out{i}', f'AES Out {i}', 'out', 'audioDigital', 'bnc', channels=2, format='AES/EBU') for i in range(1, 5)],
+     *[P(f'ain{i}', f'Audio In {i}', 'in', 'audioAnalog', 'xlr3', level='line+4', format='Symétrique, +24 dBu = 0 dBFS') for i in (1, 2)],
+     *[P(f'aout{i}', f'Audio Out {i}', 'out', 'audioAnalog', 'xlr3', level='line+4', format='Symétrique, +24 dBu = 0 dBFS') for i in (1, 2)],
+     P('ltc-in', 'LTC In', 'in', 'sync', 'bnc'), P('ltc-out', 'LTC Out', 'out', 'sync', 'bnc', format='Actif en lecture'),
+     P('ref1', 'Reference', 'in', 'sync', 'bnc'), P('ref2', 'Reference Loop', 'out', 'sync', 'bnc'),
+     P('rs422', 'RS-422', 'bidir', 'control', 'dsub9', format='Protocole Sony 9 broches'),
+     P('lan', 'LAN', 'bidir', 'network', 'rj45', format='10/100/1000, serveur web'),
+     P('ac1', 'Secteur 1', 'in', 'power', 'unspecified', format='100-240 V ; alimentations doubles redondantes'),
+     P('ac2', 'Secteur 2', 'in', 'power', 'unspecified', format='100-240 V (redondance)')]
+sheet('aja-ki-pro-rack', 'recording', 'AJA', 'Ki Pro Rack', 'recorder', KPR, p, domain='image', powerW=40, weightKg=3.4, rackU=1)
+
+# Embeddeurs / désembeddeurs audio analogiques
+def ama(id, model, url, doc, rate, v, **kw):
+    nout = kw.pop('nout', 1)
+    ports = [P('sdi-in', 'SDI In', 'in', 'video', 'bnc', format=rate)] + [P(f'sdi-out{i}', f'SDI Out {i}' if nout > 1 else 'SDI Out', 'out', 'video', 'bnc', format=rate) for i in range(1, nout + 1)] + [
+             *[P(f'ain{i}', f'Audio In {i}', 'in', 'audioAnalog', 'xlr3', format='Symétrique ; XLR femelle' + kw.get('via', '')) for i in range(1, 5)],
+             *[P(f'aout{i}', f'Audio Out {i}', 'out', 'audioAnalog', 'xlr3', format='Symétrique ; XLR mâle' + kw.get('via', '')) for i in range(1, 5)],
+             P('dc', 'Alimentation', 'in', 'power', 'unspecified', format=f'{v}, bloc secteur fourni ; connecteur non précisé')]
+    kw.pop('via', None)
+    sheet(id, 'videoRouting', 'AJA', model, 'router', [src(url, doc)], ports, powerW=5, **kw)
+ama('aja-3g-ama', '3G-AMA', 'https://www.aja.com/products/3g-ama/spec-sheet.pdf', 'AJA, spec sheet 3G-AMA', '3G-SDI', '+5 à 20 V CC',
+    via=', par câble d\'éclatement DB-25')
+ama('aja-hd10ama', 'HD10AMA', 'https://www.aja.com/products/hd10ama/spec-sheet.pdf', 'AJA, spec sheet HD10AMA', 'HD/SD-SDI', '+5 à 18 V CC',
+    nout=2)
+
 print(len(written), 'fiches :', ', '.join(written))
