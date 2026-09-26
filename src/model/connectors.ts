@@ -40,6 +40,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'usb-a', label: 'USB-A', mate: 'usb' },
   { id: 'usb-b', label: 'USB-B', mate: 'usb' },
   { id: 'usb-c', label: 'USB-C', mate: 'usb' },
+  { id: 'usb-mini', label: 'Mini-USB', mate: 'usb' },
   { id: 'multipin', label: 'Multipaire (Harting, Socapex, CPC)', mate: 'multipin' },
   { id: 'powercon', label: 'powerCON', mate: 'powercon' },
   { id: 'powercon-true1', label: 'powerCON TRUE1', mate: 'powercon-true1' },

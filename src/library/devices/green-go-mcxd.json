@@ -1,0 +1,82 @@
+{
+  "id": "green-go-mcxd",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "MCXD Desktop Station",
+  "pictogram": "intercom",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/mcxd/",
+      "document": "Green-GO, documentation MCXD Desktop Station",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro col de cygne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3 femelle, alimentation micro jusqu'à 10 V en option"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR4 mâle pour casque micro, 32 à 600 ohms"
+    },
+    {
+      "id": "linein",
+      "name": "Entrée ligne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle symétrique (4 fils)"
+    },
+    {
+      "id": "lineout",
+      "name": "Sortie ligne",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 mâle symétrique (4 fils)"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 entrées et 2 sorties de commande"
+    },
+    {
+      "id": "dc",
+      "name": "Alim 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, alimentation secondaire (bloc en option)"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO"
+    }
+  ]
+}

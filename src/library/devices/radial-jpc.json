@@ -1,0 +1,66 @@
+{
+  "id": "radial-jpc",
+  "family": "capture",
+  "manufacturer": "Radial Engineering",
+  "model": "JPC",
+  "pictogram": "di",
+  "status": "community",
+  "weightKg": 0.72,
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/jpc",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in-jack",
+      "name": "Entrée jack 6,35",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line-10",
+      "channels": 2,
+      "format": "1/4 pouce, 10 kohm ; nombre et câblage des jacks non précisés"
+    },
+    {
+      "id": "in-rca",
+      "name": "Entrée RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "in-mini",
+      "name": "Entrée mini-jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "3,5 mm TRS"
+    },
+    {
+      "id": "out-l",
+      "name": "Sortie G",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 600 ohms, fantôme 48 V exigé sur chaque canal",
+      "phantom": "required"
+    },
+    {
+      "id": "out-r",
+      "name": "Sortie D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 600 ohms, fantôme 48 V exigé sur chaque canal",
+      "phantom": "required"
+    }
+  ]
+}

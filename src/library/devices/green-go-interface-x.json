@@ -1,0 +1,98 @@
+{
+  "id": "green-go-interface-x",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "Interface X (INTX)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 2.41,
+  "sources": [
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/interfacex/",
+      "document": "Green-GO, documentation INTX Audio Interface X",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "linein1",
+      "name": "Entrée ligne 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle symétrique (4 fils)"
+    },
+    {
+      "id": "lineout1",
+      "name": "Sortie ligne 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 mâle symétrique (4 fils)"
+    },
+    {
+      "id": "linein2",
+      "name": "Entrée ligne 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle symétrique (4 fils)"
+    },
+    {
+      "id": "lineout2",
+      "name": "Sortie ligne 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 mâle symétrique (4 fils)"
+    },
+    {
+      "id": "gpio1",
+      "name": "GPIO 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 entrées et 2 sorties de commande"
+    },
+    {
+      "id": "gpio2",
+      "name": "GPIO 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 entrées et 2 sorties de commande"
+    },
+    {
+      "id": "2w",
+      "name": "2 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR3 femelle, party-line analogique 2 fils, terminaison commutable"
+    },
+    {
+      "id": "dc",
+      "name": "Alim 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, alimentation secondaire (bloc en option)"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO"
+    }
+  ]
+}

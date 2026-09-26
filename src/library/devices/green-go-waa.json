@@ -1,0 +1,42 @@
+{
+  "id": "green-go-waa",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "WAA Antenna X",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.218,
+  "sources": [
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/waa/",
+      "document": "Green-GO, documentation WAA Antenna X",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "1870 à 1930 MHz, jusqu'à 4 boîtiers WBPX simultanés"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af"
+    },
+    {
+      "id": "usb",
+      "name": "Mini-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-mini",
+      "format": "Alimentation alternative sans switch PoE"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "green-go-bpx",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "BPX Beltpack X",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 0.261,
+  "sources": [
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/bpx/",
+      "document": "Green-GO, documentation BPX Beltpack X",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR4 mâle pour casque micro, 32 à 600 ohms"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af"
+    }
+  ]
+}

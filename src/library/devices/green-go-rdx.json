@@ -1,0 +1,34 @@
+{
+  "id": "green-go-rdx",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "RDX Radio Interface",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 0.246,
+  "sources": [
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/rdx/",
+      "document": "Green-GO, documentation RDX Radio Interface",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "Radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub9",
+      "format": "Émission, réception et alternat (PTT) vers talkie-walkie ; câble à réaliser selon brochage"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af"
+    }
+  ]
+}
