@@ -1,0 +1,74 @@
+{
+  "id": "blackmagic-mini-converter-audio-to-sdi",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter Audio to SDI",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-04",
+      "document": "Blackmagic Design, fiche technique Mini Converter Audio to SDI (W-CONM-04)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "alt",
+      "name": "SDI In ALT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Secours automatique"
+    },
+    {
+      "id": "out",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Audio intégré"
+    },
+    {
+      "id": "ain",
+      "name": "Audio analogique In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 4,
+      "format": "4 canaux symétriques"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 8
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour et configuration"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ]
+}

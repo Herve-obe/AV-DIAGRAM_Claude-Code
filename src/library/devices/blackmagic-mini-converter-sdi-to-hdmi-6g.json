@@ -1,0 +1,81 @@
+{
+  "id": "blackmagic-mini-converter-sdi-to-hdmi-6g",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter SDI to HDMI 6G",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-26",
+      "document": "Blackmagic Design, fiche technique Mini Converter SDI to HDMI 6G (W-CONM-26)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 6G"
+    },
+    {
+      "id": "alt",
+      "name": "SDI In ALT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Secours automatique"
+    },
+    {
+      "id": "loop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "aout",
+      "name": "Audio analogique Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2,
+      "format": "Symétrique"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour et configuration"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ]
+}

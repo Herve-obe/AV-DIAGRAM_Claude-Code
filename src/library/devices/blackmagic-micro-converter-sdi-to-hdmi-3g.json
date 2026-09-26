@@ -1,0 +1,48 @@
+{
+  "id": "blackmagic-micro-converter-sdi-to-hdmi-3g",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Micro Converter SDI to HDMI 3G",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/microconverters/techspecs/W-CONU-12",
+      "document": "Blackmagic Design, fiche technique Micro Converter SDI to HDMI 3G (W-CONU-12)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 3G"
+    },
+    {
+      "id": "loop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C (alimentation)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Alimentation, mise à jour et configuration"
+    }
+  ]
+}
