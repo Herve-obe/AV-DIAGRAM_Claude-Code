@@ -1,0 +1,75 @@
+{
+  "id": "luminex-luminode-4",
+  "family": "dmxDistribution",
+  "manufacturer": "Luminex",
+  "model": "LumiNode 4",
+  "pictogram": "router",
+  "status": "verified",
+  "powerW": 13,
+  "weightKg": 1.42,
+  "sources": [
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/User-Manual_LumiNode-4_rev-2.4.1.pdf",
+      "document": "Luminex, User Manual LumiNode 4 rev 2.4.1",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR5 femelle blindée, DMX/RDM, sens configurable (entrée ou sortie), isolation optique et galvanique"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR5 femelle blindée, DMX/RDM, sens configurable (entrée ou sortie), isolation optique et galvanique"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR5 femelle blindée, DMX/RDM, sens configurable (entrée ou sortie), isolation optique et galvanique"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR5 femelle blindée, DMX/RDM, sens configurable (entrée ou sortie), isolation optique et galvanique"
+    },
+    {
+      "id": "eth1",
+      "name": "ETH1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit ; Art-Net, sACN, KiNET"
+    },
+    {
+      "id": "eth2",
+      "name": "ETH2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit ; seul port acceptant l'alimentation PoE 802.3af (classe 0)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 ; le PoE sur ETH2 prend le relais si le secteur est coupé"
+    }
+  ]
+}
