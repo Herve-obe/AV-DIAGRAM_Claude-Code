@@ -1,0 +1,50 @@
+{
+  "id": "elation-dtw-blinder-700-ip",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "DTW Blinder 700 IP",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 680,
+  "weightKg": 12.7,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/dtw-blinder-700-ip",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM ; IP65"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Chaînage secteur"
+    }
+  ]
+}
