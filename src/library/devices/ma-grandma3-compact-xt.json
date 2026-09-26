@@ -1,0 +1,216 @@
+{
+  "id": "ma-grandma3-compact-xt",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "grandMA3 compact XT",
+  "pictogram": "console",
+  "status": "verified",
+  "weightKg": 20,
+  "sources": [
+    {
+      "url": "https://help.malighting.com/grandMA3/2.3/HTML/key_consoles_technical_data.html",
+      "document": "MA Lighting, grandMA3 Quick Manual consoles, Technical Data (v2.3)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100-240 V, max. 250 VA ; onduleur intégré sur full-size et light"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON / RJ45"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON / RJ45"
+    },
+    {
+      "id": "eth3",
+      "name": "Ethernet 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON / RJ45"
+    },
+    {
+      "id": "dmxA",
+      "name": "DMX A Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmxB",
+      "name": "DMX B Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmxC",
+      "name": "DMX C Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmxD",
+      "name": "DMX D Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmxE",
+      "name": "DMX E Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmxF",
+      "name": "DMX F Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 mâle"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ltc",
+      "name": "LTC",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode linéaire, XLR3 femelle"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Entrées de télécommande, D-Sub DE9 femelle"
+    },
+    {
+      "id": "spdif-in",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé"
+    },
+    {
+      "id": "spdif-out",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, écran externe (sans adaptateur)"
+    },
+    {
+      "id": "usb2-1",
+      "name": "USB 2.0 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Max. 500 mA"
+    },
+    {
+      "id": "usb2-2",
+      "name": "USB 2.0 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Max. 500 mA"
+    },
+    {
+      "id": "usb2-3",
+      "name": "USB 2.0 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Max. 500 mA"
+    },
+    {
+      "id": "usb3-1",
+      "name": "USB 3.0 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Max. 900 mA"
+    },
+    {
+      "id": "usb3-2",
+      "name": "USB 3.0 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Max. 900 mA"
+    },
+    {
+      "id": "lamp1",
+      "name": "Lampe de pupitre 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR4 femelle"
+    }
+  ]
+}

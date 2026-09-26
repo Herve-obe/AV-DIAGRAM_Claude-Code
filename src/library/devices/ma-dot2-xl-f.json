@@ -1,0 +1,144 @@
+{
+  "id": "ma-dot2-xl-f",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "dot2 XL-F",
+  "pictogram": "console",
+  "status": "verified",
+  "weightKg": 9.1,
+  "sources": [
+    {
+      "url": "https://www.malighting.com/product-archive/product/dot2-xl-f-120212/",
+      "document": "MA Lighting, page archive dot2 XL-F",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13/C14, 100 VA"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "dot2-Net, sACN, Art-Net"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode, XLR 3 points"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "remote",
+      "name": "Analogue Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "Télécommande analogique"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Écran externe"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "lamp",
+      "name": "Lampe de pupitre",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points"
+    }
+  ]
+}

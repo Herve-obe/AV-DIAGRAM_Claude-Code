@@ -1,0 +1,88 @@
+{
+  "id": "ma-onpc-command-wing",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "MA onPC command wing",
+  "pictogram": "console",
+  "status": "verified",
+  "weightKg": 6,
+  "sources": [
+    {
+      "url": "https://www.malighting.com/product-archive/product/ma-onpc-command-wing-120120/",
+      "document": "MA Lighting, page archive MA onPC command wing",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13/C14, 40 VA"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode, XLR 3 points"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "remote",
+      "name": "Analogue Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "Télécommande analogique"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Liaison vers l'ordinateur ; type de prise non précisé"
+    }
+  ]
+}
