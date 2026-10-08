@@ -1,0 +1,102 @@
+{
+  "id": "decimator-dmon-4s",
+  "family": "videoRouting",
+  "manufacturer": "Decimator Design",
+  "model": "DMON-4S (DD-4S)",
+  "pictogram": "router",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.scan.co.uk/products/decimator-design-dmon-4s-quad-(3g-hd-sd)-sdi-to-hdmi-multi-viewer-and-converter",
+      "document": "Scan, fiche DMON-4S (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://soundpro.com/products/decimator-dd-4s",
+      "document": "SoundPro, fiche DD-4S (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI ; configurable en recopie active"
+    },
+    {
+      "id": "in3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "in4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI ; configurable en recopie active"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type C ; entrée ou multiview"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type C ; entrée ou multiview"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type C ; entrée ou multiview"
+    },
+    {
+      "id": "hdmi4",
+      "name": "HDMI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type C ; entrée ou multiview"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Contrôle et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 à 32 V, prise verrouillable"
+    }
+  ]
+}

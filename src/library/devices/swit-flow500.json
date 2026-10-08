@@ -1,0 +1,70 @@
+{
+  "id": "swit-flow500",
+  "family": "wireless",
+  "manufacturer": "SWIT",
+  "model": "FLOW500 (TX / RX)",
+  "pictogram": "wireless",
+  "status": "community",
+  "powerW": 8,
+  "sources": [
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1523147-REG/swit_flow500_500_hdmi_wireless_video.html",
+      "document": "B&H, fiche FLOW500 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txSdi",
+      "name": "TX SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "txHdmi",
+      "name": "TX HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "txLoop",
+      "name": "TX SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxSdi",
+      "name": "RX SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxHdmi",
+      "name": "RX HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "5,1 à 5,9 GHz, 150 m"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "8 W"
+    }
+  ]
+}

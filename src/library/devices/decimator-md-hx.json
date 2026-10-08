@@ -1,0 +1,87 @@
+{
+  "id": "decimator-md-hx",
+  "family": "videoRouting",
+  "manufacturer": "Decimator Design",
+  "model": "MD-HX",
+  "pictogram": "router",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.markertek.com/product/dec-md-hx/decimator-md-hx-mini-3g-hd-sd-sdi-to-hdmi-cross-converter-with-scaling-and-frame-rate-conversion",
+      "document": "Markertek, fiche MD-HX (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI ; recopie active ou sortie"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI ; recopie active ou sortie"
+    },
+    {
+      "id": "out3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "out4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Contrôle et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 à 32 V, prise verrouillable"
+    }
+  ]
+}
