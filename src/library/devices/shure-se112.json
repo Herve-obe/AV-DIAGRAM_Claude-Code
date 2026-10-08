@@ -1,0 +1,27 @@
+{
+  "id": "shure-se112",
+  "family": "speaker",
+  "manufacturer": "Shure",
+  "model": "SE112",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/SE112/en-US.pdf",
+      "document": "Shure, guide utilisateur SE112",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Écouteurs",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Jack 3,5 mm stéréo"
+    }
+  ]
+}

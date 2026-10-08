@@ -1,0 +1,47 @@
+{
+  "id": "martin-mac-aura",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "MAC Aura",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 260,
+  "weightKg": 5.6,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/mac-aura",
+      "document": "Martin, page produit MAC Aura",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ]
+}

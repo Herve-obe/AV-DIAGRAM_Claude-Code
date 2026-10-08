@@ -46,3 +46,20 @@ def mic(id, manufacturer, model, sources, phantom, connector='xlr3', fmt=None, s
     sheet(id, family, manufacturer, model, pictogram, sources,
           [P('out', 'Sortie', 'out', 'audioAnalog', connector, level='mic', phantom=phantom, format=f)],
           status=status, weightKg=weightKg)
+
+def fixture(id, manufacturer, model, sources, dmx='xlr5', power='powercon', power_thru=False, ethernet=None, status='verified',
+            family='luminaire', pictogram='light', dmx_fmt=None, power_fmt=None, extra=None, **kw):
+    """Projecteur : DMX entrée / recopie, alimentation (et recopie), Ethernet facultatif (entrée / recopie)."""
+    ports = []
+    if dmx:
+        f = dmx_fmt or ('XLR 3 et 5 points' if dmx == 'xlr3+5' else None)
+        c = 'xlr5' if dmx == 'xlr3+5' else dmx
+        ports += [P('dmxIn', 'DMX In', 'in', 'dmx', c, format=f), P('dmxOut', 'DMX Thru', 'out', 'dmx', c, format=f)]
+    if ethernet:
+        ports += [P('ethIn', 'Ethernet In', 'bidir', 'network', ethernet, format='Art-Net / sACN'),
+                  P('ethOut', 'Ethernet Thru', 'bidir', 'network', ethernet, format='Recopie')]
+    ports.append(P('acIn', 'Secteur', 'in', 'power', power, format=power_fmt))
+    if power_thru:
+        ports.append(P('acOut', 'Recopie secteur', 'out', 'power', power))
+    ports += extra or []
+    sheet(id, family, manufacturer, model, pictogram, sources, ports, status=status, **kw)

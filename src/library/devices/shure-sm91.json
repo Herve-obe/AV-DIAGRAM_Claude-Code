@@ -1,0 +1,27 @@
+{
+  "id": "shure-sm91",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "SM91",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/SM91/en-US.pdf",
+      "document": "Shure, guide utilisateur SM91",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique semi-cardioïde de surface ; préampli avec sortie XLR, fantôme 11 à 52 V ou pile",
+      "phantom": "required"
+    }
+  ]
+}

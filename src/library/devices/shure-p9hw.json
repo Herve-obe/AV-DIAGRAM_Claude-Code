@@ -1,0 +1,36 @@
+{
+  "id": "shure-p9hw",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "P9HW",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/P9HW/en-US.pdf",
+      "document": "Shure, guide utilisateur P9HW",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Audio Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "lemo5",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Lemo 5 points ; câble en Y vers 2 XLR fourni"
+    },
+    {
+      "id": "ear",
+      "name": "Sortie écouteurs",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 mm"
+    }
+  ]
+}
