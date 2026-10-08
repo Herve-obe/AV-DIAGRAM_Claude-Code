@@ -35,4 +35,17 @@ sheet('epson-eb-pu2220b', 'display', 'Epson', 'EB-PU2220B', 'projector', EP, [
     P('ac', 'Secteur', 'in', 'power', 'unspecified', format='Cordon 200 V (100 V possible avec luminosité réduite) ; embase non précisée'),
 ], domain='image', powerW=1301, weightKg=24.4)
 
+# SWIT M-1073H : moniteur double 7" en rack 3U ; connectique donnée par écran (A et B)
+SW = [src('https://www.swit.cc/uploads/2021/09/280915483767.pdf', 'SWIT, M-1073H Dual 7-inch FHD Rack LCD Monitor (fiche)')]
+m = []
+for e in 'AB':
+    m += [P(f'sdi-in{e}', f'Écran {e} SDI In', 'in', 'video', 'bnc', format='2K/3G/HD/SD-SDI ; nombre d\'entrées SDI par écran non lisible dans la fiche (la page produit en annonce 2)'),
+          P(f'hdmi-in{e}', f'Écran {e} HDMI In', 'in', 'video', 'hdmi', format='HDMI 2.0, 4K60p'),
+          P(f'sdi-out{e}', f'Écran {e} SDI Loop', 'out', 'video', 'bnc', format='Bouclage SDI'),
+          P(f'hdmi-out{e}', f'Écran {e} HDMI Loop', 'out', 'video', 'hdmi', format='Bouclage HDMI 2.0'),
+          P(f'aout{e}', f'Écran {e} Audio Out', 'out', 'audioAnalog', 'minijack', format='Audio désembeddé SDI / HDMI, 3,5 mm'),
+          P(f'tally{e}', f'Écran {e} GPI (Tally)', 'in', 'control', 'unspecified', format='Entrée GPI / tally ; connecteur non précisé')]
+m.append(P('dc', 'Alimentation', 'in', 'power', 'unspecified', format='6,5 à 36 V CC ; adaptateur secteur fourni'))
+sheet('swit-m-1073h', 'display', 'SWIT', 'M-1073H (double moniteur 7" rack 3U)', 'display', SW, m, powerW=26, weightKg=2.4, rackU=3)
+
 print(len(written), 'fiches :', ', '.join(written))
