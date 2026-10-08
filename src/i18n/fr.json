@@ -158,7 +158,16 @@
     "pair": "Paire",
     "pairUsed": "occupée",
     "channels": "Canaux transportés",
-    "channelsHint": "Capacité : {{max}}"
+    "channelsHint": "Capacité : {{max}}",
+    "orientation": "Orientation",
+    "rotateCw": "Pivoter dans le sens horaire (R)",
+    "rotateCcw": "Pivoter dans le sens inverse (Maj+R)",
+    "orientationHint": {
+      "0": "Entrées à gauche",
+      "90": "Entrées en haut",
+      "180": "Entrées à droite",
+      "270": "Entrées en bas"
+    }
   },
   "severity": {
     "error": "Erreur",
@@ -595,5 +604,21 @@
   "routing": {
     "label": "Tracé auto",
     "hint": "Tracé automatique des liaisons : contourne les blocs et écarte les câbles qui se superposent"
+  },
+  "layers": {
+    "label": "Calque",
+    "all": "Tous",
+    "hint": "Affiche seulement un domaine. Propre à ce poste : chacun peut travailler sur son calque dans le même projet.",
+    "hintBadge_one": "{{count}} port {{layer}} à relier",
+    "hintBadge_other": "{{count}} ports {{layer}} à relier",
+    "hintsTitle": "Connexions à prévoir",
+    "hintText_one": "{{count}} port {{layer}} non relié : connexion potentielle à prévoir.",
+    "hintText_other": "{{count}} ports {{layer}} non reliés : connexions potentielles à prévoir.",
+    "show": "Voir le calque {{layer}}",
+    "ignore": "Ignorer",
+    "restore": "Rétablir",
+    "ports": "Ports",
+    "empty": "Aucun équipement du domaine {{layer}} sur cette feuille.",
+    "showAll": "Afficher tous les calques"
   }
 }

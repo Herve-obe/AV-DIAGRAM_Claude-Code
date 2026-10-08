@@ -1,52 +1,99 @@
-// Bloc équipement : en-tête (pictogramme, nom, modèle) puis ports. Entrées à gauche, sorties à droite.
-import { memo } from 'react'
-import { Handle, Position, type Node, type NodeProps } from '@xyflow/react'
+// Bloc équipement : en-tête (pictogramme, nom, modèle) puis ports. Par défaut entrées à gauche, sorties à
+// droite ; le bloc peut pivoter d'un quart de tour (entrées en haut, à droite ou en bas). Dans un calque,
+// les ports des autres domaines sont estompés.
+import { memo, useEffect } from 'react'
+import { Handle, Position, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react'
 import { connectorLabel } from '../model/connectors'
+import { portInView, type LayerView } from '../model/layers'
 import { SIGNAL_STYLE } from '../model/signals'
-import type { Equipment, PortDef } from '../model/types'
+import type { Equipment, PortDef, Rotation } from '../model/types'
 import { Pictogram } from '../ui/Pictogram'
 
 /** offPage : pour chaque port relié à une autre feuille, le nom de cette feuille (renvoi) */
-export type EquipmentNodeData = { equipment: Equipment; compact: boolean; offPage: Record<string, string> }
+export type EquipmentNodeData = {
+  equipment: Equipment
+  compact: boolean
+  offPage: Record<string, string>
+  layer: LayerView
+  /** Nombre de rappels inter-calques en attente (ports d'un autre domaine non reliés) */
+  hints: number
+  hintTitle?: string
+}
 export type EquipmentFlowNode = Node<EquipmentNodeData, 'equipment'>
 
-function PortRow({ port, side, offPage }: { port: PortDef; side: 'left' | 'right'; offPage?: string }) {
+type Side = 'left' | 'right' | 'top' | 'bottom'
+const POSITION: Record<Side, Position> = { left: Position.Left, right: Position.Right, top: Position.Top, bottom: Position.Bottom }
+/** Bord des entrées et des sorties selon l'orientation */
+const SIDES: Record<Rotation, { input: Side; output: Side }> = {
+  0: { input: 'left', output: 'right' },
+  90: { input: 'top', output: 'bottom' },
+  180: { input: 'right', output: 'left' },
+  270: { input: 'bottom', output: 'top' },
+}
+
+function PortRow({ port, side, input, offPage, dim }: { port: PortDef; side: Side; input: boolean; offPage?: string; dim: boolean }) {
   const style = SIGNAL_STYLE[port.signal]
   const title = `${port.name} · ${connectorLabel(port.connector)}${port.format ? ` · ${port.format}` : ''}`
+  // Renvoi affiché du côté extérieur du bloc
+  const before = side === 'left' || side === 'top'
   return (
-    <div className={`port port-${side}`} title={title}>
+    <div className={`port port-${side}${dim ? ' port-dim' : ''}`} title={title}>
       <Handle
         id={port.id}
-        type={side === 'left' ? 'target' : 'source'}
-        position={side === 'left' ? Position.Left : Position.Right}
+        type={input ? 'target' : 'source'}
+        position={POSITION[side]}
         className={`handle ${port.direction === 'bidir' ? 'handle-bidir' : ''}`}
         style={{ ['--port-color' as string]: style.color }}
       />
-      {offPage && side === 'left' && <span className="off-page" title={offPage}>◂ {offPage}</span>}
+      {offPage && before && <span className="off-page" title={offPage}>{side === 'top' ? '▴' : '◂'} {offPage}</span>}
       <span className="port-name">{port.name}</span>
-      {offPage && side === 'right' && <span className="off-page" title={offPage}>{offPage} ▸</span>}
+      {offPage && !before && <span className="off-page" title={offPage}>{offPage} {side === 'bottom' ? '▾' : '▸'}</span>}
     </div>
   )
 }
 
-function EquipmentNodeView({ data, selected }: NodeProps<EquipmentFlowNode>) {
+function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>) {
   const eq = data.equipment
+  const rotation = eq.rotation ?? 0
+  // Les poignées changent de bord sans forcément changer la taille du bloc : on fait remesurer
+  const updateNodeInternals = useUpdateNodeInternals()
+  useEffect(() => updateNodeInternals(id), [id, rotation, updateNodeInternals])
+  const { input, output } = SIDES[rotation]
   const inputs = eq.ports.filter((p) => p.direction === 'in')
   const outputs = eq.ports.filter((p) => p.direction !== 'in')
-  const rows = Math.max(inputs.length, outputs.length)
+  const row = (list: PortDef[], side: Side, isInput: boolean) =>
+    list.map((p) => <PortRow key={p.id} port={p} side={side} input={isInput} offPage={data.offPage[p.id]} dim={!portInView(p, data.layer)} />)
+  const ins = row(inputs, input, true)
+  const outs = row(outputs, output, false)
+  const head = (
+    <header className="eq-head">
+      <span className="eq-pict"><Pictogram id={eq.pictogram} size={16} /></span>
+      <span className="eq-titles">
+        <span className="eq-name">{eq.name}</span>
+        {!data.compact && <span className="eq-model">{eq.manufacturer ? `${eq.manufacturer} ${eq.model}` : eq.model}</span>}
+      </span>
+      {data.hints > 0 && <span className="eq-hint" title={data.hintTitle}>{data.hints}</span>}
+    </header>
+  )
+  if (rotation === 90 || rotation === 270) {
+    // Ports en rangées au-dessus et au-dessous de l'en-tête
+    const [top, bottom] = rotation === 90 ? [ins, outs] : [outs, ins]
+    return (
+      <div className={`eq-node eq-vertical ${selected ? 'is-selected' : ''}`}>
+        {top.length > 0 && <div className="eq-row eq-row-top">{top}</div>}
+        {head}
+        {bottom.length > 0 && <div className="eq-row eq-row-bottom">{bottom}</div>}
+      </div>
+    )
+  }
+  const [left, right] = rotation === 0 ? [ins, outs] : [outs, ins]
   return (
     <div className={`eq-node ${selected ? 'is-selected' : ''}`}>
-      <header className="eq-head">
-        <span className="eq-pict"><Pictogram id={eq.pictogram} size={16} /></span>
-        <span className="eq-titles">
-          <span className="eq-name">{eq.name}</span>
-          {!data.compact && <span className="eq-model">{eq.manufacturer ? `${eq.manufacturer} ${eq.model}` : eq.model}</span>}
-        </span>
-      </header>
-      {rows > 0 && (
+      {head}
+      {(left.length > 0 || right.length > 0) && (
         <div className="eq-ports">
-          <div className="eq-col">{inputs.map((p) => <PortRow key={p.id} port={p} side="left" offPage={data.offPage[p.id]} />)}</div>
-          <div className="eq-col eq-col-right">{outputs.map((p) => <PortRow key={p.id} port={p} side="right" offPage={data.offPage[p.id]} />)}</div>
+          <div className="eq-col">{left}</div>
+          <div className="eq-col eq-col-right">{right}</div>
         </div>
       )}
     </div>

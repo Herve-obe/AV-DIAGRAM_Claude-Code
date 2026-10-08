@@ -20,13 +20,24 @@ function endOf(node: InternalNode<Node> | undefined, handleId: string | null | u
   const h = [...(hb.source ?? []), ...(hb.target ?? [])].find((x) => x.id === handleId)
   if (!h) return null
   const abs = node.internals.positionAbsolute
-  const side = h.position === 'right' ? 'right' : 'left'
-  return { x: abs.x + h.x + (side === 'right' ? h.width : 0), y: abs.y + h.y + h.height / 2, side }
+  // Point d'attache : milieu du bord extérieur de la poignée (bloc pivoté : haut ou bas)
+  switch (h.position) {
+    case 'right': return { x: abs.x + h.x + h.width, y: abs.y + h.y + h.height / 2, side: 'right' }
+    case 'top': return { x: abs.x + h.x + h.width / 2, y: abs.y + h.y, side: 'top' }
+    case 'bottom': return { x: abs.x + h.x + h.width / 2, y: abs.y + h.y + h.height, side: 'bottom' }
+    default: return { x: abs.x + h.x, y: abs.y + h.y + h.height / 2, side: 'left' }
+  }
 }
 
 /**
- * Tracés des liaisons. Pendant un glisser (moved non vide), seules les liaisons des blocs déplacés
- * sont recalculées ; les autres gardent leur tracé jusqu'au lâcher.
+ * Au-delà de ce nombre de liaisons visibles, un glisser ne recalcule que les liaisons des blocs déplacés
+ * (les autres sont recalculées au lâcher) ; en dessous, tout le schéma reste propre pendant le geste.
+ */
+export const LIVE_FULL_ROUTING_MAX = 150
+
+/**
+ * Tracés des liaisons. Pendant un glisser (moved non vide) d'un grand schéma, seules les liaisons des
+ * blocs déplacés sont recalculées ; les autres gardent leur tracé jusqu'au lâcher.
  */
 export function computeRoutes(
   nodeLookup: Map<string, InternalNode<Node>>,
@@ -66,9 +77,19 @@ function withLabels(result: { routes: Map<string, Point[]>; obstacles: Rect[] },
   return { routes: result.routes, labels: placeLabels(result.routes, sizes, result.obstacles) }
 }
 
-/** Empreinte de la géométrie : positions et tailles des blocs, extrémités et visibilité des liaisons. */
-function geometryKey(nodes: Node[], edges: Edge[]): string {
-  const n = nodes.map((x) => `${x.id}:${Math.round(x.position.x)},${Math.round(x.position.y)},${x.measured?.width},${x.measured?.height},${x.hidden ? 1 : 0}${x.dragging ? "d" : ""}`)
+/**
+ * Empreinte de la géométrie : positions et tailles des blocs, position des poignées (elle change quand
+ * un bloc pivote, une fois React Flow ayant remesuré le bloc), extrémités et visibilité des liaisons.
+ */
+function geometryKey(nodeLookup: Map<string, InternalNode<Node>>, edges: Edge[]): string {
+  const n: string[] = []
+  for (const x of nodeLookup.values()) {
+    const hb = x.internals.handleBounds
+    let handles = 0
+    for (const h of [...(hb?.source ?? []), ...(hb?.target ?? [])]) handles += h.x * 3 + h.y * 7 + h.position.length
+    const p = x.internals.positionAbsolute
+    n.push(`${x.id}:${Math.round(p.x)},${Math.round(p.y)},${x.measured?.width},${x.measured?.height},${x.hidden ? 1 : 0}${x.dragging ? 'd' : ''}:${Math.round(handles)}`)
+  }
   const e = edges.map((x) => `${x.id}:${x.source}.${x.sourceHandle}>${x.target}.${x.targetHandle}${x.hidden ? 'h' : ''}:${(x.data as { label?: string } | undefined)?.label ?? ''}`)
   return `${n.join(';')}|${e.join(';')}`
 }
@@ -87,12 +108,14 @@ export function EdgeRouter({ enabled }: { enabled: boolean }) {
       return
     }
     // Sélection, survol : rien ne bouge, pas de recalcul
-    const key = geometryKey(nodes, edges)
+    const key = geometryKey(nodeLookup as Map<string, InternalNode<Node>>, edges)
     if (key === lastKey.current) return
     lastKey.current = key
     cancelAnimationFrame(frame.current)
     frame.current = requestAnimationFrame(() => {
-      const moved = new Set(nodes.filter((n) => n.dragging).map((n) => n.id))
+      const dragging = nodes.filter((n) => n.dragging).map((n) => n.id)
+      const visible = edges.filter((e) => !e.hidden).length
+      const moved = new Set(visible > LIVE_FULL_ROUTING_MAX ? dragging : [])
       useRoutes.setState(withLabels(computeRoutes(nodeLookup as Map<string, InternalNode<Node>>, edges, moved, useRoutes.getState().routes), edges))
     })
     return () => cancelAnimationFrame(frame.current)

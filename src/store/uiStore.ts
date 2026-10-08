@@ -2,6 +2,7 @@
 // Les préférences sont mémorisées dans le navigateur (localStorage).
 import { create } from 'zustand'
 import { DEFAULT_SHEET_ID } from '../model/project'
+import type { LayerView } from '../model/layers'
 import type { SignalFamily } from '../model/signals'
 import type { Project } from '../model/types'
 
@@ -19,12 +20,14 @@ interface Prefs {
   linkView: LinkView
   /** Tracé automatique des liaisons (contournement des blocs, voies écartées) */
   autoRoute: boolean
+  /** Calque affiché : propre à chaque poste, il n'est pas enregistré dans le projet */
+  layer: LayerView
 }
 
 const PREFS_KEY = 'avd.prefs'
 
 function readPrefs(): Prefs {
-  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows', autoRoute: true }
+  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows', autoRoute: true, layer: 'all' }
   try {
     return { ...fallback, ...JSON.parse(localStorage.getItem(PREFS_KEY) ?? '{}') }
   } catch {
@@ -95,9 +98,9 @@ export const useUi = create<UiState>((set, get) => ({
   },
   setPref: (key, value) => {
     set({ [key]: value } as Partial<UiState>)
-    const { mode, theme, lang, dockOpen } = get()
+    const { mode, theme, lang, dockOpen, linkView, autoRoute, layer } = get()
     try {
-      localStorage.setItem(PREFS_KEY, JSON.stringify({ mode, theme, lang, dockOpen }))
+      localStorage.setItem(PREFS_KEY, JSON.stringify({ mode, theme, lang, dockOpen, linkView, autoRoute, layer }))
     } catch {
       // Stockage indisponible (navigation privée) : la préférence reste valable pour la session
     }

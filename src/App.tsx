@@ -71,6 +71,11 @@ function Shortcuts() {
         return
       }
       if (!mod && key === 'f') rf.fitView({ duration: 300, padding: 0.15 })
+      // R : quart de tour horaire des équipements sélectionnés ; Maj+R : sens inverse
+      if (!mod && !e.altKey && key === 'r' && ui.selectedEquipment.length && !ui.presenting) {
+        const ids = ui.selectedEquipment.filter((id) => store.project.equipment[id])
+        if (ids.length) store.rotateEquipment(ids, e.shiftKey ? -1 : 1)
+      }
       if (e.altKey && e.key in SIGNAL_SETS) ui.showOnly(SIGNAL_SETS[e.key])
     }
     window.addEventListener('keydown', onKey)

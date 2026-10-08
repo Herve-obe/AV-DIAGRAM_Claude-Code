@@ -2,7 +2,7 @@
 // Le store (src/store) les appelle et gère l'historique d'annulation.
 import { formatCableLabel } from './numbering'
 import type { SignalFamily } from './signals'
-import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from './types'
+import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Rotation, Zone } from './types'
 
 export function uid(prefix: string): string {
   return `${prefix}_${Math.random().toString(36).slice(2, 10)}`
@@ -73,6 +73,7 @@ export function addEquipment(
     manufacturer: template.manufacturer,
     pictogram: template.pictogram,
     family: template.family,
+    ...(template.domain ? { domain: template.domain } : {}),
     ports: template.ports.map((p) => ({ ...p })),
     powerW: template.powerW,
     weightKg: template.weightKg,
@@ -90,6 +91,28 @@ export function updateEquipment(project: Project, id: string, patch: Partial<Omi
   const next = touch({ ...project, equipment: { ...project.equipment, [id]: { ...eq, ...patch } } })
   // Changer la zone change le préfixe des câbles qui partent de cet équipement
   return 'zoneId' in patch ? relabelAll(next) : next
+}
+
+/** Fait pivoter des équipements d'un quart de tour (step = 1 sens horaire, -1 sens inverse). */
+export function rotateEquipment(project: Project, ids: string[], step: 1 | -1): Project {
+  const equipment = { ...project.equipment }
+  let changed = false
+  for (const id of ids) {
+    const eq = equipment[id]
+    if (!eq) continue
+    const rotation = ((((eq.rotation ?? 0) + step * 90) % 360) + 360) % 360 as Rotation
+    equipment[id] = { ...eq, rotation }
+    changed = true
+  }
+  return changed ? touch({ ...project, equipment }) : project
+}
+
+/** Ignore ou rétablit un rappel d'un équipement (ex. « layer:sound »). */
+export function setHintDismissed(project: Project, id: string, key: string, dismissed: boolean): Project {
+  const eq = project.equipment[id]
+  if (!eq) return project
+  const list = (eq.dismissedHints ?? []).filter((k) => k !== key)
+  return updateEquipment(project, id, { dismissedHints: dismissed ? [...list, key] : list.length ? list : undefined })
 }
 
 export function moveEquipment(project: Project, id: string, position: { x: number; y: number }): Project {

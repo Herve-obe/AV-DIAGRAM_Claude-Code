@@ -2,6 +2,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { buildBom, computeTotals } from '../model/bom'
+import { crossLayerHints } from '../model/layers'
 import { buildCableBom, getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { multicoreUsage } from '../model/project'
@@ -168,12 +169,42 @@ function MulticoresTable() {
   )
 }
 
+/** Rappels inter-calques : ports d'un autre domaine non reliés (caméra avec entrées audio…). */
+function LayerHintsTable() {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const hints = useMemo(() => crossLayerHints(project).filter((h) => !h.dismissed), [project])
+  if (!hints.length) return null
+  return (
+    <table className="hints-table">
+      <thead>
+        <tr><th>{t('layers.hintsTitle')}</th><th>{t('dock.from')}</th><th>{t('layers.ports')}</th><th /></tr>
+      </thead>
+      <tbody>
+        {hints.map((h) => {
+          const eq = project.equipment[h.equipmentId]
+          return (
+            <tr key={`${h.equipmentId}-${h.layer}`} className="sev-info" onClick={() => useUi.getState().focus('equipment', h.equipmentId)}>
+              <td><span className="sev-pill">{t(`library.domain.${h.home}`)} → {t(`library.domain.${h.layer}`)}</span></td>
+              <td>{eq?.name}</td>
+              <td className="dim">{h.ports.map((p) => p.name).join(', ')}</td>
+              <td><button className="link-btn" onClick={(e) => { e.stopPropagation(); useProject.getState().setHintDismissed(h.equipmentId, `layer:${h.layer}`, true) }}>{t('layers.ignore')}</button></td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  )
+}
+
 function IssuesTable() {
   const { t } = useTranslation()
   const issues = useIssues()
   const links = useProject((s) => s.project.links)
-  if (!issues.length) return <p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p>
+  if (!issues.length) return <><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /></>
   return (
+    <>
+    <LayerHintsTable />
     <table>
       <thead>
         <tr><th>{t('dock.severity')}</th><th>{t('dock.number')}</th><th>{t('dock.problem')}</th><th>{t('dock.fix')}</th></tr>
@@ -189,6 +220,7 @@ function IssuesTable() {
         ))}
       </tbody>
     </table>
+    </>
   )
 }
 
@@ -199,11 +231,12 @@ export function Dock() {
   const project = useProject((s) => s.project)
   const linkCount = Object.keys(project.links).length
   const errors = issues.filter((i) => i.severity === 'error').length
+  const hintCount = useMemo(() => crossLayerHints(project).filter((h) => !h.dismissed).length, [project])
   const tabs: { id: DockTab; label: string; count?: number; tone?: string }[] = [
     { id: 'cables', label: t('dock.cables'), count: linkCount },
     { id: 'multicores', label: t('dock.multicores'), count: Object.keys(project.multicores ?? {}).length || undefined },
     { id: 'bom', label: t('dock.bom') },
-    { id: 'issues', label: t('dock.issues'), count: issues.length, tone: errors ? 'err' : issues.length ? 'warn' : undefined },
+    { id: 'issues', label: t('dock.issues'), count: issues.length + hintCount, tone: errors ? 'err' : issues.length ? 'warn' : undefined },
   ]
   return (
     <section className={`dock ${dockOpen ? '' : 'is-collapsed'}`} aria-label={t('dock.cables')}>

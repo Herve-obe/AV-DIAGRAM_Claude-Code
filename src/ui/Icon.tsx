@@ -35,6 +35,9 @@ const ICONS = {
   frame: 'M4 7V4h3M17 4h3v3M20 17v3h-3M7 20H4v-3M4 11v2M20 11v2M11 4h2M11 20h2',
   present: 'M3 4h18v12H3zM12 16v4M8 20h8M10 8l4 2-4 2z',
   lang: 'M3 5h10M8 3v2M5 9c1.5 3 4 5 7 6M11 5c-1 4-3.5 7.5-7 10M13 21l4-10 4 10M14.5 17h5',
+  rotateCw: 'M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5',
+  rotateCcw: 'M4 12a8 8 0 1 0 2.34-5.66M4 4v5h5',
+  layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5',
 } as const
 
 export type IconName = keyof typeof ICONS

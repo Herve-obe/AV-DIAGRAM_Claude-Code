@@ -491,6 +491,34 @@ describe('routage des liaisons', () => {
     expect(r.get('l')).toEqual([{ x: 100, y: 40 }, { x: 300, y: 40 }])
   })
 
+  it('relie des ports en haut et en bas (bloc pivoté) par des amorces verticales', async () => {
+    const { routeAll } = await import('./routing')
+    const a = { x: 0, y: 0, w: 100, h: 60 }
+    const b = { x: 300, y: 200, w: 100, h: 60 }
+    const r = routeAll([a, b], [{ id: 'v', source: { x: 50, y: 60, side: 'bottom' }, target: { x: 350, y: 200, side: 'top' } }])
+    const pts = r.get('v')!
+    expect(pts[0]).toEqual({ x: 50, y: 60 })
+    expect(pts[pts.length - 1]).toEqual({ x: 350, y: 200 })
+    // Sortie vers le bas, arrivée par le haut
+    expect(pts[1].x).toBe(50)
+    expect(pts[1].y).toBeGreaterThan(60)
+    expect(pts[pts.length - 2].x).toBe(350)
+    expect(pts[pts.length - 2].y).toBeLessThan(200)
+    expect(crosses(pts, a) || crosses(pts, b)).toBe(false)
+    for (let i = 0; i < pts.length - 1; i++) expect(pts[i].x === pts[i + 1].x || pts[i].y === pts[i + 1].y).toBe(true)
+  })
+
+  it('contourne le bloc de départ quand la sortie est du mauvais côté (bloc retourné)', async () => {
+    const { routeAll } = await import('./routing')
+    const a = { x: 0, y: 0, w: 100, h: 60 }
+    const b = { x: 300, y: 0, w: 100, h: 60 }
+    // Sortie à gauche du bloc A alors que la cible est à droite : le tracé doit faire le tour
+    const r = routeAll([a, b], [{ id: 'f', source: { x: 0, y: 30, side: 'left' }, target: { x: 300, y: 30, side: 'left' } }])
+    const pts = r.get('f')!
+    expect(pts[1].x).toBeLessThan(0)
+    expect(crosses(pts, { x: a.x + 1, y: a.y + 1, w: a.w - 2, h: a.h - 2 })).toBe(false)
+  })
+
   it('place les étiquettes sans chevauchement', async () => {
     const { placeLabels } = await import('./routing')
     const routes = new Map([
@@ -517,5 +545,57 @@ describe('routage des liaisons', () => {
     // Les amorces gardent la hauteur des ports
     expect(out[0][0].y).toBe(0)
     expect(out[1][3].y).toBe(120)
+  })
+})
+
+describe('calques et orientation', () => {
+  it('range une caméra dans les calques Image et Audio, et rappelle ses entrées audio non reliées', async () => {
+    const { LIBRARY } = await import('../library')
+    const { crossLayerHints, equipmentInView, hintKey, layersOf, portInView } = await import('./layers')
+    const cam = LIBRARY.find((t) => t.id === 'panasonic-aw-ue150')!
+    let p = ops.createProject('t')
+    const r = ops.addEquipment(p, cam, { x: 0, y: 0 })
+    p = r.project
+    const eq = p.equipment[r.id]
+    const layers = layersOf(eq)
+    expect(layers.has('image')).toBe(true)
+    expect(layers.has('sound')).toBe(true)
+    expect(equipmentInView(eq, 'sound')).toBe(true)
+    expect(equipmentInView(eq, 'light')).toBe(false)
+    const mic = eq.ports.find((x) => x.signal === 'audioAnalog')!
+    const hdmi = eq.ports.find((x) => x.id === 'hdmi')!
+    expect(portInView(mic, 'sound')).toBe(true)
+    expect(portInView(hdmi, 'sound')).toBe(false)
+    const hints = crossLayerHints(p)
+    expect(hints).toHaveLength(1)
+    expect(hints[0]).toMatchObject({ equipmentId: r.id, layer: 'sound', home: 'image', dismissed: false })
+    // Ignorer le rappel : il reste listé, marqué ignoré
+    p = ops.setHintDismissed(p, r.id, hintKey('sound'), true)
+    expect(crossLayerHints(p)[0].dismissed).toBe(true)
+    p = ops.setHintDismissed(p, r.id, hintKey('sound'), false)
+    expect(crossLayerHints(p)[0].dismissed).toBe(false)
+  })
+
+  it('le rappel disparaît une fois les ports reliés', async () => {
+    const { LIBRARY } = await import('../library')
+    const { crossLayerHints } = await import('./layers')
+    let p = ops.createProject('t')
+    const cam = ops.addEquipment(p, LIBRARY.find((t) => t.id === 'panasonic-aw-ue150')!, { x: 0, y: 0 })
+    p = cam.project
+    const sm58 = ops.addEquipment(p, LIBRARY.find((t) => t.id === 'shure-sm58')!, { x: -300, y: 0 })
+    p = sm58.project
+    const micPort = p.equipment[cam.id].ports.find((x) => x.signal === 'audioAnalog')!
+    const res = ops.connect(p, { equipmentId: sm58.id, portId: p.equipment[sm58.id].ports[0].id }, { equipmentId: cam.id, portId: micPort.id })
+    expect(crossLayerHints(res.project)).toHaveLength(0)
+  })
+
+  it('pivote par quarts de tour dans les deux sens', () => {
+    let p = ops.createProject('t')
+    const r = ops.addEquipment(p, LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 0, y: 0 })
+    p = ops.rotateEquipment(r.project, [r.id], 1)
+    expect(p.equipment[r.id].rotation).toBe(90)
+    p = ops.rotateEquipment(p, [r.id], -1)
+    p = ops.rotateEquipment(p, [r.id], -1)
+    expect(p.equipment[r.id].rotation).toBe(270)
   })
 })

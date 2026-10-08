@@ -1,8 +1,9 @@
 // Inspecteur : propriétés de l'équipement ou de la liaison sélectionnés.
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CABLE_CATALOG, cablesFor, getCable, type CableType } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
+import { crossLayerHints, hintKey } from '../model/layers'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
 import { groupInterface, isGroupNodeId, isInside, sheetIdOfGroupNode } from '../model/groups'
@@ -137,6 +138,16 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
           <Field id="eq-weight" type="number" label={t('inspector.weight')} value={eq.weightKg} onCommit={(v) => set({ weightKg: toNumber(v) })} />
         </div>
       )}
+      <div className="field">
+        <label>{t('inspector.orientation')}</label>
+        <div className="insp-rotate">
+          <button className="icon-btn" title={t('inspector.rotateCcw')} aria-label={t('inspector.rotateCcw')} onClick={() => useProject.getState().rotateEquipment([eq.id], -1)}><Icon name="rotateCcw" size={15} /></button>
+          <span className="mono">{eq.rotation ?? 0}°</span>
+          <button className="icon-btn" title={t('inspector.rotateCw')} aria-label={t('inspector.rotateCw')} onClick={() => useProject.getState().rotateEquipment([eq.id], 1)}><Icon name="rotateCw" size={15} /></button>
+          <span className="dim">{t(`inspector.orientationHint.${eq.rotation ?? 0}`)}</span>
+        </div>
+      </div>
+      <LayerHints eq={eq} />
       {expert && <Field id="eq-notes" label={t('inspector.notes')} value={eq.notes} multiline onCommit={(v) => set({ notes: v || undefined })} />}
       {expert ? (
         <PortEditor eq={eq} />
@@ -158,6 +169,32 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         <button className="btn btn-danger" onClick={() => remove([eq.id], [])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
     </>
+  )
+}
+
+/** Rappels inter-calques de l'équipement : ports d'un autre domaine non reliés, à prendre en compte ou à ignorer. */
+function LayerHints({ eq }: { eq: Equipment }) {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const hints = useMemo(() => crossLayerHints(project).filter((h) => h.equipmentId === eq.id), [project, eq.id])
+  if (!hints.length) return null
+  const { setHintDismissed } = useProject.getState()
+  return (
+    <div className="field layer-hints">
+      <label><Icon name="layers" size={13} /> {t('layers.hintsTitle')}</label>
+      {hints.map((h) => (
+        <div key={h.layer} className={`layer-hint ${h.dismissed ? 'is-dismissed' : ''}`}>
+          <div>
+            {t('layers.hintText', { count: h.ports.length, layer: t(`library.domain.${h.layer}`) })}
+            <div className="dim">{h.ports.map((p) => p.name).join(', ')}</div>
+          </div>
+          <div className="layer-hint-actions">
+            {!h.dismissed && <button className="link-btn" onClick={() => useUi.getState().setPref('layer', h.layer)}>{t('layers.show', { layer: t(`library.domain.${h.layer}`) })}</button>}
+            <button className="link-btn" onClick={() => setHintDismissed(eq.id, hintKey(h.layer), !h.dismissed)}>{h.dismissed ? t('layers.restore') : t('layers.ignore')}</button>
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
 

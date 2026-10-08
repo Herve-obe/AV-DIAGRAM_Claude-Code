@@ -158,7 +158,16 @@
     "pair": "Pair",
     "pairUsed": "used",
     "channels": "Channels carried",
-    "channelsHint": "Capacity: {{max}}"
+    "channelsHint": "Capacity: {{max}}",
+    "orientation": "Orientation",
+    "rotateCw": "Rotate clockwise (R)",
+    "rotateCcw": "Rotate counter-clockwise (Shift+R)",
+    "orientationHint": {
+      "0": "Inputs on the left",
+      "90": "Inputs on top",
+      "180": "Inputs on the right",
+      "270": "Inputs at the bottom"
+    }
   },
   "severity": {
     "error": "Error",
@@ -595,5 +604,21 @@
   "routing": {
     "label": "Auto routing",
     "hint": "Automatic link routing: avoids blocks and spreads overlapping cables"
+  },
+  "layers": {
+    "label": "Layer",
+    "all": "All",
+    "hint": "Show a single domain. Per workstation: everyone can work on their own layer in the same project.",
+    "hintBadge_one": "{{count}} {{layer}} port to connect",
+    "hintBadge_other": "{{count}} {{layer}} ports to connect",
+    "hintsTitle": "Connections to plan",
+    "hintText_one": "{{count}} unconnected {{layer}} port: a connection may be needed.",
+    "hintText_other": "{{count}} unconnected {{layer}} ports: connections may be needed.",
+    "show": "Show {{layer}} layer",
+    "ignore": "Ignore",
+    "restore": "Restore",
+    "ports": "Ports",
+    "empty": "No {{layer}} equipment on this sheet.",
+    "showAll": "Show all layers"
   }
 }

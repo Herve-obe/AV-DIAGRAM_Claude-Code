@@ -111,6 +111,8 @@ export interface Equipment {
   manufacturer?: string
   pictogram: PictogramId
   family: EquipmentFamily
+  /** Menu de la bibliothèque quand la famille est partagée (ex. enregistreur vidéo) */
+  domain?: LibraryDomain
   ports: PortDef[]
   powerW?: number
   weightKg?: number
@@ -120,7 +122,16 @@ export interface Equipment {
   sheetId?: string
   notes?: string
   position: { x: number; y: number }
+  /**
+   * Orientation du bloc, en degrés dans le sens horaire. 0 : entrées à gauche, sorties à droite ;
+   * 90 : entrées en haut, sorties en bas ; 180 : entrées à droite ; 270 : entrées en bas.
+   */
+  rotation?: Rotation
+  /** Rappels ignorés par l'utilisateur (ex. « layer:sound » : ports audio d'une caméra) */
+  dismissedHints?: string[]
 }
+
+export type Rotation = 0 | 90 | 180 | 270
 
 /** Liaison entre un port de sortie et un port d'entrée. */
 export interface Link {

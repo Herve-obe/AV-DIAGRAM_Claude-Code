@@ -21,6 +21,7 @@ import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { SIGNAL_STYLE } from '../model/signals'
 import type { Link, Project } from '../model/types'
 import { checkProject } from '../model/rules'
+import { crossLayerHints, equipmentInView, layerOfSignal } from '../model/layers'
 import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { worstByLink } from '../store/useIssues'
@@ -75,8 +76,18 @@ export function Canvas() {
   const proposedEq = useMemo(() => new Set(preview?.addedEquipment ?? []), [preview])
   const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
-  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute } = useUi()
+  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute, layer } = useUi()
+  const { t } = useTranslation()
   const issues = useMemo(() => checkProject(project), [project])
+  // Rappels inter-calques en attente, par équipement (ports d'un autre domaine non reliés)
+  const hintsByEq = useMemo(() => {
+    const m = new Map<string, string[]>()
+    for (const h of crossLayerHints(project)) {
+      if (h.dismissed) continue
+      m.set(h.equipmentId, [...(m.get(h.equipmentId) ?? []), t('layers.hintBadge', { count: h.ports.length, layer: t(`library.domain.${h.layer}`) })])
+    }
+    return m
+  }, [project, t])
   const rf = useReactFlow()
 
   // Nœuds de la feuille courante, reconstruits depuis le projet en conservant les mesures de React Flow
@@ -132,7 +143,16 @@ export function Canvas() {
           id: eq.id,
           type: 'equipment',
           position: eq.position,
-          data: { equipment: eq, compact: mode === 'beginner', offPage: offPage.get(eq.id) ?? {} },
+          data: {
+            equipment: eq,
+            compact: mode === 'beginner',
+            offPage: offPage.get(eq.id) ?? {},
+            layer,
+            hints: hintsByEq.get(eq.id)?.length ?? 0,
+            hintTitle: hintsByEq.get(eq.id)?.join('\n'),
+          },
+          // Calque actif : seuls les équipements de ce domaine (ou qui en ont des ports) restent visibles
+          hidden: !equipmentInView(eq, layer),
           selected: selectedEquipment.includes(eq.id),
           measured: measured.get(eq.id),
           // Un équipement proposé n'existe pas encore dans le projet : ni déplaçable, ni supprimable
@@ -144,10 +164,19 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq])
+  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq])
 
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)
+    // Calque actif : liaisons de ce domaine (synchro et contrôle : si leurs deux équipements sont visibles)
+    const linkInView = (l: Link, signal: keyof typeof SIGNAL_STYLE) => {
+      if (layer === 'all') return true
+      const sl = layerOfSignal(signal)
+      if (sl && sl !== layer) return false
+      const a = project.equipment[l.source.equipmentId]
+      const b = project.equipment[l.target.equipmentId]
+      return (!a || equipmentInView(a, layer)) && (!b || equipmentInView(b, layer))
+    }
     // Liaison dans un multipaire : l'étiquette indique le câble et la paire (ex. FOH-AUD-001 · MP-01/3)
     const via = (l: Link) => {
       const mc = l.multicoreId ? project.multicores?.[l.multicoreId] : undefined
@@ -171,6 +200,7 @@ export function Canvas() {
         else bundles.set(key, {
           id: key, type: 'signal', source: a.node, sourceHandle: a.handle, target: b.node, targetHandle: b.handle,
           deletable: false,
+          hidden: !linkInView(l, signal),
           data: { signal, label: mc.label, showLabel: true, linkIds: [l.id] },
         })
         return []
@@ -183,7 +213,7 @@ export function Canvas() {
         target: b.node,
         targetHandle: b.handle,
         selected: selectedLinks.includes(l.id),
-        hidden: hiddenSignals.includes(signal),
+        hidden: hiddenSignals.includes(signal) || !linkInView(l, signal),
         data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting || proposedLinks.has(l.id) },
         ...(proposedLinks.has(l.id) ? { className: 'is-proposed', selectable: false, deletable: false } : {}),
       }]
@@ -195,7 +225,7 @@ export function Canvas() {
       e.selected = ids.some((id) => selectedLinks.includes(id))
     }
     return [...flows, ...bundles.values()]
-  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks])
+  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks, layer])
 
   const onNodesChange = useCallback(
     (changes: NodeChange<CanvasNode>[]) => {
@@ -317,6 +347,12 @@ export function Canvas() {
           style={{ background: 'var(--bg-1)' }}
         />
       </ReactFlow>
+      {layer !== 'all' && !nodes.some((n) => n.type === 'equipment' && !n.hidden) && (
+        <div className="layer-empty">
+          {t('layers.empty', { layer: t(`library.domain.${layer}`) })}
+          <button className="link-btn" onClick={() => useUi.getState().setPref('layer', 'all')}>{t('layers.showAll')}</button>
+        </div>
+      )}
       {preview && !presenting && (
         <ProposalBanner equipment={preview.addedEquipment.length} links={preview.addedLinks.length} sheetId={preview.sheetId} />
       )}

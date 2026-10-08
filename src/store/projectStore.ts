@@ -28,6 +28,8 @@ interface ProjectState {
   addEquipment: (tpl: EquipmentTemplate, pos: { x: number; y: number }, sheetId?: string) => string
   updateEquipment: (id: string, patch: Partial<Omit<Equipment, 'id'>>) => void
   moveEquipment: (id: string, pos: { x: number; y: number }) => void
+  rotateEquipment: (ids: string[], step: 1 | -1) => void
+  setHintDismissed: (id: string, key: string, dismissed: boolean) => void
   connect: (a: { equipmentId: string; portId: string }, b: { equipmentId: string; portId: string }) => string | null
   updateLink: (id: string, patch: Partial<Omit<Link, 'id' | 'source' | 'target'>>) => void
   /** Supprime des éléments du canevas : équipements et annotations (nodeIds) et liaisons */
@@ -106,6 +108,8 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     updateEquipment: (id, patch) => commit(ops.updateEquipment(get().project, id, patch)),
     // Pas de commit : le pas d'annulation a été ouvert par beginGesture()
+    rotateEquipment: (ids, step) => commit(ops.rotateEquipment(get().project, ids, step)),
+    setHintDismissed: (id, key, dismissed) => commit(ops.setHintDismissed(get().project, id, key, dismissed)),
     moveEquipment: (id, pos) => set({ project: ops.moveEquipment(get().project, id, pos), saved: false }),
     connect: (a, b) => {
       const r = ops.connect(get().project, a, b)

@@ -2,7 +2,8 @@
 // des tronçons superposés en voies parallèles. Module pur (sans React), testé dans model.test.ts.
 //
 // Méthode :
-// 1. Chaque liaison sort de son port par un court segment horizontal (« amorce »).
+// 1. Chaque liaison sort de son port par un court segment perpendiculaire au bord du bloc (« amorce ») :
+//    horizontal pour un port à gauche ou à droite, vertical pour un bloc pivoté (port en haut ou en bas).
 // 2. On construit une grille « de Hanan » : droites passant par les bords des blocs (avec une marge)
 //    et par les amorces. Un plus court chemin (A*) y relie les amorces ; chaque coude est pénalisé,
 //    ce qui donne des tracés simples. Les blocs, gonflés de la marge, sont infranchissables.
@@ -18,7 +19,7 @@ export interface Rect {
   w: number
   h: number
 }
-export type Side = 'left' | 'right'
+export type Side = 'left' | 'right' | 'top' | 'bottom'
 export interface RouteEnd extends Point {
   side: Side
 }
@@ -41,7 +42,12 @@ export interface RoutingOptions {
 
 export const DEFAULT_ROUTING: RoutingOptions = { margin: 14, stub: 22, bendCost: 60, spacing: 7 }
 
-const dirX = (s: Side) => (s === 'right' ? 1 : -1)
+/** Vecteur de sortie d'un port selon le bord du bloc où il se trouve. */
+const OUT: Record<Side, Point> = { right: { x: 1, y: 0 }, left: { x: -1, y: 0 }, bottom: { x: 0, y: 1 }, top: { x: 0, y: -1 } }
+/** Direction de déplacement dans la grille (0 droite, 1 gauche, 2 bas, 3 haut) en quittant un port. */
+const LEAVE: Record<Side, number> = { right: 0, left: 1, bottom: 2, top: 3 }
+/** Direction d'arrivée dans un port : vers le bloc, donc opposée à la sortie. */
+const ENTER: Record<Side, number> = { right: 1, left: 0, bottom: 3, top: 2 }
 
 /** Supprime les points alignés inutiles et les doublons. */
 export function simplify(points: Point[]): Point[] {
@@ -265,7 +271,7 @@ interface Seg {
 /**
  * Écarte les segments superposés : pour chaque droite (même x pour les verticaux, même y pour les
  * horizontaux), les segments de tracés différents qui se chevauchent reçoivent chacun une voie.
- * Les amorces (premier et dernier segment) gardent la hauteur de leur port.
+ * Les amorces (premier et dernier segment) restent alignées sur leur port.
  */
 export function nudge(routes: Point[][], spacing: number, maxShift: number): Point[][] {
   const out = routes.map((r) => r.map((p) => ({ ...p })))
@@ -278,8 +284,8 @@ export function nudge(routes: Point[][], spacing: number, maxShift: number): Poi
         const isV = a.x === b.x && a.y !== b.y
         const isH = a.y === b.y && a.x !== b.x
         if (vertical ? !isV : !isH) continue
-        // Amorces horizontales : fixées à la hauteur du port
-        if (!vertical && (i === 0 || i === pts.length - 2)) continue
+        // Amorces (premier et dernier segment) : fixées à la position du port
+        if (i === 0 || i === pts.length - 2) continue
         const fixed = vertical ? a.x : a.y
         const lo = vertical ? Math.min(a.y, b.y) : Math.min(a.x, b.x)
         const hi = vertical ? Math.max(a.y, b.y) : Math.max(a.x, b.x)
@@ -341,10 +347,8 @@ export function routeAll(obstacles: Rect[], requests: RouteRequest[], opts: Rout
   if (!requests.length) return result
   const m = opts.margin
   const inflated = obstacles.map((r) => ({ x: r.x - m, y: r.y - m, w: r.w + 2 * m, h: r.h + 2 * m }))
-  const stubs = requests.map((r) => ({
-    s: { x: Math.round(r.source.x + dirX(r.source.side) * opts.stub), y: Math.round(r.source.y) },
-    t: { x: Math.round(r.target.x + dirX(r.target.side) * opts.stub), y: Math.round(r.target.y) },
-  }))
+  const stubEnd = (e: RouteEnd) => ({ x: Math.round(e.x + OUT[e.side].x * opts.stub), y: Math.round(e.y + OUT[e.side].y * opts.stub) })
+  const stubs = requests.map((r) => ({ s: stubEnd(r.source), t: stubEnd(r.target) }))
   const xsSet = new Set<number>()
   const ysSet = new Set<number>()
   for (const r of inflated) {
@@ -372,11 +376,12 @@ export function routeAll(obstacles: Rect[], requests: RouteRequest[], opts: Rout
 
   const raw: Point[][] = requests.map((r, k) => {
     const { s, t } = stubs[k]
-    const sDir = r.source.side === 'right' ? 0 : 1
+    const sDir = LEAVE[r.source.side]
     // Arrivée sur l'amorce cible en allant vers le port
-    const tDir = r.target.side === 'right' ? 1 : 0
+    const tDir = ENTER[r.target.side]
     const mid = grid.path(s, sDir, t, tDir, opts.bendCost) ?? fallback(s, t)
-    return simplify([{ x: r.source.x, y: r.source.y }, ...mid, { x: r.target.x, y: r.target.y }])
+    // Extrémités arrondies comme les amorces : sinon le premier segment serait légèrement en biais
+    return simplify([{ x: Math.round(r.source.x), y: Math.round(r.source.y) }, ...mid, { x: Math.round(r.target.x), y: Math.round(r.target.y) }])
   })
   const nudged = nudge(raw, opts.spacing, m - 2)
   requests.forEach((r, k) => result.set(r.id, simplify(nudged[k])))
