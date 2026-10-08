@@ -42,6 +42,12 @@
   NovaStar MCTRL660, MCTRL4K, VX6s, VX1000.
 - Connecteurs ajoutés : MicroDot, MicroLock (DPA), Mini-USB, Seetronic Powerkon IP65.
 
+**Synoptique, 2026-10-08** :
+- Rotation des équipements par quart de tour (R / Maj+R), tracé des liaisons adapté (ports en haut et en bas).
+- Calques par domaine (Audio, Image, Lumière, Réseau, Électrique), propres à chaque poste ; rappels de
+  connexions entre domaines (ex. entrées audio d'une caméra), à prendre en compte ou à ignorer.
+- Collaboration en temps réel : proposition dans `collaboration.md` (session sur le réseau local), en attente de validation.
+
 **Bibliothèque, ajouts du 2026-10-08** (352 fiches au total) :
 - Écrans Samsung sous les références du catalogue Novelty (décision du 2026-10-08) : DB55, DB48, DB40, DB32, DB22, DB10,
   DM75, DM32, ME95, ME75, ME32, ED75E, UE55, UE46, QB75H (Communauté, génération Samsung indiquée sur la fiche), QM98F (Vérifié).
