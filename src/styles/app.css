@@ -850,11 +850,37 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .pdf-sheet { padding: 0; width: 240px; }
 @media (max-width: 900px) { .pdf-columns { flex-direction: column; } }
 
-/* Export PDF */
-.export-dialog { width: min(520px, calc(100vw - 32px)); }
-.export-row { display: flex; flex-wrap: wrap; gap: 10px; padding: 4px 14px; }
-.wm-preview {
-  margin: 6px 14px; height: 90px; padding: 0 12px; overflow: hidden; display: grid; place-items: center;
-  border: 1px dashed var(--border-strong); border-radius: var(--radius); background: #fff;
+/* Paramètres d'export, cartouche, découpage en pages */
+.export-dialog { width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 48px); display: flex; flex-direction: column; }
+.export-dialog .dialog-body { flex: 1; min-height: 0; }
+.export-tabs { margin: 10px 14px 0; align-self: flex-start; }
+.export-foot { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--border); }
+.export-foot .dialog-hint { flex: 1; margin: 0; }
+.export-mode { margin: 8px 14px 4px; display: inline-flex; }
+.export-scale { max-width: 220px; }
+.format-warning {
+  margin: 6px 14px 10px; padding: 10px; display: grid; gap: 6px;
+  border: 1px solid var(--warn); border-radius: var(--radius); background: var(--bg-2);
 }
-.wm-preview span { transform: rotate(-12deg); font: 600 13px Helvetica, Arial, sans-serif; color: #282828; text-align: center; overflow-wrap: anywhere; }
+.format-warning p { margin: 0 0 2px; display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 600; }
+.format-warning .btn { display: grid; justify-items: start; gap: 2px; text-align: left; }
+.format-warning .btn span { font-size: 12px; color: var(--text-2); }
+.wm-preview { display: block; margin: 6px 14px; width: calc(100% - 28px); max-width: 360px; height: auto; border-radius: var(--radius); }
+.wm-colors { display: flex; gap: 6px; align-items: center; }
+.wm-color { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--bg-1); box-shadow: 0 0 0 1px var(--border-strong); }
+.wm-color[aria-pressed='true'] { box-shadow: 0 0 0 2px var(--accent); }
+.wm-colors input[type='color'] { width: 30px; height: 24px; padding: 0; border: 0; background: none; }
+.field-label { font-size: 12px; color: var(--text-2); }
+.protect-rights { display: flex; flex-wrap: wrap; gap: 0 12px; }
+.rev-table input { width: 100%; }
+.template-logo { display: flex; gap: 12px; align-items: center; padding: 4px 14px 8px; }
+.logo-box { width: 120px; height: 80px; display: grid; place-items: center; border: 1px dashed var(--border-strong); border-radius: var(--radius); background: #fff; font-size: 11px; color: #868e96; overflow: hidden; }
+.logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.page-grid { position: absolute; left: 0; top: 0; pointer-events: none; }
+.page-grid-cell { position: absolute; border: 2px dashed color-mix(in srgb, var(--accent) 55%, transparent); box-sizing: border-box; }
+.page-grid-cell span {
+  position: absolute; left: 6px; top: 4px; font: 600 13px var(--font-label); letter-spacing: .5px;
+  color: color-mix(in srgb, var(--accent) 80%, transparent);
+}
+.export-row { display: flex; flex-wrap: wrap; gap: 10px; padding: 4px 14px; }
+.export-row > .segmented { flex: 0 0 auto; }

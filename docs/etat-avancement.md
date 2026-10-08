@@ -73,6 +73,12 @@ légende placée au-dessus du cartouche si la largeur manque), filigrane en diag
 {revision}) incrusté dans l'image du schéma et répété sur la planche, aussi appliqué aux exports PNG et SVG ; protection
 optionnelle (impression permise, modification et copie interdites). Réglages gardés dans le projet.
 
+**Export professionnel** (2026-10-08) : cartouche aux champs inspirés de l'ISO 7200 (logo, propriétaire légal,
+numéro, statut, établi / approuvé par, date d'émission automatique, historique des indices), rempli à l'export et
+pré-rempli par un modèle propre au poste ; format avec choix mise à l'échelle ou taille fixe (pages A1, B1...,
+découpage affiché sur le canevas) ; filigrane paramétrable ; chiffrement AES-256 par l'application de bureau.
+Détail : `export-pdf.md`. Version navigateur abandonnée : application de bureau seule, Windows et macOS.
+
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
 

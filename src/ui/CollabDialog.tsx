@@ -14,7 +14,7 @@ export function CollabDialog() {
     dialogOpen, status, role, origin, relayRank, host, address, participants, error, name, setName, setDialogOpen,
     backup, setBackup, claims, userId, resumable,
   } = useCollab()
-  const [tab, setTab] = useState<'host' | 'join'>(canHost() ? 'host' : 'join')
+  const [tab, setTab] = useState<'host' | 'join'>('host')
   const [port, setPort] = useState(String(DEFAULT_PORT))
   const [joinAddress, setJoinAddress] = useState('')
   const [code, setCode] = useState('')
@@ -83,7 +83,7 @@ export function CollabDialog() {
               </div>
               <div className="segmented collab-tabs" role="tablist">
                 <button role="tab" aria-pressed={tab === 'host'} disabled={!canHost()} onClick={() => setTab('host')}>{t('collab.host')}</button>
-                <button role="tab" aria-pressed={tab === 'join'} onClick={() => setTab('join')}>{t('collab.join')}</button>
+                <button role="tab" aria-pressed={tab === 'join'} disabled={!canHost()} onClick={() => setTab('join')}>{t('collab.join')}</button>
               </div>
               {!canHost() && <p className="dialog-hint">{t('collab.hostDesktopOnly')}</p>}
 
@@ -100,7 +100,7 @@ export function CollabDialog() {
                 </section>
               )}
 
-              {tab === 'join' && (
+              {tab === 'join' && canHost() && (
                 <section>
                   <p className="dialog-hint">{t('collab.joinHint')}</p>
                   <div className="field">

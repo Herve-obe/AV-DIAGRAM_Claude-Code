@@ -97,6 +97,19 @@ après 8 s, ajouts des deux invités pendant l'absence, reprise par l'hôte, ret
 les 4 équipements fusionnés. L'annonce de fin voulue est vérifiée par les tests Rust (le relais de
 l'essai était arrêté brutalement).
 
+## Postes Windows et Mac
+
+Le travail à plusieurs se fait uniquement avec l'application de bureau, installée sur chaque poste.
+Windows et macOS travaillent ensemble dans la même session (même protocole, même format de projet).
+
+- macOS 15 et suivants : à la première connexion, le système demande l'autorisation d'accéder au
+  réseau local (texte fourni par `src-tauri/Info.plist`) ; la refuser empêche la session. Réglage :
+  Réglages Système, Confidentialité et sécurité, Réseau local.
+- macOS : à l'ouverture d'une session (hôte ou poste de secours), le pare-feu peut demander
+  d'accepter les connexions entrantes pour AV Diagram.
+- Windows : à la première ouverture de session, le pare-feu Windows Defender demande d'autoriser
+  AV Diagram sur les réseaux privés ; cocher « Réseaux privés ».
+
 ## Tester
 
 1. Poste hôte (application de bureau) : bouton « Travail à plusieurs » (icône personnes, barre du

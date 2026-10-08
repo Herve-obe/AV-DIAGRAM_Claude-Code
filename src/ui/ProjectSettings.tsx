@@ -1,5 +1,10 @@
-// Réglages du projet : informations du cartouche, zones, format de numérotation, tension secteur.
+// Paramètres : projet (nom, zones, numérotation, tension secteur), cartouche du projet, mise en page et
+// export (format, filigrane, protection), modèle de cartouche du poste.
 import { useEffect, useRef, useState } from 'react'
+import { exportSettingsOf } from '../io/exportOptions'
+import type { ExportSettings, ProjectInfo } from '../model/types'
+import { useTitleBlock } from '../store/titleBlockStore'
+import { FormatPicker, ProtectionEditor, TemplateEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
 import { useTranslation } from 'react-i18next'
 import { SIGNAL_CODE, formatCableLabel } from '../model/numbering'
 import { SIGNAL_FAMILIES } from '../model/signals'
@@ -11,22 +16,48 @@ import { Icon } from './Icon'
 export function ProjectSettings() {
   const { t } = useTranslation()
   const open = useUi((s) => s.settingsOpen)
-  const close = () => useUi.getState().setSettingsOpen(false)
   const project = useProject((s) => s.project)
   const store = useProject.getState()
   const [newZone, setNewZone] = useState({ name: '', code: '' })
+  const [tab, setTab] = useState<'project' | 'titleBlock' | 'export' | 'template'>('project')
+  // Brouillons du cartouche et des réglages d'export : enregistrés en un seul pas d'annulation
+  // quand on change d'onglet ou qu'on ferme
+  const [infoDraft, setInfoDraft] = useState<ProjectInfo | null>(null)
+  const [exportDraft, setExportDraft] = useState<ExportSettings | null>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
+  // Références : la touche Échap (écouteur posé à l'ouverture) doit voir les derniers brouillons
+  const drafts = useRef({ info: infoDraft, export: exportDraft })
+  drafts.current = { info: infoDraft, export: exportDraft }
+  const flush = () => {
+    const s = useProject.getState()
+    const { info: i, export: x } = drafts.current
+    if (i && JSON.stringify(i) !== JSON.stringify(s.project.info ?? {})) s.updateInfo(i)
+    if (x && JSON.stringify(x) !== JSON.stringify(s.project.settings.export)) s.updateSettings({ export: x })
+    setInfoDraft(null)
+    setExportDraft(null)
+  }
+  const close = () => {
+    flush()
+    useUi.getState().setSettingsOpen(false)
+  }
+  const goTo = (next: typeof tab) => {
+    flush()
+    setTab(next)
+  }
 
+  const closeRef = useRef(close)
+  closeRef.current = close
   useEffect(() => {
     if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && closeRef.current()
     window.addEventListener('keydown', onKey)
     dialogRef.current?.querySelector<HTMLElement>('input')?.focus()
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
   if (!open) return null
-  const info = project.info ?? {}
+  const infoValue = infoDraft ?? infoWithTemplate(project.info, useTitleBlock.getState().template)
+  const exportValue = exportDraft ?? exportSettingsOf(project)
   const preview = formatCableLabel(project.settings.cableFormat, { zone: project.zones[0]?.code ?? 'FOH', signal: 'audioAnalog', num: 12 }, project.settings.typeCodes)
   const addZone = () => {
     if (!newZone.name.trim() || !newZone.code.trim()) return
@@ -41,16 +72,45 @@ export function ProjectSettings() {
           <h2 id="settings-title">{t('settings.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
-        <div className="dialog-body">
+        <div className="segmented export-tabs" role="tablist">
+          {(['project', 'titleBlock', 'export', 'template'] as const).map((k) => (
+            <button key={k} role="tab" aria-selected={tab === k} aria-pressed={tab === k} onClick={() => goTo(k)}>{t(`settings.tabs.${k}`)}</button>
+          ))}
+        </div>
+        {tab === 'titleBlock' && (
+          <div className="dialog-body">
+            <section>
+              <p className="dialog-hint">{t('settings.titleBlockHint')}</p>
+              <TitleBlockFields value={infoValue} onChange={setInfoDraft} />
+            </section>
+          </div>
+        )}
+        {tab === 'export' && (
+          <div className="dialog-body">
+            <section>
+              <h3 className="group-title">{t('exportPdf.tabs.layout')}</h3>
+              <FormatPicker project={project} value={exportValue} onChange={setExportDraft} />
+            </section>
+            <section>
+              <h3 className="group-title">{t('exportPdf.tabs.watermark')}</h3>
+              <WatermarkEditor project={project} value={exportValue.watermark} onChange={(watermark) => setExportDraft({ ...exportValue, watermark })} />
+            </section>
+            <section>
+              <h3 className="group-title">{t('exportPdf.tabs.protection')}</h3>
+              <ProtectionEditor value={exportValue.protection} onChange={(protection) => setExportDraft({ ...exportValue, protection })} />
+            </section>
+          </div>
+        )}
+        {tab === 'template' && (
+          <div className="dialog-body">
+            <section><TemplateEditor /></section>
+          </div>
+        )}
+        {tab === 'project' && <div className="dialog-body">
           <section>
             <h3 className="group-title">{t('settings.info')}</h3>
-            <p className="dialog-hint">{t('settings.infoHint')}</p>
             <div className="field-grid">
               <Field id="set-name" label={t('settings.projectName')} value={project.name} onCommit={(v) => v.trim() && store.rename(v.trim())} />
-              <Field id="set-client" label={t('settings.client')} value={info.client} onCommit={(v) => store.updateInfo({ client: v.trim() || undefined })} />
-              <Field id="set-venue" label={t('settings.venue')} value={info.venue} onCommit={(v) => store.updateInfo({ venue: v.trim() || undefined })} />
-              <Field id="set-author" label={t('settings.author')} value={info.author} onCommit={(v) => store.updateInfo({ author: v.trim() || undefined })} />
-              <Field id="set-rev" label={t('settings.revision')} value={info.revision} onCommit={(v) => store.updateInfo({ revision: v.trim() || undefined })} />
             </div>
           </section>
 
@@ -120,7 +180,7 @@ export function ProjectSettings() {
               <Field id="set-voltage" type="number" label={t('settings.voltage')} value={project.settings.mainsVoltage} onCommit={(v) => { const n = toNumber(v); if (n) store.updateSettings({ mainsVoltage: n }) }} />
             </div>
           </section>
-        </div>
+        </div>}
       </div>
     </div>
   )

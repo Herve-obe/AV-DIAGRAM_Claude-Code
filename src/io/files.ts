@@ -7,8 +7,8 @@ import { getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { isProject } from '../model/project'
-import { exportSettingsOf, watermarkText } from './exportOptions'
-import type { Project } from '../model/types'
+import { exportSettingsOf, watermarkLayout, watermarkText } from './exportOptions'
+import type { Project, WatermarkSettings } from '../model/types'
 
 function browserDownload(filename: string, href: string) {
   const a = document.createElement('a')
@@ -82,21 +82,18 @@ function parseProject(text: string): Project {
 
 const xmlEscape = (s: string) => s.replace(/[<>&"']/g, (c) => `&#${c.charCodeAt(0)};`)
 
-/** Ajoute au SVG un filigrane répété en diagonale, au-dessus du schéma. */
-export function svgWatermark(svg: string, text: string, opacity: number, width: number, height: number): string {
-  const size = Math.max(12, Math.round(Math.min(width, height) / 22))
-  const step = text.length * size * 0.6 + size * 3
-  const diag = Math.hypot(width, height)
-  const rows: string[] = []
-  let row = 0
-  for (let y = -diag / 2; y < diag / 2; y += size * 4, row++) {
-    for (let x = -diag / 2 - (row % 2) * (step / 2); x < diag / 2; x += step) {
-      rows.push(`<text x="${x.toFixed(0)}" y="${y.toFixed(0)}">${xmlEscape(text)}</text>`)
-    }
-  }
+/** Ajoute au SVG le filigrane (mêmes réglages que le PDF), au-dessus du schéma. */
+export function svgWatermark(svg: string, text: string, ws: WatermarkSettings, width: number, height: number): string {
+  const anchor = { center: 'middle', left: 'start', right: 'end' } as const
+  const items = watermarkLayout(width, height, text, ws.placement, ws.size).map(
+    (it) =>
+      `<text x="${it.x.toFixed(1)}" y="${it.y.toFixed(1)}" font-size="${it.size.toFixed(1)}" text-anchor="${anchor[it.align]}"` +
+      (it.angle ? ` transform="rotate(${-it.angle} ${it.x.toFixed(1)} ${it.y.toFixed(1)})"` : '') +
+      `>${xmlEscape(text)}</text>`,
+  )
   const layer =
-    `<g transform="translate(${width / 2} ${height / 2}) rotate(-30)" fill="#282828" fill-opacity="${opacity}" ` +
-    `font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="${size}" pointer-events="none">${rows.join('')}</g>`
+    `<g fill="${xmlEscape(ws.color)}" fill-opacity="${ws.opacity}" font-family="Helvetica, Arial, sans-serif" ` +
+    `font-weight="600" pointer-events="none">${items.join('')}</g>`
   const end = svg.lastIndexOf('</svg>')
   return end < 0 ? svg : svg.slice(0, end) + layer + svg.slice(end)
 }
@@ -172,12 +169,12 @@ export async function exportCanvasImage(project: Project, format: 'png' | 'svg')
   const name = `${slug(project.name)}.${format}`
   // Filigrane de l'export PDF, appliqué aussi aux images
   const ex = exportSettingsOf(project)
-  const mark = ex.watermark.enabled ? watermarkText(ex.watermark.text, project) : ''
+  const mark = ex.watermark.enabled && ex.watermark.images ? watermarkText(ex.watermark.text, project) : ''
   if (format === 'png') {
     const png = await toPng(el, opts)
     const { burnWatermark } = await import('./pdf')
-    return saveContent(name, dataUrlToBytes(mark ? await burnWatermark(png, mark, ex.watermark.opacity, 'image/png') : png), 'image/png')
+    return saveContent(name, dataUrlToBytes(mark ? await burnWatermark(png, mark, ex.watermark, 'image/png') : png), 'image/png')
   }
   const svg = decodeURIComponent((await toSvg(el, opts)).split(',')[1] ?? '')
-  return saveContent(name, mark ? svgWatermark(svg, mark, ex.watermark.opacity, el.clientWidth, el.clientHeight) : svg, 'image/svg+xml')
+  return saveContent(name, mark ? svgWatermark(svg, mark, ex.watermark, el.clientWidth, el.clientHeight) : svg, 'image/svg+xml')
 }

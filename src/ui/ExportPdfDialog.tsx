@@ -1,13 +1,17 @@
-// Export PDF : format (A4 à A0), orientation, filigrane et protection. Les réglages sont gardés avec le
-// projet (fichier .avd) au moment de l'export, pour retrouver les mêmes à l'export suivant.
+// Export PDF : l'utilisateur remplit d'abord le cartouche (pré-rempli par le projet et le modèle du
+// poste), puis vérifie la mise en page, le filigrane et la protection. Les champs et réglages sont
+// gardés dans le projet ; les mots de passe ne sont jamais enregistrés.
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
+import { isTauri } from '@tauri-apps/api/core'
 import { create } from 'zustand'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
-import { exportSettingsOf, pageSize, watermarkText } from '../io/exportOptions'
-import { PAPER_SIZES, type ExportSettings } from '../model/types'
+import { exportSettingsOf, watermarkText } from '../io/exportOptions'
+import type { ExportSettings, ProjectInfo } from '../model/types'
 import { useProject } from '../store/projectStore'
+import { useTitleBlock } from '../store/titleBlockStore'
+import { FormatPicker, ProtectionEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
 import { Icon } from './Icon'
 
 export const useExportPdf = create<{ open: boolean; setOpen: (open: boolean) => void }>((set) => ({
@@ -15,18 +19,30 @@ export const useExportPdf = create<{ open: boolean; setOpen: (open: boolean) => 
   setOpen: (open) => set({ open }),
 }))
 
+type Tab = 'titleBlock' | 'layout' | 'watermark' | 'protection'
+const TABS: Tab[] = ['titleBlock', 'layout', 'watermark', 'protection']
+
 export function ExportPdfDialog() {
   const { t } = useTranslation()
   const open = useExportPdf((s) => s.open)
   const project = useProject((s) => s.project)
+  const template = useTitleBlock((s) => s.template)
   const rf = useReactFlow()
+  const [tab, setTab] = useState<Tab>('titleBlock')
   const [opts, setOpts] = useState<ExportSettings>(() => exportSettingsOf(project))
+  const [info, setInfo] = useState<ProjectInfo>({})
+  const [passwords, setPasswords] = useState({ open: '', owner: '' })
   const [busy, setBusy] = useState(false)
   const close = () => useExportPdf.getState().setOpen(false)
 
-  // Réglages du projet à chaque ouverture
+  // À chaque ouverture : réglages et cartouche du projet, complétés par le modèle du poste
   useEffect(() => {
-    if (open) setOpts(exportSettingsOf(useProject.getState().project))
+    if (!open) return
+    const p = useProject.getState().project
+    setOpts(exportSettingsOf(p))
+    setInfo(infoWithTemplate(p.info, useTitleBlock.getState().template))
+    setPasswords({ open: '', owner: '' })
+    setTab('titleBlock')
   }, [open])
   useEffect(() => {
     if (!open) return
@@ -36,17 +52,18 @@ export function ExportPdfDialog() {
   }, [open])
 
   if (!open) return null
-  const size = pageSize(opts.paper, opts.orientation)
-  const mark = watermarkText(opts.watermark.text, project)
-  const setMark = (patch: Partial<ExportSettings['watermark']>) => setOpts((o) => ({ ...o, watermark: { ...o.watermark, ...patch } }))
+  const mark = watermarkText(opts.watermark.text, { ...project, info })
+  const protectUnavailable = opts.protection.enabled && !isTauri()
+  const passwordMismatch = !!passwords.open && passwords.open === passwords.owner
 
   const run = async () => {
     setBusy(true)
-    const p = useProject.getState().project
-    if (JSON.stringify(p.settings.export) !== JSON.stringify(opts)) useProject.getState().updateSettings({ export: opts })
+    const store = useProject.getState()
+    if (JSON.stringify(store.project.settings.export) !== JSON.stringify(opts)) store.updateSettings({ export: opts })
+    if (JSON.stringify(store.project.info ?? {}) !== JSON.stringify(info)) store.updateInfo(info)
     close()
     try {
-      await exportPdfWithLabels(rf, t)
+      await exportPdfWithLabels(rf, t, info, opts.protection.enabled ? passwords : undefined)
     } finally {
       setBusy(false)
     }
@@ -59,69 +76,51 @@ export function ExportPdfDialog() {
           <h2 id="export-title">{t('exportPdf.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
-        <div className="dialog-body">
-          <section>
-            <h3 className="group-title">{t('exportPdf.format')}</h3>
-            <div className="export-row">
-              <div className="segmented" role="radiogroup" aria-label={t('exportPdf.format')}>
-                {PAPER_SIZES.map((p) => (
-                  <button key={p} role="radio" aria-checked={opts.paper === p} aria-pressed={opts.paper === p} onClick={() => setOpts((o) => ({ ...o, paper: p }))}>{p}</button>
-                ))}
-              </div>
-              <div className="segmented" role="radiogroup" aria-label={t('exportPdf.orientation')}>
-                {(['landscape', 'portrait'] as const).map((o) => (
-                  <button key={o} role="radio" aria-checked={opts.orientation === o} aria-pressed={opts.orientation === o} onClick={() => setOpts((x) => ({ ...x, orientation: o }))}>
-                    {t(`exportPdf.${o}`)}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <p className="dialog-hint">{t('exportPdf.size', { w: size.w, h: size.h })}</p>
-          </section>
-
-          <section>
-            <h3 className="group-title">{t('exportPdf.watermark')}</h3>
-            <label className="collab-check">
-              <input type="checkbox" checked={opts.watermark.enabled} onChange={(e) => setMark({ enabled: e.target.checked })} />
-              <span>{t('exportPdf.watermarkEnable')}</span>
-            </label>
-            {opts.watermark.enabled && (
-              <>
-                <div className="field">
-                  <label htmlFor="wm-text">{t('exportPdf.watermarkText')}</label>
-                  <input id="wm-text" value={opts.watermark.text} maxLength={120} onChange={(e) => setMark({ text: e.target.value })} />
-                </div>
-                <p className="field-hint">{t('exportPdf.watermarkFields')}</p>
-                <div className="field">
-                  <label htmlFor="wm-opacity">{t('exportPdf.opacity', { value: Math.round(opts.watermark.opacity * 100) })}</label>
-                  <input
-                    id="wm-opacity" type="range" min={0.05} max={0.5} step={0.01} value={opts.watermark.opacity}
-                    onChange={(e) => setMark({ opacity: Number(e.target.value) })}
-                  />
-                </div>
-                <div className="wm-preview" aria-label={t('exportPdf.preview')}>
-                  <span style={{ opacity: Math.min(1, opts.watermark.opacity * 3) }}>{mark || t('exportPdf.emptyMark')}</span>
-                </div>
-                <p className="dialog-hint">{t('exportPdf.watermarkHint')}</p>
-              </>
-            )}
-          </section>
-
-          <section>
-            <h3 className="group-title">{t('exportPdf.protection')}</h3>
-            <label className="collab-check">
-              <input type="checkbox" checked={opts.protect} onChange={(e) => setOpts((o) => ({ ...o, protect: e.target.checked }))} />
-              <span>{t('exportPdf.protect')}</span>
-            </label>
-            <p className="dialog-hint">{t('exportPdf.protectHint')}</p>
-          </section>
-          <div className="collab-row">
-            <button className="btn btn-primary" disabled={busy || (opts.watermark.enabled && !mark)} onClick={run}>
-              <Icon name="download" size={14} />{t('exportPdf.export')}
-            </button>
-            <button className="btn btn-ghost" onClick={close}>{t('pdfImport.cancel')}</button>
-          </div>
+        <div className="segmented export-tabs" role="tablist">
+          {TABS.map((k) => (
+            <button key={k} role="tab" aria-selected={tab === k} aria-pressed={tab === k} onClick={() => setTab(k)}>{t(`exportPdf.tabs.${k}`)}</button>
+          ))}
         </div>
+        <div className="dialog-body">
+          {tab === 'titleBlock' && (
+            <section>
+              <p className="dialog-hint">{t('exportPdf.titleBlockHint')}</p>
+              {!template.owner && !template.logo && <p className="dialog-hint ev-default">{t('exportPdf.noTemplate')}</p>}
+              <TitleBlockFields value={info} onChange={setInfo} />
+            </section>
+          )}
+          {tab === 'layout' && <section><FormatPicker project={project} value={opts} onChange={setOpts} /></section>}
+          {tab === 'watermark' && (
+            <section><WatermarkEditor project={{ ...project, info }} value={opts.watermark} onChange={(watermark) => setOpts({ ...opts, watermark })} /></section>
+          )}
+          {tab === 'protection' && (
+            <section>
+              <ProtectionEditor
+                value={opts.protection}
+                onChange={(protection) => setOpts({ ...opts, protection })}
+                passwords={passwords}
+                onPasswords={setPasswords}
+              />
+              {protectUnavailable && <p className="collab-error">{t('exportPdf.protectDesktopOnly')}</p>}
+              {passwordMismatch && <p className="collab-error">{t('exportPdf.samePasswords')}</p>}
+            </section>
+          )}
+        </div>
+        <footer className="dialog-foot export-foot">
+          <span className="dialog-hint">
+            {t('exportPdf.summary', {
+              paper: opts.paper,
+              orientation: t(`exportPdf.${opts.orientation}`),
+              mode: t(`exportPdf.mode.${opts.scaleMode}`),
+            })}
+            {opts.watermark.enabled && mark ? ` · ${t('exportPdf.withWatermark')}` : ''}
+            {opts.protection.enabled ? ` · ${t(passwords.open ? 'exportPdf.withPassword' : 'exportPdf.withRights')}` : ''}
+          </span>
+          <button className="btn btn-ghost" onClick={close}>{t('pdfImport.cancel')}</button>
+          <button className="btn btn-primary" disabled={busy || (opts.watermark.enabled && !mark) || protectUnavailable || passwordMismatch} onClick={run}>
+            <Icon name="download" size={14} />{t('exportPdf.export')}
+          </button>
+        </footer>
       </div>
     </div>
   )

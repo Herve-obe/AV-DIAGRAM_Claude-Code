@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState, type DragEvent } from 'react
 import { useTranslation } from 'react-i18next'
 import { fullyLocked, lockedLayers } from '../collab/protection'
 import { useCollab } from '../collab/session'
+import { PageGrid } from './PageGrid'
 import {
   Background,
   BackgroundVariant,
@@ -361,6 +362,7 @@ export function Canvas() {
       >
         <EdgeRouter enabled={autoRoute} />
         <Background variant={BackgroundVariant.Dots} gap={20} size={1.4} color="var(--grid-dot)" />
+        <PageGrid />
         <Controls showInteractive={false} position="bottom-left" />
         <MiniMap
           position="bottom-right"

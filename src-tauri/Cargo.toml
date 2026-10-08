@@ -31,6 +31,8 @@ tokio-tungstenite = "0.30"
 futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
 if-addrs = "0.15"
 rand = "0.9"
+# Export PDF protégé : chiffrement AES-256 (PDF 2.0, révision 6)
+lopdf = { version = "0.45", default-features = false }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 keyring = { version = "3", features = ["apple-native"] }

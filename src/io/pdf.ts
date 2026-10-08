@@ -1,16 +1,23 @@
-// Export PDF : une planche par feuille du projet (A4 à A0, paysage ou portrait), avec le synoptique, la légende des
-// signaux et un cartouche (champs inspirés de l'ISO 7200). Le schéma est capturé en thème clair pour l'impression.
-// Filigrane optionnel : incrusté dans l'image du schéma (impossible à retirer sans repeindre l'image) et répété en
-// diagonale sur la planche. Protection optionnelle : modification et copie interdites dans les lecteurs PDF.
+// Export PDF : une planche par feuille du projet (ou par page en taille fixe), au format A4 à A0, avec le
+// synoptique, la légende des signaux, l'historique des indices et un cartouche aux champs inspirés de
+// l'ISO 7200:2004 (propriétaire légal, numéro d'identification, titre, type de document, statut, date
+// d'émission, établi par, approuvé par, indice, langue, feuille). Le schéma est capturé en thème clair.
+// Filigrane paramétrable (texte, position, zone, taille, couleur, opacité) ; protection AES-256 faite par
+// l'application de bureau (src-tauri/src/pdfsec.rs).
+import { invoke } from '@tauri-apps/api/core'
 import { GState, jsPDF } from 'jspdf'
 import { toJpeg } from 'html-to-image'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
-import type { Project } from '../model/types'
-import { exportSettingsOf, sheetLayout, watermarkText, type SheetLayout } from './exportOptions'
+import type { ExportSettings, Project, ProjectInfo, WatermarkSettings } from '../model/types'
+import type { TitleBlockTemplate } from '../store/titleBlockStore'
+import { MAX_REVISIONS, sheetLayout, watermarkLayout, watermarkText, type SheetLayout } from './exportOptions'
 import { saveContent, slug } from './files'
 
+/** Nombre maximal de pixels d'une capture : limite des canevas de WebKit (macOS), avec une marge */
+const MAX_PIXELS = 15_000_000
+
 /** Capture le canevas en forçant temporairement le thème clair. */
-export async function captureCanvasLight(): Promise<{ dataUrl: string; width: number; height: number } | null> {
+export async function captureCanvasLight(pixelRatio = 2.5): Promise<{ dataUrl: string; width: number; height: number } | null> {
   const el = document.querySelector<HTMLElement>('.react-flow')
   if (!el) return null
   const root = document.documentElement
@@ -19,9 +26,10 @@ export async function captureCanvasLight(): Promise<{ dataUrl: string; width: nu
   await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
   try {
     const filter = (node: HTMLElement) =>
-      !['react-flow__minimap', 'react-flow__controls', 'react-flow__attribution'].some((c) => node.classList?.contains(c))
+      !['react-flow__minimap', 'react-flow__controls', 'react-flow__attribution', 'page-grid'].some((c) => node.classList?.contains(c))
+    const ratio = Math.min(pixelRatio, Math.sqrt(MAX_PIXELS / Math.max(1, el.clientWidth * el.clientHeight)))
     // JPEG haute qualité : fichier léger, traits nets sur fond blanc
-    const dataUrl = await toJpeg(el, { backgroundColor: '#ffffff', filter, pixelRatio: 2.5, quality: 0.92 })
+    const dataUrl = await toJpeg(el, { backgroundColor: '#ffffff', filter, pixelRatio: ratio, quality: 0.92 })
     return { dataUrl, width: el.clientWidth, height: el.clientHeight }
   } finally {
     if (previous) root.dataset.theme = previous
@@ -40,16 +48,33 @@ function cssColor(varExpr: string): [number, number, number] {
   return [rgb[0], rgb[1], rgb[2]]
 }
 
+const hexRgb = (hex: string): [number, number, number] => {
+  const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex)
+  return m ? [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)] : [40, 40, 40]
+}
+
+/** Libellés traduits du cartouche et de la légende */
 export interface PdfLabels {
+  legend: string
+  signals: Record<string, string>
+  owner: string
   title: string
   client: string
   venue: string
+  eventDate: string
   author: string
-  date: string
+  approver: string
+  docType: string
+  status: string
+  statuses: Record<string, string>
+  docNumber: string
   revision: string
+  issueDate: string
+  language: string
   sheet: string
-  legend: string
-  signals: Record<string, string>
+  classification: string
+  techRef: string
+  revisions: { index: string; date: string; description: string; by: string }
 }
 
 export interface SheetShot {
@@ -57,7 +82,28 @@ export interface SheetShot {
   dataUrl: string
   width: number
   height: number
+  /** Taille fixe : page de l'assemblage (ex. B1) */
+  tile?: string
 }
+
+/** Mots de passe saisis à l'export (jamais enregistrés) */
+export interface ExportPasswords {
+  open: string
+  owner: string
+}
+
+export interface ExportContext {
+  project: Project
+  info: ProjectInfo
+  template: TitleBlockTemplate
+  opts: ExportSettings
+  labels: PdfLabels
+  /** Date d'émission : date du poste au moment de l'export */
+  date: Date
+  passwords?: ExportPasswords
+}
+
+// ---------- Filigrane ----------
 
 function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -68,11 +114,26 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   })
 }
 
-/**
- * Incruste un filigrane dans une image : texte répété en diagonale sur toute la surface.
- * Renvoie une nouvelle image (JPEG pour le PDF, PNG pour l'export image).
- */
-export async function burnWatermark(dataUrl: string, text: string, opacity: number, mime: 'image/jpeg' | 'image/png' = 'image/jpeg'): Promise<string> {
+/** Dessine le filigrane sur un canevas (image du schéma, export PNG). */
+function drawWatermarkCanvas(ctx: CanvasRenderingContext2D, w: number, h: number, text: string, ws: WatermarkSettings) {
+  ctx.save()
+  ctx.globalAlpha = ws.opacity
+  ctx.fillStyle = ws.color
+  ctx.textBaseline = 'alphabetic'
+  for (const it of watermarkLayout(w, h, text, ws.placement, ws.size)) {
+    ctx.save()
+    ctx.font = `600 ${it.size}px Helvetica, Arial, sans-serif`
+    ctx.textAlign = it.align
+    ctx.translate(it.x, it.y)
+    ctx.rotate((-it.angle * Math.PI) / 180)
+    ctx.fillText(text, 0, 0)
+    ctx.restore()
+  }
+  ctx.restore()
+}
+
+/** Incruste le filigrane dans une image : il fait partie des pixels, impossible à retirer sans retouche. */
+export async function burnWatermark(dataUrl: string, text: string, ws: WatermarkSettings, mime: 'image/jpeg' | 'image/png' = 'image/jpeg'): Promise<string> {
   if (!text) return dataUrl
   const img = await loadImage(dataUrl)
   const c = document.createElement('canvas')
@@ -81,85 +142,94 @@ export async function burnWatermark(dataUrl: string, text: string, opacity: numb
   const ctx = c.getContext('2d')
   if (!ctx) return dataUrl
   ctx.drawImage(img, 0, 0)
-  const size = Math.max(14, Math.round(Math.min(c.width, c.height) / 22))
-  ctx.font = `600 ${size}px Helvetica, Arial, sans-serif`
-  ctx.fillStyle = `rgba(40, 40, 40, ${opacity})`
-  ctx.textBaseline = 'middle'
-  ctx.translate(c.width / 2, c.height / 2)
-  ctx.rotate(-Math.PI / 6)
-  const step = ctx.measureText(text).width + size * 3
-  const diag = Math.hypot(c.width, c.height)
-  let row = 0
-  for (let y = -diag / 2; y < diag / 2; y += size * 4, row++) {
-    // Rangées décalées d'une demi-longueur : pas de colonne vide où recadrer
-    for (let x = -diag / 2 - (row % 2) * (step / 2); x < diag / 2; x += step) ctx.fillText(text, x, y)
-  }
+  drawWatermarkCanvas(ctx, c.width, c.height, text, ws)
   return c.toDataURL(mime, 0.92)
 }
 
-/** Grand filigrane vectoriel en diagonale sur toute la planche (cartouche et légende compris). */
-function drawPageWatermark(doc: jsPDF, text: string, opacity: number, w: number, h: number) {
-  const angle = (Math.atan2(h, w) * 180) / Math.PI
+const PT_PER_MM = 72 / 25.4
+
+/** Filigrane vectoriel sur la planche entière (cartouche compris). */
+function drawWatermarkPdf(doc: jsPDF, text: string, ws: WatermarkSettings, w: number, h: number) {
   doc.setFont('helvetica', 'bold')
-  doc.setFontSize(10)
-  const at10 = doc.getTextWidth(text) || 1
-  // Le texte occupe environ 70 % de la diagonale, sans dépasser une hauteur raisonnable
-  const size = Math.min((10 * 0.7 * Math.hypot(w, h)) / at10, Math.min(w, h) * 0.6)
-  doc.setFontSize(size)
-  const tw = doc.getTextWidth(text)
-  const rad = (angle * Math.PI) / 180
-  const x = w / 2 - (tw / 2) * Math.cos(rad)
-  const y = h / 2 + (tw / 2) * Math.sin(rad)
-  doc.setGState(new GState({ opacity }))
-  doc.setTextColor(40)
-  doc.text(text, x, y, { angle })
+  doc.setGState(new GState({ opacity: ws.opacity }))
+  doc.setTextColor(...hexRgb(ws.color))
+  for (const it of watermarkLayout(w, h, text, ws.placement, ws.size)) {
+    doc.setFontSize(it.size * PT_PER_MM)
+    const tw = doc.getTextWidth(text)
+    const shift = it.align === 'center' ? tw / 2 : it.align === 'right' ? tw : 0
+    const rad = (it.angle * Math.PI) / 180
+    doc.text(text, it.x - shift * Math.cos(rad), it.y + shift * Math.sin(rad), { angle: it.angle })
+  }
   doc.setGState(new GState({ opacity: 1 }))
   doc.setFont('helvetica', 'normal')
 }
 
-/** Mot de passe propriétaire aléatoire : personne ne le connaît, les droits restent ceux de l'utilisateur. */
-function randomPassword() {
-  const b = new Uint8Array(12)
-  crypto.getRandomValues(b)
-  return [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
-}
+// ---------- Planche ----------
 
-export async function exportPdf(project: Project, labels: PdfLabels, shots: SheetShot[]): Promise<boolean> {
+export async function exportPdf(ctx: ExportContext, shots: SheetShot[]): Promise<boolean> {
   if (!shots.length) return false
-  const opts = exportSettingsOf(project)
-  const layout = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length)
+  const { project, opts } = ctx
+  const revisions = ctx.info.revisions ?? []
+  const layout = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, revisions.length)
   const format = opts.paper.toLowerCase()
-  const mark = opts.watermark.enabled ? watermarkText(opts.watermark.text, project) : ''
-  const doc = new jsPDF({
-    orientation: opts.orientation,
-    unit: 'mm',
-    format,
-    ...(opts.protect ? { encryption: { ownerPassword: randomPassword(), userPermissions: ['print' as const] } } : {}),
+  const ws = opts.watermark
+  const mark = ws.enabled ? watermarkText(ws.text, { ...project, info: ctx.info }, ctx.date) : ''
+  const doc = new jsPDF({ orientation: opts.orientation, unit: 'mm', format })
+  doc.setProperties({
+    title: [ctx.info.docNumber, project.name].filter(Boolean).join(' · '),
+    subject: ctx.info.subtitle ?? project.name,
+    author: ctx.info.author ?? '',
+    keywords: [ctx.info.classification, mark].filter(Boolean).join(' · '),
+    creator: 'AV Diagram',
   })
-  doc.setProperties({ title: project.name, subject: mark || project.name, creator: 'AV Diagram', author: project.info?.author ?? '' })
   for (let i = 0; i < shots.length; i++) {
     if (i > 0) doc.addPage(format, opts.orientation)
-    const shot = mark ? { ...shots[i], dataUrl: await burnWatermark(shots[i].dataUrl, mark, opts.watermark.opacity) } : shots[i]
-    drawSheet(doc, project, labels, shot, `${i + 1} / ${shots.length}`, layout)
-    if (mark) drawPageWatermark(doc, mark, opts.watermark.opacity * 0.6, layout.w, layout.h)
+    const shot = mark && ws.zone === 'diagram' ? { ...shots[i], dataUrl: await burnWatermark(shots[i].dataUrl, mark, ws) } : shots[i]
+    drawSheet(doc, ctx, shot, i + 1, shots.length, layout)
+    if (mark && ws.zone === 'sheet') drawWatermarkPdf(doc, mark, ws, layout.w, layout.h)
   }
-  return saveContent(`${slug(project.name)}.pdf`, new Uint8Array(doc.output('arraybuffer')), 'application/pdf')
+  let bytes = new Uint8Array(doc.output('arraybuffer'))
+  if (opts.protection.enabled) bytes = await protectPdf(bytes, opts.protection, ctx.passwords)
+  const base = slug([ctx.info.docNumber, project.name].filter(Boolean).join(' '))
+  return saveContent(`${base}.pdf`, bytes, 'application/pdf')
 }
 
-function drawSheet(doc: jsPDF, project: Project, labels: PdfLabels, shot: SheetShot, pageLabel: string, layout: SheetLayout) {
+/** Chiffrement AES-256 par l'application de bureau ; le PDF ne quitte pas le poste. */
+async function protectPdf(bytes: Uint8Array, p: ExportSettings['protection'], pw?: ExportPasswords): Promise<Uint8Array<ArrayBuffer>> {
+  const out = await invoke<ArrayBuffer>('pdf_protect', bytes, {
+    headers: {
+      'x-user-password': encodeURIComponent(pw?.open ?? ''),
+      'x-owner-password': encodeURIComponent(pw?.owner ?? ''),
+      'x-allow-print': p.allowPrint ? '1' : '0',
+      'x-allow-copy': p.allowCopy ? '1' : '0',
+      'x-allow-modify': p.allowModify ? '1' : '0',
+    },
+  })
+  return new Uint8Array(out)
+}
+
+function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number, pages: number, layout: SheetLayout) {
   const { w, h, margin, area, legend } = layout
-  const TB = layout.titleBlock
+  const { labels } = ctx
 
   // Cadre de la planche
   doc.setDrawColor(40)
   doc.setLineWidth(0.5)
   doc.rect(margin / 2, margin / 2, w - margin, h - margin)
 
-  // Synoptique, ajusté dans sa zone
+  // Synoptique : en taille fixe la capture a exactement la forme de la zone ; sinon elle est centrée
   const ratio = Math.min(area.w / shot.width, area.h / shot.height)
   const imgW = shot.width * ratio
   const imgH = shot.height * ratio
   doc.addImage(shot.dataUrl, 'JPEG', area.x + (area.w - imgW) / 2, area.y + (area.h - imgH) / 2, imgW, imgH)
+  if (shot.tile) {
+    // Repère d'assemblage dans le coin de la zone
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(9)
+    doc.setTextColor(90)
+    doc.text(shot.tile, area.x + 2, area.y + 5)
+    doc.setFont('helvetica', 'normal')
+  }
 
   // Légende des signaux
   doc.setFont('helvetica', 'bold')
@@ -181,43 +251,127 @@ function drawSheet(doc: jsPDF, project: Project, labels: PdfLabels, shot: SheetS
     doc.text(labels.signals[s] ?? s, x + 12, y + 1)
   })
 
-  // Cartouche
-  const tx = TB.x
-  const ty = TB.y
-  const info = project.info ?? {}
-  doc.setDrawColor(40)
-  doc.setLineWidth(0.4)
-  doc.rect(tx, ty, TB.w, TB.h)
-  doc.line(tx, ty + 12, tx + TB.w, ty + 12)
-  doc.line(tx, ty + 23, tx + TB.w, ty + 23)
-  const colW = TB.w / 3
-  doc.line(tx + colW, ty + 12, tx + colW, ty + TB.h)
-  doc.line(tx + 2 * colW, ty + 12, tx + 2 * colW, ty + TB.h)
+  drawRevisions(doc, ctx, layout)
+  drawTitleBlock(doc, ctx, layout, shot, `${page} / ${pages}`)
+}
 
-  const cell = (label: string, value: string, x: number, y: number) => {
-    doc.setFontSize(6)
-    doc.setTextColor(110)
-    doc.text(label.toUpperCase(), x + 2, y + 3.5)
-    doc.setFontSize(9)
-    doc.setTextColor(20)
-    doc.text(doc.splitTextToSize(value || '-', colW - 4)[0] ?? '', x + 2, y + 8.5)
-  }
-  doc.setFontSize(6)
+/** Cellule du cartouche : libellé en petit, valeur dessous (tronquée à la largeur). */
+function cell(doc: jsPDF, label: string, value: string, x: number, y: number, w: number, h: number) {
+  doc.setDrawColor(40)
+  doc.setLineWidth(0.25)
+  doc.rect(x, y, w, h)
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(5)
   doc.setTextColor(110)
-  doc.text(labels.title.toUpperCase(), tx + 2, ty + 3.5)
+  doc.text(label.toUpperCase(), x + 1.2, y + 2.6)
+  doc.setFontSize(8)
+  doc.setTextColor(20)
+  doc.text(doc.splitTextToSize(value || '-', w - 2.4)[0] ?? '', x + 1.2, y + h - 2)
+}
+
+function drawTitleBlock(doc: jsPDF, ctx: ExportContext, layout: SheetLayout, shot: SheetShot, pageLabel: string) {
+  const { labels, info, template } = ctx
+  const { x, y, w, h } = layout.titleBlock
+  const L = 40
+  const R = w - L
+  const rx = x + L
+
+  // Colonne gauche : logo et propriétaire légal
+  const logoH = 32
+  doc.setDrawColor(40)
+  doc.setLineWidth(0.25)
+  doc.rect(x, y, L, logoH)
+  if (template.logo) {
+    try {
+      const p = doc.getImageProperties(template.logo)
+      const k = Math.min((L - 4) / p.width, (logoH - 4) / p.height)
+      doc.addImage(template.logo, x + (L - p.width * k) / 2, y + (logoH - p.height * k) / 2, p.width * k, p.height * k)
+    } catch {
+      // logo illisible : case laissée vide
+    }
+  }
+  doc.rect(x, y + logoH, L, h - logoH)
+  doc.setFontSize(5)
+  doc.setTextColor(110)
+  doc.text(labels.owner.toUpperCase(), x + 1.2, y + logoH + 2.6)
+  doc.setFont('helvetica', 'bold')
+  doc.setFontSize(8)
+  doc.setTextColor(20)
+  doc.text(doc.splitTextToSize(info.owner || template.owner || '-', L - 2.4)[0] ?? '', x + 1.2, y + logoH + 7)
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(5.5)
+  doc.setTextColor(70)
+  if (template.ownerDetail) doc.text(doc.splitTextToSize(template.ownerDetail, L - 2.4).slice(0, 2), x + 1.2, y + logoH + 10.5)
+
+  // Titre et titre complémentaire
+  const rowT = 14
+  const row = (h - rowT) / 4
+  const subtitle = [info.subtitle, shot.name].filter(Boolean).join(' · ')
+  doc.rect(rx, y, R, rowT)
+  doc.setFontSize(5)
+  doc.setTextColor(110)
+  doc.text(labels.title.toUpperCase(), rx + 1.2, y + 2.6)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(12)
   doc.setTextColor(20)
-  const heading = shot.name ? `${project.name} · ${shot.name}` : project.name
-  doc.text(doc.splitTextToSize(heading, TB.w - 4)[0] ?? '', tx + 2, ty + 9.5)
+  doc.text(doc.splitTextToSize(ctx.project.name, R - 2.4)[0] ?? '', rx + 1.2, y + 8)
   doc.setFont('helvetica', 'normal')
-  cell(labels.client, info.client ?? '', tx, ty + 12)
-  cell(labels.venue, info.venue ?? '', tx + colW, ty + 12)
-  cell(labels.author, info.author ?? '', tx + 2 * colW, ty + 12)
-  cell(labels.date, new Date().toLocaleDateString(), tx, ty + 23)
-  cell(labels.revision, info.revision ?? '', tx + colW, ty + 23)
-  cell(labels.sheet, pageLabel, tx + 2 * colW, ty + 23)
-  doc.setFontSize(6)
+  doc.setFontSize(8)
+  doc.setTextColor(60)
+  if (subtitle) doc.text(doc.splitTextToSize(subtitle, R - 2.4)[0] ?? '', rx + 1.2, y + 12.2)
+
+  const y2 = y + rowT
+  cell(doc, labels.client, info.client ?? '', rx, y2, 55, row)
+  cell(doc, labels.venue, info.venue ?? '', rx + 55, y2, 50, row)
+  cell(doc, labels.eventDate, info.eventDate ?? '', rx + 105, y2, R - 105, row)
+
+  const y3 = y2 + row
+  cell(doc, labels.author, info.author ?? '', rx, y3, 35, row)
+  cell(doc, labels.approver, info.approver ?? '', rx + 35, y3, 35, row)
+  cell(doc, labels.docType, info.docType ?? '', rx + 70, y3, 35, row)
+  cell(doc, labels.status, info.status ? labels.statuses[info.status] ?? '' : '', rx + 105, y3, R - 105, row)
+
+  const y4 = y3 + row
+  cell(doc, labels.docNumber, info.docNumber ?? '', rx, y4, 45, row)
+  cell(doc, labels.revision, info.revision ?? '', rx + 45, y4, 17, row)
+  cell(doc, labels.issueDate, ctx.date.toLocaleDateString(), rx + 62, y4, 28, row)
+  cell(doc, labels.language, info.language ?? '', rx + 90, y4, 15, row)
+  cell(doc, labels.sheet, shot.tile ? `${pageLabel} (${shot.tile})` : pageLabel, rx + 105, y4, R - 105, row)
+
+  const y5 = y4 + row
+  cell(doc, labels.classification, info.classification ?? '', rx, y5, 70, row)
+  cell(doc, labels.techRef, info.techRef ?? '', rx + 70, y5, R - 70, row)
+
+  // Contour renforcé, par-dessus les cellules
+  doc.setDrawColor(20)
+  doc.setLineWidth(0.6)
+  doc.rect(x, y, w, h)
+  doc.setFontSize(5)
   doc.setTextColor(140)
-  doc.text('AV Diagram', tx + TB.w - 2, ty + TB.h + 3.5, { align: 'right' })
+  doc.text('AV Diagram', x + w, y + h + 3, { align: 'right' })
+}
+
+/** Historique des indices, du plus récent (en haut) au plus ancien, avec l'en-tête contre le cartouche. */
+function drawRevisions(doc: jsPDF, ctx: ExportContext, layout: SheetLayout) {
+  const box = layout.revisions
+  if (!box.rows) return
+  const { labels } = ctx
+  const list = (ctx.info.revisions ?? []).slice(-MAX_REVISIONS).reverse()
+  const rowH = box.h / (box.rows + 1)
+  const cols = [15, 24, box.w - 15 - 24 - 32, 32]
+  const heads = [labels.revisions.index, labels.revisions.date, labels.revisions.description, labels.revisions.by]
+  doc.setLineWidth(0.25)
+  doc.setDrawColor(40)
+  const drawRow = (values: string[], y: number, head: boolean) => {
+    let cx = box.x
+    values.forEach((v, i) => {
+      doc.rect(cx, y, cols[i], rowH)
+      doc.setFontSize(head ? 5 : 7)
+      doc.setTextColor(head ? 110 : 20)
+      doc.text(doc.splitTextToSize(head ? v.toUpperCase() : v || '-', cols[i] - 2)[0] ?? '', cx + 1, y + rowH - 1.5)
+      cx += cols[i]
+    })
+  }
+  list.forEach((r, i) => drawRow([r.index, r.date, r.description, r.author ?? ''], box.y + i * rowH, false))
+  drawRow(heads, box.y + list.length * rowH, true)
 }

@@ -4,6 +4,7 @@
 // le réseau local.
 mod ai;
 mod collab;
+mod pdfsec;
 mod local;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -26,7 +27,8 @@ pub fn run() {
             collab::collab_host_stop,
             collab::collab_host_status,
             collab::collab_kick,
-            collab::collab_local_addresses
+            collab::collab_local_addresses,
+            pdfsec::pdf_protect
         ])
         .build(tauri::generate_context!())
         .expect("erreur au lancement d'AV Diagram")

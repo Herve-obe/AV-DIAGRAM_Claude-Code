@@ -217,12 +217,49 @@ export interface Project {
 }
 
 /** Informations reportées dans le cartouche d'impression. */
+/** Statut du document (cartouche) */
+export const DOCUMENT_STATUSES = ['draft', 'review', 'approved', 'asBuilt', 'void'] as const
+export type DocumentStatus = (typeof DOCUMENT_STATUSES)[number]
+
+/** Ligne de l'historique des indices (tableau au-dessus du cartouche) */
+export interface RevisionEntry {
+  index: string
+  date: string
+  description: string
+  author?: string
+}
+
+/**
+ * Champs du cartouche, inspirés de l'ISO 7200:2004 (champs de données des cartouches) ; la date
+ * d'émission et le numéro de feuille sont remplis à l'export.
+ */
 export interface ProjectInfo {
   client?: string
   venue?: string
+  /** Établi par (créateur) */
   author?: string
   /** Indice de révision (ex. "A", "B", "1.2") */
   revision?: string
+  /** Propriétaire légal du document (société) */
+  owner?: string
+  /** Numéro d'identification du document (ex. SYN-2026-014) */
+  docNumber?: string
+  /** Titre complémentaire (ex. nom de l'événement) */
+  subtitle?: string
+  /** Type de document (ex. Synoptique) */
+  docType?: string
+  status?: DocumentStatus
+  /** Approuvé par */
+  approver?: string
+  /** Référence technique (ex. numéro d'affaire) */
+  techRef?: string
+  /** Classification / diffusion (ex. Diffusion restreinte) */
+  classification?: string
+  /** Code de langue (ex. fr) */
+  language?: string
+  /** Date de la prestation ou de l'événement (texte libre) */
+  eventDate?: string
+  revisions?: RevisionEntry[]
 }
 
 export interface ProjectSettings {
@@ -242,16 +279,41 @@ export interface ProjectSettings {
 export const PAPER_SIZES = ['A4', 'A3', 'A2', 'A1', 'A0'] as const
 export type PaperSize = (typeof PAPER_SIZES)[number]
 
+export type WatermarkPlacement = 'tiled' | 'diagonal' | 'top' | 'bottom' | 'corner'
+
+export interface WatermarkSettings {
+  enabled: boolean
+  /** Texte ; {client}, {project}, {date}, {revision}, {number} sont remplacés à l'export */
+  text: string
+  /** Mosaïque en diagonale, grande diagonale, bandeau haut ou bas, coin bas droit */
+  placement: WatermarkPlacement
+  /** schéma : incrusté dans l'image du schéma (impossible à effacer) ; planche : toute la page, cartouche compris */
+  zone: 'diagram' | 'sheet'
+  size: 'small' | 'medium' | 'large'
+  color: string
+  /** Opacité, de 0,05 à 0,6 */
+  opacity: number
+  /** Appliqué aussi aux exports PNG et SVG */
+  images: boolean
+}
+
+export interface ProtectionSettings {
+  enabled: boolean
+  allowPrint: boolean
+  allowCopy: boolean
+  allowModify: boolean
+}
+
 export interface ExportSettings {
   paper: PaperSize
   orientation: 'landscape' | 'portrait'
-  watermark: {
-    enabled: boolean
-    /** Texte ; {client}, {project}, {date}, {revision} sont remplacés à l'export */
-    text: string
-    /** Opacité, de 0,05 à 0,5 */
-    opacity: number
-  }
-  /** PDF protégé : impression permise, modification et copie interdites dans les lecteurs qui respectent ces droits */
-  protect: boolean
+  /**
+   * fit : chaque feuille est mise à l'échelle pour tenir sur une page ;
+   * tile : taille fixe (échelle d'impression), le schéma s'étend sur plusieurs pages si besoin
+   */
+  scaleMode: 'fit' | 'tile'
+  /** Échelle d'impression en mode tile, en % (100 % : 1 unité du schéma = 0,25 mm) */
+  printScale: number
+  watermark: WatermarkSettings
+  protection: ProtectionSettings
 }
