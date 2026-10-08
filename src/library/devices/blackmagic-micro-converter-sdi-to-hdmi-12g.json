@@ -1,0 +1,50 @@
+{
+  "id": "blackmagic-micro-converter-sdi-to-hdmi-12g",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Micro Converter SDI to HDMI 12G",
+  "pictogram": "router",
+  "status": "verified",
+  "powerW": 4,
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/microconverters/techspecs/W-CONU-18",
+      "document": "Blackmagic Design, fiche technique Micro Converter SDI to HDMI 12G (W-CONU-18)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 12G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, LUT 3D"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Alimentation et configuration ; 4 W max"
+    }
+  ]
+}

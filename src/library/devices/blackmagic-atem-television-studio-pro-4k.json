@@ -1,0 +1,166 @@
+{
+  "id": "blackmagic-atem-television-studio-pro-4k",
+  "family": "videoSwitcher",
+  "manufacturer": "Blackmagic Design",
+  "model": "ATEM Television Studio Pro 4K",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.leni.fr/wp-content/uploads/2022/09/peripherique-video-ATEM-TV-PRO-4K.pdf",
+      "document": "Blackmagic Design, caractéristiques ATEM TV Studio Pro 4K (via Leni)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in7",
+      "name": "SDI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "in8",
+      "name": "SDI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, resynchro et convertisseur de format"
+    },
+    {
+      "id": "pgm",
+      "name": "SDI Program Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "aux",
+      "name": "SDI Aux Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "mv",
+      "name": "SDI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "mvHdmi",
+      "name": "HDMI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "xlr1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "xlr2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "tb",
+      "name": "Talkback",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "unspecified",
+      "format": "Micro-casque type aviation"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet 1 Gb/s"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Configuration"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

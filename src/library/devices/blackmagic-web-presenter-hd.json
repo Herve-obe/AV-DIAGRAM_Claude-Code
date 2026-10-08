@@ -1,0 +1,76 @@
+{
+  "id": "blackmagic-web-presenter-hd",
+  "family": "videoSwitcher",
+  "manufacturer": "Blackmagic Design",
+  "model": "Web Presenter HD",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.soundseasy.com.au/products/blackmagic-web-presenter-hd",
+      "document": "Sounds Easy, fiche Web Presenter HD (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://shop.pssl.com/products/blackmagic-blackmagic-web-presenter-hd",
+      "document": "PSSL, fiche Web Presenter HD (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, audio intégré"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "sdiMon",
+      "name": "SDI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmiMon",
+      "name": "HDMI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C (webcam)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "Webcam jusqu'à 1080p60"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Streaming RTMP / SRT, contrôle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}
