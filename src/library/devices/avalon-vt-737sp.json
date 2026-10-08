@@ -1,0 +1,69 @@
+{
+  "id": "avalon-vt-737sp",
+  "family": "processing",
+  "manufacturer": "Avalon",
+  "model": "VT-737sp",
+  "pictogram": "processor",
+  "status": "community",
+  "weightKg": 10,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://thomann.pl/avalon_vt_737sp_black.htm",
+      "document": "Thomann, fiche VT-737sp (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "line",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Combo XLR / jack symétrique"
+    },
+    {
+      "id": "di",
+      "name": "DI In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "out",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique"
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Couplage de deux unités"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

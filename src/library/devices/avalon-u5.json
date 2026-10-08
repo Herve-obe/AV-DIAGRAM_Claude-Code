@@ -1,0 +1,76 @@
+{
+  "id": "avalon-u5",
+  "family": "capture",
+  "manufacturer": "Avalon",
+  "model": "U5",
+  "pictogram": "di",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://thomann.ae/avalon_u5_mono_dipreamp.htm",
+      "document": "Thomann, fiche U5 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inst",
+      "name": "Instrument In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Haute impédance"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "spkIn",
+      "name": "Speaker In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "speaker",
+      "format": "Entrée HP jusqu'à 400 W"
+    },
+    {
+      "id": "outMic",
+      "name": "Output (mic)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "outLine",
+      "name": "Output (ligne)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

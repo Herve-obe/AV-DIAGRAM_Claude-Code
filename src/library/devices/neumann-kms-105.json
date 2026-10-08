@@ -1,0 +1,28 @@
+{
+  "id": "neumann-kms-105",
+  "family": "capture",
+  "manufacturer": "Neumann",
+  "model": "KMS 105",
+  "pictogram": "mic",
+  "status": "community",
+  "weightKg": 0.3,
+  "sources": [
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/neumannkms105.pdf",
+      "document": "Neumann, mode d'emploi KMS 105 (archive)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique supercardioïde de scène, P48 ± 4 V, 3,5 mA",
+      "phantom": "required"
+    }
+  ]
+}
