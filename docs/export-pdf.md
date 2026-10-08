@@ -42,6 +42,10 @@ Présent ou non ; texte avec champs ({client}, {project}, {date}, {revision}, {n
 l'image ; planche entière : texte par-dessus tout, cartouche compris) ; taille ; couleur ; opacité ;
 application aux exports PNG et SVG.
 
+**Filigrane nominatif** : liste de destinataires (un par ligne). Un PDF par destinataire, enregistrés
+dans un dossier choisi une fois ; son nom remplace {recipient} (ajouté à la fin du texte sinon) et
+figure dans les mots-clés du fichier. En cas de fuite, le filigrane désigne l'exemplaire.
+
 ## Protection
 
 Chiffrement **AES-256** (PDF 2.0, ISO 32000-2, gestionnaire standard V5 / R6), fait par
@@ -53,6 +57,8 @@ bibliothèque PDF de l'interface.
   c'est une dissuasion quel que soit l'algorithme (la clé se déduit du mot de passe vide).
 - Avec mot de passe d'ouverture : contenu illisible sans lui.
 - Mot de passe propriétaire vide : aléatoire, personne ne peut lever les restrictions.
+- La fenêtre d'export affiche le niveau réel : **aucune** (rien n'est protégé, sauf le filigrane),
+  **dissuasive** (droits sans mot de passe d'ouverture), **forte** (mot de passe d'ouverture).
 
 Vérifié : lecture par pdf.js (navigateurs, Firefox), Ghostscript, qpdf et Poppler (pdftotext) ;
 droits relevés par Poppler : `print:yes copy:no change:no algorithm:AES-256`. À vérifier sur poste :

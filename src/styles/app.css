@@ -884,3 +884,13 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 }
 .export-row { display: flex; flex-wrap: wrap; gap: 10px; padding: 4px 14px; }
 .export-row > .segmented { flex: 0 0 auto; }
+.protect-level { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 14px; padding: 6px 10px; border-radius: var(--radius); font-size: 12.5px; border: 1px solid var(--border); }
+.protect-level strong { font-weight: 600; }
+.protect-level span { color: var(--text-2); flex-basis: 100%; }
+.protect-level.level-none { border-color: var(--warn); }
+.protect-level.level-none > svg { color: var(--warn); }
+.protect-level.level-deterrent > svg { color: var(--text-2); }
+.protect-level.level-strong { border-color: var(--ok); }
+.protect-level.level-strong > svg, .protect-level.level-strong strong { color: var(--ok); }
+.protect-level.is-compact { margin: 0; padding: 3px 8px; white-space: nowrap; }
+.watermark-editor textarea { font: inherit; font-size: 13px; padding: 5px 8px; color: var(--text); background: var(--bg-2); border: 1px solid var(--border-strong); border-radius: var(--radius); resize: vertical; }

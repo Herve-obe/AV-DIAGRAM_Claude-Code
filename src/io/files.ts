@@ -50,6 +50,29 @@ export async function saveContent(filename: string, content: string | Uint8Array
   return true
 }
 
+/**
+ * Enregistre plusieurs fichiers d'un coup (ex. un PDF par destinataire) : dans l'application de bureau,
+ * l'utilisateur choisit un dossier une fois ; ailleurs, chaque fichier est téléchargé.
+ * Renvoie le nombre de fichiers écrits (0 si l'utilisateur annule).
+ */
+export async function saveMany(files: { name: string; content: Uint8Array; mime: string }[]): Promise<number> {
+  if (isTauri()) {
+    const { open } = await import('@tauri-apps/plugin-dialog')
+    const { writeFile } = await import('@tauri-apps/plugin-fs')
+    const { join } = await import('@tauri-apps/api/path')
+    const dir = await open({ directory: true, multiple: false })
+    if (!dir) return 0
+    for (const f of files) await writeFile(await join(dir, f.name), f.content)
+    return files.length
+  }
+  for (const f of files) {
+    const url = URL.createObjectURL(new Blob([f.content as BlobPart], { type: f.mime }))
+    browserDownload(f.name, url)
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
+  }
+  return files.length
+}
+
 /** Message d'erreur : boîte de dialogue native dans l'application bureau. */
 export async function notifyError(message: string) {
   if (isTauri()) {

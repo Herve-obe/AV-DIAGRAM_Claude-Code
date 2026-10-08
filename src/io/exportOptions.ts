@@ -52,8 +52,11 @@ export function pageSize(paper: PaperSize, orientation: ExportSettings['orientat
   return orientation === 'landscape' ? { w: long, h: short } : { w: short, h: long }
 }
 
-/** Texte du filigrane avec les champs du projet ; les champs vides et leurs séparateurs disparaissent. */
-export function watermarkText(template: string, project: Project, date = new Date()): string {
+/**
+ * Texte du filigrane avec les champs du projet ; les champs vides et leurs séparateurs disparaissent.
+ * recipient : export nominatif ; si le texte n'a pas de champ {recipient}, le nom est ajouté à la fin.
+ */
+export function watermarkText(template: string, project: Project, date = new Date(), recipient?: string): string {
   const info = project.info ?? {}
   const values: Record<string, string> = {
     client: info.client ?? '',
@@ -61,9 +64,11 @@ export function watermarkText(template: string, project: Project, date = new Dat
     date: date.toLocaleDateString(),
     revision: info.revision ?? '',
     number: info.docNumber ?? '',
+    recipient: recipient ?? '',
   }
-  return template
-    .replace(/\{(client|project|date|revision|number)\}/g, (_, k: string) => values[k])
+  const withRecipient = recipient && !template.includes('{recipient}') ? `${template} · {recipient}` : template
+  return withRecipient
+    .replace(/\{(client|project|date|revision|number|recipient)\}/g, (_, k: string) => values[k])
     .split('·')
     .map((s) => s.trim())
     .filter(Boolean)
@@ -240,4 +245,24 @@ export function watermarkLayout(w: number, h: number, text: string, placement: W
       return [{ x: w - s, y: h - s, angle: 0, size: s, align: 'right' }]
     }
   }
+}
+
+// ---------- Protection ----------
+
+export type ProtectionLevel = 'none' | 'deterrent' | 'strong'
+
+/**
+ * Niveau réel de protection d'un export :
+ * none : aucune ; deterrent : droits appliqués par les lecteurs, levables par un outil (pas de mot de
+ * passe d'ouverture) ; strong : contenu chiffré illisible sans le mot de passe d'ouverture.
+ */
+export function protectionLevel(p: ExportSettings['protection'], openPassword: string): ProtectionLevel {
+  if (!p.enabled) return 'none'
+  return openPassword ? 'strong' : 'deterrent'
+}
+
+/** Destinataires d'un export nominatif : un nom par ligne, sans doublon ni ligne vide. */
+export function recipientsOf(ws: WatermarkSettings): string[] {
+  if (!ws.enabled) return []
+  return [...new Set((ws.recipients ?? []).map((r) => r.trim()).filter(Boolean))]
 }

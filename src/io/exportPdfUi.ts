@@ -75,7 +75,7 @@ const captureWidth = (areaW: number) => Math.min(4000, Math.max(1600, areaW * 4)
  * Exporte la planche PDF. info : champs du cartouche saisis dans la fenêtre d'export ;
  * passwords : mots de passe de protection (jamais enregistrés).
  */
-export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, info: ProjectInfo, passwords?: ExportPasswords): Promise<boolean> {
+export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, info: ProjectInfo, passwords?: ExportPasswords): Promise<number> {
   const project = useProject.getState().project
   const opts = exportSettingsOf(project)
   const initial = useUi.getState().currentSheetId
@@ -119,7 +119,7 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
     return await exportPdf({ project, info, template, opts, labels: pdfLabels(t), date: new Date(), passwords }, shots)
   } catch (e) {
     notifyError(t('pdf.error') + (e instanceof Error && e.message ? ` (${e.message})` : typeof e === 'string' ? ` (${e})` : ''))
-    return false
+    return 0
   } finally {
     restore()
     useUi.getState().setSheet(initial)

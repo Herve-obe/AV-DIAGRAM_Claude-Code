@@ -773,7 +773,7 @@
     "pageLabel": "{{ref}} · {{paper}}",
     "watermarkEnable": "Filigrane présent",
     "watermarkText": "Texte du filigrane",
-    "watermarkFields": "Champs remplacés : {client}, {project}, {date}, {revision}, {number}.",
+    "watermarkFields": "Champs remplacés : {client}, {project}, {date}, {revision}, {number}, {recipient}.",
     "placement": "Position",
     "placements": {
       "tiled": "Mosaïque en diagonale",
@@ -811,9 +811,24 @@
     "samePasswords": "Les deux mots de passe doivent être différents : le mot de passe propriétaire lève toutes les restrictions.",
     "summary": "{{paper}} {{orientation}}, {{mode}}",
     "withWatermark": "filigrane",
-    "withPassword": "chiffré avec mot de passe",
-    "withRights": "droits restreints",
-    "export": "Exporter"
+    "export": "Exporter",
+    "recipients": "Filigrane nominatif : destinataires (un par ligne, facultatif)",
+    "recipientsPlaceholder": "Mairie de Lyon - J. Martin\nRégie lumière - S. Petit",
+    "recipientsHint_one": "{{count}} fichier, au nom du destinataire. Son nom remplace {recipient} (ajouté à la fin du texte sinon).",
+    "recipientsHint_other": "{{count}} fichiers, un par destinataire, enregistrés dans le dossier choisi. Chaque nom remplace {recipient} (ajouté à la fin du texte sinon) : en cas de fuite, le filigrane désigne l'exemplaire.",
+    "recipientsNone": "Sans destinataire : un seul fichier.",
+    "filesCount_one": "{{count}} fichier nominatif",
+    "filesCount_other": "{{count}} fichiers nominatifs",
+    "level": {
+      "none": "Aucune protection",
+      "deterrent": "Protection dissuasive",
+      "strong": "Protection forte"
+    },
+    "levelHint": {
+      "none": "le PDF s'ouvre, se copie et se modifie librement ; seul le filigrane, s'il est activé, reste.",
+      "deterrent": "le PDF s'ouvre partout ; copie et modification bloquées par les lecteurs courants, mais un outil spécialisé peut lever ces restrictions.",
+      "strong": "contenu chiffré (AES-256), illisible sans le mot de passe d'ouverture. Le transmettre par un autre canal que le PDF."
+    }
   },
   "titleBlock": {
     "owner": "Propriétaire légal",

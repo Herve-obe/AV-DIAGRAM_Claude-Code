@@ -3,7 +3,7 @@
 // cartouche du poste. Composants contrôlés : la valeur et sa modification viennent du parent.
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fitScale, pageSize, sheetBounds, sheetLayout, tilesFor, watermarkLayout, watermarkText } from '../io/exportOptions'
+import { fitScale, pageSize, protectionLevel, recipientsOf, sheetBounds, sheetLayout, tilesFor, watermarkLayout, watermarkText, type ProtectionLevel } from '../io/exportOptions'
 import { DEFAULT_SHEET_ID } from '../model/project'
 import { SIGNAL_FAMILIES } from '../model/signals'
 import {
@@ -114,6 +114,7 @@ export function WatermarkEditor({ project, value, onChange }: { project: Project
   const { t } = useTranslation()
   const set = (patch: Partial<WatermarkSettings>) => onChange({ ...value, ...patch })
   const text = watermarkText(value.text, project)
+  const recipients = recipientsOf(value)
   return (
     <div className="watermark-editor">
       <label className="collab-check">
@@ -161,7 +162,17 @@ export function WatermarkEditor({ project, value, onChange }: { project: Project
             <label htmlFor="wm-opacity">{t('exportPdf.opacity', { value: Math.round(value.opacity * 100) })}</label>
             <input id="wm-opacity" type="range" min={0.05} max={0.6} step={0.01} value={value.opacity} onChange={(e) => set({ opacity: Number(e.target.value) })} />
           </div>
-          <WatermarkPreview text={text} value={value} />
+          <WatermarkPreview text={recipients.length ? watermarkText(value.text, project, undefined, recipients[0]) : text} value={value} />
+          <div className="field">
+            <label htmlFor="wm-recipients">{t('exportPdf.recipients')}</label>
+            <textarea
+              id="wm-recipients" rows={3} value={(value.recipients ?? []).join('\n')} placeholder={t('exportPdf.recipientsPlaceholder')}
+              onChange={(e) => set({ recipients: e.target.value.split('\n') })}
+            />
+          </div>
+          <p className="field-hint">
+            {recipients.length ? t('exportPdf.recipientsHint', { count: recipients.length }) : t('exportPdf.recipientsNone')}
+          </p>
           <label className="collab-check">
             <input type="checkbox" checked={value.images} onChange={(e) => set({ images: e.target.checked })} />
             <span>{t('exportPdf.watermarkImages')}</span>
@@ -237,7 +248,20 @@ export function ProtectionEditor({ value, onChange, passwords, onPasswords }: {
           <p className="dialog-hint">{t('exportPdf.protectHint')}</p>
         </>
       )}
+      <ProtectionBadge level={protectionLevel(value, passwords?.open ?? '')} />
     </div>
+  )
+}
+
+/** Niveau réel de protection, expliqué en une phrase */
+export function ProtectionBadge({ level, compact = false }: { level: ProtectionLevel; compact?: boolean }) {
+  const { t } = useTranslation()
+  return (
+    <span className={`protect-level level-${level}${compact ? ' is-compact' : ''}`}>
+      <Icon name={level === 'none' ? 'alert' : 'lock'} size={13} />
+      <strong>{t(`exportPdf.level.${level}`)}</strong>
+      {!compact && <span>{t(`exportPdf.levelHint.${level}`)}</span>}
+    </span>
   )
 }
 

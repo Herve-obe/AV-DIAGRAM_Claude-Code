@@ -7,11 +7,11 @@ import { useReactFlow } from '@xyflow/react'
 import { isTauri } from '@tauri-apps/api/core'
 import { create } from 'zustand'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
-import { exportSettingsOf, watermarkText } from '../io/exportOptions'
+import { exportSettingsOf, protectionLevel, recipientsOf, watermarkText } from '../io/exportOptions'
 import type { ExportSettings, ProjectInfo } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useTitleBlock } from '../store/titleBlockStore'
-import { FormatPicker, ProtectionEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
+import { FormatPicker, ProtectionBadge, ProtectionEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
 import { Icon } from './Icon'
 
 export const useExportPdf = create<{ open: boolean; setOpen: (open: boolean) => void }>((set) => ({
@@ -114,8 +114,9 @@ export function ExportPdfDialog() {
               mode: t(`exportPdf.mode.${opts.scaleMode}`),
             })}
             {opts.watermark.enabled && mark ? ` · ${t('exportPdf.withWatermark')}` : ''}
-            {opts.protection.enabled ? ` · ${t(passwords.open ? 'exportPdf.withPassword' : 'exportPdf.withRights')}` : ''}
+            {recipientsOf(opts.watermark).length ? ` · ${t('exportPdf.filesCount', { count: recipientsOf(opts.watermark).length })}` : ''}
           </span>
+          <ProtectionBadge level={protectionLevel(opts.protection, passwords.open)} compact />
           <button className="btn btn-ghost" onClick={close}>{t('pdfImport.cancel')}</button>
           <button className="btn btn-primary" disabled={busy || (opts.watermark.enabled && !mark) || protectUnavailable || passwordMismatch} onClick={run}>
             <Icon name="download" size={14} />{t('exportPdf.export')}

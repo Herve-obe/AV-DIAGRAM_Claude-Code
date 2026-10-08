@@ -3,7 +3,7 @@ import { GState, jsPDF } from 'jspdf'
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs'
 import * as ops from '../model/project'
 import { PAPER_SIZES } from '../model/types'
-import { DEFAULT_EXPORT, approxWidth, exportSettingsOf, fitScale, pageSize, sheetLayout, tileRef, tilesFor, watermarkLayout, watermarkText } from './exportOptions'
+import { DEFAULT_EXPORT, approxWidth, exportSettingsOf, fitScale, pageSize, protectionLevel, recipientsOf, sheetLayout, tileRef, tilesFor, watermarkLayout, watermarkText } from './exportOptions'
 import { svgWatermark } from './files'
 
 describe('export : formats et filigrane', () => {
@@ -110,5 +110,28 @@ describe('export : formats et filigrane', () => {
     expect(perms).toContain(pdfjs.PermissionFlag.PRINT)
     expect(perms).not.toContain(pdfjs.PermissionFlag.MODIFY_CONTENTS)
     expect(perms).not.toContain(pdfjs.PermissionFlag.COPY)
+  })
+})
+
+describe('export : destinataires et niveau de protection', () => {
+  it('filigrane nominatif : champ {recipient} remplacé, ou nom ajouté à la fin', () => {
+    const p = ops.updateInfo(ops.createProject('X'), { client: 'Mairie' })
+    const d = new Date(2026, 9, 8)
+    expect(watermarkText('{recipient} · CONFIDENTIEL', p, d, 'J. Martin')).toBe('J. Martin · CONFIDENTIEL')
+    expect(watermarkText('{client} · NE PAS DIFFUSER', p, d, 'J. Martin')).toBe('Mairie · NE PAS DIFFUSER · J. Martin')
+    expect(watermarkText('{client} · {recipient}', p, d)).toBe('Mairie')
+  })
+
+  it('destinataires : lignes vides et doublons retirés, rien si le filigrane est absent', () => {
+    const ws = { ...DEFAULT_EXPORT.watermark, enabled: true, recipients: ['A', '', ' B ', 'A'] }
+    expect(recipientsOf(ws)).toEqual(['A', 'B'])
+    expect(recipientsOf({ ...ws, enabled: false })).toEqual([])
+  })
+
+  it('niveau réel de protection', () => {
+    const p = DEFAULT_EXPORT.protection
+    expect(protectionLevel(p, '')).toBe('none')
+    expect(protectionLevel({ ...p, enabled: true }, '')).toBe('deterrent')
+    expect(protectionLevel({ ...p, enabled: true }, 'secret')).toBe('strong')
   })
 })

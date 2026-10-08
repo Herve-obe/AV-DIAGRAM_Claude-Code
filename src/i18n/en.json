@@ -773,7 +773,7 @@
     "pageLabel": "{{ref}} · {{paper}}",
     "watermarkEnable": "Watermark on",
     "watermarkText": "Watermark text",
-    "watermarkFields": "Replaced fields: {client}, {project}, {date}, {revision}, {number}.",
+    "watermarkFields": "Replaced fields: {client}, {project}, {date}, {revision}, {number}, {recipient}.",
     "placement": "Position",
     "placements": {
       "tiled": "Diagonal mosaic",
@@ -811,9 +811,24 @@
     "samePasswords": "Both passwords must differ: the owner password lifts all restrictions.",
     "summary": "{{paper}} {{orientation}}, {{mode}}",
     "withWatermark": "watermark",
-    "withPassword": "encrypted with password",
-    "withRights": "restricted rights",
-    "export": "Export"
+    "export": "Export",
+    "recipients": "Named watermark: recipients (one per line, optional)",
+    "recipientsPlaceholder": "City of Lyon - J. Martin\nLighting crew - S. Petit",
+    "recipientsHint_one": "{{count}} file, in the recipient's name. The name replaces {recipient} (appended to the text otherwise).",
+    "recipientsHint_other": "{{count}} files, one per recipient, saved in the chosen folder. Each name replaces {recipient} (appended to the text otherwise): if a copy leaks, the watermark identifies it.",
+    "recipientsNone": "No recipient: a single file.",
+    "filesCount_one": "{{count}} named file",
+    "filesCount_other": "{{count}} named files",
+    "level": {
+      "none": "No protection",
+      "deterrent": "Deterrent protection",
+      "strong": "Strong protection"
+    },
+    "levelHint": {
+      "none": "the PDF opens, copies and edits freely; only the watermark, if on, remains.",
+      "deterrent": "the PDF opens everywhere; copy and editing are blocked by common readers, but a specialised tool can lift these restrictions.",
+      "strong": "content encrypted (AES-256), unreadable without the open password. Send it through another channel than the PDF."
+    }
   },
   "titleBlock": {
     "owner": "Legal owner",

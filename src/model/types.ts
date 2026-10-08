@@ -283,7 +283,7 @@ export type WatermarkPlacement = 'tiled' | 'diagonal' | 'top' | 'bottom' | 'corn
 
 export interface WatermarkSettings {
   enabled: boolean
-  /** Texte ; {client}, {project}, {date}, {revision}, {number} sont remplacés à l'export */
+  /** Texte ; {client}, {project}, {date}, {revision}, {number}, {recipient} sont remplacés à l'export */
   text: string
   /** Mosaïque en diagonale, grande diagonale, bandeau haut ou bas, coin bas droit */
   placement: WatermarkPlacement
@@ -295,6 +295,11 @@ export interface WatermarkSettings {
   opacity: number
   /** Appliqué aussi aux exports PNG et SVG */
   images: boolean
+  /**
+   * Filigrane nominatif : un PDF par destinataire, son nom remplace {recipient} (ajouté au texte s'il
+   * n'y figure pas). Vide : un seul export.
+   */
+  recipients?: string[]
 }
 
 export interface ProtectionSettings {

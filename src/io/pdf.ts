@@ -10,8 +10,8 @@ import { toJpeg } from 'html-to-image'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { ExportSettings, Project, ProjectInfo, WatermarkSettings } from '../model/types'
 import type { TitleBlockTemplate } from '../store/titleBlockStore'
-import { MAX_REVISIONS, sheetLayout, watermarkLayout, watermarkText, type SheetLayout } from './exportOptions'
-import { saveContent, slug } from './files'
+import { MAX_REVISIONS, recipientsOf, sheetLayout, watermarkLayout, watermarkText, type SheetLayout } from './exportOptions'
+import { saveContent, saveMany, slug } from './files'
 
 /** Nombre maximal de pixels d'une capture : limite des canevas de WebKit (macOS), avec une marge */
 const MAX_PIXELS = 15_000_000
@@ -166,14 +166,14 @@ function drawWatermarkPdf(doc: jsPDF, text: string, ws: WatermarkSettings, w: nu
 
 // ---------- Planche ----------
 
-export async function exportPdf(ctx: ExportContext, shots: SheetShot[]): Promise<boolean> {
-  if (!shots.length) return false
+/** Construit le PDF (un destinataire au plus) et renvoie son contenu et son nom de fichier. */
+export async function buildPdf(ctx: ExportContext, shots: SheetShot[], recipient?: string): Promise<{ name: string; bytes: Uint8Array }> {
   const { project, opts } = ctx
   const revisions = ctx.info.revisions ?? []
   const layout = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, revisions.length)
   const format = opts.paper.toLowerCase()
   const ws = opts.watermark
-  const mark = ws.enabled ? watermarkText(ws.text, { ...project, info: ctx.info }, ctx.date) : ''
+  const mark = ws.enabled ? watermarkText(ws.text, { ...project, info: ctx.info }, ctx.date, recipient) : ''
   const doc = new jsPDF({ orientation: opts.orientation, unit: 'mm', format })
   doc.setProperties({
     title: [ctx.info.docNumber, project.name].filter(Boolean).join(' · '),
@@ -188,10 +188,29 @@ export async function exportPdf(ctx: ExportContext, shots: SheetShot[]): Promise
     drawSheet(doc, ctx, shot, i + 1, shots.length, layout)
     if (mark && ws.zone === 'sheet') drawWatermarkPdf(doc, mark, ws, layout.w, layout.h)
   }
-  let bytes = new Uint8Array(doc.output('arraybuffer'))
+  let bytes: Uint8Array = new Uint8Array(doc.output('arraybuffer'))
   if (opts.protection.enabled) bytes = await protectPdf(bytes, opts.protection, ctx.passwords)
-  const base = slug([ctx.info.docNumber, project.name].filter(Boolean).join(' '))
-  return saveContent(`${base}.pdf`, bytes, 'application/pdf')
+  const name = slug([ctx.info.docNumber, project.name, recipient].filter(Boolean).join(' '))
+  return { name: `${name}.pdf`, bytes }
+}
+
+/**
+ * Exporte la planche : un fichier, ou un fichier par destinataire (filigrane nominatif) enregistrés
+ * dans un dossier choisi. Renvoie le nombre de fichiers écrits.
+ */
+export async function exportPdf(ctx: ExportContext, shots: SheetShot[]): Promise<number> {
+  if (!shots.length) return 0
+  const recipients = recipientsOf(ctx.opts.watermark)
+  if (!recipients.length) {
+    const { name, bytes } = await buildPdf(ctx, shots)
+    return (await saveContent(name, bytes, 'application/pdf')) ? 1 : 0
+  }
+  const files = []
+  for (const r of recipients) {
+    const { name, bytes } = await buildPdf(ctx, shots, r)
+    files.push({ name, content: bytes, mime: 'application/pdf' })
+  }
+  return saveMany(files)
 }
 
 /** Chiffrement AES-256 par l'application de bureau ; le PDF ne quitte pas le poste. */
