@@ -1,0 +1,89 @@
+{
+  "id": "klarkteknik-dn9650",
+  "family": "processing",
+  "manufacturer": "Klark Teknik",
+  "model": "DN9650",
+  "pictogram": "processor",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.klarkteknik.com/en/products/0606-AAZ",
+      "document": "Klark Teknik, page DN9650",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes1",
+      "name": "AES50 A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "AES50"
+    },
+    {
+      "id": "aes2",
+      "name": "AES50 B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "AES50"
+    },
+    {
+      "id": "aes3",
+      "name": "AES50 C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "AES50"
+    },
+    {
+      "id": "module",
+      "name": "Module réseau",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 64,
+      "format": "Emplacement CM-1 : KT-MADI, KT-DANTE64, KT-AES50, KT-USB"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "video",
+      "name": "Black Burst In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "PAL / SECAM / NTSC, HD 720p / 1080p / 1080i"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Configuration par navigateur"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation universelle"
+    }
+  ]
+}

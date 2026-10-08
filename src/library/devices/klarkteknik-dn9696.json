@@ -1,0 +1,114 @@
+{
+  "id": "klarkteknik-dn9696",
+  "family": "recording",
+  "manufacturer": "Klark Teknik",
+  "model": "DN9696",
+  "pictogram": "recorder",
+  "status": "community",
+  "rackU": 5,
+  "sources": [
+    {
+      "url": "https://cdn-docs.av-iq.com/brochure/Klark%20Teknik%20-%20DN9696%20Brochure.pdf",
+      "document": "Klark Teknik, brochure DN9696 (via AV-iQ)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes1",
+      "name": "AES50 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes2",
+      "name": "AES50 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes3",
+      "name": "AES50 3",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes4",
+      "name": "AES50 4",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes5",
+      "name": "AES50 5",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes6",
+      "name": "AES50 6",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes7",
+      "name": "AES50 7",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "aes8",
+      "name": "AES50 8",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES50 (4 ports, double redondance)"
+    },
+    {
+      "id": "ltc",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode LTC"
+    },
+    {
+      "id": "video",
+      "name": "Moniteur",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I (VGA par adaptateur)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, souris"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V"
+    }
+  ]
+}

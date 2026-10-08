@@ -1,0 +1,86 @@
+{
+  "id": "klarkteknik-dn200-v2",
+  "family": "capture",
+  "manufacturer": "Klark Teknik",
+  "model": "DN200 V2",
+  "pictogram": "di",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.andertons.co.uk/klark-teknik-dn200-v2-active-stereo-di-box/",
+      "document": "Andertons, fiche DN200 V2 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://prostage.gr/en/klark-teknik-dn200-v2.html",
+      "document": "Prostage, fiche DN200 V2 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "instrument",
+      "format": "Combo XLR / jack, 1 MΩ, pad 20 dB"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "instrument",
+      "format": "Combo XLR / jack, 1 MΩ, pad 20 dB"
+    },
+    {
+      "id": "link1",
+      "name": "Link 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument"
+    },
+    {
+      "id": "link2",
+      "name": "Link 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument"
+    },
+    {
+      "id": "mini",
+      "name": "Stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, appareils grand public"
+    },
+    {
+      "id": "out1",
+      "name": "Output 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Fantôme 48 V requis",
+      "phantom": "required"
+    },
+    {
+      "id": "out2",
+      "name": "Output 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Fantôme 48 V requis ; modes Sum / Split",
+      "phantom": "required"
+    }
+  ]
+}
