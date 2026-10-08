@@ -11,7 +11,8 @@ export default defineConfig({
   server: { port: 5173, strictPort: true },
   envPrefix: ['VITE_', 'TAURI_ENV_'],
   build: {
-    // Webviews des systèmes : WebView2 (Windows), WebKit (macOS, Linux)
+    // Webviews des systèmes : WebView2 (Windows), WebKit (macOS, Linux). macOS 12.3 minimum
+    // (WebKit de Safari 15.4), Mac Intel compris : voir docs/compatibilite.md
     target: process.env.TAURI_ENV_PLATFORM === 'windows' ? 'chrome105' : 'safari15',
     chunkSizeWarningLimit: 1500,
   },

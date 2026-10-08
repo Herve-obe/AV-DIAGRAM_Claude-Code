@@ -41,8 +41,9 @@ const usePdfImport = create<PdfImportState>((set) => ({
 }))
 
 async function loadPdfjs() {
-  const pdfjs = await import('pdfjs-dist')
-  const worker = await import('pdfjs-dist/build/pdf.worker.min.mjs?url')
+  // Version « legacy » de pdf.js : elle fonctionne avec le WebKit des macOS plus anciens (Mac Intel)
+  const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs')
+  const worker = await import('pdfjs-dist/legacy/build/pdf.worker.min.mjs?url')
   pdfjs.GlobalWorkerOptions.workerSrc = worker.default
   return pdfjs
 }

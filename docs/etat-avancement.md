@@ -77,7 +77,7 @@ optionnelle (impression permise, modification et copie interdites). Réglages ga
 numéro, statut, établi / approuvé par, date d'émission automatique, historique des indices), rempli à l'export et
 pré-rempli par un modèle propre au poste ; format avec choix mise à l'échelle ou taille fixe (pages A1, B1...,
 découpage affiché sur le canevas) ; filigrane paramétrable ; chiffrement AES-256 par l'application de bureau.
-Détail : `export-pdf.md`. Version navigateur abandonnée : application de bureau seule, Windows et macOS.
+Détail : `export-pdf.md`. Version navigateur abandonnée : application de bureau seule, Windows et macOS (Intel et Apple Silicon, macOS 12.3 minimum, voir `compatibilite.md`). Les essais de collaboration sont reportés à la fin de la version complète.
 
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).

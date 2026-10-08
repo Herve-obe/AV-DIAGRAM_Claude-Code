@@ -104,7 +104,7 @@ export const useProject = create<ProjectState>((set, get) => {
     undo: () => {
       if (driver) return driver.undo()
       const { past, project, future } = get()
-      const prev = past.at(-1)
+      const prev = past[past.length - 1]
       if (!prev) return
       set({ project: prev, past: past.slice(0, -1), future: [project, ...future], saved: false })
     },
