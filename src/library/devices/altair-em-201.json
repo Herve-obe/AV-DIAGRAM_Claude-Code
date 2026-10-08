@@ -1,0 +1,34 @@
+{
+  "id": "altair-em-201",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "EM-201",
+  "pictogram": "intercom",
+  "status": "community",
+  "weightKg": 0.235,
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line",
+      "name": "Line",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4M"
+    }
+  ]
+}

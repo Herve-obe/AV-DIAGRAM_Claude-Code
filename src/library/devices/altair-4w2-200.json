@@ -1,0 +1,43 @@
+{
+  "id": "altair-4w2-200",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "4W2-200",
+  "pictogram": "intercom",
+  "status": "community",
+  "weightKg": 0.33,
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line",
+      "name": "Line",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR-3M partyline"
+    },
+    {
+      "id": "fourWire",
+      "name": "4 fils",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "level": "line+4",
+      "format": "XLR-4M symétrique (entrée + sortie)"
+    },
+    {
+      "id": "tel",
+      "name": "Ligne téléphonique",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "rj12",
+      "format": "RJ11"
+    }
+  ]
+}
