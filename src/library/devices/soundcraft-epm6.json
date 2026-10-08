@@ -1,0 +1,143 @@
+{
+  "id": "soundcraft-epm6",
+  "family": "console",
+  "manufacturer": "Soundcraft",
+  "model": "EPM6",
+  "pictogram": "console",
+  "status": "community",
+  "weightKg": 5.0,
+  "sources": [
+    {
+      "url": "https://www.musik-produktiv.com/dk/soundcraft-epm6.html",
+      "document": "Musik Produktiv, fiche EPM6 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR micro (ligne sur jack)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR micro (ligne sur jack)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR micro (ligne sur jack)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR micro (ligne sur jack)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in5",
+      "name": "Input 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR micro (ligne sur jack)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in6",
+      "name": "Input 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR micro (ligne sur jack)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "st1",
+      "name": "Stereo In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "st2",
+      "name": "Stereo In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "mainL",
+      "name": "Mix Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mainR",
+      "name": "Mix Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

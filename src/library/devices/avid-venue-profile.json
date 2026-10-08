@@ -1,0 +1,75 @@
+{
+  "id": "avid-venue-profile",
+  "family": "console",
+  "manufacturer": "Avid",
+  "model": "VENUE Profile",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://cuesale.com/product/digidesign-venue-profile-set/",
+      "document": "Cuesale, système VENUE Profile (occasion)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.pssl.com/products/digidesign-stage-rack-48-16-digital-avid-profile",
+      "document": "PSSL, Stage Rack VENUE (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "snakeA",
+      "name": "Snake A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "Multipaire numérique 75 Ω vers Stage Rack (via FOH Rack)"
+    },
+    {
+      "id": "snakeB",
+      "name": "Snake B (redondant)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "Liaison redondante"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "stage",
+      "name": "Stage Rack",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 48,
+      "format": "48 entrées micro / ligne XLR, 8 à 48 sorties selon cartes"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

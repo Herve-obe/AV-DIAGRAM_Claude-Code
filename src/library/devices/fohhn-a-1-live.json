@@ -1,0 +1,47 @@
+{
+  "id": "fohhn-a-1-live",
+  "family": "processing",
+  "manufacturer": "Fohhn",
+  "model": "A-1 live",
+  "pictogram": "processor",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://lsionline.co.uk/news/fohhn-releases-a-1-live-audio-interface-wfx7l9",
+      "document": "LSi, annonce A-1 live",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://azur.novelty.fr/download/materiel_manuels/fohhn_a1_manuel.pdf",
+      "document": "Fohhn, manuel A-1 (via Novelty)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 2,
+      "format": "USB 1.1, isolé galvaniquement ; alimente l'appareil"
+    },
+    {
+      "id": "outL",
+      "name": "Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "tascam-cd-200",
+  "family": "recording",
+  "manufacturer": "Tascam",
+  "model": "CD-200",
+  "pictogram": "recorder",
+  "status": "community",
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://ldlc.com/en/product/PB00519231.html",
+      "document": "LDLC, fiche CD-200 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "coax",
+      "name": "Digital Out (coax)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "opt",
+      "name": "Digital Out (optique)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

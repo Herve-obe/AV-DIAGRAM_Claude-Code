@@ -1,0 +1,80 @@
+{
+  "id": "turbosound-iq10",
+  "family": "speaker",
+  "manufacturer": "Turbosound",
+  "model": "iQ10",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 17.2,
+  "sources": [
+    {
+      "url": "https://thomann.ae/turbosound_iq10.htm",
+      "document": "Thomann, fiche iQ10 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic"
+    },
+    {
+      "id": "linkA",
+      "name": "Link A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "linkB",
+      "name": "Link B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mix",
+      "name": "Mix Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "unIn",
+      "name": "Ultranet In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45"
+    },
+    {
+      "id": "unOut",
+      "name": "Ultranet Link",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "2 500 W"
+    }
+  ]
+}

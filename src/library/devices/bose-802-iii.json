@@ -1,0 +1,35 @@
+{
+  "id": "bose-802-iii",
+  "family": "speaker",
+  "manufacturer": "Bose",
+  "model": "802 Series III",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/13901-SpecSheet.pdf",
+      "document": "Bose, fiche technique 802 Series III (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "spk1",
+      "name": "Speakon 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "8 × 4,5\", 8 Ω, 240 W ; égaliseur actif 802-C requis"
+    },
+    {
+      "id": "spk2",
+      "name": "Speakon 2 (link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle avec l'entrée (chaînage)"
+    }
+  ]
+}

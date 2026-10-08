@@ -1,0 +1,67 @@
+{
+  "id": "bose-l1-compact",
+  "family": "speaker",
+  "manufacturer": "Bose",
+  "model": "L1 Compact",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/13903-SpecSheet.pdf",
+      "document": "Bose, fiche technique L1 Compact (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Ch 1 Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic"
+    },
+    {
+      "id": "inst",
+      "name": "Ch 2 Instrument",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Jack 6,35"
+    },
+    {
+      "id": "rca",
+      "name": "Ch 2 Stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "mini",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "out",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

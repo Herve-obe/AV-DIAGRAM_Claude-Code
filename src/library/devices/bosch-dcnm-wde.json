@@ -1,0 +1,56 @@
+{
+  "id": "bosch-dcnm-wde",
+  "family": "capture",
+  "manufacturer": "Bosch",
+  "model": "DICENTIS DCNM-WDE",
+  "pictogram": "mic",
+  "status": "community",
+  "weightKg": 0.67,
+  "sources": [
+    {
+      "url": "https://automa.net/bosch/dcnm-wde/",
+      "document": "Automa, fiche DCNM-WDE",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://store.digital-origin.co.uk/bosch-dcnm-wde-teleconferencing-equipment-1-person-s-f-01u-298-744.html",
+      "document": "Digital Origin, fiche DCNM-WDE (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Embase pour micro enfichable DCNM-HDMIC / MICS / MICL"
+    },
+    {
+      "id": "rf",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Vers point d'accès DCNM-WAP"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "dc",
+      "name": "Batterie",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Batterie 7,5 V"
+    }
+  ]
+}
