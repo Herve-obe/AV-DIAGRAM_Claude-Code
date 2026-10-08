@@ -1,0 +1,140 @@
+{
+  "id": "sony-pmw-350",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PMW-350",
+  "pictogram": "camera",
+  "status": "community",
+  "weightKg": 3.2,
+  "sources": [
+    {
+      "url": "https://www.vahire.com/wp-content/uploads/Sony-PMW-350-Specifications.pdf",
+      "document": "Sony, caractéristiques PMW-350 (via VA Hire)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "comp",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr5",
+      "level": "mic"
+    },
+    {
+      "id": "aOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr5"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "8 points"
+    },
+    {
+      "id": "ilink",
+      "name": "i.LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    },
+    {
+      "id": "dcOut",
+      "name": "DC Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "hirose4"
+    }
+  ]
+}

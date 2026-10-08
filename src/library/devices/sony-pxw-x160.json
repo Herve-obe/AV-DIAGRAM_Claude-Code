@@ -1,0 +1,91 @@
+{
+  "id": "sony-pxw-x160",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PXW-X160",
+  "pictogram": "camera",
+  "status": "community",
+  "weightKg": 2.7,
+  "sources": [
+    {
+      "url": "https://monaco.novelty.fr/download/materiel_fiches_techniques/sony_pxw-x160_ft-uk.pdf",
+      "document": "Sony, fiche PXW-X160 (via Novelty)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "3G HD-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "comp",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "channels": 2,
+      "format": "Entrées audio (type non confirmé) ; MI Shoe pour HF"
+    },
+    {
+      "id": "lanc",
+      "name": "LANC",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}
