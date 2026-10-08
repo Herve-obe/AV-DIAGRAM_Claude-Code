@@ -1,13 +1,15 @@
 {
-  "id": "elation-dtw-blinder-700-ip",
+  "id": "ayrton-magicdot-r",
   "family": "luminaire",
-  "manufacturer": "Elation",
-  "model": "DTW Blinder 700 IP",
+  "manufacturer": "Ayrton",
+  "model": "MagicDot-R",
   "pictogram": "light",
   "status": "community",
+  "weightKg": 5.3,
   "sources": [
     {
-      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "url": "https://azur.novelty-group.com/location-materiel/eclairage/projecteurs-a-led//ayrton/magicdot-r-3413",
+      "document": "Novelty, fiche MagicDot-R (loueur)",
       "accessed": "2026-10-08"
     }
   ],
@@ -17,22 +19,21 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Blinder LED IP65, 4 × 175 W COB"
+      "connector": "powercon"
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "id": "chauvet-colorado-2-quad-zoom",
+  "id": "chauvet-swarm-4-fx",
   "family": "luminaire",
-  "manufacturer": "Chauvet Professional",
-  "model": "COLORado 2-Quad Zoom",
+  "manufacturer": "Chauvet DJ",
+  "model": "Swarm 4 FX",
   "pictogram": "light",
   "status": "verified",
-  "weightKg": 8.6,
+  "powerW": 47,
   "sources": [
     {
-      "url": "https://chauvetprofessional.com/wp-content/uploads/pdf/en/COLORADO2QUADZOOM.pdf",
-      "document": "Chauvet Professional, fiche COLORado 2-Quad Zoom",
+      "url": "https://www.chauvetdj.com/wp-content/uploads/pdf/en/swarm-4-fx.pdf",
+      "document": "Chauvet DJ, fiche Swarm 4 FX",
       "accessed": "2026-10-08"
     }
   ],
@@ -19,30 +19,29 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr3"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr3"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powerkon-ip65"
+      "connector": "iec-c13",
+      "format": "100-240 V, 47 W"
     },
     {
       "id": "acOut",
       "name": "Recopie secteur",
       "direction": "out",
       "signal": "power",
-      "connector": "powerkon-ip65"
+      "connector": "iec-c13"
     }
   ]
 }

@@ -1,13 +1,16 @@
 {
-  "id": "elation-dtw-blinder-700-ip",
+  "id": "mdg-me1",
   "family": "luminaire",
-  "manufacturer": "Elation",
-  "model": "DTW Blinder 700 IP",
+  "manufacturer": "MDG",
+  "model": "Me1",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
+  "powerW": 715,
+  "weightKg": 15.62,
   "sources": [
     {
-      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "url": "https://www.mdgfog.com/en/me1",
+      "document": "MDG, page Me1",
       "accessed": "2026-10-08"
     }
   ],
@@ -17,14 +20,14 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "acIn",
@@ -32,7 +35,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Blinder LED IP65, 4 × 175 W COB"
+      "format": "100-250 V, 715 W"
     }
   ]
 }

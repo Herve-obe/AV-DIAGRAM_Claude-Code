@@ -1,15 +1,15 @@
 {
-  "id": "chauvet-colorado-2-quad-zoom",
+  "id": "chauvet-double-derbyx",
   "family": "luminaire",
-  "manufacturer": "Chauvet Professional",
-  "model": "COLORado 2-Quad Zoom",
+  "manufacturer": "Chauvet DJ",
+  "model": "Double DerbyX",
   "pictogram": "light",
   "status": "verified",
-  "weightKg": 8.6,
+  "powerW": 24,
   "sources": [
     {
-      "url": "https://chauvetprofessional.com/wp-content/uploads/pdf/en/COLORADO2QUADZOOM.pdf",
-      "document": "Chauvet Professional, fiche COLORado 2-Quad Zoom",
+      "url": "https://www.chauvetdj.com/wp-content/uploads/pdf/en/double-derbyx.pdf",
+      "document": "Chauvet DJ, fiche Double DerbyX",
       "accessed": "2026-10-08"
     }
   ],
@@ -19,30 +19,29 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr3"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr3"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powerkon-ip65"
+      "connector": "iec-c13",
+      "format": "100-240 V, 24 W"
     },
     {
       "id": "acOut",
       "name": "Recopie secteur",
       "direction": "out",
       "signal": "power",
-      "connector": "powerkon-ip65"
+      "connector": "iec-c13"
     }
   ]
 }

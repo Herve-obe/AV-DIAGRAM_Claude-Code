@@ -1,15 +1,14 @@
 {
-  "id": "elation-kl-fresnel-6-cw",
+  "id": "chauvet-festoon-2-rgb",
   "family": "luminaire",
-  "manufacturer": "Elation",
-  "model": "KL Fresnel 6 CW",
+  "manufacturer": "Chauvet DJ",
+  "model": "Festoon 2 RGB",
   "pictogram": "light",
   "status": "verified",
-  "weightKg": 8.4,
   "sources": [
     {
-      "url": "https://goknight.com/content/documentation/KL Fresnel 6 CW Spec Sheet.pdf",
-      "document": "Elation, fiche KL Fresnel 6 CW (via Goknight)",
+      "url": "https://www.fullcompass.com/common/files/61482-FESTOON2RGBQuickReferenceGuide.pdf",
+      "document": "Chauvet DJ, guide Festoon 2 RGB (via Full Compass)",
       "accessed": "2026-10-08"
     }
   ],
@@ -19,16 +18,14 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr3"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr3"
     },
     {
       "id": "acIn",
@@ -36,14 +33,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Câble verrouillable IP65 entrée / recopie"
+      "format": "100-240 V ; contrôleur alimentant la guirlande (data over power)"
     },
     {
-      "id": "acOut",
-      "name": "Recopie secteur",
+      "id": "string",
+      "name": "Guirlande",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Sortie vers ampoules (puissance et données)"
     }
   ]
 }

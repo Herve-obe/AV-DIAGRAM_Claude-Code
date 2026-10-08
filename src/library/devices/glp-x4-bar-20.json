@@ -1,15 +1,15 @@
 {
-  "id": "chauvet-colorado-2-quad-zoom",
+  "id": "glp-x4-bar-20",
   "family": "luminaire",
-  "manufacturer": "Chauvet Professional",
-  "model": "COLORado 2-Quad Zoom",
+  "manufacturer": "GLP",
+  "model": "impression X4 Bar 20",
   "pictogram": "light",
   "status": "verified",
-  "weightKg": 8.6,
+  "weightKg": 14.5,
   "sources": [
     {
-      "url": "https://chauvetprofessional.com/wp-content/uploads/pdf/en/COLORADO2QUADZOOM.pdf",
-      "document": "Chauvet Professional, fiche COLORado 2-Quad Zoom",
+      "url": "https://glp.de/files/products/impression-x4-bar-10-product-data/impression_X4_Bar_Flyer_EN.pdf",
+      "document": "GLP, plaquette impression X4 Bar",
       "accessed": "2026-10-08"
     }
   ],
@@ -19,30 +19,28 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "connector": "xlr5"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powerkon-ip65"
+      "connector": "powercon"
     },
     {
       "id": "acOut",
       "name": "Recopie secteur",
       "direction": "out",
       "signal": "power",
-      "connector": "powerkon-ip65"
+      "connector": "powercon"
     }
   ]
 }

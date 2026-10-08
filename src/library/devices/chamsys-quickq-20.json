@@ -1,28 +1,28 @@
 {
-  "id": "ma-onpc-command-wing",
+  "id": "chamsys-quickq-20",
   "family": "lightingControl",
-  "manufacturer": "MA Lighting",
-  "model": "grandMA2 onPC command wing",
+  "manufacturer": "ChamSys",
+  "model": "QuickQ 20",
   "pictogram": "control",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
-      "url": "https://help.malighting.com/grandMA2/en/help/grandma2_quick_manual_onpc_solutions/key_grandma2_wing_technical_data.html",
-      "document": "MA Lighting, caractéristiques onPC command wing",
+      "url": "https://www.thomann.co.uk/chamsys_quickq_20.htm",
+      "document": "Thomann, fiche QuickQ 20 (revendeur)",
       "accessed": "2026-10-08"
     }
   ],
   "ports": [
     {
-      "id": "dmxOut1",
-      "name": "DMX Out 1",
+      "id": "dmx1",
+      "name": "DMX 1",
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5"
     },
     {
-      "id": "dmxOut2",
-      "name": "DMX Out 2",
+      "id": "dmx2",
+      "name": "DMX 2",
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5"
@@ -33,6 +33,13 @@
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "unspecified"
     },
     {
       "id": "midiIn",
@@ -49,33 +56,25 @@
       "connector": "din5"
     },
     {
-      "id": "ltc",
-      "name": "LTC In",
-      "direction": "in",
-      "signal": "sync",
-      "connector": "xlr3"
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
     },
     {
       "id": "usb",
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-b",
-      "format": "Vers ordinateur onPC"
-    },
-    {
-      "id": "remote",
-      "name": "DC Remote",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-a"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "iec-c13"
+      "connector": "unspecified"
     }
   ]
 }

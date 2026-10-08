@@ -1,0 +1,70 @@
+{
+  "id": "netgear-r6220",
+  "family": "network",
+  "manufacturer": "Netgear",
+  "model": "R6220 (AC1200)",
+  "pictogram": "switch",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "lan3",
+      "name": "LAN 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "lan4",
+      "name": "LAN 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "wan",
+      "name": "WAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "AC1200"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ]
+}

@@ -57,6 +57,17 @@
 - Allen & Heath SQ-5 (Vérifié), Xone:92 (Communauté, d'après le manuel Mk2).
 - Outils : l'empreinte de l'autorité du proxy est recalculée à chaque lancement (`tools/bibliotheque/proxyca.mjs`).
 
+**Catalogues Novelty et Audio Pro couverts à 100 %** (2026-10-08) : 813 fiches au total (458 Vérifié, 355 Communauté).
+- 753 équipements distincts ; tous couverts par une fiche, sauf 26 hors périmètre (câbles, optiques, consommables)
+  et 36 désignations imprécises (modèle non identifiable), listés dans `tools/bibliotheque/inventaire-traitement.csv`.
+- Contrôle : `python3 tools/bibliotheque/couverture.py --reste` (doit afficher « reste : 0 »).
+- Ajouts du jour : Pioneer DJ, Technics, Rane, Denon, Numark, Xone ; Taiden ; Altair ; Klark Teknik, BSS, beyerdynamic ;
+  micros DPA, Schoeps, AKG, Electro-Voice, Neumann, Audio-Technica ; Lexicon, TC Electronic, Avalon ; Innovason, Bose,
+  Fohhn, Clear-Com, Turbosound, Avid, Soundcraft, Bosch, QSC, RME, Tascam ; Blackmagic, Panasonic, NovaStar, Sony,
+  Decimator, écrans, Ross, Barco, Folsom, Datapath, Analog Way, Kiloview, Lumantek, Teradek ; lumière (Chauvet, ETC, MA,
+  SGM, Robe, Elation, W-DMX, MDG, ChamSys, GLP, Cameo, ARRI, Enttec, Luminex, LumenRadio...) ; réseau ; armoires électriques.
+- Modèle : niveau de signal « Phono » (règles phono vers ligne et inverse) ; connecteurs DIN 6 et DIN 8.
+
 **Travail à plusieurs sur le réseau local** (2026-10-08) : session hébergée par l'application de bureau, rejointe
 par adresse et code à 6 chiffres ; document partagé Yjs (fusion champ par champ), annulation propre à chacun,
 présence (nom, couleur, calque, contour des blocs sélectionnés), reconnexion automatique, tchat, calques réservés
@@ -99,19 +110,10 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
 
 ## Reste à faire
 
-1. **Bibliothèque, catalogues Novelty et Audio Pro** (environ 850 références ; ordre proposé) :
-   - Audio : Yamaha DM7, DM3, TF, 01V96i, M7CL, MG, SPX ; Midas (Pro, M32, DL, Heritage) ; DiGiCo SD ; Allen & Heath ;
-     Neumann, beyerdynamic, Shure MX412, AKG C411 / C3000, Audio-Technica ES925 (version à préciser) ; Klark Teknik DN100 / DN200,
-     Avalon U5 ; périphériques (BSS, TC, Lexicon) ; intercom Altair, Clear-Com ;
-     Shure UHF-R (UR4D+, UR1, UR2) et PSM encore sans guide trouvé ; modèles L-Acoustics arrêtés (Kara, SB28, LA8,
-     108P, 112P, 115XT HiQ, V-DOSC, dV-DOSC, ARCS) : manuels d'archive nécessaires.
-   - Image : projecteurs, écrans, caméras, convertisseurs, grilles.
-   - Réseau : Cisco SG300-10P / SG300-20, Oxo Core8 Pro, Netgear RG6220 (désignation à vérifier).
-   - Lumière, reste à faire : Robe Robospot et RDM Communicator ; Ayrton MagicDot-SX / R, Arcaline 2 (manuels sans texte
-     exploitable) ; Chauvet, ETC, Astera, SGM, Elation, ARRI, GLP, Robert Juliat, Enttec, ChamSys et petites marques ;
-     Swisson XSR (nombre de ports par modèle seulement sur les schémas) ; Martin (403).
-   - Distribution : armoires des prestataires, statut Communauté (source : catalogues).
-   - Sites refusant l'accès automatique (erreur 403) : Martin, Sony Pro, Panasonic → déposer leurs manuels sur le Drive.
+1. **Bibliothèque, compléments** (catalogues couverts à 100 % le 2026-10-08, voir ci-dessus) :
+   - Passer en Vérifié les fiches Communauté dès qu'une fiche constructeur est disponible (surtout lumière et image).
+   - Préciser les 36 désignations imprécises (`tools/bibliotheque/inventaire-traitement.csv`, colonne remarque).
+   - Fiches minimales à compléter (connecteurs non précisés) : OXO, Portman, DeSisti, Scenilux, RVE, armoires de distribution.
 2. **Import PDF** : essais sur de vrais synoptiques (Visio, AutoCAD, Vectorworks, draw.io) ; pages en image via l'assistant IA.
    **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
 3. **Lot 3** : vues liées (baie / rack, plan, réseau, intercom, synchro, électrique).

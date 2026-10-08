@@ -1,13 +1,15 @@
 {
-  "id": "elation-dtw-blinder-700-ip",
+  "id": "sgm-p-3-vision",
   "family": "luminaire",
-  "manufacturer": "Elation",
-  "model": "DTW Blinder 700 IP",
+  "manufacturer": "SGM",
+  "model": "P-3 Vision",
   "pictogram": "light",
   "status": "community",
+  "weightKg": 8.3,
   "sources": [
     {
-      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "url": "https://www.livedesignonline.com/news/sgm-light-introduces-p-3-visionr-cutting-edge-hybrid-solution-lighting-and-video-design",
+      "document": "Live Design, annonce P-3 Vision",
       "accessed": "2026-10-08"
     }
   ],
@@ -17,14 +19,14 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "acIn",
@@ -32,7 +34,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Blinder LED IP65, 4 × 175 W COB"
+      "format": "100-277 V, 360 W"
     }
   ]
 }

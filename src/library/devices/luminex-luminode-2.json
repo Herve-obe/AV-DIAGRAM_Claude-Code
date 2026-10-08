@@ -3,15 +3,13 @@
   "family": "dmxDistribution",
   "manufacturer": "Luminex",
   "model": "LumiNode 2",
-  "pictogram": "router",
-  "status": "verified",
-  "powerW": 8.5,
-  "weightKg": 0.9,
+  "pictogram": "control",
+  "status": "community",
   "sources": [
     {
-      "url": "https://www.luminex.be/wp-content/uploads/doccenter/User-Manual_LumiNode-2_rev-2.4.1-1.pdf",
-      "document": "Luminex, User Manual LumiNode 2 rev 2.4.1",
-      "accessed": "2026-09-26"
+      "url": "https://www.fullcompass.com/prod/571139-luminex-luminode-2-ethernet-to-2-port-dmx-node",
+      "document": "Full Compass, fiche LumiNode 2 (revendeur)",
+      "accessed": "2026-10-08"
     }
   ],
   "ports": [
@@ -20,32 +18,29 @@
       "name": "DMX 1",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR5 femelle blindée, DMX/RDM, sens configurable (entrée ou sortie), isolation optique et galvanique"
+      "connector": "xlr5"
     },
     {
       "id": "dmx2",
       "name": "DMX 2",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR5 femelle blindée, DMX/RDM, sens configurable (entrée ou sortie), isolation optique et galvanique"
+      "connector": "xlr5"
     },
     {
       "id": "eth1",
-      "name": "ETH1",
+      "name": "Ethernet 1",
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit ; Art-Net, sACN, KiNET"
+      "format": "PoE"
     },
     {
       "id": "eth2",
-      "name": "ETH2",
+      "name": "Ethernet 2",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon",
-      "format": "Gigabit ; seul port acceptant l'alimentation PoE 802.3af (classe 0)"
+      "connector": "ethercon"
     }
   ]
 }

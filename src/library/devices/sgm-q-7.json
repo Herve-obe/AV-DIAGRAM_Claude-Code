@@ -1,15 +1,15 @@
 {
-  "id": "elation-kl-fresnel-6-cw",
+  "id": "sgm-q-7",
   "family": "luminaire",
-  "manufacturer": "Elation",
-  "model": "KL Fresnel 6 CW",
+  "manufacturer": "SGM",
+  "model": "Q-7",
   "pictogram": "light",
   "status": "verified",
-  "weightKg": 8.4,
+  "weightKg": 8.1,
   "sources": [
     {
-      "url": "https://goknight.com/content/documentation/KL Fresnel 6 CW Spec Sheet.pdf",
-      "document": "Elation, fiche KL Fresnel 6 CW (via Goknight)",
+      "url": "https://sgmlight.com/products/q·7",
+      "document": "SGM, page Q-7",
       "accessed": "2026-10-08"
     }
   ],
@@ -20,7 +20,7 @@
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "format": "Neutrik HD IP65 sur queue de câble"
     },
     {
       "id": "dmxOut",
@@ -28,7 +28,7 @@
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "format": "Neutrik HD IP65 sur queue de câble"
     },
     {
       "id": "acIn",
@@ -36,14 +36,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Câble verrouillable IP65 entrée / recopie"
-    },
-    {
-      "id": "acOut",
-      "name": "Recopie secteur",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified"
+      "format": "Câble 0,5 m extrémités nues"
     }
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "id": "elation-artiste-picasso",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "Artiste Picasso",
+  "pictogram": "light",
+  "status": "community",
+  "weightKg": 38.1,
+  "sources": [
+    {
+      "url": "https://fullcompass.com/prod/564065-elation-artiste-picasso-fc-620w-led-cmy-moving-head-fixture-with-zoom-framing-shutters-case",
+      "document": "Full Compass, fiche Artiste Picasso (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ethIn",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "ethOut",
+      "name": "Ethernet Thru",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 {
-  "id": "elation-dtw-blinder-700-ip",
-  "family": "luminaire",
-  "manufacturer": "Elation",
-  "model": "DTW Blinder 700 IP",
-  "pictogram": "light",
+  "id": "rve-stager-6x2-3",
+  "family": "dmxDistribution",
+  "manufacturer": "RVE",
+  "model": "Stager 6x2,3",
+  "pictogram": "control",
   "status": "community",
   "sources": [
     {
@@ -28,11 +28,19 @@
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Arrivée",
       "direction": "in",
       "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "P17 32 A tri"
+    },
+    {
+      "id": "acOut",
+      "name": "Départs gradués",
+      "direction": "out",
+      "signal": "power",
       "connector": "unspecified",
-      "format": "Blinder LED IP65, 4 × 175 W COB"
+      "format": "PC16A"
     }
   ]
 }

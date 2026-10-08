@@ -1,0 +1,53 @@
+{
+  "id": "wireless-solution-blackbox-f-2-g5",
+  "family": "dmxDistribution",
+  "manufacturer": "Wireless Solution",
+  "model": "BlackBox F-2 G5",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.procom-me.com/wp-content/uploads/2018/12/BLACKBOX-F-2-G5.pdf",
+      "document": "Wireless Solution, fiche BlackBox G5 (via Procom)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "rf",
+      "name": "W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "90-250 V ; 12 V Phoenix en secours"
+    }
+  ]
+}
