@@ -1,0 +1,68 @@
+{
+  "id": "pioneerdj-cdj-2000nxs2",
+  "family": "recording",
+  "manufacturer": "Pioneer DJ",
+  "model": "CDJ-2000NXS2",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 5.7,
+  "sources": [
+    {
+      "url": "https://downloads.support.alphatheta.com/manuals/dj-players/CDJ-2000NXS2/CDJ-2000NXS2_DRH1322B_quickstart-manual.pdf",
+      "document": "Pioneer DJ, guide de démarrage CDJ-2000NXS2 (DRH1322B)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "outL",
+      "name": "Audio Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA (paire L/R)"
+    },
+    {
+      "id": "dig",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "usbA",
+      "name": "USB (clé, disque)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Support de musique"
+    },
+    {
+      "id": "usbB",
+      "name": "USB (ordinateur)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Contrôleur / interface audio pour logiciel DJ"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PRO DJ LINK, 100BASE-TX"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}
