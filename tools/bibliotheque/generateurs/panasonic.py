@@ -86,4 +86,25 @@ sheet('panasonic-av-hs410', 'videoSwitcher', 'Panasonic', 'AV-HS410', 'switcher'
       [src('https://na.panasonic.com/ns/22629_AV-HS410_Brochure_PDF.pdf', 'Panasonic, brochure AV-HS410 Live Switcher'),
        src('http://business.panasonic.com/AV-HS410.html', 'Panasonic, page produit AV-HS410 (88 W, 6,2 kg)')], h, powerW=88, weightKg=6.2)
 
+# Écrans TH-EQ2W (référence catalogue « TH-43/55/65/75/86EQ2W »)
+EQ = 'https://eu.connect.panasonic.com/sites/default/files/media/document/2024-04/{}eq2w_spec_en_0.pdf'
+def eq2(size, w, kg):
+    p = [*[P(f'hdmi{i}', f'HDMI In {i}', 'in', 'video', 'hdmi', format='HDMI type A, HDCP 2.2') for i in (1, 2, 3)],
+         P('pc', 'PC In', 'in', 'video', 'vga', format='Mini D-Sub 15 points'),
+         P('usb-c', 'USB-C', 'bidir', 'video', 'usb-c', format='DisplayPort Alt Mode, Power Delivery jusqu\'à 60 W, USB 2.0'),
+         P('usb3', 'USB-A (USB 3.0)', 'bidir', 'control', 'usb-a', format='5 V / 1 A'),
+         P('usb2', 'USB-A (USB 2.0)', 'bidir', 'control', 'usb-a', format='5 V / 2 A'),
+         P('ain', 'Audio In', 'in', 'audioAnalog', 'minijack', format='Mini-jack 3,5 mm, 0,5 V eff.'),
+         P('aout', 'Audio Out', 'out', 'audioAnalog', 'minijack', format='Mini-jack 3,5 mm, niveau variable'),
+         P('rs232', 'Serial In', 'in', 'control', 'dsub9', format='RS-232C'),
+         P('ir-in', 'IR In', 'in', 'control', 'minijack', format='Mini-jack 3,5 mm'),
+         P('ir-out', 'IR Out', 'out', 'control', 'minijack', format='Mini-jack 3,5 mm'),
+         P('lan', 'LAN', 'bidir', 'network', 'rj45', format='10BASE-T / 100BASE-TX, PJLink'),
+         P('slot', 'Function slot', 'bidir', 'video', 'unspecified', format='Emplacement Intel SDM'),
+         P('ac', 'Secteur', 'in', 'power', 'unspecified', format='110-240 V, cordon 2 m fourni')]
+    sheet(f'panasonic-th-{size}eq2w', 'display', 'Panasonic', f'TH-{size}EQ2W ({size}")', 'display',
+          [src(EQ.format(size), f'Panasonic, spec sheet TH-{size}EQ2W')], p, powerW=w, weightKg=kg)
+for size, w, kg in ((43, 225, 11.7), (55, 280, 18), (65, 340, 29.7), (75, 385, 37.3), (86, 580, 50.7)):
+    eq2(size, w, kg)
+
 print(len(written), 'fiches :', ', '.join(written))

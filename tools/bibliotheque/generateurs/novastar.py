@@ -60,4 +60,15 @@ ctl('novastar-vx1000', 'VX1000', S('2024/07/VX1000-All-in-One-Controller-Specifi
     P('sensor', 'Capteur de lumière', 'in', 'control', 'unspecified', format='Capteur de luminosité ambiante'),
     ac()], powerW=35, weightKg=4)
 
+ctl('novastar-mctrl-r5', 'MCTRL R5', S('2024/11/MCTRL-R5-LED-Display-Controller-Specifications-V1.0.5.pdf', 'MCTRL R5 Specifications V1.0.5'), [
+    P('sdi-in', '6G-SDI In', 'in', 'video', 'bnc', format='6G-SDI'),
+    P('hdmi-in', 'HDMI In', 'in', 'video', 'hdmi', format='HDMI 1.4'),
+    P('dvi-in', 'DVI In', 'in', 'video', 'dvi', format='Dual-link DVI'),
+    *eth(8),
+    *[P(f'opt{i}', f'OPT {i}', 'out', 'videoIp', 'unspecified', format='Port optique 10G') for i in (1, 2)],
+    P('lan', 'Ethernet (contrôle)', 'bidir', 'network', 'rj45', format='Ordinateur de contrôle'),
+    P('usb-in', 'USB In', 'in', 'control', 'unspecified', format='Cascade (jusqu\'à 8 appareils)'),
+    P('usb-out', 'USB Out', 'out', 'control', 'unspecified', format='Cascade'),
+    ac()], powerW=25, weightKg=4.3)
+
 print(len(written), 'fiches :', ', '.join(written))
