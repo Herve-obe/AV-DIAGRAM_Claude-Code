@@ -11,6 +11,8 @@ export type RuleCode =
   | 'signal-mismatch'
   | 'level-mic-to-line'
   | 'level-line-to-mic'
+  | 'level-phono-to-line'
+  | 'level-line-to-phono'
   | 'level-speaker-to-line'
   | 'level-line-to-speaker'
   | 'adapter-needed'
@@ -47,6 +49,9 @@ function levelIssue(src?: Level, dst?: Level): RuleCode | null {
   if (src !== 'speaker' && dst === 'speaker') return 'level-line-to-speaker'
   if (src === 'mic' && isLine(dst)) return 'level-mic-to-line'
   if (isLine(src) && dst === 'mic') return 'level-line-to-mic'
+  // Phono : signal de cellule non corrigé RIAA (quelques mV)
+  if (src === 'phono' && dst !== 'phono') return 'level-phono-to-line'
+  if (src !== 'phono' && dst === 'phono') return 'level-line-to-phono'
   return null
 }
 
@@ -57,6 +62,8 @@ const SEVERITY: Record<RuleCode, Severity> = {
   'level-line-to-speaker': 'warning',
   'level-mic-to-line': 'warning',
   'level-line-to-mic': 'warning',
+  'level-phono-to-line': 'warning',
+  'level-line-to-phono': 'warning',
   'adapter-needed': 'warning',
   'cable-mismatch': 'warning',
   'pair-busy': 'error',

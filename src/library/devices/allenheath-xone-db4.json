@@ -1,0 +1,182 @@
+{
+  "id": "allenheath-xone-db4",
+  "family": "console",
+  "manufacturer": "Allen & Heath",
+  "model": "Xone:DB4",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://r2.gear4music.com/media/29/292503/download_292503.pdf",
+      "document": "Allen & Heath, fonctions des commandes Xone:DB4 (via Gear4music)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://en.audiofanzine.com/4-channel/allen-heath/xone-db4/",
+      "document": "Audiofanzine, fiche Xone:DB4",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Analogue In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA ; phono / ligne commutable selon voie"
+    },
+    {
+      "id": "in2",
+      "name": "Analogue In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA ; phono / ligne commutable selon voie"
+    },
+    {
+      "id": "in3",
+      "name": "Analogue In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA ; phono / ligne commutable selon voie"
+    },
+    {
+      "id": "in4",
+      "name": "Analogue In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA ; phono / ligne commutable selon voie"
+    },
+    {
+      "id": "digIn1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "digIn2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "digIn3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "digIn4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "mic",
+      "name": "Mic / Line",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic"
+    },
+    {
+      "id": "mainL",
+      "name": "Main Mix Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mainR",
+      "name": "Main Mix Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "booth",
+      "name": "Booth Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack 6,35 TRS symétrique"
+    },
+    {
+      "id": "rec",
+      "name": "Record Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "recDig",
+      "name": "Record Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 et mini-jack 3,5"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "USB 2.0, carte son 24 bits 96 kHz"
+    },
+    {
+      "id": "xlink",
+      "name": "X:LINK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Contrôleurs Allen & Heath Xone:K"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import { SIGNAL_FAMILIES } from './signals'
 import { LIBRARY_DOMAINS, type EquipmentTemplate } from './types'
 
 const CONNECTOR_IDS = new Set(CONNECTORS.map((c) => c.id))
-const LEVELS = new Set(['mic', 'instrument', 'line+4', 'line-10', 'speaker', 'none'])
+const LEVELS = new Set(['mic', 'instrument', 'phono', 'line+4', 'line-10', 'speaker', 'none'])
 const DIRECTIONS = new Set(['in', 'out', 'bidir'])
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/
 

@@ -2,7 +2,7 @@
 import type { SignalFamily } from './signals'
 
 /** Niveau nominal d'un port audio, utilisé par les règles de compatibilité. */
-export type Level = 'mic' | 'instrument' | 'line+4' | 'line-10' | 'speaker' | 'none'
+export type Level = 'mic' | 'instrument' | 'phono' | 'line+4' | 'line-10' | 'speaker' | 'none'
 
 export type PortDirection = 'in' | 'out' | 'bidir'
 

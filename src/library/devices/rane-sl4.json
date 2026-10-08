@@ -1,0 +1,146 @@
+{
+  "id": "rane-sl4",
+  "family": "processing",
+  "manufacturer": "Rane",
+  "model": "SL 4",
+  "pictogram": "processor",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/184339-rane-sl-4-sl4",
+      "document": "Full Compass, fiche SL 4 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.markertek.com/product/rne-sl4/rane-sl4-4-deck-interface-for-serato-scratch-live",
+      "document": "Markertek, fiche SL 4 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Phono / ligne commutable"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Phono / ligne commutable"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Phono / ligne commutable"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Phono / ligne commutable"
+    },
+    {
+      "id": "thru1",
+      "name": "Thru 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Recopie analogique commutée par logiciel"
+    },
+    {
+      "id": "thru2",
+      "name": "Thru 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Recopie analogique commutée par logiciel"
+    },
+    {
+      "id": "thru3",
+      "name": "Thru 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Recopie analogique commutée par logiciel"
+    },
+    {
+      "id": "thru4",
+      "name": "Thru 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Recopie analogique commutée par logiciel"
+    },
+    {
+      "id": "auxIn",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "auxOut",
+      "name": "Aux Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 10,
+      "format": "USB 2.0, 10 entrées / 10 sorties, 24 bits"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 10,
+      "format": "Second ordinateur (enchaînement de DJ)"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe 7,5 V (ou alimentation USB)"
+    }
+  ]
+}

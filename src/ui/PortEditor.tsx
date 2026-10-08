@@ -8,7 +8,7 @@ import { useProject } from '../store/projectStore'
 import { Field } from './Field'
 import { Icon } from './Icon'
 
-const LEVELS: Level[] = ['mic', 'instrument', 'line+4', 'line-10', 'speaker', 'none']
+const LEVELS: Level[] = ['mic', 'instrument', 'phono', 'line+4', 'line-10', 'speaker', 'none']
 const DIRECTIONS: PortDirection[] = ['in', 'out', 'bidir']
 const AUDIO_ANALOG = 'audioAnalog'
 

@@ -85,6 +85,17 @@ describe('règles de compatibilité', () => {
     const codes = checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)
     expect(codes).toContain('level-mic-to-line')
   })
+  it('sortie phono vers entrée ligne, ligne vers entrée phono : avertissements', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-processor')
+    const q = structuredClone(p)
+    q.equipment[a].ports[0].level = 'phono'
+    const r = ops.connect(q, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('level-phono-to-line')
+    q.equipment[a].ports[0].level = 'line+4'
+    q.equipment[b].ports[0].level = 'phono'
+    const s = ops.connect(q, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(s.project, s.project.links[s.id!]).map((i) => i.code)).toContain('level-line-to-phono')
+  })
   it('SDI vers entrée XLR : erreur de signal', () => {
     const { p, a, b } = twoBoxes('gen-camera', 'gen-console')
     const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })

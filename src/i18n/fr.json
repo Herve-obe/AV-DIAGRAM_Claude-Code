@@ -100,6 +100,7 @@
   "level": {
     "mic": "Micro",
     "instrument": "Instrument",
+    "phono": "Phono",
     "line+4": "Ligne +4 dBu",
     "line-10": "Ligne -10 dBV",
     "speaker": "HP",
@@ -190,6 +191,14 @@
     "level-line-to-mic": {
       "msg": "Niveau ligne vers une entrée micro : risque de saturation.",
       "fix": "Utilise une entrée ligne ou un atténuateur (pad)."
+    },
+    "level-phono-to-line": {
+      "msg": "Sortie phono (cellule, sans correction RIAA) vers une entrée non phono.",
+      "fix": "Utilise une entrée phono ou un préampli phono."
+    },
+    "level-line-to-phono": {
+      "msg": "Signal non phono vers une entrée phono : saturation et correction RIAA inadaptée.",
+      "fix": "Utilise une entrée ligne ou commute l'entrée en ligne."
     },
     "level-speaker-to-line": {
       "msg": "Sortie HP amplifiée vers une entrée à bas niveau : risque de destruction.",
