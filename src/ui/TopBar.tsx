@@ -5,6 +5,7 @@ import { useReactFlow } from '@xyflow/react'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { startMerge } from './MergeDialog'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
+import { useCollab } from '../collab/session'
 import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
@@ -20,8 +21,12 @@ export function csvHeaders(t: (k: string) => string) {
 export function TopBar() {
   const { t } = useTranslation()
   const project = useProject((s) => s.project)
-  const canUndo = useProject((s) => s.past.length > 0)
-  const canRedo = useProject((s) => s.future.length > 0)
+  const collabUndo = useCollab((s) => s.canUndo)
+  const collabRedo = useCollab((s) => s.canRedo)
+  const collabStatus = useCollab((s) => s.status)
+  const collabCount = useCollab((s) => s.participants.length)
+  const canUndo = useProject((s) => s.past.length > 0) || collabUndo
+  const canRedo = useProject((s) => s.future.length > 0) || collabRedo
   const { undo, redo, rename, load } = useProject.getState()
   const { mode, theme, lang, setPref, setPaletteOpen } = useUi()
   const [exportOpen, setExportOpen] = useState(false)
@@ -84,6 +89,15 @@ export function TopBar() {
             </div>
           )}
         </div>
+        <button
+          className={`icon-btn collab-btn collab-${collabStatus}`}
+          onClick={() => useCollab.getState().setDialogOpen(true)}
+          title={t(`collab.status.${collabStatus}`)}
+          aria-label={t('collab.title')}
+        >
+          <Icon name="users" />
+          {collabStatus !== 'off' && <span className="collab-count">{collabCount}</span>}
+        </button>
         <button className="icon-btn" onClick={() => useUi.getState().setPresenting(true)} title={`${t('presentation.enter')} (F5)`} aria-label={t('presentation.enter')}><Icon name="present" /></button>
         <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
         <span className="sep" />

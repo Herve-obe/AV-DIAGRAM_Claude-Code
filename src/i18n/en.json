@@ -620,5 +620,42 @@
     "ports": "Ports",
     "empty": "No {{layer}} equipment on this sheet.",
     "showAll": "Show all layers"
+  },
+  "collab": {
+    "title": "Work together",
+    "hint": "Several computers work on the same project at the same time over the local network (venue network, office, VPN). No data leaves the network, no account.",
+    "name": "Your name (seen by others)",
+    "namePlaceholder": "e.g. FOH audio",
+    "host": "Host",
+    "join": "Join",
+    "hostDesktopOnly": "Hosting a session requires the desktop app. From the browser you can join a session.",
+    "hostHint": "This computer opens the session with the current project. Then share the address and code with the other participants.",
+    "port": "Port",
+    "start": "Open session",
+    "joinHint": "Address and code shown on the computer hosting the session.",
+    "address": "Host address",
+    "code": "Session code",
+    "joinWarning": "The session project replaces the project open on this computer: save it first if needed.",
+    "joinAction": "Join",
+    "addresses": "Addresses of this computer",
+    "firewall": "If nobody can connect, allow port {{port}} (TCP) in this computer's firewall.",
+    "joined": "Connected to {{address}}.",
+    "participants": "Participants",
+    "you": "you",
+    "kick": "Remove",
+    "undoHint": "Undo (Ctrl+Z) only reverts your own changes.",
+    "stop": "End session",
+    "leave": "Leave session",
+    "status": {
+      "off": "Work together: no session",
+      "connecting": "Connecting…",
+      "connected": "Session active",
+      "reconnecting": "Connection lost, reconnecting… (you can keep working)"
+    },
+    "error": {
+      "code": "Code refused (or too many attempts: wait a minute).",
+      "timeout": "No answer from the host: check the address, port and firewall.",
+      "start": "Could not open the session: {{detail}}"
+    }
   }
 }

@@ -18,6 +18,8 @@ export type EquipmentNodeData = {
   /** Nombre de rappels inter-calques en attente (ports d'un autre domaine non reliés) */
   hints: number
   hintTitle?: string
+  /** Participants de la session qui ont sélectionné ce bloc (nom, couleur) */
+  presence?: { name: string; color: string }[]
 }
 export type EquipmentFlowNode = Node<EquipmentNodeData, 'equipment'>
 
@@ -75,11 +77,22 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
       {data.hints > 0 && <span className="eq-hint" title={data.hintTitle}>{data.hints}</span>}
     </header>
   )
+  // Présence : contour aux couleurs des participants qui manipulent ce bloc
+  const presence = data.presence ?? []
+  const presenceStyle = presence.length
+    ? { boxShadow: presence.map((p, i) => `0 0 0 ${2 + i * 2}px ${p.color}`).join(', ') }
+    : undefined
+  const presenceTag = presence.length > 0 && (
+    <span className="eq-presence" style={{ background: presence[0].color }} title={presence.map((p) => p.name).join(', ')}>
+      {presence.map((p) => p.name).join(', ')}
+    </span>
+  )
   if (rotation === 90 || rotation === 270) {
     // Ports en rangées au-dessus et au-dessous de l'en-tête
     const [top, bottom] = rotation === 90 ? [ins, outs] : [outs, ins]
     return (
-      <div className={`eq-node eq-vertical ${selected ? 'is-selected' : ''}`}>
+      <div className={`eq-node eq-vertical ${selected ? 'is-selected' : ''}`} style={presenceStyle}>
+        {presenceTag}
         {top.length > 0 && <div className="eq-row eq-row-top">{top}</div>}
         {head}
         {bottom.length > 0 && <div className="eq-row eq-row-bottom">{bottom}</div>}
@@ -88,7 +101,8 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
   }
   const [left, right] = rotation === 0 ? [ins, outs] : [outs, ins]
   return (
-    <div className={`eq-node ${selected ? 'is-selected' : ''}`}>
+    <div className={`eq-node ${selected ? 'is-selected' : ''}`} style={presenceStyle}>
+      {presenceTag}
       {head}
       {(left.length > 0 || right.length > 0) && (
         <div className="eq-ports">

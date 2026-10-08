@@ -2,6 +2,7 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useCollab } from '../collab/session'
 import {
   Background,
   BackgroundVariant,
@@ -80,6 +81,16 @@ export function Canvas() {
   const { t } = useTranslation()
   const issues = useMemo(() => checkProject(project), [project])
   // Rappels inter-calques en attente, par équipement (ports d'un autre domaine non reliés)
+  // Session de collaboration : blocs sélectionnés par les autres participants
+  const participants = useCollab((s) => s.participants)
+  const presenceByEq = useMemo(() => {
+    const m = new Map<string, { name: string; color: string }[]>()
+    for (const p of participants) {
+      if (p.self) continue
+      for (const id of p.selection) m.set(id, [...(m.get(id) ?? []), { name: p.name, color: p.color }])
+    }
+    return m
+  }, [participants])
   const hintsByEq = useMemo(() => {
     const m = new Map<string, string[]>()
     for (const h of crossLayerHints(project)) {
@@ -150,6 +161,7 @@ export function Canvas() {
             layer,
             hints: hintsByEq.get(eq.id)?.length ?? 0,
             hintTitle: hintsByEq.get(eq.id)?.join('\n'),
+            presence: presenceByEq.get(eq.id),
           },
           // Calque actif : seuls les équipements de ce domaine (ou qui en ont des ports) restent visibles
           hidden: !equipmentInView(eq, layer),
@@ -164,7 +176,7 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq])
+  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq])
 
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)

@@ -8,6 +8,23 @@ import { buildSampleProject } from '../library/sample'
 
 const HISTORY_LIMIT = 200
 
+/**
+ * Historique de remplacement pendant une session de collaboration : l'annulation ne doit défaire que
+ * ses propres modifications, pas celles des autres participants (voir collab/session.ts).
+ */
+export interface HistoryDriver {
+  undo: () => void
+  redo: () => void
+  /** Début d'un geste (déplacement) : nouveau pas d'annulation */
+  gesture: () => void
+}
+let driver: HistoryDriver | null = null
+export function setHistoryDriver(d: HistoryDriver | null) {
+  driver = d
+  // Les instantanés locaux mêlent les modifications de chacun : on les oublie à l'entrée et à la sortie
+  useProject.setState({ past: [], future: [] })
+}
+
 interface ProjectState {
   project: Project
   past: Project[]
@@ -70,6 +87,7 @@ export const useProject = create<ProjectState>((set, get) => {
   const commit = (next: Project) => {
     const { project, past } = get()
     if (next === project) return
+    if (driver) return set({ project: next, saved: false })
     set({ project: next, past: [...past, project].slice(-HISTORY_LIMIT), future: [], saved: false })
   }
 
@@ -84,18 +102,21 @@ export const useProject = create<ProjectState>((set, get) => {
     replaceProject: (p) => commit(ops.normalizeProject(p)),
 
     undo: () => {
+      if (driver) return driver.undo()
       const { past, project, future } = get()
       const prev = past.at(-1)
       if (!prev) return
       set({ project: prev, past: past.slice(0, -1), future: [project, ...future], saved: false })
     },
     redo: () => {
+      if (driver) return driver.redo()
       const { past, project, future } = get()
       const next = future[0]
       if (!next) return
       set({ project: next, past: [...past, project], future: future.slice(1), saved: false })
     },
     beginGesture: () => {
+      if (driver) return driver.gesture()
       const { project, past } = get()
       set({ past: [...past, project].slice(-HISTORY_LIMIT), future: [] })
     },

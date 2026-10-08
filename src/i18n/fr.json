@@ -620,5 +620,42 @@
     "ports": "Ports",
     "empty": "Aucun équipement du domaine {{layer}} sur cette feuille.",
     "showAll": "Afficher tous les calques"
+  },
+  "collab": {
+    "title": "Travail à plusieurs",
+    "hint": "Plusieurs postes travaillent en même temps sur le même projet, sur le réseau local (réseau de la presta, bureau, VPN). Aucune donnée ne sort du réseau, pas de compte.",
+    "name": "Ton nom (vu par les autres)",
+    "namePlaceholder": "ex. Régie son",
+    "host": "Héberger",
+    "join": "Rejoindre",
+    "hostDesktopOnly": "Héberger une session demande l'application de bureau. Depuis le navigateur, tu peux rejoindre une session.",
+    "hostHint": "Ce poste ouvre la session avec le projet ouvert. Communique ensuite l'adresse et le code aux autres participants.",
+    "port": "Port",
+    "start": "Ouvrir la session",
+    "joinHint": "Adresse et code affichés sur le poste qui héberge la session.",
+    "address": "Adresse de l'hôte",
+    "code": "Code de session",
+    "joinWarning": "Le projet de la session remplace le projet ouvert sur ce poste : enregistre-le avant si besoin.",
+    "joinAction": "Rejoindre",
+    "addresses": "Adresses de ce poste",
+    "firewall": "Si personne n'arrive à se connecter, autorise le port {{port}} (TCP) dans le pare-feu de ce poste.",
+    "joined": "Connecté à {{address}}.",
+    "participants": "Participants",
+    "you": "toi",
+    "kick": "Exclure",
+    "undoHint": "Annuler (Ctrl+Z) ne défait que tes propres modifications.",
+    "stop": "Terminer la session",
+    "leave": "Quitter la session",
+    "status": {
+      "off": "Travail à plusieurs : pas de session",
+      "connecting": "Connexion en cours…",
+      "connected": "Session active",
+      "reconnecting": "Connexion perdue, reconnexion… (tu peux continuer à travailler)"
+    },
+    "error": {
+      "code": "Code refusé (ou trop d'essais : attends une minute).",
+      "timeout": "Pas de réponse de l'hôte : vérifie l'adresse, le port et le pare-feu.",
+      "start": "Impossible d'ouvrir la session : {{detail}}"
+    }
   }
 }

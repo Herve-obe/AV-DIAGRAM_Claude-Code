@@ -57,6 +57,11 @@
 - Allen & Heath SQ-5 (Vérifié), Xone:92 (Communauté, d'après le manuel Mk2).
 - Outils : l'empreinte de l'autorité du proxy est recalculée à chaque lancement (`tools/bibliotheque/proxyca.mjs`).
 
+**Travail à plusieurs sur le réseau local** (2026-10-08) : session hébergée par l'application de bureau, rejointe
+par adresse et code à 6 chiffres ; document partagé Yjs (fusion champ par champ), annulation propre à chacun,
+présence (nom, couleur, calque, contour des blocs sélectionnés), reconnexion automatique. Mode d'essai et limites :
+`collaboration.md`. Reste : découverte automatique (mDNS), essais à 3 postes sur un réseau réel.
+
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
 
@@ -90,9 +95,10 @@
      Swisson XSR (nombre de ports par modèle seulement sur les schémas) ; Martin (403).
    - Distribution : armoires des prestataires, statut Communauté (source : catalogues).
    - Sites refusant l'accès automatique (erreur 403) : Martin, Sony Pro, Panasonic → déposer leurs manuels sur le Drive.
-2. **Lot 3** : vues liées (baie / rack, plan, réseau, intercom, synchro, électrique).
-3. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.
-4. Points de bibliothèque à confirmer : section « Points en suspens » de `bibliotheque-a-documenter.md`.
+2. **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
+3. **Lot 3** : vues liées (baie / rack, plan, réseau, intercom, synchro, électrique).
+4. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.
+5. Points de bibliothèque à confirmer : section « Points en suspens » de `bibliotheque-a-documenter.md`.
 
 ## Pour reprendre
 

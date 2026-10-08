@@ -25,6 +25,12 @@ tauri-plugin-opener = "2"
 # Assistant IA (lot 6) : requêtes vers le seul fournisseur choisi, clé dans le trousseau du système
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
 url = "2"
+# Collaboration sur le réseau local : relais WebSocket ouvert seulement pendant une session
+tokio = { version = "1", features = ["net", "sync", "rt", "macros", "time"] }
+tokio-tungstenite = "0.30"
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+if-addrs = "0.15"
+rand = "0.9"
 
 [target.'cfg(target_os = "macos")'.dependencies]
 keyring = { version = "3", features = ["apple-native"] }

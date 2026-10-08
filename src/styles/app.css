@@ -742,3 +742,32 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
   background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
   color: var(--text-2); font-size: 13px; z-index: 5;
 }
+
+/* Collaboration sur le réseau local */
+.collab-btn { position: relative; }
+.collab-count {
+  position: absolute; right: -2px; bottom: -2px; min-width: 14px; padding: 0 3px;
+  font: 600 10px/14px var(--font-label); border-radius: 99px;
+  background: var(--accent); color: var(--on-accent);
+}
+.collab-btn.collab-reconnecting .collab-count, .collab-btn.collab-connecting .collab-count { background: var(--warn); }
+.collab-dialog { width: min(480px, calc(100vw - 32px)); }
+.collab-tabs { margin: 8px 14px; }
+.collab-tabs button:disabled { opacity: .45; cursor: not-allowed; }
+.collab-action { margin: 6px 14px 10px; }
+.collab-error { display: flex; align-items: center; gap: 6px; margin: 4px 14px 8px; font-size: 12.5px; color: var(--err); }
+.collab-state { margin: 4px 14px; font-size: 13px; font-weight: 600; }
+.collab-state.collab-connected { color: var(--ok); }
+.collab-state.collab-connecting, .collab-state.collab-reconnecting { color: var(--warn); }
+.collab-code { display: flex; align-items: baseline; gap: 10px; margin: 6px 14px; font-size: 12.5px; color: var(--text-2); }
+.collab-code strong { font-size: 26px; letter-spacing: 4px; color: var(--text); }
+.collab-addresses, .collab-people { list-style: none; margin: 0 14px 6px; padding: 0; display: grid; gap: 4px; font-size: 13px; }
+.collab-people li { display: flex; align-items: center; gap: 8px; min-height: 26px; }
+.collab-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.collab-person { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.collab-layer, .collab-ip { font-size: 11.5px; color: var(--text-3); }
+.eq-presence {
+  position: absolute; left: -2px; bottom: 100%; margin-bottom: 3px; max-width: 220px;
+  padding: 1px 6px; border-radius: 4px 4px 4px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font: 600 10.5px/16px var(--font-label); color: #fff; pointer-events: none;
+}
