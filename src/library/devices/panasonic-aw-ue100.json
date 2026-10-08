@@ -1,0 +1,82 @@
+{
+  "id": "panasonic-aw-ue100",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-UE100",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 2.2,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/aw-ue100/spec.html",
+      "document": "Panasonic, AW-UE100 Specifications",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4K"
+    },
+    {
+      "id": "sdi12",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 2082-1 / 424M / 292M"
+    },
+    {
+      "id": "sdi3",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 424M / 292M"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level, 75 ohms"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP et vidéo ; alimentation PoE++"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "CONTROL IN RS-422A (RJ45)"
+    },
+    {
+      "id": "mic",
+      "name": "MIC/LINE In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm (SDI, HDMI, IP)"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC, 3,0 A, adaptateur secteur fourni"
+    }
+  ]
+}

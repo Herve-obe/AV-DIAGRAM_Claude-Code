@@ -1,0 +1,98 @@
+{
+  "id": "panasonic-aw-ue150",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-UE150",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 4.2,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/aw-ue150/spec.html",
+      "document": "Panasonic, AW-UE150 Specifications",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4:2:2 10 bits, sans HDCP"
+    },
+    {
+      "id": "sdi12",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 2082-1"
+    },
+    {
+      "id": "sdi3",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 424M / 292, niveau A ou B"
+    },
+    {
+      "id": "moni",
+      "name": "MONI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI (SMPTE 292), retour"
+    },
+    {
+      "id": "sfp",
+      "name": "Fibre optique",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Cage SFP+ (sortie uniquement)"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux H.264/H.265, NDI HX2, SRT ; alimentation PoE++"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "CONTROL IN RS-422A (RJ45), protocole AW"
+    },
+    {
+      "id": "mic",
+      "name": "MIC/LINE In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm ; micro (alimentation plug-in) ou ligne -10 dBV ; flux IP uniquement"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC (10,8 à 13,2 V), 4,0 A, prise de type XLR (nombre de points non précisé)"
+    }
+  ]
+}
