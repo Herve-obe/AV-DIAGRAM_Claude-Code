@@ -1,0 +1,56 @@
+{
+  "id": "sennheiser-sr-2020-d",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SR 2020-D",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.manualowl.com/m/Sennheiser/SR-2020-D/Manual/718822",
+      "document": "Sennheiser, brochure systèmes de visite 2020-D (archive de manuels)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://duvall.be/product/sennheiser-tourguide-transmitter-sr-2020-d/",
+      "document": "Duvall, fiche SR 2020-D (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR-3F symétrique, micro/ligne, fantôme 48 V commutable",
+      "phantom": "supplied"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 mm (écoute)"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

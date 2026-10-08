@@ -1,0 +1,35 @@
+{
+  "id": "l-acoustics-mtd115b",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "MTD115b",
+  "pictogram": "speaker",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/MTD115/documents.zip",
+      "document": "L-Acoustics, archive de documentation : MTD 108a-115b User manual 1.2",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "speakON 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4"
+    },
+    {
+      "id": "link",
+      "name": "speakON 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle (chaînage)"
+    }
+  ]
+}

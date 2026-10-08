@@ -1,0 +1,36 @@
+{
+  "id": "yamaha-vxs3f",
+  "family": "speaker",
+  "manufacturer": "Yamaha",
+  "model": "VXS3F",
+  "pictogram": "speaker",
+  "status": "community",
+  "powerW": 40,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/590617-yamaha-vxs3f-3-5-low-impedance-surface-mount-speaker-8-ohm",
+      "document": "Full Compass, fiche VXS3F (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Euroblock 4 points (entrée + recopie), 8 Ω"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Recopie (même bornier)"
+    }
+  ]
+}

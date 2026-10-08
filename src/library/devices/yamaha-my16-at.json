@@ -1,0 +1,57 @@
+{
+  "id": "yamaha-my16-at",
+  "family": "processing",
+  "manufacturer": "Yamaha",
+  "model": "MY16-AT",
+  "pictogram": "processor",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://es.yamaha.com/files/download/other_assets/0/1098700/MY16-AT_datasheet.pdf",
+      "document": "Yamaha, fiche technique MY16-AT",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "ADAT In 1-8",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "in2",
+      "name": "ADAT In 9-16",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "out1",
+      "name": "ADAT Out 1-8",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "out2",
+      "name": "ADAT Out 9-16",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8
+    },
+    {
+      "id": "slot",
+      "name": "Slot carte",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Se loge dans un slot Mini-YGDAI de la console"
+    }
+  ]
+}
