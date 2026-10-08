@@ -1,0 +1,129 @@
+{
+  "id": "samsung-qm98f",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "QM98F (98\")",
+  "pictogram": "display",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://images.samsung.com/is/content/samsung/p5/de/display/pdf/Datenblatt_SMART_Signage_LH98QMFPBGCEN.pdf",
+      "document": "Samsung, Datenblatt SMART Signage QM98F (Stand Mai 2018)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I (RGB analogique et numérique)"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dp2",
+      "name": "DisplayPort In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi4",
+      "name": "HDMI 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle et réseau"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+    }
+  ]
+}
