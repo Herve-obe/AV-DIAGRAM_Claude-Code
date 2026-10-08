@@ -62,10 +62,12 @@
   lisibles (ND868, ND308, ND408, RE200 non trouvés).
 - Cisco SG300 : fiche technique refusée (403). Decimator : certificat du site incomplet. Ross : page de
   caractéristiques servie dans une autre langue, manuel introuvable (404).
-- Écrans Samsung : fiches incohérentes (nombre de DisplayPort, poids) ; désignations du catalogue à préciser
-  (génération exacte : DB55D, DB55E…) avant de créer les fiches. Neumann KM 184 / KMS 105 : page sans alimentation ni connecteur.
+- Neumann KM 184 / KMS 105 : page sans alimentation ni connecteur.
+- Sony, Canon, LG (pages produit), Kramer (pages produit) : accès refusé (Akamai) ; les PDF restent souvent accessibles.
+- Midas, Behringer, Klark Teknik : documentation Music Tribe (mediadl.musictribe.com) toujours en erreur 502.
+- Barco : vérification anti-robot. LG 75UM3E : aucune fiche trouvée.
 - beyerdynamic M 88 / M 201 / Opus 87 : caractéristiques non affichées sur le site du constructeur.
-- Martin, Sony Pro, Panasonic : 403 → déposer leurs manuels sur le Drive.
+- Martin, Sony Pro : refus d'accès → déposer leurs manuels sur le Drive (Panasonic accessible depuis le 2026-10-08).
 
 ## Reste à faire
 
