@@ -1,0 +1,33 @@
+{
+  "id": "icom-ic-f22",
+  "family": "wireless",
+  "manufacturer": "Icom",
+  "model": "IC-F22",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://earhugger.com/?p=4543",
+      "document": "Earhugger, connecteur 2 broches Icom",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Antenne",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Radio professionnelle (PMR)"
+    },
+    {
+      "id": "acc",
+      "name": "Accessoires audio",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Prise 2 broches Icom (jack 3,5 + 2,5), à confirmer pour ce modèle"
+    }
+  ]
+}

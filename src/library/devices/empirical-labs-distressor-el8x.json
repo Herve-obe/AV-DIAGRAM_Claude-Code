@@ -1,0 +1,44 @@
+{
+  "id": "empirical-labs-distressor-el8x",
+  "family": "processing",
+  "manufacturer": "Empirical Labs",
+  "model": "Distressor EL8-X",
+  "pictogram": "processor",
+  "status": "community",
+  "weightKg": 3.6,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://wrdtunes.com/products/empirical-labs-el8x-distressor",
+      "document": "WRD Tunes, fiche EL8-X (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR et jack TRS en parallèle"
+    },
+    {
+      "id": "out",
+      "name": "Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR et jack TRS en parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

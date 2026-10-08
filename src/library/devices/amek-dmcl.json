@@ -1,0 +1,125 @@
+{
+  "id": "amek-dmcl",
+  "family": "processing",
+  "manufacturer": "AMEK",
+  "model": "DMCL",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.soundonsound.com/reviews/amek-dmcl",
+      "document": "Sound On Sound, test DMCL",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "Mic In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "line1",
+      "name": "Line In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4"
+    },
+    {
+      "id": "line2",
+      "name": "Line In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4"
+    },
+    {
+      "id": "di1",
+      "name": "DI 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Face avant"
+    },
+    {
+      "id": "di2",
+      "name": "DI 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Face avant"
+    },
+    {
+      "id": "out1",
+      "name": "Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4"
+    },
+    {
+      "id": "out2",
+      "name": "Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "spdif",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "opt",
+      "name": "Optical Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 2
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word clock ou Superclock"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

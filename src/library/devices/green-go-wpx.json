@@ -1,0 +1,42 @@
+{
+  "id": "green-go-wpx",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "WPX (Wall Panel X)",
+  "pictogram": "intercom",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.canford.de/ProductResources/resources/G/Green-GO/WPX-Quick-Start-Guide.pdf",
+      "document": "Green-GO, guide de démarrage WPX (via Canford)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lan",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "Réseau Green-GO, PoE 802.3af"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 points"
+    },
+    {
+      "id": "spk",
+      "name": "Haut-parleur externe",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Jusqu'à 10 W"
+    }
+  ]
+}
