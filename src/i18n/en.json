@@ -15,7 +15,7 @@
     "search": "Search, command",
     "newProjectName": "New project",
     "openError": "This file is not a valid AV Diagram project (.avd).",
-    "exportPdf": "PDF sheet (A3 with title block)"
+    "exportPdf": "PDF sheet (A4 to A0, watermark)..."
   },
   "mode": {
     "beginner": "Beginner",
@@ -732,5 +732,25 @@
     "summary": "{{eq}} equipment, {{links}} links",
     "cancel": "Cancel",
     "apply": "Import"
+  },
+  "exportPdf": {
+    "title": "Export the PDF sheet",
+    "format": "Size",
+    "orientation": "Orientation",
+    "landscape": "Landscape",
+    "portrait": "Portrait",
+    "size": "{{w}} x {{h}} mm, one sheet per page, with legend and title block.",
+    "watermark": "Watermark",
+    "watermarkEnable": "Add a watermark across the diagram (PDF, PNG and SVG)",
+    "watermarkText": "Watermark text",
+    "watermarkFields": "Replaced fields: {client}, {project}, {date}, {revision}.",
+    "opacity": "Opacity: {{value}} %",
+    "preview": "Watermark preview",
+    "emptyMark": "(empty text)",
+    "watermarkHint": "The watermark is burnt into the diagram image (it cannot be erased without repainting the image) and repeated large across the whole sheet, title block included.",
+    "protection": "Protection",
+    "protect": "Forbid editing and copying the PDF (printing allowed)",
+    "protectHint": "Honoured by common PDF readers (Acrobat, Preview, browsers). It is a deterrent, not a lock: a specialised tool can lift these rights. The burnt-in watermark stays.",
+    "export": "Export"
   }
 }

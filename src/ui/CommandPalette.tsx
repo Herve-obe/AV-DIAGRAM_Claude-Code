@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
-import { exportPdfWithLabels } from '../io/exportPdfUi'
+import { useExportPdf } from './ExportPdfDialog'
 import { groupSelected, ungroupSelected } from './groupActions'
 import { useAi } from '../store/aiStore'
 import { startMerge } from './MergeDialog'
@@ -46,7 +46,7 @@ export function CommandPalette() {
       { id: 'assistant-setup', label: t('ai.setup.title'), run: () => useAi.getState().setSetupOpen(true) },
       { id: 'settings', label: t('palette.settings'), run: () => ui.setSettingsOpen(true) },
       { id: 'present', label: t('presentation.enter'), hint: 'F5', run: () => ui.setPresenting(true) },
-      { id: 'pdf', label: t('palette.exportPdf'), run: () => exportPdfWithLabels(rf, t) },
+      { id: 'pdf', label: t('palette.exportPdf'), run: () => useExportPdf.getState().setOpen(true) },
       { id: 'group', label: t('groups.group'), hint: 'Ctrl G', run: () => groupSelected() },
       { id: 'ungroup', label: t('groups.ungroup'), hint: 'Ctrl Maj G', run: () => ungroupSelected() },
       { id: 'renumber', label: t('palette.renumber'), run: () => useProject.getState().renumber() },

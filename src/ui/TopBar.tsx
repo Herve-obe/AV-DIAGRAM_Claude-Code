@@ -1,10 +1,9 @@
 // Barre supérieure : identité, projet, fichier, annulation, recherche, mode, thème, langue.
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useReactFlow } from '@xyflow/react'
-import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { startMerge } from './MergeDialog'
 import { startPdfImport } from './PdfImportDialog'
+import { useExportPdf } from './ExportPdfDialog'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
 import { useCollab } from '../collab/session'
 import { useAi } from '../store/aiStore'
@@ -35,7 +34,6 @@ export function TopBar() {
   const [exportOpen, setExportOpen] = useState(false)
   const [name, setName] = useState(project.name)
   const exportRef = useRef<HTMLDivElement>(null)
-  const rf = useReactFlow()
   const aiOpen = useAi((s) => s.panelOpen)
 
   useEffect(() => setName(project.name), [project.name])
@@ -86,7 +84,7 @@ export function TopBar() {
           <button className="icon-btn" onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} title={t('menu.export')} aria-label={t('menu.export')}><Icon name="download" /></button>
           {exportOpen && (
             <div className="menu-pop" role="menu">
-              <button role="menuitem" onClick={() => { setExportOpen(false); exportPdfWithLabels(rf, t) }}>{t('menu.exportPdf')}</button>
+              <button role="menuitem" onClick={() => { setExportOpen(false); useExportPdf.getState().setOpen(true) }}>{t('menu.exportPdf')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCanvasImage(project, 'png') }}>{t('menu.exportPng')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCanvasImage(project, 'svg') }}>{t('menu.exportSvg')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCableCsv(project, csvHeaders(t)) }}>{t('menu.exportCsv')}</button>

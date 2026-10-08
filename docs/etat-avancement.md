@@ -68,6 +68,11 @@ session »). Mode d'essai et limites :
 traits -> liaisons, textes au bord -> ports, repères et longueurs lus, fiches de la bibliothèque proposées, déductions
 signalées, vérification avant import sur une nouvelle feuille. Détail et limites : `import-pdf.md`.
 
+**Export PDF** (2026-10-08) : format A4 à A0, paysage ou portrait (le schéma prend la forme de la zone de la planche,
+légende placée au-dessus du cartouche si la largeur manque), filigrane en diagonale ({client}, {project}, {date},
+{revision}) incrusté dans l'image du schéma et répété sur la planche, aussi appliqué aux exports PNG et SVG ; protection
+optionnelle (impression permise, modification et copie interdites). Réglages gardés dans le projet.
+
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
 

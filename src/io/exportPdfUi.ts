@@ -6,7 +6,11 @@ import { SIGNAL_FAMILIES } from '../model/signals'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { notifyError } from './files'
+import { exportSettingsOf, sheetLayout } from './exportOptions'
 import { captureCanvasLight, exportPdf, type SheetShot } from './pdf'
+
+/** Largeur de capture (px) : le canevas prend la forme de la zone du schéma sur la planche */
+const CAPTURE_W = 1600
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
@@ -23,6 +27,19 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction) {
   const nonEmpty = all.filter((s) => used.has(s.id) || (!project.sheets?.length && s.id === initial))
   const sheets = nonEmpty.length ? nonEmpty : all.slice(0, 1)
   const shots: SheetShot[] = []
+  // Le canevas prend les proportions de la zone du schéma (une planche portrait n'a pas la forme de l'écran)
+  const opts = exportSettingsOf(project)
+  const { area } = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length)
+  const el = document.querySelector<HTMLElement>('.react-flow')
+  const savedStyle = el?.getAttribute('style') ?? null
+  if (el) {
+    el.style.position = 'fixed'
+    el.style.left = '0'
+    el.style.top = '0'
+    el.style.width = `${CAPTURE_W}px`
+    el.style.height = `${Math.round((CAPTURE_W * area.h) / area.w)}px`
+    el.style.zIndex = '-1'
+  }
   try {
     for (const sheet of sheets) {
       useUi.getState().setSheet(sheet.id)
@@ -47,6 +64,12 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction) {
   } catch {
     notifyError(t('pdf.error'))
   } finally {
+    if (el) {
+      if (savedStyle === null) el.removeAttribute('style')
+      else el.setAttribute('style', savedStyle)
+    }
     useUi.getState().setSheet(initial)
+    await wait(100)
+    await Promise.race([rf.fitView({ padding: 0.08 }), wait(600)])
   }
 }

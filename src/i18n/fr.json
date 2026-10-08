@@ -15,7 +15,7 @@
     "search": "Rechercher, commande",
     "newProjectName": "Nouveau projet",
     "openError": "Ce fichier n'est pas un projet AV Diagram valide (.avd).",
-    "exportPdf": "Planche PDF (A3 avec cartouche)"
+    "exportPdf": "Planche PDF (A4 à A0, filigrane)..."
   },
   "mode": {
     "beginner": "Débutant",
@@ -732,5 +732,25 @@
     "summary": "{{eq}} équipements, {{links}} liaisons",
     "cancel": "Annuler",
     "apply": "Importer"
+  },
+  "exportPdf": {
+    "title": "Exporter la planche PDF",
+    "format": "Format",
+    "orientation": "Orientation",
+    "landscape": "Paysage",
+    "portrait": "Portrait",
+    "size": "{{w}} x {{h}} mm, une planche par feuille, avec légende et cartouche.",
+    "watermark": "Filigrane",
+    "watermarkEnable": "Ajouter un filigrane en travers du synoptique (PDF, PNG et SVG)",
+    "watermarkText": "Texte du filigrane",
+    "watermarkFields": "Champs remplacés : {client}, {project}, {date}, {revision}.",
+    "opacity": "Opacité : {{value}} %",
+    "preview": "Aperçu du filigrane",
+    "emptyMark": "(texte vide)",
+    "watermarkHint": "Le filigrane est incrusté dans l'image du schéma (impossible à effacer sans repeindre l'image) et répété en grand sur toute la planche, cartouche compris.",
+    "protection": "Protection",
+    "protect": "Interdire la modification et la copie du PDF (impression permise)",
+    "protectHint": "Respecté par les lecteurs PDF courants (Acrobat, Aperçu, navigateurs). C'est une dissuasion, pas un verrou : un outil spécialisé peut lever ces droits. Le filigrane incrusté, lui, reste.",
+    "export": "Exporter"
   }
 }

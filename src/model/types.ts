@@ -234,4 +234,24 @@ export interface ProjectSettings {
   mainsVoltage: number
   /** Codes {TYPE} personnalisés par famille de signal (sinon AUD, AES, VID...) */
   typeCodes?: Partial<Record<SignalFamily, string>>
+  /** Réglages de l'export PDF (format, filigrane, protection), gardés avec le projet */
+  export?: ExportSettings
+}
+
+/** Formats ISO 216 de la série A */
+export const PAPER_SIZES = ['A4', 'A3', 'A2', 'A1', 'A0'] as const
+export type PaperSize = (typeof PAPER_SIZES)[number]
+
+export interface ExportSettings {
+  paper: PaperSize
+  orientation: 'landscape' | 'portrait'
+  watermark: {
+    enabled: boolean
+    /** Texte ; {client}, {project}, {date}, {revision} sont remplacés à l'export */
+    text: string
+    /** Opacité, de 0,05 à 0,5 */
+    opacity: number
+  }
+  /** PDF protégé : impression permise, modification et copie interdites dans les lecteurs qui respectent ces droits */
+  protect: boolean
 }
