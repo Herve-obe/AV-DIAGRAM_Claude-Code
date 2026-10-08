@@ -25,6 +25,8 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'speakon-nl8', label: 'Speakon NL8', mate: 'speakon8' },
   { id: 'bnc', label: 'BNC 75 Ω', mate: 'bnc' },
   { id: 'din5', label: 'DIN 5 (MIDI)', mate: 'din5' },
+  { id: 'din6', label: 'DIN 6', mate: 'din6' },
+  { id: 'din8', label: 'DIN 8 (ligne de conférence)', mate: 'din8' },
   { id: 'dsub9', label: 'D-Sub 9', mate: 'dsub9' },
   { id: 'dsub25', label: 'D-Sub 25', mate: 'dsub25' },
   { id: 'dsub15', label: 'D-Sub 15', mate: 'dsub15' },

@@ -1,0 +1,58 @@
+{
+  "id": "taiden-hcs-5100ma-08n",
+  "family": "wireless",
+  "manufacturer": "Taiden",
+  "model": "HCS-5100MA/08N",
+  "pictogram": "wireless",
+  "status": "community",
+  "powerW": 25,
+  "weightKg": 7.5,
+  "sources": [
+    {
+      "url": "https://occitanie.novelty.fr/produits/sonorisation/traduction-simultanee/recepteur/hcs-5100ma-08n/",
+      "document": "Novelty, fiche HCS-5100MA/08N (loueur) ; série 4 à 40 canaux, connectique supposée identique",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dcs1",
+      "name": "DCS 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers unité centrale HCS-4800 / 8600"
+    },
+    {
+      "id": "dcs2",
+      "name": "DCS 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "interp",
+      "name": "Interprète",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "din6",
+      "format": "DIN 6 points, pupitre HCS-8385N"
+    },
+    {
+      "id": "hf",
+      "name": "HF Out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Vers radiateurs HCS-5100T (nombre de sorties non précisé)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "25 W"
+    }
+  ]
+}
