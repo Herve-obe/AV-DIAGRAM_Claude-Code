@@ -693,5 +693,44 @@
       "kicked": "The host removed you from the session. The project stays open on this computer.",
       "locked": "Change refused: the {{layer}} layer is reserved by {{name}}."
     }
+  },
+  "pdfImport": {
+    "menu": "Import a PDF diagram (other software)",
+    "title": "Import of the diagram “{{name}}”",
+    "readError": "Cannot read the PDF (protected, damaged or not a PDF).",
+    "page": "Page {{n}}",
+    "raster": "This page only contains an image (scan, screenshot or bitmap export): no readable boxes or lines. Automatic interpretation needs a vector PDF (direct export from the original software, not a scanned print).",
+    "empty": "Nothing readable on this page.",
+    "hint": "Boxes with text = equipment, lines between two boxes = links, text at a box edge = ports. Check, correct, untick what should not be imported. Hover a row to see it on the preview.",
+    "tabEquipment": "Equipment {{n}}/{{total}}",
+    "tabLinks": "Links {{n}}/{{total}}",
+    "tabText": "Free text ({{n}})",
+    "include": "Import",
+    "name": "Name",
+    "family": "Family",
+    "signal": "Signal",
+    "ports_one": "{{count}} port",
+    "ports_other": "{{count}} ports",
+    "linksCount_one": "{{count}} link",
+    "linksCount_other": "{{count}} links",
+    "useTemplate": "Start from the {{label}} sheet (manufacturer ports, drawn ones matched by name)",
+    "noLinks": "No link: title block, legend or standalone equipment? Unticked by default.",
+    "directionBySide": "direction from the side",
+    "signalsToCheck_one": "{{count}} link with no signal clue: to check.",
+    "signalsToCheck_other": "{{count}} links with no signal clue: to check.",
+    "unresolved_one": "{{count}} line attached to a single box or to more than two (off-page reference, bus): not imported.",
+    "unresolved_other": "{{count}} lines attached to a single box or to more than two (off-page references, buses): not imported.",
+    "noText": "No free text.",
+    "evidence": {
+      "document": "read",
+      "keyword": "from a keyword",
+      "color": "from the colour",
+      "side": "from the side",
+      "default": "to check"
+    },
+    "sheet": "New sheet",
+    "summary": "{{eq}} equipment, {{links}} links",
+    "cancel": "Cancel",
+    "apply": "Import"
   }
 }

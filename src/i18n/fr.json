@@ -693,5 +693,44 @@
       "kicked": "L'hôte t'a retiré de la session. Le projet reste ouvert sur ce poste.",
       "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}."
     }
+  },
+  "pdfImport": {
+    "menu": "Importer un synoptique PDF (autre logiciel)",
+    "title": "Import du synoptique « {{name}} »",
+    "readError": "Lecture du PDF impossible (fichier protégé, endommagé ou non PDF).",
+    "page": "Page {{n}}",
+    "raster": "Cette page ne contient qu'une image (scan, capture ou export bitmap) : ni cadres ni traits lisibles. L'interprétation automatique demande un PDF vectoriel (export direct depuis le logiciel d'origine, pas une impression scannée).",
+    "empty": "Rien de lisible sur cette page.",
+    "hint": "Cadres avec texte = équipements, traits entre deux cadres = liaisons, textes au bord d'un cadre = ports. Vérifie, corrige, décoche ce qui ne doit pas être importé. Survole une ligne pour la voir sur l'aperçu.",
+    "tabEquipment": "Équipements {{n}}/{{total}}",
+    "tabLinks": "Liaisons {{n}}/{{total}}",
+    "tabText": "Textes libres ({{n}})",
+    "include": "Importer",
+    "name": "Nom",
+    "family": "Famille",
+    "signal": "Signal",
+    "ports_one": "{{count}} port",
+    "ports_other": "{{count}} ports",
+    "linksCount_one": "{{count}} liaison",
+    "linksCount_other": "{{count}} liaisons",
+    "useTemplate": "Partir de la fiche {{label}} (ports du constructeur, ceux du dessin rattachés par leur nom)",
+    "noLinks": "Aucune liaison : cartouche, légende ou équipement isolé ? Décoché par défaut.",
+    "directionBySide": "sens d'après le côté",
+    "signalsToCheck_one": "{{count}} liaison sans indice de signal : à vérifier.",
+    "signalsToCheck_other": "{{count}} liaisons sans indice de signal : à vérifier.",
+    "unresolved_one": "{{count}} tracé relié à un seul cadre ou à plus de deux (renvoi, bus) : non importé.",
+    "unresolved_other": "{{count}} tracés reliés à un seul cadre ou à plus de deux (renvois, bus) : non importés.",
+    "noText": "Aucun texte libre.",
+    "evidence": {
+      "document": "lu",
+      "keyword": "d'après un mot-clé",
+      "color": "d'après la couleur",
+      "side": "d'après le côté",
+      "default": "à vérifier"
+    },
+    "sheet": "Nouvelle feuille",
+    "summary": "{{eq}} équipements, {{links}} liaisons",
+    "cancel": "Annuler",
+    "apply": "Importer"
   }
 }

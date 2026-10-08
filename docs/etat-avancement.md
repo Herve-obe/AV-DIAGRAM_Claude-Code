@@ -64,6 +64,10 @@ présence (nom, couleur, calque, contour des blocs sélectionnés), reconnexion 
 session »). Mode d'essai et limites :
 `collaboration.md`. Reste : découverte automatique (mDNS), essais à 3 postes sur un réseau réel.
 
+**Import d'un synoptique PDF d'un autre logiciel** (2026-10-08) : PDF vectoriel lu sur le poste, cadres -> équipements,
+traits -> liaisons, textes au bord -> ports, repères et longueurs lus, fiches de la bibliothèque proposées, déductions
+signalées, vérification avant import sur une nouvelle feuille. Détail et limites : `import-pdf.md`.
+
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
 
@@ -97,7 +101,8 @@ session »). Mode d'essai et limites :
      Swisson XSR (nombre de ports par modèle seulement sur les schémas) ; Martin (403).
    - Distribution : armoires des prestataires, statut Communauté (source : catalogues).
    - Sites refusant l'accès automatique (erreur 403) : Martin, Sony Pro, Panasonic → déposer leurs manuels sur le Drive.
-2. **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
+2. **Import PDF** : essais sur de vrais synoptiques (Visio, AutoCAD, Vectorworks, draw.io) ; pages en image via l'assistant IA.
+   **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
 3. **Lot 3** : vues liées (baie / rack, plan, réseau, intercom, synchro, électrique).
 4. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.
 5. Points de bibliothèque à confirmer : section « Points en suspens » de `bibliotheque-a-documenter.md`.

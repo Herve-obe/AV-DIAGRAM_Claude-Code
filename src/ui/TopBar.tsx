@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { startMerge } from './MergeDialog'
+import { startPdfImport } from './PdfImportDialog'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
 import { useCollab } from '../collab/session'
 import { useAi } from '../store/aiStore'
@@ -79,6 +80,7 @@ export function TopBar() {
         <button className="icon-btn" onClick={() => useUi.getState().setNewProjectOpen(true)} title={t('menu.new')} aria-label={t('menu.new')}><Icon name="file" /></button>
         <button className="icon-btn" onClick={open} title={`${t('menu.open')} (Ctrl+O)`} aria-label={t('menu.open')}><Icon name="folder" /></button>
         <button className="icon-btn" onClick={() => startMerge(t)} title={t('merge.menu')} aria-label={t('merge.menu')}><Icon name="copy" /></button>
+        <button className="icon-btn" onClick={() => startPdfImport(t)} title={t('pdfImport.menu')} aria-label={t('pdfImport.menu')}><Icon name="pdf" /></button>
         <button className="icon-btn" onClick={() => saveProjectFile(project)} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
         <div className="menu" ref={exportRef}>
           <button className="icon-btn" onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} title={t('menu.export')} aria-label={t('menu.export')}><Icon name="download" /></button>
