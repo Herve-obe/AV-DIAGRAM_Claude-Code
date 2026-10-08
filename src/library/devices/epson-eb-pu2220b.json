@@ -1,0 +1,124 @@
+{
+  "id": "epson-eb-pu2220b",
+  "family": "display",
+  "manufacturer": "Epson",
+  "model": "EB-PU2220B",
+  "pictogram": "projector",
+  "status": "verified",
+  "domain": "image",
+  "powerW": 1301,
+  "weightKg": 24.4,
+  "sources": [
+    {
+      "url": "https://files.support.epson.com/pdf/specs/specifications_ebpu2220series_en_r103.pdf",
+      "document": "Epson, Specifications EB-PU2220 series, Rev.D",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "Computer",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15 points"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.3"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D 24 points single link, HDCP 1.4"
+    },
+    {
+      "id": "hdbaset",
+      "name": "HDBaseT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT, câble réseau jusqu'à 100 m, HDCP 2.3"
+    },
+    {
+      "id": "sdi-in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI"
+    },
+    {
+      "id": "sdi-out",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie de l'entrée SDI"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Mini D-Sub 9 points mâle"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire, mini-jack stéréo"
+    },
+    {
+      "id": "usb-a",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Lecture de contenu ; alimentation jusqu'à 5 V / 2 A"
+    },
+    {
+      "id": "service",
+      "name": "Service",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B, maintenance"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX / 10BASE-T"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Cordon 200 V (100 V possible avec luminosité réduite) ; embase non précisée"
+    }
+  ]
+}

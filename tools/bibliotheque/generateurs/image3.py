@@ -17,4 +17,22 @@ sheet('datapath-fx4-h', 'videoRouting', 'Datapath', 'Fx4 (version sorties HDMI)'
     P('ac', 'Secteur', 'in', 'power', 'iec-c13', format='Embase IEC avec interrupteur et fusible, 100-240 V'),
 ], powerW=35)
 
+# Epson EB-PU2220B (vidéoprojecteur laser 20 000 lm)
+EP = [src('https://files.support.epson.com/pdf/specs/specifications_ebpu2220series_en_r103.pdf', 'Epson, Specifications EB-PU2220 series, Rev.D')]
+sheet('epson-eb-pu2220b', 'display', 'Epson', 'EB-PU2220B', 'projector', EP, [
+    P('vga', 'Computer', 'in', 'video', 'vga', format='Mini D-Sub 15 points'),
+    P('hdmi', 'HDMI', 'in', 'video', 'hdmi', format='HDCP 2.3'),
+    P('dvi', 'DVI-D', 'in', 'video', 'dvi', format='DVI-D 24 points single link, HDCP 1.4'),
+    P('hdbaset', 'HDBaseT', 'in', 'video', 'rj45', format='HDBaseT, câble réseau jusqu\'à 100 m, HDCP 2.3'),
+    P('sdi-in', 'SDI In', 'in', 'video', 'bnc', format='SDI'),
+    P('sdi-out', 'SDI Out', 'out', 'video', 'bnc', format='Recopie de l\'entrée SDI'),
+    P('aout', 'Audio Out', 'out', 'audioAnalog', 'minijack', format='Mini-jack stéréo'),
+    P('rs232', 'RS-232C', 'bidir', 'control', 'dsub9', format='Mini D-Sub 9 points mâle'),
+    P('remote', 'Remote', 'in', 'control', 'minijack', format='Télécommande filaire, mini-jack stéréo'),
+    P('usb-a', 'USB-A', 'bidir', 'control', 'usb-a', format='Lecture de contenu ; alimentation jusqu\'à 5 V / 2 A'),
+    P('service', 'Service', 'bidir', 'control', 'usb-b', format='USB type B, maintenance'),
+    P('lan', 'LAN', 'bidir', 'network', 'rj45', format='100BASE-TX / 10BASE-T'),
+    P('ac', 'Secteur', 'in', 'power', 'unspecified', format='Cordon 200 V (100 V possible avec luminosité réduite) ; embase non précisée'),
+], domain='image', powerW=1301, weightKg=24.4)
+
 print(len(written), 'fiches :', ', '.join(written))
