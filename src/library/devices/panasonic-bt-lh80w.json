@@ -1,0 +1,76 @@
+{
+  "id": "panasonic-bt-lh80w",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "BT-LH80W",
+  "pictogram": "display",
+  "status": "community",
+  "weightKg": 1.5,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/moniteur-video/bt-lh80w/",
+      "document": "Novelty, fiche BT-LH80W (loueur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/us1526669.html",
+      "document": "Adorama, fiche BT-LH80W (occasion)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Avec carte optionnelle BT-YA80G"
+    },
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite"
+    },
+    {
+      "id": "ypbpr",
+      "name": "Y/Pb/Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC"
+    },
+    {
+      "id": "vf",
+      "name": "VF",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "dsub15"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "11 à 17 V, 1,5 A"
+    }
+  ]
+}

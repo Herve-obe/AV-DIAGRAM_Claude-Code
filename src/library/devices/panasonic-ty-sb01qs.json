@@ -1,0 +1,70 @@
+{
+  "id": "panasonic-ty-sb01qs",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "TY-SB01QS",
+  "pictogram": "display",
+  "status": "verified",
+  "weightKg": 0.3,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/625175-panasonic-ty-sb01qs-12g-sdi-sdm-terminal-board",
+      "document": "Full Compass, fiche TY-SB01QS (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://latam.connect.panasonic.com/pa/en/download-specifications/71",
+      "document": "Panasonic, spécifications TY-SB01QS",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 3G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI (quad link)"
+    },
+    {
+      "id": "sdi3",
+      "name": "SDI 3 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI (quad link)"
+    },
+    {
+      "id": "sdi4",
+      "name": "SDI 4 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI (quad link)"
+    },
+    {
+      "id": "thru",
+      "name": "Active Thru Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "slot",
+      "name": "Emplacement SDM",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Carte pour écran Panasonic à slot Intel SDM"
+    }
+  ]
+}

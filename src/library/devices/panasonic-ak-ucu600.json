@@ -1,0 +1,70 @@
+{
+  "id": "panasonic-ak-ucu600",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AK-UCU600",
+  "pictogram": "camera",
+  "status": "community",
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/649871-panasonic-ak-ucu600psj-camera-control-unit",
+      "document": "Full Compass, fiche AK-UCU600PSJ (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "fiber",
+      "name": "Fibre optique",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "smpte-fiber",
+      "format": "Vers caméra, environ 2 000 m"
+    },
+    {
+      "id": "sdiOut",
+      "name": "Sorties SDI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI (double système UHD 12G-SDI, quad link 3G)"
+    },
+    {
+      "id": "ret",
+      "name": "Retours SDI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retours HD / SD-SDI, prompteur"
+    },
+    {
+      "id": "hdTrunk",
+      "name": "HD-TRUNK / TICO",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "lanTrunk",
+      "name": "LAN-TRUNK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "trunk",
+      "name": "TRUNK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

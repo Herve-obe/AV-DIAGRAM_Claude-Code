@@ -1,0 +1,137 @@
+{
+  "id": "panasonic-ak-uc4000",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AK-UC4000",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 4.5,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/ak-uc4000/spec.html",
+      "document": "Panasonic, AK-UC4000 Specifications",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "HD-SDI 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / 1,5G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "HD-SDI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / 1,5G-SDI"
+    },
+    {
+      "id": "aux",
+      "name": "AUX",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD trunk (1,5G-SDI) ou prompteur 2 (VBS)"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In / Prompter Out",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "G/L en autonome, sortie prompteur avec CCU"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "ic1",
+      "name": "Intercom 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ic2",
+      "name": "Intercom 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ear",
+      "name": "Earphone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "fiber",
+      "name": "Fibre optique",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "smpte-fiber",
+      "format": "Connecteur composite optique (Tajimi / LEMO) vers CCU AK-UCU600"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "12 points"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "10 points (ROP)"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V (ou alimentation par la CCU)"
+    }
+  ]
+}

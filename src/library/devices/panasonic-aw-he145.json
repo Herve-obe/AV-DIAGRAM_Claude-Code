@@ -1,0 +1,74 @@
+{
+  "id": "panasonic-aw-he145",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE145",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 4.1,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/aw-he145/spec.html",
+      "document": "Panasonic, AW-HE145 Specifications",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4:2:2 10 bits"
+    },
+    {
+      "id": "sdi",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 292M / 424M, niveau A ou B"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux ; PoE++"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "CONTROL IN RS-422A"
+    },
+    {
+      "id": "mic",
+      "name": "MIC/LINE In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 ; flux IP uniquement"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC, 4,0 A (ou PoE++)"
+    }
+  ]
+}
