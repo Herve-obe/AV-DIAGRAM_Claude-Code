@@ -1,4 +1,4 @@
-# État d'avancement (mise à jour du 2026-09-26)
+# État d'avancement (mise à jour du 2026-10-08)
 
 ## Fait
 
@@ -19,7 +19,7 @@
   AXT600, AD600, AD610, Beta 57A, Beta 58A, Beta 87A, KSM9.
 - Avid C|24 complétée (poids et consommation : communauté Avid), MTRX Studio corrigée (pédale sur jack 6,35).
 
-**Bibliothèque, ajouts du 2026-09-26** (309 fiches au total) :
+**Bibliothèque, ajouts du 2026-09-26** :
 - Blackmagic Design (20), Yamaha DM7 / DM3 / TF / M7CL / 01V96i (11), DiGiCo SD10 et SD-Rack (2).
 - Micros : Sennheiser e 604, e 825-S, e 835, e 845, e 845-S, e 904, e 906, e 935, MD 441 U ; DPA 4060, 4061, 4066,
   4080, 4088, 4099 CORE+, 4466, 4488 (connecteur selon version : MicroLock, TA4F, LEMO, mini-jack) ;
@@ -41,6 +41,15 @@
 - Image : Kiloview N50 / N60 ; AJA Ki Pro Ultra 12G, Ki Pro Rack, 3G-AMA, HD10AMA ; Roland V-160HD ;
   NovaStar MCTRL660, MCTRL4K, VX6s, VX1000.
 - Connecteurs ajoutés : MicroDot, MicroLock (DPA), Mini-USB, Seetronic Powerkon IP65.
+
+**Bibliothèque, ajouts du 2026-10-08** (352 fiches au total) :
+- Écrans Samsung sous les références du catalogue Novelty (décision du 2026-10-08) : DB55, DB48, DB40, DB32, DB22, DB10,
+  DM75, DM32, ME95, ME75, ME32, ED75E, UE55, UE46, QB75H (Communauté, génération Samsung indiquée sur la fiche), QM98F (Vérifié).
+- Écrans LG : 75UH5F-H, 55UH5F-H, 43UH5F-H, 55SM5KE, 43SM5KE (Vérifié) ; 98UH5E, 32SM5J, 75UM3DG-H (Communauté).
+- Panasonic : AW-UE150, AW-UE100, AW-HE130, AV-HS6000 (AV-HS60U2 + AV-HS60C2), AV-HS410, TH-43/55/65/75/86EQ2W.
+- Datapath Fx4 (sorties HDMI), Epson EB-PU2220B, SWIT M-1073H, Kramer VS-311H / VS-41H / VM-4HDCPxl, NovaStar MCTRL R5.
+- Allen & Heath SQ-5 (Vérifié), Xone:92 (Communauté, d'après le manuel Mk2).
+- Outils : l'empreinte de l'autorité du proxy est recalculée à chaque lancement (`tools/bibliotheque/proxyca.mjs`).
 
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`
 (Novelty : 627 références ; Audio Pro : 226).
