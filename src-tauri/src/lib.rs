@@ -25,7 +25,8 @@ pub fn run() {
             collab::collab_host_start,
             collab::collab_host_stop,
             collab::collab_host_status,
-            collab::collab_kick
+            collab::collab_kick,
+            collab::collab_local_addresses
         ])
         .build(tauri::generate_context!())
         .expect("erreur au lancement d'AV Diagram")
@@ -34,7 +35,9 @@ pub fn run() {
             if let tauri::RunEvent::Exit = event {
                 use tauri::Manager;
                 app.state::<local::LocalServer>().stop();
-                app.state::<collab::CollabServer>().stop();
+                // Fermeture de l'application : session interrompue, pas terminée (un poste de secours peut
+                // prendre le relais, la session reprend au retour de l'hôte)
+                app.state::<collab::CollabServer>().stop(false);
             }
         });
 }

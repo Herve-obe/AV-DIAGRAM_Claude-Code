@@ -38,6 +38,8 @@ const ICONS = {
   rotateCw: 'M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5',
   rotateCcw: 'M4 12a8 8 0 1 0 2.34-5.66M4 4v5h5',
   layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5',
+  chat: 'M4 5h16v11H8l-4 4zM8 9h8M8 12h5',
+  lock: 'M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3',
   users: 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21v-1a6 6 0 0 1 12 0v1M16 3.5a4 4 0 0 1 0 7M18 14a6 6 0 0 1 4 6v1',
 } as const
 

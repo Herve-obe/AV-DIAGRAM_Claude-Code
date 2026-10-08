@@ -656,6 +656,42 @@
       "code": "Code refused (or too many attempts: wait a minute).",
       "timeout": "No answer from the host: check the address, port and firewall.",
       "start": "Could not open the session: {{detail}}"
+    },
+    "backup": "This computer can take over if the host disconnects (it then opens the session on port 4455)",
+    "relayHint": "The original host is unreachable: this computer runs the session in its place. As soon as the host is back, everyone rejoins it automatically.",
+    "resume": {
+      "title": "Interrupted session",
+      "hintHost": "You were hosting “{{name}}” (state saved on {{date}}). Resuming reopens the session with the same code: participants reconnect on their own and their changes are merged.",
+      "hintGuest": "You were taking part in “{{name}}” (state saved on {{date}}). Resuming reopens this project and reconnects as soon as a relay answers.",
+      "action": "Resume session",
+      "forget": "Forget"
+    },
+    "layers": {
+      "title": "Reserved layers",
+      "hint": "Reserve your layer: others can no longer change it by mistake. Shared equipment (e.g. a camera with audio inputs) can still be moved and wired on its free ports.",
+      "free": "free",
+      "mine": "reserved by you",
+      "by": "reserved by {{name}}",
+      "claim": "Reserve",
+      "release": "Release"
+    },
+    "chat": {
+      "title": "Session chat",
+      "empty": "No messages yet.",
+      "placeholder": "Message (Enter to send, Shift+Enter: new line)",
+      "send": "Send"
+    },
+    "notice": {
+      "hostLost": "Host unreachable. Your work is kept on this computer; you can keep working, reconnection is automatic.",
+      "relayLost": "This computer's relay is not answering; retrying.",
+      "since": "(for {{seconds}} s)",
+      "reconnected": "Reconnected: changes made during the outage are merged.",
+      "relayActive": "Backup relay active: the other participants reconnect to this computer.",
+      "tookOver": "The host is not answering: this computer took over ({{address}}). The others reconnect automatically.",
+      "handedBack": "The original host is back: the session moves back to it.",
+      "ended": "The host ended the session. The project stays open on this computer.",
+      "kicked": "The host removed you from the session. The project stays open on this computer.",
+      "locked": "Change refused: the {{layer}} layer is reserved by {{name}}."
     }
   }
 }

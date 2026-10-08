@@ -2,6 +2,7 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { fullyLocked, lockedLayers } from '../collab/protection'
 import { useCollab } from '../collab/session'
 import {
   Background,
@@ -20,7 +21,7 @@ import { getTemplate } from '../store/libraryStore'
 import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, sheetIdOfGroupNode } from '../model/groups'
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { SIGNAL_STYLE } from '../model/signals'
-import type { Link, Project } from '../model/types'
+import type { Equipment, Link, Project } from '../model/types'
 import { checkProject } from '../model/rules'
 import { crossLayerHints, equipmentInView, layerOfSignal } from '../model/layers'
 import { useAi } from '../store/aiStore'
@@ -83,6 +84,9 @@ export function Canvas() {
   // Rappels inter-calques en attente, par équipement (ports d'un autre domaine non reliés)
   // Session de collaboration : blocs sélectionnés par les autres participants
   const participants = useCollab((s) => s.participants)
+  const claims = useCollab((s) => s.claims)
+  const me = useCollab((s) => s.userId)
+  const locked = useMemo(() => lockedLayers(claims, me), [claims, me])
   const presenceByEq = useMemo(() => {
     const m = new Map<string, { name: string; color: string }[]>()
     for (const p of participants) {
@@ -91,6 +95,11 @@ export function Canvas() {
     }
     return m
   }, [participants])
+  /** Nom de la personne qui a réservé tous les calques de l'équipement (sinon undefined) */
+  const lockOf = useCallback((eq: Equipment) => {
+    const l = fullyLocked(eq, locked)
+    return l ? `${t(`library.domain.${l}`)} : ${claims[l]?.name ?? '?'}` : undefined
+  }, [locked, claims, t])
   const hintsByEq = useMemo(() => {
     const m = new Map<string, string[]>()
     for (const h of crossLayerHints(project)) {
@@ -162,12 +171,15 @@ export function Canvas() {
             hints: hintsByEq.get(eq.id)?.length ?? 0,
             hintTitle: hintsByEq.get(eq.id)?.join('\n'),
             presence: presenceByEq.get(eq.id),
+            lockedBy: lockOf(eq),
           },
           // Calque actif : seuls les équipements de ce domaine (ou qui en ont des ports) restent visibles
           hidden: !equipmentInView(eq, layer),
           selected: selectedEquipment.includes(eq.id),
           measured: measured.get(eq.id),
           // Un équipement proposé n'existe pas encore dans le projet : ni déplaçable, ni supprimable
+          // Équipement d'un calque réservé par quelqu'un d'autre : ni déplaçable, ni supprimable
+          ...(lockOf(eq) ? { draggable: false, deletable: false, connectable: false } : {}),
           ...(proposedEq.has(eq.id)
             ? { className: 'is-proposed', draggable: false, selectable: false, deletable: false, connectable: false }
             : {}),
@@ -176,7 +188,7 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq])
+  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
 
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)

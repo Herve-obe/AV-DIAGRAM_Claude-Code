@@ -7,6 +7,7 @@ import { connectorLabel } from '../model/connectors'
 import { portInView, type LayerView } from '../model/layers'
 import { SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, PortDef, Rotation } from '../model/types'
+import { Icon } from '../ui/Icon'
 import { Pictogram } from '../ui/Pictogram'
 
 /** offPage : pour chaque port relié à une autre feuille, le nom de cette feuille (renvoi) */
@@ -20,6 +21,8 @@ export type EquipmentNodeData = {
   hintTitle?: string
   /** Participants de la session qui ont sélectionné ce bloc (nom, couleur) */
   presence?: { name: string; color: string }[]
+  /** Calque réservé par quelqu'un d'autre : « Image : Marc » */
+  lockedBy?: string
 }
 export type EquipmentFlowNode = Node<EquipmentNodeData, 'equipment'>
 
@@ -74,6 +77,7 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
         <span className="eq-name">{eq.name}</span>
         {!data.compact && <span className="eq-model">{eq.manufacturer ? `${eq.manufacturer} ${eq.model}` : eq.model}</span>}
       </span>
+      {data.lockedBy && <span className="eq-lock" title={data.lockedBy}><Icon name="lock" size={12} /></span>}
       {data.hints > 0 && <span className="eq-hint" title={data.hintTitle}>{data.hints}</span>}
     </header>
   )

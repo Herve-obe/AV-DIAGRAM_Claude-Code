@@ -59,7 +59,9 @@
 
 **Travail à plusieurs sur le réseau local** (2026-10-08) : session hébergée par l'application de bureau, rejointe
 par adresse et code à 6 chiffres ; document partagé Yjs (fusion champ par champ), annulation propre à chacun,
-présence (nom, couleur, calque, contour des blocs sélectionnés), reconnexion automatique. Mode d'essai et limites :
+présence (nom, couleur, calque, contour des blocs sélectionnés), reconnexion automatique, tchat, calques réservés
+(protection contre les modifications croisées), reprise après perte de l'hôte (poste de secours, « Reprendre la
+session »). Mode d'essai et limites :
 `collaboration.md`. Reste : découverte automatique (mDNS), essais à 3 postes sur un réseau réel.
 
 **Inventaire des prestataires** : `inventaire-prestataires.md` et `inventaire/*.csv`

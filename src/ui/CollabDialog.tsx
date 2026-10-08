@@ -2,12 +2,18 @@
 // Aucune donnée ne quitte le réseau : le relais tourne sur le poste hôte (voir docs/collaboration.md).
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { canHost, DEFAULT_PORT, hostSession, joinSession, kick, leave, useCollab } from '../collab/session'
+import {
+  canHost, canRelease, claimLayer, DEFAULT_PORT, forgetResume, hostSession, joinSession, kick, leave, releaseLayer, resumeSession, useCollab,
+} from '../collab/session'
+import { LAYERS } from '../model/layers'
 import { Icon } from './Icon'
 
 export function CollabDialog() {
-  const { t } = useTranslation()
-  const { dialogOpen, status, role, host, address, participants, error, name, setName, setDialogOpen } = useCollab()
+  const { t, i18n } = useTranslation()
+  const {
+    dialogOpen, status, role, origin, relayRank, host, address, participants, error, name, setName, setDialogOpen,
+    backup, setBackup, claims, userId, resumable,
+  } = useCollab()
   const [tab, setTab] = useState<'host' | 'join'>(canHost() ? 'host' : 'join')
   const [port, setPort] = useState(String(DEFAULT_PORT))
   const [joinAddress, setJoinAddress] = useState('')
@@ -53,6 +59,22 @@ export function CollabDialog() {
         <div className="dialog-body">
           <p className="dialog-hint">{t('collab.hint')}</p>
 
+          {!active && resumable && (
+            <section className="collab-resume">
+              <h3 className="group-title">{t('collab.resume.title')}</h3>
+              <p className="dialog-hint">
+                {t(resumable.origin === 'host' ? 'collab.resume.hintHost' : 'collab.resume.hintGuest', {
+                  name: resumable.projectName || '?',
+                  date: new Date(resumable.savedAt).toLocaleString(i18n.language),
+                })}
+              </p>
+              <div className="collab-row">
+                <button className="btn btn-primary" disabled={busy} onClick={() => run(resumeSession)}>{t('collab.resume.action')}</button>
+                <button className="btn btn-ghost" onClick={forgetResume}>{t('collab.resume.forget')}</button>
+              </div>
+            </section>
+          )}
+
           {!active && (
             <>
               <div className="field">
@@ -90,6 +112,12 @@ export function CollabDialog() {
                     <input id="collab-code" className="mono" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))} inputMode="numeric" placeholder="000000" />
                   </div>
                   <p className="dialog-hint">{t('collab.joinWarning')}</p>
+                  {canHost() && (
+                    <label className="collab-check">
+                      <input type="checkbox" checked={backup} onChange={(e) => setBackup(e.target.checked)} />
+                      <span>{t('collab.backup')}</span>
+                    </label>
+                  )}
                   <button
                     className="btn btn-primary collab-action"
                     disabled={busy || !nameOk || !joinAddress.trim() || code.length !== 6}
@@ -126,6 +154,7 @@ export function CollabDialog() {
                 </section>
               )}
               {role === 'guest' && <p className="dialog-hint">{t('collab.joined', { address })}</p>}
+              {relayRank !== null && relayRank > 0 && <p className="dialog-hint">{t('collab.relayHint')}</p>}
 
               <h3 className="group-title">{t('collab.participants')}</h3>
               <ul className="collab-people">
@@ -144,8 +173,29 @@ export function CollabDialog() {
                   )
                 })}
               </ul>
+              <h3 className="group-title">{t('collab.layers.title')}</h3>
+              <p className="dialog-hint">{t('collab.layers.hint')}</p>
+              <ul className="collab-people">
+                {LAYERS.map((layer) => {
+                  const c = claims[layer]
+                  const mine = c?.userId === userId
+                  return (
+                    <li key={layer}>
+                      <span className="collab-person">{t(`library.domain.${layer}`)}</span>
+                      {c ? (
+                        <span className="collab-claim">
+                          <span className="collab-dot" style={{ background: c.color }} />
+                          {mine ? t('collab.layers.mine') : t('collab.layers.by', { name: c.name })}
+                        </span>
+                      ) : <span className="collab-layer">{t('collab.layers.free')}</span>}
+                      {!c && <button className="btn btn-ghost" onClick={() => claimLayer(layer)}><Icon name="lock" size={13} />{t('collab.layers.claim')}</button>}
+                      {c && canRelease(layer) && <button className="btn btn-ghost" onClick={() => releaseLayer(layer)}>{t('collab.layers.release')}</button>}
+                    </li>
+                  )
+                })}
+              </ul>
               <p className="dialog-hint">{t('collab.undoHint')}</p>
-              <button className="btn btn-danger collab-action" onClick={leave}>{role === 'host' ? t('collab.stop') : t('collab.leave')}</button>
+              <button className="btn btn-danger collab-action" onClick={leave}>{origin === 'host' ? t('collab.stop') : t('collab.leave')}</button>
             </>
           )}
         </div>

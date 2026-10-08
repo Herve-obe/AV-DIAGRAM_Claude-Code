@@ -46,41 +46,79 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
 
 ## État (2026-10-08)
 
-Fait : étapes 1 et 2, présence de l'étape 3, reconnexion de l'étape 4. Reste : découverte
-automatique (mDNS) et essais à 3 postes sur un réseau réel.
+Fait : étapes 1 et 2, présence de l'étape 3, reconnexion de l'étape 4, plus le tchat, les calques
+réservés et la continuité en cas de perte de l'hôte. Reste : découverte automatique (mDNS) et essais
+à 3 postes sur un réseau réel.
 
 | Élément | Fichier |
 |---|---|
-| Relais WebSocket (code, blocage après 5 codes faux pendant 60 s, 16 participants max, exclusion) | `src-tauri/src/collab.rs` |
+| Relais WebSocket (code, blocage après 5 codes faux pendant 60 s, 16 participants max, exclusion, fin annoncée) | `src-tauri/src/collab.rs` |
 | Correspondance projet <-> document Yjs, annulation par personne | `src/collab/ydoc.ts` |
-| Session : connexion, synchronisation, présence, reconnexion toutes les 2 s | `src/collab/session.ts` |
-| Fenêtre Héberger / Rejoindre, participants, code | `src/ui/CollabDialog.tsx` |
-| Contour de présence sur les blocs sélectionnés par les autres | `src/editor/EquipmentNode.tsx` |
+| Session : connexion, synchronisation, présence, tchat, réservations, reprise, relais de secours | `src/collab/session.ts` |
+| Règles des calques réservés | `src/collab/protection.ts` |
+| Fenêtre Héberger / Rejoindre / Reprendre, participants, calques réservés | `src/ui/CollabDialog.tsx` |
+| Tchat, bandeau d'alerte | `src/ui/ChatPanel.tsx`, `src/ui/CollabBanner.tsx` |
 
-Vérifié : tests Rust du relais, tests Vitest du document partagé, essai de bout en bout avec le relais
-réel et deux navigateurs (synchronisation initiale, modifications simultanées, annulation propre à
-chacun, présence).
+### Tchat
+
+Bouton bulle dans la barre du haut pendant une session (compteur de messages non lus). Les messages
+passent par le document partagé : un participant qui arrive voit l'historique (500 derniers messages).
+Ils ne sont pas enregistrés dans le fichier `.avd`.
+
+### Calques réservés
+
+Chacun réserve son calque (fenêtre Travail à plusieurs, section Calques réservés). Pour les autres :
+- un équipement dont tous les calques sont réservés par quelqu'un d'autre est verrouillé (cadenas,
+  ni déplacement, ni suppression, ni modification) ;
+- un équipement partagé (caméra avec entrées audio) reste déplaçable, ses ports du calque libre
+  restent modifiables et reliables ; ses réglages et ses ports de l'autre calque sont protégés ;
+- les liaisons d'un calque réservé ne peuvent être ni créées, ni modifiées, ni supprimées ;
+- toute modification refusée est annulée aussitôt et signalée (« calque Image réservé par … »).
+
+On libère son propre calque ; l'hôte d'origine peut libérer n'importe quel calque, et n'importe qui
+peut libérer celui d'une personne qui n'est plus connectée. Sans réservation, tout reste libre.
+
+### Perte de l'hôte
+
+- Fin voulue (« Terminer la session ») : chacun est prévenu et garde le projet ouvert.
+- Perte inopinée (plantage, fermeture de l'application, coupure réseau) : bandeau d'alerte chez les
+  invités, qui continuent à travailler ; leur document est complet et enregistré sur leur poste.
+- Postes de secours : un invité sur l'application de bureau (case cochée par défaut) annonce ses
+  adresses. Si l'hôte reste injoignable 8 s, le premier poste de secours (ordre connu de tous) ouvre
+  un relais avec le même code ; les autres s'y reconnectent seuls. Le suivant attend 16 s, etc.
+- Retour de l'hôte : au redémarrage, la fenêtre propose « Reprendre la session » (même code, même
+  port, document restauré). Le relais de secours détecte son retour (toutes les 5 s), se ferme, et tout
+  le monde revient chez l'hôte ; les modifications faites entre-temps sont fusionnées.
+- Un invité dont l'application a planté retrouve aussi « Reprendre la session ».
+
+Vérifié de bout en bout (3 navigateurs, relais Rust réels lancés et arrêtés par l'essai) : tchat,
+refus d'un ajout dans un calque réservé, plantage de l'hôte, prise de relais par le poste de secours
+après 8 s, ajouts des deux invités pendant l'absence, reprise par l'hôte, retour de tous chez lui avec
+les 4 équipements fusionnés. L'annonce de fin voulue est vérifiée par les tests Rust (le relais de
+l'essai était arrêté brutalement).
 
 ## Tester
 
 1. Poste hôte (application de bureau) : bouton « Travail à plusieurs » (icône personnes, barre du
    haut), saisir son nom, onglet Héberger, port 4455 par défaut, « Ouvrir la session ». Le code à
    6 chiffres et les adresses du poste s'affichent.
-2. Pare-feu de l'hôte : autoriser le port choisi en TCP entrant (Windows le demande à la première
-   ouverture).
+2. Pare-feu : autoriser le port 4455 en TCP entrant sur l'hôte, et sur les postes de secours.
 3. Autres postes (application de bureau ou navigateur sur le même réseau) : onglet Rejoindre,
    adresse affichée chez l'hôte (ex. `192.168.1.20:4455`), code, « Rejoindre ». Le projet de la
    session remplace le projet ouvert sur ce poste.
 4. Points à vérifier : ajout et déplacement de blocs des deux côtés, liaisons, calques différents sur
-   chaque poste, Ctrl+Z (ne défait que ses propres modifications), coupure du Wi-Fi d'un invité
-   pendant qu'il modifie puis retour (fusion), exclusion d'un participant, « Terminer la session ».
+   chaque poste, réservation de calque et refus, tchat, Ctrl+Z (ne défait que ses propres
+   modifications), coupure du Wi-Fi d'un invité puis retour (fusion), fermeture brutale de l'hôte
+   (prise de relais), redémarrage de l'hôte et « Reprendre la session », exclusion, « Terminer ».
 5. Essai sans réseau, sur un seul poste : `cargo test --lib collab::tests::relais_manuel -- --ignored`
    dans `src-tauri` ouvre un relais sur 4455 avec le code 123456 pendant 120 s
-   (`AVD_RELAY_SECS` pour changer la durée).
+   (`AVD_RELAY_PORT`, `AVD_RELAY_CODE`, `AVD_RELAY_SECS` pour les changer).
 
-Limites connues : l'hôte enregistre le fichier `.avd` ; quand l'hôte termine la session, les invités
-gardent le projet et tentent de se reconnecter jusqu'à ce qu'ils quittent. Pas de chiffrement sur
-le réseau local (même niveau que les protocoles de régie usuels) : utiliser un VPN hors du lieu.
+Limites connues : l'enregistrement local de la session (reprise) est limité par le stockage du poste
+(environ 5 Mo) ; au-delà, la reprise se fait depuis les autres participants. Deux postes isolés l'un
+de l'autre peuvent chacun faire tourner un relais pendant la coupure ; ils se rejoignent quand le
+réseau revient (retour vers l'hôte d'origine). Pas de chiffrement sur le réseau local : utiliser un
+VPN hors du lieu.
 
 ## Étapes proposées
 

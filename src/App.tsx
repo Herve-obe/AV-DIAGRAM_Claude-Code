@@ -10,6 +10,8 @@ import { notifyError, openProjectFile, saveProjectFile } from './io/files'
 import { useProject } from './store/projectStore'
 import { useUi } from './store/uiStore'
 import { AiSetupDialog } from './ui/AiSetupDialog'
+import { ChatPanel } from './ui/ChatPanel'
+import { CollabBanner } from './ui/CollabBanner'
 import { CollabDialog } from './ui/CollabDialog'
 import { AssistantPanel } from './ui/AssistantPanel'
 import { CommandPalette } from './ui/CommandPalette'
@@ -146,6 +148,8 @@ export default function App() {
       <MergeDialog />
       <AiSetupDialog />
       <CollabDialog />
+      <CollabBanner />
+      <ChatPanel />
       <Shortcuts />
       <ThemeSync />
       <SheetSync />

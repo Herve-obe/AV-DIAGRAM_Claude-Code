@@ -25,6 +25,8 @@ export function TopBar() {
   const collabRedo = useCollab((s) => s.canRedo)
   const collabStatus = useCollab((s) => s.status)
   const collabCount = useCollab((s) => s.participants.length)
+  const chatOpen = useCollab((s) => s.chatOpen)
+  const unread = useCollab((s) => s.unread)
   const canUndo = useProject((s) => s.past.length > 0) || collabUndo
   const canRedo = useProject((s) => s.future.length > 0) || collabRedo
   const { undo, redo, rename, load } = useProject.getState()
@@ -98,6 +100,18 @@ export function TopBar() {
           <Icon name="users" />
           {collabStatus !== 'off' && <span className="collab-count">{collabCount}</span>}
         </button>
+        {collabStatus !== 'off' && (
+          <button
+            className="icon-btn collab-btn"
+            aria-pressed={chatOpen}
+            onClick={() => useCollab.getState().setChatOpen(!chatOpen)}
+            title={t('collab.chat.title')}
+            aria-label={t('collab.chat.title')}
+          >
+            <Icon name="chat" />
+            {unread > 0 && <span className="collab-count chat-unread">{unread > 99 ? '99+' : unread}</span>}
+          </button>
+        )}
         <button className="icon-btn" onClick={() => useUi.getState().setPresenting(true)} title={`${t('presentation.enter')} (F5)`} aria-label={t('presentation.enter')}><Icon name="present" /></button>
         <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
         <span className="sep" />

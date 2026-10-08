@@ -656,6 +656,42 @@
       "code": "Code refusé (ou trop d'essais : attends une minute).",
       "timeout": "Pas de réponse de l'hôte : vérifie l'adresse, le port et le pare-feu.",
       "start": "Impossible d'ouvrir la session : {{detail}}"
+    },
+    "backup": "Ce poste peut prendre le relais si l'hôte se déconnecte (ouvre alors la session sur le port 4455)",
+    "relayHint": "L'hôte d'origine est injoignable : ce poste fait tourner la session à sa place. Dès que l'hôte revient, tout le monde le rejoint automatiquement.",
+    "resume": {
+      "title": "Session interrompue",
+      "hintHost": "Tu hébergeais « {{name}} » (état enregistré le {{date}}). Reprendre rouvre la session avec le même code : les participants se reconnectent seuls et leurs modifications sont fusionnées.",
+      "hintGuest": "Tu participais à « {{name}} » (état enregistré le {{date}}). Reprendre rouvre ce projet et se reconnecte à la session dès qu'un relais répond.",
+      "action": "Reprendre la session",
+      "forget": "Oublier"
+    },
+    "layers": {
+      "title": "Calques réservés",
+      "hint": "Réserve ton calque : les autres ne pourront plus le modifier par erreur. Les équipements partagés (ex. caméra avec entrées audio) restent déplaçables et reliables pour leurs ports libres.",
+      "free": "libre",
+      "mine": "réservé par toi",
+      "by": "réservé par {{name}}",
+      "claim": "Réserver",
+      "release": "Libérer"
+    },
+    "chat": {
+      "title": "Tchat de la session",
+      "empty": "Aucun message pour l'instant.",
+      "placeholder": "Message (Entrée pour envoyer, Maj+Entrée : nouvelle ligne)",
+      "send": "Envoyer"
+    },
+    "notice": {
+      "hostLost": "Hôte injoignable. Ton travail est conservé sur ce poste ; tu peux continuer, la reconnexion est automatique.",
+      "relayLost": "Le relais de ce poste ne répond plus ; nouvelle tentative en cours.",
+      "since": "(depuis {{seconds}} s)",
+      "reconnected": "Reconnecté : les modifications faites pendant la coupure sont fusionnées.",
+      "relayActive": "Relais de secours actif : les autres participants se reconnectent à ce poste.",
+      "tookOver": "L'hôte ne répond plus : ce poste a pris le relais ({{address}}). Les autres s'y reconnectent automatiquement.",
+      "handedBack": "L'hôte d'origine est de retour : la session repasse chez lui.",
+      "ended": "L'hôte a terminé la session. Le projet reste ouvert sur ce poste.",
+      "kicked": "L'hôte t'a retiré de la session. Le projet reste ouvert sur ce poste.",
+      "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}."
     }
   }
 }
