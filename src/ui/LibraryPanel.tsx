@@ -1,10 +1,12 @@
 // Bibliothèque : recherche, "Mes modèles", menus dépliables (Audio, Image, Lumière, Réseau, Distribution, Divers)
-// puis sous-menus par famille ; glisser-déposer vers le canevas (ou double-clic).
+// puis sous-menus par famille ; glisser-déposer vers le canevas (ou double-clic). Sur un calque, la
+// liste se limite aux équipements de ce calque, pour ne pas en poser un d'un autre domaine par erreur.
 import { freeSpot, NEW_BLOCK_SIZE } from '../editor/placement'
-import { useMemo, useState, type DragEvent } from 'react'
+import { useEffect, useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { DND_MIME } from '../editor/Canvas'
+import { equipmentInView, type LayerView } from '../model/layers'
 import { LIBRARY } from '../library'
 import { groupByDomain } from '../library/domains'
 import type { EquipmentTemplate } from '../model/types'
@@ -32,6 +34,11 @@ export function LibraryPanel() {
   const mode = useUi((s) => s.mode)
   const userTemplates = useLibrary((s) => s.userTemplates)
   const rf = useReactFlow()
+  const layer = useUi((s) => s.layer)
+  // « Tout afficher » vaut pour le calque où on l'a demandé ; changer de calque rétablit le filtre
+  const [unfilteredOn, setUnfilteredOn] = useState<LayerView | null>(null)
+  useEffect(() => setUnfilteredOn(null), [layer])
+  const filtered = layer !== 'all' && unfilteredOn !== layer
 
   const [open, setOpen] = useState<string[]>(readOpen)
   const toggle = (key: string) =>
@@ -46,12 +53,14 @@ export function LibraryPanel() {
     })
 
   const q = query.trim().toLowerCase()
-  const { mine, domains, total } = useMemo(() => {
+  const { mine, domains, total, hidden } = useMemo(() => {
     const match = (tpl: EquipmentTemplate) =>
       !q || `${tpl.model} ${tpl.manufacturer ?? ''} ${t(`family.${tpl.family}`)}`.toLowerCase().includes(q)
-    const found = LIBRARY.filter(match)
-    return { mine: userTemplates.filter(match), domains: groupByDomain(found), total: found.length }
-  }, [q, t, userTemplates])
+    const matching = LIBRARY.filter(match)
+    // Mes modèles restent tous visibles : ce sont des blocs choisis à la main
+    const found = filtered ? matching.filter((tpl) => equipmentInView(tpl, layer)) : matching
+    return { mine: userTemplates.filter(match), domains: groupByDomain(found), total: found.length, hidden: matching.length - found.length }
+  }, [q, t, userTemplates, filtered, layer])
   // Pendant une recherche, tout ce qui correspond est déplié
   const isOpen = (key: string) => !!q || open.includes(key)
 
@@ -130,6 +139,21 @@ export function LibraryPanel() {
         />
       </label>
       {mode === 'beginner' && <p className="hint">{t('library.hint')}</p>}
+      {layer !== 'all' && (
+        <div className="lib-layer-filter" role="status">
+          {filtered ? (
+            <>
+              <span>{t('library.layerFilter', { layer: t(`library.domain.${layer}`), count: hidden })}</span>
+              {hidden > 0 && <button className="link-btn" onClick={() => setUnfilteredOn(layer)}>{t('library.layerShowAll')}</button>}
+            </>
+          ) : (
+            <>
+              <span>{t('library.layerUnfiltered', { layer: t(`library.domain.${layer}`) })}</span>
+              <button className="link-btn" onClick={() => setUnfilteredOn(null)}>{t('library.layerFilterAgain', { layer: t(`library.domain.${layer}`) })}</button>
+            </>
+          )}
+        </div>
+      )}
       <div className="library-list">
         {total + mine.length === 0 && <p className="empty">{t('library.empty')}</p>}
         {mine.length > 0 && (
@@ -140,7 +164,7 @@ export function LibraryPanel() {
         )}
         {domains.map(({ domain, families }) => {
           const count = families.reduce((n, f) => n + f.items.length, 0)
-          if (q && count === 0) return null
+          if ((q || filtered) && count === 0) return null
           return (
             <section key={domain} className="lib-domain">
               <button className="lib-domain-head" aria-expanded={isOpen(domain)} onClick={() => toggle(domain)}>

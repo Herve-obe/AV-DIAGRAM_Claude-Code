@@ -118,7 +118,9 @@ export function EdgeRouter({ enabled }: { enabled: boolean }) {
       const moved = new Set(visible > LIVE_FULL_ROUTING_MAX ? dragging : [])
       useRoutes.setState(withLabels(computeRoutes(nodeLookup as Map<string, InternalNode<Node>>, edges, moved, useRoutes.getState().routes), edges))
     })
-    return () => cancelAnimationFrame(frame.current)
+    // Pas d'annulation au rendu suivant : s'il ne change pas la géométrie (fin de glisser, sélection),
+    // il ne reprogramme rien et le tracé resterait celui d'avant le déplacement.
   }, [nodes, edges, nodeLookup, enabled])
+  useEffect(() => () => cancelAnimationFrame(frame.current), [])
   return null
 }

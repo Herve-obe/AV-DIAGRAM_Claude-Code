@@ -115,9 +115,7 @@ export const useUi = create<UiState>((set, get) => ({
   setSettingsOpen: (open) => set({ settingsOpen: open }),
   setMergeCandidate: (p) => set({ mergeCandidate: p }),
   setNewProjectOpen: (open) => set({ newProjectOpen: open }),
-  // Le canevas se remonte au retour sur le synoptique : on y revient sans sélection (évite une
-  // boucle entre la sélection mémorisée et celle que React Flow reconstruit au montage)
-  setView: (view) => set(view === 'diagram' ? { view, selectedEquipment: [], selectedLinks: [] } : { view }),
+  setView: (view) => set({ view }),
   setSheet: (id) => set({ currentSheetId: id, selectedEquipment: [], selectedLinks: [] }),
   setPresenting: (on) => set({ presenting: on, paletteOpen: false }),
   focus: (kind, id) =>

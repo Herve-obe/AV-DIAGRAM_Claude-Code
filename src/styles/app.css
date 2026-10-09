@@ -936,3 +936,11 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .insp-mount { display: flex; align-items: center; gap: 4px; }
 .rack-view .small { font-size: 11px; }
 .insp-mount .link-btn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left; font-size: 12px; }
+
+/* Bibliothèque filtrée sur le calque actif */
+.lib-layer-filter {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px;
+  margin: 0 10px 8px; padding: 6px 8px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-2); color: var(--text-2); font-size: 12px;
+}

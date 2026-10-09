@@ -1,6 +1,6 @@
 // Canevas du synoptique (React Flow). Le store du projet est la source de vérité ;
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
-import { useCallback, useEffect, useMemo, useState, type DragEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { fullyLocked, lockedLayers } from '../collab/protection'
 import { useCollab } from '../collab/session'
@@ -15,8 +15,8 @@ import {
   applyNodeChanges,
   useReactFlow,
   type Connection,
+  type EdgeChange,
   type NodeChange,
-  type OnSelectionChangeParams,
 } from '@xyflow/react'
 import { getTemplate } from '../store/libraryStore'
 import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, sheetIdOfGroupNode } from '../model/groups'
@@ -137,7 +137,6 @@ export function Canvas() {
           ports: groupInterface(project, sh.id),
           offPage: offPage.get(groupNodeId(sh.id)) ?? {},
         },
-        selected: selectedEquipment.includes(groupNodeId(sh.id)),
       }))
     setNodes((prev) => {
       const measured = new Map(prev.map((n) => [n.id, n.measured]))
@@ -150,7 +149,6 @@ export function Canvas() {
           type: 'annotation',
           position: a.position,
           data: { annotation: a, readOnly: presenting },
-          selected: selectedEquipment.includes(a.id),
           measured: measured.get(a.id),
           zIndex: a.kind === 'frame' ? -1 : 1,
           width: a.size.w,
@@ -176,7 +174,6 @@ export function Canvas() {
           },
           // Calque actif : seuls les équipements de ce domaine (ou qui en ont des ports) restent visibles
           hidden: !equipmentInView(eq, layer),
-          selected: selectedEquipment.includes(eq.id),
           measured: measured.get(eq.id),
           // Un équipement proposé n'existe pas encore dans le projet : ni déplaçable, ni supprimable
           // Équipement d'un calque réservé par quelqu'un d'autre : ni déplaçable, ni supprimable
@@ -189,8 +186,16 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, selectedEquipment, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
+  }, [project, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
 
+  // Sélection appliquée au rendu, comme pour les liaisons, plutôt que par l'effet ci-dessus (un rendu
+  // plus tard) : blocs et liaisons montrent toujours la même sélection que le store.
+  const shownNodes = useMemo(() => {
+    const sel = new Set(selectedEquipment)
+    return nodes.map((n) => (!!n.selected === sel.has(n.id) ? n : { ...n, selected: sel.has(n.id) }))
+  }, [nodes, selectedEquipment])
+
+  const edgeLinkIds = useRef(new Map<string, string[]>())
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)
     // Calque actif : liaisons de ce domaine (synchro et contrôle : si leurs deux équipements sont visibles)
@@ -249,12 +254,36 @@ export function Canvas() {
       e.data!.label = `${e.data!.label} · ${ids.length}/${mc?.pairs ?? '?'}`
       e.selected = ids.some((id) => selectedLinks.includes(id))
     }
+    edgeLinkIds.current = new Map([...bundles.values()].map((e) => [e.id, e.data!.linkIds!]))
     return [...flows, ...bundles.values()]
   }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks, layer])
+
+  // La sélection ne revient au store que par les changements « select » que React Flow émet sur un geste
+  // (clic, cadre de sélection, Échap, clic dans le vide). onSelectionChange n'est pas utilisé : il
+  // rapporte la sélection avec un rendu de retard et, dès que le store la modifie lui-même (ajout d'un
+  // bloc, nouvelle liaison), la renvoyait périmée ; la sélection oscillait alors sans fin
+  // (« Maximum update depth exceeded », écran noir après une connexion).
+  const applySelection = useCallback((changes: (NodeChange<CanvasNode> | EdgeChange<SignalFlowEdge>)[], kind: 'equipment' | 'links') => {
+    const picks = changes.filter((c) => c.type === 'select')
+    if (!picks.length) return
+    const ui = useUi.getState()
+    const next = new Set(kind === 'equipment' ? ui.selectedEquipment : ui.selectedLinks)
+    for (const c of picks) {
+      // Trait groupé (multipaire en vue Câbles) : il représente plusieurs liaisons
+      const ids = kind === 'links' ? edgeLinkIds.current.get(c.id) ?? [c.id] : [c.id]
+      for (const id of ids) {
+        if (c.selected) next.add(id)
+        else next.delete(id)
+      }
+    }
+    if (kind === 'equipment') ui.select([...next], ui.selectedLinks)
+    else ui.select(ui.selectedEquipment, [...next])
+  }, [])
 
   const onNodesChange = useCallback(
     (changes: NodeChange<CanvasNode>[]) => {
       setNodes((n) => applyNodeChanges(changes, n))
+      applySelection(changes, 'equipment')
       const annotations = useProject.getState().project.annotations ?? {}
       for (const c of changes) {
         if (c.type !== 'position' || !c.position || !c.dragging) continue
@@ -278,11 +307,7 @@ export function Canvas() {
     [connect, select],
   )
 
-  const onSelectionChange = useCallback(
-    ({ nodes: n, edges: e }: OnSelectionChangeParams) =>
-      select(n.map((x) => x.id), e.flatMap((x) => (x.data as SignalFlowEdge['data'])?.linkIds ?? [x.id])),
-    [select],
-  )
+  const onEdgesChange = useCallback((changes: EdgeChange<SignalFlowEdge>[]) => applySelection(changes, 'links'), [])
 
   const onDrop = useCallback(
     (ev: DragEvent) => {
@@ -334,7 +359,7 @@ export function Canvas() {
   return (
     <div className="canvas" onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
       <ReactFlow<CanvasNode, SignalFlowEdge>
-        nodes={nodes}
+        nodes={shownNodes}
         edges={edges}
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
@@ -346,7 +371,7 @@ export function Canvas() {
         elementsSelectable={!presenting}
         deleteKeyCode={presenting ? null : ['Delete', 'Backspace']}
         onConnect={onConnect}
-        onSelectionChange={onSelectionChange}
+        onEdgesChange={onEdgesChange}
         onDelete={({ nodes: n, edges: e }) => remove(n.map((x) => x.id), e.map((x) => x.id))}
         connectionMode={ConnectionMode.Loose}
         multiSelectionKeyCode={['Shift', 'Meta', 'Control']}

@@ -6,6 +6,9 @@ import { connectorsMate } from './connectors'
 import { formatCableLabel } from './numbering'
 import * as ops from './project'
 import { checkLink, checkProject } from './rules'
+import { equipmentInView } from './layers'
+import { domainOf } from '../library/domains'
+import { LIBRARY } from '../library'
 import { familiesCompatible } from './signals'
 import type { Project } from './types'
 
@@ -135,6 +138,14 @@ describe('projet d\'exemple et bibliothèque', () => {
     const issues = checkProject(p)
     expect(issues.map((i) => i.code).sort()).toEqual(['level-mic-to-line', 'output-split', 'output-split', 'phantom-unknown'])
     expect(Object.keys(p.links)).toHaveLength(14)
+  })
+  it('bibliothèque filtrée sur le calque Audio : consoles gardées, projecteurs sans port audio écartés', () => {
+    const onSound = LIBRARY.filter((tpl) => equipmentInView(tpl, 'sound'))
+    expect(onSound.some((tpl) => tpl.family === 'console')).toBe(true)
+    const lightOnly = LIBRARY.filter((tpl) => domainOf(tpl) === 'light' && !tpl.ports.some((p) => ['audioAnalog', 'audioDigital', 'audioIp', 'intercom', 'rf'].includes(p.signal)))
+    expect(lightOnly.length).toBeGreaterThan(0)
+    for (const tpl of lightOnly) expect(onSound).not.toContain(tpl)
+    expect(LIBRARY.filter((tpl) => equipmentInView(tpl, 'all'))).toHaveLength(LIBRARY.length)
   })
 })
 
