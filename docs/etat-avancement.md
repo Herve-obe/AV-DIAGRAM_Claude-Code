@@ -1,4 +1,4 @@
-# État d'avancement (mise à jour du 2026-10-08)
+# État d'avancement (mise à jour du 2026-10-09)
 
 ## Fait
 
@@ -56,6 +56,28 @@
 - Datapath Fx4 (sorties HDMI), Epson EB-PU2220B, SWIT M-1073H, Kramer VS-311H / VS-41H / VM-4HDCPxl, NovaStar MCTRL R5.
 - Allen & Heath SQ-5 (Vérifié), Xone:92 (Communauté, d'après le manuel Mk2).
 - Outils : l'empreinte de l'autorité du proxy est recalculée à chaque lancement (`tools/bibliotheque/proxyca.mjs`).
+
+**Synoptique, retours des essais Windows** (2026-10-09) :
+- Démarrage : fenêtre d'accueil (nouveau projet, reprendre le dernier, ouvrir un .avd, rejoindre une session,
+  8 projets récents gardés sur l'appareil). Paramètres > Enregistrement (ce poste) : dossier par défaut pour
+  Enregistrer et Ouvrir, copie automatique du projet en .avd (plugin persisted-scope).
+- Écran noir à la connexion corrigé (boucle de sélection) ; tracé figé après déplacement corrigé.
+- Sélection : cadre au glisser dans le vide (blocs entièrement dedans, liaisons touchées) ; Maj ou Ctrl + cadre
+  et Maj ou Ctrl + clic ajoutent ou retirent ; Ctrl+A ; vue déplacée à la molette, clic milieu ou Espace + glisser.
+- Menu clic droit : multipaire, relier en série, tracé automatique, dupliquer, pivoter, grouper, supprimer.
+- Zones : bouton « Zone » (cadre lié à une zone du projet, saisi par son titre ou ses bords, renommage à Entrée) ;
+  les blocs posés dedans en prennent le code (préfixe des numéros de câble).
+- Multipaire : vue Câbles en tronc commun (peigne au départ, câble épais, peigne avant les entrées), toutes
+  sources confondues ; regroupement depuis la sélection.
+- Relier en série : sorties des équipements sélectionnés (ordre du schéma) vers les entrées libres d'une
+  destination, à partir d'une entrée choisie, multipaire proposé.
+- Tracé : voies ordonnées sans croisement dans les couloirs (liaisons gauche-droite) ; poignée pour déplacer le
+  segment vertical à la main.
+- Liaison douteuse : fenêtre à la connexion (annuler, garder, ne plus signaler dans ce schéma) ; contrôles
+  désactivés listés dans Alertes, réactivables au clic droit.
+- Bibliothèque filtrée sur le calque actif (« Tout afficher » possible).
+- Limites : voies ordonnées et poignée pour les ports à gauche ou à droite seulement (blocs pivotés : tracé
+  automatique classique) ; emplacement de l'enregistrement interne sous Windows à confirmer.
 
 **Lot 3, vues liées : vue Baies (V4)** (2026-10-09) : bouton « Baies » de la barre du bas.
 - Baies 19" (hauteur 4 à 47 U, renommables), faces avant et arrière, montage par glisser-déposer depuis la liste
@@ -129,8 +151,10 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
 2. **Import PDF** : essais sur de vrais synoptiques (Visio, AutoCAD, Vectorworks, draw.io) ; pages en image via l'assistant IA.
    **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
 3. **Lot 3** : vues liées. Fait : baies (V4, premier jet). Reste : export des élévations, plan d'implantation (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8).
-4. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.
-5. Points de bibliothèque à confirmer : section « Points en suspens » de `bibliotheque-a-documenter.md`.
+4. **Synoptique** : voies ordonnées et poignée pour les blocs pivotés ; essais sur un schéma chargé
+   (plusieurs consoles, retours) ; confirmer la copie automatique dans le dossier choisi après redémarrage.
+5. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.
+6. Points de bibliothèque à confirmer : section « Points en suspens » de `bibliotheque-a-documenter.md`.
 
 ## Pour reprendre
 
