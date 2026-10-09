@@ -135,9 +135,21 @@ export function LibraryPanel() {
           id="library-search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Escape' && query) { e.stopPropagation(); setQuery('') } }}
           placeholder={t('library.search')}
           aria-label={t('library.search')}
         />
+        {query && (
+          <button
+            type="button"
+            className="search-clear"
+            onClick={() => { setQuery(''); document.getElementById('library-search')?.focus() }}
+            title={t('library.clearSearch')}
+            aria-label={t('library.clearSearch')}
+          >
+            <Icon name="close" size={12} />
+          </button>
+        )}
       </label>
       {mode === 'beginner' && <p className="hint">{t('library.hint')}</p>}
       {layer !== 'all' && (

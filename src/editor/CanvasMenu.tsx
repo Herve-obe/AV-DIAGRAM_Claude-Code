@@ -2,6 +2,7 @@
 // pivoter, grouper, supprimer). Le menu agit toujours sur la sélection courante.
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { ArrangeToolbar } from '../ui/ArrangeToolbar'
 import { groupSelected } from '../ui/groupActions'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
@@ -75,6 +76,12 @@ export function CanvasMenu({ at, onClose, onSelectAll }: { at: MenuAt; onClose: 
             {t('canvasMenu.duplicate')} <kbd>Ctrl+D</kbd>
           </button>
           <button role="menuitem" onClick={run(() => store.rotateEquipment(equipment, 1))}>{t('canvasMenu.rotate')} <kbd>R</kbd></button>
+          {selectedEquipment.length > 1 && (
+            <>
+              <div className="menu-label">{t('arrange.title')}</div>
+              <ArrangeToolbar onDone={onClose} />
+            </>
+          )}
           {selectedEquipment.length > 1 && <button role="menuitem" onClick={run(groupSelected)}>{t('groups.group')} <kbd>Ctrl+G</kbd></button>}
         </>
       )}

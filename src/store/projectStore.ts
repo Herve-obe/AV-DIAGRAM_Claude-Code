@@ -93,6 +93,8 @@ interface ProjectState {
   ungroup: (groupId: string) => void
   /** Déplacement du bloc replié pendant un geste (pas de pas d'annulation supplémentaire) */
   moveGroup: (groupId: string, position: { x: number; y: number }) => void
+  /** Nouvelles positions de plusieurs blocs (alignement, répartition) : un seul pas d'annulation */
+  placeNodes: (positions: Map<string, { x: number; y: number }>) => void
   /** Fin d'un déplacement : les équipements prennent la zone du cadre où ils sont posés (même pas d'annulation) */
   settleZones: () => void
   /** Pose un cadre de zone lié à une nouvelle zone ; renvoie l'id du cadre */
@@ -271,5 +273,14 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     ungroup: (groupId) => commit(groups.ungroup(get().project, groupId)),
     moveGroup: (groupId, position) => set({ project: groups.moveGroup(get().project, groupId, position), saved: false }),
+    placeNodes: (positions) => {
+      let p = get().project
+      for (const [id, pos] of positions) {
+        if (p.equipment[id]) p = ops.moveEquipment(p, id, pos)
+        else if (p.annotations?.[id]) p = ops.updateAnnotation(p, id, { position: pos })
+        else if (groups.isGroupNodeId(id)) p = groups.moveGroup(p, groups.sheetIdOfGroupNode(id), pos)
+      }
+      commit(zones.applyFrameZones(p))
+    },
   }
 })

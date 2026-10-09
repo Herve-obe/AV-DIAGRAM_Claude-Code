@@ -65,6 +65,11 @@ function Shortcuts() {
         return
       }
       if (isTyping(e)) return
+      // Échap : désélectionne tout (sauf si une fenêtre ou un menu est ouvert, qui se ferme lui-même)
+      if (e.key === 'Escape' && !ui.presenting && !ui.paletteOpen && !document.querySelector('.overlay, .canvas-menu')) {
+        if (ui.selectedEquipment.length || ui.selectedLinks.length) ui.select([], [])
+        return
+      }
       if (mod && key === 'z' && !e.shiftKey) { e.preventDefault(); store.undo(); return }
       if (mod && (key === 'y' || (key === 'z' && e.shiftKey))) { e.preventDefault(); store.redo(); return }
       // Ctrl+A : tout sélectionner sur la feuille affichée (blocs, notes, cadres et liaisons visibles)

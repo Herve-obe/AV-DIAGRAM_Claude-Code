@@ -16,6 +16,7 @@ import { useUi } from '../store/uiStore'
 import { Field, toNumber } from './Field'
 import { groupSelected, ungroupSelected } from './groupActions'
 import { Icon } from './Icon'
+import { ArrangeToolbar } from './ArrangeToolbar'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
 
@@ -490,6 +491,12 @@ export function Inspector() {
         {groupSheet && <GroupInspector key={groupSheet.id} sheetId={groupSheet.id} />}
         {!eq && !link && !annotation && !groupSheet && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
         {selectedLinks.length > 1 && <MulticoreGrouping linkIds={selectedLinks} />}
+        {selectedEquipment.length > 1 && (
+          <div className="field">
+            <label>{t('arrange.title')}</label>
+            <ArrangeToolbar />
+          </div>
+        )}
         {count > 1 && canGroup && (
           <div className="insp-actions">
             <button className="btn" onClick={() => useUi.getState().setSeriesFrom(selectedEquipment.filter((id) => project.equipment[id]))}>

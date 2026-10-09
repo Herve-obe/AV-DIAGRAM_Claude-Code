@@ -1045,3 +1045,17 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .muted-table tr.is-muted { opacity: 0.6; cursor: context-menu; }
 .muted-table tr.is-muted:hover { opacity: 0.9; }
 .muted-table th { text-transform: none; }
+
+/* Aligner et répartir */
+.arrange-toolbar { display: grid; gap: 2px; padding: 2px 6px 4px; }
+.arrange-row { display: flex; gap: 2px; }
+.arrange-btn { width: 28px; height: 26px; display: grid; place-items: center; }
+.canvas-menu .arrange-btn { padding: 0; justify-content: center; }
+
+/* Croix pour vider la recherche de la bibliothèque */
+.search { position: relative; }
+.search-clear {
+  display: grid; place-items: center; width: 20px; height: 20px; margin-left: auto; flex: none;
+  border-radius: 50%; color: var(--text-2); background: var(--bg-3);
+}
+.search-clear:hover { color: var(--text); background: var(--accent-soft); }
