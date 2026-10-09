@@ -306,7 +306,14 @@
     "delete": "Supprimer",
     "multicoreLine": "Multipaire {{n}} paires",
     "free": "libre",
-    "multicoreHelp": "Pour remplir un multipaire : sélectionne des liaisons (Maj+clic) puis choisis-le dans l'inspecteur. Vue Câbles (au-dessus du schéma) : un seul trait par multipaire."
+    "multicoreHelp": "Pour remplir un multipaire : sélectionne des liaisons (Maj+clic) puis choisis-le dans l'inspecteur. Vue Câbles (au-dessus du schéma) : un seul trait par multipaire.",
+    "mutedTitle": "Contrôles désactivés",
+    "mutedHint": "clic droit pour réactiver",
+    "mutedProject": "Schéma",
+    "mutedLink": "Liaison",
+    "reactivateProject_one": "Réactiver ce contrôle pour le schéma",
+    "reactivateProject_other": "Réactiver ce contrôle pour le schéma ({{count}} liaisons)",
+    "reactivateLink": "Réactiver ce contrôle pour cette liaison"
   },
   "status": {
     "equipment": "{{count}} équipements",
@@ -953,10 +960,10 @@
   },
   "linkCheck": {
     "title": "Liaison à vérifier",
-    "hint": "Annuler retire la liaison. Garder la laisse en place : l'alerte reste dans l'onglet Alertes.",
+    "hint": "Annuler retire la liaison. Garder la laisse en place : l'alerte reste dans l'onglet Alertes. Ne plus signaler : cette erreur n'est plus signalée dans ce schéma (réactivable par clic droit dans l'onglet Alertes).",
     "cancel": "Annuler la liaison",
     "keep": "Garder",
-    "keepIgnore": "Garder et ne plus signaler"
+    "keepIgnore": "Garder et ne plus signaler dans ce schéma"
   },
   "start": {
     "title": "Bienvenue dans AV Diagram",

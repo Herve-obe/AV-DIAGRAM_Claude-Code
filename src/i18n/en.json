@@ -306,7 +306,14 @@
     "delete": "Delete",
     "multicoreLine": "Multicore, {{n}} pairs",
     "free": "free",
-    "multicoreHelp": "To fill a multicore: select links (Shift+click) and pick it in the inspector. Cables view (above the diagram): one line per multicore."
+    "multicoreHelp": "To fill a multicore: select links (Shift+click) and pick it in the inspector. Cables view (above the diagram): one line per multicore.",
+    "mutedTitle": "Disabled checks",
+    "mutedHint": "right-click to re-enable",
+    "mutedProject": "Diagram",
+    "mutedLink": "Link",
+    "reactivateProject_one": "Re-enable this check for the diagram",
+    "reactivateProject_other": "Re-enable this check for the diagram ({{count}} links)",
+    "reactivateLink": "Re-enable this check for this link"
   },
   "status": {
     "equipment": "{{count}} items",
@@ -953,10 +960,10 @@
   },
   "linkCheck": {
     "title": "Link to check",
-    "hint": "Cancel removes the link. Keep leaves it in place: the alert stays in the Alerts tab.",
+    "hint": "Cancel removes the link. Keep leaves it in place: the alert stays in the Alerts tab. Stop warning: this error is no longer reported in this diagram (re-enable with a right-click in the Alerts tab).",
     "cancel": "Cancel the link",
     "keep": "Keep",
-    "keepIgnore": "Keep and stop warning"
+    "keepIgnore": "Keep and stop warning in this diagram"
   },
   "start": {
     "title": "Welcome to AV Diagram",

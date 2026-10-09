@@ -1,12 +1,12 @@
 // Dock inférieur : listes générées automatiquement depuis le schéma.
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { buildBom, computeTotals } from '../model/bom'
 import { crossLayerHints } from '../model/layers'
 import { buildCableBom, getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { multicoreUsage } from '../model/project'
-import { findPort } from '../model/rules'
+import { findPort, mutedIssues, type MutedIssue } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
 import { useProject } from '../store/projectStore'
 import { useIssues } from '../store/useIssues'
@@ -226,11 +226,65 @@ function RackHintsTable() {
   )
 }
 
+/** Alertes désactivées (pour le schéma ou pour une liaison) : clic droit pour réactiver. */
+function MutedTable() {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const muted = useMemo(() => mutedIssues(project), [project])
+  const [menu, setMenu] = useState<{ x: number; y: number; issue: MutedIssue } | null>(null)
+  useEffect(() => {
+    if (!menu) return
+    const close = () => setMenu(null)
+    window.addEventListener('pointerdown', close)
+    window.addEventListener('keydown', close)
+    return () => { window.removeEventListener('pointerdown', close); window.removeEventListener('keydown', close) }
+  }, [menu])
+  if (!muted.length) return null
+  const reactivate = (i: MutedIssue) => {
+    const s = useProject.getState()
+    if (i.scope === 'project') s.updateSettings({ mutedRules: (s.project.settings.mutedRules ?? []).filter((c) => c !== i.code) })
+    else s.updateLink(i.linkId, { ignoredRules: (s.project.links[i.linkId]?.ignoredRules ?? []).filter((c) => c !== i.code) })
+  }
+  const sameCode = (i: MutedIssue) => muted.filter((m) => m.scope === 'project' && m.code === i.code).length
+  return (
+    <>
+      <table className="muted-table">
+        <thead>
+          <tr><th colSpan={4}>{t('dock.mutedTitle')} <span className="dim">· {t('dock.mutedHint')}</span></th></tr>
+        </thead>
+        <tbody>
+          {muted.map((i) => (
+            <tr
+              key={`${i.linkId}-${i.code}-${i.scope}`}
+              className="is-muted"
+              onClick={() => useUi.getState().focus('link', i.linkId)}
+              onContextMenu={(e) => { e.preventDefault(); setMenu({ x: e.clientX, y: e.clientY, issue: i }) }}
+              title={t('dock.mutedHint')}
+            >
+              <td><span className="sev-pill">{t(i.scope === 'project' ? 'dock.mutedProject' : 'dock.mutedLink')}</span></td>
+              <td className="mono">{project.links[i.linkId]?.label}</td>
+              <td>{t(`rules.${i.code}.msg`, translateParams(i.params, t))}</td>
+              <td className="dim">{t(`severity.${i.severity}`)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {menu && (
+        <div className="menu-pop canvas-menu" role="menu" style={{ left: Math.min(menu.x, window.innerWidth - 300), top: Math.min(menu.y, window.innerHeight - 80) }} onPointerDown={(e) => e.stopPropagation()}>
+          <button role="menuitem" onClick={() => { reactivate(menu.issue); setMenu(null) }}>
+            {menu.issue.scope === 'project' ? t('dock.reactivateProject', { count: sameCode(menu.issue) }) : t('dock.reactivateLink')}
+          </button>
+        </div>
+      )}
+    </>
+  )
+}
+
 function IssuesTable() {
   const { t } = useTranslation()
   const issues = useIssues()
   const links = useProject((s) => s.project.links)
-  if (!issues.length) return <><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /><RackHintsTable /></>
+  if (!issues.length) return <><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /><RackHintsTable /><MutedTable /></>
   return (
     <>
     <LayerHintsTable />
@@ -250,6 +304,7 @@ function IssuesTable() {
         ))}
       </tbody>
     </table>
+    <MutedTable />
     </>
   )
 }

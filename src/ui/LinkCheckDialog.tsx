@@ -36,7 +36,11 @@ export function LinkCheckDialog() {
   const dst = project.equipment[link.target.equipmentId]
   const port = (eqId: string, portId: string) => project.equipment[eqId]?.ports.find((p) => p.id === portId)?.name ?? portId
   const keepAndIgnore = () => {
-    useProject.getState().updateLink(link.id, { ignoredRules: [...(link.ignoredRules ?? []), ...issues.map((i) => i.code)] })
+    // Désactivé pour tout le schéma : la même erreur, reproduite volontairement, ne sera plus signalée
+    // (réactivation : clic droit dans l'onglet Alertes)
+    const s = useProject.getState()
+    const muted = s.project.settings.mutedRules ?? []
+    s.updateSettings({ mutedRules: [...new Set([...muted, ...issues.map((i) => i.code)])] })
     close()
   }
 

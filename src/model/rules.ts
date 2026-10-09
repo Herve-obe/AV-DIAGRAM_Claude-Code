@@ -79,6 +79,29 @@ const SEVERITY: Record<RuleCode, Severity> = {
 
 /** Vérifie une liaison dans le contexte du projet (les ports déjà occupés comptent). */
 export function checkLink(project: Project, link: Link): Issue[] {
+  const muted = project.settings.mutedRules ?? []
+  return allIssues(project, link).filter((i) => !link.ignoredRules?.includes(i.code) && !muted.includes(i.code))
+}
+
+/** Alerte écartée : contrôle désactivé pour tout le schéma, ou pour cette seule liaison. */
+export interface MutedIssue extends Issue {
+  scope: 'project' | 'link'
+}
+
+/** Alertes écartées, pour l'onglet Alertes (où on peut les réactiver). */
+export function mutedIssues(project: Project): MutedIssue[] {
+  const muted = project.settings.mutedRules ?? []
+  return Object.values(project.links).flatMap((l) =>
+    allIssues(project, l).flatMap((i): MutedIssue[] => {
+      if (l.ignoredRules?.includes(i.code)) return [{ ...i, scope: 'link' }]
+      if (muted.includes(i.code)) return [{ ...i, scope: 'project' }]
+      return []
+    }),
+  )
+}
+
+/** Toutes les alertes d'une liaison, avant les contrôles désactivés. */
+function allIssues(project: Project, link: Link): Issue[] {
   const src = findPort(project, link.source)
   const dst = findPort(project, link.target)
   if (!src || !dst) return []
@@ -132,9 +155,7 @@ export function checkLink(project: Project, link: Link): Issue[] {
     codes.push({ code: POINT_TO_POINT.has(src.signal) ? 'output-busy' : 'output-split' })
   }
 
-  return codes
-    .filter((c) => !link.ignoredRules?.includes(c.code))
-    .map((c) => ({ code: c.code, severity: SEVERITY[c.code], linkId: link.id, params: c.params ?? {} }))
+  return codes.map((c) => ({ code: c.code, severity: SEVERITY[c.code], linkId: link.id, params: c.params ?? {} }))
 }
 
 export function checkProject(project: Project): Issue[] {

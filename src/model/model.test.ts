@@ -5,7 +5,7 @@ import { computeTotals, buildBom } from './bom'
 import { connectorsMate } from './connectors'
 import { formatCableLabel } from './numbering'
 import * as ops from './project'
-import { checkLink, checkProject } from './rules'
+import { checkLink, checkProject, mutedIssues } from './rules'
 import { equipmentInView } from './layers'
 import { domainOf } from '../library/domains'
 import { LIBRARY } from '../library'
@@ -723,5 +723,18 @@ describe('liaisons en série', () => {
     expect(r.project.multicores![r.multicoreId!].pairs).toBe(12)
     // Une seconde fois : les sorties sont déjà reliées, rien à faire
     expect(s.planSeries(r.project, mics, d.id).pairs).toHaveLength(0)
+  })
+})
+
+describe('contrôles désactivés pour le schéma', () => {
+  it('une règle désactivée ne signale plus, sur toutes les liaisons, et reste listée pour être réactivée', () => {
+    let p = buildSampleProject()
+    const before = checkProject(p).filter((i) => i.code === 'level-mic-to-line')
+    expect(before.length).toBeGreaterThan(0)
+    p = ops.updateSettings(p, { mutedRules: ['level-mic-to-line'] })
+    expect(checkProject(p).some((i) => i.code === 'level-mic-to-line')).toBe(false)
+    expect(mutedIssues(p).filter((i) => i.scope === 'project' && i.code === 'level-mic-to-line')).toHaveLength(before.length)
+    p = ops.updateSettings(p, { mutedRules: [] })
+    expect(checkProject(p).filter((i) => i.code === 'level-mic-to-line')).toHaveLength(before.length)
   })
 })

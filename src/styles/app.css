@@ -1039,3 +1039,9 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .series-dialog .dialog-body { max-height: 60vh; overflow: auto; }
 .series-mc { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .series-mc .check-line { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+
+/* Alertes : contrôles désactivés (clic droit pour réactiver) */
+.muted-table { margin-top: 10px; }
+.muted-table tr.is-muted { opacity: 0.6; cursor: context-menu; }
+.muted-table tr.is-muted:hover { opacity: 0.9; }
+.muted-table th { text-transform: none; }

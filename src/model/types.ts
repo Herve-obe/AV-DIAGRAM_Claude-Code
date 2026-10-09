@@ -302,6 +302,8 @@ export interface ProjectSettings {
   typeCodes?: Partial<Record<SignalFamily, string>>
   /** Réglages de l'export PDF (format, filigrane, protection), gardés avec le projet */
   export?: ExportSettings
+  /** Contrôles désactivés pour tout le schéma (codes de règles) : ni fenêtre ni alerte */
+  mutedRules?: string[]
 }
 
 /** Formats ISO 216 de la série A */
