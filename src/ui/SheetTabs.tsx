@@ -23,19 +23,16 @@ export function SheetTabs() {
     setRenaming(id)
   }
 
-  /** Pose une note ou un cadre au centre de la vue. */
+  /** Pose une note ou une zone (cadre lié à une zone du projet) au centre de la vue. */
   const addAnnotation = (kind: Annotation['kind']) => {
     const el = document.querySelector('.react-flow')?.getBoundingClientRect()
     const c = el ? rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 }) : { x: 0, y: 0 }
     const size = kind === 'frame' ? { w: 480, h: 320 } : { w: 220, h: 90 }
-    const id = useProject.getState().addAnnotation({
-      kind,
-      sheetId: currentSheetId,
-      position: { x: Math.round((c.x - size.w / 2) / 10) * 10, y: Math.round((c.y - size.h / 2) / 10) * 10 },
-      size,
-      text: kind === 'frame' ? t('annotations.frameText') : t('annotations.noteText'),
-      color: kind === 'frame' ? 'var(--sig-audio-analog)' : undefined,
-    })
+    const position = { x: Math.round((c.x - size.w / 2) / 10) * 10, y: Math.round((c.y - size.h / 2) / 10) * 10 }
+    // Le cadre posé depuis la barre est une zone : les blocs posés dedans en prennent le code
+    const id = kind === 'frame'
+      ? useProject.getState().addZoneFrame({ sheetId: currentSheetId, position, size, color: 'var(--sig-audio-analog)' })
+      : useProject.getState().addAnnotation({ kind, sheetId: currentSheetId, position, size, text: t('annotations.noteText') })
     useUi.getState().select([id], [])
   }
 
@@ -94,7 +91,7 @@ export function SheetTabs() {
       {!presenting && (
         <div className="annotation-tools">
           <button className="btn btn-ghost" onClick={() => addAnnotation('note')}><Icon name="note" size={14} />{t('annotations.note')}</button>
-          <button className="btn btn-ghost" onClick={() => addAnnotation('frame')}><Icon name="frame" size={14} />{t('annotations.frame')}</button>
+          <button className="btn btn-ghost" onClick={() => addAnnotation('frame')}><Icon name="frame" size={14} />{t('annotations.zoneTool')}</button>
         </div>
       )}
     </div>

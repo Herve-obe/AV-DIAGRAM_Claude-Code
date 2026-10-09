@@ -177,8 +177,8 @@
     "mount": "Rack",
     "mountAt": "{{rack}}, U{{u}}, {{face}}",
     "notMounted": "Not mounted",
-    "zoneHint": "Or draw a Frame and link it to a zone: blocks placed inside get it.",
-    "zoneNoneYet": "No zone yet: click Frame (above the diagram), then “Create zone” in the inspector, or add zones in Settings > Project.",
+    "zoneHint": "Or click Zone (above the diagram) and place blocks inside: they get the zone automatically.",
+    "zoneNoneYet": "No zone yet: click Zone (above the diagram) and place blocks inside, or create zones in Settings > Project.",
     "groupInMulticore": "Route the {{count}} links through a multicore",
     "groupChoose": "Choose…",
     "groupHint": "Links take the first free pairs. The Cables view then draws them as a single line."
@@ -400,7 +400,8 @@
       "project": "Project",
       "titleBlock": "Title block",
       "export": "Layout and export",
-      "template": "Title block template (this computer)"
+      "template": "Title block template (this computer)",
+      "storage": "Saving (this workstation)"
     },
     "titleBlockHint": "Project title block. Empty fields are completed from this computer's template."
   },
@@ -437,9 +438,11 @@
     "zone": "Delimited zone",
     "zoneNone": "None (plain frame)",
     "zoneNew": "Create zone “{{name}}”",
-    "zoneHint": "Link this frame to a zone: equipment placed inside gets the zone, whose code prefixes their cable numbers.",
+    "zoneHint": "Plain frame. Link it to a zone: equipment placed inside gets the zone, whose code prefixes their cable numbers.",
     "zoneLinked_one": "{{count}} item in zone {{code}}. Move a block into the frame to add it, out of the frame to remove it.",
-    "zoneLinked_other": "{{count}} items in zone {{code}}. Move a block into the frame to add it, out of the frame to remove it."
+    "zoneLinked_other": "{{count}} items in zone {{code}}. Move a block into the frame to add it, out of the frame to remove it.",
+    "zoneTool": "Zone",
+    "zoneName": "Zone name"
   },
   "presentation": {
     "enter": "Presentation mode",
@@ -970,6 +973,29 @@
     "recentMeta_other": "{{count}} items · {{date}}",
     "recentMissing": "This project is no longer available on this device.",
     "forget": "Remove from list",
-    "storageHint": "Projects are saved automatically on this device (last 8). To archive, share or back up elsewhere, save an .avd file (Ctrl+S)."
+    "storageHint": "Projects are saved automatically on this device (last 8). To keep them in a folder of your choice: Settings > Saving, or Ctrl+S."
+  },
+  "storage": {
+    "folder": "Projects folder",
+    "folderHint": "Folder suggested by default for Save (Ctrl+S) and Open (Ctrl+O). Per-workstation setting.",
+    "desktopOnly": "Available in the desktop app: a browser saves to its downloads folder.",
+    "none": "None: the system suggests its usual folder",
+    "choose": "Choose…",
+    "reset": "Stop using a folder",
+    "autoCopy": "Automatically copy the open project to this folder (.avd file updated on every change)",
+    "lastCopy": "Last copy: {{path}} at {{date}}.",
+    "error": "Copy failed: {{error}}",
+    "internal": "Internal storage",
+    "internalHint": "The app also always keeps an internal copy of the last 8 projects on this device (resumed at launch). It is not meant for archiving: use the folder above or Ctrl+S."
+  },
+  "canvasMenu": {
+    "multicore_one": "Route the link through a multicore",
+    "multicore_other": "Route the {{count}} links through a multicore",
+    "leaveMulticore_one": "Take the link out of its multicore",
+    "leaveMulticore_other": "Take {{count}} links out of their multicore",
+    "duplicate": "Duplicate",
+    "rotate": "Rotate a quarter turn",
+    "selectAll": "Select all",
+    "delete": "Delete"
   }
 }

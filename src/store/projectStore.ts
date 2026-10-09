@@ -90,6 +90,8 @@ interface ProjectState {
   moveGroup: (groupId: string, position: { x: number; y: number }) => void
   /** Fin d'un déplacement : les équipements prennent la zone du cadre où ils sont posés (même pas d'annulation) */
   settleZones: () => void
+  /** Pose un cadre de zone lié à une nouvelle zone ; renvoie l'id du cadre */
+  addZoneFrame: (frame: Pick<Annotation, 'sheetId' | 'position' | 'size' | 'color'>) => string
   /** Crée une zone à partir d'un cadre et l'y associe ; renvoie l'id de la zone */
   zoneFromFrame: (frameId: string) => string | null
   /** Fait passer des liaisons dans un multipaire (nouveau si mcId est null) ; renvoie son id */
@@ -161,7 +163,8 @@ export const useProject = create<ProjectState>((set, get) => {
       // Supprimer le bloc d'un groupe le dissout : son contenu remonte, rien n'est perdu
       let next = ops.removeAnnotations(ops.removeElements(p, eqIds, lkIds), annIds)
       for (const id of nodeIds.filter(groups.isGroupNodeId)) next = groups.ungroup(next, groups.sheetIdOfGroupNode(id))
-      commit(next)
+      // Effacer le cadre d'une zone efface la zone (Ctrl+Z la rétablit)
+      commit(zones.removeOrphanZones(next, p))
     },
     duplicate: (ids) => {
       const r = ops.duplicateEquipment(get().project, ids)
@@ -183,7 +186,7 @@ export const useProject = create<ProjectState>((set, get) => {
       commit(r.project)
       return r.id
     },
-    updateZone: (id, patch) => commit(ops.updateZone(get().project, id, patch)),
+    updateZone: (id, patch) => commit(zones.syncFrameNames(ops.updateZone(get().project, id, patch), id)),
     removeZone: (id) => commit(ops.removeZone(get().project, id)),
     updateSettings: (patch) => commit(ops.updateSettings(get().project, patch)),
     updateInfo: (patch) => commit(ops.updateInfo(get().project, patch)),
@@ -205,7 +208,12 @@ export const useProject = create<ProjectState>((set, get) => {
       commit(r.project)
       return r.id
     },
-    updateAnnotation: (id, patch) => commit(zones.applyFrameZones(ops.updateAnnotation(get().project, id, patch))),
+    updateAnnotation: (id, patch) => commit(zones.updateFrame(get().project, id, patch)),
+    addZoneFrame: (frame) => {
+      const r = zones.addZoneFrame(get().project, frame)
+      commit(r.project)
+      return r.frameId
+    },
     settleZones: () => {
       const p = get().project
       const next = zones.applyFrameZones(p)

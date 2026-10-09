@@ -9,6 +9,7 @@ import { findPort } from '../model/rules'
 import { isProject } from '../model/project'
 import { exportSettingsOf, watermarkLayout, watermarkText } from './exportOptions'
 import type { Project, WatermarkSettings } from '../model/types'
+import { useSaveFolder } from '../store/saveFolderStore'
 
 function browserDownload(filename: string, href: string) {
   const a = document.createElement('a')
@@ -28,6 +29,58 @@ const FILTERS: Record<string, { name: string; extensions: string[] }> = {
   pdf: { name: 'PDF', extensions: ['pdf'] },
 }
 
+/** Chemin proposé dans les fenêtres Enregistrer : dans le dossier choisi dans les Paramètres, s'il y en a un. */
+async function inSaveFolder(filename: string): Promise<string> {
+  const dir = useSaveFolder.getState().dir
+  if (!dir) return filename
+  const { join } = await import('@tauri-apps/api/path')
+  return join(dir, filename)
+}
+
+/** Choisit le dossier d'enregistrement (application de bureau) ; null si l'utilisateur annule. */
+export async function pickSaveFolder(): Promise<string | null> {
+  if (!isTauri()) return null
+  const { open } = await import('@tauri-apps/plugin-dialog')
+  // recursive : l'autorisation d'écrire couvre le dossier et ses sous-dossiers (gardée au redémarrage)
+  const dir = await open({ directory: true, multiple: false, recursive: true, defaultPath: useSaveFolder.getState().dir ?? undefined })
+  return typeof dir === 'string' ? dir : null
+}
+
+/**
+ * Copie automatique du projet dans le dossier d'enregistrement : <nom-du-projet>.avd, avec un suffixe
+ * si un autre projet du même nom y est déjà. Sans effet hors de l'application de bureau.
+ */
+export async function copyToSaveFolder(project: Project): Promise<void> {
+  const st = useSaveFolder.getState()
+  if (!isTauri() || !st.dir || !st.autoCopy) return
+  const { join } = await import('@tauri-apps/api/path')
+  const { exists, readTextFile, writeTextFile } = await import('@tauri-apps/plugin-fs')
+  try {
+    let name = st.files[project.id]
+    if (!name) {
+      const base = slug(project.name)
+      for (let n = 1; ; n++) {
+        const candidate = n === 1 ? `${base}.avd` : `${base}-${n}.avd`
+        const path = await join(st.dir, candidate)
+        if (!(await exists(path))) { name = candidate; break }
+        // Fichier déjà là : on le reprend s'il s'agit du même projet (ex. enregistré par Ctrl+S)
+        try {
+          const other = JSON.parse(await readTextFile(path)) as { id?: string }
+          if (other.id === project.id) { name = candidate; break }
+        } catch {
+          // fichier illisible : on ne l'écrase pas
+        }
+      }
+      st.setFile(project.id, name)
+    }
+    const path = await join(st.dir, name)
+    await writeTextFile(path, JSON.stringify(project, null, 2))
+    useSaveFolder.getState().setCopyResult({ at: new Date().toISOString(), path })
+  } catch (e) {
+    useSaveFolder.getState().setCopyResult(null, e instanceof Error ? e.message : String(e))
+  }
+}
+
 /**
  * Enregistre un contenu : fenêtre "Enregistrer sous" native dans l'application bureau.
  * Renvoie false si l'utilisateur annule.
@@ -37,7 +90,7 @@ export async function saveContent(filename: string, content: string | Uint8Array
   if (isTauri()) {
     const { save } = await import('@tauri-apps/plugin-dialog')
     const { writeFile, writeTextFile } = await import('@tauri-apps/plugin-fs')
-    const path = await save({ defaultPath: filename, filters: FILTERS[ext] ? [FILTERS[ext]] : [] })
+    const path = await save({ defaultPath: await inSaveFolder(filename), filters: FILTERS[ext] ? [FILTERS[ext]] : [] })
     if (!path) return false
     if (typeof content === 'string') await writeTextFile(path, content)
     else await writeFile(path, content)
@@ -60,7 +113,7 @@ export async function saveMany(files: { name: string; content: Uint8Array; mime:
     const { open } = await import('@tauri-apps/plugin-dialog')
     const { writeFile } = await import('@tauri-apps/plugin-fs')
     const { join } = await import('@tauri-apps/api/path')
-    const dir = await open({ directory: true, multiple: false })
+    const dir = await open({ directory: true, multiple: false, defaultPath: useSaveFolder.getState().dir ?? undefined })
     if (!dir) return 0
     for (const f of files) await writeFile(await join(dir, f.name), f.content)
     return files.length
@@ -126,7 +179,7 @@ export async function openProjectFile(): Promise<Project | null> {
   if (isTauri()) {
     const { open } = await import('@tauri-apps/plugin-dialog')
     const { readTextFile } = await import('@tauri-apps/plugin-fs')
-    const path = await open({ multiple: false, directory: false, filters: [FILTERS.avd] })
+    const path = await open({ multiple: false, directory: false, filters: [FILTERS.avd], defaultPath: useSaveFolder.getState().dir ?? undefined })
     if (!path) return null
     return parseProject(await readTextFile(path))
   }

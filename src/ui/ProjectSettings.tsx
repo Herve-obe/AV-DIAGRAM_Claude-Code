@@ -1,5 +1,5 @@
 // Paramètres : projet (nom, zones, numérotation, tension secteur), cartouche du projet, mise en page et
-// export (format, filigrane, protection), modèle de cartouche du poste.
+// export (format, filigrane, protection), modèle de cartouche et dossier d'enregistrement du poste.
 import { useEffect, useRef, useState } from 'react'
 import { exportSettingsOf } from '../io/exportOptions'
 import type { ExportSettings, ProjectInfo } from '../model/types'
@@ -12,6 +12,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Field, toNumber } from './Field'
 import { Icon } from './Icon'
+import { SaveFolderSettings } from './SaveFolderSettings'
 
 export function ProjectSettings() {
   const { t } = useTranslation()
@@ -19,7 +20,7 @@ export function ProjectSettings() {
   const project = useProject((s) => s.project)
   const store = useProject.getState()
   const [newZone, setNewZone] = useState({ name: '', code: '' })
-  const [tab, setTab] = useState<'project' | 'titleBlock' | 'export' | 'template'>('project')
+  const [tab, setTab] = useState<'project' | 'titleBlock' | 'export' | 'template' | 'storage'>('project')
   // Brouillons du cartouche et des réglages d'export : enregistrés en un seul pas d'annulation
   // quand on change d'onglet ou qu'on ferme
   const [infoDraft, setInfoDraft] = useState<ProjectInfo | null>(null)
@@ -73,7 +74,7 @@ export function ProjectSettings() {
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
         <div className="segmented export-tabs" role="tablist">
-          {(['project', 'titleBlock', 'export', 'template'] as const).map((k) => (
+          {(['project', 'titleBlock', 'export', 'template', 'storage'] as const).map((k) => (
             <button key={k} role="tab" aria-selected={tab === k} aria-pressed={tab === k} onClick={() => goTo(k)}>{t(`settings.tabs.${k}`)}</button>
           ))}
         </div>
@@ -99,6 +100,11 @@ export function ProjectSettings() {
               <h3 className="group-title">{t('exportPdf.tabs.protection')}</h3>
               <ProtectionEditor value={exportValue.protection} onChange={(protection) => setExportDraft({ ...exportValue, protection })} />
             </section>
+          </div>
+        )}
+        {tab === 'storage' && (
+          <div className="dialog-body">
+            <section><SaveFolderSettings /></section>
           </div>
         )}
         {tab === 'template' && (

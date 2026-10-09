@@ -341,11 +341,11 @@ function AnnotationInspector({ a }: { a: Annotation }) {
       <div className="insp-head">
         <span className="insp-pict"><Icon name={a.kind === 'frame' ? 'frame' : 'note'} size={20} /></span>
         <div>
-          <div className="insp-kind">{t(`annotations.${a.kind}`)}</div>
+          <div className="insp-kind">{t(a.kind === 'frame' && a.zoneId ? 'annotations.zoneTool' : `annotations.${a.kind}`)}</div>
           <div className="insp-title">{a.text.split('\n')[0] || '-'}</div>
         </div>
       </div>
-      <Field id="an-text" label={t('annotations.text')} value={a.text} multiline onCommit={(v) => updateAnnotation(a.id, { text: v })} />
+      <Field id="an-text" label={t(a.zoneId ? 'annotations.zoneName' : 'annotations.text')} value={a.text} multiline onCommit={(v) => updateAnnotation(a.id, { text: v })} />
       <div className="field">
         <label>{t('annotations.color')}</label>
         <div className="swatches" role="radiogroup" aria-label={t('annotations.color')}>
@@ -395,7 +395,6 @@ function FrameZone({ a }: { a: Annotation }) {
       {zone ? (
         <>
           <div className="field-row">
-            <Field id="an-zone-name" label={t('settings.zoneName')} value={zone.name} onCommit={(v) => v.trim() && store.updateZone(zone.id, { name: v.trim() })} />
             <Field id="an-zone-code" label={t('settings.zoneCode')} value={zone.code} onCommit={(v) => v.trim() && store.updateZone(zone.id, { code: v })} />
           </div>
           <p className="source-note">{t('annotations.zoneLinked', { count: inside, code: zone.code })}</p>

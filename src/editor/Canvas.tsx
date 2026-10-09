@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { fullyLocked, lockedLayers } from '../collab/protection'
 import { useCollab } from '../collab/session'
 import { PageGrid } from './PageGrid'
+import { CanvasMenu, type MenuAt } from './CanvasMenu'
 import {
   Background,
   BackgroundVariant,
@@ -12,6 +13,7 @@ import {
   Controls,
   MiniMap,
   ReactFlow,
+  SelectionMode,
   applyNodeChanges,
   useReactFlow,
   type Connection,
@@ -313,6 +315,28 @@ export function Canvas() {
 
   const onEdgesChange = useCallback((changes: EdgeChange<SignalFlowEdge>[]) => applySelection(changes, 'links'), [])
 
+  // Menu clic droit : un clic droit hors de la sélection sélectionne d'abord l'élément visé
+  const [menu, setMenu] = useState<MenuAt | null>(null)
+  const closeMenu = useCallback(() => setMenu(null), [])
+  const openMenu = useCallback((e: { preventDefault: () => void; clientX: number; clientY: number }, target?: { kind: 'node' | 'edge'; id: string; linkIds?: string[] }) => {
+    e.preventDefault()
+    if (useUi.getState().presenting) return
+    const ui = useUi.getState()
+    if (target?.kind === 'node' && !ui.selectedEquipment.includes(target.id)) ui.select([target.id], [])
+    if (target?.kind === 'edge') {
+      const ids = target.linkIds ?? [target.id]
+      if (!ids.every((id) => ui.selectedLinks.includes(id))) ui.select([], ids)
+    }
+    setMenu({ x: e.clientX, y: e.clientY })
+  }, [])
+  const selectAll = useCallback(() => {
+    const nodeIds = rf.getNodes().filter((n) => !n.hidden).map((n) => n.id)
+    const linkIds = rf.getEdges().filter((x) => !x.hidden)
+      .flatMap((x) => (x.data as SignalFlowEdge['data'])?.linkIds ?? [x.id])
+      .filter((id) => useProject.getState().project.links[id])
+    select(nodeIds, [...new Set(linkIds)])
+  }, [rf, select])
+
   const onDrop = useCallback(
     (ev: DragEvent) => {
       ev.preventDefault()
@@ -377,7 +401,23 @@ export function Canvas() {
         deleteKeyCode={presenting ? null : ['Delete', 'Backspace']}
         onConnect={onConnect}
         onEdgesChange={onEdgesChange}
-        onDelete={({ nodes: n, edges: e }) => remove(n.map((x) => x.id), e.map((x) => x.id))}
+        onNodeContextMenu={(e, n) => openMenu(e, { kind: 'node', id: n.id })}
+        onEdgeContextMenu={(e, x) => openMenu(e, { kind: 'edge', id: x.id, linkIds: x.data?.linkIds })}
+        onSelectionContextMenu={(e) => openMenu(e)}
+        onPaneContextMenu={(e) => openMenu(e)}
+        // Glisser dans le vide : cadre de sélection (blocs et liaisons) ; déplacement de la vue à la
+        // molette, au clic milieu ou Espace + glisser
+        selectionOnDrag
+        selectionMode={SelectionMode.Partial}
+        panOnDrag={[1]}
+        onDelete={({ nodes: n, edges: e }) => {
+          const nodeIds = n.map((x) => x.id)
+          const linkIds = e.flatMap((x) => x.data?.linkIds ?? [x.id])
+          remove(nodeIds, linkIds)
+          // Ce qui vient d'être supprimé ne reste pas sélectionné (le clic suivant compterait un élément fantôme)
+          const ui = useUi.getState()
+          ui.select(ui.selectedEquipment.filter((id) => !nodeIds.includes(id)), ui.selectedLinks.filter((id) => !linkIds.includes(id)))
+        }}
         connectionMode={ConnectionMode.Loose}
         multiSelectionKeyCode={['Shift', 'Meta', 'Control']}
         snapToGrid
@@ -412,6 +452,7 @@ export function Canvas() {
           <button className="link-btn" onClick={() => useUi.getState().setPref('layer', 'all')}>{t('layers.showAll')}</button>
         </div>
       )}
+      {menu && <CanvasMenu at={menu} onClose={closeMenu} onSelectAll={selectAll} />}
       {preview && !presenting && (
         <ProposalBanner equipment={preview.addedEquipment.length} links={preview.addedLinks.length} sheetId={preview.sheetId} />
       )}

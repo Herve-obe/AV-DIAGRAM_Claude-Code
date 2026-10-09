@@ -2,7 +2,9 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "Permissions de la fenêtre principale : dialogues et lecture / écriture des fichiers choisis par l'utilisateur",
-  "windows": ["main"],
+  "windows": [
+    "main"
+  ],
   "permissions": [
     "core:default",
     "dialog:allow-open",
@@ -12,6 +14,7 @@
     "fs:allow-read-file",
     "fs:allow-write-text-file",
     "fs:allow-write-file",
+    "fs:allow-exists",
     "opener:allow-open-url"
   ]
 }

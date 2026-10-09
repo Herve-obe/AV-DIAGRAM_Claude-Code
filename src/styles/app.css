@@ -973,3 +973,23 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
   font: 600 10px var(--font-mono, monospace); color: var(--ann-color); vertical-align: 1px;
 }
 .insp-mc-group { margin-top: 8px; }
+
+/* Paramètres > Enregistrement */
+.export-tabs { flex-wrap: wrap; }
+.save-folder { display: grid; gap: 8px; }
+.save-folder-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.save-folder-path {
+  flex: 1 1 260px; min-width: 0; padding: 6px 8px; overflow-wrap: anywhere;
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 12px;
+}
+.save-folder .check-line { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.save-folder .format-warning { margin: 0; }
+
+/* Menu clic droit du synoptique */
+.canvas-menu { position: fixed; top: auto; z-index: 60; min-width: 230px; }
+.canvas-menu .menu-label { padding: 6px 10px 2px; font: 600 11px var(--font-label); letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-2); }
+.canvas-menu button { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.canvas-menu kbd { font-size: 11px; color: var(--text-3); }
+.canvas-menu hr { border: 0; border-top: 1px solid var(--border); margin: 4px 2px; }
+.canvas-menu .danger { color: var(--err); }
+.save-folder-row, .save-folder .check-line, .save-folder > .format-warning, .save-folder > .dim { margin-left: 14px; margin-right: 14px; }

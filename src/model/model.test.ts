@@ -637,6 +637,22 @@ describe('zones tracées et regroupement en multipaire', () => {
     expect(p.equipment[eq.id].zoneId).toBeUndefined()
     expect(z.applyFrameZones(p)).toBe(p)
   })
+  it('zone posée depuis la barre : nommée, son code suit le nom, effacée avec son cadre', async () => {
+    const z = await import('./zones')
+    const p0 = ops.normalizeProject(buildSampleProject())
+    const eq = Object.values(p0.equipment)[0]
+    const r = z.addZoneFrame(p0, { sheetId: eq.sheetId ?? ops.DEFAULT_SHEET_ID, position: { x: eq.position.x - 10, y: eq.position.y - 10 }, size: { w: 300, h: 200 } })
+    let p = r.project
+    expect(p.zones.find((x) => x.id === r.zoneId)?.code).toMatch(/^Z\d+$/)
+    expect(p.equipment[eq.id].zoneId).toBe(r.zoneId)
+    p = z.updateFrame(p, r.frameId, { text: 'Régie son' })
+    expect(p.zones.find((x) => x.id === r.zoneId)).toMatchObject({ name: 'Régie son', code: 'REG' })
+    p = z.syncFrameNames(ops.updateZone(p, r.zoneId, { name: 'Régie FOH' }), r.zoneId)
+    expect(p.annotations?.[r.frameId].text).toBe('Régie FOH')
+    const after = z.removeOrphanZones(ops.removeAnnotations(p, [r.frameId]), p)
+    expect(after.zones.some((x) => x.id === r.zoneId)).toBe(false)
+    expect(after.equipment[eq.id].zoneId).toBeUndefined()
+  })
   it('regroupe des liaisons sur les premières paires libres d\'un nouveau multipaire', () => {
     const p0 = buildSampleProject()
     const ids = Object.keys(p0.links).slice(0, 10)

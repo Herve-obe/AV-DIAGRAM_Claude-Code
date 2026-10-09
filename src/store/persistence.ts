@@ -2,6 +2,7 @@
 // ligne. Aucune donnée ne quitte l'appareil. Les derniers projets ouverts sont aussi gardés, pour les
 // rouvrir depuis la fenêtre d'accueil (un nouveau projet ne fait donc pas perdre le précédent).
 import { del, get, set } from 'idb-keyval'
+import { copyToSaveFolder } from '../io/files'
 import { isProject } from '../model/project'
 import type { Project } from '../model/types'
 import { useProject } from './projectStore'
@@ -84,6 +85,7 @@ export function startAutosave(): () => void {
         await set(KEY, p)
         await remember(p)
         useProject.getState().markSaved()
+        await copyToSaveFolder(p)
       } catch {
         // Échec silencieux : l'indicateur "non enregistré" reste affiché
       }
