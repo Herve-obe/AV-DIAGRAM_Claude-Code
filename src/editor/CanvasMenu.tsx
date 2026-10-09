@@ -52,6 +52,14 @@ export function CanvasMenu({ at, onClose, onSelectAll }: { at: MenuAt; onClose: 
           {multicores.map((m) => (
             <button key={m.id} role="menuitem" onClick={toMulticore(m.id)}>{m.label} <span className="dim">({m.pairs})</span></button>
           ))}
+          {links.some((id) => project.links[id].bendX !== undefined) && (
+            <button role="menuitem" onClick={run(() => {
+              const ids = links.filter((id) => project.links[id].bendX !== undefined)
+              for (const id of ids) store.updateLink(id, { bendX: undefined })
+            })}>
+              {t('canvasMenu.autoRoute')}
+            </button>
+          )}
           {inMulticore.length > 0 && (
             <button role="menuitem" onClick={run(() => { for (const id of inMulticore) store.updateLink(id, { multicoreId: undefined, pair: undefined }) })}>
               {t('canvasMenu.leaveMulticore', { count: inMulticore.length })}
@@ -62,6 +70,7 @@ export function CanvasMenu({ at, onClose, onSelectAll }: { at: MenuAt; onClose: 
       )}
       {equipment.length > 0 && (
         <>
+          <button role="menuitem" onClick={run(() => useUi.getState().setSeriesFrom(equipment))}>{t('series.menu')}</button>
           <button role="menuitem" onClick={run(() => { const ids = store.duplicate(equipment); if (ids.length) useUi.getState().select(ids, []) })}>
             {t('canvasMenu.duplicate')} <kbd>Ctrl+D</kbd>
           </button>

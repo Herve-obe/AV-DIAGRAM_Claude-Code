@@ -25,6 +25,7 @@ import { ExportPdfDialog } from './ui/ExportPdfDialog'
 import { NewProjectDialog } from './ui/NewProjectDialog'
 import { LinkCheckDialog } from './ui/LinkCheckDialog'
 import { StartDialog } from './ui/StartDialog'
+import { SeriesDialog } from './ui/SeriesDialog'
 import { PageBar } from './ui/PageBar'
 import { RackView } from './ui/RackView'
 import { ProjectSettings } from './ui/ProjectSettings'
@@ -169,6 +170,7 @@ export default function App() {
       <NewProjectDialog />
       <LinkCheckDialog />
       <StartDialog />
+      <SeriesDialog />
       <MergeDialog />
       <PdfImportDialog />
       <ExportPdfDialog />

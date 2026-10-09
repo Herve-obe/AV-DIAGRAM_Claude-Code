@@ -665,3 +665,63 @@ describe('zones tracées et regroupement en multipaire', () => {
   })
 })
 
+
+describe('voies ordonnées dans les couloirs', () => {
+  /** Croisements entre segments verticaux et horizontaux de tracés différents */
+  const crossings = (routes: { x: number; y: number }[][]) => {
+    let n = 0
+    const segs = routes.map((r) => r.slice(1).map((b, i) => [r[i], b] as const))
+    for (let i = 0; i < segs.length; i++) for (let j = 0; j < segs.length; j++) {
+      if (i === j) continue
+      for (const [a, b] of segs[i]) for (const [c, d] of segs[j]) {
+        if (a.x !== b.x || c.y !== d.y) continue
+        const [y0, y1] = [Math.min(a.y, b.y), Math.max(a.y, b.y)]
+        const [x0, x1] = [Math.min(c.x, d.x), Math.max(c.x, d.x)]
+        if (a.x > x0 && a.x < x1 && c.y > y0 && c.y < y1) n++
+      }
+    }
+    return n
+  }
+  it('sept micros en colonne vers sept entrées : aucune liaison ne se croise, et un coude manuel est respecté', async () => {
+    const { routeAll } = await import('./routing')
+    const obstacles = [...Array.from({ length: 7 }, (_, k) => ({ x: 100 + k * 25, y: k * 70, w: 140, h: 50 })), { x: 700, y: 0, w: 220, h: 420 }]
+    const requests = Array.from({ length: 7 }, (_, k) => ({
+      id: `l${k}`,
+      source: { x: 240 + k * 25, y: k * 70 + 40, side: 'right' as const },
+      target: { x: 700, y: 40 + k * 18, side: 'left' as const },
+    }))
+    const routes = routeAll(obstacles, requests)
+    expect(crossings([...routes.values()])).toBe(0)
+    const bent = routeAll(obstacles, [{ ...requests[3], bendX: 500 }])
+    expect(bent.get('l3')!.some((p) => p.x === 500)).toBe(true)
+  })
+})
+
+describe('liaisons en série', () => {
+  it('relie dix micros dans l\'ordre du schéma aux entrées libres, à partir d\'une entrée choisie, dans un multipaire', async () => {
+    const s = await import('./series')
+    const { LIBRARY } = await import('../library')
+    const mic = LIBRARY.find((t) => t.family === 'capture' && t.ports.filter((p) => p.direction === 'out').length === 1 && t.ports[0].signal === 'audioAnalog')!
+    const desk = LIBRARY.find((t) => t.family === 'console' && t.ports.filter((p) => p.direction === 'in' && p.signal === 'audioAnalog').length >= 16)!
+    let p = ops.createProject('t')
+    const d = ops.addEquipment(p, desk, { x: 800, y: 0 })
+    p = d.project
+    const mics: string[] = []
+    // Ajoutés dans le désordre : l'ordre retenu est celui du schéma (de haut en bas)
+    for (const k of [3, 0, 9, 1, 2, 8, 4, 7, 5, 6]) {
+      const r = ops.addEquipment(p, mic, { x: 0, y: k * 80 })
+      p = r.project
+      mics[k] = r.id
+    }
+    const inputs = s.freeInputs(p, d.id, 'audioAnalog')
+    const plan = s.planSeries(p, [...mics, d.id], d.id, { startPortId: inputs[2].id })
+    expect(plan.pairs).toHaveLength(10)
+    expect(plan.pairs.map((x) => x.source.equipmentId)).toEqual(mics)
+    expect(plan.pairs[0].target.portId).toBe(inputs[2].id)
+    const r = s.applySeries(p, plan, null)
+    expect(r.linkIds).toHaveLength(10)
+    expect(r.project.multicores![r.multicoreId!].pairs).toBe(12)
+    // Une seconde fois : les sorties sont déjà reliées, rien à faire
+    expect(s.planSeries(r.project, mics, d.id).pairs).toHaveLength(0)
+  })
+})

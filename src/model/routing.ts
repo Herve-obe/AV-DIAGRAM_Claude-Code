@@ -27,6 +27,8 @@ export interface RouteRequest {
   id: string
   source: RouteEnd
   target: RouteEnd
+  /** Position imposée à la main du segment vertical (liaisons gauche-droite), en px du schéma */
+  bendX?: number
 }
 
 export interface RoutingOptions {
@@ -383,9 +385,88 @@ export function routeAll(obstacles: Rect[], requests: RouteRequest[], opts: Rout
     // Extrémités arrondies comme les amorces : sinon le premier segment serait légèrement en biais
     return simplify([{ x: Math.round(r.source.x), y: Math.round(r.source.y) }, ...mid, { x: Math.round(r.target.x), y: Math.round(r.target.y) }])
   })
+  laneCorridors(raw, requests, stubs, inflated, opts)
   const nudged = nudge(raw, opts.spacing, m - 2)
   requests.forEach((r, k) => result.set(r.id, simplify(nudged[k])))
   return result
+}
+
+/** Écart maximal entre deux voies d'un même couloir */
+const LANE_MAX = 12
+
+/** Le segment (horizontal ou vertical) traverse-t-il un bloc ? */
+function hits(a: Point, b: Point, rects: Rect[]): boolean {
+  const x0 = Math.min(a.x, b.x)
+  const x1 = Math.max(a.x, b.x)
+  const y0 = Math.min(a.y, b.y)
+  const y1 = Math.max(a.y, b.y)
+  return rects.some((r) => x0 < r.x + r.w && x1 > r.x && y0 < r.y + r.h && y1 > r.y)
+}
+
+/**
+ * Voies ordonnées dans les couloirs. Les liaisons qui vont d'une sortie à droite vers une entrée à
+ * gauche (le cas courant d'un synoptique) et dont les couloirs se recouvrent passent par le même
+ * couloir, chacune sur sa voie verticale, rangées pour ne pas se croiser :
+ * - liaison qui monte : plus sa source est basse, plus sa voie est à droite ;
+ * - liaison qui descend : plus sa source est haute, plus sa voie est à droite.
+ * Un coude imposé à la main (bendX) est respecté tel quel. Une liaison dont la voie heurterait un bloc
+ * garde le tracé du plus court chemin.
+ */
+function laneCorridors(routes: Point[][], requests: RouteRequest[], stubs: { s: Point; t: Point }[], obstacles: Rect[], opts: RoutingOptions) {
+  type Wire = { k: number; dir: 1 | -1; lo: number; hi: number; sy: number; ty: number }
+  const wires: Wire[] = []
+  requests.forEach((r, k) => {
+    const { s, t } = stubs[k]
+    const forward = r.source.side === 'right' && r.target.side === 'left' && s.x < t.x
+    const backward = r.source.side === 'left' && r.target.side === 'right' && s.x > t.x
+    if (!forward && !backward) return
+    const sy = Math.round(r.source.y)
+    const ty = Math.round(r.target.y)
+    const zig = (x: number) => [{ x: Math.round(r.source.x), y: sy }, { x, y: sy }, { x, y: ty }, { x: Math.round(r.target.x), y: ty }]
+    if (r.bendX !== undefined) {
+      routes[k] = simplify(zig(Math.round(r.bendX)))
+      return
+    }
+    if (sy === ty) return
+    wires.push({ k, dir: forward ? 1 : -1, lo: Math.min(s.x, t.x), hi: Math.max(s.x, t.x), sy, ty })
+  })
+  // Couloirs : liaisons dont les intervalles horizontaux gardent une partie commune assez large
+  wires.sort((a, b) => a.lo - b.lo)
+  const corridors: { wires: Wire[]; lo: number; hi: number; dir: 1 | -1 }[] = []
+  for (const w of wires) {
+    const c = corridors.find((x) => {
+      if (x.dir !== w.dir) return false
+      const lo = Math.max(x.lo, w.lo)
+      const hi = Math.min(x.hi, w.hi)
+      return hi - lo >= (x.wires.length + 2) * opts.spacing
+    })
+    if (c) {
+      c.wires.push(w)
+      c.lo = Math.max(c.lo, w.lo)
+      c.hi = Math.min(c.hi, w.hi)
+    } else corridors.push({ wires: [w], lo: w.lo, hi: w.hi, dir: w.dir })
+  }
+  for (const c of corridors) {
+    if (c.wires.length < 2) continue
+    // Descendantes puis montantes, chacune dans l'ordre qui évite les croisements (voir plus haut)
+    const down = c.wires.filter((w) => w.ty > w.sy).sort((a, b) => b.sy - a.sy || b.ty - a.ty)
+    const up = c.wires.filter((w) => w.ty < w.sy).sort((a, b) => a.sy - b.sy || a.ty - b.ty)
+    // Liaisons de droite à gauche (retours) : même règle, vue dans un miroir
+    const ordered = c.dir === 1 ? [...down, ...up] : [...down, ...up].reverse()
+    const n = ordered.length
+    const step = Math.min(LANE_MAX, (c.hi - c.lo) / (n + 1))
+    const mid = (c.lo + c.hi) / 2
+    ordered.forEach((w, i) => {
+      const x = Math.round(mid + (i - (n - 1) / 2) * step)
+      const r = requests[w.k]
+      const pts = [{ x: Math.round(r.source.x), y: w.sy }, { x, y: w.sy }, { x, y: w.ty }, { x: Math.round(r.target.x), y: w.ty }]
+      // Amorces exclues : elles partent du bloc lui-même
+      const sStub = stubs[w.k].s
+      const tStub = stubs[w.k].t
+      if (hits(sStub, pts[1], obstacles) || hits(pts[1], pts[2], obstacles) || hits(pts[2], tStub, obstacles)) return
+      routes[w.k] = pts
+    })
+  }
 }
 
 /** Chemin SVG à coins arrondis. */

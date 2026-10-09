@@ -153,8 +153,8 @@ export function Canvas() {
           data: { annotation: a, readOnly: presenting },
           measured: measured.get(a.id),
           zIndex: a.kind === 'frame' ? -1 : 1,
-          // Cadre : saisi par son onglet de titre seulement (l'intérieur laisse passer la souris)
-          ...(a.kind === 'frame' ? { dragHandle: '.annotation-head', className: 'is-frame' } : {}),
+          // Cadre : saisi par son onglet de titre ou ses bords (l'intérieur laisse passer la souris)
+          ...(a.kind === 'frame' ? { dragHandle: '.annotation-grip', className: 'is-frame' } : {}),
           width: a.size.w,
           height: a.size.h,
         }
@@ -219,6 +219,7 @@ export function Canvas() {
     }
     // Vue « Câbles » : les liaisons d'un même multipaire entre deux blocs forment un seul trait
     const bundles = new Map<string, SignalFlowEdge>()
+    const bundleSides = new Map<string, { a: Set<string>; b: Set<string> }>()
     const flows = Object.values(project.links).flatMap((l) => {
       const a = endpointOnView(project, l.source, currentSheetId)
       const b = endpointOnView(project, l.target, currentSheetId)
@@ -228,18 +229,27 @@ export function Canvas() {
       const signal = port?.signal ?? 'audioAnalog'
       const mc = linkView === 'cables' && l.multicoreId ? project.multicores?.[l.multicoreId] : undefined
       if (mc) {
-        const key = `mc:${mc.id}:${[a.node, b.node].sort().join('|')}`
+        // Un trait par multipaire et par feuille : toutes ses paires, quels que soient les blocs reliés
+        const key = `mc:${mc.id}`
         const prev = bundles.get(key)
         if (prev) {
           prev.data!.linkIds!.push(l.id)
-          // Paire tirée dans l'autre sens : on la remet dans le sens du trait
-          prev.data!.ends!.push(prev.source === a.node ? { sourceHandle: a.handle, targetHandle: b.handle } : { sourceHandle: b.handle, targetHandle: a.handle })
-        } else bundles.set(key, {
-          id: key, type: 'signal', source: a.node, sourceHandle: a.handle, target: b.node, targetHandle: b.handle,
-          deletable: false,
-          hidden: !linkInView(l, signal),
-          data: { signal, label: mc.label, showLabel: true, linkIds: [l.id], ends: [{ sourceHandle: a.handle, targetHandle: b.handle }] },
-        })
+          // Paire tirée dans l'autre sens (retour) : on la remet dans le sens du trait
+          const sides = bundleSides.get(key)!
+          const flip = sides.b.has(a.node) || sides.a.has(b.node)
+          const [na, nb] = flip ? [b, a] : [a, b]
+          sides.a.add(na.node)
+          sides.b.add(nb.node)
+          prev.data!.ends!.push({ sourceNode: na.node, sourceHandle: na.handle, targetNode: nb.node, targetHandle: nb.handle })
+        } else {
+          bundleSides.set(key, { a: new Set([a.node]), b: new Set([b.node]) })
+          bundles.set(key, {
+            id: key, type: 'signal', source: a.node, sourceHandle: a.handle, target: b.node, targetHandle: b.handle,
+            deletable: false,
+            hidden: !linkInView(l, signal),
+            data: { signal, label: mc.label, showLabel: true, linkIds: [l.id], ends: [{ sourceNode: a.node, sourceHandle: a.handle, targetNode: b.node, targetHandle: b.handle }] },
+          })
+        }
         return []
       }
       return [{
@@ -251,7 +261,7 @@ export function Canvas() {
         targetHandle: b.handle,
         selected: selectedLinks.includes(l.id),
         hidden: hiddenSignals.includes(signal) || !linkInView(l, signal),
-        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting || proposedLinks.has(l.id) },
+        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting || proposedLinks.has(l.id), bendX: l.bendX },
         ...(proposedLinks.has(l.id) ? { className: 'is-proposed', selectable: false, deletable: false } : {}),
       }]
     })
@@ -342,13 +352,20 @@ export function Canvas() {
     select(nodeIds, [...new Set(linkIds)])
   }, [rf, select])
 
-  // Cadre de sélection : les blocs entièrement dedans (React Flow, mode Full) et les liaisons que le
-  // cadre touche, même partiellement, sans prendre les blocs qu'elles relient. Avec Maj ou Ctrl, la
-  // sélection s'ajoute à la précédente.
-  const boxStart = useRef<{ x: number; y: number; links: string[] } | null>(null)
+  // Cadre de sélection : les blocs entièrement dedans et les liaisons que le cadre touche, même
+  // partiellement, sans prendre les blocs qu'elles relient. Avec Maj ou Ctrl, chaque élément du cadre
+  // bascule : ajouté s'il n'était pas sélectionné, retiré s'il l'était (comme Maj+clic, en lot).
+  const boxStart = useRef<{ x: number; y: number; toggle: boolean; nodes: string[]; links: string[] } | null>(null)
+  // Sélection relevée à l'appui du bouton : React Flow la vide au début du cadre
+  // Sélection et point de départ relevés à l'appui du bouton : React Flow vide la sélection au début du
+  // cadre et ne le signale qu'au premier déplacement, quelques pixels plus loin
+  const beforeBox = useRef({ x: 0, y: 0, nodes: [] as string[], links: [] as string[] })
+  const onPointerDownCapture = useCallback((e: React.PointerEvent) => {
+    const ui = useUi.getState()
+    beforeBox.current = { x: e.clientX, y: e.clientY, nodes: ui.selectedEquipment, links: ui.selectedLinks }
+  }, [])
   const onSelectionStart = useCallback((e: React.MouseEvent) => {
-    const additive = e.shiftKey || e.ctrlKey || e.metaKey
-    boxStart.current = { x: e.clientX, y: e.clientY, links: additive ? useUi.getState().selectedLinks : [] }
+    boxStart.current = { toggle: e.shiftKey || e.ctrlKey || e.metaKey, ...beforeBox.current }
   }, [])
   const onSelectionEnd = useCallback((e: React.MouseEvent) => {
     const start = boxStart.current
@@ -356,17 +373,31 @@ export function Canvas() {
     if (!start) return
     const box = { x1: Math.min(start.x, e.clientX), x2: Math.max(start.x, e.clientX), y1: Math.min(start.y, e.clientY), y2: Math.max(start.y, e.clientY) }
     if (box.x2 - box.x1 < 3 && box.y2 - box.y1 < 3) return
-    const hit = new Set(start.links)
+    const inNodes = new Set<string>()
+    for (const el of document.querySelectorAll<HTMLElement>('.react-flow__node')) {
+      const id = el.dataset.id
+      if (!id || el.style.visibility === 'hidden' || el.classList.contains('is-proposed')) continue
+      const r = el.getBoundingClientRect()
+      if (r.width && r.left >= box.x1 && r.right <= box.x2 && r.top >= box.y1 && r.bottom <= box.y2) inNodes.add(id)
+    }
+    const inLinks = new Set<string>()
     for (const g of document.querySelectorAll<SVGGElement>('.react-flow__edge')) {
       const id = g.dataset.id ?? g.getAttribute('data-testid')?.replace(/^rf__edge-/, '')
       if (!id || !touches(g, box)) continue
-      for (const l of edgeLinkIds.current.get(id) ?? [id]) hit.add(l)
+      for (const l of edgeLinkIds.current.get(id) ?? [id]) inLinks.add(l)
     }
+    const toggled = (base: string[], hit: Set<string>) => {
+      const out = new Set(base)
+      for (const id of hit) {
+        if (out.has(id)) out.delete(id)
+        else out.add(id)
+      }
+      return [...out]
+    }
+    const nodes = start.toggle ? toggled(start.nodes, inNodes) : [...inNodes]
+    const links = (start.toggle ? toggled(start.links, inLinks) : [...inLinks]).filter((id) => useProject.getState().project.links[id])
     // Après les derniers changements « select » de React Flow pour ce cadre
-    setTimeout(() => {
-      const ui = useUi.getState()
-      ui.select(ui.selectedEquipment, [...hit].filter((id) => useProject.getState().project.links[id]))
-    }, 0)
+    setTimeout(() => useUi.getState().select(nodes, links), 0)
   }, [])
 
   const onDrop = useCallback(
@@ -417,7 +448,7 @@ export function Canvas() {
   }, [proposedCount, rf])
 
   return (
-    <div className="canvas" onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
+    <div className="canvas" onPointerDownCapture={onPointerDownCapture} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
       <ReactFlow<CanvasNode, SignalFlowEdge>
         nodes={shownNodes}
         edges={edges}

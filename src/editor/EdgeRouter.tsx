@@ -61,7 +61,8 @@ export function computeRoutes(
     if ((e.data as { ends?: unknown } | undefined)?.ends) continue
     const source = endOf(nodeLookup.get(e.source), e.sourceHandle)
     const target = endOf(nodeLookup.get(e.target), e.targetHandle)
-    if (source && target) requests.push({ id: e.id, source, target })
+    const bendX = (e.data as { bendX?: number } | undefined)?.bendX
+    if (source && target) requests.push({ id: e.id, source, target, ...(bendX !== undefined ? { bendX } : {}) })
   }
   const routes = routeAll(obstacles, requests)
   if (!moved?.size || !previous) return { routes, obstacles }
@@ -92,7 +93,7 @@ function geometryKey(nodeLookup: Map<string, InternalNode<Node>>, edges: Edge[])
     const p = x.internals.positionAbsolute
     n.push(`${x.id}:${Math.round(p.x)},${Math.round(p.y)},${x.measured?.width},${x.measured?.height},${x.hidden ? 1 : 0}${x.dragging ? 'd' : ''}:${Math.round(handles)}`)
   }
-  const e = edges.map((x) => `${x.id}:${x.source}.${x.sourceHandle}>${x.target}.${x.targetHandle}${x.hidden ? 'h' : ''}:${(x.data as { label?: string } | undefined)?.label ?? ''}`)
+  const e = edges.map((x) => `${x.id}:${x.source}.${x.sourceHandle}>${x.target}.${x.targetHandle}${x.hidden ? 'h' : ''}:${(x.data as { label?: string } | undefined)?.label ?? ''}:${(x.data as { bendX?: number } | undefined)?.bendX ?? ''}`)
   return `${n.join(';')}|${e.join(';')}`
 }
 

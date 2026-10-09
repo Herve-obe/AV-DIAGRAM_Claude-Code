@@ -539,7 +539,7 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
    l'onglet du titre et les poignées de redimensionnement restent saisissables. React Flow pose
    pointer-events en style direct sur le nœud, d'où !important. */
 .react-flow__node.is-frame { pointer-events: none !important; }
-.react-flow__node.is-frame .annotation-head,
+.react-flow__node.is-frame .annotation-grip,
 .react-flow__node.is-frame .react-flow__resize-control { pointer-events: all; }
 .annotation-head {
   position: absolute; top: -1px; left: -1px; max-width: calc(100% + 2px);
@@ -1012,3 +1012,30 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .canvas-menu hr { border: 0; border-top: 1px solid var(--border); margin: 4px 2px; }
 .canvas-menu .danger { color: var(--err); }
 .save-folder-row, .save-folder .check-line, .save-folder > .format-warning, .save-folder > .dim { margin-left: 14px; margin-right: 14px; }
+
+/* Bords saisissables d'une zone : 8 px de large, centrés sur le trait */
+.annotation-edge { position: absolute; cursor: move; }
+.annotation-edge.edge-top { top: -4px; left: 0; right: 0; height: 8px; }
+.annotation-edge.edge-bottom { bottom: -4px; left: 0; right: 0; height: 8px; }
+.annotation-edge.edge-left { left: -4px; top: 0; bottom: 0; width: 8px; }
+.annotation-edge.edge-right { right: -4px; top: 0; bottom: 0; width: 8px; }
+.annotation-frame:has(.annotation-edge:hover) { border-style: solid; }
+
+/* Poignée du segment vertical d'une liaison sélectionnée (glisser : déplacer ; double-clic : automatique) */
+.bend-grip {
+  position: absolute; width: 10px; height: 22px; border-radius: 5px;
+  background: var(--bg-1); border: 2px solid var(--accent);
+  cursor: ew-resize; pointer-events: all; z-index: 5;
+}
+.bend-grip.is-manual { background: var(--accent); }
+
+/* Relier en série */
+.series-dialog { width: min(640px, 100%); }
+.series-dialog .dialog-body { display: grid; gap: 10px; padding: 12px 14px; }
+.series-fields { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.series-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.series-table th { text-align: left; font: 600 11px var(--font-label); text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-2); padding: 4px 6px; }
+.series-table td { padding: 3px 6px; border-top: 1px solid var(--border); }
+.series-dialog .dialog-body { max-height: 60vh; overflow: auto; }
+.series-mc { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.series-mc .check-line { display: flex; align-items: center; gap: 8px; font-size: 13px; }

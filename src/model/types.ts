@@ -178,6 +178,8 @@ export interface Link {
   notes?: string
   /** Alertes volontairement ignorées par l'utilisateur, par code de règle */
   ignoredRules?: string[]
+  /** Position du segment vertical déplacé à la main (px du schéma) ; absent : tracé automatique */
+  bendX?: number
 }
 
 /** Multipaire : câble physique à N paires ; chaque liaison qui l'emprunte occupe une paire. */

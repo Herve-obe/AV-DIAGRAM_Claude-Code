@@ -52,7 +52,8 @@ function AnnotationNodeView({ data, selected }: NodeProps<AnnotationFlowNode>) {
     )
   }
 
-  // Cadre (zone) : seul l'onglet du titre se saisit (déplacer, sélectionner, renommer) ; l'intérieur
+  // Cadre (zone) : l'onglet du titre et les bords se saisissent (déplacer, sélectionner ; double-clic
+  // sur le titre pour renommer) ; l'intérieur
   // laisse passer la souris, pour tracer un cadre de sélection ou cliquer les blocs posés dedans.
   return (
     <div
@@ -73,7 +74,11 @@ function AnnotationNodeView({ data, selected }: NodeProps<AnnotationFlowNode>) {
           }
         />
       )}
-      <div className="annotation-head" onDoubleClick={() => !data.readOnly && setEditing(true)} title={data.readOnly ? undefined : t('annotations.headHint')}>
+      {/* Bords : bandes saisissables (sélection, déplacement) ; l'intérieur reste transparent à la souris */}
+      {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
+        <div key={side} className={`annotation-grip annotation-edge edge-${side}`} />
+      ))}
+      <div className="annotation-grip annotation-head" onDoubleClick={() => !data.readOnly && setEditing(true)} title={data.readOnly ? undefined : t('annotations.headHint')}>
         {editing ? editor(false) : (
           <>
             <span className="annotation-text">{a.text.split('\n')[0] || '\u00a0'}</span>

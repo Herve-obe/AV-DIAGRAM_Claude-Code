@@ -5,6 +5,7 @@ import * as groups from '../model/groups'
 import * as ops from '../model/project'
 import * as racks from '../model/racks'
 import * as zones from '../model/zones'
+import * as series from '../model/series'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import i18n from '../i18n'
 
@@ -51,6 +52,10 @@ interface ProjectState {
   setHintDismissed: (id: string, key: string, dismissed: boolean) => void
   connect: (a: { equipmentId: string; portId: string }, b: { equipmentId: string; portId: string }) => string | null
   updateLink: (id: string, patch: Partial<Omit<Link, 'id' | 'source' | 'target'>>) => void
+  /** Déplacement du segment vertical d'une liaison pendant un geste (pas de pas d'annulation supplémentaire) */
+  bendLink: (id: string, x: number) => void
+  /** Crée les liaisons d'un plan en série (un seul pas d'annulation) ; multipaire : voir applySeries */
+  connectSeries: (plan: series.SeriesPlan, multicore?: string | null) => string[]
   /** Supprime des éléments du canevas : équipements et annotations (nodeIds) et liaisons */
   remove: (nodeIds: string[], linkIds: string[]) => void
   duplicate: (ids: string[]) => string[]
@@ -155,6 +160,12 @@ export const useProject = create<ProjectState>((set, get) => {
       return r.id
     },
     updateLink: (id, patch) => commit(ops.updateLink(get().project, id, patch)),
+    connectSeries: (plan, multicore) => {
+      const r = series.applySeries(get().project, plan, multicore)
+      if (r.linkIds.length) commit(r.project)
+      return r.linkIds
+    },
+    bendLink: (id, x) => set({ project: ops.updateLink(get().project, id, { bendX: x }), saved: false }),
     remove: (nodeIds, lkIds) => {
       if (!nodeIds.length && !lkIds.length) return
       const p = get().project

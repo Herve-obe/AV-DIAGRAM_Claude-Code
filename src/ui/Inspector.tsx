@@ -492,6 +492,9 @@ export function Inspector() {
         {selectedLinks.length > 1 && <MulticoreGrouping linkIds={selectedLinks} />}
         {count > 1 && canGroup && (
           <div className="insp-actions">
+            <button className="btn" onClick={() => useUi.getState().setSeriesFrom(selectedEquipment.filter((id) => project.equipment[id]))}>
+              <Icon name="synoptic" size={14} />{t('series.menu')}
+            </button>
             <button className="btn" onClick={groupSelected} title="Ctrl+G"><Icon name="frame" size={14} />{t('groups.group')}</button>
           </div>
         )}

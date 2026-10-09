@@ -997,6 +997,30 @@
     "duplicate": "Duplicate",
     "rotate": "Rotate a quarter turn",
     "selectAll": "Select all",
-    "delete": "Delete"
+    "delete": "Delete",
+    "bendHint": "Drag to move this segment · double-click: automatic routing",
+    "autoRoute": "Automatic routing (undo manual moves)"
+  },
+  "series": {
+    "title": "Connect in series",
+    "hint": "Connects the outputs of the selected equipment (top to bottom on the diagram) in order to the free inputs of the destination.",
+    "dest": "Destination",
+    "choose": "Choose…",
+    "family": "Signal",
+    "start": "Starting from input",
+    "firstFree": "First free input",
+    "sources_one": "{{count}} source item",
+    "sources_other": "{{count}} source items",
+    "from": "Output",
+    "to": "Input",
+    "nothing": "No free output to connect, or no compatible free input.",
+    "pickDest": "Choose the destination equipment.",
+    "unmatched_one": "{{count}} output without a free input: not connected.",
+    "unmatched_other": "{{count}} outputs without a free input: not connected.",
+    "multicore": "Route these {{count}} links through a multicore",
+    "cancel": "Cancel",
+    "create_one": "Create {{count}} link",
+    "create_other": "Create {{count}} links",
+    "menu": "Connect in series…"
   }
 }

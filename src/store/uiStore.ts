@@ -50,6 +50,8 @@ interface UiState extends Prefs {
   startOpen: boolean
   /** Liaison qui vient d'être tirée et pose problème : fenêtre de confirmation */
   linkCheck: string | null
+  /** Fenêtre « Relier en série » : équipements sélectionnés au moment de l'ouverture */
+  seriesFrom: string[] | null
   /** Autre version d'un projet, ouverte pour fusion (fenêtre de bilan) */
   mergeCandidate: Project | null
   /** Feuille affichée dans le canevas */
@@ -69,6 +71,7 @@ interface UiState extends Prefs {
   setNewProjectOpen: (open: boolean) => void
   setStartOpen: (open: boolean) => void
   setLinkCheck: (id: string | null) => void
+  setSeriesFrom: (ids: string[] | null) => void
   setMergeCandidate: (p: Project | null) => void
   setSheet: (id: string) => void
   setView: (view: MainView) => void
@@ -89,6 +92,7 @@ export const useUi = create<UiState>((set, get) => ({
   newProjectOpen: false,
   startOpen: true,
   linkCheck: null,
+  seriesFrom: null,
   currentSheetId: DEFAULT_SHEET_ID,
   presenting: false,
   focusRequest: null,
@@ -125,6 +129,7 @@ export const useUi = create<UiState>((set, get) => ({
   setNewProjectOpen: (open) => set({ newProjectOpen: open }),
   setStartOpen: (open) => set({ startOpen: open }),
   setLinkCheck: (id) => set({ linkCheck: id }),
+  setSeriesFrom: (ids) => set({ seriesFrom: ids }),
   setView: (view) => set({ view }),
   setSheet: (id) => set({ currentSheetId: id, selectedEquipment: [], selectedLinks: [] }),
   setPresenting: (on) => set({ presenting: on, paletteOpen: false }),
