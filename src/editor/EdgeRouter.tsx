@@ -14,7 +14,7 @@ const labelSize = (text: string) => ({ w: text.length * 6 + 12, h: 16 })
 /** Types de nœuds qui font obstacle (les notes et cadres ne gênent pas les câbles). */
 const OBSTACLE_TYPES = new Set(['equipment', 'subsheet'])
 
-function endOf(node: InternalNode<Node> | undefined, handleId: string | null | undefined): RouteEnd | null {
+export function endOf(node: InternalNode<Node> | undefined, handleId: string | null | undefined): RouteEnd | null {
   const hb = node?.internals.handleBounds
   if (!node || !hb) return null
   const h = [...(hb.source ?? []), ...(hb.target ?? [])].find((x) => x.id === handleId)
@@ -57,6 +57,8 @@ export function computeRoutes(
   for (const e of edges) {
     if (e.hidden) continue
     if (moved?.size && !moved.has(e.source) && !moved.has(e.target)) continue
+    // Multipaire : tracé propre (éclatés et câble, voir BundleEdge)
+    if ((e.data as { ends?: unknown } | undefined)?.ends) continue
     const source = endOf(nodeLookup.get(e.source), e.sourceHandle)
     const target = endOf(nodeLookup.get(e.target), e.targetHandle)
     if (source && target) requests.push({ id: e.id, source, target })

@@ -153,6 +153,8 @@ export function Canvas() {
           data: { annotation: a, readOnly: presenting },
           measured: measured.get(a.id),
           zIndex: a.kind === 'frame' ? -1 : 1,
+          // Cadre : saisi par son onglet de titre seulement (l'intérieur laisse passer la souris)
+          ...(a.kind === 'frame' ? { dragHandle: '.annotation-head', className: 'is-frame' } : {}),
           width: a.size.w,
           height: a.size.h,
         }
@@ -228,12 +230,15 @@ export function Canvas() {
       if (mc) {
         const key = `mc:${mc.id}:${[a.node, b.node].sort().join('|')}`
         const prev = bundles.get(key)
-        if (prev) prev.data!.linkIds!.push(l.id)
-        else bundles.set(key, {
+        if (prev) {
+          prev.data!.linkIds!.push(l.id)
+          // Paire tirée dans l'autre sens : on la remet dans le sens du trait
+          prev.data!.ends!.push(prev.source === a.node ? { sourceHandle: a.handle, targetHandle: b.handle } : { sourceHandle: b.handle, targetHandle: a.handle })
+        } else bundles.set(key, {
           id: key, type: 'signal', source: a.node, sourceHandle: a.handle, target: b.node, targetHandle: b.handle,
           deletable: false,
           hidden: !linkInView(l, signal),
-          data: { signal, label: mc.label, showLabel: true, linkIds: [l.id] },
+          data: { signal, label: mc.label, showLabel: true, linkIds: [l.id], ends: [{ sourceHandle: a.handle, targetHandle: b.handle }] },
         })
         return []
       }
@@ -337,6 +342,33 @@ export function Canvas() {
     select(nodeIds, [...new Set(linkIds)])
   }, [rf, select])
 
+  // Cadre de sélection : les blocs entièrement dedans (React Flow, mode Full) et les liaisons que le
+  // cadre touche, même partiellement, sans prendre les blocs qu'elles relient. Avec Maj ou Ctrl, la
+  // sélection s'ajoute à la précédente.
+  const boxStart = useRef<{ x: number; y: number; links: string[] } | null>(null)
+  const onSelectionStart = useCallback((e: React.MouseEvent) => {
+    const additive = e.shiftKey || e.ctrlKey || e.metaKey
+    boxStart.current = { x: e.clientX, y: e.clientY, links: additive ? useUi.getState().selectedLinks : [] }
+  }, [])
+  const onSelectionEnd = useCallback((e: React.MouseEvent) => {
+    const start = boxStart.current
+    boxStart.current = null
+    if (!start) return
+    const box = { x1: Math.min(start.x, e.clientX), x2: Math.max(start.x, e.clientX), y1: Math.min(start.y, e.clientY), y2: Math.max(start.y, e.clientY) }
+    if (box.x2 - box.x1 < 3 && box.y2 - box.y1 < 3) return
+    const hit = new Set(start.links)
+    for (const g of document.querySelectorAll<SVGGElement>('.react-flow__edge')) {
+      const id = g.dataset.id ?? g.getAttribute('data-testid')?.replace(/^rf__edge-/, '')
+      if (!id || !touches(g, box)) continue
+      for (const l of edgeLinkIds.current.get(id) ?? [id]) hit.add(l)
+    }
+    // Après les derniers changements « select » de React Flow pour ce cadre
+    setTimeout(() => {
+      const ui = useUi.getState()
+      ui.select(ui.selectedEquipment, [...hit].filter((id) => useProject.getState().project.links[id]))
+    }, 0)
+  }, [])
+
   const onDrop = useCallback(
     (ev: DragEvent) => {
       ev.preventDefault()
@@ -405,10 +437,12 @@ export function Canvas() {
         onEdgeContextMenu={(e, x) => openMenu(e, { kind: 'edge', id: x.id, linkIds: x.data?.linkIds })}
         onSelectionContextMenu={(e) => openMenu(e)}
         onPaneContextMenu={(e) => openMenu(e)}
-        // Glisser dans le vide : cadre de sélection (blocs et liaisons) ; déplacement de la vue à la
+        // Glisser dans le vide : cadre de sélection (blocs entiers, liaisons touchées) ; vue déplacée à la
         // molette, au clic milieu ou Espace + glisser
         selectionOnDrag
-        selectionMode={SelectionMode.Partial}
+        selectionMode={SelectionMode.Full}
+        onSelectionStart={onSelectionStart}
+        onSelectionEnd={onSelectionEnd}
         panOnDrag={[1]}
         onDelete={({ nodes: n, edges: e }) => {
           const nodeIds = n.map((x) => x.id)
@@ -458,6 +492,24 @@ export function Canvas() {
       )}
     </div>
   )
+}
+
+/** Le tracé d'une liaison (ou d'un multipaire) passe-t-il dans le rectangle, en coordonnées écran ? */
+function touches(g: SVGGElement, box: { x1: number; x2: number; y1: number; y2: number }): boolean {
+  for (const path of g.querySelectorAll<SVGPathElement>('path.react-flow__edge-path, path.bundle-fan')) {
+    const m = path.getScreenCTM()
+    if (!m) continue
+    const len = path.getTotalLength()
+    // Un point tous les 4 px environ à l'écran
+    const steps = Math.max(8, Math.ceil((len * Math.abs(m.a)) / 4))
+    for (let i = 0; i <= steps; i++) {
+      const p = path.getPointAtLength((len * i) / steps)
+      const x = p.x * m.a + p.y * m.c + m.e
+      const y = p.x * m.b + p.y * m.d + m.f
+      if (x >= box.x1 && x <= box.x2 && y >= box.y1 && y <= box.y2) return true
+    }
+  }
+  return false
 }
 
 /** Couleur CSS d'une famille de signal (utilisée par les listes et les filtres). */

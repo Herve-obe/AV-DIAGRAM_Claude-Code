@@ -1,5 +1,6 @@
-// Champs de formulaire partagés : la valeur est validée à la sortie du champ (un seul pas d'annulation).
-import { useEffect, useState } from 'react'
+// Champs de formulaire partagés : la valeur est validée par Entrée ou à la sortie du champ (un seul pas
+// d'annulation) ; Échap abandonne la saisie.
+import { useEffect, useRef, useState } from 'react'
 
 /** Champ texte ou nombre validé à la sortie du champ (un seul pas d'annulation par saisie). */
 export function Field(props: {
@@ -13,7 +14,10 @@ export function Field(props: {
   const { id, label, value, type = 'text', multiline, onCommit } = props
   const [draft, setDraft] = useState(String(value ?? ''))
   useEffect(() => setDraft(String(value ?? '')), [value])
+  // Échap : on abandonne la saisie (la sortie du champ qui suit ne valide rien)
+  const cancelled = useRef(false)
   const commit = () => {
+    if (cancelled.current) { cancelled.current = false; setDraft(String(value ?? '')); return }
     if (draft !== String(value ?? '')) onCommit(draft)
   }
   return (
@@ -30,7 +34,10 @@ export function Field(props: {
           min={type === 'number' ? 0 : undefined}
           onChange={(e) => setDraft(e.target.value)}
           onBlur={commit}
-          onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') { e.stopPropagation(); cancelled.current = true }
+            if (e.key === 'Enter' || e.key === 'Escape') (e.target as HTMLInputElement).blur()
+          }}
         />
       )}
     </div>

@@ -345,7 +345,7 @@ function AnnotationInspector({ a }: { a: Annotation }) {
           <div className="insp-title">{a.text.split('\n')[0] || '-'}</div>
         </div>
       </div>
-      <Field id="an-text" label={t(a.zoneId ? 'annotations.zoneName' : 'annotations.text')} value={a.text} multiline onCommit={(v) => updateAnnotation(a.id, { text: v })} />
+      <Field id="an-text" label={t(a.zoneId ? 'annotations.zoneName' : 'annotations.text')} value={a.text} multiline={a.kind === 'note'} onCommit={(v) => updateAnnotation(a.id, { text: v })} />
       <div className="field">
         <label>{t('annotations.color')}</label>
         <div className="swatches" role="radiogroup" aria-label={t('annotations.color')}>

@@ -3,6 +3,7 @@ import { memo } from 'react'
 import { BaseEdge, EdgeLabelRenderer, getSmoothStepPath, type Edge, type EdgeProps } from '@xyflow/react'
 import { labelPoint, toSvgPath } from '../model/routing'
 import type { Severity } from '../model/rules'
+import { BundleEdge } from './BundleEdge'
 import { useRoutes } from './EdgeRouter'
 import { SIGNAL_STYLE, type SignalFamily } from '../model/signals'
 
@@ -13,6 +14,8 @@ export type SignalEdgeData = {
   showLabel: boolean
   /** Trait de câble regroupant plusieurs liaisons (vue « Câbles ») */
   linkIds?: string[]
+  /** Multipaire : poignées de chaque paire, côté source et côté cible du trait */
+  ends?: { sourceHandle: string; targetHandle: string }[]
 }
 export type SignalFlowEdge = Edge<SignalEdgeData, 'signal'>
 
@@ -57,4 +60,8 @@ function SignalEdgeView(props: EdgeProps<SignalFlowEdge>) {
   )
 }
 
-export const SignalEdge = memo(SignalEdgeView)
+function SignalOrBundle(props: EdgeProps<SignalFlowEdge>) {
+  return props.data?.ends ? <BundleEdge {...props} fallback={<SignalEdgeView {...props} />} /> : <SignalEdgeView {...props} />
+}
+
+export const SignalEdge = memo(SignalOrBundle)
