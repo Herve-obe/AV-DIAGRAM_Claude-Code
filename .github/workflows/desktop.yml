@@ -1,8 +1,9 @@
 # Construit les installateurs Windows, macOS et Linux quand on pousse une étiquette de version (ex. v0.2.0).
 # Les fichiers sont joints à un brouillon de "Release" GitHub, à publier manuellement.
 name: Desktop
-# Version de test Windows : un commit de la branche de travail dont le message contient [build]
-# produit l'installateur, à télécharger depuis l'onglet Actions (artefact « AV-Diagram-windows »).
+# Version de test : un commit de la branche de travail dont le message contient [build] produit les
+# installateurs Windows et macOS, à télécharger depuis l'onglet Actions (artefacts « AV-Diagram-windows »
+# et « AV-Diagram-macos »).
 on:
   push:
     tags: ['v*']
@@ -30,6 +31,32 @@ jobs:
           path: |
             src-tauri/target/release/bundle/msi/*.msi
             src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error
+
+  # Version de test macOS (Intel et Apple Silicon, binaire universel), même déclencheur [build]
+  macos-test:
+    if: github.ref_type == 'branch' && contains(github.event.head_commit.message, '[build]')
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-darwin,x86_64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: npm ci
+      - uses: tauri-apps/tauri-action@v0
+        with:
+          args: --target universal-apple-darwin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-macos
+          path: src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg
           if-no-files-found: error
 
   build:
