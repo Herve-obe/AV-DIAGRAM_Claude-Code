@@ -24,12 +24,23 @@ interface Prefs {
   autoRoute: boolean
   /** Calque affiché : propre à chaque poste, il n'est pas enregistré dans le projet */
   layer: LayerView
+  /** Largeur de la bibliothèque et de l'inspecteur, hauteur du panneau du bas (px), propres au poste */
+  panels: PanelSizes
 }
+
+export interface PanelSizes {
+  library: number
+  inspector: number
+  dock: number
+}
+export const DEFAULT_PANELS: PanelSizes = { library: 248, inspector: 288, dock: 220 }
+/** Bornes des séparateurs (px) */
+export const PANEL_LIMITS: Record<keyof PanelSizes, [number, number]> = { library: [180, 520], inspector: [220, 620], dock: [110, 700] }
 
 const PREFS_KEY = 'avd.prefs'
 
 function readPrefs(): Prefs {
-  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows', autoRoute: true, layer: 'all' }
+  const fallback: Prefs = { mode: 'expert', theme: 'system', lang: 'fr', dockOpen: true, linkView: 'flows', autoRoute: true, layer: 'all', panels: DEFAULT_PANELS }
   try {
     return { ...fallback, ...JSON.parse(localStorage.getItem(PREFS_KEY) ?? '{}') }
   } catch {
@@ -115,9 +126,9 @@ export const useUi = create<UiState>((set, get) => ({
   },
   setPref: (key, value) => {
     set({ [key]: value } as Partial<UiState>)
-    const { mode, theme, lang, dockOpen, linkView, autoRoute, layer } = get()
+    const { mode, theme, lang, dockOpen, linkView, autoRoute, layer, panels } = get()
     try {
-      localStorage.setItem(PREFS_KEY, JSON.stringify({ mode, theme, lang, dockOpen, linkView, autoRoute, layer }))
+      localStorage.setItem(PREFS_KEY, JSON.stringify({ mode, theme, lang, dockOpen, linkView, autoRoute, layer, panels }))
     } catch {
       // Stockage indisponible (navigation privée) : la préférence reste valable pour la session
     }

@@ -2,6 +2,7 @@
 // droite ; le bloc peut pivoter d'un quart de tour (entrées en haut, à droite ou en bas). Dans un calque,
 // les ports des autres domaines sont estompés.
 import { memo, useEffect } from 'react'
+import i18n from '../i18n'
 import { Handle, Position, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react'
 import { connectorLabel } from '../model/connectors'
 import { portInView, type LayerView } from '../model/layers'
@@ -38,11 +39,20 @@ const SIDES: Record<Rotation, { input: Side; output: Side }> = {
 
 function PortRow({ port, side, input, offPage, dim }: { port: PortDef; side: Side; input: boolean; offPage?: string; dim: boolean }) {
   const style = SIGNAL_STYLE[port.signal]
-  const title = `${port.name} · ${connectorLabel(port.connector)}${port.format ? ` · ${port.format}` : ''}`
+  // Info-bulle complète : sens, signal, niveau, connecteur (aide à choisir le bon port)
+  const t = i18n.t.bind(i18n)
+  const title = [
+    port.name,
+    t(`direction.${port.direction}`),
+    t(`signal.${port.signal}`),
+    port.level && port.level !== 'none' ? t(`level.${port.level}`) : '',
+    connectorLabel(port.connector),
+    port.format ?? '',
+  ].filter(Boolean).join(' · ')
   // Renvoi affiché du côté extérieur du bloc
   const before = side === 'left' || side === 'top'
   return (
-    <div className={`port port-${side}${dim ? ' port-dim' : ''}`} title={title}>
+    <div className={`port port-${side}${dim ? ' port-dim' : ''}`} title={title} data-sig={port.signal} data-dir={port.direction}>
       <Handle
         id={port.id}
         type={input ? 'target' : 'source'}

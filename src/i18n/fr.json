@@ -1043,5 +1043,58 @@
     "distributeY": "Répartir verticalement",
     "column": "Disposer en colonne",
     "row": "Disposer en ligne"
+  },
+  "panels": {
+    "resize": "Glisser pour redimensionner · double-clic : taille par défaut"
+  },
+  "guide": {
+    "title": "Pas à pas",
+    "searchMic": "Chercher un micro",
+    "searchDi": "Chercher une DI",
+    "searchConsole": "Chercher une console",
+    "searchStagebox": "Chercher une stagebox",
+    "showAlerts": "Voir les alertes",
+    "save": {
+      "title": "Enregistrer et exporter",
+      "text": "Enregistre un fichier .avd (ou choisis un dossier dans Paramètres > Enregistrement), puis exporte le PDF pour l'équipe."
+    },
+    "exportPdf": "Exporter en PDF",
+    "sources": {
+      "title": "Ajouter les sources",
+      "text": "Micros, instruments, lecteurs : double-clique dans la bibliothèque (ou glisse sur le schéma). Pour plusieurs exemplaires, sélectionne le bloc puis « Ajouter des exemplaires »."
+    },
+    "destination": {
+      "title": "Ajouter la destination",
+      "text": "Console, stagebox, enregistreur : là où arrivent les signaux."
+    },
+    "connect": {
+      "title": "Relier",
+      "text": "Tire un trait d'une sortie (point à droite d'un bloc) vers une entrée (point à gauche) : les entrées compatibles s'allument. Pour tout relier d'un coup, dans l'ordre : « Relier en série »."
+    },
+    "check": {
+      "title": "Vérifier",
+      "text": "Les erreurs (deux sorties reliées, signal incompatible) et avertissements (niveau micro vers ligne +4 dBu…) sont dans l'onglet Alertes, en bas."
+    },
+    "tipsTitle": "Gestes utiles",
+    "tips": {
+      "drag": "Glisser dans le vide : cadre de sélection. Molette : défiler ; Ctrl + molette : zoom ; F : tout voir.",
+      "connect": "Survole un port : son signal, son niveau et son connecteur s'affichent.",
+      "box": "Maj + clic ou Maj + cadre : ajouter ou retirer de la sélection. Échap : tout désélectionner.",
+      "right": "Clic droit : multipaire, relier en série, aligner, dupliquer, supprimer.",
+      "zone": "Bouton Zone : délimite un espace (scène, régie) ; les blocs posés dedans en prennent le code."
+    },
+    "nextTitle": "Et ensuite ?",
+    "freePorts": "Libres : {{outs}} sortie(s), {{ins}} entrée(s).",
+    "connectOutputs_one": "Relier sa sortie libre…",
+    "connectOutputs_other": "Relier ses {{count}} sorties libres…",
+    "addCopies": "Ajouter des exemplaires :",
+    "copies": "Nombre d'exemplaires",
+    "add": "Ajouter",
+    "nextHint": "Les exemplaires se rangent en colonne sous ce bloc, déjà sélectionnés : enchaîne avec « Relier en série ».",
+    "emptyTitle": "Pour commencer",
+    "empty1": "Cherche un équipement dans la bibliothèque à gauche, puis double-clique dessus (ou glisse-le ici).",
+    "empty2": "Tire un trait d'une sortie (à droite d'un bloc) vers une entrée (à gauche d'un autre).",
+    "empty3": "Le panneau « Pas à pas », à droite, te guide jusqu'à l'export.",
+    "saveFile": "Enregistrer (Ctrl+S)"
   }
 }

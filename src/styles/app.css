@@ -29,8 +29,9 @@ button:disabled { cursor: default; opacity: 0.35; }
 }
 .workspace {
   display: grid;
-  grid-template-columns: 248px minmax(0, 1fr) 288px;
+  grid-template-columns: var(--lib-w, 248px) minmax(0, 1fr) var(--insp-w, 288px);
   min-height: 0;
+  position: relative;
 }
 .stage { display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--canvas); }
 .canvas { flex: 1; min-height: 0; position: relative; }
@@ -344,7 +345,7 @@ kbd {
 .react-flow__selection { background: var(--accent-soft); border: 1px solid var(--accent); }
 
 /* ---------- Dock inférieur ---------- */
-.dock { background: var(--bg-1); border-top: 1px solid var(--border); display: flex; flex-direction: column; height: 220px; }
+.dock { background: var(--bg-1); border-top: 1px solid var(--border); display: flex; flex-direction: column; height: var(--dock-h, 220px); max-height: 70vh; position: relative; }
 .dock.is-collapsed { height: auto; }
 .dock-bar { display: flex; align-items: center; gap: 2px; padding: 0 8px 0 10px; border-bottom: 1px solid var(--border); }
 .dock-tab {
@@ -418,7 +419,6 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 
 /* ---------- Petits écrans (consultation sur tablette) ---------- */
 @media (max-width: 1100px) {
-  .workspace { grid-template-columns: 210px minmax(0, 1fr) 250px; }
   .cmd-btn { min-width: 0; }
   .cmd-label, .cmd-btn kbd { display: none; }
 }
@@ -1059,3 +1059,44 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
   border-radius: 50%; color: var(--text-2); background: var(--bg-3);
 }
 .search-clear:hover { color: var(--text); background: var(--accent-soft); }
+
+/* Séparateurs redimensionnables (bibliothèque, inspecteur, panneau du bas) */
+.splitter { position: absolute; z-index: 30; touch-action: none; }
+.splitter::after { content: ''; position: absolute; background: transparent; transition: background 0.12s; }
+.splitter:hover::after, .splitter:active::after { background: var(--accent); }
+.splitter-library, .splitter-inspector { top: 0; bottom: 0; width: 8px; cursor: col-resize; }
+.splitter-library { left: calc(var(--lib-w, 248px) - 4px); }
+.splitter-inspector { right: calc(var(--insp-w, 288px) - 4px); }
+.splitter-library::after, .splitter-inspector::after { top: 0; bottom: 0; left: 3px; width: 2px; }
+.splitter-dock { left: 0; right: 0; top: -4px; height: 8px; cursor: row-resize; }
+.splitter-dock::after { left: 0; right: 0; top: 3px; height: 2px; }
+body.is-resizing-x, body.is-resizing-x * { cursor: col-resize !important; user-select: none; }
+body.is-resizing-y, body.is-resizing-y * { cursor: row-resize !important; user-select: none; }
+.app.is-presenting .splitter { display: none; }
+@media (max-width: 820px) { .splitter { display: none; } }
+
+/* Mode débutant : guide pas à pas, « Et ensuite ? », aide sur le schéma vide */
+.guide { display: grid; gap: 8px; padding: 2px 0 10px; }
+.guide-steps { list-style: none; margin: 0; padding: 0 14px; display: grid; gap: 10px; }
+.guide-steps li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; font-size: 13px; }
+.guide-steps p { margin: 3px 0 0; color: var(--text-2); font-size: 12.5px; line-height: 1.4; }
+.guide-mark {
+  width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+  font: 600 11px var(--font-label); border: 1.5px solid var(--border-strong); color: var(--text-2);
+}
+.guide-steps li.is-current .guide-mark { border-color: var(--accent); color: var(--accent); }
+.guide-steps li.is-done strong { color: var(--text-2); }
+.guide-steps li.is-done .guide-mark { background: var(--ok); border-color: var(--ok); color: var(--bg-0); }
+.guide-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.guide-tips { margin: 0; padding: 0 14px 0 30px; display: grid; gap: 4px; font-size: 12px; color: var(--text-2); }
+.guide-next { padding: 0 14px 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px; justify-items: start; }
+.guide-next .group-title { padding-left: 0; }
+.guide-copies { display: flex; align-items: center; gap: 6px; font-size: 13px; flex-wrap: wrap; }
+.guide-copies input { width: 56px; }
+.canvas-hint {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 4;
+  width: min(420px, 90%); display: grid; gap: 8px; justify-items: start; padding: 16px 18px;
+  background: var(--bg-1); border: 1px solid var(--border-strong); border-radius: var(--radius); box-shadow: var(--shadow-2);
+  font-size: 13px;
+}
+.canvas-hint ol { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--text-2); }

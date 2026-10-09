@@ -13,6 +13,9 @@ interface SaveFolderState {
   /** Dernière copie réussie (ISO) ou message d'erreur, pour l'affichage */
   lastCopy: { at: string; path: string } | null
   lastError: string | null
+  /** Projets enregistrés dans un fichier .avd pendant cette session (guide du mode débutant) */
+  savedToFile: string[]
+  markSavedToFile: (projectId: string) => void
   setDir: (dir: string | null) => void
   setAutoCopy: (on: boolean) => void
   setFile: (projectId: string, name: string) => void
@@ -44,6 +47,8 @@ export const useSaveFolder = create<SaveFolderState>((set, get) => {
     ...read(),
     lastCopy: null,
     lastError: null,
+    savedToFile: [],
+    markSavedToFile: (id) => { if (!get().savedToFile.includes(id)) set({ savedToFile: [...get().savedToFile, id] }) },
     // Nouveau dossier : les noms de fichiers mémorisés ne valent plus
     setDir: (dir) => { set({ dir, files: {}, lastCopy: null, lastError: null }); persist() },
     setAutoCopy: (autoCopy) => { set({ autoCopy }); persist() },

@@ -13,6 +13,7 @@ import { useIssues } from '../store/useIssues'
 import { RACK_HINT, rackHints } from '../model/racks'
 import { useUi, type DockTab } from '../store/uiStore'
 import { Icon } from './Icon'
+import { Splitter } from './Splitter'
 import { translateParams } from './Inspector'
 
 const fmt = (n: number, digits = 0) => n.toLocaleString(undefined, { maximumFractionDigits: digits, minimumFractionDigits: digits })
@@ -325,6 +326,7 @@ export function Dock() {
   ]
   return (
     <section className={`dock ${dockOpen ? '' : 'is-collapsed'}`} aria-label={t('dock.cables')}>
+      {dockOpen && <Splitter panel="dock" />}
       <div className="dock-bar" role="tablist">
         {tabs.map((tab) => (
           <button

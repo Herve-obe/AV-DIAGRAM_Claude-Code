@@ -146,8 +146,10 @@ export function slug(name: string): string {
   return name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projet'
 }
 
-export function saveProjectFile(project: Project): Promise<boolean> {
-  return saveContent(`${slug(project.name)}.avd`, JSON.stringify(project, null, 2), 'application/json')
+export async function saveProjectFile(project: Project): Promise<boolean> {
+  const ok = await saveContent(`${slug(project.name)}.avd`, JSON.stringify(project, null, 2), 'application/json')
+  if (ok) useSaveFolder.getState().markSavedToFile(project.id)
+  return ok
 }
 
 function parseProject(text: string): Project {

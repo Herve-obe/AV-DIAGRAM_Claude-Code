@@ -17,6 +17,8 @@ import { Icon } from './Icon'
 import { Pictogram } from './Pictogram'
 
 const OPEN_KEY = 'avd.libraryOpen'
+/** Événement : remplir la recherche de la bibliothèque (detail = texte) */
+export const LIBRARY_SEARCH = 'avd:library-search'
 
 /** Menus et sous-menus ouverts, mémorisés sur cet ordinateur. */
 function readOpen(): string[] {
@@ -40,6 +42,15 @@ export function LibraryPanel() {
   useEffect(() => setUnfilteredOn(null), [layer])
   const filtered = layer !== 'all' && unfilteredOn !== layer
 
+  // Recherche demandée ailleurs (guide du mode débutant)
+  useEffect(() => {
+    const onSearch = (e: Event) => {
+      setQuery((e as CustomEvent<string>).detail)
+      document.getElementById('library-search')?.focus()
+    }
+    window.addEventListener(LIBRARY_SEARCH, onSearch)
+    return () => window.removeEventListener(LIBRARY_SEARCH, onSearch)
+  }, [])
   const [open, setOpen] = useState<string[]>(readOpen)
   const toggle = (key: string) =>
     setOpen((prev) => {

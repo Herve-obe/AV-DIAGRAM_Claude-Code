@@ -216,6 +216,8 @@ export function duplicateEquipment(project: Project, ids: string[], offset = 40)
       ports: eq.ports.map((pt) => ({ ...pt })),
       position: { x: eq.position.x + offset, y: eq.position.y + offset },
     }
+    // La copie n'occupe pas la place de l'original dans sa baie
+    delete copy.mount
     p = { ...p, equipment: { ...p.equipment, [newId]: copy } }
     created.push(newId)
   }
@@ -478,4 +480,18 @@ export function assignToMulticore(project: Project, linkIds: string[], mcId: str
     p = updateLink(p, l.id, { multicoreId: id, pair })
   }
   return { project: p, id }
+}
+
+/** Ajoute n exemplaires d'un équipement, rangés en colonne sous l'original (pas vertical en px). */
+export function addCopies(project: Project, id: string, n: number, stepY: number): { project: Project; ids: string[] } {
+  const eq = project.equipment[id]
+  if (!eq || n < 1) return { project, ids: [] }
+  let p = project
+  const ids: string[] = []
+  for (let k = 1; k <= n; k++) {
+    const r = duplicateEquipment(p, [id])
+    p = moveEquipment(r.project, r.ids[0], { x: eq.position.x, y: eq.position.y + k * stepY })
+    ids.push(r.ids[0])
+  }
+  return { project: p, ids }
 }

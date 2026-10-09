@@ -1043,5 +1043,58 @@
     "distributeY": "Distribute vertically",
     "column": "Arrange in a column",
     "row": "Arrange in a row"
+  },
+  "panels": {
+    "resize": "Drag to resize · double-click: default size"
+  },
+  "guide": {
+    "title": "Step by step",
+    "searchMic": "Find a microphone",
+    "searchDi": "Find a DI box",
+    "searchConsole": "Find a console",
+    "searchStagebox": "Find a stagebox",
+    "showAlerts": "Show alerts",
+    "save": {
+      "title": "Save and export",
+      "text": "Save an .avd file (or choose a folder in Settings > Saving), then export the PDF for the team."
+    },
+    "exportPdf": "Export to PDF",
+    "sources": {
+      "title": "Add the sources",
+      "text": "Microphones, instruments, players: double-click in the library (or drag onto the diagram). For several items, select the block then “Add copies”."
+    },
+    "destination": {
+      "title": "Add the destination",
+      "text": "Console, stagebox, recorder: where the signals go."
+    },
+    "connect": {
+      "title": "Connect",
+      "text": "Drag from an output (dot on the right of a block) to an input (dot on the left): compatible inputs light up. To connect everything at once, in order: “Connect in series”."
+    },
+    "check": {
+      "title": "Check",
+      "text": "Errors (two outputs connected, incompatible signal) and warnings (mic level into a +4 dBu line input…) are in the Alerts tab at the bottom."
+    },
+    "tipsTitle": "Useful gestures",
+    "tips": {
+      "drag": "Drag on empty space: selection box. Wheel: scroll; Ctrl + wheel: zoom; F: fit all.",
+      "connect": "Hover a port: its signal, level and connector are shown.",
+      "box": "Shift + click or Shift + box: add to or remove from the selection. Esc: deselect all.",
+      "right": "Right-click: multicore, connect in series, align, duplicate, delete.",
+      "zone": "Zone button: marks an area (stage, control room); blocks placed inside get its code."
+    },
+    "nextTitle": "What next?",
+    "freePorts": "Free: {{outs}} output(s), {{ins}} input(s).",
+    "connectOutputs_one": "Connect its free output…",
+    "connectOutputs_other": "Connect its {{count}} free outputs…",
+    "addCopies": "Add copies:",
+    "copies": "Number of copies",
+    "add": "Add",
+    "nextHint": "Copies are stacked below this block, already selected: continue with “Connect in series”.",
+    "emptyTitle": "Getting started",
+    "empty1": "Find an item in the library on the left, then double-click it (or drag it here).",
+    "empty2": "Drag from an output (right of a block) to an input (left of another).",
+    "empty3": "The “Step by step” panel on the right guides you to the export.",
+    "saveFile": "Save (Ctrl+S)"
   }
 }

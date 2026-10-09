@@ -6,6 +6,7 @@ import { fullyLocked, lockedLayers } from '../collab/protection'
 import { useCollab } from '../collab/session'
 import { PageGrid } from './PageGrid'
 import { CanvasMenu, type MenuAt } from './CanvasMenu'
+import { EmptyCanvasHint } from '../ui/BeginnerGuide'
 import {
   Background,
   BackgroundVariant,
@@ -23,7 +24,7 @@ import {
 import { getTemplate } from '../store/libraryStore'
 import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, sheetIdOfGroupNode } from '../model/groups'
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
-import { SIGNAL_STYLE } from '../model/signals'
+import { familiesCompatible, SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, Link, Project } from '../model/types'
 import { checkLink, checkProject } from '../model/rules'
 import { crossLayerHints, equipmentInView, layerOfSignal } from '../model/layers'
@@ -312,6 +313,19 @@ export function Canvas() {
     [moveEquipment, moveAnnotation, moveGroup],
   )
 
+  // Pendant qu'on tire une liaison, les ports compatibles s'allument (sens opposé, signal compatible)
+  const [connecting, setConnecting] = useState<string | null>(null)
+  const onConnectStart = useCallback((_: unknown, p: { nodeId: string | null; handleId: string | null }) => {
+    const port = p.nodeId && p.handleId ? useProject.getState().project.equipment[p.nodeId]?.ports.find((x) => x.id === p.handleId) : undefined
+    if (!port) return
+    const dirs = port.direction === 'in' ? ['out', 'bidir'] : port.direction === 'out' ? ['in', 'bidir'] : ['in', 'out', 'bidir']
+    const fams = SIGNAL_FAMILIES.filter((f) => familiesCompatible(port.signal, f))
+    const sel = fams.flatMap((f) => dirs.map((d) => `.port[data-sig="${f}"][data-dir="${d}"] .handle`)).join(',')
+    setConnecting(`${sel} { box-shadow: 0 0 0 3px color-mix(in srgb, var(--port-color) 45%, transparent); transform: scale(1.35); }
+      .port[data-sig] .handle { opacity: 0.35; } ${fams.flatMap((f) => dirs.map((d) => `.port[data-sig="${f}"][data-dir="${d}"] .handle`)).join(',')} { opacity: 1; }`)
+  }, [])
+  const onConnectEnd = useCallback(() => setConnecting(null), [])
+
   const onConnect = useCallback(
     (c: Connection) => {
       if (!c.sourceHandle || !c.targetHandle) return
@@ -463,6 +477,8 @@ export function Canvas() {
         elementsSelectable={!presenting}
         deleteKeyCode={presenting ? null : ['Delete', 'Backspace']}
         onConnect={onConnect}
+        onConnectStart={onConnectStart}
+        onConnectEnd={onConnectEnd}
         onEdgesChange={onEdgesChange}
         onNodeContextMenu={(e, n) => openMenu(e, { kind: 'node', id: n.id })}
         onEdgeContextMenu={(e, x) => openMenu(e, { kind: 'edge', id: x.id, linkIds: x.data?.linkIds })}
@@ -517,6 +533,8 @@ export function Canvas() {
           <button className="link-btn" onClick={() => useUi.getState().setPref('layer', 'all')}>{t('layers.showAll')}</button>
         </div>
       )}
+      {connecting && <style>{connecting}</style>}
+      <EmptyCanvasHint />
       {menu && <CanvasMenu at={menu} onClose={closeMenu} onSelectAll={selectAll} />}
       {preview && !presenting && (
         <ProposalBanner equipment={preview.addedEquipment.length} links={preview.addedLinks.length} sheetId={preview.sheetId} />

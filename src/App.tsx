@@ -30,6 +30,7 @@ import { PageBar } from './ui/PageBar'
 import { RackView } from './ui/RackView'
 import { ProjectSettings } from './ui/ProjectSettings'
 import { SheetTabs } from './ui/SheetTabs'
+import { Splitter } from './ui/Splitter'
 import { TopBar } from './ui/TopBar'
 import { groupSelected, ungroupSelected } from './ui/groupActions'
 
@@ -148,9 +149,11 @@ export default function App() {
   const presenting = useUi((s) => s.presenting)
   const assistant = useAi((s) => s.panelOpen)
   const view = useUi((s) => s.view)
+  const panels = useUi((s) => s.panels)
+  const sizes = { '--lib-w': `${panels.library}px`, '--insp-w': `${panels.inspector}px`, '--dock-h': `${panels.dock}px` } as React.CSSProperties
   return (
     <ReactFlowProvider>
-      <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''}`}>
+      <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''}`} style={sizes}>
         {presenting ? <PresentationBar /> : <TopBar />}
         <div className="workspace">
           {!presenting && <LibraryPanel />}
@@ -166,6 +169,8 @@ export default function App() {
             )}
           </main>
           {!presenting && (assistant ? <AssistantPanel /> : <Inspector />)}
+          {!presenting && <Splitter panel="library" />}
+          {!presenting && <Splitter panel="inspector" />}
         </div>
         {!presenting && <Dock />}
         {!presenting && <PageBar />}

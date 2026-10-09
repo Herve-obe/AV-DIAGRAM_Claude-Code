@@ -95,6 +95,8 @@ interface ProjectState {
   moveGroup: (groupId: string, position: { x: number; y: number }) => void
   /** Nouvelles positions de plusieurs blocs (alignement, répartition) : un seul pas d'annulation */
   placeNodes: (positions: Map<string, { x: number; y: number }>) => void
+  /** n exemplaires rangés en colonne sous l'original : un seul pas d'annulation */
+  addCopies: (id: string, n: number, stepY: number) => string[]
   /** Fin d'un déplacement : les équipements prennent la zone du cadre où ils sont posés (même pas d'annulation) */
   settleZones: () => void
   /** Pose un cadre de zone lié à une nouvelle zone ; renvoie l'id du cadre */
@@ -273,6 +275,11 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     ungroup: (groupId) => commit(groups.ungroup(get().project, groupId)),
     moveGroup: (groupId, position) => set({ project: groups.moveGroup(get().project, groupId, position), saved: false }),
+    addCopies: (id, n, stepY) => {
+      const r = ops.addCopies(get().project, id, n, stepY)
+      if (r.ids.length) commit(zones.applyFrameZones(r.project))
+      return r.ids
+    },
     placeNodes: (positions) => {
       let p = get().project
       for (const [id, pos] of positions) {

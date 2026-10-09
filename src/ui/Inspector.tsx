@@ -17,6 +17,7 @@ import { Field, toNumber } from './Field'
 import { groupSelected, ungroupSelected } from './groupActions'
 import { Icon } from './Icon'
 import { ArrangeToolbar } from './ArrangeToolbar'
+import { GuideSteps, NextSteps } from './BeginnerGuide'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
 
@@ -480,16 +481,18 @@ export function Inspector() {
     ? project.sheets?.find((sh) => sh.id === sheetIdOfGroupNode(selectedEquipment[0]))
     : undefined
   const canGroup = selectedEquipment.some((id) => project.equipment[id])
+  const beginner = useUi((s) => s.mode) === 'beginner'
 
   return (
     <aside className="panel inspector" aria-label={t('inspector.title')}>
       <div className="panel-title">{t('inspector.title')}</div>
       <div className="insp-body">
+        {eq && beginner && <NextSteps key={`next-${eq.id}`} eq={eq} />}
         {eq && <EquipmentInspector key={eq.id} eq={eq} />}
         {link && <LinkInspector key={link.id} link={link} />}
         {annotation && <AnnotationInspector key={annotation.id} a={annotation} />}
         {groupSheet && <GroupInspector key={groupSheet.id} sheetId={groupSheet.id} />}
-        {!eq && !link && !annotation && !groupSheet && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
+        {!eq && !link && !annotation && !groupSheet && (count === 0 && beginner ? <GuideSteps /> : <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>)}
         {selectedLinks.length > 1 && <MulticoreGrouping linkIds={selectedLinks} />}
         {selectedEquipment.length > 1 && (
           <div className="field">
