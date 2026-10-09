@@ -22,6 +22,7 @@ function AnnotationNodeView({ data, selected }: NodeProps<AnnotationFlowNode>) {
     if (draft !== a.text) useProject.getState().updateAnnotation(a.id, { text: draft })
   }
   const color = a.color ?? 'var(--accent)'
+  const zone = useProject((s) => (a.zoneId ? s.project.zones.find((z) => z.id === a.zoneId) : undefined))
 
   return (
     <div
@@ -37,6 +38,7 @@ function AnnotationNodeView({ data, selected }: NodeProps<AnnotationFlowNode>) {
           lineClassName="resizer-line"
           handleClassName="resizer-handle"
           onResizeStart={() => useProject.getState().beginGesture()}
+          onResizeEnd={() => useProject.getState().settleZones()}
           onResize={(_, p) =>
             useProject.getState().moveAnnotation(a.id, { position: { x: p.x, y: p.y }, size: { w: p.width, h: p.height } })
           }
@@ -56,7 +58,10 @@ function AnnotationNodeView({ data, selected }: NodeProps<AnnotationFlowNode>) {
           }}
         />
       ) : (
-        <div className="annotation-text">{a.text}</div>
+        <div className="annotation-text">
+          {a.text}
+          {zone && <span className="annotation-zone" title={zone.name}>{zone.code}</span>}
+        </div>
       )}
     </div>
   )

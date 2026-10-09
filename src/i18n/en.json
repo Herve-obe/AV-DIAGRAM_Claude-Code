@@ -176,7 +176,12 @@
     },
     "mount": "Rack",
     "mountAt": "{{rack}}, U{{u}}, {{face}}",
-    "notMounted": "Not mounted"
+    "notMounted": "Not mounted",
+    "zoneHint": "Or draw a Frame and link it to a zone: blocks placed inside get it.",
+    "zoneNoneYet": "No zone yet: click Frame (above the diagram), then “Create zone” in the inspector, or add zones in Settings > Project.",
+    "groupInMulticore": "Route the {{count}} links through a multicore",
+    "groupChoose": "Choose…",
+    "groupHint": "Links take the first free pairs. The Cables view then draws them as a single line."
   },
   "severity": {
     "error": "Error",
@@ -297,10 +302,11 @@
     "usage": "Usage",
     "contents": "Contents",
     "multicoreConnectors": "Connectors",
-    "noMulticore": "No multicore yet. Create one, then assign links to its pairs from the inspector.",
+    "noMulticore": "No multicore. A multicore is not a block: it is a cable carrying several links. Select those links on the diagram (Shift+click), then “Route through a multicore” in the inspector. Stageboxes are in the library (Audio > Stageboxes).",
     "delete": "Delete",
     "multicoreLine": "Multicore, {{n}} pairs",
-    "free": "free"
+    "free": "free",
+    "multicoreHelp": "To fill a multicore: select links (Shift+click) and pick it in the inspector. Cables view (above the diagram): one line per multicore."
   },
   "status": {
     "equipment": "{{count}} items",
@@ -427,7 +433,13 @@
     "frameText": "Area",
     "text": "Text",
     "color": "Colour",
-    "hint": "Double-click on the canvas to edit the text in place."
+    "hint": "Double-click on the canvas to edit the text in place.",
+    "zone": "Delimited zone",
+    "zoneNone": "None (plain frame)",
+    "zoneNew": "Create zone “{{name}}”",
+    "zoneHint": "Link this frame to a zone: equipment placed inside gets the zone, whose code prefixes their cable numbers.",
+    "zoneLinked_one": "{{count}} item in zone {{code}}. Move a block into the frame to add it, out of the frame to remove it.",
+    "zoneLinked_other": "{{count}} items in zone {{code}}. Move a block into the frame to add it, out of the frame to remove it."
   },
   "presentation": {
     "enter": "Presentation mode",
@@ -934,5 +946,30 @@
       "unmounted": "Not in a rack",
       "invalid": "Mount to check"
     }
+  },
+  "linkCheck": {
+    "title": "Link to check",
+    "hint": "Cancel removes the link. Keep leaves it in place: the alert stays in the Alerts tab.",
+    "cancel": "Cancel the link",
+    "keep": "Keep",
+    "keepIgnore": "Keep and stop warning"
+  },
+  "start": {
+    "title": "Welcome to AV Diagram",
+    "new": "New project",
+    "newDesc": "Blank project or starter template (concert, TV studio, conference).",
+    "last": "Resume last project",
+    "lastDesc": "{{name}} ({{count}} items), modified {{date}}.",
+    "lastNone": "No project saved on this device.",
+    "file": "Open a file",
+    "fileDesc": ".avd project saved on this computer or received from a colleague.",
+    "collab": "Join a session",
+    "collabDesc": "Live collaboration on the local network.",
+    "recent": "Recent projects on this device",
+    "recentMeta_one": "{{count}} item · {{date}}",
+    "recentMeta_other": "{{count}} items · {{date}}",
+    "recentMissing": "This project is no longer available on this device.",
+    "forget": "Remove from list",
+    "storageHint": "Projects are saved automatically on this device (last 8). To archive, share or back up elsewhere, save an .avd file (Ctrl+S)."
   }
 }

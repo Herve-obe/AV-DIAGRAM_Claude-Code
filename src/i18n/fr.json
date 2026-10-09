@@ -176,7 +176,12 @@
     },
     "mount": "Baie",
     "mountAt": "{{rack}}, U{{u}}, {{face}}",
-    "notMounted": "Non monté"
+    "notMounted": "Non monté",
+    "zoneHint": "Ou trace un Cadre et associe-le à une zone : les blocs posés dedans la prennent.",
+    "zoneNoneYet": "Pas encore de zone : clique sur Cadre (au-dessus du schéma) puis « Créer la zone » dans l'inspecteur, ou ajoute-les dans Paramètres > Projet.",
+    "groupInMulticore": "Faire passer les {{count}} liaisons dans un multipaire",
+    "groupChoose": "Choisir…",
+    "groupHint": "Les liaisons prennent les premières paires libres. La vue Câbles les dessine alors en un seul trait."
   },
   "severity": {
     "error": "Erreur",
@@ -297,10 +302,11 @@
     "usage": "Occupation",
     "contents": "Contenu",
     "multicoreConnectors": "Connecteurs",
-    "noMulticore": "Aucun multipaire. Crée-en un, puis affecte des liaisons à ses paires depuis l’inspecteur.",
+    "noMulticore": "Aucun multipaire. Un multipaire n'est pas un bloc : c'est un câble qui regroupe plusieurs liaisons. Sélectionne les liaisons concernées sur le schéma (Maj+clic), puis « Faire passer dans un multipaire » dans l'inspecteur. Les stageboxes, elles, sont dans la bibliothèque (Audio > Stageboxes).",
     "delete": "Supprimer",
     "multicoreLine": "Multipaire {{n}} paires",
-    "free": "libre"
+    "free": "libre",
+    "multicoreHelp": "Pour remplir un multipaire : sélectionne des liaisons (Maj+clic) puis choisis-le dans l'inspecteur. Vue Câbles (au-dessus du schéma) : un seul trait par multipaire."
   },
   "status": {
     "equipment": "{{count}} équipements",
@@ -427,7 +433,13 @@
     "frameText": "Zone",
     "text": "Texte",
     "color": "Couleur",
-    "hint": "Double-clic sur le canevas pour modifier le texte directement."
+    "hint": "Double-clic sur le canevas pour modifier le texte directement.",
+    "zone": "Zone délimitée",
+    "zoneNone": "Aucune (simple cadre)",
+    "zoneNew": "Créer la zone « {{name}} »",
+    "zoneHint": "Associe ce cadre à une zone : les équipements posés dedans prennent la zone, dont le code préfixe leurs numéros de câble.",
+    "zoneLinked_one": "{{count}} équipement dans la zone {{code}}. Déplace un bloc dans le cadre pour l'y ajouter, hors du cadre pour l'en retirer.",
+    "zoneLinked_other": "{{count}} équipements dans la zone {{code}}. Déplace un bloc dans le cadre pour l'y ajouter, hors du cadre pour l'en retirer."
   },
   "presentation": {
     "enter": "Mode présentation",
@@ -934,5 +946,30 @@
       "unmounted": "Absent des baies",
       "invalid": "Montage à revoir"
     }
+  },
+  "linkCheck": {
+    "title": "Liaison à vérifier",
+    "hint": "Annuler retire la liaison. Garder la laisse en place : l'alerte reste dans l'onglet Alertes.",
+    "cancel": "Annuler la liaison",
+    "keep": "Garder",
+    "keepIgnore": "Garder et ne plus signaler"
+  },
+  "start": {
+    "title": "Bienvenue dans AV Diagram",
+    "new": "Nouveau projet",
+    "newDesc": "Projet vide ou modèle de départ (concert, plateau TV, conférence).",
+    "last": "Reprendre le dernier projet",
+    "lastDesc": "{{name}} ({{count}} équipements), modifié le {{date}}.",
+    "lastNone": "Aucun projet enregistré sur cet appareil.",
+    "file": "Ouvrir un fichier",
+    "fileDesc": "Projet .avd enregistré sur ce poste ou reçu d'un collègue.",
+    "collab": "Rejoindre une session",
+    "collabDesc": "Collaboration en direct sur le réseau local.",
+    "recent": "Projets récents sur cet appareil",
+    "recentMeta_one": "{{count}} équipement · {{date}}",
+    "recentMeta_other": "{{count}} équipements · {{date}}",
+    "recentMissing": "Ce projet n'est plus disponible sur cet appareil.",
+    "forget": "Retirer de la liste",
+    "storageHint": "Les projets sont enregistrés automatiquement sur cet appareil (8 derniers). Pour archiver, partager ou sauvegarder ailleurs, enregistre un fichier .avd (Ctrl+S)."
   }
 }

@@ -944,3 +944,32 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
   border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg-2); color: var(--text-2); font-size: 12px;
 }
+
+/* Onglets des boîtes de dialogue : jamais écrasés quand le contenu dépasse la hauteur */
+.dialog > .segmented { flex-shrink: 0; }
+.dialog-foot { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--border); }
+.dialog-head h2 .icon, .dialog-head h2 svg { vertical-align: -2px; color: var(--warn); }
+
+/* Liaison à confirmer */
+.link-check { width: min(520px, 100%); }
+.link-check .dialog-body { display: grid; gap: 8px; padding: 12px 14px; }
+.link-check-route { margin: 0; font-size: 13px; }
+
+/* Fenêtre d'accueil */
+.start-dialog .template-card:disabled { opacity: 0.5; cursor: default; }
+.start-dialog .template-card:disabled:hover { border-color: var(--border); background: var(--bg-2); }
+.start-recent { padding: 6px 14px 0; }
+.start-recent ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.start-recent li { display: flex; align-items: center; gap: 6px; }
+.start-recent-open {
+  flex: 1; display: flex; justify-content: space-between; gap: 10px; padding: 6px 8px;
+  border-radius: var(--radius); text-align: left; font-size: 13px;
+}
+.start-recent-open:hover { background: var(--bg-2); }
+
+/* Cadre lié à une zone : code de la zone à côté du titre */
+.annotation-zone {
+  margin-left: 8px; padding: 0 5px; border: 1px solid var(--ann-color); border-radius: 3px;
+  font: 600 10px var(--font-mono, monospace); color: var(--ann-color); vertical-align: 1px;
+}
+.insp-mc-group { margin-top: 8px; }

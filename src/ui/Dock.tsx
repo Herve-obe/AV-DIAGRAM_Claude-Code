@@ -130,6 +130,7 @@ function MulticoresTable() {
     <div className="mc-list">
       <div className="mc-toolbar">
         <button className="btn" onClick={() => addMulticore()}><Icon name="plus" size={14} />{t('dock.multicoreNew')}</button>
+        {list.length > 0 && <span className="dim small">{t('dock.multicoreHelp')}</span>}
       </div>
       {list.length === 0 && <p className="empty">{t('dock.noMulticore')}</p>}
       {list.length > 0 && (

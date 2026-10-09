@@ -621,3 +621,31 @@ describe('calques et orientation', () => {
     expect(p.equipment[r.id].rotation).toBe(270)
   })
 })
+
+describe('zones tracées et regroupement en multipaire', () => {
+  it('un cadre lié donne sa zone aux équipements posés dedans et la reprend en sortant', async () => {
+    const z = await import('./zones')
+    let p = ops.normalizeProject(buildSampleProject())
+    const eq = Object.values(p.equipment)[0]
+    const sheetId = eq.sheetId ?? ops.DEFAULT_SHEET_ID
+    const a = ops.addAnnotation(p, { kind: 'frame', sheetId, position: { x: eq.position.x - 10, y: eq.position.y - 10 }, size: { w: 300, h: 200 }, text: 'Scène' })
+    const r = z.zoneFromFrame(a.project, a.id)
+    p = r.project
+    expect(p.zones.find((x) => x.id === r.id)?.code).toBe('SCE')
+    expect(p.equipment[eq.id].zoneId).toBe(r.id)
+    p = z.applyFrameZones(ops.moveEquipment(p, eq.id, { x: eq.position.x + 2000, y: eq.position.y }))
+    expect(p.equipment[eq.id].zoneId).toBeUndefined()
+    expect(z.applyFrameZones(p)).toBe(p)
+  })
+  it('regroupe des liaisons sur les premières paires libres d\'un nouveau multipaire', () => {
+    const p0 = buildSampleProject()
+    const ids = Object.keys(p0.links).slice(0, 10)
+    const r = ops.assignToMulticore(p0, ids, null)
+    const mc = r.project.multicores![r.id!]
+    expect(mc.pairs).toBe(12)
+    expect(new Set(ids.map((id) => r.project.links[id].pair)).size).toBe(10)
+    const r2 = ops.assignToMulticore(r.project, Object.keys(p0.links).slice(10), r.id)
+    expect(r2.project.multicores![r.id!].pairs).toBeGreaterThanOrEqual(Object.keys(p0.links).length)
+  })
+})
+

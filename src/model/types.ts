@@ -221,6 +221,8 @@ export interface Annotation {
   text: string
   /** Couleur de famille de signal ou d'accent, sous forme de variable CSS */
   color?: string
+  /** Cadre seulement : zone du projet qu'il délimite ; les équipements posés dedans prennent cette zone */
+  zoneId?: string
 }
 
 export interface Project {

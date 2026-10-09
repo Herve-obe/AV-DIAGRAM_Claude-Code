@@ -23,7 +23,7 @@ import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, shee
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, Link, Project } from '../model/types'
-import { checkProject } from '../model/rules'
+import { checkLink, checkProject } from '../model/rules'
 import { crossLayerHints, equipmentInView, layerOfSignal } from '../model/layers'
 import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
@@ -302,7 +302,11 @@ export function Canvas() {
         { equipmentId: c.source, portId: c.sourceHandle },
         { equipmentId: c.target, portId: c.targetHandle },
       )
-      if (id) select([], [id])
+      if (!id) return
+      select([], [id])
+      // Liaison douteuse (deux sorties, signal ou niveau incompatible…) : on demande confirmation
+      const p = useProject.getState().project
+      if (checkLink(p, p.links[id]).some((i) => i.severity !== 'info')) useUi.getState().setLinkCheck(id)
     },
     [connect, select],
   )
@@ -365,6 +369,7 @@ export function Canvas() {
         edgeTypes={edgeTypes}
         onNodesChange={onNodesChange}
         onNodeDragStart={beginGesture}
+        onNodeDragStop={() => useProject.getState().settleZones()}
         onNodeDoubleClick={(_e, n) => isGroupNodeId(n.id) && useUi.getState().setSheet(sheetIdOfGroupNode(n.id))}
         nodesDraggable={!presenting}
         nodesConnectable={!presenting}

@@ -4,6 +4,7 @@ import { create } from 'zustand'
 import * as groups from '../model/groups'
 import * as ops from '../model/project'
 import * as racks from '../model/racks'
+import * as zones from '../model/zones'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import i18n from '../i18n'
 
@@ -87,6 +88,12 @@ interface ProjectState {
   ungroup: (groupId: string) => void
   /** Déplacement du bloc replié pendant un geste (pas de pas d'annulation supplémentaire) */
   moveGroup: (groupId: string, position: { x: number; y: number }) => void
+  /** Fin d'un déplacement : les équipements prennent la zone du cadre où ils sont posés (même pas d'annulation) */
+  settleZones: () => void
+  /** Crée une zone à partir d'un cadre et l'y associe ; renvoie l'id de la zone */
+  zoneFromFrame: (frameId: string) => string | null
+  /** Fait passer des liaisons dans un multipaire (nouveau si mcId est null) ; renvoie son id */
+  assignToMulticore: (linkIds: string[], mcId: string | null) => string | null
 }
 
 export const useProject = create<ProjectState>((set, get) => {
@@ -132,7 +139,7 @@ export const useProject = create<ProjectState>((set, get) => {
     rename: (name) => commit({ ...get().project, name }),
     addEquipment: (tpl, pos, sheetId) => {
       const r = ops.addEquipment(get().project, tpl, pos, { sheetId })
-      commit(r.project)
+      commit(zones.applyFrameZones(r.project))
       return r.id
     },
     updateEquipment: (id, patch) => commit(ops.updateEquipment(get().project, id, patch)),
@@ -198,7 +205,22 @@ export const useProject = create<ProjectState>((set, get) => {
       commit(r.project)
       return r.id
     },
-    updateAnnotation: (id, patch) => commit(ops.updateAnnotation(get().project, id, patch)),
+    updateAnnotation: (id, patch) => commit(zones.applyFrameZones(ops.updateAnnotation(get().project, id, patch))),
+    settleZones: () => {
+      const p = get().project
+      const next = zones.applyFrameZones(p)
+      if (next !== p) set({ project: next, saved: false })
+    },
+    zoneFromFrame: (frameId) => {
+      const r = zones.zoneFromFrame(get().project, frameId)
+      if (r.id) commit(r.project)
+      return r.id
+    },
+    assignToMulticore: (linkIds, mcId) => {
+      const r = ops.assignToMulticore(get().project, linkIds, mcId)
+      if (r.id) commit(r.project)
+      return r.id
+    },
     moveAnnotation: (id, patch) => set({ project: ops.updateAnnotation(get().project, id, patch), saved: false }),
     addMulticore: (init) => {
       const r = ops.addMulticore(get().project, init)

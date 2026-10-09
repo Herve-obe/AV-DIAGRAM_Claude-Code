@@ -333,7 +333,11 @@ export function removeZone(project: Project, id: string): Project {
   const equipment = Object.fromEntries(
     Object.entries(project.equipment).map(([k, e]) => [k, e.zoneId === id ? { ...e, zoneId: undefined } : e]),
   )
-  return relabelAll(touch({ ...project, zones: project.zones.filter((z) => z.id !== id), equipment }))
+  // Les cadres qui la délimitaient redeviennent de simples cadres
+  const annotations = project.annotations && Object.fromEntries(
+    Object.entries(project.annotations).map(([k, a]) => [k, a.zoneId === id ? { ...a, zoneId: undefined } : a]),
+  )
+  return relabelAll(touch({ ...project, zones: project.zones.filter((z) => z.id !== id), equipment, annotations }))
 }
 
 export function updateSettings(project: Project, patch: Partial<ProjectSettings>): Project {
@@ -444,4 +448,34 @@ export function firstFreePair(project: Project, id: string): number | undefined 
   const used = multicoreUsage(project, id)
   for (let i = 1; i <= m.pairs; i++) if (!used.has(i)) return i
   return undefined
+}
+
+/** Capacités usuelles proposées pour un nouveau multipaire */
+const MULTICORE_SIZES = [4, 8, 12, 16, 24, 32, 48]
+
+/**
+ * Fait passer des liaisons dans un multipaire (nouveau si mcId est null), sur les premières paires
+ * libres, dans l'ordre de leurs numéros. Un multipaire trop petit est agrandi d'autant.
+ */
+export function assignToMulticore(project: Project, linkIds: string[], mcId: string | null): { project: Project; id: string | null } {
+  const links = linkIds.map((id) => project.links[id]).filter(Boolean).sort((a, b) => a.label.localeCompare(b.label, undefined, { numeric: true }))
+  if (!links.length) return { project, id: null }
+  let p = project
+  let id = mcId
+  if (!id || !p.multicores?.[id]) {
+    const r = addMulticore(p, { pairs: MULTICORE_SIZES.find((n) => n >= links.length) ?? links.length })
+    p = r.project
+    id = r.id
+  }
+  // Les liaisons déjà dans ce multipaire gardent leur paire
+  for (const l of links) {
+    if (l.multicoreId === id && l.pair) continue
+    let pair = firstFreePair(p, id)
+    if (pair === undefined) {
+      pair = p.multicores![id].pairs + 1
+      p = updateMulticore(p, id, { pairs: pair })
+    }
+    p = updateLink(p, l.id, { multicoreId: id, pair })
+  }
+  return { project: p, id }
 }

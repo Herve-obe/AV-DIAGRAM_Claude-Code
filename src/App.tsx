@@ -23,6 +23,8 @@ import { MergeDialog } from './ui/MergeDialog'
 import { PdfImportDialog } from './ui/PdfImportDialog'
 import { ExportPdfDialog } from './ui/ExportPdfDialog'
 import { NewProjectDialog } from './ui/NewProjectDialog'
+import { LinkCheckDialog } from './ui/LinkCheckDialog'
+import { StartDialog } from './ui/StartDialog'
 import { PageBar } from './ui/PageBar'
 import { RackView } from './ui/RackView'
 import { ProjectSettings } from './ui/ProjectSettings'
@@ -165,6 +167,8 @@ export default function App() {
       <CommandPalette />
       <ProjectSettings />
       <NewProjectDialog />
+      <LinkCheckDialog />
+      <StartDialog />
       <MergeDialog />
       <PdfImportDialog />
       <ExportPdfDialog />

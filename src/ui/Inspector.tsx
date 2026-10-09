@@ -103,6 +103,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
           <option value="">{t('inspector.noZone')}</option>
           {zones.map((z) => <option key={z.id} value={z.id}>{z.name} ({z.code})</option>)}
         </select>
+        <span className="source-note">{zones.length ? t('inspector.zoneHint') : t('inspector.zoneNoneYet')}</span>
       </div>
       {sheets.length > 1 && (
         <div className="field">
@@ -361,11 +362,73 @@ function AnnotationInspector({ a }: { a: Annotation }) {
           ))}
         </div>
       </div>
+      {a.kind === 'frame' && <FrameZone a={a} />}
       <p className="source-note">{t('annotations.hint')}</p>
       <div className="insp-actions">
         <button className="btn btn-danger" onClick={() => remove([a.id], [])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
     </>
+  )
+}
+
+/** Zone délimitée par un cadre : les équipements posés dedans prennent cette zone. */
+function FrameZone({ a }: { a: Annotation }) {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const store = useProject.getState()
+  const zone = project.zones.find((z) => z.id === a.zoneId)
+  const inside = zone ? Object.values(project.equipment).filter((e) => e.zoneId === zone.id).length : 0
+  const choose = (v: string) => {
+    if (v === '__new') store.zoneFromFrame(a.id)
+    else store.updateAnnotation(a.id, { zoneId: v || undefined })
+  }
+  return (
+    <>
+      <div className="field">
+        <label htmlFor="an-zone">{t('annotations.zone')}</label>
+        <select id="an-zone" value={a.zoneId ?? ''} onChange={(e) => choose(e.target.value)}>
+          <option value="">{t('annotations.zoneNone')}</option>
+          {project.zones.map((z) => <option key={z.id} value={z.id}>{z.name} ({z.code})</option>)}
+          <option value="__new">+ {t('annotations.zoneNew', { name: a.text.split('\n')[0].trim() || t('annotations.frameText') })}</option>
+        </select>
+      </div>
+      {zone ? (
+        <>
+          <div className="field-row">
+            <Field id="an-zone-name" label={t('settings.zoneName')} value={zone.name} onCommit={(v) => v.trim() && store.updateZone(zone.id, { name: v.trim() })} />
+            <Field id="an-zone-code" label={t('settings.zoneCode')} value={zone.code} onCommit={(v) => v.trim() && store.updateZone(zone.id, { code: v })} />
+          </div>
+          <p className="source-note">{t('annotations.zoneLinked', { count: inside, code: zone.code })}</p>
+        </>
+      ) : (
+        <p className="source-note">{t('annotations.zoneHint')}</p>
+      )}
+    </>
+  )
+}
+
+/** Plusieurs liaisons sélectionnées : les faire passer dans un multipaire. */
+function MulticoreGrouping({ linkIds }: { linkIds: string[] }) {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const multicores = Object.values(project.multicores ?? {}).sort((a, b) => a.label.localeCompare(b.label))
+  const assign = (v: string) => {
+    if (!v) return
+    const id = useProject.getState().assignToMulticore(linkIds, v === '__new' ? null : v)
+    if (id) useUi.getState().setPref('linkView', 'cables')
+  }
+  return (
+    <div className="insp-mc-group">
+      <div className="field">
+        <label htmlFor="multi-mc">{t('inspector.groupInMulticore', { count: linkIds.length })}</label>
+        <select id="multi-mc" value="" onChange={(e) => assign(e.target.value)}>
+          <option value="">{t('inspector.groupChoose')}</option>
+          <option value="__new">+ {t('inspector.multicoreNew')}</option>
+          {multicores.map((m) => <option key={m.id} value={m.id}>{m.label} ({m.pairs})</option>)}
+        </select>
+      </div>
+      <p className="source-note">{t('inspector.groupHint')}</p>
+    </div>
   )
 }
 
@@ -427,6 +490,7 @@ export function Inspector() {
         {annotation && <AnnotationInspector key={annotation.id} a={annotation} />}
         {groupSheet && <GroupInspector key={groupSheet.id} sheetId={groupSheet.id} />}
         {!eq && !link && !annotation && !groupSheet && <p className="empty">{count > 1 ? t('inspector.multi', { count }) : t('inspector.empty')}</p>}
+        {selectedLinks.length > 1 && <MulticoreGrouping linkIds={selectedLinks} />}
         {count > 1 && canGroup && (
           <div className="insp-actions">
             <button className="btn" onClick={groupSelected} title="Ctrl+G"><Icon name="frame" size={14} />{t('groups.group')}</button>

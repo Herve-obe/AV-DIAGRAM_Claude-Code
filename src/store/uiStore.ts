@@ -46,6 +46,10 @@ interface UiState extends Prefs {
   paletteOpen: boolean
   settingsOpen: boolean
   newProjectOpen: boolean
+  /** Fenêtre d'accueil (au lancement) */
+  startOpen: boolean
+  /** Liaison qui vient d'être tirée et pose problème : fenêtre de confirmation */
+  linkCheck: string | null
   /** Autre version d'un projet, ouverte pour fusion (fenêtre de bilan) */
   mergeCandidate: Project | null
   /** Feuille affichée dans le canevas */
@@ -63,6 +67,8 @@ interface UiState extends Prefs {
   setPaletteOpen: (open: boolean) => void
   setSettingsOpen: (open: boolean) => void
   setNewProjectOpen: (open: boolean) => void
+  setStartOpen: (open: boolean) => void
+  setLinkCheck: (id: string | null) => void
   setMergeCandidate: (p: Project | null) => void
   setSheet: (id: string) => void
   setView: (view: MainView) => void
@@ -81,6 +87,8 @@ export const useUi = create<UiState>((set, get) => ({
   paletteOpen: false,
   settingsOpen: false,
   newProjectOpen: false,
+  startOpen: true,
+  linkCheck: null,
   currentSheetId: DEFAULT_SHEET_ID,
   presenting: false,
   focusRequest: null,
@@ -115,6 +123,8 @@ export const useUi = create<UiState>((set, get) => ({
   setSettingsOpen: (open) => set({ settingsOpen: open }),
   setMergeCandidate: (p) => set({ mergeCandidate: p }),
   setNewProjectOpen: (open) => set({ newProjectOpen: open }),
+  setStartOpen: (open) => set({ startOpen: open }),
+  setLinkCheck: (id) => set({ linkCheck: id }),
   setView: (view) => set({ view }),
   setSheet: (id) => set({ currentSheetId: id, selectedEquipment: [], selectedLinks: [] }),
   setPresenting: (on) => set({ presenting: on, paletteOpen: false }),
