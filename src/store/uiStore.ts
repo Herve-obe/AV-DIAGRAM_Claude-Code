@@ -59,6 +59,8 @@ interface UiState extends Prefs {
   newProjectOpen: boolean
   /** Fenêtre d'accueil (au lancement) */
   startOpen: boolean
+  /** Double écran : inspecteur et listes affichés dans la fenêtre Infos */
+  panelsDetached: boolean
   /** Liaison qui vient d'être tirée et pose problème : fenêtre de confirmation */
   linkCheck: string | null
   /** Fenêtre « Relier en série » : équipements sélectionnés au moment de l'ouverture */
@@ -101,7 +103,9 @@ export const useUi = create<UiState>((set, get) => ({
   paletteOpen: false,
   settingsOpen: false,
   newProjectOpen: false,
-  startOpen: true,
+  // La fenêtre Infos (double écran) n'a pas d'accueil : elle reprend le projet de la fenêtre principale
+  startOpen: typeof window === 'undefined' || new URLSearchParams(window.location.search).get('window') !== 'panels',
+  panelsDetached: false,
   linkCheck: null,
   seriesFrom: null,
   currentSheetId: DEFAULT_SHEET_ID,

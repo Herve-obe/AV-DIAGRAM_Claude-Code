@@ -48,7 +48,7 @@ const isTyping = (e: KeyboardEvent) => {
   return el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName)
 }
 
-function Shortcuts() {
+export function Shortcuts() {
   const rf = useReactFlow()
   useEffect(() => {
     const onKey = async (e: KeyboardEvent) => {
@@ -150,10 +150,11 @@ export default function App() {
   const assistant = useAi((s) => s.panelOpen)
   const view = useUi((s) => s.view)
   const panels = useUi((s) => s.panels)
+  const detached = useUi((s) => s.panelsDetached)
   const sizes = { '--lib-w': `${panels.library}px`, '--insp-w': `${panels.inspector}px`, '--dock-h': `${panels.dock}px` } as React.CSSProperties
   return (
     <ReactFlowProvider>
-      <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''}`} style={sizes}>
+      <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''} ${detached ? 'is-detached' : ''}`} style={sizes}>
         {presenting ? <PresentationBar /> : <TopBar />}
         <div className="workspace">
           {!presenting && <LibraryPanel />}
@@ -168,11 +169,12 @@ export default function App() {
               </>
             )}
           </main>
-          {!presenting && (assistant ? <AssistantPanel /> : <Inspector />)}
+          {!presenting && !detached && (assistant ? <AssistantPanel /> : <Inspector />)}
           {!presenting && <Splitter panel="library" />}
-          {!presenting && <Splitter panel="inspector" />}
+          {!presenting && !detached && <Splitter panel="inspector" />}
         </div>
-        {!presenting && <Dock />}
+        {/* Double écran : inspecteur et listes sont dans la fenêtre Infos */}
+        {!presenting && !detached && <Dock />}
         {!presenting && <PageBar />}
       </div>
       <CommandPalette />

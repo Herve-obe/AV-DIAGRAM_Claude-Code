@@ -76,6 +76,12 @@
 - Liaison douteuse : fenêtre à la connexion (annuler, garder, ne plus signaler dans ce schéma) ; contrôles
   désactivés listés dans Alertes, réactivables au clic droit.
 - Bibliothèque filtrée sur le calque actif (« Tout afficher » possible).
+- Aligner et répartir (gauche, centres, droite, haut, bas, écarts égaux, colonne, ligne) ; croix de recherche ;
+  Échap pour désélectionner ; panneaux redimensionnables (bibliothèque, inspecteur, panneau du bas).
+- Mode débutant : « Pas à pas » (étapes cochées au fil du travail), « Et ensuite ? » (relier les sorties
+  libres, ajouter N exemplaires), aide sur le schéma vide ; ports compatibles allumés pendant une liaison.
+- Double écran : bouton de la barre du haut ; fenêtre « Infos » (inspecteur et listes), ouverte sur le
+  deuxième écran s'il existe, synchronisée avec le schéma (projet, sélection, annulation, alignement).
 - Limites : voies ordonnées et poignée pour les ports à gauche ou à droite seulement (blocs pivotés : tracé
   automatique classique) ; emplacement de l'enregistrement interne sous Windows à confirmer.
 

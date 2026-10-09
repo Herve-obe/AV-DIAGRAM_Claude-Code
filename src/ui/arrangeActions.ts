@@ -3,6 +3,7 @@ import type { ReactFlowInstance } from '@xyflow/react'
 import { arrange, type ArrangeAction, type Box } from '../editor/arrange'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
+import { sendCommand, WINDOW_ROLE } from '../store/windowSync'
 
 /** Blocs sélectionnés mesurés par React Flow (les cadres de zone ne bougent pas avec eux). */
 export function selectedBoxes(rf: Pick<ReactFlowInstance, 'getNodes'>): Box[] {
@@ -13,6 +14,7 @@ export function selectedBoxes(rf: Pick<ReactFlowInstance, 'getNodes'>): Box[] {
 }
 
 export function arrangeSelection(rf: Pick<ReactFlowInstance, 'getNodes'>, action: ArrangeAction) {
+  if (WINDOW_ROLE === 'panels') return sendCommand('arrange', action)
   const positions = arrange(selectedBoxes(rf), action)
   if (positions.size) useProject.getState().placeNodes(positions)
 }

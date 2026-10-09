@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { startMerge } from './MergeDialog'
 import { startPdfImport } from './PdfImportDialog'
 import { useExportPdf } from './ExportPdfDialog'
+import { closePanelsWindow, openPanelsWindow } from '../store/windowSync'
 import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
 import { useCollab } from '../collab/session'
 import { useAi } from '../store/aiStore'
@@ -21,6 +22,7 @@ export function csvHeaders(t: (k: string) => string) {
 export function TopBar() {
   const { t } = useTranslation()
   const project = useProject((s) => s.project)
+  const detached = useUi((s) => s.panelsDetached)
   const collabUndo = useCollab((s) => s.canUndo)
   const collabRedo = useCollab((s) => s.canRedo)
   const collabStatus = useCollab((s) => s.status)
@@ -112,6 +114,15 @@ export function TopBar() {
             {unread > 0 && <span className="collab-count chat-unread">{unread > 99 ? '99+' : unread}</span>}
           </button>
         )}
+        <button
+          className="icon-btn"
+          aria-pressed={detached}
+          onClick={() => void (detached ? closePanelsWindow() : openPanelsWindow())}
+          title={t(detached ? 'dual.close' : 'dual.open')}
+          aria-label={t(detached ? 'dual.close' : 'dual.open')}
+        >
+          <Icon name="screens" />
+        </button>
         <button className="icon-btn" onClick={() => useUi.getState().setPresenting(true)} title={`${t('presentation.enter')} (F5)`} aria-label={t('presentation.enter')}><Icon name="present" /></button>
         <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
         <span className="sep" />

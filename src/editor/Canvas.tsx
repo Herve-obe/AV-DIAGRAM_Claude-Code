@@ -7,6 +7,9 @@ import { useCollab } from '../collab/session'
 import { PageGrid } from './PageGrid'
 import { CanvasMenu, type MenuAt } from './CanvasMenu'
 import { EmptyCanvasHint } from '../ui/BeginnerGuide'
+import { arrangeSelection } from '../ui/arrangeActions'
+import { onCommand } from '../store/windowSync'
+import type { ArrangeAction } from './arrange'
 import {
   Background,
   BackgroundVariant,
@@ -425,6 +428,9 @@ export function Canvas() {
     },
     [rf, addEquipment, select],
   )
+
+  // Alignement demandé depuis la fenêtre Infos (double écran)
+  useEffect(() => onCommand('arrange', (a) => arrangeSelection(rf, a as ArrangeAction)), [rf])
 
   // Recadrage à l'ouverture d'un autre projet ou d'une autre feuille
   useEffect(() => {

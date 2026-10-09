@@ -1100,3 +1100,15 @@ body.is-resizing-y, body.is-resizing-y * { cursor: row-resize !important; user-s
   font-size: 13px;
 }
 .canvas-hint ol { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--text-2); }
+
+/* Double écran : fenêtre principale réduite au schéma, fenêtre Infos (inspecteur et listes) */
+.app.is-detached .workspace { grid-template-columns: var(--lib-w, 248px) minmax(0, 1fr); }
+.panels-app { grid-template-rows: auto 1fr; }
+.panels-bar { display: flex; align-items: center; gap: 12px; padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--bg-1); }
+.panels-title { font-weight: 600; }
+.panels-body { position: relative; display: grid; grid-template-columns: var(--insp-w, 288px) minmax(0, 1fr); min-height: 0; }
+.panels-body > .inspector { order: 0; border-left: 0; border-right: 1px solid var(--border); overflow: auto; }
+.panels-dock { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.panels-dock .dock { height: auto; flex: 1; max-height: none; border-top: 0; }
+.panels-dock .dock .splitter { display: none; }
+.panels-body .splitter-inspector { right: auto; left: calc(var(--insp-w, 288px) - 4px); }

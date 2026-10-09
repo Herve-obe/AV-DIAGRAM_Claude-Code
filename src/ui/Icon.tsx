@@ -6,6 +6,7 @@ const ICONS = {
   search: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-3.5-3.5',
   file: 'M6 3h8l4 4v14H6zM14 3v4h4',
   folder: 'M3 6h6l2 2h10v11H3z',
+  screens: 'M2 5h12v9H2zM6 18h4M8 14v4M16 8h6v8h-6M18 19h2M19 16v3',
   save: 'M5 3h11l3 3v15H5zM8 3v6h8M8 21v-7h8v7',
   download: 'M12 4v11M7 10l5 5 5-5M5 20h14',
   sun: 'M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5',
