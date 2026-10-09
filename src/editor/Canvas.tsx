@@ -298,7 +298,7 @@ export function Canvas() {
 
   // Recadrage à l'ouverture d'un autre projet ou d'une autre feuille
   useEffect(() => {
-    const timer = setTimeout(() => rf.fitView({ padding: 0.15, duration: 250 }), 80)
+    const timer = setTimeout(() => rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 }), 80)
     return () => clearTimeout(timer)
   }, [project.id, currentSheetId, presenting, rf])
 
@@ -327,7 +327,7 @@ export function Canvas() {
   const proposedCount = preview?.addedEquipment.length ?? 0
   useEffect(() => {
     if (!proposedCount) return
-    const id = setTimeout(() => rf.fitView({ duration: 300, padding: 0.15 }), 60)
+    const id = setTimeout(() => rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 }), 60)
     return () => clearTimeout(id)
   }, [proposedCount, rf])
 
@@ -353,7 +353,10 @@ export function Canvas() {
         snapToGrid
         snapGrid={[10, 10]}
         fitView
-        fitViewOptions={{ padding: 0.15 }}
+        fitViewOptions={{ padding: 0.15, maxZoom: 1 }}
+        // Molette : défilement vertical ; Maj + molette : horizontal ; Ctrl (Cmd) + molette : zoom
+        panOnScroll
+        zoomOnScroll={false}
         minZoom={0.1}
         maxZoom={3}
         proOptions={{ hideAttribution: false }}

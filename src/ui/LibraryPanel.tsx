@@ -1,5 +1,6 @@
 // Bibliothèque : recherche, "Mes modèles", menus dépliables (Audio, Image, Lumière, Réseau, Distribution, Divers)
 // puis sous-menus par famille ; glisser-déposer vers le canevas (ou double-clic).
+import { freeSpot, NEW_BLOCK_SIZE } from '../editor/placement'
 import { useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
@@ -61,8 +62,12 @@ export function LibraryPanel() {
 
   const addAtCenter = (tpl: EquipmentTemplate) => {
     const el = document.querySelector('.react-flow')?.getBoundingClientRect()
-    const pos = el ? rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 }) : { x: 0, y: 0 }
-    const id = useProject.getState().addEquipment(tpl, { x: Math.round(pos.x / 10) * 10, y: Math.round(pos.y / 10) * 10 }, useUi.getState().currentSheetId)
+    const c = el ? rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 }) : { x: 0, y: 0 }
+    // Blocs déjà dessinés sur la feuille : le nouveau se range à leur droite au lieu de les recouvrir
+    const rects = rf.getNodes().filter((n) => !n.hidden && n.measured?.width && n.measured.height)
+      .map((n) => ({ x: n.position.x, y: n.position.y, w: n.measured!.width!, h: n.measured!.height! }))
+    const pos = freeSpot({ x: c.x - NEW_BLOCK_SIZE.w / 2, y: c.y - NEW_BLOCK_SIZE.h / 2 }, NEW_BLOCK_SIZE, rects)
+    const id = useProject.getState().addEquipment(tpl, pos, useUi.getState().currentSheetId)
     useUi.getState().select([id], [])
   }
 

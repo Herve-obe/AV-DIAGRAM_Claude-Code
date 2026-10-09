@@ -5,7 +5,7 @@ import * as groups from '../model/groups'
 import * as ops from '../model/project'
 import * as racks from '../model/racks'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
-import { buildSampleProject } from '../library/sample'
+import i18n from '../i18n'
 
 const HISTORY_LIMIT = 200
 
@@ -99,7 +99,8 @@ export const useProject = create<ProjectState>((set, get) => {
   }
 
   return {
-    project: buildSampleProject(),
+    // Démarrage sur un projet vide ; l'exemple reste proposé dans « Nouveau projet » (modèle Concert)
+    project: ops.createProject(i18n.t('menu.newProjectName')),
     past: [],
     future: [],
     saved: true,

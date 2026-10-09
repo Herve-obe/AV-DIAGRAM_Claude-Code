@@ -64,6 +64,16 @@ function Shortcuts() {
       if (isTyping(e)) return
       if (mod && key === 'z' && !e.shiftKey) { e.preventDefault(); store.undo(); return }
       if (mod && (key === 'y' || (key === 'z' && e.shiftKey))) { e.preventDefault(); store.redo(); return }
+      // Ctrl+A : tout sélectionner sur la feuille affichée (blocs, notes, cadres et liaisons visibles)
+      if (mod && key === 'a' && ui.view === 'diagram' && !ui.presenting) {
+        e.preventDefault()
+        const nodes = rf.getNodes().filter((n) => !n.hidden).map((n) => n.id)
+        const links = rf.getEdges().filter((x) => !x.hidden)
+          .flatMap((x) => (x.data as { linkIds?: string[] } | undefined)?.linkIds ?? [x.id])
+          .filter((id) => store.project.links[id])
+        ui.select(nodes, [...new Set(links)])
+        return
+      }
       if (mod && key === 'd') {
         e.preventDefault()
         const ids = store.duplicate(ui.selectedEquipment)
@@ -76,7 +86,7 @@ function Shortcuts() {
         else groupSelected()
         return
       }
-      if (!mod && key === 'f') rf.fitView({ duration: 300, padding: 0.15 })
+      if (!mod && key === 'f') rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 })
       // R : quart de tour horaire des équipements sélectionnés ; Maj+R : sens inverse
       if (!mod && !e.altKey && key === 'r' && ui.selectedEquipment.length && !ui.presenting) {
         const ids = ui.selectedEquipment.filter((id) => store.project.equipment[id])

@@ -12,7 +12,7 @@ export async function restoreProject(): Promise<void> {
     const stored = await get(KEY)
     if (isProject(stored)) useProject.getState().load(stored)
   } catch {
-    // IndexedDB indisponible : on garde le projet d'exemple
+    // IndexedDB indisponible : on garde le projet vide de départ
   }
 }
 
