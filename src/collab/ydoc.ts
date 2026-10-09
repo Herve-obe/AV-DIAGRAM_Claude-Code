@@ -7,7 +7,7 @@
 import * as Y from 'yjs'
 import type { Project } from '../model/types'
 
-export const COLLECTIONS = ['equipment', 'links', 'annotations', 'multicores', 'sheets'] as const
+export const COLLECTIONS = ['equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets'] as const
 export type Collection = (typeof COLLECTIONS)[number]
 const META_FIELDS = ['format', 'id', 'name', 'createdAt', 'updatedAt', 'zones', 'settings', 'info'] as const
 /** Ordre des feuilles (le projet les range dans un tableau) */

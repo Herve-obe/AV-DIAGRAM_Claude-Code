@@ -3,7 +3,8 @@
 import { create } from 'zustand'
 import * as groups from '../model/groups'
 import * as ops from '../model/project'
-import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
+import * as racks from '../model/racks'
+import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import { buildSampleProject } from '../library/sample'
 
 const HISTORY_LIMIT = 200
@@ -75,6 +76,12 @@ interface ProjectState {
   addMulticore: (init?: Partial<Omit<Multicore, 'id'>>) => string
   updateMulticore: (id: string, patch: Partial<Omit<Multicore, 'id'>>) => void
   removeMulticore: (id: string) => void
+  addRack: (init?: Partial<Omit<Rack, 'id'>>) => string
+  updateRack: (id: string, patch: Partial<Omit<Rack, 'id'>>) => void
+  removeRack: (id: string) => void
+  /** Monte (ou déplace) un équipement dans une baie ; renvoie le motif du refus, ou null */
+  mountEquipment: (eqId: string, rackId: string, u: number, face?: RackFace) => racks.MountError | null
+  unmountEquipment: (eqId: string) => void
   /** Regroupe des équipements (et annotations) de la feuille dans un sous-schéma ; renvoie son id */
   groupSelection: (sheetId: string, nodeIds: string[], name: string) => string | null
   ungroup: (groupId: string) => void
@@ -199,6 +206,19 @@ export const useProject = create<ProjectState>((set, get) => {
     },
     updateMulticore: (id, patch) => commit(ops.updateMulticore(get().project, id, patch)),
     removeMulticore: (id) => commit(ops.removeMulticore(get().project, id)),
+    addRack: (init) => {
+      const r = racks.addRack(get().project, init)
+      commit(r.project)
+      return r.id
+    },
+    updateRack: (id, patch) => commit(racks.updateRack(get().project, id, patch)),
+    removeRack: (id) => commit(racks.removeRack(get().project, id)),
+    mountEquipment: (eqId, rackId, u, face) => {
+      const r = racks.mountEquipment(get().project, eqId, rackId, u, face)
+      if (!r.error) commit(r.project)
+      return r.error
+    },
+    unmountEquipment: (eqId) => commit(racks.unmountEquipment(get().project, eqId)),
     groupSelection: (sheetId, nodeIds, name) => {
       const p = get().project
       const eqIds = nodeIds.filter((id) => p.equipment[id])

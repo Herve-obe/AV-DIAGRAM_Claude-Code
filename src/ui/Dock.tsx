@@ -10,6 +10,7 @@ import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
 import { useProject } from '../store/projectStore'
 import { useIssues } from '../store/useIssues'
+import { RACK_HINT, rackHints } from '../model/racks'
 import { useUi, type DockTab } from '../store/uiStore'
 import { Icon } from './Icon'
 import { translateParams } from './Inspector'
@@ -197,14 +198,42 @@ function LayerHintsTable() {
   )
 }
 
+/** Alertes des vues liées : rackable absent des baies (désactivable), montage à revoir. */
+function RackHintsTable() {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const hints = useMemo(() => rackHints(project), [project])
+  if (!hints.length) return null
+  return (
+    <table className="hints-table">
+      <thead>
+        <tr><th>{t('racks.hintsTitle')}</th><th>{t('dock.from')}</th><th /></tr>
+      </thead>
+      <tbody>
+        {hints.map((h) => {
+          const eq = project.equipment[h.equipmentId]
+          return (
+            <tr key={`${h.equipmentId}-${h.kind}`} className={h.kind === 'invalid' ? 'sev-warning' : 'sev-info'} onClick={() => { useUi.getState().select([h.equipmentId], []); useUi.getState().setView('racks') }}>
+              <td><span className="sev-pill">{t(`racks.hint.${h.kind}`)}</span></td>
+              <td>{eq?.name}</td>
+              <td>{h.kind === 'unmounted' && <button className="link-btn" onClick={(e) => { e.stopPropagation(); useProject.getState().setHintDismissed(h.equipmentId, RACK_HINT, true) }}>{t('layers.ignore')}</button>}</td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  )
+}
+
 function IssuesTable() {
   const { t } = useTranslation()
   const issues = useIssues()
   const links = useProject((s) => s.project.links)
-  if (!issues.length) return <><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /></>
+  if (!issues.length) return <><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /><RackHintsTable /></>
   return (
     <>
     <LayerHintsTable />
+    <RackHintsTable />
     <table>
       <thead>
         <tr><th>{t('dock.severity')}</th><th>{t('dock.number')}</th><th>{t('dock.problem')}</th><th>{t('dock.fix')}</th></tr>
@@ -231,7 +260,7 @@ export function Dock() {
   const project = useProject((s) => s.project)
   const linkCount = Object.keys(project.links).length
   const errors = issues.filter((i) => i.severity === 'error').length
-  const hintCount = useMemo(() => crossLayerHints(project).filter((h) => !h.dismissed).length, [project])
+  const hintCount = useMemo(() => crossLayerHints(project).filter((h) => !h.dismissed).length + rackHints(project).length, [project])
   const tabs: { id: DockTab; label: string; count?: number; tone?: string }[] = [
     { id: 'cables', label: t('dock.cables'), count: linkCount },
     { id: 'multicores', label: t('dock.multicores'), count: Object.keys(project.multicores ?? {}).length || undefined },

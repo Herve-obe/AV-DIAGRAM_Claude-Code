@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import * as Y from 'yjs'
 import { buildSampleProject } from '../library/sample'
 import * as ops from '../model/project'
+import { addRack, mountEquipment } from '../model/racks'
 import { createUndoManager, hasProject, observeChanges, readProject, writeProject, type ChangeSet } from './ydoc'
 
 /** Deux documents reliés comme par le réseau : chaque mise à jour de l'un est appliquée à l'autre. */
@@ -28,6 +29,16 @@ describe('collaboration : document partagé', () => {
     expect(back.name).toBe(p.name)
   })
 
+  it('partage les baies et le montage des équipements', () => {
+    const doc = new Y.Doc()
+    const r = addRack(buildSampleProject(), { heightU: 10 })
+    const eqId = Object.keys(r.project.equipment)[0]
+    const p = mountEquipment(r.project, eqId, r.id, 1, 'rear').project
+    writeProject(doc, null, p)
+    const back = readProject(doc)
+    expect(back.racks?.[r.id]?.heightU).toBe(10)
+    expect(back.equipment[eqId].mount).toEqual({ rackId: r.id, u: 1, face: 'rear' })
+  })
   it('fusionne deux modifications simultanées de champs différents du même équipement', () => {
     const p = buildSampleProject()
     const { a, b } = pair()

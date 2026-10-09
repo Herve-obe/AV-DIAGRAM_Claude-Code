@@ -11,6 +11,8 @@ export type ThemePref = 'system' | 'dark' | 'light'
 export type DockTab = 'cables' | 'multicores' | 'bom' | 'issues'
 /** Vue des liaisons : chaque flux, ou les câbles physiques (un trait par multipaire) */
 export type LinkView = 'flows' | 'cables'
+/** Vue principale : synoptique ou élévation des baies (lot 3, vues liées) */
+export type MainView = 'diagram' | 'racks'
 
 interface Prefs {
   mode: UiMode
@@ -38,6 +40,7 @@ function readPrefs(): Prefs {
 interface UiState extends Prefs {
   selectedEquipment: string[]
   selectedLinks: string[]
+  view: MainView
   hiddenSignals: SignalFamily[]
   dockTab: DockTab
   paletteOpen: boolean
@@ -62,6 +65,7 @@ interface UiState extends Prefs {
   setNewProjectOpen: (open: boolean) => void
   setMergeCandidate: (p: Project | null) => void
   setSheet: (id: string) => void
+  setView: (view: MainView) => void
   setPresenting: (on: boolean) => void
   focus: (kind: 'equipment' | 'link', id: string) => void
 }
@@ -70,6 +74,7 @@ export const useUi = create<UiState>((set, get) => ({
   ...readPrefs(),
   selectedEquipment: [],
   selectedLinks: [],
+  view: 'diagram',
   mergeCandidate: null,
   hiddenSignals: [],
   dockTab: 'cables',
@@ -110,6 +115,9 @@ export const useUi = create<UiState>((set, get) => ({
   setSettingsOpen: (open) => set({ settingsOpen: open }),
   setMergeCandidate: (p) => set({ mergeCandidate: p }),
   setNewProjectOpen: (open) => set({ newProjectOpen: open }),
+  // Le canevas se remonte au retour sur le synoptique : on y revient sans sélection (évite une
+  // boucle entre la sélection mémorisée et celle que React Flow reconstruit au montage)
+  setView: (view) => set(view === 'diagram' ? { view, selectedEquipment: [], selectedLinks: [] } : { view }),
   setSheet: (id) => set({ currentSheetId: id, selectedEquipment: [], selectedLinks: [] }),
   setPresenting: (on) => set({ presenting: on, paletteOpen: false }),
   focus: (kind, id) =>

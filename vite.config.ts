@@ -16,5 +16,6 @@ export default defineConfig({
     target: process.env.TAURI_ENV_PLATFORM === 'windows' ? 'chrome105' : 'safari15',
     chunkSizeWarningLimit: 1500,
   },
-  test: { environment: 'node' },
+  // Délai relevé : le premier chargement de la bibliothèque (plus de 800 fiches JSON) dépasse 5 s
+  test: { environment: 'node', testTimeout: 30000 },
 })

@@ -8,7 +8,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
 
-const KINDS: MergeKind[] = ['equipment', 'links', 'multicores', 'sheets', 'zones', 'annotations']
+const KINDS: MergeKind[] = ['equipment', 'links', 'multicores', 'racks', 'sheets', 'zones', 'annotations']
 
 /** Ouvre un fichier .avd et prépare la fusion avec le projet courant. */
 export async function startMerge(t: (k: string) => string) {

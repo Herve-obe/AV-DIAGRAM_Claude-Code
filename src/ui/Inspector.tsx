@@ -138,6 +138,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
           <Field id="eq-weight" type="number" label={t('inspector.weight')} value={eq.weightKg} onCommit={(v) => set({ weightKg: toNumber(v) })} />
         </div>
       )}
+      <RackFields eq={eq} />
       <div className="field">
         <label>{t('inspector.orientation')}</label>
         <div className="insp-rotate">
@@ -433,5 +434,36 @@ export function Inspector() {
         )}
       </div>
     </aside>
+  )
+}
+
+/** Hauteur en U et place dans une baie (vue Baies, même instance que sur le synoptique). */
+function RackFields({ eq }: { eq: Equipment }) {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const rack = eq.mount ? project.racks?.[eq.mount.rackId] : undefined
+  return (
+    <div className="field-row">
+      <Field
+        id="eq-rackU"
+        type="number"
+        label={t('inspector.rackU')}
+        value={eq.rackU}
+        onCommit={(v) => { const n = toNumber(v); useProject.getState().updateEquipment(eq.id, { rackU: n && n > 0 ? Math.round(n) : undefined }) }}
+      />
+      <div className="field">
+        <label>{t('inspector.mount')}</label>
+        {rack && eq.mount ? (
+          <div className="insp-mount">
+            <button className="link-btn" onClick={() => useUi.getState().setView('racks')}>
+              {t('inspector.mountAt', { rack: rack.name, u: eq.mount.u, face: t(`racks.face.${eq.mount.face}`) })}
+            </button>
+            <button className="icon-btn small" onClick={() => useProject.getState().unmountEquipment(eq.id)} title={t('racks.unmount')} aria-label={t('racks.unmount')}>×</button>
+          </div>
+        ) : (
+          <span className="dim">{t('inspector.notMounted')}</span>
+        )}
+      </div>
+    </div>
   )
 }

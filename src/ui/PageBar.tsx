@@ -2,11 +2,13 @@
 // suivie de la barre d'état.
 import { useTranslation } from 'react-i18next'
 import { useProject } from '../store/projectStore'
+import { useUi, type MainView } from '../store/uiStore'
 import { Icon, type IconName } from './Icon'
 
-const PAGES: { id: string; icon: IconName; lot?: number }[] = [
-  { id: 'synoptic', icon: 'synoptic' },
-  { id: 'rack', icon: 'rack', lot: 3 },
+/** view : vue principale ouverte par le bouton ; lot : lot de développement prévu (bouton inactif) */
+const PAGES: { id: string; icon: IconName; view?: MainView; lot?: number }[] = [
+  { id: 'synoptic', icon: 'synoptic', view: 'diagram' },
+  { id: 'rack', icon: 'rack', view: 'racks' },
   { id: 'plan', icon: 'plan', lot: 3 },
   { id: 'network', icon: 'network', lot: 3 },
   { id: 'lists', icon: 'lists', lot: 3 },
@@ -18,6 +20,7 @@ export function PageBar() {
   const eqCount = useProject((s) => Object.keys(s.project.equipment).length)
   const linkCount = useProject((s) => Object.keys(s.project.links).length)
   const saved = useProject((s) => s.saved)
+  const view = useUi((s) => s.view)
   return (
     <footer className="pagebar">
       <div className="status-left">
@@ -29,8 +32,9 @@ export function PageBar() {
           <button
             key={p.id}
             className="page-btn"
-            aria-current={p.id === 'synoptic' ? 'page' : undefined}
-            disabled={!!p.lot}
+            aria-current={p.view === view ? 'page' : undefined}
+            disabled={!p.view}
+            onClick={() => p.view && useUi.getState().setView(p.view)}
             title={p.lot ? t('pages.soon', { lot: p.lot }) : undefined}
           >
             <Icon name={p.icon} size={18} />

@@ -7,7 +7,7 @@
 import { assignFreshNum, normalizeProject, relabelAll } from './project'
 import type { Project } from './types'
 
-export type MergeKind = 'equipment' | 'links' | 'annotations' | 'multicores' | 'sheets' | 'zones'
+export type MergeKind = 'equipment' | 'links' | 'annotations' | 'multicores' | 'racks' | 'sheets' | 'zones'
 export type MergePolicy = 'ours' | 'theirs'
 
 export interface MergeConflict {
@@ -58,7 +58,7 @@ export function mergeProjects(oursIn: Project, theirsIn: Project, policy: MergeP
   const ours = normalizeProject(oursIn)
   const theirs = normalizeProject(theirsIn)
   const report: MergeReport = {
-    added: { equipment: 0, links: 0, annotations: 0, multicores: 0, sheets: 0, zones: 0 },
+    added: { equipment: 0, links: 0, annotations: 0, multicores: 0, racks: 0, sheets: 0, zones: 0 },
     conflicts: [],
     renumbered: 0,
   }
@@ -66,10 +66,11 @@ export function mergeProjects(oursIn: Project, theirsIn: Project, policy: MergeP
   const links = mergeRecord('links', ours.links, theirs.links, policy, (l) => l.label, report)
   const annotations = mergeRecord('annotations', ours.annotations ?? {}, theirs.annotations ?? {}, policy, (a) => a.text.slice(0, 40), report)
   const multicores = mergeRecord('multicores', ours.multicores ?? {}, theirs.multicores ?? {}, policy, (m) => m.label, report)
+  const racks = mergeRecord('racks', ours.racks ?? {}, theirs.racks ?? {}, policy, (r) => r.name, report)
   const sheets = mergeList('sheets', ours.sheets ?? [], theirs.sheets ?? [], policy, (s) => s.name, report)
   const zones = mergeList('zones', ours.zones, theirs.zones, policy, (z) => `${z.name} (${z.code})`, report)
 
-  let project: Project = { ...ours, equipment, links, annotations, multicores, sheets, zones, updatedAt: new Date().toISOString() }
+  let project: Project = { ...ours, equipment, links, annotations, multicores, racks, sheets, zones, updatedAt: new Date().toISOString() }
   project = relabelAll(project)
 
   // Numéros de câble en double : les liaisons venues de l'autre version reçoivent un nouveau numéro

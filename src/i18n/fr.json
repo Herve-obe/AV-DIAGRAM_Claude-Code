@@ -28,7 +28,7 @@
   },
   "pages": {
     "synoptic": "Synoptique",
-    "rack": "Racks",
+    "rack": "Baies",
     "plan": "Plan",
     "network": "Réseau",
     "lists": "Listes",
@@ -168,7 +168,10 @@
       "90": "Entrées en haut",
       "180": "Entrées à droite",
       "270": "Entrées en bas"
-    }
+    },
+    "mount": "Baie",
+    "mountAt": "{{rack}}, U{{u}}, {{face}}",
+    "notMounted": "Non monté"
   },
   "severity": {
     "error": "Erreur",
@@ -490,7 +493,8 @@
       "multicores": "multipaire(s)",
       "sheets": "feuille(s)",
       "zones": "zone(s)",
-      "annotations": "annotation(s)"
+      "annotations": "annotation(s)",
+      "racks": "baie(s)"
     },
     "menu": "Fusionner une autre version…"
   },
@@ -889,6 +893,41 @@
       "classification": "Classification par défaut",
       "language": "Langue",
       "numberPrefix": "Préfixe des numéros de document"
+    }
+  },
+  "racks": {
+    "add": "Ajouter une baie",
+    "name": "Nom de la baie",
+    "height": "Hauteur de la baie",
+    "remove": "Supprimer la baie (les équipements restent dans le projet)",
+    "unmount": "Retirer de la baie",
+    "noHeight": "Hauteur en U non renseignée : compte pour 1 U",
+    "pending": "À monter",
+    "pendingHint": "Équipements dont la hauteur en U est renseignée. Glisser vers une baie.",
+    "invalid": "Montages à revoir (baie raccourcie ou hauteur modifiée) :",
+    "linkedHint": "Mêmes équipements que le synoptique : une modification ici se répercute partout.",
+    "empty": "Aucune baie dans ce projet.",
+    "face": {
+      "front": "Avant",
+      "rear": "Arrière"
+    },
+    "error": {
+      "noRack": "Baie introuvable.",
+      "noEquipment": "Équipement introuvable.",
+      "outOfRack": "{{name}} dépasse de la baie à cet endroit.",
+      "overlap": "{{name}} chevauche un autre équipement."
+    },
+    "usage": {
+      "used": "{{used}} U occupés, {{free}} U libres",
+      "weight": "Poids : {{kg}} kg",
+      "power": "Puissance : {{w}} W ({{btu}} BTU/h)",
+      "missing": "{{count}} non renseigné(s)",
+      "height": "Hauteur utile : {{mm}} mm"
+    },
+    "hintsTitle": "Vues liées (baies)",
+    "hint": {
+      "unmounted": "Absent des baies",
+      "invalid": "Montage à revoir"
     }
   }
 }

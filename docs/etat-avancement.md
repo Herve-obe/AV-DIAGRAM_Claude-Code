@@ -57,6 +57,18 @@
 - Allen & Heath SQ-5 (Vérifié), Xone:92 (Communauté, d'après le manuel Mk2).
 - Outils : l'empreinte de l'autorité du proxy est recalculée à chaque lancement (`tools/bibliotheque/proxyca.mjs`).
 
+**Lot 3, vues liées : vue Baies (V4)** (2026-10-09) : bouton « Baies » de la barre du bas.
+- Baies 19" (hauteur 4 à 47 U, renommables), faces avant et arrière, montage par glisser-déposer depuis la liste
+  « À monter » (équipements dont la hauteur en U est renseignée) ou d'une position à l'autre ; refus des
+  chevauchements et des dépassements, avec message.
+- Même instance que le synoptique : sélectionner un équipement dans une baie l'ouvre dans l'inspecteur ; l'inspecteur
+  affiche « Hauteur (U) » et la baie de l'équipement (lien vers la vue, bouton « Retirer de la baie »).
+- Bilan par baie : U occupés / libres, poids, puissance et dissipation (1 W = 3,412 BTU/h), hauteur utile en mm,
+  nombre d'équipements sans poids ou puissance renseignés.
+- Alertes (cahier des charges 3.1) : rackable absent des baies (désactivable par équipement), montage à revoir
+  (baie raccourcie, hauteur modifiée). Baies partagées en collaboration et prises en compte par la fusion.
+- Reste pour V4 : export PDF des élévations, poids et profondeur maximale de la baie, cartes et modules en slot.
+
 **Catalogues Novelty et Audio Pro couverts à 100 %** (2026-10-08) : 813 fiches au total (458 Vérifié, 355 Communauté).
 - 753 équipements distincts ; tous couverts par une fiche, sauf 26 hors périmètre (câbles, optiques, consommables)
   et 36 désignations imprécises (modèle non identifiable), listés dans `tools/bibliotheque/inventaire-traitement.csv`.
@@ -116,7 +128,7 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
    - Fiches minimales à compléter (connecteurs non précisés) : OXO, Portman, DeSisti, Scenilux, RVE, armoires de distribution.
 2. **Import PDF** : essais sur de vrais synoptiques (Visio, AutoCAD, Vectorworks, draw.io) ; pages en image via l'assistant IA.
    **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
-3. **Lot 3** : vues liées (baie / rack, plan, réseau, intercom, synchro, électrique).
+3. **Lot 3** : vues liées. Fait : baies (V4, premier jet). Reste : export des élévations, plan d'implantation (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8).
 4. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.
 5. Points de bibliothèque à confirmer : section « Points en suspens » de `bibliotheque-a-documenter.md`.
 

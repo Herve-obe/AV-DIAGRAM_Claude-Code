@@ -117,6 +117,8 @@ export interface Equipment {
   powerW?: number
   weightKg?: number
   rackU?: number
+  /** Position dans une baie (vue Baies) : même instance que sur le synoptique */
+  mount?: RackMount
   zoneId?: string
   /** Feuille du projet sur laquelle l'équipement est dessiné */
   sheetId?: string
@@ -132,6 +134,28 @@ export interface Equipment {
 }
 
 export type Rotation = 0 | 90 | 180 | 270
+
+/** Face d'une baie : avant ou arrière */
+export type RackFace = 'front' | 'rear'
+
+/** Montage d'un équipement dans une baie ; u = unité la plus basse occupée (1 = bas de la baie). */
+export interface RackMount {
+  rackId: string
+  u: number
+  face: RackFace
+}
+
+/** Baie 19 pouces (vue Baies). */
+export interface Rack {
+  id: string
+  name: string
+  /** Hauteur utile en unités (1 U = 44,45 mm) */
+  heightU: number
+  /** Profondeur utile en mm */
+  depthMm?: number
+  zoneId?: string
+  notes?: string
+}
 
 /** Liaison entre un port de sortie et un port d'entrée. */
 export interface Link {
@@ -214,6 +238,7 @@ export interface Project {
   sheets?: Sheet[]
   annotations?: Record<string, Annotation>
   multicores?: Record<string, Multicore>
+  racks?: Record<string, Rack>
 }
 
 /** Informations reportées dans le cartouche d'impression. */

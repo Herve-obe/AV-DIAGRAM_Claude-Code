@@ -24,6 +24,7 @@ import { PdfImportDialog } from './ui/PdfImportDialog'
 import { ExportPdfDialog } from './ui/ExportPdfDialog'
 import { NewProjectDialog } from './ui/NewProjectDialog'
 import { PageBar } from './ui/PageBar'
+import { RackView } from './ui/RackView'
 import { ProjectSettings } from './ui/ProjectSettings'
 import { SheetTabs } from './ui/SheetTabs'
 import { TopBar } from './ui/TopBar'
@@ -128,6 +129,7 @@ export default function App() {
   const mode = useUi((s) => s.mode)
   const presenting = useUi((s) => s.presenting)
   const assistant = useAi((s) => s.panelOpen)
+  const view = useUi((s) => s.view)
   return (
     <ReactFlowProvider>
       <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''}`}>
@@ -135,9 +137,15 @@ export default function App() {
         <div className="workspace">
           {!presenting && <LibraryPanel />}
           <main className="stage">
-            <SheetTabs />
-            {!presenting && <FilterBar />}
-            <Canvas />
+            {view === 'racks' && !presenting ? (
+              <RackView />
+            ) : (
+              <>
+                <SheetTabs />
+                {!presenting && <FilterBar />}
+                <Canvas />
+              </>
+            )}
           </main>
           {!presenting && (assistant ? <AssistantPanel /> : <Inspector />)}
         </div>

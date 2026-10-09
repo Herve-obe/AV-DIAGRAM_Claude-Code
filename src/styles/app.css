@@ -894,3 +894,45 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .protect-level.level-strong > svg, .protect-level.level-strong strong { color: var(--ok); }
 .protect-level.is-compact { margin: 0; padding: 3px 8px; white-space: nowrap; }
 .watermark-editor textarea { font: inherit; font-size: 13px; padding: 5px 8px; color: var(--text); background: var(--bg-2); border: 1px solid var(--border-strong); border-radius: var(--radius); resize: vertical; }
+
+/* Vue Baies (élévation de rack, V4) */
+.rack-view { flex: 1; display: grid; grid-template-columns: 220px 1fr; min-height: 0; background: var(--canvas); }
+.rack-pending { border-right: 1px solid var(--border); background: var(--bg-1); padding: 10px; overflow-y: auto; }
+.rack-pending-head { display: flex; align-items: baseline; justify-content: space-between; }
+.rack-pending h3 { margin: 0 0 4px; font-size: 13px; }
+.rack-pending ul { list-style: none; margin: 8px 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.rack-pending li { display: flex; justify-content: space-between; gap: 8px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg-2); cursor: grab; font-size: 12px; }
+.rack-pending li:hover { border-color: var(--accent); }
+.rack-invalid { margin-top: 10px; padding: 8px; border: 1px solid var(--warn); border-radius: 4px; font-size: 12px; }
+.rack-invalid ul { margin: 4px 0 0; }
+.rack-board { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.rack-toolbar { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.rack-message { margin-left: auto; color: var(--err); font-size: 12px; }
+.rack-empty { margin: auto; text-align: center; color: var(--text-2); }
+.rack-row { display: flex; gap: 20px; padding: 16px; overflow: auto; align-items: flex-start; flex: 1; }
+.rack-card { flex: 0 0 auto; background: var(--bg-1); border: 1px solid var(--border-strong); border-radius: 6px; padding: 8px; }
+.rack-head { display: flex; gap: 6px; align-items: center; margin-bottom: 8px; }
+.rack-name { flex: 1; min-width: 0; font-weight: 600; background: transparent; border: 1px solid transparent; color: var(--text); padding: 2px 4px; }
+.rack-name:hover, .rack-name:focus { border-color: var(--border-strong); }
+.rack-faces { display: flex; gap: 12px; }
+.rack-face-title { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; text-align: center; }
+.rack-frame { display: flex; border: 3px solid var(--bg-4); border-radius: 3px; background: var(--bg-0); }
+.rack-numbers { display: flex; flex-direction: column; width: 22px; border-right: 1px solid var(--border); }
+.rack-numbers span { display: flex; align-items: center; justify-content: center; font: 10px/1 var(--font-mono); color: var(--text-3); border-bottom: 1px dashed var(--border); box-sizing: border-box; }
+.rack-slots { position: relative; width: 200px;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 21px, var(--border) 21px, var(--border) 22px); }
+.rack-item { position: absolute; left: 2px; right: 2px; margin-top: 1px; display: flex; flex-direction: column; justify-content: center; gap: 1px;
+  padding: 0 18px 0 6px; background: var(--bg-3); border: 1px solid var(--border-strong); border-radius: 2px; cursor: grab; overflow: hidden; }
+.rack-item:hover { border-color: var(--text-3); }
+.rack-item.is-selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.rack-item-name { font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rack-item-model { font-size: 10px; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rack-item-warn { position: absolute; right: 18px; top: 2px; color: var(--warn); font-size: 11px; font-weight: 700; }
+.rack-item-remove { position: absolute; right: 2px; top: 1px; color: var(--text-3); font-size: 13px; line-height: 1; padding: 2px; }
+.rack-item-remove:hover { color: var(--err); }
+.rack-ghost { position: absolute; left: 2px; right: 2px; margin-top: 1px; border: 1px dashed var(--accent); background: var(--accent-soft); pointer-events: none; }
+.rack-ghost.is-bad { border-color: var(--err); background: rgba(240, 89, 79, 0.14); }
+.rack-usage { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; font-size: 11px; color: var(--text-2); }
+.insp-mount { display: flex; align-items: center; gap: 4px; }
+.rack-view .small { font-size: 11px; }
+.insp-mount .link-btn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left; font-size: 12px; }

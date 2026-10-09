@@ -42,7 +42,7 @@ export function normalizeProject(project: Project): Project {
   const equipment = Object.fromEntries(
     Object.entries(project.equipment).map(([k, e]) => [k, e.sheetId && ids.has(e.sheetId) ? e : { ...e, sheetId: sheets[0].id }]),
   )
-  return { ...project, sheets, equipment, annotations: project.annotations ?? {}, multicores: project.multicores ?? {} }
+  return { ...project, sheets, equipment, annotations: project.annotations ?? {}, multicores: project.multicores ?? {}, racks: project.racks ?? {} }
 }
 
 function touch(p: Project): Project {

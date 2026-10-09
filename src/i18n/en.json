@@ -168,7 +168,10 @@
       "90": "Inputs on top",
       "180": "Inputs on the right",
       "270": "Inputs at the bottom"
-    }
+    },
+    "mount": "Rack",
+    "mountAt": "{{rack}}, U{{u}}, {{face}}",
+    "notMounted": "Not mounted"
   },
   "severity": {
     "error": "Error",
@@ -490,7 +493,8 @@
       "multicores": "multicore(s)",
       "sheets": "sheet(s)",
       "zones": "zone(s)",
-      "annotations": "annotation(s)"
+      "annotations": "annotation(s)",
+      "racks": "rack(s)"
     },
     "menu": "Merge another version…"
   },
@@ -889,6 +893,41 @@
       "classification": "Default classification",
       "language": "Language",
       "numberPrefix": "Document number prefix"
+    }
+  },
+  "racks": {
+    "add": "Add a rack",
+    "name": "Rack name",
+    "height": "Rack height",
+    "remove": "Delete the rack (devices stay in the project)",
+    "unmount": "Remove from rack",
+    "noHeight": "Rack height not set: counted as 1 U",
+    "pending": "To mount",
+    "pendingHint": "Devices with a rack height. Drag them into a rack.",
+    "invalid": "Mounts to check (rack shortened or height changed):",
+    "linkedHint": "Same devices as the diagram: a change here applies everywhere.",
+    "empty": "No rack in this project.",
+    "face": {
+      "front": "Front",
+      "rear": "Rear"
+    },
+    "error": {
+      "noRack": "Rack not found.",
+      "noEquipment": "Device not found.",
+      "outOfRack": "{{name}} does not fit in the rack here.",
+      "overlap": "{{name}} overlaps another device."
+    },
+    "usage": {
+      "used": "{{used}} U used, {{free}} U free",
+      "weight": "Weight: {{kg}} kg",
+      "power": "Power: {{w}} W ({{btu}} BTU/h)",
+      "missing": "{{count}} not set",
+      "height": "Usable height: {{mm}} mm"
+    },
+    "hintsTitle": "Linked views (racks)",
+    "hint": {
+      "unmounted": "Not in a rack",
+      "invalid": "Mount to check"
     }
   }
 }
