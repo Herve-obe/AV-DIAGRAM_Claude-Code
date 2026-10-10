@@ -1,0 +1,59 @@
+{
+  "id": "taiden-hcs-8685st",
+  "family": "intercom",
+  "manufacturer": "Taiden",
+  "model": "HCS-8685ST",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 1.5,
+  "sources": [
+    {
+      "url": "https://www.taiden.com/upload/download/HCS-8685STDatasheet-0313.pdf",
+      "document": "Taiden, fiche HCS-8685ST (pupitre interprète 64 canaux)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro (col de cygne)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Embase 5 points pour micro MS amovible"
+    },
+    {
+      "id": "headset1",
+      "name": "Casque-micro 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 TRRS (CTIA)"
+    },
+    {
+      "id": "headset2",
+      "name": "Casque-micro 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 TRRS (CTIA)"
+    },
+    {
+      "id": "trunkIn",
+      "name": "Câble 8P-DIN (fiche)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din8",
+      "format": "1,4 m, vers unité centrale HCS-4800M / 8600M ou pupitre précédent"
+    },
+    {
+      "id": "trunkOut",
+      "name": "Câble 8P-DIN (embase)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "0,6 m, bouclage"
+    }
+  ]
+}

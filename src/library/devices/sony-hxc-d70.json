@@ -1,0 +1,126 @@
+{
+  "id": "sony-hxc-d70",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "HXC-D70 (caméra HD)",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 3.4,
+  "sources": [
+    {
+      "document": "Sony, HXC-D70 HD Color Camera Operating Instructions 4-291-685-11 (2), © 2011",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ccu",
+      "name": "CCU",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "sony-ccz",
+      "format": "Liaison multiconducteur vers la CCU HXCU-D70 ou CCU-D50 (vidéo, retour, intercom, tally, télécommande, alimentation)"
+    },
+    {
+      "id": "sdiout",
+      "name": "SDI OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI ou SD-SDI (au choix dans le menu)"
+    },
+    {
+      "id": "sdiin",
+      "name": "SDI IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retour HD-SDI vers le viseur, en autonome"
+    },
+    {
+      "id": "test",
+      "name": "TEST OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique : VBS, HD-SYNC, SD-SYNC ou Y du viseur"
+    },
+    {
+      "id": "genlock",
+      "name": "PROMPTER / GENLOCK",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Avec CCU : sortie prompteur VBS ; en autonome : entrée genlock BB ou tri-level ; 1 Vc-c 75 Ω"
+    },
+    {
+      "id": "a1",
+      "name": "AUDIO 1 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Micro -60 dBu (réglable jusqu'à -20 dBu) ou ligne 0 dBu, symétrique ; +48 V commutable"
+    },
+    {
+      "id": "a2",
+      "name": "AUDIO 2 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Micro ou ligne, symétrique ; +48 V commutable"
+    },
+    {
+      "id": "com",
+      "name": "INTERCOM",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "Casque d'ordres XLR 5 broches"
+    },
+    {
+      "id": "ear",
+      "name": "EARPHONE",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "trunk",
+      "name": "TRUNK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, RS-232C, liaison trunk avec la HXCU-D70"
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur 8 broches pour télécommande RM-B150 / RM-B750"
+    },
+    {
+      "id": "dcin",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches, 10,5 à 17 V DC ; environ 1,92 A avec viseur, objectif et micro"
+    },
+    {
+      "id": "dcout",
+      "name": "DC OUT",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "4 broches femelle, 10,5 à 17 V DC, 1,5 A max (torche)"
+    }
+  ]
+}

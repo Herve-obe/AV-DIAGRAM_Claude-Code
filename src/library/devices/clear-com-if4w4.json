@@ -1,0 +1,91 @@
+{
+  "id": "clear-com-if4w4",
+  "family": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "IF4W4",
+  "pictogram": "intercom",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://expandore.com/Clear-Com/Party-Line/IF4W4_Interfaces.htm",
+      "document": "Expandore, fiche IF4W4",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://clear-com.atlassian.net/wiki/spaces/SF/pages/158715614",
+      "document": "Clear-Com, base de connaissances : IF4W4",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line1",
+      "name": "Ligne 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline Clear-Com"
+    },
+    {
+      "id": "line2",
+      "name": "Ligne 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline Clear-Com"
+    },
+    {
+      "id": "line3",
+      "name": "Ligne 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline Clear-Com"
+    },
+    {
+      "id": "line4",
+      "name": "Ligne 4",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline Clear-Com"
+    },
+    {
+      "id": "fw1",
+      "name": "4 fils 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier, entrée + sortie 4 fils"
+    },
+    {
+      "id": "fw2",
+      "name": "4 fils 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier, entrée + sortie 4 fils"
+    },
+    {
+      "id": "fw3",
+      "name": "4 fils 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier, entrée + sortie 4 fils"
+    },
+    {
+      "id": "fw4",
+      "name": "4 fils 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier, entrée + sortie 4 fils"
+    }
+  ]
+}

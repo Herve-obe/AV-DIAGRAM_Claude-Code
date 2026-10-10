@@ -1,0 +1,160 @@
+{
+  "id": "sound-devices-633",
+  "family": "recording",
+  "manufacturer": "Sound Devices",
+  "model": "633",
+  "pictogram": "recorder",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Sound Devices, 633 User Guide (633ug_eng.pdf), révision v4.50 et suivantes",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1 XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V ; accepte aussi AES3 / AES42"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2 XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3 XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4 TA3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "Ligne, symétrie active"
+    },
+    {
+      "id": "in5",
+      "name": "Input 5 TA3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "Ligne, symétrie active"
+    },
+    {
+      "id": "in6",
+      "name": "Input 6 TA3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "Ligne, symétrie active"
+    },
+    {
+      "id": "outL",
+      "name": "Main Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique par transformateur ; ligne, -10 ou micro ; ou AES3 1-2"
+    },
+    {
+      "id": "outR",
+      "name": "Main Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique par transformateur ; ligne, -10 ou micro ; ou AES3 3-4"
+    },
+    {
+      "id": "x1",
+      "name": "X1 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "Ligne, -10 ou micro"
+    },
+    {
+      "id": "x2",
+      "name": "X2 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "Ligne, -10 ou micro"
+    },
+    {
+      "id": "x34",
+      "name": "X3/X4 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS asymétrique, -30 à 0 dB"
+    },
+    {
+      "id": "rtn",
+      "name": "RTN In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Retour stéréo asymétrique, jack 3,5 mm"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 TRS, casques de 8 à 1000 Ω"
+    },
+    {
+      "id": "tc",
+      "name": "Timecode I/O",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "lemo5",
+      "format": "Entrée et sortie timecode"
+    },
+    {
+      "id": "usb",
+      "name": "USB B",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Usage usine et clavier (avec adaptateur)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "hirose4",
+      "format": "10 à 18 V DC (broche 4 = +, broche 1 = -) ; secours 6 piles AA"
+    }
+  ]
+}

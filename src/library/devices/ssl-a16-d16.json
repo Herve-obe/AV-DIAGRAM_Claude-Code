@@ -1,0 +1,110 @@
+{
+  "id": "ssl-a16-d16",
+  "family": "stagebox",
+  "manufacturer": "Solid State Logic",
+  "model": "A16.D16",
+  "pictogram": "stagebox",
+  "status": "verified",
+  "powerW": 100,
+  "weightKg": 9.5,
+  "rackU": 2,
+  "sources": [
+    {
+      "document": "SSL, A16.D16, A32, D64 and GPIO 32 User Guide Rev 1.1 (décembre 2018)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ain1_8",
+      "name": "Analogue In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "Ligne SuperAnalogue, +24 dBu max ; D-Sub 25 femelle"
+    },
+    {
+      "id": "ain9_16",
+      "name": "Analogue In 9-16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "mic",
+      "phantom": "supplied",
+      "channels": 8,
+      "format": "9-12 micro/ligne (fantôme 48 V, pad 30 dB), 13-16 ligne ; D-Sub 25 femelle"
+    },
+    {
+      "id": "aout1_8",
+      "name": "Analogue Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "+24 dBu max ; D-Sub 25 femelle"
+    },
+    {
+      "id": "aout9_16",
+      "name": "Analogue Out 9-16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "aes1",
+      "name": "AES I/O 1-8",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "4 paires AES3 en entrée et 4 en sortie ; D-Sub 25 femelle"
+    },
+    {
+      "id": "aes2",
+      "name": "AES I/O 9-16",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "4 paires AES3 en entrée et 4 en sortie"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 mâle : 4 entrées opto, 4 relais"
+    },
+    {
+      "id": "danteA",
+      "name": "Dante réseau A",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "unspecified",
+      "channels": 32,
+      "format": "En façade ; type de connecteur non précisé ; réseau B pas encore activé selon le guide"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur A",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C14, alimentations redondantes (une seule suffit)"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur B",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C14, alimentations redondantes (une seule suffit)"
+    }
+  ]
+}

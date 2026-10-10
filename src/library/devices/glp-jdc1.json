@@ -1,0 +1,43 @@
+{
+  "id": "glp-jdc1",
+  "family": "luminaire",
+  "manufacturer": "GLP",
+  "model": "JDC1",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1200,
+  "weightKg": 10.8,
+  "sources": [
+    {
+      "url": "https://glp.de/files/products/jdc1-product-data/GLP_JDC1_User_Manual_EN_Rev20240830-01.pdf",
+      "document": "GLP, JDC1 User Manual Rev. 20240830-01",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx-thru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    }
+  ]
+}

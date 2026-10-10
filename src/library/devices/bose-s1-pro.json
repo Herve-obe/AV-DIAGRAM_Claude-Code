@@ -1,0 +1,72 @@
+{
+  "id": "bose-s1-pro",
+  "family": "speaker",
+  "manufacturer": "Bose",
+  "model": "S1 Pro",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://thomann.ae/bose_s1_pro_441087.htm",
+      "document": "Thomann, fiche S1 Pro (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/s1-2/",
+      "document": "Novelty, fiche S1 (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Ch 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack 6,35"
+    },
+    {
+      "id": "in2",
+      "name": "Ch 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack 6,35"
+    },
+    {
+      "id": "aux",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Batterie ou secteur"
+    }
+  ]
+}

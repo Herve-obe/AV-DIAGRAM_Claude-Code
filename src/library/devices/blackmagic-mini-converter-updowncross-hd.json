@@ -1,0 +1,87 @@
+{
+  "id": "blackmagic-mini-converter-updowncross-hd",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter UpDownCross HD",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-28",
+      "document": "Blackmagic Design, fiche technique Mini Converter UpDownCross HD (W-CONM-28)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 3G"
+    },
+    {
+      "id": "hdmiin",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "loop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmiout",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour et configuration"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ]
+}

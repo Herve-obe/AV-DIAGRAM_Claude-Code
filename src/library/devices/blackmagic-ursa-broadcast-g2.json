@@ -1,0 +1,126 @@
+{
+  "id": "blackmagic-ursa-broadcast-g2",
+  "family": "camera",
+  "manufacturer": "Blackmagic Design",
+  "model": "URSA Broadcast G2",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/blackmagicursabroadcast/techspecs/W-URSA-38",
+      "document": "Blackmagic Design, fiche technique URSA Broadcast G2 (W-URSA-38)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (retour programme)"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiMon",
+      "name": "SDI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "audio1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro, ligne ou AES ; fantôme",
+      "phantom": "supplied"
+    },
+    {
+      "id": "audio2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro, ligne ou AES ; fantôme",
+      "phantom": "supplied"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5, micro-casque pour ordres"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level, black burst ou timecode"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Hirose 12 points broadcast"
+    },
+    {
+      "id": "lanc",
+      "name": "LANC",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-jack 2,5 mm"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-C 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Enregistrement sur disque, Zoom / Focus Demand"
+    },
+    {
+      "id": "usb2",
+      "name": "USB-C 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Mise à jour"
+    },
+    {
+      "id": "dcOut",
+      "name": "12 V Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points 12 V"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V DC 100 W ; batterie V-mount ou Gold mount"
+    }
+  ]
+}

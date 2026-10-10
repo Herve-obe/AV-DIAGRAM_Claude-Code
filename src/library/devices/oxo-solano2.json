@@ -1,0 +1,54 @@
+{
+  "id": "oxo-solano2",
+  "family": "dmxDistribution",
+  "manufacturer": "OXO",
+  "model": "Solano 2",
+  "pictogram": "control",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://azur.novelty-group.com/download/materiel_fiches_techniques/oxo_solano2_ft2.pdf",
+      "document": "OXO, fiche Solano 2 (via Novelty)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Restitution de séquences enregistrées"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified"
+    },
+    {
+      "id": "contacts",
+      "name": "Contacts",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

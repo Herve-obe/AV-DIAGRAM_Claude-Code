@@ -1,0 +1,133 @@
+{
+  "id": "rme-madiface-xt",
+  "family": "processing",
+  "manufacturer": "RME",
+  "model": "MADIface XT",
+  "pictogram": "processor",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://rme-audio.de/madiface-xt.html",
+      "document": "RME, page MADIface XT",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack, préampli numérique, fantôme par voie",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack, préampli numérique, fantôme par voie",
+      "phantom": "supplied"
+    },
+    {
+      "id": "out1",
+      "name": "Line Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "out2",
+      "name": "Line Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "madiCoax",
+      "name": "MADI Coax",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64
+    },
+    {
+      "id": "madiOpt1",
+      "name": "MADI Optical 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64
+    },
+    {
+      "id": "madiOpt2",
+      "name": "MADI Optical 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64
+    },
+    {
+      "id": "usb",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 196,
+      "format": "USB 3 (USB 2 : 70 canaux)"
+    },
+    {
+      "id": "pcie",
+      "name": "PCI Express",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Câble E-PCIe (Molex) ou adaptateur Thunderbolt"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "breakout",
+      "name": "AES / MIDI",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "D-Sub vers AES/EBU XLR et MIDI DIN 5"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

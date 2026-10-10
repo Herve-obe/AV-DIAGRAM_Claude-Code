@@ -1,0 +1,201 @@
+{
+  "id": "l-acoustics-p1",
+  "family": "processing",
+  "manufacturer": "L-Acoustics",
+  "model": "P1",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 3.7,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/p1/",
+      "document": "L-Acoustics, page produit P1, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "avb1",
+      "name": "etherCON 1 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 8,
+      "format": "8 canaux (2 flux) en entrée et en sortie, 48 ou 96 kHz"
+    },
+    {
+      "id": "avb2",
+      "name": "etherCON 2 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 8,
+      "format": "Redondance réseau Milan"
+    },
+    {
+      "id": "mic1",
+      "name": "Entrée micro/ligne 1 (façade)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 3 femelle, 48 V, gain 0 à 60 dB",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Entrée micro/ligne 2 (façade)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 3 femelle, 48 V, gain 0 à 60 dB",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic3",
+      "name": "Entrée micro/ligne 3 (façade)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 3 femelle, 48 V, gain 0 à 60 dB",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic4",
+      "name": "Entrée micro/ligne 4 (façade)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 3 femelle, 48 V, gain 0 à 60 dB",
+      "phantom": "supplied"
+    },
+    {
+      "id": "lin1",
+      "name": "Entrée ligne 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle (face arrière)"
+    },
+    {
+      "id": "lin2",
+      "name": "Entrée ligne 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle (face arrière)"
+    },
+    {
+      "id": "lin3",
+      "name": "Entrée ligne 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle (face arrière)"
+    },
+    {
+      "id": "lin4",
+      "name": "Entrée ligne 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle (face arrière)"
+    },
+    {
+      "id": "aesin12",
+      "name": "Entrée AES 1-2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, XLR 3 femelle"
+    },
+    {
+      "id": "aesin34",
+      "name": "Entrée AES 3-4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, XLR 3 femelle"
+    },
+    {
+      "id": "lout1",
+      "name": "Sortie ligne 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle"
+    },
+    {
+      "id": "lout2",
+      "name": "Sortie ligne 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle"
+    },
+    {
+      "id": "lout3",
+      "name": "Sortie ligne 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle"
+    },
+    {
+      "id": "lout4",
+      "name": "Sortie ligne 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle"
+    },
+    {
+      "id": "aesout12",
+      "name": "Sortie AES 1-2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, XLR 3 mâle, 96 kHz 24 bits"
+    },
+    {
+      "id": "aesout34",
+      "name": "Sortie AES 3-4",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, XLR 3 mâle, 96 kHz 24 bits"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 GPI + 2 GPO sur DB9 femelle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 verrouillable, 100-240 V"
+    }
+  ]
+}

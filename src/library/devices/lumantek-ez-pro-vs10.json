@@ -1,0 +1,156 @@
+{
+  "id": "lumantek-ez-pro-vs10",
+  "family": "videoSwitcher",
+  "manufacturer": "Lumantek",
+  "model": "ez-Pro VS10",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.markertek.com/Attachments/Manuals/Lumantek/vs10-manual.pdf",
+      "document": "Lumantek, mode d'emploi VS10 (via Markertek)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn7",
+      "name": "SDI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn8",
+      "name": "SDI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "outs",
+      "name": "Sorties SDI / HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Programme, clean, preview, AUX et multiview (nombre selon les sources)"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "rs",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "bss-fcs-966",
+  "family": "processing",
+  "manufacturer": "BSS Audio",
+  "model": "FCS-966 Opal",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 3.0,
+  "rackU": 3,
+  "sources": [
+    {
+      "url": "https://bssaudio.com/en-US/product_documents/fcs966dspdf",
+      "document": "BSS, fiche FCS-966",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inA",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+    },
+    {
+      "id": "inB",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+    },
+    {
+      "id": "outA",
+      "name": "Output A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+    },
+    {
+      "id": "outB",
+      "name": "Output B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

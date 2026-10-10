@@ -1,0 +1,386 @@
+{
+  "id": "allen-heath-sq-5-dante64",
+  "family": "console",
+  "manufacturer": "Allen & Heath",
+  "model": "SQ-5 + carte Dante M-SQ-DANT64",
+  "pictogram": "console",
+  "status": "verified",
+  "powerW": 75,
+  "weightKg": 10.5,
+  "sources": [
+    {
+      "document": "Allen & Heath, SQ-5 Technical Datasheet (fichier SQ-5-Technical-Datasheet_G.pdf)",
+      "accessed": "2026-09-24"
+    },
+    {
+      "document": "Allen & Heath, Dante V2 SQ/AHM Audio Networking Card cut sheet (M-SQ-Dant64)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "document": "Allen & Heath, M-SQ-DANT32 / M-SQ-DANT64 Fitting Note AP13279 Issue 1",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Mic/Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Mic/Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in3",
+      "name": "Mic/Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in4",
+      "name": "Mic/Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in5",
+      "name": "Mic/Line 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in6",
+      "name": "Mic/Line 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in7",
+      "name": "Mic/Line 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in8",
+      "name": "Mic/Line 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in9",
+      "name": "Mic/Line 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in10",
+      "name": "Mic/Line 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in11",
+      "name": "Mic/Line 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in12",
+      "name": "Mic/Line 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in13",
+      "name": "Mic/Line 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in14",
+      "name": "Mic/Line 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in15",
+      "name": "Mic/Line 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in16",
+      "name": "Mic/Line 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "st1",
+      "name": "ST1 (stéréo)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, stéréo"
+    },
+    {
+      "id": "st2",
+      "name": "ST2 (stéréo)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, stéréo"
+    },
+    {
+      "id": "st3",
+      "name": "ST3 (stéréo)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm asymétrique, nominal 0 dBu"
+    },
+    {
+      "id": "tb",
+      "name": "Talkback",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "out1",
+      "name": "Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out2",
+      "name": "Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out3",
+      "name": "Out 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out4",
+      "name": "Out 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out5",
+      "name": "Out 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out6",
+      "name": "Out 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out7",
+      "name": "Out 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out8",
+      "name": "Out 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out9",
+      "name": "Out 9",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out10",
+      "name": "Out 10",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out11",
+      "name": "Out 11",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out12",
+      "name": "Out 12",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outa",
+      "name": "Out A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "outb",
+      "name": "Out B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "aes",
+      "name": "AES out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3 stéréo, 44,1 à 96 kHz"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie casque"
+    },
+    {
+      "id": "slink",
+      "name": "SLink",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 128,
+      "format": "Allen & Heath dSnake / DX / gigaACE (jusqu'à 128 x 128)"
+    },
+    {
+      "id": "usb",
+      "name": "USB-B (audio 32 x 32)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 32,
+      "format": "USB 2.0, streaming 32 x 32 et MIDI"
+    },
+    {
+      "id": "net",
+      "name": "Network",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet 100 Mbit/s, contrôle TCP/IP et applis"
+    },
+    {
+      "id": "dantea",
+      "name": "Dante A (I/O Port)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 64,
+      "format": "Dante 64 x 64 à 48 ou 96 kHz, AES67 ; switch Gigabit intégré (mode redondant ou switch)"
+    },
+    {
+      "id": "danteb",
+      "name": "Dante B (I/O Port)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 64,
+      "format": "Secondaire (redondance) ou second port du switch"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz"
+    }
+  ]
+}

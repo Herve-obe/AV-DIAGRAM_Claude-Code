@@ -1,0 +1,58 @@
+{
+  "id": "elation-proteus-hybrid",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "Proteus Hybrid",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 700,
+  "weightKg": 38,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/proteus-hybrid",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM ; émetteur-récepteur sans fil E-FLY intégré ; IP65"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 IP65 ; Art-Net, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 IP65"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé, 100-240 V"
+    }
+  ]
+}

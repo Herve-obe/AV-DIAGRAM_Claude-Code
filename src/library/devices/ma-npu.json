@@ -1,0 +1,122 @@
+{
+  "id": "ma-npu",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "MA NPU (Network Processing Unit)",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 8.4,
+  "sources": [
+    {
+      "url": "https://www.malighting.com/product-archive/product/ma-npu-network-processing-unit-130032/",
+      "document": "MA Lighting, page archive MA NPU (Network Processing Unit)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON, 150 VA"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx5",
+      "name": "DMX 5 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx6",
+      "name": "DMX 6 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx7",
+      "name": "DMX 7 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx8",
+      "name": "DMX 8 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    }
+  ]
+}

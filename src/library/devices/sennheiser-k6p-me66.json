@@ -1,0 +1,30 @@
+{
+  "id": "sennheiser-k6p-me66",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "K6P + ME 66",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Sennheiser France, fiche « Micros K6P à fil » (fichier SpecSheet_K6-P_FR.pdf)",
+      "accessed": "2026-09-24"
+    },
+    {
+      "document": "Sennheiser France, fiche « Micros à fil ME 66 » (fichier SpecSheet_ME_66_FR.pdf)",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique supercardioïde / lobe (module ME 66, 50 mV/Pa), poignée K6P : fantôme (2,2 mA), sortie symétrique XLR-3",
+      "phantom": "required"
+    }
+  ]
+}

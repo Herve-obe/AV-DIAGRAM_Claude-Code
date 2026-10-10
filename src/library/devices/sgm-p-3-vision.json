@@ -1,0 +1,40 @@
+{
+  "id": "sgm-p-3-vision",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "P-3 Vision",
+  "pictogram": "light",
+  "status": "community",
+  "weightKg": 8.3,
+  "sources": [
+    {
+      "url": "https://www.livedesignonline.com/news/sgm-light-introduces-p-3-visionr-cutting-edge-hybrid-solution-lighting-and-video-design",
+      "document": "Live Design, annonce P-3 Vision",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-277 V, 360 W"
+    }
+  ]
+}

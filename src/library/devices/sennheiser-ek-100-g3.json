@@ -1,0 +1,37 @@
+{
+  "id": "sennheiser-ek-100-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EK 100 G3 (récepteur caméra)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.12,
+  "sources": [
+    {
+      "document": "Sennheiser, EK 100 G3 notice d'emploi FR, Publ. 12/16",
+      "accessed": "2026-09-25"
+    },
+    {
+      "document": "Sennheiser, EK 100 G3 fiche produit, © 03/2013",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, plage de 42 MHz selon la variante (A à E), diversity adaptative"
+    },
+    {
+      "id": "out",
+      "name": "Sortie (LINE)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm verrouillable à vis, mono asymétrique, +11 dBu max, réglable sur 42 dB par pas de 6 dB ; vers XLR-3 par le câble CL 100"
+    }
+  ]
+}

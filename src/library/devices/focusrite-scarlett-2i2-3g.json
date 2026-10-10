@@ -1,0 +1,72 @@
+{
+  "id": "focusrite-scarlett-2i2-3g",
+  "family": "recording",
+  "manufacturer": "Focusrite",
+  "model": "Scarlett 2i2 3e génération",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 0.47,
+  "sources": [
+    {
+      "document": "Focusrite, Scarlett 2i2 3rd Gen User Guide Version 2, © 2021",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 : micro 3 kΩ (+9 dBu max), ligne 60 kΩ (+22 dBu max), instrument 1,5 MΩ ; 48 V commun aux 2 entrées, sur XLR seulement"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 : micro 3 kΩ (+9 dBu max), ligne 60 kΩ (+22 dBu max), instrument 1,5 MΩ ; 48 V commun aux 2 entrées, sur XLR seulement"
+    },
+    {
+      "id": "outL",
+      "name": "Line Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, max +15,5 dBu, 430 Ω"
+    },
+    {
+      "id": "outR",
+      "name": "Line Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, max +15,5 dBu, 430 Ω"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo en façade, max 7 dBu"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-c",
+      "format": "Audio 2 in / 2 out et alimentation par le bus USB (pas d'alimentation séparée)"
+    }
+  ]
+}

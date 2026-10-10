@@ -1,0 +1,58 @@
+{
+  "id": "elation-proteus-maximus",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "Proteus Maximus",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1400,
+  "weightKg": 53,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/products/proteus-maximus",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 IP65 ; Art-Net, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 IP65"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé, 120-240 V"
+    }
+  ]
+}

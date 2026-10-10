@@ -1,0 +1,66 @@
+{
+  "id": "turbosound-iq15b",
+  "family": "speaker",
+  "manufacturer": "Turbosound",
+  "model": "iQ15B",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 30.6,
+  "sources": [
+    {
+      "url": "https://thomann.fr/turbosound_iq15b.htm",
+      "document": "Thomann, fiche iQ15B (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Inputs",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Nombre et type non confirmés"
+    },
+    {
+      "id": "linkA",
+      "name": "Out A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "linkB",
+      "name": "Out B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "unIn",
+      "name": "Ultranet In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45"
+    },
+    {
+      "id": "unOut",
+      "name": "Ultranet Link",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "3 000 W"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "numark-mp103usb",
+  "family": "recording",
+  "manufacturer": "Numark",
+  "model": "MP103USB",
+  "pictogram": "recorder",
+  "status": "community",
+  "powerW": 20,
+  "weightKg": 4.6,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://im.static-thomann.de/pics/atg/atgdata/document/specs/267417_datenblatt.pdf",
+      "document": "Thomann, fiche technique MP103USB (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.gak.co.uk/en/numark-mp103usb/52723",
+      "document": "GAK, fiche MP103USB (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "outL",
+      "name": "Out L (XLR)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique"
+    },
+    {
+      "id": "outR",
+      "name": "Out R (XLR)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique"
+    },
+    {
+      "id": "outRca",
+      "name": "Out (RCA)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "1,9 V"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clé ou disque USB"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "115-230 V, 20 W"
+    }
+  ]
+}

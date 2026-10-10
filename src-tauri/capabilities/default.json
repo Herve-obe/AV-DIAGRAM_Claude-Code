@@ -1,0 +1,35 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Permissions des fenêtres (principale et Infos du double écran) : dialogues, fichiers choisis par l'utilisateur, seconde fenêtre",
+  "windows": [
+    "main",
+    "panels"
+  ],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "dialog:allow-message",
+    "fs:allow-read-text-file",
+    "fs:allow-read-file",
+    "fs:allow-write-text-file",
+    "fs:allow-write-file",
+    "fs:allow-exists",
+    "fs:allow-remove",
+    "fs:allow-read-dir",
+    "fs:allow-mkdir",
+    "opener:allow-open-url",
+    "core:webview:allow-create-webview-window",
+    "core:window:allow-maximize",
+    "core:window:allow-set-focus",
+    "core:window:allow-close",
+    "core:window:allow-set-position",
+    "core:window:allow-set-size",
+    "core:window:allow-show",
+    "core:window:allow-outer-position",
+    "core:window:allow-outer-size",
+    "core:window:allow-is-maximized",
+    "core:window:allow-available-monitors"
+  ]
+}

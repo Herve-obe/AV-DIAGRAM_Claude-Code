@@ -1,0 +1,164 @@
+{
+  "id": "midas-dl351",
+  "family": "stagebox",
+  "manufacturer": "Midas",
+  "model": "DL351",
+  "pictogram": "stagebox",
+  "status": "community",
+  "weightKg": 16.9,
+  "rackU": 7,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/38476-DL351datasheet.pdf",
+      "document": "Midas, fiche technique DL351 (hébergée par Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "slot1",
+      "name": "Carte DL4 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot2",
+      "name": "Carte DL4 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot3",
+      "name": "Carte DL4 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot4",
+      "name": "Carte DL4 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot5",
+      "name": "Carte DL4 5",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot6",
+      "name": "Carte DL4 6",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot7",
+      "name": "Carte DL4 7",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "slot8",
+      "name": "Carte DL4 8",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 8,
+      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
+    },
+    {
+      "id": "aes50A",
+      "name": "AES50 A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 48,
+      "format": "AES50 (SuperMAC)"
+    },
+    {
+      "id": "aes50B",
+      "name": "AES50 B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 48,
+      "format": "AES50 (SuperMAC)"
+    },
+    {
+      "id": "aes50C",
+      "name": "AES50 C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 48,
+      "format": "AES50 (SuperMAC)"
+    },
+    {
+      "id": "aes50D",
+      "name": "AES50 D",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 48,
+      "format": "AES50 (SuperMAC)"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI In/Out/Thru",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet (commande)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    }
+  ]
+}

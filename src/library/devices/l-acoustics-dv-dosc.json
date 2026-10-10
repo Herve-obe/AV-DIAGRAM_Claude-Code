@@ -1,0 +1,34 @@
+{
+  "id": "l-acoustics-dv-dosc",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "dV-DOSC",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/dV-DOSC/documents.zip",
+      "document": "L-Acoustics, archive de documentation : dV-DOSC User manual 3.0",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Raccordement par câbles et adaptateurs CA-COM / speakON selon le manuel"
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker"
+    }
+  ]
+}

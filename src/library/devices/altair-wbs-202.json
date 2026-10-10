@@ -1,0 +1,118 @@
+{
+  "id": "altair-wbs-202",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "WBS-202",
+  "pictogram": "intercom",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.rent4event.de/pdf/altair-wbs202.pdf",
+      "document": "Altair, mode d'emploi WBS-202 (via Rent4Event)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ant1",
+      "name": "Antenne 1",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ant2",
+      "name": "Antenne 2",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "unspecified"
+    },
+    {
+      "id": "lineA",
+      "name": "Line A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "lineB",
+      "name": "Line B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "prg",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3F symétrique"
+    },
+    {
+      "id": "pa",
+      "name": "PA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "sa",
+      "name": "SA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4"
+    },
+    {
+      "id": "sync",
+      "name": "Synchro",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "RJ11, liaison entre bases"
+    },
+    {
+      "id": "aux",
+      "name": "Audio Link",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Liaison audio entre unités"
+    },
+    {
+      "id": "relay",
+      "name": "Relais / GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90-264 V"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "shure-slx2",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "SLX2 (émetteur main)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.29,
+  "sources": [
+    {
+      "document": "Shure, SLX Wireless Systems User Guide (fichier SLX System.pdf, section française)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "30 mW max ; capsule SM58 (ou autre selon version) ; 2 piles AA"
+    }
+  ]
+}

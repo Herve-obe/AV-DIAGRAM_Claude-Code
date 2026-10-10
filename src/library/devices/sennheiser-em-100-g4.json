@@ -1,0 +1,65 @@
+{
+  "id": "sennheiser-em-100-g4",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EM 100 G4 (récepteur rack)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.98,
+  "sources": [
+    {
+      "document": "Sennheiser, evolution wireless G4 100 series Instruction Manual, ew 100 G4 v2.2 (ew_100_G4_Manual_v2-2_10_2019_EN.pdf)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "True diversity ; 2 entrées antenne BNC (ANT I, ANT II) avec téléalimentation"
+    },
+    {
+      "id": "bal",
+      "name": "AF OUT BAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle symétrique, +18 dBu max ; une seule des deux sorties à la fois"
+    },
+    {
+      "id": "unbal",
+      "name": "AF OUT UNBAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, +12 dBu max ; réglage AF OUT sur 48 dB par pas de 3 dB"
+    },
+    {
+      "id": "data1",
+      "name": "DATA",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj10",
+      "format": "Réseau de données entre récepteurs"
+    },
+    {
+      "id": "data2",
+      "name": "DATA",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj10",
+      "format": "Réseau de données entre récepteurs"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 300 mA, bloc secteur fourni"
+    }
+  ]
+}

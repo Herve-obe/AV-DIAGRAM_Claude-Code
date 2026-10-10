@@ -1,0 +1,50 @@
+{
+  "id": "klarkteknik-dn100-v2",
+  "family": "capture",
+  "manufacturer": "Klark Teknik",
+  "model": "DN100 V2",
+  "pictogram": "di",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.andertons.co.uk/klark-teknik-dn100-v2-active-di-box",
+      "document": "Andertons, fiche DN100 V2 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://prostage.gr/en/klark-teknik-dn-100-v2.html",
+      "document": "Prostage, fiche DN100 V2 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "instrument",
+      "format": "XLR et 2 jacks TRS 6,35 en parallèle, 1 MΩ, pad 20 dB"
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Recopie de l'entrée"
+    },
+    {
+      "id": "out",
+      "name": "Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Symétrique 50 Ω ; fantôme 48 V requis",
+      "phantom": "required"
+    }
+  ]
+}

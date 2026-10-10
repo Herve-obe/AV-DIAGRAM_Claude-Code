@@ -1,0 +1,41 @@
+{
+  "id": "electro-voice-tx2181",
+  "family": "speaker",
+  "manufacturer": "Electro-Voice",
+  "model": "TX2181",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 56.1,
+  "sources": [
+    {
+      "url": "https://products.electrovoice.com/download/970184",
+      "document": "Electro-Voice, fiche technique TX2181",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.proacousticsusa.com/electro-voice-tx2181-dual-18-inch-subwoofer.html",
+      "document": "Pro Acoustics, fiche TX2181 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "spk1",
+      "name": "Speakon 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "2 × 18\", 4 Ω, 1 000 W continu / 4 000 W crête"
+    },
+    {
+      "id": "spk2",
+      "name": "Speakon 2 (link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle avec l'entrée (chaînage)"
+    }
+  ]
+}

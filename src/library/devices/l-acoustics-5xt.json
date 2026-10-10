@@ -1,0 +1,45 @@
+{
+  "id": "l-acoustics-5xt",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "5XT",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 3.5,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/5xt/",
+      "document": "L-Acoustics, page produit 5XT, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Coaxiale 2 voies passive, 16 Ω"
+    },
+    {
+      "id": "link",
+      "name": "Link speakON",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Recopie de l'entrée (chaînage)"
+    },
+    {
+      "id": "term",
+      "name": "Borniers à vis (IN/LINK)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "2 borniers 2 points, alternative aux speakON"
+    }
+  ]
+}

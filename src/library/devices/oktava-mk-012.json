@@ -1,0 +1,27 @@
+{
+  "id": "oktava-mk-012",
+  "family": "capture",
+  "manufacturer": "Oktava",
+  "model": "MK-012",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.11,
+  "sources": [
+    {
+      "document": "Oktava PJSC, MK-012 Microphone Operation Manual (fichier MK-012.pdf)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Statique à capsules interchangeables (omni, cardio, hypercardio) ; fantôme 48 V IEC 61938, 3,5 mA ; 150 Ω ; 10 mV/Pa"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "luminex-gigacore-20t-poe",
+  "family": "network",
+  "manufacturer": "Luminex",
+  "model": "GigaCore 20t PoE++ (LU 01 00080-10G-P500)",
+  "pictogram": "switch",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/Product-specification-sheet-GigaCore-20t-v1.0.1.pdf",
+      "document": "Luminex, Product specification sheet GigaCore 20t v1.0.1",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "front1",
+      "name": "Avant 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "front2",
+      "name": "Avant 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "front3",
+      "name": "Avant 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "front4",
+      "name": "Avant 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rear1",
+      "name": "Arrière etherCON 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rear2",
+      "name": "Arrière etherCON 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rear3",
+      "name": "Arrière etherCON 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rear4",
+      "name": "Arrière etherCON 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj1",
+      "name": "Arrière RJ45 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj2",
+      "name": "Arrière RJ45 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj3",
+      "name": "Arrière RJ45 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj4",
+      "name": "Arrière RJ45 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj5",
+      "name": "Arrière RJ45 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj6",
+      "name": "Arrière RJ45 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj7",
+      "name": "Arrière RJ45 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "rj8",
+      "name": "Arrière RJ45 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP+ 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP+ 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "sfp3",
+      "name": "SFP+ 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "sfp4",
+      "name": "SFP+ 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 entrée"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 sortie"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "lumenradio-crmx-stardust",
+  "family": "dmxDistribution",
+  "manufacturer": "LumenRadio",
+  "model": "CRMX Stardust",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.huss-licht-ton.de/print_product_info.php/products_id/43857",
+      "document": "Huss, fiche CRMX Stardust (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "sACN / Art-Net"
+    },
+    {
+      "id": "rf",
+      "name": "CRMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Antennes RP-TNC"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "dc",
+      "name": "DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ]
+}

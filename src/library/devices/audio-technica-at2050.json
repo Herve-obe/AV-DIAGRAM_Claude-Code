@@ -1,0 +1,27 @@
+{
+  "id": "audio-technica-at2050",
+  "family": "capture",
+  "manufacturer": "Audio-Technica",
+  "model": "AT2050",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.412,
+  "sources": [
+    {
+      "document": "Audio-Technica AT2050, spec sheet 0001-0202-01, © 2010 Audio-Technica U.S.",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique multidirectivité, 7,9 mV/Pa, fantôme 11 à 52 V (4,7 mA), XLRM",
+      "phantom": "required"
+    }
+  ]
+}

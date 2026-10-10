@@ -1,0 +1,35 @@
+{
+  "id": "l-acoustics-mtd112b",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "MTD112b",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 27.5,
+  "sources": [
+    {
+      "document": "L-Acoustics, Gamme MTD Manuel utilisateur V1.2, décembre 2004, § 1.4 et § 2.5",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Speakon A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Passif 2 voies, 8 Ω, 250 W RMS ; câblé 1+/1-"
+    },
+    {
+      "id": "in2",
+      "name": "Speakon B (link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle avec Speakon A (chaînage)"
+    }
+  ]
+}

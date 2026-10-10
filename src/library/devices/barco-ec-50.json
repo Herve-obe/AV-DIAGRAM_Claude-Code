@@ -1,0 +1,46 @@
+{
+  "id": "barco-ec-50",
+  "family": "control",
+  "manufacturer": "Barco",
+  "model": "EC-50",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.barco.com/manuals/R5905948/xph06bofy7mh.html",
+      "document": "Barco, manuel Event Master : connexion EC-50",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://azur.novelty.fr/download/materiel_fiches_techniques/barco_ec50_ft-uk.pdf",
+      "document": "Barco, fiche EC-50 (via Novelty)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Vers ordinateur Event Master Toolset"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Image de l'écran tactile 15,6\""
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "90-250 V"
+    }
+  ]
+}

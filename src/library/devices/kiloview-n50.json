@@ -1,0 +1,98 @@
+{
+  "id": "kiloview-n50",
+  "family": "videoRouting",
+  "manufacturer": "Kiloview",
+  "model": "N50 (12G-SDI / NDI)",
+  "pictogram": "router",
+  "status": "verified",
+  "powerW": 16,
+  "weightKg": 0.52,
+  "sources": [
+    {
+      "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/12/PZeJVNWJ-N50_DataSheet_En_LG_V2.40.pdf",
+      "document": "Kiloview, N50 Data Sheet V2.40",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/10/N50-N60_Brochure.pdf",
+      "document": "Kiloview, brochure N60/N50",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jusqu'à 4K UHD"
+    },
+    {
+      "id": "sdi-out",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie de l'entrée (encodage) ou sortie décodée (décodage)"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "1 Gbit/s ; NDI (HB, HX2, HX3), SRT, RTMP, RTSP, HLS, UDP, RTP ; PoE IEEE 802.3at"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "1 Gbit/s ; secours ou agrégation"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Mini-jack 3,5 mm, 2 canaux"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Mini-jack 3,5 mm, 2 canaux"
+    },
+    {
+      "id": "usb-a",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.0 : stockage, PTZ, intercom, tally"
+    },
+    {
+      "id": "usb-c",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.0"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 à 18 V CC (connecteur non précisé) ou PoE"
+    }
+  ]
+}

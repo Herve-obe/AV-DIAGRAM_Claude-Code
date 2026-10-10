@@ -1,0 +1,136 @@
+{
+  "id": "taiden-hcs-4800ma-20",
+  "family": "processing",
+  "manufacturer": "Taiden",
+  "model": "HCS-4800MA/20",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 7.8,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.taiden.com/upload/download/Wired%20Premium%20System%20Main%20Units%201.pdf",
+      "document": "Taiden, fiche technique unités centrales HCS-4800MA/20",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "micIn",
+      "name": "Mic / Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle, micro (fantôme 48 V) ou ligne",
+      "phantom": "supplied"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "lineOutXlr",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle symétrique"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out (RCA)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "trunk1",
+      "name": "Trunk 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk2",
+      "name": "Trunk 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "ext1",
+      "name": "Extension 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers unité d'extension HCS-8600MEA ou interface audio"
+    },
+    {
+      "id": "ext2",
+      "name": "Extension 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers unité d'extension HCS-8600MEA ou interface audio"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande PC, TCP/IP"
+    },
+    {
+      "id": "fiber",
+      "name": "Fibre",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sc",
+      "format": "SC duplex monomode, liaison entre deux salles"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Contrôle centralisé"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-c",
+      "format": "Audio numérique"
+    },
+    {
+      "id": "emergency",
+      "name": "Emergency",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Signal d'alarme"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V"
+    }
+  ]
+}

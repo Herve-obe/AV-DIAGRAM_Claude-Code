@@ -1,0 +1,80 @@
+{
+  "id": "chamsys-mq80",
+  "family": "lightingControl",
+  "manufacturer": "ChamSys",
+  "model": "MagicQ MQ80",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.pssl.com/ChamSys-MagicQ-MQ80-24-Universe-Compact-Console-1",
+      "document": "PSSL, fiche MQ80 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "eth3",
+      "name": "Ethernet 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "eth4",
+      "name": "Ethernet 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ]
+}

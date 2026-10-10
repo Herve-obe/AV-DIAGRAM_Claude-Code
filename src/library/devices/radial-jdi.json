@@ -1,0 +1,49 @@
+{
+  "id": "radial-jdi",
+  "family": "capture",
+  "manufacturer": "Radial Engineering",
+  "model": "JDI",
+  "pictogram": "di",
+  "status": "verified",
+  "weightKg": 0.703,
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/jdi",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.radialeng.com/wp-content/uploads/2017/12/Radial-SmartSheetBook-JDI.pdf",
+      "document": "Radial Engineering, Smart Sheet JDI",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack, 140 kohm asymétrique"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Recopie vers l'ampli (fonction Merge : mélange passif input + thru)"
+    },
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique niveau micro, 150 ohms, transformateur JT-DB-EPC, passif"
+    }
+  ]
+}

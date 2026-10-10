@@ -1,0 +1,115 @@
+{
+  "id": "l-acoustics-la2xi",
+  "family": "amplification",
+  "manufacturer": "L-Acoustics",
+  "model": "LA2Xi",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 4.4,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/la2xi/",
+      "document": "L-Acoustics, page produit LA2Xi, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "avb1",
+      "name": "etherCON 1 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Milan-AVB 1 Gb/s, audio et contrôle"
+    },
+    {
+      "id": "avb2",
+      "name": "etherCON 2 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Redondance réseau"
+    },
+    {
+      "id": "in1",
+      "name": "Entrée 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier 3 points ; commutable AES3"
+    },
+    {
+      "id": "in2",
+      "name": "Entrée 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier 3 points ; commutable AES3"
+    },
+    {
+      "id": "in3",
+      "name": "Entrée 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier 3 points"
+    },
+    {
+      "id": "in4",
+      "name": "Entrée 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier 3 points"
+    },
+    {
+      "id": "aeslink",
+      "name": "Link AES3",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "terminal",
+      "format": "2 borniers 3 points, recopie AES3 active"
+    },
+    {
+      "id": "out12",
+      "name": "Sortie HP A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Bornier femelle 4 points"
+    },
+    {
+      "id": "out34",
+      "name": "Sortie HP B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Bornier femelle 4 points"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "4 entrées/sorties sur bornier 10 points"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V ±10 %, 50-60 Hz"
+    }
+  ]
+}

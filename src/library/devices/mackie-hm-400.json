@@ -1,0 +1,240 @@
+{
+  "id": "mackie-hm-400",
+  "family": "amplification",
+  "manufacturer": "Mackie",
+  "model": "HM-400",
+  "pictogram": "amp",
+  "status": "verified",
+  "powerW": 24,
+  "weightKg": 3.6,
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Mackie, HM Series Headphone Amplifiers Owner's Manual, Part No. SW1227 Rev. A 01/18",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inLx",
+      "name": "Main In L XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 20 kΩ ; XLR ou jack, pas les deux à la fois"
+    },
+    {
+      "id": "inLj",
+      "name": "Main In L jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique ou TS asymétrique"
+    },
+    {
+      "id": "outLx",
+      "name": "Main Out L XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle symétrique"
+    },
+    {
+      "id": "outLj",
+      "name": "Main Out L jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "inRx",
+      "name": "Main In R XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 20 kΩ ; XLR ou jack, pas les deux à la fois"
+    },
+    {
+      "id": "inRj",
+      "name": "Main In R jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique ou TS asymétrique"
+    },
+    {
+      "id": "outRx",
+      "name": "Main Out R XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle symétrique"
+    },
+    {
+      "id": "outRj",
+      "name": "Main Out R jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux In 1 (face avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Entrée stéréo, remplace les entrées Main sur la voie"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux In 2 (face avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Entrée stéréo, remplace les entrées Main sur la voie"
+    },
+    {
+      "id": "aux3",
+      "name": "Aux In 3 (face avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Entrée stéréo, remplace les entrées Main sur la voie"
+    },
+    {
+      "id": "aux4",
+      "name": "Aux In 4 (face avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Entrée stéréo, remplace les entrées Main sur la voie"
+    },
+    {
+      "id": "hp11",
+      "name": "Casque 1.1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp12",
+      "name": "Casque 1.2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp13",
+      "name": "Casque 1.3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp21",
+      "name": "Casque 2.1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp22",
+      "name": "Casque 2.2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp23",
+      "name": "Casque 2.3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp31",
+      "name": "Casque 3.1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp32",
+      "name": "Casque 3.2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp33",
+      "name": "Casque 3.3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp41",
+      "name": "Casque 4.1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp42",
+      "name": "Casque 4.2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "hp43",
+      "name": "Casque 4.3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ]
+}

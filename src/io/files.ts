@@ -1,0 +1,258 @@
+// Fichiers : enregistrement et ouverture du format natif .avd (JSON), exports image et CSV.
+// Dans l'application bureau (Tauri), on utilise les fenêtres natives du système ;
+// dans un navigateur (développement), on retombe sur le téléchargement classique.
+import { isTauri } from '@tauri-apps/api/core'
+import { toPng, toSvg } from 'html-to-image'
+import { getCable } from '../model/cables'
+import { connectorLabel } from '../model/connectors'
+import { findPort } from '../model/rules'
+import { isProject } from '../model/project'
+import { exportSettingsOf, watermarkLayout, watermarkText } from './exportOptions'
+import type { Project, WatermarkSettings } from '../model/types'
+import { useSaveFolder } from '../store/saveFolderStore'
+
+function browserDownload(filename: string, href: string) {
+  const a = document.createElement('a')
+  a.href = href
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+}
+
+/** Extension et libellé du filtre proposé dans la fenêtre d'enregistrement. */
+const FILTERS: Record<string, { name: string; extensions: string[] }> = {
+  avd: { name: 'Projet AV Diagram', extensions: ['avd'] },
+  csv: { name: 'CSV', extensions: ['csv'] },
+  png: { name: 'Image PNG', extensions: ['png'] },
+  svg: { name: 'Image SVG', extensions: ['svg'] },
+  pdf: { name: 'PDF', extensions: ['pdf'] },
+}
+
+/** Chemin proposé dans les fenêtres Enregistrer : dans le dossier choisi dans les Paramètres, s'il y en a un. */
+async function inSaveFolder(filename: string): Promise<string> {
+  const dir = useSaveFolder.getState().dir
+  if (!dir) return filename
+  const { join } = await import('@tauri-apps/api/path')
+  return join(dir, filename)
+}
+
+/** Choisit le dossier d'enregistrement (application de bureau) ; null si l'utilisateur annule. */
+export async function pickSaveFolder(): Promise<string | null> {
+  if (!isTauri()) return null
+  const { open } = await import('@tauri-apps/plugin-dialog')
+  // recursive : l'autorisation d'écrire couvre le dossier et ses sous-dossiers (gardée au redémarrage)
+  const dir = await open({ directory: true, multiple: false, recursive: true, defaultPath: useSaveFolder.getState().dir ?? undefined })
+  return typeof dir === 'string' ? dir : null
+}
+
+/**
+ * Copie automatique du projet dans le dossier d'enregistrement : <nom-du-projet>.avd, avec un suffixe
+ * si un autre projet du même nom y est déjà. Sans effet hors de l'application de bureau.
+ */
+export async function copyToSaveFolder(project: Project): Promise<void> {
+  const st = useSaveFolder.getState()
+  if (!isTauri() || !st.dir || !st.autoCopy) return
+  const { join } = await import('@tauri-apps/api/path')
+  const { exists, readTextFile, writeTextFile } = await import('@tauri-apps/plugin-fs')
+  try {
+    let name = st.files[project.id]
+    if (!name) {
+      const base = slug(project.name)
+      for (let n = 1; ; n++) {
+        const candidate = n === 1 ? `${base}.avd` : `${base}-${n}.avd`
+        const path = await join(st.dir, candidate)
+        if (!(await exists(path))) { name = candidate; break }
+        // Fichier déjà là : on le reprend s'il s'agit du même projet (ex. enregistré par Ctrl+S)
+        try {
+          const other = JSON.parse(await readTextFile(path)) as { id?: string }
+          if (other.id === project.id) { name = candidate; break }
+        } catch {
+          // fichier illisible : on ne l'écrase pas
+        }
+      }
+      st.setFile(project.id, name)
+    }
+    const path = await join(st.dir, name)
+    await writeTextFile(path, JSON.stringify(project, null, 2))
+    useSaveFolder.getState().setCopyResult({ at: new Date().toISOString(), path })
+  } catch (e) {
+    useSaveFolder.getState().setCopyResult(null, e instanceof Error ? e.message : String(e))
+  }
+}
+
+/**
+ * Enregistre un contenu : fenêtre "Enregistrer sous" native dans l'application bureau.
+ * Renvoie false si l'utilisateur annule.
+ */
+export async function saveContent(filename: string, content: string | Uint8Array, mime: string): Promise<boolean> {
+  const ext = filename.split('.').pop() ?? ''
+  if (isTauri()) {
+    const { save } = await import('@tauri-apps/plugin-dialog')
+    const { writeFile, writeTextFile } = await import('@tauri-apps/plugin-fs')
+    const path = await save({ defaultPath: await inSaveFolder(filename), filters: FILTERS[ext] ? [FILTERS[ext]] : [] })
+    if (!path) return false
+    if (typeof content === 'string') await writeTextFile(path, content)
+    else await writeFile(path, content)
+    return true
+  }
+  const blob = new Blob([content as BlobPart], { type: mime })
+  const url = URL.createObjectURL(blob)
+  browserDownload(filename, url)
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+  return true
+}
+
+/**
+ * Enregistre plusieurs fichiers d'un coup (ex. un PDF par destinataire) : dans l'application de bureau,
+ * l'utilisateur choisit un dossier une fois ; ailleurs, chaque fichier est téléchargé.
+ * Renvoie le nombre de fichiers écrits (0 si l'utilisateur annule).
+ */
+export async function saveMany(files: { name: string; content: Uint8Array; mime: string }[]): Promise<number> {
+  if (isTauri()) {
+    const { open } = await import('@tauri-apps/plugin-dialog')
+    const { writeFile } = await import('@tauri-apps/plugin-fs')
+    const { join } = await import('@tauri-apps/api/path')
+    const dir = await open({ directory: true, multiple: false, defaultPath: useSaveFolder.getState().dir ?? undefined })
+    if (!dir) return 0
+    for (const f of files) await writeFile(await join(dir, f.name), f.content)
+    return files.length
+  }
+  for (const f of files) {
+    const url = URL.createObjectURL(new Blob([f.content as BlobPart], { type: f.mime }))
+    browserDownload(f.name, url)
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
+  }
+  return files.length
+}
+
+/** Message d'erreur : boîte de dialogue native dans l'application bureau. */
+export async function notifyError(message: string) {
+  if (isTauri()) {
+    const { message: show } = await import('@tauri-apps/plugin-dialog')
+    await show(message, { title: 'AV Diagram', kind: 'error' })
+  } else {
+    window.alert(message)
+  }
+}
+
+function dataUrlToBytes(dataUrl: string): Uint8Array {
+  const bin = atob(dataUrl.split(',')[1] ?? '')
+  return Uint8Array.from(bin, (c) => c.charCodeAt(0))
+}
+
+/** Nom de fichier sûr à partir du nom de projet. */
+export function slug(name: string): string {
+  return name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projet'
+}
+
+export async function saveProjectFile(project: Project): Promise<boolean> {
+  const ok = await saveContent(`${slug(project.name)}.avd`, JSON.stringify(project, null, 2), 'application/json')
+  if (ok) useSaveFolder.getState().markSavedToFile(project.id)
+  return ok
+}
+
+function parseProject(text: string): Project {
+  const data: unknown = JSON.parse(text)
+  if (!isProject(data)) throw new Error('invalid')
+  return data
+}
+
+const xmlEscape = (s: string) => s.replace(/[<>&"']/g, (c) => `&#${c.charCodeAt(0)};`)
+
+/** Ajoute au SVG le filigrane (mêmes réglages que le PDF), au-dessus du schéma. */
+export function svgWatermark(svg: string, text: string, ws: WatermarkSettings, width: number, height: number): string {
+  const anchor = { center: 'middle', left: 'start', right: 'end' } as const
+  const items = watermarkLayout(width, height, text, ws.placement, ws.size).map(
+    (it) =>
+      `<text x="${it.x.toFixed(1)}" y="${it.y.toFixed(1)}" font-size="${it.size.toFixed(1)}" text-anchor="${anchor[it.align]}"` +
+      (it.angle ? ` transform="rotate(${-it.angle} ${it.x.toFixed(1)} ${it.y.toFixed(1)})"` : '') +
+      `>${xmlEscape(text)}</text>`,
+  )
+  const layer =
+    `<g fill="${xmlEscape(ws.color)}" fill-opacity="${ws.opacity}" font-family="Helvetica, Arial, sans-serif" ` +
+    `font-weight="600" pointer-events="none">${items.join('')}</g>`
+  const end = svg.lastIndexOf('</svg>')
+  return end < 0 ? svg : svg.slice(0, end) + layer + svg.slice(end)
+}
+
+/** Ouvre un fichier .avd. Renvoie null si l'utilisateur annule, lève une erreur si le fichier est invalide. */
+export async function openProjectFile(): Promise<Project | null> {
+  if (isTauri()) {
+    const { open } = await import('@tauri-apps/plugin-dialog')
+    const { readTextFile } = await import('@tauri-apps/plugin-fs')
+    const path = await open({ multiple: false, directory: false, filters: [FILTERS.avd], defaultPath: useSaveFolder.getState().dir ?? undefined })
+    if (!path) return null
+    return parseProject(await readTextFile(path))
+  }
+  return new Promise((resolve, reject) => {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = '.avd,application/json'
+    input.onchange = async () => {
+      const file = input.files?.[0]
+      if (!file) return resolve(null)
+      try {
+        resolve(parseProject(await file.text()))
+      } catch {
+        reject(new Error('invalid'))
+      }
+    }
+    input.click()
+  })
+}
+
+const cableName = (id?: string) => {
+  const c = getCable(id)
+  return c ? (c.reference ? `${c.label} (${c.reference})` : c.label) : ''
+}
+
+/** Échappe une valeur CSV (séparateur point-virgule, lisible par Excel en français). */
+const csvCell = (v: string | number | undefined) => `"${String(v ?? '').replace(/"/g, '""')}"`
+
+export function cableListCsv(project: Project, headers: string[]): string {
+  const rows = Object.values(project.links)
+    .sort((a, b) => a.label.localeCompare(b.label))
+    .map((l) => {
+      const se = project.equipment[l.source.equipmentId]
+      const te = project.equipment[l.target.equipmentId]
+      const sp = findPort(project, l.source)
+      const tp = findPort(project, l.target)
+      return [
+        l.label,
+        sp?.signal,
+        `${se?.name} / ${sp?.name}`,
+        `${te?.name} / ${tp?.name}`,
+        `${sp ? connectorLabel(sp.connector) : ''} > ${tp ? connectorLabel(tp.connector) : ''}`,
+        l.multicoreId && project.multicores?.[l.multicoreId] ? `${project.multicores[l.multicoreId].label} / ${l.pair ?? '?'}` : cableName(l.cableTypeId),
+        l.lengthM,
+      ]
+    })
+  // BOM UTF-8 pour que les accents s'affichent correctement dans Excel
+  return '﻿' + [headers, ...rows].map((r) => r.map(csvCell).join(';')).join('\r\n')
+}
+
+export function exportCableCsv(project: Project, headers: string[]) {
+  return saveContent(`${slug(project.name)}-cablage.csv`, cableListCsv(project, headers), 'text/csv')
+}
+
+/** Exporte la vue du canevas (sans les contrôles) en PNG ou SVG. */
+export async function exportCanvasImage(project: Project, format: 'png' | 'svg') {
+  const el = document.querySelector<HTMLElement>('.react-flow')
+  if (!el) return
+  const bg = getComputedStyle(document.documentElement).getPropertyValue('--canvas').trim()
+  const filter = (node: HTMLElement) =>
+    !node.classList?.contains('react-flow__minimap') && !node.classList?.contains('react-flow__controls') && !node.classList?.contains('react-flow__attribution')
+  const opts = { backgroundColor: bg, filter, pixelRatio: 2 }
+  const name = `${slug(project.name)}.${format}`
+  // Filigrane de l'export PDF, appliqué aussi aux images
+  const ex = exportSettingsOf(project)
+  const mark = ex.watermark.enabled && ex.watermark.images ? watermarkText(ex.watermark.text, project) : ''
+  if (format === 'png') {
+    const png = await toPng(el, opts)
+    const { burnWatermark } = await import('./pdf')
+    return saveContent(name, dataUrlToBytes(mark ? await burnWatermark(png, mark, ex.watermark, 'image/png') : png), 'image/png')
+  }
+  const svg = decodeURIComponent((await toSvg(el, opts)).split(',')[1] ?? '')
+  return saveContent(name, mark ? svgWatermark(svg, mark, ex.watermark, el.clientWidth, el.clientHeight) : svg, 'image/svg+xml')
+}

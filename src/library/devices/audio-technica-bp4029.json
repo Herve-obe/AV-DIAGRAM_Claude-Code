@@ -1,0 +1,37 @@
+{
+  "id": "audio-technica-bp4029",
+  "family": "capture",
+  "manufacturer": "Audio-Technica",
+  "model": "BP4029 (stéréo M-S)",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.103,
+  "sources": [
+    {
+      "document": "Audio-Technica BP4029, spec sheet 0001-0191-01, © 2010 Audio-Technica U.S.",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie M / G",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Mid (mode M-S) ou Gauche (modes LR), fil XLR3M gris du câble fourni. Embase XLR5M sur le micro, câble fourni XLR5F vers 2 x XLR3M ; fantôme 11 à 52 V par canal",
+      "phantom": "required"
+    },
+    {
+      "id": "p2",
+      "name": "Sortie S / D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Side (mode M-S) ou Droite (modes LR), fil XLR3M rouge du câble fourni",
+      "phantom": "required"
+    }
+  ]
+}

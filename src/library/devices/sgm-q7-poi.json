@@ -1,0 +1,42 @@
+{
+  "id": "sgm-q7-poi",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "Q-7 POI",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 465,
+  "weightKg": 8.1,
+  "sources": [
+    {
+      "url": "https://www.sgmlighting.com/products/q%C2%B77-poi",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Câble fixe de 5 m (entrée DMX)"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Câble fixe de 5 m (recopie DMX)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble d'alimentation fixe de 5 m, fils nus"
+    }
+  ]
+}

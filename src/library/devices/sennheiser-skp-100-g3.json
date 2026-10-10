@@ -1,0 +1,35 @@
+{
+  "id": "sennheiser-skp-100-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKP 100 G3 (émetteur plug-on)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.195,
+  "sources": [
+    {
+      "document": "Sennheiser, SKP 100 G3 notice d'emploi FR, Publ. 12/16",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "XLR-3 femelle, asymétrique, 60 kΩ, 3,3 Veff max ; pas d'alimentation fantôme"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, 30 mW typ."
+    }
+  ]
+}

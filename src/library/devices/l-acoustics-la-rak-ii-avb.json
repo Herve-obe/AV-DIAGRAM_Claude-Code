@@ -1,0 +1,125 @@
+{
+  "id": "l-acoustics-la-rak-ii-avb",
+  "family": "amplification",
+  "manufacturer": "L-Acoustics",
+  "model": "LA-RAK II AVB",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 101.5,
+  "rackU": 9,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/la-rak-ii-avb/",
+      "document": "L-Acoustics, page produit LA-RAK II AVB",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A IEC 60309 triphasé (EU)"
+    },
+    {
+      "id": "acLink",
+      "name": "AC Link",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A IEC 60309 femelle"
+    },
+    {
+      "id": "cacomIn1",
+      "name": "Analog CA-COM 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "channels": 8,
+      "format": "CA-COM 19 points, entrée / recopie"
+    },
+    {
+      "id": "cacomIn2",
+      "name": "Analog CA-COM 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "channels": 8,
+      "format": "CA-COM 19 points, entrée / recopie"
+    },
+    {
+      "id": "in1",
+      "name": "Analog/AES In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, analogique ou AES/EBU"
+    },
+    {
+      "id": "in2",
+      "name": "Analog/AES In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, analogique ou AES/EBU"
+    },
+    {
+      "id": "in3",
+      "name": "Analog/AES In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, analogique ou AES/EBU"
+    },
+    {
+      "id": "link1",
+      "name": "Analog/AES Link 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle"
+    },
+    {
+      "id": "link2",
+      "name": "Analog/AES Link 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle"
+    },
+    {
+      "id": "link3",
+      "name": "Analog/AES Link 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle"
+    },
+    {
+      "id": "avb",
+      "name": "Milan-AVB",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "unspecified",
+      "format": "Deux commutateurs LS10, redondance ; connecteur non précisé"
+    },
+    {
+      "id": "spk",
+      "name": "Sorties HP",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "channels": 12,
+      "format": "Sorties des 3 LA12X ; connecteurs non précisés sur la page"
+    }
+  ]
+}

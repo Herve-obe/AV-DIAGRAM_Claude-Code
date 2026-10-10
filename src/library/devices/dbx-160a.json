@@ -1,0 +1,43 @@
+{
+  "id": "dbx-160a",
+  "family": "processing",
+  "manufacturer": "dbx",
+  "model": "160A",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://en.audiofanzine.com/studio-compressor/dbx/user_reviews/p.4.html",
+      "document": "Audiofanzine, avis dbx 160A",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR ou jack 6,35 symétrique"
+    },
+    {
+      "id": "out",
+      "name": "Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (et jack)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

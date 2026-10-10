@@ -1,0 +1,41 @@
+{
+  "id": "sony-rcp-750",
+  "family": "control",
+  "manufacturer": "Sony",
+  "model": "RCP-750",
+  "pictogram": "control",
+  "status": "verified",
+  "weightKg": 1.5,
+  "sources": [
+    {
+      "url": "https://www.avbroadcast.fr/media/productfile/s/o/sony-rcp-750-brochure.pdf",
+      "document": "Sony, brochure RCP-750 (via AV Broadcast)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ccu",
+      "name": "CCU / CNU",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Multiconnecteur 8 points (câble CCA-5) ; alimentation 10,5-35 V par la CCU"
+    },
+    {
+      "id": "aux",
+      "name": "AUX",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Multiconnecteur 8 points"
+    },
+    {
+      "id": "ext",
+      "name": "EXT I/O",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    }
+  ]
+}

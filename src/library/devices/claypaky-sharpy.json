@@ -1,0 +1,40 @@
+{
+  "id": "claypaky-sharpy",
+  "family": "luminaire",
+  "manufacturer": "Claypaky",
+  "model": "Sharpy",
+  "pictogram": "light",
+  "status": "community",
+  "weightKg": 19,
+  "sources": [
+    {
+      "url": "https://www.panavision.com/lighting/lighting-products/heads/product-detail/daf2wan-190w-sharpy-",
+      "document": "Panavision, fiche Sharpy (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "200 W"
+    }
+  ]
+}

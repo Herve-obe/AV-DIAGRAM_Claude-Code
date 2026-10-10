@@ -1,0 +1,61 @@
+{
+  "id": "l-acoustics-la7-16",
+  "family": "amplification",
+  "manufacturer": "L-Acoustics",
+  "model": "LA7.16",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 15.8,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/la7-16/",
+      "document": "L-Acoustics, page produit LA7.16, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "avb1",
+      "name": "etherCON 1 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Milan-AVB 1 Gb/s, audio et contrôle"
+    },
+    {
+      "id": "avb2",
+      "name": "etherCON 2 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Redondance réseau"
+    },
+    {
+      "id": "tb",
+      "name": "Bornier 12 points",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Entrées et link AES3 ou analogiques, et 3 GPIO"
+    },
+    {
+      "id": "sc32",
+      "name": "Sortie SC32",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "sc32",
+      "level": "speaker",
+      "channels": 16,
+      "format": "16 canaux ; 16 x 1100 W à 4 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON 32 A ; 16 A sous 200-240 V, 30 A sous 100-120 V"
+    }
+  ]
+}

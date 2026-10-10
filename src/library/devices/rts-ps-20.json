@@ -1,0 +1,74 @@
+{
+  "id": "rts-ps-20",
+  "family": "intercom",
+  "manufacturer": "RTS",
+  "model": "PS-20 (alimentation party line)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "RTS, PS-20 Power Supply User Manual F.01U.193.231 Rev. 08 (décembre 2019)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ch1",
+      "name": "Channel 1 Output",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle ; RTS-TW 2 ou 4 canaux, ou Clear-Com ; 30 VDC, 1,8 A max par canal ; terminaison 200 ou 400 Ω"
+    },
+    {
+      "id": "ch2",
+      "name": "Channel 2 Output",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle ; mêmes modes que Channel 1"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor Output (façade)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle ; écoute CH1, CH2 ou les deux via un poste ou un beltpack ; 30 VDC, 100 mA max"
+    },
+    {
+      "id": "pgm",
+      "name": "PGM In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3 femelle, symétrique > 10 kΩ, +2 dBu nominal"
+    },
+    {
+      "id": "link12",
+      "name": "Audio Link CH1&2",
+      "direction": "in",
+      "signal": "intercom",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 stéréo : pointe CH1, bague CH2 ; liaison entre deux PS-20"
+    },
+    {
+      "id": "link34",
+      "name": "Audio Link CH3&4",
+      "direction": "out",
+      "signal": "intercom",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 stéréo : pointe CH3, bague CH4"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "90 à 240 VAC, 50-60 Hz ; embase non précisée"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "yamaha-xmv8280-d",
+  "family": "amplification",
+  "manufacturer": "Yamaha",
+  "model": "XMV8280-D",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 10.1,
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/power_amps/xmv/specs.html",
+      "document": "Yamaha USA, page Specs XMV8280-D",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrées 1-4 (Euroblock 6P)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 4,
+      "format": "Euroblock 6 points, symétrique"
+    },
+    {
+      "id": "in2",
+      "name": "Entrées 5-8 (Euroblock 6P)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 4,
+      "format": "Euroblock 6 points, symétrique"
+    },
+    {
+      "id": "d1",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "RJ45 ; réseau de contrôle partagé"
+    },
+    {
+      "id": "d2",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Redondance Dante"
+    },
+    {
+      "id": "rem",
+      "name": "Remote / Fault Output",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Euroblock 3 points"
+    },
+    {
+      "id": "spk",
+      "name": "Sorties HP 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "channels": 8,
+      "format": "Connecteur de sortie non précisé sur la page Specs"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "450 W au 1/8 de puissance (4 Ω)"
+    }
+  ]
+}

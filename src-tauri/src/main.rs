@@ -1,0 +1,6 @@
+// Évite l'ouverture d'une console sous Windows en version de production
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+fn main() {
+    av_diagram_lib::run();
+}

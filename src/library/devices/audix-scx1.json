@@ -1,0 +1,33 @@
+{
+  "id": "audix-scx1",
+  "family": "capture",
+  "manufacturer": "Audix",
+  "model": "SCX1",
+  "pictogram": "mic",
+  "status": "community",
+  "weightKg": 0.114,
+  "sources": [
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/scx1c.pdf",
+      "document": "Audix, notice SCX1-C (archive)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://soundpro.com/audix-scx1-studio-condenser-microphone",
+      "document": "SoundPro, fiche SCX1 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique cardioïde, fantôme 48-52 V",
+      "phantom": "required"
+    }
+  ]
+}

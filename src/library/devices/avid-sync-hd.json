@@ -1,0 +1,161 @@
+{
+  "id": "avid-sync-hd",
+  "family": "sync",
+  "manufacturer": "Avid",
+  "model": "SYNC HD",
+  "pictogram": "clock",
+  "status": "verified",
+  "powerW": 30,
+  "weightKg": 2.27,
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Avid, SYNC HD Guide Version 9.0, Part Number 9324-65006-00 REV A 9/10, Appendix B Technical Specifications",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ltcin",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "LTC SMPTE/EBU, -24 à +9 dBu, 200 kΩ ; XLR femelle"
+    },
+    {
+      "id": "ltcout",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "LTC, 0 dBu par défaut ; XLR mâle"
+    },
+    {
+      "id": "vidin",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Vidéo composite SD (NTSC/PAL), 1 V c-c, terminée 75 Ω ; connecteur non précisé dans les spécifications"
+    },
+    {
+      "id": "vidout",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Recopie de Video In, VITC et incrustation possibles ; connecteur non précisé"
+    },
+    {
+      "id": "refin",
+      "name": "Video Ref In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst SD ou tri-level HD, boucle non terminée (bouchon 75 Ω fourni)"
+    },
+    {
+      "id": "refout",
+      "name": "Video Ref Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage passif de Video Ref In"
+    },
+    {
+      "id": "aesin",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Référence d'horloge seulement (DARS AES-11) ; XLR femelle"
+    },
+    {
+      "id": "aesout",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "AES « digital black » ; XLR mâle"
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "1x ou 256x (Super Clock), TTL 3,3 V"
+    },
+    {
+      "id": "lsin",
+      "name": "Loop Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lsout",
+      "name": "Loop Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Vers l'interface Pro Tools|HD principale"
+    },
+    {
+      "id": "mtc",
+      "name": "MTC Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI Time Code uniquement"
+    },
+    {
+      "id": "host",
+      "name": "Host Serial",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Vers le port DigiSerial de la carte HD Core"
+    },
+    {
+      "id": "p2a",
+      "name": "9-Pin Out 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Sony P-2 (MachineControl), type D-Sub déduit du standard Sony 9 broches ; un seul port 9 broches actif à la fois"
+    },
+    {
+      "id": "p2b",
+      "name": "9-Pin Out 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Sony P-2 (MachineControl)"
+    },
+    {
+      "id": "gpi",
+      "name": "Bi-Phase/Tach/GPI/Pilot",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "DB25 femelle : bi-phase, tach, pilote, 4 GPI in, 2 GPI TTL, 4 relais"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "85 à 264 VAC, 9,5 W typique, 30 W maximum"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "id": "yamaha-m7cl-48es",
+  "family": "console",
+  "manufacturer": "Yamaha",
+  "model": "M7CL-48ES",
+  "pictogram": "console",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/mixers/m7cl/specs.html",
+      "document": "Yamaha USA, page Specs M7CL-48ES",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "omni1",
+      "name": "OMNI IN 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni2",
+      "name": "OMNI IN 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni3",
+      "name": "OMNI IN 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni4",
+      "name": "OMNI IN 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni5",
+      "name": "OMNI IN 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni6",
+      "name": "OMNI IN 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni7",
+      "name": "OMNI IN 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "omni8",
+      "name": "OMNI IN 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3-31",
+      "phantom": "supplied"
+    },
+    {
+      "id": "out1",
+      "name": "OMNI OUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out2",
+      "name": "OMNI OUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out3",
+      "name": "OMNI OUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out4",
+      "name": "OMNI OUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out5",
+      "name": "OMNI OUT 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out6",
+      "name": "OMNI OUT 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out7",
+      "name": "OMNI OUT 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "out8",
+      "name": "OMNI OUT 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-32, +24 dBu max"
+    },
+    {
+      "id": "es",
+      "name": "EtherSound",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 48,
+      "format": "EtherSound 100Base-TX, 48 in / 24 out"
+    },
+    {
+      "id": "tb",
+      "name": "TALKBACK",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic"
+    },
+    {
+      "id": "aes",
+      "name": "2TR OUT DIGITAL",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "wcin",
+      "name": "WORD CLOCK IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcout",
+      "name": "WORD CLOCK OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "phones",
+      "name": "PHONES",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB HOST",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "my1",
+      "name": "Slot MY 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Carte Mini-YGDAI"
+    },
+    {
+      "id": "my2",
+      "name": "Slot MY 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Carte Mini-YGDAI"
+    },
+    {
+      "id": "my3",
+      "name": "Slot MY 3",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Carte Mini-YGDAI"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "150 W"
+    }
+  ]
+}

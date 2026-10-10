@@ -1,0 +1,131 @@
+{
+  "id": "ma-grandma3-processing-unit-l",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "grandMA3 processing unit L (8 192 paramètres)",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 5,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://help.malighting.com/grandMA3/2.3/HTML/key_pu_technical_data.html",
+      "document": "MA Lighting, grandMA3 Quick Manual processing units, Technical Data (v2.3)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100-240 V, max. 200 VA"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON / RJ45"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON / RJ45"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx5",
+      "name": "DMX 5 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx6",
+      "name": "DMX 6 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx7",
+      "name": "DMX 7 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "dmx8",
+      "name": "DMX 8 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR5 femelle"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    }
+  ]
+}

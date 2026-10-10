@@ -1,0 +1,69 @@
+{
+  "id": "robe-robospot-basestation",
+  "family": "lightingControl",
+  "manufacturer": "Robe",
+  "model": "RoboSpot BaseStation",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.robe.cz/res/downloads/user_manuals/User_manual_RoboSpot.pdf",
+      "document": "Robe, mode d'emploi RoboSpot",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "cam",
+      "name": "Camera In",
+      "direction": "in",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Caméra du projecteur"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "rts-btr-700",
+  "family": "intercom",
+  "manufacturer": "RTS / Telex",
+  "model": "BTR-700 (base HF)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 3.24,
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions 803290-2",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison HF beltpacks",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "UHF 518-608, 614-740 ou 796-868 MHz selon la bande ; antennes TX et RX sur TNC femelle"
+    },
+    {
+      "id": "twm",
+      "name": "2 fils (XLR mâle)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "En parallèle avec l'XLR femelle ; Telex, RTS TW ou Clear-Com (commutateur I/C)"
+    },
+    {
+      "id": "twf",
+      "name": "2 fils (XLR femelle)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3"
+    },
+    {
+      "id": "4w",
+      "name": "4 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "Prise type RJ-11 pour matrice"
+    },
+    {
+      "id": "auxin",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3 femelle"
+    },
+    {
+      "id": "auxout",
+      "name": "Aux Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque local",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "XLR femelle sur version RTS, mâle sur version Telex ; nombre de broches non précisé"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 VAC, embase IEC 60320 C14"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "enttec-e-streamer-mk2",
+  "family": "dmxDistribution",
+  "manufacturer": "ENTTEC",
+  "model": "E-Streamer MK2",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.enttec.com/wp-content/uploads/2016/12/E-streamer-MK2-brochure.pdf",
+      "document": "ENTTEC, brochure E-Streamer MK2",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Version 70711"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Version 70711"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Version 70711"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Version 70711"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net / sACN, 48 univers"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

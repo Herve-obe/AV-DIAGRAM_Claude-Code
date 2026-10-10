@@ -1,0 +1,27 @@
+{
+  "id": "sennheiser-mkh-416",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "MKH 416 (P48U3)",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.175,
+  "sources": [
+    {
+      "document": "Sennheiser MKH 416-P48U3, Instruction manual, Publ. 09/21, 047768/A13 (Specifications, p. 9)",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Canon HF, fantôme 48 V ± 4 V (env. 2 mA), 25 mV/Pa",
+      "phantom": "required"
+    }
+  ]
+}

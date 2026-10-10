@@ -1,0 +1,40 @@
+{
+  "id": "wireless-solution-blackbox-f-1-g6",
+  "family": "dmxDistribution",
+  "manufacturer": "Wireless Solution",
+  "model": "BlackBox F-1 G6",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://lumenradio.com/support-materials/blackbox-g6-datasheet/",
+      "document": "LumenRadio, fiche BlackBox G6",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "rf",
+      "name": "W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "88-264 V ; entrée 12 V de secours"
+    }
+  ]
+}

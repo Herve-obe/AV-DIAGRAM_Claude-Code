@@ -1,0 +1,114 @@
+{
+  "id": "swisson-xes-8g",
+  "family": "network",
+  "manufacturer": "Swisson",
+  "model": "XES-8G",
+  "pictogram": "switch",
+  "status": "verified",
+  "powerW": 6.5,
+  "sources": [
+    {
+      "url": "https://www.swisson.com/site/assets/files/1244/um_xes-8g-d0-len-v01-02.pdf",
+      "document": "Swisson, XES-8G User Manual v01-02",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Port 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p2",
+      "name": "Port 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p3",
+      "name": "Port 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p4",
+      "name": "Port 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p5",
+      "name": "Port 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p6",
+      "name": "Port 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p7",
+      "name": "Port 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "p8",
+      "name": "Port 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1000BASE-T, etherCON Cat 5e"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur principal",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON bleu (NAC3FCA), 100-240 V"
+    },
+    {
+      "id": "ac1-out",
+      "name": "Recopie secteur principal",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON de recopie"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur secours",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Seconde alimentation (redondance)"
+    },
+    {
+      "id": "ac2-out",
+      "name": "Recopie secteur secours",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON de recopie"
+    }
+  ]
+}

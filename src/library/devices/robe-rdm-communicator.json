@@ -1,0 +1,34 @@
+{
+  "id": "robe-rdm-communicator",
+  "family": "dmxDistribution",
+  "manufacturer": "Robe",
+  "model": "RDM Communicator",
+  "pictogram": "control",
+  "status": "verified",
+  "weightKg": 0.4,
+  "sources": [
+    {
+      "url": "https://robe.cz/rdm-communicator",
+      "document": "Robe, page RDM Communicator",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX / RDM",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "dc",
+      "name": "Charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Batterie"
+    }
+  ]
+}

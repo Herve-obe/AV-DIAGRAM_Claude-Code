@@ -1,0 +1,107 @@
+{
+  "id": "folsom-imagepro-hd",
+  "family": "videoSwitcher",
+  "manufacturer": "Folsom (Barco)",
+  "model": "ImagePRO-HD",
+  "pictogram": "switcher",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://ret.de/media/uploads/2018/02/Barco-ImagePRO-HD-Datenblatt.pdf",
+      "document": "Barco, fiche ImagePRO-HD",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I (DVI ou analogique), recopie"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "HD-15, recopie"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC, recopie"
+    },
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "outVga",
+      "name": "Out HD-15",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "RVB ou composante"
+    },
+    {
+      "id": "outBnc",
+      "name": "Out 5 BNC",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "outComp",
+      "name": "Out composite",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "outYc",
+      "name": "Out S-vidéo",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Mini-DIN 4"
+    },
+    {
+      "id": "outSdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "outDvi",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "blackmagic-web-presenter",
+  "family": "videoSwitcher",
+  "manufacturer": "Blackmagic Design",
+  "model": "Web Presenter",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://globalproductions.ee/toode/blackmagic-web-presenter/",
+      "document": "Global Productions, fiche Web Presenter (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "xlr",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro / ligne"
+    },
+    {
+      "id": "rca",
+      "name": "Audio In L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB (webcam)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Sortie webcam 720p"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

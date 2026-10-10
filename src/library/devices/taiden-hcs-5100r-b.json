@@ -1,0 +1,41 @@
+{
+  "id": "taiden-hcs-5100r-b",
+  "family": "wireless",
+  "manufacturer": "Taiden",
+  "model": "HCS-5100R/B (récepteur IR)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.taiden.com/upload/download/HCS-5100R_B%20series%20Datasheet.pdf",
+      "document": "Taiden, fiche série HCS-5100R/B",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ir",
+      "name": "Réception IR",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Infrarouge IEC 61603-7, 2 à 6 MHz"
+    },
+    {
+      "id": "phones",
+      "name": "Écouteur",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Charge et mise à jour"
+    }
+  ]
+}

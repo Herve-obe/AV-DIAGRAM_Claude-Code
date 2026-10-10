@@ -1,0 +1,71 @@
+{
+  "id": "radial-prod2",
+  "family": "capture",
+  "manufacturer": "Radial Engineering",
+  "model": "ProD2",
+  "pictogram": "di",
+  "status": "verified",
+  "weightKg": 0.54,
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/prod2",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in-l",
+      "name": "Entrée G",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35, 140 kohm asymétrique"
+    },
+    {
+      "id": "thru-l",
+      "name": "Thru G",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Recopie de l'entrée"
+    },
+    {
+      "id": "out-l",
+      "name": "Sortie G",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique 150 ohms, passif"
+    },
+    {
+      "id": "in-r",
+      "name": "Entrée D",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35, 140 kohm asymétrique"
+    },
+    {
+      "id": "thru-r",
+      "name": "Thru D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Recopie de l'entrée"
+    },
+    {
+      "id": "out-r",
+      "name": "Sortie D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique 150 ohms, passif"
+    }
+  ]
+}

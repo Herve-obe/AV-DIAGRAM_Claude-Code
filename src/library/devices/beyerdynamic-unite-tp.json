@@ -1,0 +1,59 @@
+{
+  "id": "beyerdynamic-unite-tp",
+  "family": "wireless",
+  "manufacturer": "beyerdynamic",
+  "model": "Unite TP",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/47267-UniteTPSpecSheet.pdf",
+      "document": "beyerdynamic, fiche Unite TP (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "Mini-XLR 4 points (câblage TG) ; micro intégré"
+    },
+    {
+      "id": "headset",
+      "name": "Casque-micro",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Mini-jack 3,5"
+    },
+    {
+      "id": "rf",
+      "name": "DECT",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Charge"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "digigrid-mgb",
+  "family": "processing",
+  "manufacturer": "DiGiGrid",
+  "model": "MGB",
+  "pictogram": "processor",
+  "status": "community",
+  "weightKg": 0.4,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/254086-digigrid-mgb-coaxial-madi-interface-for-soundgrid",
+      "document": "Full Compass, fiche MGB (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://thomann.ae/digigrid_mgb_madi_bnc.htm",
+      "document": "Thomann, fiche MGB (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "madi1",
+      "name": "MADI 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial"
+    },
+    {
+      "id": "madi2",
+      "name": "MADI 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial"
+    },
+    {
+      "id": "sg",
+      "name": "SoundGrid",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 128,
+      "format": "Réseau Waves SoundGrid"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

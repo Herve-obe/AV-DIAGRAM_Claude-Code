@@ -1,0 +1,262 @@
+{
+  "id": "aja-ki-pro-ultra-12g",
+  "family": "recording",
+  "manufacturer": "AJA",
+  "model": "Ki Pro Ultra 12G",
+  "pictogram": "recorder",
+  "status": "verified",
+  "domain": "image",
+  "powerW": 65,
+  "weightKg": 2.6,
+  "sources": [
+    {
+      "url": "https://www.aja.com/assets/support/files/8952/en/AJA_Ki_Pro_Ultra_12G_Manual_v2.5r3.pdf",
+      "document": "AJA, Ki Pro Ultra 12G Manual v2.5r3, Appendix A",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi12-in",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (SMPTE 2081/2082)"
+    },
+    {
+      "id": "sdi3-in2",
+      "name": "3G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI ; quad link possible"
+    },
+    {
+      "id": "sdi3-in3",
+      "name": "3G-SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI ; quad link possible"
+    },
+    {
+      "id": "sdi3-in4",
+      "name": "3G-SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI ; quad link possible"
+    },
+    {
+      "id": "sdi12-out",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi3-out2",
+      "name": "3G-SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdi3-out3",
+      "name": "3G-SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdi3-out4",
+      "name": "3G-SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sfp-in1",
+      "name": "SFP In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-in2",
+      "name": "SFP In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-in3",
+      "name": "SFP In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-in4",
+      "name": "SFP In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-out1",
+      "name": "SFP Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-out2",
+      "name": "SFP Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-out3",
+      "name": "SFP Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "sfp-out4",
+      "name": "SFP Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module SFP optionnel : fibre ou HD-BNC"
+    },
+    {
+      "id": "hdmi-in",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, type A"
+    },
+    {
+      "id": "hdmi-out",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, type A"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Sortie SDI de contrôle 2K / HD (connecteur non détaillé en annexe)"
+    },
+    {
+      "id": "ana",
+      "name": "Audio analogique",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "DB-25 brochage TASCAM, 8 entrées et 8 sorties symétriques"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "DB-25 brochage TASCAM (demi-connecteur), 110 ohms"
+    },
+    {
+      "id": "rca",
+      "name": "Sortie RCA",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "2 RCA asymétriques"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo"
+    },
+    {
+      "id": "ltc-in",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ltc-out",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ref1",
+      "name": "Reference",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level ou black burst, bouclée non terminée"
+    },
+    {
+      "id": "ref2",
+      "name": "Reference Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage de la référence"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Protocole Sony 9 broches"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000, serveur web"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12-18 V CC, XLR 4 points (châssis) ; alimentation double redondante ; bloc secteur 100-240 V"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "sony-pmw-400",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PMW-400",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 3.4,
+  "sources": [
+    {
+      "url": "https://pro.sony/en_DJ/pdf/pmw-400l",
+      "document": "Sony, fiche PMW-400L",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.expandore.com/product/sony/Proav/model/XDCAM_HD/PMW-400L.htm",
+      "document": "Expandore, fiche PMW-400L",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr5",
+      "level": "mic"
+    },
+    {
+      "id": "aOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr5"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "8 points"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "12 points"
+    },
+    {
+      "id": "ilink",
+      "name": "i.LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394"
+    },
+    {
+      "id": "cbk",
+      "name": "Interface 50 points",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Adaptateur CBK-CE01 (triax / fibre, intercom, tally)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ]
+}

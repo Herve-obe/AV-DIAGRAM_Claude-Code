@@ -1,0 +1,64 @@
+{
+  "id": "chauvet-colorstrike-m",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "COLORstrike M",
+  "pictogram": "light",
+  "status": "community",
+  "weightKg": 12.1,
+  "sources": [
+    {
+      "url": "https://www.adorama.com/chcstrikem.html",
+      "document": "Adorama, fiche COLORstrike M (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points IP65"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points IP65"
+    },
+    {
+      "id": "ethIn",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "ethOut",
+      "name": "Ethernet Thru",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerkon-ip65"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powerkon-ip65"
+    }
+  ]
+}

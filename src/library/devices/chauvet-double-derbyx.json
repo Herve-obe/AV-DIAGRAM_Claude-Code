@@ -1,0 +1,47 @@
+{
+  "id": "chauvet-double-derbyx",
+  "family": "luminaire",
+  "manufacturer": "Chauvet DJ",
+  "model": "Double DerbyX",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 24,
+  "sources": [
+    {
+      "url": "https://www.chauvetdj.com/wp-content/uploads/pdf/en/double-derbyx.pdf",
+      "document": "Chauvet DJ, fiche Double DerbyX",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V, 24 W"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ]
+}

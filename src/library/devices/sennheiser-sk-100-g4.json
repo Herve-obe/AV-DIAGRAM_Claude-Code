@@ -1,0 +1,34 @@
+{
+  "id": "sennheiser-sk-100-g4",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SK 100 G4 (émetteur de poche)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.16,
+  "sources": [
+    {
+      "document": "Sennheiser, evolution wireless G4 100 series Instruction Manual, ew 100 G4 v2.2 (ew_100_G4_Manual_v2-2_10_2019_EN.pdf)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée MIC/LINE",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Jack 3,5 mm verrouillable ; 40 kΩ (mic) / 1 MΩ (ligne), 3 Veff max ; câbles CL 2 (XLR-3F) ou Ci 1-N (jack 6,35)"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, 30 mW max"
+    }
+  ]
+}

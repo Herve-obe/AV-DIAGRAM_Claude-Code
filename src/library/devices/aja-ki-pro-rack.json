@@ -1,0 +1,278 @@
+{
+  "id": "aja-ki-pro-rack",
+  "family": "recording",
+  "manufacturer": "AJA",
+  "model": "Ki Pro Rack",
+  "pictogram": "recorder",
+  "status": "verified",
+  "domain": "image",
+  "powerW": 40,
+  "weightKg": 3.4,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.aja.com/assets/support/files/8949/en/AJA_Ki_Pro_Rack_Manual_v6.8r2.pdf",
+      "document": "AJA, Ki Pro Rack Manual v6.8r2, Appendix A",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI ; entrée choisie par logiciel"
+    },
+    {
+      "id": "sdi-in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdi-out",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "hdmi-in",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3"
+    },
+    {
+      "id": "hdmi-out",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3"
+    },
+    {
+      "id": "comp-in-Y",
+      "name": "Composante In Y",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante SD/HD (composite sur Y)"
+    },
+    {
+      "id": "comp-in-Pb",
+      "name": "Composante In Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante SD/HD (composite sur Y)"
+    },
+    {
+      "id": "comp-in-Pr",
+      "name": "Composante In Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante SD/HD (composite sur Y)"
+    },
+    {
+      "id": "comp-out-Y",
+      "name": "Composante Out Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante (composite sur Y)"
+    },
+    {
+      "id": "comp-out-Pb",
+      "name": "Composante Out Pb",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante (composite sur Y)"
+    },
+    {
+      "id": "comp-out-Pr",
+      "name": "Composante Out Pr",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante (composite sur Y)"
+    },
+    {
+      "id": "aes-in1",
+      "name": "AES In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-in2",
+      "name": "AES In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-in3",
+      "name": "AES In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-in4",
+      "name": "AES In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-out1",
+      "name": "AES Out 1",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-out2",
+      "name": "AES Out 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-out3",
+      "name": "AES Out 3",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "aes-out4",
+      "name": "AES Out 4",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "ain1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu = 0 dBFS"
+    },
+    {
+      "id": "ain2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu = 0 dBFS"
+    },
+    {
+      "id": "aout1",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu = 0 dBFS"
+    },
+    {
+      "id": "aout2",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu = 0 dBFS"
+    },
+    {
+      "id": "ltc-in",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ltc-out",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Actif en lecture"
+    },
+    {
+      "id": "ref1",
+      "name": "Reference",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ref2",
+      "name": "Reference Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Protocole Sony 9 broches"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000, serveur web"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V ; alimentations doubles redondantes"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V (redondance)"
+    }
+  ]
+}

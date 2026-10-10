@@ -1,0 +1,34 @@
+{
+  "id": "blackmagic-atem-micro-panel",
+  "family": "control",
+  "manufacturer": "Blackmagic Design",
+  "model": "ATEM Micro Panel",
+  "pictogram": "control",
+  "status": "verified",
+  "domain": "image",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/atemmini/techspecs/W-ABP-11",
+      "document": "Blackmagic Design, fiche technique ATEM Micro Panel (W-ABP-11)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Liaison avec l'ordinateur et recharge"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rf",
+      "format": "Bluetooth 5.1 LE"
+    }
+  ]
+}

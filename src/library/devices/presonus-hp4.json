@@ -1,0 +1,96 @@
+{
+  "id": "presonus-hp4",
+  "family": "amplification",
+  "manufacturer": "PreSonus",
+  "model": "HP4",
+  "pictogram": "amp",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "PreSonus, HP4 Owner's Manual (HP4_OwnersManual_EN_18102018, Part# 820-HP40011-C), section 4.1 Specifications",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, 10 kΩ, max +18 dBu"
+    },
+    {
+      "id": "inR",
+      "name": "Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, 10 kΩ, max +18 dBu"
+    },
+    {
+      "id": "monL",
+      "name": "Monitor/Thru L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Impédance symétrique, 51 Ω, max +18 dBu"
+    },
+    {
+      "id": "monR",
+      "name": "Monitor/Thru R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Impédance symétrique, 51 Ω, max +18 dBu"
+    },
+    {
+      "id": "hp1",
+      "name": "Casque 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, 130 mW/canal sur 60 Ω, casques 32 à 600 Ω"
+    },
+    {
+      "id": "hp2",
+      "name": "Casque 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, 130 mW/canal sur 60 Ω, casques 32 à 600 Ω"
+    },
+    {
+      "id": "hp3",
+      "name": "Casque 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, 130 mW/canal sur 60 Ω, casques 32 à 600 Ω"
+    },
+    {
+      "id": "hp4",
+      "name": "Casque 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, 130 mW/canal sur 60 Ω, casques 32 à 600 Ω"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur externe +12 VDC 1000 mA, centre positif (spécifications) ; la liste du contenu du carton indique 16 VAC 1000 mA, à vérifier sur l'adaptateur"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "green-go-dante-interface-x",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "Dante Interface X",
+  "pictogram": "intercom",
+  "status": "community",
+  "weightKg": 2.38,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.audinate.com/products/dante-enabled/green-go/green-go-dante-interface-x",
+      "document": "Audinate, fiche Green-GO Dante Interface X",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/green-go-dante-interface-x-digital-audio-converter/p/grodnti",
+      "document": "Adorama, fiche Dante Interface X (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dante",
+      "name": "Dante / AES67",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "unspecified",
+      "channels": 4,
+      "format": "4 entrées / 4 sorties"
+    },
+    {
+      "id": "ggo",
+      "name": "Réseau Green-GO",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "unspecified",
+      "format": "PoE 802.3af"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe en option"
+    }
+  ]
+}

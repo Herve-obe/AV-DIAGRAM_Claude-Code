@@ -1,0 +1,28 @@
+{
+  "id": "shure-beta-98a",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "Beta 98A",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.012,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/BETA98A/en-US",
+      "document": "Shure, guide d'utilisation Beta 98A (pubs.shure.com)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique électret cardioïde, fantôme 11 à 52 V. Sortie XLR sur le préamplificateur fourni (câble micro vers préampli jusqu'à 23 m)",
+      "phantom": "required"
+    }
+  ]
+}

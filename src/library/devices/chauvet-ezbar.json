@@ -1,0 +1,33 @@
+{
+  "id": "chauvet-ezbar",
+  "family": "luminaire",
+  "manufacturer": "Chauvet DJ",
+  "model": "EZBAR",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/34445-CHAUVETDJEZBarDatasheet.pdf",
+      "document": "Chauvet DJ, fiche EZBAR (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ir",
+      "name": "Télécommande IRC-6",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rf",
+      "format": "Sans DMX"
+    },
+    {
+      "id": "dc",
+      "name": "Charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc 15 V 1,6 A ; batterie"
+    }
+  ]
+}
