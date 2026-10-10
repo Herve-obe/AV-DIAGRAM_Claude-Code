@@ -113,12 +113,30 @@ export async function startWindowSync() {
   })
 
   if (WINDOW_ROLE === 'panels') {
+    void rememberPanelsPlace()
     send({ kind: 'hello' })
     window.addEventListener('beforeunload', () => send({ kind: 'bye' }))
   }
 }
 
-/** Ouvre la fenêtre Infos, sur le deuxième écran s'il y en a un. */
+/** Place de la fenêtre Infos retenue d'une fois sur l'autre (coordonnées physiques du bureau) */
+const PLACE_KEY = 'avd.panelsPlace'
+interface Place { x: number; y: number; w: number; h: number; maximized: boolean }
+function readPlace(): Place | null {
+  try {
+    const v = JSON.parse(localStorage.getItem(PLACE_KEY) ?? 'null')
+    return v && typeof v.x === 'number' ? v : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Ouvre la fenêtre Infos : à la place où on l'avait laissée si cet écran est toujours branché, sinon
+ * agrandie sur un autre écran que celui de la fenêtre principale (sinon sur le même écran). La fenêtre
+ * est créée cachée, placée en coordonnées physiques (sûres quel que soit le facteur d'échelle de
+ * chaque écran), agrandie, puis affichée.
+ */
 export async function openPanelsWindow() {
   if (!isTauri()) {
     window.open(`${window.location.pathname}?window=panels`, 'avd-panels', 'width=1200,height=800')
@@ -127,21 +145,77 @@ export async function openPanelsWindow() {
   const { WebviewWindow } = await import('@tauri-apps/api/webviewWindow')
   const existing = await WebviewWindow.getByLabel(PANELS_LABEL)
   if (existing) { await existing.setFocus(); return }
-  const { availableMonitors, currentMonitor } = await import('@tauri-apps/api/window')
-  const here = await currentMonitor()
-  const other = (await availableMonitors()).find((m) => m.name !== here?.name || m.position.x !== here?.position.x || m.position.y !== here?.position.y)
-  const target = other ?? here
-  const scale = target?.scaleFactor ?? 1
-  const area = target?.workArea
+  const { availableMonitors, getCurrentWindow } = await import('@tauri-apps/api/window')
+  const { PhysicalPosition, PhysicalSize } = await import('@tauri-apps/api/dpi')
+  const monitors = await availableMonitors()
+  const inside = (m: (typeof monitors)[number], x: number, y: number) =>
+    x >= m.position.x && x < m.position.x + m.size.width && y >= m.position.y && y < m.position.y + m.size.height
+  // Écran de la fenêtre principale : celui qui contient son centre
+  const main = getCurrentWindow()
+  const pos = await main.outerPosition()
+  const size = await main.outerSize()
+  const cx = pos.x + size.width / 2
+  const cy = pos.y + size.height / 2
+  const home = monitors.find((m) => inside(m, cx, cy))
+  const saved = readPlace()
+  const savedOk = saved && monitors.some((m) => inside(m, saved.x + 50, saved.y + 50))
+  const other = monitors.find((m) => m !== home && !(home && m.position.x === home.position.x && m.position.y === home.position.y))
+  const target = other ?? home ?? monitors[0]
+
   const w = new WebviewWindow(PANELS_LABEL, {
     url: 'index.html?window=panels',
     title: 'AV Diagram · Infos',
     dragDropEnabled: false,
-    ...(area ? { x: area.position.x / scale + 20, y: area.position.y / scale + 20, width: Math.min(1400, area.size.width / scale - 40), height: area.size.height / scale - 40 } : { width: 1200, height: 800 }),
+    visible: false,
+    width: 1200,
+    height: 800,
   })
   // Fenêtre fermée (croix du système) : la fenêtre principale réaffiche ses panneaux
   void w.once('tauri://destroyed', () => useUi.setState({ panelsDetached: false }))
-  if (other) void w.once('tauri://created', () => { void w.maximize() })
+  void w.once('tauri://created', async () => {
+    try {
+      if (savedOk && saved) {
+        await w.setPosition(new PhysicalPosition(saved.x, saved.y))
+        await w.setSize(new PhysicalSize(saved.w, saved.h))
+        if (saved.maximized) await w.maximize()
+      } else if (target) {
+        const a = target.workArea
+        await w.setPosition(new PhysicalPosition(a.position.x + 40, a.position.y + 40))
+        await w.setSize(new PhysicalSize(Math.max(800, a.size.width - 80), Math.max(600, a.size.height - 80)))
+        // Agrandie sur l'autre écran ; sur l'écran unique, une grande fenêtre suffit
+        if (other) await w.maximize()
+      }
+    } finally {
+      await w.show()
+      await w.setFocus()
+    }
+  })
+}
+
+/** Fenêtre Infos : retient sa place (position, taille, agrandie) quand on la déplace ou la redimensionne. */
+export async function rememberPanelsPlace() {
+  if (!isTauri() || WINDOW_ROLE !== 'panels') return
+  const { getCurrentWindow } = await import('@tauri-apps/api/window')
+  const w = getCurrentWindow()
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const save = () => {
+    clearTimeout(timer)
+    timer = setTimeout(async () => {
+      try {
+        const maximized = await w.isMaximized()
+        const prev = readPlace()
+        // Agrandie : on garde la place d'avant (celle que l'on retrouve en quittant le mode agrandi)
+        const p = await w.outerPosition()
+        const s = await w.outerSize()
+        const place: Place = maximized && prev ? { ...prev, x: p.x + 8, y: p.y + 8, maximized } : { x: p.x, y: p.y, w: s.width, h: s.height, maximized }
+        localStorage.setItem(PLACE_KEY, JSON.stringify(place))
+      } catch {
+        // place non enregistrée : la prochaine ouverture choisira l'autre écran
+      }
+    }, 400)
+  }
+  await w.onMoved(save)
+  await w.onResized(save)
 }
 
 /** Ferme la fenêtre Infos (depuis l'une ou l'autre fenêtre). */

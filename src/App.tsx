@@ -31,6 +31,7 @@ import { RackView } from './ui/RackView'
 import { ProjectSettings } from './ui/ProjectSettings'
 import { SheetTabs } from './ui/SheetTabs'
 import { Splitter } from './ui/Splitter'
+import { InputProbe } from './ui/InputProbe'
 import { TopBar } from './ui/TopBar'
 import { groupSelected, ungroupSelected } from './ui/groupActions'
 
@@ -183,6 +184,7 @@ export default function App() {
       <LinkCheckDialog />
       <StartDialog />
       <SeriesDialog />
+      <InputProbe />
       <MergeDialog />
       <PdfImportDialog />
       <ExportPdfDialog />

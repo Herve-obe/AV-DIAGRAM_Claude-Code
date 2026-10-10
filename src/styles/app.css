@@ -1114,3 +1114,13 @@ body.is-resizing-y, body.is-resizing-y * { cursor: row-resize !important; user-s
 .panels-body .splitter-inspector { right: auto; left: calc(var(--insp-w, 288px) - 4px); }
 
 .backup-field { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+
+/* Diagnostic des entrées (Ctrl+Alt+D) */
+.input-probe {
+  position: fixed; right: 16px; bottom: 60px; z-index: 90; width: min(460px, calc(100% - 32px));
+  padding: 10px 12px; display: grid; gap: 6px;
+  background: var(--bg-1); border: 1px solid var(--accent); border-radius: var(--radius); box-shadow: var(--shadow-2);
+}
+.input-probe-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.input-probe-head button { margin-left: auto; }
+.input-probe ol { margin: 0; padding-left: 18px; max-height: 220px; overflow: auto; }
