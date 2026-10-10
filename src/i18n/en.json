@@ -995,7 +995,16 @@
     "lastCopy": "Last copy: {{path}} at {{date}}.",
     "error": "Copy failed: {{error}}",
     "internal": "Internal storage",
-    "internalHint": "The app also always keeps an internal copy of the last 8 projects on this device (resumed at launch). It is not meant for archiving: use the folder above or Ctrl+S."
+    "internalHint": "The app also always keeps an internal copy of the last 8 projects on this device (resumed at launch). It is not meant for archiving: use the folder above or Ctrl+S.",
+    "backupsTitle": "Safety backups",
+    "backupsHint": "Like Pro Tools session file backups: at regular intervals, if the project has changed, a time-stamped copy is stored in “{{folder}} / project name”. Once the maximum is reached, the oldest one is replaced.",
+    "backupsOn": "Enable safety backups",
+    "backupEvery": "Every",
+    "backupCount": "Number kept",
+    "minutes_one": "{{count}} minute",
+    "minutes_other": "{{count}} minutes",
+    "backupNow": "Back up now",
+    "lastBackup": "Last backup: {{path}} at {{date}}."
   },
   "canvasMenu": {
     "multicore_one": "Route the link through a multicore",

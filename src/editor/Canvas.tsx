@@ -429,6 +429,35 @@ export function Canvas() {
     [rf, addEquipment, select],
   )
 
+  // Pincement sur pavé tactile, macOS (WebKit) : événements de geste propres à WebKit, sans molette.
+  // Le zoom suit l'écart des doigts et reste centré sur le point situé sous le curseur.
+  useEffect(() => {
+    const el = document.querySelector<HTMLElement>('.canvas')
+    if (!el) return
+    let start = { zoom: 1, x: 0, y: 0, vx: 0, vy: 0 }
+    type Gesture = Event & { scale: number; clientX: number; clientY: number }
+    const onStart = (e: Event) => {
+      e.preventDefault()
+      const g = e as Gesture
+      const v = rf.getViewport()
+      const box = el.getBoundingClientRect()
+      start = { zoom: v.zoom, x: g.clientX - box.left, y: g.clientY - box.top, vx: v.x, vy: v.y }
+    }
+    const onChange = (e: Event) => {
+      e.preventDefault()
+      const zoom = Math.min(3, Math.max(0.1, start.zoom * (e as Gesture).scale))
+      const k = zoom / start.zoom
+      void rf.setViewport({ zoom, x: start.x - (start.x - start.vx) * k, y: start.y - (start.y - start.vy) * k })
+    }
+    el.addEventListener('gesturestart', onStart)
+    el.addEventListener('gesturechange', onChange)
+    el.addEventListener('gestureend', (e) => e.preventDefault())
+    return () => {
+      el.removeEventListener('gesturestart', onStart)
+      el.removeEventListener('gesturechange', onChange)
+    }
+  }, [rf])
+
   // Alignement demandé depuis la fenêtre Infos (double écran)
   useEffect(() => onCommand('arrange', (a) => arrangeSelection(rf, a as ArrangeAction)), [rf])
 
@@ -514,6 +543,8 @@ export function Canvas() {
         // Molette : défilement vertical ; Maj + molette : horizontal ; Ctrl (Cmd) + molette : zoom
         panOnScroll
         zoomOnScroll={false}
+        // Pincement sur pavé tactile : Windows (WebView2) le transmet comme Ctrl + molette
+        zoomOnPinch
         minZoom={0.1}
         maxZoom={3}
         proOptions={{ hideAttribution: false }}

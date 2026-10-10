@@ -80,6 +80,8 @@
   Échap pour désélectionner ; panneaux redimensionnables (bibliothèque, inspecteur, panneau du bas).
 - Mode débutant : « Pas à pas » (étapes cochées au fil du travail), « Et ensuite ? » (relier les sorties
   libres, ajouter N exemplaires), aide sur le schéma vide ; ports compatibles allumés pendant une liaison.
+- Sauvegardes de sécurité tournantes (dossier Sauvegardes, délai et nombre réglables, la plus ancienne
+  remplacée) ; zoom par pincement sur pavé tactile (Windows : Ctrl + molette ; macOS : gestes WebKit).
 - Double écran : bouton de la barre du haut ; fenêtre « Infos » (inspecteur et listes), ouverte sur le
   deuxième écran s'il existe, synchronisée avec le schéma (projet, sélection, annulation, alignement).
 - Limites : voies ordonnées et poignée pour les ports à gauche ou à droite seulement (blocs pivotés : tracé

@@ -1112,3 +1112,5 @@ body.is-resizing-y, body.is-resizing-y * { cursor: row-resize !important; user-s
 .panels-dock .dock { height: auto; flex: 1; max-height: none; border-top: 0; }
 .panels-dock .dock .splitter { display: none; }
 .panels-body .splitter-inspector { right: auto; left: calc(var(--insp-w, 288px) - 4px); }
+
+.backup-field { display: flex; align-items: center; gap: 6px; font-size: 13px; }
