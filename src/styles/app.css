@@ -1125,16 +1125,13 @@ body.is-resizing-y, body.is-resizing-y * { cursor: row-resize !important; user-s
 .input-probe-head button { margin-left: auto; }
 .input-probe ol { margin: 0; padding-left: 18px; max-height: 220px; overflow: auto; }
 
-/* Mode « page » : feuille dessinée sur le canevas */
-.page-frame { position: absolute; left: 0; top: 0; pointer-events: none; }
+/* Mode « page » : bords de la feuille en pointillés discrets, derrière le schéma (façon Draw.io) */
+.page-frame { position: absolute; left: 0; top: 0; pointer-events: none; z-index: -1; }
 .page-frame > div { position: absolute; box-sizing: border-box; }
-.page-sheet { border: 2px solid color-mix(in srgb, var(--text-2) 55%, transparent); background: color-mix(in srgb, var(--bg-1) 55%, transparent); border-radius: 2px; }
-.page-label { position: absolute; left: 0; bottom: 100%; padding-bottom: 6px; white-space: nowrap; font: 600 var(--page-font, 14px) var(--font-label); letter-spacing: .5px; color: var(--text-2); }
-.page-out { color: var(--err); }
-.page-area { border: 1.5px dashed color-mix(in srgb, var(--accent) 60%, transparent); }
-.page-area.has-out { border-color: var(--err); }
-.page-reserved { border: 1.5px solid color-mix(in srgb, var(--text-2) 40%, transparent); background: repeating-linear-gradient(135deg, transparent 0 8px, color-mix(in srgb, var(--text-2) 10%, transparent) 8px 9px); }
-.page-reserved span { position: absolute; left: 8px; top: 6px; font: 600 var(--page-font, 13px) var(--font-label); text-transform: uppercase; letter-spacing: 1px; color: var(--text-2); }
+.page-sheet { border: 1.5px dashed color-mix(in srgb, var(--text-3) 60%, transparent); }
+.page-label { position: absolute; left: 0; bottom: 100%; padding-bottom: 4px; white-space: nowrap; font: 500 var(--page-font, 12px) var(--font-label); letter-spacing: .4px; color: var(--text-3); }
+.page-reserved { border: 1px dashed color-mix(in srgb, var(--text-3) 45%, transparent); }
+.page-reserved span { position: absolute; left: 6px; top: 4px; font: 500 var(--page-font, 12px) var(--font-label); text-transform: uppercase; letter-spacing: 1px; color: color-mix(in srgb, var(--text-3) 80%, transparent); }
 
 /* Nouveau projet : nom, emplacement, format, point de départ */
 .new-project .dialog-body { display: grid; gap: 4px; padding-bottom: 8px; }

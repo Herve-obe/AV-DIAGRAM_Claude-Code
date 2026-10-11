@@ -214,6 +214,39 @@ export function pageFrame(opts: Pick<ExportSettings, 'paper' | 'orientation' | '
   }
 }
 
+/** Marge entre le schéma et le bord de la zone de dessin, en unités du schéma */
+const PAGE_PAD = 40
+
+/**
+ * Mode « page » ajusté : la feuille au format choisi, centrée sur le schéma de la feuille affichée. Tant
+ * que le schéma tient dans la zone de dessin à 100 %, la feuille garde cette taille (un petit schéma
+ * n'est jamais agrandi) ; au-delà, elle grandit en gardant les proportions du format, cartouche et
+ * légende compris, et l'échelle d'impression baisse d'autant (scale, en %).
+ */
+export function fittedPage(
+  opts: Pick<ExportSettings, 'paper' | 'orientation'>,
+  revisions: number,
+  content: Bounds | null,
+): PageFrame & { scale: number } {
+  const base = pageFrame({ ...opts, printScale: 100 }, revisions)
+  const s = content ? Math.max(1, (content.w + 2 * PAGE_PAD) / base.area.w, (content.h + 2 * PAGE_PAD) / base.area.h) : 1
+  const cx = content ? content.x + content.w / 2 : base.area.w / 2
+  const cy = content ? content.y + content.h / 2 : base.area.h / 2
+  // Agrandissement autour de l'origine de la zone de dessin, puis centrage de la zone sur le schéma
+  const ox = cx - (base.area.w * s) / 2
+  const oy = cy - (base.area.h * s) / 2
+  const tr = (r: Bounds): Bounds => ({ x: r.x * s + ox, y: r.y * s + oy, w: r.w * s, h: r.h * s })
+  return { sheet: tr(base.sheet), area: tr(base.area), titleBlock: tr(base.titleBlock), legend: tr(base.legend), scale: Math.round(100 / s) }
+}
+
+/** Encombrement de blocs mesurés (x, y, largeur, hauteur) ; null s'il n'y en a pas. */
+export function boundsOf(boxes: Bounds[]): Bounds | null {
+  if (!boxes.length) return null
+  const x = Math.min(...boxes.map((b) => b.x))
+  const y = Math.min(...boxes.map((b) => b.y))
+  return { x, y, w: Math.max(...boxes.map((b) => b.x + b.w)) - x, h: Math.max(...boxes.map((b) => b.y + b.h)) - y }
+}
+
 /** Repère d'une page dans l'assemblage : colonne en lettre, rangée en chiffre (A1, B1, A2...). */
 export const tileRef = (col: number, row: number) => `${String.fromCharCode(65 + (col % 26))}${row + 1}`
 
@@ -294,31 +327,4 @@ export function protectionLevel(p: ExportSettings['protection'], openPassword: s
 export function recipientsOf(ws: WatermarkSettings): string[] {
   if (!ws.enabled) return []
   return [...new Set((ws.recipients ?? []).map((r) => r.trim()).filter(Boolean))]
-}
-
-/**
- * Nouveau projet en mode « page » : chaque feuille est ramenée dans la zone de dessin (coin haut gauche,
- * petite marge) et l'échelle d'impression est choisie pour que la plus grande tienne (100 % au plus,
- * par pas de 5 %). Un projet vide garde 100 %.
- */
-export function fitProjectToPage(project: Project, paper: PaperSize, orientation: ExportSettings['orientation'], defaultSheetId: string): { project: Project; printScale: number } {
-  const { area } = sheetLayout(paper, orientation, SIGNAL_FAMILIES_COUNT, project.info?.revisions?.length ?? 0)
-  const sheetIds = [...new Set([defaultSheetId, ...(project.sheets ?? []).map((s) => s.id)])]
-  const bounds = new Map(sheetIds.map((id) => [id, sheetBounds(project, id, defaultSheetId)] as const))
-  let scale = 100
-  for (const b of bounds.values()) if (b) scale = Math.min(scale, fitScale({ ...b, w: b.w + 40, h: b.h + 40 }, area))
-  const printScale = Math.max(10, Math.floor(scale / 5) * 5)
-  const shift = (sheetId: string | undefined) => {
-    const b = bounds.get(sheetId ?? defaultSheetId)
-    return b ? { dx: 20 - b.x, dy: 20 - b.y } : { dx: 0, dy: 0 }
-  }
-  const equipment = Object.fromEntries(Object.entries(project.equipment).map(([k, e]) => {
-    const { dx, dy } = shift(e.sheetId)
-    return [k, { ...e, position: { x: Math.round(e.position.x + dx), y: Math.round(e.position.y + dy) } }]
-  }))
-  const annotations = project.annotations && Object.fromEntries(Object.entries(project.annotations).map(([k, a]) => {
-    const { dx, dy } = shift(a.sheetId)
-    return [k, { ...a, position: { x: Math.round(a.position.x + dx), y: Math.round(a.position.y + dy) } }]
-  }))
-  return { project: { ...project, equipment, annotations }, printScale }
 }

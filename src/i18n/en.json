@@ -817,7 +817,7 @@
     "mode": {
       "fit": "Scale to fit (1 page per sheet)",
       "tile": "Fixed size (several pages if needed)",
-      "page": "Page (sheet shown on the diagram)"
+      "page": "Fitted page (sheet shown on the diagram)"
     },
     "fitHint": "The largest diagram is printed at about {{scale}} % (100 %: 1 diagram unit = 0.25 mm).",
     "printScale": "Print scale (%)",
@@ -882,7 +882,7 @@
       "deterrent": "the PDF opens everywhere; copy and editing are blocked by common readers, but a specialised tool can lift these restrictions.",
       "strong": "content encrypted (AES-256), unreadable without the open password. Send it through another channel than the PDF."
     },
-    "pageHint": "The sheet, its title block and legend are drawn on the diagram: place the schematic inside the dashed frame. The scale enlarges or shrinks the sheet relative to the blocks. F key: show the whole sheet."
+    "pageHint": "The sheet edges are shown as dashed lines behind the diagram, title block and legend included. The sheet follows the diagram: 100% while it fits, enlarged (smaller scale) beyond. F key: show the whole sheet."
   },
   "titleBlock": {
     "owner": "Legal owner",
@@ -1130,10 +1130,9 @@
     "empty": "Nothing received yet."
   },
   "pageFrame": {
-    "label": "{{paper}} {{orientation}} sheet · scale {{scale}}%",
-    "out_one": "{{count}} item outside the drawing area",
-    "out_other": "{{count}} items outside the drawing area",
+    "label": "{{paper}} {{orientation}}",
     "titleBlock": "Title block",
-    "legend": "Legend"
+    "legend": "Legend",
+    "labelFitted": "{{paper}} {{orientation}} · fitted at {{scale}}%"
   }
 }

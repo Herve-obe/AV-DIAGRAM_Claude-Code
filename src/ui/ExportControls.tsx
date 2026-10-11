@@ -90,16 +90,7 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
       {value.scaleMode === 'fit' ? (
         <p className="dialog-hint">{t('exportPdf.fitHint', { scale: impact.fit })}</p>
       ) : value.scaleMode === 'page' ? (
-        <>
-          <div className="field export-scale">
-            <label htmlFor="print-scale">{t('exportPdf.printScale')}</label>
-            <input
-              id="print-scale" type="number" min={10} max={400} step={5} value={value.printScale}
-              onChange={(e) => onChange({ ...value, printScale: Math.min(400, Math.max(10, Number(e.target.value) || 100)) })}
-            />
-          </div>
-          <p className="dialog-hint">{t('exportPdf.pageHint')}</p>
-        </>
+        <p className="dialog-hint">{t('exportPdf.pageHint')}</p>
       ) : (
         <>
           <div className="field export-scale">

@@ -1,10 +1,10 @@
 // Rendu du format sur le canevas :
-// - mode « page » : la feuille entière (bords, zone de dessin, cartouche, légende) à l'échelle d'impression ;
-//   les éléments qui dépassent sont signalés ;
+// - mode « page » : la feuille au format choisi, ajustée et centrée sur le schéma, bords en pointillés
+//   discrets (façon Draw.io), emplacements du cartouche et de la légende ;
 // - mode « taille fixe » : chaque page de l'assemblage (A1, B1...) en pointillés, pour voir où le schéma déborde.
 import { ViewportPortal, useNodes, type ReactFlowInstance } from '@xyflow/react'
 import { useTranslation } from 'react-i18next'
-import { exportSettingsOf, pageFrame, sheetLayout, tileRef, tilesFor } from '../io/exportOptions'
+import { boundsOf, exportSettingsOf, fittedPage, sheetLayout, tileRef, tilesFor } from '../io/exportOptions'
 import type { Project } from '../model/types'
 import { SIGNAL_FAMILIES } from '../model/signals'
 import { useProject } from '../store/projectStore'
@@ -46,26 +46,33 @@ export function PageGrid() {
   )
 }
 
-/** Cadre de la feuille (mode « page »), avec le nombre d'éléments qui dépassent de la zone de dessin. */
+/** Encombrement des blocs affichés (hors nœuds masqués par le calque) */
+function contentOf(nodes: { hidden?: boolean; position: { x: number; y: number }; measured?: { width?: number; height?: number } }[]) {
+  return boundsOf(nodes.filter((n) => !n.hidden && n.measured?.width && n.measured.height)
+    .map((n) => ({ x: n.position.x, y: n.position.y, w: n.measured!.width!, h: n.measured!.height! })))
+}
+
+/**
+ * Feuille du mode « page », façon Draw.io : bords en pointillés discrets derrière le schéma, emplacements
+ * du cartouche et de la légende en simple contour ; la feuille suit et englobe le schéma.
+ */
 function PageFrameView({ project, nodes }: { project: Project; nodes: ReturnType<typeof useNodes> }) {
   const { t } = useTranslation()
   const opts = exportSettingsOf(project)
-  const f = pageFrame(opts, project.info?.revisions?.length ?? 0)
-  const out = nodes.filter((n) => !n.hidden && n.measured?.width && n.measured.height && !n.className?.includes('is-frame'))
-    .filter((n) => n.position.x < f.area.x || n.position.y < f.area.y || n.position.x + n.measured!.width! > f.area.x + f.area.w || n.position.y + n.measured!.height! > f.area.y + f.area.h).length
+  const f = fittedPage(opts, project.info?.revisions?.length ?? 0, contentOf(nodes))
   const box = (r: { x: number; y: number; w: number; h: number }) => ({ left: r.x, top: r.y, width: r.w, height: r.h })
-  // Libellés lisibles quelle que soit la taille de la feuille (A4 à A0, échelle d'impression)
-  const font = Math.max(14, Math.round(f.sheet.w / 90))
+  // Libellés lisibles quelle que soit la taille de la feuille
+  const font = Math.max(12, Math.round(f.sheet.w / 70))
   return (
     <ViewportPortal>
       <div className="page-frame" style={{ ['--page-font' as string]: `${font}px` }}>
         <div className="page-sheet" style={box(f.sheet)}>
           <span className="page-label">
-            {t('pageFrame.label', { paper: opts.paper, orientation: t(`exportPdf.${opts.orientation}`), scale: opts.printScale })}
-            {out > 0 && <strong className="page-out"> · {t('pageFrame.out', { count: out })}</strong>}
+            {f.scale < 100
+              ? t('pageFrame.labelFitted', { paper: opts.paper, orientation: t(`exportPdf.${opts.orientation}`), scale: f.scale })
+              : t('pageFrame.label', { paper: opts.paper, orientation: t(`exportPdf.${opts.orientation}`) })}
           </span>
         </div>
-        <div className={`page-area ${out ? 'has-out' : ''}`} style={box(f.area)} />
         <div className="page-reserved" style={box(f.titleBlock)}><span>{t('pageFrame.titleBlock')}</span></div>
         <div className="page-reserved" style={box(f.legend)}><span>{t('pageFrame.legend')}</span></div>
       </div>
@@ -74,10 +81,10 @@ function PageFrameView({ project, nodes }: { project: Project; nodes: ReturnType
 }
 
 /** Recadre la vue sur la feuille (mode « page ») ; renvoie faux dans les autres modes. */
-export function fitToPage(rf: Pick<ReactFlowInstance, 'fitBounds'>, project: Project, duration = 250): boolean {
+export function fitToPage(rf: Pick<ReactFlowInstance, 'fitBounds' | 'getNodes'>, project: Project, duration = 250): boolean {
   const opts = exportSettingsOf(project)
   if (opts.scaleMode !== 'page') return false
-  const { x, y, w, h } = pageFrame(opts, project.info?.revisions?.length ?? 0).sheet
+  const { x, y, w, h } = fittedPage(opts, project.info?.revisions?.length ?? 0, contentOf(rf.getNodes())).sheet
   void rf.fitBounds({ x, y, width: w, height: h }, { padding: 0.04, duration })
   return true
 }

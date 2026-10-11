@@ -3,10 +3,9 @@
 import { isTauri } from '@tauri-apps/api/core'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { DEFAULT_EXPORT, fitProjectToPage, pageSize } from '../io/exportOptions'
+import { DEFAULT_EXPORT, pageSize } from '../io/exportOptions'
 import { createProjectFile, notifyError, pickSaveFolder, slug } from '../io/files'
 import { buildTemplate, type TemplateId } from '../library/templates'
-import { DEFAULT_SHEET_ID } from '../model/project'
 import { PAPER_SIZES, type ExportSettings, type PaperSize } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useSaveFolder } from '../store/saveFolderStore'
@@ -50,12 +49,12 @@ function NewProjectForm() {
     try {
       const base = buildTemplate(template, name.trim() || t('menu.newProjectName'))
       const named = { ...base, name: name.trim() || base.name }
-      const placed = showPage ? fitProjectToPage(named, paper, orientation, DEFAULT_SHEET_ID) : { project: named, printScale: 100 }
+      // Feuille ajustée au schéma : pas d'échelle à choisir (100 % tant que le schéma tient)
       const exportSettings: ExportSettings = {
         ...DEFAULT_EXPORT, ...named.settings.export,
-        paper, orientation, scaleMode: showPage ? 'page' : 'fit', printScale: placed.printScale,
+        paper, orientation, scaleMode: showPage ? 'page' : 'fit', printScale: 100,
       }
-      const project = { ...placed.project, settings: { ...placed.project.settings, export: exportSettings } }
+      const project = { ...named, settings: { ...named.settings, export: exportSettings } }
       useProject.getState().replaceProject(project)
       const ui = useUi.getState()
       ui.select([], [])

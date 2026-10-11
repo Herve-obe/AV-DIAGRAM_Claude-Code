@@ -817,7 +817,7 @@
     "mode": {
       "fit": "Mise à l'échelle (1 page par feuille)",
       "tile": "Taille fixe (plusieurs pages si besoin)",
-      "page": "Page (feuille visible sur le schéma)"
+      "page": "Page ajustée (feuille visible sur le schéma)"
     },
     "fitHint": "Le schéma le plus grand est imprimé à environ {{scale}} % (100 % : 1 unité du schéma = 0,25 mm).",
     "printScale": "Échelle d'impression (%)",
@@ -882,7 +882,7 @@
       "deterrent": "le PDF s'ouvre partout ; copie et modification bloquées par les lecteurs courants, mais un outil spécialisé peut lever ces restrictions.",
       "strong": "contenu chiffré (AES-256), illisible sans le mot de passe d'ouverture. Le transmettre par un autre canal que le PDF."
     },
-    "pageHint": "La feuille, son cartouche et sa légende sont dessinés sur le schéma : place le synoptique dans le cadre pointillé. L'échelle agrandit ou réduit la feuille par rapport aux blocs. Touche F : voir toute la feuille."
+    "pageHint": "Les bords de la feuille sont affichés en pointillés derrière le schéma, cartouche et légende compris. La feuille suit le schéma : à 100 % tant qu'il tient, agrandie (échelle réduite) au-delà. Touche F : voir toute la feuille."
   },
   "titleBlock": {
     "owner": "Propriétaire légal",
@@ -1130,10 +1130,9 @@
     "empty": "Rien reçu pour l'instant."
   },
   "pageFrame": {
-    "label": "Feuille {{paper}} {{orientation}} · échelle {{scale}} %",
-    "out_one": "{{count}} élément hors de la zone de dessin",
-    "out_other": "{{count}} éléments hors de la zone de dessin",
+    "label": "{{paper}} {{orientation}}",
     "titleBlock": "Cartouche",
-    "legend": "Légende"
+    "legend": "Légende",
+    "labelFitted": "{{paper}} {{orientation}} · ajusté à {{scale}} %"
   }
 }

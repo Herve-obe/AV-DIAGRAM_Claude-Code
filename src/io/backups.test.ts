@@ -27,16 +27,18 @@ describe('feuille dessinée sur le canevas (mode page)', () => {
     expect(Math.round(f50.sheet.w)).toBe(3360)
     expect(f100.titleBlock.x + f100.titleBlock.w).toBeLessThanOrEqual(f100.sheet.x + f100.sheet.w)
   })
-  it('un modèle de départ est ramené dans la feuille, à une échelle où il tient', async () => {
-    const { fitProjectToPage, pageFrame, sheetBounds } = await import('./exportOptions')
-    const { buildSampleProject } = await import('../library/sample')
-    const { DEFAULT_SHEET_ID } = await import('../model/project')
-    const r = fitProjectToPage(buildSampleProject(), 'A4', 'landscape', DEFAULT_SHEET_ID)
-    const f = pageFrame({ paper: 'A4', orientation: 'landscape', printScale: r.printScale })
-    const b = sheetBounds(r.project, DEFAULT_SHEET_ID, DEFAULT_SHEET_ID)!
-    expect(r.printScale).toBeLessThanOrEqual(100)
-    expect(b.x).toBeGreaterThanOrEqual(0)
-    expect(b.x + b.w).toBeLessThanOrEqual(f.area.w)
-    expect(b.y + b.h).toBeLessThanOrEqual(f.area.h)
+  it('feuille ajustée : un petit schéma reste à 100 %, un grand fait grandir la feuille, centrée, cartouche compris', async () => {
+    const { fittedPage } = await import('./exportOptions')
+    const small = fittedPage({ paper: 'A3', orientation: 'landscape' }, 0, { x: 100, y: 100, w: 300, h: 200 })
+    expect(small.scale).toBe(100)
+    expect(small.area.x + small.area.w / 2).toBeCloseTo(250)
+    // Stagebox 32 entrées (environ 700 unités de haut) : la feuille grandit, l'échelle baisse
+    const big = fittedPage({ paper: 'A3', orientation: 'landscape' }, 0, { x: 0, y: 0, w: 260, h: 1100 })
+    expect(big.scale).toBeLessThan(100)
+    expect(big.area.h).toBeGreaterThanOrEqual(1100)
+    expect(big.area.w / big.area.h).toBeCloseTo(small.area.w / small.area.h)
+    // Le cartouche reste sur la feuille, hors de la zone de dessin
+    expect(big.titleBlock.y + big.titleBlock.h).toBeLessThanOrEqual(big.sheet.y + big.sheet.h + 1e-6)
+    expect(big.titleBlock.y).toBeGreaterThanOrEqual(big.area.y + big.area.h - 1e-6)
   })
 })
