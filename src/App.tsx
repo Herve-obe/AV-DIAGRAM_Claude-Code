@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ReactFlowProvider, useReactFlow } from '@xyflow/react'
 import { Canvas } from './editor/Canvas'
+import { fitToPage } from './editor/PageGrid'
 import { useAi } from './store/aiStore'
 import type { SignalFamily } from './model/signals'
 import i18n from './i18n'
@@ -60,7 +61,8 @@ export function Shortcuts() {
       if (e.key === 'F5') { e.preventDefault(); ui.setPresenting(!ui.presenting); return }
       if (e.key === 'Escape' && ui.presenting && !ui.paletteOpen) { ui.setPresenting(false); return }
       if (mod && key === 'k') { e.preventDefault(); ui.setPaletteOpen(!ui.paletteOpen); return }
-      if (mod && key === 's') { e.preventDefault(); saveProjectFile(store.project); return }
+      // Ctrl+S : dans le fichier du projet ; Ctrl+Maj+S : enregistrer sous
+      if (mod && key === 's') { e.preventDefault(); void saveProjectFile(store.project, { as: e.shiftKey }); return }
       if (mod && key === 'o') {
         e.preventDefault()
         try { const p = await openProjectFile(); if (p) store.load(p) } catch { notifyError(i18n.t('menu.openError')) }
@@ -96,7 +98,7 @@ export function Shortcuts() {
         else groupSelected()
         return
       }
-      if (!mod && key === 'f') rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 })
+      if (!mod && key === 'f' && !fitToPage(rf, store.project, 300)) rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 })
       // R : quart de tour horaire des équipements sélectionnés ; Maj+R : sens inverse
       if (!mod && !e.altKey && key === 'r' && ui.selectedEquipment.length && !ui.presenting) {
         const ids = ui.selectedEquipment.filter((id) => store.project.equipment[id])

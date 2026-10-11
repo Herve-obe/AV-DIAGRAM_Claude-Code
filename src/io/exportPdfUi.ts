@@ -9,7 +9,7 @@ import { DOCUMENT_STATUSES, type Project, type ProjectInfo } from '../model/type
 import { useProject } from '../store/projectStore'
 import { useTitleBlock } from '../store/titleBlockStore'
 import { useUi } from '../store/uiStore'
-import { exportSettingsOf, sheetBounds, sheetLayout, tileRef, tilesFor } from './exportOptions'
+import { exportSettingsOf, pageFrame, sheetBounds, sheetLayout, tileRef, tilesFor } from './exportOptions'
 import { notifyError } from './files'
 import { captureCanvasLight, exportPdf, type ExportPasswords, type PdfLabels, type SheetShot } from './pdf'
 
@@ -93,6 +93,16 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
       if (opts.scaleMode === 'fit') {
         // Cadrage borné dans le temps : sur une feuille vide, fitView peut ne jamais se résoudre
         await Promise.race([rf.fitView({ padding: 0.06, maxZoom: 1.5 }), wait(600)])
+        await wait(250)
+        const shot = await captureCanvasLight()
+        if (shot) shots.push({ ...shot, name })
+        continue
+      }
+      // Page dessinée sur le canevas : exactement la zone de dessin du cadre
+      if (opts.scaleMode === 'page') {
+        const f = pageFrame(opts, info.revisions?.length ?? 0)
+        const zoom = capW / f.area.w
+        await rf.setViewport({ x: -f.area.x * zoom, y: -f.area.y * zoom, zoom })
         await wait(250)
         const shot = await captureCanvasLight()
         if (shot) shots.push({ ...shot, name })

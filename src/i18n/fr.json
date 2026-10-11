@@ -460,7 +460,7 @@
   },
   "newProject": {
     "title": "Nouveau projet",
-    "hint": "Pars d'un projet vide ou d'un modèle modifiable. Le projet en cours reste récupérable avec Annuler (Ctrl+Z) tant que tu ne fermes pas l'application.",
+    "hint": "Le projet en cours reste récupérable avec Annuler (Ctrl+Z) tant que tu ne fermes pas l'application, et dans les projets récents de l'accueil.",
     "blank": {
       "name": "Projet vide",
       "desc": "Une feuille blanche."
@@ -476,7 +476,17 @@
     "conference": {
       "name": "Salle de conférence",
       "desc": "Micros HF et pupitre, diffusion, caméra et vidéoprojection."
-    }
+    },
+    "name": "Nom du projet",
+    "location": "Emplacement",
+    "noFolder": "Aucun dossier : choisis où enregistrer le projet",
+    "filePreview": "Fichier créé : {{file}} (Ctrl+S y enregistre ensuite, Ctrl+Maj+S : enregistrer sous).",
+    "browserSave": "Version navigateur : enregistrement par Ctrl+S (téléchargement).",
+    "format": "Format de la feuille",
+    "showPage": "Afficher la feuille sur le schéma (bords, cartouche, légende) pour dessiner directement au format",
+    "start": "Point de départ",
+    "create": "Créer le projet",
+    "fileError": "Le fichier du projet n'a pas pu être créé : {{error}}"
   },
   "groups": {
     "kind": "Sous-schéma",
@@ -806,7 +816,8 @@
     "scaleMode": "Échelle",
     "mode": {
       "fit": "Mise à l'échelle (1 page par feuille)",
-      "tile": "Taille fixe (plusieurs pages si besoin)"
+      "tile": "Taille fixe (plusieurs pages si besoin)",
+      "page": "Page (feuille visible sur le schéma)"
     },
     "fitHint": "Le schéma le plus grand est imprimé à environ {{scale}} % (100 % : 1 unité du schéma = 0,25 mm).",
     "printScale": "Échelle d'impression (%)",
@@ -870,7 +881,8 @@
       "none": "le PDF s'ouvre, se copie et se modifie librement ; seul le filigrane, s'il est activé, reste.",
       "deterrent": "le PDF s'ouvre partout ; copie et modification bloquées par les lecteurs courants, mais un outil spécialisé peut lever ces restrictions.",
       "strong": "contenu chiffré (AES-256), illisible sans le mot de passe d'ouverture. Le transmettre par un autre canal que le PDF."
-    }
+    },
+    "pageHint": "La feuille, son cartouche et sa légende sont dessinés sur le schéma : place le synoptique dans le cadre pointillé. L'échelle agrandit ou réduit la feuille par rapport aux blocs. Touche F : voir toute la feuille."
   },
   "titleBlock": {
     "owner": "Propriétaire légal",
@@ -1116,5 +1128,12 @@
     "hint": "pince, fais défiler, clique : tout ce qui arrive au logiciel s'affiche (Ctrl+Alt+D pour fermer)",
     "pageZoom": "Zoom de page du moteur d'affichage",
     "empty": "Rien reçu pour l'instant."
+  },
+  "pageFrame": {
+    "label": "Feuille {{paper}} {{orientation}} · échelle {{scale}} %",
+    "out_one": "{{count}} élément hors de la zone de dessin",
+    "out_other": "{{count}} éléments hors de la zone de dessin",
+    "titleBlock": "Cartouche",
+    "legend": "Légende"
   }
 }

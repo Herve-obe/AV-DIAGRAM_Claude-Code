@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } fro
 import { useTranslation } from 'react-i18next'
 import { fullyLocked, lockedLayers } from '../collab/protection'
 import { useCollab } from '../collab/session'
-import { PageGrid } from './PageGrid'
+import { fitToPage, PageGrid } from './PageGrid'
 import { CanvasMenu, type MenuAt } from './CanvasMenu'
 import { EmptyCanvasHint } from '../ui/BeginnerGuide'
 import { arrangeSelection } from '../ui/arrangeActions'
@@ -463,7 +463,8 @@ export function Canvas() {
 
   // Recadrage à l'ouverture d'un autre projet ou d'une autre feuille
   useEffect(() => {
-    const timer = setTimeout(() => rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 }), 80)
+    // Mode « page » : on montre la feuille entière ; sinon, tout le contenu
+    const timer = setTimeout(() => fitToPage(rf, useProject.getState().project) || rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 }), 80)
     return () => clearTimeout(timer)
   }, [project.id, currentSheetId, presenting, rf])
 

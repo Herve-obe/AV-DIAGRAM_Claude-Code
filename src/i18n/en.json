@@ -460,7 +460,7 @@
   },
   "newProject": {
     "title": "New project",
-    "hint": "Start from a blank project or an editable template. The current project can be restored with Undo (Ctrl+Z) until you close the app.",
+    "hint": "The current project can be recovered with Undo (Ctrl+Z) until you close the app, and from recent projects on the start screen.",
     "blank": {
       "name": "Blank project",
       "desc": "An empty sheet."
@@ -476,7 +476,17 @@
     "conference": {
       "name": "Conference room",
       "desc": "Wireless and lectern mics, PA, camera and projection."
-    }
+    },
+    "name": "Project name",
+    "location": "Location",
+    "noFolder": "No folder: choose where to save the project",
+    "filePreview": "File created: {{file}} (Ctrl+S then saves to it, Ctrl+Shift+S: save as).",
+    "browserSave": "Browser version: save with Ctrl+S (download).",
+    "format": "Sheet format",
+    "showPage": "Show the sheet on the diagram (edges, title block, legend) to draw directly at size",
+    "start": "Starting point",
+    "create": "Create project",
+    "fileError": "The project file could not be created: {{error}}"
   },
   "groups": {
     "kind": "Sub-diagram",
@@ -806,7 +816,8 @@
     "scaleMode": "Scale",
     "mode": {
       "fit": "Scale to fit (1 page per sheet)",
-      "tile": "Fixed size (several pages if needed)"
+      "tile": "Fixed size (several pages if needed)",
+      "page": "Page (sheet shown on the diagram)"
     },
     "fitHint": "The largest diagram is printed at about {{scale}} % (100 %: 1 diagram unit = 0.25 mm).",
     "printScale": "Print scale (%)",
@@ -870,7 +881,8 @@
       "none": "the PDF opens, copies and edits freely; only the watermark, if on, remains.",
       "deterrent": "the PDF opens everywhere; copy and editing are blocked by common readers, but a specialised tool can lift these restrictions.",
       "strong": "content encrypted (AES-256), unreadable without the open password. Send it through another channel than the PDF."
-    }
+    },
+    "pageHint": "The sheet, its title block and legend are drawn on the diagram: place the schematic inside the dashed frame. The scale enlarges or shrinks the sheet relative to the blocks. F key: show the whole sheet."
   },
   "titleBlock": {
     "owner": "Legal owner",
@@ -1116,5 +1128,12 @@
     "hint": "pinch, scroll, click: everything reaching the app is listed (Ctrl+Alt+D to close)",
     "pageZoom": "Rendering engine page zoom",
     "empty": "Nothing received yet."
+  },
+  "pageFrame": {
+    "label": "{{paper}} {{orientation}} sheet · scale {{scale}}%",
+    "out_one": "{{count}} item outside the drawing area",
+    "out_other": "{{count}} items outside the drawing area",
+    "titleBlock": "Title block",
+    "legend": "Legend"
   }
 }

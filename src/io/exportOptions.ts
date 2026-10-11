@@ -1,7 +1,10 @@
 // Options d'export : formats de papier (ISO 216), disposition de la planche (cartouche, historique des
 // indices, légende), échelle d'impression et découpage en pages, placement du filigrane. Fonctions
 // pures : le dessin (PDF, image, SVG) est fait ailleurs à partir de ces calculs.
+import { SIGNAL_FAMILIES } from '../model/signals'
 import type { Equipment, ExportSettings, PaperSize, Project, WatermarkSettings } from '../model/types'
+
+const SIGNAL_FAMILIES_COUNT = SIGNAL_FAMILIES.length
 
 /** Dimensions ISO 216 en mm, côté court x côté long */
 const ISO_A: Record<PaperSize, [number, number]> = {
@@ -185,6 +188,32 @@ export function fitScale(bounds: Bounds, area: { w: number; h: number }): number
   return Math.min(area.w / (bounds.w * MM_PER_UNIT), area.h / (bounds.h * MM_PER_UNIT)) * 100
 }
 
+export interface PageFrame {
+  /** Feuille entière, en unités du schéma (la zone de dessin commence en 0, 0) */
+  sheet: Bounds
+  /** Zone où se dessine le synoptique */
+  area: Bounds
+  titleBlock: Bounds
+  legend: Bounds
+}
+
+/**
+ * Mode « page » : la feuille au format choisi, dessinée sur le canevas à l'échelle d'impression. La zone de
+ * dessin commence à l'origine du schéma ; marges, cartouche et légende sont autour, comme sur le PDF.
+ */
+export function pageFrame(opts: Pick<ExportSettings, 'paper' | 'orientation' | 'printScale'>, revisions = 0): PageFrame {
+  const l = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES_COUNT, revisions)
+  const k = 100 / (MM_PER_UNIT * opts.printScale)
+  const map = (r: { x: number; y: number; w: number; h: number }) => ({ x: (r.x - l.area.x) * k, y: (r.y - l.area.y) * k, w: r.w * k, h: r.h * k })
+  const legendRows = Math.ceil(SIGNAL_FAMILIES_COUNT / l.legend.cols)
+  return {
+    sheet: map({ x: 0, y: 0, w: l.w, h: l.h }),
+    area: map(l.area),
+    titleBlock: map({ x: l.titleBlock.x, y: l.revisions.h ? l.revisions.y : l.titleBlock.y, w: l.titleBlock.w, h: l.titleBlock.h + l.revisions.h }),
+    legend: map({ x: l.legend.x, y: l.legend.y, w: l.legend.cols * l.legend.colW, h: 10 + legendRows * l.legend.rowH }),
+  }
+}
+
 /** Repère d'une page dans l'assemblage : colonne en lettre, rangée en chiffre (A1, B1, A2...). */
 export const tileRef = (col: number, row: number) => `${String.fromCharCode(65 + (col % 26))}${row + 1}`
 
@@ -265,4 +294,31 @@ export function protectionLevel(p: ExportSettings['protection'], openPassword: s
 export function recipientsOf(ws: WatermarkSettings): string[] {
   if (!ws.enabled) return []
   return [...new Set((ws.recipients ?? []).map((r) => r.trim()).filter(Boolean))]
+}
+
+/**
+ * Nouveau projet en mode « page » : chaque feuille est ramenée dans la zone de dessin (coin haut gauche,
+ * petite marge) et l'échelle d'impression est choisie pour que la plus grande tienne (100 % au plus,
+ * par pas de 5 %). Un projet vide garde 100 %.
+ */
+export function fitProjectToPage(project: Project, paper: PaperSize, orientation: ExportSettings['orientation'], defaultSheetId: string): { project: Project; printScale: number } {
+  const { area } = sheetLayout(paper, orientation, SIGNAL_FAMILIES_COUNT, project.info?.revisions?.length ?? 0)
+  const sheetIds = [...new Set([defaultSheetId, ...(project.sheets ?? []).map((s) => s.id)])]
+  const bounds = new Map(sheetIds.map((id) => [id, sheetBounds(project, id, defaultSheetId)] as const))
+  let scale = 100
+  for (const b of bounds.values()) if (b) scale = Math.min(scale, fitScale({ ...b, w: b.w + 40, h: b.h + 40 }, area))
+  const printScale = Math.max(10, Math.floor(scale / 5) * 5)
+  const shift = (sheetId: string | undefined) => {
+    const b = bounds.get(sheetId ?? defaultSheetId)
+    return b ? { dx: 20 - b.x, dy: 20 - b.y } : { dx: 0, dy: 0 }
+  }
+  const equipment = Object.fromEntries(Object.entries(project.equipment).map(([k, e]) => {
+    const { dx, dy } = shift(e.sheetId)
+    return [k, { ...e, position: { x: Math.round(e.position.x + dx), y: Math.round(e.position.y + dy) } }]
+  }))
+  const annotations = project.annotations && Object.fromEntries(Object.entries(project.annotations).map(([k, a]) => {
+    const { dx, dy } = shift(a.sheetId)
+    return [k, { ...a, position: { x: Math.round(a.position.x + dx), y: Math.round(a.position.y + dy) } }]
+  }))
+  return { project: { ...project, equipment, annotations }, printScale }
 }

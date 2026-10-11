@@ -41,6 +41,8 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
   // Changement de format : on demande quoi faire du synoptique
   const propose = (paper: PaperSize, orientation: ExportSettings['orientation']) => {
     if (paper === value.paper && orientation === value.orientation) return
+    // Mode « page » : la feuille dessinée sur le canevas change de format, rien à demander
+    if (value.scaleMode === 'page') return onChange({ ...value, paper, orientation })
     setPending({ ...value, paper, orientation })
   }
   const pendingImpact = useMemo(() => (pending ? formatImpact(project, pending) : null), [project, pending])
@@ -79,7 +81,7 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
       )}
 
       <div className="segmented export-mode" role="radiogroup" aria-label={t('exportPdf.scaleMode')}>
-        {(['fit', 'tile'] as const).map((m) => (
+        {(['page', 'fit', 'tile'] as const).map((m) => (
           <button key={m} role="radio" aria-checked={value.scaleMode === m} aria-pressed={value.scaleMode === m} onClick={() => onChange({ ...value, scaleMode: m })}>
             {t(`exportPdf.mode.${m}`)}
           </button>
@@ -87,6 +89,17 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
       </div>
       {value.scaleMode === 'fit' ? (
         <p className="dialog-hint">{t('exportPdf.fitHint', { scale: impact.fit })}</p>
+      ) : value.scaleMode === 'page' ? (
+        <>
+          <div className="field export-scale">
+            <label htmlFor="print-scale">{t('exportPdf.printScale')}</label>
+            <input
+              id="print-scale" type="number" min={10} max={400} step={5} value={value.printScale}
+              onChange={(e) => onChange({ ...value, printScale: Math.min(400, Math.max(10, Number(e.target.value) || 100)) })}
+            />
+          </div>
+          <p className="dialog-hint">{t('exportPdf.pageHint')}</p>
+        </>
       ) : (
         <>
           <div className="field export-scale">

@@ -52,10 +52,18 @@ export async function pickSaveFolder(): Promise<string | null> {
  */
 export async function copyToSaveFolder(project: Project): Promise<void> {
   const st = useSaveFolder.getState()
-  if (!isTauri() || !st.dir || !st.autoCopy) return
+  if (!isTauri() || !st.autoCopy) return
   const { join } = await import('@tauri-apps/api/path')
   const { exists, readTextFile, writeTextFile } = await import('@tauri-apps/plugin-fs')
   try {
+    // Projet qui a son fichier (créé avec le projet, ouvert, enregistré) : la copie automatique le tient à jour
+    const own = st.projectFiles[project.id]
+    if (own) {
+      await writeTextFile(own, JSON.stringify(project, null, 2))
+      useSaveFolder.getState().setCopyResult({ at: new Date().toISOString(), path: own })
+      return
+    }
+    if (!st.dir) return
     let name = st.files[project.id]
     if (!name) {
       const base = slug(project.name)
@@ -75,6 +83,7 @@ export async function copyToSaveFolder(project: Project): Promise<void> {
     }
     const path = await join(st.dir, name)
     await writeTextFile(path, JSON.stringify(project, null, 2))
+    useSaveFolder.getState().setProjectFile(project.id, path)
     useSaveFolder.getState().setCopyResult({ at: new Date().toISOString(), path })
   } catch (e) {
     useSaveFolder.getState().setCopyResult(null, e instanceof Error ? e.message : String(e))
@@ -146,10 +155,54 @@ export function slug(name: string): string {
   return name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projet'
 }
 
-export async function saveProjectFile(project: Project): Promise<boolean> {
-  const ok = await saveContent(`${slug(project.name)}.avd`, JSON.stringify(project, null, 2), 'application/json')
+/**
+ * Enregistre le projet. Application de bureau : dans son fichier .avd s'il en a un (créé avec le projet,
+ * ouvert, ou déjà enregistré), sans fenêtre ; sinon, ou avec as = true (Enregistrer sous), la fenêtre
+ * d'enregistrement propose le dossier choisi et le fichier devient celui du projet.
+ */
+export async function saveProjectFile(project: Project, opts: { as?: boolean } = {}): Promise<boolean> {
+  const content = JSON.stringify(project, null, 2)
+  const known = useSaveFolder.getState().projectFiles[project.id]
+  if (isTauri()) {
+    const { save } = await import('@tauri-apps/plugin-dialog')
+    const { writeTextFile } = await import('@tauri-apps/plugin-fs')
+    let path: string | null = !opts.as && known ? known : null
+    if (!path) path = await save({ defaultPath: known ?? (await inSaveFolder(`${slug(project.name)}.avd`)), filters: [FILTERS.avd] })
+    if (!path) return false
+    try {
+      await writeTextFile(path, content)
+    } catch (e) {
+      // Fichier déplacé ou disque retiré : on redemande l'emplacement
+      if (path !== known) throw e
+      return saveProjectFile(project, { as: true })
+    }
+    useSaveFolder.getState().setProjectFile(project.id, path)
+    useSaveFolder.getState().markSavedToFile(project.id)
+    return true
+  }
+  const ok = await saveContent(`${slug(project.name)}.avd`, content, 'application/json')
   if (ok) useSaveFolder.getState().markSavedToFile(project.id)
   return ok
+}
+
+/**
+ * Nouveau projet enregistré tout de suite dans un dossier : <dossier>/<nom-du-projet>.avd (suffixe si un
+ * autre fichier porte déjà ce nom). Le dossier devient celui des projets s'il n'y en avait pas.
+ * Renvoie le chemin du fichier, ou null hors de l'application de bureau.
+ */
+export async function createProjectFile(project: Project, folder: string): Promise<string | null> {
+  if (!isTauri()) return null
+  const { join } = await import('@tauri-apps/api/path')
+  const { exists, writeTextFile } = await import('@tauri-apps/plugin-fs')
+  const base = slug(project.name)
+  let path = await join(folder, `${base}.avd`)
+  for (let n = 2; await exists(path); n++) path = await join(folder, `${base}-${n}.avd`)
+  await writeTextFile(path, JSON.stringify(project, null, 2))
+  const st = useSaveFolder.getState()
+  st.setProjectFile(project.id, path)
+  st.markSavedToFile(project.id)
+  if (!st.dir) st.setDir(folder)
+  return path
 }
 
 function parseProject(text: string): Project {
@@ -183,7 +236,10 @@ export async function openProjectFile(): Promise<Project | null> {
     const { readTextFile } = await import('@tauri-apps/plugin-fs')
     const path = await open({ multiple: false, directory: false, filters: [FILTERS.avd], defaultPath: useSaveFolder.getState().dir ?? undefined })
     if (!path) return null
-    return parseProject(await readTextFile(path))
+    const p = parseProject(await readTextFile(path))
+    // Ctrl+S enregistrera ensuite dans ce fichier
+    useSaveFolder.getState().setProjectFile(p.id, path)
+    return p
   }
   return new Promise((resolve, reject) => {
     const input = document.createElement('input')

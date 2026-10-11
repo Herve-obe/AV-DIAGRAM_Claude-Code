@@ -26,16 +26,33 @@ export function backupsToDelete(names: string[], base: string, keep: number): st
   return mine.slice(0, Math.max(0, mine.length - keep))
 }
 
+/** Premier dossier qu'on peut créer (le dossier du fichier peut ne pas être autorisé en écriture). */
+async function firstWritable(candidates: Promise<string>[], mkdir: (p: string, o: { recursive: boolean }) => Promise<void>): Promise<string> {
+  let last: unknown
+  for (const c of candidates) {
+    const path = await c
+    try {
+      await mkdir(path, { recursive: true })
+      return path
+    } catch (e) {
+      last = e
+    }
+  }
+  throw last ?? new Error('no folder')
+}
+
 /** Écrit une sauvegarde et supprime les plus anciennes. Sans effet hors de l'application de bureau. */
 export async function writeBackup(project: Project): Promise<void> {
   const st = useSaveFolder.getState()
-  if (!isTauri() || !st.dir || !st.backups) return
-  const { join } = await import('@tauri-apps/api/path')
+  const own = st.projectFiles[project.id]
+  if (!isTauri() || !st.backups || (!st.dir && !own)) return
+  const { dirname, join } = await import('@tauri-apps/api/path')
   const { mkdir, readDir, remove, writeTextFile } = await import('@tauri-apps/plugin-fs')
   const base = slug(project.name)
+  // À côté du fichier du projet (comme Pro Tools), sinon dans le dossier des projets
+  const roots = [...new Set([own ? await dirname(own) : null, st.dir].filter((r): r is string => !!r))]
   try {
-    const folder = await join(st.dir, BACKUP_DIR, base)
-    await mkdir(folder, { recursive: true })
+    const folder = await firstWritable(roots.map((r) => join(r, BACKUP_DIR, base)), mkdir)
     const path = await join(folder, backupName(base, new Date()))
     await writeTextFile(path, JSON.stringify(project, null, 2))
     const names = (await readDir(folder)).filter((e) => e.isFile).map((e) => e.name)
@@ -56,7 +73,7 @@ export function startBackups(getProject: () => Project): () => void {
   const tick = () => {
     const st = useSaveFolder.getState()
     const p = getProject()
-    if (!st.dir || !st.backups || p === lastSaved) return
+    if ((!st.dir && !st.projectFiles[p.id]) || !st.backups || p === lastSaved) return
     if (Date.now() - lastAt < st.backupEvery * 60_000) return
     lastSaved = p
     lastAt = Date.now()

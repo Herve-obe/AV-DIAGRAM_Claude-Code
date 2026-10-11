@@ -82,6 +82,9 @@
   libres, ajouter N exemplaires), aide sur le schéma vide ; ports compatibles allumés pendant une liaison.
 - Sauvegardes de sécurité tournantes (dossier Sauvegardes, délai et nombre réglables, la plus ancienne
   remplacée) ; zoom par pincement sur pavé tactile (Windows : Ctrl + molette ; macOS : gestes WebKit).
+- Nouveau projet : nom, dossier (fichier .avd créé tout de suite ; Ctrl+S y enregistre, Ctrl+Maj+S :
+  enregistrer sous), format de la feuille et point de départ. Mode d'export « Page » : la feuille (bords, zone
+  de dessin, cartouche, légende) est dessinée sur le schéma à l'échelle d'impression, éléments hors cadre signalés.
 - Double écran : bouton de la barre du haut ; fenêtre « Infos » (inspecteur et listes), ouverte sur le
   deuxième écran s'il existe, synchronisée avec le schéma (projet, sélection, annulation, alignement).
 - Limites : voies ordonnées et poignée pour les ports à gauche ou à droite seulement (blocs pivotés : tracé

@@ -17,6 +17,9 @@ interface SaveFolderState {
   lastBackup: { at: string; path: string } | null
   /** Fichier de chaque projet dans le dossier (deux projets du même nom ne s'écrasent pas) */
   files: Record<string, string>
+  /** Fichier .avd de chaque projet (chemin complet) : Ctrl+S y enregistre sans redemander */
+  projectFiles: Record<string, string>
+  setProjectFile: (projectId: string, path: string) => void
   /** Dernière copie réussie (ISO) ou message d'erreur, pour l'affichage */
   lastCopy: { at: string; path: string } | null
   lastError: string | null
@@ -31,7 +34,7 @@ interface SaveFolderState {
   setBackupResult: (r: { at: string; path: string } | null, error?: string | null) => void
 }
 
-type Stored = Pick<SaveFolderState, 'dir' | 'autoCopy' | 'files' | 'backups' | 'backupEvery' | 'backupCount'>
+type Stored = Pick<SaveFolderState, 'dir' | 'autoCopy' | 'files' | 'projectFiles' | 'backups' | 'backupEvery' | 'backupCount'>
 const DEFAULTS = { backups: true, backupEvery: 5, backupCount: 10 }
 
 function read(): Stored {
@@ -40,6 +43,7 @@ function read(): Stored {
     if (v && typeof v === 'object') {
       return {
         dir: typeof v.dir === 'string' ? v.dir : null, autoCopy: v.autoCopy !== false, files: v.files ?? {},
+        projectFiles: v.projectFiles ?? {},
         backups: v.backups !== false,
         backupEvery: Number(v.backupEvery) > 0 ? Number(v.backupEvery) : DEFAULTS.backupEvery,
         backupCount: Number(v.backupCount) > 0 ? Number(v.backupCount) : DEFAULTS.backupCount,
@@ -48,14 +52,14 @@ function read(): Stored {
   } catch {
     // stockage indisponible
   }
-  return { dir: null, autoCopy: true, files: {}, ...DEFAULTS }
+  return { dir: null, autoCopy: true, files: {}, projectFiles: {}, ...DEFAULTS }
 }
 
 export const useSaveFolder = create<SaveFolderState>((set, get) => {
   const persist = () => {
-    const { dir, autoCopy, files, backups, backupEvery, backupCount } = get()
+    const { dir, autoCopy, files, projectFiles, backups, backupEvery, backupCount } = get()
     try {
-      localStorage.setItem(KEY, JSON.stringify({ dir, autoCopy, files, backups, backupEvery, backupCount }))
+      localStorage.setItem(KEY, JSON.stringify({ dir, autoCopy, files, projectFiles, backups, backupEvery, backupCount }))
     } catch {
       // stockage indisponible : le réglage vaut pour la session
     }
@@ -70,6 +74,7 @@ export const useSaveFolder = create<SaveFolderState>((set, get) => {
     // Nouveau dossier : les noms de fichiers mémorisés ne valent plus
     setDir: (dir) => { set({ dir, files: {}, lastCopy: null, lastError: null }); persist() },
     setAutoCopy: (autoCopy) => { set({ autoCopy }); persist() },
+    setProjectFile: (projectId, path) => { set({ projectFiles: { ...get().projectFiles, [projectId]: path } }); persist() },
     setFile: (projectId, name) => { set({ files: { ...get().files, [projectId]: name } }); persist() },
     setCopyResult: (lastCopy, error = null) => set({ lastCopy, lastError: error }),
     setBackups: (patch) => { set(patch); persist() },
