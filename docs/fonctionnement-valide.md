@@ -30,6 +30,21 @@ Pour ouvrir un autre schéma, quitter ou terminer d’abord la session. Une ouve
 
 Si un poste de secours a repris l’hébergement après une panne, il conserve la session à jour. Le poste initial qui reprend rejoint ce secours ; l’hébergement ne revient pas automatiquement chez lui. Cela évite qu’un ancien état remplace les modifications faites pendant son absence.
 
+## Canevas et équipements à nombreux ports
+
+Le format et l'orientation définissent des pages fixes à 100 %. Dépasser un bord ajoute des pages,
+sans réduire le dessin ni déplacer les équipements. Les pointillés montrent la zone de dessin de
+chaque page, hors marges, légende et cartouche. La touche F recadre sur toutes les pages.
+
+À l'export : **Mettre à l'échelle sur une page** ou **Conserver sur plusieurs pages**. Le choix
+ne change pas le canevas. Le total annoncé est une estimation ; le PDF utilise les dimensions
+affichées et les tracés du routeur. La vue et la sélection sont restaurées après l'export.
+
+Au-delà de 16 ports, les appareils montrent uniquement les ports reliés. **Ajouter une connexion**
+révèle un port libre choisi dans la liste ; il faut ensuite tirer le câble depuis ou vers ce port.
+**Tous les ports** ouvre la vue complète ; **Ports reliés** la replie. Les renvois vers les autres
+feuilles restent visibles. Ces actions d'affichage sont propres au poste et ne modifient pas les droits.
+
 ## Vérification avant fusion
 
 Pour compléter les simulations par un essai sur trois ordinateurs :
@@ -41,6 +56,6 @@ Pour compléter les simulations par un essai sur trois ordinateurs :
 5. Modifier le schéma sans enregistrer, puis rouvrir le fichier principal depuis une autre copie de l’application : il doit contenir la dernière version enregistrée manuellement. Ctrl+S / Cmd+S doit ensuite mettre ce fichier à jour.
 6. Régler une rotation courte, attendre une copie de plus que le nombre conservé et vérifier le contenu de « Save Back Up ». Tester aussi un emplacement devenu inaccessible : l’erreur d’écriture doit garder le projet ouvert et non enregistré.
 
-Les 184 tests TypeScript passent localement ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
+Les 194 tests TypeScript passent localement ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
 
-La CI de la PR au commit `a98f794` réussit sur GitHub, avec les 184 tests TypeScript, la compilation Windows et dix tests natifs. Le test de relais manuel reste ignoré, comme prévu. Les essais avec dialogues natifs, disques réels et trois ordinateurs restent à faire, notamment les pannes et reprises. Deux hôtes isolés par une coupure ne fusionnent pas automatiquement leurs documents : il faut conserver leurs fichiers avant une fusion manuelle.
+La CI de la PR vérifie les tests TypeScript et la compilation Windows, avec dix tests natifs. Le test de relais manuel reste ignoré, comme prévu. Les essais avec dialogues natifs, disques réels et trois ordinateurs restent à faire, notamment les pannes et reprises. Deux hôtes isolés par une coupure ne fusionnent pas automatiquement leurs documents : il faut conserver leurs fichiers avant une fusion manuelle.

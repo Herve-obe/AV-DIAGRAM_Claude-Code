@@ -820,15 +820,15 @@
     "choiceTileHint_other": "Le schéma reste à {{scale}} % et peut déborder : {{count}} pages {{paper}} au total, à assembler (repères A1, B1...).",
     "scaleMode": "Échelle",
     "mode": {
-      "fit": "Mise à l'échelle (1 page par feuille)",
-      "tile": "Taille fixe (plusieurs pages si besoin)",
+      "fit": "Mettre à l’échelle sur une page",
+      "tile": "Conserver sur plusieurs pages",
       "page": "Page ajustée (feuille visible sur le schéma)"
     },
-    "fitHint": "Le schéma le plus grand est imprimé à environ {{scale}} % (100 % : 1 unité du schéma = 0,25 mm).",
+    "fitHint": "Chaque feuille sera réduite si nécessaire pour tenir sur une page. Les petits schémas ne sont pas agrandis. Échelle estimée : {{scale}} %. Le canevas de travail reste inchangé.",
     "printScale": "Échelle d'impression (%)",
-    "tileHint_one": "{{count}} page {{paper}} au total.",
-    "tileHint_other": "{{count}} pages {{paper}} au total (jusqu'à {{max}} pour une feuille) : le découpage est dessiné en pointillés sur le canevas.",
-    "pageLabel": "{{ref}} · {{paper}}",
+    "tileHint_one": "Estimation : {{count}} page {{paper}} à l’échelle choisie. Le nombre final utilise les dimensions affichées.",
+    "tileHint_other": "Estimation : {{count}} pages {{paper}} (jusqu’à {{max}} pour une feuille). Le nombre final utilise les dimensions affichées.",
+    "pageLabel": "{{paper}} · {{ref}} · zone de dessin",
     "watermarkEnable": "Filigrane présent",
     "watermarkText": "Texte du filigrane",
     "watermarkFields": "Champs remplacés : {client}, {project}, {date}, {revision}, {number}, {recipient}.",
@@ -887,7 +887,8 @@
       "deterrent": "le PDF s'ouvre partout ; copie et modification bloquées par les lecteurs courants, mais un outil spécialisé peut lever ces restrictions.",
       "strong": "contenu chiffré (AES-256), illisible sans le mot de passe d'ouverture. Le transmettre par un autre canal que le PDF."
     },
-    "pageHint": "Les bords de la feuille sont affichés en pointillés derrière le schéma, cartouche et légende compris. La feuille suit le schéma : à 100 % tant qu'il tient, agrandie (échelle réduite) au-delà. Touche F : voir toute la feuille."
+    "pageHint": "Les bords de la feuille sont affichés en pointillés derrière le schéma, cartouche et légende compris. La feuille suit le schéma : à 100 % tant qu'il tient, agrandie (échelle réduite) au-delà. Touche F : voir toute la feuille.",
+    "canvasHint": "Le canevas garde des pages à 100 %. Les pointillés délimitent la zone de dessin, hors marges, légende et cartouche. Dépasser ajoute des pages ; le choix d’export ne déplace aucun équipement."
   },
   "titleBlock": {
     "owner": "Propriétaire légal",
@@ -1144,5 +1145,14 @@
     "titleBlock": "Cartouche",
     "legend": "Légende",
     "labelFitted": "{{paper}} {{orientation}} · ajusté à {{scale}} %"
+  },
+  "portDisplay": {
+    "free": "{{inputs}} entrées libres · {{outputs}} sorties libres",
+    "all": "Tous les ports",
+    "fold": "Ports reliés",
+    "add": "Ajouter une connexion",
+    "choose": "Choisir un port libre",
+    "dragHint": "Tirez un câble depuis le port choisi, ou vers celui-ci.",
+    "cancel": "Masquer ce port"
   }
 }

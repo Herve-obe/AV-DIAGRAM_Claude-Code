@@ -347,7 +347,7 @@ export interface ExportSettings {
    * fit : chaque feuille est mise à l'échelle pour tenir sur une page ;
    * tile : taille fixe (échelle d'impression), le schéma s'étend sur plusieurs pages si besoin
    */
-  /** fit : 1 page mise à l'échelle ; tile : taille fixe, plusieurs pages ; page : 1 page dessinée sur le canevas */
+  /** Choix d'export uniquement. « page » : ancien fichier, lu comme « fit ». Le canevas garde ses pages fixes. */
   scaleMode: 'fit' | 'tile' | 'page'
   /** Échelle d'impression en mode tile, en % (100 % : 1 unité du schéma = 0,25 mm) */
   printScale: number

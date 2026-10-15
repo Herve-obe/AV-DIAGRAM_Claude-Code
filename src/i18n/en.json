@@ -820,15 +820,15 @@
     "choiceTileHint_other": "The diagram stays at {{scale}} % and may overflow: {{count}} {{paper}} pages in total, to assemble (marks A1, B1...).",
     "scaleMode": "Scale",
     "mode": {
-      "fit": "Scale to fit (1 page per sheet)",
-      "tile": "Fixed size (several pages if needed)",
+      "fit": "Scale to one page",
+      "tile": "Keep multiple pages",
       "page": "Fitted page (sheet shown on the diagram)"
     },
-    "fitHint": "The largest diagram is printed at about {{scale}} % (100 %: 1 diagram unit = 0.25 mm).",
+    "fitHint": "Each sheet is reduced if needed to fit one page. Small diagrams are not enlarged. Estimated scale: {{scale}}%. The working canvas stays unchanged.",
     "printScale": "Print scale (%)",
-    "tileHint_one": "{{count}} {{paper}} page in total.",
-    "tileHint_other": "{{count}} {{paper}} pages in total (up to {{max}} for one sheet): the page split is drawn as dashed lines on the canvas.",
-    "pageLabel": "{{ref}} · {{paper}}",
+    "tileHint_one": "Estimate: {{count}} {{paper}} page at the selected scale. The final count uses displayed dimensions.",
+    "tileHint_other": "Estimate: {{count}} {{paper}} pages (up to {{max}} per sheet). The final count uses displayed dimensions.",
+    "pageLabel": "{{paper}} · {{ref}} · drawing area",
     "watermarkEnable": "Watermark on",
     "watermarkText": "Watermark text",
     "watermarkFields": "Replaced fields: {client}, {project}, {date}, {revision}, {number}, {recipient}.",
@@ -887,7 +887,8 @@
       "deterrent": "the PDF opens everywhere; copy and editing are blocked by common readers, but a specialised tool can lift these restrictions.",
       "strong": "content encrypted (AES-256), unreadable without the open password. Send it through another channel than the PDF."
     },
-    "pageHint": "The sheet edges are shown as dashed lines behind the diagram, title block and legend included. The sheet follows the diagram: 100% while it fits, enlarged (smaller scale) beyond. F key: show the whole sheet."
+    "pageHint": "The sheet edges are shown as dashed lines behind the diagram, title block and legend included. The sheet follows the diagram: 100% while it fits, enlarged (smaller scale) beyond. F key: show the whole sheet.",
+    "canvasHint": "The canvas keeps fixed pages at 100%. Dashed lines mark the drawing area, excluding margins, legend and title block. Overflow adds pages; the export choice never moves equipment."
   },
   "titleBlock": {
     "owner": "Legal owner",
@@ -1144,5 +1145,14 @@
     "titleBlock": "Title block",
     "legend": "Legend",
     "labelFitted": "{{paper}} {{orientation}} · fitted at {{scale}}%"
+  },
+  "portDisplay": {
+    "free": "{{inputs}} free inputs · {{outputs}} free outputs",
+    "all": "All ports",
+    "fold": "Connected ports",
+    "add": "Add a connection",
+    "choose": "Choose a free port",
+    "dragHint": "Drag a cable from or to the selected port.",
+    "cancel": "Hide this port"
   }
 }

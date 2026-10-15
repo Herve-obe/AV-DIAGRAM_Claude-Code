@@ -129,9 +129,11 @@ export function Canvas() {
     const onSheet = (sheetId?: string) => (sheetId ?? DEFAULT_SHEET_ID) === currentSheetId
     // Renvois : poignée affichée dont l'autre extrémité n'est pas visible sur cette feuille
     const offPage = new Map<string, Record<string, string>>()
+    const connected = new Map<string, string[]>()
     const mark = (end: { node: string; handle: string }, otherSheet: string | undefined) =>
       offPage.set(end.node, { ...offPage.get(end.node), [end.handle]: sheetName(project, otherSheet) })
     for (const l of Object.values(project.links)) {
+      for (const end of [l.source, l.target]) connected.set(end.equipmentId, [...(connected.get(end.equipmentId) ?? []), end.portId])
       const a = endpointOnView(project, l.source, currentSheetId)
       const b = endpointOnView(project, l.target, currentSheetId)
       if (a && !b) mark(a, project.equipment[l.target.equipmentId]?.sheetId)
@@ -178,6 +180,7 @@ export function Canvas() {
           position: eq.position,
           data: {
             equipment: eq,
+            connectedPorts: connected.get(eq.id) ?? [],
             compact: mode === 'beginner',
             offPage: offPage.get(eq.id) ?? {},
             layer,

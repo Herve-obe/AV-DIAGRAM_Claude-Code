@@ -4,12 +4,31 @@
 import { useEffect, useRef } from 'react'
 import { useStore, type Edge, type InternalNode, type Node } from '@xyflow/react'
 import { create } from 'zustand'
+import { boundsOf, renderedBounds, type Bounds } from '../io/exportOptions'
 import { placeLabels, routeAll, type Point, type Rect, type RouteEnd, type RouteRequest } from '../model/routing'
 
 export const useRoutes = create<{ routes: Map<string, Point[]>; labels: Map<string, Point> }>(() => ({ routes: new Map(), labels: new Map() }))
 
 /** Taille approximative d'une étiquette de câble (police à chasse fixe de 10 px, voir .edge-label). */
 const labelSize = (text: string) => ({ w: text.length * 6 + 12, h: 16 })
+
+/** Même encombrement pour les pages du canevas et le PDF : blocs, détours et étiquettes visibles. */
+export function drawingBounds(nodes: Node[], edges: Edge[], routing = useRoutes.getState()): Bounds | null {
+  const boxes: Bounds[] = []
+  const content = renderedBounds(nodes)
+  if (content) boxes.push(content)
+  for (const edge of edges) {
+    if (edge.hidden) continue
+    for (const p of routing.routes.get(edge.id) ?? []) boxes.push({ x: p.x - 2, y: p.y - 2, w: 4, h: 4 })
+    const data = edge.data as { label?: string; showLabel?: boolean; severity?: string } | undefined
+    const at = routing.labels.get(edge.id)
+    if (at && data?.label && (data.showLabel || edge.selected || data.severity)) {
+      const size = labelSize(data.label)
+      boxes.push({ x: at.x - size.w / 2, y: at.y - size.h / 2, ...size })
+    }
+  }
+  return boundsOf(boxes)
+}
 
 /** Types de nœuds qui font obstacle (les notes et cadres ne gênent pas les câbles). */
 const OBSTACLE_TYPES = new Set(['equipment', 'subsheet'])

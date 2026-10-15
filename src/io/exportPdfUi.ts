@@ -3,13 +3,13 @@
 // La feuille et la vue courantes sont rétablies ensuite. Fournit aussi les libellés traduits.
 import type { ReactFlowInstance } from '@xyflow/react'
 import type { TFunction } from 'i18next'
-import { DEFAULT_SHEET_ID } from '../model/project'
+import { drawingBounds } from '../editor/EdgeRouter'
 import { SIGNAL_FAMILIES } from '../model/signals'
-import { DOCUMENT_STATUSES, type Project, type ProjectInfo } from '../model/types'
+import { DOCUMENT_STATUSES, type ExportSettings, type ProjectInfo } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useTitleBlock } from '../store/titleBlockStore'
 import { useUi } from '../store/uiStore'
-import { boundsOf, exportSettingsOf, fittedPage, sheetBounds, sheetLayout, tileRef, tilesFor } from './exportOptions'
+import { exportSettingsOf, MM_PER_UNIT, sheetsToExport, sheetLayout, tileRef, tilesFor } from './exportOptions'
 import { notifyError } from './files'
 import { captureCanvasLight, exportPdf, type ExportPasswords, type PdfLabels, type SheetShot } from './pdf'
 
@@ -45,17 +45,6 @@ export function pdfLabels(t: TFunction): PdfLabels {
   }
 }
 
-/** Feuilles à exporter : celles qui ont du contenu (au moins une). */
-function sheetsToExport(project: Project, current: string) {
-  const all = project.sheets?.length ? project.sheets : [{ id: current, name: '' }]
-  const used = new Set([
-    ...Object.values(project.equipment).map((e) => e.sheetId ?? DEFAULT_SHEET_ID),
-    ...Object.values(project.annotations ?? {}).map((a) => a.sheetId ?? DEFAULT_SHEET_ID),
-  ])
-  const nonEmpty = all.filter((s) => used.has(s.id))
-  return nonEmpty.length ? nonEmpty : all.slice(0, 1)
-}
-
 /** Donne au canevas une taille fixe (en px) le temps des captures ; renvoie la fonction de retour. */
 function sizeCanvas(width: number, height: number): () => void {
   const el = document.querySelector<HTMLElement>('.react-flow')
@@ -75,10 +64,10 @@ const captureWidth = (areaW: number) => Math.min(4000, Math.max(1600, areaW * 4)
  * Exporte la planche PDF. info : champs du cartouche saisis dans la fenêtre d'export ;
  * passwords : mots de passe de protection (jamais enregistrés).
  */
-export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, info: ProjectInfo, passwords?: ExportPasswords): Promise<number> {
+export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, info: ProjectInfo, passwords?: ExportPasswords, options?: ExportSettings): Promise<number> {
   const project = useProject.getState().project
-  const opts = exportSettingsOf(project)
-  const initial = useUi.getState().currentSheetId
+  const opts = options ?? exportSettingsOf(project)
+  const { currentSheetId: initial, selectedEquipment, selectedLinks } = useUi.getState()
   const initialViewport = rf.getViewport()
   const sheets = sheetsToExport(project, initial)
   const { area } = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, info.revisions?.length ?? 0)
@@ -90,37 +79,24 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
       useUi.getState().setSheet(sheet.id)
       await wait(250) // rendu et mesure des blocs de la feuille
       const name = sheets.length > 1 ? sheet.name : ''
-      if (opts.scaleMode === 'fit') {
-        // Cadrage borné dans le temps : sur une feuille vide, fitView peut ne jamais se résoudre
-        await Promise.race([rf.fitView({ padding: 0.06, maxZoom: 1.5 }), wait(600)])
-        await wait(250)
-        const shot = await captureCanvasLight()
-        if (shot) shots.push({ ...shot, name })
-        continue
-      }
-      // Page ajustée : exactement la zone de dessin de la feuille affichée sur le canevas
-      if (opts.scaleMode === 'page') {
-        const content = boundsOf(rf.getNodes().filter((n) => !n.hidden && n.measured?.width && n.measured.height)
-          .map((n) => ({ x: n.position.x, y: n.position.y, w: n.measured!.width!, h: n.measured!.height! })))
-        const f = fittedPage(opts, info.revisions?.length ?? 0, content)
-        const zoom = capW / f.area.w
-        await rf.setViewport({ x: -f.area.x * zoom, y: -f.area.y * zoom, zoom })
+      const bounds = drawingBounds(rf.getNodes(), rf.getEdges())
+      if (opts.scaleMode !== 'tile') {
+        // Inclure aussi les détours et étiquettes ; ne pas agrandir les petits schémas.
+        const capH = capW * area.h / area.w
+        const zoom = bounds ? Math.min(MM_PER_UNIT * capW / area.w, capW / (bounds.w + 80), capH / (bounds.h + 80)) : 1
+        await rf.setViewport({ x: bounds ? (capW - bounds.w * zoom) / 2 - bounds.x * zoom : 0,
+          y: bounds ? (capH - bounds.h * zoom) / 2 - bounds.y * zoom : 0, zoom })
         await wait(250)
         const shot = await captureCanvasLight()
         if (shot) shots.push({ ...shot, name })
         continue
       }
       // Taille fixe : une capture par page de l'assemblage, à l'échelle d'impression
-      const measured = new Map(
-        rf.getNodes().filter((n) => n.measured?.width && n.measured.height).map((n) => [n.id, { w: n.measured!.width!, h: n.measured!.height! }]),
-      )
-      const bounds = sheetBounds(project, sheet.id, DEFAULT_SHEET_ID, measured)
-      if (!bounds) continue
       const tiles = tilesFor(bounds, area, opts.printScale)
       const zoom = capW / tiles.tileW
       for (let r = 0; r < tiles.rows; r++) {
         for (let c = 0; c < tiles.cols; c++) {
-          await rf.setViewport({ x: -(bounds.x + c * tiles.tileW) * zoom, y: -(bounds.y + r * tiles.tileH) * zoom, zoom })
+          await rf.setViewport({ x: -(tiles.x + c * tiles.tileW) * zoom, y: -(tiles.y + r * tiles.tileH) * zoom, zoom })
           await wait(200)
           const shot = await captureCanvasLight()
           if (shot) shots.push({ ...shot, name, tile: tiles.cols * tiles.rows > 1 ? tileRef(c, r) : undefined })
@@ -135,6 +111,7 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
   } finally {
     restore()
     useUi.getState().setSheet(initial)
+    useUi.getState().select(selectedEquipment, selectedLinks)
     await wait(120)
     await rf.setViewport(initialViewport)
   }

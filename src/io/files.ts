@@ -266,7 +266,7 @@ export async function exportCanvasImage(project: Project, format: 'png' | 'svg')
   if (!el) return
   const bg = getComputedStyle(document.documentElement).getPropertyValue('--canvas').trim()
   const filter = (node: HTMLElement) =>
-    !node.classList?.contains('react-flow__minimap') && !node.classList?.contains('react-flow__controls') && !node.classList?.contains('react-flow__attribution')
+    !['react-flow__minimap', 'react-flow__controls', 'react-flow__attribution', 'react-flow__background', 'page-grid', 'eq-port-tools'].some(c => node.classList?.contains(c))
   const opts = { backgroundColor: bg, filter, pixelRatio: 2 }
   const name = `${slug(project.name)}.${format}`
   // Filigrane de l'export PDF, appliqué aussi aux images

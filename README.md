@@ -11,6 +11,8 @@ Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/eta
 ## Fonctions disponibles
 
 - Bibliothèque de blocs génériques, par glisser-déposer ou double-clic
+- Équipements volumineux repliés sur leurs ports reliés, avec accès aux ports libres et vue complète
+- Canevas à pages fixes selon le format choisi ; à l'export PDF, mise à l'échelle sur une page ou conservation sur plusieurs pages
 - Liaisons typées : 10 familles de signaux, chacune avec sa couleur et son style de trait, et des filtres d'affichage
 - Contrôle de compatibilité : signal, niveau (micro, ligne +4 dBu, HP), connecteurs, sens, ports occupés
 - Numérotation automatique des câbles (`ZONE-TYPE-NUM`), renumérotation

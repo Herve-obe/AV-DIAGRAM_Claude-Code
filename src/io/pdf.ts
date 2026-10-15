@@ -26,7 +26,7 @@ export async function captureCanvasLight(pixelRatio = 2.5): Promise<{ dataUrl: s
   await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
   try {
     const filter = (node: HTMLElement) =>
-      !['react-flow__minimap', 'react-flow__controls', 'react-flow__attribution', 'page-grid'].some((c) => node.classList?.contains(c))
+      !['react-flow__minimap', 'react-flow__controls', 'react-flow__attribution', 'react-flow__background', 'page-grid', 'eq-port-tools'].some((c) => node.classList?.contains(c))
     const ratio = Math.min(pixelRatio, Math.sqrt(MAX_PIXELS / Math.max(1, el.clientWidth * el.clientHeight)))
     // JPEG haute qualité : fichier léger, traits nets sur fond blanc
     const dataUrl = await toJpeg(el, { backgroundColor: '#ffffff', filter, pixelRatio: ratio, quality: 0.92 })

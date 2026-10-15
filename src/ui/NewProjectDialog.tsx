@@ -34,7 +34,6 @@ function NewProjectForm() {
   const [folder, setFolder] = useState<string | null>(useSaveFolder.getState().dir)
   const [paper, setPaper] = useState<PaperSize>('A3')
   const [orientation, setOrientation] = useState<ExportSettings['orientation']>('landscape')
-  const [showPage, setShowPage] = useState(true)
   const [template, setTemplate] = useState<TemplateId>('blank')
   const [busy, setBusy] = useState(false)
   const size = pageSize(paper, orientation)
@@ -51,10 +50,10 @@ function NewProjectForm() {
     try {
       const base = buildTemplate(template, name.trim() || t('menu.newProjectName'))
       const named = { ...base, name: name.trim() || base.name }
-      // Feuille ajustée au schéma : pas d'échelle à choisir (100 % tant que le schéma tient)
+      // Les pages gardent leur taille ; le choix de réduction se fait à l'export.
       const exportSettings: ExportSettings = {
         ...DEFAULT_EXPORT, ...named.settings.export,
-        paper, orientation, scaleMode: showPage ? 'page' : 'fit', printScale: 100,
+        paper, orientation, scaleMode: 'tile', printScale: 100,
       }
       const project = { ...named, settings: { ...named.settings, export: exportSettings } }
       if (desktop && folder) await createProjectFile(project, folder)
@@ -112,10 +111,7 @@ function NewProjectForm() {
               </div>
               <span className="dim small">{t('exportPdf.size', { w: size.w, h: size.h })}</span>
             </div>
-            <label className="check-line np-row">
-              <input type="checkbox" checked={showPage} onChange={(e) => setShowPage(e.target.checked)} />
-              {t('newProject.showPage')}
-            </label>
+            <p className="dialog-hint">{t('exportPdf.canvasHint')}</p>
           </section>
           <section className="np-section">
             <h3 className="group-title">{t('newProject.start')}</h3>
