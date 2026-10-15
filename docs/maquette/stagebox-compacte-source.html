@@ -1,0 +1,97 @@
+<div id="av-stagebox-demo" class="viz-dotted-background" lang="fr">
+  <div class="av-demo-label">Affichage proposé · exemple avec 5 connexions</div>
+  <section class="av-box" aria-label="Stagebox plateau, 32 entrées et 24 sorties">
+    <header class="av-head">
+      <div><strong>Stagebox plateau</strong><span>32 entrées · 24 sorties</span></div>
+      <span class="av-reference">SB-01</span>
+    </header>
+    <div class="av-view" role="group" aria-label="Ports affichés">
+      <button type="button" data-mode="used" aria-pressed="true">Ports reliés</button>
+      <button type="button" data-mode="all" aria-pressed="false">Tous les ports</button>
+    </div>
+    <div class="av-port-titles"><span>Entrées</span><span>Sorties</span></div>
+    <div class="av-port-columns"><div data-inputs></div><div data-outputs></div></div>
+    <div class="av-free" data-free aria-live="polite"></div>
+    <details class="av-add">
+      <summary class="cursor-interaction">+ Ajouter une connexion</summary>
+      <form>
+        <label for="av-free-port">Port libre</label>
+        <select id="av-free-port" required></select>
+        <button type="submit">Relier dans l’exemple</button>
+      </form>
+    </details>
+  </section>
+</div>
+<style>
+#av-stagebox-demo { --av-surface:light-dark(#ffffff,#22282e); --av-head:light-dark(#edf1f5,#303943); --av-text:light-dark(#1f2933,#edf1f5); --av-muted:light-dark(#526172,#b8c5d2); --av-border:light-dark(#b7c2cc,#53616d); --av-active:light-dark(#245e7a,#9ad0e8); --av-active-fill:light-dark(#e4f0f6,#274554); --av-audio:light-dark(#247248,#87d5a4); color:var(--av-text); padding:18px 8px; font:14px system-ui,sans-serif; }
+#av-stagebox-demo * { box-sizing:border-box; }
+#av-stagebox-demo .av-demo-label { color:var(--av-muted); font-size:12px; margin:0 auto 12px; max-width:400px; padding-right:60px; }
+#av-stagebox-demo .av-box { width:min(100%,400px); margin:auto; background:var(--av-surface); border:1px solid var(--av-border); border-radius:8px; }
+#av-stagebox-demo .av-head { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; padding:13px 14px; border-bottom:1px solid var(--av-border); border-radius:8px 8px 0 0; background:var(--av-head); }
+#av-stagebox-demo .av-head strong { display:block; font-weight:500; font-size:16px; }
+#av-stagebox-demo .av-head span { display:block; color:var(--av-muted); font-size:12px; margin-top:3px; }
+#av-stagebox-demo .av-reference { font-family:monospace; }
+#av-stagebox-demo .av-view { display:flex; flex-wrap:wrap; gap:5px; padding:10px 12px; }
+#av-stagebox-demo button { border:1px solid var(--av-border); background:var(--av-surface); color:var(--av-text); border-radius:5px; padding:7px 10px; font:inherit; }
+#av-stagebox-demo button[aria-pressed="true"] { background:var(--av-active-fill); border-color:var(--av-active); color:var(--av-active); }
+#av-stagebox-demo .av-port-titles,#av-stagebox-demo .av-port-columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:20px; padding:0 12px; }
+#av-stagebox-demo .av-port-titles { color:var(--av-muted); font-size:12px; padding-bottom:4px; }
+#av-stagebox-demo .av-port-titles span:last-child { text-align:right; }
+#av-stagebox-demo .av-port { min-height:39px; padding:5px 0; color:var(--av-muted); overflow-wrap:anywhere; }
+#av-stagebox-demo .av-port.is-connected { color:var(--av-text); }
+#av-stagebox-demo .av-port strong { font:500 12px monospace; display:flex; align-items:center; gap:6px; }
+#av-stagebox-demo .av-port.is-connected strong::before { content:""; width:7px; height:7px; flex:none; background:var(--av-audio); border-radius:50%; }
+#av-stagebox-demo .av-port span { display:block; font-size:12px; margin-top:2px; }
+#av-stagebox-demo [data-outputs] { text-align:right; }
+#av-stagebox-demo [data-outputs] strong { flex-direction:row-reverse; }
+#av-stagebox-demo .av-free { border-top:1px solid var(--av-border); padding:10px 12px; margin-top:8px; font-size:12px; color:var(--av-muted); }
+#av-stagebox-demo .av-add { border-top:1px solid var(--av-border); padding:11px 12px; }
+#av-stagebox-demo summary { color:var(--av-active); }
+#av-stagebox-demo form { display:grid; gap:8px; margin-top:12px; }
+#av-stagebox-demo label { font-size:12px; }
+#av-stagebox-demo select { width:100%; min-width:0; padding:8px; border:1px solid var(--av-border); background:var(--av-surface); color:var(--av-text); border-radius:5px; font:inherit; }
+@media(pointer:coarse) { #av-stagebox-demo button,#av-stagebox-demo select,#av-stagebox-demo summary { min-height:44px; } #av-stagebox-demo select { font-size:16px; } }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('av-stagebox-demo');
+  const inputBox = root.querySelector('[data-inputs]');
+  const outputBox = root.querySelector('[data-outputs]');
+  const select = root.querySelector('select');
+  const free = root.querySelector('[data-free]');
+  const seeded = [['in1','Voix 1'],['in2','Voix 2'],['in9','Clavier'],['out1','Retour cour'],['out2','Retour jardin']];
+  const ports = [ ...Array.from({length:32},(_,i)=>({id:'in'+(i+1),name:'IN '+String(i+1).padStart(2,'0'),side:'in'})), ...Array.from({length:24},(_,i)=>({id:'out'+(i+1),name:'OUT '+String(i+1).padStart(2,'0'),side:'out'})) ];
+  let mode = 'used';
+  let connections = new Map(seeded);
+  function restore(state) {
+    const saved = state?.privateContent;
+    if (!saved || !Array.isArray(saved.connections)) return;
+    connections = new Map(saved.connections.filter(pair => Array.isArray(pair) && ports.some(p=>p.id===pair[0]) && typeof pair[1]==='string').map(pair=>[pair[0],pair[1].slice(0,60)]));
+    mode = saved.mode === 'all' ? 'all' : 'used';
+  }
+  function save() {
+    if (window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{affichage:mode==='all'?'Tous les ports':'Ports reliés',connexions:connections.size},privateContent:{mode,connections:[...connections]}}).catch(()=>{});
+  }
+  function render() {
+    inputBox.replaceChildren(); outputBox.replaceChildren(); select.replaceChildren();
+    for (const port of ports) {
+      const target = connections.get(port.id);
+      if (!target) { const option = document.createElement('option'); option.value=port.id; option.textContent=port.name+' · '+(port.side==='in'?'entrée':'sortie'); select.append(option); }
+      if (mode==='used' && !target) continue;
+      const row = document.createElement('div'); row.className='av-port'+(target?' is-connected':'');
+      const name = document.createElement('strong'); name.textContent=port.name;
+      const caption = document.createElement('span'); caption.textContent=target ? (port.side==='in'?'← ':'→ ')+target : 'Libre';
+      row.append(name,caption); (port.side==='in'?inputBox:outputBox).append(row);
+    }
+    const usedInputs = ports.filter(p=>p.side==='in' && connections.has(p.id)).length;
+    const usedOutputs = connections.size-usedInputs;
+    free.textContent=(32-usedInputs)+' entrées libres · '+(24-usedOutputs)+' sorties libres';
+    root.querySelectorAll('[data-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));
+    root.querySelector('button[type="submit"]').disabled=!select.options.length;
+  }
+  root.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode;render();save();}));
+  root.querySelector('form').addEventListener('submit',event=>{event.preventDefault();const id=select.value;if(!id)return;connections.set(id,id.startsWith('in')?'Nouvelle source':'Nouvelle destination');root.querySelector('details').open=false;render();save();});
+  window.addEventListener('openai:set_globals',event=>{const state=event.detail?.globals?.widgetState;if(state){restore(state);render();}});
+  restore(window.openai?.widgetState); render();
+})();
+</script>
