@@ -3,7 +3,7 @@ import * as Y from 'yjs'
 import { buildSampleProject } from '../library/sample'
 import * as ops from '../model/project'
 import { addRack, mountEquipment } from '../model/racks'
-import { createUndoManager, hasProject, observeChanges, readProject, writeProject, type ChangeSet } from './ydoc'
+import { collection, createUndoManager, hasProject, meta, observeChanges, readProject, writeProject, type ChangeSet } from './ydoc'
 
 /** Deux documents reliés comme par le réseau : chaque mise à jour de l'un est appliquée à l'autre. */
 function pair() {
@@ -15,6 +15,25 @@ function pair() {
 }
 
 describe('collaboration : document partagé', () => {
+  it('relit puis migre les anciennes listes de ports sans changer leur ordre ni le format du projet', () => {
+    const p = buildSampleProject(), doc = new Y.Doc()
+    writeProject(doc, null, p)
+    meta(doc).set('updatedAt', p.updatedAt)
+    doc.getMap('clock').delete('updatedAt')
+    for (const [id, equipment] of Object.entries(p.equipment)) collection(doc, 'equipment').get(id)!.set('ports', equipment.ports)
+    const legacy = readProject(doc)
+    expect(legacy.equipment).toEqual(p.equipment)
+    writeProject(doc, null, legacy, 'migration')
+    const migrated = readProject(doc)
+    expect(migrated).toEqual(legacy)
+    const [id] = Object.keys(p.equipment)
+    expect(collection(doc, 'equipment').get(id)!.get('ports')).toBeInstanceOf(Y.Map)
+    const decoded = JSON.parse(JSON.stringify(migrated))
+    expect(decoded.equipment[id].ports).toEqual(p.equipment[id].ports)
+    expect(decoded.equipment[id].ports.every((port: Record<string, unknown>) => !('_order' in port))).toBe(true)
+    doc.destroy()
+  })
+
   it('écrit puis relit le projet à l\'identique', () => {
     const p = buildSampleProject()
     const doc = new Y.Doc()

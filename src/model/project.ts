@@ -327,16 +327,11 @@ export function isProject(value: unknown): value is Project {
 
 /* ---------- Ports (éditeur de blocs) ---------- */
 
-/** Prochain identifiant de port libre : p1, p2, ... */
-function nextPortId(ports: PortDef[]): string {
-  const nums = ports.map((p) => Number(/^p(\d+)$/.exec(p.id)?.[1] ?? 0))
-  return `p${Math.max(0, ...nums) + 1}`
-}
-
 export function addPort(project: Project, equipmentId: string, port: Omit<PortDef, 'id'>): { project: Project; id: string | null } {
   const eq = project.equipment[equipmentId]
   if (!eq) return { project, id: null }
-  const id = nextPortId(eq.ports)
+  // Deux postes peuvent ajouter un port au même appareil avant de recevoir l'ajout de l'autre.
+  const id = uid('p')
   return { project: updateEquipment(project, equipmentId, { ports: [...eq.ports, { ...port, id }] }), id }
 }
 

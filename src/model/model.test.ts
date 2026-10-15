@@ -246,7 +246,10 @@ describe('éditeur de blocs et zones', () => {
     const n = p.equipment[b].ports.length
     const r = ops.addPort(p, b, { name: 'Aux', direction: 'in', signal: 'audioAnalog', connector: 'jack-trs', level: 'line+4' })
     expect(r.project.equipment[b].ports).toHaveLength(n + 1)
-    expect(r.id).toBe(`p${n + 1}`)
+    expect(r.id).toBeTruthy()
+    expect(p.equipment[b].ports.some(port => port.id === r.id)).toBe(false)
+    const other = ops.addPort(p, b, { name: 'Ajout concurrent', direction: 'out', signal: 'video', connector: 'bnc' })
+    expect(other.id).not.toBe(r.id)
   })
   it('supprimer un port supprime ses liaisons', () => {
     const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')

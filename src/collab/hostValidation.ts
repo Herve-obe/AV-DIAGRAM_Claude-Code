@@ -5,9 +5,7 @@ import type { LayerView } from '../model/layers'
 import { checkGuestChange, guestLayers } from './access'
 import type { Claims } from './protection'
 import { readProject } from './ydoc'
-
-const stable = (v: unknown): string => JSON.stringify(v, (_k, x) => x && typeof x === 'object' && !Array.isArray(x)
-  ? Object.fromEntries(Object.entries(x).sort(([a], [b]) => a.localeCompare(b))) : x)
+import { stableJson as stable } from './compare'
 
 export class HostValidation {
   private shadow = new Y.Doc()
@@ -36,8 +34,9 @@ export class HostValidation {
       const next = readProject(this.shadow)
       if (!isProject(next) || !checkGuestChange(before, next, guestLayers(claims, userId), view ?? 'all')) throw new Error('rights')
       if (stable(claims) !== stable(this.shadow.getMap('claims').toJSON())) throw new Error('claims')
-      const known = new Set(['meta', 'equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets', 'claims', 'chat'])
+      const known = new Set(['meta', 'clock', 'equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets', 'claims', 'chat'])
       for (const key of this.shadow.share.keys()) if (!known.has(key)) throw new Error('type')
+      for (const key of this.shadow.getMap('clock').keys()) if (key !== 'updatedAt') throw new Error('clock')
       const afterChat = this.shadow.getArray('chat').toArray()
       // Le tchat est append-only côté invité ; seul l'hôte taille l'historique.
       if (afterChat.length < chat.length || stable(afterChat.slice(0, chat.length)) !== stable(chat)) throw new Error('chat')

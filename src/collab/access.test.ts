@@ -5,7 +5,7 @@ import * as ops from '../model/project'
 import { LAYERS } from '../model/layers'
 import { checkGuestChange, guestLayers } from './access'
 import { HostValidation } from './hostValidation'
-import { readProject, writeProject } from './ydoc'
+import { createUndoManager, readProject, writeProject } from './ydoc'
 
 function setup() {
   const console = ops.addEquipment(ops.createProject('Concert'), LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 0 })
@@ -38,9 +38,68 @@ describe('droits attribués par l’hôte', () => {
     const wired = ops.connect(p, { equipmentId: consoleId, portId: out.id }, { equipmentId: camId, portId: video.id }).project
     expect(checkGuestChange(p, wired, allowed, 'sound')).toBe(false)
   })
+  it('ne prend pas les équipements et liaisons audio inchangés d’un instantané réseau pour des éditions vidéo', () => {
+    const { p, consoleId, camId } = setup()
+    const audioOut = p.equipment[consoleId].ports.find(port => port.signal === 'audioAnalog' && port.direction === 'out')!
+    const audioIn = p.equipment[camId].ports.find(port => port.signal === 'audioAnalog')!
+    const wired = ops.connect(p, { equipmentId: consoleId, portId: audioOut.id }, { equipmentId: camId, portId: audioIn.id }).project
+    const decoded = JSON.parse(JSON.stringify(wired), (_key, value) => value && typeof value === 'object' && !Array.isArray(value)
+      ? Object.fromEntries(Object.entries(value).reverse()) : value)
+    const videoId = wired.equipment[camId].ports.find(port => port.signal === 'video')!.id
+    const next = ops.updatePort(decoded, camId, videoId, { name: 'SDI modifiée' })
+    expect(checkGuestChange(wired, next, new Set(['image']), 'image')).toBe(true)
+    const forbidden = ops.updatePort(next, camId, audioIn.id, { name: 'Audio interdit' })
+    expect(checkGuestChange(wired, forbidden, new Set(['image']), 'image')).toBe(false)
+  })
+  it('protège aussi l’ordre des ports des autres calques', () => {
+    const { p, camId } = setup()
+    const reversed = ops.updateEquipment(p, camId, { ports: [...p.equipment[camId].ports].reverse() })
+    expect(checkGuestChange(p, reversed, new Set(['sound']), 'sound')).toBe(false)
+    const own = ops.addPort(p, camId, { name: 'Autre audio', direction: 'in', signal: 'audioAnalog', connector: 'xlr3' }).project
+    const camera = own.equipment[camId]
+    const ports = [...camera.ports]
+    ;[ports[ports.length - 1], ports[ports.length - 2]] = [ports[ports.length - 2], ports[ports.length - 1]]
+    expect(checkGuestChange(own, ops.updateEquipment(own, camId, { ports }), new Set(['sound']), 'sound')).toBe(true)
+  })
 })
 
 describe('validation des propositions reçues sur le poste hôte', () => {
+  it.each(['audio', 'video'] as const)('conserve deux éditions simultanées des ports d’une caméra, %s reçu en premier', first => {
+    const { p, camId } = setup(), host = new Y.Doc()
+    host.clientID = 10
+    writeProject(host, null, p)
+    host.getMap('claims').set('sound', { userId: 'audio', name: 'Audio', color: '#000' })
+    host.getMap('claims').set('image', { userId: 'video', name: 'Vidéo', color: '#111' })
+    const audio = new Y.Doc(), video = new Y.Doc()
+    audio.clientID = 20; video.clientID = 30
+    for (const guest of [audio, video]) Y.applyUpdate(guest, Y.encodeStateAsUpdate(host))
+    const undo = createUndoManager(audio, 'local')
+    const snapshot = Y.encodeStateVector(host)
+    const audioPort = p.equipment[camId].ports.find(port => port.signal === 'audioAnalog')!
+    const videoPort = p.equipment[camId].ports.find(port => port.signal === 'video')!
+    expect(checkGuestChange(p, ops.updatePort(p, camId, videoPort.id, { name: 'SDI scène' }), new Set(['image']), 'image')).toBe(true)
+    writeProject(audio, p, ops.updatePort(p, camId, audioPort.id, { name: 'Micro reportage' }), 'local')
+    writeProject(video, p, ops.updatePort(p, camId, videoPort.id, { name: 'SDI scène' }), 'local')
+    const validator = new HostValidation(host)
+    const updates = {
+      audio: Y.encodeStateAsUpdate(audio, snapshot), video: Y.encodeStateAsUpdate(video, snapshot),
+    }
+    try {
+      for (const user of first === 'audio' ? ['audio', 'video'] as const : ['video', 'audio'] as const) {
+        expect(validator.apply(updates[user], user, user === 'audio' ? 'sound' : 'image'), user).toBe(true)
+      }
+      const result = readProject(host).equipment[camId].ports
+      expect(result.find(port => port.id === audioPort.id)?.name).toBe('Micro reportage')
+      expect(result.find(port => port.id === videoPort.id)?.name).toBe('SDI scène')
+      Y.applyUpdate(audio, Y.encodeStateAsUpdate(host), 'network')
+      const beforeUndo = Y.encodeStateVector(host)
+      undo.undo()
+      expect(validator.apply(Y.encodeStateAsUpdate(audio, beforeUndo), 'audio', 'sound')).toBe(true)
+      expect(readProject(host).equipment[camId].ports.find(port => port.id === audioPort.id)?.name).toBe(audioPort.name)
+      expect(typeof readProject(host).updatedAt).toBe('string')
+    } finally { undo.destroy(); validator.destroy(); host.destroy(); audio.destroy(); video.destroy() }
+  })
+
   function session() {
     const { p, consoleId, camId } = setup(), host = new Y.Doc()
     writeProject(host, null, p)

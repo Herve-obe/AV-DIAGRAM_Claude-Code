@@ -11,6 +11,7 @@
 // Les notes, feuilles, zones et réglages du projet restent libres.
 import { layerOfSignal, layersOf, primaryLayer, type Layer } from '../model/layers'
 import type { Equipment, Link, PortDef, Project } from '../model/types'
+import { sameData } from './compare'
 
 export interface Claim {
   peerId?: number
@@ -67,7 +68,7 @@ function checkEquipment(a: Equipment | undefined, b: Equipment | undefined, lock
     const keys = new Set([...Object.keys(a), ...Object.keys(b)])
     for (const k of keys) {
       if (LAYOUT.has(k)) continue
-      if (JSON.stringify(a[k as keyof Equipment]) !== JSON.stringify(b[k as keyof Equipment])) return main
+      if (!sameData(a[k as keyof Equipment], b[k as keyof Equipment])) return main
     }
   }
   if (a.ports !== b.ports) {
@@ -76,7 +77,7 @@ function checkEquipment(a: Equipment | undefined, b: Equipment | undefined, lock
     for (const id of new Set([...before.keys(), ...after.keys()])) {
       const pa = before.get(id)
       const pb = after.get(id)
-      if (JSON.stringify(pa) === JSON.stringify(pb)) continue
+      if (sameData(pa, pb)) continue
       for (const l of [portLayer(pa), portLayer(pb)]) if (l && locked.has(l)) return l
     }
   }
@@ -90,7 +91,7 @@ export function checkChange(prev: Project, next: Project, locked: Set<Layer>): V
     for (const id of new Set([...Object.keys(prev.equipment), ...Object.keys(next.equipment)])) {
       const a = prev.equipment[id]
       const b = next.equipment[id]
-      if (a === b) continue
+      if (sameData(a, b)) continue
       const layer = checkEquipment(a, b, locked)
       if (layer) return { kind: 'equipment', id, layer }
     }
@@ -99,7 +100,7 @@ export function checkChange(prev: Project, next: Project, locked: Set<Layer>): V
     for (const id of new Set([...Object.keys(prev.links), ...Object.keys(next.links)])) {
       const a = prev.links[id]
       const b = next.links[id]
-      if (a === b) continue
+      if (sameData(a, b)) continue
       const layer = b ? linkLayer(next, b) ?? (a ? linkLayer(prev, a) : null) : linkLayer(prev, a!)
       if (layer && locked.has(layer)) return { kind: 'link', id, layer }
     }

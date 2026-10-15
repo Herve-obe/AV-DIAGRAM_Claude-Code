@@ -692,6 +692,8 @@ async function start(o: StartOptions): Promise<void> {
     current.synced = p
   } else if (o.seed === 'state' && o.state) {
     Y.applyUpdate(doc, o.state, 'restore')
+    // L'hôte migre les anciennes listes de ports avant de publier son document aux invités.
+    if (o.rank !== null) writeProject(doc, null, readProject(doc), 'migration')
   }
 
   // Document -> envoi sur le réseau (sauf ce qui vient du réseau) et enregistrement local

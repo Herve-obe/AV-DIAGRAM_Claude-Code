@@ -2,8 +2,8 @@
 import { LAYERS, layerOfSignal, primaryLayer, type Layer, type LayerView } from '../model/layers'
 import type { Project } from '../model/types'
 import { checkChange, linkLayer, type Claims } from './protection'
+import { sameData as equal } from './compare'
 
-const equal = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
 export function guestLayers(claims: Claims, userId: string): Set<Layer> {
   return new Set(LAYERS.filter(l => claims[l]?.userId === userId))
 }
@@ -26,6 +26,8 @@ export function checkGuestChange(prev: Project, next: Project, allowed: Set<Laye
     for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) {
       if (k !== 'ports' && !equal(a[k as keyof typeof a], b[k as keyof typeof b]) && primaryLayer(a) !== view) return false
     }
+    const foreignIds = (ports: typeof a.ports) => ports.filter(p => (layerOfSignal(p.signal) ?? primaryLayer(a)) !== view).map(p => p.id)
+    if (!equal(foreignIds(a.ports), foreignIds(b.ports))) return false
     for (const portId of new Set([...a.ports.map(p => p.id), ...b.ports.map(p => p.id)])) {
       const pa = a.ports.find(p => p.id === portId), pb = b.ports.find(p => p.id === portId)
       if (equal(pa, pb)) continue

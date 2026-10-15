@@ -75,7 +75,10 @@ réservé à l'hôte. Les invités voient tout mais éditent uniquement depuis u
 vue générale reste en lecture seule. L'hôte peut tout modifier, y compris depuis la vue générale.
 
 Sur un équipement partagé, les ports de chaque domaine sont protégés séparément. Le nom et la
-disposition appartiennent au domaine principal. Les réglages communs, feuilles, zones, cadres,
+disposition appartiennent au domaine principal. Chaque port est synchronisé séparément : deux
+invités peuvent modifier ou ajouter des ports audio et vidéo du même appareil en parallèle.
+L'annulation de l'un conserve les modifications de l'autre et la date de modification du projet.
+Les anciens fichiers `.avd` restent compatibles. Les réglages communs, feuilles, zones, cadres,
 baies et multipaires restent réservés à l'hôte. Les commandes clavier, l'assistant, l'annulation
 et la fenêtre Infos respectent aussi les droits. Les propositions réseau sont contrôlées chez
 l'hôte avant de modifier le document accepté. Un client envoyant une proposition invalide est
@@ -100,8 +103,9 @@ le projet partagé. Une reconnexion normale du même poste conserve ses attribut
 - Un invité dont l'application a planté retrouve aussi « Reprendre la session ».
 
 Les anciens essais de retour automatique vers l'hôte initial ne valident pas ce nouveau fonctionnement.
-Les tests actuels simulent deux instances : droits, édition autorisée, refus dans la vue générale,
-retrait des droits, reconnexion et reprise de l'ancien hôte sur un secours actif. Les tests Rust
+Les tests actuels simulent deux et trois instances : droits, édition autorisée, refus dans la vue
+générale, retrait des droits, reconnexion, reprise de l'ancien hôte sur un secours actif, ainsi que
+modification et ajout simultanés de ports audio/vidéo avec annulation individuelle. Les tests Rust
 vérifient le routage, les codes, l'exclusion et l'annonce de fin. Les essais de panne et reprise sur
 trois ordinateurs réels restent à faire avant fusion.
 
