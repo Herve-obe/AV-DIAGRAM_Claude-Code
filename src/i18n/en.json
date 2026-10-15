@@ -319,8 +319,8 @@
   "status": {
     "equipment": "{{count}} items",
     "links": "{{count}} links",
-    "saved": "Saved on this device",
-    "unsaved": "Saving…",
+    "saved": "Main file saved",
+    "unsaved": "Unsaved changes",
     "offline": "Works offline"
   },
   "palette": {
@@ -727,12 +727,14 @@
     },
     "layers": {
       "title": "Reserved layers",
-      "hint": "Reserve your layer: others can no longer change it by mistake. Shared equipment (e.g. a camera with audio inputs) can still be moved and wired on its free ports.",
-      "free": "free",
+      "hint": "The host assigns layers to guests. Guests see everything and edit only from an assigned layer. Their general view is read-only. The host can edit everything.",
+      "free": "Host only",
       "mine": "reserved by you",
       "by": "reserved by {{name}}",
       "claim": "Reserve",
-      "release": "Release"
+      "release": "Release",
+      "unassigned": "Host only",
+      "assign": "Assign {{layer}} layer"
     },
     "chat": {
       "title": "Session chat",
@@ -750,7 +752,8 @@
       "handedBack": "The original host is back: the session moves back to it.",
       "ended": "The host ended the session. The project stays open on this computer.",
       "kicked": "The host removed you from the session. The project stays open on this computer.",
-      "locked": "Change refused: the {{layer}} layer is reserved by {{name}}."
+      "locked": "Change refused: the {{layer}} layer is reserved by {{name}}.",
+      "accessDenied": "Change refused: use a layer assigned by the host. Shared settings and the general view are reserved for the host."
     }
   },
   "pdfImport": {
@@ -1007,16 +1010,21 @@
     "lastCopy": "Last copy: {{path}} at {{date}}.",
     "error": "Copy failed: {{error}}",
     "internal": "Internal storage",
-    "internalHint": "The app also always keeps an internal copy of the last 8 projects on this device (resumed at launch). It is not meant for archiving: use the folder above or Ctrl+S.",
+    "internalHint": "An internal copy helps recover work after a crash. Recent projects are shortcuts: removing them never deletes files or older local projects.",
     "backupsTitle": "Safety backups",
-    "backupsHint": "Like Pro Tools session file backups: at regular intervals, if the project has changed, a time-stamped copy is stored in “{{folder}} / project name”. Once the maximum is reached, the oldest one is replaced.",
+    "backupsHint": "At the chosen interval, changed projects are copied to “{{folder}} / project ID”. The chosen number is kept separately for each project, even after renaming.",
     "backupsOn": "Enable safety backups",
     "backupEvery": "Every",
     "backupCount": "Number kept",
     "minutes_one": "{{count}} minute",
     "minutes_other": "{{count}} minutes",
     "backupNow": "Back up now",
-    "lastBackup": "Last backup: {{path}} at {{date}}."
+    "lastBackup": "Last backup: {{path}} at {{date}}.",
+    "manualHint": "Ctrl+S / Cmd+S saves the main .avd file. The safety copies below remain automatic.",
+    "savePrompt": "Save changes to “{{name}}” before continuing?",
+    "discard": "Don’t save",
+    "saveError": "Could not save: {{error}}. The project remains open.",
+    "leaveSession": "Leave or end the collaboration session before switching projects."
   },
   "canvasMenu": {
     "multicore_one": "Route the link through a multicore",

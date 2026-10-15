@@ -2,7 +2,9 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fullyLocked, lockedLayers } from '../collab/protection'
+import { fullyLocked } from '../collab/protection'
+import { guestLayers } from '../collab/access'
+import { LAYERS } from '../model/layers'
 import { useCollab } from '../collab/session'
 import { fitToPage, PageGrid } from './PageGrid'
 import { CanvasMenu, type MenuAt } from './CanvasMenu'
@@ -92,8 +94,12 @@ export function Canvas() {
   // Session de collaboration : blocs sélectionnés par les autres participants
   const participants = useCollab((s) => s.participants)
   const claims = useCollab((s) => s.claims)
-  const me = useCollab((s) => s.userId)
-  const locked = useMemo(() => lockedLayers(claims, me), [claims, me])
+  const access = useCollab()
+  const locked = useMemo(() => {
+    if (access.status === 'off' || access.role === 'host') return new Set<import('../model/layers').Layer>()
+    const allowed = guestLayers(claims, access.userId)
+    return new Set(LAYERS.filter(l => layer === 'all' || l !== layer || !allowed.has(l)))
+  }, [claims, access.status, access.role, access.userId, layer])
   const presenceByEq = useMemo(() => {
     const m = new Map<string, { name: string; color: string }[]>()
     for (const p of participants) {

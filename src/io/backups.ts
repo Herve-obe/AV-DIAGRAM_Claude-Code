@@ -1,12 +1,11 @@
 // Sauvegardes de sécurité tournantes (comme les « Session File Backups » de Pro Tools) : toutes les
 // N minutes, si le projet a changé, une copie horodatée est écrite dans
-// <dossier>/Sauvegardes/<nom-du-projet>/ ; au-delà du nombre gardé, la plus ancienne est supprimée.
+// <dossier>/Save Back Up/<identifiant-du-projet>/ ; au-delà du nombre gardé, la plus ancienne est supprimée.
 import { isTauri } from '@tauri-apps/api/core'
 import type { Project } from '../model/types'
 import { useSaveFolder } from '../store/saveFolderStore'
-import { slug } from './files'
 
-export const BACKUP_DIR = 'Sauvegardes'
+export const BACKUP_DIR = 'Save Back Up'
 export const BACKUP_INTERVALS = [1, 2, 5, 10, 15, 30] as const
 export const BACKUP_COUNTS = [3, 5, 10, 20, 50] as const
 
@@ -49,7 +48,8 @@ export async function writeBackup(project: Project): Promise<boolean> {
   try {
     const { dirname, join } = await import('@tauri-apps/api/path')
     const { mkdir, readDir, remove, writeTextFile } = await import('@tauri-apps/plugin-fs')
-    const base = slug(project.name)
+    // Encodage injectif, y compris sur les disques insensibles à la casse.
+    const base = 'project-' + Array.from(new TextEncoder().encode(project.id), b => b.toString(16).padStart(2, '0')).join('')
     // À côté du fichier du projet (comme Pro Tools), sinon dans le dossier des projets
     const roots = [...new Set([own ? await dirname(own) : null, st.dir].filter((r): r is string => !!r))]
     const folder = await firstWritable(roots.map((r) => join(r, BACKUP_DIR, base)), mkdir)

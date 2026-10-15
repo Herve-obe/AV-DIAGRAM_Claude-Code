@@ -16,7 +16,7 @@ Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/eta
 - Numérotation automatique des câbles (`ZONE-TYPE-NUM`), renumérotation
 - Listes générées : câblage, nomenclature (puissance, courant à 230 V, poids), alertes
 - Modes Débutant et Expert, palette de commandes (Ctrl+K), thèmes sombre, clair ou système, français et anglais
-- Sauvegarde automatique sur l'appareil, fichiers `.avd`, export PNG / SVG / CSV
+- Enregistrement du fichier principal par Ctrl+S / Cmd+S, sauvegardes de sécurité automatiques, fichiers `.avd`, export PNG / SVG / CSV
 - Application de bureau 100 % hors ligne, avec les fenêtres natives d'ouverture et d'enregistrement
 
 ## Installer

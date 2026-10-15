@@ -319,8 +319,8 @@
   "status": {
     "equipment": "{{count}} équipements",
     "links": "{{count}} liaisons",
-    "saved": "Enregistré sur cet appareil",
-    "unsaved": "Enregistrement…",
+    "saved": "Fichier principal enregistré",
+    "unsaved": "Modifications non enregistrées",
     "offline": "Utilisable hors ligne"
   },
   "palette": {
@@ -727,12 +727,14 @@
     },
     "layers": {
       "title": "Calques réservés",
-      "hint": "Réserve ton calque : les autres ne pourront plus le modifier par erreur. Les équipements partagés (ex. caméra avec entrées audio) restent déplaçables et reliables pour leurs ports libres.",
-      "free": "libre",
+      "hint": "L’hôte attribue les calques aux postes invités. Les invités voient tout ; ils modifient uniquement depuis un calque attribué. Le calque général reste en lecture seule pour eux. L’hôte peut tout modifier.",
+      "free": "Hôte uniquement",
       "mine": "réservé par toi",
       "by": "réservé par {{name}}",
       "claim": "Réserver",
-      "release": "Libérer"
+      "release": "Libérer",
+      "unassigned": "Hôte uniquement",
+      "assign": "Attribuer le calque {{layer}}"
     },
     "chat": {
       "title": "Tchat de la session",
@@ -750,7 +752,8 @@
       "handedBack": "L'hôte d'origine est de retour : la session repasse chez lui.",
       "ended": "L'hôte a terminé la session. Le projet reste ouvert sur ce poste.",
       "kicked": "L'hôte t'a retiré de la session. Le projet reste ouvert sur ce poste.",
-      "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}."
+      "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}.",
+      "accessDenied": "Modification refusée : utilise un calque attribué par l’hôte. Les éléments communs et le calque général sont réservés à l’hôte."
     }
   },
   "pdfImport": {
@@ -1007,16 +1010,21 @@
     "lastCopy": "Dernière copie : {{path}} à {{date}}.",
     "error": "Copie impossible : {{error}}",
     "internal": "Enregistrement interne",
-    "internalHint": "En plus, l'application garde toujours une copie interne des 8 derniers projets sur cet appareil (reprise au lancement). Elle n'est pas faite pour être archivée : utilise le dossier ci-dessus ou Ctrl+S.",
+    "internalHint": "Une copie interne aide à récupérer le travail après un plantage. Les projets récents sont des raccourcis : les retirer ne supprime aucun fichier ni ancien projet local.",
     "backupsTitle": "Sauvegardes de sécurité",
-    "backupsHint": "Comme les sauvegardes de session de Pro Tools : à intervalle régulier, si le projet a changé, une copie horodatée est rangée dans « {{folder}} / nom du projet ». Une fois le nombre maximal atteint, la plus ancienne est remplacée.",
+    "backupsHint": "À intervalle régulier, si le projet a changé, une copie est rangée dans « {{folder}} / identifiant du projet ». Le nombre choisi est conservé séparément pour chaque projet, même après un changement de nom.",
     "backupsOn": "Activer les sauvegardes de sécurité",
     "backupEvery": "Toutes les",
     "backupCount": "Nombre gardé",
     "minutes_one": "{{count}} minute",
     "minutes_other": "{{count}} minutes",
     "backupNow": "Sauvegarder maintenant",
-    "lastBackup": "Dernière sauvegarde : {{path}} à {{date}}."
+    "lastBackup": "Dernière sauvegarde : {{path}} à {{date}}.",
+    "manualHint": "Ctrl+S / Cmd+S enregistre le fichier principal .avd. Les copies de sécurité ci-dessous restent automatiques.",
+    "savePrompt": "Enregistrer les modifications de « {{name}} » avant de continuer ?",
+    "discard": "Ne pas enregistrer",
+    "saveError": "Enregistrement impossible : {{error}}. Le projet reste ouvert.",
+    "leaveSession": "Quitte ou termine la session de collaboration avant de changer de projet."
   },
   "canvasMenu": {
     "multicore_one": "Faire passer la liaison dans un multipaire",

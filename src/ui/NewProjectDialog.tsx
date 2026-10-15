@@ -4,6 +4,7 @@ import { isTauri } from '@tauri-apps/api/core'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DEFAULT_EXPORT, pageSize } from '../io/exportOptions'
+import { prepareToLeave } from '../io/documentLifecycle'
 import { createProjectFile, notifyError, pickSaveFolder, slug } from '../io/files'
 import { buildTemplate, type TemplateId } from '../library/templates'
 import { PAPER_SIZES, type ExportSettings, type PaperSize } from '../model/types'
@@ -45,6 +46,7 @@ function NewProjectForm() {
   }, [])
 
   const create = async () => {
+    if (busy || (desktop && !folder) || !(await prepareToLeave())) return
     setBusy(true)
     try {
       const base = buildTemplate(template, name.trim() || t('menu.newProjectName'))
@@ -55,18 +57,15 @@ function NewProjectForm() {
         paper, orientation, scaleMode: showPage ? 'page' : 'fit', printScale: 100,
       }
       const project = { ...named, settings: { ...named.settings, export: exportSettings } }
-      useProject.getState().replaceProject(project)
+      if (desktop && folder) await createProjectFile(project, folder)
+      useProject.getState().load(project)
+      if (!desktop) useProject.setState({ saved: false })
       const ui = useUi.getState()
       ui.select([], [])
       ui.setSheet(useProject.getState().project.sheets?.[0]?.id ?? '')
-      if (desktop && folder) {
-        try {
-          await createProjectFile(useProject.getState().project, folder)
-        } catch (e) {
-          notifyError(t('newProject.fileError', { error: e instanceof Error ? e.message : String(e) }))
-        }
-      }
       close()
+    } catch (e) {
+      await notifyError(t('newProject.fileError', { error: String(e) }))
     } finally {
       setBusy(false)
     }
@@ -134,7 +133,7 @@ function NewProjectForm() {
         </div>
         <footer className="dialog-foot">
           <button className="btn" onClick={close}>{t('series.cancel')}</button>
-          <button className="btn btn-primary" onClick={() => void create()} disabled={busy}>{t('newProject.create')}</button>
+          <button className="btn btn-primary" onClick={() => void create()} disabled={busy || (desktop && !folder)}>{t('newProject.create')}</button>
         </footer>
       </div>
     </div>

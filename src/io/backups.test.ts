@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createProject } from '../model/project'
 import { useSaveFolder } from '../store/saveFolderStore'
+import { useProject } from '../store/projectStore'
 import { backupName, backupsToDelete, startBackups, writeBackup } from './backups'
 
 const fs = vi.hoisted(() => ({ mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn(), writeTextFile: vi.fn() }))
@@ -83,12 +84,31 @@ describe('écriture et reprise des sauvegardes', () => {
     stop()
   })
 
+  it('isole deux projets homonymes, y compris si leurs identifiants ne diffèrent que par la casse', async () => {
+    await writeBackup({ ...createProject('Concert'), id: 'a' })
+    await writeBackup({ ...createProject('Concert'), id: 'A' })
+    expect(fs.writeTextFile.mock.calls[0][0]).toContain('/Save Back Up/project-61/')
+    expect(fs.writeTextFile.mock.calls[1][0]).toContain('/Save Back Up/project-41/')
+  })
+
+  it('garde le même dossier et le même préfixe après renommage et ne marque pas le fichier principal comme enregistré', async () => {
+    const p = createProject('Concert')
+    useProject.setState({ project: p, saved: false })
+    await writeBackup(p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    await writeBackup({ ...p, name: 'Nouveau nom' })
+    expect(fs.writeTextFile.mock.calls[0][0].slice(0, -24)).toBe(fs.writeTextFile.mock.calls[1][0].slice(0, -24))
+    expect(useProject.getState().saved).toBe(false)
+  })
+
   it('la onzième sauvegarde supprime seulement la plus ancienne quand dix sont gardées', async () => {
-    const old = Array.from({ length: 10 }, (_, n) => backupName('concert', new Date(2026, 9, 12, 12, n, 0)))
-    const current = backupName('concert', new Date())
+    const p = { ...createProject('Concert'), id: 'a' }
+    const base = 'project-61'
+    const old = Array.from({ length: 10 }, (_, n) => backupName(base, new Date(2026, 9, 12, 12, n, 0)))
+    const current = backupName(base, new Date())
     fs.readDir.mockResolvedValue([...old, current, 'notes.txt'].map((name) => ({ name, isFile: true })))
-    expect(await writeBackup(createProject('Concert'))).toBe(true)
-    expect(fs.remove).toHaveBeenCalledExactlyOnceWith(`/projets/Sauvegardes/concert/${old[0]}`)
+    expect(await writeBackup(p)).toBe(true)
+    expect(fs.remove).toHaveBeenCalledExactlyOnceWith(`/projets/Save Back Up/${base}/${old[0]}`)
   })
 })
 

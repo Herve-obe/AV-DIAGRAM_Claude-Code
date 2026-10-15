@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useCollab } from '../collab/session'
 import i18n from '../i18n'
-import { notifyError, openProjectFile } from '../io/files'
+import { notifyError } from '../io/files'
+import { openDocument, prepareToLeave } from '../io/documentLifecycle'
+import { useSaveFolder } from '../store/saveFolderStore'
 import { forgetRecent, listRecent, loadRecent, restoredProject, type RecentProject } from '../store/persistence'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
@@ -48,20 +50,13 @@ export function StartDialog() {
       <span className="template-desc">{desc}</span>
     </button>
   )
-  const openFile = async () => {
-    try {
-      const p = await openProjectFile()
-      if (!p) return
-      useProject.getState().load(p)
-      afterLoad()
-    } catch {
-      notifyError(t('menu.openError'))
-    }
-  }
+  const openFile = async () => { if (await openDocument()) afterLoad() }
   const openRecent = async (id: string) => {
+    if (!(await prepareToLeave())) return
     const p = await loadRecent(id)
     if (!p) { notifyError(t('start.recentMissing')); return }
     useProject.getState().load(p)
+    if (!useSaveFolder.getState().projectFiles[id]) useProject.setState({ saved: false })
     afterLoad()
   }
 

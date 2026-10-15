@@ -13,6 +13,7 @@ import { layerOfSignal, layersOf, primaryLayer, type Layer } from '../model/laye
 import type { Equipment, Link, PortDef, Project } from '../model/types'
 
 export interface Claim {
+  peerId?: number
   userId: string
   name: string
   color: string

@@ -6,8 +6,8 @@ import { Canvas } from './editor/Canvas'
 import { fitToPage } from './editor/PageGrid'
 import { useAi } from './store/aiStore'
 import type { SignalFamily } from './model/signals'
-import i18n from './i18n'
-import { notifyError, openProjectFile, saveProjectFile } from './io/files'
+import { onCommand, sendCommand, WINDOW_ROLE } from './store/windowSync'
+import { openDocument, saveCurrentProject } from './io/documentLifecycle'
 import { useProject } from './store/projectStore'
 import { useUi } from './store/uiStore'
 import { AiSetupDialog } from './ui/AiSetupDialog'
@@ -53,6 +53,10 @@ const isTyping = (e: KeyboardEvent) => {
 export function Shortcuts() {
   const rf = useReactFlow()
   useEffect(() => {
+    if (WINDOW_ROLE === 'main') {
+      onCommand('save', arg => void saveCurrentProject(arg === 'as'))
+      onCommand('open', () => void openDocument())
+    }
     const onKey = async (e: KeyboardEvent) => {
       const mod = e.ctrlKey || e.metaKey
       const key = e.key.toLowerCase()
@@ -62,10 +66,16 @@ export function Shortcuts() {
       if (e.key === 'Escape' && ui.presenting && !ui.paletteOpen) { ui.setPresenting(false); return }
       if (mod && key === 'k') { e.preventDefault(); ui.setPaletteOpen(!ui.paletteOpen); return }
       // Ctrl+S : dans le fichier du projet ; Ctrl+Maj+S : enregistrer sous
-      if (mod && key === 's') { e.preventDefault(); void saveProjectFile(store.project, { as: e.shiftKey }); return }
+      if (mod && key === 's') {
+        e.preventDefault()
+        if (WINDOW_ROLE === 'panels') sendCommand('save', e.shiftKey ? 'as' : '')
+        else void saveCurrentProject(e.shiftKey)
+        return
+      }
       if (mod && key === 'o') {
         e.preventDefault()
-        try { const p = await openProjectFile(); if (p) store.load(p) } catch { notifyError(i18n.t('menu.openError')) }
+        if (WINDOW_ROLE === 'panels') sendCommand('open', '')
+        else await openDocument()
         return
       }
       if (isTyping(e)) return

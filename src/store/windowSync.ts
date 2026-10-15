@@ -4,7 +4,8 @@
 // passe par les événements Tauri ; dans un navigateur (développement), par BroadcastChannel.
 import { isTauri } from '@tauri-apps/api/core'
 import type { Project } from '../model/types'
-import { useProject } from './projectStore'
+import { useCollab } from '../collab/session'
+import { useProject, projectChangeAllowed } from './projectStore'
 import { useUi } from './uiStore'
 
 export type WindowRole = 'main' | 'panels'
@@ -19,22 +20,26 @@ const UI_KEYS = ['selectedEquipment', 'selectedLinks', 'currentSheetId', 'focusR
 type SharedUi = Partial<Pick<ReturnType<typeof useUi.getState>, (typeof UI_KEYS)[number]>>
 
 export type SyncMessage =
+  | { kind: 'access'; access: Pick<ReturnType<typeof useCollab.getState>, 'status' | 'role' | 'claims' | 'participants' | 'userId'> }
+  | { kind: 'saved'; project: Project; saved: boolean }
   | { kind: 'hello' }
   | { kind: 'state'; project: Project; ui: SharedUi }
-  | { kind: 'project'; project: Project }
+  | { kind: 'project'; project: Project; base: Project }
   | { kind: 'ui'; ui: SharedUi }
   | { kind: 'bye' }
-  | { kind: 'command'; name: 'arrange'; arg: string }
+  | { kind: 'command'; name: 'arrange' | 'save' | 'open'; arg: string }
 type Envelope = SyncMessage & { from: string }
 
 let send: (m: SyncMessage) => void = () => {}
+let flushPending = () => {}
 const commandHandlers = new Map<string, (arg: string) => void>()
 
 /** Action à exécuter dans la fenêtre principale (ex. alignement, qui a besoin des tailles des blocs) */
 export function onCommand(name: string, run: (arg: string) => void) {
   commandHandlers.set(name, run)
 }
-export function sendCommand(name: 'arrange', arg: string) {
+export function sendCommand(name: 'arrange' | 'save' | 'open', arg: string) {
+  flushPending()
   send({ kind: 'command', name, arg })
 }
 
@@ -61,23 +66,40 @@ export async function startWindowSync() {
     remote = true
     try { fn() } finally { remote = false }
   }
+  const sendAccess = () => { const { status, role, claims, participants, userId } = useCollab.getState(); send({ kind: 'access', access: { status, role, claims, participants, userId } }) }
+  let pending: Project | null = null
+  let base: Project | null = null
   const post = await transport((m) => {
     if (m.from === me) return
     switch (m.kind) {
       case 'hello':
         // La fenêtre Infos vient de s'ouvrir : on lui donne l'état complet, et on se replie sur le schéma
         if (WINDOW_ROLE === 'main') {
+          sendAccess()
           send({ kind: 'state', project: useProject.getState().project, ui: pickUi() })
           useUi.setState({ panelsDetached: true })
         }
         break
+      case 'access':
+        if (WINDOW_ROLE === 'panels') useCollab.setState(m.access)
+        break
+      case 'saved':
+        if (WINDOW_ROLE === 'panels' && JSON.stringify(m.project) === JSON.stringify(useProject.getState().project)) useProject.setState({ saved: m.saved })
+        break
       case 'state':
+        if (WINDOW_ROLE !== 'panels') break
+        pending = null; base = null
         apply(() => {
-          useProject.setState({ project: m.project, past: [], future: [], saved: true })
+          useProject.setState({ project: m.project, past: [], future: [], saved: false })
           useUi.setState(m.ui)
         })
         break
       case 'project':
+        if (WINDOW_ROLE === 'main' && (JSON.stringify(m.base) !== JSON.stringify(useProject.getState().project) || !projectChangeAllowed(useProject.getState().project, m.project))) {
+          send({ kind: 'state', project: useProject.getState().project, ui: pickUi() })
+          break
+        }
+        pending = null; base = null
         // Modification faite dans l'autre fenêtre : annulable ici aussi
         apply(() => {
           const s = useProject.getState()
@@ -98,19 +120,23 @@ export async function startWindowSync() {
   send = (m) => post({ ...m, from: me })
 
   // Envoi des modifications locales, regroupées par image (un glisser change la position à chaque image)
-  let pending: Project | null = null
+  flushPending = () => {
+    if (pending && base) send({ kind: 'project', project: pending, base })
+    pending = null; base = null
+  }
+  window.addEventListener('blur', flushPending)
   useProject.subscribe((s, prev) => {
+    if (WINDOW_ROLE === 'main' && s.saved !== prev.saved) send({ kind: 'saved', project: s.project, saved: s.saved })
     if (remote || s.project === prev.project) return
-    if (!pending) requestAnimationFrame(() => {
-      if (pending) send({ kind: 'project', project: pending })
-      pending = null
-    })
+    if (!pending) { base = prev.project; requestAnimationFrame(flushPending) }
     pending = s.project
   })
   useUi.subscribe((s, prev) => {
     if (remote || !UI_KEYS.some((k) => s[k] !== prev[k])) return
     send({ kind: 'ui', ui: pickUi() })
   })
+
+  if (WINDOW_ROLE === 'main') useCollab.subscribe(sendAccess)
 
   if (WINDOW_ROLE === 'panels') {
     void rememberPanelsPlace()

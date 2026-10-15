@@ -13,7 +13,7 @@ const KINDS: MergeKind[] = ['equipment', 'links', 'multicores', 'racks', 'sheets
 /** Ouvre un fichier .avd et prépare la fusion avec le projet courant. */
 export async function startMerge(t: (k: string) => string) {
   try {
-    const p = await openProjectFile()
+    const p = await openProjectFile(false)
     if (p) useUi.getState().setMergeCandidate(p)
   } catch {
     notifyError(t('menu.openError'))

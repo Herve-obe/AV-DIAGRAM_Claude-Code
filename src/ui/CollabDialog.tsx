@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
-  canHost, canRelease, claimLayer, DEFAULT_PORT, forgetResume, hostSession, joinSession, kick, leave, releaseLayer, resumeSession, useCollab,
+  canHost, assignLayer, DEFAULT_PORT, forgetResume, hostSession, joinSession, kick, leave, resumeSession, useCollab,
 } from '../collab/session'
 import { LAYERS } from '../model/layers'
 import { Icon } from './Icon'
@@ -188,8 +188,10 @@ export function CollabDialog() {
                           {mine ? t('collab.layers.mine') : t('collab.layers.by', { name: c.name })}
                         </span>
                       ) : <span className="collab-layer">{t('collab.layers.free')}</span>}
-                      {!c && <button className="btn btn-ghost" onClick={() => claimLayer(layer)}><Icon name="lock" size={13} />{t('collab.layers.claim')}</button>}
-                      {c && canRelease(layer) && <button className="btn btn-ghost" onClick={() => releaseLayer(layer)}>{t('collab.layers.release')}</button>}
+                      {role === 'host' && <select aria-label={t('collab.layers.assign', { layer: t(`library.domain.${layer}`) })} value={participants.find(p => p.userId === c?.userId)?.peerId ?? ''} onChange={e => assignLayer(layer, e.target.value ? Number(e.target.value) : null)}>
+                        <option value="">{t('collab.layers.unassigned')}</option>
+                        {participants.filter(p => !p.self && p.peerId != null).map(p => <option key={p.peerId} value={p.peerId}>{p.name}</option>)}
+                      </select>}
                     </li>
                   )
                 })}
