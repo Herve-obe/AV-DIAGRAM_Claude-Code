@@ -717,7 +717,7 @@
       "start": "Impossible d'ouvrir la session : {{detail}}"
     },
     "backup": "Ce poste peut prendre le relais si l'hôte se déconnecte (ouvre alors la session sur le port 4455)",
-    "relayHint": "L'hôte d'origine est injoignable : ce poste fait tourner la session à sa place. Dès que l'hôte revient, tout le monde le rejoint automatiquement.",
+    "relayHint": "Ce poste héberge la session de secours et garde toutes les modifications. Le poste initial rejoint cette session à son retour ; l’hébergement ne lui est pas retransféré automatiquement.",
     "resume": {
       "title": "Session interrompue",
       "hintHost": "Tu hébergeais « {{name}} » (état enregistré le {{date}}). Reprendre rouvre la session avec le même code : les participants se reconnectent seuls et leurs modifications sont fusionnées.",
@@ -753,7 +753,9 @@
       "ended": "L'hôte a terminé la session. Le projet reste ouvert sur ce poste.",
       "kicked": "L'hôte t'a retiré de la session. Le projet reste ouvert sur ce poste.",
       "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}.",
-      "accessDenied": "Modification refusée : utilise un calque attribué par l’hôte. Les éléments communs et le calque général sont réservés à l’hôte."
+      "accessDenied": "Modification refusée : utilise un calque attribué par l’hôte. Les éléments communs et le calque général sont réservés à l’hôte.",
+      "returnDeferred": "L’hôte initial est de nouveau disponible. Cette session reste hébergée ici pour conserver toutes les modifications.",
+      "joinedRelay": "La session continue sur le poste de secours. Tu l’as rejoint avec son document à jour ; ce poste reste l’hôte."
     }
   },
   "pdfImport": {

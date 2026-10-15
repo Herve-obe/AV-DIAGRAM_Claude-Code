@@ -19,8 +19,8 @@
 // - les postes de bureau volontaires annoncent leurs adresses (« postes de secours ») ; le premier, dans
 //   un ordre connu de tous, ouvre un relais avec le même code si l'hôte reste injoignable, et les autres
 //   s'y reconnectent automatiquement ;
-// - un relais de secours vérifie régulièrement si l'hôte d'origine est revenu ; dès qu'il répond, il
-//   ferme son relais et tout le monde revient chez l'hôte, les modifications de chacun fusionnées.
+// - le secours garde la session quand l’hôte initial revient ; celui-ci rejoint le secours. Un
+//   transfert de l’hébergement nécessite une action volontaire pour conserver tout le document.
 import { invoke, isTauri } from '@tauri-apps/api/core'
 import * as decoding from 'lib0/decoding'
 import * as encoding from 'lib0/encoding'
@@ -293,7 +293,6 @@ interface Live {
   peerClients: Map<number, number>
   everConnected: boolean
   closing: boolean
-  handingBack: boolean
   end: 'ended' | 'kicked' | null
   lostAt: number | null
   retry: ReturnType<typeof setTimeout> | null
@@ -501,12 +500,6 @@ function connect() {
     if (live !== current || current.closing || current.ws !== ws) return
     current.ws = null
     if (current.end) return finish(current.end)
-    if (current.handingBack) {
-      // Retour chez l'hôte d'origine : reconnexion immédiate, sans alerte
-      current.handingBack = false
-      current.attempt = 0
-      return connect()
-    }
     if (current.everConnected && current.lostAt === null) {
       // Coupure : on continue à travailler, reconnexion automatique, fusion au retour
       current.lostAt = Date.now()
@@ -572,20 +565,15 @@ function probe(addr: string, code: string): Promise<boolean> {
   })
 }
 
-/** Relais de secours : l'hôte d'origine (ou un secours prioritaire) est-il revenu ? */
+/** Un secours conserve le document accepté : aucun retour automatique vers un état potentiellement ancien. */
 async function probeOrigin(cur: Live) {
-  if (live !== cur || cur.rank === null || cur.handingBack) return
+  if (live !== cur || cur.rank === null) return
   for (const addr of cur.ranks.slice(0, cur.rank).flat()) {
     if (cur.own.includes(addr) || !(await probe(addr, cur.code))) continue
     if (live !== cur || cur.rank === null) return
-    // Retour à l'hôte : on ferme ce relais (sans fin de session), chacun se reconnecte chez lui
     if (cur.probe) clearInterval(cur.probe)
     cur.probe = null
-    cur.rank = null
-    cur.handingBack = true
-    useCollab.setState({ role: 'guest', relayRank: null, host: null })
-    notify({ key: 'handedBack', tone: 'info' })
-    await invoke('collab_host_stop', { ended: false })
+    notify({ key: 'returnDeferred', tone: 'warn' })
     return
   }
 }
@@ -672,7 +660,7 @@ async function start(o: StartOptions): Promise<void> {
   const undo = createUndoManager(doc, LOCAL)
   live = {
     doc, awareness, undo, code: o.code, hostToken: o.hostToken, origin: o.origin, port: o.port, ranks: o.ranks, backupIds: o.backupIds ?? [],
-    own: [], rank: o.rank, attempt: 0, ws: null, peerId: null, everConnected: false, closing: false, handingBack: false,
+    own: [], rank: o.rank, attempt: 0, ws: null, peerId: null, everConnected: false, closing: false,
     peerUsers: new Map(), peerClients: new Map(), end: null, lostAt: null, retry: null, probe: null, saveTimer: null, synced: null, cleanups: [],
   }
   const current = live
@@ -866,6 +854,17 @@ export async function resumeSession(): Promise<void> {
   const r = useCollab.getState().resumable ?? readResume()
   if (!r || !(await prepareToLeave())) return
   if (live) finish(null, true)
+  // Un secours héberge déjà le travail le plus récent : l'ancien hôte le rejoint au lieu de
+  // démarrer un relais concurrent avec son ancien instantané et de perdre les éditions du secours.
+  if (r.origin === 'host') {
+    for (const address of r.ranks.slice(1).flat()) {
+      if (!(await probe(address, r.code))) continue
+      useCollab.setState({ address, host: null })
+      await start({ code: r.code, origin: 'guest', port: r.port, ranks: [[address]], rank: null, seed: 'wait' })
+      notify({ key: 'joinedRelay', tone: 'info' })
+      return
+    }
+  }
   const state = fromBase64(r.state)
   let rank: number | null = null
   let hostToken: string | undefined
@@ -890,7 +889,7 @@ export async function resumeSession(): Promise<void> {
 /** Oublie la session interrompue enregistrée sur ce poste. */
 export const forgetResume = clearResume
 
-/** Quitte la session (l'hôte d'origine la termine pour tout le monde). Le projet reste ouvert. */
+/** Quitte la session ; le poste qui héberge actuellement la termine. Le projet reste ouvert. */
 export function leave() {
   finish(null)
 }
@@ -904,16 +903,17 @@ function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
   if (current.probe) clearInterval(current.probe)
   if (current.saveTimer) clearTimeout(current.saveTimer)
   current.cleanups.forEach((f) => f())
-  current.ws?.close()
+  // Le relais doit annoncer la fin avant la fermeture de sa propre connexion.
+  if (current.rank !== null && isTauri()) {
+    void invoke('collab_host_stop', { ended: reason === null && !keepResume })
+      .catch(() => {}).finally(() => current.ws?.close())
+  } else current.ws?.close()
   current.awareness.destroy()
   current.undo.destroy()
   current.doc.destroy()
   live = null
   setHistoryDriver(null)
   setDocumentSessionActive(false)
-  // Relais de ce poste : fin de session si c'est l'hôte d'origine qui la quitte ; un poste de secours
-  // ferme seulement son relais (les autres retrouvent l'hôte ou un autre secours)
-  if (current.rank !== null && isTauri()) void invoke('collab_host_stop', { ended: current.origin === 'host' && reason === null })
   if (!keepResume) clearResume()
   useCollab.setState({
     status: 'off', role: null, origin: null, relayRank: null, participants: [], host: null, address: null,

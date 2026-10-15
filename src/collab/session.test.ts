@@ -106,3 +106,26 @@ it('synchronise deux postes, applique les droits de l’hôte et les conserve ap
   guest.useProject.getState().moveEquipment(id, { x: 100, y: 0 })
   expect(guest.useProject.getState().project).toBe(accepted)
 })
+
+it('l’ancien hôte rejoint le secours actif sans rouvrir un relais avec son ancien document', async () => {
+  vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
+  vi.stubGlobal('WebSocket', RelaySocket)
+  native.invoke.mockReset().mockImplementation(async (command: string) => {
+    if (command === 'collab_local_addresses') return ['backup:4455']
+    if (command === 'collab_host_start' || command === 'collab_host_status') return { port: 4455, code: '123456', hostToken: 'private-host', addresses: ['backup:4455'], peers: [] }
+  })
+  host = await instance('Secours')
+  host.useProject.getState().rename('Version conservée chez le secours')
+  await host.session.hostSession()
+  await vi.waitFor(() => expect(host.session.useCollab.getState().status).toBe('connected'))
+  guest = await instance('Ancien hôte')
+  guest.session.useCollab.setState({ resumable: {
+    code: '123456', origin: 'host', port: 4455, ranks: [['original:4455'], ['backup:4455']], backupIds: [],
+    state: 'ancien-instantane-inutilise', savedAt: Date.now(), projectName: 'Ancienne version',
+  } })
+  await guest.session.resumeSession()
+  expect(guest.useProject.getState().project.name).toBe('Version conservée chez le secours')
+  expect(guest.session.useCollab.getState().role).toBe('guest')
+  expect(host.session.useCollab.getState().role).toBe('host')
+  expect(native.invoke.mock.calls.filter(([command]) => command === 'collab_host_start')).toHaveLength(1)
+})

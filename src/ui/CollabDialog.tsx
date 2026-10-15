@@ -11,7 +11,7 @@ import { Icon } from './Icon'
 export function CollabDialog() {
   const { t, i18n } = useTranslation()
   const {
-    dialogOpen, status, role, origin, relayRank, host, address, participants, error, name, setName, setDialogOpen,
+    dialogOpen, status, role, relayRank, host, address, participants, error, name, setName, setDialogOpen,
     backup, setBackup, claims, userId, resumable,
   } = useCollab()
   const [tab, setTab] = useState<'host' | 'join'>('host')
@@ -197,7 +197,7 @@ export function CollabDialog() {
                 })}
               </ul>
               <p className="dialog-hint">{t('collab.undoHint')}</p>
-              <button className="btn btn-danger collab-action" onClick={leave}>{origin === 'host' ? t('collab.stop') : t('collab.leave')}</button>
+              <button className="btn btn-danger collab-action" onClick={leave}>{role === 'host' ? t('collab.stop') : t('collab.leave')}</button>
             </>
           )}
         </div>
