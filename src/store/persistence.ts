@@ -32,7 +32,8 @@ export async function loadRecent(id: string): Promise<Project | null> {
   } catch { return null }
 }
 export async function forgetRecent(id: string): Promise<void> {
-  await set(RECENT_KEY, (await listRecent()).filter(r => r.id !== id))
+  try { await set(RECENT_KEY, (await listRecent()).filter(r => r.id !== id)) }
+  catch { /* Stockage indisponible : le raccourci reste affiché. */ }
 }
 export async function restoreProject(): Promise<void> {
   try {
@@ -41,7 +42,12 @@ export async function restoreProject(): Promise<void> {
     if (!isProject(p)) return
     const path = useSaveFolder.getState().projectFiles[p.id]
     if (stored?.saved === true && path) {
-      useProject.getState().load(await readProjectFile(path))
+      try { useProject.getState().load(await readProjectFile(path)) }
+      catch {
+        // Disque retiré ou fichier déplacé : la copie interne reste récupérable.
+        useProject.getState().load(p)
+        useProject.setState({ saved: false })
+      }
     } else {
       useProject.getState().load(p)
       useProject.setState({ saved: false })
@@ -55,6 +61,7 @@ export async function restoreProject(): Promise<void> {
 let timer: ReturnType<typeof setTimeout> | undefined
 let pending: Project | null = null
 let writes: Promise<void> = Promise.resolve()
+const waiting = new Map<string, { project: Project; saved: boolean }>()
 /** Capture le projet sortant avant toute attente, puis ordonne les écritures de récupération. */
 export function flushRecovery(): Promise<void> {
   clearTimeout(timer)
@@ -62,8 +69,15 @@ export function flushRecovery(): Promise<void> {
   pending = null
   if (p) {
     const saved = useProject.getState().project === p && useProject.getState().saved
-    writes = writes.catch(() => {}).then(async () => { await remember(p); await set(KEY, { project: p, saved }) })
+    waiting.set(p.id, { project: p, saved })
   }
+  writes = writes.catch(() => {}).then(async () => {
+    for (const [id, snapshot] of waiting) {
+      await remember(snapshot.project)
+      await set(KEY, snapshot)
+      if (waiting.get(id) === snapshot) waiting.delete(id)
+    }
+  })
   return writes
 }
 export async function discardRecovery(): Promise<void> {

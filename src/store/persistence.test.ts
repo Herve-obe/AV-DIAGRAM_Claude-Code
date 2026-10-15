@@ -6,9 +6,13 @@ import { flushRecovery, forgetRecent, listRecent, loadRecent, restoreProject, st
 
 const data = vi.hoisted(() => new Map<string, unknown>())
 const disk = vi.hoisted(() => ({ readProjectFile: vi.fn() }))
-vi.mock('idb-keyval', () => ({ get: async (k: string) => data.get(k), set: async (k: string, v: unknown) => { data.set(k, v) }, del: async (k: string) => { data.delete(k) } }))
+const storage = vi.hoisted(() => ({ set: vi.fn() }))
+vi.mock('idb-keyval', () => ({ get: async (k: string) => data.get(k), set: storage.set, del: async (k: string) => { data.delete(k) } }))
 vi.mock('../io/files', () => disk)
-beforeEach(() => { data.clear(); useSaveFolder.setState({ projectFiles: {} }); vi.useFakeTimers() })
+beforeEach(() => {
+  data.clear(); useSaveFolder.setState({ projectFiles: {} }); vi.useFakeTimers()
+  storage.set.mockReset().mockImplementation(async (k: string, v: unknown) => { data.set(k, v) })
+})
 afterEach(() => vi.useRealTimers())
 describe('récupération locale et raccourcis récents', () => {
   it('le neuvième projet et le retrait d’un raccourci ne suppriment aucun ancien projet', async () => {
@@ -48,5 +52,23 @@ describe('récupération locale et raccourcis récents', () => {
     data.set('avd.project.' + p.id, { ...p, name: 'Cache' })
     disk.readProjectFile.mockResolvedValue(p)
     expect((await loadRecent(p.id))?.name).toBe('Sur disque')
+  })
+  it('retente la récupération refusée sans exiger une nouvelle modification', async () => {
+    const stop = startAutosave(), p = createProject('À conserver')
+    useProject.getState().load(p)
+    storage.set.mockRejectedValueOnce(new Error('Stockage indisponible'))
+    await expect(flushRecovery()).rejects.toThrow('Stockage indisponible')
+    await flushRecovery()
+    expect((await loadRecent(p.id))?.name).toBe('À conserver')
+    stop()
+  })
+  it('récupère la copie interne si le fichier principal a été déplacé depuis la dernière fermeture', async () => {
+    const p = createProject('Disque retiré')
+    data.set('avd.currentProject', { project: p, saved: true })
+    useSaveFolder.getState().setProjectFile(p.id, '/absent/concert.avd')
+    disk.readProjectFile.mockRejectedValueOnce(new Error('Introuvable'))
+    await restoreProject()
+    expect(useProject.getState().project.name).toBe('Disque retiré')
+    expect(useProject.getState().saved).toBe(false)
   })
 })

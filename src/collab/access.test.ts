@@ -29,6 +29,15 @@ describe('droits attribués par l’hôte', () => {
     expect(checkGuestChange(p, { ...p, name: 'Autre' }, allowed, 'sound')).toBe(false)
     expect(checkGuestChange(p, ops.createProject('Autre'), new Set(LAYERS), 'sound')).toBe(false)
   })
+  it('interdit de changer le domaine d’un appareil ou de raccorder un port d’un autre calque', () => {
+    const { p, consoleId, camId } = setup(), allowed = new Set<'sound'>(['sound'])
+    const changed = { ...p, equipment: { ...p.equipment, [consoleId]: { ...p.equipment[consoleId], family: p.equipment[camId].family } } }
+    expect(checkGuestChange(p, changed, allowed, 'sound')).toBe(false)
+    const out = p.equipment[consoleId].ports.find(p => p.signal === 'audioAnalog' && p.direction === 'out')!
+    const video = p.equipment[camId].ports.find(p => p.signal === 'video')!
+    const wired = ops.connect(p, { equipmentId: consoleId, portId: out.id }, { equipmentId: camId, portId: video.id }).project
+    expect(checkGuestChange(p, wired, allowed, 'sound')).toBe(false)
+  })
 })
 
 describe('validation des propositions reçues sur le poste hôte', () => {

@@ -21,6 +21,7 @@ export function checkGuestChange(prev: Project, next: Project, allowed: Set<Laye
     const a = prev.equipment[id], b = next.equipment[id]
     if (equal(a, b)) continue
     if (!a || !b) { if (primaryLayer((a ?? b)!) !== view) return false; continue }
+    if (a.id !== b.id || primaryLayer(a) !== primaryLayer(b)) return false
     // La position et le nom d'un appareil partagé appartiennent à son domaine principal.
     for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) {
       if (k !== 'ports' && !equal(a[k as keyof typeof a], b[k as keyof typeof b]) && primaryLayer(a) !== view) return false
@@ -35,6 +36,13 @@ export function checkGuestChange(prev: Project, next: Project, allowed: Set<Laye
     const a = prev.links[id], b = next.links[id]
     if (equal(a, b)) continue
     if ((a && linkLayer(prev, a) !== view) || (b && linkLayer(next, b) !== view)) return false
+    for (const [project, link] of [[prev, a], [next, b]] as const) {
+      if (!link) continue
+      for (const end of [link.source, link.target]) {
+        const port = project.equipment[end.equipmentId]?.ports.find(p => p.id === end.portId)
+        if (!port || layerOfSignal(port.signal) !== view) return false
+      }
+    }
   }
   return true
 }
