@@ -1,5 +1,15 @@
-import { describe, expect, it } from 'vitest'
-import { backupName, backupsToDelete } from './backups'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { createProject } from '../model/project'
+import { useSaveFolder } from '../store/saveFolderStore'
+import { backupName, backupsToDelete, startBackups, writeBackup } from './backups'
+
+const fs = vi.hoisted(() => ({ mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn(), writeTextFile: vi.fn() }))
+vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => true }))
+vi.mock('@tauri-apps/plugin-fs', () => fs)
+vi.mock('@tauri-apps/api/path', () => ({
+  join: async (...parts: string[]) => parts.join('/'),
+  dirname: async (p: string) => p.slice(0, p.lastIndexOf('/')),
+}))
 
 describe('sauvegardes tournantes', () => {
   it('nomme les sauvegardes dans l\'ordre chronologique', () => {
@@ -12,6 +22,73 @@ describe('sauvegardes tournantes', () => {
     ]
     expect(backupsToDelete(names, 'concert', 2)).toEqual(['concert_2026-10-10_14-00-00.avd'])
     expect(backupsToDelete(names, 'concert', 10)).toEqual([])
+  })
+})
+
+describe('écriture et reprise des sauvegardes', () => {
+  beforeEach(() => {
+    vi.resetAllMocks()
+    fs.mkdir.mockResolvedValue(undefined)
+    fs.readDir.mockResolvedValue([])
+    fs.remove.mockResolvedValue(undefined)
+    fs.writeTextFile.mockResolvedValue(undefined)
+    useSaveFolder.setState({ dir: '/projets', projectFiles: {}, backups: true, backupEvery: 1, backupCount: 10, lastBackup: null, lastError: null })
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 9, 13, 12, 0, 0))
+    vi.stubGlobal('window', { setInterval, clearInterval })
+  })
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('retente après une erreur de disque, sans nouvelle modification du projet', async () => {
+    const p = createProject('Concert')
+    fs.writeTextFile.mockRejectedValueOnce(new Error('Disque absent'))
+    const stop = startBackups(() => p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    expect(useSaveFolder.getState().lastError).toBe('Disque absent')
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    expect(useSaveFolder.getState().lastBackup).not.toBeNull()
+    expect(useSaveFolder.getState().lastError).toBeNull()
+    await vi.advanceTimersByTimeAsync(60_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    stop()
+  })
+
+  it('respecte l’intervalle après réussite et sauvegarde la version modifiée', async () => {
+    let p = createProject('Concert')
+    const stop = startBackups(() => p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    p = { ...p, name: 'Concert modifié' }
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    expect(JSON.parse(fs.writeTextFile.mock.calls[1][1]).name).toBe('Concert modifié')
+    stop()
+  })
+
+  it('ne lance pas deux sauvegardes automatiques pendant une écriture lente', async () => {
+    let finish!: () => void
+    fs.writeTextFile.mockImplementationOnce(() => new Promise<void>((resolve) => { finish = resolve }))
+    const stop = startBackups(() => createProject('Concert'))
+    await vi.advanceTimersByTimeAsync(120_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    finish()
+    await vi.advanceTimersByTimeAsync(0)
+    expect(useSaveFolder.getState().lastBackup).not.toBeNull()
+    stop()
+  })
+
+  it('la onzième sauvegarde supprime seulement la plus ancienne quand dix sont gardées', async () => {
+    const old = Array.from({ length: 10 }, (_, n) => backupName('concert', new Date(2026, 9, 12, 12, n, 0)))
+    const current = backupName('concert', new Date())
+    fs.readDir.mockResolvedValue([...old, current, 'notes.txt'].map((name) => ({ name, isFile: true })))
+    expect(await writeBackup(createProject('Concert'))).toBe(true)
+    expect(fs.remove).toHaveBeenCalledExactlyOnceWith(`/projets/Sauvegardes/concert/${old[0]}`)
   })
 })
 

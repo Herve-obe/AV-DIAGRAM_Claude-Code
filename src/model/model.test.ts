@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { GENERIC_LIBRARY, LIBRARY_BY_ID } from '../library/generic'
 import { buildSampleProject } from '../library/sample'
+import { DEFAULT_EXPORT } from '../io/exportOptions'
 import { computeTotals, buildBom } from './bom'
 import { connectorsMate } from './connectors'
 import { formatCableLabel } from './numbering'
@@ -26,6 +27,59 @@ function twoBoxes(a: string, b: string): { p: Project; a: string; b: string } {
   const rb = ops.addEquipment(p, tpl(b), { x: 300, y: 0 })
   return { p: rb.project, a: ra.id, b: rb.id }
 }
+
+describe('validation du format .avd', () => {
+  const p = buildSampleProject()
+  const [id, eq] = Object.entries(p.equipment)[0]
+  const [linkId, link] = Object.entries(p.links)[0]
+
+  it('accepte un projet complet après un aller-retour JSON', () => {
+    const complete: Project = { ...p,
+      annotations: { note: { id: 'note', kind: 'note', sheetId: p.sheets![0].id, text: 'Régie', position: { x: 0, y: 0 }, size: { w: 100, h: 50 } } },
+      racks: { baie: { id: 'baie', name: 'Baie', heightU: 42 } },
+      multicores: { mp: { id: 'mp', label: 'MP-01', pairs: 16 } },
+      info: { client: 'Essai', revisions: [{ index: 'A', date: '2026-10-13', description: 'Création' }] },
+      settings: { ...p.settings, export: DEFAULT_EXPORT },
+    }
+    expect(ops.isProject(JSON.parse(JSON.stringify(complete)))).toBe(true)
+    expect(ops.isProject(ops.createProject('Projet vide'))).toBe(true)
+  })
+
+  it('accepte les anciens projets et les réglages d’export partiels', () => {
+    const old = { ...p, sheets: undefined, annotations: undefined, multicores: undefined, racks: undefined }
+    expect(ops.isProject(old)).toBe(true)
+    expect(ops.normalizeProject(old).sheets).toHaveLength(1)
+    expect(ops.isProject({ ...old, settings: { ...p.settings, export: { protect: true } } })).toBe(true)
+  })
+
+  it.each([
+    ['un projet null', null],
+    ['un tableau', []],
+    ['un identifiant absent', { ...p, id: undefined }],
+    ['une version inconnue', { ...p, format: 2 }],
+    ['des équipements null', { ...p, equipment: null }],
+    ['des équipements en tableau', { ...p, equipment: [] }],
+    ['un équipement null', { ...p, equipment: { [id]: null } }],
+    ['des ports absents', { ...p, equipment: { [id]: { ...eq, ports: undefined } } }],
+    ['un port null', { ...p, equipment: { [id]: { ...eq, ports: [null] } } }],
+    ['un signal inconnu', { ...p, equipment: { [id]: { ...eq, ports: [{ ...eq.ports[0], signal: 'inconnu' }] } } }],
+    ['une position invalide', { ...p, equipment: { [id]: { ...eq, position: { x: '100', y: 0 } } } }],
+    ['une rotation invalide', { ...p, equipment: { [id]: { ...eq, rotation: 45 } } }],
+    ['une liaison null', { ...p, links: { [linkId]: null } }],
+    ['une extrémité absente', { ...p, links: { [linkId]: { ...link, source: undefined } } }],
+    ['des zones absentes', { ...p, zones: undefined }],
+    ['des réglages absents', { ...p, settings: undefined }],
+    ['une tension non numérique', { ...p, settings: { ...p.settings, mainsVoltage: '230' } }],
+    ['une annotation null', { ...p, annotations: { note: null } }],
+    ['une baie invalide', { ...p, racks: { baie: { id: 'baie', name: 'Baie', heightU: '42' } } }],
+    ['des feuilles null', { ...p, sheets: null }],
+    ['des révisions invalides', { ...p, info: { revisions: [null] } }],
+    ['un format de papier inconnu', { ...p, settings: { ...p.settings, export: { paper: 'inconnu' } } }],
+    ['un filigrane mal formé', { ...p, settings: { ...p.settings, export: { watermark: { text: [] } } } }],
+  ])('refuse %s sans lever d’exception', (_label, value) => {
+    expect(ops.isProject(value)).toBe(false)
+  })
+})
 
 describe('signaux et connecteurs', () => {
   it('un flux audio sur IP passe sur un port réseau', () => {

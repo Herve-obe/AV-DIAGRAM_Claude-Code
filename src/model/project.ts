@@ -1,7 +1,8 @@
 // Opérations pures sur un projet : chaque fonction renvoie un NOUVEAU projet (immuable).
 // Le store (src/store) les appelle et gère l'historique d'annulation.
 import { formatCableLabel } from './numbering'
-import type { SignalFamily } from './signals'
+import { SIGNAL_FAMILIES, type SignalFamily } from './signals'
+import { PAPER_SIZES } from './types'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Rotation, Zone } from './types'
 
 export function uid(prefix: string): string {
@@ -255,10 +256,73 @@ export function assignFreshNum(project: Project, linkId: string): Project {
   return { ...project, links: { ...project.links, [linkId]: { ...next, label: labelOf(project, next) } } }
 }
 
-/** Contrôle minimal d'un fichier .avd importé. */
+/** Contrôle de la structure chargée depuis un fichier .avd ou le stockage local. */
 export function isProject(value: unknown): value is Project {
-  const v = value as Project
-  return !!v && v.format === 1 && typeof v.name === 'string' && typeof v.equipment === 'object' && typeof v.links === 'object'
+  const object = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x)
+  const strings = (x: unknown, required: string[], optional: string[] = []) => object(x)
+    && required.every((k) => typeof x[k] === 'string')
+    && optional.every((k) => x[k] === undefined || typeof x[k] === 'string')
+  const numbers = (x: unknown, required: string[], optional: string[] = []) => object(x)
+    && required.every((k) => typeof x[k] === 'number' && Number.isFinite(x[k]))
+    && optional.every((k) => x[k] === undefined || (typeof x[k] === 'number' && Number.isFinite(x[k])))
+  const stringList = (x: unknown) => x === undefined || (Array.isArray(x) && x.every((s) => typeof s === 'string'))
+  const point = (x: unknown) => numbers(x, ['x', 'y'])
+  const entries = (x: unknown, check: (item: Record<string, unknown>) => boolean) => object(x)
+    && Object.entries(x).every(([id, item]) => object(item) && item.id === id && id.length > 0 && check(item))
+
+  if (!object(value)) return false
+  const v = value as unknown as Project
+  if (v.format !== 1 || !strings(v, ['id', 'name', 'createdAt', 'updatedAt']) || !v.id) return false
+  if (!Array.isArray(v.zones) || !v.zones.every((z) => strings(z, ['id', 'name', 'code']))) return false
+  if (!strings(v.settings, ['cableFormat', 'defaultZoneCode']) || !numbers(v.settings, ['mainsVoltage']) || v.settings.mainsVoltage <= 0) return false
+  if (!stringList(v.settings.mutedRules)) return false
+  if (v.settings.typeCodes !== undefined && (!object(v.settings.typeCodes) || !Object.values(v.settings.typeCodes).every((s) => typeof s === 'string'))) return false
+
+  if (!entries(v.equipment, (e) => strings(e, ['id', 'templateId', 'name', 'model', 'family', 'pictogram'], ['manufacturer', 'domain', 'zoneId', 'sheetId', 'notes'])
+    && point(e.position) && numbers(e, [], ['powerW', 'weightKg', 'rackU'])
+    && (e.rotation === undefined || [0, 90, 180, 270].includes(e.rotation as number))
+    && stringList(e.dismissedHints)
+    && (e.mount === undefined || (strings(e.mount, ['rackId', 'face']) && numbers(e.mount, ['u']) && ['front', 'rear'].includes((e.mount as Record<string, unknown>).face as string)))
+    && Array.isArray(e.ports) && e.ports.every((p) => strings(p, ['id', 'name', 'direction', 'signal', 'connector'], ['level', 'format', 'phantom'])
+      && ['in', 'out', 'bidir'].includes(p.direction)
+      && (SIGNAL_FAMILIES as readonly string[]).includes(p.signal)
+      && numbers(p, [], ['channels'])))) return false
+  if (!entries(v.links, (l) => strings(l, ['id', 'label'], ['cableTypeId', 'cableRef', 'multicoreId', 'notes'])
+    && numbers(l, ['num'], ['lengthM', 'channels', 'pair', 'bendX'])
+    && strings(l.source, ['equipmentId', 'portId']) && strings(l.target, ['equipmentId', 'portId'])
+    && stringList(l.ignoredRules))) return false
+
+  // Ces collections n'existaient pas dans les premiers fichiers ; normalizeProject les complète.
+  if (v.sheets !== undefined && (!Array.isArray(v.sheets) || !v.sheets.every((s) => strings(s, ['id', 'name'], ['parentId'])
+    && (s.groupPosition === undefined || point(s.groupPosition))))) return false
+  if (v.annotations !== undefined && !entries(v.annotations, (a) => strings(a, ['id', 'kind', 'sheetId', 'text'], ['color', 'zoneId'])
+    && ['note', 'frame'].includes(a.kind as string) && point(a.position) && numbers(a.size, ['w', 'h']))) return false
+  if (v.multicores !== undefined && !entries(v.multicores, (m) => strings(m, ['id', 'label'], ['cableTypeId', 'connectors', 'notes']) && numbers(m, ['pairs'], ['lengthM']))) return false
+  if (v.racks !== undefined && !entries(v.racks, (r) => strings(r, ['id', 'name'], ['zoneId', 'notes']) && numbers(r, ['heightU'], ['depthMm']))) return false
+  if (v.info !== undefined && (!strings(v.info, [], ['client', 'venue', 'author', 'revision', 'owner', 'docNumber', 'subtitle', 'docType', 'status', 'approver', 'techRef', 'classification', 'language', 'eventDate'])
+    || (v.info.revisions !== undefined && (!Array.isArray(v.info.revisions) || !v.info.revisions.every((r) => strings(r, ['index', 'date', 'description'], ['author'])))))) return false
+
+  // Les réglages d'export anciens peuvent être partiels ; exportSettingsOf fournit les valeurs absentes.
+  const ex = v.settings.export
+  if (ex !== undefined) {
+    if (!object(ex) || !numbers(ex, [], ['printScale'])) return false
+    if (ex.paper !== undefined && !PAPER_SIZES.includes(ex.paper)) return false
+    if (ex.orientation !== undefined && !['landscape', 'portrait'].includes(ex.orientation)) return false
+    if (ex.scaleMode !== undefined && !['fit', 'tile', 'page'].includes(ex.scaleMode)) return false
+    if (ex.protect !== undefined && typeof ex.protect !== 'boolean') return false
+    if (ex.watermark !== undefined) {
+      const w = ex.watermark
+      if (!strings(w, [], ['text', 'color']) || !numbers(w, [], ['opacity']) || !stringList(w.recipients)) return false
+      if (w.enabled !== undefined && typeof w.enabled !== 'boolean') return false
+      if (w.images !== undefined && typeof w.images !== 'boolean') return false
+      if (w.placement !== undefined && !['tiled', 'diagonal', 'top', 'bottom', 'corner'].includes(w.placement)) return false
+      if (w.zone !== undefined && !['diagram', 'sheet'].includes(w.zone)) return false
+      if (w.size !== undefined && !['small', 'medium', 'large'].includes(w.size)) return false
+    }
+    if (ex.protection !== undefined && (!object(ex.protection)
+      || !(['enabled', 'allowPrint', 'allowCopy', 'allowModify'] as const).every((k) => ex.protection[k] === undefined || typeof ex.protection[k] === 'boolean'))) return false
+  }
+  return true
 }
 
 /* ---------- Ports (éditeur de blocs) ---------- */
