@@ -20,6 +20,8 @@ Une copie interne aide à reprendre le travail après un plantage. Elle reste di
 
 Depuis **Session Collaborative**, l’hôte ouvre une salle d’attente avec son schéma. Les invités choisissent l’hôte dans la recherche automatique sur le réseau local et saisissent son code. La saisie d’adresse reste disponible dans les options avancées si la découverte est bloquée.
 
+Depuis la version **0.2.3**, un hôte unique est présélectionné. S'il y a plusieurs sessions, l'invité choisit celle à rejoindre. Le nom de l'invité reste à renseigner en haut de la fenêtre ; le nom affiché sous le projet est celui de l'hôte. À côté du bouton Rejoindre, un message précise s'il manque le nom, la sélection d'une session ou les six chiffres du code. Une saisie d'adresse manuelle reste prioritaire et la disparition d'un hôte explicitement sélectionné ne choisit pas un autre hôte à sa place.
+
 Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. Un invité peut recevoir plusieurs calques ; un même calque est réservé à un invité à la fois. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
 
 Le bouton **Terminer la session** reste visible dans le bandeau du logiciel chez l’hôte, même si la fenêtre de gestion est fermée. Les invités disposent de **Quitter la session**. Le schéma reste ouvert sur chaque poste.
@@ -34,9 +36,9 @@ L’hôte garde l’accès à tous les calques, y compris depuis la vue généra
 
 Pour ouvrir un autre schéma, quitter ou terminer d’abord la session. Une ouverture locale ne doit pas remplacer le document partagé.
 
-Pour tester le correctif de découverte, installer la version **0.2.2** sur les postes. La découverte utilise le réseau local IPv4 et UDP 4456 ; sur un VPN ou un réseau filtré, les options avancées permettent de rejoindre par adresse. La version 0.2.2 continue la recherche et les annonces après une erreur UDP ponctuelle liée à un port fermé ou à un paquet trop grand.
+Pour tester le parcours de connexion, installer la version **0.2.3** sur les postes. La découverte utilise le réseau local IPv4 et UDP 4456 ; sur un VPN ou un réseau filtré, les options avancées permettent de rejoindre par adresse. La version 0.2.2 continue la recherche et les annonces après une erreur UDP ponctuelle liée à un port fermé ou à un paquet trop grand.
 
-Un premier essai sur deux postes Windows 11 en Ethernet, IP fixes sur le même switch d'un établissement scolaire, confirme le fonctionnement de la session après saisie manuelle de l'adresse. La recherche automatique y reste à valider avec le correctif ; le filtrage UDP du réseau n'a pas été vérifié.
+Un premier essai sur deux postes Windows 11 en Ethernet, IP fixes sur le même switch d'un établissement scolaire, confirme le fonctionnement de la session après saisie manuelle de l'adresse. Un nouvel essai en 0.2.2 confirme la découverte de l'hôte. L'utilisateur a ensuite signalé un bouton Rejoindre inactif ; la 0.2.3 explicite ses conditions d'activation, qui restent à retester sur ces postes.
 
 Si un poste de secours a repris l’hébergement après une panne, il conserve la session à jour. Le poste initial qui reprend rejoint ce secours ; l’hébergement ne revient pas automatiquement chez lui. Cela évite qu’un ancien état remplace les modifications faites pendant son absence.
 
@@ -68,6 +70,6 @@ Pour compléter les simulations par un essai sur trois ordinateurs :
 5. Modifier le schéma sans enregistrer, puis rouvrir le fichier principal depuis une autre copie de l’application : il doit contenir la dernière version enregistrée manuellement. Ctrl+S / Cmd+S doit ensuite mettre ce fichier à jour.
 6. Régler une rotation courte, attendre une copie de plus que le nombre conservé et vérifier le contenu de « Save Back Up ». Tester aussi un emplacement devenu inaccessible : l’erreur d’écriture doit garder le projet ouvert et non enregistré.
 
-Les 209 tests TypeScript passent ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos, le parcours de session, la découverte dans l'interface et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
+Les 212 tests TypeScript passent ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos, le parcours de session, la découverte dans l'interface, les conditions du bouton Rejoindre et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
 
 La CI de la PR vérifie les tests TypeScript et les tests natifs Windows et macOS, dont la découverte sur sockets locales. Deux régressions couvrent une recherche vers un port fermé suivie d'une réponse valide et la poursuite des annonces après un paquet trop grand. Le test de relais manuel reste ignoré, comme prévu. Les essais avec dialogues natifs, disques réels et trois ordinateurs restent à faire, notamment les pannes et reprises. Deux hôtes isolés par une coupure ne fusionnent pas automatiquement leurs documents : il faut conserver leurs fichiers avant une fusion manuelle.

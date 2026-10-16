@@ -71,10 +71,57 @@ describe('parcours de session collaborative', () => {
     expect(actions.discover).toHaveBeenCalledOnce()
     expect(element.textContent).toContain('Concert')
     expect(element.querySelector('#collab-address')?.closest('details')?.open).toBe(false)
-    act(() => element.querySelector<HTMLInputElement>('input[type="radio"]')!.click())
+    expect(element.querySelector<HTMLInputElement>('input[type="radio"]')!.checked).toBe(true)
     input('collab-code', '123456')
     await act(async () => click('Rejoindre'))
     expect(actions.join).toHaveBeenCalledWith('192.168.1.2:4455', '123456')
+  })
+  it('explique ce qui manque pour rejoindre sans choisir parmi plusieurs hôtes à la place de l’invité', async () => {
+    useCollab.setState({ name: '' })
+    actions.discover.mockResolvedValue([
+      { id: 'concert', address: '192.168.1.2:4455', sessionName: 'Concert', hostName: 'Régie' },
+      { id: 'studio', address: '192.168.1.3:4455', sessionName: 'Studio', hostName: 'Studio' },
+    ])
+    draw(); await act(async () => click('Rejoindre', 'tab'))
+    const button = element.querySelector<HTMLButtonElement>('.collab-action')!
+    const requirement = () => element.querySelector('#collab-join-requirement')?.textContent
+    expect(button.disabled).toBe(true)
+    expect(requirement()).toBe('Renseigne ton nom pour rejoindre la session.')
+    input('collab-name', '   ')
+    expect(button.disabled).toBe(true)
+    input('collab-name', 'Régie son')
+    expect(requirement()).toBe('Sélectionne une session dans la liste ou saisis une adresse dans les options avancées.')
+    expect([...element.querySelectorAll<HTMLInputElement>('input[type="radio"]')].every(r => !r.checked)).toBe(true)
+    act(() => element.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1].click())
+    expect(requirement()).toBe('Saisis les 6 chiffres du code communiqué par l’hôte.')
+    input('collab-code', '01234')
+    expect(button.disabled).toBe(true)
+    input('collab-code', '012345')
+    expect(button.disabled).toBe(false)
+    expect(requirement()).toBeUndefined()
+    await act(async () => click('Rejoindre'))
+    expect(actions.join).toHaveBeenCalledWith('192.168.1.3:4455', '012345')
+  })
+  it('garde la saisie manuelle prioritaire même lorsqu’un seul hôte est découvert', async () => {
+    actions.discover.mockResolvedValue([{ id: 'concert', address: '192.168.1.2:4455', sessionName: 'Concert', hostName: 'Régie' }])
+    draw(); await act(async () => click('Rejoindre', 'tab'))
+    input('collab-address', '192.168.1.8:4455'); input('collab-code', '654321')
+    expect(element.querySelector<HTMLInputElement>('input[type="radio"]')!.checked).toBe(false)
+    await act(async () => click('Rejoindre'))
+    expect(actions.join).toHaveBeenCalledWith('192.168.1.8:4455', '654321')
+  })
+  it('ne remplace pas une sélection explicite par un autre hôte après actualisation', async () => {
+    const concert = { id: 'concert', address: '192.168.1.2:4455', sessionName: 'Concert', hostName: 'Régie' }
+    const studio = { id: 'studio', address: '192.168.1.3:4455', sessionName: 'Studio', hostName: 'Studio' }
+    actions.discover.mockResolvedValueOnce([concert, studio]).mockResolvedValueOnce([studio])
+    draw(); await act(async () => click('Rejoindre', 'tab'))
+    act(() => element.querySelector<HTMLInputElement>('input[type="radio"]')!.click())
+    input('collab-code', '123456')
+    await act(async () => click('Actualiser'))
+    expect(element.querySelector<HTMLInputElement>('input[type="radio"]')!.checked).toBe(false)
+    expect(element.querySelector<HTMLButtonElement>('.collab-action')!.disabled).toBe(true)
+    expect(element.querySelector('#collab-join-requirement')?.textContent).toContain('Sélectionne une session')
+    expect(actions.join).not.toHaveBeenCalled()
   })
   it('permet une connexion manuelle si la découverte échoue', async () => {
     actions.discover.mockRejectedValue(new Error('Réseau'))

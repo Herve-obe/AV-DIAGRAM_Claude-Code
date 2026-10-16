@@ -28,7 +28,9 @@ export function CollabDialog() {
   const previousStarted = useRef(started)
   const active = status !== 'off'
   const guests = participants.filter(p => !p.self && p.peerId != null && p.userId)
-  const joinAddress = sessions.find(s => s.id === selectedHost)?.address ?? manualAddress
+  const selectedSession = sessions.find(s => s.id === selectedHost)
+    ?? (!selectedHost && !manualAddress.trim() && sessions.length === 1 ? sessions[0] : undefined)
+  const joinAddress = selectedSession?.address ?? manualAddress
   const close = () => setDialogOpen(false)
 
   useEffect(() => {
@@ -73,6 +75,7 @@ export function CollabDialog() {
   const portNumber = Number(port)
   const portValid = Number.isInteger(portNumber) && portNumber >= 1024 && portNumber <= 65535
   const nameOk = name.trim().length > 0
+  const joinRequirement = !nameOk ? 'name' : !joinAddress.trim() ? 'host' : code.length !== 6 ? 'code' : null
 
   return <div className="overlay" onMouseDown={e => e.target === e.currentTarget && close()}>
     <div className="dialog collab-dialog" role="dialog" aria-modal="true" aria-labelledby="collab-title">
@@ -121,7 +124,7 @@ export function CollabDialog() {
             <ul className="collab-sessions" aria-label={t('collab.discovery.title')}>
               {sessions.map(s => <li key={s.id}>
                 <label>
-                  <input type="radio" name="collab-host" checked={selectedHost === s.id} onChange={() => { setSelectedHost(s.id); setManualAddress('') }} />
+                  <input type="radio" name="collab-host" checked={selectedSession?.id === s.id} onChange={() => { setSelectedHost(s.id); setManualAddress('') }} />
                   <span><strong>{s.sessionName}</strong><span className="dim">{t('collab.discovery.host', { name: s.hostName })}</span></span>
                 </label>
               </li>)}
@@ -139,7 +142,8 @@ export function CollabDialog() {
               <label className="collab-check"><input type="checkbox" checked={backup} onChange={e => setBackup(e.target.checked)} /><span>{t('collab.backup')}</span></label>
             </details>
             <p className="dialog-hint">{t('collab.joinWarning')}</p>
-            <button className="btn btn-primary collab-action" disabled={busy || !nameOk || !joinAddress.trim() || code.length !== 6} onClick={() => run(() => joinSession(joinAddress, code))}>
+            {joinRequirement && <p id="collab-join-requirement" className="dialog-hint" role="status">{t(`collab.joinRequirements.${joinRequirement}`)}</p>}
+            <button className="btn btn-primary collab-action" disabled={busy || joinRequirement !== null} aria-describedby={joinRequirement ? 'collab-join-requirement' : undefined} onClick={() => run(() => joinSession(joinAddress, code))}>
               {busy ? t('collab.status.connecting') : t('collab.joinAction')}
             </button>
           </section>}

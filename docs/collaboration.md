@@ -43,7 +43,7 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
 7. **Enregistrement** : Ctrl+S / Cmd+S enregistre le fichier principal `.avd` ; chaque participant peut
    garder une copie locale. Les sauvegardes de sécurité automatiques vont dans « Save Back Up ».
 
-## État (2026-10-16, version 0.2.2)
+## État (2026-10-16, version 0.2.3)
 
 Les calques sont attribués par l'hôte et les propositions invitées sont validées avant diffusion.
 Les identités de poste sont dérivées d'un secret persistant par le relais ; les noms affichés ne
@@ -56,7 +56,11 @@ Un premier essai utilisateur confirme le fonctionnement de la session après sai
 l'adresse : deux postes Windows 11, Ethernet sur le même switch, IP fixes, réseau scolaire.
 La découverte automatique n'y a pas trouvé l'hôte. La version 0.2.2 poursuit les annonces et la
 recherche après une erreur UDP liée à un port fermé ou à un paquet trop grand, au lieu de les arrêter.
-Ce correctif reste à essayer sur ces deux postes ; il ne confirme pas l'absence de filtrage réseau.
+Le nouvel essai en 0.2.2 confirme que l'invité trouve maintenant la session de l'hôte. Le bouton
+Rejoindre est ensuite resté inactif. La 0.2.3 présélectionne un hôte unique et indique la condition
+manquante : nom de l'invité, choix de la session ou code à six chiffres. Plusieurs hôtes restent
+à départager explicitement ; une saisie manuelle est prioritaire. Ce parcours reste à retester
+sur les deux postes. Le code d'accès et les droits ne sont pas modifiés.
 La fin de session est aussi annoncée si le relais ferme les canaux internes avant que les connexions
 ne traitent l'arrêt. Une régression répète cette fermeture pour un hôte et un invité ; les attentes
 des messages de contrôle dans les tests sont bornées pour éviter un blocage silencieux de la CI.
@@ -138,9 +142,10 @@ Windows et macOS travaillent ensemble dans la même session (même protocole, m�
 
 ## Tester
 
-1. Installer la version 0.2.2 sur les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
+1. Installer la version 0.2.3 sur les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
    « Ouvrir la session ». Le code à 6 chiffres et la salle d'attente s'affichent.
-2. Invité : onglet Rejoindre, choisir l'hôte trouvé et saisir son code. Si la recherche reste vide,
+2. Invité : renseigner son propre nom en haut, onglet Rejoindre, choisir l'hôte trouvé (présélectionné
+   s'il est seul) et saisir les six chiffres du code. Si la recherche reste vide,
    essayer Actualiser puis l'adresse affichée chez l'hôte dans les options avancées
    (ex. `192.168.1.20:4455`). Noter séparément le résultat de la découverte et de la connexion manuelle.
 3. Hôte : attribuer les calques aux invités connectés, puis « Commencer la session ».
