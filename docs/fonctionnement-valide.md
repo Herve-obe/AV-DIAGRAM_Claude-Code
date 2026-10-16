@@ -24,6 +24,8 @@ Les invités connectés apparaissent chez l’hôte. Il leur attribue les calque
 
 Le bouton **Terminer la session** reste visible dans le bandeau du logiciel chez l’hôte, même si la fenêtre de gestion est fermée. Les invités disposent de **Quitter la session**. Le schéma reste ouvert sur chaque poste.
 
+L'annonce de fin précède la fermeture des connexions, y compris lorsque les canaux internes ont déjà été fermés par le relais. Une fermeture voulue doit rester distincte d'une interruption qui déclenche la reprise.
+
 Les invités voient le schéma complet. Ils doivent sélectionner un calque attribué pour l’éditer. Leur vue générale reste en lecture seule. Les réglages communs du projet restent réservés à l’hôte. Sur un appareil partagé, un invité peut modifier les ports de son domaine, sans changer les éléments protégés des autres domaines.
 
 Deux invités peuvent modifier ou ajouter simultanément des ports audio et vidéo du même appareil. Annuler une modification conserve celles de l’autre invité. Les fichiers `.avd` existants restent compatibles.

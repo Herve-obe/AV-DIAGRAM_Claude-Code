@@ -57,6 +57,9 @@ l'adresse : deux postes Windows 11, Ethernet sur le même switch, IP fixes, rés
 La découverte automatique n'y a pas trouvé l'hôte. La version 0.2.2 poursuit les annonces et la
 recherche après une erreur UDP liée à un port fermé ou à un paquet trop grand, au lieu de les arrêter.
 Ce correctif reste à essayer sur ces deux postes ; il ne confirme pas l'absence de filtrage réseau.
+La fin de session est aussi annoncée si le relais ferme les canaux internes avant que les connexions
+ne traitent l'arrêt. Une régression répète cette fermeture pour un hôte et un invité ; les attentes
+des messages de contrôle dans les tests sont bornées pour éviter un blocage silencieux de la CI.
 Restent aussi les essais à trois postes réels, les règles du pare-feu et la continuité après panne.
 
 | Élément | Fichier |

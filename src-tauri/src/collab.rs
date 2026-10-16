@@ -227,12 +227,7 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     // 3. Relais : binaire reçu -> autres participants ; messages des autres -> ce participant
     loop {
         tokio::select! {
-            _ = shutdown.changed() => {
-                if *shutdown.borrow() == ENDED {
-                    let _ = sink.send(json(serde_json::json!({ "type": "ended" }))).await;
-                }
-                break
-            }
+            _ = shutdown.changed() => break,
             out = rx.recv() => match out {
                 Some(m) => if sink.send(m).await.is_err() { break },
                 None => break, // exclu par l'hôte
@@ -244,6 +239,10 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
                 Some(Ok(_)) => {}
             },
         }
+    }
+    // Le relais peut fermer rx avant que cette connexion ne lise l'arrêt.
+    if *shutdown.borrow() == ENDED {
+        let _ = sink.send(json(serde_json::json!({ "type": "ended" }))).await;
     }
     let _ = sink.close().await;
     hub.peers.lock().unwrap().remove(&id);
@@ -402,8 +401,10 @@ mod tests {
 
     async fn next_json(ws: &mut tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>) -> serde_json::Value {
         loop {
-            if let Some(Ok(Message::Text(t))) = ws.next().await {
-                return serde_json::from_str(&t).unwrap();
+            match tokio::time::timeout(Duration::from_secs(5), ws.next()).await.expect("message de session attendu") {
+                Some(Ok(Message::Text(t))) => return serde_json::from_str(&t).unwrap(),
+                Some(Ok(Message::Ping(_) | Message::Pong(_))) => {},
+                other => panic!("message de session inattendu : {other:?}"),
             }
         }
     }
@@ -444,6 +445,20 @@ mod tests {
         // Fin de session par l'hôte : les participants restants sont prévenus
         let _ = stop.send(ENDED);
         assert_eq!(next_json(&mut a).await["type"], "ended");
+    }
+
+    #[tokio::test]
+    async fn annonce_la_fin_meme_si_les_canaux_des_participants_sont_deja_fermes() {
+        for _ in 0..16 {
+            let (port, hub, stop) = start().await;
+            let (mut a, _) = join_with_token(port, "123456", Some(&hub.host_token)).await;
+            let (mut b, _) = join(port, "123456").await;
+            assert_eq!(next_json(&mut a).await["type"], "peer-joined");
+            stop.send(ENDED).unwrap();
+            hub.peers.lock().unwrap().clear();
+            assert_eq!(next_json(&mut a).await["type"], "ended");
+            assert_eq!(next_json(&mut b).await["type"], "ended");
+        }
     }
 
     #[tokio::test]
