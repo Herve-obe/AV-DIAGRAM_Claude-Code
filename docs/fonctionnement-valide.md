@@ -18,7 +18,11 @@ Une copie interne aide à reprendre le travail après un plantage. Elle reste di
 
 ## Collaboration sur le réseau local
 
-L’hôte ouvre le schéma et la session. Dans la fenêtre Collaboration, il attribue chaque calque à un invité. Un invité peut recevoir plusieurs calques ; un même calque est réservé à un invité à la fois.
+Depuis **Session Collaborative**, l’hôte ouvre une salle d’attente avec son schéma. Les invités choisissent l’hôte dans la recherche automatique sur le réseau local et saisissent son code. La saisie d’adresse reste disponible dans les options avancées si la découverte est bloquée.
+
+Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. Un invité peut recevoir plusieurs calques ; un même calque est réservé à un invité à la fois. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
+
+Le bouton **Terminer la session** reste visible dans le bandeau du logiciel chez l’hôte, même si la fenêtre de gestion est fermée. Les invités disposent de **Quitter la session**. Le schéma reste ouvert sur chaque poste.
 
 Les invités voient le schéma complet. Ils doivent sélectionner un calque attribué pour l’éditer. Leur vue générale reste en lecture seule. Les réglages communs du projet restent réservés à l’hôte. Sur un appareil partagé, un invité peut modifier les ports de son domaine, sans changer les éléments protégés des autres domaines.
 
@@ -27,6 +31,8 @@ Deux invités peuvent modifier ou ajouter simultanément des ports audio et vid�
 L’hôte garde l’accès à tous les calques, y compris depuis la vue générale. Retirer une attribution empêche les nouvelles modifications de l’invité concerné. Les droits sont conservés lors d’une reconnexion normale du même poste.
 
 Pour ouvrir un autre schéma, quitter ou terminer d’abord la session. Une ouverture locale ne doit pas remplacer le document partagé.
+
+Tous les postes doivent utiliser la version **0.2.1** pour ce nouveau parcours. La découverte utilise le réseau local IPv4 ; sur un VPN ou un réseau filtré, les options avancées permettent de rejoindre par adresse.
 
 Si un poste de secours a repris l’hébergement après une panne, il conserve la session à jour. Le poste initial qui reprend rejoint ce secours ; l’hébergement ne revient pas automatiquement chez lui. Cela évite qu’un ancien état remplace les modifications faites pendant son absence.
 

@@ -4,6 +4,7 @@
 // le réseau local.
 mod ai;
 mod collab;
+mod discovery;
 mod pdfsec;
 mod local;
 
@@ -30,6 +31,7 @@ pub fn run() {
             collab::collab_host_status,
             collab::collab_kick,
             collab::collab_local_addresses,
+            discovery::collab_discover,
             pdfsec::pdf_protect
         ])
         .build(tauri::generate_context!())

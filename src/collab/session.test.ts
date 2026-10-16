@@ -100,6 +100,12 @@ it('synchronise deux postes, applique les droits de l’hôte et les conserve ap
   host.session.assignLayer('sound', person.peerId!)
   await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.sound?.userId).toBe(person.userId))
   guest.useUi.getState().setPref('layer', 'sound')
+  const waiting = guest.useProject.getState().project
+  guest.useProject.getState().addEquipment(guest.LIBRARY_BY_ID.get('gen-console')!, { x: 10, y: 20 })
+  expect(guest.useProject.getState().project).toBe(waiting)
+  expect(guest.session.beginSession()).toBe(false)
+  expect(host.session.beginSession()).toBe(true)
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().started).toBe(true))
   const id = guest.useProject.getState().addEquipment(guest.LIBRARY_BY_ID.get('gen-console')!, { x: 10, y: 20 })
   await vi.waitFor(() => expect(host.useProject.getState().project.equipment[id]).toBeDefined())
   const before = guest.useProject.getState().project
@@ -134,6 +140,7 @@ it('l’ancien hôte rejoint le secours actif sans rouvrir un relais avec son an
   host.useProject.getState().rename('Version conservée chez le secours')
   await host.session.hostSession()
   await vi.waitFor(() => expect(host.session.useCollab.getState().status).toBe('connected'))
+  host.session.beginSession()
   guest = await instance('Ancien hôte')
   guest.session.useCollab.setState({ resumable: {
     code: '123456', origin: 'host', port: 4455, ranks: [['original:4455'], ['backup:4455']], backupIds: [],
@@ -142,6 +149,7 @@ it('l’ancien hôte rejoint le secours actif sans rouvrir un relais avec son an
   await guest.session.resumeSession()
   expect(guest.useProject.getState().project.name).toBe('Version conservée chez le secours')
   expect(guest.session.useCollab.getState().role).toBe('guest')
+  expect(guest.session.useCollab.getState().started).toBe(true)
   expect(host.session.useCollab.getState().role).toBe('host')
   expect(native.invoke.mock.calls.filter(([command]) => command === 'collab_host_start')).toHaveLength(1)
 })
@@ -169,8 +177,10 @@ it('trois postes éditent et ajoutent des ports audio et vidéo du même apparei
   const people = host.session.useCollab.getState().participants
   host.session.assignLayer('sound', people.find(p => p.userId === audioUser)!.peerId!)
   host.session.assignLayer('image', people.find(p => p.userId === videoUser)!.peerId!)
+  host.session.beginSession()
   await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.sound?.userId).toBe(audioUser))
   await vi.waitFor(() => expect(video.session.useCollab.getState().claims.image?.userId).toBe(videoUser))
+  await vi.waitFor(() => expect(video.session.useCollab.getState().started).toBe(true))
   guest.useUi.getState().setPref('layer', 'sound'); video.useUi.getState().setPref('layer', 'image')
   await vi.waitFor(() => {
     const people = host.session.useCollab.getState().participants

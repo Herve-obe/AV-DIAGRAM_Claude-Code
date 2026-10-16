@@ -13,6 +13,7 @@ import { useUi } from './store/uiStore'
 import { AiSetupDialog } from './ui/AiSetupDialog'
 import { ChatPanel } from './ui/ChatPanel'
 import { CollabBanner } from './ui/CollabBanner'
+import { CollabSessionBar } from './ui/CollabSessionBar'
 import { CollabDialog } from './ui/CollabDialog'
 import { AssistantPanel } from './ui/AssistantPanel'
 import { CommandPalette } from './ui/CommandPalette'
@@ -168,7 +169,10 @@ export default function App() {
   return (
     <ReactFlowProvider>
       <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''} ${detached ? 'is-detached' : ''}`} style={sizes}>
-        {presenting ? <PresentationBar /> : <TopBar />}
+        <div className="app-header">
+          {presenting ? <PresentationBar /> : <TopBar />}
+          <CollabSessionBar />
+        </div>
         <div className="workspace">
           {!presenting && <LibraryPanel />}
           <main className="stage">

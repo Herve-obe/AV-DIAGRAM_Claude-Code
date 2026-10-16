@@ -681,23 +681,23 @@
     "showAll": "Afficher tous les calques"
   },
   "collab": {
-    "title": "Travail à plusieurs",
+    "title": "Session Collaborative",
     "hint": "Plusieurs postes travaillent en même temps sur le même projet, sur le réseau local (réseau de la presta, bureau, VPN). Aucune donnée ne sort du réseau, pas de compte.",
     "name": "Ton nom (vu par les autres)",
     "namePlaceholder": "ex. Régie son",
     "host": "Héberger",
     "join": "Rejoindre",
     "hostDesktopOnly": "Le travail à plusieurs se fait avec l'application de bureau AV Diagram (Windows ou macOS), installée sur chaque poste. Les postes Windows et Mac peuvent travailler ensemble dans la même session.",
-    "hostHint": "Ce poste ouvre la session avec le projet ouvert. Communique ensuite l'adresse et le code aux autres participants.",
+    "hostHint": "Ouvre une salle d’attente avec le schéma actuel. Accueille les invités, attribue leurs calques, puis commence la session.",
     "port": "Port",
-    "start": "Ouvrir la session",
-    "joinHint": "Adresse et code affichés sur le poste qui héberge la session.",
+    "start": "Ouvrir la salle d’attente",
+    "joinHint": "Sélectionne un hôte sur le réseau local, puis saisis le code qu’il te communique.",
     "address": "Adresse de l'hôte",
     "code": "Code de session",
     "joinWarning": "Le projet de la session remplace le projet ouvert sur ce poste : enregistre-le avant si besoin.",
     "joinAction": "Rejoindre",
     "addresses": "Adresses de ce poste",
-    "firewall": "Si personne n'arrive à se connecter, autorise le port {{port}} (TCP) dans le pare-feu de ce poste.",
+    "firewall": "Autorise AV Diagram sur le réseau privé. La session utilise le port TCP {{port}} ; la recherche des hôtes utilise le port UDP 4456.",
     "joined": "Connecté à {{address}}.",
     "participants": "Participants",
     "you": "toi",
@@ -734,7 +734,8 @@
       "claim": "Réserver",
       "release": "Libérer",
       "unassigned": "Hôte uniquement",
-      "assign": "Attribuer le calque {{layer}}"
+      "assign": "Attribuer le calque {{layer}}",
+      "offline": "{{name}} (déconnecté)"
     },
     "chat": {
       "title": "Tchat de la session",
@@ -756,6 +757,30 @@
       "accessDenied": "Modification refusée : utilise un calque attribué par l’hôte. Les éléments communs et le calque général sont réservés à l’hôte.",
       "returnDeferred": "L’hôte initial est de nouveau disponible. Cette session reste hébergée ici pour conserver toutes les modifications.",
       "joinedRelay": "La session continue sur le poste de secours. Tu l’as rejoint avec son document à jour ; ce poste reste l’hôte."
+    },
+    "advanced": "Options avancées",
+    "manage": "Gérer la session",
+    "openDiagram": "Voir le schéma",
+    "peopleCount_one": "{{count}} participant",
+    "peopleCount_other": "{{count}} participants",
+    "lobby": {
+      "label": "Salle d’attente",
+      "waiting": "En attente d’invités",
+      "begin": "Commencer la session",
+      "hostRole": "Hôte",
+      "invite": "Les invités choisissent cette session dans leur recherche réseau. Communique-leur le code ci-dessus.",
+      "assignAfterJoin": "Les invités apparaîtront ici dès leur connexion. Tu pourras alors leur attribuer les calques avant de commencer.",
+      "guestWaiting": "Tu es connecté. L’hôte prépare les rôles et commencera la session. Le schéma reste en lecture seule en attendant."
+    },
+    "discovery": {
+      "title": "Hôtes disponibles",
+      "searching": "Recherche d’un hôte sur le réseau local…",
+      "found": "Choisis l’hôte à rejoindre.",
+      "empty": "Aucun hôte trouvé. Vérifie qu’une salle d’attente est ouverte sur le même réseau.",
+      "error": "Recherche indisponible. Réessaie ou utilise les options avancées.",
+      "refresh": "Actualiser",
+      "host": "Hôte : {{name}}",
+      "unavailable": "La découverte réseau n’est pas disponible sur ce poste. Les invités peuvent utiliser l’adresse dans les options avancées."
     }
   },
   "pdfImport": {
@@ -993,8 +1018,8 @@
     "lastNone": "Aucun projet enregistré sur cet appareil.",
     "file": "Ouvrir un fichier",
     "fileDesc": "Projet .avd enregistré sur ce poste ou reçu d'un collègue.",
-    "collab": "Rejoindre une session",
-    "collabDesc": "Collaboration en direct sur le réseau local.",
+    "collab": "Session Collaborative",
+    "collabDesc": "Héberger une session ou rejoindre un hôte sur le réseau local.",
     "recent": "Projets récents sur cet appareil",
     "recentMeta_one": "{{count}} équipement · {{date}}",
     "recentMeta_other": "{{count}} équipements · {{date}}",

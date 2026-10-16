@@ -782,6 +782,17 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .collab-dialog { width: min(480px, calc(100vw - 32px)); }
 .collab-tabs { margin: 8px 14px; }
 .collab-tabs button:disabled { opacity: .45; cursor: not-allowed; }
+.collab-tabs button[aria-selected='true'] { background: var(--accent-soft); color: var(--accent); }
+.collab-advanced { margin: 8px 14px; font-size: 12.5px; }
+.collab-advanced summary { cursor: pointer; color: var(--text-2); }
+.collab-advanced[open] summary { margin-bottom: 8px; }
+.collab-sessions { list-style: none; margin: 8px 14px; padding: 0; display: grid; gap: 6px; }
+.collab-sessions label { display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; }
+.collab-sessions label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.collab-sessions label > span { display: grid; gap: 3px; overflow-wrap: anywhere; }
+.collab-session-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 5px 12px; border-bottom: 1px solid var(--border); background: var(--bg-1); font-size: 12.5px; }
+.collab-session-bar > [role='status'] { font-weight: 600; }
+.collab-session-bar .btn { font-size: 12px; padding: 4px 8px; }
 .collab-action { margin: 6px 14px 10px; }
 .collab-error { display: flex; align-items: center; gap: 6px; margin: 4px 14px 8px; font-size: 12.5px; color: var(--err); }
 .collab-state { margin: 4px 14px; font-size: 13px; font-weight: 600; }

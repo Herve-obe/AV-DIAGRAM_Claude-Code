@@ -681,23 +681,23 @@
     "showAll": "Show all layers"
   },
   "collab": {
-    "title": "Work together",
+    "title": "Collaborative Session",
     "hint": "Several computers work on the same project at the same time over the local network (venue network, office, VPN). No data leaves the network, no account.",
     "name": "Your name (seen by others)",
     "namePlaceholder": "e.g. FOH audio",
     "host": "Host",
     "join": "Join",
     "hostDesktopOnly": "Working together uses the AV Diagram desktop app (Windows or macOS), installed on each computer. Windows and Mac computers can work together in the same session.",
-    "hostHint": "This computer opens the session with the current project. Then share the address and code with the other participants.",
+    "hostHint": "Open a lobby with the current diagram. Welcome guests, assign their layers, then start the session.",
     "port": "Port",
-    "start": "Open session",
-    "joinHint": "Address and code shown on the computer hosting the session.",
+    "start": "Open the lobby",
+    "joinHint": "Choose a host on the local network, then enter the code they give you.",
     "address": "Host address",
     "code": "Session code",
     "joinWarning": "The session project replaces the project open on this computer: save it first if needed.",
     "joinAction": "Join",
     "addresses": "Addresses of this computer",
-    "firewall": "If nobody can connect, allow port {{port}} (TCP) in this computer's firewall.",
+    "firewall": "Allow AV Diagram on the private network. Sessions use TCP port {{port}}; host discovery uses UDP port 4456.",
     "joined": "Connected to {{address}}.",
     "participants": "Participants",
     "you": "you",
@@ -734,7 +734,8 @@
       "claim": "Reserve",
       "release": "Release",
       "unassigned": "Host only",
-      "assign": "Assign {{layer}} layer"
+      "assign": "Assign {{layer}} layer",
+      "offline": "{{name}} (disconnected)"
     },
     "chat": {
       "title": "Session chat",
@@ -756,6 +757,30 @@
       "accessDenied": "Change refused: use a layer assigned by the host. Shared settings and the general view are reserved for the host.",
       "returnDeferred": "The original host is available again. This session stays hosted here to preserve all changes.",
       "joinedRelay": "The session continues on the backup computer. You joined its current document; that computer remains the host."
+    },
+    "advanced": "Advanced options",
+    "manage": "Manage session",
+    "openDiagram": "View diagram",
+    "peopleCount_one": "{{count}} participant",
+    "peopleCount_other": "{{count}} participants",
+    "lobby": {
+      "label": "Lobby",
+      "waiting": "Waiting for guests",
+      "begin": "Start session",
+      "hostRole": "Host",
+      "invite": "Guests select this session in their network search. Give them the code above.",
+      "assignAfterJoin": "Guests appear here when they connect. You can then assign their layers before starting.",
+      "guestWaiting": "You are connected. The host is assigning roles and will start the session. The diagram is read-only until then."
+    },
+    "discovery": {
+      "title": "Available hosts",
+      "searching": "Looking for a host on the local network…",
+      "found": "Choose the host to join.",
+      "empty": "No host found. Check that a lobby is open on the same network.",
+      "error": "Search unavailable. Try again or use advanced options.",
+      "refresh": "Refresh",
+      "host": "Host: {{name}}",
+      "unavailable": "Network discovery is unavailable on this computer. Guests can use the address in advanced options."
     }
   },
   "pdfImport": {
@@ -993,8 +1018,8 @@
     "lastNone": "No project saved on this device.",
     "file": "Open a file",
     "fileDesc": ".avd project saved on this computer or received from a colleague.",
-    "collab": "Join a session",
-    "collabDesc": "Live collaboration on the local network.",
+    "collab": "Collaborative Session",
+    "collabDesc": "Host a session or find a host on the local network.",
     "recent": "Recent projects on this device",
     "recentMeta_one": "{{count}} item · {{date}}",
     "recentMeta_other": "{{count}} items · {{date}}",

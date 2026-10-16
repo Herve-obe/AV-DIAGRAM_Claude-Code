@@ -21,20 +21,24 @@ export class HostValidation {
     readProject(this.shadow)
     this.shadow.getMap('claims')
     this.shadow.getArray('chat')
+    this.shadow.getMap('session')
     Y.applyUpdate(this.shadow, Y.encodeStateAsUpdate(this.canonical))
   }
   apply(update: Uint8Array, userId: string, view: LayerView | undefined): boolean {
     try {
       const before = readProject(this.canonical)
       const claims = this.canonical.getMap('claims').toJSON() as Claims
+      const session = this.canonical.getMap('session').toJSON()
       const chat = this.canonical.getArray('chat').toArray()
       Y.applyUpdate(this.shadow, update)
       // Aucune opération différée ne doit attendre un futur message pour contourner cette validation.
       if (this.shadow.store.pendingStructs || this.shadow.store.pendingDs) throw new Error('pending')
       const next = readProject(this.shadow)
+      if (stable(session) !== stable(this.shadow.getMap('session').toJSON())) throw new Error('session')
+      if (session.started === false && stable(before) !== stable(next)) throw new Error('waiting')
       if (!isProject(next) || !checkGuestChange(before, next, guestLayers(claims, userId), view ?? 'all')) throw new Error('rights')
       if (stable(claims) !== stable(this.shadow.getMap('claims').toJSON())) throw new Error('claims')
-      const known = new Set(['meta', 'clock', 'equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets', 'claims', 'chat'])
+      const known = new Set(['meta', 'clock', 'equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets', 'claims', 'chat', 'session'])
       for (const key of this.shadow.share.keys()) if (!known.has(key)) throw new Error('type')
       for (const key of this.shadow.getMap('clock').keys()) if (key !== 'updatedAt') throw new Error('clock')
       const afterChat = this.shadow.getArray('chat').toArray()

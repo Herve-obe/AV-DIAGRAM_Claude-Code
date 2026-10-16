@@ -76,6 +76,7 @@ export interface HostInfo {
   hostToken: string
   addresses: string[]
   peers: { id: number; userId: string; name: string; address: string }[]
+  discoveryAvailable?: boolean
 }
 
 export interface ChatMessage {
@@ -110,6 +111,7 @@ export type CollabStatus = 'off' | 'connecting' | 'connected' | 'reconnecting'
 
 interface CollabState {
   status: CollabStatus
+  started: boolean
   /** Rôle actuel : host quand ce poste fait tourner le relais (hôte d'origine ou poste de secours) */
   role: 'host' | 'guest' | null
   /** Rôle de ce poste à l'ouverture de la session */
@@ -212,6 +214,7 @@ let noticeTimer: ReturnType<typeof setTimeout> | null = null
 
 export const useCollab = create<CollabState>((set, get) => ({
   status: 'off',
+  started: false,
   role: null,
   origin: null,
   relayRank: null,
@@ -248,7 +251,7 @@ export const useCollab = create<CollabState>((set, get) => ({
 setProjectGuard((prev, next) => {
   const st = useCollab.getState()
   if (st.status === 'off') return true
-  const allowed = prev.id === next.id && (st.role === 'host' || checkGuestChange(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer))
+  const allowed = prev.id === next.id && (st.role === 'host' || (st.started && checkGuestChange(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer)))
   if (!allowed) notify({ key: 'accessDenied', tone: 'warn' })
   return allowed
 })
@@ -524,7 +527,7 @@ function maybeTakeOver(cur: Live): boolean {
 
 async function takeOver(cur: Live, rank: number) {
   try {
-    const info = await invoke<HostInfo>('collab_host_start', { port: cur.port, code: cur.code })
+    const info = await invoke<HostInfo>('collab_host_start', { port: cur.port, code: cur.code, sessionName: useProject.getState().project.name, hostName: useCollab.getState().name })
     if (live !== cur) return void invoke('collab_host_stop', { ended: false })
     cur.port = info.port
     cur.rank = rank
@@ -674,7 +677,7 @@ async function start(o: StartOptions): Promise<void> {
   })
   useCollab.setState({
     status: 'connecting', role: o.rank !== null ? 'host' : 'guest', origin: o.origin, relayRank: o.rank, error: null,
-    claims: {}, chat: [], unread: 0, notice: null, lostSince: null,
+    claims: {}, chat: [], unread: 0, notice: null, lostSince: null, started: false,
   })
   // Poste de bureau volontaire : il annonce ses adresses pour pouvoir prendre le relais
   if (canHost() && (backup || o.origin === 'host')) {
@@ -689,6 +692,7 @@ async function start(o: StartOptions): Promise<void> {
   if (o.seed === 'project') {
     const p = useProject.getState().project
     writeProject(doc, null, p, 'seed')
+    doc.getMap('session').set('started', false)
     current.synced = p
   } else if (o.seed === 'state' && o.state) {
     Y.applyUpdate(doc, o.state, 'restore')
@@ -721,6 +725,12 @@ async function start(o: StartOptions): Promise<void> {
   claims.observe(onClaims)
   current.cleanups.push(() => claims.unobserve(onClaims))
   onClaims()
+  const session = doc.getMap('session')
+  // Les anciennes sessions reprises sans ce champ étaient déjà commencées.
+  const onSession = () => useCollab.setState({ started: hasProject(doc) && session.get('started') !== false })
+  session.observe(onSession)
+  current.cleanups.push(() => session.unobserve(onSession))
+  onSession()
   const chat = chatArray(doc)
   const onChat = (e: Y.YArrayEvent<ChatMessage>) => {
     const added = e.changes.delta.reduce((n, d) => n + (Array.isArray(d.insert) ? d.insert.length : 0), 0)
@@ -737,7 +747,7 @@ async function start(o: StartOptions): Promise<void> {
       if (origin === LOCAL) return
       if (origin !== 'network' && current.synced && useCollab.getState().role === 'guest') {
         const next = readProject(doc)
-        if (!checkGuestChange(current.synced, next, guestLayers(useCollab.getState().claims, useCollab.getState().userId), useUi.getState().layer)) {
+        if (!useCollab.getState().started || !checkGuestChange(current.synced, next, guestLayers(useCollab.getState().claims, useCollab.getState().userId), useUi.getState().layer)) {
           // Les droits ont pu changer depuis la création du pas d'annulation.
           writeProject(doc, next, current.synced, LOCAL)
           notify({ key: 'accessDenied', tone: 'warn' })
@@ -753,7 +763,7 @@ async function start(o: StartOptions): Promise<void> {
     current.cleanups.push(useProject.subscribe((s) => {
       if (s.project === current.synced) return
       const st = useCollab.getState()
-      const v = current.synced && (current.synced.id !== s.project.id || (st.role !== 'host' && !checkGuestChange(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer)))
+      const v = current.synced && (current.synced.id !== s.project.id || (st.role !== 'host' && (!st.started || !checkGuestChange(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer))))
       if (v && current.synced) {
         useProject.setState({ project: current.synced })
         notify({ key: 'accessDenied', tone: 'warn' })
@@ -778,7 +788,7 @@ async function start(o: StartOptions): Promise<void> {
     const historyAllowed = (stack: typeof undo.undoStack) => {
       if (useCollab.getState().role === 'host') return true
       const layer = useUi.getState().layer
-      const ok = layer !== 'all' && guestLayers(useCollab.getState().claims, useCollab.getState().userId).has(layer) && stack.at(-1)?.meta.get('layer') === layer
+      const ok = useCollab.getState().started && layer !== 'all' && guestLayers(useCollab.getState().claims, useCollab.getState().userId).has(layer) && stack.at(-1)?.meta.get('layer') === layer
       if (!ok) notify({ key: 'accessDenied', tone: 'warn' })
       return ok
     }
@@ -836,9 +846,16 @@ async function start(o: StartOptions): Promise<void> {
 /** Ouvre une session depuis ce poste (application de bureau). */
 export async function hostSession(port = DEFAULT_PORT): Promise<void> {
   if (live) finish(null)
-  const info = await invoke<HostInfo>('collab_host_start', { port })
+  const info = await invoke<HostInfo>('collab_host_start', { port, sessionName: useProject.getState().project.name, hostName: useCollab.getState().name })
   useCollab.setState({ host: info, address: info.addresses[0] ?? `127.0.0.1:${port}` })
   await start({ hostToken: info.hostToken, code: info.code, origin: 'host', port, ranks: [info.addresses], rank: 0, seed: 'project' })
+}
+
+/** Les invités sont connectés en lecture seule jusqu'au départ donné par l'hôte. */
+export function beginSession(): boolean {
+  if (!live || useCollab.getState().role !== 'host' || useCollab.getState().status !== 'connected') return false
+  live.doc.getMap('session').set('started', true)
+  return true
 }
 
 /** Rejoint la session d'un autre poste : adresse « 192.168.1.20:4455 » (port par défaut si absent). */
@@ -872,7 +889,7 @@ export async function resumeSession(): Promise<void> {
   let hostToken: string | undefined
   if (r.origin === 'host' && canHost()) {
     // L'hôte revient : il rouvre son relais avec le même code, les autres s'y reconnectent
-    const info = await invoke<HostInfo>('collab_host_start', { port: r.port, code: r.code })
+    const info = await invoke<HostInfo>('collab_host_start', { port: r.port, code: r.code, sessionName: r.projectName, hostName: useCollab.getState().name })
     useCollab.setState({ host: info, address: info.addresses[0] ?? `127.0.0.1:${r.port}` })
     rank = 0
     hostToken = info.hostToken
@@ -918,7 +935,7 @@ function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
   setDocumentSessionActive(false)
   if (!keepResume) clearResume()
   useCollab.setState({
-    status: 'off', role: null, origin: null, relayRank: null, participants: [], host: null, address: null,
+    status: 'off', started: false, role: null, origin: null, relayRank: null, participants: [], host: null, address: null,
     canUndo: false, canRedo: false, claims: {}, lostSince: null, chatOpen: false, unread: 0,
   })
   if (reason) notify({ key: reason, tone: 'info' })

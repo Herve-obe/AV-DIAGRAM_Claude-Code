@@ -1,4 +1,4 @@
-# Collaboration à plusieurs sur un même projet (2026-10-15)
+# Collaboration à plusieurs sur un même projet (2026-10-16)
 
 ## Besoin
 
@@ -36,24 +36,29 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
    seulement pendant la session et sur un port choisi.
 3. **Accès** : code de session à 6 chiffres affiché chez l'hôte, demandé pour rejoindre. L'hôte voit
    la liste des participants et peut en exclure un. Pas d'accès sans code.
-4. **Découverte** : saisie manuelle de l'adresse ; la découverte automatique mDNS reste à réaliser.
+4. **Découverte** : recherche automatique sur le même sous-réseau IPv4 (UDP 4456), sans service externe ni diffusion du code d’accès. Seuls le nom du projet, le nom de l’hôte et son adresse de session sont annoncés. La saisie d’adresse reste dans les options avancées pour les réseaux filtrés et les VPN.
 5. **Présence** : nom et couleur de chaque participant, calque qu'il affiche, sélection en cours
    (contour de couleur sur les blocs qu'il manipule).
 6. **Annulation** : propre à chaque personne (on n'annule que ses propres modifications).
 7. **Enregistrement** : Ctrl+S / Cmd+S enregistre le fichier principal `.avd` ; chaque participant peut
    garder une copie locale. Les sauvegardes de sécurité automatiques vont dans « Save Back Up ».
 
-## État (2026-10-15)
+## État (2026-10-16, version 0.2.1)
 
 Les calques sont attribués par l'hôte et les propositions invitées sont validées avant diffusion.
 Les identités de poste sont dérivées d'un secret persistant par le relais ; les noms affichés ne
 servent pas de preuve d'identité. Le poste hôte s'authentifie auprès du relais avec un secret local.
-Le nouveau protocole nécessite la même version sur tous les postes. Reste : mDNS et essais à trois
-postes réels, notamment la continuité après panne.
+Le nouveau parcours nécessite la version 0.2.1 sur tous les postes. L’hôte ouvre une salle d’attente,
+accueille les invités, attribue les calques puis commence la session. Avant ce départ, le document
+est en lecture seule pour les invités ; cette règle et le départ sont contrôlés par l’hôte avant
+diffusion des modifications. Terminer ou quitter la session reste accessible dans le bandeau du logiciel.
+La découverte IPv4 automatique est implémentée. Restent les essais à trois postes réels, notamment
+les règles du pare-feu, les réseaux Wi-Fi isolant leurs clients et la continuité après panne.
 
 | Élément | Fichier |
 |---|---|
 | Relais WebSocket (code, blocage après 5 codes faux pendant 60 s, 16 participants max, exclusion, fin annoncée) | `src-tauri/src/collab.rs` |
+| Découverte réseau bornée, avec nonce par recherche et limitation des réponses ; arrêt avec le relais | `src-tauri/src/discovery.rs` |
 | Correspondance projet <-> document Yjs, annulation par personne | `src/collab/ydoc.ts` |
 | Session : connexion, synchronisation, présence, tchat, réservations, reprise, relais de secours | `src/collab/session.ts` |
 | Règles des calques réservés | `src/collab/protection.ts` |

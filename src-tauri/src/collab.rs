@@ -256,6 +256,7 @@ struct Running {
     code: String,
     hub: Arc<Hub>,
     stop: watch::Sender<u8>,
+    discovery_available: bool,
 }
 
 #[derive(Default)]
@@ -279,6 +280,8 @@ pub struct HostInfo {
     /// Adresses IPv4 du poste sur le réseau local (ex. 192.168.1.20:4455)
     addresses: Vec<String>,
     peers: Vec<PeerInfo>,
+    #[serde(rename = "discoveryAvailable")]
+    discovery_available: bool,
 }
 
 fn local_addresses(port: u16) -> Vec<String> {
@@ -297,7 +300,7 @@ fn local_addresses(port: u16) -> Vec<String> {
 }
 
 fn info(r: &Running) -> HostInfo {
-    HostInfo { host_token: r.hub.host_token.clone(), port: r.port, code: r.code.clone(), addresses: local_addresses(r.port), peers: r.hub.peer_list() }
+    HostInfo { host_token: r.hub.host_token.clone(), port: r.port, code: r.code.clone(), addresses: local_addresses(r.port), peers: r.hub.peer_list(), discovery_available: r.discovery_available }
 }
 
 fn new_code() -> String {
@@ -308,7 +311,7 @@ fn new_code() -> String {
 /// Ouvre une session sur le port demandé (1024 à 65535) et renvoie le code et les adresses à communiquer.
 /// code : reprise d'une session existante (retour de l'hôte, poste de secours) ; sinon un nouveau code.
 #[tauri::command]
-pub async fn collab_host_start(state: tauri::State<'_, CollabServer>, port: u16, code: Option<String>) -> Result<HostInfo, String> {
+pub async fn collab_host_start(state: tauri::State<'_, CollabServer>, port: u16, code: Option<String>, session_name: Option<String>, host_name: Option<String>) -> Result<HostInfo, String> {
     if port < 1024 {
         return Err("port réservé : choisir un port à partir de 1024".into());
     }
@@ -321,8 +324,9 @@ pub async fn collab_host_start(state: tauri::State<'_, CollabServer>, port: u16,
     let listener = TcpListener::bind(("0.0.0.0", port)).await.map_err(|e| format!("port {port} indisponible : {e}"))?;
     let hub = Hub::new(code.clone());
     let (stop, rx) = watch::channel(RUNNING);
+    let discovery_available = crate::discovery::advertise(crate::discovery::Advertisement::new(port, session_name, host_name), rx.clone()).await;
     tauri::async_runtime::spawn(serve(listener, hub.clone(), rx));
-    let running = Running { port, code, hub, stop };
+    let running = Running { port, code, hub, stop, discovery_available };
     let out = info(&running);
     *state.0.lock().unwrap() = Some(running);
     Ok(out)
