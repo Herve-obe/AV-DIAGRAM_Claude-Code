@@ -1,0 +1,27 @@
+{
+  "id": "neumann-tlm-103",
+  "family": "capture",
+  "manufacturer": "Neumann",
+  "model": "TLM 103",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.5,
+  "sources": [
+    {
+      "document": "Neumann TLM 103, Operating Manual, section Technical data",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique cardioïde, fantôme P48 (48 V ± 4 V), XLR 3",
+      "phantom": "required"
+    }
+  ]
+}

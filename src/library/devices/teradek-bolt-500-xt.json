@@ -1,0 +1,68 @@
+{
+  "id": "teradek-bolt-500-xt",
+  "family": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Bolt 500 XT (TX / RX)",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.adorama.com/tebolt500xtt.html",
+      "document": "Adorama, fiche Bolt 500 XT (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txSdi",
+      "name": "TX SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "txHdmi",
+      "name": "TX HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "txLoop",
+      "name": "TX SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxSdi",
+      "name": "RX SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxHdmi",
+      "name": "RX HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "150 m"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

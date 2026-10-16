@@ -1,0 +1,50 @@
+{
+  "id": "shure-slx4",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "SLX4 (récepteur)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.816,
+  "sources": [
+    {
+      "document": "Shure, SLX Wireless Systems User Guide (fichier SLX System.pdf, section française)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Diversity, antennes A et B ; bande P4 : 702 à 726 MHz"
+    },
+    {
+      "id": "mic",
+      "name": "Mic Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR à impédance symétrique, 200 Ω, -13 dBV (charge 600 Ω, déviation ±38 kHz)"
+    },
+    {
+      "id": "line",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique haute impédance, 1 kΩ, -2 dBV (charge 3 kΩ)"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 à 18 V DC, 150 mA, bloc externe"
+    }
+  ]
+}

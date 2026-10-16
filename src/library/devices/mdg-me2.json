@@ -1,0 +1,41 @@
+{
+  "id": "mdg-me2",
+  "family": "luminaire",
+  "manufacturer": "MDG",
+  "model": "Me2",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1415,
+  "weightKg": 16.62,
+  "sources": [
+    {
+      "url": "https://www.mdgfog.com/en/me2",
+      "document": "MDG, page Me2",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-250 V, 1415 W"
+    }
+  ]
+}

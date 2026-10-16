@@ -1,0 +1,213 @@
+{
+  "id": "panasonic-av-hs410",
+  "family": "videoSwitcher",
+  "manufacturer": "Panasonic",
+  "model": "AV-HS410",
+  "pictogram": "switcher",
+  "status": "verified",
+  "powerW": 88,
+  "weightKg": 6.2,
+  "sources": [
+    {
+      "url": "https://na.panasonic.com/ns/22629_AV-HS410_Brochure_PDF.pdf",
+      "document": "Panasonic, brochure AV-HS410 Live Switcher",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "http://business.panasonic.com/AV-HS410.html",
+      "document": "Panasonic, page produit AV-HS410 (88 W, 6,2 kg)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in7",
+      "name": "SDI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-in8",
+      "name": "SDI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "dvi-in",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D avec scaler, sans HDCP"
+    },
+    {
+      "id": "sdi-out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-out3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-out4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi-out5",
+      "name": "SDI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "dvi-out",
+      "name": "DVI-D Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Programme ou multiview haute résolution"
+    },
+    {
+      "id": "ref-in",
+      "name": "REF IN/OUT",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Référence (bouclée) ; connecteur non précisé dans la brochure"
+    },
+    {
+      "id": "ref-out",
+      "name": "REF OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "2 sorties référence"
+    },
+    {
+      "id": "tally1",
+      "name": "TALLY/GPI 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15"
+    },
+    {
+      "id": "tally2",
+      "name": "TALLY/GPI 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "com",
+      "name": "COM",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422A"
+    },
+    {
+      "id": "editor",
+      "name": "EDITOR",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422A, éditeur"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 50/60 Hz"
+    },
+    {
+      "id": "slots",
+      "name": "Emplacements d'extension",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "2 emplacements : jusqu'à 13 entrées et 10 sorties avec cartes"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "novastar-vx4s",
+  "family": "videoRouting",
+  "manufacturer": "NovaStar",
+  "model": "VX4S",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/novastar-vx4s",
+      "document": "Elation, fiche NovaStar VX4S (distributeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dp",
+      "name": "DP In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "vga1",
+      "name": "VGA In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vga2",
+      "name": "VGA In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "cvbs1",
+      "name": "CVBS In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbs2",
+      "name": "CVBS In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "dviLoop",
+      "name": "DVI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vgaOut",
+      "name": "VGA Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "led1",
+      "name": "LED Out 1",
+      "direction": "out",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Sortie LED, 2,3 Mpx au total"
+    },
+    {
+      "id": "led2",
+      "name": "LED Out 2",
+      "direction": "out",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Sortie LED, 2,3 Mpx au total"
+    },
+    {
+      "id": "led3",
+      "name": "LED Out 3",
+      "direction": "out",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Sortie LED, 2,3 Mpx au total"
+    },
+    {
+      "id": "led4",
+      "name": "LED Out 4",
+      "direction": "out",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Sortie LED, 2,3 Mpx au total"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle IP"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "16 W"
+    }
+  ]
+}

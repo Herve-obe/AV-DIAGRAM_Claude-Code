@@ -1,0 +1,58 @@
+{
+  "id": "panasonic-pt-mz20k",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "PT-MZ20K",
+  "pictogram": "projector",
+  "status": "verified",
+  "weightKg": 22.3,
+  "sources": [
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2022-07/pt-mz20kl_spec_en.pdf",
+      "document": "Panasonic, spécifications PT-MZ20KL",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.3, 4K/60p"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.3, 4K/60p, entrée de secours"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "dl",
+      "name": "DIGITAL LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT : vidéo, réseau, commande série"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V"
+    }
+  ]
+}

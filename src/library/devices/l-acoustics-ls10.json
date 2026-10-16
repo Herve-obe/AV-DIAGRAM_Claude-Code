@@ -1,0 +1,123 @@
+{
+  "id": "l-acoustics-ls10",
+  "family": "network",
+  "manufacturer": "L-Acoustics",
+  "model": "LS10",
+  "pictogram": "switch",
+  "status": "verified",
+  "weightKg": 1.5,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/ls10/",
+      "document": "L-Acoustics, page produit LS10, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "eth1",
+      "name": "etherCON 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth2",
+      "name": "etherCON 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth3",
+      "name": "etherCON 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth4",
+      "name": "etherCON 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth5",
+      "name": "etherCON 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth6",
+      "name": "etherCON 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face arrière, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth7",
+      "name": "etherCON 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face arrière, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth8",
+      "name": "etherCON 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face arrière, AVB 1 Gb/s"
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP 1 Gb/s (arrière)"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP 1 Gb/s (arrière)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 verrouillable, 100-240 V ; 10 W à 20 W"
+    },
+    {
+      "id": "dcin",
+      "name": "Secours 24 V DC (entrée)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante 24 V DC"
+    },
+    {
+      "id": "dcout",
+      "name": "Secours 24 V DC (sortie)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimente un autre LS10"
+    }
+  ]
+}

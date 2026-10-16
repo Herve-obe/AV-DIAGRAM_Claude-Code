@@ -1,0 +1,83 @@
+{
+  "id": "robe-iforte-ltx",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "iFORTE LTX",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1250.0,
+  "weightKg": 49.0,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_5442.pdf",
+      "document": "Robe lighting, fiche produit iFORTE LTX",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in3",
+      "name": "DMX In (XLR3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out (XLR3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "video",
+      "name": "Sortie vidéo caméra",
+      "direction": "out",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45, flux vidéo de la caméra"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "ArtNet, MA Net, MA Net2, sACN ; switch Epass intégré (en option)"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Recopie Ethernet ; switch Epass intégré (en option)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1 IP65"
+    }
+  ]
+}

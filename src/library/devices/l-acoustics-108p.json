@@ -1,0 +1,51 @@
+{
+  "id": "l-acoustics-108p",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "108P",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 13,
+  "sources": [
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/108P/108P%20Archive.zip",
+      "document": "L-Acoustics, archive de documentation : 108P fiche technique 5.0",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +12 dBu max"
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "En parallèle"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "120 ou 230 V ; Bi-amplifiée, 500 W BF"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ]
+}

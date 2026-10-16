@@ -1,0 +1,62 @@
+{
+  "id": "bosch-dcnm-wap",
+  "family": "wireless",
+  "manufacturer": "Bosch",
+  "model": "DICENTIS DCNM-WAP",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.proacousticsusa.com/bosch-dicentis-dcnm-wap-wireless-access-point.html",
+      "document": "Pro Acoustics, fiche DCNM-WAP (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://automa.net/bosch/dcnm-wap",
+      "document": "Automa, fiche DCNM-WAP",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T, PoE 802.3af / at"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "rf",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "802.11n 2,4 / 5 GHz, jusqu'à 120 postes"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc 48 V, PoE ou câble système DCN"
+    }
+  ]
+}

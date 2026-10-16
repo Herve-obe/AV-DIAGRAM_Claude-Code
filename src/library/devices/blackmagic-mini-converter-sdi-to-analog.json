@@ -1,0 +1,82 @@
+{
+  "id": "blackmagic-mini-converter-sdi-to-analog",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter SDI to Analog",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-01",
+      "document": "Blackmagic Design, fiche technique Mini Converter SDI to Analog (W-CONM-01)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "alt",
+      "name": "SDI In ALT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Secours automatique"
+    },
+    {
+      "id": "loop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "vout",
+      "name": "Vidéo analogique Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "NTSC, PAL, S-Vidéo ou composantes"
+    },
+    {
+      "id": "aout",
+      "name": "Audio analogique Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 symétrique"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour et configuration"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ]
+}

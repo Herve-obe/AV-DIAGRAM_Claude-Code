@@ -1,0 +1,58 @@
+{
+  "id": "elation-kl-panel",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "KL Panel",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 295,
+  "weightKg": 13,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/products/kl-panel",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM ; émetteur-récepteur sans fil E-FLY intégré"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Chaînage secteur"
+    },
+    {
+      "id": "batt",
+      "name": "Batterie",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points, 24-36 V CC (batterie non fournie)"
+    }
+  ]
+}

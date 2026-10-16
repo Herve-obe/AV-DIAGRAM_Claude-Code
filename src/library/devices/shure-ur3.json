@@ -1,0 +1,35 @@
+{
+  "id": "shure-ur3",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR3",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/UR3/en-US.pdf",
+      "document": "Shure, guide utilisateur UR3",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle (se monte sur le micro) ; micro ou ligne ; fantôme 12 / 48 V commutable",
+      "phantom": "supplied"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
+}

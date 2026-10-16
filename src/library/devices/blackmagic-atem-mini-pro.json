@@ -1,0 +1,99 @@
+{
+  "id": "blackmagic-atem-mini-pro",
+  "family": "videoSwitcher",
+  "manufacturer": "Blackmagic Design",
+  "model": "ATEM Mini Pro",
+  "pictogram": "switcher",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/atemmini/techspecs/W-APS-14",
+      "document": "Blackmagic Design, fiche technique ATEM Mini Pro (W-APS-14)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HD 10 bits, audio 2 canaux intégré"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HD 10 bits, audio 2 canaux intégré"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HD 10 bits, audio 2 canaux intégré"
+    },
+    {
+      "id": "hdmi4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HD 10 bits, audio 2 canaux intégré"
+    },
+    {
+      "id": "hdmiout1",
+      "name": "HDMI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Programme ou auxiliaire"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, alimentation plug-in"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, alimentation plug-in"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 Gb/s : streaming, contrôle, panneau"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Enregistrement, webcam, contrôle"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe 12 V fourni"
+    }
+  ]
+}

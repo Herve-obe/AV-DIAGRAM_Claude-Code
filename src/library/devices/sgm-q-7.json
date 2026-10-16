@@ -1,0 +1,42 @@
+{
+  "id": "sgm-q-7",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "Q-7",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 8.1,
+  "sources": [
+    {
+      "url": "https://sgmlight.com/products/q·7",
+      "document": "SGM, page Q-7",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Neutrik HD IP65 sur queue de câble"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Neutrik HD IP65 sur queue de câble"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble 0,5 m extrémités nues"
+    }
+  ]
+}

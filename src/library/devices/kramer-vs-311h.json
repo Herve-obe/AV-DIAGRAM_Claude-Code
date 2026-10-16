@@ -1,0 +1,150 @@
+{
+  "id": "kramer-vs-311h",
+  "family": "videoRouting",
+  "manufacturer": "Kramer",
+  "model": "VS-311H (commutateur automatique HDMI 3x1)",
+  "pictogram": "router",
+  "status": "verified",
+  "weightKg": 1.2,
+  "sources": [
+    {
+      "url": "https://k.kramerav.com/downloads/manuals/vs-311h.pdf",
+      "document": "Kramer, User Manual VS-311H",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi-in1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "hdmi-in2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "hdmi-in3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "spdif-in1",
+      "name": "S/PDIF In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca"
+    },
+    {
+      "id": "spdif-in2",
+      "name": "S/PDIF In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca"
+    },
+    {
+      "id": "spdif-in3",
+      "name": "S/PDIF In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca"
+    },
+    {
+      "id": "ain1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo asymétrique"
+    },
+    {
+      "id": "ain2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo asymétrique"
+    },
+    {
+      "id": "ain3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo asymétrique"
+    },
+    {
+      "id": "hdmi-out",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "spdif-out",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo asymétrique"
+    },
+    {
+      "id": "aout-bal",
+      "name": "Audio Out symétrique",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Stéréo symétrique, bornier 5 points"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 points, Protocol 2000"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC, 380 mA, bloc fourni"
+    }
+  ]
+}

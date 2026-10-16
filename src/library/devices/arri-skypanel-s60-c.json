@@ -1,0 +1,67 @@
+{
+  "id": "arri-skypanel-s60-c",
+  "family": "luminaire",
+  "manufacturer": "ARRI",
+  "model": "SkyPanel S60-C",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 400,
+  "weightKg": 12.6,
+  "sources": [
+    {
+      "url": "https://www.arri.com/resource/blob/31124/a3ef8cd7d9f50f5dcd314e9e1b2299de/arri-skypanel-s60-c-data-sheet-en-data.pdf",
+      "document": "ARRI, SkyPanel S60-C Data Sheet",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM, XLR 5 points verrouillable"
+    },
+    {
+      "id": "dmx-thru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net, sACN"
+    },
+    {
+      "id": "usb",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour par clé USB ; alimente de petits appareils (500 mA / 5 V)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur (bloc d'alimentation)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Sur le bloc d'alimentation externe : powerCON TRUE1 TOP, 100-240 V ; tête alimentée en 48 V CC par XLR 3 points"
+    },
+    {
+      "id": "batt",
+      "name": "Batterie",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points mâle, 10 A, broche 1 négatif / broche 4 positif"
+    }
+  ]
+}

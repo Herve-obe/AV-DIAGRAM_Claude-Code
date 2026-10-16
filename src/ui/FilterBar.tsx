@@ -1,0 +1,45 @@
+// Filtres d'affichage par famille de signal (au-dessus du canevas).
+import { useTranslation } from 'react-i18next'
+import { LAYERS } from '../model/layers'
+import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
+import { useUi } from '../store/uiStore'
+
+export function FilterBar() {
+  const { t } = useTranslation()
+  const { hiddenSignals, toggleSignal, mode, linkView, autoRoute, layer, setPref } = useUi()
+  // En mode débutant, seules les familles les plus courantes sont proposées
+  const families = mode === 'beginner'
+    ? SIGNAL_FAMILIES.filter((f) => ['audioAnalog', 'audioDigital', 'audioIp', 'video', 'network'].includes(f))
+    : SIGNAL_FAMILIES
+  return (
+    <div className="filterbar" role="group" aria-label={t('filters.label')}>
+      <label className="layer-pick" title={t('layers.hint')}>
+        <span>{t('layers.label')}</span>
+        <select value={layer} onChange={(e) => setPref('layer', e.target.value as typeof layer)} aria-label={t('layers.label')}>
+          <option value="all">{t('layers.all')}</option>
+          {LAYERS.map((l) => <option key={l} value={l}>{t(`library.domain.${l}`)}</option>)}
+        </select>
+      </label>
+      {families.map((f) => {
+        const st = SIGNAL_STYLE[f]
+        const on = !hiddenSignals.includes(f)
+        return (
+          <button key={f} className="chip" aria-pressed={on} onClick={() => toggleSignal(f)}>
+            <svg width="18" height="6" aria-hidden="true">
+              <line x1="0" y1="3" x2="18" y2="3" stroke={on ? st.color : 'var(--text-3)'} strokeWidth={Math.min(st.width + 0.5, 3)} strokeDasharray={st.dash || undefined} />
+            </svg>
+            {t(`signal.${f}`)}
+          </button>
+        )
+      })}
+      <button className="chip route-toggle" aria-pressed={autoRoute} onClick={() => setPref('autoRoute', !autoRoute)} title={t('routing.hint')}>
+        {t('routing.label')}
+      </button>
+      <div className="seg" role="group" aria-label={t('linkView.label')} title={t('linkView.hint')}>
+        {(['flows', 'cables'] as const).map((v) => (
+          <button key={v} className="seg-btn" aria-pressed={linkView === v} onClick={() => setPref('linkView', v)}>{t(`linkView.${v}`)}</button>
+        ))}
+      </div>
+    </div>
+  )
+}

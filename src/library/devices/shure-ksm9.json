@@ -1,0 +1,27 @@
+{
+  "id": "shure-ksm9",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "KSM9",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/KSM9/en-US",
+      "document": "Shure, guide d'utilisation KSM9 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique double membrane, directivité variable ; 48 V conseillé, dès 11 V",
+      "phantom": "required"
+    }
+  ]
+}

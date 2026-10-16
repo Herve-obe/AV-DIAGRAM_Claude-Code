@@ -1,0 +1,95 @@
+{
+  "id": "panasonic-aw-he130",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE130",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE130WPE_KPE_OPERATION(VQT5L27A-2)_E.pdf",
+      "document": "Panasonic, AW-HE130 Operating Instructions VQT5L27A-2",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "video",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1,0 V crête-crête, retour"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchro externe"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Contrôle IP et vidéo ; alimentation PoE+"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Contrôle série (RJ45)"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Mini-DIN 8 points"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Mini-DIN 8 points"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "MIC/LINE, mini-jack stéréo 3,5 mm"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC, 1,8 A, adaptateur secteur fourni"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "decimator-12g-cross",
+  "family": "videoRouting",
+  "manufacturer": "Decimator Design",
+  "model": "12G-CROSS (DD-12G-CROSS)",
+  "pictogram": "router",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1474644-REG/decimator_12g_cross_4k_hdmi_sdi_cross_converter.html",
+      "document": "B&H, fiche 12G-CROSS (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI 2.0 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "loop1",
+      "name": "SDI Out / Loop 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, recopie ou sortie"
+    },
+    {
+      "id": "loop2",
+      "name": "SDI Out / Loop 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, recopie ou sortie"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI 2.0 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Contrôle et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 à 32 V, prise verrouillable"
+    }
+  ]
+}

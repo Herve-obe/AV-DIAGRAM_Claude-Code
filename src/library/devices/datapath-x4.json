@@ -1,0 +1,64 @@
+{
+  "id": "datapath-x4",
+  "family": "videoRouting",
+  "manufacturer": "Datapath",
+  "model": "x4",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2016/07/DataPath-X4-Datasheet.pdf",
+      "document": "Datapath, fiche x4 (via Rentex)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Single ou dual link (HDMI par adaptateur)"
+    },
+    {
+      "id": "out1",
+      "name": "Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI single link ou RVB analogique"
+    },
+    {
+      "id": "out2",
+      "name": "Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI single link ou RVB analogique"
+    },
+    {
+      "id": "out3",
+      "name": "Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI single link ou RVB analogique"
+    },
+    {
+      "id": "out4",
+      "name": "Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI single link ou RVB analogique"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

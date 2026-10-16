@@ -1,0 +1,27 @@
+{
+  "id": "audio-technica-at831b",
+  "family": "capture",
+  "manufacturer": "Audio-Technica",
+  "model": "AT831b",
+  "pictogram": "mic",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://soundpro.com/products/audio-technica-at8531-power-module",
+      "document": "SoundPro, module AT8531 compatible AT831b (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Cravate statique cardioïde ; XLR via module AT8531 (pile AA ou fantôme 9-52 V), entrée TA3M",
+      "phantom": "required"
+    }
+  ]
+}

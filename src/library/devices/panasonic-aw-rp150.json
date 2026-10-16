@@ -1,0 +1,101 @@
+{
+  "id": "panasonic-aw-rp150",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AW-RP150",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2019/05/Panasonic-AW-RP150-Spec-Sheet-from-Rentex.pdf",
+      "document": "Panasonic, fiche AW-RP150 (via Rentex)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rs422_1",
+      "name": "RS-422 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Caméra en série (protocole AW)"
+    },
+    {
+      "id": "rs422_2",
+      "name": "RS-422 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Caméra en série (protocole AW)"
+    },
+    {
+      "id": "rs422_3",
+      "name": "RS-422 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Caméra en série (protocole AW)"
+    },
+    {
+      "id": "rs422_4",
+      "name": "RS-422 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Caméra en série (protocole AW)"
+    },
+    {
+      "id": "rs422_5",
+      "name": "RS-422 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Caméra en série (protocole AW)"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Jusqu'à 200 caméras IP ; PoE+"
+    },
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiThru",
+      "name": "Active Thru Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 292"
+    },
+    {
+      "id": "gpio1",
+      "name": "GPIO 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "gpio2",
+      "name": "GPIO 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ]
+}

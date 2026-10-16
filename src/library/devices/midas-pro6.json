@@ -1,0 +1,40 @@
+{
+  "id": "midas-pro6",
+  "family": "console",
+  "manufacturer": "Midas",
+  "model": "PRO6",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.avlfx.com/category/product/1845-midas-pro-series-pro-6-cc-ip-live-digital-console-control-centre-with-64-input-channels-35-mix-buses-and-96-khz-sample-rate/category_pathway-52",
+      "document": "AVL FX, fiche PRO6-CC-IP (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "snakeA",
+      "name": "Snake A (vers DL371)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Liaison redondante HyperMAC vers le moteur DL371 ; cuivre 100 m ou fibre 500 m"
+    },
+    {
+      "id": "snakeB",
+      "name": "Snake B (vers DL371)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Liaison redondante"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

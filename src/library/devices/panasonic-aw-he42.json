@@ -1,0 +1,68 @@
+{
+  "id": "panasonic-aw-he42",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE42",
+  "pictogram": "camera",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://nationwidevideo.com/gear/panasonic-aw-he42-full-hd-professional-ptz-camera/",
+      "document": "Nationwide Video, fiche AW-HE42 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://na.panasonic.com/us/news/panasonic-announces-pricingavailability-new-aw-he42-1080p-pantiltzoom-camera-advances",
+      "document": "Panasonic, annonce AW-HE42",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Contrôle IP et flux ; PoE+"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Sortie USB"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC"
+    }
+  ]
+}

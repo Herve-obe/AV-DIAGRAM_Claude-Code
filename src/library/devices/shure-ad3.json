@@ -1,0 +1,43 @@
+{
+  "id": "shure-ad3",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD3",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.24,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD3/en-US",
+      "document": "Shure, guide d'utilisation AD3 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR verrouillable, se fixe sur le micro ; alimentation fantôme disponible",
+      "phantom": "supplied"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    }
+  ]
+}

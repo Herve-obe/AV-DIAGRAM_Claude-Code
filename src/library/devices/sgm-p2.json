@@ -1,0 +1,42 @@
+{
+  "id": "sgm-p2",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "P-2",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 236,
+  "weightKg": 6.1,
+  "sources": [
+    {
+      "url": "https://www.sgmlighting.com/products/p%C2%B72",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Câble IP65 de 0,5 m à XLR 5 points (fixe)"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Câble IP65 de 0,5 m à XLR 5 points (fixe)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble d'alimentation fixe de 1 m, fils nus"
+    }
+  ]
+}

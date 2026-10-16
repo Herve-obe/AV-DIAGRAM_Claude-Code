@@ -1,0 +1,132 @@
+{
+  "id": "yamaha-pc412-d",
+  "family": "amplification",
+  "manufacturer": "Yamaha",
+  "model": "PC412-D",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 16.0,
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/power_amps/pc-d_di/specs.html",
+      "document": "Yamaha USA, page Specs PC412-D",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-31"
+    },
+    {
+      "id": "in2",
+      "name": "Entrée 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-31"
+    },
+    {
+      "id": "in3",
+      "name": "Entrée 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-31"
+    },
+    {
+      "id": "in4",
+      "name": "Entrée 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-31"
+    },
+    {
+      "id": "d1",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 16,
+      "format": "Dante 16 in / 16 out"
+    },
+    {
+      "id": "d2",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 16,
+      "format": "Redondance ou chaînage"
+    },
+    {
+      "id": "ctl",
+      "name": "Contrôle",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Mini-Euroblock 3,5 mm 8 points x 2"
+    },
+    {
+      "id": "spk1",
+      "name": "Sortie HP 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Neutrik speakON NL4"
+    },
+    {
+      "id": "spk2",
+      "name": "Sortie HP 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Neutrik speakON NL4"
+    },
+    {
+      "id": "spk3",
+      "name": "Sortie HP 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Neutrik speakON NL4"
+    },
+    {
+      "id": "spk4",
+      "name": "Sortie HP 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Neutrik speakON NL4"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "1850 W au 1/8 de puissance max (2 Ω)"
+    }
+  ]
+}

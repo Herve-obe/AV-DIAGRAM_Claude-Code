@@ -1,0 +1,105 @@
+{
+  "id": "tc-electronic-d-two",
+  "family": "processing",
+  "manufacturer": "TC Electronic",
+  "model": "D-Two",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://toneprints.com/media/216395/tc_electronic_d-two_manual_english.pdf",
+      "document": "TC Electronic, mode d'emploi D-Two",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique"
+    },
+    {
+      "id": "inR",
+      "name": "Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique"
+    },
+    {
+      "id": "spdifIn",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "pedal",
+      "name": "Pédale",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

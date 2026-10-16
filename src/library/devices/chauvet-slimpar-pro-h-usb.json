@@ -1,0 +1,53 @@
+{
+  "id": "chauvet-slimpar-pro-h-usb",
+  "family": "luminaire",
+  "manufacturer": "Chauvet DJ",
+  "model": "SlimPAR Pro H USB",
+  "pictogram": "light",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://djcity.com.au/product/chauvet-dj-slimpar-pro-h-usb-white-led-parcan/",
+      "document": "DJ City, fiche SlimPAR Pro H USB (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "usb",
+      "name": "D-Fi USB",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "usb-a",
+      "format": "Récepteur DMX sans fil D-Fi (en option)"
+    }
+  ]
+}

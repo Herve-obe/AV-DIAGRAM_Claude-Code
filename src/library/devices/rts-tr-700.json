@@ -1,0 +1,33 @@
+{
+  "id": "rts-tr-700",
+  "family": "intercom",
+  "manufacturer": "RTS / Telex",
+  "model": "TR-700 (beltpack HF)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 0.454,
+  "sources": [
+    {
+      "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions 803290-2",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison HF base",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "Antennes quart d'onde vissées ; 6 piles AA"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "XLR femelle sur version RTS, mâle sur version Telex ; nombre de broches non précisé"
+    }
+  ]
+}

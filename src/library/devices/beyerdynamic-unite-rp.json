@@ -1,0 +1,43 @@
+{
+  "id": "beyerdynamic-unite-rp",
+  "family": "wireless",
+  "manufacturer": "beyerdynamic",
+  "model": "Unite RP",
+  "pictogram": "wireless",
+  "status": "community",
+  "weightKg": 0.105,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/47261-UniteRPSpecSheet.pdf",
+      "document": "beyerdynamic, fiche Unite RP (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "DECT",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Antenne : câble du casque"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 (casque ou boucle d'induction)"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Charge"
+    }
+  ]
+}

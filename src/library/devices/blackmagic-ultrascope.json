@@ -1,0 +1,62 @@
+{
+  "id": "blackmagic-ultrascope",
+  "family": "display",
+  "manufacturer": "Blackmagic Design",
+  "model": "UltraScope",
+  "pictogram": "display",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://expandore.com/blackmagic/UltraScope.htm",
+      "document": "Expandore, fiche UltraScope",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/bmus.html",
+      "document": "Adorama, fiche UltraScope (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / 3G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "optIn",
+      "name": "Optical In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "lc",
+      "format": "SDI optique LC"
+    },
+    {
+      "id": "optOut",
+      "name": "Optical Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "lc",
+      "format": "SDI optique LC"
+    },
+    {
+      "id": "pcie",
+      "name": "PCI Express",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Carte PCIe pour ordinateur Windows"
+    }
+  ]
+}

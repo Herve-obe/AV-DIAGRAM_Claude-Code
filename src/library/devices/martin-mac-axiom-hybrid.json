@@ -1,0 +1,40 @@
+{
+  "id": "martin-mac-axiom-hybrid",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "MAC Axiom Hybrid",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 600,
+  "weightKg": 24.8,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/mac-axiom-hybrid",
+      "document": "Martin, page produit MAC Axiom Hybrid",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ]
+}

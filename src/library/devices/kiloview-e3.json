@@ -1,0 +1,66 @@
+{
+  "id": "kiloview-e3",
+  "family": "videoRouting",
+  "manufacturer": "Kiloview",
+  "model": "E3",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.kiloview.com/en/kiloview-e3",
+      "document": "Kiloview, page E3",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.kiloview.com/en/wp-content/uploads/2025/01/E3_Datesheet_En_LG.pdf",
+      "document": "Kiloview, fiche E3",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Jusqu'à 4K30"
+    },
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiLoop",
+      "name": "HDMI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "3G-SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "NDI HX2 / HX3, SRT, RTMP"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

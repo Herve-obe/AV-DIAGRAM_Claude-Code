@@ -1,0 +1,65 @@
+{
+  "id": "sony-lmd-a170",
+  "family": "display",
+  "manufacturer": "Sony",
+  "model": "LMD-A170",
+  "pictogram": "display",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pro.sony/en_AU/pdf/lmd-a170",
+      "document": "Sony, fiche LMD-A170",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI, recopie active"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI, recopie active"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP"
+    },
+    {
+      "id": "comp",
+      "name": "Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Avec recopie"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

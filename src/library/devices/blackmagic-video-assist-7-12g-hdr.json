@@ -1,0 +1,101 @@
+{
+  "id": "blackmagic-video-assist-7-12g-hdr",
+  "family": "display",
+  "manufacturer": "Blackmagic Design",
+  "model": "Video Assist 7\" 12G HDR",
+  "pictogram": "display",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/blackmagicvideoassist/techspecs/W-VASS-04",
+      "document": "Blackmagic Design, fiche technique Video Assist 7\" 12G HDR (W-VASS-04)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a"
+    },
+    {
+      "id": "mic1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "mic",
+      "format": "Mini XLR symétrique, fantôme",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "mic",
+      "format": "Mini XLR symétrique, fantôme",
+      "phantom": "supplied"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "lanc",
+      "name": "LANC",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-jack 2,5 mm"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Enregistrement sur disque, webcam, mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe 12 V"
+    }
+  ]
+}

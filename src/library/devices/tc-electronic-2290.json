@@ -1,0 +1,84 @@
+{
+  "id": "tc-electronic-2290",
+  "family": "processing",
+  "manufacturer": "TC Electronic",
+  "model": "2290",
+  "pictogram": "processor",
+  "status": "community",
+  "powerW": 30,
+  "weightKg": 5.7,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/delai/tc2290/",
+      "document": "Novelty, fiche TC2290 (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (ou jack 6,35 asymétrique)"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (ou jack 6,35)"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (ou jack 6,35)"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "tclink",
+      "name": "TC Link",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande TC 0144"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 30 W"
+    }
+  ]
+}

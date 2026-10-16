@@ -1,0 +1,46 @@
+{
+  "id": "rve-24x3-hdl",
+  "family": "dmxDistribution",
+  "manufacturer": "RVE",
+  "model": "24x3 HDL",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "P17 125 A tri"
+    },
+    {
+      "id": "acOut",
+      "name": "Départs gradués",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "PC16A"
+    }
+  ]
+}

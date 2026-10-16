@@ -1,0 +1,47 @@
+{
+  "id": "chauvet-swarm-4-fx",
+  "family": "luminaire",
+  "manufacturer": "Chauvet DJ",
+  "model": "Swarm 4 FX",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 47,
+  "sources": [
+    {
+      "url": "https://www.chauvetdj.com/wp-content/uploads/pdf/en/swarm-4-fx.pdf",
+      "document": "Chauvet DJ, fiche Swarm 4 FX",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V, 47 W"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "tascam-dr-40",
+  "family": "recording",
+  "manufacturer": "Tascam",
+  "model": "DR-40",
+  "pictogram": "recorder",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://kitsplit.com/rent-product/tascam-dr-40/all",
+      "document": "KitSplit, fiche DR-40 (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack verrouillable, fantôme",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack verrouillable, fantôme",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic",
+      "name": "Micros intégrés",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "channels": 2,
+      "format": "Paire stéréo intégrée"
+    },
+    {
+      "id": "phones",
+      "name": "Phones / Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini"
+    }
+  ]
+}

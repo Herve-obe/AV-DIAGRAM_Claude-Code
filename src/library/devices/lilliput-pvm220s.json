@@ -1,0 +1,82 @@
+{
+  "id": "lilliput-pvm220s",
+  "family": "display",
+  "manufacturer": "Lilliput",
+  "model": "PVM220S",
+  "pictogram": "display",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://videoguys.com.au/a/p/products/lilliput-pvm220s-21-5-3g-sdi-hdmi-quad-split-broadcast-monitor",
+      "document": "Videoguys, fiche PVM220S (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "bnc1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "bnc2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI PGM Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "usb-c"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

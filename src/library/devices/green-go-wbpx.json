@@ -1,0 +1,41 @@
+{
+  "id": "green-go-wbpx",
+  "family": "intercom",
+  "manufacturer": "Green-GO",
+  "model": "WBPX Beltpack X (sans fil)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/wbpx/",
+      "document": "Green-GO, documentation WBPX Beltpack X",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR4 mâle pour casque micro, 32 à 600 ohms"
+    },
+    {
+      "id": "radio",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "Liaison sans fil vers antenne WAA"
+    },
+    {
+      "id": "usb",
+      "name": "Mini-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-mini",
+      "format": "Charge de la batterie NRGP 1800 mAh, programmation et mise à jour"
+    }
+  ]
+}

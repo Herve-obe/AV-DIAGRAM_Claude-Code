@@ -1,0 +1,113 @@
+{
+  "id": "taiden-hcs-8600mea",
+  "family": "processing",
+  "manufacturer": "Taiden",
+  "model": "HCS-8600MEA",
+  "pictogram": "processor",
+  "status": "community",
+  "powerW": 500,
+  "sources": [
+    {
+      "url": "https://euro-trend.pl/wp-content/uploads/HCS-8600MEA_Series_Congress_Extension_Main_Unit_D.1622792155646.pdf",
+      "document": "Taiden, fiche HCS-8600MEA series (via distributeur Euro-Trend)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "trunk1",
+      "name": "Trunk 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk2",
+      "name": "Trunk 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk3",
+      "name": "Trunk 3",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk4",
+      "name": "Trunk 4",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk5",
+      "name": "Trunk 5",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "in1",
+      "name": "Extension In 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Depuis l'unité centrale ou l'extension précédente"
+    },
+    {
+      "id": "in2",
+      "name": "Extension In 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "out",
+      "name": "Extension Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers l'extension suivante"
+    },
+    {
+      "id": "fiber1",
+      "name": "Fibre 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sc",
+      "format": "SC duplex monomode"
+    },
+    {
+      "id": "fiber2",
+      "name": "Fibre 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sc",
+      "format": "SC duplex monomode"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 500 W"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur secours",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    }
+  ]
+}

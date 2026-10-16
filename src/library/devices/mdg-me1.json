@@ -1,0 +1,41 @@
+{
+  "id": "mdg-me1",
+  "family": "luminaire",
+  "manufacturer": "MDG",
+  "model": "Me1",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 715,
+  "weightKg": 15.62,
+  "sources": [
+    {
+      "url": "https://www.mdgfog.com/en/me1",
+      "document": "MDG, page Me1",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-250 V, 715 W"
+    }
+  ]
+}

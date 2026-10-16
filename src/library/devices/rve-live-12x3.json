@@ -1,0 +1,46 @@
+{
+  "id": "rve-live-12x3",
+  "family": "dmxDistribution",
+  "manufacturer": "RVE",
+  "model": "LIVE 12x3",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "P17 63 A tri"
+    },
+    {
+      "id": "acOut",
+      "name": "Départs gradués",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "PC16A"
+    }
+  ]
+}

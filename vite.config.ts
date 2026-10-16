@@ -1,0 +1,21 @@
+// Configuration Vite pour l'application bureau (Tauri) : le front est servi en local,
+// sans service web ni hébergement.
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: './',
+  plugins: [react()],
+  // Tauri affiche ses propres messages : on garde la console lisible
+  clearScreen: false,
+  server: { port: 5173, strictPort: true },
+  envPrefix: ['VITE_', 'TAURI_ENV_'],
+  build: {
+    // Webviews des systèmes : WebView2 (Windows), WebKit (macOS, Linux). macOS 12.3 minimum
+    // (WebKit de Safari 15.4), Mac Intel compris : voir docs/compatibilite.md
+    target: process.env.TAURI_ENV_PLATFORM === 'windows' ? 'chrome105' : 'safari15',
+    chunkSizeWarningLimit: 1500,
+  },
+  // Délai relevé : le premier chargement de la bibliothèque (plus de 800 fiches JSON) dépasse 5 s
+  test: { environment: 'node', testTimeout: 30000 },
+})

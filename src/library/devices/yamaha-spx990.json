@@ -1,0 +1,87 @@
+{
+  "id": "yamaha-spx990",
+  "family": "processing",
+  "manufacturer": "Yamaha",
+  "model": "SPX990",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.pssl.com/products/yamaha-spx990-20-bit-digital-multi-effect-processo",
+      "document": "PSSL, fiche SPX990 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://rapmag.com/a/93/jun93/yamaha-spx-990-effects-processor-review",
+      "document": "Recording, test SPX990 (1993)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR et jack TRS, symétrique"
+    },
+    {
+      "id": "inR",
+      "name": "Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR et jack TRS, symétrique"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR et jack TRS"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR et jack TRS"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out/Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "fs",
+      "name": "Foot Switch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

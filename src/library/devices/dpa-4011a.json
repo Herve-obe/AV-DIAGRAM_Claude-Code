@@ -1,0 +1,33 @@
+{
+  "id": "dpa-4011a",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "4011A",
+  "pictogram": "mic",
+  "status": "community",
+  "weightKg": 0.158,
+  "sources": [
+    {
+      "url": "https://www.hhb.co.uk/?p=4073",
+      "document": "HHB, fiche 4011A (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://audiosense.be/en/dpa-4011a.html",
+      "document": "Audiosense, fiche 4011A (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique cardioïde, P48 ± 4 V, 2,8 mA ; pad 20 dB",
+      "phantom": "required"
+    }
+  ]
+}

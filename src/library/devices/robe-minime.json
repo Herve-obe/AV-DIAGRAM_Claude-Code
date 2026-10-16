@@ -1,0 +1,67 @@
+{
+  "id": "robe-minime",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "MiniMe",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 90.0,
+  "weightKg": 5.2,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_867.pdf",
+      "document": "Robe lighting, fiche produit MiniMe",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "ArtNet, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Recopie Ethernet"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Chaînage secteur"
+    }
+  ]
+}

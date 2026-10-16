@@ -1,0 +1,49 @@
+{
+  "id": "elation-kl-fresnel-6-cw",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "KL Fresnel 6 CW",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 8.4,
+  "sources": [
+    {
+      "url": "https://goknight.com/content/documentation/KL Fresnel 6 CW Spec Sheet.pdf",
+      "document": "Elation, fiche KL Fresnel 6 CW (via Goknight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble verrouillable IP65 entrée / recopie"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

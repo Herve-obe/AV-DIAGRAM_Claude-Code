@@ -1,0 +1,27 @@
+{
+  "id": "shure-beta-91a",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "Beta 91A",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.47,
+  "sources": [
+    {
+      "document": "Shure Beta 91A Specification Sheet, TL1073 (Rev. 1), © 2010 Shure Incorporated",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique demi-cardioïde (préampli intégré), -48,5 dBV/Pa, fantôme 11 à 52 V (5,4 mA), XLR mâle",
+      "phantom": "required"
+    }
+  ]
+}

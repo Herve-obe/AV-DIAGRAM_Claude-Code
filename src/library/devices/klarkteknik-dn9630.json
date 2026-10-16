@@ -1,0 +1,47 @@
+{
+  "id": "klarkteknik-dn9630",
+  "family": "processing",
+  "manufacturer": "Klark Teknik",
+  "model": "DN9630",
+  "pictogram": "processor",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.audiotechnology.com/news/klark-teknik-releases-aes50-to-usb-converter",
+      "document": "AudioTechnology, annonce DN9630",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.markertek.com/product/kt-dn9630/klark-teknik-dn9630-aes50-to-usb-2-0-converter-with-48-bidirectional-channels",
+      "document": "Markertek, fiche DN9630 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes",
+      "name": "AES50",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "AES50, 48 canaux à 48 kHz / 24 à 96 kHz"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 48,
+      "format": "Ordinateur Windows / Mac ; alimente l'appareil"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet (données AES50)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Canal auxiliaire AES50 : commande et mesure"
+    }
+  ]
+}

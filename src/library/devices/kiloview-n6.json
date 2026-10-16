@@ -1,0 +1,48 @@
+{
+  "id": "kiloview-n6",
+  "family": "videoRouting",
+  "manufacturer": "Kiloview",
+  "model": "N6",
+  "pictogram": "router",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://videoguys.com/products/kiloview-n6-1080p60-hdmi-full-ndi-and-ndi-hx-encoder-decoder",
+      "document": "Videoguys, fiche N6 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Jusqu'à 1080p60"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Recopie (codage) ou sortie décodée"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "NDI Full / HX ; PoE"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

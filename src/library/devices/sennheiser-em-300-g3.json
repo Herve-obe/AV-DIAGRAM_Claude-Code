@@ -1,0 +1,64 @@
+{
+  "id": "sennheiser-em-300-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EM 300 G3",
+  "pictogram": "wireless",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.sonovente.com/sennheiser-ew-335-g3-g-p27507.html",
+      "document": "Sonovente, contenu du kit ew 335 G3 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec l'émetteur"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "out",
+      "name": "Sortie audio",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Sorties XLR et jack d'après la gamme ; non confirmé"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Wireless Systems Manager"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc secteur fourni"
+    }
+  ]
+}

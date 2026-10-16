@@ -1,0 +1,156 @@
+{
+  "id": "rme-madi-router",
+  "family": "processing",
+  "manufacturer": "RME",
+  "model": "MADI Router",
+  "pictogram": "router",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.archiv.rme-audio.de/en/products/madi_router.php",
+      "document": "RME, page MADI Router (archive)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "optA",
+      "name": "Optical A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "MADI optique SC duplex multimode"
+    },
+    {
+      "id": "optB",
+      "name": "Optical B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "MADI optique SC duplex multimode"
+    },
+    {
+      "id": "optC",
+      "name": "Optical C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "MADI optique SC duplex multimode"
+    },
+    {
+      "id": "optD",
+      "name": "Optical D",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "MADI optique SC duplex multimode"
+    },
+    {
+      "id": "coaxA",
+      "name": "Coax A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial 75 Ω (AES10)"
+    },
+    {
+      "id": "coaxB",
+      "name": "Coax B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial 75 Ω (AES10)"
+    },
+    {
+      "id": "coaxC",
+      "name": "Coax C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial 75 Ω (AES10)"
+    },
+    {
+      "id": "coaxD",
+      "name": "Coax D",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial 75 Ω (AES10)"
+    },
+    {
+      "id": "tpA",
+      "name": "Twisted Pair A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI sur paire torsadée, alimente les convertisseurs RME"
+    },
+    {
+      "id": "tpB",
+      "name": "Twisted Pair B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI sur paire torsadée, alimente les convertisseurs RME"
+    },
+    {
+      "id": "tpC",
+      "name": "Twisted Pair C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI sur paire torsadée, alimente les convertisseurs RME"
+    },
+    {
+      "id": "tpD",
+      "name": "Twisted Pair D",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI sur paire torsadée, alimente les convertisseurs RME"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour, préréglages"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "klarkteknik-dn370",
+  "family": "processing",
+  "manufacturer": "Klark Teknik",
+  "model": "DN370",
+  "pictogram": "processor",
+  "status": "community",
+  "weightKg": 5.8,
+  "rackU": 3,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/17851-DN370Brochure.pdf",
+      "document": "Klark Teknik, brochure DN370 (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inA",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrie électronique (transformateur en option) ; doublé sur bornier Phoenix"
+    },
+    {
+      "id": "inB",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrie électronique (transformateur en option) ; doublé sur bornier Phoenix"
+    },
+    {
+      "id": "outA",
+      "name": "Output A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrie électronique (transformateur en option) ; doublé sur bornier Phoenix"
+    },
+    {
+      "id": "outB",
+      "name": "Output B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrie électronique (transformateur en option) ; doublé sur bornier Phoenix"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

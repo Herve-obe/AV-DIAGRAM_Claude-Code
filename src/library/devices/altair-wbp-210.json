@@ -1,0 +1,46 @@
+{
+  "id": "altair-wbp-210",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "WBP-210",
+  "pictogram": "intercom",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.snotechnique.com/image/data/Produit/Sonorisation/Intercom/Altair/Altair-Manuel-WBP210-UK.pdf",
+      "document": "Altair, mode d'emploi WBP-210 (via SNO Technique)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Monocanal, vers base WBS"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4 et Tiny QG"
+    },
+    {
+      "id": "usb",
+      "name": "Charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "USB, batterie Li-Ion"
+    }
+  ]
+}

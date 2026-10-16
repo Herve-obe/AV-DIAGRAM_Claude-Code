@@ -1,0 +1,42 @@
+{
+  "id": "dynaudio-bm5a",
+  "family": "speaker",
+  "manufacturer": "Dynaudio",
+  "model": "BM5A",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://zzounds.com/item--DYNBM5A",
+      "document": "zZounds, fiche BM5A (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "xlr",
+      "name": "Input (XLR)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique"
+    },
+    {
+      "id": "rca",
+      "name": "Input (RCA)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "2 × 50 W"
+    }
+  ]
+}

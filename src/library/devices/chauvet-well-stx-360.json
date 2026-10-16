@@ -1,0 +1,33 @@
+{
+  "id": "chauvet-well-stx-360",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "WELL STX 360",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/wp-content/uploads/pdf/en/WELLSTX360.pdf",
+      "document": "Chauvet Professional, fiche WELL STX 360",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "wdmx",
+      "name": "W-DMX",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur W-DMX intégré"
+    },
+    {
+      "id": "charge",
+      "name": "Charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Batterie 3 à 12 h ; recharge dans la valise (Powerkon IP65)"
+    }
+  ]
+}

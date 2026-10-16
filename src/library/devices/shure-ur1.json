@@ -1,0 +1,42 @@
+{
+  "id": "shure-ur1",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR1",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.lost-manuals.com/en/manufacturer/shure/ur4d",
+      "document": "Archive de manuels (tiers), gamme UHF-R",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée audio",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "TA4M comme l'UR1M (même gamme), à vérifier"
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Antenne fouet"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
+}

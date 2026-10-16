@@ -1,0 +1,49 @@
+{
+  "id": "martin-rush-mh5-profile",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "RUSH MH 5 Profile",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 165,
+  "weightKg": 9,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/rush-mh-5-profile",
+      "document": "Martin, page produit RUSH MH 5 Profile",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ]
+}

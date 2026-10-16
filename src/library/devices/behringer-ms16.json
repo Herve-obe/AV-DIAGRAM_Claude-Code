@@ -1,0 +1,74 @@
+{
+  "id": "behringer-ms16",
+  "family": "speaker",
+  "manufacturer": "Behringer",
+  "model": "MS16",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 3.5,
+  "sources": [
+    {
+      "url": "https://thomann.ae/behringer_ms16.htm",
+      "document": "Thomann, fiche MS16 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://galaxus.fr/en/s1/product/behringer-ms16-active-pair-1x-16-w-monitor-speakers-287539",
+      "document": "Galaxus, fiche MS16 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line1",
+      "name": "Line In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "line2",
+      "name": "Line In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "aux",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "mic",
+      "name": "Mic / Guitar",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "mic",
+      "format": "Jack 6,35 face avant (micro dynamique ou guitare)"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

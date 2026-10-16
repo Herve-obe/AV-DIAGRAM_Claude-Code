@@ -1,0 +1,86 @@
+{
+  "id": "beyerdynamic-unite-ap4",
+  "family": "wireless",
+  "manufacturer": "beyerdynamic",
+  "model": "Unite AP4",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.86,
+  "sources": [
+    {
+      "url": "https://cdn.accentuate.io/5019967029292/12567395860524/BD710482_datasheet-v1590020381901.pdf",
+      "document": "beyerdynamic, fiche Unite AP4 (BD710482)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "anaIn",
+      "name": "Analog In 1-4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 4,
+      "format": "Phoenix 6 points 3,5 mm, symétrique"
+    },
+    {
+      "id": "anaOut",
+      "name": "Analog Out 1-4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 4,
+      "format": "Phoenix 6 points 3,5 mm, symétrique"
+    },
+    {
+      "id": "dante",
+      "name": "Dante / PoE",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 4,
+      "format": "Dante, PoE 802.3af 12 W"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande (Unite Manager)"
+    },
+    {
+      "id": "syncIn",
+      "name": "Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Synchronisation jusqu'à 8 AP4"
+    },
+    {
+      "id": "syncOut",
+      "name": "Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "rj45"
+    },
+    {
+      "id": "rf",
+      "name": "DECT",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "DECT 1 880-1 900 MHz (UE), antennes intégrées"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V (bloc 36 W) ou PoE"
+    }
+  ]
+}

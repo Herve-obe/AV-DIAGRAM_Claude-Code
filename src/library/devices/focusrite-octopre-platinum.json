@@ -1,0 +1,141 @@
+{
+  "id": "focusrite-octopre-platinum",
+  "family": "processing",
+  "manufacturer": "Focusrite",
+  "model": "OctoPre Platinum",
+  "pictogram": "processor",
+  "status": "community",
+  "weightKg": 3.2,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/preampli/octo-pre-platinum/",
+      "document": "Novelty, fiche OctoPre Platinum (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "Mic In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic3",
+      "name": "Mic In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic4",
+      "name": "Mic In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic5",
+      "name": "Mic In 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic6",
+      "name": "Mic In 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic7",
+      "name": "Mic In 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic8",
+      "name": "Mic In 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "inst1",
+      "name": "Instrument 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "inst2",
+      "name": "Instrument 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "adat",
+      "name": "ADAT Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "Carte ADAT en option"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

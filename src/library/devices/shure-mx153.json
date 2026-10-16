@@ -1,0 +1,27 @@
+{
+  "id": "shure-mx153",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "MX153",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/MX153/en-US.pdf",
+      "document": "Shure, guide utilisateur MX153",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "Tour d'oreille statique ; TA4F (XLR avec le préampli RK100PK, fantôme)",
+      "phantom": "required"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "pioneerdj-rmx-1000",
+  "family": "processing",
+  "manufacturer": "Pioneer DJ",
+  "model": "RMX-1000",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 1.3,
+  "sources": [
+    {
+      "url": "https://downloads.support.alphatheta.com/manuals/effectors/RMX-1000/RMX-1000_DRB1587D_manual.pdf",
+      "document": "Pioneer DJ, mode d'emploi RMX-1000 (DRB1587D)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input L (Mono) / R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "RCA ou jack 6,35 (n'en brancher qu'un) ; niveau -10 dB / +4 dB commutable"
+    },
+    {
+      "id": "out",
+      "name": "Output L / R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "RCA ou jack 6,35 ; niveau -10 dB / +4 dB commutable"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Ordinateur (logiciel RMX-1000)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur secteur 5 V"
+    }
+  ]
+}

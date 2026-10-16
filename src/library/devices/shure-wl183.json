@@ -1,0 +1,27 @@
+{
+  "id": "shure-wl183",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "WL183",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/WL18x/en-US.pdf",
+      "document": "Shure, guide utilisateur WL183 WL184 WL185",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "Cravate statique omni ; TA4F, alimentée par l'émetteur (5 V)",
+      "phantom": "required"
+    }
+  ]
+}

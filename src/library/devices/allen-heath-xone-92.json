@@ -1,0 +1,208 @@
+{
+  "id": "allen-heath-xone-92",
+  "family": "console",
+  "manufacturer": "Allen & Heath",
+  "model": "Xone:92",
+  "pictogram": "console",
+  "status": "community",
+  "powerW": 30,
+  "weightKg": 7,
+  "sources": [
+    {
+      "url": "https://www.allen-heath.com/content/uploads/2024/10/Xone92-Mk2-User-Guide.pdf",
+      "document": "Allen & Heath, XONE:92 Mk2 User Guide (2024)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "MIC 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "mic2",
+      "name": "MIC 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "rtn1",
+      "name": "Line Return 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Jack 6,35 TRS (G et D)"
+    },
+    {
+      "id": "rtn2",
+      "name": "Line Return 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Jack 6,35 TRS (G et D)"
+    },
+    {
+      "id": "phono1",
+      "name": "Phono 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, platine (RIAA)"
+    },
+    {
+      "id": "phono2",
+      "name": "Phono 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, platine (RIAA)"
+    },
+    {
+      "id": "phono3",
+      "name": "Phono 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, platine (RIAA)"
+    },
+    {
+      "id": "phono4",
+      "name": "Phono 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, platine (RIAA)"
+    },
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line4",
+      "name": "Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "mix1",
+      "name": "Mix 1 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "channels": 2,
+      "format": "XLR symétrique, sortie principale"
+    },
+    {
+      "id": "mix2",
+      "name": "Mix 2 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack TRS impédance symétrique"
+    },
+    {
+      "id": "booth",
+      "name": "Booth Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack TRS, retour cabine"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux 1 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack TRS"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux 2 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack TRS"
+    },
+    {
+      "id": "rec",
+      "name": "Record Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, pré-master"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC, 100-240 V"
+    }
+  ]
+}

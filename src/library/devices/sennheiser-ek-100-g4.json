@@ -1,0 +1,33 @@
+{
+  "id": "sennheiser-ek-100-g4",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EK 100 G4 (récepteur caméra)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.16,
+  "sources": [
+    {
+      "document": "Sennheiser, evolution wireless G4 100 series Instruction Manual, ew 100 P G4 v2.2 (ew_100P_G4_Manual_v2-2_10_2019_EN.pdf)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, diversity adaptative, plage de 42 MHz selon la variante"
+    },
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm verrouillable, mono asymétrique, +12 dBu max, réglage AF Out sur 48 dB par pas de 6 dB ; vers XLR-3 par le câble CL 100, vers jack 3,5 mm par le CL 1"
+    }
+  ]
+}

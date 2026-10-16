@@ -1,0 +1,88 @@
+{
+  "id": "altair-wbs-200",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "WBS-200",
+  "pictogram": "intercom",
+  "status": "community",
+  "weightKg": 3.0,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://enlx.co.uk/wptemp/wp-content/uploads/2024/05/wbs200.pdf",
+      "document": "Altair, mode d'emploi WBS-200 (via ENLX)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ant1",
+      "name": "Antenne 1",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ant2",
+      "name": "Antenne 2",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "unspecified"
+    },
+    {
+      "id": "lineA",
+      "name": "Line A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "lineB",
+      "name": "Line B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "prg",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3F symétrique"
+    },
+    {
+      "id": "pa",
+      "name": "PA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4 et Tiny QG en parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90-264 V"
+    }
+  ]
+}

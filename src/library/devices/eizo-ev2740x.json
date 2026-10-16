@@ -1,0 +1,53 @@
+{
+  "id": "eizo-ev2740x",
+  "family": "display",
+  "manufacturer": "EIZO",
+  "model": "FlexScan EV2740X",
+  "pictogram": "display",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.adorama.com/eiev2740xbk.html",
+      "document": "Adorama, fiche EV2740X-BK (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "usbc",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "DP Alt Mode, charge 94 W, réseau"
+    },
+    {
+      "id": "displayport1",
+      "name": "DP In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

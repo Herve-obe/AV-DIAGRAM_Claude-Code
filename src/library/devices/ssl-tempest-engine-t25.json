@@ -1,0 +1,114 @@
+{
+  "id": "ssl-tempest-engine-t25",
+  "family": "processing",
+  "manufacturer": "Solid State Logic",
+  "model": "Tempest Engine T25 (Dante HC 512)",
+  "pictogram": "processor",
+  "status": "verified",
+  "powerW": 400,
+  "weightKg": 20,
+  "rackU": 4,
+  "sources": [
+    {
+      "document": "SSL, System T Installation Guide Rev H",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "danteP",
+      "name": "Dante HC primaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "sfp",
+      "channels": 512,
+      "format": "Carte Dante HC (configuration non redondante), SFP RJ45 ou fibre ; variantes 512 ou 1024 E/S"
+    },
+    {
+      "id": "danteS",
+      "name": "Dante HC secondaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "sfp",
+      "channels": 512
+    },
+    {
+      "id": "ocpP",
+      "name": "T-Engine OCP primaire",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle depuis la surface ou le TCR"
+    },
+    {
+      "id": "ocpS",
+      "name": "T-Engine OCP secondaire",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "video",
+      "name": "Sync vidéo",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level, entrée non terminée (bouchon 75 Ω)"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Entrée non terminée (bouchon 75 Ω)"
+    },
+    {
+      "id": "aes",
+      "name": "AES (DARS) In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Référence AES asymétrique ; connecteur non précisé"
+    },
+    {
+      "id": "madi",
+      "name": "MADI local",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "format": "Fibre SC multimode ; périphérique MADI unique, non partageable sur le réseau"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI (12)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 femelle (carte d'entrées), configuration non redondante"
+    },
+    {
+      "id": "gpo",
+      "name": "GPO (12)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 mâle (carte de sorties)"
+    },
+    {
+      "id": "acA",
+      "name": "Secteur A",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentations redondantes 600 W max, 100-240 VAC ; < 400 W typique"
+    },
+    {
+      "id": "acB",
+      "name": "Secteur B",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

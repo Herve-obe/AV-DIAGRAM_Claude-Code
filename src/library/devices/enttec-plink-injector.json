@@ -1,0 +1,46 @@
+{
+  "id": "enttec-plink-injector",
+  "family": "dmxDistribution",
+  "manufacturer": "ENTTEC",
+  "model": "PLink Injector",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.enttec.com/product/led-pixel-control/plink-injector/",
+      "document": "ENTTEC, page PLink Injector",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "plink",
+      "name": "PLink In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rj45"
+    },
+    {
+      "id": "spi",
+      "name": "Sortie pixels",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "terminal",
+      "format": "SPI vers rubans LED"
+    },
+    {
+      "id": "dcIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal"
+    },
+    {
+      "id": "dcOut",
+      "name": "Alimentation pixels",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal"
+    }
+  ]
+}

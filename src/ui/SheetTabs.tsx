@@ -1,0 +1,99 @@
+// Onglets des feuilles du projet (au-dessus du canevas) et outils d'annotation.
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useReactFlow } from '@xyflow/react'
+import { depthOf, sheetTree } from '../model/groups'
+import type { Annotation } from '../model/types'
+import { useProject } from '../store/projectStore'
+import { useUi } from '../store/uiStore'
+import { Icon } from './Icon'
+
+export function SheetTabs() {
+  const { t } = useTranslation()
+  const project = useProject((s) => s.project)
+  const sheets = sheetTree(project)
+  const { currentSheetId, setSheet, presenting } = useUi()
+  const current = sheets.find((s) => s.id === currentSheetId)
+  const [renaming, setRenaming] = useState<string | null>(null)
+  const rf = useReactFlow()
+
+  const add = () => {
+    const id = useProject.getState().addSheet(t('sheets.newName', { n: sheets.length + 1 }))
+    setSheet(id)
+    setRenaming(id)
+  }
+
+  /** Pose une note ou une zone (cadre lié à une zone du projet) au centre de la vue. */
+  const addAnnotation = (kind: Annotation['kind']) => {
+    const el = document.querySelector('.react-flow')?.getBoundingClientRect()
+    const c = el ? rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 }) : { x: 0, y: 0 }
+    const size = kind === 'frame' ? { w: 480, h: 320 } : { w: 220, h: 90 }
+    const position = { x: Math.round((c.x - size.w / 2) / 10) * 10, y: Math.round((c.y - size.h / 2) / 10) * 10 }
+    // Le cadre posé depuis la barre est une zone : les blocs posés dedans en prennent le code
+    const id = kind === 'frame'
+      ? useProject.getState().addZoneFrame({ sheetId: currentSheetId, position, size, color: 'var(--sig-audio-analog)' })
+      : useProject.getState().addAnnotation({ kind, sheetId: currentSheetId, position, size, text: t('annotations.noteText') })
+    useUi.getState().select([id], [])
+  }
+
+  return (
+    <div className="sheetbar">
+      <div className="sheet-tabs" role="tablist" aria-label={t('sheets.label')}>
+        {current?.parentId && (
+          <button className="icon-btn small" onClick={() => setSheet(current.parentId!)} title={t('groups.parent')} aria-label={t('groups.parent')}>
+            <Icon name="undo" size={13} />
+          </button>
+        )}
+        {sheets.map((s) => (
+          <div key={s.id} className={`sheet-tab ${s.id === currentSheetId ? 'is-active' : ''}`}>
+            {renaming === s.id ? (
+              <input
+                autoFocus
+                defaultValue={s.name}
+                aria-label={t('sheets.rename')}
+                onBlur={(e) => { const v = e.target.value.trim(); if (v && v !== s.name) useProject.getState().renameSheet(s.id, v); setRenaming(null) }}
+                onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); if (e.key === 'Escape') setRenaming(null) }}
+              />
+            ) : (
+              <button
+                role="tab"
+                aria-selected={s.id === currentSheetId}
+                onClick={() => setSheet(s.id)}
+                onDoubleClick={() => !presenting && setRenaming(s.id)}
+                title={presenting ? undefined : t('sheets.renameHint')}
+              >
+                {depthOf(project, s.id) > 0 && <span className="sheet-depth" aria-hidden="true">{'›'.repeat(depthOf(project, s.id))} </span>}
+                {s.name}
+              </button>
+            )}
+            {!presenting && sheets.length > 1 && s.id === currentSheetId && renaming !== s.id && (
+              <button
+                className="sheet-close"
+                onClick={() => {
+                  const next = sheets.find((x) => x.id !== s.id)
+                  useProject.getState().removeSheet(s.id)
+                  if (next) setSheet(next.id)
+                }}
+                title={t('sheets.remove')}
+                aria-label={t('sheets.remove')}
+              >
+                <Icon name="close" size={11} />
+              </button>
+            )}
+          </div>
+        ))}
+        {!presenting && (
+          <button className="icon-btn small" onClick={add} title={t('sheets.add')} aria-label={t('sheets.add')}>
+            <Icon name="plus" size={14} />
+          </button>
+        )}
+      </div>
+      {!presenting && (
+        <div className="annotation-tools">
+          <button className="btn btn-ghost" onClick={() => addAnnotation('note')}><Icon name="note" size={14} />{t('annotations.note')}</button>
+          <button className="btn btn-ghost" onClick={() => addAnnotation('frame')}><Icon name="frame" size={14} />{t('annotations.zoneTool')}</button>
+        </div>
+      )}
+    </div>
+  )
+}

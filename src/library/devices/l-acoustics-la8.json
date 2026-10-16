@@ -1,0 +1,116 @@
+{
+  "id": "l-acoustics-la8",
+  "family": "amplification",
+  "manufacturer": "L-Acoustics",
+  "model": "LA8",
+  "pictogram": "amp",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/LA8/documents.zip",
+      "document": "L-Acoustics, archive de documentation : LA8 Owner's manual, spécifications LA4-LA8",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inA",
+      "name": "Analog In A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "inB",
+      "name": "Analog In B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "linkA",
+      "name": "Analog Link A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Recopie passive"
+    },
+    {
+      "id": "linkB",
+      "name": "Analog Link B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Recopie passive"
+    },
+    {
+      "id": "aesIn",
+      "name": "AES/EBU In A&B",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "Carte LA-AES3"
+    },
+    {
+      "id": "aesLink",
+      "name": "AES/EBU Link",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "Recopie active"
+    },
+    {
+      "id": "net1",
+      "name": "L-NET 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "net2",
+      "name": "L-NET 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "spk1",
+      "name": "speakON 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker"
+    },
+    {
+      "id": "spk2",
+      "name": "speakON 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker"
+    },
+    {
+      "id": "cacom",
+      "name": "Sortie 8 points",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "level": "speaker",
+      "format": "4 canaux sur un connecteur"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "230 V"
+    }
+  ]
+}

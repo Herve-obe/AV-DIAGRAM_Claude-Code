@@ -1,0 +1,80 @@
+{
+  "id": "yamaha-pc412-di",
+  "family": "amplification",
+  "manufacturer": "Yamaha",
+  "model": "PC412-DI",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 16.0,
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/power_amps/pc-d_di/specs.html",
+      "document": "Yamaha USA, page Specs PC412-DI",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrées 1-4 (Euroblock 6P, x 2)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 4,
+      "format": "2 Euroblock 6 points, 4 canaux symétriques"
+    },
+    {
+      "id": "d1",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 16,
+      "format": "Dante 16 in / 16 out"
+    },
+    {
+      "id": "d2",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 16,
+      "format": "Redondance ou chaînage"
+    },
+    {
+      "id": "ctl",
+      "name": "Contrôle",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Mini-Euroblock 3,5 mm 8 points x 2"
+    },
+    {
+      "id": "spk",
+      "name": "Sorties HP (Euroblock 8P)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "channels": 4,
+      "format": "Euroblock 7,62 mm 8 points ; basse ou haute impédance"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "1850 W au 1/8 de puissance max (2 Ω)"
+    }
+  ]
+}

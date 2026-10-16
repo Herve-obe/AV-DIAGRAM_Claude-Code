@@ -1,0 +1,51 @@
+{
+  "id": "etc-source-four-led-lustr2",
+  "family": "luminaire",
+  "manufacturer": "ETC",
+  "model": "Source Four LED Series 2 Lustr",
+  "pictogram": "light",
+  "status": "community",
+  "weightKg": 6.5,
+  "sources": [
+    {
+      "url": "https://www.panavision.com/lighting/lighting-products/heads/product-detail/halheau-source-four-series-2-lustr",
+      "document": "Panavision, fiche Source Four Series 2 Lustr (loueur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1054545-REG/etc_7461a1051_source_four_led_series.html",
+      "document": "B&H, fiche Source Four LED Series 2 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ]
+}

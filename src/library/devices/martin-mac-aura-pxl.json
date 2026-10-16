@@ -1,0 +1,63 @@
+{
+  "id": "martin-mac-aura-pxl",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "MAC Aura PXL",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 560,
+  "weightKg": 15.6,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/mac-aura-pxl",
+      "document": "Martin, page produit MAC Aura PXL",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ethIn",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "ethOut",
+      "name": "Ethernet Thru",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ]
+}

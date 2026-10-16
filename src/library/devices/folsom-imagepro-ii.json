@@ -1,0 +1,78 @@
+{
+  "id": "folsom-imagepro-ii",
+  "family": "videoSwitcher",
+  "manufacturer": "Folsom (Barco)",
+  "model": "ImagePRO-II",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/44510-ImagePROIISeriesDatasheet.pdf",
+      "document": "Barco, fiche ImagePRO-II (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "analog",
+      "name": "Analog In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Universelle, recopie"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Dual link, HDCP, recopie"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp",
+      "name": "DP In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "sdi",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie"
+    },
+    {
+      "id": "out",
+      "name": "Sorties",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "DVI, SDI, composite ; nombre selon carte de sortie"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Avec recopie"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

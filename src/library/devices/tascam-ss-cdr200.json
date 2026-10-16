@@ -1,0 +1,113 @@
+{
+  "id": "tascam-ss-cdr200",
+  "family": "recording",
+  "manufacturer": "Tascam",
+  "model": "SS-CDR200",
+  "pictogram": "recorder",
+  "status": "community",
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.adorama.com/tssscdr200.html",
+      "document": "Adorama, fiche SS-CDR200 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://zzounds.com/item--TASSSCDR200",
+      "document": "zZounds, fiche SS-CDR200 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Balanced In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "inR",
+      "name": "Balanced In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outL",
+      "name": "Balanced Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "Balanced Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "rcaIn",
+      "name": "Unbalanced In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "rcaOut",
+      "name": "Unbalanced Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "digIn",
+      "name": "Digital In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF ou AES/EBU (détection auto)"
+    },
+    {
+      "id": "digOut",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF ou AES/EBU"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

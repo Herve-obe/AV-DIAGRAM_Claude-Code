@@ -1,0 +1,27 @@
+{
+  "id": "shure-mx418",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "MX418",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/MX400/en-US.pdf",
+      "document": "Shure, guide utilisateur MX412, MX418, MX424",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Col de cygne statique 45 cm ; préampli, sortie XLR symétrique active",
+      "phantom": "required"
+    }
+  ]
+}

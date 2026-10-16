@@ -1,0 +1,72 @@
+{
+  "id": "midas-hd96-24",
+  "family": "console",
+  "manufacturer": "Midas",
+  "model": "Heritage-D HD96-24",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/602302-midas-hd96-24-cc-ip-ul-live-digital-console-144-input-ch-21-touch-screen",
+      "document": "Full Compass, fiche HD96-24 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes50",
+      "name": "AES50",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "Liaison vers stageboxes DL ; nombre de ports non précisé"
+    },
+    {
+      "id": "madi",
+      "name": "MADI",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Nombre et type de ports non précisés"
+    },
+    {
+      "id": "dante",
+      "name": "Dante",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "unspecified",
+      "format": "Nombre de ports non précisé"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "unspecified"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Écran externe"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    }
+  ]
+}

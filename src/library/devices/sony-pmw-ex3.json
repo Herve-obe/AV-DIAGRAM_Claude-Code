@@ -1,0 +1,106 @@
+{
+  "id": "sony-pmw-ex3",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PMW-EX3",
+  "pictogram": "camera",
+  "status": "community",
+  "weightKg": 1.9,
+  "sources": [
+    {
+      "url": "https://mediamaking.com/en/rental-camcorder-sony-pmw-ex3/",
+      "document": "Mediamaking, fiche PMW-EX3 (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD / SD-SDI"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "aOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "ilink",
+      "name": "i.LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "8 points"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

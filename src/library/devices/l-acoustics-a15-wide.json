@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-a15-wide",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "A15 Wide",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 33,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/a15-wide/",
+      "document": "L-Acoustics, page produit A15 Wide, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Enceinte 2 voies passive, 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "Link speakON",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Recopie de l'entrée (chaînage)"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "radial-proav1",
+  "family": "capture",
+  "manufacturer": "Radial Engineering",
+  "model": "ProAV1",
+  "pictogram": "di",
+  "status": "verified",
+  "weightKg": 0.73,
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/proav1",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in-jack",
+      "name": "Entrée jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35, 140 kohm"
+    },
+    {
+      "id": "in-rca",
+      "name": "Entrée RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "in-mini",
+      "name": "Entrée mini-jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "3,5 mm TRS (fonction Mono Sum)"
+    },
+    {
+      "id": "in-xlr",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "thru-jack",
+      "name": "Thru jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Recopie"
+    },
+    {
+      "id": "thru-rca",
+      "name": "Thru RCA",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Recopie"
+    },
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique 150 ohms, passif"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "sennheiser-sk-300-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SK 300 G3",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.huss-licht-ton.de/print_product_info.php/en/products_id/51060",
+      "document": "Huss Licht & Ton, embase jack 3,5 mm des SK G2/G3/G4 (pièce détachée)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée micro / ligne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Jack 3,5 mm verrouillable"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
+}

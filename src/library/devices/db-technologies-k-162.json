@@ -1,0 +1,58 @@
+{
+  "id": "db-technologies-k-162",
+  "family": "speaker",
+  "manufacturer": "dB Technologies",
+  "model": "K 162",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 5.5,
+  "sources": [
+    {
+      "url": "https://www.boullard.ch/en/product/sono-studio/speakers/active-speakers/115483-db-technologies-k-162/",
+      "document": "Boullard, fiche K 162 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/db-technologies-k-162-2-x-6-5-inch-160w-active-speaker/p/dbtk162",
+      "document": "Adorama, fiche K 162 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Mic / Line",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR et jack, sélecteur micro / ligne"
+    },
+    {
+      "id": "aux",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "out",
+      "name": "Link Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4",
+      "format": "Sortie non confirmée (sources divergentes)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "65 W RMS"
+    }
+  ]
+}

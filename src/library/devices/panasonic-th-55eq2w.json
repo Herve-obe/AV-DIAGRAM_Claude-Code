@@ -1,0 +1,139 @@
+{
+  "id": "panasonic-th-55eq2w",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "TH-55EQ2W (55\")",
+  "pictogram": "display",
+  "status": "verified",
+  "powerW": 280,
+  "weightKg": 18,
+  "sources": [
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2024-04/55eq2w_spec_en_0.pdf",
+      "document": "Panasonic, spec sheet TH-55EQ2W",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HDCP 2.2"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HDCP 2.2"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A, HDCP 2.2"
+    },
+    {
+      "id": "pc",
+      "name": "PC In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15 points"
+    },
+    {
+      "id": "usb-c",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "DisplayPort Alt Mode, Power Delivery jusqu'à 60 W, USB 2.0"
+    },
+    {
+      "id": "usb3",
+      "name": "USB-A (USB 3.0)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "5 V / 1 A"
+    },
+    {
+      "id": "usb2",
+      "name": "USB-A (USB 2.0)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "5 V / 2 A"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm, 0,5 V eff."
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm, niveau variable"
+    },
+    {
+      "id": "rs232",
+      "name": "Serial In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C"
+    },
+    {
+      "id": "ir-in",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm"
+    },
+    {
+      "id": "ir-out",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10BASE-T / 100BASE-TX, PJLink"
+    },
+    {
+      "id": "slot",
+      "name": "Function slot",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Emplacement Intel SDM"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "110-240 V, cordon 2 m fourni"
+    }
+  ]
+}

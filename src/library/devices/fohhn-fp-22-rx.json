@@ -1,0 +1,48 @@
+{
+  "id": "fohhn-fp-22-rx",
+  "family": "speaker",
+  "manufacturer": "Fohhn",
+  "model": "FP-22 RX",
+  "pictogram": "speaker",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://fohhn.com/en/products/fp-22-modular",
+      "document": "Fohhn, page FP-22 modular",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/fp22-cd-rx-2/",
+      "document": "Novelty, fiche FP22 CD-RX (loueur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mix",
+      "name": "Entrées mélangeur",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "channels": 4,
+      "format": "Mélangeur 4 voies intégré ; connecteurs non précisés"
+    },
+    {
+      "id": "rx",
+      "name": "Récepteur HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Récepteur micro HF intégré"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur / charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Batterie, autonomie 20 h"
+    }
+  ]
+}

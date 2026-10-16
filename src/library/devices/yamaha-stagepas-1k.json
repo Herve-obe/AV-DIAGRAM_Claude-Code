@@ -1,0 +1,104 @@
+{
+  "id": "yamaha-stagepas-1k",
+  "family": "speaker",
+  "manufacturer": "Yamaha",
+  "model": "STAGEPAS 1K",
+  "pictogram": "speaker",
+  "status": "community",
+  "powerW": 1000,
+  "sources": [
+    {
+      "url": "https://www.alamomusic.com/products/yamaha-stagepas-1k-1000-watt-5-channel-portable-column-pa-system",
+      "document": "Alamo Music, fiche STAGEPAS 1K (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/pa_systems/stagepas_1k/training.html",
+      "document": "Yamaha, formation STAGEPAS 1K",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Micro/ligne, Hi-Z",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Micro/ligne, Hi-Z",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Micro/ligne",
+      "phantom": "supplied"
+    },
+    {
+      "id": "st",
+      "name": "Stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack 6,35 ou mini-jack 3,5 mm"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rf",
+      "channels": 2,
+      "format": "Bluetooth 5.0, A2DP"
+    },
+    {
+      "id": "link",
+      "name": "Link Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Vers un second STAGEPAS 1K"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4"
+    },
+    {
+      "id": "fs",
+      "name": "Foot Switch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Réverbération"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "1000 W (HF 190 W + LF 810 W)"
+    }
+  ]
+}

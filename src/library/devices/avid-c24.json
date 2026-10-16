@@ -1,0 +1,287 @@
+{
+  "id": "avid-c24",
+  "family": "control",
+  "manufacturer": "Avid (Digidesign)",
+  "model": "C|24",
+  "pictogram": "control",
+  "status": "verified",
+  "powerW": 450,
+  "weightKg": 20.4,
+  "sources": [
+    {
+      "document": "Digidesign, C|24 Guide Version 7.4, © 2008",
+      "accessed": "2026-09-25"
+    },
+    {
+      "document": "Avid, C|24 Guide, Part Number 9320-65042-00 REV A 10/11",
+      "accessed": "2026-09-25"
+    },
+    {
+      "document": "Communauté Avid : poids 40 à 50 lb, retenu 45 lb soit 20,4 kg ; consommation 400 à 450 W selon l'usage, retenu 450 W pour le bilan électrique",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1_8",
+      "name": "Mic In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "mic",
+      "phantom": "supplied",
+      "channels": 8,
+      "format": "DB-25 femelle, symétrique ; fantôme par groupe de 8, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "line1_8",
+      "name": "Line/DI In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "di1",
+      "name": "DI 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Jack TRS symétrique, prioritaire sur Mic/Line 1"
+    },
+    {
+      "id": "di2",
+      "name": "DI 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Jack TRS symétrique, prioritaire sur Mic/Line 2"
+    },
+    {
+      "id": "out1_8",
+      "name": "Line Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "Sorties des préamplis, DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "mic9_16",
+      "name": "Mic In 9-16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "mic",
+      "phantom": "supplied",
+      "channels": 8,
+      "format": "DB-25 femelle, symétrique ; fantôme par groupe de 8, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "line9_16",
+      "name": "Line/DI In 9-16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "di9",
+      "name": "DI 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Jack TRS symétrique, prioritaire sur Mic/Line 9"
+    },
+    {
+      "id": "di10",
+      "name": "DI 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Jack TRS symétrique, prioritaire sur Mic/Line 10"
+    },
+    {
+      "id": "out9_16",
+      "name": "Line Out 9-16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "Sorties des préamplis, DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "sub1_4",
+      "name": "Submix In 1-4 (ST)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "4 entrées stéréo ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "sub5_8",
+      "name": "Submix In 5-8 (ST)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "4 entrées stéréo ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "subL",
+      "name": "Submix Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "subR",
+      "name": "Submix Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ptin",
+      "name": "Pro Tools In (PT 1-6 + Cue 1-2)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "surin",
+      "name": "Surround In (Alt Sur 1-6)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 6,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "extin",
+      "name": "Ext Stereo In (St 1 + St 2)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 4,
+      "format": "DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "crout",
+      "name": "Control Room Out (5.1 Mon Out)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "Main 5.1 / LCRS / stéréo et Alt ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)"
+    },
+    {
+      "id": "cueout",
+      "name": "Cue Outputs (Cue + SLS + TB)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "format": "Cue L/R, Studio LS L/R, Talkback Slate (canaux 6 à 8 inutilisés) ; DB-25 femelle, brochage canal 1 : + 24, - 12, masse 25 (identique au standard Tascam)",
+      "channels": 5
+    },
+    {
+      "id": "altL",
+      "name": "Alt Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Recopie de Alt Out du connecteur Control Room"
+    },
+    {
+      "id": "altR",
+      "name": "Alt Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Recopie de Alt Out du connecteur Control Room"
+    },
+    {
+      "id": "listen",
+      "name": "Listen Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro d'écoute (listenback)"
+    },
+    {
+      "id": "exttb",
+      "name": "Ext Talk Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro d'ordre externe (remplace le micro intégré)"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Façade ; source commutable : Control Room L/R (canaux 1 et 3, avant fader) ou départ Cue (après fader)"
+    },
+    {
+      "id": "fs1",
+      "name": "Footswitch 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Jack TRS ; punch in/out, lecture/arrêt Pro Tools ou talkback, au choix"
+    },
+    {
+      "id": "fs2",
+      "name": "Footswitch 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Jack TRS ; punch in/out, lecture/arrêt Pro Tools ou talkback, au choix"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison avec Pro Tools ; câble croisé fourni pour une liaison directe, sinon passer par un switch"
+    },
+    {
+      "id": "psu",
+      "name": "To Ext PSU",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc d'alimentation externe fourni, 90-250 V 50-60 Hz, embase IEC sur le bloc"
+    }
+  ]
+}

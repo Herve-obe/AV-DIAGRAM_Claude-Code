@@ -1,0 +1,54 @@
+{
+  "id": "panasonic-dc-gh5",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "Lumix DC-GH5",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Panasonic, DC-GH5 Manuel d'utilisation Fonctions avancées",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Sortie HDMI (écran ou enregistreur externe) ; type de prise non précisé dans l'extrait lu"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Prise [MIC] ; dimension non précisée dans l'extrait lu"
+    },
+    {
+      "id": "hp",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "flash",
+      "name": "Synchro flash",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "qsc-plx1802",
+  "family": "amplification",
+  "manufacturer": "QSC",
+  "model": "PLX1802",
+  "pictogram": "amp",
+  "status": "community",
+  "weightKg": 9.5,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.zzounds.com/item--QSCPLX1802",
+      "document": "zZounds, fiche PLX1802 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.greentoe.com/product/QSC_PLX1802",
+      "document": "Greentoe, fiche PLX1802 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inA",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR et jack TRS en parallèle (recopie)"
+    },
+    {
+      "id": "inB",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR et jack TRS en parallèle (recopie)"
+    },
+    {
+      "id": "outA",
+      "name": "Output A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 (1+/1- canal A, 2+/2- canal B) et bornes"
+    },
+    {
+      "id": "outB",
+      "name": "Output B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 et bornes ; 2 × 325 W / 8 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

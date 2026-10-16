@@ -1,0 +1,90 @@
+{
+  "id": "altair-ef-200",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "EF-200",
+  "pictogram": "intercom",
+  "status": "community",
+  "weightKg": 3.0,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/811173/Altair-Ef-200.html",
+      "document": "Altair, mode d'emploi EF-200 (archive)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lineA",
+      "name": "Line A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "lineB",
+      "name": "Line B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "prg",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3F symétrique, micro / ligne"
+    },
+    {
+      "id": "pa",
+      "name": "PA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "relay",
+      "name": "Relais PA",
+      "direction": "out",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Jack 6,35, contact de relais"
+    },
+    {
+      "id": "link",
+      "name": "Multichannel Link",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "Liaison maître / esclave (FCC-68)"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4M"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "90-264 V, 50 VA ; alimente la ligne en 24 V"
+    }
+  ]
+}

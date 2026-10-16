@@ -1,0 +1,32 @@
+{
+  "id": "schoeps-cmc6-mk4",
+  "family": "capture",
+  "manufacturer": "Schoeps",
+  "model": "CMC 6 + MK 4",
+  "pictogram": "mic",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.dcaudiovisuel.com/product_info.php/language/en/products_id/228",
+      "document": "DC Audiovisuel, fiche CMC 6 + MK 4 (distributeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/schoeps-cmc-6u-phantom-power-microphone-amplifier-matte-gray/p/sccmc6ug",
+      "document": "Adorama, fiche CMC 6 U (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique cardioïde ; préampli CMC 6 : fantôme 12 V (8 mA) ou 48 V (4 mA)",
+      "phantom": "required"
+    }
+  ]
+}

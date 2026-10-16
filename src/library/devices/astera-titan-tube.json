@@ -1,0 +1,35 @@
+{
+  "id": "astera-titan-tube",
+  "family": "luminaire",
+  "manufacturer": "Astera",
+  "model": "Titan Tube",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 72,
+  "weightKg": 1.35,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/FP1_TitanTube_Technical_Reference_Manual_V1.pdf",
+      "document": "Astera, Titan Tube Technical Reference Manual V1",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur CRMX intégré ; protocoles sans fil : CRMX ; portée CRMX/UHF jusqu'à 300 m"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC 2 A, jack DC ; transporte aussi le DMX filaire depuis le Titan PowerBox (le tube n'a pas de prise XLR)"
+    }
+  ]
+}

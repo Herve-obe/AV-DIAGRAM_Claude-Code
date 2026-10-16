@@ -1,0 +1,631 @@
+Skip to content
+
+🚀Release: We have released version 5.2.2, please check out the release notes (software, firmware) for more details.
+
+Green-GO Intercom System Documentation
+INTX Audio InterfaceX
+ 
+Type to start searching
+Home
+Software Guide
+Device Manuals
+Scripting
+Green-GO Talk
+Community
+Website
+Device Manuals
+Wired User Stations
+Wireless DECT Devices
+Wireless 5G/4G Device
+Interfaces
+RDX Radio Interface
+SI2WR 2-Wire Interface
+SI4WR 4-Wire Interface
+INTX Audio InterfaceX
+Q4WR 4-Wire Interface
+DNTI Dante Interface
+BridgeX Network Interface
+Accessories
+Switches
+Table of contents
+What's in the box?
+Device overview
+Front panel
+Back panel
+The user interface
+The 4-wire Green-GO Engine
+Line In/Out mode
+User mode
+GPIO integrations
+The 2-wire Green-GO Engine
+Preparations
+The audio setup
+Reset the memory cache
+The setup menu
+Technical specifications
+General
+Audio inputs
+Audio outputs
+GPIO
+2-Wire line
+Downloads
+Firmware
+Other
+The Audio InterfaceX¶
+
+ Attention: The Interface X does not support 48 kHz configs on firmware 5.
+
+The INTX Audio Interface X is a dual port 4-Wire and single port 2-Wire device, used for integrating not only line level audio signals, in and out of the system but additionally a channel of 2-wire. Featuring a full-color TFT or LCD display that shows information about channels, cue signals; configurable by a multifunction encoder, with access to many of the same functions and features as most other Green-GO devices.
+
+Connectivity to 4-wire systems is achieved via 2x XLR3F and 2x XLR3M with Connectivity to 2-wire systems is achieved via a single XLR4F. Powered via PoE through the network cable connected to the devices Ethercon port or 12V DC connector (power supply not included).
+
+The term 4-wire refers to two pairs of (balanced) wires, providing independent, bidirectional audio lines. They can act as a general-purpose line in/out device suitable for show relay and announcements or for linking to an external intercom channel.
+
+The audio line setup is not an automated process. After the 2-wire system is established, an auto null should be undertaken to balance the audio between the two systems. Typically presenting as a single group, this connection also benefits from additional Green-GO features such as program audio and announce functions.
+
+What's in the box?¶
+
+The Green-GO audio InterfaceX comes with the following package contents:
+
+1 x Green-GO audio InterfaceX
+1 x Printed quickstart guide
+Optional Green-GO accessories
+Device overview¶
+Front panel¶
+
+1 Color TFT display
+
+1 Multifunction encoder
+
+Back panel¶
+1 12V DC barrel connector
+The 12V DC barrel connector serves as the secondary power input and can be used with an optional power supply.
+1 2-Port 10/100 Mbps Neutrik EtherCON Switch
+A 2-port 10/100 Mbps network switch with Neutrik EtherCON connectors. The first network port LAN 1 accepts PoE (IEEE 802.3af) and is the primary power input for the device.
+2 D-Sub 9 GPIO connector
+Two GPIO D-Sub9 connector each serve two in- and outputs for external control interfacing. Each GPIO port is directly linked to one 4-wire Green-GO Engine port.
+2 4-Wire Ports
+A Neutrik XLR3-Female Line-Input and A Neutrik XLR3-Male Line-Output for each port . The balanced XLR3 male line-input connector allows injecting analog audio signals into the Green-GO system. The balanced XLR3 female line-output connector allows extracting analog audio signals from the Green-GO system. Audio signals from and to the port are processed dependant on the 4 wire port mode.
+1 2-Wire line terminator
+Toggle switch to correctly terminate a un-used 2 wire port. When no 2 wire system is connected the line should be terminated: Switch is ON(in). When a 2 wire system is connected to the port the port should NOT be terminated: Switch is OFF(out).
+1 2-Wire port
+A Neutrik XLR3-Female 2 wire port to interface with analog 2 wire party-line systems.
+The user interface¶
+
+The user interface features one color TFT display and one multifunction Encoder.
+
+The main screen features an overview of the device's Green-GO Engines with their current in- and output levels and (last) active channels. The top of the screen features the device's name and general network status.
+
+A red X in the top right corner of the screen indicates no online configuration members found.
+
+The 4-wire Green-GO Engine¶
+
+The Green-GO Audio InterfaceX features two independendent 4-wire Green-GO Engines with a XLR3 line-input and -output that can be used to either integrate an alaog 4-wire intercom channel or a normal audio signal.
+
+Each engine can be operated in two different modes:
+
+Line In/Out
+This is mode is very easy to configure but lacks many features of the Green-GO Engine like GPIO or call signal integration.
+User Mode
+The user mode enables all features of the Green-GO Engine. Using this mode, each engine will have access to one D-Sub 9 GPIO port to interface with external systems.
+Line In/Out mode¶
+
+The Line In/Out mode can be used to import external audio to a group or export a group to the line output. To enable the mode, the setting User has to be configured to the option Line In/Out. Afterwards, the available menu options will change.
+
+Line Input¶
+
+The line-input allows for transmitting audio through a group to other users in the system. A simple use case for the analog audio line-input on the back of the device would be external analog program audio that needs to be transmitted to multiple users in the system without the need for a dedicated audio interface.
+
+The audio settings and destination (group) of the audio signal can be configured in the device settings.
+
+Setup Menu Guide
+Configure the line-input¶
+SET THE DESTINATION¶
+
+To use the line-input to import an external audio source into the Green-GO system, we need to assign a Group that transmits the audio signal.
+
+Setup Menu Guide
+LEVEL THE INPUT SIGNAL¶
+
+Next, the input signal should be leveled to a peak value around the 0dB mark using the VU-meter on the right side of the line-in setup menu.
+
+It is highly recommended to disable the Gate Threshold and the Compressor during this process to achieve the best results.
+
+Setup Menu Guide
+COMPRESSOR AND GATE¶
+
+The Compressor can be enabled if the dynamic input signal range is too high and the signal clips regularly.
+
+The Gate Threshold acts as a noise-gate and can be activated to avoid transmitting background noise. Adjust this setting carefully to avoid blocking voice communication.
+
+Setup Menu Guide
+Line output¶
+
+The line output allows to output the communications of a group to an external receiver. A simple use case could be an announcement channel that needs to be transmitted via external speakers to a larger audience.
+
+In addition, the line output can be used to connect a more powerful active speaker as the user's output.
+
+Setup Menu Guide
+Configure the line-output¶
+
+The configuration for the line-output can be done in the Device setup menu.
+
+Set the source¶
+
+We need to Assign a group to route its communications to the line-output.
+
+Additionally, we can route the signal of the line-input to the line-output using the Loopback setting.
+
+Setup Menu Guide
+Level the output signal¶
+
+Next, the output signal needs to be leveled to a peak value around the 0dB mark using the VU-meter on the right side of the line-out setup menu..
+
+It is highly recommended to disable the Limiter during this process to achieve the best results.
+
+Setup Menu Guide
+User mode¶
+GPIO integrations¶
+
+ Attention: The D-Sub 9 GPIO integrations are only available when using the User mode.
+
+The rear panel GPIO connectors enable external switches to initiate commands on the linked Green-GO Engine and also allows the device to set off external switch-controlled events using conditions such as active, talk, call, cue, etc.
+
+The D-Sub 9 GPIO connectors each feature two inputs and two outputs with the following pin-outs:
+
+Each D-Sub 9 GPIO connector is directly linked to one Green-GO Engine and its associated user.
+
+Pin 1 offers 5 Volts of power with a maximum output current of 200mA.
+
+Pins 6 and 7 offer common general-purpose ground.
+
+General purpose inputs¶
+
+Using the general-purpose inputs, it is possible to trigger local commands on the users Green-GO Engine. Allowing for external control over the users' channels and communication.
+
+The inputs can be set to either Normally Open or Normally Closed. If set to Normally Open, the configured function will be executed whenever the switch is closed. If set to Normally Closed, the configured function will be executed whenever the switch is open.
+
+The inputs actuate with contact to the ground, with a max. +5V open voltage.
+
+Setup Menu Guide
+Available input functions¶
+Talk
+Opens a defined channel for outgoing  voice communications. This function will actuate for as long as the contacts are not in the normal state (momentary).
+Call
+Allows sending a  call signal to a defined channel. This function will actuate for as long as the contacts are not in the normal state (momentary).
+Cue Acknowledge
+Allows replying to an incomming  attention cue signal on any or on a defined channel with an acknowledment, setting the cue signal to  ready. This function will trigger with the first pulse on the input (toggle).
+Cue Abort
+Allows aborting any outgoing cue signal on any or a defined channel. This function will trigger with the first pulse on the input (toggle).
+Cue Attention
+Allows to send an  attention cue signal to a defined channel. This function will trigger with the first pulse on the input (toggle).
+Cue GO
+Allows to sent a  direct GO cue signal to a defined channel. This function will trigger with the first pulse on the input (toggle).
+Cue Clear
+Allows clearing an outgoing GO cue signal on any or a defined channel. This function will trigger with the first pulse on the input (toggle).
+Mic Kill
+
+Acts as a remote switch to kill any active microphone on a defined channel (single user or all users in a group). This function will trigger with the first pulse on the input (toggle).
+
+ Warning: Configure this carefully as it will interrupt ongoing user communication.
+
+GPIO Control
+Sends a  GPIO Control signal on a defined channel to trigger a remote GPIO integration.
+Answer/Reply
+
+Answers incoming communication on any or a defined channel. This function will actuate for as long as the contacts are not in the normal state (momentary).
+
+ Tip: Depending on the setting Reply Mode this function either answers the last incomming voice communication or all ongoing voice communications.
+
+Cough Mute
+Mutes the currently active user input. This function will actuate for as long as the contacts are not in the normal state (momentary).
+General purpose outputs¶
+
+Using the general-purpose outputs, it is possible to trigger and control external devices or relays with a set of functions and or states. Allowing to extend the control outside of the Green-GO network.
+
+The general-purpose output is a floating optocoupler. When activated, it's capable of passing 5mA with a maximum of 50 Volts. It can be used to switch third-party logic inputs directly, a signal-led, or with some extra circuitry drive bigger loads like relays.
+
+As with the inputs, the outputs can be set to either Normally Open or Normally Closed, controlling the configuration's idle state.
+
+Setup Menu Guide
+Available output functions¶
+Channel Active
+
+Activates as soon as any or one defined channel has the state  active but isn't yet transmitting. The output actuates for the duration of this state (momentary).
+
+ Tip: Be aware that this function is influenced by the user setting Active Time. A channel will stay  active for the configured duration after no signal is received.
+
+Channel Vox
+
+Activates as soon as any or one defined channel of the user receives  active voice communication. The output actuates for the duration of this state (momentary).
+
+ Tip: Be aware that this function is influenced by the user setting Active Time. A channel will stay  active for the configured duration after no signal is received.
+
+Talk Enabled
+Activates as soon as any or one defined channel of the user is manually opened to transmit  voice communication. The output actuates for the duration of this state (momentary).
+Call
+Activates as soon as any or one defined channel receives a  call signal. The output actuates once as soon as the state changes (toggle).
+Alert Call
+Activates as soon as any or one defined channel receives an  alert call signal. The output actuates once as soon as the state changes (toggle).
+GPIO Control
+Activates as soon as any or one defined channel receives an  GPIO Control signal. The output actuates once as soon as the state changes (toggle).
+Driving an LED¶
+
+A signal LED can be driven directly with one GPIO output, utilizing pin 1 as a 5 Volt power supply.
+
+A series of resistors must be added to the circuit to limit the current to a maximum of 5mA. The resistor needed depends on the LED used.
+
+Your circuit for this application could look like the schematics to the left.
+
+Driving a relay¶
+
+A simple circuit with a transistor is needed to drive an external relay with a current higher than 5mA through a GPIO output.
+
+The schematics to the right can be used as an example.
+
+ Warning: Please be aware that the resistor between the power supply and pin 4 or 5 is dependent on the voltage of the power supply used!
+
+The 2-wire Green-GO Engine¶
+
+It is possible to set up a 2-wire connection using either your device's setup menu or the Green-GO Control software.
+
+ Notice: This part of the documentation only covers configuration via the setup menu; please check this guide for further information on how to configure a 2-wire connection with Green-GO Control.
+
+Preparations¶
+
+Prior to initiating the actual integration process, it is essential to confirm that the configuration file being utilized includes a minimum of one user and one group.
+
+Select a user¶
+
+Assuming you have just joined a configuration, the first step is to select a user for your Green-GO Engine.
+
+To begin the setup process, enter the device's setup menu and select the user for integration:
+
+Setup Menu Guide
+
+Setup Menu
+
+├──> Port 3
+
+    ├──> User 
+
+        ├──> Select User 
+
+            └──> Available Users 
+
+Assign a channel¶
+
+Before any communication is possible, the selected user must have at least one of the 32 available channels assigned.
+
+For a simple setup, one channel assigned to a group is usually sufficient for most two-wire integrations. However, complex setups with multiple Green-GO channels are possible.
+
+To (re-)assign a channel, enter the device's setup menu navigate to the Channel sub-menu:
+
+Setup Menu Guide
+
+Setup Menu
+
+├──> Port 3
+
+    ├──> Channels 
+
+        └──> Channel ID 
+
+            ├──> Assign: - 
+
+                    ├──> Group 
+
+                        └──> Available Groups 
+
+Configure the channel¶
+
+The configuration of a channel determines the signal flow between the two-wire and Green-GO system:
+
+Audio signals coming from a Green-GO Engine (Green-GO → 2-wire) are controlled by a channel's Listen state.
+Audio signals received by a Green-GO Engine (2-wire → Green-GO) require at least one channel to activate its Talk function.
+
+ Tip: If you have assigned multiple channels, you can change which channels are transmitted to your 2-wire system by changing a channel's Listen state. Also, adjusting a channel's Level affects its loudness in relation to other Green-GO channels on the 2-wire system.
+
+Since interfaces are usually not directly controlled by any user, configuration must be made to ensure correct operation. The simplest way to enable the Talk function on any Green-GO interface is to configure at least one of the channel's Channel Mode to either Autotalk or Auto Reply.
+
+While the channel mode Autotalk will always keep a channel's talk function enabled, Auto Reply acts as a remote enable or listen-in where the channel's talk function is enabled as long as the channel state is set to  Active VOX and audio is received. Both channel modes transmit audio using the channel status Autotalk.
+
+Please navigate to the device's setup menu to configure the Channel Mode of any channel:
+
+Setup Menu Guide
+
+Setup Menu
+
+├──> Port 3
+
+    ├──> ...
+
+    ├──> Channels
+
+        └──> Channel ID
+
+            ├──> Assign: Ring A 
+
+            ├──> ...
+
+            ├──> Listen: On 
+
+            ├──> Level: 0dB 
+
+            ├──> ...
+
+            └──> Channel Mode 
+
+                    ├──> ...
+
+                    ├──> Auto Reply 
+
+                    ├──> Autotalk 
+
+                    └──> ...
+
+The audio setup¶
+
+Once the preparations have been completed, it is time to configure the actual 2-wire connection.
+
+However, before you continue leveling both systems, please ensure that you have checked the following recommendations:
+
+Ensure your 2-wire system is fully setup, tested, and all cable leads have proper termination.
+It is essential to ensure that all microphones in your 2-wire system are muted to avoid background or feedback noise affecting the auto nulling process.
+Configuring the 2-wire connection¶
+
+Once the 2-wire system is set up and connected to your interface, the connection must be configured:
+
+Configure the general signal attenuation by selecting an appropriate preset for the connected 2-wire system.
+If required, configure the Call Mode according to your 2-wire system documentation.
+Start the auto-nulling process by selecting the Autonull option in the 2-Wire Port setup menu.
+Setup Menu Guide
+Setup Menu
+
+├──> ...
+
+└──> 2-Wire Port
+
+     ├──> Preset: Techpro 
+
+     ├──> Autonull 
+
+     ├──> Autonull on Boot: Off 
+
+     ├──> Call Mode: DC 
+
+     ├──> From 2-Wire: 0dB 
+
+     ├──> ...
+
+     ├──> To 2-Wire: 0dB 
+
+     └──> Limiter: Off
+
+
+ Notice: Be aware that executing the Autonull function will automatically adjust the properties From 2-Wire and To 2-Wire and potentially overwrite previous adjustments.
+
+After the auto-nulling process has been completed, you may want to adjust and optimize the audio connection; this is done best by monitoring the VU-meter to the right of the 2-Wire Port setup menu, listening for external communications on your both systems, and changing the properties From 2-Wire and To 2-Wire accordingly.
+
+Setup Menu Guide
+
+Setup Menu
+
+├──> Port 3
+
+    ├──> ...
+
+    ├──> 2-Wire Port
+
+        ├──> Preset: Techpro 
+
+        ├──> Autonull 
+
+        ├──> Autonull on Boot: Off 
+
+        ├──> Call Mode: DC 
+
+        ├──> From 2-Wire: 0dB 
+
+        ├──> ...
+
+        ├──> To 2-Wire: 0dB 
+
+        └──> Limiter: Off
+
+Reset the memory cache¶
+
+Normally, is not necessary to reset a device's memory cache. However, it may help to resolve issues when problems occur after a firmware update or a general device reset is required.
+
+Resetting a device's memory cache is done in the forced Boot Mode:
+
+Power down your device.
+While powering up your device, press and hold the Encoder.
+You can release the button after the device booted into the forced Boot Mode.
+Press and hold the button identified in step two again for approximately 30 seconds.
+While resetting, devices with a display will show a countdown.
+Release the button after the countdown has run down.
+Restart your device.
+
+ Attention: Clearing the memory cache of your device will always result in the loss of any local device configuration and return the device to the Factory Default configuration file.
+
+The setup menu¶
+
+moar content comming up ...
+
+Technical specifications¶
+General¶
+
+Connectors
+ (Neutrik):
+2 x XLR3M
+3 x XLR3F
+2 x RJ45 etherCON (10/100 Mbps)
+2 x D-Sub 9 GPIO
+1 x 12 V DC barrel
+
+User controls
+:
+1 x Encoder
+
+Displays
+:
+1 x 2,2" TFT-screen (color)
+
+Displays resolution
+:
+240 x 320 pixel, 33 x 44 mm (H/W)
+
+Power inputs
+:
+Power over Ethernet: IEEE 802.3af 48-56 Vdc
+
+Barrel connector (optional): 2.1 mm 12 Vdc
+
+Power usage
+:
+4 Watt typical, 6 Watt max.
+
+Dimensions
+ (H/W/D):
+44 x 483 x 165 mm
+
+Weight
+:
+2,41 kg
+
+Environmental
+:
+Ambient temperature: 0° ‒ +55° C
+
+Audio inputs¶
+Line input¶
+
+Connector
+ (Neutrik):
+XLR3F
+
+Type
+:
+Balanced
+
+Amplification Range
+:
+-6 dB ‒ +24 dB
+
+Noise
+:
+-70 dBu ‒ -55 dBu
+
+Latency
+:
+Line-in to headset: ~10 ms (wired)
+
+Audio outputs¶
+Line output¶
+
+Connector
+ (Neutrik):
+XLR3M
+
+Nominal level
+:
+0 dBu
+
+Max output
+:
++12 dBu
+
+Impedance
+:
+240 Ω
+
+GPIO¶
+General purpose inputs¶
+
+Connector
+:
+D-Sub 9 (pins: 2/6, 3/7)
+
+Type
+:
+Dry contact
+
+Channels
+ (per connector):
+2
+
+Detection voltage
+ (max):
+5 V (pins: 2/6, 3/7)
+
+General purpose outputs¶
+
+Connector
+:
+D-Sub 9 (pins: 4/8, 5/9)
+
+Type
+:
+Floating optocoupler
+
+Channels
+ (per connector):
+2
+
+Output voltage
+:
+5 V (pin 1)
+
+Output current
+ (max):
+5 mA (pin 1)
+
+Switching voltage
+:
+50 V (pins: 4/8, 5/9)
+
+Switching current
+ (max):
+8 mA (pins: 4/8, 5/9)
+
+2-Wire line¶
+
+Connector
+ (Neutrik):
+XLR3F
+
+Maximum Level
+:
+6 dBu
+
+Nominal Input Level
+:
+-24 dBu through -6 dBu
+
+External Power
+:
+30 V max
+
+Latency
+:
+2-wire input to headset: ~10 ms (wired)
+
+Termination
+:
+Internal/Switchable
+
+Downloads¶
+ Firmware¶
+ Latest firmware (ZIP archive)
+ Firmware archive
+ Other¶
+ Technical drawings (ZIP archive)
+ CE-Certificate (PDF)
+July 3, 2026
+ 
+February 1, 2021
+ 
+Chad Phelps, Henk-Jan Blok, Koen Versantvoort, Timo Toups
+ Back to top
+Copyright © 2018 - 2026 Green-GO by Evenution

@@ -1,0 +1,51 @@
+{
+  "id": "taiden-hcs-4838ds-80",
+  "family": "capture",
+  "manufacturer": "Taiden",
+  "model": "HCS-4838DS/80",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.9,
+  "sources": [
+    {
+      "url": "https://www.taiden.com/upload/download/HCS-4838DS_80%20Datasheet.pdf",
+      "document": "Taiden, fiche HCS-4838DS/80",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro (col de cygne)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Embase 5 points pour micro MS amovible"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "trunkIn",
+      "name": "Câble 8P-DIN (fiche)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din8",
+      "format": "1,5 m, vers unité centrale ou poste précédent"
+    },
+    {
+      "id": "trunkOut",
+      "name": "Câble 8P-DIN (embase)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "0,6 m, vers poste suivant"
+    }
+  ]
+}

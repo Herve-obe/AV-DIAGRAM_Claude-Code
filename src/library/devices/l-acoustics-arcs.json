@@ -1,0 +1,35 @@
+{
+  "id": "l-acoustics-arcs",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "ARCS",
+  "pictogram": "speaker",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/ARCS/documents.zip",
+      "document": "L-Acoustics, archive de documentation : ARCS User manual 3.0",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "speakON 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4"
+    },
+    {
+      "id": "link",
+      "name": "speakON 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle (chaînage)"
+    }
+  ]
+}

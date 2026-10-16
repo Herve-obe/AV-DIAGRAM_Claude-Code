@@ -1,0 +1,164 @@
+{
+  "id": "rane-ttm57sl",
+  "family": "console",
+  "manufacturer": "Rane",
+  "model": "TTM 57SL",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.bonedo.de/artikel/rane-ttm57sl/3",
+      "document": "Bonedo, test TTM57SL",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://manuals.plus/ps/asin/B000I2OIDA",
+      "document": "Manuals+, fiche TTM57SL (tiers)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, phono ou ligne commutable"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, phono ou ligne commutable"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, phono ou ligne commutable"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA, phono ou ligne commutable"
+    },
+    {
+      "id": "aux",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "mic",
+      "name": "Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Jack 6,35 TRS symétrique"
+    },
+    {
+      "id": "fxSend",
+      "name": "FX Send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2
+    },
+    {
+      "id": "fxRet",
+      "name": "FX Return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2
+    },
+    {
+      "id": "masterL",
+      "name": "Master Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "masterR",
+      "name": "Master Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "booth",
+      "name": "Booth Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack 6,35 TRS symétrique"
+    },
+    {
+      "id": "outRca",
+      "name": "Output RCA",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 et mini-jack 3,5"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 8,
+      "format": "USB 1.1, 8 canaux 16 bits 44,1 kHz (Serato Scratch Live)"
+    },
+    {
+      "id": "fs",
+      "name": "Footswitch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation interne 100-240 V"
+    }
+  ]
+}

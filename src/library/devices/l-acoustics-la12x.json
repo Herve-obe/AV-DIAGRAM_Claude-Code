@@ -1,0 +1,147 @@
+{
+  "id": "l-acoustics-la12x",
+  "family": "amplification",
+  "manufacturer": "L-Acoustics",
+  "model": "LA12X",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 14.5,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/la12x/",
+      "document": "L-Acoustics, page produit LA12X, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "avb1",
+      "name": "etherCON 1 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 4,
+      "format": "Milan-AVB 1 Gb/s, audio et contrôle ; 4 canaux d'un flux"
+    },
+    {
+      "id": "avb2",
+      "name": "etherCON 2 (Milan-AVB)",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 4,
+      "format": "Redondance ou chaînage réseau"
+    },
+    {
+      "id": "in1",
+      "name": "Entrée 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, Analogique ; commutable en AES3 (2 canaux)"
+    },
+    {
+      "id": "in2",
+      "name": "Entrée 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, Analogique ; commutable en AES3 (2 canaux)"
+    },
+    {
+      "id": "in3",
+      "name": "Entrée 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, Analogique"
+    },
+    {
+      "id": "in4",
+      "name": "Entrée 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, Analogique"
+    },
+    {
+      "id": "link1",
+      "name": "Link 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, recopie de l'entrée 1"
+    },
+    {
+      "id": "link2",
+      "name": "Link 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, recopie de l'entrée 2"
+    },
+    {
+      "id": "link3",
+      "name": "Link 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, recopie de l'entrée 3"
+    },
+    {
+      "id": "link4",
+      "name": "Link 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, recopie de l'entrée 4"
+    },
+    {
+      "id": "out12",
+      "name": "Sortie HP 1-2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "speakON 4 points, canaux 1 et 2"
+    },
+    {
+      "id": "out34",
+      "name": "Sortie HP 3-4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "speakON 4 points, canaux 3 et 4"
+    },
+    {
+      "id": "cacom",
+      "name": "Sortie CA-COM",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "level": "speaker",
+      "channels": 4,
+      "format": "CA-COM 8 points, 4 canaux ; 4 x 2600 W à 4 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V ±10 %, 50-60 Hz ; connecteur non précisé sur la page"
+    }
+  ]
+}

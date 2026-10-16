@@ -1,0 +1,190 @@
+{
+  "id": "sound-devices-mixpre-10-ii",
+  "family": "recording",
+  "manufacturer": "Sound Devices",
+  "model": "MixPre-10 II",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 0.91,
+  "sources": [
+    {
+      "document": "Sound Devices, MixPre II User Guide (MixPre-II-User-Guide_8.11.21.pdf), MixPre-10 II Specifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in5",
+      "name": "Input 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in6",
+      "name": "Input 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in7",
+      "name": "Input 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "in8",
+      "name": "Input 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+    },
+    {
+      "id": "aux",
+      "name": "Aux/Mic/Timecode In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS asymétrique 2,2 kΩ : ligne, micro Plug-in Power (3 V) ou LTC"
+    },
+    {
+      "id": "outL",
+      "name": "Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "TA3 symétrique, +18 dBu max"
+    },
+    {
+      "id": "outR",
+      "name": "Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "TA3 symétrique, +18 dBu max"
+    },
+    {
+      "id": "x12",
+      "name": "X1/X2 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS asymétrique, +7,8 dBu max"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS, 300 mW + 300 mW"
+    },
+    {
+      "id": "tcin",
+      "name": "TC / Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Timecode LTC (par défaut) ou word clock"
+    },
+    {
+      "id": "tcout",
+      "name": "TC / Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Timecode LTC ou word clock"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI TC In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Micro HDMI : timecode et déclenchement d'enregistrement depuis la caméra"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-c",
+      "format": "Interface audio USB 12 in / 4 out, transfert de fichiers"
+    },
+    {
+      "id": "usba",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, clé USB, surface de contrôle"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "hirose4",
+      "format": "10 à 17 V DC ; bloc XL-WPH3 45 W fourni ; ou traîneau 8 AA / L-Mount"
+    }
+  ]
+}

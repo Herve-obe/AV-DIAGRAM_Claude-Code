@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-k2",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "K2",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 56,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/k2/",
+      "document": "L-Acoustics, page produit K2, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "PA-COM 8 points A",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "pa-com",
+      "level": "speaker",
+      "format": "Ligne source 3 voies active, LF 2 x 8 Ω / MF 8 Ω / HF 16 Ω ; Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    },
+    {
+      "id": "b",
+      "name": "PA-COM 8 points B",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "pa-com",
+      "level": "speaker",
+      "format": "Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "canon-xf605",
+  "family": "camera",
+  "manufacturer": "Canon",
+  "model": "XF605",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 2.01,
+  "sources": [
+    {
+      "url": "https://asia.canon/en/pro-imaging/xf605/main/product",
+      "document": "Canon, page XF605",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/23270b5c-771c-4e83-8060-abd29aec7b88/XF605_Data_Sheet_081321_trim.pdf",
+      "document": "Canon, fiche XF605 (via Lensrentals)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "tc",
+      "name": "Timecode",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "remote",
+      "name": "Remote B",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "8 points RS-422"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T, SRT"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "Streaming UVC"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "taiden-hcs-5100t-35b",
+  "family": "wireless",
+  "manufacturer": "Taiden",
+  "model": "HCS-5100T/35B",
+  "pictogram": "wireless",
+  "status": "verified",
+  "powerW": 120,
+  "weightKg": 4.2,
+  "sources": [
+    {
+      "url": "https://www.taiden.com/upload/download/HCS-5100T_35B%20Datasheet.pdf",
+      "document": "Taiden, fiche HCS-5100T/35B (radiateur infrarouge 35 W)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hfIn",
+      "name": "HF In",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "75 Ω, depuis l'émetteur"
+    },
+    {
+      "id": "hfOut",
+      "name": "HF Out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "75 Ω, recopie vers radiateur suivant"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 120 W"
+    }
+  ]
+}

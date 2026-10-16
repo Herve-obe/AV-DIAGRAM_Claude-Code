@@ -1,0 +1,35 @@
+{
+  "id": "astera-hyperion-tube",
+  "family": "luminaire",
+  "manufacturer": "Astera",
+  "model": "Hyperion Tube",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 96,
+  "weightKg": 2.9,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_Hyperion_Tube_V4-1.pdf",
+      "document": "Astera, Datasheet Hyperion Tube V4",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur CRMX intégré ; protocoles sans fil : CRMX, UHF, Bluetooth, WiFi ; portée CRMX/UHF jusqu'à 300 m"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC 4 A, jack 5,5 x 2,1 mm ; transporte aussi le DMX filaire depuis un PowerBox Astera"
+    }
+  ]
+}

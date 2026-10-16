@@ -1,0 +1,92 @@
+{
+  "id": "lumantek-ez-pro-vs4",
+  "family": "videoSwitcher",
+  "manufacturer": "Lumantek",
+  "model": "ez-Pro VS4",
+  "pictogram": "switcher",
+  "status": "community",
+  "powerW": 20,
+  "sources": [
+    {
+      "url": "https://www.adorama.com/lumantek-ez-pro-vs4-4-channel-full-hd-seamless-switcher/p/lumezprovs4",
+      "document": "Adorama, fiche ez-Pro VS4 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "in4",
+      "name": "In 4 (SDI ou HDMI)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified"
+    },
+    {
+      "id": "pgmHdmi",
+      "name": "PGM HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "pgmSdi",
+      "name": "PGM SDI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "mv",
+      "name": "Multiview HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "7 à 14 V, 20 W"
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "id": "pioneerdj-djm-v10",
+  "family": "console",
+  "manufacturer": "Pioneer DJ",
+  "model": "DJM-V10",
+  "pictogram": "console",
+  "status": "verified",
+  "weightKg": 11.9,
+  "sources": [
+    {
+      "url": "https://downloads.support.alphatheta.com/manuals/mixers/DJM-V10/DJM-V10_DRI1643C_manual.pdf",
+      "document": "Pioneer DJ, mode d'emploi DJM-V10 (DRI1643C)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "phono1",
+      "name": "Phono 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "phono2",
+      "name": "Phono 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "phono3",
+      "name": "Phono 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "phono4",
+      "name": "Phono 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line4",
+      "name": "Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line5",
+      "name": "Line 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line6",
+      "name": "Line 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "digIn1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn5",
+      "name": "Digital In 5",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn6",
+      "name": "Digital In 6",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR / jack 6,35 TRS"
+    },
+    {
+      "id": "masterL",
+      "name": "Master Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "masterR",
+      "name": "Master Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "masterRca",
+      "name": "Master Out (RCA)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Asymétrique"
+    },
+    {
+      "id": "booth",
+      "name": "Booth Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack 6,35 TRS (L/R)"
+    },
+    {
+      "id": "rec",
+      "name": "Rec Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "send1",
+      "name": "Send 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "return1",
+      "name": "Return 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "send2",
+      "name": "Send 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "return2",
+      "name": "Return 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "send3",
+      "name": "Send 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "return3",
+      "name": "Return 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic"
+    },
+    {
+      "id": "digOut",
+      "name": "Digital Master Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "phones1",
+      "name": "Phones 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 et mini-jack 3,5"
+    },
+    {
+      "id": "phones2",
+      "name": "Phones 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 et mini-jack 3,5"
+    },
+    {
+      "id": "usbA",
+      "name": "USB A",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbB1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio ordinateur"
+    },
+    {
+      "id": "usbB2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio ordinateur"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PRO DJ LINK"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

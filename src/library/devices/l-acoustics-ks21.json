@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-ks21",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "KS21",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 49,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/ks21/",
+      "document": "L-Acoustics, page produit KS21, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "Bornier 4 points A",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Caisson de grave 21\", 8 Ω ; Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    },
+    {
+      "id": "b",
+      "name": "Bornier 4 points B",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    }
+  ]
+}

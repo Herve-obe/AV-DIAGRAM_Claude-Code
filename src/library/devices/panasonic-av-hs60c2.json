@@ -1,0 +1,75 @@
+{
+  "id": "panasonic-av-hs60c2",
+  "family": "videoSwitcher",
+  "manufacturer": "Panasonic",
+  "model": "AV-HS60C2 (pupitre AV-HS6000)",
+  "pictogram": "console",
+  "status": "verified",
+  "powerW": 40,
+  "weightKg": 13.9,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/av-hs6000/spec.html",
+      "document": "Panasonic, AV-HS6000 Specifications",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mainframe",
+      "name": "MAIN FRAME",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison vers l'unité AV-HS60U2"
+    },
+    {
+      "id": "menu",
+      "name": "MENU PANEL",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Panneau de menu AV-HS60CS3 (exclusif avec la sortie DVI-D)"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Écran de menu"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris / clavier pour le menu"
+    },
+    {
+      "id": "com1",
+      "name": "COM1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI I/O",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "8 entrées GPI"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V ; alimentation redondante possible"
+    }
+  ]
+}

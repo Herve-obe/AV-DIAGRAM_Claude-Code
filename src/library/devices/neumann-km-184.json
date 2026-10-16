@@ -1,0 +1,28 @@
+{
+  "id": "neumann-km-184",
+  "family": "capture",
+  "manufacturer": "Neumann",
+  "model": "KM 184",
+  "pictogram": "mic",
+  "status": "community",
+  "weightKg": 0.08,
+  "sources": [
+    {
+      "url": "https://www.soundseasy.com.au/products/neumann-km-184-cardioid-miniature-microphone",
+      "document": "Sounds Easy, fiche KM 184 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique cardioïde, P48 ± 4 V, 3,2 mA",
+      "phantom": "required"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "aja-3g-ama",
+  "family": "videoRouting",
+  "manufacturer": "AJA",
+  "model": "3G-AMA",
+  "pictogram": "router",
+  "status": "verified",
+  "powerW": 5,
+  "sources": [
+    {
+      "url": "https://www.aja.com/products/3g-ama/spec-sheet.pdf",
+      "document": "AJA, spec sheet 3G-AMA",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdi-out1",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "ain1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "ain2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "ain3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "ain4",
+      "name": "Audio In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "aout1",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "aout2",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "aout3",
+      "name": "Audio Out 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "aout4",
+      "name": "Audio Out 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "+5 à 20 V CC, bloc secteur fourni ; connecteur non précisé"
+    }
+  ]
+}

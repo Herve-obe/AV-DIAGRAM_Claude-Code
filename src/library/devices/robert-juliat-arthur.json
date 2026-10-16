@@ -1,0 +1,34 @@
+{
+  "id": "robert-juliat-arthur",
+  "family": "luminaire",
+  "manufacturer": "Robert Juliat",
+  "model": "Arthur",
+  "pictogram": "light",
+  "status": "community",
+  "powerW": 800,
+  "sources": [
+    {
+      "url": "https://www.robertjuliat.com/followspots/Arthur.html",
+      "document": "Robert Juliat, page Arthur (1014)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "Data In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "DMX, RDM, Art-Net, sACN ; connecteurs non précisés sur la page"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Poursuite LED 800 W, 5,5-15°"
+    }
+  ]
+}

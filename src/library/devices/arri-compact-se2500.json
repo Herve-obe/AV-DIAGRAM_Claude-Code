@@ -1,0 +1,40 @@
+{
+  "id": "arri-compact-se2500",
+  "family": "luminaire",
+  "manufacturer": "ARRI",
+  "model": "Compact SE2500",
+  "pictogram": "light",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.abelcine.com/buy/lighting/power-accessories/arri-2500-4000w-120-240v-electronic-ballast-alf-and-dmx",
+      "document": "AbelCine, ballast électronique 2 500 / 4 000 W DMX (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX (ballast)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "head",
+      "name": "Câble projecteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Vers tête HMI"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur (ballast)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "HMI 2500 W, ballast électronique"
+    }
+  ]
+}

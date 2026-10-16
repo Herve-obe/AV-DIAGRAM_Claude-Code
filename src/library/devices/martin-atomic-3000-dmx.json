@@ -1,0 +1,42 @@
+{
+  "id": "martin-atomic-3000-dmx",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "Atomic 3000 DMX",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 7.5,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/atomic-3000-dmx",
+      "document": "Martin, page produit Atomic 3000 DMX",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble 1,5 m sans fiche ; 8 A typique, 33 A en crête"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "shure-ur4d",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR4D",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.rentex.com/rental-products/shure-ur4d-dual-receiver-h4/",
+      "document": "Rentex, fiche UR4D (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/549621-REG/Shure_UR4D_X1_UR4D_Dual_Diversity.html",
+      "document": "B&H, fiche UR4D (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "2 canaux, liaisons radio avec émetteurs UHF-R"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "D'après un revendeur, à vérifier"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "D'après un revendeur, à vérifier"
+    },
+    {
+      "id": "xlr1",
+      "name": "Sortie XLR 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Symétrique, micro/ligne commutable"
+    },
+    {
+      "id": "xlr2",
+      "name": "Sortie XLR 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Symétrique, micro/ligne commutable"
+    },
+    {
+      "id": "jack1",
+      "name": "Sortie jack 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique 6,35 mm"
+    },
+    {
+      "id": "jack2",
+      "name": "Sortie jack 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique 6,35 mm"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Wireless Workbench"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sony-rm-b170",
+  "family": "control",
+  "manufacturer": "Sony",
+  "model": "RM-B170",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pro.sony/en_SE/products/camera-control-panels/rm-b170",
+      "document": "Sony, page RM-B170",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "cam",
+      "name": "Caméra",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Câble 8 points 10 m (transporte aussi une sortie composite moniteur)"
+    },
+    {
+      "id": "gpi",
+      "name": "EXT I/O",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Tally rouge / vert, entrée 12 V"
+    }
+  ]
+}

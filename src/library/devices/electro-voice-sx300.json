@@ -1,0 +1,36 @@
+{
+  "id": "electro-voice-sx300",
+  "family": "speaker",
+  "manufacturer": "Electro-Voice",
+  "model": "SX300E",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 17.7,
+  "sources": [
+    {
+      "url": "https://www.boullard.ch/en/product/sono-studio/speakers/passive-speakers/100458-ev-electro-voice-sx300e/",
+      "document": "Boullard, fiche SX300E (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "spk1",
+      "name": "Speakon 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "12\" + 1,25\", 8 Ω, 300 W continu / 1 200 W crête"
+    },
+    {
+      "id": "spk2",
+      "name": "Speakon 2 (link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle avec l'entrée (chaînage)"
+    }
+  ]
+}

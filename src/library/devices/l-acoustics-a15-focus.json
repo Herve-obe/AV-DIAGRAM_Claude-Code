@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-a15-focus",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "A15 Focus",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 35,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/a15-focus/",
+      "document": "L-Acoustics, page produit A15 Focus, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Enceinte 2 voies passive, 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "Link speakON",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Recopie de l'entrée (chaînage)"
+    }
+  ]
+}

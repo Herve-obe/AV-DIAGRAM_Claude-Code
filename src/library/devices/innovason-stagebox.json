@@ -1,0 +1,43 @@
+{
+  "id": "innovason-stagebox",
+  "family": "stagebox",
+  "manufacturer": "Innovason",
+  "model": "Stagebox 64 entrées",
+  "pictogram": "stagebox",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://en.audiofanzine.com/digital-mixer/innovason/Sy48/",
+      "document": "Audiofanzine, SY48 (stagebox optionnelle)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrées micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "channels": 64,
+      "format": "Connecteurs non précisés"
+    },
+    {
+      "id": "link",
+      "name": "Liaison console",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 64,
+      "format": "Coaxial ou fibre"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

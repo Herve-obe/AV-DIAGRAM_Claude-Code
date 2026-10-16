@@ -1,0 +1,88 @@
+{
+  "id": "yamaha-mg06x",
+  "family": "console",
+  "manufacturer": "Yamaha",
+  "model": "MG06X",
+  "pictogram": "console",
+  "status": "community",
+  "weightKg": 0.9,
+  "sources": [
+    {
+      "url": "https://www.manualowl.com/m/Yamaha/MG06X/Manual/406046",
+      "document": "Yamaha, caractéristiques MG06X (archive de manuels)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR/jack, D-PRE, fantôme 48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR/jack, D-PRE, fantôme 48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "st1",
+      "name": "Stereo In 3/4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "st2",
+      "name": "Stereo In 5/6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "outL",
+      "name": "Stereo Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "Stereo Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur secteur"
+    }
+  ]
+}

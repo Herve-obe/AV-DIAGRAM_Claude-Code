@@ -1,0 +1,78 @@
+{
+  "id": "yamaha-xmv4140",
+  "family": "amplification",
+  "manufacturer": "Yamaha",
+  "model": "XMV4140",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 8.1,
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/power_amps/xmv/specs.html",
+      "document": "Yamaha USA, page Specs XMV4140",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrées (Euroblock 6P, x 2)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 4,
+      "format": "Euroblock 6 points, symétrique"
+    },
+    {
+      "id": "ydin",
+      "name": "YDIF IN",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "YDIF"
+    },
+    {
+      "id": "ydout",
+      "name": "YDIF OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "YDIF"
+    },
+    {
+      "id": "net",
+      "name": "NETWORK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet (contrôle)"
+    },
+    {
+      "id": "rem",
+      "name": "Remote / Fault Output",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Euroblock 3 points"
+    },
+    {
+      "id": "spk",
+      "name": "Sorties HP 1-4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "channels": 4,
+      "format": "Connecteur de sortie non précisé sur la page Specs"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "150 W au 1/8 de puissance (4 Ω)"
+    }
+  ]
+}
