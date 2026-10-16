@@ -28,9 +28,8 @@ export function CollabDialog() {
   const previousStarted = useRef(started)
   const active = status !== 'off'
   const guests = participants.filter(p => !p.self && p.peerId != null && p.userId)
-  const selectedSession = sessions.find(s => s.id === selectedHost)
-    ?? (!selectedHost && !manualAddress.trim() && sessions.length === 1 ? sessions[0] : undefined)
-  const joinAddress = selectedSession?.address ?? manualAddress
+  const selectedSession = manualAddress.trim() ? undefined : sessions.find(s => s.id === selectedHost)
+  const joinAddress = manualAddress.trim() ? manualAddress : selectedSession?.address ?? ''
   const close = () => setDialogOpen(false)
 
   useEffect(() => {
@@ -53,7 +52,10 @@ export function CollabDialog() {
       setSearchError(false)
       try {
         const found = await discoverSessions()
-        if (!stopped) setSessions(found)
+        if (!stopped) {
+          setSessions(found)
+          setSelectedHost(current => current || (found.length === 1 ? found[0].id : ''))
+        }
       } catch {
         if (!stopped) { setSessions([]); setSearchError(true) }
       } finally { if (!stopped) setSearching(false) }
