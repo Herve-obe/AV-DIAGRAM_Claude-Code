@@ -1,6 +1,6 @@
 // Collaboration sur le réseau local : un poste ouvre une session, les autres la rejoignent avec un code.
-// Ce module est un simple relais WebSocket : il ne lit pas le projet. Chaque message binaire (mise à jour
-// du document partagé ou présence) reçu d'un participant authentifié est retransmis aux autres.
+// Le relais authentifie le poste hôte avec un secret local. Les propositions invitées vont uniquement
+// à cet hôte, qui vérifie les droits avant de diffuser le document accepté.
 //
 // Sécurité : le port n'est ouvert que pendant la session ; un code à 6 chiffres est exigé avant tout
 // échange ; après 5 codes faux en une minute, l'adresse est refusée pendant une minute ; nombre de
@@ -11,6 +11,7 @@
 // reconnectent ou un poste de secours prend le relais, voir src/collab/session.ts).
 use futures_util::{SinkExt, StreamExt};
 use serde::Serialize;
+use sha2::{Digest, Sha256};
 use std::collections::HashMap;
 use std::net::{IpAddr, SocketAddr};
 use std::sync::atomic::{AtomicU32, Ordering};
@@ -33,6 +34,8 @@ const ENDED: u8 = 1;
 const INTERRUPTED: u8 = 2;
 
 struct Peer {
+    host: bool,
+    user_id: String,
     name: String,
     addr: SocketAddr,
     tx: mpsc::UnboundedSender<Message>,
@@ -41,6 +44,7 @@ struct Peer {
 /// État partagé d'une session : participants connectés et tentatives de code erronées.
 pub struct Hub {
     code: String,
+    host_token: String,
     peers: Mutex<HashMap<u32, Peer>>,
     next_id: AtomicU32,
     failures: Mutex<HashMap<IpAddr, (u32, Instant)>>,
@@ -48,7 +52,7 @@ pub struct Hub {
 
 impl Hub {
     pub fn new(code: String) -> Arc<Self> {
-        Arc::new(Hub { code, peers: Mutex::new(HashMap::new()), next_id: AtomicU32::new(1), failures: Mutex::new(HashMap::new()) })
+        Arc::new(Hub { code, host_token: rand::random::<[u8; 32]>().iter().map(|b| format!("{b:02x}")).collect(), peers: Mutex::new(HashMap::new()), next_id: AtomicU32::new(1), failures: Mutex::new(HashMap::new()) })
     }
 
     fn locked_out(&self, ip: IpAddr) -> bool {
@@ -81,6 +85,27 @@ impl Hub {
         }
     }
 
+    /// 255 + id réseau + proposition : seul le poste hôte reçoit cette enveloppe.
+    /// 254 + destinataire + réponse : seul l'hôte authentifié peut adresser un invité.
+    fn route(&self, from: u32, data: &[u8]) {
+        let peers = self.peers.lock().unwrap();
+        let Some(sender) = peers.get(&from) else { return };
+        if sender.host {
+            if data.first() == Some(&254) {
+                if data.len() < 6 { return; }
+                let id = u32::from_be_bytes(data[1..5].try_into().unwrap());
+                if let Some(p) = peers.get(&id) { let _ = p.tx.send(Message::binary(data[5..].to_vec())); }
+            } else {
+                for (id, p) in peers.iter() { if *id != from { let _ = p.tx.send(Message::binary(data.to_vec())); } }
+            }
+        } else {
+            let mut wrapped = vec![255];
+            wrapped.extend_from_slice(&from.to_be_bytes());
+            wrapped.extend_from_slice(data);
+            for p in peers.values().filter(|p| p.host) { let _ = p.tx.send(Message::binary(wrapped.clone())); }
+        }
+    }
+
     pub fn kick(&self, id: u32) -> bool {
         // Le participant est prévenu (il ne se reconnecte pas), puis retirer l'émetteur ferme la connexion
         match self.peers.lock().unwrap().remove(&id) {
@@ -98,7 +123,7 @@ impl Hub {
             .lock()
             .unwrap()
             .iter()
-            .map(|(id, p)| PeerInfo { id: *id, name: p.name.clone(), address: p.addr.ip().to_string() })
+            .map(|(id, p)| PeerInfo { id: *id, name: p.name.clone(), user_id: p.user_id.clone(), address: p.addr.ip().to_string() })
             .collect();
         v.sort_by_key(|p| p.id);
         v
@@ -107,6 +132,8 @@ impl Hub {
 
 #[derive(Serialize, Clone)]
 pub struct PeerInfo {
+    #[serde(rename = "userId")]
+    user_id: String,
     id: u32,
     name: String,
     address: String,
@@ -164,6 +191,15 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
         let _ = sink.close().await;
         return;
     }
+    let host = addr.ip().is_loopback() && hello.as_ref()
+        .and_then(|h| h.get("hostToken").and_then(|t| t.as_str()))
+        .map(|t| same_code(t, &hub.host_token)).unwrap_or(false);
+    let client_token = hello.as_ref().and_then(|h| h.get("clientToken").and_then(|t| t.as_str()))
+        .filter(|t| t.len() == 64 && t.bytes().all(|b| b.is_ascii_hexdigit()));
+    let user_id = match client_token {
+        Some(t) => format!("{:x}", Sha256::digest(t.as_bytes())),
+        None => format!("{:x}", Sha256::digest(rand::random::<[u8; 32]>())),
+    };
     let name: String = hello
         .as_ref()
         .and_then(|h| h.get("name").and_then(|n| n.as_str()))
@@ -177,36 +213,40 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     let id = hub.next_id.fetch_add(1, Ordering::Relaxed);
     let (tx, mut rx) = mpsc::unbounded_channel::<Message>();
     let others = hub.peer_list();
-    hub.peers.lock().unwrap().insert(id, Peer { name: name.clone(), addr, tx });
-    if sink.send(json(serde_json::json!({ "type": "welcome", "peerId": id, "peers": others }))).await.is_err() {
+    {
+        let mut peers = hub.peers.lock().unwrap();
+        if peers.len() >= MAX_PEERS || (host && peers.values().any(|p| p.host)) { return; }
+        peers.insert(id, Peer { host, user_id: user_id.clone(), name: name.clone(), addr, tx });
+    }
+    if sink.send(json(serde_json::json!({ "type": "welcome", "peerId": id, "userId": user_id, "peers": others }))).await.is_err() {
         hub.peers.lock().unwrap().remove(&id);
         return;
     }
-    hub.broadcast(id, json(serde_json::json!({ "type": "peer-joined", "peerId": id, "name": name })));
+    hub.broadcast(id, json(serde_json::json!({ "type": "peer-joined", "peerId": id, "userId": user_id, "name": name })));
 
     // 3. Relais : binaire reçu -> autres participants ; messages des autres -> ce participant
     loop {
         tokio::select! {
-            _ = shutdown.changed() => {
-                if *shutdown.borrow() == ENDED {
-                    let _ = sink.send(json(serde_json::json!({ "type": "ended" }))).await;
-                }
-                break
-            }
+            _ = shutdown.changed() => break,
             out = rx.recv() => match out {
                 Some(m) => if sink.send(m).await.is_err() { break },
                 None => break, // exclu par l'hôte
             },
             incoming = source.next() => match incoming {
-                Some(Ok(Message::Binary(b))) => hub.broadcast(id, Message::Binary(b)),
+                Some(Ok(Message::Binary(b))) => hub.route(id, &b),
                 Some(Ok(Message::Ping(p))) => { let _ = sink.send(Message::Pong(p)).await; }
                 Some(Ok(Message::Close(_))) | None | Some(Err(_)) => break,
                 Some(Ok(_)) => {}
             },
         }
     }
+    // Le relais peut fermer rx avant que cette connexion ne lise l'arrêt.
+    if *shutdown.borrow() == ENDED {
+        let _ = sink.send(json(serde_json::json!({ "type": "ended" }))).await;
+    }
     let _ = sink.close().await;
     hub.peers.lock().unwrap().remove(&id);
+    if host { hub.peers.lock().unwrap().clear(); }
     hub.broadcast(id, json(serde_json::json!({ "type": "peer-left", "peerId": id })));
 }
 
@@ -215,6 +255,7 @@ struct Running {
     code: String,
     hub: Arc<Hub>,
     stop: watch::Sender<u8>,
+    discovery_available: bool,
 }
 
 #[derive(Default)]
@@ -231,11 +272,15 @@ impl CollabServer {
 
 #[derive(Serialize)]
 pub struct HostInfo {
+    #[serde(rename = "hostToken")]
+    host_token: String,
     port: u16,
     code: String,
     /// Adresses IPv4 du poste sur le réseau local (ex. 192.168.1.20:4455)
     addresses: Vec<String>,
     peers: Vec<PeerInfo>,
+    #[serde(rename = "discoveryAvailable")]
+    discovery_available: bool,
 }
 
 fn local_addresses(port: u16) -> Vec<String> {
@@ -254,7 +299,7 @@ fn local_addresses(port: u16) -> Vec<String> {
 }
 
 fn info(r: &Running) -> HostInfo {
-    HostInfo { port: r.port, code: r.code.clone(), addresses: local_addresses(r.port), peers: r.hub.peer_list() }
+    HostInfo { host_token: r.hub.host_token.clone(), port: r.port, code: r.code.clone(), addresses: local_addresses(r.port), peers: r.hub.peer_list(), discovery_available: r.discovery_available }
 }
 
 fn new_code() -> String {
@@ -265,7 +310,7 @@ fn new_code() -> String {
 /// Ouvre une session sur le port demandé (1024 à 65535) et renvoie le code et les adresses à communiquer.
 /// code : reprise d'une session existante (retour de l'hôte, poste de secours) ; sinon un nouveau code.
 #[tauri::command]
-pub async fn collab_host_start(state: tauri::State<'_, CollabServer>, port: u16, code: Option<String>) -> Result<HostInfo, String> {
+pub async fn collab_host_start(state: tauri::State<'_, CollabServer>, port: u16, code: Option<String>, session_name: Option<String>, host_name: Option<String>) -> Result<HostInfo, String> {
     if port < 1024 {
         return Err("port réservé : choisir un port à partir de 1024".into());
     }
@@ -278,8 +323,9 @@ pub async fn collab_host_start(state: tauri::State<'_, CollabServer>, port: u16,
     let listener = TcpListener::bind(("0.0.0.0", port)).await.map_err(|e| format!("port {port} indisponible : {e}"))?;
     let hub = Hub::new(code.clone());
     let (stop, rx) = watch::channel(RUNNING);
+    let discovery_available = crate::discovery::advertise(crate::discovery::Advertisement::new(port, session_name, host_name), rx.clone()).await;
     tauri::async_runtime::spawn(serve(listener, hub.clone(), rx));
-    let running = Running { port, code, hub, stop };
+    let running = Running { port, code, hub, stop, discovery_available };
     let out = info(&running);
     *state.0.lock().unwrap() = Some(running);
     Ok(out)
@@ -339,9 +385,9 @@ mod tests {
         }
     }
 
-    async fn join(port: u16, code: &str) -> (tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>, serde_json::Value) {
+    async fn join_with_token(port: u16, code: &str, token: Option<&str>) -> (tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>, serde_json::Value) {
         let (mut ws, _) = connect_async(format!("ws://127.0.0.1:{port}")).await.unwrap();
-        ws.send(json(serde_json::json!({ "type": "hello", "code": code, "name": "Régie\u{7}" }))).await.unwrap();
+        ws.send(json(serde_json::json!({ "type": "hello", "code": code, "name": "Régie\u{7}", "hostToken": token }))).await.unwrap();
         let reply = match ws.next().await {
             Some(Ok(Message::Text(t))) => serde_json::from_str(&t).unwrap(),
             other => panic!("réponse inattendue : {other:?}"),
@@ -349,10 +395,16 @@ mod tests {
         (ws, reply)
     }
 
+    async fn join(port: u16, code: &str) -> (tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>, serde_json::Value) {
+        join_with_token(port, code, None).await
+    }
+
     async fn next_json(ws: &mut tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>) -> serde_json::Value {
         loop {
-            if let Some(Ok(Message::Text(t))) = ws.next().await {
-                return serde_json::from_str(&t).unwrap();
+            match tokio::time::timeout(Duration::from_secs(5), ws.next()).await.expect("message de session attendu") {
+                Some(Ok(Message::Text(t))) => return serde_json::from_str(&t).unwrap(),
+                Some(Ok(Message::Ping(_) | Message::Pong(_))) => {},
+                other => panic!("message de session inattendu : {other:?}"),
             }
         }
     }
@@ -371,7 +423,7 @@ mod tests {
     #[tokio::test]
     async fn relaie_les_messages_binaires_entre_participants() {
         let (port, hub, stop) = start().await;
-        let (mut a, wa) = join(port, "123456").await;
+        let (mut a, wa) = join_with_token(port, "123456", Some(&hub.host_token)).await;
         assert_eq!(wa["type"], "welcome");
         let (mut b, wb) = join(port, "123456").await;
         assert_eq!(wb["peers"][0]["name"], "Régie", "caractères de contrôle retirés du nom");
@@ -396,6 +448,20 @@ mod tests {
     }
 
     #[tokio::test]
+    async fn annonce_la_fin_meme_si_les_canaux_des_participants_sont_deja_fermes() {
+        for _ in 0..16 {
+            let (port, hub, stop) = start().await;
+            let (mut a, _) = join_with_token(port, "123456", Some(&hub.host_token)).await;
+            let (mut b, _) = join(port, "123456").await;
+            assert_eq!(next_json(&mut a).await["type"], "peer-joined");
+            stop.send(ENDED).unwrap();
+            hub.peers.lock().unwrap().clear();
+            assert_eq!(next_json(&mut a).await["type"], "ended");
+            assert_eq!(next_json(&mut b).await["type"], "ended");
+        }
+    }
+
+    #[tokio::test]
     async fn interruption_sans_message_de_fin() {
         let (port, _hub, stop) = start().await;
         let (mut a, _) = join(port, "123456").await;
@@ -408,6 +474,32 @@ mod tests {
                 Some(Ok(_)) => {}
             }
         }
+    }
+
+    #[test]
+    fn seules_les_propositions_de_l_hote_sont_diffusees() {
+        let hub = Hub::new("123456".into());
+        let (host_tx, mut host_rx) = mpsc::unbounded_channel();
+        let (a_tx, mut a_rx) = mpsc::unbounded_channel();
+        let (b_tx, mut b_rx) = mpsc::unbounded_channel();
+        let peer = |host, tx| Peer { host, user_id: "id".into(), name: "test".into(), addr: "127.0.0.1:1000".parse().unwrap(), tx };
+        hub.peers.lock().unwrap().insert(1, peer(true, host_tx));
+        hub.peers.lock().unwrap().insert(2, peer(false, a_tx));
+        hub.peers.lock().unwrap().insert(3, peer(false, b_tx));
+        hub.route(2, &[0, 2, 42]);
+        assert_eq!(host_rx.try_recv().unwrap(), Message::binary(vec![255, 0, 0, 0, 2, 0, 2, 42]));
+        assert!(a_rx.try_recv().is_err());
+        assert!(b_rx.try_recv().is_err(), "un invité ne reçoit jamais une proposition non validée");
+        // Une fausse enveloppe ciblée reste une proposition invitée, avec son identité réelle.
+        hub.route(2, &[254, 0, 0, 0, 3, 99]);
+        assert_eq!(host_rx.try_recv().unwrap(), Message::binary(vec![255, 0, 0, 0, 2, 254, 0, 0, 0, 3, 99]));
+        assert!(b_rx.try_recv().is_err());
+        hub.route(1, &[254, 0, 0, 0, 3, 7]);
+        assert_eq!(b_rx.try_recv().unwrap(), Message::binary(vec![7]));
+        assert!(a_rx.try_recv().is_err());
+        hub.route(1, &[0, 2, 8]);
+        assert_eq!(a_rx.try_recv().unwrap(), Message::binary(vec![0, 2, 8]));
+        assert_eq!(b_rx.try_recv().unwrap(), Message::binary(vec![0, 2, 8]));
     }
 
     #[test]

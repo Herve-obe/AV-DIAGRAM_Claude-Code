@@ -63,7 +63,7 @@ export function ExportPdfDialog() {
     if (JSON.stringify(store.project.info ?? {}) !== JSON.stringify(info)) store.updateInfo(info)
     close()
     try {
-      await exportPdfWithLabels(rf, t, info, opts.protection.enabled ? passwords : undefined)
+      await exportPdfWithLabels(rf, t, info, opts.protection.enabled ? passwords : undefined, opts)
     } finally {
       setBusy(false)
     }

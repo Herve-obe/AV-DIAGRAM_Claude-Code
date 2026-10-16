@@ -5,7 +5,8 @@ import { startMerge } from './MergeDialog'
 import { startPdfImport } from './PdfImportDialog'
 import { useExportPdf } from './ExportPdfDialog'
 import { closePanelsWindow, openPanelsWindow } from '../store/windowSync'
-import { exportCableCsv, exportCanvasImage, notifyError, openProjectFile, saveProjectFile } from '../io/files'
+import { exportCableCsv, exportCanvasImage } from '../io/files'
+import { openDocument, saveCurrentProject } from '../io/documentLifecycle'
 import { useCollab } from '../collab/session'
 import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
@@ -31,7 +32,7 @@ export function TopBar() {
   const unread = useCollab((s) => s.unread)
   const canUndo = useProject((s) => s.past.length > 0) || collabUndo
   const canRedo = useProject((s) => s.future.length > 0) || collabRedo
-  const { undo, redo, rename, load } = useProject.getState()
+  const { undo, redo, rename } = useProject.getState()
   const { mode, theme, lang, setPref, setPaletteOpen } = useUi()
   const [exportOpen, setExportOpen] = useState(false)
   const [name, setName] = useState(project.name)
@@ -46,14 +47,7 @@ export function TopBar() {
     return () => window.removeEventListener('mousedown', close)
   }, [exportOpen])
 
-  const open = async () => {
-    try {
-      const p = await openProjectFile()
-      if (p) load(p)
-    } catch {
-      notifyError(t('menu.openError'))
-    }
-  }
+  const open = () => void openDocument()
 
   return (
     <header className="topbar">
@@ -81,7 +75,7 @@ export function TopBar() {
         <button className="icon-btn" onClick={open} title={`${t('menu.open')} (Ctrl+O)`} aria-label={t('menu.open')}><Icon name="folder" /></button>
         <button className="icon-btn" onClick={() => startMerge(t)} title={t('merge.menu')} aria-label={t('merge.menu')}><Icon name="copy" /></button>
         <button className="icon-btn" onClick={() => startPdfImport(t)} title={t('pdfImport.menu')} aria-label={t('pdfImport.menu')}><Icon name="pdf" /></button>
-        <button className="icon-btn" onClick={() => saveProjectFile(project)} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
+        <button className="icon-btn" onClick={() => saveCurrentProject()} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
         <div className="menu" ref={exportRef}>
           <button className="icon-btn" onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} title={t('menu.export')} aria-label={t('menu.export')}><Icon name="download" /></button>
           {exportOpen && (

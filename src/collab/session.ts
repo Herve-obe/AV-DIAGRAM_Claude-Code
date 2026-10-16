@@ -19,8 +19,8 @@
 // - les postes de bureau volontaires annoncent leurs adresses (« postes de secours ») ; le premier, dans
 //   un ordre connu de tous, ouvre un relais avec le même code si l'hôte reste injoignable, et les autres
 //   s'y reconnectent automatiquement ;
-// - un relais de secours vérifie régulièrement si l'hôte d'origine est revenu ; dès qu'il répond, il
-//   ferme son relais et tout le monde revient chez l'hôte, les modifications de chacun fusionnées.
+// - le secours garde la session quand l’hôte initial revient ; celui-ci rejoint le secours. Un
+//   transfert de l’hébergement nécessite une action volontaire pour conserver tout le document.
 import { invoke, isTauri } from '@tauri-apps/api/core'
 import * as decoding from 'lib0/decoding'
 import * as encoding from 'lib0/encoding'
@@ -30,9 +30,12 @@ import * as Y from 'yjs'
 import { create } from 'zustand'
 import { normalizeProject } from '../model/project'
 import type { Layer, LayerView } from '../model/layers'
-import { setHistoryDriver, useProject } from '../store/projectStore'
+import { setHistoryDriver, setProjectGuard, useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
-import { checkChange, lockedLayers, type Claim, type Claims } from './protection'
+import { type Claim, type Claims } from './protection'
+import { HostValidation } from './hostValidation'
+import { checkGuestChange, guestLayers } from './access'
+import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
 import { createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
 
 const MSG_SYNC = 0
@@ -70,8 +73,10 @@ export interface Participant {
 export interface HostInfo {
   port: number
   code: string
+  hostToken: string
   addresses: string[]
-  peers: { id: number; name: string; address: string }[]
+  peers: { id: number; userId: string; name: string; address: string }[]
+  discoveryAvailable?: boolean
 }
 
 export interface ChatMessage {
@@ -106,6 +111,7 @@ export type CollabStatus = 'off' | 'connecting' | 'connected' | 'reconnecting'
 
 interface CollabState {
   status: CollabStatus
+  started: boolean
   /** Rôle actuel : host quand ce poste fait tourner le relais (hôte d'origine ou poste de secours) */
   role: 'host' | 'guest' | null
   /** Rôle de ce poste à l'ouverture de la session */
@@ -139,6 +145,7 @@ interface CollabState {
 }
 
 interface Prefs {
+  clientToken: string
   name: string
   userId: string
   backup: boolean
@@ -151,8 +158,8 @@ function readPrefs(): Prefs {
   } catch {
     // préférences illisibles : valeurs par défaut
   }
-  const prefs = { name: p.name ?? '', userId: p.userId || randomId(), backup: p.backup ?? true }
-  if (!p.userId) writePrefs(prefs)
+  const prefs = { clientToken: p.clientToken || randomId() + randomId() + randomId() + randomId(), name: p.name ?? '', userId: p.userId || randomId(), backup: p.backup ?? true }
+  if (!p.clientToken) writePrefs(prefs)
   return prefs
 }
 
@@ -207,6 +214,7 @@ let noticeTimer: ReturnType<typeof setTimeout> | null = null
 
 export const useCollab = create<CollabState>((set, get) => ({
   status: 'off',
+  started: false,
   role: null,
   origin: null,
   relayRank: null,
@@ -229,16 +237,24 @@ export const useCollab = create<CollabState>((set, get) => ({
   resumable: readResume(),
   setName: (name) => {
     set({ name })
-    writePrefs({ name, userId: get().userId, backup: get().backup })
+    writePrefs({ clientToken: prefs.clientToken, name, userId: get().userId, backup: get().backup })
   },
   setBackup: (backup) => {
     set({ backup })
-    writePrefs({ name: get().name, userId: get().userId, backup })
+    writePrefs({ clientToken: prefs.clientToken, name: get().name, userId: get().userId, backup })
   },
   setDialogOpen: (dialogOpen) => set({ dialogOpen }),
   setChatOpen: (chatOpen) => set(chatOpen ? { chatOpen, unread: 0 } : { chatOpen }),
   dismissNotice: () => set({ notice: null }),
 }))
+
+setProjectGuard((prev, next) => {
+  const st = useCollab.getState()
+  if (st.status === 'off') return true
+  const allowed = prev.id === next.id && (st.role === 'host' || (st.started && checkGuestChange(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer)))
+  if (!allowed) notify({ key: 'accessDenied', tone: 'warn' })
+  return allowed
+})
 
 function notify(notice: Notice) {
   if (noticeTimer) clearTimeout(noticeTimer)
@@ -274,9 +290,12 @@ interface Live {
   attempt: number
   ws: WebSocket | null
   peerId: number | null
+  hostToken?: string
+  validation?: HostValidation
+  peerUsers: Map<number, string>
+  peerClients: Map<number, number>
   everConnected: boolean
   closing: boolean
-  handingBack: boolean
   end: 'ended' | 'kicked' | null
   lostAt: number | null
   retry: ReturnType<typeof setTimeout> | null
@@ -292,12 +311,23 @@ const send = (data: Uint8Array) => {
   if (live?.ws?.readyState === WebSocket.OPEN) live.ws.send(data as Uint8Array<ArrayBuffer>)
 }
 
-function sendSyncStep1() {
+function sendSyncStep1(peerId?: number) {
   if (!live) return
   const enc = encoding.createEncoder()
   encoding.writeVarUint(enc, MSG_SYNC)
   syncProtocol.writeSyncStep1(enc, live.doc)
-  send(encoding.toUint8Array(enc))
+  if (peerId !== undefined) directed(peerId, encoding.toUint8Array(enc))
+  else send(encoding.toUint8Array(enc))
+}
+
+function sendFullState(peerId?: number) {
+  if (!live) return
+  const enc = encoding.createEncoder()
+  encoding.writeVarUint(enc, MSG_SYNC)
+  syncProtocol.writeSyncStep2(enc, live.doc)
+  const packet = encoding.toUint8Array(enc)
+  if (peerId !== undefined) directed(peerId, packet)
+  else send(packet)
 }
 
 function sendAwareness(clients: number[]) {
@@ -308,25 +338,81 @@ function sendAwareness(clients: number[]) {
   send(encoding.toUint8Array(enc))
 }
 
+function directed(peerId: number, packet: Uint8Array) {
+  const data = new Uint8Array(5 + packet.length)
+  data[0] = 254
+  new DataView(data.buffer).setUint32(1, peerId)
+  data.set(packet, 5)
+  send(data)
+}
+
 function onBinary(data: ArrayBuffer) {
   if (!live) return
-  const dec = decoding.createDecoder(new Uint8Array(data))
-  const type = decoding.readVarUint(dec)
-  if (type === MSG_SYNC) {
-    const enc = encoding.createEncoder()
-    encoding.writeVarUint(enc, MSG_SYNC)
-    syncProtocol.readSyncMessage(dec, enc, live.doc, 'network')
-    // Réponse à une demande d'état (étape 1) : on envoie ce qui lui manque
-    if (encoding.length(enc) > 1) send(encoding.toUint8Array(enc))
-  } else if (type === MSG_AWARENESS) {
-    awarenessProtocol.applyAwarenessUpdate(live.awareness, decoding.readVarUint8Array(dec), 'network')
-  }
+  const cur = live
+  let peer: number | null = null
+  try {
+    let packet = new Uint8Array(data)
+    if (packet[0] === 255) {
+      if (cur.rank === null || packet.length < 6) return
+      peer = new DataView(data).getUint32(1)
+      packet = packet.subarray(5)
+    } else if (cur.rank !== null) return
+    const dec = decoding.createDecoder(packet)
+    const type = decoding.readVarUint(dec)
+    if (type === MSG_SYNC) {
+      const enc = encoding.createEncoder()
+      encoding.writeVarUint(enc, MSG_SYNC)
+      if (peer !== null) {
+        const subtype = decoding.readVarUint(dec)
+        if (subtype === syncProtocol.messageYjsSyncStep1) {
+          syncProtocol.writeSyncStep2(enc, cur.doc, decoding.readVarUint8Array(dec))
+        } else if (subtype === syncProtocol.messageYjsSyncStep2 || subtype === syncProtocol.messageYjsUpdate) {
+          cur.validation ??= new HostValidation(cur.doc)
+          const client = cur.peerClients.get(peer)
+          const view = client === undefined ? undefined : cur.awareness.getStates().get(client)?.layer as LayerView | undefined
+          if (!cur.validation.apply(decoding.readVarUint8Array(dec), cur.peerUsers.get(peer) ?? '', view)) {
+            // La copie locale du client reste disponible ; une reconnexion repart du document accepté.
+            void kick(peer)
+            return
+          }
+        } else throw new Error('sync')
+      } else syncProtocol.readSyncMessage(dec, enc, cur.doc, 'network')
+      if (encoding.length(enc) > 1) {
+        if (peer !== null) directed(peer, encoding.toUint8Array(enc))
+        else send(encoding.toUint8Array(enc))
+      }
+    } else if (type === MSG_AWARENESS) {
+      const bytes = decoding.readVarUint8Array(dec)
+      if (peer !== null) {
+        const presence = decoding.createDecoder(bytes)
+        if (decoding.readVarUint(presence) !== 1) throw new Error('presence')
+        const client = decoding.readVarUint(presence)
+        const clock = decoding.readVarUint(presence)
+        const state = JSON.parse(decoding.readVarString(presence))
+        const owned = cur.peerClients.get(peer)
+        if (owned !== undefined && owned !== client) throw new Error('identity')
+        if (client === cur.doc.clientID || [...cur.peerClients].some(([p, c]) => p !== peer && c === client)) throw new Error('identity')
+        cur.peerClients.set(peer, client)
+        if (state !== null) {
+          if (typeof state !== 'object' || Array.isArray(state)) throw new Error('presence')
+          state.peerId = peer
+          state.userId = cur.peerUsers.get(peer) ?? ''
+          // L'identité réseau est fournie par le relais, jamais par le nom ou l'identifiant annoncé.
+          const enc = encoding.createEncoder()
+          encoding.writeVarUint(enc, 1); encoding.writeVarUint(enc, client); encoding.writeVarUint(enc, clock)
+          encoding.writeVarString(enc, JSON.stringify(state))
+          awarenessProtocol.applyAwarenessUpdate(cur.awareness, encoding.toUint8Array(enc), 'network')
+        } else awarenessProtocol.applyAwarenessUpdate(cur.awareness, bytes, 'network')
+        sendAwareness([client])
+      } else awarenessProtocol.applyAwarenessUpdate(cur.awareness, bytes, 'network')
+    } else throw new Error('message')
+  } catch { if (peer !== null) void kick(peer) }
 }
 
 function onText(text: string) {
   if (!live) return
   const current = live
-  let msg: { type?: string; peerId?: number }
+  let msg: { type?: string; peerId?: number; userId?: string; peers?: HostInfo['peers'] }
   try {
     msg = JSON.parse(text)
   } catch {
@@ -334,7 +420,14 @@ function onText(text: string) {
   }
   if (msg.type === 'welcome') {
     current.peerId = msg.peerId ?? null
+    current.peerUsers = new Map((msg.peers ?? []).map(p => [p.id, p.userId]))
+    if (msg.userId) {
+      useCollab.setState({ userId: msg.userId })
+      current.awareness.setLocalStateField('userId', msg.userId)
+    }
     current.awareness.setLocalStateField('peerId', current.peerId)
+    // La présence précède les propositions du document (calque et identité authentifiée).
+    sendAwareness([current.doc.clientID])
     const wasLost = current.lostAt !== null
     current.lostAt = null
     current.attempt = 0
@@ -342,6 +435,7 @@ function onText(text: string) {
     useCollab.setState({ status: 'connected', error: null, lostSince: null })
     if (wasLost) notify({ key: current.rank === null ? 'reconnected' : 'relayActive', tone: 'info' })
     sendSyncStep1()
+    if (current.rank !== null) sendFullState()
     sendAwareness([current.doc.clientID])
   } else if (msg.type === 'refused') {
     useCollab.setState({ error: 'code' })
@@ -349,13 +443,21 @@ function onText(text: string) {
   } else if (msg.type === 'ended' || msg.type === 'kicked') {
     current.end = msg.type
   } else if (msg.type === 'peer-joined') {
-    // Le nouveau venu reçoit notre état complet et notre présence
-    sendSyncStep1()
-    sendAwareness([current.doc.clientID])
+    if (msg.peerId !== undefined && msg.userId) current.peerUsers.set(msg.peerId, msg.userId)
+    // Seul l'hôte propose le document initial. Les invités ne se synchronisent pas entre eux.
+    if (current.rank !== null && msg.peerId !== undefined) {
+      sendFullState(msg.peerId)
+      sendSyncStep1(msg.peerId)
+    }
+    sendAwareness(current.rank !== null ? [...current.awareness.getStates().keys()] : [current.doc.clientID])
     void refreshHost()
   } else if (msg.type === 'peer-left') {
+    if (msg.peerId !== undefined) { current.peerClients.delete(msg.peerId); current.peerUsers.delete(msg.peerId) }
     const gone = [...current.awareness.getStates()].filter(([, s]) => s.peerId === msg.peerId).map(([id]) => id)
-    if (gone.length) awarenessProtocol.removeAwarenessStates(current.awareness, gone, 'network')
+    if (gone.length) {
+      awarenessProtocol.removeAwarenessStates(current.awareness, gone, 'network')
+      if (current.rank !== null) sendAwareness(gone)
+    }
     void refreshHost()
   }
 }
@@ -393,7 +495,7 @@ function connect() {
   const timer = setTimeout(() => ws.readyState !== WebSocket.OPEN && ws.close(), CONNECT_TIMEOUT_MS)
   ws.onopen = () => {
     clearTimeout(timer)
-    ws.send(JSON.stringify({ type: 'hello', code: current.code, name: useCollab.getState().name }))
+    ws.send(JSON.stringify({ type: 'hello', code: current.code, name: useCollab.getState().name, clientToken: prefs.clientToken, hostToken: current.rank !== null ? current.hostToken : undefined }))
   }
   ws.onmessage = (e) => (typeof e.data === 'string' ? onText(e.data) : onBinary(e.data as ArrayBuffer))
   ws.onclose = () => {
@@ -401,12 +503,6 @@ function connect() {
     if (live !== current || current.closing || current.ws !== ws) return
     current.ws = null
     if (current.end) return finish(current.end)
-    if (current.handingBack) {
-      // Retour chez l'hôte d'origine : reconnexion immédiate, sans alerte
-      current.handingBack = false
-      current.attempt = 0
-      return connect()
-    }
     if (current.everConnected && current.lostAt === null) {
       // Coupure : on continue à travailler, reconnexion automatique, fusion au retour
       current.lostAt = Date.now()
@@ -431,10 +527,11 @@ function maybeTakeOver(cur: Live): boolean {
 
 async function takeOver(cur: Live, rank: number) {
   try {
-    const info = await invoke<HostInfo>('collab_host_start', { port: cur.port, code: cur.code })
+    const info = await invoke<HostInfo>('collab_host_start', { port: cur.port, code: cur.code, sessionName: useProject.getState().project.name, hostName: useCollab.getState().name })
     if (live !== cur) return void invoke('collab_host_stop', { ended: false })
     cur.port = info.port
     cur.rank = rank
+    cur.hostToken = info.hostToken
     useCollab.setState({ role: 'host', relayRank: rank, host: info })
     notify({ key: 'tookOver', params: { address: info.addresses[0] ?? `127.0.0.1:${cur.port}` }, tone: 'info' })
     cur.probe = setInterval(() => void probeOrigin(cur), PROBE_MS)
@@ -471,20 +568,15 @@ function probe(addr: string, code: string): Promise<boolean> {
   })
 }
 
-/** Relais de secours : l'hôte d'origine (ou un secours prioritaire) est-il revenu ? */
+/** Un secours conserve le document accepté : aucun retour automatique vers un état potentiellement ancien. */
 async function probeOrigin(cur: Live) {
-  if (live !== cur || cur.rank === null || cur.handingBack) return
+  if (live !== cur || cur.rank === null) return
   for (const addr of cur.ranks.slice(0, cur.rank).flat()) {
     if (cur.own.includes(addr) || !(await probe(addr, cur.code))) continue
     if (live !== cur || cur.rank === null) return
-    // Retour à l'hôte : on ferme ce relais (sans fin de session), chacun se reconnecte chez lui
     if (cur.probe) clearInterval(cur.probe)
     cur.probe = null
-    cur.rank = null
-    cur.handingBack = true
-    useCollab.setState({ role: 'guest', relayRank: null, host: null })
-    notify({ key: 'handedBack', tone: 'info' })
-    await invoke('collab_host_stop', { ended: false })
+    notify({ key: 'returnDeferred', tone: 'warn' })
     return
   }
 }
@@ -551,6 +643,7 @@ const claimsMap = (doc: Y.Doc) => doc.getMap<Claim>('claims')
 const chatArray = (doc: Y.Doc) => doc.getArray<ChatMessage>('chat')
 
 interface StartOptions {
+  hostToken?: string
   code: string
   origin: 'host' | 'guest'
   port: number
@@ -564,13 +657,14 @@ interface StartOptions {
 
 /** Démarre le lien document <-> store, puis la connexion au relais. */
 async function start(o: StartOptions): Promise<void> {
+  setDocumentSessionActive(true)
   const doc = new Y.Doc()
   const awareness = new awarenessProtocol.Awareness(doc)
   const undo = createUndoManager(doc, LOCAL)
   live = {
-    doc, awareness, undo, code: o.code, origin: o.origin, port: o.port, ranks: o.ranks, backupIds: o.backupIds ?? [],
-    own: [], rank: o.rank, attempt: 0, ws: null, peerId: null, everConnected: false, closing: false, handingBack: false,
-    end: null, lostAt: null, retry: null, probe: null, saveTimer: null, synced: null, cleanups: [],
+    doc, awareness, undo, code: o.code, hostToken: o.hostToken, origin: o.origin, port: o.port, ranks: o.ranks, backupIds: o.backupIds ?? [],
+    own: [], rank: o.rank, attempt: 0, ws: null, peerId: null, everConnected: false, closing: false,
+    peerUsers: new Map(), peerClients: new Map(), end: null, lostAt: null, retry: null, probe: null, saveTimer: null, synced: null, cleanups: [],
   }
   const current = live
   const { name, userId, backup } = useCollab.getState()
@@ -583,7 +677,7 @@ async function start(o: StartOptions): Promise<void> {
   })
   useCollab.setState({
     status: 'connecting', role: o.rank !== null ? 'host' : 'guest', origin: o.origin, relayRank: o.rank, error: null,
-    claims: {}, chat: [], unread: 0, notice: null, lostSince: null,
+    claims: {}, chat: [], unread: 0, notice: null, lostSince: null, started: false,
   })
   // Poste de bureau volontaire : il annonce ses adresses pour pouvoir prendre le relais
   if (canHost() && (backup || o.origin === 'host')) {
@@ -598,9 +692,12 @@ async function start(o: StartOptions): Promise<void> {
   if (o.seed === 'project') {
     const p = useProject.getState().project
     writeProject(doc, null, p, 'seed')
+    doc.getMap('session').set('started', false)
     current.synced = p
   } else if (o.seed === 'state' && o.state) {
     Y.applyUpdate(doc, o.state, 'restore')
+    // L'hôte migre les anciennes listes de ports avant de publier son document aux invités.
+    if (o.rank !== null) writeProject(doc, null, readProject(doc), 'migration')
   }
 
   // Document -> envoi sur le réseau (sauf ce qui vient du réseau) et enregistrement local
@@ -628,6 +725,12 @@ async function start(o: StartOptions): Promise<void> {
   claims.observe(onClaims)
   current.cleanups.push(() => claims.unobserve(onClaims))
   onClaims()
+  const session = doc.getMap('session')
+  // Les anciennes sessions reprises sans ce champ étaient déjà commencées.
+  const onSession = () => useCollab.setState({ started: hasProject(doc) && session.get('started') !== false })
+  session.observe(onSession)
+  current.cleanups.push(() => session.unobserve(onSession))
+  onSession()
   const chat = chatArray(doc)
   const onChat = (e: Y.YArrayEvent<ChatMessage>) => {
     const added = e.changes.delta.reduce((n, d) => n + (Array.isArray(d.insert) ? d.insert.length : 0), 0)
@@ -642,6 +745,15 @@ async function start(o: StartOptions): Promise<void> {
     // Document -> store : relecture des seuls éléments modifiés par les autres (ou par l'annulation)
     current.cleanups.push(observeChanges(doc, (changes, origin) => {
       if (origin === LOCAL) return
+      if (origin !== 'network' && current.synced && useCollab.getState().role === 'guest') {
+        const next = readProject(doc)
+        if (!useCollab.getState().started || !checkGuestChange(current.synced, next, guestLayers(useCollab.getState().claims, useCollab.getState().userId), useUi.getState().layer)) {
+          // Les droits ont pu changer depuis la création du pas d'annulation.
+          writeProject(doc, next, current.synced, LOCAL)
+          notify({ key: 'accessDenied', tone: 'warn' })
+          return
+        }
+      }
       const next = readProject(doc, current.synced ?? undefined, current.synced ? changes : undefined)
       current.synced = next
       useProject.setState({ project: next, saved: false })
@@ -651,10 +763,10 @@ async function start(o: StartOptions): Promise<void> {
     current.cleanups.push(useProject.subscribe((s) => {
       if (s.project === current.synced) return
       const st = useCollab.getState()
-      const v = current.synced ? checkChange(current.synced, s.project, lockedLayers(st.claims, st.userId)) : null
+      const v = current.synced && (current.synced.id !== s.project.id || (st.role !== 'host' && (!st.started || !checkGuestChange(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer))))
       if (v && current.synced) {
         useProject.setState({ project: current.synced })
-        notify({ key: 'locked', params: { layer: v.layer, name: st.claims[v.layer]?.name ?? '?' }, tone: 'error' })
+        notify({ key: 'accessDenied', tone: 'warn' })
         return
       }
       writeProject(doc, current.synced, s.project, LOCAL)
@@ -662,7 +774,7 @@ async function start(o: StartOptions): Promise<void> {
     }))
     // Présence : calque affiché et sélection
     current.cleanups.push(useUi.subscribe((s, prev) => {
-      if (s.layer !== prev.layer) awareness.setLocalStateField('layer', s.layer)
+      if (s.layer !== prev.layer) { undo.stopCapturing(); awareness.setLocalStateField('layer', s.layer) }
       if (s.selectedEquipment !== prev.selectedEquipment) awareness.setLocalStateField('selection', s.selectedEquipment)
     }))
     const onStack = () => useCollab.setState({ canUndo: undo.canUndo(), canRedo: undo.canRedo() })
@@ -670,9 +782,19 @@ async function start(o: StartOptions): Promise<void> {
       undo.on(ev, onStack)
       current.cleanups.push(() => undo.off(ev, onStack))
     }
+    const rememberLayer = ({ stackItem }: { stackItem: { meta: Map<unknown, unknown> } }) => { stackItem.meta.set('layer', useUi.getState().layer) }
+    undo.on('stack-item-added', rememberLayer)
+    current.cleanups.push(() => undo.off('stack-item-added', rememberLayer))
+    const historyAllowed = (stack: typeof undo.undoStack) => {
+      if (useCollab.getState().role === 'host') return true
+      const layer = useUi.getState().layer
+      const ok = useCollab.getState().started && layer !== 'all' && guestLayers(useCollab.getState().claims, useCollab.getState().userId).has(layer) && stack.at(-1)?.meta.get('layer') === layer
+      if (!ok) notify({ key: 'accessDenied', tone: 'warn' })
+      return ok
+    }
     setHistoryDriver({
-      undo: () => undo.undo(),
-      redo: () => undo.redo(),
+      undo: () => { if (historyAllowed(undo.undoStack)) undo.undo() },
+      redo: () => { if (historyAllowed(undo.redoStack)) undo.redo() },
       gesture: () => undo.stopCapturing(),
     })
     refreshParticipants()
@@ -685,7 +807,7 @@ async function start(o: StartOptions): Promise<void> {
   }
   if (o.seed === 'state') {
     // Reprise : le document enregistré sur ce poste devient le projet ouvert
-    useProject.getState().load(normalizeProject(readProject(doc)))
+    useProject.setState({ project: normalizeProject(readProject(doc)), past: [], future: [], saved: false })
     current.synced = useProject.getState().project
     bind()
     connect()
@@ -705,7 +827,7 @@ async function start(o: StartOptions): Promise<void> {
       ready = true
       clearTimeout(timer)
       doc.off('update', onFirst)
-      useProject.getState().load(normalizeProject(readProject(doc)))
+      useProject.setState({ project: normalizeProject(readProject(doc)), past: [], future: [], saved: false })
       current.synced = useProject.getState().project
       bind()
       resolve()
@@ -724,13 +846,21 @@ async function start(o: StartOptions): Promise<void> {
 /** Ouvre une session depuis ce poste (application de bureau). */
 export async function hostSession(port = DEFAULT_PORT): Promise<void> {
   if (live) finish(null)
-  const info = await invoke<HostInfo>('collab_host_start', { port })
+  const info = await invoke<HostInfo>('collab_host_start', { port, sessionName: useProject.getState().project.name, hostName: useCollab.getState().name })
   useCollab.setState({ host: info, address: info.addresses[0] ?? `127.0.0.1:${port}` })
-  await start({ code: info.code, origin: 'host', port, ranks: [info.addresses], rank: 0, seed: 'project' })
+  await start({ hostToken: info.hostToken, code: info.code, origin: 'host', port, ranks: [info.addresses], rank: 0, seed: 'project' })
+}
+
+/** Les invités sont connectés en lecture seule jusqu'au départ donné par l'hôte. */
+export function beginSession(): boolean {
+  if (!live || useCollab.getState().role !== 'host' || useCollab.getState().status !== 'connected') return false
+  live.doc.getMap('session').set('started', true)
+  return true
 }
 
 /** Rejoint la session d'un autre poste : adresse « 192.168.1.20:4455 » (port par défaut si absent). */
 export async function joinSession(address: string, code: string): Promise<void> {
+  if (!(await prepareToLeave())) return
   if (live) finish(null)
   const a = address.trim().replace(/^wss?:\/\//, '').replace(/\/.*$/, '')
   const hostPort = /:\d+$/.test(a) ? a : `${a}:${DEFAULT_PORT}`
@@ -741,19 +871,32 @@ export async function joinSession(address: string, code: string): Promise<void> 
 /** Reprend la session interrompue enregistrée sur ce poste (après un plantage ou une fermeture). */
 export async function resumeSession(): Promise<void> {
   const r = useCollab.getState().resumable ?? readResume()
-  if (!r) return
+  if (!r || !(await prepareToLeave())) return
   if (live) finish(null, true)
+  // Un secours héberge déjà le travail le plus récent : l'ancien hôte le rejoint au lieu de
+  // démarrer un relais concurrent avec son ancien instantané et de perdre les éditions du secours.
+  if (r.origin === 'host') {
+    for (const address of r.ranks.slice(1).flat()) {
+      if (!(await probe(address, r.code))) continue
+      useCollab.setState({ address, host: null })
+      await start({ code: r.code, origin: 'guest', port: r.port, ranks: [[address]], rank: null, seed: 'wait' })
+      notify({ key: 'joinedRelay', tone: 'info' })
+      return
+    }
+  }
   const state = fromBase64(r.state)
   let rank: number | null = null
+  let hostToken: string | undefined
   if (r.origin === 'host' && canHost()) {
     // L'hôte revient : il rouvre son relais avec le même code, les autres s'y reconnectent
-    const info = await invoke<HostInfo>('collab_host_start', { port: r.port, code: r.code })
+    const info = await invoke<HostInfo>('collab_host_start', { port: r.port, code: r.code, sessionName: r.projectName, hostName: useCollab.getState().name })
     useCollab.setState({ host: info, address: info.addresses[0] ?? `127.0.0.1:${r.port}` })
     rank = 0
+    hostToken = info.hostToken
   } else {
     useCollab.setState({ address: r.ranks[0]?.[0] ?? null, host: null })
   }
-  await start({ code: r.code, origin: r.origin, port: r.port, ranks: r.ranks, backupIds: r.backupIds, rank, seed: 'state', state })
+  await start({ hostToken, code: r.code, origin: r.origin, port: r.port, ranks: r.ranks, backupIds: r.backupIds, rank, seed: 'state', state })
   if (rank === null && live) {
     // Invité : connexion à n'importe quel relais connu ; en attendant, travail local
     live.lostAt = Date.now()
@@ -765,7 +908,7 @@ export async function resumeSession(): Promise<void> {
 /** Oublie la session interrompue enregistrée sur ce poste. */
 export const forgetResume = clearResume
 
-/** Quitte la session (l'hôte d'origine la termine pour tout le monde). Le projet reste ouvert. */
+/** Quitte la session ; le poste qui héberge actuellement la termine. Le projet reste ouvert. */
 export function leave() {
   finish(null)
 }
@@ -773,23 +916,26 @@ export function leave() {
 function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
   const current = live
   if (!current) return
+  current.validation?.destroy()
   current.closing = true
   if (current.retry) clearTimeout(current.retry)
   if (current.probe) clearInterval(current.probe)
   if (current.saveTimer) clearTimeout(current.saveTimer)
   current.cleanups.forEach((f) => f())
-  current.ws?.close()
+  // Le relais doit annoncer la fin avant la fermeture de sa propre connexion.
+  if (current.rank !== null && isTauri()) {
+    void invoke('collab_host_stop', { ended: reason === null && !keepResume })
+      .catch(() => {}).finally(() => current.ws?.close())
+  } else current.ws?.close()
   current.awareness.destroy()
   current.undo.destroy()
   current.doc.destroy()
   live = null
   setHistoryDriver(null)
-  // Relais de ce poste : fin de session si c'est l'hôte d'origine qui la quitte ; un poste de secours
-  // ferme seulement son relais (les autres retrouvent l'hôte ou un autre secours)
-  if (current.rank !== null && isTauri()) void invoke('collab_host_stop', { ended: current.origin === 'host' && reason === null })
+  setDocumentSessionActive(false)
   if (!keepResume) clearResume()
   useCollab.setState({
-    status: 'off', role: null, origin: null, relayRank: null, participants: [], host: null, address: null,
+    status: 'off', started: false, role: null, origin: null, relayRank: null, participants: [], host: null, address: null,
     canUndo: false, canRedo: false, claims: {}, lostSince: null, chatOpen: false, unread: 0,
   })
   if (reason) notify({ key: reason, tone: 'info' })
@@ -802,24 +948,14 @@ export async function kick(peerId: number) {
   await refreshHost()
 }
 
-/** Réserve un calque pour soi (les autres ne peuvent plus le modifier). */
-export function claimLayer(layer: Layer) {
-  if (!live || useCollab.getState().claims[layer]) return
-  const { userId, name } = useCollab.getState()
-  live.doc.transact(() => claimsMap(live!.doc).set(layer, { userId, name: name || '?', color: colorOf(userId) }), 'claims')
-}
-
-/** Libère un calque : le sien, ou celui d'une personne absente ; l'hôte d'origine peut tout libérer. */
-export function releaseLayer(layer: Layer) {
-  if (!live || !canRelease(layer)) return
-  live.doc.transact(() => claimsMap(live!.doc).delete(layer), 'claims')
-}
-
-export function canRelease(layer: Layer): boolean {
-  const { claims, userId, origin, participants } = useCollab.getState()
-  const c = claims[layer]
-  if (!c) return false
-  return c.userId === userId || origin === 'host' || !participants.some((p) => p.userId === c.userId)
+/** Seul le poste qui héberge attribue ou retire les réservations. */
+export function assignLayer(layer: Layer, peerId: number | null) {
+  if (!live || useCollab.getState().role !== 'host') return
+  const person = useCollab.getState().participants.find(p => p.peerId === peerId && !p.self)
+  live.doc.transact(() => {
+    if (person && peerId != null) claimsMap(live!.doc).set(layer, { peerId, userId: person.userId ?? '', name: person.name, color: person.color })
+    else claimsMap(live!.doc).delete(layer)
+  }, 'claims')
 }
 
 /** Envoie un message dans le tchat de la session. */
@@ -830,6 +966,6 @@ export function sendChat(text: string) {
   const chat = chatArray(live.doc)
   live.doc.transact(() => {
     chat.push([{ id: randomId(), userId, name: name || '?', color: colorOf(userId), text: t, at: Date.now() }])
-    if (chat.length > CHAT_MAX) chat.delete(0, chat.length - CHAT_MAX)
+    if (useCollab.getState().role === 'host' && chat.length > CHAT_MAX) chat.delete(0, chat.length - CHAT_MAX)
   }, 'chat')
 }

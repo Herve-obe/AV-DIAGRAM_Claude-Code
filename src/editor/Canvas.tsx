@@ -2,7 +2,9 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fullyLocked, lockedLayers } from '../collab/protection'
+import { fullyLocked } from '../collab/protection'
+import { guestLayers } from '../collab/access'
+import { LAYERS } from '../model/layers'
 import { useCollab } from '../collab/session'
 import { fitToPage, PageGrid } from './PageGrid'
 import { CanvasMenu, type MenuAt } from './CanvasMenu'
@@ -92,8 +94,12 @@ export function Canvas() {
   // Session de collaboration : blocs sélectionnés par les autres participants
   const participants = useCollab((s) => s.participants)
   const claims = useCollab((s) => s.claims)
-  const me = useCollab((s) => s.userId)
-  const locked = useMemo(() => lockedLayers(claims, me), [claims, me])
+  const access = useCollab()
+  const locked = useMemo(() => {
+    if (access.status === 'off' || access.role === 'host') return new Set<import('../model/layers').Layer>()
+    const allowed = guestLayers(claims, access.userId)
+    return new Set(LAYERS.filter(l => layer === 'all' || l !== layer || !allowed.has(l)))
+  }, [claims, access.status, access.role, access.userId, layer])
   const presenceByEq = useMemo(() => {
     const m = new Map<string, { name: string; color: string }[]>()
     for (const p of participants) {
@@ -123,9 +129,11 @@ export function Canvas() {
     const onSheet = (sheetId?: string) => (sheetId ?? DEFAULT_SHEET_ID) === currentSheetId
     // Renvois : poignée affichée dont l'autre extrémité n'est pas visible sur cette feuille
     const offPage = new Map<string, Record<string, string>>()
+    const connected = new Map<string, string[]>()
     const mark = (end: { node: string; handle: string }, otherSheet: string | undefined) =>
       offPage.set(end.node, { ...offPage.get(end.node), [end.handle]: sheetName(project, otherSheet) })
     for (const l of Object.values(project.links)) {
+      for (const end of [l.source, l.target]) connected.set(end.equipmentId, [...(connected.get(end.equipmentId) ?? []), end.portId])
       const a = endpointOnView(project, l.source, currentSheetId)
       const b = endpointOnView(project, l.target, currentSheetId)
       if (a && !b) mark(a, project.equipment[l.target.equipmentId]?.sheetId)
@@ -172,6 +180,7 @@ export function Canvas() {
           position: eq.position,
           data: {
             equipment: eq,
+            connectedPorts: connected.get(eq.id) ?? [],
             compact: mode === 'beginner',
             offPage: offPage.get(eq.id) ?? {},
             layer,

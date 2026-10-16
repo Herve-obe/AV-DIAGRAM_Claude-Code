@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { GENERIC_LIBRARY, LIBRARY_BY_ID } from '../library/generic'
 import { buildSampleProject } from '../library/sample'
+import { DEFAULT_EXPORT } from '../io/exportOptions'
 import { computeTotals, buildBom } from './bom'
 import { connectorsMate } from './connectors'
 import { formatCableLabel } from './numbering'
@@ -11,12 +12,28 @@ import { domainOf } from '../library/domains'
 import { LIBRARY } from '../library'
 import { familiesCompatible } from './signals'
 import type { Project } from './types'
+import { portsToDisplay } from './portDisplay'
 
 const tpl = (id: string) => {
   const t = LIBRARY_BY_ID.get(id)
   if (!t) throw new Error(id)
   return t
 }
+
+describe('affichage des équipements volumineux', () => {
+  const ports = Array.from({ length: 56 }, (_, i) => ({ id: `p${i + 1}`, name: `Port ${i + 1}`, direction: i < 32 ? 'in' as const : 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3' }))
+  it('replie une stagebox neuve sans supprimer ses ports', () => {
+    expect(portsToDisplay(ports, new Set(), false)).toEqual([])
+    expect(ports).toHaveLength(56)
+  })
+  it('garde les ports reliés et les renvois sans renumérotation', () => {
+    const shown = portsToDisplay(ports, new Set(['p9', 'p1', 'p33']), false)
+    expect(shown.map(p => p.id)).toEqual(['p1', 'p9', 'p33'])
+    expect(shown[1]).toBe(ports[8])
+    expect(portsToDisplay(ports, new Set(), true)).toBe(ports)
+    expect(portsToDisplay(ports.slice(0, 4), new Set(), false)).toHaveLength(4)
+  })
+})
 
 /** Projet minimal avec deux équipements, renvoie aussi leurs identifiants. */
 function twoBoxes(a: string, b: string): { p: Project; a: string; b: string } {
@@ -26,6 +43,59 @@ function twoBoxes(a: string, b: string): { p: Project; a: string; b: string } {
   const rb = ops.addEquipment(p, tpl(b), { x: 300, y: 0 })
   return { p: rb.project, a: ra.id, b: rb.id }
 }
+
+describe('validation du format .avd', () => {
+  const p = buildSampleProject()
+  const [id, eq] = Object.entries(p.equipment)[0]
+  const [linkId, link] = Object.entries(p.links)[0]
+
+  it('accepte un projet complet après un aller-retour JSON', () => {
+    const complete: Project = { ...p,
+      annotations: { note: { id: 'note', kind: 'note', sheetId: p.sheets![0].id, text: 'Régie', position: { x: 0, y: 0 }, size: { w: 100, h: 50 } } },
+      racks: { baie: { id: 'baie', name: 'Baie', heightU: 42 } },
+      multicores: { mp: { id: 'mp', label: 'MP-01', pairs: 16 } },
+      info: { client: 'Essai', revisions: [{ index: 'A', date: '2026-10-13', description: 'Création' }] },
+      settings: { ...p.settings, export: DEFAULT_EXPORT },
+    }
+    expect(ops.isProject(JSON.parse(JSON.stringify(complete)))).toBe(true)
+    expect(ops.isProject(ops.createProject('Projet vide'))).toBe(true)
+  })
+
+  it('accepte les anciens projets et les réglages d’export partiels', () => {
+    const old = { ...p, sheets: undefined, annotations: undefined, multicores: undefined, racks: undefined }
+    expect(ops.isProject(old)).toBe(true)
+    expect(ops.normalizeProject(old).sheets).toHaveLength(1)
+    expect(ops.isProject({ ...old, settings: { ...p.settings, export: { protect: true } } })).toBe(true)
+  })
+
+  it.each([
+    ['un projet null', null],
+    ['un tableau', []],
+    ['un identifiant absent', { ...p, id: undefined }],
+    ['une version inconnue', { ...p, format: 2 }],
+    ['des équipements null', { ...p, equipment: null }],
+    ['des équipements en tableau', { ...p, equipment: [] }],
+    ['un équipement null', { ...p, equipment: { [id]: null } }],
+    ['des ports absents', { ...p, equipment: { [id]: { ...eq, ports: undefined } } }],
+    ['un port null', { ...p, equipment: { [id]: { ...eq, ports: [null] } } }],
+    ['un signal inconnu', { ...p, equipment: { [id]: { ...eq, ports: [{ ...eq.ports[0], signal: 'inconnu' }] } } }],
+    ['une position invalide', { ...p, equipment: { [id]: { ...eq, position: { x: '100', y: 0 } } } }],
+    ['une rotation invalide', { ...p, equipment: { [id]: { ...eq, rotation: 45 } } }],
+    ['une liaison null', { ...p, links: { [linkId]: null } }],
+    ['une extrémité absente', { ...p, links: { [linkId]: { ...link, source: undefined } } }],
+    ['des zones absentes', { ...p, zones: undefined }],
+    ['des réglages absents', { ...p, settings: undefined }],
+    ['une tension non numérique', { ...p, settings: { ...p.settings, mainsVoltage: '230' } }],
+    ['une annotation null', { ...p, annotations: { note: null } }],
+    ['une baie invalide', { ...p, racks: { baie: { id: 'baie', name: 'Baie', heightU: '42' } } }],
+    ['des feuilles null', { ...p, sheets: null }],
+    ['des révisions invalides', { ...p, info: { revisions: [null] } }],
+    ['un format de papier inconnu', { ...p, settings: { ...p.settings, export: { paper: 'inconnu' } } }],
+    ['un filigrane mal formé', { ...p, settings: { ...p.settings, export: { watermark: { text: [] } } } }],
+  ])('refuse %s sans lever d’exception', (_label, value) => {
+    expect(ops.isProject(value)).toBe(false)
+  })
+})
 
 describe('signaux et connecteurs', () => {
   it('un flux audio sur IP passe sur un port réseau', () => {
@@ -192,7 +262,10 @@ describe('éditeur de blocs et zones', () => {
     const n = p.equipment[b].ports.length
     const r = ops.addPort(p, b, { name: 'Aux', direction: 'in', signal: 'audioAnalog', connector: 'jack-trs', level: 'line+4' })
     expect(r.project.equipment[b].ports).toHaveLength(n + 1)
-    expect(r.id).toBe(`p${n + 1}`)
+    expect(r.id).toBeTruthy()
+    expect(p.equipment[b].ports.some(port => port.id === r.id)).toBe(false)
+    const other = ops.addPort(p, b, { name: 'Ajout concurrent', direction: 'out', signal: 'video', connector: 'bnc' })
+    expect(other.id).not.toBe(r.id)
   })
   it('supprimer un port supprime ses liaisons', () => {
     const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')

@@ -9,6 +9,10 @@ import * as series from '../model/series'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import i18n from '../i18n'
 
+// Le garde est partagé par toutes les commandes (souris, clavier, assistant et fenêtres).
+let guard: (prev: Project, next: Project) => boolean = () => true
+export const setProjectGuard = (next: typeof guard) => { guard = next }
+export const projectChangeAllowed = (prev: Project, next: Project) => guard(prev, next)
 const HISTORY_LIMIT = 200
 
 /**
@@ -60,7 +64,7 @@ interface ProjectState {
   remove: (nodeIds: string[], linkIds: string[]) => void
   duplicate: (ids: string[]) => string[]
   renumber: () => void
-  markSaved: () => void
+  markSaved: (snapshot: Project) => void
 
   addPort: (equipmentId: string, port: Omit<PortDef, 'id'>) => string | null
   updatePort: (equipmentId: string, portId: string, patch: Partial<Omit<PortDef, 'id'>>) => void
@@ -107,7 +111,11 @@ interface ProjectState {
   assignToMulticore: (linkIds: string[], mcId: string | null) => string | null
 }
 
-export const useProject = create<ProjectState>((set, get) => {
+export const useProject = create<ProjectState>((rawSet, get) => {
+  const set = (patch: Partial<ProjectState>) => {
+    if (patch.project && !projectChangeAllowed(get().project, patch.project)) return
+    rawSet(patch)
+  }
   /** Applique une nouvelle version du projet en empilant l'ancienne. */
   const commit = (next: Project) => {
     const { project, past } = get()
@@ -187,7 +195,7 @@ export const useProject = create<ProjectState>((set, get) => {
       return r.ids
     },
     renumber: () => commit(ops.renumberLinks(get().project)),
-    markSaved: () => set({ saved: true }),
+    markSaved: (snapshot) => { if (get().project === snapshot) set({ saved: true }) },
 
     addPort: (eqId, port) => {
       const r = ops.addPort(get().project, eqId, port)

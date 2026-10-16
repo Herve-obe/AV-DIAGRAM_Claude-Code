@@ -11,12 +11,14 @@ Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/eta
 ## Fonctions disponibles
 
 - Bibliothèque de blocs génériques, par glisser-déposer ou double-clic
+- Équipements volumineux repliés sur leurs ports reliés, avec accès aux ports libres et vue complète
+- Canevas à pages fixes selon le format choisi ; à l'export PDF, mise à l'échelle sur une page ou conservation sur plusieurs pages
 - Liaisons typées : 10 familles de signaux, chacune avec sa couleur et son style de trait, et des filtres d'affichage
 - Contrôle de compatibilité : signal, niveau (micro, ligne +4 dBu, HP), connecteurs, sens, ports occupés
 - Numérotation automatique des câbles (`ZONE-TYPE-NUM`), renumérotation
 - Listes générées : câblage, nomenclature (puissance, courant à 230 V, poids), alertes
 - Modes Débutant et Expert, palette de commandes (Ctrl+K), thèmes sombre, clair ou système, français et anglais
-- Sauvegarde automatique sur l'appareil, fichiers `.avd`, export PNG / SVG / CSV
+- Enregistrement du fichier principal par Ctrl+S / Cmd+S, sauvegardes de sécurité automatiques, fichiers `.avd`, export PNG / SVG / CSV
 - Application de bureau 100 % hors ligne, avec les fenêtres natives d'ouverture et d'enregistrement
 
 ## Installer

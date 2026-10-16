@@ -28,12 +28,32 @@ les champs vides de chaque projet.
 ## Mise en page
 
 - Formats ISO 216 : A4, A3, A2, A1, A0, paysage ou portrait.
-- **Mise à l'échelle** : chaque feuille du projet tient sur une page.
-- **Taille fixe** : le schéma est imprimé à l'échelle choisie (100 % : 1 unité du schéma = 0,25 mm)
-  et découpé en pages repérées A1, B1, A2... ; le découpage est dessiné en pointillés sur le
-  canevas.
-- Changer de format (Paramètres ou fenêtre d'export) ouvre un choix : mettre à l'échelle (avec la
-  réduction obtenue) ou garder la taille (avec le nombre de pages).
+- Le canevas garde ses pages à 100 %, ancrées à l'origine. Dépasser une limite ajoute des pages,
+  sans déplacer les appareils ni réduire le dessin. La touche F recadre sur toutes les pages.
+- Les pointillés délimitent la **zone de dessin** disponible sur chaque page, hors marges,
+  légende et cartouche. Sur A3 paysage sans historique de révisions : 400 × 225 mm utiles.
+- À l'export, **Mettre à l'échelle sur une page** fait tenir chaque feuille du projet sur une page.
+- **Conserver sur plusieurs pages** garde l'échelle choisie (100 % : 1 unité = 0,25 mm) et les
+  pages repérées A1, B1, A2... Les textes ne sont pas réduits automatiquement. Une échelle
+  d'export personnalisée peut donner un découpage différent du canevas à 100 %.
+- Le choix une page / plusieurs pages ne modifie pas le canevas. Changer le format ou
+  l'orientation modifie ses dimensions, sans déplacer les équipements.
+- Le total annoncé dans les réglages est une **estimation** ; l'export mesure le contenu réellement
+  affiché, groupes repliés, calque visible, tracés et étiquettes du routeur compris.
+- La sélection et la vue sont restaurées après l'export. Les boutons d'édition, pointillés et
+  points de la grille ne sont pas imprimés.
+
+## Équipements à nombreux ports
+
+Au-delà de 16 ports, un équipement affiche par défaut uniquement les ports reliés, sans
+renumérotation. Les liaisons vers une autre feuille gardent leur port et leur renvoi visibles.
+« Ajouter une connexion » permet de choisir un port libre puis de tirer un câble depuis ou vers
+ce port. Après branchement, il reste visible ; après annulation, il est de nouveau masqué.
+« Tous les ports » déplie le bloc, « Ports reliés » le replie.
+
+Le dépliage est propre au poste et conservé pendant le passage entre feuilles. Il ne modifie
+ni le projet, ni les réservations des calques. L'export reprend cette représentation et enlève
+ses outils de branchement. Les petits appareils restent affichés en entier.
 
 ## Filigrane
 

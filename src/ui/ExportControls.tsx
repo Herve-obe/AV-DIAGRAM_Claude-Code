@@ -3,7 +3,7 @@
 // cartouche du poste. Composants contrôlés : la valeur et sa modification viennent du parent.
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fitScale, pageSize, protectionLevel, recipientsOf, sheetBounds, sheetLayout, tilesFor, watermarkLayout, watermarkText, type ProtectionLevel } from '../io/exportOptions'
+import { fitScale, pageSize, protectionLevel, recipientsOf, sheetBounds, sheetsToExport, sheetLayout, tilesFor, watermarkLayout, watermarkText, type ProtectionLevel } from '../io/exportOptions'
 import { DEFAULT_SHEET_ID } from '../model/project'
 import { SIGNAL_FAMILIES } from '../model/signals'
 import {
@@ -18,34 +18,25 @@ import { Icon } from './Icon'
 /** Effet d'un format sur les feuilles du projet : réduction pour tenir sur une page, ou nombre de pages. */
 export function formatImpact(project: Project, opts: ExportSettings) {
   const { area } = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, project.info?.revisions?.length ?? 0)
-  const sheets = project.sheets?.length ? project.sheets : [{ id: DEFAULT_SHEET_ID, name: '' }]
+  const sheets = sheetsToExport(project, DEFAULT_SHEET_ID)
   let minFit = Infinity
   let pages = 0
   let maxPages = 0
   for (const s of sheets) {
     const b = sheetBounds(project, s.id, DEFAULT_SHEET_ID)
-    if (!b) continue
-    minFit = Math.min(minFit, fitScale(b, area))
+    if (b) minFit = Math.min(minFit, fitScale(b, area))
     const t = tilesFor(b, area, opts.printScale)
     pages += t.cols * t.rows
     maxPages = Math.max(maxPages, t.cols * t.rows)
   }
-  return { fit: Number.isFinite(minFit) ? Math.round(minFit) : 100, pages, maxPages }
+  return { fit: Number.isFinite(minFit) ? Math.min(100, Math.round(minFit)) : 100, pages, maxPages }
 }
 
 export function FormatPicker({ project, value, onChange }: { project: Project; value: ExportSettings; onChange: (v: ExportSettings) => void }) {
   const { t } = useTranslation()
-  const [pending, setPending] = useState<ExportSettings | null>(null)
   const size = pageSize(value.paper, value.orientation)
   const impact = useMemo(() => formatImpact(project, value), [project, value])
-  // Changement de format : on demande quoi faire du synoptique
-  const propose = (paper: PaperSize, orientation: ExportSettings['orientation']) => {
-    if (paper === value.paper && orientation === value.orientation) return
-    // Mode « page » : la feuille dessinée sur le canevas change de format, rien à demander
-    if (value.scaleMode === 'page') return onChange({ ...value, paper, orientation })
-    setPending({ ...value, paper, orientation })
-  }
-  const pendingImpact = useMemo(() => (pending ? formatImpact(project, pending) : null), [project, pending])
+  const propose = (paper: PaperSize, orientation: ExportSettings['orientation']) => onChange({ ...value, paper, orientation })
 
   return (
     <div className="format-picker">
@@ -65,23 +56,10 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
       </div>
       <p className="dialog-hint">{t('exportPdf.size', { w: size.w, h: size.h })}</p>
 
-      {pending && pendingImpact && (
-        <div className="format-warning" role="alertdialog" aria-labelledby="format-warning-title">
-          <p id="format-warning-title"><Icon name="alert" size={14} /> {t('exportPdf.changeTitle', { from: `${value.paper} ${t(`exportPdf.${value.orientation}`)}`, to: `${pending.paper} ${t(`exportPdf.${pending.orientation}`)}` })}</p>
-          <button className="btn" onClick={() => { onChange({ ...pending, scaleMode: 'fit' }); setPending(null) }}>
-            <strong>{t('exportPdf.choiceFit')}</strong>
-            <span>{t('exportPdf.choiceFitHint', { scale: pendingImpact.fit })}</span>
-          </button>
-          <button className="btn" onClick={() => { onChange({ ...pending, scaleMode: 'tile' }); setPending(null) }}>
-            <strong>{t('exportPdf.choiceTile')}</strong>
-            <span>{t('exportPdf.choiceTileHint', { count: pendingImpact.pages, scale: pending.printScale, paper: pending.paper })}</span>
-          </button>
-          <button className="btn btn-ghost" onClick={() => setPending(null)}>{t('pdfImport.cancel')}</button>
-        </div>
-      )}
+      <p className="dialog-hint">{t('exportPdf.canvasHint')}</p>
 
       <div className="segmented export-mode" role="radiogroup" aria-label={t('exportPdf.scaleMode')}>
-        {(['page', 'fit', 'tile'] as const).map((m) => (
+        {(['tile', 'fit'] as const).map((m) => (
           <button key={m} role="radio" aria-checked={value.scaleMode === m} aria-pressed={value.scaleMode === m} onClick={() => onChange({ ...value, scaleMode: m })}>
             {t(`exportPdf.mode.${m}`)}
           </button>
@@ -89,8 +67,6 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
       </div>
       {value.scaleMode === 'fit' ? (
         <p className="dialog-hint">{t('exportPdf.fitHint', { scale: impact.fit })}</p>
-      ) : value.scaleMode === 'page' ? (
-        <p className="dialog-hint">{t('exportPdf.pageHint')}</p>
       ) : (
         <>
           <div className="field export-scale">

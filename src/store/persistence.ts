@@ -1,94 +1,96 @@
-// Sauvegarde automatique locale (IndexedDB) : le projet survit à la fermeture de l'application, hors
-// ligne. Aucune donnée ne quitte l'appareil. Les derniers projets ouverts sont aussi gardés, pour les
-// rouvrir depuis la fenêtre d'accueil (un nouveau projet ne fait donc pas perdre le précédent).
+// Récupération locale distincte du fichier principal .avd, enregistré uniquement par l'utilisateur.
 import { del, get, set } from 'idb-keyval'
-import { copyToSaveFolder } from '../io/files'
+import { readProjectFile } from '../io/files'
 import { isProject } from '../model/project'
 import type { Project } from '../model/types'
 import { useProject } from './projectStore'
+import { useSaveFolder } from './saveFolderStore'
 
 const KEY = 'avd.currentProject'
 const RECENT_KEY = 'avd.recent'
-const projectKey = (id: string) => `avd.project.${id}`
-const DELAY_MS = 600
+const projectKey = (id: string) => 'avd.project.' + id
 const RECENT_MAX = 8
-
-export interface RecentProject {
-  id: string
-  name: string
-  updatedAt: string
-  equipment: number
-}
-
+export interface RecentProject { id: string; name: string; updatedAt: string; equipment: number }
 const entryOf = (p: Project): RecentProject => ({ id: p.id, name: p.name, updatedAt: p.updatedAt, equipment: Object.keys(p.equipment).length })
-
-/** Projet retrouvé au lancement (null : premier lancement ou stockage indisponible) */
 let restored: RecentProject | null = null
 export const restoredProject = () => restored
 
 export async function listRecent(): Promise<RecentProject[]> {
-  try {
-    const v = await get(RECENT_KEY)
-    return Array.isArray(v) ? v : []
-  } catch {
-    return []
-  }
+  try { const v = await get(RECENT_KEY); return Array.isArray(v) ? v : [] } catch { return [] }
 }
-
 async function remember(p: Project) {
-  const list = (await listRecent()).filter((r) => r.id !== p.id)
-  const next = [entryOf(p), ...list]
+  const list = (await listRecent()).filter(r => r.id !== p.id)
+  // La limite porte uniquement sur les raccourcis. Les anciens projets locaux sont conservés.
   await set(projectKey(p.id), p)
-  for (const old of next.slice(RECENT_MAX)) await del(projectKey(old.id))
-  await set(RECENT_KEY, next.slice(0, RECENT_MAX))
+  await set(RECENT_KEY, [entryOf(p), ...list].slice(0, RECENT_MAX))
 }
-
 export async function loadRecent(id: string): Promise<Project | null> {
   try {
-    const p = await get(projectKey(id))
+    const path = useSaveFolder.getState().projectFiles[id]
+    const p = path ? await readProjectFile(path) : await get(projectKey(id))
     return isProject(p) ? p : null
-  } catch {
-    return null
-  }
+  } catch { return null }
 }
-
 export async function forgetRecent(id: string): Promise<void> {
-  try {
-    await set(RECENT_KEY, (await listRecent()).filter((r) => r.id !== id))
-    await del(projectKey(id))
-  } catch {
-    // stockage indisponible : rien à oublier
-  }
+  try { await set(RECENT_KEY, (await listRecent()).filter(r => r.id !== id)) }
+  catch { /* Stockage indisponible : le raccourci reste affiché. */ }
 }
-
 export async function restoreProject(): Promise<void> {
   try {
     const stored = await get(KEY)
-    if (!isProject(stored)) return
-    useProject.getState().load(stored)
-    restored = entryOf(stored)
-    // Projet enregistré par une version précédente, sans liste des récents
-    if (!(await listRecent()).some((r) => r.id === stored.id)) await remember(stored)
-  } catch {
-    // IndexedDB indisponible : on garde le projet vide de départ
-  }
+    const p = isProject(stored) ? stored : stored?.project
+    if (!isProject(p)) return
+    const path = useSaveFolder.getState().projectFiles[p.id]
+    if (stored?.saved === true && path) {
+      try { useProject.getState().load(await readProjectFile(path)) }
+      catch {
+        // Disque retiré ou fichier déplacé : la copie interne reste récupérable.
+        useProject.getState().load(p)
+        useProject.setState({ saved: false })
+      }
+    } else {
+      useProject.getState().load(p)
+      useProject.setState({ saved: false })
+    }
+    // Une récupération après plantage n'est jamais présentée comme un fichier principal enregistré.
+    restored = entryOf(p)
+    if (!(await listRecent()).some(r => r.id === p.id)) await remember(p)
+  } catch { /* Premier lancement ou stockage indisponible. */ }
 }
 
-export function startAutosave(): () => void {
-  let timer: ReturnType<typeof setTimeout> | undefined
-  return useProject.subscribe((state, prev) => {
-    if (state.project === prev.project) return
-    clearTimeout(timer)
-    timer = setTimeout(async () => {
-      try {
-        const p = useProject.getState().project
-        await set(KEY, p)
-        await remember(p)
-        useProject.getState().markSaved()
-        await copyToSaveFolder(p)
-      } catch {
-        // Échec silencieux : l'indicateur "non enregistré" reste affiché
-      }
-    }, DELAY_MS)
+let timer: ReturnType<typeof setTimeout> | undefined
+let pending: Project | null = null
+let writes: Promise<void> = Promise.resolve()
+const waiting = new Map<string, { project: Project; saved: boolean }>()
+/** Capture le projet sortant avant toute attente, puis ordonne les écritures de récupération. */
+export function flushRecovery(): Promise<void> {
+  clearTimeout(timer)
+  const p = pending
+  pending = null
+  if (p) {
+    const saved = useProject.getState().project === p && useProject.getState().saved
+    waiting.set(p.id, { project: p, saved })
+  }
+  writes = writes.catch(() => {}).then(async () => {
+    for (const [id, snapshot] of waiting) {
+      await remember(snapshot.project)
+      await set(KEY, snapshot)
+      if (waiting.get(id) === snapshot) waiting.delete(id)
+    }
   })
+  return writes
+}
+export async function discardRecovery(): Promise<void> {
+  await flushRecovery()
+  await del(KEY)
+}
+export function startAutosave(): () => void {
+  const unsubscribe = useProject.subscribe((s, prev) => {
+    if (s.project === prev.project && s.saved === prev.saved) return
+    if (s.project.id !== prev.project.id && pending) void flushRecovery().catch(() => {})
+    pending = s.project
+    clearTimeout(timer)
+    timer = setTimeout(() => { void flushRecovery().catch(() => {}) }, 600)
+  })
+  return () => { unsubscribe(); void flushRecovery().catch(() => {}) }
 }

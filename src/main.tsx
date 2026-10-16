@@ -5,6 +5,7 @@ import './styles/tokens.css'
 import './styles/app.css'
 import './i18n'
 import App from './App'
+import { guardWindowClose } from './io/documentLifecycle'
 import { restoreUserLibrary } from './store/libraryStore'
 import { restoreProject, startAutosave } from './store/persistence'
 import { startWindowSync, WINDOW_ROLE } from './store/windowSync'
@@ -17,6 +18,7 @@ const main = WINDOW_ROLE === 'main'
 Promise.all([main ? restoreProject() : Promise.resolve(), restoreUserLibrary()]).finally(() => {
   if (main) {
     startAutosave()
+    void guardWindowClose()
     // Sauvegardes de sécurité tournantes dans le dossier choisi (Paramètres > Enregistrement)
     startBackups(() => useProject.getState().project)
   }

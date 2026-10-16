@@ -319,8 +319,8 @@
   "status": {
     "equipment": "{{count}} items",
     "links": "{{count}} links",
-    "saved": "Saved on this device",
-    "unsaved": "Saving…",
+    "saved": "Main file saved",
+    "unsaved": "Unsaved changes",
     "offline": "Works offline"
   },
   "palette": {
@@ -681,23 +681,28 @@
     "showAll": "Show all layers"
   },
   "collab": {
-    "title": "Work together",
+    "title": "Collaborative Session",
     "hint": "Several computers work on the same project at the same time over the local network (venue network, office, VPN). No data leaves the network, no account.",
     "name": "Your name (seen by others)",
     "namePlaceholder": "e.g. FOH audio",
     "host": "Host",
     "join": "Join",
     "hostDesktopOnly": "Working together uses the AV Diagram desktop app (Windows or macOS), installed on each computer. Windows and Mac computers can work together in the same session.",
-    "hostHint": "This computer opens the session with the current project. Then share the address and code with the other participants.",
+    "hostHint": "Open a lobby with the current diagram. Welcome guests, assign their layers, then start the session.",
     "port": "Port",
-    "start": "Open session",
-    "joinHint": "Address and code shown on the computer hosting the session.",
+    "start": "Open the lobby",
+    "joinHint": "Choose a host on the local network, then enter the code they give you.",
     "address": "Host address",
     "code": "Session code",
     "joinWarning": "The session project replaces the project open on this computer: save it first if needed.",
     "joinAction": "Join",
+    "joinRequirements": {
+      "name": "Enter your name to join the session.",
+      "host": "Select a session from the list or enter an address in the advanced options.",
+      "code": "Enter the 6-digit code provided by the host."
+    },
     "addresses": "Addresses of this computer",
-    "firewall": "If nobody can connect, allow port {{port}} (TCP) in this computer's firewall.",
+    "firewall": "Allow AV Diagram on the private network. Sessions use TCP port {{port}}; host discovery uses UDP port 4456.",
     "joined": "Connected to {{address}}.",
     "participants": "Participants",
     "you": "you",
@@ -717,7 +722,7 @@
       "start": "Could not open the session: {{detail}}"
     },
     "backup": "This computer can take over if the host disconnects (it then opens the session on port 4455)",
-    "relayHint": "The original host is unreachable: this computer runs the session in its place. As soon as the host is back, everyone rejoins it automatically.",
+    "relayHint": "This computer hosts the backup session and keeps all changes. The original computer rejoins this session when it returns; hosting is not transferred automatically.",
     "resume": {
       "title": "Interrupted session",
       "hintHost": "You were hosting “{{name}}” (state saved on {{date}}). Resuming reopens the session with the same code: participants reconnect on their own and their changes are merged.",
@@ -727,12 +732,15 @@
     },
     "layers": {
       "title": "Reserved layers",
-      "hint": "Reserve your layer: others can no longer change it by mistake. Shared equipment (e.g. a camera with audio inputs) can still be moved and wired on its free ports.",
-      "free": "free",
+      "hint": "The host assigns layers to guests. Guests see everything and edit only from an assigned layer. Their general view is read-only. The host can edit everything.",
+      "free": "Host only",
       "mine": "reserved by you",
       "by": "reserved by {{name}}",
       "claim": "Reserve",
-      "release": "Release"
+      "release": "Release",
+      "unassigned": "Host only",
+      "assign": "Assign {{layer}} layer",
+      "offline": "{{name}} (disconnected)"
     },
     "chat": {
       "title": "Session chat",
@@ -750,7 +758,34 @@
       "handedBack": "The original host is back: the session moves back to it.",
       "ended": "The host ended the session. The project stays open on this computer.",
       "kicked": "The host removed you from the session. The project stays open on this computer.",
-      "locked": "Change refused: the {{layer}} layer is reserved by {{name}}."
+      "locked": "Change refused: the {{layer}} layer is reserved by {{name}}.",
+      "accessDenied": "Change refused: use a layer assigned by the host. Shared settings and the general view are reserved for the host.",
+      "returnDeferred": "The original host is available again. This session stays hosted here to preserve all changes.",
+      "joinedRelay": "The session continues on the backup computer. You joined its current document; that computer remains the host."
+    },
+    "advanced": "Advanced options",
+    "manage": "Manage session",
+    "openDiagram": "View diagram",
+    "peopleCount_one": "{{count}} participant",
+    "peopleCount_other": "{{count}} participants",
+    "lobby": {
+      "label": "Lobby",
+      "waiting": "Waiting for guests",
+      "begin": "Start session",
+      "hostRole": "Host",
+      "invite": "Guests select this session in their network search. Give them the code above.",
+      "assignAfterJoin": "Guests appear here when they connect. You can then assign their layers before starting.",
+      "guestWaiting": "You are connected. The host is assigning roles and will start the session. The diagram is read-only until then."
+    },
+    "discovery": {
+      "title": "Available hosts",
+      "searching": "Looking for a host on the local network…",
+      "found": "Choose the host to join.",
+      "empty": "No host found. Check that a lobby is open on the same network.",
+      "error": "Search unavailable. Try again or use advanced options.",
+      "refresh": "Refresh",
+      "host": "Host: {{name}}",
+      "unavailable": "Network discovery is unavailable on this computer. Guests can use the address in advanced options."
     }
   },
   "pdfImport": {
@@ -815,15 +850,15 @@
     "choiceTileHint_other": "The diagram stays at {{scale}} % and may overflow: {{count}} {{paper}} pages in total, to assemble (marks A1, B1...).",
     "scaleMode": "Scale",
     "mode": {
-      "fit": "Scale to fit (1 page per sheet)",
-      "tile": "Fixed size (several pages if needed)",
+      "fit": "Scale to one page",
+      "tile": "Keep multiple pages",
       "page": "Fitted page (sheet shown on the diagram)"
     },
-    "fitHint": "The largest diagram is printed at about {{scale}} % (100 %: 1 diagram unit = 0.25 mm).",
+    "fitHint": "Each sheet is reduced if needed to fit one page. Small diagrams are not enlarged. Estimated scale: {{scale}}%. The working canvas stays unchanged.",
     "printScale": "Print scale (%)",
-    "tileHint_one": "{{count}} {{paper}} page in total.",
-    "tileHint_other": "{{count}} {{paper}} pages in total (up to {{max}} for one sheet): the page split is drawn as dashed lines on the canvas.",
-    "pageLabel": "{{ref}} · {{paper}}",
+    "tileHint_one": "Estimate: {{count}} {{paper}} page at the selected scale. The final count uses displayed dimensions.",
+    "tileHint_other": "Estimate: {{count}} {{paper}} pages (up to {{max}} per sheet). The final count uses displayed dimensions.",
+    "pageLabel": "{{paper}} · {{ref}} · drawing area",
     "watermarkEnable": "Watermark on",
     "watermarkText": "Watermark text",
     "watermarkFields": "Replaced fields: {client}, {project}, {date}, {revision}, {number}, {recipient}.",
@@ -882,7 +917,8 @@
       "deterrent": "the PDF opens everywhere; copy and editing are blocked by common readers, but a specialised tool can lift these restrictions.",
       "strong": "content encrypted (AES-256), unreadable without the open password. Send it through another channel than the PDF."
     },
-    "pageHint": "The sheet edges are shown as dashed lines behind the diagram, title block and legend included. The sheet follows the diagram: 100% while it fits, enlarged (smaller scale) beyond. F key: show the whole sheet."
+    "pageHint": "The sheet edges are shown as dashed lines behind the diagram, title block and legend included. The sheet follows the diagram: 100% while it fits, enlarged (smaller scale) beyond. F key: show the whole sheet.",
+    "canvasHint": "The canvas keeps fixed pages at 100%. Dashed lines mark the drawing area, excluding margins, legend and title block. Overflow adds pages; the export choice never moves equipment."
   },
   "titleBlock": {
     "owner": "Legal owner",
@@ -987,8 +1023,8 @@
     "lastNone": "No project saved on this device.",
     "file": "Open a file",
     "fileDesc": ".avd project saved on this computer or received from a colleague.",
-    "collab": "Join a session",
-    "collabDesc": "Live collaboration on the local network.",
+    "collab": "Collaborative Session",
+    "collabDesc": "Host a session or find a host on the local network.",
     "recent": "Recent projects on this device",
     "recentMeta_one": "{{count}} item · {{date}}",
     "recentMeta_other": "{{count}} items · {{date}}",
@@ -1007,16 +1043,21 @@
     "lastCopy": "Last copy: {{path}} at {{date}}.",
     "error": "Copy failed: {{error}}",
     "internal": "Internal storage",
-    "internalHint": "The app also always keeps an internal copy of the last 8 projects on this device (resumed at launch). It is not meant for archiving: use the folder above or Ctrl+S.",
+    "internalHint": "An internal copy helps recover work after a crash. Recent projects are shortcuts: removing them never deletes files or older local projects.",
     "backupsTitle": "Safety backups",
-    "backupsHint": "Like Pro Tools session file backups: at regular intervals, if the project has changed, a time-stamped copy is stored in “{{folder}} / project name”. Once the maximum is reached, the oldest one is replaced.",
+    "backupsHint": "At the chosen interval, changed projects are copied to “{{folder}} / project ID”. The chosen number is kept separately for each project, even after renaming.",
     "backupsOn": "Enable safety backups",
     "backupEvery": "Every",
     "backupCount": "Number kept",
     "minutes_one": "{{count}} minute",
     "minutes_other": "{{count}} minutes",
     "backupNow": "Back up now",
-    "lastBackup": "Last backup: {{path}} at {{date}}."
+    "lastBackup": "Last backup: {{path}} at {{date}}.",
+    "manualHint": "Ctrl+S / Cmd+S saves the main .avd file. The safety copies below remain automatic.",
+    "savePrompt": "Save changes to “{{name}}” before continuing?",
+    "discard": "Don’t save",
+    "saveError": "Could not save: {{error}}. The project remains open.",
+    "leaveSession": "Leave or end the collaboration session before switching projects."
   },
   "canvasMenu": {
     "multicore_one": "Route the link through a multicore",
@@ -1134,5 +1175,18 @@
     "titleBlock": "Title block",
     "legend": "Legend",
     "labelFitted": "{{paper}} {{orientation}} · fitted at {{scale}}%"
+  },
+  "portDisplay": {
+    "direction": "Connection direction",
+    "inputs": "Inputs",
+    "outputs": "Outputs",
+    "bidir": "Bidirectional",
+    "free": "{{inputs}} free inputs · {{outputs}} free outputs",
+    "all": "All ports",
+    "fold": "Connected ports",
+    "add": "Add a connection",
+    "choose": "Choose a free port",
+    "dragHint": "Drag a cable from or to the selected port.",
+    "cancel": "Hide this port"
   }
 }

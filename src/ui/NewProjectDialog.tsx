@@ -4,6 +4,7 @@ import { isTauri } from '@tauri-apps/api/core'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DEFAULT_EXPORT, pageSize } from '../io/exportOptions'
+import { prepareToLeave } from '../io/documentLifecycle'
 import { createProjectFile, notifyError, pickSaveFolder, slug } from '../io/files'
 import { buildTemplate, type TemplateId } from '../library/templates'
 import { PAPER_SIZES, type ExportSettings, type PaperSize } from '../model/types'
@@ -33,7 +34,6 @@ function NewProjectForm() {
   const [folder, setFolder] = useState<string | null>(useSaveFolder.getState().dir)
   const [paper, setPaper] = useState<PaperSize>('A3')
   const [orientation, setOrientation] = useState<ExportSettings['orientation']>('landscape')
-  const [showPage, setShowPage] = useState(true)
   const [template, setTemplate] = useState<TemplateId>('blank')
   const [busy, setBusy] = useState(false)
   const size = pageSize(paper, orientation)
@@ -45,28 +45,26 @@ function NewProjectForm() {
   }, [])
 
   const create = async () => {
+    if (busy || (desktop && !folder) || !(await prepareToLeave())) return
     setBusy(true)
     try {
       const base = buildTemplate(template, name.trim() || t('menu.newProjectName'))
       const named = { ...base, name: name.trim() || base.name }
-      // Feuille ajustée au schéma : pas d'échelle à choisir (100 % tant que le schéma tient)
+      // Les pages gardent leur taille ; le choix de réduction se fait à l'export.
       const exportSettings: ExportSettings = {
         ...DEFAULT_EXPORT, ...named.settings.export,
-        paper, orientation, scaleMode: showPage ? 'page' : 'fit', printScale: 100,
+        paper, orientation, scaleMode: 'tile', printScale: 100,
       }
       const project = { ...named, settings: { ...named.settings, export: exportSettings } }
-      useProject.getState().replaceProject(project)
+      if (desktop && folder) await createProjectFile(project, folder)
+      useProject.getState().load(project)
+      if (!desktop) useProject.setState({ saved: false })
       const ui = useUi.getState()
       ui.select([], [])
       ui.setSheet(useProject.getState().project.sheets?.[0]?.id ?? '')
-      if (desktop && folder) {
-        try {
-          await createProjectFile(useProject.getState().project, folder)
-        } catch (e) {
-          notifyError(t('newProject.fileError', { error: e instanceof Error ? e.message : String(e) }))
-        }
-      }
       close()
+    } catch (e) {
+      await notifyError(t('newProject.fileError', { error: String(e) }))
     } finally {
       setBusy(false)
     }
@@ -113,10 +111,7 @@ function NewProjectForm() {
               </div>
               <span className="dim small">{t('exportPdf.size', { w: size.w, h: size.h })}</span>
             </div>
-            <label className="check-line np-row">
-              <input type="checkbox" checked={showPage} onChange={(e) => setShowPage(e.target.checked)} />
-              {t('newProject.showPage')}
-            </label>
+            <p className="dialog-hint">{t('exportPdf.canvasHint')}</p>
           </section>
           <section className="np-section">
             <h3 className="group-title">{t('newProject.start')}</h3>
@@ -134,7 +129,7 @@ function NewProjectForm() {
         </div>
         <footer className="dialog-foot">
           <button className="btn" onClick={close}>{t('series.cancel')}</button>
-          <button className="btn btn-primary" onClick={() => void create()} disabled={busy}>{t('newProject.create')}</button>
+          <button className="btn btn-primary" onClick={() => void create()} disabled={busy || (desktop && !folder)}>{t('newProject.create')}</button>
         </footer>
       </div>
     </div>

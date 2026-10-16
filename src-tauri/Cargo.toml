@@ -1,6 +1,6 @@
 [package]
 name = "av-diagram"
-version = "0.2.0"
+version = "0.2.3"
 description = "AV Diagram : synoptiques d'installations audiovisuelles"
 authors = ["Hervé Obejero"]
 license-file = "../LICENSE.md"
@@ -31,6 +31,8 @@ tokio-tungstenite = "0.30"
 futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
 if-addrs = "0.15"
 rand = "0.9"
+# Déjà utilisé par les dépendances : identité publique dérivée du secret de chaque poste.
+sha2 = "0.10"
 # Export PDF protégé : chiffrement AES-256 (PDF 2.0, révision 6)
 lopdf = { version = "0.45", default-features = false }
 tauri-plugin-persisted-scope = "2"

@@ -319,8 +319,8 @@
   "status": {
     "equipment": "{{count}} équipements",
     "links": "{{count}} liaisons",
-    "saved": "Enregistré sur cet appareil",
-    "unsaved": "Enregistrement…",
+    "saved": "Fichier principal enregistré",
+    "unsaved": "Modifications non enregistrées",
     "offline": "Utilisable hors ligne"
   },
   "palette": {
@@ -681,23 +681,28 @@
     "showAll": "Afficher tous les calques"
   },
   "collab": {
-    "title": "Travail à plusieurs",
+    "title": "Session Collaborative",
     "hint": "Plusieurs postes travaillent en même temps sur le même projet, sur le réseau local (réseau de la presta, bureau, VPN). Aucune donnée ne sort du réseau, pas de compte.",
     "name": "Ton nom (vu par les autres)",
     "namePlaceholder": "ex. Régie son",
     "host": "Héberger",
     "join": "Rejoindre",
     "hostDesktopOnly": "Le travail à plusieurs se fait avec l'application de bureau AV Diagram (Windows ou macOS), installée sur chaque poste. Les postes Windows et Mac peuvent travailler ensemble dans la même session.",
-    "hostHint": "Ce poste ouvre la session avec le projet ouvert. Communique ensuite l'adresse et le code aux autres participants.",
+    "hostHint": "Ouvre une salle d’attente avec le schéma actuel. Accueille les invités, attribue leurs calques, puis commence la session.",
     "port": "Port",
-    "start": "Ouvrir la session",
-    "joinHint": "Adresse et code affichés sur le poste qui héberge la session.",
+    "start": "Ouvrir la salle d’attente",
+    "joinHint": "Sélectionne un hôte sur le réseau local, puis saisis le code qu’il te communique.",
     "address": "Adresse de l'hôte",
     "code": "Code de session",
     "joinWarning": "Le projet de la session remplace le projet ouvert sur ce poste : enregistre-le avant si besoin.",
     "joinAction": "Rejoindre",
+    "joinRequirements": {
+      "name": "Renseigne ton nom pour rejoindre la session.",
+      "host": "Sélectionne une session dans la liste ou saisis une adresse dans les options avancées.",
+      "code": "Saisis les 6 chiffres du code communiqué par l’hôte."
+    },
     "addresses": "Adresses de ce poste",
-    "firewall": "Si personne n'arrive à se connecter, autorise le port {{port}} (TCP) dans le pare-feu de ce poste.",
+    "firewall": "Autorise AV Diagram sur le réseau privé. La session utilise le port TCP {{port}} ; la recherche des hôtes utilise le port UDP 4456.",
     "joined": "Connecté à {{address}}.",
     "participants": "Participants",
     "you": "toi",
@@ -717,7 +722,7 @@
       "start": "Impossible d'ouvrir la session : {{detail}}"
     },
     "backup": "Ce poste peut prendre le relais si l'hôte se déconnecte (ouvre alors la session sur le port 4455)",
-    "relayHint": "L'hôte d'origine est injoignable : ce poste fait tourner la session à sa place. Dès que l'hôte revient, tout le monde le rejoint automatiquement.",
+    "relayHint": "Ce poste héberge la session de secours et garde toutes les modifications. Le poste initial rejoint cette session à son retour ; l’hébergement ne lui est pas retransféré automatiquement.",
     "resume": {
       "title": "Session interrompue",
       "hintHost": "Tu hébergeais « {{name}} » (état enregistré le {{date}}). Reprendre rouvre la session avec le même code : les participants se reconnectent seuls et leurs modifications sont fusionnées.",
@@ -727,12 +732,15 @@
     },
     "layers": {
       "title": "Calques réservés",
-      "hint": "Réserve ton calque : les autres ne pourront plus le modifier par erreur. Les équipements partagés (ex. caméra avec entrées audio) restent déplaçables et reliables pour leurs ports libres.",
-      "free": "libre",
+      "hint": "L’hôte attribue les calques aux postes invités. Les invités voient tout ; ils modifient uniquement depuis un calque attribué. Le calque général reste en lecture seule pour eux. L’hôte peut tout modifier.",
+      "free": "Hôte uniquement",
       "mine": "réservé par toi",
       "by": "réservé par {{name}}",
       "claim": "Réserver",
-      "release": "Libérer"
+      "release": "Libérer",
+      "unassigned": "Hôte uniquement",
+      "assign": "Attribuer le calque {{layer}}",
+      "offline": "{{name}} (déconnecté)"
     },
     "chat": {
       "title": "Tchat de la session",
@@ -750,7 +758,34 @@
       "handedBack": "L'hôte d'origine est de retour : la session repasse chez lui.",
       "ended": "L'hôte a terminé la session. Le projet reste ouvert sur ce poste.",
       "kicked": "L'hôte t'a retiré de la session. Le projet reste ouvert sur ce poste.",
-      "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}."
+      "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}.",
+      "accessDenied": "Modification refusée : utilise un calque attribué par l’hôte. Les éléments communs et le calque général sont réservés à l’hôte.",
+      "returnDeferred": "L’hôte initial est de nouveau disponible. Cette session reste hébergée ici pour conserver toutes les modifications.",
+      "joinedRelay": "La session continue sur le poste de secours. Tu l’as rejoint avec son document à jour ; ce poste reste l’hôte."
+    },
+    "advanced": "Options avancées",
+    "manage": "Gérer la session",
+    "openDiagram": "Voir le schéma",
+    "peopleCount_one": "{{count}} participant",
+    "peopleCount_other": "{{count}} participants",
+    "lobby": {
+      "label": "Salle d’attente",
+      "waiting": "En attente d’invités",
+      "begin": "Commencer la session",
+      "hostRole": "Hôte",
+      "invite": "Les invités choisissent cette session dans leur recherche réseau. Communique-leur le code ci-dessus.",
+      "assignAfterJoin": "Les invités apparaîtront ici dès leur connexion. Tu pourras alors leur attribuer les calques avant de commencer.",
+      "guestWaiting": "Tu es connecté. L’hôte prépare les rôles et commencera la session. Le schéma reste en lecture seule en attendant."
+    },
+    "discovery": {
+      "title": "Hôtes disponibles",
+      "searching": "Recherche d’un hôte sur le réseau local…",
+      "found": "Choisis l’hôte à rejoindre.",
+      "empty": "Aucun hôte trouvé. Vérifie qu’une salle d’attente est ouverte sur le même réseau.",
+      "error": "Recherche indisponible. Réessaie ou utilise les options avancées.",
+      "refresh": "Actualiser",
+      "host": "Hôte : {{name}}",
+      "unavailable": "La découverte réseau n’est pas disponible sur ce poste. Les invités peuvent utiliser l’adresse dans les options avancées."
     }
   },
   "pdfImport": {
@@ -815,15 +850,15 @@
     "choiceTileHint_other": "Le schéma reste à {{scale}} % et peut déborder : {{count}} pages {{paper}} au total, à assembler (repères A1, B1...).",
     "scaleMode": "Échelle",
     "mode": {
-      "fit": "Mise à l'échelle (1 page par feuille)",
-      "tile": "Taille fixe (plusieurs pages si besoin)",
+      "fit": "Mettre à l’échelle sur une page",
+      "tile": "Conserver sur plusieurs pages",
       "page": "Page ajustée (feuille visible sur le schéma)"
     },
-    "fitHint": "Le schéma le plus grand est imprimé à environ {{scale}} % (100 % : 1 unité du schéma = 0,25 mm).",
+    "fitHint": "Chaque feuille sera réduite si nécessaire pour tenir sur une page. Les petits schémas ne sont pas agrandis. Échelle estimée : {{scale}} %. Le canevas de travail reste inchangé.",
     "printScale": "Échelle d'impression (%)",
-    "tileHint_one": "{{count}} page {{paper}} au total.",
-    "tileHint_other": "{{count}} pages {{paper}} au total (jusqu'à {{max}} pour une feuille) : le découpage est dessiné en pointillés sur le canevas.",
-    "pageLabel": "{{ref}} · {{paper}}",
+    "tileHint_one": "Estimation : {{count}} page {{paper}} à l’échelle choisie. Le nombre final utilise les dimensions affichées.",
+    "tileHint_other": "Estimation : {{count}} pages {{paper}} (jusqu’à {{max}} pour une feuille). Le nombre final utilise les dimensions affichées.",
+    "pageLabel": "{{paper}} · {{ref}} · zone de dessin",
     "watermarkEnable": "Filigrane présent",
     "watermarkText": "Texte du filigrane",
     "watermarkFields": "Champs remplacés : {client}, {project}, {date}, {revision}, {number}, {recipient}.",
@@ -882,7 +917,8 @@
       "deterrent": "le PDF s'ouvre partout ; copie et modification bloquées par les lecteurs courants, mais un outil spécialisé peut lever ces restrictions.",
       "strong": "contenu chiffré (AES-256), illisible sans le mot de passe d'ouverture. Le transmettre par un autre canal que le PDF."
     },
-    "pageHint": "Les bords de la feuille sont affichés en pointillés derrière le schéma, cartouche et légende compris. La feuille suit le schéma : à 100 % tant qu'il tient, agrandie (échelle réduite) au-delà. Touche F : voir toute la feuille."
+    "pageHint": "Les bords de la feuille sont affichés en pointillés derrière le schéma, cartouche et légende compris. La feuille suit le schéma : à 100 % tant qu'il tient, agrandie (échelle réduite) au-delà. Touche F : voir toute la feuille.",
+    "canvasHint": "Le canevas garde des pages à 100 %. Les pointillés délimitent la zone de dessin, hors marges, légende et cartouche. Dépasser ajoute des pages ; le choix d’export ne déplace aucun équipement."
   },
   "titleBlock": {
     "owner": "Propriétaire légal",
@@ -987,8 +1023,8 @@
     "lastNone": "Aucun projet enregistré sur cet appareil.",
     "file": "Ouvrir un fichier",
     "fileDesc": "Projet .avd enregistré sur ce poste ou reçu d'un collègue.",
-    "collab": "Rejoindre une session",
-    "collabDesc": "Collaboration en direct sur le réseau local.",
+    "collab": "Session Collaborative",
+    "collabDesc": "Héberger une session ou rejoindre un hôte sur le réseau local.",
     "recent": "Projets récents sur cet appareil",
     "recentMeta_one": "{{count}} équipement · {{date}}",
     "recentMeta_other": "{{count}} équipements · {{date}}",
@@ -1007,16 +1043,21 @@
     "lastCopy": "Dernière copie : {{path}} à {{date}}.",
     "error": "Copie impossible : {{error}}",
     "internal": "Enregistrement interne",
-    "internalHint": "En plus, l'application garde toujours une copie interne des 8 derniers projets sur cet appareil (reprise au lancement). Elle n'est pas faite pour être archivée : utilise le dossier ci-dessus ou Ctrl+S.",
+    "internalHint": "Une copie interne aide à récupérer le travail après un plantage. Les projets récents sont des raccourcis : les retirer ne supprime aucun fichier ni ancien projet local.",
     "backupsTitle": "Sauvegardes de sécurité",
-    "backupsHint": "Comme les sauvegardes de session de Pro Tools : à intervalle régulier, si le projet a changé, une copie horodatée est rangée dans « {{folder}} / nom du projet ». Une fois le nombre maximal atteint, la plus ancienne est remplacée.",
+    "backupsHint": "À intervalle régulier, si le projet a changé, une copie est rangée dans « {{folder}} / identifiant du projet ». Le nombre choisi est conservé séparément pour chaque projet, même après un changement de nom.",
     "backupsOn": "Activer les sauvegardes de sécurité",
     "backupEvery": "Toutes les",
     "backupCount": "Nombre gardé",
     "minutes_one": "{{count}} minute",
     "minutes_other": "{{count}} minutes",
     "backupNow": "Sauvegarder maintenant",
-    "lastBackup": "Dernière sauvegarde : {{path}} à {{date}}."
+    "lastBackup": "Dernière sauvegarde : {{path}} à {{date}}.",
+    "manualHint": "Ctrl+S / Cmd+S enregistre le fichier principal .avd. Les copies de sécurité ci-dessous restent automatiques.",
+    "savePrompt": "Enregistrer les modifications de « {{name}} » avant de continuer ?",
+    "discard": "Ne pas enregistrer",
+    "saveError": "Enregistrement impossible : {{error}}. Le projet reste ouvert.",
+    "leaveSession": "Quitte ou termine la session de collaboration avant de changer de projet."
   },
   "canvasMenu": {
     "multicore_one": "Faire passer la liaison dans un multipaire",
@@ -1134,5 +1175,18 @@
     "titleBlock": "Cartouche",
     "legend": "Légende",
     "labelFitted": "{{paper}} {{orientation}} · ajusté à {{scale}} %"
+  },
+  "portDisplay": {
+    "direction": "Sens de connexion",
+    "inputs": "Entrées",
+    "outputs": "Sorties",
+    "bidir": "Bidirectionnels",
+    "free": "{{inputs}} entrées libres · {{outputs}} sorties libres",
+    "all": "Tous les ports",
+    "fold": "Ports reliés",
+    "add": "Ajouter une connexion",
+    "choose": "Choisir un port libre",
+    "dragHint": "Tirez un câble depuis le port choisi, ou vers celui-ci.",
+    "cancel": "Masquer ce port"
   }
 }

@@ -1,10 +1,9 @@
 // Options d'export : formats de papier (ISO 216), disposition de la planche (cartouche, historique des
 // indices, légende), échelle d'impression et découpage en pages, placement du filigrane. Fonctions
 // pures : le dessin (PDF, image, SVG) est fait ailleurs à partir de ces calculs.
-import { SIGNAL_FAMILIES } from '../model/signals'
+import { groupInterface, groupNodeId } from '../model/groups'
+import { DEFAULT_SHEET_ID } from '../model/project'
 import type { Equipment, ExportSettings, PaperSize, Project, WatermarkSettings } from '../model/types'
-
-const SIGNAL_FAMILIES_COUNT = SIGNAL_FAMILIES.length
 
 /** Dimensions ISO 216 en mm, côté court x côté long */
 const ISO_A: Record<PaperSize, [number, number]> = {
@@ -21,7 +20,7 @@ export const MM_PER_UNIT = 0.25
 export const DEFAULT_EXPORT: ExportSettings = {
   paper: 'A3',
   orientation: 'landscape',
-  scaleMode: 'fit',
+  scaleMode: 'tile',
   printScale: 100,
   watermark: {
     enabled: false,
@@ -43,6 +42,8 @@ export function exportSettingsOf(project: Project): ExportSettings {
   return {
     ...DEFAULT_EXPORT,
     ...rest,
+    // L'ancien mode « page ajustée » devient un choix d'export sur une page.
+    scaleMode: rest.scaleMode === 'page' ? 'fit' : rest.scaleMode ?? DEFAULT_EXPORT.scaleMode,
     watermark: { ...DEFAULT_EXPORT.watermark, ...e.watermark },
     // Ancien réglage « protect » (case unique)
     protection: { ...DEFAULT_EXPORT.protection, ...(protect ? { enabled: true } : {}), ...e.protection },
@@ -154,7 +155,7 @@ export function estimateBlock(eq: Pick<Equipment, 'ports' | 'rotation'>): { w: n
   return vertical ? { w: Math.max(200, rows * 70), h: 120 } : { w: 240, h: 64 + rows * 20 }
 }
 
-/** Contenu d'une feuille (blocs et notes), avec une petite marge ; null si la feuille est vide. */
+/** Encombrement estimé d'une feuille, groupes repliés compris ; null si elle est vide. */
 export function sheetBounds(project: Project, sheetId: string, defaultSheetId: string, measured?: Map<string, { w: number; h: number }>): Bounds | null {
   const boxes: Bounds[] = []
   for (const eq of Object.values(project.equipment)) {
@@ -166,77 +167,45 @@ export function sheetBounds(project: Project, sheetId: string, defaultSheetId: s
     if ((a.sheetId ?? defaultSheetId) !== sheetId) continue
     boxes.push({ x: a.position.x, y: a.position.y, w: a.size?.w ?? 200, h: a.size?.h ?? 80 })
   }
-  if (!boxes.length) return null
-  const pad = 30
-  const x = Math.min(...boxes.map((b) => b.x)) - pad
-  const y = Math.min(...boxes.map((b) => b.y)) - pad
-  const r = Math.max(...boxes.map((b) => b.x + b.w)) + pad
-  const b = Math.max(...boxes.map((b) => b.y + b.h)) + pad
-  return { x, y, w: r - x, h: b - y }
+  for (const s of project.sheets ?? []) {
+    if (s.parentId !== sheetId) continue
+    const ports = groupInterface(project, s.id)
+    const ins = ports.filter(p => p.direction === 'in').length
+    const size = measured?.get(groupNodeId(s.id)) ?? { w: 240, h: 64 + Math.max(ins, ports.length - ins) * 20 }
+    const p = s.groupPosition ?? { x: 0, y: 0 }
+    boxes.push({ x: p.x, y: p.y, ...size })
+  }
+  return boundsOf(boxes)
 }
 
-/** Pages d'une feuille en taille fixe : grille de tuiles de la taille de la zone du schéma. */
-export function tilesFor(bounds: Bounds, area: { w: number; h: number }, printScale: number): { cols: number; rows: number; tileW: number; tileH: number } {
+/** Pages fixes, ancrées à l'origine : le dessin déborde sans être réduit. */
+export function tilesFor(bounds: Bounds | null, area: { w: number; h: number }, printScale: number) {
   const mmPerUnit = (MM_PER_UNIT * printScale) / 100
   const tileW = area.w / mmPerUnit
   const tileH = area.h / mmPerUnit
-  return { cols: Math.max(1, Math.ceil(bounds.w / tileW - 1e-6)), rows: Math.max(1, Math.ceil(bounds.h / tileH - 1e-6)), tileW, tileH }
+  const col = Math.min(0, Math.floor((bounds?.x ?? 0) / tileW + 1e-6))
+  const row = Math.min(0, Math.floor((bounds?.y ?? 0) / tileH + 1e-6))
+  const right = bounds ? bounds.x + bounds.w : 0
+  const bottom = bounds ? bounds.y + bounds.h : 0
+  return { x: col * tileW, y: row * tileH, cols: Math.max(1, Math.ceil(right / tileW - 1e-6)) - col,
+    rows: Math.max(1, Math.ceil(bottom / tileH - 1e-6)) - row, tileW, tileH }
+}
+
+/** Mesures du canevas affiché : les éléments masqués ne consomment aucune page. */
+export function renderedBounds(nodes: { hidden?: boolean; position: { x: number; y: number }; measured?: { width?: number; height?: number } }[]): Bounds | null {
+  return boundsOf(nodes.filter(n => !n.hidden && n.measured?.width && n.measured.height)
+    .map(n => ({ x: n.position.x, y: n.position.y, w: n.measured!.width!, h: n.measured!.height! })))
+}
+
+export function sheetsToExport(project: Project, current: string) {
+  const all = project.sheets?.length ? project.sheets : [{ id: current, name: '' }]
+  const used = all.filter(s => sheetBounds(project, s.id, DEFAULT_SHEET_ID) !== null)
+  return used.length ? used : all.slice(0, 1)
 }
 
 /** Échelle (en %) à laquelle une feuille tient sur une page. */
 export function fitScale(bounds: Bounds, area: { w: number; h: number }): number {
   return Math.min(area.w / (bounds.w * MM_PER_UNIT), area.h / (bounds.h * MM_PER_UNIT)) * 100
-}
-
-export interface PageFrame {
-  /** Feuille entière, en unités du schéma (la zone de dessin commence en 0, 0) */
-  sheet: Bounds
-  /** Zone où se dessine le synoptique */
-  area: Bounds
-  titleBlock: Bounds
-  legend: Bounds
-}
-
-/**
- * Mode « page » : la feuille au format choisi, dessinée sur le canevas à l'échelle d'impression. La zone de
- * dessin commence à l'origine du schéma ; marges, cartouche et légende sont autour, comme sur le PDF.
- */
-export function pageFrame(opts: Pick<ExportSettings, 'paper' | 'orientation' | 'printScale'>, revisions = 0): PageFrame {
-  const l = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES_COUNT, revisions)
-  const k = 100 / (MM_PER_UNIT * opts.printScale)
-  const map = (r: { x: number; y: number; w: number; h: number }) => ({ x: (r.x - l.area.x) * k, y: (r.y - l.area.y) * k, w: r.w * k, h: r.h * k })
-  const legendRows = Math.ceil(SIGNAL_FAMILIES_COUNT / l.legend.cols)
-  return {
-    sheet: map({ x: 0, y: 0, w: l.w, h: l.h }),
-    area: map(l.area),
-    titleBlock: map({ x: l.titleBlock.x, y: l.revisions.h ? l.revisions.y : l.titleBlock.y, w: l.titleBlock.w, h: l.titleBlock.h + l.revisions.h }),
-    legend: map({ x: l.legend.x, y: l.legend.y, w: l.legend.cols * l.legend.colW, h: 10 + legendRows * l.legend.rowH }),
-  }
-}
-
-/** Marge entre le schéma et le bord de la zone de dessin, en unités du schéma */
-const PAGE_PAD = 40
-
-/**
- * Mode « page » ajusté : la feuille au format choisi, centrée sur le schéma de la feuille affichée. Tant
- * que le schéma tient dans la zone de dessin à 100 %, la feuille garde cette taille (un petit schéma
- * n'est jamais agrandi) ; au-delà, elle grandit en gardant les proportions du format, cartouche et
- * légende compris, et l'échelle d'impression baisse d'autant (scale, en %).
- */
-export function fittedPage(
-  opts: Pick<ExportSettings, 'paper' | 'orientation'>,
-  revisions: number,
-  content: Bounds | null,
-): PageFrame & { scale: number } {
-  const base = pageFrame({ ...opts, printScale: 100 }, revisions)
-  const s = content ? Math.max(1, (content.w + 2 * PAGE_PAD) / base.area.w, (content.h + 2 * PAGE_PAD) / base.area.h) : 1
-  const cx = content ? content.x + content.w / 2 : base.area.w / 2
-  const cy = content ? content.y + content.h / 2 : base.area.h / 2
-  // Agrandissement autour de l'origine de la zone de dessin, puis centrage de la zone sur le schéma
-  const ox = cx - (base.area.w * s) / 2
-  const oy = cy - (base.area.h * s) / 2
-  const tr = (r: Bounds): Bounds => ({ x: r.x * s + ox, y: r.y * s + oy, w: r.w * s, h: r.h * s })
-  return { sheet: tr(base.sheet), area: tr(base.area), titleBlock: tr(base.titleBlock), legend: tr(base.legend), scale: Math.round(100 / s) }
 }
 
 /** Encombrement de blocs mesurés (x, y, largeur, hauteur) ; null s'il n'y en a pas. */
@@ -248,7 +217,11 @@ export function boundsOf(boxes: Bounds[]): Bounds | null {
 }
 
 /** Repère d'une page dans l'assemblage : colonne en lettre, rangée en chiffre (A1, B1, A2...). */
-export const tileRef = (col: number, row: number) => `${String.fromCharCode(65 + (col % 26))}${row + 1}`
+export function tileRef(col: number, row: number): string {
+  let label = ''
+  for (let n = col + 1; n > 0; n = Math.floor((n - 1) / 26)) label = String.fromCharCode(65 + (n - 1) % 26) + label
+  return `${label}${row + 1}`
+}
 
 // ---------- Filigrane ----------
 

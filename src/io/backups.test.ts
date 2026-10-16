@@ -1,5 +1,16 @@
-import { describe, expect, it } from 'vitest'
-import { backupName, backupsToDelete } from './backups'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { createProject } from '../model/project'
+import { useSaveFolder } from '../store/saveFolderStore'
+import { useProject } from '../store/projectStore'
+import { backupName, backupsToDelete, startBackups, writeBackup } from './backups'
+
+const fs = vi.hoisted(() => ({ mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn(), writeTextFile: vi.fn() }))
+vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => true }))
+vi.mock('@tauri-apps/plugin-fs', () => fs)
+vi.mock('@tauri-apps/api/path', () => ({
+  join: async (...parts: string[]) => parts.join('/'),
+  dirname: async (p: string) => p.slice(0, p.lastIndexOf('/')),
+}))
 
 describe('sauvegardes tournantes', () => {
   it('nomme les sauvegardes dans l\'ordre chronologique', () => {
@@ -15,30 +26,89 @@ describe('sauvegardes tournantes', () => {
   })
 })
 
-describe('feuille dessinée sur le canevas (mode page)', () => {
-  it('la zone de dessin commence à l\'origine et suit l\'échelle d\'impression', async () => {
-    const { pageFrame } = await import('./exportOptions')
-    const f100 = pageFrame({ paper: 'A3', orientation: 'landscape', printScale: 100 })
-    const f50 = pageFrame({ paper: 'A3', orientation: 'landscape', printScale: 50 })
-    expect(f100.area.x).toBe(0)
-    expect(f100.area.y).toBe(0)
-    // 1 unité = 0,25 mm à 100 % : la feuille A3 paysage (420 mm) fait 1680 unités
-    expect(Math.round(f100.sheet.w)).toBe(1680)
-    expect(Math.round(f50.sheet.w)).toBe(3360)
-    expect(f100.titleBlock.x + f100.titleBlock.w).toBeLessThanOrEqual(f100.sheet.x + f100.sheet.w)
+describe('écriture et reprise des sauvegardes', () => {
+  beforeEach(() => {
+    vi.resetAllMocks()
+    fs.mkdir.mockResolvedValue(undefined)
+    fs.readDir.mockResolvedValue([])
+    fs.remove.mockResolvedValue(undefined)
+    fs.writeTextFile.mockResolvedValue(undefined)
+    useSaveFolder.setState({ dir: '/projets', projectFiles: {}, backups: true, backupEvery: 1, backupCount: 10, lastBackup: null, lastError: null })
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 9, 13, 12, 0, 0))
+    vi.stubGlobal('window', { setInterval, clearInterval })
   })
-  it('feuille ajustée : un petit schéma reste à 100 %, un grand fait grandir la feuille, centrée, cartouche compris', async () => {
-    const { fittedPage } = await import('./exportOptions')
-    const small = fittedPage({ paper: 'A3', orientation: 'landscape' }, 0, { x: 100, y: 100, w: 300, h: 200 })
-    expect(small.scale).toBe(100)
-    expect(small.area.x + small.area.w / 2).toBeCloseTo(250)
-    // Stagebox 32 entrées (environ 700 unités de haut) : la feuille grandit, l'échelle baisse
-    const big = fittedPage({ paper: 'A3', orientation: 'landscape' }, 0, { x: 0, y: 0, w: 260, h: 1100 })
-    expect(big.scale).toBeLessThan(100)
-    expect(big.area.h).toBeGreaterThanOrEqual(1100)
-    expect(big.area.w / big.area.h).toBeCloseTo(small.area.w / small.area.h)
-    // Le cartouche reste sur la feuille, hors de la zone de dessin
-    expect(big.titleBlock.y + big.titleBlock.h).toBeLessThanOrEqual(big.sheet.y + big.sheet.h + 1e-6)
-    expect(big.titleBlock.y).toBeGreaterThanOrEqual(big.area.y + big.area.h - 1e-6)
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('retente après une erreur de disque, sans nouvelle modification du projet', async () => {
+    const p = createProject('Concert')
+    fs.writeTextFile.mockRejectedValueOnce(new Error('Disque absent'))
+    const stop = startBackups(() => p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    expect(useSaveFolder.getState().lastError).toBe('Disque absent')
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    expect(useSaveFolder.getState().lastBackup).not.toBeNull()
+    expect(useSaveFolder.getState().lastError).toBeNull()
+    await vi.advanceTimersByTimeAsync(60_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    stop()
+  })
+
+  it('respecte l’intervalle après réussite et sauvegarde la version modifiée', async () => {
+    let p = createProject('Concert')
+    const stop = startBackups(() => p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    p = { ...p, name: 'Concert modifié' }
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    expect(JSON.parse(fs.writeTextFile.mock.calls[1][1]).name).toBe('Concert modifié')
+    stop()
+  })
+
+  it('ne lance pas deux sauvegardes automatiques pendant une écriture lente', async () => {
+    let finish!: () => void
+    fs.writeTextFile.mockImplementationOnce(() => new Promise<void>((resolve) => { finish = resolve }))
+    const stop = startBackups(() => createProject('Concert'))
+    await vi.advanceTimersByTimeAsync(120_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    finish()
+    await vi.advanceTimersByTimeAsync(0)
+    expect(useSaveFolder.getState().lastBackup).not.toBeNull()
+    stop()
+  })
+
+  it('isole deux projets homonymes, y compris si leurs identifiants ne diffèrent que par la casse', async () => {
+    await writeBackup({ ...createProject('Concert'), id: 'a' })
+    await writeBackup({ ...createProject('Concert'), id: 'A' })
+    expect(fs.writeTextFile.mock.calls[0][0]).toContain('/Save Back Up/project-61/')
+    expect(fs.writeTextFile.mock.calls[1][0]).toContain('/Save Back Up/project-41/')
+  })
+
+  it('garde le même dossier et le même préfixe après renommage et ne marque pas le fichier principal comme enregistré', async () => {
+    const p = createProject('Concert')
+    useProject.setState({ project: p, saved: false })
+    await writeBackup(p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    await writeBackup({ ...p, name: 'Nouveau nom' })
+    expect(fs.writeTextFile.mock.calls[0][0].slice(0, -24)).toBe(fs.writeTextFile.mock.calls[1][0].slice(0, -24))
+    expect(useProject.getState().saved).toBe(false)
+  })
+
+  it('la onzième sauvegarde supprime seulement la plus ancienne quand dix sont gardées', async () => {
+    const p = { ...createProject('Concert'), id: 'a' }
+    const base = 'project-61'
+    const old = Array.from({ length: 10 }, (_, n) => backupName(base, new Date(2026, 9, 12, 12, n, 0)))
+    const current = backupName(base, new Date())
+    fs.readDir.mockResolvedValue([...old, current, 'notes.txt'].map((name) => ({ name, isFile: true })))
+    expect(await writeBackup(p)).toBe(true)
+    expect(fs.remove).toHaveBeenCalledExactlyOnceWith(`/projets/Save Back Up/${base}/${old[0]}`)
   })
 })
+

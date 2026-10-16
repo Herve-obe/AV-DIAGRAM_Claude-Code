@@ -1,11 +1,13 @@
 // Correspondance entre le projet (objets immuables du store) et le document partagé Yjs.
 //
 // Chaque équipement, liaison, annotation, multipaire et feuille est une carte Yjs dont chaque champ
-// (nom, position, ports…) est une valeur indépendante : deux personnes qui modifient des champs
+// est une valeur indépendante. Les ports ont chacun leur carte : deux personnes modifiant des ports
+// audio et vidéo du même appareil ne remplacent pas la liste entière. Les modifications de champs
 // différents du même élément ne s'écrasent pas ; sur un même champ, la dernière modification l'emporte.
 // Les réglages du projet (nom, zones, numérotation, cartouche) sont des champs de la carte « meta ».
 import * as Y from 'yjs'
-import type { Project } from '../model/types'
+import type { PortDef, Project } from '../model/types'
+import { sameData as same } from './compare'
 
 export const COLLECTIONS = ['equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets'] as const
 export type Collection = (typeof COLLECTIONS)[number]
@@ -15,8 +17,6 @@ const ORDER = '_order'
 
 type Item = Record<string, unknown> & { id: string }
 
-const same = (a: unknown, b: unknown) => a === b || JSON.stringify(a) === JSON.stringify(b)
-
 /** Éléments d'une collection du projet, indexés par identifiant. */
 function itemsOf(p: Project, c: Collection): Record<string, Item> {
   if (c === 'sheets') return Object.fromEntries((p.sheets ?? []).map((s, i) => [s.id, { ...s, [ORDER]: i } as Item]))
@@ -25,6 +25,8 @@ function itemsOf(p: Project, c: Collection): Record<string, Item> {
 
 export const collection = (doc: Y.Doc, c: Collection) => doc.getMap<Y.Map<unknown>>(c)
 export const meta = (doc: Y.Doc) => doc.getMap<unknown>('meta')
+// La date de modification ne fait pas partie de l'historique : une annulation concurrente ne doit pas l'effacer.
+const clock = (doc: Y.Doc) => doc.getMap<unknown>('clock')
 
 /** Écrit dans le champ seulement si la valeur a changé (undefined : champ supprimé). */
 function setField(m: Y.Map<unknown>, key: string, value: unknown) {
@@ -34,8 +36,29 @@ function setField(m: Y.Map<unknown>, key: string, value: unknown) {
 }
 
 function writeItem(m: Y.Map<unknown>, prev: Item | undefined, next: Item) {
-  for (const [k, v] of Object.entries(next)) if (!prev || prev[k] !== v) setField(m, k, v)
+  for (const [k, v] of Object.entries(next)) {
+    if (prev && prev[k] === v) continue
+    if (k === 'ports' && Array.isArray(v)) writePorts(m, prev?.ports as PortDef[] | undefined, v)
+    else setField(m, k, v)
+  }
   for (const k of m.keys()) if (!(k in next)) m.delete(k)
+}
+
+function writePorts(item: Y.Map<unknown>, prev: PortDef[] | undefined, next: PortDef[]) {
+  let ports = item.get('ports') as Y.Map<Y.Map<unknown>>
+  if (!(ports instanceof Y.Map)) {
+    ports = new Y.Map<Y.Map<unknown>>()
+    item.set('ports', ports)
+    prev = undefined
+  }
+  const before = new Map(prev?.map((p, index) => [p.id, { ...p, [ORDER]: index }]))
+  const ids = new Set(next.map(p => p.id))
+  for (const id of ports.keys()) if (!ids.has(id)) ports.delete(id)
+  next.forEach((p, index) => {
+    let port = ports.get(p.id)
+    if (!port) { port = new Y.Map<unknown>(); ports.set(p.id, port) }
+    writeItem(port, before.get(p.id), { ...p, [ORDER]: index })
+  })
 }
 
 /**
@@ -45,7 +68,9 @@ function writeItem(m: Y.Map<unknown>, prev: Item | undefined, next: Item) {
 export function writeProject(doc: Y.Doc, prev: Project | null, next: Project, origin?: unknown) {
   doc.transact(() => {
     const mm = meta(doc)
-    for (const k of META_FIELDS) if (!prev || prev[k] !== next[k]) setField(mm, k, next[k])
+    for (const k of META_FIELDS) if (k !== 'updatedAt' && (!prev || prev[k] !== next[k])) setField(mm, k, next[k])
+    if (!prev || prev.updatedAt !== next.updatedAt) setField(clock(doc), 'updatedAt', next.updatedAt)
+    mm.delete('updatedAt')
     for (const c of COLLECTIONS) {
       if (prev && prev[c] === next[c]) continue
       const before = prev ? itemsOf(prev, c) : {}
@@ -64,7 +89,16 @@ export function writeProject(doc: Y.Doc, prev: Project | null, next: Project, or
   }, origin)
 }
 
-const readItem = (m: Y.Map<unknown>) => Object.fromEntries(m.entries()) as Item
+function readItem(m: Y.Map<unknown>): Item {
+  const item = Object.fromEntries(m.entries()) as Item
+  // Les anciens instantanés Yjs contiennent encore une liste JSON ; les fichiers .avd restent identiques.
+  if (item.ports instanceof Y.Map) {
+    item.ports = [...(item.ports as Y.Map<Y.Map<unknown>>).values()].map(readItem)
+      .sort((a, b) => Number(a[ORDER]) - Number(b[ORDER]) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
+      .map(p => { const copy = { ...p }; delete copy[ORDER]; return copy })
+  }
+  return item
+}
 
 /** Le document contient-il un projet (session rejointe et synchronisée) ? */
 export const hasProject = (doc: Y.Doc) => typeof meta(doc).get('id') === 'string'
@@ -80,6 +114,7 @@ export function readProject(doc: Y.Doc, prev?: Project, changes?: ChangeSet): Pr
   const mm = meta(doc)
   const base: Record<string, unknown> = prev && changes ? { ...prev } : {}
   if (!prev || !changes || 'meta' in changes) for (const k of META_FIELDS) base[k] = mm.get(k)
+  if (!prev || !changes || 'meta' in changes) base.updatedAt = clock(doc).get('updatedAt') ?? mm.get('updatedAt')
   for (const c of COLLECTIONS) {
     const ym = collection(doc, c)
     const ids = changes ? changes[c] : null
@@ -134,6 +169,8 @@ export function observeChanges(doc: Y.Doc, onChange: (changes: ChangeSet, origin
   const mh = () => add('meta', null)
   meta(doc).observe(mh)
   unobserve.push(() => meta(doc).unobserve(mh))
+  clock(doc).observe(mh)
+  unobserve.push(() => clock(doc).unobserve(mh))
   const after = (tr: Y.Transaction) => {
     if (!Object.keys(pending).length) return
     const changes = pending

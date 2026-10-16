@@ -29,7 +29,7 @@ export function GuideSteps() {
   const project = useProject((s) => s.project)
   const equipment = useSheetEquipment()
   const issues = useIssues()
-  const saved = useSaveFolder((s) => s.savedToFile.includes(project.id) || (!!s.dir && s.autoCopy))
+  const saved = useSaveFolder((s) => s.savedToFile.includes(project.id))
   const links = Object.keys(project.links).length
   const hasOut = equipment.some((e) => e.ports.some((p) => p.direction !== 'in'))
   const hasIn = equipment.filter((e) => e.ports.some((p) => p.direction !== 'out')).length >= 1 && equipment.length >= 2
