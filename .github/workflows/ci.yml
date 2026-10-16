@@ -33,3 +33,14 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --lib
+      - name: Build Windows test installer
+        if: github.event_name == 'push'
+        run: npm run desktop:build -- --bundles nsis --ci
+      - name: Upload Windows test installer
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-Windows-test
+          path: src-tauri/target/release/bundle/nsis/*-setup.exe
+          if-no-files-found: error
+          retention-days: 30
