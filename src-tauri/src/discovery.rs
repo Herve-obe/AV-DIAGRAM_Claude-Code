@@ -173,6 +173,44 @@ mod tests {
         assert!(scan(&targets, Duration::from_millis(100)).await.unwrap().is_empty());
     }
 
+    #[tokio::test]
+    async fn poursuit_la_recherche_apres_un_port_ferme_et_un_paquet_trop_grand() {
+        let closed = UdpSocket::bind("127.0.0.1:0").await.unwrap();
+        let closed_address = closed.local_addr().unwrap();
+        let responder = UdpSocket::bind("127.0.0.1:0").await.unwrap();
+        let address = responder.local_addr().unwrap();
+        drop(closed);
+        let task = tokio::spawn(async move {
+            let mut buffer = [0; MAX_PACKET + 1];
+            let (length, source) = responder.recv_from(&mut buffer).await.unwrap();
+            let nonce = nonce(&buffer[..length]).unwrap().to_owned();
+            tokio::time::sleep(Duration::from_millis(100)).await;
+            responder.send_to(&vec![b' '; MAX_PACKET * 2], source).await.unwrap();
+            tokio::time::sleep(Duration::from_millis(100)).await;
+            let reply = Reply { protocol: 1, nonce, session: Advertisement::new(4455, Some("Concert".into()), None) };
+            let _ = responder.send_to(&serde_json::to_vec(&reply).unwrap(), source).await;
+        });
+        let sessions = scan(&[closed_address, address], Duration::from_secs(1)).await.unwrap();
+        task.await.unwrap();
+        assert_eq!(sessions.len(), 1);
+        assert_eq!(sessions[0].session_name, "Concert");
+    }
+
+    #[tokio::test]
+    async fn continue_dannoncer_apres_un_paquet_trop_grand() {
+        let socket = UdpSocket::bind("127.0.0.1:0").await.unwrap();
+        let address = socket.local_addr().unwrap();
+        let (stop, shutdown) = watch::channel(0);
+        let task = tokio::spawn(serve(socket, Advertisement::new(4455, None, None), shutdown));
+        let sender = UdpSocket::bind("127.0.0.1:0").await.unwrap();
+        sender.send_to(&vec![b' '; MAX_PACKET * 2], address).await.unwrap();
+        tokio::time::sleep(Duration::from_millis(100)).await;
+        let sessions = scan(&[address], Duration::from_secs(1)).await.unwrap();
+        let _ = stop.send(1);
+        task.await.unwrap();
+        assert_eq!(sessions.len(), 1);
+    }
+
     #[test]
     fn limite_les_annonces_aux_interfaces_locales() {
         assert!(local_sender("127.0.0.1:1234".parse().unwrap(), &[]));
