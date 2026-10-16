@@ -43,7 +43,7 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
 7. **Enregistrement** : Ctrl+S / Cmd+S enregistre le fichier principal `.avd` ; chaque participant peut
    garder une copie locale. Les sauvegardes de sécurité automatiques vont dans « Save Back Up ».
 
-## État (2026-10-16, version 0.2.1)
+## État (2026-10-16, version 0.2.2)
 
 Les calques sont attribués par l'hôte et les propositions invitées sont validées avant diffusion.
 Les identités de poste sont dérivées d'un secret persistant par le relais ; les noms affichés ne
@@ -52,8 +52,12 @@ Le nouveau parcours nécessite la version 0.2.1 sur tous les postes. L’hôte o
 accueille les invités, attribue les calques puis commence la session. Avant ce départ, le document
 est en lecture seule pour les invités ; cette règle et le départ sont contrôlés par l’hôte avant
 diffusion des modifications. Terminer ou quitter la session reste accessible dans le bandeau du logiciel.
-La découverte IPv4 automatique est implémentée. Restent les essais à trois postes réels, notamment
-les règles du pare-feu, les réseaux Wi-Fi isolant leurs clients et la continuité après panne.
+Un premier essai utilisateur confirme le fonctionnement de la session après saisie manuelle de
+l'adresse : deux postes Windows 11, Ethernet sur le même switch, IP fixes, réseau scolaire.
+La découverte automatique n'y a pas trouvé l'hôte. La version 0.2.2 poursuit les annonces et la
+recherche après une erreur UDP liée à un port fermé ou à un paquet trop grand, au lieu de les arrêter.
+Ce correctif reste à essayer sur ces deux postes ; il ne confirme pas l'absence de filtrage réseau.
+Restent aussi les essais à trois postes réels, les règles du pare-feu et la continuité après panne.
 
 | Élément | Fichier |
 |---|---|
@@ -124,18 +128,19 @@ Windows et macOS travaillent ensemble dans la même session (même protocole, m�
   Réglages Système, Confidentialité et sécurité, Réseau local.
 - macOS : à l'ouverture d'une session (hôte ou poste de secours), le pare-feu peut demander
   d'accepter les connexions entrantes pour AV Diagram.
-- Windows : à la première ouverture de session, le pare-feu Windows Defender demande d'autoriser
-  AV Diagram sur les réseaux privés ; cocher « Réseaux privés ».
+- Windows : les autorisations dépendent du profil réseau actif et des règles de l'établissement.
+  La découverte utilise UDP 4456 entrant sur l'hôte ; la session utilise TCP 4455 par défaut.
+  Une connexion manuelle réussie en TCP ne vérifie pas le passage des requêtes UDP diffusées.
+  Si la recherche reste vide, faire vérifier ces règles par l'administrateur sans désactiver le pare-feu.
 
 ## Tester
 
-1. Poste hôte (application de bureau) : bouton « Travail à plusieurs » (icône personnes, barre du
-   haut), saisir son nom, onglet Héberger, port 4455 par défaut, « Ouvrir la session ». Le code à
-   6 chiffres et les adresses du poste s'affichent.
-2. Pare-feu : autoriser le port 4455 en TCP entrant sur l'hôte, et sur les postes de secours.
-3. Autres postes (application de bureau ou navigateur sur le même réseau) : onglet Rejoindre,
-   adresse affichée chez l'hôte (ex. `192.168.1.20:4455`), code, « Rejoindre ». Le projet de la
-   session remplace le projet ouvert sur ce poste.
+1. Installer la version 0.2.2 sur les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
+   « Ouvrir la session ». Le code à 6 chiffres et la salle d'attente s'affichent.
+2. Invité : onglet Rejoindre, choisir l'hôte trouvé et saisir son code. Si la recherche reste vide,
+   essayer Actualiser puis l'adresse affichée chez l'hôte dans les options avancées
+   (ex. `192.168.1.20:4455`). Noter séparément le résultat de la découverte et de la connexion manuelle.
+3. Hôte : attribuer les calques aux invités connectés, puis « Commencer la session ».
 4. Points à vérifier : ajout et déplacement de blocs des deux côtés, liaisons, calques différents sur
    chaque poste, réservation de calque et refus, tchat, Ctrl+Z (ne défait que ses propres
    modifications), coupure du Wi-Fi d'un invité puis retour (fusion), fermeture brutale de l'hôte

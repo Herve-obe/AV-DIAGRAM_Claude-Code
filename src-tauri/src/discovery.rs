@@ -24,6 +24,11 @@ fn local_sender(source: SocketAddr, nets: &[if_addrs::Ifv4Addr]) -> bool {
     let std::net::IpAddr::V4(ip) = source.ip() else { return false };
     ip.is_loopback() || nets.iter().any(|n| n.netmask != Ipv4Addr::UNSPECIFIED && (u32::from(ip) & u32::from(n.netmask)) == (u32::from(n.ip) & u32::from(n.netmask)))
 }
+fn packet_error(error: &std::io::Error) -> bool {
+    // Windows signale aussi les ports UDP fermés et les datagrammes trop grands à la réception.
+    matches!(error.kind(), std::io::ErrorKind::Interrupted | std::io::ErrorKind::ConnectionReset | std::io::ErrorKind::ConnectionRefused)
+        || (cfg!(windows) && error.raw_os_error() == Some(10040))
+}
 
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -82,7 +87,11 @@ async fn serve(socket: UdpSocket, ad: Advertisement, mut shutdown: watch::Receiv
         tokio::select! {
             _ = shutdown.changed() => break,
             received = socket.recv_from(&mut buffer) => {
-                let Ok((length, source)) = received else { break };
+                let (length, source) = match received {
+                    Ok(packet) => packet,
+                    Err(error) if packet_error(&error) => continue,
+                    Err(_) => break,
+                };
                 if !local_sender(source, &nets) { continue; }
                 let Some(nonce) = nonce(&buffer[..length]) else { continue };
                 recent.retain(|_, at| at.elapsed() < Duration::from_secs(1));
@@ -110,7 +119,11 @@ async fn scan(targets: &[SocketAddr], duration: Duration) -> Result<Vec<Discover
             _ = tokio::time::sleep_until(deadline) => break,
             _ = retry.tick() => { for target in targets { let _ = socket.send_to(query.as_bytes(), target).await; } },
             received = socket.recv_from(&mut buffer) => {
-                let Ok((length, source)) = received else { break };
+                let (length, source) = match received {
+                    Ok(packet) => packet,
+                    Err(error) if packet_error(&error) => continue,
+                    Err(_) => return Err("discovery unavailable".into()),
+                };
                 if !local_sender(source, &nets) { continue; }
                 if let Some(session) = response(&buffer[..length], source, &id) {
                     if found.len() < 32 { found.entry(session.id.clone()).or_insert(session); }
