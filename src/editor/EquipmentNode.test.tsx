@@ -56,4 +56,32 @@ describe('stagebox repliée', () => {
     draw(data)
     expect(host.querySelectorAll('[data-handle]')).toHaveLength(3)
   })
+  it('donne un accès direct aux sorties libres et révèle une sortie à droite', () => {
+    draw(); click('Ajouter une connexion'); click('Sorties')
+    const select = host.querySelector('select')!
+    expect([...select.options].slice(1).map(o => o.value)).toEqual(Array.from({ length: 23 }, (_, i) => `p${i + 34}`))
+    act(() => { select.value = 'p34'; select.dispatchEvent(new Event('change', { bubbles: true })) })
+    expect(host.querySelector('.port-right[data-dir="out"] [data-handle="p34"]')).not.toBeNull()
+    draw({ ...data, connectedPorts: [...data.connectedPorts, 'p34'] })
+    draw(data)
+    expect(host.querySelector('[data-handle="p34"]')).toBeNull()
+  })
+  it('sépare aussi les ports bidirectionnels en respectant le calque actif', () => {
+    const next: EquipmentNodeData = { ...data, layer: 'sound', equipment: { ...equipment, ports: [...equipment.ports,
+      { id: 'dante', name: 'Dante', direction: 'bidir', signal: 'audioIp', connector: 'ethercon' },
+      { id: 'sdi', name: 'SDI', direction: 'out', signal: 'video', connector: 'bnc' },
+    ] } }
+    draw(next); click('Ajouter une connexion'); click('Bidirectionnels')
+    expect([...host.querySelectorAll('option')].slice(1).map(o => o.value)).toEqual(['dante'])
+    click('Sorties')
+    expect(host.querySelector('option[value="sdi"]')).toBeNull()
+    expect(host.querySelector('option[value="p34"]')).not.toBeNull()
+  })
+  it('propose directement les sorties quand toutes les entrées sont déjà câblées', () => {
+    draw({ ...data, connectedPorts: equipment.ports.filter(p => p.direction === 'in').map(p => p.id) })
+    click('Ajouter une connexion')
+    expect([...host.querySelectorAll('option')].slice(1).map(o => o.value)).toEqual(Array.from({ length: 24 }, (_, i) => `p${i + 33}`))
+    expect([...host.querySelectorAll('button')].find(b => b.textContent === 'Entrées')).toBeUndefined()
+    expect([...host.querySelectorAll('button')].find(b => b.textContent === 'Sorties')?.getAttribute('aria-pressed')).toBe('true')
+  })
 })

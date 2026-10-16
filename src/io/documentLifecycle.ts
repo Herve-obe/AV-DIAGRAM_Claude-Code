@@ -45,12 +45,10 @@ export async function openDocument(): Promise<boolean> {
 export async function guardWindowClose() {
   if (isTauri()) {
     const { getCurrentWindow } = await import('@tauri-apps/api/window')
-    let approved = false
     const w = getCurrentWindow()
     await w.onCloseRequested(async e => {
-      if (approved) return
-      e.preventDefault()
-      if (await prepareToLeave(true)) { approved = true; await w.close() }
+      // Tauri attend cette réponse puis ferme lui-même la fenêtre si elle n'est pas annulée.
+      if (!(await prepareToLeave(true))) e.preventDefault()
     })
   } else {
     window.addEventListener('beforeunload', e => { if (!useProject.getState().saved) e.preventDefault() })

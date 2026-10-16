@@ -293,6 +293,8 @@ kbd {
 .eq-port-summary { padding: 4px 10px; font-size: 11px; color: var(--text-3); }
 .eq-port-tools { position: absolute; bottom: 100%; left: 0; z-index: 5; width: 100%; max-width: 340px; display: flex; flex-wrap: wrap; align-items: center; gap: 3px; padding: 4px 6px; background: var(--node-bg); border: 1px solid var(--node-border); border-radius: 4px; box-shadow: var(--shadow-1); }
 .eq-port-tools .btn { font-size: 11px; padding: 4px 6px; }
+.eq-port-tools [role='group'] { display: flex; flex-wrap: wrap; gap: 3px; }
+.eq-port-tools [aria-pressed='true'] { background: var(--accent-soft); color: var(--accent); }
 .eq-port-tools label { display: grid; gap: 3px; width: 100%; font-size: 11px; }
 .eq-port-tools select { width: 100%; min-width: 0; color: var(--text); background: var(--bg-1); border: 1px solid var(--node-border); border-radius: 4px; font: inherit; padding: 4px; }
 .eq-port-tools > span { max-width: 100%; font-size: 11px; color: var(--text-2); }

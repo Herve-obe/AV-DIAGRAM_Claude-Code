@@ -78,6 +78,7 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
   const presenting = useUi(s => s.presenting)
   const [pickerOpen, setPickerOpen] = useState(false)
   const [pendingPort, setPendingPort] = useState('')
+  const [pickerDirection, setPickerDirection] = useState<PortDef['direction']>('in')
   const connected = new Set(data.connectedPorts)
   const shown = portsToDisplay(eq.ports, new Set([...connected, pendingPort]), expanded)
   const portKey = JSON.stringify(shown.map(p => p.id))
@@ -91,19 +92,30 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
   const outputs = shown.filter((p) => p.direction !== 'in')
   const large = eq.ports.length > PORTS_COMPACT_THRESHOLD
   const free = eq.ports.filter(p => !connected.has(p.id))
+  const available = free.filter(p => portInView(p, data.layer))
+  const directions = (['in', 'out', 'bidir'] as const).filter(direction => available.some(p => p.direction === direction))
+  const chosenDirection = directions.includes(pickerDirection) ? pickerDirection : directions[0]
+  const directionLabel = { in: 'inputs', out: 'outputs', bidir: 'bidir' } as const
   const freeInputs = free.filter(p => p.direction === 'in').length
   const summary = large && <div className="eq-port-summary">{t('portDisplay.free', { inputs: freeInputs, outputs: free.length - freeInputs })}</div>
   const tools = large && !presenting && <div className="eq-port-tools nodrag nopan nowheel" onPointerDown={e => e.stopPropagation()}>
     <button type="button" className="btn btn-ghost" aria-pressed={expanded} onClick={() => { useUi.getState().setEquipmentExpanded(id, !expanded); setPendingPort(''); setPickerOpen(false) }}>
       {t(expanded ? 'portDisplay.fold' : 'portDisplay.all')}
     </button>
-    {free.length > 0 && <button type="button" className="btn btn-ghost" aria-expanded={pickerOpen} onClick={() => setPickerOpen(!pickerOpen)}>{t('portDisplay.add')}</button>}
-    {pickerOpen && <label htmlFor={`free-port-${id}`}>{t('portDisplay.choose')}
+    {available.length > 0 && <button type="button" className="btn btn-ghost" aria-expanded={pickerOpen} onClick={() => setPickerOpen(!pickerOpen)}>{t('portDisplay.add')}</button>}
+    {pickerOpen && <>
+      <div role="group" aria-label={t('portDisplay.direction')}>
+        {directions.map(direction => <button key={direction} type="button" className="btn btn-ghost" aria-pressed={chosenDirection === direction} onClick={() => { setPickerDirection(direction); setPendingPort('') }}>
+          {t(`portDisplay.${directionLabel[direction]}`)}
+        </button>)}
+      </div>
+      <label htmlFor={`free-port-${id}`}>{t('portDisplay.choose')}
       <select id={`free-port-${id}`} value={pendingPort} onChange={e => setPendingPort(e.target.value)}>
         <option value="">{t('portDisplay.choose')}</option>
-        {free.filter(p => portInView(p, data.layer)).map(p => <option key={p.id} value={p.id}>{p.name} · {t(`direction.${p.direction}`)} · {connectorLabel(p.connector)}</option>)}
+        {available.filter(p => p.direction === chosenDirection).map(p => <option key={p.id} value={p.id}>{p.name} · {t(`direction.${p.direction}`)} · {connectorLabel(p.connector)}</option>)}
       </select>
-    </label>}
+      </label>
+    </>}
     {pendingPort && !pendingConnected && <span>{t('portDisplay.dragHint')} <button type="button" className="btn btn-ghost" onClick={() => setPendingPort('')}>{t('portDisplay.cancel')}</button></span>}
   </div>
   const row = (list: PortDef[], side: Side, isInput: boolean) =>

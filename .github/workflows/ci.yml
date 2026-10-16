@@ -70,7 +70,7 @@ jobs:
         run: npm run desktop:build -- --target universal-apple-darwin --bundles dmg --ci
       - name: Verify universal app and signature
         run: |
-          lipo -verify_arch x86_64 arm64 "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/MacOS/av-diagram"
+          lipo "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/MacOS/av-diagram" -verify_arch x86_64 arm64
           codesign --verify --deep --strict "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app"
       - name: Upload macOS test installer
         uses: actions/upload-artifact@v4
@@ -79,3 +79,4 @@ jobs:
           path: src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg
           if-no-files-found: error
           retention-days: 30
+

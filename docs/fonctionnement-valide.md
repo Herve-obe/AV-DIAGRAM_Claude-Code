@@ -41,7 +41,9 @@ ne change pas le canevas. Le total annoncé est une estimation ; le PDF utilise 
 affichées et les tracés du routeur. La vue et la sélection sont restaurées après l'export.
 
 Au-delà de 16 ports, les appareils montrent uniquement les ports reliés. **Ajouter une connexion**
-révèle un port libre choisi dans la liste ; il faut ensuite tirer le câble depuis ou vers ce port.
+permet de choisir **Entrées**, **Sorties** ou **Bidirectionnels**, puis révèle un port libre de cette
+catégorie ; il faut ensuite tirer le câble depuis ou vers ce port. Seuls les ports du calque actif
+sont proposés. Si une catégorie n'a plus de port libre, une autre est proposée automatiquement.
 **Tous les ports** ouvre la vue complète ; **Ports reliés** la replie. Les renvois vers les autres
 feuilles restent visibles. Ces actions d'affichage sont propres au poste et ne modifient pas les droits.
 
