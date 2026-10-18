@@ -54,6 +54,24 @@ describe('export : découpage visible et choix sur une page', () => {
     expect(setViewport.mock.calls[0][0].zoom).toBeLessThan(0.5)
     expect(useProject.getState().project).toBe(original)
   })
+  it('ne conserve pas trois captures vides après déplacement du dessin sur une page voisine', async () => {
+    let position = { x: -40, y: -60 }
+    const viewport = { x: 30, y: 50, zoom: 0.5 }
+    const setViewport = vi.fn<ReactFlowInstance['setViewport']>(async () => true)
+    const rf = { getNodes: () => [{ id: 'dessin', position, measured: { width: 1100, height: 700 }, data: {} }],
+      getEdges: () => [], getViewport: () => viewport, setViewport } as unknown as ReactFlowInstance
+    const first = exportPdfWithLabels(rf, ((key: string) => key) as TFunction, {})
+    await vi.runAllTimersAsync(); await first
+    expect(captureCanvasLight).toHaveBeenCalledTimes(4)
+    vi.clearAllMocks()
+    position = { x: 1700, y: 1000 }
+    const second = exportPdfWithLabels(rf, ((key: string) => key) as TFunction, {})
+    await vi.runAllTimersAsync(); await second
+    expect(captureCanvasLight).toHaveBeenCalledTimes(1)
+    expect(vi.mocked(exportPdf).mock.calls[0][1]).toHaveLength(1)
+    expect(setViewport.mock.calls[0][0]).toMatchObject({ x: -1600, y: -900 })
+    expect(setViewport).toHaveBeenLastCalledWith(viewport)
+  })
   it('un détour de câble et son étiquette étendent aussi les pages', () => {
     const edge = { id: 'cable', source: 'a', target: 'b', data: { label: 'AUD-001', showLabel: true } }
     const bounds = drawingBounds(nodes, [edge], { routes: new Map([['cable', [{ x: 1680, y: 940 }]]]), labels: new Map([['cable', { x: 1720, y: 950 }]]) })

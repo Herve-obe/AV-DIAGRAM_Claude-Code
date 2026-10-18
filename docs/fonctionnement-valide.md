@@ -51,6 +51,14 @@ Le format et l'orientation définissent des pages fixes à 100 %. Dépasser un b
 sans réduire le dessin ni déplacer les équipements. Les pointillés montrent la zone de dessin de
 chaque page, hors marges, légende et cartouche. La touche F recadre sur toutes les pages.
 
+Depuis **0.3.2**, la grille et le PDF retirent les rangées et colonnes extérieures devenues vides,
+même si le dessin a été déplacé dans une page éloignée de l'origine ou dans les coordonnées négatives.
+La taille et les limites des pages restent fixes ; les équipements ne sont pas déplacés automatiquement.
+Les cadres, notes, câbles et étiquettes visibles comptent dans l'encombrement : un cadre resté sur une
+autre page peut donc la conserver. Le modèle **Plateau TV 3 caméras** démarre avec ses cadres à
+l'intérieur d'une page A3 paysage pour chaque vue (**Plateau et régie vidéo** et **Intercom**).
+Cette marge initiale s'applique uniquement aux nouveaux projets issus des modèles, sans modifier les fichiers existants.
+
 À l'export : **Mettre à l'échelle sur une page** ou **Conserver sur plusieurs pages**. Le choix
 ne change pas le canevas. Le total annoncé est une estimation ; le PDF utilise les dimensions
 affichées et les tracés du routeur. La vue et la sélection sont restaurées après l'export.

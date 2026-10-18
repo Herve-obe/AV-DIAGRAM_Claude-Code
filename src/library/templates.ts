@@ -110,14 +110,25 @@ function conference(): Project {
 }
 
 export function buildTemplate(id: TemplateId, blankName: string): Project {
+  let project: Project
   switch (id) {
     case 'concert':
-      return buildSampleProject()
+      project = buildSampleProject(); break
     case 'tvStudio':
-      return tvStudio()
+      project = tvStudio(); break
     case 'conference':
-      return conference()
+      project = conference(); break
     default:
-      return createProject(blankName)
+      project = createProject(blankName)
   }
+  // Marge autour de chaque modèle neuf : cadres et câbles ne chevauchent pas l'origine des pages.
+  for (const sheet of project.sheets ?? []) {
+    const items = [...Object.values(project.equipment), ...Object.values(project.annotations ?? {})]
+      .filter(item => (item.sheetId ?? DEFAULT_SHEET_ID) === sheet.id)
+    if (!items.length) continue
+    const dx = 40 - Math.min(...items.map(item => item.position.x))
+    const dy = 40 - Math.min(...items.map(item => item.position.y))
+    for (const item of items) item.position = { x: item.position.x + dx, y: item.position.y + dy }
+  }
+  return project
 }
