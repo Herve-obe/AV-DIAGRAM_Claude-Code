@@ -176,7 +176,7 @@ function MountForm({ onError }: { onError: (msg: string) => void }) {
   const equipment = Object.values(project.equipment).filter(eq => (eq.rackU ?? 0) > 0)
   const eqId = equipment.some(eq => eq.id === selection) ? selection : equipment[0]?.id ?? ''
   const target = racks.some(r => r.id === rackId) ? rackId : racks[0]?.id ?? ''
-  return <form className="rack-mount-form" onSubmit={e => {
+  return <form className="rack-mount-form field" onSubmit={e => {
     e.preventDefault()
     const err = useProject.getState().mountEquipment(eqId, target, Number(u), face)
     if (err) onError(t(`racks.error.${err}`, { name: project.equipment[eqId]?.name }))

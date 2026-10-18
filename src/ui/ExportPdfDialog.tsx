@@ -93,12 +93,18 @@ export function ExportPdfDialog() {
           )}
           {tab === 'layout' && <section>{racks ? <>
             <p className="dialog-hint">{t('racks.pdf.hint')}</p>
+            <div className="field-grid">
+            <div className="field">
             <label htmlFor="rack-pdf-paper">{t('racks.pdf.paper')}</label>
             <select id="rack-pdf-paper" value={opts.paper} onChange={e => setOpts({ ...opts, paper: e.target.value as ExportSettings['paper'] })}>{PAPER_SIZES.map(p => <option key={p}>{p}</option>)}</select>
+            </div>
+            <div className="field">
             <label htmlFor="rack-pdf-orientation">{t('racks.pdf.orientation')}</label>
             <select id="rack-pdf-orientation" value={opts.orientation} onChange={e => setOpts({ ...opts, orientation: e.target.value as ExportSettings['orientation'] })}>
               <option value="portrait">{t('racks.pdf.portrait')}</option><option value="landscape">{t('racks.pdf.landscape')}</option>
             </select>
+            </div>
+            </div>
           </> : <FormatPicker project={project} value={opts} onChange={setOpts} />}</section>}
           {tab === 'watermark' && (
             <section><WatermarkEditor vector={racks} project={{ ...project, info }} value={opts.watermark} onChange={(watermark) => setOpts({ ...opts, watermark })} /></section>

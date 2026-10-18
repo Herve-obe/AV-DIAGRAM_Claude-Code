@@ -32,7 +32,7 @@ export function ModuleEditor({ eq }: { eq: Equipment }) {
         const links = module ? moduleLinks(project, eq.id, module.id).length : 0
         const available = templates.filter(tpl => tpl.moduleType === slot.type)
         return (
-          <div key={slot.id} className="module-slot">
+          <div key={slot.id} className="module-slot field">
             <strong>{slot.name}</strong> <span className="dim">{slot.type}</span>
             {module ? <>
               <div>{module.manufacturer} {module.model}</div>
@@ -57,7 +57,7 @@ export function ModuleEditor({ eq }: { eq: Equipment }) {
           </div>
         )
       })}
-      {expert && <form onSubmit={e => {
+      {expert && <form className="field" onSubmit={e => {
         e.preventDefault()
         if (!name.trim() || !type.trim()) return
         store.updateEquipment(eq.id, { slots: [...(eq.slots ?? []), { id: uid('slot'), name: name.trim(), type: type.trim() }] })
