@@ -479,9 +479,9 @@
       "desc": "Wireless and lectern mics, PA, camera and projection."
     },
     "name": "Project name",
-    "location": "Location",
+    "location": "Create the project folder in",
     "noFolder": "No folder: choose where to save the project",
-    "filePreview": "File created: {{file}} (Ctrl+S then saves to it, Ctrl+Shift+S: save as).",
+    "filePreview": "A folder named “{{folder}}” will contain {{file}} and “Save Back Up”. A number is added if the folder already exists. Ctrl+S saves the main file.",
     "browserSave": "Browser version: save with Ctrl+S (download).",
     "format": "Sheet format",
     "showPage": "Show the sheet on the diagram (edges, title block, legend) to draw directly at size",
@@ -1063,7 +1063,7 @@
   },
   "storage": {
     "folder": "Projects folder",
-    "folderHint": "Folder suggested by default for Save (Ctrl+S) and Open (Ctrl+O). Per-workstation setting.",
+    "folderHint": "Folder suggested for creating and opening projects. Exports default to the open project's folder. Per-workstation setting.",
     "desktopOnly": "Available in the desktop app: a browser saves to its downloads folder.",
     "none": "None: the system suggests its usual folder",
     "choose": "Choose…",

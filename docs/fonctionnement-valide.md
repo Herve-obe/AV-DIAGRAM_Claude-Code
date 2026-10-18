@@ -1,14 +1,17 @@
 # Enregistrement et collaboration d’AV Diagram
 
-Fonctionnement demandé, proposé dans la [PR n° 2, encore en brouillon](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/2).
+Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/2), complété dans la [PR n° 3](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/3).
 
 ## Fichiers et sauvegardes
 
-- Sur ordinateur, créer un projet demande son nom et son dossier. Le fichier `.avd` est créé avant de remplacer le projet ouvert.
+- Sur ordinateur, créer un projet demande son nom et un dossier parent. Depuis la version **0.3.1**, un sous-dossier au nom du projet y est créé, avec son fichier `.avd` et **Save Back Up**. Par exemple : `Téléchargements / Concert / concert.avd` et `Téléchargements / Concert / Save Back Up /`. Le fichier est créé avant de remplacer le projet ouvert.
+- Les accents et les espaces du nom de dossier sont conservés ; les caractères interdits sont adaptés. Si le dossier existe déjà, un suffixe `(2)`, `(3)`, etc. évite toute réutilisation ou écrasement. Les fichiers existants ne sont pas déplacés.
+- Les exports PDF, images et CSV sont proposés dans le dossier du projet ouvert ; l'utilisateur peut choisir une autre destination. Le dossier parent reste proposé pour les prochains nouveaux projets.
 - **Ctrl+S / Cmd+S** remplace le fichier principal. Le bouton Enregistrer fait la même chose. **Ctrl+Maj+S / Cmd+Maj+S** permet de choisir un autre emplacement.
 - Les modifications courantes ne remplacent plus automatiquement le fichier principal.
 - Les copies de sécurité restent automatiques. Dans Paramètres > Enregistrement, choisir l’intervalle et le nombre de copies.
 - Les copies vont dans **Save Back Up**, avec un sous-dossier stable propre au projet. Avec dix copies conservées, la onzième supprime la plus ancienne de ce projet. Deux projets de même nom restent indépendants ; renommer un projet ne crée pas une seconde rotation.
+- **Enregistrer sous** reste un choix explicite de fichier : il ne déplace pas les sauvegardes déjà créées. Les prochaines copies et les exports suivent le nouvel emplacement du `.avd`. Si le dossier n'est pas accessible pour une copie automatique, le dossier global configuré reste utilisé en secours et le chemin réel est indiqué dans les paramètres.
 - Les anciennes copies du dossier « Sauvegardes » restent en place. Elles ne sont pas supprimées lors du changement de fonctionnement.
 - L’indicateur « Fichier principal enregistré » correspond à la version effectivement écrite. Une copie de sécurité ne change pas cet indicateur.
 - Fermer ou changer de projet propose **Enregistrer / Ne pas enregistrer / Annuler**. Une erreur d’écriture garde le document ouvert.

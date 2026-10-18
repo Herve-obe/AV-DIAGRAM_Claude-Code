@@ -8,6 +8,7 @@ import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { isProject } from '../model/project'
 import { exportSettingsOf, watermarkLayout, watermarkText } from './exportOptions'
+import { BACKUP_DIR } from './backups'
 import type { Project, WatermarkSettings } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useSaveFolder } from '../store/saveFolderStore'
@@ -30,9 +31,17 @@ const FILTERS: Record<string, { name: string; extensions: string[] }> = {
   pdf: { name: 'PDF', extensions: ['pdf'] },
 }
 
-/** Chemin proposé dans les fenêtres Enregistrer : dans le dossier choisi dans les Paramètres, s'il y en a un. */
+/** Les fichiers générés sont proposés à côté du .avd ; le réglage global sert aux projets sans fichier. */
+async function projectDirectory(): Promise<string | null> {
+  const st = useSaveFolder.getState()
+  const file = st.projectFiles[useProject.getState().project.id]
+  if (!file) return st.dir
+  const { dirname } = await import('@tauri-apps/api/path')
+  return dirname(file)
+}
+
 async function inSaveFolder(filename: string): Promise<string> {
-  const dir = useSaveFolder.getState().dir
+  const dir = await projectDirectory()
   if (!dir) return filename
   const { join } = await import('@tauri-apps/api/path')
   return join(dir, filename)
@@ -79,7 +88,7 @@ export async function saveMany(files: { name: string; content: Uint8Array; mime:
     const { open } = await import('@tauri-apps/plugin-dialog')
     const { writeFile } = await import('@tauri-apps/plugin-fs')
     const { join } = await import('@tauri-apps/api/path')
-    const dir = await open({ directory: true, multiple: false, defaultPath: useSaveFolder.getState().dir ?? undefined })
+    const dir = await open({ directory: true, multiple: false, defaultPath: (await projectDirectory()) ?? undefined })
     if (!dir) return 0
     for (const f of files) await writeFile(await join(dir, f.name), f.content)
     return files.length
@@ -110,6 +119,12 @@ function dataUrlToBytes(dataUrl: string): Uint8Array {
 /** Nom de fichier sûr à partir du nom de projet. */
 export function slug(name: string): string {
   return name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projet'
+}
+
+/** Garde un nom lisible, utilisable comme dossier sous Windows et macOS. */
+export function projectFolderName(name: string): string {
+  const clean = Array.from(name.normalize('NFC').replace(/[<>:"/\\|?*\p{Cc}]/gu, '-').trim()).slice(0, 80).join('').replace(/[. ]+$/, '') || 'Projet'
+  return /^(con|prn|aux|nul|com[1-9¹²³]|lpt[1-9¹²³])(?:\.|$)/i.test(clean) ? `_${clean}` : clean
 }
 
 /**
@@ -155,17 +170,30 @@ async function writeProjectFile(project: Project, opts: { as?: boolean }): Promi
 }
 
 /**
- * Nouveau projet enregistré tout de suite dans un dossier : <dossier>/<nom-du-projet>.avd (suffixe si un
- * autre fichier porte déjà ce nom). Le dossier devient celui des projets s'il n'y en avait pas.
+ * Nouveau projet : <dossier choisi>/<nom du projet>/<nom-du-projet>.avd et Save Back Up/.
+ * Un suffixe réserve un nouveau dossier si le nom existe déjà ; aucun contenu existant n'est réutilisé.
  * Renvoie le chemin du fichier, ou null hors de l'application de bureau.
  */
 export async function createProjectFile(project: Project, folder: string): Promise<string | null> {
   if (!isTauri()) return null
   const { join } = await import('@tauri-apps/api/path')
-  const { exists, writeTextFile } = await import('@tauri-apps/plugin-fs')
-  const base = slug(project.name)
-  let path = await join(folder, `${base}.avd`)
-  for (let n = 2; await exists(path); n++) path = await join(folder, `${base}-${n}.avd`)
+  const { exists, mkdir, writeTextFile } = await import('@tauri-apps/plugin-fs')
+  const base = projectFolderName(project.name)
+  let dir: string
+  for (let n = 1; ; n++) {
+    dir = await join(folder, n === 1 ? base : `${base} (${n})`)
+    if (await exists(dir)) continue
+    try {
+      // mkdir non récursif réserve le nom, même si un autre poste le crée entre-temps.
+      await mkdir(dir)
+      break
+    } catch (e) {
+      if (await exists(dir)) continue
+      throw e
+    }
+  }
+  await mkdir(await join(dir, BACKUP_DIR))
+  const path = await join(dir, `${slug(base)}.avd`)
   await writeTextFile(path, JSON.stringify(project, null, 2))
   const st = useSaveFolder.getState()
   st.setProjectFile(project.id, path)
