@@ -974,6 +974,26 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .rack-usage { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; font-size: 11px; color: var(--text-2); }
 .insp-mount { display: flex; align-items: center; gap: 4px; }
 .rack-view .small { font-size: 11px; }
+.rack-limits { display: flex; gap: 12px; padding: 4px 8px; border: 1px solid var(--border); margin: 0 0 10px; }
+.rack-limits legend { color: var(--text-3); font-size: 11px; }
+.rack-limits .field { margin-bottom: 4px; flex: 1; }
+.rack-limits input { width: 100%; }
+.rack-item-name { background: none; border: 0; color: inherit; text-align: left; padding: 0; cursor: pointer; }
+.rack-pending li button { text-align: left; color: inherit; padding: 0; }
+.rack-mount-form, .module-editor form { display: grid; gap: 5px; margin: 12px 0; }
+.rack-mount-form label, .module-editor label { font-size: 11px; color: var(--text-2); }
+.rack-mount-form .btn, .module-editor form .btn { margin-top: 4px; }
+.rack-warning { color: var(--warn); max-width: 430px; }
+.rack-invalid li { display: block; }
+.rack-invalid button { text-decoration: underline; }
+.rack-toolbar { flex-wrap: wrap; }
+.rack-modules { margin-top: 10px; max-width: 450px; font-size: 12px; }
+.rack-modules summary, .module-editor summary { cursor: pointer; font-weight: 600; }
+.rack-modules ul { padding-left: 16px; }
+.module-slot { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.module-slot select { display: block; width: 100%; margin-top: 6px; }
+.module-slot .btn { margin-top: 6px; font-size: 11px; }
+.module-editor summary { font-size: 12px; }
 .insp-mount .link-btn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left; font-size: 12px; }
 
 /* Bibliothèque filtrée sur le calque actif */

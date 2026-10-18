@@ -91,7 +91,7 @@
 - Limites : voies ordonnées et poignée pour les ports à gauche ou à droite seulement (blocs pivotés : tracé
   automatique classique) ; emplacement de l'enregistrement interne sous Windows à confirmer.
 
-**Lot 3, vues liées : vue Baies (V4)** (2026-10-09) : bouton « Baies » de la barre du bas.
+**Lot 3, vues liées : vue Baies (V4)** (complétée le 2026-10-18, version 0.3.0) : bouton « Baies » de la barre du bas.
 - Baies 19" (hauteur 4 à 47 U, renommables), faces avant et arrière, montage par glisser-déposer depuis la liste
   « À monter » (équipements dont la hauteur en U est renseignée) ou d'une position à l'autre ; refus des
   chevauchements et des dépassements, avec message.
@@ -101,7 +101,11 @@
   nombre d'équipements sans poids ou puissance renseignés.
 - Alertes (cahier des charges 3.1) : rackable absent des baies (désactivable par équipement), montage à revoir
   (baie raccourcie, hauteur modifiée). Baies partagées en collaboration et prises en compte par la fusion.
-- Reste pour V4 : export PDF des élévations, poids et profondeur maximale de la baie, cartes et modules en slot.
+- Compléments V4 : export PDF vectoriel avant/arrière avec plages de U lisibles et inventaire des cartes,
+  contrôle de profondeur et de charge maximale, conflits entre faces, formulaire de montage au clavier,
+  cartes et slots avec ports sur l'hôte et bilans complets. Voir [baies.md](baies.md).
+- Cartes et slots partagés par identifiant : ajouts concurrents dans des slots distincts conservés et
+  annulation locale. Connexions aux anciennes versions refusées avant synchronisation : installer 0.3.0 partout.
 
 **Catalogues Novelty et Audio Pro couverts à 100 %** (2026-10-08) : 813 fiches au total (458 Vérifié, 355 Communauté).
 - 753 équipements distincts ; tous couverts par une fiche, sauf 26 hors périmètre (câbles, optiques, consommables)
@@ -162,7 +166,7 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
    - Fiches minimales à compléter (connecteurs non précisés) : OXO, Portman, DeSisti, Scenilux, RVE, armoires de distribution.
 2. **Import PDF** : essais sur de vrais synoptiques (Visio, AutoCAD, Vectorworks, draw.io) ; pages en image via l'assistant IA.
    **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
-3. **Lot 3** : vues liées. Fait : baies (V4, premier jet). Reste : export des élévations, plan d'implantation (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8).
+3. **Lot 3** : vues liées. Fait : baies (V4, export des élévations, limites et cartes inclus). Reste : essais réels de V4, plan d'implantation (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8).
 4. **Synoptique** : voies ordonnées et poignée pour les blocs pivotés ; essais sur un schéma chargé
    (plusieurs consoles, retours) ; confirmer la copie automatique dans le dossier choisi après redémarrage.
 5. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.

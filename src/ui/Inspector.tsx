@@ -20,6 +20,7 @@ import { ArrangeToolbar } from './ArrangeToolbar'
 import { GuideSteps, NextSteps } from './BeginnerGuide'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
+import { ModuleEditor } from './ModuleEditor'
 
 function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
   const { t } = useTranslation()
@@ -47,7 +48,7 @@ function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
 const FAMILIES: EquipmentFamily[] = [
   'capture', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'wireless', 'recording', 'camera',
   'videoSwitcher', 'videoRouting', 'display', 'intercom', 'network', 'sync', 'control', 'power', 'passive',
-  'luminaire', 'lightingControl', 'dmxDistribution',
+  'luminaire', 'lightingControl', 'dmxDistribution', 'module',
 ]
 const PICTOGRAMS: PictogramId[] = [
   'mic', 'di', 'console', 'stagebox', 'processor', 'amp', 'speaker', 'wireless', 'recorder', 'camera', 'switcher',
@@ -142,6 +143,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         </div>
       )}
       <RackFields eq={eq} />
+      <ModuleEditor eq={eq} />
       <div className="field">
         <label>{t('inspector.orientation')}</label>
         <div className="insp-rotate">
@@ -166,7 +168,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
       <div className="insp-actions wrap">
         <button className="btn" onClick={() => useUi.getState().select(duplicate([eq.id]), [])}><Icon name="copy" size={14} />{t('inspector.duplicate')}</button>
         {expert && (
-          <button className="btn" onClick={saveAsTemplate} disabled={savedTpl || eq.ports.length === 0} title={t('inspector.saveTemplateHint')}>
+          <button className="btn" onClick={saveAsTemplate} disabled={savedTpl || (eq.ports.length === 0 && !eq.slots?.length) || (eq.family === 'module' && !eq.moduleType?.trim())} title={t('inspector.saveTemplateHint')}>
             <Icon name={savedTpl ? 'check' : 'bookmark'} size={14} />{savedTpl ? t('inspector.templateSaved') : t('inspector.saveTemplate')}
           </button>
         )}
@@ -519,7 +521,8 @@ function RackFields({ eq }: { eq: Equipment }) {
   const project = useProject((s) => s.project)
   const rack = eq.mount ? project.racks?.[eq.mount.rackId] : undefined
   return (
-    <div className="field-row">
+    <div className="rack-fields">
+      <Field id="eq-depth" type="number" label={t('racks.equipmentDepth')} value={eq.depthMm} onCommit={v => useProject.getState().updateEquipment(eq.id, { depthMm: toNumber(v) })} />
       <Field
         id="eq-rackU"
         type="number"

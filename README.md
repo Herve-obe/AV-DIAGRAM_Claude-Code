@@ -17,6 +17,7 @@ Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/eta
 - Contrôle de compatibilité : signal, niveau (micro, ligne +4 dBu, HP), connecteurs, sens, ports occupés
 - Numérotation automatique des câbles (`ZONE-TYPE-NUM`), renumérotation
 - Listes générées : câblage, nomenclature (puissance, courant à 230 V, poids), alertes
+- [Vue Baies](docs/baies.md) : montage en U avant/arrière, limites de profondeur et de poids, cartes en slot, bilans et export PDF vectoriel
 - Modes Débutant et Expert, palette de commandes (Ctrl+K), thèmes sombre, clair ou système, français et anglais
 - Enregistrement du fichier principal par Ctrl+S / Cmd+S, sauvegardes de sécurité automatiques, fichiers `.avd`, export PNG / SVG / CSV
 - Application de bureau 100 % hors ligne, avec les fenêtres natives d'ouverture et d'enregistrement
@@ -56,6 +57,7 @@ npm run desktop:build   # installateur pour le système courant, dans src-tauri/
 ## Documentation
 
 - [Cahier des charges](docs/cahier-des-charges.md)
+- [Utiliser la vue Baies](docs/baies.md)
 - [Équipements à documenter](docs/bibliotheque-a-documenter.md)
 - [Maquette d'origine](docs/maquette/index.html)
 - [Écrire une fiche constructeur](src/library/devices/README.md)

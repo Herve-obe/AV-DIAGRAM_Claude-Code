@@ -87,7 +87,8 @@
     "passive": "Passifs",
     "luminaire": "Projecteurs",
     "lightingControl": "Contrôle lumière",
-    "dmxDistribution": "Distribution DMX"
+    "dmxDistribution": "Distribution DMX",
+    "module": "Cartes et modules"
   },
   "signal": {
     "audioAnalog": "Audio analogique",
@@ -719,7 +720,8 @@
     "error": {
       "code": "Code refusé (ou trop d'essais : attends une minute).",
       "timeout": "Pas de réponse de l'hôte : vérifie l'adresse, le port et le pare-feu.",
-      "start": "Impossible d'ouvrir la session : {{detail}}"
+      "start": "Impossible d'ouvrir la session : {{detail}}",
+      "version": "Versions incompatibles. Installe la même version récente d’AV Diagram sur tous les postes."
     },
     "backup": "Ce poste peut prendre le relais si l'hôte se déconnecte (ouvre alors la session sur le port 4455)",
     "relayHint": "Ce poste héberge la session de secours et garde toutes les modifications. Le poste initial rejoint cette session à son retour ; l’hébergement ne lui est pas retransféré automatiquement.",
@@ -981,7 +983,7 @@
     "noHeight": "Hauteur en U non renseignée : compte pour 1 U",
     "pending": "À monter",
     "pendingHint": "Équipements dont la hauteur en U est renseignée. Glisser vers une baie.",
-    "invalid": "Montages à revoir (baie raccourcie ou hauteur modifiée) :",
+    "invalid": "Montages à revoir :",
     "linkedHint": "Mêmes équipements que le synoptique : une modification ici se répercute partout.",
     "empty": "Aucune baie dans ce projet.",
     "face": {
@@ -992,7 +994,11 @@
       "noRack": "Baie introuvable.",
       "noEquipment": "Équipement introuvable.",
       "outOfRack": "{{name}} dépasse de la baie à cet endroit.",
-      "overlap": "{{name}} chevauche un autre équipement."
+      "overlap": "{{name}} chevauche un autre équipement.",
+      "depth": "{{name}} est plus profond que la baie.",
+      "oppositeDepth": "{{name}} ne tient pas avec l’appareil monté sur la face opposée.",
+      "weight": "La charge maximale de la baie serait dépassée.",
+      "denied": "Tu n’as pas le droit de modifier ce montage depuis ce calque."
     },
     "usage": {
       "used": "{{used}} U occupés, {{free}} U libres",
@@ -1005,6 +1011,29 @@
     "hint": {
       "unmounted": "Absent des baies",
       "invalid": "Montage à revoir"
+    },
+    "limits": "Contraintes de la baie",
+    "depth": "Profondeur utile (mm)",
+    "maxWeight": "Charge maximale (kg)",
+    "equipmentDepth": "Profondeur de l’appareil (mm)",
+    "equipment": "Équipement",
+    "faceLabel": "Face de montage",
+    "unit": "Unité basse (U)",
+    "mount": "Monter / déplacer",
+    "export": "Exporter les baies en PDF",
+    "unspecified": "non renseignée",
+    "incomplete": "Contrôle incomplet : vérifier les limites de la baie et les profondeurs ({{count}} appareil(s) sans profondeur).",
+    "pdf": {
+      "hint": "Faces avant et arrière côte à côte. Les grandes baies sont réparties sur plusieurs pages avec des plages de U lisibles. Les cartes installées sont listées sur des pages supplémentaires. Le format ne déplace aucun équipement.",
+      "paper": "Format de papier",
+      "orientation": "Orientation",
+      "portrait": "Portrait",
+      "landscape": "Paysage",
+      "summary": "Élévations avant / arrière, plages de U lisibles",
+      "limits": "Profondeur utile : {{depth}} · Charge maximale : {{weight}}",
+      "unknown": "Données manquantes : poids {{weight}}, puissance {{power}}, profondeur {{depth}}. Montages à revoir : {{invalid}}.",
+      "diagramZone": "Élévations uniquement",
+      "watermarkHint": "Filigrane vectoriel : visible dans la zone choisie, mais modifiable avec un éditeur PDF. La protection reste disponible."
     }
   },
   "linkCheck": {
@@ -1188,5 +1217,27 @@
     "choose": "Choisir un port libre",
     "dragHint": "Tirez un câble depuis le port choisi, ou vers celui-ci.",
     "cancel": "Masquer ce port"
+  },
+  "modules": {
+    "title": "Cartes et emplacements",
+    "hint": "Les ports des cartes apparaissent sur cet appareil. La compatibilité repose sur le type de slot déclaré : vérifier la documentation constructeur. Le poids et la puissance de l’hôte s’entendent hors cartes et s’ajoutent à ceux des cartes.",
+    "type": "Type de slot / carte",
+    "slotName": "Nom du slot",
+    "addSlot": "Ajouter un slot",
+    "removeSlot": "Supprimer ce slot vide",
+    "choose": "Insérer une carte dans {{slot}}",
+    "noCompatible": "Aucune carte de ce type. En mode Expert, crée une carte personnalisée, indique le même type puis enregistre-la dans Mes modèles.",
+    "remove": "Retirer la carte",
+    "disconnect": "Retirer et supprimer {{count}} liaison(s)",
+    "cancel": "Annuler",
+    "portRemoval": "Retire la carte pour supprimer ses ports.",
+    "error": {
+      "noSlot": "Slot introuvable.",
+      "occupied": "Ce slot est déjà occupé.",
+      "incompatible": "Le type de carte ne correspond pas au slot.",
+      "invalidTemplate": "La fiche de cette carte est incomplète ou invalide.",
+      "connected": "Cette carte est câblée : déconnecte ses ports avant de la retirer.",
+      "denied": "Tu n’as pas le droit de modifier cette carte depuis ce calque."
+    }
   }
 }

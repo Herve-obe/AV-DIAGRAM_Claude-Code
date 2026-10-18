@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { ReactFlowInstance } from '@xyflow/react'
 import type { TFunction } from 'i18next'
 import { createProject } from '../model/project'
+import { addRack } from '../model/racks'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { drawingBounds, useRoutes } from '../editor/EdgeRouter'
@@ -19,7 +20,7 @@ describe('export : découpage visible et choix sur une page', () => {
     vi.useFakeTimers(); vi.clearAllMocks()
     const p = createProject('A3')
     useProject.setState({ project: { ...p, settings: { ...p.settings, export: exportSettingsOf(p) } } })
-    useUi.setState({ currentSheetId: p.sheets![0].id, selectedEquipment: ['bloc'], selectedLinks: [] })
+    useUi.setState({ view: 'diagram', currentSheetId: p.sheets![0].id, selectedEquipment: ['bloc'], selectedLinks: [] })
     useRoutes.setState({ routes: new Map(), labels: new Map() })
   })
   afterEach(() => vi.useRealTimers())
@@ -58,5 +59,16 @@ describe('export : découpage visible et choix sur une page', () => {
     const bounds = drawingBounds(nodes, [edge], { routes: new Map([['cable', [{ x: 1680, y: 940 }]]]), labels: new Map([['cable', { x: 1720, y: 950 }]]) })
     expect(bounds!.x + bounds!.w).toBeGreaterThan(1720)
     expect(bounds!.y + bounds!.h).toBeGreaterThan(950)
+  })
+  it('exporte la vue Baies sans capturer ni modifier le canevas', async () => {
+    const r = addRack(useProject.getState().project)
+    useProject.setState({ project: r.project })
+    useUi.setState({ view: 'racks' })
+    const before = useUi.getState()
+    expect(await exportPdfWithLabels({} as ReactFlowInstance, ((key: string) => key) as TFunction, {})).toBe(1)
+    expect(captureCanvasLight).not.toHaveBeenCalled()
+    expect(vi.mocked(exportPdf).mock.calls[0][1].every(s => s.draw)).toBe(true)
+    expect(useUi.getState()).toBe(before)
+    expect(useProject.getState().project).toBe(r.project)
   })
 })

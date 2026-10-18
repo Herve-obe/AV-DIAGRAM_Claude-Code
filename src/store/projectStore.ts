@@ -4,6 +4,7 @@ import { create } from 'zustand'
 import * as groups from '../model/groups'
 import * as ops from '../model/project'
 import * as racks from '../model/racks'
+import * as modules from '../model/modules'
 import * as zones from '../model/zones'
 import * as series from '../model/series'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
@@ -92,6 +93,8 @@ interface ProjectState {
   /** Monte (ou déplace) un équipement dans une baie ; renvoie le motif du refus, ou null */
   mountEquipment: (eqId: string, rackId: string, u: number, face?: RackFace) => racks.MountError | null
   unmountEquipment: (eqId: string) => void
+  installModule: (eqId: string, slotId: string, tpl: EquipmentTemplate) => modules.ModuleError | null
+  removeModule: (eqId: string, moduleId: string, disconnect?: boolean) => modules.ModuleError | null
   /** Regroupe des équipements (et annotations) de la feuille dans un sous-schéma ; renvoie son id */
   groupSelection: (sheetId: string, nodeIds: string[], name: string) => string | null
   ungroup: (groupId: string) => void
@@ -270,9 +273,19 @@ export const useProject = create<ProjectState>((rawSet, get) => {
     mountEquipment: (eqId, rackId, u, face) => {
       const r = racks.mountEquipment(get().project, eqId, rackId, u, face)
       if (!r.error) commit(r.project)
-      return r.error
+      return r.error ?? (get().project === r.project ? null : 'denied')
     },
     unmountEquipment: (eqId) => commit(racks.unmountEquipment(get().project, eqId)),
+    installModule: (eqId, slotId, tpl) => {
+      const r = modules.installModule(get().project, eqId, slotId, tpl)
+      if (!r.error) commit(r.project)
+      return r.error ?? (get().project === r.project ? null : 'denied')
+    },
+    removeModule: (eqId, moduleId, disconnect) => {
+      const r = modules.removeModule(get().project, eqId, moduleId, disconnect)
+      if (!r.error) commit(r.project)
+      return r.error ?? (get().project === r.project ? null : 'denied')
+    },
     groupSelection: (sheetId, nodeIds, name) => {
       const p = get().project
       const eqIds = nodeIds.filter((id) => p.equipment[id])

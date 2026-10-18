@@ -46,6 +46,10 @@ export interface EquipmentTemplate {
   weightKg?: number
   /** Hauteur en unités de rack (1 U = 44,45 mm) */
   rackU?: number
+  depthMm?: number
+  slots?: ModuleSlot[]
+  /** Type mécanique déclaré pour une carte (doit correspondre au type du slot). */
+  moduleType?: string
   status: LibraryStatus
   sources?: EquipmentSource[]
   /** Menu de la bibliothèque, quand la famille ne suffit pas (ex. enregistreur vidéo) */
@@ -78,6 +82,7 @@ export type EquipmentFamily =
   | 'luminaire'
   | 'lightingControl'
   | 'dmxDistribution'
+  | 'module'
 
 export type PictogramId =
   | 'mic'
@@ -117,6 +122,10 @@ export interface Equipment {
   powerW?: number
   weightKg?: number
   rackU?: number
+  depthMm?: number
+  slots?: ModuleSlot[]
+  moduleType?: string
+  modules?: InstalledModule[]
   /** Position dans une baie (vue Baies) : même instance que sur le synoptique */
   mount?: RackMount
   zoneId?: string
@@ -138,6 +147,25 @@ export type Rotation = 0 | 90 | 180 | 270
 /** Face d'une baie : avant ou arrière */
 export type RackFace = 'front' | 'rear'
 
+export interface ModuleSlot {
+  id: string
+  name: string
+  type: string
+}
+
+/** Les ports d'une carte sont conservés sur son hôte, avec leurs identifiants stables. */
+export interface InstalledModule {
+  id: string
+  slotId: string
+  templateId: string
+  type: string
+  model: string
+  manufacturer?: string
+  powerW?: number
+  weightKg?: number
+  portIds: string[]
+}
+
 /** Montage d'un équipement dans une baie ; u = unité la plus basse occupée (1 = bas de la baie). */
 export interface RackMount {
   rackId: string
@@ -153,6 +181,7 @@ export interface Rack {
   heightU: number
   /** Profondeur utile en mm */
   depthMm?: number
+  maxWeightKg?: number
   zoneId?: string
   notes?: string
 }

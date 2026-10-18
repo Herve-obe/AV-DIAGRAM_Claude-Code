@@ -87,7 +87,8 @@
     "passive": "Passive",
     "luminaire": "Luminaires",
     "lightingControl": "Lighting control",
-    "dmxDistribution": "DMX distribution"
+    "dmxDistribution": "DMX distribution",
+    "module": "Cards and modules"
   },
   "signal": {
     "audioAnalog": "Analog audio",
@@ -719,7 +720,8 @@
     "error": {
       "code": "Code refused (or too many attempts: wait a minute).",
       "timeout": "No answer from the host: check the address, port and firewall.",
-      "start": "Could not open the session: {{detail}}"
+      "start": "Could not open the session: {{detail}}",
+      "version": "Incompatible versions. Install the same recent AV Diagram version on every computer."
     },
     "backup": "This computer can take over if the host disconnects (it then opens the session on port 4455)",
     "relayHint": "This computer hosts the backup session and keeps all changes. The original computer rejoins this session when it returns; hosting is not transferred automatically.",
@@ -981,7 +983,7 @@
     "noHeight": "Rack height not set: counted as 1 U",
     "pending": "To mount",
     "pendingHint": "Devices with a rack height. Drag them into a rack.",
-    "invalid": "Mounts to check (rack shortened or height changed):",
+    "invalid": "Mounts to review:",
     "linkedHint": "Same devices as the diagram: a change here applies everywhere.",
     "empty": "No rack in this project.",
     "face": {
@@ -992,7 +994,11 @@
       "noRack": "Rack not found.",
       "noEquipment": "Device not found.",
       "outOfRack": "{{name}} does not fit in the rack here.",
-      "overlap": "{{name}} overlaps another device."
+      "overlap": "{{name}} overlaps another device.",
+      "depth": "{{name}} is deeper than this rack.",
+      "oppositeDepth": "{{name}} does not fit with the device on the opposite face.",
+      "weight": "The maximum rack load would be exceeded.",
+      "denied": "You cannot modify this mount from this layer."
     },
     "usage": {
       "used": "{{used}} U used, {{free}} U free",
@@ -1005,6 +1011,29 @@
     "hint": {
       "unmounted": "Not in a rack",
       "invalid": "Mount to check"
+    },
+    "limits": "Rack limits",
+    "depth": "Usable depth (mm)",
+    "maxWeight": "Maximum load (kg)",
+    "equipmentDepth": "Device depth (mm)",
+    "equipment": "Equipment",
+    "faceLabel": "Mounting face",
+    "unit": "Lowest unit (U)",
+    "mount": "Mount / move",
+    "export": "Export racks as PDF",
+    "unspecified": "unspecified",
+    "incomplete": "Incomplete check: review rack limits and depths ({{count}} device(s) without depth).",
+    "pdf": {
+      "hint": "Front and rear elevations side by side. Tall racks are split across pages with readable U ranges. Installed cards are listed on additional pages. The paper format does not move equipment.",
+      "paper": "Paper size",
+      "orientation": "Orientation",
+      "portrait": "Portrait",
+      "landscape": "Landscape",
+      "summary": "Front / rear elevations, readable U ranges",
+      "limits": "Usable depth: {{depth}} · Maximum load: {{weight}}",
+      "unknown": "Missing data: weight {{weight}}, power {{power}}, depth {{depth}}. Mounts to review: {{invalid}}.",
+      "diagramZone": "Elevations only",
+      "watermarkHint": "Vector watermark: visible in the chosen area, but editable with a PDF editor. PDF protection remains available."
     }
   },
   "linkCheck": {
@@ -1188,5 +1217,27 @@
     "choose": "Choose a free port",
     "dragHint": "Drag a cable from or to the selected port.",
     "cancel": "Hide this port"
+  },
+  "modules": {
+    "title": "Cards and slots",
+    "hint": "Card ports appear on this device. Compatibility uses the declared slot type: check the manufacturer documentation. Host weight and power exclude cards and are added to card values.",
+    "type": "Slot / card type",
+    "slotName": "Slot name",
+    "addSlot": "Add a slot",
+    "removeSlot": "Delete this empty slot",
+    "choose": "Insert a card into {{slot}}",
+    "noCompatible": "No card of this type. In Expert mode, create a custom card, enter the same type and save it in My templates.",
+    "remove": "Remove card",
+    "disconnect": "Remove card and delete {{count}} link(s)",
+    "cancel": "Cancel",
+    "portRemoval": "Remove the card to delete its ports.",
+    "error": {
+      "noSlot": "Slot not found: keep connections or recreate the slot before removing the card.",
+      "occupied": "This slot is already occupied.",
+      "incompatible": "The card type does not match this slot.",
+      "invalidTemplate": "This card template is incomplete or invalid.",
+      "connected": "This card is wired: disconnect its ports before removing it.",
+      "denied": "You cannot modify this card from this layer."
+    }
   }
 }

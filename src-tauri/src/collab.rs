@@ -27,6 +27,8 @@ const MAX_MESSAGE: usize = 16 * 1024 * 1024;
 const HELLO_TIMEOUT: Duration = Duration::from_secs(10);
 const MAX_FAILURES: u32 = 5;
 const LOCKOUT: Duration = Duration::from_secs(60);
+// À conserver identique à src/collab/ydoc.ts (cartes et slots partagés).
+const COLLAB_PROTOCOL: u64 = 2;
 
 /// État du canal d'arrêt : en cours, terminée par l'hôte, interrompue
 const RUNNING: u8 = 0;
@@ -191,6 +193,11 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
         let _ = sink.close().await;
         return;
     }
+    if hello.as_ref().and_then(|h| h.get("protocol").and_then(|v| v.as_u64())) != Some(COLLAB_PROTOCOL) {
+        let _ = sink.send(json(serde_json::json!({ "type": "refused", "reason": "version" }))).await;
+        let _ = sink.close().await;
+        return;
+    }
     let host = addr.ip().is_loopback() && hello.as_ref()
         .and_then(|h| h.get("hostToken").and_then(|t| t.as_str()))
         .map(|t| same_code(t, &hub.host_token)).unwrap_or(false);
@@ -218,7 +225,7 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
         if peers.len() >= MAX_PEERS || (host && peers.values().any(|p| p.host)) { return; }
         peers.insert(id, Peer { host, user_id: user_id.clone(), name: name.clone(), addr, tx });
     }
-    if sink.send(json(serde_json::json!({ "type": "welcome", "peerId": id, "userId": user_id, "peers": others }))).await.is_err() {
+    if sink.send(json(serde_json::json!({ "type": "welcome", "protocol": COLLAB_PROTOCOL, "peerId": id, "userId": user_id, "peers": others }))).await.is_err() {
         hub.peers.lock().unwrap().remove(&id);
         return;
     }
@@ -387,7 +394,7 @@ mod tests {
 
     async fn join_with_token(port: u16, code: &str, token: Option<&str>) -> (tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>, serde_json::Value) {
         let (mut ws, _) = connect_async(format!("ws://127.0.0.1:{port}")).await.unwrap();
-        ws.send(json(serde_json::json!({ "type": "hello", "code": code, "name": "Régie\u{7}", "hostToken": token }))).await.unwrap();
+        ws.send(json(serde_json::json!({ "type": "hello", "protocol": COLLAB_PROTOCOL, "code": code, "name": "Régie\u{7}", "hostToken": token }))).await.unwrap();
         let reply = match ws.next().await {
             Some(Ok(Message::Text(t))) => serde_json::from_str(&t).unwrap(),
             other => panic!("réponse inattendue : {other:?}"),
@@ -418,6 +425,18 @@ mod tests {
         }
         assert!(hub.locked_out("127.0.0.1".parse().unwrap()));
         assert!(hub.peers.lock().unwrap().is_empty());
+    }
+
+    #[tokio::test]
+    async fn refuse_un_client_ancien_avant_tout_echange_du_projet() {
+        let (port, hub, _stop) = start().await;
+        let (mut ws, _) = connect_async(format!("ws://127.0.0.1:{port}")).await.unwrap();
+        ws.send(json(serde_json::json!({ "type": "hello", "code": "123456", "name": "Ancienne version" }))).await.unwrap();
+        let reply = next_json(&mut ws).await;
+        assert_eq!(reply["type"], "refused");
+        assert_eq!(reply["reason"], "version");
+        assert!(hub.peers.lock().unwrap().is_empty());
+        assert!(!hub.locked_out("127.0.0.1".parse().unwrap()));
     }
 
     #[tokio::test]

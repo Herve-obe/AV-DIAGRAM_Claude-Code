@@ -15,6 +15,12 @@ function tpl(t: Omit<EquipmentTemplate, 'ports' | 'status'> & { ports: P[] }): E
 }
 
 export const GENERIC_LIBRARY: EquipmentTemplate[] = [
+  tpl({ id: 'gen-modular-chassis', family: 'processing', model: 'Châssis modulaire (exemple)', pictogram: 'processor', rackU: 2,
+    slots: Array.from({ length: 4 }, (_, i) => ({ id: `slot${i + 1}`, name: `Slot ${i + 1}`, type: 'generic-av' })), ports: [] }),
+  tpl({ id: 'gen-module-audio', family: 'module', model: 'Carte audio (exemple)', pictogram: 'processor', moduleType: 'generic-av',
+    ports: [ ...range('In', 2, { direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'line+4' }), ...range('Out', 2, { direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'line+4' }) ] }),
+  tpl({ id: 'gen-module-video', family: 'module', model: 'Carte vidéo (exemple)', pictogram: 'processor', moduleType: 'generic-av',
+    ports: [{ name: 'SDI in', direction: 'in', signal: 'video', connector: 'bnc' }, { name: 'SDI out', direction: 'out', signal: 'video', connector: 'bnc' }] }),
   // Captation
   tpl({ id: 'gen-mic-dyn', family: 'capture', model: 'Micro dynamique', pictogram: 'mic',
     ports: [{ name: 'Sortie', direction: 'out', signal: 'audioAnalog', connector: 'xlr3', level: 'mic' }] }),

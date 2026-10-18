@@ -79,6 +79,9 @@ export function addEquipment(
     powerW: template.powerW,
     weightKg: template.weightKg,
     rackU: template.rackU,
+    depthMm: template.depthMm,
+    slots: template.slots?.map(s => ({ ...s })),
+    moduleType: template.moduleType,
     zoneId: extra.zoneId,
     sheetId: extra.sheetId ?? project.sheets?.[0]?.id ?? DEFAULT_SHEET_ID,
     position,
@@ -279,7 +282,16 @@ export function isProject(value: unknown): value is Project {
   if (v.settings.typeCodes !== undefined && (!object(v.settings.typeCodes) || !Object.values(v.settings.typeCodes).every((s) => typeof s === 'string'))) return false
 
   if (!entries(v.equipment, (e) => strings(e, ['id', 'templateId', 'name', 'model', 'family', 'pictogram'], ['manufacturer', 'domain', 'zoneId', 'sheetId', 'notes'])
-    && point(e.position) && numbers(e, [], ['powerW', 'weightKg', 'rackU'])
+    && point(e.position) && numbers(e, [], ['powerW', 'weightKg', 'rackU', 'depthMm'])
+    && ['powerW', 'weightKg', 'rackU', 'depthMm'].every(k => e[k] === undefined || (e[k] as number) >= 0)
+    && (e.moduleType === undefined || typeof e.moduleType === 'string')
+    && (e.slots === undefined || (Array.isArray(e.slots) && e.slots.every(s => strings(s, ['id', 'name', 'type']) && s.id && s.type) && new Set(e.slots.map(s => s.id)).size === e.slots.length))
+    && (e.modules === undefined || (Array.isArray(e.modules) && e.modules.every(m => strings(m, ['id', 'slotId', 'templateId', 'model', 'type'], ['manufacturer']) && m.id && numbers(m, [], ['powerW', 'weightKg'])
+      && Array.isArray(e.slots) && e.slots.some(s => object(s) && s.id === m.slotId)
+      && ['powerW', 'weightKg'].every(k => m[k] === undefined || (m[k] as number) >= 0)
+      && Array.isArray(m.portIds) && m.portIds.every((id: unknown) => typeof id === 'string' && Array.isArray(e.ports) && e.ports.some(p => object(p) && p.id === id)))
+      && new Set(e.modules.map(m => m.id)).size === e.modules.length && new Set(e.modules.map(m => m.slotId)).size === e.modules.length
+      && new Set(e.modules.flatMap(m => m.portIds as string[])).size === e.modules.flatMap(m => m.portIds as string[]).length))
     && (e.rotation === undefined || [0, 90, 180, 270].includes(e.rotation as number))
     && stringList(e.dismissedHints)
     && (e.mount === undefined || (strings(e.mount, ['rackId', 'face']) && numbers(e.mount, ['u']) && ['front', 'rear'].includes((e.mount as Record<string, unknown>).face as string)))
@@ -298,7 +310,9 @@ export function isProject(value: unknown): value is Project {
   if (v.annotations !== undefined && !entries(v.annotations, (a) => strings(a, ['id', 'kind', 'sheetId', 'text'], ['color', 'zoneId'])
     && ['note', 'frame'].includes(a.kind as string) && point(a.position) && numbers(a.size, ['w', 'h']))) return false
   if (v.multicores !== undefined && !entries(v.multicores, (m) => strings(m, ['id', 'label'], ['cableTypeId', 'connectors', 'notes']) && numbers(m, ['pairs'], ['lengthM']))) return false
-  if (v.racks !== undefined && !entries(v.racks, (r) => strings(r, ['id', 'name'], ['zoneId', 'notes']) && numbers(r, ['heightU'], ['depthMm']))) return false
+  if (v.racks !== undefined && !entries(v.racks, (r) => strings(r, ['id', 'name'], ['zoneId', 'notes']) && numbers(r, ['heightU'], ['depthMm', 'maxWeightKg'])
+    && Number.isInteger(r.heightU) && (r.heightU as number) > 0 && (r.heightU as number) <= 100
+    && ['depthMm', 'maxWeightKg'].every(k => r[k] === undefined || (r[k] as number) > 0))) return false
   if (v.info !== undefined && (!strings(v.info, [], ['client', 'venue', 'author', 'revision', 'owner', 'docNumber', 'subtitle', 'docType', 'status', 'approver', 'techRef', 'classification', 'language', 'eventDate'])
     || (v.info.revisions !== undefined && (!Array.isArray(v.info.revisions) || !v.info.revisions.every((r) => strings(r, ['index', 'date', 'description'], ['author'])))))) return false
 
@@ -347,6 +361,7 @@ export function updatePort(project: Project, equipmentId: string, portId: string
 export function removePort(project: Project, equipmentId: string, portId: string): Project {
   const eq = project.equipment[equipmentId]
   if (!eq) return project
+  if (eq.modules?.some(m => m.portIds.includes(portId))) return project
   const uses = (r: { equipmentId: string; portId: string }) => r.equipmentId === equipmentId && r.portId === portId
   const linkIds = Object.values(project.links).filter((l) => uses(l.source) || uses(l.target)).map((l) => l.id)
   const p = removeElements(project, [], linkIds)
@@ -361,10 +376,13 @@ export function templateFromEquipment(eq: Equipment): EquipmentTemplate {
     manufacturer: eq.manufacturer,
     model: eq.name,
     pictogram: eq.pictogram,
-    ports: eq.ports.map((p) => ({ ...p })),
+    ports: eq.ports.filter(p => !eq.modules?.some(m => m.portIds.includes(p.id))).map((p) => ({ ...p })),
     powerW: eq.powerW,
     weightKg: eq.weightKg,
     rackU: eq.rackU,
+    depthMm: eq.depthMm,
+    slots: eq.slots?.map(s => ({ ...s })),
+    moduleType: eq.moduleType,
     status: 'user',
   }
 }

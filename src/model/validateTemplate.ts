@@ -26,7 +26,13 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
     }
   }
   if (t.domain && !(LIBRARY_DOMAINS as readonly string[]).includes(t.domain)) errors.push(`${where} : menu inconnu (${t.domain})`)
-  if (!t.ports.length) errors.push(`${where} : aucun port`)
+  if (!t.ports.length && !t.slots?.length) errors.push(`${where} : aucun port`)
+  if (t.family === 'module' && !t.moduleType?.trim()) errors.push(`${where} : type de carte manquant`)
+  const slots = new Set<string>()
+  for (const s of t.slots ?? []) {
+    if (!s.id || !s.name?.trim() || !s.type?.trim() || slots.has(s.id)) errors.push(`${where} : slot invalide ou en double`)
+    slots.add(s.id)
+  }
   const ids = new Set<string>()
   for (const p of t.ports) {
     if (ids.has(p.id)) errors.push(`${where} : identifiant de port en double (${p.id})`)
@@ -37,8 +43,8 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
     if (p.phantom && !['required', 'supplied', 'none'].includes(p.phantom)) errors.push(`${where}/${p.id} : valeur fantôme inconnue (${p.phantom})`)
     if (p.level && !LEVELS.has(p.level)) errors.push(`${where}/${p.id} : niveau inconnu (${p.level})`)
   }
-  for (const [k, v] of [['powerW', t.powerW], ['weightKg', t.weightKg], ['rackU', t.rackU]] as const) {
-    if (v !== undefined && (typeof v !== 'number' || v < 0)) errors.push(`${where} : ${k} doit être un nombre positif`)
+  for (const [k, v] of [['powerW', t.powerW], ['weightKg', t.weightKg], ['rackU', t.rackU], ['depthMm', t.depthMm]] as const) {
+    if (v !== undefined && (typeof v !== 'number' || !Number.isFinite(v) || v < 0)) errors.push(`${where} : ${k} doit être un nombre positif`)
   }
   return errors
 }

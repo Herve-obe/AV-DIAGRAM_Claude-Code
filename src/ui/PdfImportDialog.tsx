@@ -19,7 +19,7 @@ import { Icon } from './Icon'
 const FAMILIES: EquipmentFamily[] = [
   'capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom',
   'camera', 'videoSwitcher', 'videoRouting', 'display', 'network', 'sync', 'control', 'power', 'passive',
-  'luminaire', 'lightingControl', 'dmxDistribution',
+  'luminaire', 'lightingControl', 'dmxDistribution', 'module',
 ]
 
 interface PdfImportState {

@@ -1,5 +1,6 @@
 // Nomenclature et bilans (puissance, courant, poids, unités de rack).
 import type { Project } from './types'
+import { componentsOf } from './modules'
 
 export interface BomLine {
   key: string
@@ -12,7 +13,7 @@ export interface BomLine {
 
 export function buildBom(project: Project): BomLine[] {
   const lines = new Map<string, BomLine>()
-  for (const eq of Object.values(project.equipment)) {
+  for (const eq of Object.values(project.equipment).flatMap(componentsOf)) {
     const key = `${eq.manufacturer ?? ''}|${eq.model}`
     const line = lines.get(key)
     if (line) line.quantity += 1
@@ -35,13 +36,14 @@ export interface Totals {
 
 export function computeTotals(project: Project): Totals {
   const eqs = Object.values(project.equipment)
-  const powerW = eqs.reduce((s, e) => s + (e.powerW ?? 0), 0)
+  const components = eqs.flatMap(componentsOf)
+  const powerW = components.reduce((s, e) => s + (e.powerW ?? 0), 0)
   return {
-    equipmentCount: eqs.length,
+    equipmentCount: components.length,
     powerW,
     currentA: project.settings.mainsVoltage > 0 ? powerW / project.settings.mainsVoltage : 0,
-    weightKg: eqs.reduce((s, e) => s + (e.weightKg ?? 0), 0),
+    weightKg: components.reduce((s, e) => s + (e.weightKg ?? 0), 0),
     rackU: eqs.reduce((s, e) => s + (e.rackU ?? 0), 0),
-    missingPower: eqs.filter((e) => e.powerW === undefined).length,
+    missingPower: components.filter((e) => e.powerW === undefined).length,
   }
 }

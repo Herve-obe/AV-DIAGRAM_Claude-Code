@@ -10,6 +10,7 @@ class RelaySocket {
   static OPEN = 1
   static peers = new Map<number, RelaySocket>()
   static next = 1
+  static protocol: number | undefined = 2
   static held = false
   static queued: (() => void)[] = []
   static flush() {
@@ -32,11 +33,12 @@ class RelaySocket {
   send(value: string | Uint8Array) {
     if (typeof value === 'string') {
       const h = JSON.parse(value)
+      expect(h.protocol).toBe(2)
       this.id = RelaySocket.next++; this.host = h.hostToken === 'private-host'
       this.userId = createHash('sha256').update(h.clientToken ?? 'probe').digest('hex')
       const peers = [...RelaySocket.peers.values()].map(p => ({ id: p.id, userId: p.userId, name: 'Poste', address: '127.0.0.1' }))
       RelaySocket.peers.set(this.id, this)
-      this.deliver(JSON.stringify({ type: 'welcome', peerId: this.id, userId: this.userId, peers }))
+      this.deliver(JSON.stringify({ type: 'welcome', protocol: RelaySocket.protocol, peerId: this.id, userId: this.userId, peers }))
       for (const p of RelaySocket.peers.values()) if (p !== this) p.deliver(JSON.stringify({ type: 'peer-joined', peerId: this.id, userId: this.userId }))
       return
     }
@@ -74,7 +76,20 @@ afterEach(() => {
   RelaySocket.held = false; RelaySocket.queued = []
   videoGuest?.session.leave(); videoGuest = undefined
   guest?.session.leave(); host?.session.leave()
-  RelaySocket.peers.clear(); RelaySocket.next = 1; vi.unstubAllGlobals()
+  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 2; vi.unstubAllGlobals()
+})
+
+it.each([undefined, 1])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
+  vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
+  vi.stubGlobal('WebSocket', RelaySocket)
+  native.invoke.mockResolvedValue(undefined)
+  RelaySocket.protocol = protocol
+  guest = await instance('Invité')
+  const before = guest.useProject.getState().project
+  await expect(guest.session.joinSession('127.0.0.1', '123456')).rejects.toThrow()
+  expect(guest.session.useCollab.getState().error).toBe('version')
+  expect(guest.session.useCollab.getState().status).toBe('off')
+  expect(guest.useProject.getState().project).toBe(before)
 })
 
 it('synchronise deux postes, applique les droits de l’hôte et les conserve après reconnexion', async () => {

@@ -10,7 +10,7 @@ export const DOMAIN_FAMILIES: Record<LibraryDomain, EquipmentFamily[]> = {
   light: ['luminaire', 'lightingControl', 'dmxDistribution'],
   network: ['network'],
   distribution: ['power'],
-  misc: ['passive'],
+  misc: ['passive', 'module'],
 }
 
 const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
@@ -32,6 +32,7 @@ const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
   network: 'network',
   power: 'distribution',
   passive: 'misc',
+  module: 'misc',
   luminaire: 'light',
   lightingControl: 'light',
   dmxDistribution: 'light',

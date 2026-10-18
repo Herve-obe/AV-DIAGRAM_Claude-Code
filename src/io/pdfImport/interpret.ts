@@ -160,7 +160,7 @@ export const PICTOGRAM_OF: Record<EquipmentFamily, PictogramId> = {
   speaker: 'speaker', wireless: 'wireless', recording: 'recorder', camera: 'camera', videoSwitcher: 'switcher',
   videoRouting: 'router', display: 'display', intercom: 'intercom', network: 'switch', sync: 'clock',
   control: 'control', power: 'power', passive: 'patch', luminaire: 'light', lightingControl: 'console',
-  dmxDistribution: 'switch',
+  dmxDistribution: 'switch', module: 'processor',
 }
 
 const DOMAIN_SIGNAL: Record<string, SignalFamily> = {
