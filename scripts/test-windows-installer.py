@@ -26,6 +26,7 @@ user.GetWindowThreadProcessId.argtypes = [w.HWND, c.POINTER(w.DWORD)]
 user.GetDlgCtrlID.argtypes = [w.HWND]
 user.IsWindowVisible.argtypes = [w.HWND]
 user.IsWindowEnabled.argtypes = [w.HWND]
+user.GetWindowLongW.argtypes = [w.HWND, c.c_int]
 user.PostMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
 
 
@@ -34,7 +35,8 @@ def windows(parent=None):
 
     @callback_type
     def collect(hwnd, _):
-        if user.IsWindowVisible(hwnd):
+        # The installer is launched hidden; child pages still have their own visible style.
+        if parent is None or user.GetWindowLongW(hwnd, -16) & 0x10000000:
             text, cls, pid = c.create_unicode_buffer(2048), c.create_unicode_buffer(80), w.DWORD()
             user.GetWindowTextW(hwnd, text, len(text))
             user.GetClassNameW(hwnd, cls, len(cls))
@@ -104,7 +106,8 @@ def install_silently():
 
 def maintenance(choice):
     proc = launch()
-    root = wait_for(lambda: next((x for x in windows() if x["pid"] == proc.pid), None), "installer")
+    root = wait_for(lambda: next((x for x in windows() if x["pid"] == proc.pid
+                                 and x["cls"] == "#32770" and x["text"].startswith("AV Diagram")), None), "installer")
     hwnd = root["hwnd"]
     for _ in range(5):
         radio = next((x for x in windows(hwnd) if x["cls"] == "Button" and x["text"] == choice), None)
