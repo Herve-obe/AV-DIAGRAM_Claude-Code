@@ -71,6 +71,15 @@ sont proposés. Si une catégorie n'a plus de port libre, une autre est proposé
 **Tous les ports** ouvre la vue complète ; **Ports reliés** la replie. Les renvois vers les autres
 feuilles restent visibles. Ces actions d'affichage sont propres au poste et ne modifient pas les droits.
 
+## Installation et désinstallation Windows
+
+Depuis **0.3.4**, relancer l'installeur de la même version et choisir **Uninstall**
+ferme aussi l'installeur à la fin de la désinstallation. Le choix du dossier
+d'installation ne doit plus réapparaître. Annuler la désinstallation revient au
+choix de maintenance ; **Add/Reinstall components** permet toujours de réinstaller.
+Avec un installeur d'une autre version, **Uninstall before installing** désinstalle
+l'ancienne version puis continue normalement vers la nouvelle installation.
+
 ## Vérification avant fusion
 
 Pour compléter les simulations par un essai sur trois ordinateurs :
