@@ -1,0 +1,45 @@
+{
+  "id": "walther-bd63t-2x32t",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "WALTHER",
+  "model": "BD63T/2X32T",
+  "status": "community",
+  "description": "Sabot de distribution. Entrée : P17 63A tri. Sorties : 2 x P17 32tri. Protection différentielle 30mA",
+  "aliases": [
+    "BD63T/001",
+    "WALTHER BD63T/2X32T"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/063a/bd63t-2x32t/",
+      "document": "Novelty — BD63T/2X32T",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 63A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-63-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie P17 32tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie P17 32tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    }
+  ],
+  "portStatus": "pending"
+}

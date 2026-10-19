@@ -26,7 +26,13 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
     }
   }
   if (t.domain && !(LIBRARY_DOMAINS as readonly string[]).includes(t.domain)) errors.push(`${where} : menu inconnu (${t.domain})`)
-  if (!t.ports.length && !t.slots?.length) errors.push(`${where} : aucun port`)
+  if (t.portStatus !== undefined && !['pending', 'none'].includes(t.portStatus)) errors.push(`${where} : état de connectique inconnu`)
+  if (t.portStatus === 'pending' && t.status === 'verified') errors.push(`${where} : une connectique à documenter ne peut pas être vérifiée`)
+  if (t.portStatus === 'none' && t.ports.length) errors.push(`${where} : un accessoire sans connectique ne doit pas avoir de port`)
+  if (t.portStatus && t.status === 'community' && !t.sources?.some(s => s.url && /^https?:\/\//.test(s.url) && DATE_RE.test(s.accessed))) errors.push(`${where} : la connectique déclarée doit citer sa source`)
+  if (t.description !== undefined && typeof t.description !== 'string') errors.push(`${where} : description invalide`)
+  if (t.aliases !== undefined && (!Array.isArray(t.aliases) || t.aliases.some(a => typeof a !== 'string' || !a.trim()))) errors.push(`${where} : désignations invalides`)
+  if (!t.ports.length && !t.slots?.length && !t.portStatus) errors.push(`${where} : aucun port`)
   if (t.family === 'module' && !t.moduleType?.trim()) errors.push(`${where} : type de carte manquant`)
   const slots = new Set<string>()
   for (const s of t.slots ?? []) {

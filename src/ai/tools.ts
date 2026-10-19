@@ -102,7 +102,7 @@ export function searchLibrary(library: EquipmentTemplate[], query: string, limit
   const tokens = norm(query).split(/[^a-z0-9]+/).filter(Boolean)
   return library
     .map((t) => {
-      const hay = norm(`${t.manufacturer ?? ''} ${t.model} ${t.id} ${t.family}`)
+      const hay = norm(`${t.manufacturer ?? ''} ${t.model} ${t.id} ${t.family} ${(t.aliases ?? []).join(' ')}`)
       return { t, score: tokens.filter((k) => hay.includes(k)).length }
     })
     .filter((x) => x.score > 0)
@@ -114,6 +114,7 @@ export function searchLibrary(library: EquipmentTemplate[], query: string, limit
       model: t.model,
       family: t.family,
       status: t.status,
+      ...(t.portStatus ? { portStatus: t.portStatus } : {}),
       inputs: t.ports.filter((p) => p.direction !== 'out').length,
       outputs: t.ports.filter((p) => p.direction !== 'in').length,
     }))
@@ -151,6 +152,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         model: t.model,
         family: t.family,
         status: t.status,
+        portStatus: t.portStatus,
+        description: t.description,
         powerW: t.powerW,
         weightKg: t.weightKg,
         rackU: t.rackU,

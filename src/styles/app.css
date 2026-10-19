@@ -470,6 +470,8 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .insp-actions.wrap { flex-wrap: wrap; }
 .source-note ul { margin: 6px 0 0; padding-left: 16px; }
 .source-note .tag { display: inline-block; }
+.source-note a { color: var(--accent); overflow-wrap: anywhere; }
+.source-note summary { cursor: pointer; }
 
 /* ---------- Bibliothèque : pied et modèles perso ---------- */
 .library-list { flex: 1; }

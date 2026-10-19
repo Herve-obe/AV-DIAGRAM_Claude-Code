@@ -21,6 +21,7 @@ import { GuideSteps, NextSteps } from './BeginnerGuide'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
 import { ModuleEditor } from './ModuleEditor'
+import { openExternal } from '../ai/transport'
 
 function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
   const { t } = useTranslation()
@@ -63,11 +64,19 @@ function SourceNote({ templateId }: { templateId: string }) {
     return (
       <div className="source-note">
         <span className={`tag tag-${tpl.status}`}>{t(`library.status.${tpl.status}`)}</span>
-        <ul>
+        {tpl.description && <p>{tpl.description}</p>}
+        {tpl.portStatus && <p>{t(`library.ports.${tpl.portStatus}`)}</p>}
+        <details>
+          <summary>{t('inspector.documentation', { count: tpl.sources?.length ?? 0 })}</summary>
+          <ul>
           {tpl.sources?.map((s, i) => (
-            <li key={i}>{s.document ?? s.url} <span className="dim">({s.accessed})</span></li>
+            <li key={i}>
+              {s.url && /^https?:\/\//.test(s.url) ? <a href={s.url} target="_blank" rel="noopener noreferrer" onClick={e => { e.preventDefault(); void openExternal(s.url!).catch(console.error) }}>{s.document ?? s.url}</a> : s.document}
+              {' '}<span className="dim">({s.accessed})</span>
+            </li>
           ))}
-        </ul>
+          </ul>
+        </details>
       </div>
     )
   }
@@ -164,7 +173,8 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
           <PortList title={t('inspector.bidir')} ports={eq.ports.filter((p) => p.direction === 'bidir')} />
         </>
       )}
-      {expert && <SourceNote templateId={eq.templateId} />}
+      {(expert || getTemplate(eq.templateId)?.portStatus) && <SourceNote templateId={eq.templateId} />}
+      {!expert && getTemplate(eq.templateId)?.portStatus === 'pending' && <button className="btn" onClick={() => useUi.getState().setPref('mode', 'expert')}>{t('inspector.completePorts')}</button>}
       <div className="insp-actions wrap">
         <button className="btn" onClick={() => useUi.getState().select(duplicate([eq.id]), [])}><Icon name="copy" size={14} />{t('inspector.duplicate')}</button>
         {expert && (

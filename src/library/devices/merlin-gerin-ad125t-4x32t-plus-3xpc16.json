@@ -1,0 +1,81 @@
+{
+  "id": "merlin-gerin-ad125t-4x32t-plus-3xpc16",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "MERLIN GERIN",
+  "model": "AD125T/4X32T+3XPC16",
+  "status": "community",
+  "description": "Armoire de distribution sur pied. Entrée : P17 125A tri. Sorties : 4 x P17 32tri + 3 x PC16A. Protection différentielle 30mA",
+  "aliases": [
+    "AR125T/003",
+    "MERLIN GERIN AD125T/4X32T+3XPC16"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/ad125t-4x32t3xpc16/",
+      "document": "Novelty — AD125T/4X32T+3XPC16",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 125A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-125-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie P17 32tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie P17 32tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie P17 32tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie P17 32tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 22
+}

@@ -66,7 +66,7 @@ export function LibraryPanel() {
   const q = query.trim().toLowerCase()
   const { mine, domains, total, hidden } = useMemo(() => {
     const match = (tpl: EquipmentTemplate) =>
-      !q || `${tpl.model} ${tpl.manufacturer ?? ''} ${t(`family.${tpl.family}`)}`.toLowerCase().includes(q)
+      !q || `${tpl.model} ${tpl.manufacturer ?? ''} ${(tpl.aliases ?? []).join(' ')} ${t(`family.${tpl.family}`)}`.toLowerCase().includes(q)
     const matching = LIBRARY.filter(match)
     // Mes modèles restent tous visibles : ce sont des blocs choisis à la main
     const found = filtered ? matching.filter((tpl) => equipmentInView(tpl, layer)) : matching
@@ -116,7 +116,7 @@ export function LibraryPanel() {
         <span className="lib-pict"><Pictogram id={tpl.pictogram} /></span>
         <span className="lib-text">
           <span className="lib-name">{tpl.manufacturer ? `${tpl.manufacturer} ${tpl.model}` : tpl.model}</span>
-          <span className="lib-meta">{ins} in · {outs} out</span>
+          <span className="lib-meta">{tpl.portStatus ? t(`library.ports.${tpl.portStatus}`) : `${ins} in · ${outs} out`}</span>
         </span>
         {tpl.status === 'user' ? (
           <button

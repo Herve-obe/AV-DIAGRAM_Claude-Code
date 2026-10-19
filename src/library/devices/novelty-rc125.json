@@ -1,0 +1,49 @@
+{
+  "id": "novelty-rc125",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "NOVELTY",
+  "model": "RC125",
+  "status": "community",
+  "description": "Armoire de distribution en flight-case. IN = P17 125tri / OUT = 2 x P17 63A + 4 P17 32A + 2 x PC16A. Protection différentielle 30mA",
+  "aliases": [
+    "NOVELTY RC125"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/rc125/",
+      "document": "Novelty — RC125",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dynatec_RC125-V1R1_certificat.pdf",
+      "document": "Novelty — RC125 : RC125",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 125tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-125-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending"
+}

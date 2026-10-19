@@ -40,6 +40,11 @@ export interface EquipmentTemplate {
   model: string
   pictogram: PictogramId
   ports: PortDef[]
+  /** Connexions encore à documenter, ou accessoire sans connectique. */
+  portStatus?: 'pending' | 'none'
+  description?: string
+  /** Autres désignations et références qui permettent de retrouver le même modèle. */
+  aliases?: string[]
   /** Puissance nominale en W, si connue */
   powerW?: number
   /** Poids en kg, si connu */

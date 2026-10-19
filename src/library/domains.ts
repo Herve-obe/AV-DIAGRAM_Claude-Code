@@ -5,11 +5,11 @@ import type { EquipmentFamily, EquipmentTemplate, LibraryDomain } from '../model
 
 /** Familles de chaque menu, dans l'ordre d'affichage. */
 export const DOMAIN_FAMILIES: Record<LibraryDomain, EquipmentFamily[]> = {
-  sound: ['capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom', 'sync', 'control'],
-  image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync'],
-  light: ['luminaire', 'lightingControl', 'dmxDistribution'],
-  network: ['network'],
-  distribution: ['power'],
+  sound: ['capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom', 'sync', 'control', 'passive'],
+  image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync', 'network', 'passive'],
+  light: ['luminaire', 'lightingControl', 'dmxDistribution', 'passive'],
+  network: ['network', 'passive'],
+  distribution: ['power', 'passive'],
   misc: ['passive', 'module'],
 }
 

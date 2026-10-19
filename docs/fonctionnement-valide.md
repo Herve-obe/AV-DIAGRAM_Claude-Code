@@ -71,6 +71,19 @@ sont proposés. Si une catégorie n'a plus de port libre, une autre est proposé
 **Tous les ports** ouvre la vue complète ; **Ports reliés** la replie. Les renvois vers les autres
 feuilles restent visibles. Ces actions d'affichage sont propres au poste et ne modifient pas les droits.
 
+## Catalogue Novelty
+
+Depuis **0.3.5**, le catalogue français Novelty est inclus hors catégorie **Structure**.
+Les doublons et désignations équivalentes renvoient à une fiche commune. Les variantes
+et ensembles restent distincts lorsqu'ils ne sont pas interchangeables.
+
+**Sans connectique** désigne un accessoire non câblé. **Connexions à compléter** signale
+une fiche dont les entrées/sorties ne sont pas entièrement documentées. Dans ce cas,
+les ports connus sont disponibles et aucun port supplémentaire n'est supposé. Les
+documents sont accessibles depuis l'inspecteur ; **Compléter les connexions** permet
+de passer en mode Expert pour ajouter les ports nécessaires. Les nouveaux modèles
+restent au statut Communauté jusqu'au contrôle de leur documentation technique.
+
 ## Installation et désinstallation Windows
 
 Depuis **0.3.4**, relancer l'installeur de la même version et choisir **Uninstall**

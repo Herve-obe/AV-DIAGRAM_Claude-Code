@@ -14,6 +14,7 @@ interface Command {
   id: string
   label: string
   hint?: string
+  searchText?: string
   run: () => void
 }
 
@@ -54,13 +55,13 @@ export function CommandPalette() {
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },
       { id: 'theme', label: t('palette.toggleTheme'), run: () => ui.setPref('theme', ui.theme === 'light' ? 'dark' : 'light') },
       { id: 'lang', label: t('palette.toggleLang'), run: () => ui.setPref('lang', ui.lang === 'fr' ? 'en' : 'fr') },
-      ...LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: tpl.model }), run: () => addAtCenter(tpl.id) })),
+      ...LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: `${tpl.manufacturer ?? ''} ${tpl.model}`.trim() }), searchText: (tpl.aliases ?? []).join(' '), run: () => addAtCenter(tpl.id) })),
     ]
   }, [t, rf])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return (q ? commands.filter((c) => c.label.toLowerCase().includes(q)) : commands).slice(0, 12)
+    return (q ? commands.filter((c) => `${c.label} ${c.searchText ?? ''}`.toLowerCase().includes(q)) : commands).slice(0, 12)
   }, [commands, query])
 
   useEffect(() => {
