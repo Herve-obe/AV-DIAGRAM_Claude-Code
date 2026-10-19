@@ -31,6 +31,8 @@ user.PostMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
 user.ShowWindow.argtypes = [w.HWND, c.c_int]
 user.SetForegroundWindow.argtypes = [w.HWND]
 user.SendMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
+user.GetParent.argtypes = [w.HWND]
+user.GetParent.restype = w.HWND
 
 
 def windows(parent=None):
@@ -69,7 +71,10 @@ def wait_for(find, description, timeout=30):
 def click(control):
     assert control["enabled"], control
     # Post rather than Send: Next waits synchronously for the child uninstaller.
-    assert user.PostMessageW(control["hwnd"], 0xF5, 0, 0)
+    if control["id"] in (1, 2, 3, 6):
+        assert user.PostMessageW(user.GetParent(control["hwnd"]), 0x111, control["id"], 0)
+    else:
+        assert user.PostMessageW(control["hwnd"], 0xF5, 0, 0)
     time.sleep(0.25)
 
 
