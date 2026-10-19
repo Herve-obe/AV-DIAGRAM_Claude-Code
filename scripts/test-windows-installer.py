@@ -28,6 +28,9 @@ user.IsWindowVisible.argtypes = [w.HWND]
 user.IsWindowEnabled.argtypes = [w.HWND]
 user.GetWindowLongW.argtypes = [w.HWND, c.c_int]
 user.PostMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
+user.ShowWindow.argtypes = [w.HWND, c.c_int]
+user.SetForegroundWindow.argtypes = [w.HWND]
+user.SendMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
 
 
 def windows(parent=None):
@@ -59,7 +62,8 @@ def wait_for(find, description, timeout=30):
         if result:
             return result
         time.sleep(0.15)
-    raise AssertionError(f"Timed out: {description}. Windows: {windows()}")
+    dialogs = [x for x in windows() if x["text"].startswith("AV Diagram")]
+    raise AssertionError(f"Timed out: {description}. Dialogs: {[(x, windows(x['hwnd'])) for x in dialogs]}")
 
 
 def click(control):
@@ -109,11 +113,16 @@ def maintenance(choice):
     root = wait_for(lambda: next((x for x in windows() if x["pid"] == proc.pid
                                  and x["cls"] == "#32770" and x["text"].startswith("AV Diagram")), None), "installer")
     hwnd = root["hwnd"]
+    # This disposable CI desktop must activate the dialog for NSIS button notifications.
+    user.ShowWindow(hwnd, 5)
+    user.SetForegroundWindow(hwnd)
     for _ in range(5):
         radio = next((x for x in windows(hwnd) if x["cls"] == "Button" and x["text"] == choice), None)
         if radio:
             click(radio)
+            assert user.SendMessageW(radio["hwnd"], 0xF0, 0, 0) == 1, f"Radio not selected: {radio}"
             click(button(hwnd, 1))
+            print(f"Selected {choice}: {windows(hwnd)}", flush=True)
             return proc, hwnd
         click(button(hwnd, 1))
     raise AssertionError(f"Maintenance choice not found: {choice}; controls: {windows(hwnd)}")

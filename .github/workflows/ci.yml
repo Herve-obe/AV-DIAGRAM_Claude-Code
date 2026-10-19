@@ -36,10 +36,6 @@ jobs:
       - name: Build Windows test installer
         if: github.event_name == 'push'
         run: npm run desktop:build -- --bundles nsis --ci
-      - name: Test installer maintenance and uninstall
-        if: github.event_name == 'push'
-        timeout-minutes: 5
-        run: python scripts/test-windows-installer.py
       - name: Upload Windows test installer
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
@@ -48,6 +44,20 @@ jobs:
           path: src-tauri/target/release/bundle/nsis/*-setup.exe
           if-no-files-found: error
           retention-days: 30
+
+  windows-installer:
+    if: github.event_name == 'push'
+    needs: native
+    runs-on: windows-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: AV-Diagram-Windows-test
+          path: src-tauri/target/release/bundle/nsis
+      - name: Test installer maintenance and uninstall
+        run: python scripts/test-windows-installer.py
 
   macos:
     if: github.event_name == 'push'
