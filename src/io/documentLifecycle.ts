@@ -46,9 +46,19 @@ export async function guardWindowClose() {
   if (isTauri()) {
     const { getCurrentWindow } = await import('@tauri-apps/api/window')
     const w = getCurrentWindow()
+    let closing = false
     await w.onCloseRequested(async e => {
-      // Tauri attend cette réponse puis ferme lui-même la fenêtre si elle n'est pas annulée.
-      if (!(await prepareToLeave(true))) e.preventDefault()
+      if (closing) { e.preventDefault(); return }
+      closing = true
+      try {
+        if (!(await prepareToLeave(true))) { e.preventDefault(); return }
+        // Tauri ferme ensuite la principale ; Infos ne doit pas garder l'application ouverte seule.
+        const { WebviewWindow } = await import('@tauri-apps/api/webviewWindow')
+        await (await WebviewWindow.getByLabel('panels'))?.destroy()
+      } catch (error) {
+        e.preventDefault()
+        await notifyError(i18n.t('dual.closeError', { error: String(error) }))
+      } finally { closing = false }
     })
   } else {
     window.addEventListener('beforeunload', e => { if (!useProject.getState().saved) e.preventDefault() })

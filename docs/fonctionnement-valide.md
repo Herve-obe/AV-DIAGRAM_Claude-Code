@@ -15,6 +15,7 @@ Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/
 - Les anciennes copies du dossier « Sauvegardes » restent en place. Elles ne sont pas supprimées lors du changement de fonctionnement.
 - L’indicateur « Fichier principal enregistré » correspond à la version effectivement écrite. Une copie de sécurité ne change pas cet indicateur.
 - Fermer ou changer de projet propose **Enregistrer / Ne pas enregistrer / Annuler**. Une erreur d’écriture garde le document ouvert.
+- Depuis **0.3.3**, en double écran, quitter depuis la fenêtre principale ferme aussi **Infos**, après la confirmation et, si demandé, la réussite de l’enregistrement. **Annuler** ou un échec d’enregistrement garde les deux fenêtres ouvertes. Si Infos ne peut pas se fermer, la principale reste ouverte avec un message et permet de réessayer. Fermer Infos seule permet toujours de continuer dans la fenêtre principale.
 - Les projets récents sont des raccourcis. Les retirer ne supprime ni les fichiers ni les anciens contenus locaux.
 
 Une copie interne aide à reprendre le travail après un plantage. Elle reste distincte du fichier principal et des copies du dossier Save Back Up. Si le fichier principal est absent, la dernière copie interne récupérable est ouverte comme travail non enregistré.
