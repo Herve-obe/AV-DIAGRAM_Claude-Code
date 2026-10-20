@@ -3,6 +3,7 @@
 import ctypes as c
 from ctypes import wintypes as w
 import os
+import json
 from pathlib import Path
 import subprocess
 import time
@@ -111,6 +112,19 @@ def launch(*args):
 def install_silently():
     assert launch("/S", f"/D={install_dir}").wait(timeout=90) == 0
     assert binary.is_file(), "Fresh installation failed"
+    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY) as key:
+        installed = {name: winreg.QueryValueEx(key, name)[0]
+                     for name in ("DisplayVersion", "InstallLocation", "UninstallString")}
+    expected = json.loads(Path("src-tauri/tauri.conf.json").read_text(encoding="utf-8"))["version"]
+    assert installed["DisplayVersion"] == expected, installed
+    assert Path(installed["InstallLocation"].strip('"')).resolve() == install_dir.resolve(), installed
+    print(f"Installed metadata: {installed}", flush=True)
+
+
+def page_signature(hwnd):
+    # NSIS replaces its inner dialog on each page. Wait for that change rather than queueing Next.
+    return tuple(sorted(x["hwnd"] for x in windows(hwnd)
+                        if x["cls"] == "#32770" and user.GetParent(x["hwnd"]) == hwnd))
 
 
 def maintenance(choice):
@@ -121,15 +135,22 @@ def maintenance(choice):
     # This disposable CI desktop must activate the dialog for NSIS button notifications.
     user.ShowWindow(hwnd, 5)
     user.SetForegroundWindow(hwnd)
+    wait_for(lambda: page_signature(hwnd), "initial installer page")
     for _ in range(5):
         radio = next((x for x in windows(hwnd) if x["cls"] == "Button" and x["text"] == choice), None)
         if radio:
             click(radio)
-            assert user.SendMessageW(radio["hwnd"], 0xF0, 0, 0) == 1, f"Radio not selected: {radio}"
+            wait_for(lambda: user.SendMessageW(radio["hwnd"], 0xF0, 0, 0) == 1, f"radio selected: {choice}")
             click(button(hwnd, 1))
             print(f"Selected {choice}: {windows(hwnd)}", flush=True)
             return proc, hwnd
-        click(button(hwnd, 1))
+        before = page_signature(hwnd)
+        next_button = button(hwnd, 1)
+        assert next_button["text"] not in ("Install", "Uninstall", "Finish", "Close"), \
+            f"Maintenance skipped: {choice}; controls: {windows(hwnd)}"
+        click(next_button)
+        wait_for(lambda: page_signature(hwnd) and not set(before).intersection(page_signature(hwnd)),
+                 "next installer page")
     raise AssertionError(f"Maintenance choice not found: {choice}; controls: {windows(hwnd)}")
 
 
