@@ -1,9 +1,11 @@
 // Barre supérieure : identité, projet, fichier, annulation, recherche, mode, thème, langue.
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { startMerge } from './MergeDialog'
 import { startPdfImport } from './PdfImportDialog'
 import { startCadImport } from './CadImportDialog'
+import { startDiagramImport } from './diagramImport'
+import { ManualDialog } from './ManualDialog'
 import { exportCad, type CadDiagramGeometry } from '../io/cadExport'
 import { useReactFlow } from '@xyflow/react'
 import { endOf, useRoutes } from '../editor/EdgeRouter'
@@ -44,6 +46,9 @@ export function TopBar() {
   const { undo, redo, rename } = useProject.getState()
   const { mode, theme, lang, setPref, setPaletteOpen } = useUi()
   const [exportOpen, setExportOpen] = useState(false)
+  const [readingDiagram, setReadingDiagram] = useState(false)
+  const [manualOpen, setManualOpen] = useState(false)
+  const closeManual = useCallback(() => setManualOpen(false), [])
   const [name, setName] = useState(project.name)
   const exportRef = useRef<HTMLDivElement>(null)
   const aiOpen = useAi((s) => s.panelOpen)
@@ -96,6 +101,7 @@ export function TopBar() {
         <button className="icon-btn" onClick={() => startMerge(t)} title={t('merge.menu')} aria-label={t('merge.menu')}><Icon name="copy" /></button>
         <button className="icon-btn" onClick={() => startPdfImport(t)} title={t('pdfImport.menu')} aria-label={t('pdfImport.menu')}><Icon name="pdf" /></button>
         <button className="icon-btn" onClick={() => startCadImport(t)} title={t('cad.menu')} aria-label={t('cad.menu')}><Icon name="plan" /></button>
+        <button className="icon-btn" disabled={readingDiagram} aria-busy={readingDiagram} onClick={async () => { setReadingDiagram(true); try { await startDiagramImport(t) } finally { setReadingDiagram(false) } }} title={t(readingDiagram ? 'diagramExchange.reading' : 'diagramExchange.menu')} aria-label={t('diagramExchange.menu')}><Icon name="layers" /></button>
         <button className="icon-btn" onClick={() => startPatchImport(t)} title={t('xlsx.importMenu')} aria-label={t('xlsx.importMenu')}><Icon name="lists" /></button>
         <button className="icon-btn" onClick={() => saveCurrentProject()} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
         <div className="menu" ref={exportRef}>
@@ -108,6 +114,7 @@ export function TopBar() {
               <button role="menuitem" onClick={() => { setExportOpen(false); exportCableCsv(project, csvHeaders(t)) }}>{t('menu.exportCsv')}</button>
               <button role="menuitem" disabled={!drawing} onClick={() => { setExportOpen(false); void dxf().catch(() => notifyError(t('cad.exportError'))) }}>{t('cad.export')}</button>
               <button role="menuitem" onClick={() => { setExportOpen(false); void exportWorkbook(project, t).catch(() => notifyError(t('xlsx.exportError'))) }}>{t('xlsx.export')}</button>
+              <button role="menuitem" disabled={useUi.getState().view !== 'diagram'} onClick={() => { setExportOpen(false); void import('../io/diagramExchange').then(async ({ drawioXml }) => { const { saveContent, slug } = await import('../io/files'); await saveContent(`${slug(project.name)}.drawio`, drawioXml(project), 'application/xml') }).catch(() => notifyError(t('diagramExchange.exportError'))) }}>{t('diagramExchange.export')}</button>
             </div>
           )}
         </div>
@@ -143,6 +150,7 @@ export function TopBar() {
         </button>
         <button className="icon-btn" onClick={() => useUi.getState().setPresenting(true)} title={`${t('presentation.enter')} (F5)`} aria-label={t('presentation.enter')}><Icon name="present" /></button>
         <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
+        <button className="icon-btn" onClick={() => setManualOpen(true)} title={t('manual.title')} aria-label={t('manual.title')}><Icon name="bookmark" /></button>
         <span className="sep" />
         <button className="icon-btn" onClick={undo} disabled={!canUndo} title={`${t('menu.undo')} (Ctrl+Z)`} aria-label={t('menu.undo')}><Icon name="undo" /></button>
         <button className="icon-btn" onClick={redo} disabled={!canRedo} title={`${t('menu.redo')} (Ctrl+Maj+Z)`} aria-label={t('menu.redo')}><Icon name="redo" /></button>
@@ -167,6 +175,7 @@ export function TopBar() {
       <button className="icon-btn" onClick={() => setPref('theme', THEME_NEXT[theme])} title={t(`theme.${theme}`)} aria-label={t(`theme.${theme}`)}>
         <Icon name={THEME_ICON[theme]} />
       </button>
+      {manualOpen && <ManualDialog onClose={closeManual} />}
     </header>
   )
 }

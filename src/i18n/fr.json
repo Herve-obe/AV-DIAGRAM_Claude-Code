@@ -1288,11 +1288,11 @@
     "tooManyPages": "Le plan dépasse 200 pages. Choisir la mise à l’échelle sur une page ou augmenter le dénominateur de l’échelle du plan."
   },
   "cad": {
-    "menu": "Importer un DXF",
+    "menu": "Importer DXF / DWG",
     "export": "Exporter en DXF",
     "exportError": "Impossible d’exporter le DXF. Le projet reste ouvert.",
     "title": "Importer {{name}}",
-    "synopticTitle": "Reconnaître le synoptique DXF : {{name}}",
+    "synopticTitle": "Reconnaître le synoptique : {{name}}",
     "background": "Fond de plan",
     "synoptic": "Synoptique modifiable",
     "hint": "Lecture 2D sur ce poste. Vérifier l’unité et l’aperçu avant l’import. Le synoptique passe ensuite par une fenêtre de vérification des équipements et liaisons.",
@@ -1312,7 +1312,7 @@
     "applyBackground": "Importer le fond de plan",
     "reviewSynoptic": "Vérifier les équipements et liaisons",
     "errors": {
-      "binary": "Les DWG et DXF binaires ne sont pas lus directement. Exporter le dessin en DXF texte ou en PDF vectoriel depuis le logiciel de CAO.",
+      "binary": "DXF binaire non pris en charge. Exporter un DXF texte depuis le logiciel de CAO.",
       "large": "Dessin trop volumineux ou trop complexe. Exporter uniquement les calques utiles (10 Mo maximum).",
       "encoding": "Encodage du texte non pris en charge. Exporter le DXF en UTF-8.",
       "units": "Choisir l’unité réelle du fichier avant l’import.",
@@ -1489,5 +1489,52 @@
     "connect": "Raccorder",
     "reportAlerts": "Points à vérifier",
     "knownDemand": "Demande PoE connue"
+  },
+  "diagramExchange": {
+    "menu": "Importer draw.io / Visio",
+    "reading": "Lecture du synoptique…",
+    "title": "Importer le synoptique : {{name}}",
+    "export": "Exporter en draw.io",
+    "exportError": "Impossible d’exporter ce synoptique. Le projet reste ouvert.",
+    "hint": "Import de structure, avec vérification : les formes deviennent des équipements et les connexions explicites deviennent des liaisons. Vérifier les noms, familles, prises et signaux déduits. Choisir une page ; l’import crée une nouvelle feuille annulable. Les détails graphiques avancés ne sont pas reproduits.",
+    "warnings": {
+      "images": "Images et liens externes ignorés ; aucune ressource distante n’est chargée.",
+      "transforms": "Rotations ou symétries simplifiées pour la reprise des blocs. Vérifier leur disposition.",
+      "groups": "Groupes aplatis ; leur hiérarchie et les connexions vers un groupe sont à vérifier.",
+      "hidden": "Formes masquées ignorées.",
+      "appearance": "Formes et géométrie avancées simplifiées en cadres. Ce n’est pas une reproduction graphique exacte.",
+      "masters": "Un ou plusieurs modèles de formes Visio sont introuvables. Vérifier les blocs concernés.",
+      "formulas": "Formules Visio non exécutées : seules les valeurs enregistrées sont utilisées.",
+      "dangling": "Connexions sans deux équipements identifiés : non reprises automatiquement."
+    },
+    "errors": {
+      "large": "Fichier trop volumineux : 10 Mo, 50 pages, 2 000 éléments par page, 4 000 au total ; 50 Mo de XML Visio décompressé maximum.",
+      "timeout": "La lecture a dépassé 15 secondes. Exporter uniquement les pages utiles.",
+      "unsafe": "Le fichier contient une DTD ou une référence d’archive non autorisée. Exporter un document XML simple.",
+      "invalid": "Fichier draw.io/XML ou Visio .vsdx illisible ou non pris en charge. Les anciens .vsd ne sont pas lus. Le projet reste inchangé."
+    }
+  },
+  "dwg": {
+    "hint": "Ce DWG doit être converti en DXF par ODA File Converter, installé séparément sur ce poste. Choisir son programme pour effectuer la conversion locale de ce seul fichier ; l’original reste intact. Sans cet outil, exporter un DXF texte depuis le logiciel de CAO.",
+    "select": "Choisir ODA File Converter et convertir",
+    "choose": "Choisir le programme ODAFileConverter installé sur ce poste",
+    "converting": "Conversion en cours…",
+    "wait": "Conversion locale, 60 secondes maximum. Fermer cette fenêtre annule l’opération.",
+    "errors": {
+      "desktop": "La conversion DWG demande l’application de bureau et ODA File Converter installé.",
+      "converter": "Programme non disponible : sélectionner ODAFileConverter.exe sous Windows, ou le programme ODAFileConverter dans Contents/MacOS sur Mac.",
+      "large": "DWG ou DXF obtenu trop volumineux (10 Mo maximum).",
+      "busy": "Une autre conversion est encore en cours. Attendre son arrêt puis réessayer.",
+      "timeout": "La conversion a dépassé 60 secondes et a été arrêtée. Préparer un DXF avec le logiciel d’origine.",
+      "cancelled": "Conversion annulée. Le projet reste inchangé.",
+      "storage": "Impossible de créer les fichiers temporaires. Vérifier l’espace disponible et les droits du poste.",
+      "conversion": "La conversion n’a pas produit de DXF lisible. Vérifier le DWG et la version du convertisseur ; aucun changement n’a été appliqué."
+    }
+  },
+  "manual": {
+    "title": "Manuel utilisateur",
+    "offline": "Manuel complet en français, disponible hors ligne.",
+    "download": "Enregistrer le manuel PDF",
+    "error": "Impossible d’enregistrer le manuel PDF. Réessayer vers un dossier accessible."
   }
 }

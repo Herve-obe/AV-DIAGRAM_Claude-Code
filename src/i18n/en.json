@@ -1288,11 +1288,11 @@
     "tooManyPages": "The plan exceeds 200 pages. Fit to one page or increase the floor plan scale denominator."
   },
   "cad": {
-    "menu": "Import DXF",
+    "menu": "Import DXF / DWG",
     "export": "Export DXF",
     "exportError": "Could not export DXF. The project remains open.",
     "title": "Import {{name}}",
-    "synopticTitle": "Recognise DXF schematic: {{name}}",
+    "synopticTitle": "Recognise diagram: {{name}}",
     "background": "Floor plan background",
     "synoptic": "Editable schematic",
     "hint": "2D reading on this computer. Check the units and preview before importing. Schematics then go through equipment and connection review.",
@@ -1312,7 +1312,7 @@
     "applyBackground": "Import background",
     "reviewSynoptic": "Review equipment and connections",
     "errors": {
-      "binary": "DWG and binary DXF files cannot be read directly. Export a text DXF or vector PDF from your CAD application.",
+      "binary": "Binary DXF is not supported. Export text DXF from the CAD software.",
       "large": "Drawing too large or complex. Export only the useful layers (10 MB maximum).",
       "encoding": "Unsupported text encoding. Export the DXF as UTF-8.",
       "units": "Choose the actual file units before importing.",
@@ -1489,5 +1489,52 @@
     "connect": "Connect",
     "reportAlerts": "Items to check",
     "knownDemand": "Known PoE demand"
+  },
+  "diagramExchange": {
+    "menu": "Import draw.io / Visio",
+    "reading": "Reading diagram…",
+    "title": "Import diagram: {{name}}",
+    "export": "Export as draw.io",
+    "exportError": "Could not export this diagram. The project stays open.",
+    "hint": "Structural import with review: shapes become equipment and explicit connections become links. Check inferred names, families, ports and signals. Select a page; import creates a new, undoable sheet. Advanced graphical details are not reproduced.",
+    "warnings": {
+      "images": "Images and external links ignored; no remote resource is loaded.",
+      "transforms": "Rotations or reflections simplified for imported blocks. Check their placement.",
+      "groups": "Groups flattened; check hierarchy and connections to groups.",
+      "hidden": "Hidden shapes ignored.",
+      "appearance": "Advanced shapes and geometry simplified into boxes. This is not an exact graphical reproduction.",
+      "masters": "One or more Visio shape masters could not be found. Check the affected blocks.",
+      "formulas": "Visio formulas are not executed: only saved values are used.",
+      "dangling": "Connections without two identified equipment endpoints are not imported automatically."
+    },
+    "errors": {
+      "large": "File too large: 10 MB, 50 pages, 2,000 elements per page, 4,000 overall; up to 50 MB of expanded Visio XML.",
+      "timeout": "Reading exceeded 15 seconds. Export only the required pages.",
+      "unsafe": "The file contains a DTD or an unsafe archive reference. Export a simple XML document.",
+      "invalid": "Unreadable or unsupported draw.io/XML or Visio .vsdx file. Legacy .vsd is not supported. The project remains unchanged."
+    }
+  },
+  "dwg": {
+    "hint": "This DWG must be converted to DXF by ODA File Converter, installed separately on this workstation. Select its program to convert only this file locally; the original stays intact. Without this tool, export text DXF from the CAD software.",
+    "select": "Select ODA File Converter and convert",
+    "choose": "Select the installed ODAFileConverter program",
+    "converting": "Converting…",
+    "wait": "Local conversion, up to 60 seconds. Closing this window cancels it.",
+    "errors": {
+      "desktop": "DWG conversion requires the desktop app and an installed ODA File Converter.",
+      "converter": "Program unavailable: select ODAFileConverter.exe on Windows, or ODAFileConverter in Contents/MacOS on Mac.",
+      "large": "DWG or converted DXF exceeds the 10 MB limit.",
+      "busy": "Another conversion is still running. Wait for it to stop and retry.",
+      "timeout": "Conversion exceeded 60 seconds and was stopped. Prepare a DXF using the original software.",
+      "cancelled": "Conversion cancelled. The project remains unchanged.",
+      "storage": "Could not create temporary files. Check available space and workstation permissions.",
+      "conversion": "Conversion did not produce a readable DXF. Check the DWG and converter version; no change was applied."
+    }
+  },
+  "manual": {
+    "title": "User manual (French)",
+    "offline": "Complete French manual, available offline.",
+    "download": "Save PDF manual",
+    "error": "Could not save the PDF manual. Retry using an accessible folder."
   }
 }

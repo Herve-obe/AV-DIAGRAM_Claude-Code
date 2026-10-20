@@ -1,14 +1,16 @@
-# État d'avancement (mise à jour du 2026-10-19)
+# État d'avancement (mise à jour du 2026-10-20)
 
-## Situation actuelle — 0.4.0
+## Situation actuelle — 0.4.2
+
+Depuis 0.4.1, la présentation repliée des prises est mémorisée par équipement, partagée et annulable. La 0.4.2 ajoute l'import draw.io brut/compressé, l'import partiel Visio VSDX, l'export draw.io et la conversion DWG locale facultative par ODA File Converter installé et choisi sur le poste. Voir les [limites des échanges](echanges-0.4.2.md). Le [manuel complet](manuel-utilisateur.md), en HTML et PDF, est intégré hors ligne.
 
 Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Excel et le réimport de patch, les vues réseau/électrique/intercom/synchronisation et le réglage des câbles sur blocs pivotés sont codés. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md) pour leurs fonctions et limites. Le protocole LAN est passé à 3 : installer la même version sur tous les postes.
 
 Le catalogue reste celui de 0.3.5 : 2 043 modèles réels et 24 génériques, dont 1 585 fiches Communauté à documenter. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
 
-Prochaines validations : essais de nouveaux DXF réels, import de patch Excel de production, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. La lecture DWG directe, les échanges natifs Visio/draw.io, le mode formation, la signature des installateurs et le portage tablette restent des développements ultérieurs. Le cloud et l'assistant IA restent en attente selon les décisions précédentes.
+Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud et l'assistant IA restent en attente. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
 
-Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.0.
+Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.2.
 
 ## Historique au 2026-10-09
 

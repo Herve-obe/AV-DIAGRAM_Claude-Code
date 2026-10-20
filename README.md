@@ -6,6 +6,10 @@ Logiciel gratuit, sous licence [PolyForm Shield 1.0.0](LICENSE.md) : l'usage est
 
 ## État d'avancement
 
+[Manuel utilisateur complet](docs/manuel-utilisateur.md) · [Version PDF](public/manuel.pdf) · Disponible aussi hors ligne dans l'application.
+
+Version 0.4.2 : échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément. Voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle et tablette en attente pour la première version ; cloud et assistant IA toujours en attente.
+
 Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/etat-avancement.md](docs/etat-avancement.md).
 
 ## Fonctions disponibles

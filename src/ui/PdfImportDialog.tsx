@@ -16,6 +16,7 @@ import type { PdfPage } from '../io/pdfImport/extract'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
+import { useEditing } from '../collab/useEditing'
 
 const FAMILIES: EquipmentFamily[] = [
   'capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom',
@@ -26,6 +27,8 @@ const FAMILIES: EquipmentFamily[] = [
 interface PdfImportState {
   projectId: string
   cad: CadDrawing | null
+  diagramPages: CadDrawing[] | null
+  diagramWarnings: string[][] | null
   name: string
   data: Uint8Array | null
   pages: PageInterpretation[]
@@ -37,12 +40,14 @@ interface PdfImportState {
 const usePdfImport = create<PdfImportState>((set) => ({
   projectId: '',
   cad: null,
+  diagramPages: null,
+  diagramWarnings: null,
   name: '',
   data: null,
   pages: [],
   page: 0,
   choices: [],
-  close: () => set({ data: null, pages: [], choices: [], cad: null }),
+  close: () => set({ data: null, pages: [], choices: [], cad: null, diagramPages: null, diagramWarnings: null }),
 }))
 
 async function loadPdfjs() {
@@ -86,7 +91,7 @@ export async function startPdfImport(t: (k: string) => string) {
     // Page de départ : celle où le plus de liaisons ont été reconnues
     const page = pages.reduce((best, p, i) => (p.links.length > pages[best].links.length ? i : best), 0)
     if (useProject.getState().project.id !== projectId) return
-    usePdfImport.setState({ projectId, cad: null, name: file.name, data: file.data, pages, page, choices: pages.map((p) => defaultChoices(p, file.name)) })
+    usePdfImport.setState({ projectId, cad: null, diagramPages: null, name: file.name, data: file.data, pages, page, choices: pages.map((p) => defaultChoices(p, file.name)) })
   } catch {
     notifyError(t('pdfImport.readError'))
   }
@@ -97,7 +102,12 @@ const EVIDENCE_CLASS: Record<Evidence, string> = { document: 'ev-doc', keyword: 
 export function openCadSynoptic(name: string, drawing: CadDrawing, page: PdfPage) {
   const r = interpretPage(page, LIBRARY)
   const choices = { ...defaultChoices(r, name), sheetName: name.replace(/\.dxf$/i, '').slice(0, 40) || 'DXF' }
-  usePdfImport.setState({ projectId: useProject.getState().project.id, name, cad: drawing, data: new Uint8Array(), pages: [r], page: 0, choices: [choices] })
+  usePdfImport.setState({ projectId: useProject.getState().project.id, name, cad: drawing, diagramPages: null, data: new Uint8Array(), pages: [r], page: 0, choices: [choices] })
+}
+
+export function openDiagramSynoptic(name: string, pages: { interpretation: PageInterpretation; drawing: CadDrawing; name: string; warnings: string[] }[]) {
+  if (!pages.length) return
+  usePdfImport.setState({ projectId: useProject.getState().project.id, name, cad: pages[0].drawing, diagramPages: pages.map(p => p.drawing), diagramWarnings: pages.map(p => p.warnings), data: new Uint8Array(), pages: pages.map(p => p.interpretation), page: 0, choices: pages.map(p => ({ ...defaultChoices(p.interpretation,name), sheetName: p.name.slice(0,80) || 'Import' })) })
 }
 
 function Preview({ data, page, r, choices, hover, cad }: { data: Uint8Array; page: number; r: PageInterpretation; choices: ImportChoices; hover: string | null; cad: CadDrawing | null }) {
@@ -157,7 +167,8 @@ function Preview({ data, page, r, choices, hover, cad }: { data: Uint8Array; pag
 
 export function PdfImportDialog() {
   const { t } = useTranslation()
-  const { name, data, pages, page, choices, close, cad, projectId } = usePdfImport()
+  const { name, data, pages, page, choices, close, cad, diagramPages, diagramWarnings, projectId } = usePdfImport()
+  const editing = useEditing()
   const currentProjectId = useProject(s => s.project.id)
   const [tab, setTab] = useState<'equipment' | 'links' | 'text'>('equipment')
   const [hover, setHover] = useState<string | null>(null)
@@ -192,6 +203,7 @@ export function PdfImportDialog() {
   }
 
   const apply = () => {
+    if (!editing.common || projectId !== useProject.getState().project.id) return
     const out = buildImport(useProject.getState().project, r, c, LIBRARY_INDEX)
     useProject.getState().replaceProject(out.project)
     useUi.getState().setSheet(out.sheetId)
@@ -203,14 +215,15 @@ export function PdfImportDialog() {
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
       <div className="dialog pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
         <header className="dialog-head">
-          <h2 id="pdf-title">{t(cad ? 'cad.synopticTitle' : 'pdfImport.title', { name })}</h2>
+          <h2 id="pdf-title">{t(diagramPages ? 'diagramExchange.title' : cad ? 'cad.synopticTitle' : 'pdfImport.title', { name })}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
         <div className="dialog-body pdf-body">
+          {diagramPages && <><p className="dialog-hint">{t('diagramExchange.hint')}</p>{!!diagramWarnings?.[page]?.length && <ul className="rack-warning" role="status">{diagramWarnings[page].map((w,i) => <li key={i}>{w}</li>)}</ul>}</>}
           {pages.length > 1 && (
             <div className="pdf-pages">
               {pages.map((p, i) => (
-                <button key={p.page} className="chip" aria-pressed={i === page} onClick={() => usePdfImport.setState({ page: i })}>
+                <button key={p.page} className="chip" aria-pressed={i === page} onClick={() => usePdfImport.setState({ page: i, ...(diagramPages ? { cad: diagramPages[i] } : {}) })}>
                   {t('pdfImport.page', { n: p.page })} ({p.equipment.length} / {p.links.length})
                 </button>
               ))}
@@ -310,7 +323,7 @@ export function PdfImportDialog() {
             </div>
             <span className="dialog-hint">{t('pdfImport.summary', { eq: keptEq.length, links: keptLinks.length })}</span>
             <button className="btn" onClick={close}>{t('pdfImport.cancel')}</button>
-            <button className="btn btn-primary" disabled={!keptEq.length || !c.sheetName.trim()} onClick={apply}>
+            <button className="btn btn-primary" disabled={!editing.common || !keptEq.length || !c.sheetName.trim()} onClick={apply}>
               <Icon name="check" size={14} />{t('pdfImport.apply')}
             </button>
           </footer>

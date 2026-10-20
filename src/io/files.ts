@@ -32,6 +32,7 @@ const FILTERS: Record<string, { name: string; extensions: string[] }> = {
   pdf: { name: 'PDF', extensions: ['pdf'] },
   dxf: { name: 'DXF', extensions: ['dxf'] },
   xlsx: { name: 'Excel', extensions: ['xlsx'] },
+  drawio: { name: 'draw.io', extensions: ['drawio'] },
 }
 
 /** Les fichiers générés sont proposés à côté du .avd ; le réglage global sert aux projets sans fichier. */

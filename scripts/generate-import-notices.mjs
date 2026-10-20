@@ -23,7 +23,7 @@ async function visit(name, from) {
   notices.push(`\n${'='.repeat(72)}\n${key}\nLicence déclarée : ${typeof p.license === 'string' ? p.license : JSON.stringify(p.license ?? p.licenses ?? '(voir texte)')}\n${body}`)
   for (const dependency of Object.keys(p.dependencies ?? {}).sort()) await visit(dependency,folder)
 }
-for (const name of ['dxf-parser','exceljs']) await visit(name,root)
+for (const name of ['dxf-parser','exceljs','fflate','saxes']) await visit(name,root)
 await fs.mkdir(path.join(root,'docs','third-party'),{recursive:true})
-await fs.writeFile(path.join(root,'docs','third-party','import-licenses.txt'),`AV Diagram — lecteurs DXF / XLSX\nVersions résolues par package-lock.json. Notices des dépendances npm installées de dxf-parser et exceljs ; certaines ne sont utilisées que par leur distribution Node, pas par la version navigateur embarquée.\n${notices.sort().join('\n')}`)
+await fs.writeFile(path.join(root,'docs','third-party','import-licenses.txt'),`AV Diagram — lecteurs DXF / XLSX / draw.io / Visio\nVersions résolues par package-lock.json. Notices des dépendances npm installées de dxf-parser, exceljs, fflate et saxes ; certaines ne sont utilisées que par leur distribution Node, pas par la version navigateur embarquée.\n${notices.sort().join('\n')}`)
 console.log(`${notices.length} notices`)
