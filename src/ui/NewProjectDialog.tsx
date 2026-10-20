@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DEFAULT_EXPORT, pageSize } from '../io/exportOptions'
 import { prepareToLeave } from '../io/documentLifecycle'
-import { createProjectFile, notifyError, pickSaveFolder, slug } from '../io/files'
+import { createProjectFile, notifyError, pickSaveFolder, projectFolderName, slug } from '../io/files'
 import { buildTemplate, type TemplateId } from '../library/templates'
 import { PAPER_SIZES, type ExportSettings, type PaperSize } from '../model/types'
 import { useProject } from '../store/projectStore'
@@ -37,6 +37,7 @@ function NewProjectForm() {
   const [template, setTemplate] = useState<TemplateId>('blank')
   const [busy, setBusy] = useState(false)
   const size = pageSize(paper, orientation)
+  const projectName = projectFolderName(name.trim() || t('menu.newProjectName'))
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
@@ -91,7 +92,7 @@ function NewProjectForm() {
                     <code className="save-folder-path">{folder ?? t('newProject.noFolder')}</code>
                     <button className="btn" onClick={async () => { const d = await pickSaveFolder(); if (d) setFolder(d) }}><Icon name="folder" size={14} />{t('storage.choose')}</button>
                   </div>
-                  {folder && <span className="dim small">{t('newProject.filePreview', { file: `${slug(name || 'projet')}.avd` })}</span>}
+                  {folder && <span className="dim small">{t('newProject.filePreview', { folder: projectName, file: `${slug(projectName)}.avd` })}</span>}
                 </>
               ) : (
                 <span className="dim small">{t('newProject.browserSave')}</span>

@@ -274,7 +274,7 @@ export function Canvas() {
         targetHandle: b.handle,
         selected: selectedLinks.includes(l.id),
         hidden: hiddenSignals.includes(signal) || !linkInView(l, signal),
-        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting || proposedLinks.has(l.id), bendX: l.bendX },
+        data: { signal, label: via(l), severity: worst.get(l.id), showLabel: mode === 'expert' || presenting || proposedLinks.has(l.id), bendX: l.bendX, bendY: l.bendY },
         ...(proposedLinks.has(l.id) ? { className: 'is-proposed', selectable: false, deletable: false } : {}),
       }]
     })

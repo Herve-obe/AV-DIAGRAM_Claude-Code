@@ -8,6 +8,7 @@ export function Field(props: {
   label: string
   value: string | number | undefined
   type?: 'text' | 'number'
+  min?: number
   multiline?: boolean
   onCommit: (v: string) => void
 }) {
@@ -31,7 +32,7 @@ export function Field(props: {
           type={type}
           value={draft}
           step="any"
-          min={type === 'number' ? 0 : undefined}
+          min={type === 'number' ? (props.min ?? 0) : undefined}
           onChange={(e) => setDraft(e.target.value)}
           onBlur={commit}
           onKeyDown={(e) => {

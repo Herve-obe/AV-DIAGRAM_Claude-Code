@@ -1,4 +1,20 @@
-# État d'avancement (mise à jour du 2026-10-09)
+# État d'avancement (mise à jour du 2026-10-20)
+
+## Situation actuelle — 0.4.3
+
+La 0.4.3 ajoute huit captures réelles annotées au manuel hors ligne HTML/PDF. Au premier lancement, la fenêtre principale est maximisée ; les ouvertures suivantes reprennent la disposition locale, y compris Infos lorsqu'elle était ouverte et que les écrans nécessaires sont disponibles. Les positions sont ramenées dans la zone de travail si un écran a été débranché.
+
+Depuis 0.4.1, la présentation repliée des prises est mémorisée par équipement, partagée et annulable. La 0.4.2 ajoute l'import draw.io brut/compressé, l'import partiel Visio VSDX, l'export draw.io et la conversion DWG locale facultative par ODA File Converter installé et choisi sur le poste. Voir les [limites des échanges](echanges-0.4.2.md). Le [manuel complet](manuel-utilisateur.md), en HTML et PDF, est intégré hors ligne.
+
+Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Excel et le réimport de patch, les vues réseau/électrique/intercom/synchronisation et le réglage des câbles sur blocs pivotés sont codés. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md) pour leurs fonctions et limites. Le protocole LAN est passé à 3 : installer la même version sur tous les postes.
+
+Le catalogue reste celui de 0.3.5 : 2 043 modèles réels et 24 génériques, dont 1 585 fiches Communauté à documenter. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
+
+Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud et l'assistant IA restent en attente. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
+
+Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.2.
+
+## Historique au 2026-10-09
 
 ## Fait
 
@@ -91,7 +107,7 @@
 - Limites : voies ordonnées et poignée pour les ports à gauche ou à droite seulement (blocs pivotés : tracé
   automatique classique) ; emplacement de l'enregistrement interne sous Windows à confirmer.
 
-**Lot 3, vues liées : vue Baies (V4)** (2026-10-09) : bouton « Baies » de la barre du bas.
+**Lot 3, vues liées : vue Baies (V4)** (complétée le 2026-10-18, version 0.3.0) : bouton « Baies » de la barre du bas.
 - Baies 19" (hauteur 4 à 47 U, renommables), faces avant et arrière, montage par glisser-déposer depuis la liste
   « À monter » (équipements dont la hauteur en U est renseignée) ou d'une position à l'autre ; refus des
   chevauchements et des dépassements, avec message.
@@ -101,7 +117,11 @@
   nombre d'équipements sans poids ou puissance renseignés.
 - Alertes (cahier des charges 3.1) : rackable absent des baies (désactivable par équipement), montage à revoir
   (baie raccourcie, hauteur modifiée). Baies partagées en collaboration et prises en compte par la fusion.
-- Reste pour V4 : export PDF des élévations, poids et profondeur maximale de la baie, cartes et modules en slot.
+- Compléments V4 : export PDF vectoriel avant/arrière avec plages de U lisibles et inventaire des cartes,
+  contrôle de profondeur et de charge maximale, conflits entre faces, formulaire de montage au clavier,
+  cartes et slots avec ports sur l'hôte et bilans complets. Voir [baies.md](baies.md).
+- Cartes et slots partagés par identifiant : ajouts concurrents dans des slots distincts conservés et
+  annulation locale. Connexions aux anciennes versions refusées avant synchronisation : installer 0.3.0 partout.
 
 **Catalogues Novelty et Audio Pro couverts à 100 %** (2026-10-08) : 813 fiches au total (458 Vérifié, 355 Communauté).
 - 753 équipements distincts ; tous couverts par une fiche, sauf 26 hors périmètre (câbles, optiques, consommables)
@@ -154,7 +174,7 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
 - beyerdynamic M 88 / M 201 / Opus 87 : caractéristiques non affichées sur le site du constructeur.
 - Martin, Sony Pro : refus d'accès → déposer leurs manuels sur le Drive (Panasonic accessible depuis le 2026-10-08).
 
-## Reste à faire
+## Ancienne liste de tâches (historique)
 
 1. **Bibliothèque, compléments** (catalogues couverts à 100 % le 2026-10-08, voir ci-dessus) :
    - Passer en Vérifié les fiches Communauté dès qu'une fiche constructeur est disponible (surtout lumière et image).
@@ -162,7 +182,7 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
    - Fiches minimales à compléter (connecteurs non précisés) : OXO, Portman, DeSisti, Scenilux, RVE, armoires de distribution.
 2. **Import PDF** : essais sur de vrais synoptiques (Visio, AutoCAD, Vectorworks, draw.io) ; pages en image via l'assistant IA.
    **Collaboration** : essais réels à plusieurs postes (voir `collaboration.md`, section Tester), découverte mDNS.
-3. **Lot 3** : vues liées. Fait : baies (V4, premier jet). Reste : export des élévations, plan d'implantation (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8).
+3. **Lot 3** : vues liées. Fait : baies (V4, export des élévations, limites et cartes inclus). Reste : essais réels de V4, plan d'implantation (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8).
 4. **Synoptique** : voies ordonnées et poignée pour les blocs pivotés ; essais sur un schéma chargé
    (plusieurs consoles, retours) ; confirmer la copie automatique dans le dossier choisi après redémarrage.
 5. **Lot 5** : mode formation. **Lot 6** : imports / exports avancés ; assistant IA en attente.

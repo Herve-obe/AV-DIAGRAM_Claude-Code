@@ -13,6 +13,7 @@
     "dialog:allow-message",
     "fs:allow-read-text-file",
     "fs:allow-read-file",
+    "fs:allow-stat",
     "fs:allow-write-text-file",
     "fs:allow-write-file",
     "fs:allow-exists",
@@ -31,6 +32,10 @@
     "core:window:allow-outer-position",
     "core:window:allow-outer-size",
     "core:window:allow-is-maximized",
+    "core:window:allow-inner-size",
+    "core:window:allow-is-minimized",
+    "core:window:allow-is-fullscreen",
+    "core:window:allow-set-fullscreen",
     "core:window:allow-available-monitors"
   ]
 }

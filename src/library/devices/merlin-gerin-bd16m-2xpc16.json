@@ -1,0 +1,45 @@
+{
+  "id": "merlin-gerin-bd16m-2xpc16",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "MERLIN GERIN",
+  "model": "BD16M/2XPC16",
+  "status": "community",
+  "description": "Boitier de distribution. Entrée P17 16A mono. Sorties : 2 x PC16A. Protection différentielle 30mA",
+  "aliases": [
+    "BD16M/2XPC",
+    "MERLIN GERIN BD16M/2XPC16"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/016a/bd16m-2xpc16/",
+      "document": "Novelty — BD16M/2XPC16",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 16A mono",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-16-mono"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending"
+}

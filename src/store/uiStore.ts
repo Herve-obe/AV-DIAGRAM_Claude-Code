@@ -12,7 +12,7 @@ export type DockTab = 'cables' | 'multicores' | 'bom' | 'issues'
 /** Vue des liaisons : chaque flux, ou les câbles physiques (un trait par multipaire) */
 export type LinkView = 'flows' | 'cables'
 /** Vue principale : synoptique ou élévation des baies (lot 3, vues liées) */
-export type MainView = 'diagram' | 'racks'
+export type MainView = 'diagram' | 'racks' | 'plan' | 'network' | 'power' | 'intercom' | 'sync' | 'lists'
 
 interface Prefs {
   mode: UiMode
@@ -51,9 +51,6 @@ function readPrefs(): Prefs {
 interface UiState extends Prefs {
   selectedEquipment: string[]
   selectedLinks: string[]
-  /** Dépliage visuel propre au poste, conservé lors du passage entre les feuilles et de l'export. */
-  expandedEquipment: Record<string, boolean>
-  setEquipmentExpanded: (id: string, expanded: boolean) => void
   view: MainView
   hiddenSignals: SignalFamily[]
   dockTab: DockTab
@@ -99,8 +96,6 @@ export const useUi = create<UiState>((set, get) => ({
   ...readPrefs(),
   selectedEquipment: [],
   selectedLinks: [],
-  expandedEquipment: {},
-  setEquipmentExpanded: (id, expanded) => set(s => ({ expandedEquipment: { ...s.expandedEquipment, [id]: expanded } })),
   view: 'diagram',
   mergeCandidate: null,
   hiddenSignals: [],

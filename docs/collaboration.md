@@ -43,7 +43,11 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
 7. **Enregistrement** : Ctrl+S / Cmd+S enregistre le fichier principal `.avd` ; chaque participant peut
    garder une copie locale. Les sauvegardes de sécurité automatiques vont dans « Save Back Up ».
 
-## État (2026-10-16, version 0.2.3)
+## Compatibilité des nouvelles vues (0.4.0)
+
+Tous les postes doivent utiliser la version 0.4.0, au protocole 3, pour partager les plans et les nouvelles données techniques. Le protocole antérieur est refusé. Les données par port suivent les droits du signal ; les fonds de plan, circuits et imports restent réservés à l'hôte. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md). Les sections datées ci-dessous conservent l'historique des essais.
+
+## État historique (2026-10-16, version 0.2.3)
 
 Les calques sont attribués par l'hôte et les propositions invitées sont validées avant diffusion.
 Les identités de poste sont dérivées d'un secret persistant par le relais ; les noms affichés ne

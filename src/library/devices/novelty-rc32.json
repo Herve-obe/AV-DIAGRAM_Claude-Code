@@ -1,0 +1,98 @@
+{
+  "id": "novelty-rc32",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "NOVELTY",
+  "model": "RC32",
+  "status": "community",
+  "description": "Armoire de distribution en flight-case. Entrée : P17 32A tri. Sorties : 3 x P17 32A mono + 6 x PC16A. Protection différentielle 30mA",
+  "aliases": [
+    "NOVELTY RC32"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/rc32/",
+      "document": "Novelty — RC32",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dynatec_RC32-V1R1_certificat.pdf",
+      "document": "Novelty — RC32 : RC32",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie P17 32A mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie P17 32A mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie P17 32A mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie PC16A 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie PC16A 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out9",
+      "name": "Sortie PC16A 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending"
+}

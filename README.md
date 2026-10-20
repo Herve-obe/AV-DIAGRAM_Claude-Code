@@ -6,6 +6,10 @@ Logiciel gratuit, sous licence [PolyForm Shield 1.0.0](LICENSE.md) : l'usage est
 
 ## État d'avancement
 
+[Manuel utilisateur illustré](docs/manuel-utilisateur.md) · [Version PDF](public/manuel.pdf) · Captures annotées et légendes, disponibles aussi hors ligne dans l'application.
+
+Version 0.4.3 : manuel illustré et mémorisation de la disposition des fenêtres. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle et tablette en attente pour la première version ; cloud et assistant IA toujours en attente.
+
 Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/etat-avancement.md](docs/etat-avancement.md).
 
 ## Fonctions disponibles
@@ -17,6 +21,7 @@ Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/eta
 - Contrôle de compatibilité : signal, niveau (micro, ligne +4 dBu, HP), connecteurs, sens, ports occupés
 - Numérotation automatique des câbles (`ZONE-TYPE-NUM`), renumérotation
 - Listes générées : câblage, nomenclature (puissance, courant à 230 V, poids), alertes
+- [Vue Baies](docs/baies.md) : montage en U avant/arrière, limites de profondeur et de poids, cartes en slot, bilans et export PDF vectoriel
 - Modes Débutant et Expert, palette de commandes (Ctrl+K), thèmes sombre, clair ou système, français et anglais
 - Enregistrement du fichier principal par Ctrl+S / Cmd+S, sauvegardes de sécurité automatiques, fichiers `.avd`, export PNG / SVG / CSV
 - Application de bureau 100 % hors ligne, avec les fenêtres natives d'ouverture et d'enregistrement
@@ -56,6 +61,8 @@ npm run desktop:build   # installateur pour le système courant, dans src-tauri/
 ## Documentation
 
 - [Cahier des charges](docs/cahier-des-charges.md)
+- [Utiliser la vue Baies](docs/baies.md)
+- [Plan, DXF, Excel et vues techniques (0.4.0)](docs/vues-et-echanges-0.4.0.md)
 - [Équipements à documenter](docs/bibliotheque-a-documenter.md)
 - [Maquette d'origine](docs/maquette/index.html)
 - [Écrire une fiche constructeur](src/library/devices/README.md)

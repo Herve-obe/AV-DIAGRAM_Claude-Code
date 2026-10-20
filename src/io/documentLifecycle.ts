@@ -4,6 +4,7 @@ import i18n from '../i18n'
 import { discardRecovery, flushRecovery } from '../store/persistence'
 import { useProject } from '../store/projectStore'
 import { notifyError, openProjectFile, saveProjectFile } from './files'
+import { saveDesktopLayout } from '../store/windowLayout'
 
 let sessionActive = false
 export const setDocumentSessionActive = (active: boolean) => { sessionActive = active }
@@ -46,9 +47,21 @@ export async function guardWindowClose() {
   if (isTauri()) {
     const { getCurrentWindow } = await import('@tauri-apps/api/window')
     const w = getCurrentWindow()
+    let closing = false
     await w.onCloseRequested(async e => {
-      // Tauri attend cette réponse puis ferme lui-même la fenêtre si elle n'est pas annulée.
-      if (!(await prepareToLeave(true))) e.preventDefault()
+      if (closing) { e.preventDefault(); return }
+      closing = true
+      try {
+        if (!(await prepareToLeave(true))) { e.preventDefault(); return }
+        // Tauri ferme ensuite la principale ; Infos ne doit pas garder l'application ouverte seule.
+        const { WebviewWindow } = await import('@tauri-apps/api/webviewWindow')
+        const panels = await WebviewWindow.getByLabel('panels')
+        await saveDesktopLayout(panels)
+        await panels?.destroy()
+      } catch (error) {
+        e.preventDefault()
+        await notifyError(i18n.t('dual.closeError', { error: String(error) }))
+      } finally { closing = false }
     })
   } else {
     window.addEventListener('beforeunload', e => { if (!useProject.getState().saved) e.preventDefault() })

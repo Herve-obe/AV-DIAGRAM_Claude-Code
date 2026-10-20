@@ -2,6 +2,7 @@
 // faces avant et arrière, bilans par baie. Un équipement monté reste la même instance que sur le
 // synoptique : seul son champ `mount` indique sa place dans la baie.
 import { uid } from './project'
+import { componentsOf } from './modules'
 import type { Equipment, Project, Rack, RackFace } from './types'
 
 /** Hauteur d'une unité de baie, en mm (EIA-310) */
@@ -28,6 +29,8 @@ export function addRack(project: Project, init: Partial<Omit<Rack, 'id'>> = {}):
 export function updateRack(project: Project, id: string, patch: Partial<Omit<Rack, 'id'>>): Project {
   const rack = project.racks?.[id]
   if (!rack) return project
+  if (patch.heightU !== undefined && (!Number.isInteger(patch.heightU) || patch.heightU < 1 || patch.heightU > 100)) return project
+  if ([patch.depthMm, patch.maxWeightKg].some(v => v !== undefined && (!Number.isFinite(v) || v <= 0))) return project
   return touch({ ...project, racks: { ...project.racks, [id]: { ...rack, ...patch } } })
 }
 
@@ -54,7 +57,7 @@ export function mountedIn(project: Project, rackId: string, face?: RackFace): Eq
     .sort((a, b) => b.mount!.u - a.mount!.u)
 }
 
-export type MountError = 'noRack' | 'noEquipment' | 'outOfRack' | 'overlap'
+export type MountError = 'noRack' | 'noEquipment' | 'outOfRack' | 'overlap' | 'depth' | 'oppositeDepth' | 'weight' | 'denied'
 
 /**
  * Vérifie qu'un équipement tient à la position u (unité basse) sur la face donnée :
@@ -67,13 +70,21 @@ export function checkMount(project: Project, eqId: string, rackId: string, u: nu
   if (!eq) return 'noEquipment'
   const h = heightOf(eq)
   if (!Number.isInteger(u) || u < 1 || u + h - 1 > rack.heightU) return 'outOfRack'
+  if (rack.depthMm != null && eq.depthMm != null && eq.depthMm > rack.depthMm) return 'depth'
+  const others = mountedIn(project, rackId).filter(o => o.id !== eqId)
+  const weight = [...others, eq].flatMap(componentsOf).reduce((sum, e) => sum + (e.weightKg ?? 0), 0)
+  if (rack.maxWeightKg != null && weight > rack.maxWeightKg + 1e-9) return 'weight'
   const clash = mountedIn(project, rackId, face).some((o) => {
     if (o.id === eqId) return false
     const lo = o.mount!.u
     const hi = lo + heightOf(o) - 1
     return u <= hi && u + h - 1 >= lo
   })
-  return clash ? 'overlap' : null
+  if (clash) return 'overlap'
+  if (rack.depthMm != null && eq.depthMm != null && others.some(o => o.mount!.face !== face
+    && u <= o.mount!.u + heightOf(o) - 1 && u + h - 1 >= o.mount!.u
+    && o.depthMm != null && o.depthMm + eq.depthMm! > rack.depthMm!)) return 'oppositeDepth'
+  return null
 }
 
 /** Monte (ou déplace) un équipement ; refuse si la place est prise ou hors de la baie. */
@@ -115,6 +126,7 @@ export interface RackUsage {
   /** Équipements dont la puissance ou le poids n'est pas renseigné */
   missingPower: number
   missingWeight: number
+  missingDepth: number
   /** Hauteur totale en mm (unités utiles seulement) */
   heightMm: number
 }
@@ -123,16 +135,21 @@ export function rackUsage(project: Project, rackId: string): RackUsage {
   const rack = project.racks?.[rackId]
   const items = mountedIn(project, rackId)
   const occupied = new Set<number>()
-  for (const eq of items) for (let i = 0; i < heightOf(eq); i++) occupied.add(eq.mount!.u + i)
-  const powerW = items.reduce((s, e) => s + (e.powerW ?? 0), 0)
+  for (const eq of items) for (let i = 0; i < heightOf(eq); i++) {
+    const u = eq.mount!.u + i
+    if (u >= 1 && u <= (rack?.heightU ?? 0)) occupied.add(u)
+  }
+  const components = items.flatMap(componentsOf)
+  const powerW = components.reduce((s, e) => s + (e.powerW ?? 0), 0)
   return {
     usedU: occupied.size,
     freeU: Math.max(0, (rack?.heightU ?? 0) - occupied.size),
-    weightKg: Math.round(items.reduce((s, e) => s + (e.weightKg ?? 0), 0) * 10) / 10,
+    weightKg: Math.round(components.reduce((s, e) => s + (e.weightKg ?? 0), 0) * 10) / 10,
     powerW,
     btuH: Math.round(powerW * BTU_PER_W),
-    missingPower: items.filter((e) => e.powerW == null).length,
-    missingWeight: items.filter((e) => e.weightKg == null).length,
+    missingPower: components.filter((e) => e.powerW == null).length,
+    missingWeight: components.filter((e) => e.weightKg == null).length,
+    missingDepth: items.filter(e => e.depthMm == null).length,
     heightMm: Math.round((rack?.heightU ?? 0) * U_MM * 10) / 10,
   }
 }

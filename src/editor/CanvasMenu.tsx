@@ -53,10 +53,10 @@ export function CanvasMenu({ at, onClose, onSelectAll }: { at: MenuAt; onClose: 
           {multicores.map((m) => (
             <button key={m.id} role="menuitem" onClick={toMulticore(m.id)}>{m.label} <span className="dim">({m.pairs})</span></button>
           ))}
-          {links.some((id) => project.links[id].bendX !== undefined) && (
+          {links.some((id) => project.links[id].bendX !== undefined || project.links[id].bendY !== undefined) && (
             <button role="menuitem" onClick={run(() => {
-              const ids = links.filter((id) => project.links[id].bendX !== undefined)
-              for (const id of ids) store.updateLink(id, { bendX: undefined })
+              const p = useProject.getState().project
+              store.replaceProject({ ...p, links: Object.fromEntries(Object.entries(p.links).map(([id, l]) => [id, links.includes(id) ? { ...l, bendX: undefined, bendY: undefined } : l])) })
             })}>
               {t('canvasMenu.autoRoute')}
             </button>

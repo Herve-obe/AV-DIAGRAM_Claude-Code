@@ -84,6 +84,8 @@ export interface SheetShot {
   height: number
   /** Taille fixe : page de l'assemblage (ex. B1) */
   tile?: string
+  /** Élévation de baie tracée directement, sans capture ni changement de vue. */
+  draw?: (doc: jsPDF, area: SheetLayout['area']) => void
 }
 
 /** Mots de passe saisis à l'export (jamais enregistrés) */
@@ -149,7 +151,7 @@ export async function burnWatermark(dataUrl: string, text: string, ws: Watermark
 const PT_PER_MM = 72 / 25.4
 
 /** Filigrane vectoriel sur la planche entière (cartouche compris). */
-function drawWatermarkPdf(doc: jsPDF, text: string, ws: WatermarkSettings, w: number, h: number) {
+function drawWatermarkPdf(doc: jsPDF, text: string, ws: WatermarkSettings, w: number, h: number, offsetX = 0, offsetY = 0) {
   doc.setFont('helvetica', 'bold')
   doc.setGState(new GState({ opacity: ws.opacity }))
   doc.setTextColor(...hexRgb(ws.color))
@@ -158,7 +160,7 @@ function drawWatermarkPdf(doc: jsPDF, text: string, ws: WatermarkSettings, w: nu
     const tw = doc.getTextWidth(text)
     const shift = it.align === 'center' ? tw / 2 : it.align === 'right' ? tw : 0
     const rad = (it.angle * Math.PI) / 180
-    doc.text(text, it.x - shift * Math.cos(rad), it.y + shift * Math.sin(rad), { angle: it.angle })
+    doc.text(text, offsetX + it.x - shift * Math.cos(rad), offsetY + it.y + shift * Math.sin(rad), { angle: it.angle })
   }
   doc.setGState(new GState({ opacity: 1 }))
   doc.setFont('helvetica', 'normal')
@@ -170,7 +172,7 @@ function drawWatermarkPdf(doc: jsPDF, text: string, ws: WatermarkSettings, w: nu
 export async function buildPdf(ctx: ExportContext, shots: SheetShot[], recipient?: string): Promise<{ name: string; bytes: Uint8Array }> {
   const { project, opts } = ctx
   const revisions = ctx.info.revisions ?? []
-  const layout = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, revisions.length)
+  const layout = sheetLayout(opts.paper, opts.orientation, shots.some(s => s.draw) ? 0 : SIGNAL_FAMILIES.length, revisions.length)
   const format = opts.paper.toLowerCase()
   const ws = opts.watermark
   const mark = ws.enabled ? watermarkText(ws.text, { ...project, info: ctx.info }, ctx.date, recipient) : ''
@@ -184,8 +186,15 @@ export async function buildPdf(ctx: ExportContext, shots: SheetShot[], recipient
   })
   for (let i = 0; i < shots.length; i++) {
     if (i > 0) doc.addPage(format, opts.orientation)
-    const shot = mark && ws.zone === 'diagram' ? { ...shots[i], dataUrl: await burnWatermark(shots[i].dataUrl, mark, ws) } : shots[i]
+    const shot = mark && ws.zone === 'diagram' && !shots[i].draw ? { ...shots[i], dataUrl: await burnWatermark(shots[i].dataUrl, mark, ws) } : shots[i]
     drawSheet(doc, ctx, shot, i + 1, shots.length, layout)
+    if (shot.draw && mark && ws.zone === 'diagram') {
+      const a = layout.area
+      doc.saveGraphicsState()
+      doc.rect(a.x, a.y, a.w, a.h).clip().discardPath()
+      drawWatermarkPdf(doc, mark, ws, a.w, a.h, a.x, a.y)
+      doc.restoreGraphicsState()
+    }
     if (mark && ws.zone === 'sheet') drawWatermarkPdf(doc, mark, ws, layout.w, layout.h)
   }
   let bytes: Uint8Array = new Uint8Array(doc.output('arraybuffer'))
@@ -240,7 +249,8 @@ function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number
   const ratio = Math.min(area.w / shot.width, area.h / shot.height)
   const imgW = shot.width * ratio
   const imgH = shot.height * ratio
-  doc.addImage(shot.dataUrl, 'JPEG', area.x + (area.w - imgW) / 2, area.y + (area.h - imgH) / 2, imgW, imgH)
+  if (shot.draw) shot.draw(doc, area)
+  else doc.addImage(shot.dataUrl, 'JPEG', area.x + (area.w - imgW) / 2, area.y + (area.h - imgH) / 2, imgW, imgH)
   if (shot.tile) {
     // Repère d'assemblage dans le coin de la zone
     doc.setFont('helvetica', 'bold')
@@ -254,9 +264,9 @@ function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(8)
   doc.setTextColor(40)
-  doc.text(labels.legend.toUpperCase(), legend.x, legend.y + 4)
+  if (!shot.draw) doc.text(labels.legend.toUpperCase(), legend.x, legend.y + 4)
   doc.setFont('helvetica', 'normal')
-  SIGNAL_FAMILIES.forEach((s, i) => {
+  ;(shot.draw ? [] : SIGNAL_FAMILIES).forEach((s, i) => {
     const col = i % legend.cols
     const row = Math.floor(i / legend.cols)
     const x = legend.x + col * legend.colW

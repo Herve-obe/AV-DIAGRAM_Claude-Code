@@ -1,0 +1,59 @@
+{
+  "id": "b2ei-bd32m-4xpc",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "B2Ei",
+  "model": "BD32M/4XPC",
+  "status": "community",
+  "description": "Sabot de distribution. Entrée : P17 32A mono. Sorties : 4 x PC16A. Protection différentielle 30mA",
+  "aliases": [
+    "B2Ei BD32M/4XPC"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32m-4xpc/",
+      "document": "Novelty — BD32M/4XPC",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A mono",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie PC16A 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 4.4
+}

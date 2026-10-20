@@ -31,7 +31,10 @@ describe('affichage des équipements volumineux', () => {
     expect(shown.map(p => p.id)).toEqual(['p1', 'p9', 'p33'])
     expect(shown[1]).toBe(ports[8])
     expect(portsToDisplay(ports, new Set(), true)).toBe(ports)
-    expect(portsToDisplay(ports.slice(0, 4), new Set(), false)).toHaveLength(4)
+    expect(portsToDisplay(ports.slice(0, 4), new Set())).toHaveLength(4)
+    expect(portsToDisplay(ports.slice(0, 4), new Set(['p1']), false).map(p => p.id)).toEqual(['p1'])
+    expect(portsToDisplay(ports.slice(0, 16), new Set())).toHaveLength(16)
+    expect(portsToDisplay(ports.slice(0, 17), new Set())).toHaveLength(0)
   })
 })
 
@@ -81,6 +84,7 @@ describe('validation du format .avd', () => {
     ['un signal inconnu', { ...p, equipment: { [id]: { ...eq, ports: [{ ...eq.ports[0], signal: 'inconnu' }] } } }],
     ['une position invalide', { ...p, equipment: { [id]: { ...eq, position: { x: '100', y: 0 } } } }],
     ['une rotation invalide', { ...p, equipment: { [id]: { ...eq, rotation: 45 } } }],
+    ['un affichage des prises invalide', { ...p, equipment: { [id]: { ...eq, portsExpanded: 'true' } } }],
     ['une liaison null', { ...p, links: { [linkId]: null } }],
     ['une extrémité absente', { ...p, links: { [linkId]: { ...link, source: undefined } } }],
     ['des zones absentes', { ...p, zones: undefined }],

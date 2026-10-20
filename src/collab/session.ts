@@ -36,7 +36,7 @@ import { type Claim, type Claims } from './protection'
 import { HostValidation } from './hostValidation'
 import { checkGuestChange, guestLayers } from './access'
 import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
-import { createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
+import { COLLAB_PROTOCOL, createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
 
 const MSG_SYNC = 0
 const MSG_AWARENESS = 1
@@ -412,13 +412,18 @@ function onBinary(data: ArrayBuffer) {
 function onText(text: string) {
   if (!live) return
   const current = live
-  let msg: { type?: string; peerId?: number; userId?: string; peers?: HostInfo['peers'] }
+  let msg: { type?: string; protocol?: number; reason?: string; peerId?: number; userId?: string; peers?: HostInfo['peers'] }
   try {
     msg = JSON.parse(text)
   } catch {
     return
   }
   if (msg.type === 'welcome') {
+    if (msg.protocol !== COLLAB_PROTOCOL) {
+      useCollab.setState({ error: 'version' })
+      finish(null)
+      return
+    }
     current.peerId = msg.peerId ?? null
     current.peerUsers = new Map((msg.peers ?? []).map(p => [p.id, p.userId]))
     if (msg.userId) {
@@ -438,7 +443,7 @@ function onText(text: string) {
     if (current.rank !== null) sendFullState()
     sendAwareness([current.doc.clientID])
   } else if (msg.type === 'refused') {
-    useCollab.setState({ error: 'code' })
+    useCollab.setState({ error: msg.reason === 'version' ? 'version' : 'code' })
     finish(null)
   } else if (msg.type === 'ended' || msg.type === 'kicked') {
     current.end = msg.type
@@ -495,7 +500,7 @@ function connect() {
   const timer = setTimeout(() => ws.readyState !== WebSocket.OPEN && ws.close(), CONNECT_TIMEOUT_MS)
   ws.onopen = () => {
     clearTimeout(timer)
-    ws.send(JSON.stringify({ type: 'hello', code: current.code, name: useCollab.getState().name, clientToken: prefs.clientToken, hostToken: current.rank !== null ? current.hostToken : undefined }))
+    ws.send(JSON.stringify({ type: 'hello', protocol: COLLAB_PROTOCOL, code: current.code, name: useCollab.getState().name, clientToken: prefs.clientToken, hostToken: current.rank !== null ? current.hostToken : undefined }))
   }
   ws.onmessage = (e) => (typeof e.data === 'string' ? onText(e.data) : onBinary(e.data as ArrayBuffer))
   ws.onclose = () => {
@@ -562,8 +567,12 @@ function probe(addr: string, code: string): Promise<boolean> {
       resolve(ok)
     }
     const timer = setTimeout(() => done(false), CONNECT_TIMEOUT_MS)
-    ws.onopen = () => ws.send(JSON.stringify({ type: 'hello', code, name: '' }))
-    ws.onmessage = (e) => typeof e.data === 'string' && done(e.data.includes('"welcome"'))
+    ws.onopen = () => ws.send(JSON.stringify({ type: 'hello', protocol: COLLAB_PROTOCOL, code, name: '' }))
+    ws.onmessage = (e) => {
+      if (typeof e.data !== 'string') return
+      try { const reply = JSON.parse(e.data); done(reply.type === 'welcome' && reply.protocol === COLLAB_PROTOCOL) }
+      catch { done(false) }
+    }
     ws.onclose = () => done(false)
   })
 }

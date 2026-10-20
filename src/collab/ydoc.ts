@@ -6,11 +6,13 @@
 // différents du même élément ne s'écrasent pas ; sur un même champ, la dernière modification l'emporte.
 // Les réglages du projet (nom, zones, numérotation, cartouche) sont des champs de la carte « meta ».
 import * as Y from 'yjs'
-import type { PortDef, Project } from '../model/types'
+import type { Project } from '../model/types'
 import { sameData as same } from './compare'
 
 export const COLLECTIONS = ['equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets'] as const
 export type Collection = (typeof COLLECTIONS)[number]
+/** Format des listes de cartes et slots ; même valeur dans le relais natif collab.rs. */
+export const COLLAB_PROTOCOL = 3
 const META_FIELDS = ['format', 'id', 'name', 'createdAt', 'updatedAt', 'zones', 'settings', 'info'] as const
 /** Ordre des feuilles (le projet les range dans un tableau) */
 const ORDER = '_order'
@@ -36,19 +38,24 @@ function setField(m: Y.Map<unknown>, key: string, value: unknown) {
 }
 
 function writeItem(m: Y.Map<unknown>, prev: Item | undefined, next: Item) {
-  for (const [k, v] of Object.entries(next)) {
-    if (prev && prev[k] === v) continue
-    if (k === 'ports' && Array.isArray(v)) writePorts(m, prev?.ports as PortDef[] | undefined, v)
-    else setField(m, k, v)
+  // Initialiser aussi les listes vides : deux ajouts simultanés doivent partager la même carte Yjs.
+  const lists = Array.isArray(next.ports) ? ['ports', 'slots', 'modules'] : []
+  for (const k of lists) if (!prev || prev[k] !== next[k] || !(m.get(k) instanceof Y.Map)) {
+    writeList(m, k, prev?.[k] as Item[] | undefined, (next[k] ?? []) as Item[])
   }
-  for (const k of m.keys()) if (!(k in next)) m.delete(k)
+  for (const [k, v] of Object.entries(next)) {
+    if (lists.includes(k)) continue
+    if (prev && prev[k] === v) continue
+    setField(m, k, v)
+  }
+  for (const k of m.keys()) if (!(k in next) && !lists.includes(k)) m.delete(k)
 }
 
-function writePorts(item: Y.Map<unknown>, prev: PortDef[] | undefined, next: PortDef[]) {
-  let ports = item.get('ports') as Y.Map<Y.Map<unknown>>
+function writeList(item: Y.Map<unknown>, key: string, prev: Item[] | undefined, next: Item[]) {
+  let ports = item.get(key) as Y.Map<Y.Map<unknown>>
   if (!(ports instanceof Y.Map)) {
     ports = new Y.Map<Y.Map<unknown>>()
-    item.set('ports', ports)
+    item.set(key, ports)
     prev = undefined
   }
   const before = new Map(prev?.map((p, index) => [p.id, { ...p, [ORDER]: index }]))
@@ -92,10 +99,11 @@ export function writeProject(doc: Y.Doc, prev: Project | null, next: Project, or
 function readItem(m: Y.Map<unknown>): Item {
   const item = Object.fromEntries(m.entries()) as Item
   // Les anciens instantanés Yjs contiennent encore une liste JSON ; les fichiers .avd restent identiques.
-  if (item.ports instanceof Y.Map) {
-    item.ports = [...(item.ports as Y.Map<Y.Map<unknown>>).values()].map(readItem)
+  for (const k of ['ports', 'slots', 'modules']) if (item[k] instanceof Y.Map) {
+    item[k] = [...(item[k] as Y.Map<Y.Map<unknown>>).values()].map(readItem)
       .sort((a, b) => Number(a[ORDER]) - Number(b[ORDER]) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
       .map(p => { const copy = { ...p }; delete copy[ORDER]; return copy })
+    if (k !== 'ports' && !(item[k] as Item[]).length) delete item[k]
   }
   return item
 }

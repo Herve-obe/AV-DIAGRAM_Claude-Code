@@ -20,6 +20,11 @@ import { ArrangeToolbar } from './ArrangeToolbar'
 import { GuideSteps, NextSteps } from './BeginnerGuide'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
+import { ModuleEditor } from './ModuleEditor'
+import { PlanFields } from './FloorPlanView'
+import { openExternal } from '../ai/transport'
+import { useEditing } from '../collab/useEditing'
+import { PORTS_COMPACT_THRESHOLD } from '../model/portDisplay'
 
 function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
   const { t } = useTranslation()
@@ -47,7 +52,7 @@ function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
 const FAMILIES: EquipmentFamily[] = [
   'capture', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'wireless', 'recording', 'camera',
   'videoSwitcher', 'videoRouting', 'display', 'intercom', 'network', 'sync', 'control', 'power', 'passive',
-  'luminaire', 'lightingControl', 'dmxDistribution',
+  'luminaire', 'lightingControl', 'dmxDistribution', 'module',
 ]
 const PICTOGRAMS: PictogramId[] = [
   'mic', 'di', 'console', 'stagebox', 'processor', 'amp', 'speaker', 'wireless', 'recorder', 'camera', 'switcher',
@@ -62,11 +67,19 @@ function SourceNote({ templateId }: { templateId: string }) {
     return (
       <div className="source-note">
         <span className={`tag tag-${tpl.status}`}>{t(`library.status.${tpl.status}`)}</span>
-        <ul>
+        {tpl.description && <p>{tpl.description}</p>}
+        {tpl.portStatus && <p>{t(`library.ports.${tpl.portStatus}`)}</p>}
+        <details>
+          <summary>{t('inspector.documentation', { count: tpl.sources?.length ?? 0 })}</summary>
+          <ul>
           {tpl.sources?.map((s, i) => (
-            <li key={i}>{s.document ?? s.url} <span className="dim">({s.accessed})</span></li>
+            <li key={i}>
+              {s.url && /^https?:\/\//.test(s.url) ? <a href={s.url} target="_blank" rel="noopener noreferrer" onClick={e => { e.preventDefault(); void openExternal(s.url!).catch(console.error) }}>{s.document ?? s.url}</a> : s.document}
+              {' '}<span className="dim">({s.accessed})</span>
+            </li>
           ))}
-        </ul>
+          </ul>
+        </details>
       </div>
     )
   }
@@ -75,6 +88,7 @@ function SourceNote({ templateId }: { templateId: string }) {
 
 function EquipmentInspector({ eq }: { eq: Equipment }) {
   const { t } = useTranslation()
+  const editing = useEditing()
   const zones = useProject((s) => s.project.zones)
   const sheets = useProject((s) => s.project.sheets ?? [])
   const { updateEquipment, duplicate, remove } = useProject.getState()
@@ -142,6 +156,8 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         </div>
       )}
       <RackFields eq={eq} />
+      <PlanFields eq={eq} />
+      <ModuleEditor eq={eq} />
       <div className="field">
         <label>{t('inspector.orientation')}</label>
         <div className="insp-rotate">
@@ -152,6 +168,14 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         </div>
       </div>
       <LayerHints eq={eq} />
+      {eq.ports.length > 0 && <div className="field">
+        <label htmlFor="eq-port-display">{t('portDisplay.title')}</label>
+        <select id="eq-port-display" value={eq.portsExpanded === undefined ? 'auto' : eq.portsExpanded ? 'all' : 'connected'} disabled={!editing.equipment(eq)} onChange={e => set({ portsExpanded: e.target.value === 'auto' ? undefined : e.target.value === 'all' })}>
+          <option value="auto">{t('portDisplay.auto', { count: PORTS_COMPACT_THRESHOLD })}</option>
+          <option value="all">{t('portDisplay.all')}</option>
+          <option value="connected">{t('portDisplay.fold')}</option>
+        </select>
+      </div>}
       {expert && <Field id="eq-notes" label={t('inspector.notes')} value={eq.notes} multiline onCommit={(v) => set({ notes: v || undefined })} />}
       {expert ? (
         <PortEditor eq={eq} />
@@ -162,11 +186,12 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
           <PortList title={t('inspector.bidir')} ports={eq.ports.filter((p) => p.direction === 'bidir')} />
         </>
       )}
-      {expert && <SourceNote templateId={eq.templateId} />}
+      {(expert || getTemplate(eq.templateId)?.portStatus) && <SourceNote templateId={eq.templateId} />}
+      {!expert && getTemplate(eq.templateId)?.portStatus === 'pending' && <button className="btn" onClick={() => useUi.getState().setPref('mode', 'expert')}>{t('inspector.completePorts')}</button>}
       <div className="insp-actions wrap">
         <button className="btn" onClick={() => useUi.getState().select(duplicate([eq.id]), [])}><Icon name="copy" size={14} />{t('inspector.duplicate')}</button>
         {expert && (
-          <button className="btn" onClick={saveAsTemplate} disabled={savedTpl || eq.ports.length === 0} title={t('inspector.saveTemplateHint')}>
+          <button className="btn" onClick={saveAsTemplate} disabled={savedTpl || (eq.ports.length === 0 && !eq.slots?.length) || (eq.family === 'module' && !eq.moduleType?.trim())} title={t('inspector.saveTemplateHint')}>
             <Icon name={savedTpl ? 'check' : 'bookmark'} size={14} />{savedTpl ? t('inspector.templateSaved') : t('inspector.saveTemplate')}
           </button>
         )}
@@ -519,7 +544,8 @@ function RackFields({ eq }: { eq: Equipment }) {
   const project = useProject((s) => s.project)
   const rack = eq.mount ? project.racks?.[eq.mount.rackId] : undefined
   return (
-    <div className="field-row">
+    <div className="rack-fields">
+      <Field id="eq-depth" type="number" label={t('racks.equipmentDepth')} value={eq.depthMm} onCommit={v => useProject.getState().updateEquipment(eq.id, { depthMm: toNumber(v) })} />
       <Field
         id="eq-rackU"
         type="number"

@@ -5,12 +5,12 @@ import type { EquipmentFamily, EquipmentTemplate, LibraryDomain } from '../model
 
 /** Familles de chaque menu, dans l'ordre d'affichage. */
 export const DOMAIN_FAMILIES: Record<LibraryDomain, EquipmentFamily[]> = {
-  sound: ['capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom', 'sync', 'control'],
-  image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync'],
-  light: ['luminaire', 'lightingControl', 'dmxDistribution'],
-  network: ['network'],
-  distribution: ['power'],
-  misc: ['passive'],
+  sound: ['capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom', 'sync', 'control', 'passive'],
+  image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync', 'network', 'passive'],
+  light: ['luminaire', 'lightingControl', 'dmxDistribution', 'passive'],
+  network: ['network', 'passive'],
+  distribution: ['power', 'passive'],
+  misc: ['passive', 'module'],
 }
 
 const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
@@ -32,6 +32,7 @@ const DEFAULT_DOMAIN: Record<EquipmentFamily, LibraryDomain> = {
   network: 'network',
   power: 'distribution',
   passive: 'misc',
+  module: 'misc',
   luminaire: 'light',
   lightingControl: 'light',
   dmxDistribution: 'light',

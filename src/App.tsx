@@ -30,12 +30,17 @@ import { StartDialog } from './ui/StartDialog'
 import { SeriesDialog } from './ui/SeriesDialog'
 import { PageBar } from './ui/PageBar'
 import { RackView } from './ui/RackView'
+import { FloorPlanView } from './ui/FloorPlanView'
+import { CadImportDialog } from './ui/CadImportDialog'
+import { PatchImportDialog } from './ui/PatchImportDialog'
+import { CommunicationsView, ListsView, NetworkView, PowerView } from './ui/DeploymentViews'
 import { ProjectSettings } from './ui/ProjectSettings'
 import { SheetTabs } from './ui/SheetTabs'
 import { Splitter } from './ui/Splitter'
 import { InputProbe } from './ui/InputProbe'
 import { TopBar } from './ui/TopBar'
 import { groupSelected, ungroupSelected } from './ui/groupActions'
+import { placeOnPlan } from './model/floorPlan'
 
 /** Alt+0..3 : filtres rapides d'affichage (null = tout afficher) */
 const SIGNAL_SETS: Record<string, SignalFamily[] | null> = {
@@ -105,15 +110,23 @@ export function Shortcuts() {
       }
       if (mod && key === 'g') {
         e.preventDefault()
+        if (ui.view !== 'diagram') return
         if (e.shiftKey) ungroupSelected()
         else groupSelected()
         return
       }
-      if (!mod && key === 'f' && !fitToPage(rf, store.project, 300)) rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 })
+      if (!mod && key === 'f') {
+        if (ui.view === 'plan') document.querySelector<HTMLButtonElement>('[data-plan-fit]')?.click()
+        else if (ui.view === 'diagram' && !fitToPage(rf, store.project, 300)) rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 })
+      }
       // R : quart de tour horaire des équipements sélectionnés ; Maj+R : sens inverse
       if (!mod && !e.altKey && key === 'r' && ui.selectedEquipment.length && !ui.presenting) {
         const ids = ui.selectedEquipment.filter((id) => store.project.equipment[id])
-        if (ids.length) store.rotateEquipment(ids, e.shiftKey ? -1 : 1)
+        if (ui.view === 'plan') {
+          let next = store.project
+          for (const id of ids) { const p = store.project.equipment[id].plan; if (p) next = placeOnPlan(next,id, { ...p, angle: (p.angle + (e.shiftKey ? -90 : 90) + 360) % 360 }) }
+          if (next !== store.project) store.replaceProject(next)
+        } else if (ids.length && ui.view === 'diagram') store.rotateEquipment(ids, e.shiftKey ? -1 : 1)
       }
       if (e.altKey && e.key in SIGNAL_SETS) ui.showOnly(SIGNAL_SETS[e.key])
     }
@@ -163,6 +176,7 @@ export default function App() {
   const presenting = useUi((s) => s.presenting)
   const assistant = useAi((s) => s.panelOpen)
   const view = useUi((s) => s.view)
+  const sheetId = useUi(s => s.currentSheetId)
   const panels = useUi((s) => s.panels)
   const detached = useUi((s) => s.panelsDetached)
   const sizes = { '--lib-w': `${panels.library}px`, '--insp-w': `${panels.inspector}px`, '--dock-h': `${panels.dock}px` } as React.CSSProperties
@@ -178,11 +192,11 @@ export default function App() {
           <main className="stage">
             {view === 'racks' && !presenting ? (
               <RackView />
-            ) : (
+            ) : view === 'network' ? <NetworkView /> : view === 'power' ? <PowerView /> : view === 'intercom' || view === 'sync' ? <CommunicationsView key={view} sync={view === 'sync'} /> : view === 'lists' ? <ListsView /> : (
               <>
                 <SheetTabs />
                 {!presenting && <FilterBar />}
-                <Canvas />
+                {view === 'plan' ? <FloorPlanView key={sheetId} /> : <Canvas />}
               </>
             )}
           </main>
@@ -203,6 +217,8 @@ export default function App() {
       <InputProbe />
       <MergeDialog />
       <PdfImportDialog />
+      <CadImportDialog />
+      <PatchImportDialog />
       <ExportPdfDialog />
       <AiSetupDialog />
       <CollabDialog />

@@ -15,6 +15,21 @@ function pair() {
 }
 
 describe('collaboration : document partagé', () => {
+  it('partage le dépliage mémorisé et le retour au mode automatique sans modifier le câblage', () => {
+    const { a, b } = pair(), p = buildSampleProject(), id = Object.keys(p.equipment)[0]
+    try {
+      writeProject(a, null, p)
+      const expanded = ops.updateEquipment(p, id, { portsExpanded: true })
+      writeProject(a, p, expanded, 'local')
+      expect(readProject(b).equipment[id].portsExpanded).toBe(true)
+      expect(ops.isProject(JSON.parse(JSON.stringify(readProject(b))))).toBe(true)
+      const auto = ops.updateEquipment(expanded, id, { portsExpanded: undefined })
+      writeProject(a, expanded, auto, 'local')
+      expect(readProject(b).equipment[id].portsExpanded).toBeUndefined()
+      expect(readProject(b).links).toEqual(p.links)
+      expect(readProject(b).equipment[id].ports).toEqual(p.equipment[id].ports)
+    } finally { a.destroy(); b.destroy() }
+  })
   it('relit puis migre les anciennes listes de ports sans changer leur ordre ni le format du projet', () => {
     const p = buildSampleProject(), doc = new Y.Doc()
     writeProject(doc, null, p)

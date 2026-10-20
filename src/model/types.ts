@@ -19,6 +19,29 @@ export interface PortDef {
   format?: string
   /** Alimentation fantôme 48 V : exigée par un micro statique, fournie par une entrée micro, ou absente */
   phantom?: 'required' | 'supplied' | 'none'
+  network?: NetworkInterface
+  intercom?: { channel?: string; group?: string }
+  clock?: { protocol: string; domain: string; role: 'master' | 'follower' | 'auto'; rate?: string }
+}
+
+/** Valeurs déclarées pour cette interface, jamais relevées automatiquement sur le réseau. */
+export interface NetworkInterface {
+  address?: string
+  prefix?: number
+  vlan?: number
+  taggedVlans?: number[]
+  capacityMbps?: number
+  poe?: 'source' | 'sink' | 'none'
+  poeW?: number
+}
+
+export interface PowerCircuit {
+  id: string
+  name: string
+  phases: 1 | 3
+  /** Tension phase-neutre en V. */
+  voltage: number
+  ratedA?: number
 }
 
 export type LibraryStatus = 'generic' | 'verified' | 'community' | 'user'
@@ -40,12 +63,22 @@ export interface EquipmentTemplate {
   model: string
   pictogram: PictogramId
   ports: PortDef[]
+  /** Connexions encore à documenter, ou accessoire sans connectique. */
+  portStatus?: 'pending' | 'none'
+  description?: string
+  /** Autres désignations et références qui permettent de retrouver le même modèle. */
+  aliases?: string[]
   /** Puissance nominale en W, si connue */
   powerW?: number
   /** Poids en kg, si connu */
   weightKg?: number
   /** Hauteur en unités de rack (1 U = 44,45 mm) */
   rackU?: number
+  depthMm?: number
+  slots?: ModuleSlot[]
+  /** Type mécanique déclaré pour une carte (doit correspondre au type du slot). */
+  moduleType?: string
+  poeBudgetW?: number
   status: LibraryStatus
   sources?: EquipmentSource[]
   /** Menu de la bibliothèque, quand la famille ne suffit pas (ex. enregistreur vidéo) */
@@ -78,6 +111,7 @@ export type EquipmentFamily =
   | 'luminaire'
   | 'lightingControl'
   | 'dmxDistribution'
+  | 'module'
 
 export type PictogramId =
   | 'mic'
@@ -117,8 +151,20 @@ export interface Equipment {
   powerW?: number
   weightKg?: number
   rackU?: number
+  depthMm?: number
+  slots?: ModuleSlot[]
+  moduleType?: string
+  modules?: InstalledModule[]
   /** Position dans une baie (vue Baies) : même instance que sur le synoptique */
   mount?: RackMount
+  /** Position physique en mètres, indépendante de la position du bloc dans le synoptique. */
+  plan?: PlanPlacement
+  poeBudgetW?: number
+  powerCircuitId?: string
+  /** ABC : charge triphasée déclarée équilibrée ; aucune répartition implicite. */
+  powerPhase?: 'L1' | 'L2' | 'L3' | 'ABC'
+  /** Facteur de puissance de l'ensemble équipement + cartes. */
+  powerFactor?: number
   zoneId?: string
   /** Feuille du projet sur laquelle l'équipement est dessiné */
   sheetId?: string
@@ -129,6 +175,8 @@ export interface Equipment {
    * 90 : entrées en haut, sorties en bas ; 180 : entrées à droite ; 270 : entrées en bas.
    */
   rotation?: Rotation
+  /** Présentation du synoptique : undefined = automatique selon le nombre de ports. */
+  portsExpanded?: boolean
   /** Rappels ignorés par l'utilisateur (ex. « layer:sound » : ports audio d'une caméra) */
   dismissedHints?: string[]
 }
@@ -137,6 +185,25 @@ export type Rotation = 0 | 90 | 180 | 270
 
 /** Face d'une baie : avant ou arrière */
 export type RackFace = 'front' | 'rear'
+
+export interface ModuleSlot {
+  id: string
+  name: string
+  type: string
+}
+
+/** Les ports d'une carte sont conservés sur son hôte, avec leurs identifiants stables. */
+export interface InstalledModule {
+  id: string
+  slotId: string
+  templateId: string
+  type: string
+  model: string
+  manufacturer?: string
+  powerW?: number
+  weightKg?: number
+  portIds: string[]
+}
 
 /** Montage d'un équipement dans une baie ; u = unité la plus basse occupée (1 = bas de la baie). */
 export interface RackMount {
@@ -153,6 +220,7 @@ export interface Rack {
   heightU: number
   /** Profondeur utile en mm */
   depthMm?: number
+  maxWeightKg?: number
   zoneId?: string
   notes?: string
 }
@@ -180,6 +248,9 @@ export interface Link {
   ignoredRules?: string[]
   /** Position du segment vertical déplacé à la main (px du schéma) ; absent : tracé automatique */
   bendX?: number
+  bendY?: number
+  /** Débit agrégé prévu sur cette liaison physique (Mbit/s). */
+  bitrateMbps?: number
 }
 
 /** Multipaire : câble physique à N paires ; chaque liaison qui l'emprunte occupe une paire. */
@@ -211,6 +282,34 @@ export interface Sheet {
   parentId?: string
   /** Position du bloc replié sur la feuille parente */
   groupPosition?: { x: number; y: number }
+  plan?: FloorPlan
+}
+
+export interface PlanPlacement {
+  x: number
+  y: number
+  angle: number
+  width?: number
+  depth?: number
+}
+
+/** Géométrie 2D en mètres ; y croît vers le bas, comme sur le canevas. */
+export interface CadDrawing {
+  name: string
+  width: number
+  height: number
+  paths: { layer: string; points: { x: number; y: number }[]; closed?: boolean }[]
+  texts: { layer: string; x: number; y: number; text: string; height: number; angle: number }[]
+}
+
+export interface FloorPlan {
+  width: number
+  height: number
+  grid: number
+  /** Dénominateur de l'échelle PDF, ex. 50 pour 1:50. */
+  scale: number
+  background?: CadDrawing
+  hiddenLayers?: string[]
 }
 
 /** Annotation libre, sans valeur métier : note de texte ou cadre de zone coloré. */
@@ -298,6 +397,7 @@ export interface ProjectSettings {
   defaultZoneCode: string
   /** Tension d'alimentation pour le calcul du courant (V) */
   mainsVoltage: number
+  powerCircuits?: PowerCircuit[]
   /** Codes {TYPE} personnalisés par famille de signal (sinon AUD, AES, VID...) */
   typeCodes?: Partial<Record<SignalFamily, string>>
   /** Réglages de l'export PDF (format, filigrane, protection), gardés avec le projet */

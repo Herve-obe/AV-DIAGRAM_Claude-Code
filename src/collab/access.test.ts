@@ -14,6 +14,14 @@ function setup() {
   return { p, consoleId: console.id, camId: camera.id }
 }
 describe('droits attribués par l’hôte', () => {
+  it('réserve la présentation mémorisée des prises au propriétaire du domaine principal', () => {
+    const { p, camId, consoleId } = setup()
+    const camera = ops.updateEquipment(p, camId, { portsExpanded: false })
+    expect(checkGuestChange(p, camera, new Set(['image']), 'image')).toBe(true)
+    expect(checkGuestChange(p, camera, new Set(['sound']), 'sound')).toBe(false)
+    expect(checkGuestChange(p, camera, new Set(LAYERS), 'all')).toBe(false)
+    expect(checkGuestChange(p, ops.updateEquipment(p, consoleId, { portsExpanded: true }), new Set(['sound']), 'sound')).toBe(true)
+  })
   it('refuse par défaut et interdit l’édition depuis le calque général, même avec tous les droits', () => {
     const { p, consoleId } = setup(), next = ops.moveEquipment(p, consoleId, { x: 1, y: 2 })
     expect(guestLayers({}, 'a').size).toBe(0)

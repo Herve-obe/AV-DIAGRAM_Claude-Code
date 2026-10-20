@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { ReactFlowInstance } from '@xyflow/react'
 import type { TFunction } from 'i18next'
 import { createProject } from '../model/project'
+import { addRack } from '../model/racks'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { drawingBounds, useRoutes } from '../editor/EdgeRouter'
@@ -19,7 +20,7 @@ describe('export : découpage visible et choix sur une page', () => {
     vi.useFakeTimers(); vi.clearAllMocks()
     const p = createProject('A3')
     useProject.setState({ project: { ...p, settings: { ...p.settings, export: exportSettingsOf(p) } } })
-    useUi.setState({ currentSheetId: p.sheets![0].id, selectedEquipment: ['bloc'], selectedLinks: [] })
+    useUi.setState({ view: 'diagram', currentSheetId: p.sheets![0].id, selectedEquipment: ['bloc'], selectedLinks: [] })
     useRoutes.setState({ routes: new Map(), labels: new Map() })
   })
   afterEach(() => vi.useRealTimers())
@@ -53,10 +54,39 @@ describe('export : découpage visible et choix sur une page', () => {
     expect(setViewport.mock.calls[0][0].zoom).toBeLessThan(0.5)
     expect(useProject.getState().project).toBe(original)
   })
+  it('ne conserve pas trois captures vides après déplacement du dessin sur une page voisine', async () => {
+    let position = { x: -40, y: -60 }
+    const viewport = { x: 30, y: 50, zoom: 0.5 }
+    const setViewport = vi.fn<ReactFlowInstance['setViewport']>(async () => true)
+    const rf = { getNodes: () => [{ id: 'dessin', position, measured: { width: 1100, height: 700 }, data: {} }],
+      getEdges: () => [], getViewport: () => viewport, setViewport } as unknown as ReactFlowInstance
+    const first = exportPdfWithLabels(rf, ((key: string) => key) as TFunction, {})
+    await vi.runAllTimersAsync(); await first
+    expect(captureCanvasLight).toHaveBeenCalledTimes(4)
+    vi.clearAllMocks()
+    position = { x: 1700, y: 1000 }
+    const second = exportPdfWithLabels(rf, ((key: string) => key) as TFunction, {})
+    await vi.runAllTimersAsync(); await second
+    expect(captureCanvasLight).toHaveBeenCalledTimes(1)
+    expect(vi.mocked(exportPdf).mock.calls[0][1]).toHaveLength(1)
+    expect(setViewport.mock.calls[0][0]).toMatchObject({ x: -1600, y: -900 })
+    expect(setViewport).toHaveBeenLastCalledWith(viewport)
+  })
   it('un détour de câble et son étiquette étendent aussi les pages', () => {
     const edge = { id: 'cable', source: 'a', target: 'b', data: { label: 'AUD-001', showLabel: true } }
     const bounds = drawingBounds(nodes, [edge], { routes: new Map([['cable', [{ x: 1680, y: 940 }]]]), labels: new Map([['cable', { x: 1720, y: 950 }]]) })
     expect(bounds!.x + bounds!.w).toBeGreaterThan(1720)
     expect(bounds!.y + bounds!.h).toBeGreaterThan(950)
+  })
+  it('exporte la vue Baies sans capturer ni modifier le canevas', async () => {
+    const r = addRack(useProject.getState().project)
+    useProject.setState({ project: r.project })
+    useUi.setState({ view: 'racks' })
+    const before = useUi.getState()
+    expect(await exportPdfWithLabels({} as ReactFlowInstance, ((key: string) => key) as TFunction, {})).toBe(1)
+    expect(captureCanvasLight).not.toHaveBeenCalled()
+    expect(vi.mocked(exportPdf).mock.calls[0][1].every(s => s.draw)).toBe(true)
+    expect(useUi.getState()).toBe(before)
+    expect(useProject.getState().project).toBe(r.project)
   })
 })

@@ -35,6 +35,37 @@ describe('baies (vue V4)', () => {
     expect(checkMount(p1, b, rack, 10, 'rear')).toBeNull()
     expect(checkMount(p1, b, rack, 11, 'front')).toBe('outOfRack')
   })
+  it('contrôle la profondeur et la place cumulée entre les deux faces', () => {
+    const { p, rack, a, b } = setup()
+    let q = updateRack(p, rack, { depthMm: 600 })
+    q = ops.updateEquipment(q, a, { depthMm: 400 })
+    q = ops.updateEquipment(q, b, { depthMm: 700 })
+    expect(checkMount(q, b, rack, 1, 'front')).toBe('depth')
+    q = mountEquipment(q, a, rack, 9).project
+    q = ops.updateEquipment(q, b, { depthMm: 250 })
+    expect(checkMount(q, b, rack, 10, 'rear')).toBe('oppositeDepth')
+    expect(checkMount(q, b, rack, 8, 'rear')).toBeNull()
+    q = ops.updateEquipment(q, b, { depthMm: 200 })
+    expect(checkMount(q, b, rack, 10, 'rear')).toBeNull()
+  })
+  it('refuse une surcharge sans compter deux fois l’appareil déplacé', () => {
+    const { p, rack, a, b } = setup()
+    let q = updateRack(p, rack, { maxWeightKg: 6 })
+    q = ops.updateEquipment(q, b, { weightKg: 2 })
+    q = mountEquipment(q, a, rack, 9).project
+    expect(checkMount(q, a, rack, 2, 'rear')).toBeNull()
+    expect(mountEquipment(q, b, rack, 1).error).toBe('weight')
+    expect(mountEquipment(q, b, rack, 1).project).toBe(q)
+    expect(invalidMounts(updateRack(q, rack, { maxWeightKg: 4 })).map(e => e.id)).toEqual([a])
+  })
+  it('signale les données inconnues et conserve le projet avec des limites devenues insuffisantes', () => {
+    const { p, rack, a } = setup()
+    const q = mountEquipment(p, a, rack, 9).project
+    expect(rackUsage(q, rack).missingDepth).toBe(1)
+    expect(updateRack(q, rack, { heightU: 0 })).toBe(q)
+    expect(updateRack(q, rack, { depthMm: Infinity })).toBe(q)
+    expect(rackUsage(updateRack(q, rack, { heightU: 8 }), rack).usedU).toBe(0)
+  })
   it('trouve la première place libre depuis le haut', () => {
     const { p, rack, a, b } = setup()
     const p1 = mountEquipment(p, a, rack, 9).project

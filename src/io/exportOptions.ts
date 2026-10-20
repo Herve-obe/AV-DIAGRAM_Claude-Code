@@ -178,17 +178,17 @@ export function sheetBounds(project: Project, sheetId: string, defaultSheetId: s
   return boundsOf(boxes)
 }
 
-/** Pages fixes, ancrées à l'origine : le dessin déborde sans être réduit. */
+/** Pages fixes, ancrées à l'origine : conserver uniquement le rectangle occupé, sans réduire le dessin. */
 export function tilesFor(bounds: Bounds | null, area: { w: number; h: number }, printScale: number) {
   const mmPerUnit = (MM_PER_UNIT * printScale) / 100
   const tileW = area.w / mmPerUnit
   const tileH = area.h / mmPerUnit
-  const col = Math.min(0, Math.floor((bounds?.x ?? 0) / tileW + 1e-6))
-  const row = Math.min(0, Math.floor((bounds?.y ?? 0) / tileH + 1e-6))
+  const col = Math.floor((bounds?.x ?? 0) / tileW + 1e-6)
+  const row = Math.floor((bounds?.y ?? 0) / tileH + 1e-6)
   const right = bounds ? bounds.x + bounds.w : 0
   const bottom = bounds ? bounds.y + bounds.h : 0
-  return { x: col * tileW, y: row * tileH, cols: Math.max(1, Math.ceil(right / tileW - 1e-6)) - col,
-    rows: Math.max(1, Math.ceil(bottom / tileH - 1e-6)) - row, tileW, tileH }
+  return { x: col * tileW, y: row * tileH, cols: Math.max(1, Math.ceil(right / tileW - 1e-6) - col),
+    rows: Math.max(1, Math.ceil(bottom / tileH - 1e-6) - row), tileW, tileH }
 }
 
 /** Mesures du canevas affiché : les éléments masqués ne consomment aucune page. */

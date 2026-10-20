@@ -1,0 +1,74 @@
+{
+  "id": "merlin-gerin-ad32t-3x32m-plus-3xpc16",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "MERLIN GERIN",
+  "model": "AD32T/3X32M+3xPC16",
+  "status": "community",
+  "description": "Armoire de distribution sur pied. Entrée : P17 32A tri. Sorties : 3 x P17 32mono + 3 x PC16A. Protection différentielle 30mA",
+  "aliases": [
+    "AD32T/001",
+    "MERLIN GERIN AD32T/3X32M+3xPC16"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/ad32t-3x32m3xpc16/",
+      "document": "Novelty — AD32T/3X32M+3xPC16",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie P17 32mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie P17 32mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie P17 32mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 12
+}

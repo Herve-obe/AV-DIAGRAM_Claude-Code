@@ -1,17 +1,25 @@
 # Enregistrement et collaboration d’AV Diagram
 
-Fonctionnement demandé, proposé dans la [PR n° 2, encore en brouillon](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/2).
+Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/2), complété dans la [PR n° 3](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/3).
+
+## Nouvelles vues — 0.4.0
+
+Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Pour partager les nouveaux champs, utiliser 0.4.0 sur tous les postes (protocole 3).
 
 ## Fichiers et sauvegardes
 
-- Sur ordinateur, créer un projet demande son nom et son dossier. Le fichier `.avd` est créé avant de remplacer le projet ouvert.
+- Sur ordinateur, créer un projet demande son nom et un dossier parent. Depuis la version **0.3.1**, un sous-dossier au nom du projet y est créé, avec son fichier `.avd` et **Save Back Up**. Par exemple : `Téléchargements / Concert / concert.avd` et `Téléchargements / Concert / Save Back Up /`. Le fichier est créé avant de remplacer le projet ouvert.
+- Les accents et les espaces du nom de dossier sont conservés ; les caractères interdits sont adaptés. Si le dossier existe déjà, un suffixe `(2)`, `(3)`, etc. évite toute réutilisation ou écrasement. Les fichiers existants ne sont pas déplacés.
+- Les exports PDF, images et CSV sont proposés dans le dossier du projet ouvert ; l'utilisateur peut choisir une autre destination. Le dossier parent reste proposé pour les prochains nouveaux projets.
 - **Ctrl+S / Cmd+S** remplace le fichier principal. Le bouton Enregistrer fait la même chose. **Ctrl+Maj+S / Cmd+Maj+S** permet de choisir un autre emplacement.
 - Les modifications courantes ne remplacent plus automatiquement le fichier principal.
 - Les copies de sécurité restent automatiques. Dans Paramètres > Enregistrement, choisir l’intervalle et le nombre de copies.
 - Les copies vont dans **Save Back Up**, avec un sous-dossier stable propre au projet. Avec dix copies conservées, la onzième supprime la plus ancienne de ce projet. Deux projets de même nom restent indépendants ; renommer un projet ne crée pas une seconde rotation.
+- **Enregistrer sous** reste un choix explicite de fichier : il ne déplace pas les sauvegardes déjà créées. Les prochaines copies et les exports suivent le nouvel emplacement du `.avd`. Si le dossier n'est pas accessible pour une copie automatique, le dossier global configuré reste utilisé en secours et le chemin réel est indiqué dans les paramètres.
 - Les anciennes copies du dossier « Sauvegardes » restent en place. Elles ne sont pas supprimées lors du changement de fonctionnement.
 - L’indicateur « Fichier principal enregistré » correspond à la version effectivement écrite. Une copie de sécurité ne change pas cet indicateur.
 - Fermer ou changer de projet propose **Enregistrer / Ne pas enregistrer / Annuler**. Une erreur d’écriture garde le document ouvert.
+- Depuis **0.3.3**, en double écran, quitter depuis la fenêtre principale ferme aussi **Infos**, après la confirmation et, si demandé, la réussite de l’enregistrement. **Annuler** ou un échec d’enregistrement garde les deux fenêtres ouvertes. Si Infos ne peut pas se fermer, la principale reste ouverte avec un message et permet de réessayer. Fermer Infos seule permet toujours de continuer dans la fenêtre principale.
 - Les projets récents sont des raccourcis. Les retirer ne supprime ni les fichiers ni les anciens contenus locaux.
 
 Une copie interne aide à reprendre le travail après un plantage. Elle reste distincte du fichier principal et des copies du dossier Save Back Up. Si le fichier principal est absent, la dernière copie interne récupérable est ouverte comme travail non enregistré.
@@ -48,6 +56,14 @@ Le format et l'orientation définissent des pages fixes à 100 %. Dépasser un b
 sans réduire le dessin ni déplacer les équipements. Les pointillés montrent la zone de dessin de
 chaque page, hors marges, légende et cartouche. La touche F recadre sur toutes les pages.
 
+Depuis **0.3.2**, la grille et le PDF retirent les rangées et colonnes extérieures devenues vides,
+même si le dessin a été déplacé dans une page éloignée de l'origine ou dans les coordonnées négatives.
+La taille et les limites des pages restent fixes ; les équipements ne sont pas déplacés automatiquement.
+Les cadres, notes, câbles et étiquettes visibles comptent dans l'encombrement : un cadre resté sur une
+autre page peut donc la conserver. Le modèle **Plateau TV 3 caméras** démarre avec ses cadres à
+l'intérieur d'une page A3 paysage pour chaque vue (**Plateau et régie vidéo** et **Intercom**).
+Cette marge initiale s'applique uniquement aux nouveaux projets issus des modèles, sans modifier les fichiers existants.
+
 À l'export : **Mettre à l'échelle sur une page** ou **Conserver sur plusieurs pages**. Le choix
 ne change pas le canevas. Le total annoncé est une estimation ; le PDF utilise les dimensions
 affichées et les tracés du routeur. La vue et la sélection sont restaurées après l'export.
@@ -58,6 +74,28 @@ catégorie ; il faut ensuite tirer le câble depuis ou vers ce port. Seuls les p
 sont proposés. Si une catégorie n'a plus de port libre, une autre est proposée automatiquement.
 **Tous les ports** ouvre la vue complète ; **Ports reliés** la replie. Les renvois vers les autres
 feuilles restent visibles. Ces actions d'affichage sont propres au poste et ne modifient pas les droits.
+
+## Catalogue Novelty
+
+Depuis **0.3.5**, le catalogue français Novelty est inclus hors catégorie **Structure**.
+Les doublons et désignations équivalentes renvoient à une fiche commune. Les variantes
+et ensembles restent distincts lorsqu'ils ne sont pas interchangeables.
+
+**Sans connectique** désigne un accessoire non câblé. **Connexions à compléter** signale
+une fiche dont les entrées/sorties ne sont pas entièrement documentées. Dans ce cas,
+les ports connus sont disponibles et aucun port supplémentaire n'est supposé. Les
+documents sont accessibles depuis l'inspecteur ; **Compléter les connexions** permet
+de passer en mode Expert pour ajouter les ports nécessaires. Les nouveaux modèles
+restent au statut Communauté jusqu'au contrôle de leur documentation technique.
+
+## Installation et désinstallation Windows
+
+Depuis **0.3.4**, relancer l'installeur de la même version et choisir **Uninstall**
+ferme aussi l'installeur à la fin de la désinstallation. Le choix du dossier
+d'installation ne doit plus réapparaître. Annuler la désinstallation revient au
+choix de maintenance ; **Add/Reinstall components** permet toujours de réinstaller.
+Avec un installeur d'une autre version, **Uninstall before installing** désinstalle
+l'ancienne version puis continue normalement vers la nouvelle installation.
 
 ## Vérification avant fusion
 
@@ -73,3 +111,4 @@ Pour compléter les simulations par un essai sur trois ordinateurs :
 Les 213 tests TypeScript passent ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos, le parcours de session, la découverte dans l'interface, les conditions du bouton Rejoindre et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
 
 La CI de la PR vérifie les tests TypeScript et les tests natifs Windows et macOS, dont la découverte sur sockets locales. Deux régressions couvrent une recherche vers un port fermé suivie d'une réponse valide et la poursuite des annonces après un paquet trop grand. Le test de relais manuel reste ignoré, comme prévu. Les essais avec dialogues natifs, disques réels et trois ordinateurs restent à faire, notamment les pannes et reprises. Deux hôtes isolés par une coupure ne fusionnent pas automatiquement leurs documents : il faut conserver leurs fichiers avant une fusion manuelle.
+

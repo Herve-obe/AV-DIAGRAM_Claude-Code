@@ -299,6 +299,8 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 
 ## 11. Mode formation
 
+**Décision du 20 octobre 2026 : en attente pour la première version.** Un [manuel complet](manuel-utilisateur.md) est fourni à la place. Les fonctions ci-dessous restent une perspective, sans activation dans cette livraison. La distribution officielle avec certificats et le portage tablette sont également en attente ; cloud et assistant IA restent suspendus.
+
 - **Exercice** : le formateur publie un projet avec des éléments masqués ou verrouillés et une consigne. Le stagiaire complète le schéma.
 - **Corrigé et comparaison** : un différentiel automatique entre la copie et le corrigé (liaisons manquantes, en trop ou erronées), avec un score configurable.
 - **Suivi** : un groupe, la liste des rendus, l'état de chaque exercice (lot 4, car il faut des comptes).
@@ -495,11 +497,11 @@ Le produit complet est l'objectif. Il est réalisé dans cet ordre, et chaque lo
 | 0 | Socle : Vite/React/TS, design system (thèmes sombre, clair et système), i18n FR/EN, application bureau Tauri, tests, CI, workflow d'installateurs | **Livré** |
 | 1 | Synoptique (V1) : bibliothèque générique, blocs et ports, liaisons typées, filtres par signal, règles de compatibilité, inspecteur, modes Débutant et Expert, Ctrl+K, sauvegarde locale et fichier, liste de câblage, nomenclature, alertes, export PNG / SVG / CSV | **Largement livré.** Restent : export PDF, éditeur de blocs (ports personnalisés), gestion des zones |
 | 2 | Câble et flux, multipaires, numérotation configurable dans l'interface, groupes et sous-schémas, pages, modèles, cartouche et impression multi-planches, dessin libre, mode présentation, catalogue de câbles | En cours : fait = pages (feuilles), modèles, cartouche, dessin libre (notes et cadres), mode présentation, catalogue de câbles, multipaires, flux réseau (canaux transportés et contrôle de capacité), numérotation configurable (format, zones, codes de type), impression multi-planches (une planche A3 par feuille non vide), groupes et sous-schémas imbriqués (Ctrl+G, double-clic pour ouvrir) ; vue Flux / Câbles, fusion de deux versions (union par identifiant, bilan et choix en cas de conflit) ; tracé automatique des liaisons (2026-09-25 : chemins orthogonaux qui contournent les blocs, voies parallèles écartées, étiquettes sans chevauchement, recalcul pendant le déplacement ; bouton « Tracé auto » pour revenir au tracé simple) | Fait
-| 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | À faire |
+| 3 | Vues liées : rack (V4), plan (V3), réseau (V5), intercom (V6), synchro (V7), électrique (V8), calculs, matrice de routage | Codé en 0.4.0, voir les limites des budgets déclaratifs et de la matrice physique dans le manuel |
 | 4 | Cloud européen : comptes, rôles, collaboration temps réel, partage, versions | Reporté (pas de budget serveur) |
-| 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | À faire |
-| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | Assistant IA en attente (décision du 2026-09-25). Fait = assistant IA, 1re partie, et aperçu des propositions sur le canevas (voir 12.7) ; à faire = téléchargement d'un modèle depuis l'application (lancement de llama-server fait), base de connaissances (RAG), imports et exports avancés |
-| 7 | Signature des installateurs, portage tablette | À faire |
+| 5 | Mode formation : exercices, corrigés, comparaison, suivi, fiches pédagogiques | En attente pour V1 (20 octobre 2026) ; manuel complet livré |
+| 6 | Imports et exports avancés (DXF, draw.io, Visio, XLSX), assistant IA local (section 12) | DXF, XLSX/patch, draw.io codés ; Visio VSDX import partiel ; DWG via convertisseur local optionnel. Voir [les limites](echanges-0.4.2.md). Assistant IA toujours en attente |
+| 7 | Signature des installateurs, portage tablette | En attente pour V1 (20 octobre 2026) |
 | Continu | Bibliothèque de modèles réels vérifiés, à partir de `docs/bibliotheque-a-documenter.md`, en commençant par le son | Mécanisme de fiches et de validation prêt, fiches en attente des documents des constructeurs |
 
 ## 18. Décisions et questions ouvertes

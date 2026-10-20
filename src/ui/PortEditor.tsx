@@ -67,7 +67,7 @@ function PortForm({ eq, port }: { eq: Equipment; port: PortDef }) {
       )}
       <Field id={`${fid}-fmt`} label={t('ports.format')} value={port.format} onCommit={(v) => set({ format: v.trim() || undefined })} />
       <div className="port-form-actions">
-        <button className="btn btn-danger" onClick={() => removePort(eq.id, port.id)}>
+        <button className="btn btn-danger" disabled={eq.modules?.some(m => m.portIds.includes(port.id))} title={eq.modules?.some(m => m.portIds.includes(port.id)) ? t('modules.portRemoval') : undefined} onClick={() => removePort(eq.id, port.id)}>
           <Icon name="trash" size={14} />{t('ports.remove')}
         </button>
       </div>

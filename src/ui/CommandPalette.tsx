@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
+import { planOf } from '../model/floorPlan'
 import { useExportPdf } from './ExportPdfDialog'
 import { groupSelected, ungroupSelected } from './groupActions'
 import { useAi } from '../store/aiStore'
@@ -14,6 +15,7 @@ interface Command {
   id: string
   label: string
   hint?: string
+  searchText?: string
   run: () => void
 }
 
@@ -29,6 +31,11 @@ export function CommandPalette() {
     const ui = useUi.getState()
     const addAtCenter = (tplId: string) => {
       const tpl = LIBRARY.find((x) => x.id === tplId)
+      if (tpl && ui.view === 'plan') {
+        const project = useProject.getState().project, p = planOf(project, ui.currentSheetId)
+        const eqs = Object.values(project.equipment).filter(e => e.sheetId === ui.currentSheetId)
+        ui.select([useProject.getState().addEquipment(tpl, { x: eqs.length ? Math.max(...eqs.map(e => e.position.x)) + 320 : 0, y: 0 }, ui.currentSheetId, { x: p.width / 2, y: p.height / 2, angle: 0 })], []); return
+      }
       const el = document.querySelector('.react-flow')?.getBoundingClientRect()
       if (!tpl || !el) return
       const pos = rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 })
@@ -54,13 +61,13 @@ export function CommandPalette() {
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },
       { id: 'theme', label: t('palette.toggleTheme'), run: () => ui.setPref('theme', ui.theme === 'light' ? 'dark' : 'light') },
       { id: 'lang', label: t('palette.toggleLang'), run: () => ui.setPref('lang', ui.lang === 'fr' ? 'en' : 'fr') },
-      ...LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: tpl.model }), run: () => addAtCenter(tpl.id) })),
+      ...LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: `${tpl.manufacturer ?? ''} ${tpl.model}`.trim() }), searchText: (tpl.aliases ?? []).join(' '), run: () => addAtCenter(tpl.id) })),
     ]
   }, [t, rf])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return (q ? commands.filter((c) => c.label.toLowerCase().includes(q)) : commands).slice(0, 12)
+    return (q ? commands.filter((c) => `${c.label} ${c.searchText ?? ''}`.toLowerCase().includes(q)) : commands).slice(0, 12)
   }, [commands, query])
 
   useEffect(() => {

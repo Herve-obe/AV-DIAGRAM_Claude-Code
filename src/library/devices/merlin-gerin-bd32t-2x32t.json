@@ -1,0 +1,44 @@
+{
+  "id": "merlin-gerin-bd32t-2x32t",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "MERLIN GERIN",
+  "model": "BD32T/2X32T",
+  "status": "community",
+  "description": "Boitier de distribution. Entrée P17 32A tri. Sortie : 2 x P17 32A tri. Protection par fusible",
+  "aliases": [
+    "MERLIN GERIN BD32T/2X32T"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32t-2x32t/",
+      "document": "Novelty — BD32T/2X32T",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie P17 32A tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie P17 32A tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    }
+  ],
+  "portStatus": "pending"
+}

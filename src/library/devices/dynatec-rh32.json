@@ -1,0 +1,86 @@
+{
+  "id": "dynatec-rh32",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "Dynatec",
+  "model": "RH32",
+  "status": "community",
+  "description": "Armoire de distribution. Entrée P17 32A tri. Sortie : 8 x PC16A + 1 Harting 8 circuits + 1 recopie 32A tri. Protection différentielle 30mA",
+  "aliases": [
+    "Dynatec RH32"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/rh32/",
+      "document": "Novelty — RH32",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie PC16A 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie PC16A 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16A 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie PC16A 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie PC16A 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending"
+}

@@ -1,7 +1,7 @@
 {
   "name": "av-diagram",
   "private": true,
-  "version": "0.2.3",
+  "version": "0.4.3",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
@@ -24,6 +24,8 @@
     "@tauri-apps/plugin-fs": "^2.5.2",
     "@tauri-apps/plugin-opener": "^2.5.5",
     "@xyflow/react": "^12.11.6",
+    "dxf-parser": "1.1.2",
+    "exceljs": "4.4.0",
     "html-to-image": "^1.11.13",
     "i18next": "^26.4.2",
     "idb-keyval": "^6.3.0",
@@ -35,11 +37,13 @@
     "react-i18next": "^17.0.15",
     "y-protocols": "^1.0.7",
     "yjs": "^13.6.33",
-    "zustand": "^5.0.15"
+    "zustand": "^5.0.15",
+    "fflate": "0.8.3",
+    "saxes": "6.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@tauri-apps/cli": "^2.11.5",
+    "@tauri-apps/cli": "2.11.5",
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

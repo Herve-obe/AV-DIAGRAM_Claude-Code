@@ -8,11 +8,12 @@ import { isTauri } from '@tauri-apps/api/core'
 import { create } from 'zustand'
 import { exportPdfWithLabels } from '../io/exportPdfUi'
 import { exportSettingsOf, protectionLevel, recipientsOf, watermarkText } from '../io/exportOptions'
-import type { ExportSettings, ProjectInfo } from '../model/types'
+import { PAPER_SIZES, type ExportSettings, type ProjectInfo } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useTitleBlock } from '../store/titleBlockStore'
 import { FormatPicker, ProtectionBadge, ProtectionEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
 import { Icon } from './Icon'
+import { useUi } from '../store/uiStore'
 
 export const useExportPdf = create<{ open: boolean; setOpen: (open: boolean) => void }>((set) => ({
   open: false,
@@ -28,6 +29,9 @@ export function ExportPdfDialog() {
   const project = useProject((s) => s.project)
   const template = useTitleBlock((s) => s.template)
   const rf = useReactFlow()
+  const racks = useUi(s => s.view === 'racks')
+  const plan = useUi(s => s.view === 'plan')
+  const report = useUi(s => !['diagram', 'racks', 'plan'].includes(s.view))
   const [tab, setTab] = useState<Tab>('titleBlock')
   const [opts, setOpts] = useState<ExportSettings>(() => exportSettingsOf(project))
   const [info, setInfo] = useState<ProjectInfo>({})
@@ -73,7 +77,7 @@ export function ExportPdfDialog() {
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
       <div className="dialog export-dialog" role="dialog" aria-modal="true" aria-labelledby="export-title">
         <header className="dialog-head">
-          <h2 id="export-title">{t('exportPdf.title')}</h2>
+          <h2 id="export-title">{t(plan ? 'plan.export' : racks ? 'racks.export' : 'exportPdf.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
         <div className="segmented export-tabs" role="tablist">
@@ -89,9 +93,23 @@ export function ExportPdfDialog() {
               <TitleBlockFields value={info} onChange={setInfo} />
             </section>
           )}
-          {tab === 'layout' && <section><FormatPicker project={project} value={opts} onChange={setOpts} /></section>}
+          {tab === 'layout' && <section>{plan && <p className="dialog-hint">{t('plan.pdfHint')}</p>}{racks || report ? <>
+            <p className="dialog-hint">{t(report ? 'engineering.reportHint' : 'racks.pdf.hint')}</p>
+            <div className="field-grid">
+            <div className="field">
+            <label htmlFor="rack-pdf-paper">{t('racks.pdf.paper')}</label>
+            <select id="rack-pdf-paper" value={opts.paper} onChange={e => setOpts({ ...opts, paper: e.target.value as ExportSettings['paper'] })}>{PAPER_SIZES.map(p => <option key={p}>{p}</option>)}</select>
+            </div>
+            <div className="field">
+            <label htmlFor="rack-pdf-orientation">{t('racks.pdf.orientation')}</label>
+            <select id="rack-pdf-orientation" value={opts.orientation} onChange={e => setOpts({ ...opts, orientation: e.target.value as ExportSettings['orientation'] })}>
+              <option value="portrait">{t('racks.pdf.portrait')}</option><option value="landscape">{t('racks.pdf.landscape')}</option>
+            </select>
+            </div>
+            </div>
+          </> : <FormatPicker plan={plan} project={project} value={opts} onChange={setOpts} />}</section>}
           {tab === 'watermark' && (
-            <section><WatermarkEditor project={{ ...project, info }} value={opts.watermark} onChange={(watermark) => setOpts({ ...opts, watermark })} /></section>
+            <section><WatermarkEditor vector={racks || plan || report} project={{ ...project, info }} value={opts.watermark} onChange={(watermark) => setOpts({ ...opts, watermark })} /></section>
           )}
           {tab === 'protection' && (
             <section>
@@ -111,7 +129,7 @@ export function ExportPdfDialog() {
             {t('exportPdf.summary', {
               paper: opts.paper,
               orientation: t(`exportPdf.${opts.orientation}`),
-              mode: t(`exportPdf.mode.${opts.scaleMode}`),
+              mode: report ? t('engineering.reportSummary') : racks ? t('racks.pdf.summary') : t(`exportPdf.mode.${opts.scaleMode}`),
             })}
             {opts.watermark.enabled && mark ? ` · ${t('exportPdf.withWatermark')}` : ''}
             {recipientsOf(opts.watermark).length ? ` · ${t('exportPdf.filesCount', { count: recipientsOf(opts.watermark).length })}` : ''}
