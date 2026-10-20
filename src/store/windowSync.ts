@@ -7,6 +7,7 @@ import type { Project } from '../model/types'
 import { useCollab } from '../collab/session'
 import { useProject, projectChangeAllowed } from './projectStore'
 import { useUi } from './uiStore'
+import { rememberWindowPlace, restoreWindowPlace, shouldRestorePanels } from './windowLayout'
 
 export type WindowRole = 'main' | 'panels'
 export const WINDOW_ROLE: WindowRole = new URLSearchParams(window.location.search).get('window') === 'panels' ? 'panels' : 'main'
@@ -139,22 +140,11 @@ export async function startWindowSync() {
   if (WINDOW_ROLE === 'main') useCollab.subscribe(sendAccess)
 
   if (WINDOW_ROLE === 'panels') {
-    void rememberPanelsPlace()
+    void rememberWindowPlace()
     send({ kind: 'hello' })
     window.addEventListener('beforeunload', () => send({ kind: 'bye' }))
   }
-}
-
-/** Place de la fenêtre Infos retenue d'une fois sur l'autre (coordonnées physiques du bureau) */
-const PLACE_KEY = 'avd.panelsPlace'
-interface Place { x: number; y: number; w: number; h: number; maximized: boolean }
-function readPlace(): Place | null {
-  try {
-    const v = JSON.parse(localStorage.getItem(PLACE_KEY) ?? 'null')
-    return v && typeof v.x === 'number' ? v : null
-  } catch {
-    return null
-  }
+  if (WINDOW_ROLE === 'main' && await shouldRestorePanels()) await openPanelsWindow()
 }
 
 /**
@@ -183,8 +173,6 @@ export async function openPanelsWindow() {
   const cx = pos.x + size.width / 2
   const cy = pos.y + size.height / 2
   const home = monitors.find((m) => inside(m, cx, cy))
-  const saved = readPlace()
-  const savedOk = saved && monitors.some((m) => inside(m, saved.x + 50, saved.y + 50))
   const other = monitors.find((m) => m !== home && !(home && m.position.x === home.position.x && m.position.y === home.position.y))
   const target = other ?? home ?? monitors[0]
 
@@ -200,48 +188,17 @@ export async function openPanelsWindow() {
   void w.once('tauri://destroyed', () => useUi.setState({ panelsDetached: false }))
   void w.once('tauri://created', async () => {
     try {
-      if (savedOk && saved) {
-        await w.setPosition(new PhysicalPosition(saved.x, saved.y))
-        await w.setSize(new PhysicalSize(saved.w, saved.h))
-        if (saved.maximized) await w.maximize()
-      } else if (target) {
+      if (target) {
         const a = target.workArea
         await w.setPosition(new PhysicalPosition(a.position.x + 40, a.position.y + 40))
         await w.setSize(new PhysicalSize(Math.max(800, a.size.width - 80), Math.max(600, a.size.height - 80)))
-        // Agrandie sur l'autre écran ; sur l'écran unique, une grande fenêtre suffit
-        if (other) await w.maximize()
       }
+      await restoreWindowPlace(w, !!other)
     } finally {
       await w.show()
       await w.setFocus()
     }
   })
-}
-
-/** Fenêtre Infos : retient sa place (position, taille, agrandie) quand on la déplace ou la redimensionne. */
-export async function rememberPanelsPlace() {
-  if (!isTauri() || WINDOW_ROLE !== 'panels') return
-  const { getCurrentWindow } = await import('@tauri-apps/api/window')
-  const w = getCurrentWindow()
-  let timer: ReturnType<typeof setTimeout> | undefined
-  const save = () => {
-    clearTimeout(timer)
-    timer = setTimeout(async () => {
-      try {
-        const maximized = await w.isMaximized()
-        const prev = readPlace()
-        // Agrandie : on garde la place d'avant (celle que l'on retrouve en quittant le mode agrandi)
-        const p = await w.outerPosition()
-        const s = await w.outerSize()
-        const place: Place = maximized && prev ? { ...prev, x: p.x + 8, y: p.y + 8, maximized } : { x: p.x, y: p.y, w: s.width, h: s.height, maximized }
-        localStorage.setItem(PLACE_KEY, JSON.stringify(place))
-      } catch {
-        // place non enregistrée : la prochaine ouverture choisira l'autre écran
-      }
-    }, 400)
-  }
-  await w.onMoved(save)
-  await w.onResized(save)
 }
 
 /** Ferme la fenêtre Infos (depuis l'une ou l'autre fenêtre). */

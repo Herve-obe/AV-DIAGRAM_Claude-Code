@@ -12,7 +12,7 @@ export function ManualDialog({ onClose }: { onClose: () => void }) {
     return () => { window.removeEventListener('keydown',key,true); restore?.focus() }
   },[onClose])
   const download = async () => {
-    try { const response=await fetch(new URL('manuel.pdf',document.baseURI));if(!response.ok)throw new Error('manual');await saveContent('AV-Diagram_Manuel_0.4.2.pdf',new Uint8Array(await response.arrayBuffer()),'application/pdf') }
+    try { const response=await fetch(new URL('manuel.pdf',document.baseURI));if(!response.ok)throw new Error('manual');await saveContent('AV-Diagram_Manuel_0.4.3.pdf',new Uint8Array(await response.arrayBuffer()),'application/pdf') }
     catch { await notifyError(t('manual.error')) }
   }
   return <div className="overlay" onMouseDown={e=>{if(e.target===e.currentTarget)onClose()}}><section className="dialog manual-dialog" role="dialog" aria-modal="true" aria-labelledby="manual-title" onKeyDown={e=>e.stopPropagation()}>

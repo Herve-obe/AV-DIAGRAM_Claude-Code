@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-20)
 
-## Situation actuelle — 0.4.2
+## Situation actuelle — 0.4.3
+
+La 0.4.3 ajoute huit captures réelles annotées au manuel hors ligne HTML/PDF. Au premier lancement, la fenêtre principale est maximisée ; les ouvertures suivantes reprennent la disposition locale, y compris Infos lorsqu'elle était ouverte et que les écrans nécessaires sont disponibles. Les positions sont ramenées dans la zone de travail si un écran a été débranché.
 
 Depuis 0.4.1, la présentation repliée des prises est mémorisée par équipement, partagée et annulable. La 0.4.2 ajoute l'import draw.io brut/compressé, l'import partiel Visio VSDX, l'export draw.io et la conversion DWG locale facultative par ODA File Converter installé et choisi sur le poste. Voir les [limites des échanges](echanges-0.4.2.md). Le [manuel complet](manuel-utilisateur.md), en HTML et PDF, est intégré hors ligne.
 

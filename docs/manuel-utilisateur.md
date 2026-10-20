@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.4.2 · Édition du 20 octobre 2026 · Windows et macOS
+Version 0.4.3 · Édition du 20 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -13,6 +13,12 @@ Au lancement, choisir Nouveau projet, Reprendre le dernier projet ou ouvrir un f
 La barre supérieure contient les commandes de fichier, les imports, les exports, la collaboration, l'affichage sur deux écrans, la présentation, les paramètres et l'annulation. Le bouton Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF.
 
 La bibliothèque occupe la gauche ; le schéma ou la vue technique se trouve au centre ; l'inspecteur montre les propriétés de la sélection à droite. Le panneau inférieur réunit les listes et alertes. La barre du bas change de vue : Synoptique, Baies, Plan, Réseau, Électrique, Intercom, Synchronisation ou Listes.
+
+Les captures de ce manuel montrent l'interface réelle en français, avec un projet pédagogique fictif. Les cadres et numéros ajoutés repèrent les éléments expliqués dans la légende. Les valeurs saisies dans cet exemple ne constituent pas des caractéristiques constructeur. Agrandir le PDF pour examiner un détail.
+
+![Figure 1 - Les quatre zones principales de l'interface](../public/manual-assets/01-reperes.png)
+
+Repères : 1. Bibliothèque des équipements à placer ; 2. Canevas du synoptique ; 3. Inspecteur de l'appareil sélectionné ; 4. Boutons de changement de vue.
 
 Le mode Débutant présente les opérations essentielles et des indications de progression. Le mode Expert expose davantage de propriétés, les ports personnalisés et les modèles personnels. Les deux modes utilisent le même projet. Les thèmes clair, sombre ou système et la langue se règlent dans la barre supérieure.
 
@@ -74,6 +80,14 @@ En mode replié, Ajouter une connexion indique le nombre de prises libres access
 
 Les noms et numéros d'origine restent les mêmes. Les prises reliées vers une autre feuille restent visibles avec leur renvoi. Replier ne supprime aucun port ni câble. Les tableaux conservent les données complètes ; les exports graphiques reprennent la présentation choisie.
 
+![Figure 2 - Choisir une sortie sur une stagebox repliée](../public/manual-assets/02-prises-repliees.png)
+
+Repères : 1. Les prises déjà reliées restent visibles ; 2. Après Ajouter une connexion, choisir Entrées ou Sorties ; 3. Choisir le port libre, puis tirer son câble. L'exemple comporte 32 entrées audio, 24 sorties audio et une prise réseau.
+
+![Figure 3 - Mémoriser le mode de présentation d'un appareil](../public/manual-assets/03-choix-des-prises.png)
+
+Repères : 1. Dans l'inspecteur, Prises visibles sur le schéma propose Automatique, Tous les ports ou Ports reliés. Le réglage concerne l'appareil sélectionné.
+
 ## 7. Relier et contrôler le câblage
 
 Tirer un câble d'une poignée de port à l'autre. Les ports compatibles peuvent être mis en évidence pendant l'opération. Un port bidirectionnel peut servir d'extrémité dans les deux sens ; le sens du flux doit rester cohérent avec l'installation réelle.
@@ -114,6 +128,10 @@ Les cartes s'installent dans les emplacements déclarés de l'hôte. Le type mé
 
 La puissance et le poids du châssis s'entendent hors cartes et sont additionnés à ceux des cartes. Ne pas renseigner deux fois une valeur totale constructeur. Exporter les élévations et la nomenclature, puis contrôler les unités, les faces et les limites sur les documents produits.
 
+![Figure 4 - Monter les mêmes équipements dans une baie](../public/manual-assets/04-baies.png)
+
+Repères : 1. Choisir l'appareil, la baie, la face et l'unité basse, puis Monter / déplacer ; 2. Contrôler les positions sur les faces avant et arrière ; 3. Lire les unités occupées et les bilans renseignés. Les valeurs sont celles de l'exemple.
+
 ## 10. Préparer le plan d'implantation
 
 Dans Plan, choisir un équipement existant à placer, puis cliquer dans le plan ou utiliser Placer au centre. Un modèle de bibliothèque peut aussi être déposé. La vue réutilise l'instance : ne pas créer un second appareil uniquement pour représenter son implantation.
@@ -128,6 +146,10 @@ Un fond DXF peut être importé pour chaque feuille. Confirmer l'unité avant to
 
 Le PDF ajusté indique l'échelle calculée. L'export à échelle fixe utilise le 1:N du plan et peut répartir le résultat sur plusieurs pages. Vérifier les réglages d'impression du lecteur PDF : une seconde option « ajuster au papier » peut modifier l'échelle prévue.
 
+![Figure 5 - Placer les appareils sur un plan métrique](../public/manual-assets/05-plan.png)
+
+Repères : 1. Dimensions du plan en mètres, aimantation et échelle PDF ; 2. Appareil sélectionné, dont la position se règle aussi dans l'inspecteur ; 3. Mesurer une distance droite entre deux points du plan.
+
 ## 11. Documenter le réseau
 
 La vue Réseau présente les interfaces des équipements. Renseigner les adresses IPv4, préfixes, VLAN natifs et VLAN tagués. Les filtres et la pagination facilitent la recherche. Les adresses invalides sont refusées ; les doublons potentiels et certaines incohérences sont signalés.
@@ -137,6 +159,10 @@ Les VLAN tagués sont documentés ; ils ne décrivent pas à eux seuls la config
 Pour le PoE, déclarer le rôle du port, la demande du récepteur ou le plafond du fournisseur et le budget total de l'appareil fournisseur. Les demandes connues sont additionnées ; les inconnues sont signalées comme telles. Un budget incomplet ne peut pas être validé par un simple total inférieur au plafond.
 
 Le débit prévu concerne le câble et doit être saisi comme un débit agrégé. Le logiciel le compare aux capacités déclarées. Il ne mesure pas le trafic, ne configure pas les appareils et ne simule pas le routage, la redondance ou le multicast. Les exports techniques et Excel servent à partager ces déclarations.
+
+![Figure 6 - Renseigner les interfaces réseau, extrait du tableau](../public/manual-assets/06-reseau.png)
+
+Repères : 1. Adresse IPv4 de l'interface, avec son préfixe dans la colonne suivante ; 2. VLAN natif déclaré. Ces valeurs documentent le projet ; elles ne configurent pas les appareils.
 
 ## 12. Préparer les bilans électriques
 
@@ -194,6 +220,10 @@ Le bouton d'import draw.io / Visio accepte .drawio, .xml et .vsdx. Les pages dra
 
 La fenêtre de vérification présente les pages du document. Choisir une page, contrôler les équipements, les fiches proposées et les connexions, puis importer dans une nouvelle feuille. Refaire l'opération pour les autres pages souhaitées. Annuler retire l'import sans modifier les feuilles antérieures. Si Rétablir recrée une feuille, sélectionner son onglet pour retrouver son dessin.
 
+![Figure 7 - Vérifier un synoptique avant son import](../public/manual-assets/07-import.png)
+
+Repères : 1. Choisir la page du document ; 2. Examiner l'aperçu en parallèle des listes d'équipements et de liaisons à droite ; 3. Importer la sélection après vérification. Le nom de la nouvelle feuille se règle en bas à gauche.
+
 Les connexions explicites du fichier sont utilisées. Si un nom ou un type de prise n'est pas écrit, l'interface le signale comme déduit ou non précisé. Les formes décoratives, groupes, images et géométries avancées peuvent être simplifiés ou ignorés ; lire les avertissements. Les références externes ne sont pas chargées, les macros et les DTD XML ne sont pas acceptées.
 
 L'export draw.io produit un document éditable avec les feuilles non vides, les blocs, les prises affichées et les connexions sur chaque feuille. Les annotations textuelles sont conservées. Il s'agit d'un échange de synoptique : la totalité des données techniques, des baies, des plans et des propriétés métier du .avd n'y est pas transférée. Conserver le .avd comme fichier de référence. Les renvois entre feuilles, l'organisation des sous-schémas et certains détails de tracé demandent une vérification après échange.
@@ -206,6 +236,10 @@ Le format de papier et les marges déterminent les pages affichées sur le canev
 
 À l'export PDF, choisir entre ajuster sur une page et conserver une taille fixe sur plusieurs pages. Ajuster réduit le schéma si nécessaire ; vérifier l'échelle et la taille du texte. La pagination multiple préserve davantage la lisibilité. Le logiciel ne déplace pas automatiquement les appareils pour recomposer le dessin.
 
+![Figure 8 - Choisir la pagination du PDF](../public/manual-assets/08-export.png)
+
+Repères : 1. Format de papier ; l'orientation se choisit juste à côté ; 2. Conserver sur plusieurs pages ou Mettre à l'échelle sur une page ; 3. Exporter après contrôle du cartouche, du filigrane et de la protection dans les autres onglets. L'estimation de pages dépend du dessin courant.
+
 Renseigner le cartouche : client, lieu, propriétaire, titre, numéro de document, auteur, approbation, statut et indice selon le besoin. Les révisions décrivent les évolutions du document. Un modèle de cartouche propre au poste peut préremplir les prochains exports.
 
 Le filigrane peut contenir du texte et des champs du projet. Des copies par destinataire permettent d'identifier les documents diffusés. La protection PDF de l'application de bureau propose un mot de passe d'ouverture et des restrictions de lecture. Des restrictions sans mot de passe d'ouverture restent une mesure dissuasive dont le respect dépend du lecteur ; elles ne rendent pas le document secret.
@@ -215,6 +249,10 @@ Les images PNG et SVG reprennent la vue graphique. Le DXF exporte la géométrie
 Avant diffusion, ouvrir le fichier exporté dans un lecteur indépendant, vérifier toutes les pages, le cartouche, les renvois et le filigrane, puis contrôler une mesure sur papier si une échelle réelle est nécessaire.
 
 ## 18. Deux écrans et présentation
+
+Au premier lancement, la fenêtre principale est maximisée, avec sa barre de titre et les boutons du système. Les ouvertures suivantes reprennent la position, la taille et le mode de chaque fenêtre. Une fenêtre minimisée n'est pas restaurée comme telle. Ces préférences restent propres au poste ; elles ne sont pas enregistrées dans le projet ni partagées en collaboration.
+
+La disposition est retenue après la décision de fermeture. Si Infos était ouverte, elle est rouverte au lancement suivant. Lorsqu'une disposition sur deux écrans est mémorisée mais qu'un seul reste disponible, Infos ne s'ouvre pas automatiquement ; le bouton de double écran permet toujours de l'ouvrir. Une fenêtre dont l'écran a disparu est replacée dans la zone de travail disponible.
 
 Le bouton de double écran ouvre Infos pour l'inspecteur et les listes. Le schéma reste dans la fenêtre principale. Projet, sélection et modifications sont synchronisés ; les actions restent soumises aux mêmes droits et à l'annulation.
 

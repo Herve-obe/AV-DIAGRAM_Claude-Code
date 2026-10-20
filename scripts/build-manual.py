@@ -3,7 +3,7 @@ from pathlib import Path
 from html import escape
 import re
 import json
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, Image, KeepTogether
 from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -34,12 +34,14 @@ styles.add(ParagraphStyle("BodyManual", fontName=normal, fontSize=10.2, leading=
 styles.add(ParagraphStyle("Chapter", fontName=bold, fontSize=15, leading=20, spaceBefore=18, spaceAfter=10, keepWithNext=True))
 styles.add(ParagraphStyle("CoverManual", fontName=bold, fontSize=30, leading=38, alignment=TA_CENTER, spaceAfter=25))
 styles.add(ParagraphStyle("SmallManual", fontName=normal, fontSize=9, leading=13, spaceAfter=5))
+styles.add(ParagraphStyle("CaptionManual", fontName=bold, fontSize=9, leading=13, spaceBefore=7, spaceAfter=5))
 toc = TableOfContents()
 toc.levelStyles = [ParagraphStyle("TOCManual", fontName=normal, fontSize=10, leading=15, spaceBefore=5)]
 story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 20 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
 
 chapter = 0
-for block in blocks:
+figures = 0
+for index, block in enumerate(blocks):
     block = block.strip()
     if not block or block.startswith("# "):
         continue
@@ -48,6 +50,22 @@ for block in blocks:
         title = block[3:].strip()
         html.append(f'<h2 id="chapitre-{chapter}">{escape(title)}</h2>')
         story.append(Paragraph(escape(title), styles["Chapter"]))
+    elif block.startswith("!["):
+        match = re.fullmatch(r"!\[([^\]]+)\]\(([^)]+)\)", block)
+        assert match, f"Capture mal formée : {block}"
+        caption, source = match.groups()
+        asset = (ROOT / "docs" / source).resolve()
+        assert asset.is_relative_to((public / "manual-assets").resolve()) and asset.is_file()
+        legend = blocks[index + 1].strip()
+        assert legend.startswith("Repères : "), f"Légende manquante : {source}"
+        figure = Image(str(asset))
+        ratio = min(480 / figure.imageWidth, 430 / figure.imageHeight, .5)
+        figure.drawWidth, figure.drawHeight = figure.imageWidth * ratio, figure.imageHeight * ratio
+        html.append(f'<figure><img src="{escape(asset.relative_to(public).as_posix())}" alt="{escape(caption)}" width="{figure.imageWidth}" height="{figure.imageHeight}" loading="lazy"><figcaption>{escape(caption)}</figcaption><p>{escape(legend)}</p></figure>')
+        story.append(KeepTogether([figure, Paragraph(escape(caption), styles["CaptionManual"]), Paragraph(escape(legend), styles["SmallManual"]), Spacer(1, 12)]))
+        figures += 1
+    elif block.startswith("Repères : "):
+        assert blocks[index - 1].strip().startswith("!["), "Légende sans capture"
     elif block.startswith("|"):
         rows = [[s.strip() for s in line.strip().strip("|").split("|")] for line in block.splitlines() if not re.match(r"^\|[\s:|-]+\|$", line)]
         html.append('<table><thead><tr>' + ''.join('<th>'+escape(s)+'</th>' for s in rows[0]) + '</tr></thead><tbody>')
@@ -62,7 +80,7 @@ for block in blocks:
         story.append(Paragraph(text, styles["BodyManual"]))
 
 html.append('</main><footer>AV Diagram — conserver le .avd et les sauvegardes de chaque projet.</footer>')
-css = "body{font:17px/1.65 Arial,sans-serif;color:#243344;margin:0 auto;max-width:920px;padding:36px 40px;background:#fff}header{border-bottom:4px solid #d95b12;padding-bottom:22px}h1{font-size:38px;line-height:1.2}h2{line-height:1.35;margin-top:40px;scroll-margin-top:20px}nav{background:#f2f5f8;padding:15px 28px;margin:30px 0}a{color:#175d98}li{margin:7px 0}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #c8d0d8;padding:9px;text-align:left}th{background:#e8edf2}footer{border-top:1px solid #c8d0d8;margin-top:40px;padding-top:20px;font-size:14px}@media print{body{max-width:none;padding:0;font-size:11pt}nav{break-after:page}h2{break-after:avoid}table,tr{break-inside:avoid}a{color:inherit}}"
+css = "body{font:17px/1.65 Arial,sans-serif;color:#243344;margin:0 auto;max-width:920px;padding:36px 40px;background:#fff}header{border-bottom:4px solid #d95b12;padding-bottom:22px}h1{font-size:38px;line-height:1.2}h2{line-height:1.35;margin-top:40px;scroll-margin-top:20px}nav{background:#f2f5f8;padding:15px 28px;margin:30px 0}a{color:#175d98}li{margin:7px 0}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #c8d0d8;padding:9px;text-align:left}th{background:#e8edf2}figure{margin:28px 0;padding:12px;border:1px solid #c8d0d8;border-radius:6px;break-inside:avoid}figure img{display:block;max-width:100%;width:auto;height:auto;margin:auto}figcaption{font-weight:bold;margin-top:12px;font-size:15px}figure p{font-size:15px;margin:6px 0 0}footer{border-top:1px solid #c8d0d8;margin-top:40px;padding-top:20px;font-size:14px}@media print{body{max-width:none;padding:0;font-size:11pt}nav{break-after:page}h2{break-after:avoid}table,tr{break-inside:avoid}a{color:inherit}}"
 (public / "manuel.html").write_text('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AV Diagram — Manuel utilisateur</title><style>'+css+'</style></head><body>'+''.join(html)+'</body></html>', encoding="utf8")
 
 class Manual(SimpleDocTemplate):
@@ -84,4 +102,4 @@ def footer(canvas, doc):
 
 doc = Manual(str(public / "manuel.pdf"), pagesize=A4, rightMargin=48, leftMargin=48, topMargin=45, bottomMargin=46, title="AV Diagram — Manuel utilisateur", author="AV Diagram")
 doc.multiBuild(story, onFirstPage=footer, onLaterPages=footer)
-print(f"Manuel {VERSION} : HTML et PDF générés, 21 chapitres")
+print(f"Manuel {VERSION} : HTML et PDF générés, 21 chapitres, {figures} captures")

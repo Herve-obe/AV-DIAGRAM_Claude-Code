@@ -44,6 +44,9 @@ jobs:
           path: src-tauri/target/release/bundle/nsis/*-setup.exe
           if-no-files-found: error
           retention-days: 30
+      - name: Test native window layout across relaunches
+        if: github.event_name == 'push'
+        run: python scripts/test-window-layout.py src-tauri/target/release/av-diagram.exe
 
   windows-installer:
     if: github.event_name == 'push'

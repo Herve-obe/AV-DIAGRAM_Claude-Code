@@ -39,6 +39,7 @@ button:disabled { cursor: default; opacity: 0.35; }
 /* ---------- Barre supérieure ---------- */
 .topbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   padding: 6px 12px;
@@ -429,7 +430,6 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .palette li[aria-selected='true'] { background: var(--accent-soft); }
 
 /* ---------- Petits écrans (consultation sur tablette) ---------- */
-@media (max-width: 1400px) { .topbar { flex-wrap: wrap; } }
 @media (max-width: 1100px) {
   .cmd-btn { min-width: 0; }
   .cmd-label, .cmd-btn kbd { display: none; }
@@ -437,7 +437,6 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 @media (max-width: 820px) {
   body { overflow: auto; }
   .app { height: auto; min-height: 100%; }
-  .topbar { flex-wrap: wrap; }
   .project-name { max-width: none; flex: 1; }
   .workspace { grid-template-columns: 1fr; }
   .library, .inspector { border: 0; border-bottom: 1px solid var(--border); max-height: 280px; }
