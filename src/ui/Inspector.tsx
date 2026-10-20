@@ -23,6 +23,8 @@ import { PortEditor } from './PortEditor'
 import { ModuleEditor } from './ModuleEditor'
 import { PlanFields } from './FloorPlanView'
 import { openExternal } from '../ai/transport'
+import { useEditing } from '../collab/useEditing'
+import { PORTS_COMPACT_THRESHOLD } from '../model/portDisplay'
 
 function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
   const { t } = useTranslation()
@@ -86,6 +88,7 @@ function SourceNote({ templateId }: { templateId: string }) {
 
 function EquipmentInspector({ eq }: { eq: Equipment }) {
   const { t } = useTranslation()
+  const editing = useEditing()
   const zones = useProject((s) => s.project.zones)
   const sheets = useProject((s) => s.project.sheets ?? [])
   const { updateEquipment, duplicate, remove } = useProject.getState()
@@ -165,6 +168,14 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         </div>
       </div>
       <LayerHints eq={eq} />
+      {eq.ports.length > 0 && <div className="field">
+        <label htmlFor="eq-port-display">{t('portDisplay.title')}</label>
+        <select id="eq-port-display" value={eq.portsExpanded === undefined ? 'auto' : eq.portsExpanded ? 'all' : 'connected'} disabled={!editing.equipment(eq)} onChange={e => set({ portsExpanded: e.target.value === 'auto' ? undefined : e.target.value === 'all' })}>
+          <option value="auto">{t('portDisplay.auto', { count: PORTS_COMPACT_THRESHOLD })}</option>
+          <option value="all">{t('portDisplay.all')}</option>
+          <option value="connected">{t('portDisplay.fold')}</option>
+        </select>
+      </div>}
       {expert && <Field id="eq-notes" label={t('inspector.notes')} value={eq.notes} multiline onCommit={(v) => set({ notes: v || undefined })} />}
       {expert ? (
         <PortEditor eq={eq} />

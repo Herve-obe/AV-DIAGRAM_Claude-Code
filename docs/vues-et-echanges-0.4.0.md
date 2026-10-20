@@ -2,6 +2,16 @@
 
 Ces fonctions complètent les baies et le synoptique. Le plan, les tableaux et les câbles utilisent les mêmes instances d'équipement : renommer ou retirer un appareil se répercute dans les différentes vues. La version reste en développement et demande des essais sur les postes de travail.
 
+## Prises repliées — complément 0.4.1
+
+Toutes les familles utilisent le même principe : au-delà de 16 prises, seuls les ports reliés sont affichés automatiquement. Les appareils de 16 prises ou moins restent dépliés. Les ports et câbles conservent leurs noms, identifiants et renvois vers les autres feuilles.
+
+Sélectionner un appareil fait apparaître « Tous les ports » ou « Ports reliés ». Le second choix peut aussi replier un petit appareil, par exemple une caméra. Dans l'inspecteur, « Prises visibles sur le schéma » propose également le retour à « Automatique ». Ce choix appartient à chaque équipement : il est enregistré dans le .avd, annulable et partagé avec la session. L'hôte peut le modifier partout ; un invité uniquement pour un équipement de son domaine principal, depuis le calque qui lui est attribué.
+
+En mode replié, « Ajouter une connexion » indique le nombre de prises disponibles dans le calque autorisé. Choisir Entrées, Sorties ou Bidirectionnels, puis la prise dans la liste regroupée par signal. Le port choisi apparaît temporairement pour tirer le câble ; une fois relié il reste visible. « Masquer ce port » annule cet affichage temporaire sans supprimer de prise. Les prises bidirectionnelles sont comptées séparément des sorties.
+
+PDF, PNG et SVG reprennent la présentation du canevas ; les outils flottants sont exclus de l'image. Le DXF respecte aussi le choix mémorisé. Les tableaux de câblage et Excel gardent les données complètes. Les anciens projets sans choix explicite utilisent le mode automatique.
+
 ## Plan d'implantation
 
 Dans **Plan**, choisir un équipement existant dans « Équipement à placer », puis cliquer sur le plan ou sur « Placer au centre ». Un modèle de la bibliothèque peut aussi être déposé sur le plan. L'inspecteur permet de saisir X/Y en mètres, la largeur, la profondeur et l'orientation. La position et l'orientation du bloc du synoptique restent indépendantes.

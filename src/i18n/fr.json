@@ -1216,14 +1216,17 @@
     "labelFitted": "{{paper}} {{orientation}} · ajusté à {{scale}} %"
   },
   "portDisplay": {
+    "title": "Prises visibles sur le schéma",
+    "auto": "Automatique : replier au-delà de {{count}} prises",
     "direction": "Sens de connexion",
     "inputs": "Entrées",
     "outputs": "Sorties",
     "bidir": "Bidirectionnels",
-    "free": "{{inputs}} entrées libres · {{outputs}} sorties libres",
+    "free": "Prises libres — entrées : {{inputs}} · sorties : {{outputs}} · bidirectionnelles : {{bidir}}",
     "all": "Tous les ports",
     "fold": "Ports reliés",
-    "add": "Ajouter une connexion",
+    "add_one": "Ajouter une connexion — {{count}} prise disponible",
+    "add_other": "Ajouter une connexion — {{count}} prises disponibles",
     "choose": "Choisir un port libre",
     "dragHint": "Tirez un câble depuis le port choisi, ou vers celui-ci.",
     "cancel": "Masquer ce port"

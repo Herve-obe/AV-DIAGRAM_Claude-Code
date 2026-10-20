@@ -175,6 +175,8 @@ export interface Equipment {
    * 90 : entrées en haut, sorties en bas ; 180 : entrées à droite ; 270 : entrées en bas.
    */
   rotation?: Rotation
+  /** Présentation du synoptique : undefined = automatique selon le nombre de ports. */
+  portsExpanded?: boolean
   /** Rappels ignorés par l'utilisateur (ex. « layer:sound » : ports audio d'une caméra) */
   dismissedHints?: string[]
 }

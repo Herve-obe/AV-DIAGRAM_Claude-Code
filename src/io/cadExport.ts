@@ -3,6 +3,7 @@ import type { CadDrawing, Project } from '../model/types'
 import { drawingDxf } from './cad'
 import { saveContent, slug } from './files'
 import { labelPoint, routeAll, type Point, type Rect, type RouteEnd } from '../model/routing'
+import { portsToDisplay } from '../model/portDisplay'
 
 export interface CadDiagramGeometry { boxes: Map<string, Rect & { ports: Map<string, RouteEnd> }>; routes: Map<string, Point[]> }
 
@@ -24,12 +25,18 @@ export function planDrawing(p: Project, sheetId: string): CadDrawing {
 /** Schéma de principe : géométrie logique distincte des dimensions physiques du plan. */
 export function diagramDrawing(p: Project, sheetId: string, measured?: CadDiagramGeometry): CadDrawing {
   const d: CadDrawing = { name: p.name, width: 1, height: 1, paths: [], texts: [] }
+  const used = new Map<string, Set<string>>()
+  for (const l of Object.values(p.links)) for (const end of [l.source, l.target]) {
+    if (!used.has(end.equipmentId)) used.set(end.equipmentId, new Set())
+    used.get(end.equipmentId)!.add(end.portId)
+  }
   const boxes = new Map<string, Rect & { ports: Map<string, RouteEnd> }>()
   for (const eq of Object.values(p.equipment).filter(e => e.sheetId === sheetId)) {
     const actual = measured?.boxes.get(eq.id)
     if (measured && !actual) continue
     const x = (actual?.x ?? eq.position.x) / 100, y = (actual?.y ?? eq.position.y) / 100
-    const ins = eq.ports.filter(q => q.direction === 'in'), outs = eq.ports.filter(q => q.direction !== 'in')
+    const shown = portsToDisplay(eq.ports, used.get(eq.id) ?? new Set(), eq.portsExpanded)
+    const ins = shown.filter(q => q.direction === 'in'), outs = shown.filter(q => q.direction !== 'in')
     const vertical = eq.rotation === 90 || eq.rotation === 270
     const w = actual ? actual.w / 100 : vertical ? Math.max(2.8,Math.max(ins.length,outs.length) * .9) : 2.8
     const h = actual ? actual.h / 100 : vertical ? 1.9 : 0.9 + Math.max(ins.length, outs.length) * 0.25

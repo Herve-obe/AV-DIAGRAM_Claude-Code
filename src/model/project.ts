@@ -303,6 +303,7 @@ export function isProject(value: unknown): value is Project {
       && new Set(e.modules.map(m => m.id)).size === e.modules.length && new Set(e.modules.map(m => m.slotId)).size === e.modules.length
       && new Set(e.modules.flatMap(m => m.portIds as string[])).size === e.modules.flatMap(m => m.portIds as string[]).length))
     && (e.rotation === undefined || [0, 90, 180, 270].includes(e.rotation as number))
+    && (e.portsExpanded === undefined || typeof e.portsExpanded === 'boolean')
     && stringList(e.dismissedHints)
     && (e.mount === undefined || (strings(e.mount, ['rackId', 'face']) && numbers(e.mount, ['u']) && ['front', 'rear'].includes((e.mount as Record<string, unknown>).face as string)))
     && Array.isArray(e.ports) && e.ports.every((p) => strings(p, ['id', 'name', 'direction', 'signal', 'connector'], ['level', 'format', 'phantom'])

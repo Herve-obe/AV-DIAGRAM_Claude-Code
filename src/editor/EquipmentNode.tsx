@@ -6,10 +6,12 @@ import i18n from '../i18n'
 import { Handle, Position, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react'
 import { connectorLabel } from '../model/connectors'
 import { portInView, type LayerView } from '../model/layers'
-import { SIGNAL_STYLE } from '../model/signals'
+import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, PortDef, Rotation } from '../model/types'
 import { PORTS_COMPACT_THRESHOLD, portsToDisplay } from '../model/portDisplay'
 import { useUi } from '../store/uiStore'
+import { useProject } from '../store/projectStore'
+import { useEditing } from '../collab/useEditing'
 import { Icon } from '../ui/Icon'
 import { Pictogram } from '../ui/Pictogram'
 
@@ -74,7 +76,8 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
   const eq = data.equipment
   const rotation = eq.rotation ?? 0
   const t = i18n.t.bind(i18n)
-  const expanded = useUi(s => s.expandedEquipment[id] ?? false)
+  const expanded = eq.portsExpanded ?? eq.ports.length <= PORTS_COMPACT_THRESHOLD
+  const editing = useEditing()
   const presenting = useUi(s => s.presenting)
   const [pickerOpen, setPickerOpen] = useState(false)
   const [pendingPort, setPendingPort] = useState('')
@@ -90,19 +93,18 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
   const { input, output } = SIDES[rotation]
   const inputs = shown.filter((p) => p.direction === 'in')
   const outputs = shown.filter((p) => p.direction !== 'in')
-  const large = eq.ports.length > PORTS_COMPACT_THRESHOLD
   const free = eq.ports.filter(p => !connected.has(p.id))
-  const available = free.filter(p => portInView(p, data.layer))
+  const available = free.filter(p => portInView(p, data.layer) && editing.port(eq, p))
   const directions = (['in', 'out', 'bidir'] as const).filter(direction => available.some(p => p.direction === direction))
   const chosenDirection = directions.includes(pickerDirection) ? pickerDirection : directions[0]
   const directionLabel = { in: 'inputs', out: 'outputs', bidir: 'bidir' } as const
   const freeInputs = free.filter(p => p.direction === 'in').length
-  const summary = large && <div className="eq-port-summary">{t('portDisplay.free', { inputs: freeInputs, outputs: free.length - freeInputs })}</div>
-  const tools = large && !presenting && <div className="eq-port-tools nodrag nopan nowheel" onPointerDown={e => e.stopPropagation()}>
-    <button type="button" className="btn btn-ghost" aria-pressed={expanded} onClick={() => { useUi.getState().setEquipmentExpanded(id, !expanded); setPendingPort(''); setPickerOpen(false) }}>
+  const summary = !expanded && free.length > 0 && <div className="eq-port-summary">{t('portDisplay.free', { inputs: freeInputs, outputs: free.filter(p => p.direction === 'out').length, bidir: free.filter(p => p.direction === 'bidir').length })}</div>
+  const tools = eq.ports.length > 0 && (selected || pickerOpen) && !presenting && <div className="eq-port-tools nodrag nopan nowheel" onPointerDown={e => e.stopPropagation()}>
+    <button type="button" className="btn btn-ghost" aria-pressed={expanded} disabled={!editing.equipment(eq)} onClick={() => { useProject.getState().updateEquipment(id, { portsExpanded: !expanded }); setPendingPort(''); setPickerOpen(false) }}>
       {t(expanded ? 'portDisplay.fold' : 'portDisplay.all')}
     </button>
-    {available.length > 0 && <button type="button" className="btn btn-ghost" aria-expanded={pickerOpen} onClick={() => setPickerOpen(!pickerOpen)}>{t('portDisplay.add')}</button>}
+    {!expanded && available.length > 0 && <button type="button" className="btn btn-ghost" aria-expanded={pickerOpen} onClick={() => setPickerOpen(!pickerOpen)}>{t('portDisplay.add', { count: available.length })}</button>}
     {pickerOpen && <>
       <div role="group" aria-label={t('portDisplay.direction')}>
         {directions.map(direction => <button key={direction} type="button" className="btn btn-ghost" aria-pressed={chosenDirection === direction} onClick={() => { setPickerDirection(direction); setPendingPort('') }}>
@@ -112,7 +114,10 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
       <label htmlFor={`free-port-${id}`}>{t('portDisplay.choose')}
       <select id={`free-port-${id}`} value={pendingPort} onChange={e => setPendingPort(e.target.value)}>
         <option value="">{t('portDisplay.choose')}</option>
-        {available.filter(p => p.direction === chosenDirection).map(p => <option key={p.id} value={p.id}>{p.name} · {t(`direction.${p.direction}`)} · {connectorLabel(p.connector)}</option>)}
+        {SIGNAL_FAMILIES.map(signal => {
+          const ports = available.filter(p => p.direction === chosenDirection && p.signal === signal)
+          return ports.length > 0 && <optgroup key={signal} label={t(`signal.${signal}`)}>{ports.map(p => <option key={p.id} value={p.id}>{p.name} · {connectorLabel(p.connector)}{p.format ? ` · ${p.format}` : ''}</option>)}</optgroup>
+        })}
       </select>
       </label>
     </>}

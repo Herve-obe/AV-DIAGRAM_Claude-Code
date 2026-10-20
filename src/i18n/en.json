@@ -1216,14 +1216,17 @@
     "labelFitted": "{{paper}} {{orientation}} · fitted at {{scale}}%"
   },
   "portDisplay": {
+    "title": "Visible ports on the diagram",
+    "auto": "Automatic: fold above {{count}} ports",
     "direction": "Connection direction",
     "inputs": "Inputs",
     "outputs": "Outputs",
     "bidir": "Bidirectional",
-    "free": "{{inputs}} free inputs · {{outputs}} free outputs",
+    "free": "Free ports — inputs: {{inputs}} · outputs: {{outputs}} · bidirectional: {{bidir}}",
     "all": "All ports",
     "fold": "Connected ports",
-    "add": "Add a connection",
+    "add_one": "Add a connection — {{count}} available port",
+    "add_other": "Add a connection — {{count}} available ports",
     "choose": "Choose a free port",
     "dragHint": "Drag a cable from or to the selected port.",
     "cancel": "Hide this port"

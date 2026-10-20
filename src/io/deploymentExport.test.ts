@@ -28,3 +28,11 @@ it('exporte exactement la géométrie mesurée, sans réintroduire les ports rep
   expect(drawing.paths[0].points).toEqual([{x:-1,y:.2},{x:3,y:.2},{x:3,y:1.4},{x:-1,y:1.4}])
   expect(drawing.texts.some(t => t.layer === 'AVD_PORTS')).toBe(false)
 })
+it('respecte le repliage mémorisé même sans mesure du canevas pour le DXF', () => {
+  const r = addEquipment(createProject('DXF'), GENERIC_LIBRARY[0], { x: 0, y: 0 })
+  const eq = r.project.equipment[r.id]
+  eq.portsExpanded = false
+  expect(diagramDrawing(r.project, 'sh-1').texts.some(t => t.layer === 'AVD_PORTS')).toBe(false)
+  eq.portsExpanded = true
+  expect(diagramDrawing(r.project, 'sh-1').texts.filter(t => t.layer === 'AVD_PORTS')).toHaveLength(eq.ports.length)
+})
