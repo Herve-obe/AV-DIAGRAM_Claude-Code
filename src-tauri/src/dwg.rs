@@ -52,7 +52,8 @@ fn convert(state: DwgConverter, converter: String, data: Vec<u8>, epoch: u64) ->
     running.1 = Some(Scratch::new()?);
     let scratch = &running.1.as_ref().unwrap().0;
     if state.cancelled.load(Ordering::SeqCst) != epoch { return Err("cancelled".into()); }
-    let input = scratch.join("input"), output = scratch.join("output");
+    let input = scratch.join("input");
+    let output = scratch.join("output");
     fs::create_dir(&input).and_then(|_| fs::create_dir(&output)).map_err(|_| "storage")?;
     fs::write(input.join("source.dwg"), data).map_err(|_| "storage")?;
     let process = conversion_command(&binary, &input, &output).spawn().map_err(|_| "converter")?;
