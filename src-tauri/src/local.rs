@@ -98,11 +98,14 @@ fn spawn_with_key(server: &Path, model: &Path, port: u16, context: u32, key: Opt
         .stdin(Stdio::null())
         .stdout(Stdio::null())
         .stderr(Stdio::null());
+    // Ne pas hériter d'outils système, MCP, RPC ou téléchargements configurés pour un autre usage.
+    for (name, _) in std::env::vars_os() {
+        let text = name.to_string_lossy();
+        if text.starts_with("LLAMA_") || text.starts_with("GGML_") { cmd.env_remove(name); }
+    }
     // Clé éphémère native : une page web ouverte sur le poste ne peut pas interroger le schéma.
     if let Some(key) = key { cmd.env("LLAMA_API_KEY", key); }
     if let Some(alias) = alias { cmd.args(["--alias", alias]); }
-    // Aucun outil natif (fichiers, shell ou MCP) du moteur n'est activé par l'environnement.
-    for name in ["LLAMA_ARG_TOOLS", "LLAMA_ARG_MCP_SERVERS_CONFIG", "LLAMA_ARG_MCP_SERVERS_JSON", "LLAMA_ARG_CONNECT", "LLAMA_ARG_CONNECT_CODE", "LLAMA_ARG_MODEL_URL", "LLAMA_ARG_HF_REPO"] { cmd.env_remove(name); }
     cmd.spawn().map_err(|e| format!("lancement impossible : {e}"))
 }
 

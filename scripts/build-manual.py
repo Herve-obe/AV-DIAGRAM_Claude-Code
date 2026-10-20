@@ -80,6 +80,10 @@ for index, block in enumerate(blocks):
         html.append(f'<p>{text}</p>')
         story.append(Paragraph(text, styles["BodyManual"]))
 
+# Le dernier chapitre court reste entier, au lieu de laisser deux lignes seules en dernière page.
+last_chapter = next(i for i, flow in enumerate(story) if isinstance(flow, Paragraph) and flow.style.name == 'Chapter' and flow.getPlainText().startswith('22.'))
+story = story[:last_chapter] + [KeepTogether(story[last_chapter:])]
+
 html.append('</main><footer>AV Diagram — conserver le .avd et les sauvegardes de chaque projet.</footer>')
 css = "body{font:17px/1.65 Arial,sans-serif;color:#243344;margin:0 auto;max-width:920px;padding:36px 40px;background:#fff}header{border-bottom:4px solid #d95b12;padding-bottom:22px}h1{font-size:38px;line-height:1.2}h2{line-height:1.35;margin-top:40px;scroll-margin-top:20px}nav{background:#f2f5f8;padding:15px 28px;margin:30px 0}a{color:#175d98}li{margin:7px 0}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #c8d0d8;padding:9px;text-align:left}th{background:#e8edf2}figure{margin:28px 0;padding:12px;border:1px solid #c8d0d8;border-radius:6px;break-inside:avoid}figure img{display:block;max-width:100%;width:auto;height:auto;margin:auto}figcaption{font-weight:bold;margin-top:12px;font-size:15px}figure p{font-size:15px;margin:6px 0 0}footer{border-top:1px solid #c8d0d8;margin-top:40px;padding-top:20px;font-size:14px}@media print{body{max-width:none;padding:0;font-size:11pt}nav{break-after:page}h2{break-after:avoid}table,tr{break-inside:avoid}a{color:inherit}}"
 (public / "manuel.html").write_text('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AV Diagram — Manuel utilisateur</title><style>'+css+'</style></head><body>'+''.join(html)+'</body></html>', encoding="utf8")

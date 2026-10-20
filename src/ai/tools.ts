@@ -31,6 +31,7 @@ export interface ToolContext {
 }
 
 const str = { type: 'string' }
+const portOffset = { type: 'integer', description: 'Décalage pour lire les prises par pages de 16 ; utiliser next_offset.' }
 
 export const TOOL_SPECS: ToolSpec[] = [
   {
@@ -51,7 +52,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   {
     name: 'get_template',
     description: "Détail d'un modèle de la bibliothèque : ports (sens, signal, connecteur, niveau, canaux), puissance, poids, sources documentaires.",
-    parameters: { type: 'object', properties: { template_id: str }, required: ['template_id'] },
+    parameters: { type: 'object', properties: { template_id: str, offset: portOffset }, required: ['template_id'] },
   },
   {
     name: 'get_project',
@@ -61,7 +62,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   {
     name: 'get_equipment',
     description: "Ports d'un équipement posé dans le schéma, avec les liaisons déjà branchées sur chacun.",
-    parameters: { type: 'object', properties: { equipment_id: str }, required: ['equipment_id'] },
+    parameters: { type: 'object', properties: { equipment_id: str, offset: portOffset }, required: ['equipment_id'] },
   },
   {
     name: 'add_equipment',
@@ -145,6 +146,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
   const p = draft.project
   const a = call.args
   const offset = typeof a.offset === 'number' && Number.isFinite(a.offset) ? Math.max(0, Math.floor(a.offset)) : 0
+  const equipment = (id: string) => Object.hasOwn(p.equipment, id) ? p.equipment[id] : undefined
+  const page = (ports: PortDef[]) => ({ ports_total: ports.length, offset, next_offset: ports.length > offset + 16 ? offset + 16 : null })
 
   switch (call.name) {
     case 'search_documentation': return out({ results: searchDocumentation(text(a.query)) })
@@ -167,7 +170,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         weightKg: t.weightKg,
         rackU: t.rackU,
         sources: t.sources,
-        ports: t.ports.map(portSummary),
+        ...page(t.ports),
+        ports: t.ports.slice(offset, offset + 16).map(portSummary),
       })
     }
     case 'get_project': {
@@ -193,7 +197,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       })
     }
     case 'get_equipment': {
-      const e = p.equipment[text(a.equipment_id)]
+      const e = equipment(text(a.equipment_id))
       if (!e) return fail(`Équipement inconnu : ${text(a.equipment_id)}. Utiliser get_project.`)
       const links = Object.values(p.links)
       return out({
@@ -202,7 +206,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         manufacturer: e.manufacturer,
         model: e.model,
         template_id: e.templateId,
-        ports: e.ports.map((port) => ({
+        ...page(e.ports),
+        ports: e.ports.slice(offset, offset + 16).map((port) => ({
           ...portSummary(port),
           linked_to: links
             .filter((l) => (l.source.equipmentId === e.id && l.source.portId === port.id) || (l.target.equipmentId === e.id && l.target.portId === port.id))
@@ -218,14 +223,14 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if (ctx.allowed && !ctx.allowed(draft.base, res.project)) return fail('Ajout refusé par les droits du projet ou du calque.')
       const next = { ...draft, project: res.project, addedEquipment: [...draft.addedEquipment, res.id] }
       const e = res.project.equipment[res.id]
-      return out({ equipment_id: res.id, name: e.name, ports: e.ports.map(portSummary) }, next)
+      return out({ equipment_id: res.id, name: e.name, ports_total: e.ports.length, next_offset: e.ports.length > 16 ? 16 : null, ports: e.ports.slice(0, 16).map(portSummary) }, next)
     }
     case 'connect_ports': {
       if (draft.addedLinks.length >= 100) return fail('Limite de 100 liaisons par proposition : appliquer ou découper la demande.')
       const from = { equipmentId: text(a.from_equipment_id), portId: text(a.from_port_id) }
       const to = { equipmentId: text(a.to_equipment_id), portId: text(a.to_port_id) }
       for (const r of [from, to]) {
-        const e = p.equipment[r.equipmentId]
+        const e = equipment(r.equipmentId)
         if (!e) return fail(`Équipement inconnu : ${r.equipmentId}.`)
         if (!e.ports.some((x) => x.id === r.portId)) return fail(`Port inconnu sur ${e.name} : ${r.portId}. Utiliser get_equipment.`)
       }

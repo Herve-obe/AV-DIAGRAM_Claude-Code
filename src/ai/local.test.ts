@@ -71,4 +71,19 @@ describe('assistant local : sources et limites', () => {
     expect(first.equipment_total).toBe(32); expect(first.equipment).toHaveLength(25)
     expect(next.equipment).toHaveLength(7); expect(next.next_offset).toBeNull()
   })
+  it('permet de lire les sorties situées après les nombreuses entrées d’une stagebox', () => {
+    const base = GENERIC_LIBRARY.find(t => t.id === 'gen-console')!
+    const ports = Array.from({ length: 56 }, (_, i) => ({ ...base.ports[0], id: `p${i}`, name: `${i < 32 ? 'IN' : 'OUT'} ${i < 32 ? i + 1 : i - 31}`, direction: i < 32 ? 'in' as const : 'out' as const }))
+    const eq = addEquipment(createProject('test'), { ...base, ports }, { x: 0, y: 0 })
+    const draft = createDraft(eq.project, DEFAULT_SHEET_ID)
+    const first = JSON.parse(runTool(draft, call('get_equipment', { equipment_id: eq.id }), ctx).content)
+    expect(first.ports_total).toBe(56); expect(first.next_offset).toBe(16)
+    const outputs = JSON.parse(runTool(draft, call('get_equipment', { equipment_id: eq.id, offset: 32 }), ctx).content)
+    expect(outputs.ports[0].direction).toBe('out'); expect(outputs.ports[0].name).toBe('OUT 1')
+  })
+  it('refuse un identifiant hérité du prototype comme un équipement inconnu', () => {
+    const draft = createDraft(createProject('test'), DEFAULT_SHEET_ID)
+    const r = runTool(draft, call('get_equipment', { equipment_id: '__proto__' }), ctx)
+    expect(JSON.parse(r.content).error).toContain('inconnu')
+  })
 })
