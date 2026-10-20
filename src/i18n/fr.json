@@ -585,7 +585,8 @@
       "add_equipment": "Préparation d'un équipement…",
       "connect_ports": "Préparation d'une liaison…",
       "check_project": "Vérification par le moteur de règles…",
-      "start_local": "Démarrage du modèle local…"
+      "start_local": "Démarrage du modèle local…",
+      "search_documentation": "Recherche dans le manuel local…"
     },
     "error": {
       "auth": "Clé refusée par le fournisseur : vérifie-la ou crée-en une nouvelle.",
@@ -597,7 +598,8 @@
       "other": "Requête refusée.",
       "network": "Connexion impossible (réseau, serveur local arrêté ou application de bureau requise).",
       "format": "Réponse inattendue du serveur.",
-      "steps": "L'assistant n'a pas conclu après plusieurs étapes : reformule ou découpe ta demande."
+      "steps": "L'assistant n'a pas conclu après plusieurs étapes : reformule ou découpe ta demande.",
+      "cancelled": "Requête arrêtée."
     },
     "setup": {
       "title": "Assistant IA : configuration",
@@ -618,7 +620,6 @@
         "connect": "Tester la connexion"
       },
       "serverHint": "Choisis le logiciel qui fait tourner le modèle sur ton ordinateur, puis lance la détection. Il doit être démarré et avoir au moins un modèle installé (capable d'appeler des fonctions).",
-      "downloadLater": "Le téléchargement d'un modèle depuis AV Diagram arrive dans une prochaine version. En attendant, utilise Ollama ou LM Studio, ou llama-server avec un modèle .gguf téléchargé toi-même.",
       "url": "Adresse du serveur",
       "detect": "Détecter le serveur",
       "testing": "Test en cours…",
@@ -668,7 +669,52 @@
       "launching": "Démarrage de llama-server et chargement du modèle (jusqu'à 3 min)…"
     },
     "preview": "Aperçu de l'assistant : {{equipment}} équipement(s) et {{links}} liaison(s) proposés, en pointillés",
-    "showSheet": "Voir la feuille"
+    "showSheet": "Voir la feuille",
+    "stop": "Arrêter",
+    "questionLong": "La demande est trop longue : limite-la à 4 000 caractères ou découpe-la.",
+    "permissionDenied": "Cette proposition ne peut pas être appliquée avec tes droits actuels. Vérifie le calque et les droits attribués par l’hôte.",
+    "local": {
+      "title": "Configurer l’IA locale",
+      "intro": "L’assistant fonctionne sur cet ordinateur. Le moteur est inclus dans AV Diagram ; le modèle se télécharge seulement si tu le demandes. Aucun compte ni clé API nécessaire.",
+      "step1": "1. Choisir et télécharger",
+      "step2": "2. Tester le modèle",
+      "step3": "3. Activer",
+      "memory": "Mémoire installée : {{gb}} Go. Ferme les applications gourmandes avant de charger le modèle.",
+      "memoryUnknown": "Mémoire non détectée : choisis le modèle le plus léger.",
+      "spec": "{{gb}} Go à télécharger · {{ram}} Go de mémoire conseillés au minimum",
+      "space": "Prévois au moins {{gb}} Go libres pour le modèle.",
+      "license": "Licence : {{license}}.",
+      "readLicense": "Lire la licence",
+      "installed": "Téléchargé",
+      "download": "Télécharger le modèle",
+      "resume": "Reprendre le téléchargement",
+      "downloading": "Téléchargement et vérification du modèle…",
+      "downloaded": "Modèle téléchargé et empreinte vérifiée. Lance maintenant le test.",
+      "progress": "{{done}} / {{total}} Go",
+      "cancel": "Annuler le téléchargement",
+      "lowMemory": "La mémoire de ce poste est inférieure au repère conseillé. Le modèle risque de ne pas charger ou de ralentir fortement le poste.",
+      "test": "Charger et tester",
+      "testing": "Chargement et test de l’assistant et de ses outils (plusieurs minutes possibles)…",
+      "tested": "Le modèle répond et utilise les outils d’AV Diagram. Tu peux activer l’assistant.",
+      "enable": "Activer l’IA locale",
+      "advanced": "J’utilise déjà Ollama, LM Studio ou llama.cpp",
+      "advancedHint": "Mode avancé : ton serveur doit rester local et fournir un modèle capable d’appeler des outils.",
+      "limits": "Les propositions demandent ton accord et restent annulables. L’assistant peut se tromper ; vérifie les caractéristiques et les alertes avant d’appliquer.",
+      "private": "Traitement sur cet ordinateur · aucun schéma envoyé en ligne",
+      "error": {
+        "storage": "Impossible d’écrire le modèle. Vérifie l’espace disque disponible et les droits du dossier de l’application.",
+        "network": "Le téléchargement ou le chargement a échoué. Vérifie l’accès à Hugging Face, la mémoire disponible et réessaie ; un téléchargement interrompu peut être repris.",
+        "cancelled": "Téléchargement annulé. La partie déjà reçue est conservée pour reprendre plus tard.",
+        "integrity": "Le fichier ne correspond pas au modèle officiel attendu. Il ne sera pas utilisé ; relance le téléchargement.",
+        "runtime": "Le moteur local manque dans cette installation. Utilise une build comprenant le moteur, ou configure un serveur local dans le mode avancé.",
+        "missing": "Le modèle est introuvable. Télécharge-le à nouveau.",
+        "model": "Ce modèle ne fait pas partie du catalogue local.",
+        "busy": "Un téléchargement est déjà en cours.",
+        "tools": "Le modèle répond mais n’a pas utilisé les outils demandés. Relance le test ; ne l’active pas pour modifier un schéma tant que ce test ne réussit pas."
+      },
+      "accountPending": "Option en ligne en préparation ; cette version active uniquement l’IA locale.",
+      "externalHint": "Serveur local externe : vérifie qu’il utilise un modèle installé sur ce poste, sans relais cloud."
+    }
   },
   "routing": {
     "label": "Tracé auto",

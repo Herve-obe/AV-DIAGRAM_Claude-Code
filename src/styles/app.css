@@ -730,6 +730,8 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .proposal-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
 .ai-file { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .ai-file .mono { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ai-download { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 8px 14px; font-size: 13px; }
+.ai-download progress { flex: 1; min-width: 120px; accent-color: var(--accent); }
 
 /* ---------- Bibliothèque : menus et sous-menus ---------- */
 .lib-domain { border-bottom: 1px solid var(--border); }

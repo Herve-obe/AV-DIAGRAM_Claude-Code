@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VERSION = json.loads((ROOT / "package.json").read_text(encoding="utf8"))["version"]
 blocks = (ROOT / "docs/manuel-utilisateur.md").read_text(encoding="utf8").split("\n\n")
 chapters = [b[3:].strip() for b in blocks if b.startswith("## ")]
-assert len(chapters) == 21
+assert len(chapters) == 22
 public = ROOT / "public"
 public.mkdir(exist_ok=True)
 html = [f'<header><p>AV Diagram · {escape(VERSION)}</p><h1>Manuel utilisateur</h1><p>Windows et macOS · Version de développement</p></header><nav aria-label="Sommaire"><h2>Sommaire</h2><ol>']
@@ -24,11 +24,12 @@ html += [f'<li><a href="#chapitre-{i}">{escape(t)}</a></li>' for i, t in enumera
 html.append('</ol></nav><main>')
 
 styles = getSampleStyleSheet()
-font = Path("C:/Windows/Fonts/arial.ttf")
+font = next((p for p in [Path("C:/Windows/Fonts/arial.ttf"), Path("/System/Library/Fonts/Supplemental/Arial.ttf"), Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")] if p.exists()), Path("C:/Windows/Fonts/arial.ttf"))
 normal, bold = "Helvetica", "Helvetica-Bold"
 if font.exists():
     pdfmetrics.registerFont(TTFont("Manual", str(font)))
-    pdfmetrics.registerFont(TTFont("ManualBold", str(font.with_name("arialbd.ttf"))))
+    bold_file = font.with_name("DejaVuSans-Bold.ttf" if font.name == "DejaVuSans.ttf" else "Arial Bold.ttf" if font.name == "Arial.ttf" else "arialbd.ttf")
+    pdfmetrics.registerFont(TTFont("ManualBold", str(bold_file)))
     normal, bold = "Manual", "ManualBold"
 styles.add(ParagraphStyle("BodyManual", fontName=normal, fontSize=10.2, leading=15, spaceAfter=10))
 styles.add(ParagraphStyle("Chapter", fontName=bold, fontSize=15, leading=20, spaceBefore=18, spaceAfter=10, keepWithNext=True))
@@ -37,7 +38,7 @@ styles.add(ParagraphStyle("SmallManual", fontName=normal, fontSize=9, leading=13
 styles.add(ParagraphStyle("CaptionManual", fontName=bold, fontSize=9, leading=13, spaceBefore=7, spaceAfter=5))
 toc = TableOfContents()
 toc.levelStyles = [ParagraphStyle("TOCManual", fontName=normal, fontSize=10, leading=15, spaceBefore=5)]
-story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 20 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
+story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 21 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
 
 chapter = 0
 figures = 0
@@ -102,4 +103,4 @@ def footer(canvas, doc):
 
 doc = Manual(str(public / "manuel.pdf"), pagesize=A4, rightMargin=48, leftMargin=48, topMargin=45, bottomMargin=46, title="AV Diagram — Manuel utilisateur", author="AV Diagram")
 doc.multiBuild(story, onFirstPage=footer, onLaterPages=footer)
-print(f"Manuel {VERSION} : HTML et PDF générés, 21 chapitres, {figures} captures")
+print(f"Manuel {VERSION} : HTML et PDF générés, 22 chapitres, {figures} captures")

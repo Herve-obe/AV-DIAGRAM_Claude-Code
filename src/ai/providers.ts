@@ -3,7 +3,7 @@
 // que reprennent Gemini (point d'accès compatible), Mistral, Ollama, LM Studio et le serveur llama.cpp.
 // Ce module est pur : il construit les requêtes et lit les réponses, sans accès réseau.
 
-export type ProviderId = 'anthropic' | 'openai' | 'gemini' | 'mistral' | 'compatible' | 'ollama' | 'lmstudio' | 'llamacpp'
+export type ProviderId = 'anthropic' | 'openai' | 'gemini' | 'mistral' | 'compatible' | 'builtin' | 'ollama' | 'lmstudio' | 'llamacpp'
 export type ApiFormat = 'anthropic' | 'openai'
 
 export interface ProviderInfo {
@@ -25,6 +25,7 @@ export interface ProviderInfo {
 
 // Adresses et pages de console relevées le 2026-09-25, à revérifier à chaque version (section 12.6).
 export const PROVIDERS: ProviderInfo[] = [
+  { id: 'builtin', label: 'AV Diagram · local', api: 'openai', kind: 'local' },
   { id: 'anthropic', label: 'Claude (Anthropic)', api: 'anthropic', kind: 'account', keyUrl: 'https://console.anthropic.com/settings/keys', keyPrefix: 'sk-ant-', recommend: 'sonnet' },
   { id: 'openai', label: 'ChatGPT (OpenAI)', api: 'openai', kind: 'account', keyUrl: 'https://platform.openai.com/api-keys', keyPrefix: 'sk-' },
   { id: 'gemini', label: 'Gemini (Google)', api: 'openai', kind: 'account', keyUrl: 'https://aistudio.google.com/apikey', keyPrefix: 'AIza' },
@@ -80,7 +81,7 @@ export interface ModelReply {
 
 const MAX_TOKENS = 2048
 
-export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[]): ApiRequest {
+export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], local = false): ApiRequest {
   if (api === 'anthropic') {
     const body = {
       model,
@@ -117,6 +118,7 @@ export function buildChatRequest(api: ApiFormat, model: string, system: string, 
     model,
     max_tokens: MAX_TOKENS,
     messages: out,
+    ...(local ? { temperature: 0.7, top_p: 0.8, min_p: 0, presence_penalty: 1.5, parallel_tool_calls: false, chat_template_kwargs: { enable_thinking: false } } : {}),
     // Pas de liste d'outils vide : certains serveurs compatibles la refusent
     ...(tools.length ? { tools: tools.map((t) => ({ type: 'function', function: { name: t.name, description: t.description, parameters: t.parameters } })) } : {}),
   }

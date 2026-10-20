@@ -5,13 +5,13 @@ import { create } from 'zustand'
 import i18n from '../i18n'
 import { AiError, buildSystemPrompt, runTurn } from '../ai/agent'
 import { providerInfo, type ChatMessage, type ProviderId } from '../ai/providers'
-import { ensureServer, type ManagedServer } from '../ai/local'
+import { ensureServer, stopServer, type ManagedServer } from '../ai/local'
 import { createDraft, hasChanges, type Draft } from '../ai/tools'
 import { nativeTransport } from '../ai/transport'
 import { LIBRARY } from '../library'
 import { sheetName } from '../model/project'
 import { useLibrary } from './libraryStore'
-import { useProject } from './projectStore'
+import { projectChangeAllowed, useProject } from './projectStore'
 import { useUi } from './uiStore'
 
 export interface AiSettings {
@@ -31,6 +31,7 @@ export type Bubble =
   | { kind: 'note'; text: string }
 
 const KEY = 'avd.ai'
+let generation = 0
 // Notes destinées au modèle (pas à l'utilisateur) : elles restent en français, comme le prompt système
 const DISCARD_NOTE = "L'utilisateur a refusé la proposition précédente : ces équipements et liaisons ne sont pas dans le schéma."
 const STALE_NOTE = "Le schéma a changé depuis la proposition précédente, qui n'a pas été appliquée : relire le schéma avec get_project."
@@ -38,7 +39,13 @@ const STALE_NOTE = "Le schéma a changé depuis la proposition précédente, qui
 function readSettings(): AiSettings {
   const fallback: AiSettings = { enabled: false, consent: false }
   try {
-    return { ...fallback, ...JSON.parse(localStorage.getItem(KEY) ?? '{}') }
+    const saved = { ...fallback, ...JSON.parse(localStorage.getItem(KEY) ?? '{}') }
+    if (saved.provider && !['builtin', 'anthropic', 'openai', 'gemini', 'mistral', 'compatible', 'ollama', 'lmstudio', 'llamacpp'].includes(saved.provider)) return fallback
+    if (typeof saved.enabled !== 'boolean' || typeof saved.consent !== 'boolean' || (saved.model !== undefined && typeof saved.model !== 'string')) return fallback
+    if (saved.managed && (typeof saved.managed !== 'object' || !(
+      typeof saved.managed.catalogId === 'string' || (typeof saved.managed.serverPath === 'string' && typeof saved.managed.modelPath === 'string')
+    ))) return fallback
+    return saved
   } catch {
     return fallback
   }
@@ -47,6 +54,7 @@ function readSettings(): AiSettings {
 /** Vrai si l'assistant peut envoyer une question : option choisie, modèle choisi, accord donné si en ligne. */
 export function isReady(s: AiSettings): boolean {
   if (!s.enabled || !s.provider || !s.model) return false
+  if (s.provider === 'builtin' && (!s.managed || !('catalogId' in s.managed) || s.managed.catalogId !== s.model)) return false
   return providerInfo(s.provider).kind === 'local' || s.consent
 }
 
@@ -70,6 +78,7 @@ interface AiState {
   applyProposal: () => void
   discardProposal: () => void
   clear: () => void
+  cancel: () => void
 }
 
 export const useAi = create<AiState>((set, get) => ({
@@ -84,6 +93,7 @@ export const useAi = create<AiState>((set, get) => ({
   contextNote: null,
 
   saveSettings: (settings) => {
+    get().clear()
     try {
       localStorage.setItem(KEY, JSON.stringify(settings))
     } catch {
@@ -98,11 +108,16 @@ export const useAi = create<AiState>((set, get) => ({
     const { settings, busy, history, contextNote } = get()
     const question = text.trim()
     if (busy || !question) return
+    if (question.length > 4000) {
+      set((s) => ({ bubbles: [...s.bubbles, { kind: 'error', text: i18n.t('ai.questionLong') }] }))
+      return
+    }
     if (!isReady(settings) || !settings.provider || !settings.model) {
       set({ setupOpen: true })
       return
     }
     const project = useProject.getState().project
+    const turn = ++generation
     const ui = useUi.getState()
     // Une proposition en attente se complète tant que le schéma n'a pas changé entre-temps
     let draft = get().proposal
@@ -116,7 +131,7 @@ export const useAi = create<AiState>((set, get) => ({
     draft ??= createDraft(project, ui.currentSheetId)
     set({ busy: true, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question }] })
     try {
-      if (settings.provider === 'llamacpp' && settings.managed) {
+      if ((settings.provider === 'builtin' || settings.provider === 'llamacpp') && settings.managed) {
         set({ activeTool: 'start_local' })
         await ensureServer(settings.managed, settings.baseUrl)
         set({ activeTool: null })
@@ -131,20 +146,28 @@ export const useAi = create<AiState>((set, get) => ({
         ctx: {
           library: [...useLibrary.getState().userTemplates, ...LIBRARY],
           describe: (i) => i18n.t(`rules.${i.code}`, i.params),
+          allowed: projectChangeAllowed,
         },
-        onTool: (name) => set({ activeTool: name }),
+        onTool: (name) => { if (generation === turn) set({ activeTool: name }) },
+        isActive: () => generation === turn,
       })
+      if (generation !== turn) return
+      if (useProject.getState().project !== project) {
+        set((s) => ({ proposal: null, contextNote: STALE_NOTE, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.proposalStale') }] }))
+        return
+      }
       set((s) => ({
         history: res.history,
         proposal: hasChanges(res.draft) ? res.draft : null,
         bubbles: [...s.bubbles, { kind: 'assistant', text: res.reply || i18n.t('ai.emptyReply') }],
       }))
     } catch (e) {
+      if (generation !== turn) return
       const kind = e instanceof AiError ? e.kind : 'network'
       const detail = e instanceof Error ? e.message : String(e)
       set((s) => ({ bubbles: [...s.bubbles, { kind: 'error', text: `${i18n.t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}` }] }))
     } finally {
-      set({ busy: false, activeTool: null })
+      if (generation === turn) set({ busy: false, activeTool: null })
     }
   },
 
@@ -156,6 +179,10 @@ export const useAi = create<AiState>((set, get) => ({
       set((s) => ({ proposal: null, contextNote: STALE_NOTE, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.proposalStale') }] }))
       return
     }
+    if (!projectChangeAllowed(store.project, p.project)) {
+      set((s) => ({ bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.permissionDenied') }] }))
+      return
+    }
     store.replaceProject(p.project)
     // Équipements seulement : sélectionner en même temps blocs et liaisons par programme fait boucler
     // la synchronisation de sélection avec React Flow (erreur React #185)
@@ -163,5 +190,17 @@ export const useAi = create<AiState>((set, get) => ({
     set((s) => ({ proposal: null, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.applied') }] }))
   },
   discardProposal: () => set((s) => ({ proposal: null, contextNote: DISCARD_NOTE, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.discarded') }] })),
-  clear: () => set({ bubbles: [], history: [], proposal: null, contextNote: null }),
+  cancel: () => {
+    generation++
+    if (get().settings.managed) void stopServer().catch(() => undefined)
+    set({ busy: false, activeTool: null })
+  },
+  clear: () => {
+    if (get().busy) get().cancel()
+    generation++
+    set({ bubbles: [], history: [], proposal: null, contextNote: null })
+  },
 }))
+
+// Une conversation ne transporte jamais les données d'un projet dans le suivant.
+useProject.subscribe((next, previous) => { if (next.project.id !== previous.project.id) useAi.getState().clear() })

@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-20)
 
-## Situation actuelle — 0.4.3
+## Situation actuelle — 0.5.0
+
+La 0.5.0 reprend l’IA locale : moteur llama.cpp embarqué sur Windows/macOS, modèles Qwen3 4B/8B téléchargés sur demande avec reprise et contrôle SHA-256, test des outils avant activation, recherche locale dans le manuel et validation humaine des ajouts. Voir [le fonctionnement et les limites](ia-locale.md). Les comptes en ligne ne font pas partie de cette reprise.
 
 La 0.4.3 ajoute huit captures réelles annotées au manuel hors ligne HTML/PDF. Au premier lancement, la fenêtre principale est maximisée ; les ouvertures suivantes reprennent la disposition locale, y compris Infos lorsqu'elle était ouverte et que les écrans nécessaires sont disponibles. Les positions sont ramenées dans la zone de travail si un écran a été débranché.
 
@@ -10,7 +12,7 @@ Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Exc
 
 Le catalogue reste celui de 0.3.5 : 2 043 modèles réels et 24 génériques, dont 1 585 fiches Communauté à documenter. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
 
-Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud et l'assistant IA restent en attente. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
+Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud et la reprise des comptes IA en ligne restent en attente ; l’IA locale fait l’objet de la 0.5.0. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
 
 Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.2.
 

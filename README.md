@@ -8,7 +8,7 @@ Logiciel gratuit, sous licence [PolyForm Shield 1.0.0](LICENSE.md) : l'usage est
 
 [Manuel utilisateur illustré](docs/manuel-utilisateur.md) · [Version PDF](public/manuel.pdf) · Captures annotées et légendes, disponibles aussi hors ligne dans l'application.
 
-Version 0.4.3 : manuel illustré et mémorisation de la disposition des fenêtres. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle et tablette en attente pour la première version ; cloud et assistant IA toujours en attente.
+Version 0.5.0 : assistant IA local facultatif, moteur embarqué et téléchargement guidé de modèles Qwen3. Voir [installation, confidentialité et limites](docs/ia-locale.md). Le manuel illustré et la disposition mémorisée des fenêtres sont conservés. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle et tablette en attente pour la première version ; cloud et activation des comptes IA en ligne toujours en attente.
 
 Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/etat-avancement.md](docs/etat-avancement.md).
 
@@ -36,10 +36,13 @@ Ils ne sont pas signés pour l'instant. Au premier lancement :
 
 ## Développer
 
-Il faut Node.js 22 et Rust (https://rustup.rs). Sous Linux, il faut aussi les bibliothèques WebKitGTK (voir `.github/workflows/desktop.yml`).
+Il faut Python 3.12 (manuel et préparation du moteur), Node.js 22 et Rust (https://rustup.rs). Sous Linux, il faut aussi les bibliothèques WebKitGTK (voir `.github/workflows/desktop.yml`).
 
 ```bash
 npm install
+python -m pip install reportlab==4.4.9
+python scripts/build-manual.py
+python scripts/prepare-local-ai.py
 npm run desktop         # lance l'application bureau en mode développement
 npm run dev             # interface seule dans le navigateur : http://localhost:5173
 npm test                # tests unitaires du modèle et des règles
@@ -66,3 +69,5 @@ npm run desktop:build   # installateur pour le système courant, dans src-tauri/
 - [Équipements à documenter](docs/bibliotheque-a-documenter.md)
 - [Maquette d'origine](docs/maquette/index.html)
 - [Écrire une fiche constructeur](src/library/devices/README.md)
+
+Le PDF du manuel est généré depuis sa source pendant les builds et fourni comme artefact de CI ; il n’est plus suivi en binaire dans Git.

@@ -74,9 +74,9 @@ export function AssistantPanel() {
         <span>{t('ai.title')}</span>
         <span className="ai-head-actions">
           {bubbles.length > 0 && (
-            <button className="icon-btn small" onClick={() => useAi.getState().clear()} title={t('ai.clear')} aria-label={t('ai.clear')}><Icon name="trash" size={14} /></button>
+            <button className="icon-btn small" disabled={busy} onClick={() => useAi.getState().clear()} title={t('ai.clear')} aria-label={t('ai.clear')}><Icon name="trash" size={14} /></button>
           )}
-          <button className="icon-btn small" onClick={() => useAi.getState().setSetupOpen(true)} title={t('ai.setup.title')} aria-label={t('ai.setup.title')}><Icon name="settings" size={14} /></button>
+          <button className="icon-btn small" disabled={busy} onClick={() => useAi.getState().setSetupOpen(true)} title={t('ai.setup.title')} aria-label={t('ai.setup.title')}><Icon name="settings" size={14} /></button>
           <button className="icon-btn small" onClick={() => useAi.getState().setPanelOpen(false)} title={t('settings.close')} aria-label={t('settings.close')}><Icon name="close" size={14} /></button>
         </span>
       </div>
@@ -116,9 +116,10 @@ export function AssistantPanel() {
         />
         <div className="ai-input-foot">
           <span className="dim">{ready && settings.provider ? `${providerInfo(settings.provider).label} · ${settings.model}` : ''}</span>
-          <button className="btn btn-primary" type="submit" disabled={!ready || busy || !text.trim()}>{t('ai.send')}</button>
+          {busy ? <button className="btn" type="button" onClick={() => useAi.getState().cancel()}>{t('ai.stop')}</button> : <button className="btn btn-primary" type="submit" disabled={!ready || !text.trim()}>{t('ai.send')}</button>}
         </div>
         {ready && settings.provider && providerInfo(settings.provider).kind === 'account' && <p className="field-hint">{t('ai.sentTo', { provider: providerInfo(settings.provider).label })}</p>}
+        {ready && settings.provider && providerInfo(settings.provider).kind === 'local' && <p className="field-hint">{t(settings.provider === 'builtin' ? 'ai.local.private' : 'ai.local.externalHint')}</p>}
       </form>
     </aside>
   )

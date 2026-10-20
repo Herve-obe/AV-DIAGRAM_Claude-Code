@@ -7,6 +7,7 @@ mod collab;
 mod discovery;
 mod pdfsec;
 mod local;
+mod local_models;
 mod dwg;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -18,6 +19,7 @@ pub fn run() {
         .plugin(tauri_plugin_persisted_scope::init())
         .plugin(tauri_plugin_opener::init())
         .manage(local::LocalServer::default())
+        .manage(local_models::Downloads::default())
         .manage(collab::CollabServer::default())
         .manage(dwg::DwgConverter::default())
         .invoke_handler(tauri::generate_handler![
@@ -26,8 +28,13 @@ pub fn run() {
             ai::ai_key_delete,
             ai::ai_key_present,
             local::local_start,
+            local::local_builtin_start,
             local::local_stop,
             local::local_status,
+            local_models::local_model_catalog,
+            local_models::local_model_download,
+            local_models::local_model_cancel,
+            local_models::local_model_progress,
             collab::collab_host_start,
             collab::collab_host_stop,
             collab::collab_host_status,
@@ -45,6 +52,7 @@ pub fn run() {
             if let tauri::RunEvent::Exit = event {
                 use tauri::Manager;
                 app.state::<local::LocalServer>().stop();
+                app.state::<local_models::Downloads>().stop();
                 app.state::<dwg::DwgConverter>().stop();
                 // Fermeture de l'application : session interrompue, pas terminée (un poste de secours peut
                 // prendre le relais, la session reprend au retour de l'hôte)

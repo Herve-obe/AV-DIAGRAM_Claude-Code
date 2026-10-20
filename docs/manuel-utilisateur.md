@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.4.3 · Édition du 20 octobre 2026 · Windows et macOS
+Version 0.5.0 · Édition du 21 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -293,8 +293,24 @@ Si le PDF contient plus de pages que prévu, examiner les blocs, annotations et 
 
 Avant un chantier, vérifier au minimum : variantes et cartes des appareils ; noms et repères ; sens des flux ; types et longueurs de câbles ; affectations réseau ; budgets PoE et électriques ; références d'horloge ; faces et unités des baies ; échelle, cartouche et révisions. Les fichiers générés décrivent les données renseignées dans AV Diagram, pas une mesure automatique de l'installation.
 
-## 21. Périmètre de cette première version
+## 21. Utiliser l’assistant IA local
 
-Le mode formation, la distribution officielle avec certificats et le portage tablette sont en attente. Le manuel couvre les usages disponibles. L'assistant IA et le cloud restent également en attente. Les vidéos explicatives pourront être réalisées à partir de captures du logiciel, accompagnées d'un texte, de sous-titres et éventuellement d'une voix de synthèse.
+Ouvre le bouton Assistant dans la barre supérieure, puis Configurer l’assistant et IA locale. Le moteur est inclus dans les builds Windows et macOS. Aucun compte ni clé API n’est nécessaire. L’assistant est désactivé par défaut et le logiciel reste utilisable sans le configurer.
+
+Choisis Qwen3 4B (environ 2,50 Go, au moins 8 Go de mémoire conseillés) ou Qwen3 8B (environ 5,03 Go, au moins 16 Go conseillés). Ces repères ne garantissent pas la vitesse ; garde de la mémoire libre pour le système et les autres logiciels. Les modèles officiels sont sous licence Apache-2.0, consultable dans l’écran de configuration.
+
+Clique sur Télécharger le modèle. Seul ce téléchargement utilise Internet (Hugging Face) ; aucun nom de projet, schéma ou conversation n’est envoyé. Tu peux annuler puis reprendre. AV Diagram vérifie la taille et l’empreinte du fichier avant de l’utiliser. En cas d’erreur d’espace disque ou de réseau, corrige la cause puis reprends. Le modèle reste sur ce poste, hors du dossier du projet et des Save Back Up.
+
+Clique sur Charger et tester. Le logiciel vérifie que le modèle peut répondre et appeler les outils d’AV Diagram sur un projet fictif. L’activation reste bloquée tant que ce test n’a pas réussi. Le premier chargement et les réponses sur processeur peuvent prendre plusieurs minutes. Le moteur démarre à la demande et s’arrête à la fermeture du logiciel ; le bouton Arrêter interrompt une réponse.
+
+Demande par exemple « Propose un micro dynamique générique pour la voix » ou « Comment retrouver une sauvegarde automatique ? ». L’assistant consulte la bibliothèque et le manuel local. Les passages du manuel portent leur chapitre source. Une fiche Communauté ou aux ports non documentés ne devient pas vérifiée parce que l’assistant la consulte.
+
+Les ajouts s’affichent en pointillés. Lis la réponse, les équipements, les prises et les alertes, puis clique sur Appliquer ou Refuser. Appliquer constitue une étape annulable par Ctrl+Z ou Cmd+Z. Aucun équipement existant ne peut être supprimé ou modifié par l’assistant. Les droits attribués par l’hôte s’appliquent aussi à ses propositions. Si le schéma change pendant une demande ou avant l’application, redemande une proposition.
+
+Les réponses peuvent contenir des erreurs. L’assistant ne remplace ni les fiches constructeur ni la validation de conception. Les grandes demandes sont à découper ; l’historique et les résultats d’outils sont limités pour rester adaptés au modèle local. La lecture automatique de riders, les documents constructeur personnels et les comptes en ligne ne sont pas inclus dans ce lot. Le mode avancé permet de connecter un serveur déjà installé, uniquement sur ce poste (Ollama, LM Studio ou llama.cpp).
+
+## 22. Périmètre de cette première version
+
+Le mode formation, la distribution officielle avec certificats et le portage tablette sont en attente. Le manuel couvre les usages disponibles. L’assistant IA local est proposé en expérimentation facultative. Le cloud et la reprise des comptes IA en ligne restent en attente. Les vidéos explicatives pourront être réalisées à partir de captures du logiciel, accompagnées d'un texte, de sous-titres et éventuellement d'une voix de synthèse.
 
 Les installateurs de test Windows et Mac ne constituent pas une distribution certifiée. Les parcours natifs, la collaboration sur le réseau réel, les fichiers de production variés et l'impression à l'échelle doivent être validés sur les postes utilisés. Conserver les projets et leurs sauvegardes avant toute mise à jour importante.

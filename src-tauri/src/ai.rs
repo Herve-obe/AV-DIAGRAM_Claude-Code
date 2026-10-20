@@ -111,31 +111,37 @@ pub struct AiResponse {
 
 #[tauri::command]
 pub async fn ai_request(
+    state: tauri::State<'_, crate::local::LocalServer>,
     provider: String,
     base_url: Option<String>,
     method: String,
     path: String,
     body: Option<String>,
 ) -> Result<AiResponse, String> {
-    let ep = endpoint(&provider, base_url)?;
+    let builtin = if provider == "builtin" { Some(state.connection()?) } else { None };
+    let ep = if let Some((ref url, _)) = builtin {
+        Endpoint { base: url.clone(), auth: Auth::None, key_required: false, local: true }
+    } else { endpoint(&provider, base_url)? };
     if !ALLOWED_PATHS.contains(&path.as_str()) {
         return Err(format!("chemin refusé : {path}"));
     }
-    let key = match ep.auth {
+    let key = if let Some((_, key)) = builtin { Some(key) } else { match ep.auth {
         Auth::None => None,
         _ => read_key(&provider)?,
-    };
+    }};
     if ep.key_required && key.is_none() {
         return Err("aucune clé API enregistrée pour ce fournisseur".into());
     }
     // Un modèle local sur processeur peut mettre plusieurs minutes à répondre
     let timeout = Duration::from_secs(if ep.local { 600 } else { 120 });
-    let client = reqwest::Client::builder()
+    let mut builder = reqwest::Client::builder()
         .timeout(timeout)
-        .redirect(reqwest::redirect::Policy::none())
-        .build()
+        .redirect(reqwest::redirect::Policy::none());
+    if ep.local { builder = builder.no_proxy(); }
+    let client = builder.build()
         .map_err(|e| e.to_string())?;
     let url = format!("{}{}", ep.base.trim_end_matches('/'), path);
+    if body.as_ref().map(|s| s.len() > 2_000_000).unwrap_or(false) { return Err("contexte trop volumineux : démarrer une nouvelle conversation".into()); }
     let mut req = match method.as_str() {
         "GET" => client.get(&url),
         "POST" => client.post(&url).header("content-type", "application/json").body(body.unwrap_or_default()),
@@ -144,9 +150,10 @@ pub async fn ai_request(
     req = match (&ep.auth, key) {
         (Auth::Anthropic, Some(k)) => req.header("x-api-key", k).header("anthropic-version", "2023-06-01"),
         (Auth::Bearer, Some(k)) => req.bearer_auth(k),
+        (Auth::None, Some(k)) => req.bearer_auth(k),
         _ => req,
     };
-    let res = req.send().await.map_err(|e| {
+    let mut res = req.send().await.map_err(|e| {
         if e.is_timeout() {
             "délai dépassé".to_string()
         } else if e.is_connect() {
@@ -156,7 +163,12 @@ pub async fn ai_request(
         }
     })?;
     let status = res.status().as_u16();
-    let body = res.text().await.map_err(|e| e.to_string())?;
+    let mut bytes = Vec::new();
+    while let Some(chunk) = res.chunk().await.map_err(|e| e.to_string())? {
+        if bytes.len() + chunk.len() > 2_000_000 { return Err("réponse trop volumineuse".into()); }
+        bytes.extend_from_slice(&chunk);
+    }
+    let body = String::from_utf8(bytes).map_err(|_| "réponse illisible")?;
     Ok(AiResponse { status, body })
 }
 

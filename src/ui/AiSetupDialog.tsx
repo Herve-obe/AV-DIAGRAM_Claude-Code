@@ -9,11 +9,12 @@ import { startServer, stopServer } from '../ai/local'
 import { keyStore, nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
+import { LocalAiSetup } from './LocalAiSetup'
 
-type Path = 'choose' | 'local' | 'account'
+type Path = 'choose' | 'local' | 'account' | 'builtin'
 type Status = { state: 'idle' | 'running' | 'ok' | 'error'; text?: string }
 
-const STEPS: Record<Exclude<Path, 'choose'>, string[]> = {
+const STEPS: Record<'local' | 'account', string[]> = {
   local: ['server', 'model', 'test'],
   account: ['provider', 'create', 'key', 'connect', 'model'],
 }
@@ -61,7 +62,7 @@ export function AiSetupDialog() {
   useEffect(() => {
     if (!open) return
     const p = settings.provider ?? 'ollama'
-    setPath(settings.enabled && settings.provider ? providerInfo(p).kind : 'choose')
+    setPath(settings.enabled && settings.provider ? p === 'builtin' ? 'builtin' : providerInfo(p).kind : 'choose')
     setStep(0)
     setProvider(p)
     setBaseUrl(settings.baseUrl ?? providerInfo(p).defaultBaseUrl ?? '')
@@ -71,12 +72,16 @@ export function AiSetupDialog() {
     setKey('')
     setStatus({ state: 'idle' })
     setManagedOn(!!settings.managed)
-    setServerPath(settings.managed?.serverPath ?? '')
-    setModelPath(settings.managed?.modelPath ?? '')
+    setServerPath(settings.managed && 'serverPath' in settings.managed ? settings.managed.serverPath : '')
+    setModelPath(settings.managed && 'modelPath' in settings.managed ? settings.managed.modelPath : '')
+  }, [open, settings])
+
+  useEffect(() => {
+    if (!open || path === 'builtin') return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [open, settings])
+  }, [open, path])
 
   useEffect(() => {
     if (!open || !native || path !== 'account') return
@@ -84,6 +89,7 @@ export function AiSetupDialog() {
   }, [open, native, path, provider])
 
   if (!open) return null
+  if (path === 'builtin') return <LocalAiSetup back={() => setPath('choose')} advanced={() => { setPath('local'); setStep(0); setProvider('ollama'); setBaseUrl(providerInfo('ollama').defaultBaseUrl ?? ''); setModels([]) }} />
 
   const usesUrl = info.kind === 'local' || provider === 'compatible'
   const url = usesUrl ? baseUrl.trim() : undefined
@@ -201,7 +207,7 @@ export function AiSetupDialog() {
 
   const providerList = (kind: 'local' | 'account') => (
     <div className="ai-choices" role="radiogroup">
-      {PROVIDERS.filter((p) => p.kind === kind).map((p) => (
+      {PROVIDERS.filter((p) => p.kind === kind && p.id !== 'builtin').map((p) => (
         <label key={p.id} className={`ai-choice ${provider === p.id ? 'is-on' : ''}`}>
           <input type="radio" name="ai-provider" checked={provider === p.id} onChange={() => pickProvider(p.id)} />
           <span>{p.id === 'compatible' ? t('ai.setup.compatible') : p.label}</span>
@@ -238,13 +244,13 @@ export function AiSetupDialog() {
             <section>
               <p className="dialog-hint">{t('ai.setup.chooseHint')}</p>
               <div className="ai-options">
-                <button className="ai-option" onClick={() => choosePath('local')}>
+                <button className="ai-option" onClick={() => setPath('builtin')}>
                   <strong>{t('ai.setup.local')}</strong>
                   <span>{t('ai.setup.localDesc')}</span>
                 </button>
-                <button className="ai-option" onClick={() => choosePath('account')}>
+                <button className="ai-option" disabled title={t('ai.local.accountPending')} onClick={() => choosePath('account')}>
                   <strong>{t('ai.setup.account')}</strong>
-                  <span>{t('ai.setup.accountDesc')}</span>
+                  <span>{t('ai.local.accountPending')}</span>
                 </button>
               </div>
               {settings.enabled && <div className="dialog-actions"><button className="btn btn-ghost" onClick={disable}>{t('ai.setup.disable')}</button></div>}
@@ -289,7 +295,7 @@ export function AiSetupDialog() {
                       <button className="btn" onClick={fetchModels} disabled={!native || status.state === 'running'}>{t('ai.setup.detect')}</button>
                     )}
                   </div>
-                  <p className="field-hint">{t('ai.setup.downloadLater')}</p>
+                  <p className="field-hint">{t('ai.local.advancedHint')}</p>
                 </>
               )}
 

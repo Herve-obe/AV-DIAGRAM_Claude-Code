@@ -585,7 +585,8 @@
       "add_equipment": "Preparing a device…",
       "connect_ports": "Preparing a link…",
       "check_project": "Running the rules engine…",
-      "start_local": "Starting the local model…"
+      "start_local": "Starting the local model…",
+      "search_documentation": "Searching the local manual…"
     },
     "error": {
       "auth": "Key rejected by the provider: check it or create a new one.",
@@ -597,7 +598,8 @@
       "other": "Request rejected.",
       "network": "Cannot connect (network, local server stopped, or desktop app required).",
       "format": "Unexpected server reply.",
-      "steps": "The assistant did not conclude after several steps: rephrase or split your request."
+      "steps": "The assistant did not conclude after several steps: rephrase or split your request.",
+      "cancelled": "Request stopped."
     },
     "setup": {
       "title": "AI assistant: setup",
@@ -618,7 +620,6 @@
         "connect": "Test the connection"
       },
       "serverHint": "Pick the software that runs the model on your computer, then detect it. It must be running with at least one model installed (able to call functions).",
-      "downloadLater": "Downloading a model from AV Diagram comes in a later version. Meanwhile, use Ollama or LM Studio, or llama-server with a .gguf model you downloaded.",
       "url": "Server address",
       "detect": "Detect the server",
       "testing": "Testing…",
@@ -668,7 +669,52 @@
       "launching": "Starting llama-server and loading the model (up to 3 min)…"
     },
     "preview": "Assistant preview: {{equipment}} device(s) and {{links}} link(s) proposed, dashed",
-    "showSheet": "Show the sheet"
+    "showSheet": "Show the sheet",
+    "stop": "Stop",
+    "questionLong": "The request is too long: keep it within 4,000 characters or split it up.",
+    "permissionDenied": "Your current permissions do not allow this proposal. Check the active layer and the permissions assigned by the host.",
+    "local": {
+      "title": "Set up local AI",
+      "intro": "The assistant runs on this computer. AV Diagram includes the engine; the model downloads only when you request it. No account or API key is needed.",
+      "step1": "1. Choose and download",
+      "step2": "2. Test the model",
+      "step3": "3. Enable",
+      "memory": "Installed memory: {{gb}} GB. Close memory-heavy applications before loading the model.",
+      "memoryUnknown": "Memory could not be detected: choose the smallest model.",
+      "spec": "{{gb}} GB download · at least {{ram}} GB memory recommended",
+      "space": "Allow at least {{gb}} GB of free space for the model.",
+      "license": "License: {{license}}.",
+      "readLicense": "Read license",
+      "installed": "Downloaded",
+      "download": "Download model",
+      "resume": "Resume download",
+      "downloading": "Downloading and verifying the model…",
+      "downloaded": "Model downloaded and checksum verified. Run the test next.",
+      "progress": "{{done}} / {{total}} GB",
+      "cancel": "Cancel download",
+      "lowMemory": "This computer has less memory than recommended. The model may fail to load or significantly slow down the computer.",
+      "test": "Load and test",
+      "testing": "Loading and testing the assistant and its tools (this may take several minutes)…",
+      "tested": "The model responds and uses AV Diagram tools. You can enable the assistant.",
+      "enable": "Enable local AI",
+      "advanced": "I already use Ollama, LM Studio or llama.cpp",
+      "advancedHint": "Advanced mode: your server must stay local and provide a model capable of calling tools.",
+      "limits": "Proposals require your approval and can be undone. The assistant may make mistakes; check specifications and warnings before applying.",
+      "private": "Processed on this computer · no diagram sent online",
+      "error": {
+        "storage": "Could not write the model. Check free disk space and application folder permissions.",
+        "network": "Download or loading failed. Check access to Hugging Face, available memory, and try again; interrupted downloads can be resumed.",
+        "cancelled": "Download cancelled. Downloaded data is retained so you can resume later.",
+        "integrity": "The file does not match the expected official model. It will not be used; download it again.",
+        "runtime": "The local engine is missing from this installation. Use a build containing the engine, or configure a local server in advanced mode.",
+        "missing": "The model is missing. Download it again.",
+        "model": "This model is not in the local catalog.",
+        "busy": "A download is already running.",
+        "tools": "The model responded without using the requested tools. Try the test again; do not enable diagram changes until this test succeeds."
+      },
+      "accountPending": "Online option in preparation; this version enables local AI only.",
+      "externalHint": "External local server: check that it uses a model installed on this computer, without cloud forwarding."
+    }
   },
   "routing": {
     "label": "Auto routing",

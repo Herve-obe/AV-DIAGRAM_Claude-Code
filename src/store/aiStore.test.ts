@@ -1,0 +1,73 @@
+// @vitest-environment jsdom
+import { beforeEach, expect, it, vi } from 'vitest'
+import '../i18n'
+import { GENERIC_LIBRARY } from '../library/generic'
+import { createProject, DEFAULT_SHEET_ID } from '../model/project'
+import { createDraft, runTool } from '../ai/tools'
+import { setProjectGuard, useProject } from './projectStore'
+import { useAi } from './aiStore'
+
+const native = vi.hoisted(() => ({ request: vi.fn(), stop: vi.fn(), ensure: vi.fn() }))
+vi.mock('../ai/transport', () => ({ nativeTransport: { request: native.request } }))
+vi.mock('../ai/local', () => ({ ensureServer: native.ensure, stopServer: native.stop }))
+vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+const settings = { enabled: true, consent: false, provider: 'builtin' as const, model: 'qwen3-4b', managed: { catalogId: 'qwen3-4b' } }
+const answer = (text: string) => ({ status: 200, body: JSON.stringify({ choices: [{ message: { content: text } }] }) })
+const proposal = () => {
+  const base = useProject.getState().project
+  return runTool(createDraft(base, DEFAULT_SHEET_ID), { id: '1', name: 'add_equipment', args: { template_id: 'gen-mic-dyn' } }, { library: GENERIC_LIBRARY, describe: i => i.code }).draft
+}
+
+beforeEach(() => {
+  vi.clearAllMocks(); setProjectGuard(() => true)
+  useProject.setState({ project: createProject('Test'), past: [], future: [] })
+  useAi.getState().clear(); useAi.setState({ settings, setupOpen: false })
+  native.stop.mockResolvedValue(undefined); native.ensure.mockResolvedValue(true)
+  native.request.mockResolvedValue(answer('Bonjour'))
+})
+
+it('le mode embarqué ne demande ni compte ni consentement pour envoyer', async () => {
+  await useAi.getState().send('Bonjour')
+  expect(native.ensure).toHaveBeenCalledWith({ catalogId: 'qwen3-4b' }, undefined)
+  expect(native.request.mock.calls[0][0]).toBe('builtin')
+  expect(useAi.getState().bubbles.at(-1)?.text).toBe('Bonjour')
+})
+it('applique une proposition dans une seule étape annulable', () => {
+  const before = useProject.getState().project
+  useAi.setState({ proposal: proposal() }); useAi.getState().applyProposal()
+  expect(Object.keys(useProject.getState().project.equipment)).toHaveLength(1)
+  useProject.getState().undo(); expect(useProject.getState().project).toBe(before)
+})
+it('refuse une proposition si les droits ont changé avant son application', () => {
+  const before = useProject.getState().project
+  useAi.setState({ proposal: proposal() }); setProjectGuard(() => false)
+  useAi.getState().applyProposal()
+  expect(useProject.getState().project).toBe(before)
+  expect(useAi.getState().bubbles.at(-1)?.text).toContain('droits')
+})
+it('écarte la proposition après une modification du schéma', () => {
+  useAi.setState({ proposal: proposal() })
+  useProject.getState().rename('Modifié'); useAi.getState().applyProposal()
+  expect(Object.keys(useProject.getState().project.equipment)).toHaveLength(0)
+  expect(useAi.getState().proposal).toBeNull()
+})
+it('ne conserve pas une réponse tardive après un changement de projet', async () => {
+  let resolve!: (r: ReturnType<typeof answer>) => void
+  native.request.mockImplementation(() => new Promise(r => { resolve = r }))
+  const pending = useAi.getState().send('Vérifie mon schéma')
+  await vi.waitFor(() => expect(native.request).toHaveBeenCalled())
+  useProject.setState({ project: createProject('Autre projet') })
+  resolve(answer('Ancien projet'))
+  await pending
+  expect(useAi.getState().bubbles).toEqual([]); expect(useAi.getState().history).toEqual([])
+  expect(useAi.getState().busy).toBe(false); expect(native.stop).toHaveBeenCalled()
+})
+it('arrête le moteur géré et ignore la réponse d’une requête arrêtée', async () => {
+  let resolve!: (r: ReturnType<typeof answer>) => void
+  native.request.mockImplementation(() => new Promise(r => { resolve = r }))
+  const pending = useAi.getState().send('Bonjour')
+  await vi.waitFor(() => expect(native.request).toHaveBeenCalled())
+  useAi.getState().cancel(); resolve(answer('Trop tard')); await pending
+  expect(useAi.getState().bubbles.some(b => b.text === 'Trop tard')).toBe(false)
+  expect(native.stop).toHaveBeenCalledOnce()
+})

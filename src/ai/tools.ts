@@ -6,6 +6,7 @@ import { addEquipment, connect, DEFAULT_SHEET_ID, sheetName } from '../model/pro
 import { checkLink, checkProject, type Issue } from '../model/rules'
 import type { EquipmentTemplate, PortDef, Project } from '../model/types'
 import type { ToolCall, ToolSpec } from './providers'
+import { searchDocumentation } from './knowledge'
 
 export interface Draft {
   /** Projet de départ : l'aperçu ne s'applique que s'il n'a pas changé entre-temps */
@@ -26,11 +27,17 @@ export interface ToolContext {
   library: EquipmentTemplate[]
   /** Texte lisible d'une alerte des règles (traduit) */
   describe: (issue: Issue) => string
+  allowed?: (before: Project, after: Project) => boolean
 }
 
 const str = { type: 'string' }
 
 export const TOOL_SPECS: ToolSpec[] = [
+  {
+    name: 'search_documentation',
+    description: 'Recherche dans le manuel local AV Diagram. Citer le champ source dans la réponse ; ne pas inventer de documentation constructeur.',
+    parameters: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'] },
+  },
   {
     name: 'search_library',
     description:
@@ -49,7 +56,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   {
     name: 'get_project',
     description: 'Résumé du schéma ouvert : feuilles, équipements (identifiant, nom, modèle), liaisons (étiquette, origine, destination).',
-    parameters: { type: 'object', properties: {} },
+    parameters: { type: 'object', properties: { offset: { type: 'integer', description: 'Décalage pour lire les équipements et liaisons par pages de 25.' } } },
   },
   {
     name: 'get_equipment',
@@ -137,8 +144,10 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
   const fail = (error: string) => out({ error })
   const p = draft.project
   const a = call.args
+  const offset = typeof a.offset === 'number' && Number.isFinite(a.offset) ? Math.max(0, Math.floor(a.offset)) : 0
 
   switch (call.name) {
+    case 'search_documentation': return out({ results: searchDocumentation(text(a.query)) })
     case 'search_library': {
       const results = searchLibrary(ctx.library, text(a.query))
       return out(results.length ? { results } : { results, note: 'Aucun modèle trouvé : essayer un autre mot-clé ou un bloc générique.' })
@@ -162,10 +171,13 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       })
     }
     case 'get_project': {
+      const equipment = Object.values(p.equipment), links = Object.values(p.links)
       return out({
         current_sheet: sheetName(p, draft.sheetId),
+        equipment_total: equipment.length, links_total: links.length,
+        offset, next_offset: Math.max(equipment.length, links.length) > offset + 25 ? offset + 25 : null,
         sheets: (p.sheets ?? []).map((s) => ({ id: s.id, name: s.name, parent: s.parentId })),
-        equipment: Object.values(p.equipment).map((e) => ({
+        equipment: equipment.slice(offset, offset + 25).map((e) => ({
           equipment_id: e.id,
           name: e.name,
           manufacturer: e.manufacturer,
@@ -173,7 +185,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
           sheet: sheetName(p, e.sheetId),
           ports: e.ports.length,
         })),
-        links: Object.values(p.links).map((l) => ({
+        links: links.slice(offset, offset + 25).map((l) => ({
           label: l.label,
           from: `${p.equipment[l.source.equipmentId]?.name ?? '?'} / ${l.source.portId}`,
           to: `${p.equipment[l.target.equipmentId]?.name ?? '?'} / ${l.target.portId}`,
@@ -199,14 +211,17 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       })
     }
     case 'add_equipment': {
+      if (draft.addedEquipment.length >= 50) return fail('Limite de 50 équipements par proposition : appliquer ou découper la demande.')
       const t = ctx.library.find((x) => x.id === text(a.template_id))
       if (!t) return fail(`Modèle inconnu : ${text(a.template_id)}. Utiliser search_library.`)
-      const res = addEquipment(p, t, nextPosition(draft), { sheetId: draft.sheetId, ...(text(a.name) ? { name: text(a.name) } : {}) })
+      const res = addEquipment(p, t, nextPosition(draft), { sheetId: draft.sheetId, ...(text(a.name) ? { name: text(a.name).slice(0, 120) } : {}) })
+      if (ctx.allowed && !ctx.allowed(draft.base, res.project)) return fail('Ajout refusé par les droits du projet ou du calque.')
       const next = { ...draft, project: res.project, addedEquipment: [...draft.addedEquipment, res.id] }
       const e = res.project.equipment[res.id]
       return out({ equipment_id: res.id, name: e.name, ports: e.ports.map(portSummary) }, next)
     }
     case 'connect_ports': {
+      if (draft.addedLinks.length >= 100) return fail('Limite de 100 liaisons par proposition : appliquer ou découper la demande.')
       const from = { equipmentId: text(a.from_equipment_id), portId: text(a.from_port_id) }
       const to = { equipmentId: text(a.to_equipment_id), portId: text(a.to_port_id) }
       for (const r of [from, to]) {
@@ -217,6 +232,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       const res = connect(p, from, to)
       if (!res.id) return fail('Liaison refusée : elle existe déjà, ou les deux extrémités sont identiques.')
       const link = res.project.links[res.id]
+      if (ctx.allowed && !ctx.allowed(draft.base, res.project)) return fail('Liaison refusée par les droits du projet ou du calque.')
+      if (checkLink(res.project, link).some((i) => i.severity === 'error')) return fail('Liaison incompatible : ' + checkLink(res.project, link).map(ctx.describe).join(' ; '))
       const issues = checkLink(res.project, link).map((i) => ({ severity: i.severity, code: i.code, message: ctx.describe(i) }))
       const next = { ...draft, project: res.project, addedLinks: [...draft.addedLinks, res.id] }
       return out({ link_id: res.id, label: link.label, issues }, next)
