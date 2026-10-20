@@ -18,7 +18,8 @@ export function clockIssues(p: Project): DeploymentIssue[] {
   for (const entries of domains.values()) {
     const masters = entries.filter(x => x.port.clock!.role === 'master'), autos = entries.filter(x => x.port.clock!.role === 'auto')
     const subject = `${entries[0].port.clock!.protocol} / ${entries[0].port.clock!.domain}`
-    if (masters.length > 1) issues.push({ code: 'clockMasters', subject, detail: masters.map(x => portName(x.e, x.port)).join(', ') })
+    // Plusieurs sorties du même appareil peuvent distribuer la même horloge.
+    if (new Set(masters.map(x => x.e.id)).size > 1) issues.push({ code: 'clockMasters', subject, detail: masters.map(x => portName(x.e, x.port)).join(', ') })
     if (!masters.length && !autos.length && entries.some(x => x.port.clock!.role === 'follower')) issues.push({ code: 'clockSource', subject })
     const rates = new Set(entries.map(x => x.port.clock!.rate?.trim().toLowerCase()).filter(Boolean))
     if (rates.size > 1) issues.push({ code: 'clockRates', subject, detail: [...rates].join(', ') })

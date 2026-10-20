@@ -47,6 +47,9 @@ it('calcule chaque phase séparément, conserve les inconnues et retire un circu
 it('repère les maîtres forcés concurrents et ne confond pas les candidats automatiques', () => {
   const f = fixture(), clock = {protocol:'PTPv2',domain:'0',role:'master' as const,rate:'48 kHz'}
   let p = updatePort(f.p,f.a,'p',{clock})
+  const source = p.equipment[f.a]
+  const fanout = updateEquipment(p,f.a,{ports:[...source.ports,{...source.ports[0],id:'clock-2',name:'Clock OUT 2'}]})
+  expect(clockIssues(fanout)).toEqual([])
   p = updatePort(p,f.b,'p',{clock:{...clock,rate:'96 kHz'}})
   expect(clockIssues(p).map(x => x.code)).toEqual(['clockMasters','clockRates'])
   p = updatePort(p,f.b,'p',{clock:{...clock,role:'auto'}})
