@@ -58,6 +58,7 @@ npm run desktop:build   # installateur pour le système courant, dans src-tauri/
 
 - [Cahier des charges](docs/cahier-des-charges.md)
 - [Utiliser la vue Baies](docs/baies.md)
+- [Plan, DXF, Excel et vues techniques (0.4.0)](docs/vues-et-echanges-0.4.0.md)
 - [Équipements à documenter](docs/bibliotheque-a-documenter.md)
 - [Maquette d'origine](docs/maquette/index.html)
 - [Écrire une fiche constructeur](src/library/devices/README.md)

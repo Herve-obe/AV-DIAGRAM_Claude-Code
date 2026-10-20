@@ -3,6 +3,8 @@
 import { formatCableLabel } from './numbering'
 import { SIGNAL_FAMILIES, type SignalFamily } from './signals'
 import { PAPER_SIZES } from './types'
+import { isFloorPlan, isPlanPlacement } from './floorPlan'
+import { copiedPort, isEquipmentDeployment, isPortDeployment, isPowerCircuits, templatePort } from './deployment'
 import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Project, ProjectInfo, ProjectSettings, Rotation, Zone } from './types'
 
 export function uid(prefix: string): string {
@@ -75,11 +77,12 @@ export function addEquipment(
     pictogram: template.pictogram,
     family: template.family,
     ...(template.domain ? { domain: template.domain } : {}),
-    ports: template.ports.map((p) => ({ ...p })),
+    ports: template.ports.map(templatePort),
     powerW: template.powerW,
     weightKg: template.weightKg,
     rackU: template.rackU,
     depthMm: template.depthMm,
+    poeBudgetW: template.poeBudgetW,
     slots: template.slots?.map(s => ({ ...s })),
     moduleType: template.moduleType,
     zoneId: extra.zoneId,
@@ -92,6 +95,8 @@ export function addEquipment(
 export function updateEquipment(project: Project, id: string, patch: Partial<Omit<Equipment, 'id'>>): Project {
   const eq = project.equipment[id]
   if (!eq) return project
+  const candidate = { ...eq, ...patch }
+  if (!isEquipmentDeployment(candidate) || !candidate.ports.every(isPortDeployment)) return project
   const next = touch({ ...project, equipment: { ...project.equipment, [id]: { ...eq, ...patch } } })
   // Changer la zone change le préfixe des câbles qui partent de cet équipement
   return 'zoneId' in patch ? relabelAll(next) : next
@@ -187,6 +192,8 @@ export function updateLink(project: Project, id: string, patch: Partial<Omit<Lin
   const l = project.links[id]
   if (!l) return project
   const merged = { ...l, ...patch }
+  if (merged.bitrateMbps !== undefined && (!Number.isFinite(merged.bitrateMbps) || merged.bitrateMbps < 0)) return project
+  if ([merged.bendX, merged.bendY].some(v => v !== undefined && !Number.isFinite(v))) return project
   if ('num' in patch) merged.label = labelOf(project, merged)
   return touch({ ...project, links: { ...project.links, [id]: merged } })
 }
@@ -217,8 +224,9 @@ export function duplicateEquipment(project: Project, ids: string[], offset = 40)
       ...eq,
       id: newId,
       name: uniqueName(p, base),
-      ports: eq.ports.map((pt) => ({ ...pt })),
+      ports: eq.ports.map(copiedPort),
       position: { x: eq.position.x + offset, y: eq.position.y + offset },
+      plan: eq.plan ? { ...eq.plan, x: eq.plan.x + 0.5, y: eq.plan.y + 0.5 } : undefined,
     }
     // La copie n'occupe pas la place de l'original dans sa baie
     delete copy.mount
@@ -279,10 +287,12 @@ export function isProject(value: unknown): value is Project {
   if (!Array.isArray(v.zones) || !v.zones.every((z) => strings(z, ['id', 'name', 'code']))) return false
   if (!strings(v.settings, ['cableFormat', 'defaultZoneCode']) || !numbers(v.settings, ['mainsVoltage']) || v.settings.mainsVoltage <= 0) return false
   if (!stringList(v.settings.mutedRules)) return false
+  if (v.settings.powerCircuits !== undefined && !isPowerCircuits(v.settings.powerCircuits)) return false
   if (v.settings.typeCodes !== undefined && (!object(v.settings.typeCodes) || !Object.values(v.settings.typeCodes).every((s) => typeof s === 'string'))) return false
 
   if (!entries(v.equipment, (e) => strings(e, ['id', 'templateId', 'name', 'model', 'family', 'pictogram'], ['manufacturer', 'domain', 'zoneId', 'sheetId', 'notes'])
-    && point(e.position) && numbers(e, [], ['powerW', 'weightKg', 'rackU', 'depthMm'])
+    && isEquipmentDeployment(e as unknown as Equipment)
+    && point(e.position) && (e.plan === undefined || isPlanPlacement(e.plan)) && numbers(e, [], ['powerW', 'weightKg', 'rackU', 'depthMm'])
     && ['powerW', 'weightKg', 'rackU', 'depthMm'].every(k => e[k] === undefined || (e[k] as number) >= 0)
     && (e.moduleType === undefined || typeof e.moduleType === 'string')
     && (e.slots === undefined || (Array.isArray(e.slots) && e.slots.every(s => strings(s, ['id', 'name', 'type']) && s.id && s.type) && new Set(e.slots.map(s => s.id)).size === e.slots.length))
@@ -298,15 +308,16 @@ export function isProject(value: unknown): value is Project {
     && Array.isArray(e.ports) && e.ports.every((p) => strings(p, ['id', 'name', 'direction', 'signal', 'connector'], ['level', 'format', 'phantom'])
       && ['in', 'out', 'bidir'].includes(p.direction)
       && (SIGNAL_FAMILIES as readonly string[]).includes(p.signal)
-      && numbers(p, [], ['channels'])))) return false
+      && isPortDeployment(p) && numbers(p, [], ['channels'])))) return false
   if (!entries(v.links, (l) => strings(l, ['id', 'label'], ['cableTypeId', 'cableRef', 'multicoreId', 'notes'])
-    && numbers(l, ['num'], ['lengthM', 'channels', 'pair', 'bendX'])
+    && numbers(l, ['num'], ['lengthM', 'channels', 'pair', 'bendX', 'bendY', 'bitrateMbps'])
+    && (l.bitrateMbps === undefined || (l.bitrateMbps as number) >= 0)
     && strings(l.source, ['equipmentId', 'portId']) && strings(l.target, ['equipmentId', 'portId'])
     && stringList(l.ignoredRules))) return false
 
   // Ces collections n'existaient pas dans les premiers fichiers ; normalizeProject les complète.
   if (v.sheets !== undefined && (!Array.isArray(v.sheets) || !v.sheets.every((s) => strings(s, ['id', 'name'], ['parentId'])
-    && (s.groupPosition === undefined || point(s.groupPosition))))) return false
+    && (s.groupPosition === undefined || point(s.groupPosition)) && (s.plan === undefined || isFloorPlan(s.plan))))) return false
   if (v.annotations !== undefined && !entries(v.annotations, (a) => strings(a, ['id', 'kind', 'sheetId', 'text'], ['color', 'zoneId'])
     && ['note', 'frame'].includes(a.kind as string) && point(a.position) && numbers(a.size, ['w', 'h']))) return false
   if (v.multicores !== undefined && !entries(v.multicores, (m) => strings(m, ['id', 'label'], ['cableTypeId', 'connectors', 'notes']) && numbers(m, ['pairs'], ['lengthM']))) return false
@@ -353,6 +364,7 @@ export function updatePort(project: Project, equipmentId: string, portId: string
   const eq = project.equipment[equipmentId]
   if (!eq) return project
   const ports = eq.ports.map((p) => (p.id === portId ? { ...p, ...patch } : p))
+  if (!ports.every(isPortDeployment)) return project
   // Le signal détermine la série de numérotation des câbles
   return relabelAll(updateEquipment(project, equipmentId, { ports }))
 }
@@ -376,11 +388,12 @@ export function templateFromEquipment(eq: Equipment): EquipmentTemplate {
     manufacturer: eq.manufacturer,
     model: eq.name,
     pictogram: eq.pictogram,
-    ports: eq.ports.filter(p => !eq.modules?.some(m => m.portIds.includes(p.id))).map((p) => ({ ...p })),
+    ports: eq.ports.filter(p => !eq.modules?.some(m => m.portIds.includes(p.id))).map(templatePort),
     powerW: eq.powerW,
     weightKg: eq.weightKg,
     rackU: eq.rackU,
     depthMm: eq.depthMm,
+    poeBudgetW: eq.poeBudgetW,
     slots: eq.slots?.map(s => ({ ...s })),
     moduleType: eq.moduleType,
     status: 'user',
@@ -420,6 +433,7 @@ export function removeZone(project: Project, id: string): Project {
 }
 
 export function updateSettings(project: Project, patch: Partial<ProjectSettings>): Project {
+  if (patch.powerCircuits !== undefined && !isPowerCircuits(patch.powerCircuits)) return project
   return relabelAll(touch({ ...project, settings: { ...project.settings, ...patch } }))
 }
 

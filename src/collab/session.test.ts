@@ -10,7 +10,7 @@ class RelaySocket {
   static OPEN = 1
   static peers = new Map<number, RelaySocket>()
   static next = 1
-  static protocol: number | undefined = 2
+  static protocol: number | undefined = 3
   static held = false
   static queued: (() => void)[] = []
   static flush() {
@@ -33,7 +33,7 @@ class RelaySocket {
   send(value: string | Uint8Array) {
     if (typeof value === 'string') {
       const h = JSON.parse(value)
-      expect(h.protocol).toBe(2)
+      expect(h.protocol).toBe(3)
       this.id = RelaySocket.next++; this.host = h.hostToken === 'private-host'
       this.userId = createHash('sha256').update(h.clientToken ?? 'probe').digest('hex')
       const peers = [...RelaySocket.peers.values()].map(p => ({ id: p.id, userId: p.userId, name: 'Poste', address: '127.0.0.1' }))
@@ -76,10 +76,10 @@ afterEach(() => {
   RelaySocket.held = false; RelaySocket.queued = []
   videoGuest?.session.leave(); videoGuest = undefined
   guest?.session.leave(); host?.session.leave()
-  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 2; vi.unstubAllGlobals()
+  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 3; vi.unstubAllGlobals()
 })
 
-it.each([undefined, 1])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
+it.each([undefined, 1, 2])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
   vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
   vi.stubGlobal('WebSocket', RelaySocket)
   native.invoke.mockResolvedValue(undefined)

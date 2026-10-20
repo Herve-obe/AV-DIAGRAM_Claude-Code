@@ -9,10 +9,12 @@ import { Icon, type IconName } from './Icon'
 const PAGES: { id: string; icon: IconName; view?: MainView; lot?: number }[] = [
   { id: 'synoptic', icon: 'synoptic', view: 'diagram' },
   { id: 'rack', icon: 'rack', view: 'racks' },
-  { id: 'plan', icon: 'plan', lot: 3 },
-  { id: 'network', icon: 'network', lot: 3 },
-  { id: 'lists', icon: 'lists', lot: 3 },
-  { id: 'deliver', icon: 'deliver', lot: 2 },
+  { id: 'plan', icon: 'plan', view: 'plan' },
+  { id: 'network', icon: 'network', view: 'network' },
+  { id: 'power', icon: 'power', view: 'power' },
+  { id: 'intercom', icon: 'chat', view: 'intercom' },
+  { id: 'sync', icon: 'clock', view: 'sync' },
+  { id: 'lists', icon: 'lists', view: 'lists' },
 ]
 
 export function PageBar() {

@@ -32,10 +32,10 @@ export function formatImpact(project: Project, opts: ExportSettings) {
   return { fit: Number.isFinite(minFit) ? Math.min(100, Math.round(minFit)) : 100, pages, maxPages }
 }
 
-export function FormatPicker({ project, value, onChange }: { project: Project; value: ExportSettings; onChange: (v: ExportSettings) => void }) {
+export function FormatPicker({ project, value, onChange, plan = false }: { project: Project; value: ExportSettings; onChange: (v: ExportSettings) => void; plan?: boolean }) {
   const { t } = useTranslation()
   const size = pageSize(value.paper, value.orientation)
-  const impact = useMemo(() => formatImpact(project, value), [project, value])
+  const impact = useMemo(() => plan ? { fit: 100, pages: 0, maxPages: 0 } : formatImpact(project, value), [project, value, plan])
   const propose = (paper: PaperSize, orientation: ExportSettings['orientation']) => onChange({ ...value, paper, orientation })
 
   return (
@@ -56,7 +56,7 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
       </div>
       <p className="dialog-hint">{t('exportPdf.size', { w: size.w, h: size.h })}</p>
 
-      <p className="dialog-hint">{t('exportPdf.canvasHint')}</p>
+      <p className="dialog-hint">{t(plan ? 'plan.pdfHint' : 'exportPdf.canvasHint')}</p>
 
       <div className="segmented export-mode" role="radiogroup" aria-label={t('exportPdf.scaleMode')}>
         {(['tile', 'fit'] as const).map((m) => (
@@ -65,7 +65,7 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
           </button>
         ))}
       </div>
-      {value.scaleMode === 'fit' ? (
+      {!plan && (value.scaleMode === 'fit' ? (
         <p className="dialog-hint">{t('exportPdf.fitHint', { scale: impact.fit })}</p>
       ) : (
         <>
@@ -80,7 +80,7 @@ export function FormatPicker({ project, value, onChange }: { project: Project; v
             {t('exportPdf.tileHint', { count: impact.pages, max: impact.maxPages, paper: value.paper })}
           </p>
         </>
-      )}
+      ))}
     </div>
   )
 }

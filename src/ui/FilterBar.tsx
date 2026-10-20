@@ -4,22 +4,21 @@ import { LAYERS } from '../model/layers'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import { useUi } from '../store/uiStore'
 
+export function LayerPicker() {
+  const { t } = useTranslation(), layer = useUi(s => s.layer)
+  return <label className="layer-pick" title={t('layers.hint')}><span>{t('layers.label')}</span><select value={layer} onChange={e => useUi.getState().setPref('layer',e.target.value as typeof layer)} aria-label={t('layers.label')}><option value="all">{t('layers.all')}</option>{LAYERS.map(l => <option key={l} value={l}>{t(`library.domain.${l}`)}</option>)}</select></label>
+}
+
 export function FilterBar() {
   const { t } = useTranslation()
-  const { hiddenSignals, toggleSignal, mode, linkView, autoRoute, layer, setPref } = useUi()
+  const { hiddenSignals, toggleSignal, mode, linkView, autoRoute, setPref } = useUi()
   // En mode débutant, seules les familles les plus courantes sont proposées
   const families = mode === 'beginner'
     ? SIGNAL_FAMILIES.filter((f) => ['audioAnalog', 'audioDigital', 'audioIp', 'video', 'network'].includes(f))
     : SIGNAL_FAMILIES
   return (
     <div className="filterbar" role="group" aria-label={t('filters.label')}>
-      <label className="layer-pick" title={t('layers.hint')}>
-        <span>{t('layers.label')}</span>
-        <select value={layer} onChange={(e) => setPref('layer', e.target.value as typeof layer)} aria-label={t('layers.label')}>
-          <option value="all">{t('layers.all')}</option>
-          {LAYERS.map((l) => <option key={l} value={l}>{t(`library.domain.${l}`)}</option>)}
-        </select>
-      </label>
+      <LayerPicker />
       {families.map((f) => {
         const st = SIGNAL_STYLE[f]
         const on = !hiddenSignals.includes(f)

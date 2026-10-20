@@ -22,6 +22,8 @@ const ICONS = {
   plan: 'M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15',
   network: 'M12 3v6M5 21v-4h14v4M12 13v4M9 9h6v4H9zM3 21h4M17 21h4',
   lists: 'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',
+  power: 'M13 2L4 14h7l-1 8 10-13h-7z',
+  clock: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2',
   deliver: 'M4 4h16v16H4zM4 9h16M9 14h6',
   alert: 'M12 3l10 18H2zM12 10v5M12 18h.01',
   check: 'M4 12l5 5L20 6',

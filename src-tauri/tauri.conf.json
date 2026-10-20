@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "AV Diagram",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "identifier": "io.github.herveobe.avdiagram",
   "build": {
     "frontendDist": "../dist",
@@ -41,6 +41,7 @@
     "shortDescription": "Synoptiques d'installations audiovisuelles",
     "copyright": "Copyright (c) 2026 Hervé Obejero",
     "licenseFile": "../LICENSE.md",
+    "resources": { "../docs/third-party/import-licenses.txt": "licenses/import-licenses.txt" },
     "macOS": {
       "minimumSystemVersion": "12.3"
     },

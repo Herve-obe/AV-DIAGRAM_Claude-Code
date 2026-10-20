@@ -6,8 +6,9 @@ import * as ops from '../model/project'
 import * as racks from '../model/racks'
 import * as modules from '../model/modules'
 import * as zones from '../model/zones'
+import * as floorPlan from '../model/floorPlan'
 import * as series from '../model/series'
-import type { Annotation, Equipment, EquipmentTemplate, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
+import type { Annotation, Equipment, EquipmentTemplate, FloorPlan, PlanPlacement, Link, Multicore, PortDef, Rack, RackFace, Project, ProjectInfo, ProjectSettings, Zone } from '../model/types'
 import i18n from '../i18n'
 
 // Le garde est partagé par toutes les commandes (souris, clavier, assistant et fenêtres).
@@ -50,15 +51,17 @@ interface ProjectState {
   beginGesture: () => void
 
   rename: (name: string) => void
-  addEquipment: (tpl: EquipmentTemplate, pos: { x: number; y: number }, sheetId?: string) => string
+  addEquipment: (tpl: EquipmentTemplate, pos: { x: number; y: number }, sheetId?: string, plan?: PlanPlacement) => string
   updateEquipment: (id: string, patch: Partial<Omit<Equipment, 'id'>>) => void
   moveEquipment: (id: string, pos: { x: number; y: number }) => void
+  placeOnPlan: (id: string, placement: PlanPlacement | undefined) => void
+  updateFloorPlan: (sheetId: string, patch: Partial<FloorPlan>) => void
   rotateEquipment: (ids: string[], step: 1 | -1) => void
   setHintDismissed: (id: string, key: string, dismissed: boolean) => void
   connect: (a: { equipmentId: string; portId: string }, b: { equipmentId: string; portId: string }) => string | null
   updateLink: (id: string, patch: Partial<Omit<Link, 'id' | 'source' | 'target'>>) => void
   /** Déplacement du segment vertical d'une liaison pendant un geste (pas de pas d'annulation supplémentaire) */
-  bendLink: (id: string, x: number) => void
+  bendLink: (id: string, value: number, axis?: 'x' | 'y') => void
   /** Crée les liaisons d'un plan en série (un seul pas d'annulation) ; multipaire : voir applySeries */
   connectSeries: (plan: series.SeriesPlan, multicore?: string | null) => string[]
   /** Supprime des éléments du canevas : équipements et annotations (nodeIds) et liaisons */
@@ -137,6 +140,8 @@ export const useProject = create<ProjectState>((rawSet, get) => {
     load: (p) => set({ project: ops.normalizeProject(p), past: [], future: [], saved: true }),
     newProject: (name) => commit(ops.createProject(name)),
     replaceProject: (p) => commit(ops.normalizeProject(p)),
+    placeOnPlan: (id, placement) => commit(floorPlan.placeOnPlan(get().project, id, placement)),
+    updateFloorPlan: (sheetId, patch) => commit(floorPlan.updateFloorPlan(get().project, sheetId, patch)),
 
     undo: () => {
       if (driver) return driver.undo()
@@ -159,9 +164,9 @@ export const useProject = create<ProjectState>((rawSet, get) => {
     },
 
     rename: (name) => commit({ ...get().project, name }),
-    addEquipment: (tpl, pos, sheetId) => {
+    addEquipment: (tpl, pos, sheetId, plan) => {
       const r = ops.addEquipment(get().project, tpl, pos, { sheetId })
-      commit(zones.applyFrameZones(r.project))
+      commit(zones.applyFrameZones(plan ? floorPlan.placeOnPlan(r.project, r.id, plan) : r.project))
       return r.id
     },
     updateEquipment: (id, patch) => commit(ops.updateEquipment(get().project, id, patch)),
@@ -180,7 +185,7 @@ export const useProject = create<ProjectState>((rawSet, get) => {
       if (r.linkIds.length) commit(r.project)
       return r.linkIds
     },
-    bendLink: (id, x) => set({ project: ops.updateLink(get().project, id, { bendX: x }), saved: false }),
+    bendLink: (id, value, axis = 'x') => set({ project: ops.updateLink(get().project, id, axis === 'x' ? { bendX: value, bendY: undefined } : { bendY: value, bendX: undefined }), saved: false }),
     remove: (nodeIds, lkIds) => {
       if (!nodeIds.length && !lkIds.length) return
       const p = get().project

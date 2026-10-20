@@ -11,6 +11,7 @@ import { exportSettingsOf, watermarkLayout, watermarkText } from './exportOption
 import { BACKUP_DIR } from './backups'
 import type { Project, WatermarkSettings } from '../model/types'
 import { useProject } from '../store/projectStore'
+import { useUi } from '../store/uiStore'
 import { useSaveFolder } from '../store/saveFolderStore'
 
 function browserDownload(filename: string, href: string) {
@@ -29,6 +30,8 @@ const FILTERS: Record<string, { name: string; extensions: string[] }> = {
   png: { name: 'Image PNG', extensions: ['png'] },
   svg: { name: 'Image SVG', extensions: ['svg'] },
   pdf: { name: 'PDF', extensions: ['pdf'] },
+  dxf: { name: 'DXF', extensions: ['dxf'] },
+  xlsx: { name: 'Excel', extensions: ['xlsx'] },
 }
 
 /** Les fichiers générés sont proposés à côté du .avd ; le réglage global sert aux projets sans fichier. */
@@ -290,6 +293,26 @@ export function exportCableCsv(project: Project, headers: string[]) {
 
 /** Exporte la vue du canevas (sans les contrôles) en PNG ou SVG. */
 export async function exportCanvasImage(project: Project, format: 'png' | 'svg') {
+  if (useUi.getState().view === 'plan') {
+    const { planSvg } = await import('./planExport')
+    const { default: i18n } = await import('../i18n')
+    let svg = planSvg(project, useUi.getState().currentSheetId, i18n.t('plan.unknownSize'))
+    const ex = exportSettingsOf(project)
+    const width = Number(/width="([\d.]+)"/.exec(svg)?.[1])
+    const height = Number(/height="([\d.]+)"/.exec(svg)?.[1])
+    if (ex.watermark.enabled && ex.watermark.images) svg = svgWatermark(svg, watermarkText(ex.watermark.text, project), ex.watermark, width, height)
+    const name = `${slug(project.name)}-plan.${format}`
+    if (format === 'svg') return saveContent(name, svg, 'image/svg+xml')
+    const image = new Image()
+    const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }))
+    try {
+      await new Promise<void>((resolve, reject) => { image.onload = () => resolve(); image.onerror = () => reject(new Error(i18n.t('pdf.error'))); image.src = url })
+      const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height
+      const ctx = canvas.getContext('2d'); if (!ctx) throw new Error(i18n.t('pdf.error'))
+      ctx.drawImage(image, 0, 0)
+      return saveContent(name, dataUrlToBytes(canvas.toDataURL('image/png')), 'image/png')
+    } finally { URL.revokeObjectURL(url) }
+  }
   const el = document.querySelector<HTMLElement>('.react-flow')
   if (!el) return
   const bg = getComputedStyle(document.documentElement).getPropertyValue('--canvas').trim()

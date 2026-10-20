@@ -28,7 +28,7 @@ const HELLO_TIMEOUT: Duration = Duration::from_secs(10);
 const MAX_FAILURES: u32 = 5;
 const LOCKOUT: Duration = Duration::from_secs(60);
 // À conserver identique à src/collab/ydoc.ts (cartes et slots partagés).
-const COLLAB_PROTOCOL: u64 = 2;
+const COLLAB_PROTOCOL: u64 = 3;
 
 /// État du canal d'arrêt : en cours, terminée par l'hôte, interrompue
 const RUNNING: u8 = 0;

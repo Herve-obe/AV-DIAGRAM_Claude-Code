@@ -4,6 +4,7 @@
 import { CONNECTORS } from './connectors'
 import { SIGNAL_FAMILIES } from './signals'
 import { LIBRARY_DOMAINS, type EquipmentTemplate } from './types'
+import { isPortDeployment } from './deployment'
 
 const CONNECTOR_IDS = new Set(CONNECTORS.map((c) => c.id))
 const LEVELS = new Set(['mic', 'instrument', 'phono', 'line+4', 'line-10', 'speaker', 'none'])
@@ -41,6 +42,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
   }
   const ids = new Set<string>()
   for (const p of t.ports) {
+    if (!isPortDeployment(p)) errors.push(`${where}/${p.id} : paramètres de port invalides`)
     if (ids.has(p.id)) errors.push(`${where} : identifiant de port en double (${p.id})`)
     ids.add(p.id)
     if (!DIRECTIONS.has(p.direction)) errors.push(`${where}/${p.id} : sens inconnu (${p.direction})`)
@@ -49,7 +51,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
     if (p.phantom && !['required', 'supplied', 'none'].includes(p.phantom)) errors.push(`${where}/${p.id} : valeur fantôme inconnue (${p.phantom})`)
     if (p.level && !LEVELS.has(p.level)) errors.push(`${where}/${p.id} : niveau inconnu (${p.level})`)
   }
-  for (const [k, v] of [['powerW', t.powerW], ['weightKg', t.weightKg], ['rackU', t.rackU], ['depthMm', t.depthMm]] as const) {
+  for (const [k, v] of [['powerW', t.powerW], ['weightKg', t.weightKg], ['rackU', t.rackU], ['depthMm', t.depthMm], ['poeBudgetW', t.poeBudgetW]] as const) {
     if (v !== undefined && (typeof v !== 'number' || !Number.isFinite(v) || v < 0)) errors.push(`${where} : ${k} doit être un nombre positif`)
   }
   return errors

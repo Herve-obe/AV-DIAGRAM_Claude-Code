@@ -16,7 +16,11 @@ export function buildBom(project: Project): BomLine[] {
   for (const eq of Object.values(project.equipment).flatMap(componentsOf)) {
     const key = `${eq.manufacturer ?? ''}|${eq.model}`
     const line = lines.get(key)
-    if (line) line.quantity += 1
+    if (line) {
+      line.quantity += 1
+      if (line.powerW !== eq.powerW) line.powerW = undefined
+      if (line.weightKg !== eq.weightKg) line.weightKg = undefined
+    }
     else lines.set(key, { key, manufacturer: eq.manufacturer, model: eq.model, quantity: 1, powerW: eq.powerW, weightKg: eq.weightKg })
   }
   return [...lines.values()].sort((a, b) => a.model.localeCompare(b.model))

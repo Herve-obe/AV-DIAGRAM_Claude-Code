@@ -13,6 +13,8 @@ import { exportSettingsOf, MM_PER_UNIT, sheetsToExport, sheetLayout, tileRef, ti
 import { notifyError } from './files'
 import { captureCanvasLight, exportPdf, type ExportPasswords, type PdfLabels, type SheetShot } from './pdf'
 import { rackSheets } from './rackPdf'
+import { planSheets } from './planExport'
+import { deploymentSheets } from './deploymentExport'
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
@@ -68,9 +70,10 @@ const captureWidth = (areaW: number) => Math.min(4000, Math.max(1600, areaW * 4)
 export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, info: ProjectInfo, passwords?: ExportPasswords, options?: ExportSettings): Promise<number> {
   const project = useProject.getState().project
   const opts = options ?? exportSettingsOf(project)
-  if (useUi.getState().view === 'racks') {
+  if (useUi.getState().view !== 'diagram') {
     try {
-      const shots = rackSheets(project, opts, info, t)
+      const view = useUi.getState().view
+      const shots = view === 'plan' ? planSheets(project, opts, info, t) : view === 'racks' ? rackSheets(project, opts, info, t) : deploymentSheets(project, view, opts, info, t)
       if (!shots.length) return 0
       return await exportPdf({ project, info, opts, template: useTitleBlock.getState().template, labels: pdfLabels(t), date: new Date(), passwords }, shots)
     } catch (e) {

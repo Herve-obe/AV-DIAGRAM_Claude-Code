@@ -1,4 +1,16 @@
-# État d'avancement (mise à jour du 2026-10-09)
+# État d'avancement (mise à jour du 2026-10-19)
+
+## Situation actuelle — 0.4.0
+
+Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Excel et le réimport de patch, les vues réseau/électrique/intercom/synchronisation et le réglage des câbles sur blocs pivotés sont codés. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md) pour leurs fonctions et limites. Le protocole LAN est passé à 3 : installer la même version sur tous les postes.
+
+Le catalogue reste celui de 0.3.5 : 2 043 modèles réels et 24 génériques, dont 1 585 fiches Communauté à documenter. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
+
+Prochaines validations : essais de nouveaux DXF réels, import de patch Excel de production, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. La lecture DWG directe, les échanges natifs Visio/draw.io, le mode formation, la signature des installateurs et le portage tablette restent des développements ultérieurs. Le cloud et l'assistant IA restent en attente selon les décisions précédentes.
+
+Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.0.
+
+## Historique au 2026-10-09
 
 ## Fait
 
@@ -158,7 +170,7 @@ Détail : `export-pdf.md`. Version navigateur abandonnée : application de burea
 - beyerdynamic M 88 / M 201 / Opus 87 : caractéristiques non affichées sur le site du constructeur.
 - Martin, Sony Pro : refus d'accès → déposer leurs manuels sur le Drive (Panasonic accessible depuis le 2026-10-08).
 
-## Reste à faire
+## Ancienne liste de tâches (historique)
 
 1. **Bibliothèque, compléments** (catalogues couverts à 100 % le 2026-10-08, voir ci-dessus) :
    - Passer en Vérifié les fiches Communauté dès qu'une fiche constructeur est disponible (surtout lumière et image).

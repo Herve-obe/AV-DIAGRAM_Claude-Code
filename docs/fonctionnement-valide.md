@@ -2,6 +2,10 @@
 
 Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/2), complété dans la [PR n° 3](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/3).
 
+## Nouvelles vues — 0.4.0
+
+Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Pour partager les nouveaux champs, utiliser 0.4.0 sur tous les postes (protocole 3).
+
 ## Fichiers et sauvegardes
 
 - Sur ordinateur, créer un projet demande son nom et un dossier parent. Depuis la version **0.3.1**, un sous-dossier au nom du projet y est créé, avec son fichier `.avd` et **Save Back Up**. Par exemple : `Téléchargements / Concert / concert.avd` et `Téléchargements / Concert / Save Back Up /`. Le fichier est créé avant de remplacer le projet ouvert.
@@ -107,3 +111,4 @@ Pour compléter les simulations par un essai sur trois ordinateurs :
 Les 213 tests TypeScript passent ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos, le parcours de session, la découverte dans l'interface, les conditions du bouton Rejoindre et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
 
 La CI de la PR vérifie les tests TypeScript et les tests natifs Windows et macOS, dont la découverte sur sockets locales. Deux régressions couvrent une recherche vers un port fermé suivie d'une réponse valide et la poursuite des annonces après un paquet trop grand. Le test de relais manuel reste ignoré, comme prévu. Les essais avec dialogues natifs, disques réels et trois ordinateurs restent à faire, notamment les pannes et reprises. Deux hôtes isolés par une coupure ne fusionnent pas automatiquement leurs documents : il faut conserver leurs fichiers avant une fusion manuelle.
+

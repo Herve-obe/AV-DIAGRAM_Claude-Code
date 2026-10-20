@@ -1,6 +1,7 @@
 import { uid, updateEquipment } from './project'
 import type { Equipment, EquipmentTemplate, Project } from './types'
 import { validateTemplate } from './validateTemplate'
+import { templatePort } from './deployment'
 
 export type ModuleError = 'noSlot' | 'occupied' | 'incompatible' | 'invalidTemplate' | 'connected' | 'denied'
 
@@ -12,7 +13,7 @@ export function installModule(project: Project, equipmentId: string, slotId: str
   if (template.family !== 'module' || !template.moduleType || validateTemplate(template).length) return { project, error: 'invalidTemplate' }
   if (slot.type !== template.moduleType) return { project, error: 'incompatible' }
   const id = uid('mod')
-  const ports = template.ports.map((p, i) => ({ ...p, id: `${id}_${i}`, name: `${slot.name} · ${p.name}` }))
+  const ports = template.ports.map((p, i) => ({ ...templatePort(p), id: `${id}_${i}`, name: `${slot.name} · ${p.name}` }))
   const module = { id, slotId, templateId: template.id, type: template.moduleType, model: template.model, manufacturer: template.manufacturer, powerW: template.powerW, weightKg: template.weightKg, portIds: ports.map(p => p.id) }
   return { project: updateEquipment(project, eq.id, { ports: [...eq.ports, ...ports], modules: [...(eq.modules ?? []), module] }), error: null }
 }

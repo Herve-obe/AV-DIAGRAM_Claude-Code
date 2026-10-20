@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { DND_MIME } from '../editor/Canvas'
 import { equipmentInView, type LayerView } from '../model/layers'
+import { planOf } from '../model/floorPlan'
 import { LIBRARY } from '../library'
 import { groupByDomain } from '../library/domains'
 import type { EquipmentTemplate } from '../model/types'
@@ -81,6 +82,13 @@ export function LibraryPanel() {
   }
 
   const addAtCenter = (tpl: EquipmentTemplate) => {
+    const ui = useUi.getState(), store = useProject.getState()
+    if (ui.view === 'plan') {
+      const plan = planOf(store.project, ui.currentSheetId)
+      const eqs = Object.values(store.project.equipment).filter(e => e.sheetId === ui.currentSheetId)
+      const id = store.addEquipment(tpl, { x: eqs.length ? Math.max(...eqs.map(e => e.position.x)) + 320 : 0, y: 0 }, ui.currentSheetId, { x: plan.width / 2, y: plan.height / 2, angle: 0 })
+      ui.select([id], []); return
+    }
     const el = document.querySelector('.react-flow')?.getBoundingClientRect()
     const c = el ? rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 }) : { x: 0, y: 0 }
     // Blocs déjà dessinés sur la feuille : le nouveau se range à leur droite au lieu de les recouvrir.

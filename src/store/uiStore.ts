@@ -12,7 +12,7 @@ export type DockTab = 'cables' | 'multicores' | 'bom' | 'issues'
 /** Vue des liaisons : chaque flux, ou les câbles physiques (un trait par multipaire) */
 export type LinkView = 'flows' | 'cables'
 /** Vue principale : synoptique ou élévation des baies (lot 3, vues liées) */
-export type MainView = 'diagram' | 'racks'
+export type MainView = 'diagram' | 'racks' | 'plan' | 'network' | 'power' | 'intercom' | 'sync' | 'lists'
 
 interface Prefs {
   mode: UiMode

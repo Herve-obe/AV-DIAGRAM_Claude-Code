@@ -21,6 +21,7 @@ import { GuideSteps, NextSteps } from './BeginnerGuide'
 import { Pictogram } from './Pictogram'
 import { PortEditor } from './PortEditor'
 import { ModuleEditor } from './ModuleEditor'
+import { PlanFields } from './FloorPlanView'
 import { openExternal } from '../ai/transport'
 
 function PortList({ title, ports }: { title: string; ports: PortDef[] }) {
@@ -152,6 +153,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         </div>
       )}
       <RackFields eq={eq} />
+      <PlanFields eq={eq} />
       <ModuleEditor eq={eq} />
       <div className="field">
         <label>{t('inspector.orientation')}</label>

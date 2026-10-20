@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
+import { planOf } from '../model/floorPlan'
 import { useExportPdf } from './ExportPdfDialog'
 import { groupSelected, ungroupSelected } from './groupActions'
 import { useAi } from '../store/aiStore'
@@ -30,6 +31,11 @@ export function CommandPalette() {
     const ui = useUi.getState()
     const addAtCenter = (tplId: string) => {
       const tpl = LIBRARY.find((x) => x.id === tplId)
+      if (tpl && ui.view === 'plan') {
+        const project = useProject.getState().project, p = planOf(project, ui.currentSheetId)
+        const eqs = Object.values(project.equipment).filter(e => e.sheetId === ui.currentSheetId)
+        ui.select([useProject.getState().addEquipment(tpl, { x: eqs.length ? Math.max(...eqs.map(e => e.position.x)) + 320 : 0, y: 0 }, ui.currentSheetId, { x: p.width / 2, y: p.height / 2, angle: 0 })], []); return
+      }
       const el = document.querySelector('.react-flow')?.getBoundingClientRect()
       if (!tpl || !el) return
       const pos = rf.screenToFlowPosition({ x: el.left + el.width / 2, y: el.top + el.height / 2 })

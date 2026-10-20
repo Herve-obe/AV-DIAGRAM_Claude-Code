@@ -29,6 +29,7 @@ export interface RouteRequest {
   target: RouteEnd
   /** Position imposée à la main du segment vertical (liaisons gauche-droite), en px du schéma */
   bendX?: number
+  bendY?: number
 }
 
 export interface RoutingOptions {
@@ -365,6 +366,17 @@ export function routeAll(obstacles: Rect[], requests: RouteRequest[], opts: Rout
     ysSet.add(s.y)
     ysSet.add(t.y)
   }
+  // Points de passage pour les coudes manuels, y compris lorsque les ports se font face
+  // mais que la cible est derrière la source. Trois candidats évitent de forcer un point dans un bloc.
+  const extents = { x0: Math.min(...xsSet) - 2 * m, x1: Math.max(...xsSet) + 2 * m, y0: Math.min(...ysSet) - 2 * m, y1: Math.max(...ysSet) + 2 * m }
+  const waypoints = requests.map((r,k) => {
+    const vertical = ['top','bottom'].includes(r.source.side) && ['top','bottom'].includes(r.target.side)
+    const horizontal = ['left','right'].includes(r.source.side) && ['left','right'].includes(r.target.side)
+    const {s,t} = stubs[k]
+    const pts = vertical && r.bendY !== undefined ? [Math.round((s.x + t.x) / 2),extents.x0,extents.x1].map(x => ({x,y:Math.round(r.bendY!)})) : horizontal && r.bendX !== undefined ? [Math.round((s.y + t.y) / 2),extents.y0,extents.y1].map(y => ({x:Math.round(r.bendX!),y})) : []
+    for (const p of pts) { xsSet.add(p.x);ysSet.add(p.y) }
+    return {pts,vertical}
+  })
   // Couloirs au milieu des espaces entre blocs : tracés plus aérés
   const addMid = (set: Set<number>) => {
     const v = [...set].sort((a, b) => a - b)
@@ -381,13 +393,25 @@ export function routeAll(obstacles: Rect[], requests: RouteRequest[], opts: Rout
     const sDir = LEAVE[r.source.side]
     // Arrivée sur l'amorce cible en allant vers le port
     const tDir = ENTER[r.target.side]
-    const mid = grid.path(s, sDir, t, tDir, opts.bendCost) ?? fallback(s, t)
+    let mid: Point[] | undefined
+    const dir = waypoints[k].vertical ? (t.x >= s.x ? 0 : 1) : (t.y >= s.y ? 2 : 3)
+    for (const point of waypoints[k].pts) {
+      const before = grid.path(s,sDir,point,dir,opts.bendCost), after = grid.path(point,dir,t,tDir,opts.bendCost)
+      if (before && after) { mid = [...before,...after.slice(1)]; break }
+    }
+    mid ??= grid.path(s, sDir, t, tDir, opts.bendCost) ?? fallback(s, t)
     // Extrémités arrondies comme les amorces : sinon le premier segment serait légèrement en biais
     return simplify([{ x: Math.round(r.source.x), y: Math.round(r.source.y) }, ...mid, { x: Math.round(r.target.x), y: Math.round(r.target.y) }])
   })
   laneCorridors(raw, requests, stubs, inflated, opts)
+  // Même algorithme pour les ports haut/bas : transposer évite deux règles d'ordre divergentes.
+  const swap = (p: Point): Point => ({ x: p.y, y: p.x })
+  const sides: Record<Side, Side> = { top: 'left', bottom: 'right', left: 'top', right: 'bottom' }
+  const vertical = raw.map(route => route.map(swap))
+  laneCorridors(vertical, requests.map(r => ({ ...r, source: { ...swap(r.source), side: sides[r.source.side] }, target: { ...swap(r.target), side: sides[r.target.side] }, bendX: r.bendY })), stubs.map(s => ({ s: swap(s.s), t: swap(s.t) })), inflated.map(r => ({ x: r.y, y: r.x, w: r.h, h: r.w })), opts)
+  vertical.forEach((route, i) => { raw[i] = route.map(swap) })
   const nudged = nudge(raw, opts.spacing, m - 2)
-  requests.forEach((r, k) => result.set(r.id, simplify(nudged[k])))
+  requests.forEach((r, k) => result.set(r.id, simplify(r.bendX !== undefined || r.bendY !== undefined ? raw[k] : nudged[k])))
   return result
 }
 
@@ -424,7 +448,8 @@ function laneCorridors(routes: Point[][], requests: RouteRequest[], stubs: { s: 
     const ty = Math.round(r.target.y)
     const zig = (x: number) => [{ x: Math.round(r.source.x), y: sy }, { x, y: sy }, { x, y: ty }, { x: Math.round(r.target.x), y: ty }]
     if (r.bendX !== undefined) {
-      routes[k] = simplify(zig(Math.round(r.bendX)))
+      const x = Math.round(r.bendX), pts = zig(x)
+      if (x >= Math.min(s.x,t.x) && x <= Math.max(s.x,t.x) && !hits(s,pts[1],obstacles) && !hits(pts[1],pts[2],obstacles) && !hits(pts[2],t,obstacles)) routes[k] = simplify(pts)
       return
     }
     if (sy === ty) return

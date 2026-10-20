@@ -19,6 +19,29 @@ export interface PortDef {
   format?: string
   /** Alimentation fantôme 48 V : exigée par un micro statique, fournie par une entrée micro, ou absente */
   phantom?: 'required' | 'supplied' | 'none'
+  network?: NetworkInterface
+  intercom?: { channel?: string; group?: string }
+  clock?: { protocol: string; domain: string; role: 'master' | 'follower' | 'auto'; rate?: string }
+}
+
+/** Valeurs déclarées pour cette interface, jamais relevées automatiquement sur le réseau. */
+export interface NetworkInterface {
+  address?: string
+  prefix?: number
+  vlan?: number
+  taggedVlans?: number[]
+  capacityMbps?: number
+  poe?: 'source' | 'sink' | 'none'
+  poeW?: number
+}
+
+export interface PowerCircuit {
+  id: string
+  name: string
+  phases: 1 | 3
+  /** Tension phase-neutre en V. */
+  voltage: number
+  ratedA?: number
 }
 
 export type LibraryStatus = 'generic' | 'verified' | 'community' | 'user'
@@ -55,6 +78,7 @@ export interface EquipmentTemplate {
   slots?: ModuleSlot[]
   /** Type mécanique déclaré pour une carte (doit correspondre au type du slot). */
   moduleType?: string
+  poeBudgetW?: number
   status: LibraryStatus
   sources?: EquipmentSource[]
   /** Menu de la bibliothèque, quand la famille ne suffit pas (ex. enregistreur vidéo) */
@@ -133,6 +157,14 @@ export interface Equipment {
   modules?: InstalledModule[]
   /** Position dans une baie (vue Baies) : même instance que sur le synoptique */
   mount?: RackMount
+  /** Position physique en mètres, indépendante de la position du bloc dans le synoptique. */
+  plan?: PlanPlacement
+  poeBudgetW?: number
+  powerCircuitId?: string
+  /** ABC : charge triphasée déclarée équilibrée ; aucune répartition implicite. */
+  powerPhase?: 'L1' | 'L2' | 'L3' | 'ABC'
+  /** Facteur de puissance de l'ensemble équipement + cartes. */
+  powerFactor?: number
   zoneId?: string
   /** Feuille du projet sur laquelle l'équipement est dessiné */
   sheetId?: string
@@ -214,6 +246,9 @@ export interface Link {
   ignoredRules?: string[]
   /** Position du segment vertical déplacé à la main (px du schéma) ; absent : tracé automatique */
   bendX?: number
+  bendY?: number
+  /** Débit agrégé prévu sur cette liaison physique (Mbit/s). */
+  bitrateMbps?: number
 }
 
 /** Multipaire : câble physique à N paires ; chaque liaison qui l'emprunte occupe une paire. */
@@ -245,6 +280,34 @@ export interface Sheet {
   parentId?: string
   /** Position du bloc replié sur la feuille parente */
   groupPosition?: { x: number; y: number }
+  plan?: FloorPlan
+}
+
+export interface PlanPlacement {
+  x: number
+  y: number
+  angle: number
+  width?: number
+  depth?: number
+}
+
+/** Géométrie 2D en mètres ; y croît vers le bas, comme sur le canevas. */
+export interface CadDrawing {
+  name: string
+  width: number
+  height: number
+  paths: { layer: string; points: { x: number; y: number }[]; closed?: boolean }[]
+  texts: { layer: string; x: number; y: number; text: string; height: number; angle: number }[]
+}
+
+export interface FloorPlan {
+  width: number
+  height: number
+  grid: number
+  /** Dénominateur de l'échelle PDF, ex. 50 pour 1:50. */
+  scale: number
+  background?: CadDrawing
+  hiddenLayers?: string[]
 }
 
 /** Annotation libre, sans valeur métier : note de texte ou cadre de zone coloré. */
@@ -332,6 +395,7 @@ export interface ProjectSettings {
   defaultZoneCode: string
   /** Tension d'alimentation pour le calcul du courant (V) */
   mainsVoltage: number
+  powerCircuits?: PowerCircuit[]
   /** Codes {TYPE} personnalisés par famille de signal (sinon AUD, AES, VID...) */
   typeCodes?: Partial<Record<SignalFamily, string>>
   /** Réglages de l'export PDF (format, filigrane, protection), gardés avec le projet */
