@@ -47,6 +47,17 @@ describe('assistant local : sources et limites', () => {
     ])
     expect(h).toEqual([{ role: 'user', text: 'nouveau' }])
   })
+  it('borne aussi une longue chaîne d’outils dans une seule demande, sans réponse orpheline', () => {
+    const history: import('./providers').ChatMessage[] = [{ role: 'user', text: 'question '.repeat(400) }]
+    for (let i = 0; i < 20; i++) history.push(
+      { role: 'assistant', text: '', toolCalls: [{ id: String(i), name: 'get_project', args: {} }] },
+      { role: 'tool', results: [{ id: String(i), name: 'get_project', content: 'x'.repeat(6000) }] },
+    )
+    const bounded = boundedHistory(history)
+    expect(JSON.stringify(bounded).length).toBeLessThan(24000)
+    expect(bounded[0]).toEqual(history[0])
+    for (let i = 0; i < bounded.length; i++) if (bounded[i].role === 'tool') expect(bounded[i - 1].role).toBe('assistant')
+  })
   it('refuse une action non autorisée dès la préparation', () => {
     const d = createDraft(createProject('test'), DEFAULT_SHEET_ID)
     const r = runTool(d, call('add_equipment', { template_id: 'gen-mic-dyn' }), { ...ctx, allowed: () => false })

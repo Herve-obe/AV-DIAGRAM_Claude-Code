@@ -91,12 +91,21 @@ export function boundedHistory(messages: ChatMessage[]): ChatMessage[] {
   const users = messages.flatMap((m, i) => m.role === 'user' ? [i] : [])
   let kept = messages.slice(users.length > 3 ? users[users.length - 3] : 0)
   if (JSON.stringify(kept).length > 24000 && users.length > 1) kept = messages.slice(users.at(-1))
-  return kept.map((m, i) => {
+  const out: ChatMessage[] = kept.map((m, i) => {
     const max = i >= kept.length - 2 ? 5000 : 1500
     const clip = (s: string) => s.length <= max ? s : s.slice(0, max) + '\n[Extrait limité : relire avec un filtre ou une autre page.]'
     if (m.role === 'tool') return { ...m, results: m.results.slice(0, 8).map((r) => ({ ...r, content: clip(r.content) })) }
-    return { ...m, text: clip(m.text) }
+    return { ...m, text: m.role === 'user' ? m.text.slice(0, 4000) : clip(m.text) }
   })
+  let compacted = false
+  while (JSON.stringify(out).length > 22000) {
+    const index = out.findIndex((m, i) => m.role === 'assistant' && m.toolCalls.length > 0 && out[i + 1]?.role === 'tool')
+    if (index < 0) break
+    out.splice(index, 2)
+    compacted = true
+  }
+  if (compacted) out.splice(1, 0, { role: 'user', text: '[Contexte abrégé : les propositions précédentes restent dans le brouillon. Relire get_project pour retrouver leurs identifiants et éviter de recréer les mêmes équipements.]' })
+  return out
 }
 
 export interface TurnResult {
@@ -127,7 +136,7 @@ export async function runTurn(opts: {
   const prompt = system + (references.length ? '\nRéférences locales pertinentes (citer la source) :\n' + JSON.stringify(references) : '')
   let draft = opts.draft
   const toolsUsed: string[] = []
-  for (let step = 0; step < (opts.maxSteps ?? 12); step++) {
+  for (let step = 0; step < (opts.maxSteps ?? (connection.provider === 'builtin' ? 20 : 12)); step++) {
     if (opts.isActive && !opts.isActive()) throw new AiError('cancelled', '')
     const body = await send(transport, connection.provider, connection.baseUrl, buildChatRequest(api, connection.model, prompt, boundedHistory(history), TOOL_SPECS, connection.provider === 'builtin'))
     if (opts.isActive && !opts.isActive()) throw new AiError('cancelled', '')
