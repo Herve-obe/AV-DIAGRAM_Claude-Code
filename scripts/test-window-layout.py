@@ -2,6 +2,7 @@
 import ctypes as c
 from ctypes import wintypes as w
 import os
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -16,6 +17,8 @@ user = c.WinDLL("user32", use_last_error=True)
 callback = c.WINFUNCTYPE(w.BOOL, w.HWND, w.LPARAM)
 user.EnumWindows.argtypes = [callback, w.LPARAM]
 user.GetWindowThreadProcessId.argtypes = [w.HWND, c.POINTER(w.DWORD)]
+user.GetWindowTextW.argtypes = [w.HWND, w.LPWSTR, c.c_int]
+user.GetClassNameW.argtypes = [w.HWND, w.LPWSTR, c.c_int]
 user.IsWindowVisible.argtypes = [w.HWND]
 user.IsZoomed.argtypes = [w.HWND]
 user.GetWindowRect.argtypes = [w.HWND, c.POINTER(w.RECT)]
@@ -33,10 +36,11 @@ def wait_for(find, label, timeout=30):
         if result:
             return result
         time.sleep(.1)
-    raise AssertionError(f"Délai dépassé : {label}")
+    details = app_windows(processes[-1].pid) if processes else []
+    raise AssertionError(f"Délai dépassé : {label}. Fenêtres : {json.dumps(details)}")
 
 
-def find_window(pid):
+def app_windows(pid):
     found = []
 
     @callback
@@ -44,11 +48,18 @@ def find_window(pid):
         owner = w.DWORD()
         user.GetWindowThreadProcessId(hwnd, c.byref(owner))
         if owner.value == pid and user.IsWindowVisible(hwnd):
-            found.append(hwnd)
+            title, cls = c.create_unicode_buffer(256), c.create_unicode_buffer(256)
+            user.GetWindowTextW(hwnd, title, len(title))
+            user.GetClassNameW(hwnd, cls, len(cls))
+            found.append(dict(hwnd=hwnd, title=title.value, cls=cls.value, rect=rect(hwnd), maximized=bool(user.IsZoomed(hwnd))))
         return True
 
     user.EnumWindows(collect, 0)
-    return found[0] if found else None
+    return found
+
+
+def find_window(pid):
+    return next((x['hwnd'] for x in app_windows(pid) if x['title'] == 'AV Diagram'), None)
 
 
 def rect(hwnd):
@@ -61,6 +72,7 @@ def launch():
     proc = subprocess.Popen([str(binary)])
     processes.append(proc)
     hwnd = wait_for(lambda: find_window(proc.pid), "fenêtre visible")
+    print(f"Application windows: {json.dumps(app_windows(proc.pid))}", flush=True)
     return proc, hwnd
 
 
