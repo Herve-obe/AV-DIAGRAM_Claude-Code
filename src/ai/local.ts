@@ -1,6 +1,6 @@
 // IA locale gérée par AV Diagram : llama-server est lancé par la partie native (src-tauri/src/local.rs)
 // avec les fichiers choisis par l'utilisateur, puis on attend que le modèle soit chargé.
-import { invoke } from '@tauri-apps/api/core'
+import { invoke, isTauri } from '@tauri-apps/api/core'
 import { AiError, listModels } from './agent'
 import { nativeTransport } from './transport'
 
@@ -75,12 +75,14 @@ export interface LocalModel {
   installed: boolean
   partial: number
 }
-export interface LocalCatalog { models: LocalModel[]; memory_bytes: number; runtime_available: boolean; runtime_error?: string | null }
+export interface LocalCatalog { models: LocalModel[]; memory_bytes: number; runtime_available: boolean; runtime_error?: string | null; directory: string }
 export interface DownloadProgress { id: string | null; downloaded: number; total: number; running: boolean }
 export const localCatalog = () => invoke<LocalCatalog>('local_model_catalog')
 export const downloadModel = (id: string) => invoke<string>('local_model_download', { id })
 export const cancelDownload = () => invoke<void>('local_model_cancel')
 export const downloadProgress = () => invoke<DownloadProgress>('local_model_progress')
+export const setModelDirectory = (directory: string) => invoke<void>('local_model_directory_set', { directory })
+export const installerSetupRequest = () => isTauri() ? invoke<string | null>('local_ai_setup_request') : Promise.resolve(null)
 
 /** Mémoire inconnue : choisir le modèle le plus léger. */
 export function recommendedModel(models: LocalModel[], memory: number): LocalModel | undefined {

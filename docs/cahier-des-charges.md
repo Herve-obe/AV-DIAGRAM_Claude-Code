@@ -309,7 +309,7 @@ La colonne « Faisabilité » est une estimation technique. Les licences des bib
 
 ## 12. Assistant IA dédié (lot 6)
 
-**Reprise du 21 octobre 2026 : IA locale uniquement, version 0.5.0.** Moteur embarqué, téléchargement guidé, documentation locale et essais sur un vrai modèle : voir [la portée actuelle](ia-locale.md). Les descriptions du 25 septembre ci-dessous conservent l’historique du prototype ; les limites déjà levées ne décrivent pas cette version. L’option compte en ligne reste en attente.
+**Reprise du 21 octobre 2026 : version 0.5.1.** Moteur local embarqué, téléchargement guidé et dossier choisi, option dans l’installeur Windows, accès explicite au chat et aux paramètres, API externes avec clé sécurisée/consentement/test des outils : voir [la portée actuelle](ia-locale.md). Les descriptions du 25 septembre ci-dessous conservent l’historique du prototype ; les limites déjà levées ne décrivent pas cette version.
 
 ### 12.1 Deux options, au choix de l'utilisateur (décision v0.4)
 

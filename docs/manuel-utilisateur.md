@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.0 · Édition du 21 octobre 2026 · Windows et macOS
+Version 0.5.1 · Édition du 21 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -293,9 +293,13 @@ Si le PDF contient plus de pages que prévu, examiner les blocs, annotations et 
 
 Avant un chantier, vérifier au minimum : variantes et cartes des appareils ; noms et repères ; sens des flux ; types et longueurs de câbles ; affectations réseau ; budgets PoE et électriques ; références d'horloge ; faces et unités des baies ; échelle, cartouche et révisions. Les fichiers générés décrivent les données renseignées dans AV Diagram, pas une mesure automatique de l'installation.
 
-## 21. Utiliser l’assistant IA local
+## 21. Installer et utiliser l’assistant IA
 
-Ouvre le bouton Assistant dans la barre supérieure, puis Configurer l’assistant et IA locale. Le moteur est inclus dans les builds Windows et macOS. Le moteur Mac exige macOS 13.3 ou plus ; le logiciel reste utilisable sur macOS 12.3 sans ce moteur. Aucun compte ni clé API n’est nécessaire. L’assistant est désactivé par défaut et le logiciel reste utilisable sans le configurer.
+Le bouton Assistant IA de la barre supérieure ouvre le chat. Il reste grisé tant que l’assistant n’est pas activé. Pour l’installer ou le configurer, ouvre Paramètres → Assistant IA → Installer / configurer l’IA. Tu peux choisir l’IA locale ou une IA externe via API. Ces réglages concernent ce poste, pas le projet ; AV Diagram reste utilisable sans assistant.
+
+Sous Windows, l’installeur propose une case facultative Installer l’IA locale et le dossier des modèles. Si tu la coches, le logiciel s’ouvre après l’installation et télécharge Qwen3 4B avec progression et annulation. Après le téléchargement, lance le test et active l’assistant. Si tu passes cette étape, retrouve-la dans les paramètres. Sur Mac, utilise directement les paramètres après installation.
+
+Pour l’IA locale, le moteur est inclus dans les builds Windows et macOS. Le moteur Mac exige macOS 13.3 ou plus ; le logiciel reste utilisable sur macOS 12.3 sans ce moteur. Aucun compte ni clé API n’est nécessaire. Choisis le dossier des modèles dans la configuration. Changer de dossier ne déplace ni ne supprime ceux déjà téléchargés : sélectionne à nouveau leur dossier pour les retrouver.
 
 Choisis Qwen3 4B (environ 2,50 Go, au moins 8 Go de mémoire conseillés) ou Qwen3 8B (environ 5,03 Go, au moins 16 Go conseillés). Ces repères ne garantissent pas la vitesse ; garde de la mémoire libre pour le système et les autres logiciels. Les modèles officiels sont sous licence Apache-2.0, consultable dans l’écran de configuration.
 
@@ -307,10 +311,14 @@ Demande par exemple « Propose un micro dynamique générique pour la voix » ou
 
 Les ajouts s’affichent en pointillés. Lis la réponse, les équipements, les prises et les alertes, puis clique sur Appliquer ou Refuser. Appliquer constitue une étape annulable par Ctrl+Z ou Cmd+Z. Aucun équipement existant ne peut être supprimé ou modifié par l’assistant. Les droits attribués par l’hôte s’appliquent aussi à ses propositions. Si le schéma change pendant une demande ou avant l’application, redemande une proposition.
 
-Les réponses peuvent contenir des erreurs. L’assistant ne remplace ni les fiches constructeur ni la validation de conception. Les grandes demandes sont à découper ; l’historique et les résultats d’outils sont limités pour rester adaptés au modèle local. La lecture automatique de riders, les documents constructeur personnels et les comptes en ligne ne sont pas inclus dans ce lot. Le mode avancé permet de connecter un serveur déjà installé, uniquement sur ce poste (Ollama, LM Studio ou llama.cpp).
+Pour une IA externe, choisis IA externe via API, puis le fournisseur et le modèle. Crée ta clé API dans sa console et enregistre-la dans le trousseau sécurisé du système. Un abonnement de discussion ne remplace pas une clé API ; le fournisseur facture son usage selon son offre. L’écran indique les données qui seront envoyées. Donne ton accord puis lance le test des outils sur un schéma fictif avant de terminer. Aucun modèle local n’est nécessaire. Une clé de serveur personnalisé est liée à son adresse, en HTTPS pour un serveur distant.
+
+Le modèle local est déjà entraîné. Le manuel, le catalogue et les outils lui permettent de consulter le projet ; aucune conversation ne sert à l’entraîner automatiquement. Enrichir les documents ou corriger les fiches est différent d’un entraînement du modèle.
+
+Les réponses peuvent contenir des erreurs. L’assistant ne remplace ni les fiches constructeur ni la validation de conception. Les grandes demandes sont à découper ; l’historique et les résultats d’outils sont limités. La lecture automatique de riders et les documents constructeur personnels ne sont pas inclus dans ce lot. Le mode avancé permet de connecter un serveur déjà installé, uniquement sur ce poste (Ollama, LM Studio ou llama.cpp).
 
 ## 22. Périmètre de cette première version
 
-Le mode formation, la distribution officielle avec certificats et le portage tablette sont en attente. Le manuel couvre les usages disponibles. L’assistant IA local est proposé en expérimentation facultative. Le cloud et la reprise des comptes IA en ligne restent en attente. Les vidéos explicatives pourront être réalisées à partir de captures du logiciel, accompagnées d'un texte, de sous-titres et éventuellement d'une voix de synthèse.
+Le mode formation, la distribution officielle avec certificats et le portage tablette sont en attente. Le manuel couvre les usages disponibles. L’assistant IA local et les connexions API sont facultatifs et expérimentaux. Le cloud des projets reste en attente. Les vidéos explicatives pourront être réalisées à partir de captures du logiciel, accompagnées d'un texte, de sous-titres et éventuellement d'une voix de synthèse.
 
 Les installateurs de test Windows et Mac ne constituent pas une distribution certifiée. Les parcours natifs, la collaboration sur le réseau réel, les fichiers de production variés et l'impression à l'échelle doivent être validés sur les postes utilisés. Conserver les projets et leurs sauvegardes avant toute mise à jour importante.

@@ -1,12 +1,9 @@
 // Installation locale : modèle téléchargé sur demande, moteur embarqué, essai des vrais outils avant activation.
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { buildSystemPrompt, runTurn } from '../ai/agent'
-import { cancelDownload, downloadModel, downloadProgress, localCatalog, recommendedModel, startServer, stopServer, type DownloadProgress, type LocalCatalog } from '../ai/local'
-import { nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
-import { createDraft } from '../ai/tools'
-import { GENERIC_LIBRARY } from '../library/generic'
-import { createProject, DEFAULT_SHEET_ID } from '../model/project'
+import { testAssistant } from '../ai/setup'
+import { cancelDownload, downloadModel, downloadProgress, localCatalog, recommendedModel, setModelDirectory, startServer, stopServer, type DownloadProgress, type LocalCatalog } from '../ai/local'
+import { nativeAvailable, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
 
@@ -22,15 +19,17 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
   const [error, setError] = useState(false)
   const native = nativeAvailable()
   const saved = useRef(false)
+  const autoStarted = useRef(false)
+  const installerDirectory = useAi((s) => s.installerDirectory)
   const selected = catalog?.models.find((m) => m.id === id)
   const downloading = !!progress?.running
   const locked = busy || downloading
   const close = () => { if (!locked) useAi.getState().setSetupOpen(false) }
-  const displayError = (e: unknown) => {
+  const displayError = useCallback((e: unknown) => {
     const key = typeof e === 'string' ? e : ''
     setError(true)
     setMessage(t(`ai.local.error.${key}`, { defaultValue: t('ai.local.error.network') }))
-  }
+  }, [t])
   const reload = async () => {
     const c = await localCatalog()
     setCatalog(c)
@@ -40,16 +39,28 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
   useEffect(() => {
     if (!native) return
     let disposed = false
-    void localCatalog().then((c) => {
+    void localCatalog().then(async (c) => {
       if (disposed) return
       setCatalog(c)
       setId((current) => c.models.some((m) => m.id === current) ? current : recommendedModel(c.models, c.memory_bytes)?.id ?? '')
+      if (installerDirectory && !autoStarted.current && c.runtime_available) {
+        autoStarted.current = true
+        setBusy(true); setError(false); setMessage(t('ai.local.downloading')); setId('qwen3-4b')
+        try {
+          await setModelDirectory(installerDirectory)
+          if (useAi.getState().settings.provider === 'builtin') useAi.getState().saveSettings({ ...useAi.getState().settings, enabled: false })
+          setCatalog(await localCatalog())
+          await downloadModel('qwen3-4b')
+          if (!disposed) { setCatalog(await localCatalog()); setMessage(t('ai.local.downloaded')) }
+        } catch (e) { if (!disposed) displayError(e) }
+        finally { if (!disposed) setBusy(false) }
+      }
     }).catch(() => { if (!disposed) { setError(true); setMessage(t('ai.local.error.storage')) } })
     const poll = () => { void downloadProgress().then((p) => { if (!disposed) setProgress(p) }).catch(() => undefined) }
     poll()
     const timer = window.setInterval(poll, 500)
     return () => { disposed = true; window.clearInterval(timer) }
-  }, [native, t])
+  }, [native, t, installerDirectory, displayError])
 
   useEffect(() => () => { if (!saved.current && native) void stopServer().catch(() => undefined) }, [native])
 
@@ -69,21 +80,24 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
     } catch (e) { displayError(e) }
     finally { setBusy(false); setProgress(await downloadProgress().catch(() => null)) }
   }
+  const chooseDirectory = async () => {
+    const { open } = await import('@tauri-apps/plugin-dialog')
+    const directory = await open({ directory: true, multiple: false, defaultPath: catalog?.directory })
+    if (typeof directory !== 'string' || directory === catalog?.directory) return
+    setBusy(true); setTested(false); setMessage('')
+    try {
+      await setModelDirectory(directory)
+      if (useAi.getState().settings.provider === 'builtin') useAi.getState().saveSettings({ ...useAi.getState().settings, enabled: false })
+      await reload()
+    } catch (e) { displayError(e) }
+    finally { setBusy(false) }
+  }
   const test = async () => {
     if (!selected?.installed) return
     setBusy(true); setTested(false); setError(false); setMessage(t('ai.local.testing'))
     try {
       await startServer({ catalogId: id }, undefined)
-      const base = createProject('Test local AV Diagram')
-      const result = await runTurn({
-        transport: nativeTransport,
-        connection: { provider: 'builtin', model: id },
-        system: buildSystemPrompt({ lang: i18n.language === 'en' ? 'en' : 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' }),
-        userText: 'Appelle obligatoirement l’outil check_project pour vérifier ce schéma vide, puis confirme en une phrase que la vérification est faite. Ne propose aucun équipement.',
-        history: [], draft: createDraft(base, DEFAULT_SHEET_ID),
-        ctx: { library: GENERIC_LIBRARY, describe: (issue) => issue.code }, maxSteps: 4,
-      })
-      if (!result.toolsUsed.includes('check_project')) throw 'tools'
+      await testAssistant({ provider: 'builtin', model: id }, i18n.language)
       setTested(true); setMessage(t('ai.local.tested'))
     } catch (e) {
       if (e === 'integrity' || e === 'missing') setCatalog(c => c ? { ...c, models: c.models.map(m => m.id === id ? { ...m, installed: false } : m) } : c)
@@ -113,6 +127,11 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
           {catalog && !catalog.runtime_available && <p className="ai-note">{t(`ai.local.error.${catalog.runtime_error === 'platform' ? 'platform' : 'runtime'}`)}</p>}
           <ol className="ai-steps"><li>{t('ai.local.step1')}</li><li>{t('ai.local.step2')}</li><li>{t('ai.local.step3')}</li></ol>
           {catalog && <>
+            <div className="field">
+              <label>{t('ai.local.directory')}</label>
+              <div className="ai-file"><span className="mono dim" title={catalog.directory}>{catalog.directory}</span><button className="btn" disabled={locked || !native} onClick={() => void chooseDirectory().catch(displayError)}>{t('ai.setup.choose')}</button></div>
+              <p className="field-hint">{t('ai.local.directoryHint')}</p>
+            </div>
             <p className="dialog-hint">{catalog.memory_bytes ? t('ai.local.memory', { gb: Math.round(catalog.memory_bytes / 1024 ** 3) }) : t('ai.local.memoryUnknown')}</p>
             <div className="ai-choices" role="radiogroup" aria-label={t('ai.setup.model')}>
               {catalog.models.map((m) => <label key={m.id} className={`ai-choice ${id === m.id ? 'is-on' : ''}`}>

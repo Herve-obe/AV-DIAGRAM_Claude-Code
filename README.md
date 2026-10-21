@@ -8,7 +8,7 @@ Logiciel gratuit, sous licence [PolyForm Shield 1.0.0](LICENSE.md) : l'usage est
 
 [Manuel utilisateur illustré](docs/manuel-utilisateur.md) · [Version PDF](public/manuel.pdf) · Captures annotées et légendes, disponibles aussi hors ligne dans l'application.
 
-Version 0.5.0 : assistant IA local facultatif, moteur embarqué et téléchargement guidé de modèles Qwen3. Voir [installation, confidentialité et limites](docs/ia-locale.md). Le manuel illustré et la disposition mémorisée des fenêtres sont conservés. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle et tablette en attente pour la première version ; cloud et activation des comptes IA en ligne toujours en attente.
+Version 0.5.1 : assistant IA facultatif, bouton de chat explicite et configuration dans les paramètres. L'installeur Windows propose l'IA locale et le dossier des modèles ; les API externes sont configurables avec clé sécurisée, accord d'envoi et test des outils. Voir [installation, confidentialité et limites](docs/ia-locale.md). Le manuel illustré et la disposition mémorisée des fenêtres sont conservés. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle, tablette et cloud des projets restent en attente.
 
 Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/etat-avancement.md](docs/etat-avancement.md).
 

@@ -1,14 +1,15 @@
 // @vitest-environment jsdom
-import { act } from 'react'
+import { act, StrictMode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import '../i18n'
 import { useAi } from '../store/aiStore'
 import { LocalAiSetup } from './LocalAiSetup'
 
-const actions = vi.hoisted(() => ({ catalog: vi.fn(), download: vi.fn(), progress: vi.fn(), cancel: vi.fn(), start: vi.fn(), stop: vi.fn(), run: vi.fn() }))
+const actions = vi.hoisted(() => ({ catalog: vi.fn(), download: vi.fn(), progress: vi.fn(), cancel: vi.fn(), start: vi.fn(), stop: vi.fn(), run: vi.fn(), directory: vi.fn(), pick: vi.fn() }))
 vi.mock('../ai/local', async original => ({ ...await original<typeof import('../ai/local')>(), localCatalog: actions.catalog, downloadModel: actions.download,
-  downloadProgress: actions.progress, cancelDownload: actions.cancel, startServer: actions.start, stopServer: actions.stop }))
+  downloadProgress: actions.progress, cancelDownload: actions.cancel, startServer: actions.start, stopServer: actions.stop, setModelDirectory: actions.directory }))
+vi.mock('@tauri-apps/plugin-dialog', () => ({ open: actions.pick }))
 vi.mock('../ai/agent', async original => ({ ...await original<typeof import('../ai/agent')>(), runTurn: actions.run }))
 vi.mock('../ai/transport', () => ({ nativeAvailable: () => true, nativeTransport: {}, openExternal: vi.fn() }))
 vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
@@ -18,11 +19,12 @@ const button = (text: string) => [...element.querySelectorAll('button')].find(b 
 const click = (text: string) => act(async () => { button(text).click() })
 beforeEach(() => {
   Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true }); vi.clearAllMocks()
-  useAi.getState().clear(); useAi.setState({ settings: { enabled: false, consent: false }, setupOpen: true })
-  actions.catalog.mockResolvedValue({ models: [{ ...model }], memory_bytes: 16 * 1024 ** 3, runtime_available: true })
+  useAi.getState().clear(); useAi.setState({ settings: { enabled: false, consent: false }, setupOpen: true, installerDirectory: null })
+  actions.catalog.mockResolvedValue({ models: [{ ...model }], memory_bytes: 16 * 1024 ** 3, runtime_available: true, directory: 'C:/Models' })
   actions.progress.mockResolvedValue({ running: false, id: null, downloaded: 0, total: 0 })
   actions.start.mockResolvedValue(['qwen3-4b']); actions.stop.mockResolvedValue(undefined)
   actions.cancel.mockResolvedValue(undefined)
+  actions.directory.mockResolvedValue(undefined); actions.pick.mockResolvedValue(null)
   actions.run.mockResolvedValue({ toolsUsed: ['check_project'] })
   element = document.createElement('div'); document.body.append(element); root = createRoot(element)
 })
@@ -79,4 +81,20 @@ it('explique la limite macOS avant de proposer un téléchargement inutile', asy
   await draw()
   expect(element.textContent).toContain('macOS 13.3')
   expect(button('Télécharger le modèle').disabled).toBe(true)
+})
+it('reprend une seule fois le choix fait dans l’installeur, même en mode React strict', async () => {
+  useAi.setState({ installerDirectory: 'D:/IA locale é test' })
+  actions.download.mockResolvedValue(undefined)
+  await act(async () => root.render(<StrictMode><LocalAiSetup back={() => undefined} advanced={() => undefined} /></StrictMode>))
+  expect(actions.directory).toHaveBeenCalledExactlyOnceWith('D:/IA locale é test')
+  expect(actions.download).toHaveBeenCalledExactlyOnceWith('qwen3-4b')
+  expect(button('Activer l’IA locale').disabled).toBe(true)
+})
+it('change le dossier sans activation automatique et invalide le réglage précédent', async () => {
+  useAi.setState({ settings: { enabled: true, consent: false, provider: 'builtin', model: model.id, managed: { catalogId: model.id } } })
+  actions.pick.mockResolvedValue('D:/IA locale')
+  await draw(); await click('Choisir…')
+  expect(actions.directory).toHaveBeenCalledWith('D:/IA locale')
+  expect(useAi.getState().settings.enabled).toBe(false)
+  expect(actions.download).not.toHaveBeenCalled()
 })

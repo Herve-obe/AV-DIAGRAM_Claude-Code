@@ -13,9 +13,9 @@ export const nativeTransport: Transport = {
 }
 
 export const keyStore = {
-  set: (provider: ProviderId, key: string) => invoke<void>('ai_key_set', { provider, key: key.trim() }),
-  remove: (provider: ProviderId) => invoke<void>('ai_key_delete', { provider }),
-  present: (provider: ProviderId) => invoke<boolean>('ai_key_present', { provider }),
+  set: (provider: ProviderId, key: string, baseUrl?: string) => invoke<void>('ai_key_set', { provider, key: key.trim(), baseUrl: baseUrl ?? null }),
+  remove: (provider: ProviderId, baseUrl?: string) => invoke<void>('ai_key_delete', { provider, baseUrl: baseUrl ?? null }),
+  present: (provider: ProviderId, baseUrl?: string) => invoke<boolean>('ai_key_present', { provider, baseUrl: baseUrl ?? null }),
 }
 
 /** Ouvre une page (console du fournisseur) dans le navigateur du système. */

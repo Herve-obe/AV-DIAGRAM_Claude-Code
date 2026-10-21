@@ -20,6 +20,7 @@ pub fn run() {
         .plugin(tauri_plugin_opener::init())
         .manage(local::LocalServer::default())
         .manage(local_models::Downloads::default())
+        .manage(local_models::InstallerSetup(std::sync::Mutex::new(local_models::installer_directory(std::env::args_os().skip(1)))))
         .manage(collab::CollabServer::default())
         .manage(dwg::DwgConverter::default())
         .invoke_handler(tauri::generate_handler![
@@ -35,6 +36,8 @@ pub fn run() {
             local_models::local_model_download,
             local_models::local_model_cancel,
             local_models::local_model_progress,
+            local_models::local_model_directory_set,
+            local_models::local_ai_setup_request,
             collab::collab_host_start,
             collab::collab_host_stop,
             collab::collab_host_status,

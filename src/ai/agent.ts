@@ -138,7 +138,7 @@ export async function runTurn(opts: {
   const toolsUsed: string[] = []
   for (let step = 0; step < (opts.maxSteps ?? (connection.provider === 'builtin' ? 20 : 12)); step++) {
     if (opts.isActive && !opts.isActive()) throw new AiError('cancelled', '')
-    const body = await send(transport, connection.provider, connection.baseUrl, buildChatRequest(api, connection.model, prompt, boundedHistory(history), TOOL_SPECS, connection.provider === 'builtin'))
+    const body = await send(transport, connection.provider, connection.baseUrl, buildChatRequest(api, connection.model, prompt, boundedHistory(history), TOOL_SPECS, connection.provider))
     if (opts.isActive && !opts.isActive()) throw new AiError('cancelled', '')
     let reply
     try {
@@ -164,7 +164,7 @@ export async function runTurn(opts: {
 /** Dernière étape de la configuration : une question simple, sans outils, pour vérifier que le modèle répond. */
 export async function testChat(transport: Transport, connection: Connection, question: string): Promise<string> {
   const api = providerInfo(connection.provider).api
-  const body = await send(transport, connection.provider, connection.baseUrl, buildChatRequest(api, connection.model, 'Réponds en une phrase.', [{ role: 'user', text: question }], [], connection.provider === 'builtin'))
+  const body = await send(transport, connection.provider, connection.baseUrl, buildChatRequest(api, connection.model, 'Réponds en une phrase.', [{ role: 'user', text: question }], [], connection.provider))
   try {
     return parseChatResponse(api, body).text
   } catch {

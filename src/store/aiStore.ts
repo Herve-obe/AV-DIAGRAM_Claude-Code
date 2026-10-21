@@ -62,6 +62,7 @@ interface AiState {
   settings: AiSettings
   panelOpen: boolean
   setupOpen: boolean
+  installerDirectory: string | null
   bubbles: Bubble[]
   history: ChatMessage[]
   busy: boolean
@@ -85,6 +86,7 @@ export const useAi = create<AiState>((set, get) => ({
   settings: readSettings(),
   panelOpen: false,
   setupOpen: false,
+  installerDirectory: null,
   bubbles: [],
   history: [],
   busy: false,
@@ -99,10 +101,10 @@ export const useAi = create<AiState>((set, get) => ({
     } catch {
       // stockage indisponible : réglage gardé pour la session
     }
-    set({ settings })
+    set({ settings, ...(!isReady(settings) ? { panelOpen: false } : {}) })
   },
-  setPanelOpen: (panelOpen) => set({ panelOpen }),
-  setSetupOpen: (setupOpen) => set({ setupOpen }),
+  setPanelOpen: (panelOpen) => panelOpen && !isReady(get().settings) ? set({ setupOpen: true }) : set({ panelOpen }),
+  setSetupOpen: (setupOpen) => set({ setupOpen, ...(!setupOpen ? { installerDirectory: null } : {}) }),
 
   send: async (text) => {
     const { settings, busy, history, contextNote } = get()

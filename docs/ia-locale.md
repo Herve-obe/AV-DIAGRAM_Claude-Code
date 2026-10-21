@@ -1,15 +1,23 @@
-# Assistant IA local — 0.5.0
+# Assistant IA — 0.5.1
 
 Reprise demandée le 21 octobre 2026. Fonction expérimentale, facultative et désactivée par défaut.
-L'application fonctionne entièrement sans assistant. Les comptes en ligne, le cloud, la lecture
-automatique de riders et l'affinage d'un modèle ne sont pas inclus dans cette reprise.
+L'application fonctionne entièrement sans assistant. La lecture automatique de riders, le cloud
+des projets et l'affinage d'un modèle ne sont pas inclus. Une API IA externe est maintenant configurable.
 
 ## Installation utilisateur
 
-Assistant → Configurer → IA locale : choisir le modèle, télécharger, charger et tester, activer.
+**Windows, pendant l'installation** : cocher « Installer l'IA locale », choisir le dossier des modèles,
+puis terminer. AV Diagram s'ouvre sur la configuration locale et télécharge Qwen3 4B avec progression
+et annulation. Le test des outils puis l'activation restent explicites. La case est décochée par défaut ;
+une installation silencieuse ne télécharge rien.
+
+**Plus tard, sur Windows ou Mac** : Paramètres → Assistant IA → Installer / configurer l'IA → IA locale.
+Choisir le dossier et le modèle, télécharger, charger et tester, activer. Changer de dossier ne déplace
+ni ne supprime les anciens modèles ; sélectionner à nouveau l'ancien dossier permet de les retrouver.
+Le bouton « Assistant IA » reste grisé avant activation et ouvre le chat une fois l'IA configurée.
 Le test appelle réellement `check_project` sur un document fictif avant d'autoriser l'activation.
 Windows x64 utilise le processeur et embarque ses DLL Visual C++ dans le dossier du moteur (aucune installation système supplémentaire). macOS embarque les moteurs Intel et Apple Silicon, qui nécessitent macOS 13.3 ou plus. La version minimale du moteur est vérifiée avant tout téléchargement ; le reste d’AV Diagram conserve sa compatibilité macOS 12.3.
-Le modèle est partagé entre les projets de ce poste, dans les données locales de l'application,
+Le modèle est partagé entre les projets de ce poste, dans le dossier choisi (par défaut les données locales de l'application),
 sans être copié dans les `.avd` ni dans `Save Back Up`.
 
 | Modèle | Taille exacte | Repère de RAM installée |
@@ -81,3 +89,18 @@ Restent à éprouver : qualité sur des projets métier variés, vitesse selon l
 en usage réel, téléchargement sur les réseaux filtrés et essais collaboratifs sur plusieurs machines.
 
 Les DLL Microsoft proviennent exclusivement du répertoire Redist de Visual Studio, sans modification ; leur notice accompagne le moteur. Le test réel vérifie qu’elles sont chargées depuis ce dossier. Le contrôle NSIS vérifie aussi le moteur installé. Voir [déploiement local Microsoft](https://learn.microsoft.com/en-us/cpp/windows/determining-which-dlls-to-redistribute).
+
+## API externe et entraînement
+
+Paramètres → Assistant IA → Installer / configurer l'IA → IA externe via API : choisir Claude/Anthropic,
+OpenAI, Gemini, Mistral ou un serveur compatible OpenAI. La clé reste dans le trousseau système ;
+pour un serveur personnalisé elle est liée à son adresse. Une adresse distante doit être en HTTPS.
+Le choix du modèle, l'accord d'envoi des données et un test des outils sur un schéma fictif précèdent
+l'activation. Aucun modèle local n'est nécessaire. Une clé API et sa facturation sont indépendantes
+d'un abonnement à une interface de discussion. Aucun compte payant n'a été utilisé pour nos tests :
+les parcours API sont vérifiés avec un transport simulé ; la configuration vérifie le service réel choisi.
+
+Qwen3 est déjà entraîné. AV Diagram lui fournit le manuel, la bibliothèque et des outils pour consulter
+le schéma : il n'apprend pas les conversations et ne modifie pas ses poids. Un affinage futur demanderait
+des exemples anonymisés de demandes et de réponses validées, un jeu d'essais séparé et un entraînement
+sur du matériel adapté ; il ne remplacerait jamais les fiches constructeur ou les règles de validation.

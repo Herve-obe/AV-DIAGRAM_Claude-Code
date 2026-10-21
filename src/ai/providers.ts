@@ -23,11 +23,11 @@ export interface ProviderInfo {
   recommend?: string
 }
 
-// Adresses et pages de console relevées le 2026-09-25, à revérifier à chaque version (section 12.6).
+// Adresses et pages de console vérifiées le 2026-10-21 (section 12.6).
 export const PROVIDERS: ProviderInfo[] = [
   { id: 'builtin', label: 'AV Diagram · local', api: 'openai', kind: 'local' },
-  { id: 'anthropic', label: 'Claude (Anthropic)', api: 'anthropic', kind: 'account', keyUrl: 'https://console.anthropic.com/settings/keys', keyPrefix: 'sk-ant-', recommend: 'sonnet' },
-  { id: 'openai', label: 'ChatGPT (OpenAI)', api: 'openai', kind: 'account', keyUrl: 'https://platform.openai.com/api-keys', keyPrefix: 'sk-' },
+  { id: 'anthropic', label: 'Claude (Anthropic)', api: 'anthropic', kind: 'account', keyUrl: 'https://platform.claude.com/settings/keys', keyPrefix: 'sk-ant-', recommend: 'sonnet' },
+  { id: 'openai', label: 'OpenAI', api: 'openai', kind: 'account', keyUrl: 'https://platform.openai.com/api-keys', keyPrefix: 'sk-' },
   { id: 'gemini', label: 'Gemini (Google)', api: 'openai', kind: 'account', keyUrl: 'https://aistudio.google.com/apikey', keyPrefix: 'AIza' },
   { id: 'mistral', label: 'Mistral', api: 'openai', kind: 'account', keyUrl: 'https://console.mistral.ai/api-keys' },
   { id: 'compatible', label: 'Autre (compatible OpenAI)', api: 'openai', kind: 'account', defaultBaseUrl: 'https://' },
@@ -81,7 +81,7 @@ export interface ModelReply {
 
 const MAX_TOKENS = 2048
 
-export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], local = false): ApiRequest {
+export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], provider?: ProviderId): ApiRequest {
   if (api === 'anthropic') {
     const body = {
       model,
@@ -116,9 +116,9 @@ export function buildChatRequest(api: ApiFormat, model: string, system: string, 
   }
   const body = {
     model,
-    max_tokens: MAX_TOKENS,
+    ...(provider === 'openai' ? { max_completion_tokens: MAX_TOKENS } : { max_tokens: MAX_TOKENS }),
     messages: out,
-    ...(local ? { temperature: 0.7, top_p: 0.8, min_p: 0, presence_penalty: 1.5, parallel_tool_calls: false, chat_template_kwargs: { enable_thinking: false } } : {}),
+    ...(provider === 'builtin' ? { temperature: 0.7, top_p: 0.8, min_p: 0, presence_penalty: 1.5, parallel_tool_calls: false, chat_template_kwargs: { enable_thinking: false } } : {}),
     // Pas de liste d'outils vide : certains serveurs compatibles la refusent
     ...(tools.length ? { tools: tools.map((t) => ({ type: 'function', function: { name: t.name, description: t.description, parameters: t.parameters } })) } : {}),
   }

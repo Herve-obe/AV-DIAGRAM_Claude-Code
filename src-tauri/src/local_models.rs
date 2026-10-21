@@ -30,7 +30,57 @@ pub fn model(id: &str) -> Result<Model, String> {
 }
 
 pub fn model_dir(app: &tauri::AppHandle) -> Result<PathBuf, String> {
-    app.path().app_local_data_dir().map(|p| p.join("local-ai").join("models")).map_err(|_| "storage".into())
+    let base = app.path().app_local_data_dir().map_err(|_| "storage")?.join("local-ai");
+    directory_at(&base)
+}
+
+fn directory_at(base: &Path) -> Result<PathBuf, String> {
+    match fs::read(base.join("models-directory.json")) {
+        Ok(data) => {
+            let path: PathBuf = serde_json::from_slice(&data).map_err(|_| "storage")?;
+            if !path.is_absolute() { return Err("storage".into()); }
+            Ok(path)
+        }
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(base.join("models")),
+        Err(_) => Err("storage".into()),
+    }
+}
+
+fn save_directory(base: &Path, path: &Path) -> Result<(), String> {
+    if !path.is_absolute() || path.to_string_lossy().chars().any(char::is_control) { return Err("storage".into()); }
+    fs::create_dir_all(path).map_err(|_| "storage")?;
+    let probe = path.join(format!(".avd-write-{}", rand::random::<u64>()));
+    File::create_new(&probe).map_err(|_| "storage")?;
+    fs::remove_file(probe).map_err(|_| "storage")?;
+    fs::create_dir_all(base).map_err(|_| "storage")?;
+    let pending = base.join("models-directory.json.tmp");
+    fs::write(&pending, serde_json::to_vec(path).map_err(|_| "storage")?).map_err(|_| "storage")?;
+    fs::rename(pending, base.join("models-directory.json")).map_err(|_| "storage".into())
+}
+
+#[tauri::command]
+pub fn local_model_directory_set(app: tauri::AppHandle, state: tauri::State<Downloads>, server: tauri::State<crate::local::LocalServer>, directory: String) -> Result<(), String> {
+    if state.busy.compare_exchange(false, true, Ordering::SeqCst, Ordering::SeqCst).is_err() { return Err("busy".into()); }
+    let _running = Running(state.inner().clone());
+    let base = app.path().app_local_data_dir().map_err(|_| "storage")?.join("local-ai");
+    save_directory(&base, Path::new(&directory))?;
+    server.stop();
+    Ok(())
+}
+
+pub struct InstallerSetup(pub Mutex<Option<String>>);
+
+pub fn installer_directory(args: impl IntoIterator<Item = std::ffi::OsString>) -> Option<String> {
+    let mut args = args.into_iter();
+    if args.next()?.to_str()? != "--install-local-ai" { return None; }
+    let directory = args.next()?.into_string().ok()?;
+    if args.next().is_some() || !Path::new(&directory).is_absolute() { return None; }
+    Some(directory)
+}
+
+#[tauri::command]
+pub fn local_ai_setup_request(state: tauri::State<InstallerSetup>) -> Option<String> {
+    state.0.lock().ok()?.take()
 }
 
 pub fn verify_file(path: &Path, m: &Model) -> Result<(), String> {
@@ -98,9 +148,10 @@ fn valid_range(value: &str, start: u64, size: u64) -> bool {
     value == format!("bytes {}-{}/{}", start, size - 1, size)
 }
 
-async fn download(state: Downloads, m: Model, dir: PathBuf) -> Result<String, String> {
+async fn download(state: Downloads, m: Model, app: tauri::AppHandle) -> Result<String, String> {
     if state.busy.compare_exchange(false, true, Ordering::SeqCst, Ordering::SeqCst).is_err() { return Err("busy".into()); }
     let _running = Running(state.clone());
+    let dir = model_dir(&app)?;
     let epoch = state.epoch.load(Ordering::SeqCst);
     let cancelled = || state.epoch.load(Ordering::SeqCst) != epoch;
     fs::create_dir_all(&dir).map_err(|_| "storage")?;
@@ -178,7 +229,7 @@ async fn transfer(state: &Downloads, m: &Model, target: &Path, partial: &Path, m
 #[derive(Serialize)]
 pub struct InstalledModel { #[serde(flatten)] model: Model, installed: bool, partial: u64 }
 #[derive(Serialize)]
-pub struct Catalog { models: Vec<InstalledModel>, memory_bytes: u64, runtime_available: bool, runtime_error: Option<String> }
+pub struct Catalog { models: Vec<InstalledModel>, memory_bytes: u64, runtime_available: bool, runtime_error: Option<String>, directory: String }
 
 #[tauri::command]
 pub fn local_model_catalog(app: tauri::AppHandle) -> Result<Catalog, String> {
@@ -189,12 +240,12 @@ pub fn local_model_catalog(app: tauri::AppHandle) -> Result<Catalog, String> {
         InstalledModel { model: m, installed, partial }
     }).collect();
     let runtime = crate::local::bundled_server(&app);
-    Ok(Catalog { models, memory_bytes: memory_bytes(), runtime_available: runtime.is_ok(), runtime_error: runtime.err() })
+    Ok(Catalog { models, memory_bytes: memory_bytes(), runtime_available: runtime.is_ok(), runtime_error: runtime.err(), directory: dir.to_string_lossy().into_owned() })
 }
 
 #[tauri::command]
 pub async fn local_model_download(app: tauri::AppHandle, state: tauri::State<'_, Downloads>, id: String) -> Result<String, String> {
-    download(state.inner().clone(), model(&id)?, model_dir(&app)?).await
+    download(state.inner().clone(), model(&id)?, app).await
 }
 #[tauri::command]
 pub fn local_model_cancel(state: tauri::State<Downloads>) { state.stop(); }
@@ -224,6 +275,32 @@ fn memory_bytes() -> u64 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn choix_du_dossier_sans_deplacer_les_modeles() {
+        let root = std::env::temp_dir().join(format!("avd-directory-{}", rand::random::<u64>()));
+        let base = root.join("config");
+        let first = root.join("IA locale é test");
+        let second = root.join("autre");
+        assert_eq!(directory_at(&base).unwrap(), base.join("models"));
+        assert!(save_directory(&base, Path::new("relative")).is_err());
+        save_directory(&base, &first).unwrap();
+        fs::write(first.join("keep.gguf"), b"original").unwrap();
+        save_directory(&base, &second).unwrap();
+        assert_eq!(directory_at(&base).unwrap(), second);
+        assert_eq!(fs::read(first.join("keep.gguf")).unwrap(), b"original");
+        fs::remove_file(first.join("keep.gguf")).unwrap();
+        fs::remove_file(base.join("models-directory.json")).unwrap();
+        for dir in [first, second, base, root] { fs::remove_dir(dir).unwrap(); }
+    }
+    #[test]
+    fn demande_installeur_limitee_au_dossier_explicitement_choisi() {
+        let directory = std::env::temp_dir().join("IA locale é test").to_string_lossy().into_owned();
+        let args = |values: &[&str]| values.iter().map(std::ffi::OsString::from).collect::<Vec<_>>();
+        assert_eq!(installer_directory(args(&["--install-local-ai", &directory])), Some(directory));
+        assert!(installer_directory(args(&["--install-local-ai", "relative"])).is_none());
+        assert!(installer_directory(args(&["--other", "x"])).is_none());
+        assert!(installer_directory(args(&["--install-local-ai", "x", "extra"])).is_none());
+    }
     #[test]
     fn catalogue_et_frontieres() {
         for m in catalog() {

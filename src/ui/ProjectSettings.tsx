@@ -13,6 +13,8 @@ import { useUi } from '../store/uiStore'
 import { Field, toNumber } from './Field'
 import { Icon } from './Icon'
 import { SaveFolderSettings } from './SaveFolderSettings'
+import { isReady, useAi } from '../store/aiStore'
+import { providerInfo } from '../ai/providers'
 
 export function ProjectSettings() {
   const { t } = useTranslation()
@@ -20,7 +22,8 @@ export function ProjectSettings() {
   const project = useProject((s) => s.project)
   const store = useProject.getState()
   const [newZone, setNewZone] = useState({ name: '', code: '' })
-  const [tab, setTab] = useState<'project' | 'titleBlock' | 'export' | 'template' | 'storage'>('project')
+  const [tab, setTab] = useState<'project' | 'titleBlock' | 'export' | 'template' | 'storage' | 'ai'>('project')
+  const aiSettings = useAi((s) => s.settings)
   // Brouillons du cartouche et des réglages d'export : enregistrés en un seul pas d'annulation
   // quand on change d'onglet ou qu'on ferme
   const [infoDraft, setInfoDraft] = useState<ProjectInfo | null>(null)
@@ -74,10 +77,16 @@ export function ProjectSettings() {
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
         <div className="segmented export-tabs" role="tablist">
-          {(['project', 'titleBlock', 'export', 'template', 'storage'] as const).map((k) => (
+          {(['project', 'titleBlock', 'export', 'template', 'storage', 'ai'] as const).map((k) => (
             <button key={k} role="tab" aria-selected={tab === k} aria-pressed={tab === k} onClick={() => goTo(k)}>{t(`settings.tabs.${k}`)}</button>
           ))}
         </div>
+        {tab === 'ai' && <div className="dialog-body"><section>
+          <h3 className="group-title">{t('ai.title')}</h3>
+          <p className="dialog-hint">{t('ai.settingsHint')}</p>
+          <p className="dialog-hint">{t(isReady(aiSettings) ? 'ai.configured' : 'ai.notConfigured')}{aiSettings.provider && aiSettings.model ? ` · ${providerInfo(aiSettings.provider).label} · ${aiSettings.model}` : ''}</p>
+          <div className="dialog-actions"><button className="btn btn-primary" onClick={() => { close(); useAi.getState().setSetupOpen(true) }}>{t('ai.configure')}</button></div>
+        </section></div>}
         {tab === 'titleBlock' && (
           <div className="dialog-body">
             <section>

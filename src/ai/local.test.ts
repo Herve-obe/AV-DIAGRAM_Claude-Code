@@ -33,7 +33,7 @@ describe('assistant local : sources et limites', () => {
     expect(recommendedModel(models, 32 * 1024 ** 3)?.id).toBe('large')
   })
   it('désactive la réflexion longue seulement pour le moteur embarqué', () => {
-    const local = JSON.parse(buildChatRequest('openai', 'm', 's', [], [], true).body!)
+    const local = JSON.parse(buildChatRequest('openai', 'm', 's', [], [], 'builtin').body!)
     expect(local.chat_template_kwargs.enable_thinking).toBe(false)
     expect(local.parallel_tool_calls).toBe(false)
     expect(JSON.parse(buildChatRequest('openai', 'm', 's', [], []).body!).chat_template_kwargs).toBeUndefined()

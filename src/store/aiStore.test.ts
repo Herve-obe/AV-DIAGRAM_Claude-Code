@@ -5,7 +5,7 @@ import { GENERIC_LIBRARY } from '../library/generic'
 import { createProject, DEFAULT_SHEET_ID } from '../model/project'
 import { createDraft, runTool } from '../ai/tools'
 import { setProjectGuard, useProject } from './projectStore'
-import { useAi } from './aiStore'
+import { isReady, useAi } from './aiStore'
 
 const native = vi.hoisted(() => ({ request: vi.fn(), stop: vi.fn(), ensure: vi.fn() }))
 vi.mock('../ai/transport', () => ({ nativeTransport: { request: native.request } }))
@@ -31,6 +31,18 @@ it('le mode embarqué ne demande ni compte ni consentement pour envoyer', async 
   expect(native.ensure).toHaveBeenCalledWith({ catalogId: 'qwen3-4b' }, undefined)
   expect(native.request.mock.calls[0][0]).toBe('builtin')
   expect(useAi.getState().bubbles.at(-1)?.text).toBe('Bonjour')
+})
+it('ouvre la configuration sans assistant actif et ferme le chat à la désactivation', () => {
+  useAi.getState().saveSettings({ enabled: false, consent: false })
+  useAi.getState().setPanelOpen(true)
+  expect(useAi.getState().setupOpen).toBe(true)
+  expect(useAi.getState().panelOpen).toBe(false)
+  useAi.getState().saveSettings(settings)
+  useAi.getState().setPanelOpen(true)
+  expect(useAi.getState().panelOpen).toBe(true)
+  useAi.getState().saveSettings({ ...settings, enabled: false })
+  expect(useAi.getState().panelOpen).toBe(false)
+  expect(isReady({ enabled: true, provider: 'openai', model: 'test', consent: false })).toBe(false)
 })
 it('applique une proposition dans une seule étape annulable', () => {
   const before = useProject.getState().project

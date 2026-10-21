@@ -27,6 +27,12 @@ const openaiToolCall = (id: string, name: string, args: unknown) => ({
 const openaiText = (text: string) => ({ choices: [{ message: { content: text } }] })
 
 describe('assistant : formats des fournisseurs', () => {
+  it('utilise la limite de sortie actuelle chez OpenAI sans changer les API compatibles', () => {
+    const request = (provider: 'openai' | 'mistral') => JSON.parse(buildChatRequest('openai', 'test', 'sys', [], [], provider).body!)
+    expect(request('openai').max_completion_tokens).toBe(2048)
+    expect(request('openai').max_tokens).toBeUndefined()
+    expect(request('mistral').max_tokens).toBe(2048)
+  })
   it('construit une requête Anthropic avec outils et résultats', () => {
     const req = buildChatRequest('anthropic', 'm', 'sys', [
       { role: 'user', text: 'bonjour' },

@@ -1,8 +1,8 @@
-# État d'avancement (mise à jour du 2026-10-20)
+# État d'avancement (mise à jour du 2026-10-21)
 
-## Situation actuelle — 0.5.0
+## Situation actuelle — 0.5.1
 
-La 0.5.0 reprend l’IA locale : moteur llama.cpp embarqué sur Windows/macOS, modèles Qwen3 4B/8B téléchargés sur demande avec reprise et contrôle SHA-256, test des outils avant activation, recherche locale dans le manuel et validation humaine des ajouts. Voir [le fonctionnement et les limites](ia-locale.md). Les comptes en ligne ne font pas partie de cette reprise.
+La 0.5.1 rend l’IA accessible : bouton Assistant IA grisé avant activation, onglet dans les paramètres, option dans l’installeur Windows et choix du dossier des modèles. Les API externes sont configurables avec accord d’envoi des données, clé dans le trousseau et test des outils sur un projet fictif. La 0.5.0 avait ajouté le moteur llama.cpp embarqué sur Windows/macOS, les modèles Qwen3 4B/8B téléchargés sur demande avec reprise et contrôle SHA-256, la recherche dans le manuel et la validation humaine des ajouts. Voir [le fonctionnement et les limites](ia-locale.md).
 
 La 0.4.3 ajoute huit captures réelles annotées au manuel hors ligne HTML/PDF. Au premier lancement, la fenêtre principale est maximisée ; les ouvertures suivantes reprennent la disposition locale, y compris Infos lorsqu'elle était ouverte et que les écrans nécessaires sont disponibles. Les positions sont ramenées dans la zone de travail si un écran a été débranché.
 

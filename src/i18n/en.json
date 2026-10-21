@@ -419,7 +419,8 @@
       "titleBlock": "Title block",
       "export": "Layout and export",
       "template": "Title block template (this computer)",
-      "storage": "Saving (this workstation)"
+      "storage": "Saving (this workstation)",
+      "ai": "AI Assistant"
     },
     "titleBlockHint": "Project title block. Empty fields are completed from this computer's template."
   },
@@ -548,10 +549,10 @@
     "menu": "Merge another version…"
   },
   "ai": {
-    "title": "Assistant",
+    "title": "AI Assistant",
     "open": "Open the AI assistant",
     "intro": "The assistant helps you build and check your diagram. It only places equipment from the library and has its proposals checked by the rules engine. It stays off until you set it up: local AI on your computer, or your own AI account.",
-    "configure": "Set up the assistant",
+    "configure": "Install / configure AI",
     "hello": "Ask a question or describe the system you need. Proposed additions are shown as a preview: nothing changes until you accept.",
     "desktopOnly": "The assistant works in the desktop app: it sends the requests and keeps the key in the system keychain.",
     "placeholder": "Your question (Enter to send, Shift+Enter for a new line)",
@@ -606,8 +607,8 @@
       "chooseHint": "Two options, same assistant. You can switch at any time.",
       "local": "Local AI",
       "localDesc": "Free, offline, no data leaves the computer. Decent quality, limited by the model size. Needs a fairly recent computer.",
-      "account": "My AI account",
-      "accountDesc": "Best quality (large models). Billed per use by your provider, with your own API key. Internet required.",
+      "account": "External AI via API",
+      "accountDesc": "Use your API key with an external provider. Internet and provider billing according to your plan.",
       "disable": "Turn the assistant off",
       "progress": "Steps",
       "step": {
@@ -628,7 +629,7 @@
       "noModel": "Connected, but no model is installed on this server.",
       "model": "Model",
       "localModelHint": "Prefer a multilingual model that can call functions (tools).",
-      "testHint": "Last step: a simple question to check that the model answers.",
+      "testHint": "Check that the model responds and can use AV Diagram tools.",
       "testQuestion": "What is the nominal level of a professional balanced audio line?",
       "runTest": "Run the test",
       "providerHint": "Pick the provider of your AI account.",
@@ -666,7 +667,8 @@
       "noFile": "No file selected",
       "choose": "Choose…",
       "launch": "Start and load the model",
-      "launching": "Starting llama-server and loading the model (up to 3 min)…"
+      "launching": "Starting llama-server and loading the model (up to 3 min)…",
+      "toolTestHint": "This test uses an empty fictional diagram, without any data from your project. It may take several minutes."
     },
     "preview": "Assistant preview: {{equipment}} device(s) and {{links}} link(s) proposed, dashed",
     "showSheet": "Show the sheet",
@@ -702,7 +704,7 @@
       "limits": "Proposals require your approval and can be undone. The assistant may make mistakes; check specifications and warnings before applying.",
       "private": "Processed on this computer · no diagram sent online",
       "error": {
-        "storage": "Could not write the model. Check free disk space and application folder permissions.",
+        "storage": "This folder cannot be used. Check its path, free disk space and write permissions.",
         "network": "Download or loading failed. Check access to Hugging Face, available memory, and try again; interrupted downloads can be resumed.",
         "cancelled": "Download cancelled. Downloaded data is retained so you can resume later.",
         "integrity": "The file does not match the expected official model. It will not be used; download it again.",
@@ -713,9 +715,14 @@
         "tools": "The model responded without using the requested tools. Try the test again; do not enable diagram changes until this test succeeds.",
         "platform": "The bundled engine requires macOS 13.3 or later. AV Diagram remains usable; advanced mode lets you choose an engine compatible with your system."
       },
-      "accountPending": "Online option in preparation; this version enables local AI only.",
-      "externalHint": "External local server: check that it uses a model installed on this computer, without cloud forwarding."
-    }
+      "externalHint": "External local server: check that it uses a model installed on this computer, without cloud forwarding.",
+      "directory": "Model installation folder",
+      "directoryHint": "Models stay outside the project. Changing folders does not move or delete previously downloaded models."
+    },
+    "installHint": "Install or configure AI in Settings > AI Assistant.",
+    "settingsHint": "Choose local AI on this computer or an external AI API. These settings belong to this workstation, not the project.",
+    "configured": "Assistant enabled",
+    "notConfigured": "Assistant not enabled"
   },
   "routing": {
     "label": "Auto routing",

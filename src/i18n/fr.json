@@ -419,7 +419,8 @@
       "titleBlock": "Cartouche",
       "export": "Mise en page et export",
       "template": "Modèle de cartouche (ce poste)",
-      "storage": "Enregistrement (ce poste)"
+      "storage": "Enregistrement (ce poste)",
+      "ai": "Assistant IA"
     },
     "titleBlockHint": "Cartouche du projet. Les champs vides sont complétés par le modèle de ce poste."
   },
@@ -548,10 +549,10 @@
     "menu": "Fusionner une autre version…"
   },
   "ai": {
-    "title": "Assistant",
+    "title": "Assistant IA",
     "open": "Ouvrir l'assistant IA",
     "intro": "L'assistant t'aide à construire et vérifier ton schéma. Il ne pose que des équipements de la bibliothèque et fait valider ses propositions par le moteur de règles. Il est désactivé tant que tu ne l'as pas configuré : IA locale sur ton ordinateur, ou ton propre compte IA.",
-    "configure": "Configurer l'assistant",
+    "configure": "Installer / configurer l’IA",
     "hello": "Pose ta question ou décris l'installation voulue. Les ajouts proposés s'affichent en aperçu : rien ne change avant ton accord.",
     "desktopOnly": "L'assistant fonctionne dans l'application de bureau : c'est elle qui fait les requêtes et garde la clé dans le trousseau du système.",
     "placeholder": "Ta question (Entrée pour envoyer, Maj+Entrée pour aller à la ligne)",
@@ -606,8 +607,8 @@
       "chooseHint": "Deux options, même assistant. Tu peux changer à tout moment.",
       "local": "IA locale",
       "localDesc": "Gratuit, hors ligne, aucune donnée ne sort de l'ordinateur. Qualité correcte, limitée par la taille du modèle. Demande un ordinateur assez récent.",
-      "account": "Mon compte IA",
-      "accountDesc": "Meilleure qualité (grands modèles). Facturé à l'usage par ton fournisseur, avec ta propre clé API. Internet nécessaire.",
+      "account": "IA externe via API",
+      "accountDesc": "Utilise ta clé API chez un fournisseur externe. Connexion Internet et facturation du fournisseur selon son offre.",
       "disable": "Désactiver l'assistant",
       "progress": "Étapes",
       "step": {
@@ -628,7 +629,7 @@
       "noModel": "Connexion réussie, mais aucun modèle n'est installé sur ce serveur.",
       "model": "Modèle",
       "localModelHint": "Préfère un modèle multilingue qui sait appeler des fonctions (outils).",
-      "testHint": "Dernière étape : une question simple pour vérifier que le modèle répond.",
+      "testHint": "Vérifie que le modèle répond et sait utiliser les outils d’AV Diagram.",
       "testQuestion": "Quel est le niveau nominal d'une ligne audio professionnelle symétrique ?",
       "runTest": "Lancer le test",
       "providerHint": "Choisis le fournisseur de ton compte IA.",
@@ -666,7 +667,8 @@
       "noFile": "Aucun fichier choisi",
       "choose": "Choisir…",
       "launch": "Démarrer et charger le modèle",
-      "launching": "Démarrage de llama-server et chargement du modèle (jusqu'à 3 min)…"
+      "launching": "Démarrage de llama-server et chargement du modèle (jusqu'à 3 min)…",
+      "toolTestHint": "Le test utilise un schéma fictif vide, sans donnée de ton projet. Il peut prendre plusieurs minutes."
     },
     "preview": "Aperçu de l'assistant : {{equipment}} équipement(s) et {{links}} liaison(s) proposés, en pointillés",
     "showSheet": "Voir la feuille",
@@ -702,7 +704,7 @@
       "limits": "Les propositions demandent ton accord et restent annulables. L’assistant peut se tromper ; vérifie les caractéristiques et les alertes avant d’appliquer.",
       "private": "Traitement sur cet ordinateur · aucun schéma envoyé en ligne",
       "error": {
-        "storage": "Impossible d’écrire le modèle. Vérifie l’espace disque disponible et les droits du dossier de l’application.",
+        "storage": "Impossible d’utiliser ce dossier. Vérifie le chemin, l’espace libre et les droits d’écriture.",
         "network": "Le téléchargement ou le chargement a échoué. Vérifie l’accès à Hugging Face, la mémoire disponible et réessaie ; un téléchargement interrompu peut être repris.",
         "cancelled": "Téléchargement annulé. La partie déjà reçue est conservée pour reprendre plus tard.",
         "integrity": "Le fichier ne correspond pas au modèle officiel attendu. Il ne sera pas utilisé ; relance le téléchargement.",
@@ -713,9 +715,14 @@
         "tools": "Le modèle répond mais n’a pas utilisé les outils demandés. Relance le test ; ne l’active pas pour modifier un schéma tant que ce test ne réussit pas.",
         "platform": "Le moteur intégré nécessite macOS 13.3 ou plus. AV Diagram reste utilisable ; le mode avancé permet de choisir un moteur compatible avec ton système."
       },
-      "accountPending": "Option en ligne en préparation ; cette version active uniquement l’IA locale.",
-      "externalHint": "Serveur local externe : vérifie qu’il utilise un modèle installé sur ce poste, sans relais cloud."
-    }
+      "externalHint": "Serveur local externe : vérifie qu’il utilise un modèle installé sur ce poste, sans relais cloud.",
+      "directory": "Dossier d’installation des modèles",
+      "directoryHint": "Les modèles restent hors du projet. Changer de dossier ne déplace ni ne supprime les modèles déjà téléchargés."
+    },
+    "installHint": "Installe ou configure l’IA dans Paramètres > Assistant IA.",
+    "settingsHint": "Choisis l’IA locale sur cet ordinateur ou une IA externe via API. Ces réglages concernent ce poste, pas le projet.",
+    "configured": "Assistant activé",
+    "notConfigured": "Assistant non activé"
   },
   "routing": {
     "label": "Tracé auto",

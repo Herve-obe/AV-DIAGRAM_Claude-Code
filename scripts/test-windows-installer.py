@@ -34,6 +34,7 @@ user.SetForegroundWindow.argtypes = [w.HWND]
 user.SendMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
 user.GetParent.argtypes = [w.HWND]
 user.GetParent.restype = w.HWND
+user.IsWindow.argtypes = [w.HWND]
 
 
 def windows(parent=None):
@@ -98,6 +99,9 @@ installer = next(Path("src-tauri/target/release/bundle/nsis").glob("*-setup.exe"
 install_dir = Path(os.environ["RUNNER_TEMP"]) / "av-diagram-installer-test"
 binary = install_dir / "av-diagram.exe"
 processes = []
+launched_app = None
+profile = Path(os.environ['LOCALAPPDATA']) / 'io.github.herveobe.avdiagram'
+assert not profile.exists(), 'Refusing to alter an existing AV Diagram profile'
 
 
 def launch(*args):
@@ -181,6 +185,46 @@ try:
     assert binary.is_file(), "Cancelling reinstall removed the application"
     print("PASS: reinstall still reaches the directory page", flush=True)
 
+    # Parcours réel : choix explicite, dossier avec espaces/Unicode, lancement et réception native.
+    proc, hwnd = maintenance('Add/Reinstall components')
+    click(button(hwnd, 1))
+    checkbox = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Button'
+                                     and x['text'].startswith('Install local AI -')), None), 'optional local AI page')
+    assert user.SendMessageW(checkbox['hwnd'], 0xF0, 0, 0) == 0, 'Local AI must be opt-in'
+    edit = next(x for x in windows(hwnd) if x['cls'] == 'Edit')
+    assert not edit['enabled'], 'Model folder must be disabled until local AI is selected'
+    click(checkbox)
+    models = Path(os.environ['RUNNER_TEMP']) / 'IA locale é test'
+    text = c.create_unicode_buffer(str(models))
+    assert user.SendMessageW(edit['hwnd'], 0x0C, 0, c.cast(text, c.c_void_p).value)
+    click(button(hwnd, 1))
+    # Start-menu page can be absent. Stop only at the real installation button.
+    for _ in range(3):
+        next_button = button(hwnd, 1)
+        click(next_button)
+        if next_button['text'] == 'Install':
+            break
+        time.sleep(0.4)
+    else:
+        raise AssertionError('Installation page not reached')
+    wait_for(lambda: button(hwnd, 1)['text'] == 'Next >', 'installation completed')
+    click(button(hwnd, 1))
+    finish_run = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Button'
+                                       and x['text'] == 'Open AV Diagram and download local AI'), None), 'AI launch on finish')
+    assert user.SendMessageW(finish_run['hwnd'], 0xF0, 0, 0) == 1 and not finish_run['enabled']
+    click(button(hwnd, 1))
+    proc.wait(timeout=20)
+    app = wait_for(lambda: next((x for x in windows() if x['text'] == 'AV Diagram'
+                                and x['pid'] != proc.pid and x['cls'] != '#32770'), None), 'application launched by installer')
+    launched_app = app['pid']
+    config = profile / 'local-ai' / 'models-directory.json'
+    wait_for(config.is_file, 'installer folder received by the local AI setup')
+    assert Path(json.loads(config.read_text(encoding='utf-8'))).resolve() == models.resolve()
+    user.PostMessageW(app['hwnd'], 0x10, 0, 0)
+    wait_for(lambda: not user.IsWindow(app['hwnd']), 'setup application closed')
+    launched_app = None
+    print('PASS: optional AI selection, Unicode model folder and native setup handoff', flush=True)
+
     proc, hwnd = maintenance("Uninstall AV Diagram")
     child = uninstaller()
     cancel(child)
@@ -206,6 +250,8 @@ try:
     proc.wait(timeout=20)
     print("PASS: upgrade continues after uninstalling the older version", flush=True)
 finally:
+    if launched_app:
+        subprocess.run(['taskkill', '/PID', str(launched_app), '/T', '/F'], check=False, capture_output=True)
     for proc in processes:
         if proc.poll() is None:
             proc.kill()

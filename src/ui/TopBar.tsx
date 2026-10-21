@@ -17,7 +17,7 @@ import { closePanelsWindow, openPanelsWindow } from '../store/windowSync'
 import { exportCableCsv, exportCanvasImage, notifyError } from '../io/files'
 import { openDocument, saveCurrentProject } from '../io/documentLifecycle'
 import { useCollab } from '../collab/session'
-import { useAi } from '../store/aiStore'
+import { isReady, useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
 import { Icon, type IconName } from './Icon'
@@ -52,6 +52,7 @@ export function TopBar() {
   const [name, setName] = useState(project.name)
   const exportRef = useRef<HTMLDivElement>(null)
   const aiOpen = useAi((s) => s.panelOpen)
+  const aiReady = useAi((s) => isReady(s.settings))
 
   useEffect(() => setName(project.name), [project.name])
   useEffect(() => {
@@ -164,7 +165,7 @@ export function TopBar() {
         <kbd>Ctrl K</kbd>
       </button>
 
-      <button className="icon-btn" aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t('ai.title')} aria-label={t('ai.title')}><Icon name="assistant" /></button>
+      <button className="btn assistant-btn" disabled={!aiReady} aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t(aiReady ? 'ai.open' : 'ai.installHint')}><Icon name="assistant" size={16} />{t('ai.title')}</button>
       <div className="segmented" role="group" aria-label="Mode">
         <button aria-pressed={mode === 'beginner'} onClick={() => setPref('mode', 'beginner')}>{t('mode.beginner')}</button>
         <button aria-pressed={mode === 'expert'} onClick={() => setPref('mode', 'expert')}>{t('mode.expert')}</button>
