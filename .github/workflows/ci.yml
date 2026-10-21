@@ -139,6 +139,16 @@ jobs:
         run: |
           lipo "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/MacOS/av-diagram" -verify_arch x86_64 arm64
           codesign --verify --deep --strict "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app"
+      - name: Test real local AI from the macOS app bundle
+        run: python3 scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-mac" --engine-directory "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/Resources/local-ai"
+      - name: Upload macOS AI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-local-AI-macOS-test-report
+          path: ${{ runner.temp }}/avd-local-ai-mac/integration-result.json
+          if-no-files-found: warn
+          retention-days: 30
       - name: Upload macOS test installer
         uses: actions/upload-artifact@v4
         with:

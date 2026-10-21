@@ -58,6 +58,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--directory', type=Path, required=True, help='Dossier réservé à cet essai')
     parser.add_argument('--node', default=shutil.which('node'))
+    parser.add_argument('--engine-directory', type=Path, default=ROOT / 'resources/local-ai')
     args = parser.parse_args()
     folder = args.directory.resolve()
     folder.mkdir(parents=True, exist_ok=True)
@@ -71,7 +72,7 @@ def main():
         partial.replace(model)
     assert model.stat().st_size == spec['size'] and digest(model) == spec['sha256'], 'modèle refusé'
     platform = 'win-x64' if sys.platform == 'win32' else 'mac-arm64' if os.uname().machine == 'arm64' else 'mac-x64'
-    engine = ROOT / 'resources/local-ai' / platform / ('llama-server.exe' if sys.platform == 'win32' else 'llama-server')
+    engine = args.engine_directory / platform / ('llama-server.exe' if sys.platform == 'win32' else 'llama-server')
     assert engine.is_file() and args.node, 'préparer le moteur et Node avant cet essai'
     with socket.socket() as s:
         s.bind(('127.0.0.1', 0))
