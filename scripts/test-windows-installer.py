@@ -197,16 +197,11 @@ try:
     models = Path(os.environ['RUNNER_TEMP']) / 'IA locale é test'
     text = c.create_unicode_buffer(str(models))
     assert user.SendMessageW(edit['hwnd'], 0x0C, 0, c.cast(text, c.c_void_p).value)
+    before = page_signature(hwnd)
     click(button(hwnd, 1))
-    # Start-menu page can be absent. Stop only at the real installation button.
-    for _ in range(3):
-        next_button = button(hwnd, 1)
-        click(next_button)
-        if next_button['text'] == 'Install':
-            break
-        time.sleep(0.4)
-    else:
-        raise AssertionError('Installation page not reached')
+    wait_for(lambda: page_signature(hwnd) and not set(before).intersection(page_signature(hwnd)), 'leave optional AI page')
+    # Le menu Démarrer n'a pas de page dans notre configuration : InstFiles démarre directement.
+    wait_for(lambda: any(x['cls'] == 'msctls_progress32' for x in windows(hwnd)), 'installation progress page')
     wait_for(lambda: button(hwnd, 1)['text'] == 'Next >', 'installation completed')
     click(button(hwnd, 1))
     finish_run = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Button'
