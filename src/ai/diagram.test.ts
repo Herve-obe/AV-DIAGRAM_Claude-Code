@@ -21,6 +21,29 @@ const propose = (args: Record<string, unknown>, draft = createDraft(createProjec
   runTool(draft, { id: 'test', name: 'propose_diagram', args }, { ...ctx, allowed })
 
 describe('synoptique IA : plateau TV', () => {
+  it('offre au modèle léger un outil de plateau câblé, sans lui déléguer le choix des prises', async () => {
+    let sent = ''
+    let n = 0
+    const transport: Transport = { async request(_provider, _url, req) {
+      sent = req.body!
+      return { status: 200, body: JSON.stringify({ choices: [{ message: n++ === 0
+        ? { tool_calls: [{ id: '1', type: 'function', function: { name: 'propose_video_studio', arguments: JSON.stringify({ camera_template_id: 'sony-hxc-d70', camera_count: 5, video_switcher_template_id: 'newtek-tricaster-2-elite', audio_console_template_id: 'yamaha-cl5' }) } }] }
+        : { content: 'Plateau proposé.' } }] }) }
+    } }
+    const result = await runTurn({ transport, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Propose un synoptique de plateau TV avec 5 caméras Sony, un mélangeur vidéo Tricaster et une console Yamaha CL5',
+      draft: createDraft(createProject('t'), DEFAULT_SHEET_ID), ctx })
+    const names = JSON.parse(sent).tools.map((t: { function: { name: string } }) => t.function.name)
+    expect(names).toContain('propose_video_studio')
+    expect(names).not.toContain('propose_diagram')
+    expect(result.draft.addedEquipment).toHaveLength(7)
+    expect(result.draft.addedLinks).toHaveLength(7)
+    expect(result.history.some(m => m.role === 'tool' && m.results.some(r => r.content.includes('niveau ligne')))).toBe(true)
+    const denied = runTool(createDraft(createProject('t'), DEFAULT_SHEET_ID), { id: '1', name: 'propose_video_studio', args: {
+      camera_template_id: 'sony-hxc-d70', camera_count: 5, video_switcher_template_id: 'newtek-tricaster-2-elite', audio_console_template_id: 'yamaha-cl5',
+    } }, { ...ctx, allowed: () => false })
+    expect(denied.draft.addedEquipment).toEqual([])
+  })
   it('lit les quantités explicites du prompt sans prendre une console lumière pour une console audio', () => {
     expect(Object.fromEntries(requestedCounts('5 caméras Sony, un mélangeur vidéo Tricaster et une console Yamaha CL5'))).toEqual({ camera: 5, console: 1, videoSwitcher: 1 })
     expect(Object.fromEntries(requestedCounts('a video switcher and 3 cameras'))).toEqual({ camera: 3, videoSwitcher: 1 })

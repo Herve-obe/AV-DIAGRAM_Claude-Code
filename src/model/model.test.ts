@@ -13,12 +13,36 @@ import { LIBRARY } from '../library'
 import { familiesCompatible } from './signals'
 import type { Project } from './types'
 import { portsToDisplay } from './portDisplay'
+import { videoStudioPlan } from './videoStudio'
 
 const tpl = (id: string) => {
   const t = LIBRARY_BY_ID.get(id)
   if (!t) throw new Error(id)
   return t
 }
+
+describe('plateau vidéo SDI depuis les fiches réelles', () => {
+  const device = (id: string) => LIBRARY.find(t => t.id === id)!
+  const camera = device('sony-hxc-d70'), video = device('newtek-tricaster-2-elite'), audio = device('yamaha-cl5')
+  it('construit cinq liaisons SDI distinctes et deux lignes audio vers le mélangeur', () => {
+    const plan = videoStudioPlan(camera, 5, video, audio)
+    expect(plan.error).toBeUndefined()
+    expect(plan.connections).toHaveLength(7)
+    expect(new Set(plan.connections!.filter(l => l.from.startsWith('cam')).map(l => l.to_port)).size).toBe(5)
+    expect(plan.connections!.every(l => l.to === 'video')).toBe(true)
+    expect(plan.connections!.filter(l => l.from === 'audio').map(l => l.from_port)).toEqual(['out1', 'out2'])
+    expect(videoStudioPlan(camera, 1, video, audio).connections![0].from).toBe('cam')
+  })
+  it('refuse une capacité insuffisante ou des prises non documentées, sans adaptateur implicite', () => {
+    expect(videoStudioPlan({ ...camera, ports: [] }, 5, video, audio).error).toBeTruthy()
+    expect(videoStudioPlan(camera, 9, video, audio).error).toBeTruthy()
+    expect(videoStudioPlan(camera, 5, video, { ...audio, ports: [] }).error).toBeTruthy()
+    expect(videoStudioPlan({ ...camera, family: 'console' }, 5, video, audio).error).toBeTruthy()
+  })
+  it('refuse les quantités invalides', () => {
+    for (const count of [0, -1, 1.5, NaN, 49]) expect(videoStudioPlan(camera, count, video, audio).error).toBeTruthy()
+  })
+})
 
 describe('affichage des équipements volumineux', () => {
   const ports = Array.from({ length: 56 }, (_, i) => ({ id: `p${i + 1}`, name: `Port ${i + 1}`, direction: i < 32 ? 'in' as const : 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3' }))
