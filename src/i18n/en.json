@@ -587,7 +587,8 @@
       "connect_ports": "Preparing a link…",
       "check_project": "Running the rules engine…",
       "start_local": "Starting the local model…",
-      "search_documentation": "Searching the local manual…"
+      "search_documentation": "Searching the local manual…",
+      "propose_diagram": "Preparing diagram and connections…"
     },
     "error": {
       "auth": "Key rejected by the provider: check it or create a new one.",
@@ -600,7 +601,8 @@
       "network": "Cannot connect (network, local server stopped, or desktop app required).",
       "format": "Unexpected server reply.",
       "steps": "The assistant did not conclude after several steps: rephrase or split your request.",
-      "cancelled": "Request stopped."
+      "cancelled": "Request stopped.",
+      "incomplete": "The assistant did not finish the requested diagram (incomplete quantities or connections). This attempt added nothing to the diagram. Try again and specify the models and wiring you need."
     },
     "setup": {
       "title": "AI assistant: setup",

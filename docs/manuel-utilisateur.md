@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.1 · Édition du 21 octobre 2026 · Windows et macOS
+Version 0.5.2 · Édition du 21 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -310,6 +310,8 @@ Clique sur Charger et tester. Le logiciel vérifie que le modèle peut répondre
 Demande par exemple « Propose un micro dynamique générique pour la voix » ou « Comment retrouver une sauvegarde automatique ? ». L’assistant consulte la bibliothèque et le manuel local. Les passages du manuel portent leur chapitre source. Une fiche Communauté ou aux ports non documentés ne devient pas vérifiée parce que l’assistant la consulte.
 
 Les ajouts s’affichent en pointillés. Lis la réponse, les équipements, les prises et les alertes, puis clique sur Appliquer ou Refuser. Appliquer constitue une étape annulable par Ctrl+Z ou Cmd+Z. Aucun équipement existant ne peut être supprimé ou modifié par l’assistant. Les droits attribués par l’hôte s’appliquent aussi à ses propositions. Si le schéma change pendant une demande ou avant l’application, redemande une proposition.
+
+Pour un synoptique, précise les quantités, les références et les flux souhaités. L’assistant peut préparer les appareils et leurs liaisons ensemble ; une prise inconnue, incompatible ou déjà occupée fait refuser cet ensemble. Les ajouts sont rangés selon les liaisons, avec les ports inutilisés repliés. Vérifie les quantités et le câblage proposés : le modèle léger peut encore se tromper. Une proposition de plusieurs appareils isolés est relancée puis refusée si le câblage reste inachevé. Un appareil absent de la bibliothèque doit être signalé.
 
 Pour une IA externe, choisis IA externe via API, puis le fournisseur et le modèle. Crée ta clé API dans sa console et enregistre-la dans le trousseau sécurisé du système. Un abonnement de discussion ne remplace pas une clé API ; le fournisseur facture son usage selon son offre. L’écran indique les données qui seront envoyées. Donne ton accord puis lance le test des outils sur un schéma fictif avant de terminer. Aucun modèle local n’est nécessaire. Une clé de serveur personnalisé est liée à son adresse, en HTTPS pour un serveur distant.
 

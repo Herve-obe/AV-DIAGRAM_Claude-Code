@@ -78,7 +78,9 @@ def main():
         s.bind(('127.0.0.1', 0))
         port = s.getsockname()[1]
     token = secrets.token_hex(32)
-    env = {**os.environ, 'LLAMA_API_KEY': token, 'AVD_LOCAL_AI_TEST_URL': f'http://127.0.0.1:{port}/v1', 'AVD_LOCAL_AI_TEST_TOKEN': token}
+    trace = folder / 'model-trace.jsonl'
+    trace.write_text('', encoding='utf-8')
+    env = {**os.environ, 'LLAMA_API_KEY': token, 'AVD_LOCAL_AI_TEST_URL': f'http://127.0.0.1:{port}/v1', 'AVD_LOCAL_AI_TEST_TOKEN': token, 'AVD_LOCAL_AI_TEST_DIAGRAM': str(folder / 'diagram-tv.avd'), 'AVD_LOCAL_AI_TEST_TRACE': str(trace)}
     flags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' else 0
     command = [str(engine), '-m', str(model), '--host', '127.0.0.1', '--port', str(port), '--jinja', '-c', '16384', '--parallel', '1', '--offline', '--no-webui', '--no-agent', '--alias', spec['id']]
     with (folder / 'engine.log').open('wb') as log:
@@ -100,7 +102,7 @@ def main():
             verify_local_crt(process.pid, engine)
             print('Moteur chargé, exécution des vrais appels d’outils', flush=True)
             result = folder / 'integration-result.json'
-            subprocess.run([args.node, str(ROOT / 'node_modules/vitest/vitest.mjs'), 'run', 'src/ai/local.integration.test.ts', '--reporter=json', '--outputFile', str(result)], cwd=ROOT, env=env, check=True, timeout=660, creationflags=flags)
+            subprocess.run([args.node, str(ROOT / 'node_modules/vitest/vitest.mjs'), 'run', 'src/ai/local.integration.test.ts', '--reporter=json', '--outputFile', str(result)], cwd=ROOT, env=env, check=True, timeout=960, creationflags=flags)
             summary = json.loads(result.read_text(encoding='utf-8'))
             assert summary['success'] and summary['numPassedTests'] == 1 and summary['numPendingTests'] == 0
             print('PASS : vrai modèle, vérification et proposition validées', flush=True)
