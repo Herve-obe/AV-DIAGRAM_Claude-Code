@@ -14,12 +14,55 @@ import { familiesCompatible } from './signals'
 import type { Project } from './types'
 import { portsToDisplay } from './portDisplay'
 import { videoStudioPlan } from './videoStudio'
+import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate } from './catalogueImport'
 
 const tpl = (id: string) => {
   const t = LIBRARY_BY_ID.get(id)
   if (!t) throw new Error(id)
   return t
 }
+
+describe('import de catalogue utilisateur', () => {
+  const device = { id: 'test-mic', manufacturer: 'Fabricant fictif', model: 'Micro 1', family: 'capture' as const, pictogram: 'mic' as const, status: 'community' as const,
+    ports: [{ id: 'out', name: 'Sortie', direction: 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3' }] }
+  it('lit les CSV avec BOM, guillemets, point-virgule, retours à la ligne et guillemets doublés', () => {
+    const table = catalogueCsv('\uFEFFModèle;Fabricant\r\n"Micro; ""spécial""\n1";Test\r\n')
+    expect(table.rows).toEqual([['Modèle', 'Fabricant'], ['Micro; "spécial"\n1', 'Test']])
+    expect(catalogueColumns(table.rows[0])).toEqual({ model: 0, manufacturer: 1 })
+    expect(catalogueCsv('Name,Brand\nMicro,Test').rows[1]).toEqual(['Micro', 'Test'])
+    expect(catalogueCsv('Name\tBrand\nMicro\tTest').rows[1]).toEqual(['Micro', 'Test'])
+  })
+  it('refuse une syntaxe CSV tronquée ou démesurée', () => {
+    expect(() => catalogueCsv('Name\n"Micro')).toThrow('invalid')
+    expect(() => catalogueCsv('Name\n"Micro"suite')).toThrow('invalid')
+    expect(() => catalogueCsv('Name\n' + 'a'.repeat(10_001))).toThrow('large')
+    expect(() => catalogueCsv(Array(102).fill('a').join(','))).toThrow('large')
+  })
+  it('rapproche une désignation exacte et déduplique les exemplaires sans importer les colonnes internes', () => {
+    const table = catalogueCsv('Manufacturer,Model,Price,Serial\nFabricant fictif,Micro 1,90,ABC\nfabricant fictif,micro-1,45,DEF')
+    const result = catalogueEntries(table, catalogueColumns(table.rows[0]), [device], 'passive')
+    expect(result.problems).toEqual([]); expect(result.entries).toHaveLength(1)
+    expect(result.entries[0].template).toBe(device)
+    const copy = catalogueTemplate(result.entries[0]); copy.ports[0].name = 'Autre'
+    expect(device.ports[0].name).toBe('Sortie'); expect(copy.status).toBe('user')
+    expect(JSON.stringify(copy)).not.toMatch(/ABC|DEF|Serial|Price/)
+  })
+  it('ne devine pas une génération ou une variante et laisse les nouvelles prises à documenter', () => {
+    const table = catalogueCsv('Name\nFabricant fictif Micro 1 avec étui\nFabricant fictif Micro 10\nInconnu')
+    const result = catalogueEntries(table, { model: 0, manufacturer: -1 }, [device], 'camera')
+    expect(result.entries[0].template).toBe(device)
+    expect(result.entries[1].template).toBeUndefined()
+    expect(catalogueTemplate(result.entries[2])).toMatchObject({ status: 'user', family: 'camera', portStatus: 'pending', ports: [] })
+    const ambiguous = catalogueEntries(catalogueCsv('Name\nMicro 1'), { model: 0, manufacturer: -1 }, [device, { ...device, id: 'other', manufacturer: 'Autre fabricant' }], 'passive')
+    expect(ambiguous.entries[0].template).toBeUndefined()
+  })
+  it('écarte les formules XLSX et les cellules invalides sans exécuter leur contenu', () => {
+    const result = catalogueEntries({ name: 'Test', rows: [['Name'], [{ kind: 'formula' }], [true], [null], ['Valide']] }, { model: 0, manufacturer: -1 }, [], 'passive')
+    expect(result.problems).toEqual([2, 3]); expect(result.entries.map(e => e.model)).toEqual(['Valide'])
+    const generic = GENERIC_LIBRARY[0]
+    expect(catalogueEntries({ name: 'Test', rows: [['Name'], [generic.model]] }, { model: 0, manufacturer: -1 }, [generic], 'passive').entries[0].template).toBeUndefined()
+  })
+})
 
 describe('plateau vidéo SDI depuis les fiches réelles', () => {
   const device = (id: string) => LIBRARY.find(t => t.id === id)!
@@ -265,6 +308,16 @@ describe('bilans', () => {
 })
 
 describe('fiches constructeur', () => {
+  it('accepte un relevé identifié pour une fiche à documenter, sans lui attribuer de prises ni le statut vérifié', async () => {
+    const { validateTemplate } = await import('./validateTemplate')
+    const template = { id: 'test-catalogue', family: 'camera' as const, manufacturer: 'Test', model: 'X', pictogram: 'camera' as const,
+      ports: [], portStatus: 'pending' as const, status: 'community' as const, sources: [{ document: 'Relevé utilisateur fictif, désignation seulement', accessed: '2026-10-22' }] }
+    expect(validateTemplate(template)).toEqual([])
+    expect(validateTemplate({ ...template, sources: [] }).length).toBeGreaterThan(0)
+    expect(validateTemplate({ ...template, sources: [{ document: ' ', accessed: '2026-10-22' }] }).length).toBeGreaterThan(0)
+    expect(validateTemplate({ ...template, sources: [{ document: 'Relevé', accessed: 'date inconnue' }] }).length).toBeGreaterThan(0)
+    expect(validateTemplate({ ...template, status: 'verified' }).length).toBeGreaterThan(0)
+  })
   it('toutes les fiches de src/library/devices sont valides', async () => {
     const { readdirSync, readFileSync } = await import('node:fs')
     const { validateTemplate } = await import('./validateTemplate')

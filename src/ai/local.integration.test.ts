@@ -11,11 +11,15 @@ import { appendFileSync, writeFileSync } from 'node:fs'
 
 const address = process.env.AVD_LOCAL_AI_TEST_URL
 const token = process.env.AVD_LOCAL_AI_TEST_TOKEN
+function trace(event: Record<string, unknown>) {
+  if (process.env.AVD_LOCAL_AI_TEST_TRACE) appendFileSync(process.env.AVD_LOCAL_AI_TEST_TRACE, JSON.stringify({ time: new Date().toISOString(), ...event }) + '\n')
+}
 const transport: Transport = { async request(provider, _base, req) {
   if (!address || !/^http:\/\/127\.0\.0\.1:\d+\/v1$/.test(address) || provider !== 'builtin') throw new Error('serveur de test local requis')
+  trace({ event: 'request', bytes: req.body?.length })
   const response = await fetch(address + req.path, { method: req.method, headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: req.body })
   const body = await response.text()
-  if (process.env.AVD_LOCAL_AI_TEST_TRACE) appendFileSync(process.env.AVD_LOCAL_AI_TEST_TRACE, JSON.stringify({ status: response.status, body }) + '\n')
+  trace({ event: 'response', status: response.status, body })
   return { status: response.status, body }
 } }
 
@@ -23,10 +27,12 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
   it('vérifie un projet fictif puis prépare un ajout sans modifier la source', async () => {
     const base = createProject('Essai IA locale')
     const system = buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' })
+    trace({ stage: 'check' })
     const check = await runTurn({ transport, connection: { provider: 'builtin', model: 'qwen3-4b' }, system,
       history: [], userText: 'Appelle obligatoirement check_project pour vérifier le schéma vide. Aucun ajout. Confirme ensuite en une phrase.',
       draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: GENERIC_LIBRARY, describe: (i) => i.code }, maxSteps: 5 })
     expect(check.toolsUsed).toContain('check_project')
+    trace({ stage: 'microphone' })
     const add = await runTurn({ transport, connection: { provider: 'builtin', model: 'qwen3-4b' }, system,
       history: [], userText: 'Propose exactement un micro dynamique générique pour la voix. Cherche dans la bibliothèque, puis appelle add_equipment avec le modèle trouvé. Ne crée aucune liaison. Termine après avoir vérifié le projet.',
       draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: GENERIC_LIBRARY, describe: (i) => i.code }, maxSteps: 8 })
@@ -36,6 +42,7 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
     expect(Object.keys(base.equipment)).toHaveLength(0)
     expect(Object.values(add.draft.project.equipment)[0].templateId).toBe('gen-mic-dyn')
     expect(add.draft.addedLinks).toHaveLength(0)
+    trace({ stage: 'plateau-tv' })
     const tv = await runTurn({ transport, connection: { provider: 'builtin', model: 'qwen3-4b' }, system,
       history: [], userText: "Propose un synoptique d'un plateau TV avec 5 caméras Sony, un mélangeur vidéo Tricaster et une console Yamaha CL5",
       draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: LIBRARY, describe: i => i.code }, onTool: name => console.log('TV outil :', name) })

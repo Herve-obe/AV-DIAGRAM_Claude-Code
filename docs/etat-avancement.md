@@ -1,6 +1,10 @@
-# État d'avancement (mise à jour du 2026-10-21)
+# État d'avancement (mise à jour du 2026-10-22)
 
-## Situation actuelle — 0.5.1
+## Situation actuelle — 0.5.3
+
+La 0.5.3 regroupe les commandes dans cinq menus et permet de choisir et d’ordonner les raccourcis dans les préférences Interface. L’import CSV/Excel propose un aperçu, les colonnes marque/modèle, le tri des lignes et les familles ; il enregistre les modèles sur le poste, sans publier de stock ou de prix. Une référence connue reprend sa fiche ; les autres restent sans prises et « à documenter ». Aucun catalogue en ligne n’est parcouru automatiquement.
+
+L’assistant propose désormais un synoptique complet en une opération annulable et vérifie les quantités demandées. Pour le plateau TV SDI standard, le logiciel choisit les vrais ports des références retenues, avec des entrées SDI distinctes et un mix audio stéréo XLR ; aucune prise n’est inventée. Les affectations internes des appareils restent à configurer. Le contexte fourni au petit modèle est réduit pour cette opération. Le manuel comprend dix captures annotées, dont les préférences et l’import de catalogue.
 
 La 0.5.1 rend l’IA accessible : bouton Assistant IA grisé avant activation, onglet dans les paramètres, option dans l’installeur Windows et choix du dossier des modèles. Les API externes sont configurables avec accord d’envoi des données, clé dans le trousseau et test des outils sur un projet fictif. La 0.5.0 avait ajouté le moteur llama.cpp embarqué sur Windows/macOS, les modèles Qwen3 4B/8B téléchargés sur demande avec reprise et contrôle SHA-256, la recherche dans le manuel et la validation humaine des ajouts. Voir [le fonctionnement et les limites](ia-locale.md).
 
@@ -10,11 +14,11 @@ Depuis 0.4.1, la présentation repliée des prises est mémorisée par équipeme
 
 Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Excel et le réimport de patch, les vues réseau/électrique/intercom/synchronisation et le réglage des câbles sur blocs pivotés sont codés. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md) pour leurs fonctions et limites. Le protocole LAN est passé à 3 : installer la même version sur tous les postes.
 
-Le catalogue reste celui de 0.3.5 : 2 043 modèles réels et 24 génériques, dont 1 585 fiches Communauté à documenter. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
+Le catalogue contient 2 152 modèles réels et 24 génériques : 466 fiches vérifiées et 1 686 fiches Communauté. La 0.5.2 avait ajouté le TriCaster 2 Elite ; la 0.5.3 ajoute 108 références après le tri de l’inventaire fourni (7 vérifiées et 101 à documenter, sans connectique supposée). Les ordinateurs, logiciels, câbles, structure, supports, consommables, batteries/chargeurs, appareils de mesure et panneaux de brassage ont été exclus de cet ajout. Trois désignations ambiguës attendent une référence précise. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
 
-Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud et la reprise des comptes IA en ligne restent en attente ; l’IA locale fait l’objet de la 0.5.0. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
+Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud des projets reste en attente. Les API IA externes sont configurables ; aucun compte payant n’a été utilisé dans nos essais. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
 
-Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.2.
+Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version actuelle.
 
 ## Historique au 2026-10-09
 

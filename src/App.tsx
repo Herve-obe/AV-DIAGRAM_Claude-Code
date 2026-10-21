@@ -33,6 +33,7 @@ import { RackView } from './ui/RackView'
 import { FloorPlanView } from './ui/FloorPlanView'
 import { CadImportDialog } from './ui/CadImportDialog'
 import { PatchImportDialog } from './ui/PatchImportDialog'
+import { CatalogueImportDialog } from './ui/CatalogueImportDialog'
 import { CommunicationsView, ListsView, NetworkView, PowerView } from './ui/DeploymentViews'
 import { ProjectSettings } from './ui/ProjectSettings'
 import { SheetTabs } from './ui/SheetTabs'
@@ -219,6 +220,7 @@ export default function App() {
       <PdfImportDialog />
       <CadImportDialog />
       <PatchImportDialog />
+      <CatalogueImportDialog />
       <ExportPdfDialog />
       <AiSetupDialog />
       <CollabDialog />

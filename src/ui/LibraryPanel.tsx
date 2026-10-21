@@ -16,6 +16,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
 import { Pictogram } from './Pictogram'
+import { startCatalogueImport } from './CatalogueImportDialog'
 
 const OPEN_KEY = 'avd.libraryOpen'
 /** Événement : remplir la recherche de la bibliothèque (detail = texte) */
@@ -227,6 +228,7 @@ export function LibraryPanel() {
         })}
       </div>
       <div className="library-foot">
+        <button className="btn" onClick={() => void startCatalogueImport(t)}>{t('catalogue.title')}</button>
         <button className="btn" onClick={newBlock}><Icon name="plus" size={14} />{t('library.newBlock')}</button>
       </div>
     </aside>

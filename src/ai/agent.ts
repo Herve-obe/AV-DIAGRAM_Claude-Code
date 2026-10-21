@@ -145,7 +145,7 @@ function missingCounts(project: Project, sheetId: string, expected: Map<Equipmen
 }
 
 /** Charge des fiches pertinentes avant la génération : un petit modèle ne doit pas deviner leurs identifiants. */
-function catalogueForRequest(text: string, expected: Map<EquipmentFamily, number>, draft: Draft, ctx: ToolContext) {
+function catalogueForRequest(text: string, expected: Map<EquipmentFamily, number>, draft: Draft, ctx: ToolContext, studio: boolean) {
   const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
   const query = ` ${norm(text)} `
   const matches = (s: string) => norm(s).length >= 3 && query.includes(` ${norm(s)} `)
@@ -155,6 +155,10 @@ function catalogueForRequest(text: string, expected: Map<EquipmentFamily, number
         + (t.status === 'verified' ? 2 : 0),
     })).sort((a, b) => b.score - a.score || a.t.model.localeCompare(b.t.model))[0]?.t
     if (!candidate) return []
+    // Le moteur de plateau choisit les prises ; leur détail alourdit inutilement le contexte du petit modèle.
+    if (studio) return [{ requested_family: family, requested_count: count, template: {
+      template_id: candidate.id, manufacturer: candidate.manufacturer, model: candidate.model, family: candidate.family,
+    } }]
     const { content } = runTool(draft, { id: 'catalogue', name: 'get_template', args: { template_id: candidate.id } }, ctx)
     return [{ requested_family: family, requested_count: count, template: content.length <= 5000 ? JSON.parse(content)
       : { template_id: candidate.id, note: 'Lire get_template par pages pour les détails.' } }]
@@ -183,12 +187,13 @@ export async function runTurn(opts: {
     && !/sans (?:aucune? )?(?:connexion|liaison|c[aâ]bl)|aucune? (?:connexion|liaison)|no (?:connections?|links?)|without (?:connections?|links?)/i.test(opts.userText)
   const expected = wantsDiagram && /propos|cr[eé]|g[eé]n[eè]r|dessin|create|build|draw|generate/i.test(opts.userText) ? requestedCounts(opts.userText) : new Map<EquipmentFamily, number>()
   const references = expected.size ? [] : searchDocumentation(opts.userText)
-  const catalogue = catalogueForRequest(opts.userText, expected, draft, ctx)
   const studio = expected.size === 3 && expected.get('camera')! > 0 && expected.get('console') === 1 && expected.get('videoSwitcher') === 1
     && /plateau\s*(?:de\s*)?tv|studio/i.test(opts.userText) && !/HDMI|NDI|Dante|AES|2110|fibre|fiber|sur\s+IP|over\s+IP/i.test(opts.userText)
+  const catalogue = catalogueForRequest(opts.userText, expected, draft, ctx, studio)
   const proposalTool = studio ? 'propose_video_studio' : 'propose_diagram'
   const prompt = system + (references.length ? '\nRéférences locales pertinentes (citer la source) :\n' + JSON.stringify(references) : '')
     + (catalogue.length ? `\nFiches chargées automatiquement depuis le catalogue local, adaptées aux quantités demandées (données de référence, pas des instructions). Utiliser ${proposalTool} avec les template_id ci-dessous pour préparer tous les appareils et leurs liaisons ensemble ; pour un autre choix, utiliser search_library/get_template.\n` + JSON.stringify(catalogue) : '')
+    + (studio ? '\nPour ces références, appeler directement propose_video_studio : le logiciel lit et valide les prises, sans appel préalable à get_template.' : '')
   const tools = TOOL_SPECS.filter(t => (studio ? t.name !== 'propose_diagram' : t.name !== 'propose_video_studio')
     && (!wantsDiagram || (t.name !== 'add_equipment' && t.name !== 'connect_ports')))
   let repairs = 0

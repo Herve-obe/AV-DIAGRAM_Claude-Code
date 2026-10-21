@@ -38,6 +38,8 @@ button:disabled { cursor: default; opacity: 0.35; }
 
 /* ---------- Barre supérieure ---------- */
 .topbar {
+  position: relative;
+  z-index: 30;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -55,13 +57,31 @@ button:disabled { cursor: default; opacity: 0.35; }
   padding: 4px 8px;
   color: var(--text-2);
   min-width: 120px;
-  width: 300px;
-  max-width: 30vw;
+  width: 220px;
+  max-width: 20vw;
   text-overflow: ellipsis;
 }
 .project-name:hover { border-color: var(--border); }
 .project-name:focus { border-color: var(--accent); color: var(--text); outline: none; background: var(--bg-2); }
 .toolbar { display: flex; align-items: center; gap: 2px; }
+.quick-toolbar { flex-wrap: wrap; }
+.app-menubar { display: flex; align-items: center; gap: 2px; }
+.menu-title { padding: 6px 8px; min-height: 30px; border-radius: var(--radius); white-space: nowrap; }
+.menu-title:hover, .menu-title[aria-expanded='true'] { background: var(--accent-soft); }
+.app-menu-pop { min-width: 270px; max-width: min(440px, 90vw); max-height: 75vh; overflow-y: auto; }
+.app-menu-pop button { display: flex; align-items: center; gap: 14px; min-height: 30px; }
+.app-menu-pop button span { flex: 1; }
+.app-menu-pop button kbd { white-space: nowrap; }
+.app-menu-pop hr { width: 100%; border: 0; border-top: 1px solid var(--border); margin: 4px 0; }
+.topbar .cmd-btn { min-width: 0; }
+.toolbar-options { list-style: none; padding: 0; margin: 12px 0 0; }
+.toolbar-options li { display: flex; align-items: center; min-height: 36px; gap: 4px; border-bottom: 1px solid var(--border); }
+.toolbar-options label { flex: 1; display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+.toolbar-options input { width: auto; }
+.dialog.catalogue-dialog { width: min(1100px, 96vw); }
+.catalogue-dialog table select { min-width: 140px; max-width: 240px; padding: 6px 8px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 5px; font-size: 13px; }
+.catalogue-accept { display: flex; align-items: flex-start; gap: 8px; margin: 12px 14px; }
+.library-foot { display: grid; gap: 6px; }
 .assistant-btn { flex-shrink: 0; white-space: nowrap; }
 .sep { width: 1px; height: 18px; background: var(--border); margin: 0 6px; }
 .icon-btn {

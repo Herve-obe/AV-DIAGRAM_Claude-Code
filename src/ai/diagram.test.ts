@@ -36,6 +36,12 @@ describe('synoptique IA : plateau TV', () => {
     const names = JSON.parse(sent).tools.map((t: { function: { name: string } }) => t.function.name)
     expect(names).toContain('propose_video_studio')
     expect(names).not.toContain('propose_diagram')
+    const context = JSON.parse(sent).messages[0].content
+    expect(context).toContain('"template_id":"newtek-tricaster-2-elite"')
+    expect(context).toContain('"template_id":"yamaha-cl5"')
+    expect(context).toContain('"requested_count":5')
+    expect(context).not.toContain('"ports":')
+    expect(context.length).toBeLessThan(2000)
     expect(result.draft.addedEquipment).toHaveLength(7)
     expect(result.draft.addedLinks).toHaveLength(7)
     expect(result.history.some(m => m.role === 'tool' && m.results.some(r => r.content.includes('niveau ligne')))).toBe(true)

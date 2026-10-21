@@ -15,7 +15,8 @@
     "search": "Search, command",
     "newProjectName": "New project",
     "openError": "This file is not a valid AV Diagram project (.avd).",
-    "exportPdf": "PDF sheet (A4 to A0, watermark)..."
+    "exportPdf": "PDF sheet (A4 to A0, watermark)...",
+    "saveAs": "Save as…"
   },
   "mode": {
     "beginner": "Beginner",
@@ -420,7 +421,8 @@
       "export": "Layout and export",
       "template": "Title block template (this computer)",
       "storage": "Saving (this workstation)",
-      "ai": "AI Assistant"
+      "ai": "AI Assistant",
+      "interface": "Interface (this computer)"
     },
     "titleBlockHint": "Project title block. Empty fields are completed from this computer's template."
   },
@@ -1593,5 +1595,56 @@
     "offline": "Complete French manual, available offline.",
     "download": "Save PDF manual",
     "error": "Could not save the PDF manual. Retry using an accessible folder."
+  },
+  "toolbar": {
+    "customize": "Customize shortcuts…",
+    "menubar": "Main menu",
+    "menus": {
+      "file": "File",
+      "edit": "Edit",
+      "view": "View",
+      "tools": "Tools",
+      "help": "Help"
+    },
+    "title": "Toolbar shortcuts",
+    "localHint": "These preferences are saved on this computer.",
+    "hint": "Select commands to keep within easy reach. Use the arrows to arrange them. Every command remains available in the menus. The AI Assistant button stays visible.",
+    "reset": "Restore default shortcuts",
+    "up": "Move {{name}} up",
+    "down": "Move {{name}} down",
+    "theme": "Theme",
+    "mode": "Experience mode",
+    "language": "Language",
+    "langFr": "Français",
+    "langEn": "English"
+  },
+  "catalogue": {
+    "title": "Import an equipment catalogue…",
+    "hint": "CSV or Excel (.xlsx), with headers in the first row. Choose the manufacturer and model columns. Recognized models keep their documented ports; new models need documentation. This catalogue stays on this computer under My Templates. Only the chosen columns are used.",
+    "manufacturer": "Manufacturer",
+    "model": "Model / description",
+    "noColumn": "No column",
+    "column": "Column {{n}}",
+    "defaultFamily": "Family for new models",
+    "family": "Family",
+    "sheetStatus": "Data sheet",
+    "include": "Include",
+    "includeName": "Include {{name}}",
+    "familyName": "Family for {{name}}",
+    "summary": "{{count}} selected reference(s), including {{pending}} needing documentation.",
+    "badRows": "Correct missing or non-text model names on rows: {{rows}}.",
+    "matched": "Existing data sheet matched",
+    "pending": "Ports need documentation",
+    "acceptPending": "Also add models with undocumented ports. I will complete their ports before connecting them.",
+    "apply": "Add to My Templates",
+    "done": "{{count}} model(s) added to My Templates. Duplicates were skipped.",
+    "saving": "Saving the catalogue…",
+    "previous": "Previous",
+    "next": "Next",
+    "errors": {
+      "large": "This file exceeds the reading limits (10 MB, 10,000 rows, 100 columns or 200,000 cells).",
+      "invalid": "Unable to read this catalogue. Use a valid CSV or XLSX file with headers in the first row.",
+      "save": "Unable to save the catalogue. Try again; existing templates are preserved."
+    }
   }
 }

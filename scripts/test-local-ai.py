@@ -104,9 +104,12 @@ def main():
             result = folder / 'integration-result.json'
             try:
                 subprocess.run([args.node, str(ROOT / 'node_modules/vitest/vitest.mjs'), 'run', 'src/ai/local.integration.test.ts', '--reporter=json', '--outputFile', str(result)], cwd=ROOT, env=env, check=True, timeout=960, creationflags=flags)
-            except subprocess.CalledProcessError:
+            except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
                 if result.is_file():
                     print(result.read_text(encoding='utf-8'), flush=True)
+                # Ce banc utilise seulement un projet fictif et ne journalise jamais le jeton d'accès.
+                print(trace.read_text(encoding='utf-8')[-24000:], flush=True)
+                print((folder / 'engine.log').read_text(encoding='utf-8', errors='replace')[-16000:], flush=True)
                 raise
             summary = json.loads(result.read_text(encoding='utf-8'))
             assert summary['success'] and summary['numPassedTests'] == 1 and summary['numPendingTests'] == 0

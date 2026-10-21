@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.2 · Édition du 21 octobre 2026 · Windows et macOS
+Version 0.5.3 · Édition du 22 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -10,7 +10,9 @@ L'application fonctionne sur le poste de travail. Aucun compte n'est nécessaire
 
 Au lancement, choisir Nouveau projet, Reprendre le dernier projet ou ouvrir un fichier .avd. Les projets récents permettent de retrouver un travail déjà ouvert sur ce poste. Retirer un raccourci de cette liste ne supprime pas le fichier correspondant.
 
-La barre supérieure contient les commandes de fichier, les imports, les exports, la collaboration, l'affichage sur deux écrans, la présentation, les paramètres et l'annulation. Le bouton Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF.
+La barre supérieure rassemble les menus Fichier, Édition, Affichage, Outils et Aide. Fichier contient les imports, les enregistrements et les exports ; Outils contient la collaboration, la configuration IA et les paramètres. Aide > Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF. Les menus s'utilisent aussi au clavier : flèches pour se déplacer, Entrée pour choisir et Échap pour revenir.
+
+Les cinq raccourcis initiaux sont Ouvrir, Enregistrer, Annuler, Rétablir et Exporter en PDF. Outils > Personnaliser les raccourcis ouvre les préférences de l'interface : cocher les commandes à garder, utiliser les flèches pour les ordonner ou rétablir le choix initial. Les menus restent complets lorsque leurs raccourcis sont masqués. Ces préférences sont conservées sur ce poste. Le bouton Assistant IA reste visible, grisé tant que l'assistant n'est pas configuré.
 
 La bibliothèque occupe la gauche ; le schéma ou la vue technique se trouve au centre ; l'inspecteur montre les propriétés de la sélection à droite. Le panneau inférieur réunit les listes et alertes. La barre du bas change de vue : Synoptique, Baies, Plan, Réseau, Électrique, Intercom, Synchronisation ou Listes.
 
@@ -20,7 +22,11 @@ Les captures de ce manuel montrent l'interface réelle en français, avec un pro
 
 Repères : 1. Bibliothèque des équipements à placer ; 2. Canevas du synoptique ; 3. Inspecteur de l'appareil sélectionné ; 4. Boutons de changement de vue.
 
-Le mode Débutant présente les opérations essentielles et des indications de progression. Le mode Expert expose davantage de propriétés, les ports personnalisés et les modèles personnels. Les deux modes utilisent le même projet. Les thèmes clair, sombre ou système et la langue se règlent dans la barre supérieure.
+Le mode Débutant présente les opérations essentielles et des indications de progression. Le mode Expert expose davantage de propriétés, les ports personnalisés et les modèles personnels. Les deux modes utilisent le même projet. Le menu Affichage permet de changer de mode, de thème et de langue ; les préférences Interface proposent aussi ces choix directement.
+
+![Figure 2 - Choisir et ordonner ses raccourcis](../public/manual-assets/09-raccourcis.png)
+
+Repères : 1. Préférences propres au poste ; 2. Cocher ou masquer une commande ; 3. Flèches pour modifier l'ordre des boutons sélectionnés.
 
 ## 2. Créer et organiser un projet
 
@@ -58,6 +64,16 @@ Le catalogue Novelty français est référencé hors Structure. Les caractérist
 
 En mode Expert, créer ou ajuster les ports d'un équipement, puis enregistrer un modèle dans Mes modèles. Une nouvelle instance issue d'un modèle ne doit pas reprendre les adresses IP et les affectations de déploiement d'un autre projet. Vérifier aussi les options de carte et le type de slot avant leur réutilisation.
 
+Fichier > Importer un catalogue d'équipements accepte CSV et Excel (.xlsx). Le même bouton se trouve sous la bibliothèque. Préparer les en-têtes sur la première ligne ; choisir la feuille et les colonnes fabricant et modèle dans l'aperçu. Seules ces colonnes sont utilisées. Les références reconnues reprennent la fiche existante ; une correspondance ambiguë reste à documenter. Les exemplaires identiques sont regroupés en un modèle, sans importer les quantités de stock.
+
+Pour les nouveaux modèles, choisir une famille commune puis la corriger ligne par ligne si nécessaire. Décocher les éléments à exclure et parcourir les pages de l'aperçu. Les références sans connectique demandent un accord explicite : elles sont ajoutées sans prise inventée. Les compléter dans l'éditeur de ports avant de les relier. L'import reste local dans Mes modèles, disponible aussi dans la recherche de commandes et pour l'assistant IA ; il ne publie pas le catalogue dans la bibliothèque commune. Réimporter le même catalogue conserve les modèles déjà présents. Une erreur de lecture ou de stockage est signalée avant de présenter l'import comme terminé.
+
+Un catalogue en ligne peut fournir un export CSV/Excel à utiliser dans cette fenêtre. Cette version ne parcourt pas automatiquement les sites et ne demande pas leurs identifiants. Pour un export d'inventaire Booqable, choisir les désignations de produits puis vérifier les lots, les variantes et la famille dans l'aperçu. Une ligne de location ne constitue pas à elle seule une fiche constructeur vérifiée.
+
+![Figure 3 - Vérifier un catalogue avant de l'ajouter](../public/manual-assets/10-catalogue.png)
+
+Repères : 1. Colonnes du fichier à utiliser ; 2. Références retenues, familles et état de la connectique ; 3. Accord pour les fiches à documenter puis ajout local à Mes modèles. Le modèle Atelier fictif sert uniquement à la démonstration.
+
 ## 5. Dessiner et manipuler les équipements
 
 Cliquer sélectionne un élément. Un cadre de sélection dans le vide sélectionne les blocs inclus et les câbles touchés. Maj ou Ctrl avec un clic ou un cadre ajoute ou retire des éléments de la sélection. Échap désélectionne lorsque aucun dialogue n'est ouvert. Les commandes du clic droit regroupent les actions courantes.
@@ -80,11 +96,11 @@ En mode replié, Ajouter une connexion indique le nombre de prises libres access
 
 Les noms et numéros d'origine restent les mêmes. Les prises reliées vers une autre feuille restent visibles avec leur renvoi. Replier ne supprime aucun port ni câble. Les tableaux conservent les données complètes ; les exports graphiques reprennent la présentation choisie.
 
-![Figure 2 - Choisir une sortie sur une stagebox repliée](../public/manual-assets/02-prises-repliees.png)
+![Figure 4 - Choisir une sortie sur une stagebox repliée](../public/manual-assets/02-prises-repliees.png)
 
 Repères : 1. Les prises déjà reliées restent visibles ; 2. Après Ajouter une connexion, choisir Entrées ou Sorties ; 3. Choisir le port libre, puis tirer son câble. L'exemple comporte 32 entrées audio, 24 sorties audio et une prise réseau.
 
-![Figure 3 - Mémoriser le mode de présentation d'un appareil](../public/manual-assets/03-choix-des-prises.png)
+![Figure 5 - Mémoriser le mode de présentation d'un appareil](../public/manual-assets/03-choix-des-prises.png)
 
 Repères : 1. Dans l'inspecteur, Prises visibles sur le schéma propose Automatique, Tous les ports ou Ports reliés. Le réglage concerne l'appareil sélectionné.
 
@@ -128,7 +144,7 @@ Les cartes s'installent dans les emplacements déclarés de l'hôte. Le type mé
 
 La puissance et le poids du châssis s'entendent hors cartes et sont additionnés à ceux des cartes. Ne pas renseigner deux fois une valeur totale constructeur. Exporter les élévations et la nomenclature, puis contrôler les unités, les faces et les limites sur les documents produits.
 
-![Figure 4 - Monter les mêmes équipements dans une baie](../public/manual-assets/04-baies.png)
+![Figure 6 - Monter les mêmes équipements dans une baie](../public/manual-assets/04-baies.png)
 
 Repères : 1. Choisir l'appareil, la baie, la face et l'unité basse, puis Monter / déplacer ; 2. Contrôler les positions sur les faces avant et arrière ; 3. Lire les unités occupées et les bilans renseignés. Les valeurs sont celles de l'exemple.
 
@@ -146,7 +162,7 @@ Un fond DXF peut être importé pour chaque feuille. Confirmer l'unité avant to
 
 Le PDF ajusté indique l'échelle calculée. L'export à échelle fixe utilise le 1:N du plan et peut répartir le résultat sur plusieurs pages. Vérifier les réglages d'impression du lecteur PDF : une seconde option « ajuster au papier » peut modifier l'échelle prévue.
 
-![Figure 5 - Placer les appareils sur un plan métrique](../public/manual-assets/05-plan.png)
+![Figure 7 - Placer les appareils sur un plan métrique](../public/manual-assets/05-plan.png)
 
 Repères : 1. Dimensions du plan en mètres, aimantation et échelle PDF ; 2. Appareil sélectionné, dont la position se règle aussi dans l'inspecteur ; 3. Mesurer une distance droite entre deux points du plan.
 
@@ -160,7 +176,7 @@ Pour le PoE, déclarer le rôle du port, la demande du récepteur ou le plafond 
 
 Le débit prévu concerne le câble et doit être saisi comme un débit agrégé. Le logiciel le compare aux capacités déclarées. Il ne mesure pas le trafic, ne configure pas les appareils et ne simule pas le routage, la redondance ou le multicast. Les exports techniques et Excel servent à partager ces déclarations.
 
-![Figure 6 - Renseigner les interfaces réseau, extrait du tableau](../public/manual-assets/06-reseau.png)
+![Figure 8 - Renseigner les interfaces réseau, extrait du tableau](../public/manual-assets/06-reseau.png)
 
 Repères : 1. Adresse IPv4 de l'interface, avec son préfixe dans la colonne suivante ; 2. VLAN natif déclaré. Ces valeurs documentent le projet ; elles ne configurent pas les appareils.
 
@@ -220,7 +236,7 @@ Le bouton d'import draw.io / Visio accepte .drawio, .xml et .vsdx. Les pages dra
 
 La fenêtre de vérification présente les pages du document. Choisir une page, contrôler les équipements, les fiches proposées et les connexions, puis importer dans une nouvelle feuille. Refaire l'opération pour les autres pages souhaitées. Annuler retire l'import sans modifier les feuilles antérieures. Si Rétablir recrée une feuille, sélectionner son onglet pour retrouver son dessin.
 
-![Figure 7 - Vérifier un synoptique avant son import](../public/manual-assets/07-import.png)
+![Figure 9 - Vérifier un synoptique avant son import](../public/manual-assets/07-import.png)
 
 Repères : 1. Choisir la page du document ; 2. Examiner l'aperçu en parallèle des listes d'équipements et de liaisons à droite ; 3. Importer la sélection après vérification. Le nom de la nouvelle feuille se règle en bas à gauche.
 
@@ -236,7 +252,7 @@ Le format de papier et les marges déterminent les pages affichées sur le canev
 
 À l'export PDF, choisir entre ajuster sur une page et conserver une taille fixe sur plusieurs pages. Ajuster réduit le schéma si nécessaire ; vérifier l'échelle et la taille du texte. La pagination multiple préserve davantage la lisibilité. Le logiciel ne déplace pas automatiquement les appareils pour recomposer le dessin.
 
-![Figure 8 - Choisir la pagination du PDF](../public/manual-assets/08-export.png)
+![Figure 10 - Choisir la pagination du PDF](../public/manual-assets/08-export.png)
 
 Repères : 1. Format de papier ; l'orientation se choisit juste à côté ; 2. Conserver sur plusieurs pages ou Mettre à l'échelle sur une page ; 3. Exporter après contrôle du cartouche, du filigrane et de la protection dans les autres onglets. L'estimation de pages dépend du dessin courant.
 

@@ -10,6 +10,8 @@ import { useAi } from '../store/aiStore'
 import { startMerge } from './MergeDialog'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
+import { useLibrary } from '../store/libraryStore'
+import { startCatalogueImport } from './CatalogueImportDialog'
 
 interface Command {
   id: string
@@ -23,14 +25,16 @@ export function CommandPalette() {
   const { t } = useTranslation()
   const { paletteOpen, setPaletteOpen } = useUi()
   const rf = useReactFlow()
+  const userTemplates = useLibrary(s => s.userTemplates)
   const [query, setQuery] = useState('')
   const [index, setIndex] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const commands = useMemo<Command[]>(() => {
     const ui = useUi.getState()
+    const library = [...userTemplates, ...LIBRARY]
     const addAtCenter = (tplId: string) => {
-      const tpl = LIBRARY.find((x) => x.id === tplId)
+      const tpl = library.find((x) => x.id === tplId)
       if (tpl && ui.view === 'plan') {
         const project = useProject.getState().project, p = planOf(project, ui.currentSheetId)
         const eqs = Object.values(project.equipment).filter(e => e.sheetId === ui.currentSheetId)
@@ -49,6 +53,7 @@ export function CommandPalette() {
       { id: 'issues', label: t('palette.issues'), run: () => ui.setDockTab('issues') },
       { id: 'new', label: t('palette.newProject'), run: () => ui.setNewProjectOpen(true) },
       { id: 'merge', label: t('merge.menu'), run: () => startMerge(t) },
+      { id: 'catalogue', label: t('catalogue.title'), run: () => void startCatalogueImport(t) },
       { id: 'assistant', label: t('ai.open'), run: () => useAi.getState().setPanelOpen(true) },
       { id: 'assistant-setup', label: t('ai.setup.title'), run: () => useAi.getState().setSetupOpen(true) },
       { id: 'settings', label: t('palette.settings'), run: () => ui.setSettingsOpen(true) },
@@ -61,9 +66,9 @@ export function CommandPalette() {
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },
       { id: 'theme', label: t('palette.toggleTheme'), run: () => ui.setPref('theme', ui.theme === 'light' ? 'dark' : 'light') },
       { id: 'lang', label: t('palette.toggleLang'), run: () => ui.setPref('lang', ui.lang === 'fr' ? 'en' : 'fr') },
-      ...LIBRARY.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: `${tpl.manufacturer ?? ''} ${tpl.model}`.trim() }), searchText: (tpl.aliases ?? []).join(' '), run: () => addAtCenter(tpl.id) })),
+      ...library.map((tpl) => ({ id: `add-${tpl.id}`, label: t('palette.add', { name: `${tpl.manufacturer ?? ''} ${tpl.model}`.trim() }), searchText: (tpl.aliases ?? []).join(' '), run: () => addAtCenter(tpl.id) })),
     ]
-  }, [t, rf])
+  }, [t, rf, userTemplates])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()

@@ -15,7 +15,8 @@
     "search": "Rechercher, commande",
     "newProjectName": "Nouveau projet",
     "openError": "Ce fichier n'est pas un projet AV Diagram valide (.avd).",
-    "exportPdf": "Planche PDF (A4 à A0, filigrane)..."
+    "exportPdf": "Planche PDF (A4 à A0, filigrane)...",
+    "saveAs": "Enregistrer sous…"
   },
   "mode": {
     "beginner": "Débutant",
@@ -420,7 +421,8 @@
       "export": "Mise en page et export",
       "template": "Modèle de cartouche (ce poste)",
       "storage": "Enregistrement (ce poste)",
-      "ai": "Assistant IA"
+      "ai": "Assistant IA",
+      "interface": "Interface (ce poste)"
     },
     "titleBlockHint": "Cartouche du projet. Les champs vides sont complétés par le modèle de ce poste."
   },
@@ -1593,5 +1595,56 @@
     "offline": "Manuel complet en français, disponible hors ligne.",
     "download": "Enregistrer le manuel PDF",
     "error": "Impossible d’enregistrer le manuel PDF. Réessayer vers un dossier accessible."
+  },
+  "toolbar": {
+    "customize": "Personnaliser les raccourcis…",
+    "menubar": "Menu principal",
+    "menus": {
+      "file": "Fichier",
+      "edit": "Édition",
+      "view": "Affichage",
+      "tools": "Outils",
+      "help": "Aide"
+    },
+    "title": "Raccourcis de la barre d’outils",
+    "localHint": "Ces préférences sont mémorisées sur cet ordinateur.",
+    "hint": "Coche les commandes à garder en accès direct. Utilise les flèches pour les ordonner. Toutes les commandes restent disponibles dans les menus. Le bouton Assistant IA reste visible.",
+    "reset": "Rétablir les raccourcis par défaut",
+    "up": "Monter {{name}}",
+    "down": "Descendre {{name}}",
+    "theme": "Thème",
+    "mode": "Mode d’utilisation",
+    "language": "Langue",
+    "langFr": "Français",
+    "langEn": "English"
+  },
+  "catalogue": {
+    "title": "Importer un catalogue d’équipements…",
+    "hint": "CSV ou Excel (.xlsx), avec les en-têtes sur la première ligne. Choisis les colonnes fabricant et modèle. Les fiches reconnues reprennent leur connectique ; les nouvelles restent à documenter. Ce catalogue reste sur ce poste dans « Mes modèles ». Seules les colonnes choisies sont utilisées.",
+    "manufacturer": "Fabricant",
+    "model": "Modèle / désignation",
+    "noColumn": "Colonne absente",
+    "column": "Colonne {{n}}",
+    "defaultFamily": "Famille des nouveaux modèles",
+    "family": "Famille",
+    "sheetStatus": "Fiche",
+    "include": "Inclure",
+    "includeName": "Inclure {{name}}",
+    "familyName": "Famille de {{name}}",
+    "summary": "{{count}} référence(s) sélectionnée(s), dont {{pending}} à documenter.",
+    "badRows": "Corrige les désignations manquantes ou non textuelles aux lignes : {{rows}}.",
+    "matched": "Fiche existante reconnue",
+    "pending": "Connectique à documenter",
+    "acceptPending": "Ajouter aussi les fiches sans prises documentées. Je compléterai leur connectique avant de les relier.",
+    "apply": "Ajouter à Mes modèles",
+    "done": "{{count}} modèle(s) ajouté(s) à Mes modèles. Les doublons ont été ignorés.",
+    "saving": "Enregistrement du catalogue…",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "errors": {
+      "large": "Le fichier dépasse les limites de lecture (10 Mo, 10 000 lignes, 100 colonnes ou 200 000 cellules).",
+      "invalid": "Impossible de lire ce catalogue. Utilise un CSV ou un XLSX valide, avec ses en-têtes sur la première ligne.",
+      "save": "Le catalogue n’a pas pu être enregistré. Réessaie ; les modèles déjà présents sont conservés."
+    }
   }
 }
