@@ -178,7 +178,7 @@ async fn transfer(state: &Downloads, m: &Model, target: &Path, partial: &Path, m
 #[derive(Serialize)]
 pub struct InstalledModel { #[serde(flatten)] model: Model, installed: bool, partial: u64 }
 #[derive(Serialize)]
-pub struct Catalog { models: Vec<InstalledModel>, memory_bytes: u64, runtime_available: bool }
+pub struct Catalog { models: Vec<InstalledModel>, memory_bytes: u64, runtime_available: bool, runtime_error: Option<String> }
 
 #[tauri::command]
 pub fn local_model_catalog(app: tauri::AppHandle) -> Result<Catalog, String> {
@@ -188,7 +188,8 @@ pub fn local_model_catalog(app: tauri::AppHandle) -> Result<Catalog, String> {
         let partial = fs::metadata(dir.join(format!("{}.part", m.file))).map(|f| f.len()).unwrap_or(0);
         InstalledModel { model: m, installed, partial }
     }).collect();
-    Ok(Catalog { models, memory_bytes: memory_bytes(), runtime_available: crate::local::bundled_server(&app).is_ok() })
+    let runtime = crate::local::bundled_server(&app);
+    Ok(Catalog { models, memory_bytes: memory_bytes(), runtime_available: runtime.is_ok(), runtime_error: runtime.err() })
 }
 
 #[tauri::command]

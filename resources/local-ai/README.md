@@ -10,3 +10,5 @@ de `engines.json` avant extraction. Aucun script provenant de ces archives n'est
 Les contrôles natifs et les builds de CI appellent ce script ; les répertoires générés ne sont pas suivis.
 
 Le moteur est MIT ; sa licence et les notices fournies sont conservées dans l'application.
+
+Sous Windows, la préparation copie les DLL x64 du répertoire Redist de Visual Studio Build Tools dans le dossier du moteur et conserve une notice Microsoft. Ces fichiers restent ignorés dans Git. Les moteurs macOS officiels b11747 exigent macOS 13.3 ; cette limite est vérifiée avant le téléchargement du modèle.

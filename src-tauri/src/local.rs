@@ -40,6 +40,11 @@ impl LocalServer {
 }
 
 pub fn bundled_server(app: &tauri::AppHandle) -> Result<std::path::PathBuf, String> {
+    #[cfg(target_os = "macos")]
+    {
+        let version = Command::new("/usr/bin/sw_vers").arg("-productVersion").env_remove("SYSTEM_VERSION_COMPAT").output().map_err(|_| "platform")?;
+        if !macos_version_supported(&String::from_utf8_lossy(&version.stdout)) { return Err("platform".into()); }
+    }
     let platform = if cfg!(windows) { "win-x64" } else if cfg!(target_os = "macos") {
         if cfg!(target_arch = "aarch64") { "mac-arm64" } else { "mac-x64" }
     } else { return Err("runtime".into()); };
@@ -47,6 +52,14 @@ pub fn bundled_server(app: &tauri::AppHandle) -> Result<std::path::PathBuf, Stri
         .join(if cfg!(windows) { "llama-server.exe" } else { "llama-server" });
     check_server_binary(&path).map_err(|_| "runtime")?;
     Ok(path)
+}
+
+#[cfg(any(target_os = "macos", test))]
+fn macos_version_supported(value: &str) -> bool {
+    let mut parts = value.trim().split('.');
+    let Some(major) = parts.next().and_then(|v| v.parse::<u32>().ok()) else { return false; };
+    let minor = match parts.next() { Some(v) => match v.parse::<u32>() { Ok(n) => n, Err(_) => return false }, None => 0 };
+    (major, minor) >= (13, 3)
 }
 
 fn check_server_binary(path: &Path) -> Result<(), String> {
@@ -100,7 +113,7 @@ fn spawn_with_key(server: &Path, model: &Path, port: u16, context: u32, key: Opt
         .stderr(Stdio::null());
     // Ne pas hériter d'outils système, MCP, RPC ou téléchargements configurés pour un autre usage.
     for (name, _) in std::env::vars_os() {
-        let text = name.to_string_lossy();
+        let text = name.to_string_lossy().to_ascii_uppercase();
         if text.starts_with("LLAMA_") || text.starts_with("GGML_") { cmd.env_remove(name); }
     }
     // Clé éphémère native : une page web ouverte sur le poste ne peut pas interroger le schéma.
@@ -112,11 +125,11 @@ fn spawn_with_key(server: &Path, model: &Path, port: u16, context: u32, key: Opt
 #[tauri::command]
 pub async fn local_builtin_start(app: tauri::AppHandle, state: tauri::State<'_, LocalServer>, id: String) -> Result<(), String> {
     let epoch = state.stop();
+    let binary = bundled_server(&app)?;
     let model = crate::local_models::model(&id)?;
     let path = crate::local_models::model_dir(&app)?.join(&model.file);
     let verify = path.clone();
     tauri::async_runtime::spawn_blocking(move || crate::local_models::verify_file(&verify, &model)).await.map_err(|_| "storage")??;
-    let binary = bundled_server(&app)?;
     // Port libre choisi par le système ; la clé empêche toute confusion si le port est repris entre-temps.
     let socket = std::net::TcpListener::bind(("127.0.0.1", 0)).map_err(|_| "port")?;
     let port = socket.local_addr().map_err(|_| "port")?.port();
@@ -176,6 +189,13 @@ mod tests {
         assert!(check_server_binary(Path::new("/bin/sh")).is_err());
         assert!(check_model(Path::new("/etc/hostname")).is_err());
         assert!(check_model(Path::new("/nexiste/pas.gguf")).is_err());
+    }
+
+    #[test]
+    fn version_minimale_du_moteur_mac() {
+        assert!(!macos_version_supported("12.7.6")); assert!(!macos_version_supported("13.2.9"));
+        assert!(macos_version_supported("13.3")); assert!(macos_version_supported("13.10.1\n"));
+        assert!(macos_version_supported("26.0.1")); assert!(!macos_version_supported("inconnue"));
     }
 
     #[test]

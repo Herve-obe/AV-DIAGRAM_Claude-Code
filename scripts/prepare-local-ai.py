@@ -3,7 +3,9 @@ import argparse
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
+import re
 import sys
 import subprocess
 import tarfile
@@ -20,14 +22,33 @@ def wanted(name):
             or name.startswith(('LICENSE', 'NOTICE', 'COPYING')))
 
 
+def windows_crt():
+    # Répertoire Redist officiel uniquement : aucun prélèvement dans System32 ni dans Debug_NonRedist.
+    vswhere = Path(os.environ.get('ProgramFiles(x86)', 'C:/Program Files (x86)')) / 'Microsoft Visual Studio/Installer/vswhere.exe'
+    if not vswhere.is_file():
+        raise RuntimeError('Visual Studio Build Tools requis pour préparer les DLL redistribuables Windows')
+    installation = subprocess.check_output([str(vswhere), '-latest', '-products', '*', '-requires', 'Microsoft.VisualStudio.Component.VC.Tools.x86.x64', '-property', 'installationPath'], text=True, creationflags=subprocess.CREATE_NO_WINDOW).strip()
+    redist = Path(installation) / 'VC/Redist/MSVC'
+    candidates = [p for p in redist.glob('*/x64/Microsoft.VC*.CRT') if re.fullmatch(r'Microsoft\.VC\d+\.CRT', p.name)]
+    candidates.sort(key=lambda p: (bool(re.fullmatch(r'\d+(?:\.\d+)+', p.parent.parent.name)), tuple(int(n) for n in re.findall(r'\d+', p.parent.parent.name))))
+    if not candidates:
+        raise RuntimeError('DLL redistribuables Visual C++ x64 introuvables')
+    files = {p.name: p.read_bytes() for p in candidates[-1].glob('*.dll')}
+    if not {'msvcp140.dll', 'vcruntime140.dll', 'vcruntime140_1.dll'}.issubset(files):
+        raise RuntimeError('Jeu de DLL Visual C++ x64 incomplet')
+    files['Microsoft-CRT-NOTICE.txt'] = (ROOT / 'docs/third-party/msvc-runtime-NOTICE.txt').read_bytes()
+    return files
+
+
 def stage(platform):
     manifest = json.loads((RESOURCES / 'engines.json').read_text(encoding='utf-8'))
     spec = manifest['assets'][platform]
     target = RESOURCES / platform
+    crt = windows_crt() if platform == 'win-x64' else {}
     marker = target / 'manifest.json'
     if marker.exists():
         old = json.loads(marker.read_text(encoding='utf-8'))
-        if old.get('archive_sha256') == spec['sha256'] and all(
+        if old.get('archive_sha256') == spec['sha256'] and all(old['files'].get(name) == hashlib.sha256(data).hexdigest() for name, data in crt.items()) and all(
             (target / name).is_file() and hashlib.sha256((target / name).read_bytes()).hexdigest() == digest
             for name, digest in old['files'].items()
         ):
@@ -60,6 +81,7 @@ def stage(platform):
     if server not in files:
         raise ValueError('llama-server absent')
     files['llama.cpp-LICENSE.txt'] = (ROOT / 'docs' / 'third-party' / 'llama.cpp-LICENSE.txt').read_bytes()
+    files.update(crt)
     target.mkdir(parents=True, exist_ok=True)
     for name, content in files.items():
         destination = target / name

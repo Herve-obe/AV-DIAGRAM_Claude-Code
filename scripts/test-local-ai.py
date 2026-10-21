@@ -23,6 +23,37 @@ def digest(path):
     return h.hexdigest()
 
 
+def verify_local_crt(pid, engine):
+    if sys.platform != 'win32':
+        return
+    import ctypes
+    from ctypes import wintypes
+    kernel = ctypes.WinDLL('kernel32', use_last_error=True)
+    psapi = ctypes.WinDLL('psapi', use_last_error=True)
+    kernel.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+    kernel.OpenProcess.restype = wintypes.HANDLE
+    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+    psapi.EnumProcessModules.argtypes = [wintypes.HANDLE, ctypes.POINTER(wintypes.HMODULE), wintypes.DWORD, ctypes.POINTER(wintypes.DWORD)]
+    psapi.GetModuleFileNameExW.argtypes = [wintypes.HANDLE, wintypes.HMODULE, wintypes.LPWSTR, wintypes.DWORD]
+    handle = kernel.OpenProcess(0x0410, False, pid)
+    assert handle, 'processus de test inaccessible'
+    try:
+        modules = (wintypes.HMODULE * 1024)()
+        needed = wintypes.DWORD()
+        assert psapi.EnumProcessModules(handle, modules, ctypes.sizeof(modules), ctypes.byref(needed))
+        found = {}
+        for module in modules[:needed.value // ctypes.sizeof(wintypes.HMODULE)]:
+            name = ctypes.create_unicode_buffer(32768)
+            if psapi.GetModuleFileNameExW(handle, module, name, len(name)):
+                path = Path(name.value)
+                found[path.name.lower()] = path
+        for name in ['msvcp140.dll', 'vcruntime140.dll', 'vcruntime140_1.dll']:
+            assert name in found and found[name].parent.resolve() == engine.parent.resolve(), f'{name} doit être chargée depuis le moteur, pas depuis le système'
+        print('PASS : dépendances Visual C++ chargées depuis le dossier de l’application', flush=True)
+    finally:
+        kernel.CloseHandle(handle)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--directory', type=Path, required=True, help='Dossier réservé à cet essai')
@@ -65,6 +96,7 @@ def main():
                     time.sleep(1)
             else:
                 raise TimeoutError('chargement trop long')
+            verify_local_crt(process.pid, engine)
             print('Moteur chargé, exécution des vrais appels d’outils', flush=True)
             result = folder / 'integration-result.json'
             subprocess.run([args.node, str(ROOT / 'node_modules/vitest/vitest.mjs'), 'run', 'src/ai/local.integration.test.ts', '--reporter=json', '--outputFile', str(result)], cwd=ROOT, env=env, check=True, timeout=660, creationflags=flags)

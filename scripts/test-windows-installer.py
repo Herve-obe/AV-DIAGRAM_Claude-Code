@@ -118,6 +118,11 @@ def install_silently():
     expected = json.loads(Path("src-tauri/tauri.conf.json").read_text(encoding="utf-8"))["version"]
     assert installed["DisplayVersion"] == expected, installed
     assert Path(installed["InstallLocation"].strip('"')).resolve() == install_dir.resolve(), installed
+    engine_dir = install_dir / 'local-ai' / 'win-x64'
+    assert all((engine_dir / name).is_file() for name in ['llama-server.exe', 'msvcp140.dll', 'vcruntime140.dll', 'vcruntime140_1.dll']), 'Moteur local ou dépendances Visual C++ absents de l’installation'
+    engine = subprocess.run([str(engine_dir / 'llama-server.exe'), '--version'], capture_output=True, timeout=30, creationflags=subprocess.CREATE_NO_WINDOW)
+    assert engine.returncode == 0, f'Moteur installé inutilisable : {engine.stderr!r}'
+    print('PASS: installed local AI engine and app-local Visual C++ runtime', flush=True)
     print(f"Installed metadata: {installed}", flush=True)
 
 

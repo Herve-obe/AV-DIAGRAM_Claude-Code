@@ -74,3 +74,9 @@ it('permet de retélécharger un modèle installé dont l’empreinte a été al
   expect(button('Télécharger le modèle').disabled).toBe(false)
   expect(button('Activer l’IA locale').disabled).toBe(true)
 })
+it('explique la limite macOS avant de proposer un téléchargement inutile', async () => {
+  actions.catalog.mockResolvedValue({ models: [{ ...model }], memory_bytes: 16 * 1024 ** 3, runtime_available: false, runtime_error: 'platform' })
+  await draw()
+  expect(element.textContent).toContain('macOS 13.3')
+  expect(button('Télécharger le modèle').disabled).toBe(true)
+})

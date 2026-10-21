@@ -75,7 +75,7 @@ export interface LocalModel {
   installed: boolean
   partial: number
 }
-export interface LocalCatalog { models: LocalModel[]; memory_bytes: number; runtime_available: boolean }
+export interface LocalCatalog { models: LocalModel[]; memory_bytes: number; runtime_available: boolean; runtime_error?: string | null }
 export interface DownloadProgress { id: string | null; downloaded: number; total: number; running: boolean }
 export const localCatalog = () => invoke<LocalCatalog>('local_model_catalog')
 export const downloadModel = (id: string) => invoke<string>('local_model_download', { id })

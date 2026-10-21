@@ -295,7 +295,7 @@ Avant un chantier, vérifier au minimum : variantes et cartes des appareils ; no
 
 ## 21. Utiliser l’assistant IA local
 
-Ouvre le bouton Assistant dans la barre supérieure, puis Configurer l’assistant et IA locale. Le moteur est inclus dans les builds Windows et macOS. Aucun compte ni clé API n’est nécessaire. L’assistant est désactivé par défaut et le logiciel reste utilisable sans le configurer.
+Ouvre le bouton Assistant dans la barre supérieure, puis Configurer l’assistant et IA locale. Le moteur est inclus dans les builds Windows et macOS. Le moteur Mac exige macOS 13.3 ou plus ; le logiciel reste utilisable sur macOS 12.3 sans ce moteur. Aucun compte ni clé API n’est nécessaire. L’assistant est désactivé par défaut et le logiciel reste utilisable sans le configurer.
 
 Choisis Qwen3 4B (environ 2,50 Go, au moins 8 Go de mémoire conseillés) ou Qwen3 8B (environ 5,03 Go, au moins 16 Go conseillés). Ces repères ne garantissent pas la vitesse ; garde de la mémoire libre pour le système et les autres logiciels. Les modèles officiels sont sous licence Apache-2.0, consultable dans l’écran de configuration.
 

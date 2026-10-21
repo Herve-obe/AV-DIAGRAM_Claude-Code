@@ -110,7 +110,7 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
         <section>
           <p className="dialog-hint">{t('ai.local.intro')}</p>
           {!native && <p className="ai-note">{t('ai.desktopOnly')}</p>}
-          {catalog && !catalog.runtime_available && <p className="ai-note">{t('ai.local.error.runtime')}</p>}
+          {catalog && !catalog.runtime_available && <p className="ai-note">{t(`ai.local.error.${catalog.runtime_error === 'platform' ? 'platform' : 'runtime'}`)}</p>}
           <ol className="ai-steps"><li>{t('ai.local.step1')}</li><li>{t('ai.local.step2')}</li><li>{t('ai.local.step3')}</li></ol>
           {catalog && <>
             <p className="dialog-hint">{catalog.memory_bytes ? t('ai.local.memory', { gb: Math.round(catalog.memory_bytes / 1024 ** 3) }) : t('ai.local.memoryUnknown')}</p>

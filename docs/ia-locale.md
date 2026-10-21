@@ -8,7 +8,7 @@ automatique de riders et l'affinage d'un modèle ne sont pas inclus dans cette r
 
 Assistant → Configurer → IA locale : choisir le modèle, télécharger, charger et tester, activer.
 Le test appelle réellement `check_project` sur un document fictif avant d'autoriser l'activation.
-Windows x64 utilise le processeur ; macOS embarque les moteurs Intel et Apple Silicon.
+Windows x64 utilise le processeur et embarque ses DLL Visual C++ dans le dossier du moteur (aucune installation système supplémentaire). macOS embarque les moteurs Intel et Apple Silicon, qui nécessitent macOS 13.3 ou plus. La version minimale du moteur est vérifiée avant tout téléchargement ; le reste d’AV Diagram conserve sa compatibilité macOS 12.3.
 Le modèle est partagé entre les projets de ce poste, dans les données locales de l'application,
 sans être copié dans les `.avd` ni dans `Save Back Up`.
 
@@ -79,3 +79,5 @@ Il ne lance ni AV Diagram ni l'installeur et n'utilise aucun fichier de l'utilis
 
 Restent à éprouver : qualité sur des projets métier variés, vitesse selon les postes, modèle 8B
 en usage réel, téléchargement sur les réseaux filtrés et essais collaboratifs sur plusieurs machines.
+
+Les DLL Microsoft proviennent exclusivement du répertoire Redist de Visual Studio, sans modification ; leur notice accompagne le moteur. Le test réel vérifie qu’elles sont chargées depuis ce dossier. Le contrôle NSIS vérifie aussi le moteur installé. Voir [déploiement local Microsoft](https://learn.microsoft.com/en-us/cpp/windows/determining-which-dlls-to-redistribute).
