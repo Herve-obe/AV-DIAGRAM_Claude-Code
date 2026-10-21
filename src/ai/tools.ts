@@ -286,7 +286,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         if (!entry || typeof entry !== 'object') return fail('Liaison invalide. Aucun élément de cet appel ajouté.')
         const result = execute('connect_ports', { from_equipment_id: refs.get(text(entry.from)) ?? text(entry.from), from_port_id: entry.from_port,
           to_equipment_id: refs.get(text(entry.to)) ?? text(entry.to), to_port_id: entry.to_port })
-        if (result.error) return fail(`${text(entry.from)} → ${text(entry.to)} : ${result.error}. Aucun élément de cet appel ajouté.`)
+        if (result.error) return fail(`${text(entry.from)} → ${text(entry.to)} : ${result.error}. Aucun élément de cet appel ajouté. Les refs de cet appel n’existent donc pas dans le projet. Lire get_template avec les template_id, puis refaire tout propose_diagram avec les bons ports.`)
       }
       next = { ...next, project: layoutDiagram(next.project, next.addedEquipment, next.sheetId) }
       if (ctx.allowed && !ctx.allowed(draft.base, next.project)) return fail('Proposition refusée par les droits du projet ou du calque.')

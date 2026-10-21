@@ -26,6 +26,22 @@ describe('synoptique IA : plateau TV', () => {
     expect(Object.fromEntries(requestedCounts('a video switcher and 3 cameras'))).toEqual({ camera: 3, videoSwitcher: 1 })
     expect(requestedCounts('une console lumière').size).toBe(0)
   })
+  it('fournit les vraies références et prises du catalogue avant la première réponse du modèle', async () => {
+    let body = ''
+    const transport: Transport = { async request(_provider, _url, req) { body = req.body!; throw new Error('fin du test') } }
+    const base = createProject('t')
+    await expect(runTurn({ transport, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Propose un synoptique avec 5 caméras Sony, un mélangeur vidéo Tricaster et une console Yamaha CL5',
+      draft: createDraft(base, DEFAULT_SHEET_ID), ctx })).rejects.toMatchObject({ kind: 'network' })
+    const system = JSON.parse(body).messages[0].content
+    expect(system).toContain('newtek-tricaster-2-elite')
+    expect(system).toContain('yamaha-cl5')
+    expect(system).toContain('sony-')
+    expect(system).toContain('"requested_count":5')
+    expect(system).toContain('"id":"sdi-in-5"')
+    expect(system).toContain('"id":"out2"')
+    expect(Object.keys(base.equipment)).toHaveLength(0)
+  })
   it('conserve les ports de la console dans les anciens résultats, malgré ses nombreuses sources', () => {
     const draft = createDraft(createProject('t'), DEFAULT_SHEET_ID)
     const call = { id: 'fiche', name: 'get_template', args: { template_id: 'yamaha-cl5' } }
