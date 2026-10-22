@@ -62,6 +62,23 @@ describe('import de catalogue utilisateur', () => {
     const generic = GENERIC_LIBRARY[0]
     expect(catalogueEntries({ name: 'Test', rows: [['Name'], [generic.model]] }, { model: 0, manufacturer: -1 }, [generic], 'passive').entries[0].template).toBeUndefined()
   })
+  it('reconnaît les générations par alias avec une colonne fabricant, sans confondre les marques', () => {
+    const fourth = LIBRARY.find(t => t.id === 'focusrite-scarlett-2i2-4g')!
+    const library = [...LIBRARY, { ...fourth, id: 'autre-interface', manufacturer: 'Autre' }]
+    const table = catalogueCsv('Fabricant;Modèle\nFocusrite;Scarlett 2i2 Gen 2\nFocusrite;Scarlett 2i2 Gen 3\nfocusrite;Scarlett 2i2 Gen 4\nFocusrite;Scarlett 2i2\nInconnu;Scarlett 2i2 Gen 4\n;Scarlett 2i2 Gen 4')
+    const entries = catalogueEntries(table, catalogueColumns(table.rows[0]), library, 'recording').entries
+    expect(entries.map(e => e.template?.id)).toEqual([
+      'focusrite-scarlett-2i2-2g', 'focusrite-scarlett-2i2-3g', 'focusrite-scarlett-2i2-4g', undefined, undefined, undefined,
+    ])
+  })
+  it('retrouve un modèle déjà importé malgré sa copie dans la bibliothèque commune', () => {
+    const original = LIBRARY.find(t => t.id === 'focusrite-scarlett-2i2-4g')!
+    const personal = { ...structuredClone(original), id: 'user-interface', status: 'user' as const }
+    const table = catalogueCsv('Fabricant;Modèle\nFocusrite;Scarlett 2i2 Gen 4')
+    const entries = catalogueEntries(table, catalogueColumns(table.rows[0]), [personal, ...LIBRARY], 'recording').entries
+    expect(entries[0].template).toBe(personal)
+    expect(catalogueTemplate(entries[0]).model).toBe(original.model)
+  })
 })
 
 describe('plateau vidéo SDI depuis les fiches réelles', () => {

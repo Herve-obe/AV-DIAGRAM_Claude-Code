@@ -45,7 +45,7 @@ export function catalogueColumns(header: TableCell[]): CatalogueColumns {
 export interface CatalogueEntry { row: number; manufacturer: string; model: string; family: EquipmentFamily; template?: EquipmentTemplate }
 export function catalogueEntries(table: WorkbookTable, columns: CatalogueColumns, library: EquipmentTemplate[], family: EquipmentFamily) {
   const entries: CatalogueEntry[] = [], problems: number[] = [], seen = new Set<string>()
-  const lookup = library.filter(t => t.status !== 'generic').map(t => ({ template: t, full: catalogueIdentity(t), short: normal(t.model), aliases: (t.aliases ?? []).map(normal) }))
+  const lookup = library.filter(t => t.status !== 'generic').map(t => ({ template: t, manufacturer: normal(t.manufacturer ?? ''), full: catalogueIdentity(t), short: normal(t.model), aliases: (t.aliases ?? []).map(normal) }))
   for (const [index, row] of table.rows.slice(1).entries()) {
     if (row.every(v => v === null || typeof v === 'string' && !v.trim())) continue
     const model = text(row[columns.model]), manufacturer = columns.manufacturer >= 0 ? text(row[columns.manufacturer]) : ''
@@ -55,10 +55,12 @@ export function catalogueEntries(table: WorkbookTable, columns: CatalogueColumns
     if (seen.has(key)) continue
     seen.add(key)
     const wanted = normal(model)
+    const manufacturerKey = normal(manufacturer)
     const matches = lookup.filter(t => t.full === key || !manufacturer && t.short === wanted || t.aliases.includes(key)
-      || !manufacturer && !!t.template.manufacturer && key.startsWith(t.full + ' ')).map(t => t.template)
+      || t.aliases.includes(wanted) && (!manufacturer || t.manufacturer === manufacturerKey)
+      || !manufacturer && !!t.template.manufacturer && key.startsWith(t.full + ' '))
     // Une variante/génération ambiguë reste à documenter ; aucun rapprochement approximatif.
-    const template = matches.length === 1 ? matches[0] : undefined
+    const template = matches.length && matches.every(t => t.full === matches[0].full) ? matches[0].template : undefined
     entries.push({ row: index + 2, manufacturer: template?.manufacturer ?? manufacturer, model: template?.model ?? model, family: template?.family ?? family, template })
   }
   return { entries, problems }

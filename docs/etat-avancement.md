@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-22)
 
-## Situation actuelle — 0.5.3
+## Situation actuelle — 0.5.4
+
+La 0.5.4 reconnaît également les alias de modèles importés avec une colonne fabricant, en contrôlant la marque pour éviter les rapprochements erronés.
 
 La 0.5.3 regroupe les commandes dans cinq menus et permet de choisir et d’ordonner les raccourcis dans les préférences Interface. L’import CSV/Excel propose un aperçu, les colonnes marque/modèle, le tri des lignes et les familles ; il enregistre les modèles sur le poste, sans publier de stock ou de prix. Une référence connue reprend sa fiche ; les autres restent sans prises et « à documenter ». Aucun catalogue en ligne n’est parcouru automatiquement.
 
@@ -14,7 +16,7 @@ Depuis 0.4.1, la présentation repliée des prises est mémorisée par équipeme
 
 Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Excel et le réimport de patch, les vues réseau/électrique/intercom/synchronisation et le réglage des câbles sur blocs pivotés sont codés. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md) pour leurs fonctions et limites. Le protocole LAN est passé à 3 : installer la même version sur tous les postes.
 
-Le catalogue contient 2 152 modèles réels et 24 génériques : 466 fiches vérifiées et 1 686 fiches Communauté. La 0.5.2 avait ajouté le TriCaster 2 Elite ; la 0.5.3 ajoute 108 références après le tri de l’inventaire fourni (7 vérifiées et 101 à documenter, sans connectique supposée). Les ordinateurs, logiciels, câbles, structure, supports, consommables, batteries/chargeurs, appareils de mesure et panneaux de brassage ont été exclus de cet ajout. Trois désignations ambiguës attendent une référence précise. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
+Le catalogue contient 2 156 modèles réels et 24 génériques : 470 fiches vérifiées et 1 686 fiches Communauté. La 0.5.2 avait ajouté le TriCaster 2 Elite ; la 0.5.3 ajoute 108 références après le tri de l’inventaire fourni (7 vérifiées et 101 à documenter, sans connectique supposée). Les ordinateurs, logiciels, câbles, structure, supports, consommables, batteries/chargeurs, appareils de mesure et panneaux de brassage ont été exclus de cet ajout. La 0.5.4 complète ce lot avec les CCU HXCU-FB70/HXCU-TX70 et les Scarlett 2i2 de 2e/4e générations, soit 112 ajouts au total dont 11 vérifiés et 101 à documenter. La Scarlett 2i2 de 3e génération existante garde son identifiant. Le Kino Flo à quatre tubes non identifié est écarté à la demande de l’utilisateur ; les trois désignations en attente de ce relevé sont donc résolues. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
 
 Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud des projets reste en attente. Les API IA externes sont configurables ; aucun compte payant n’a été utilisé dans nos essais. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
 

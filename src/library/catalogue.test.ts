@@ -13,12 +13,49 @@ interface Coverage {
   excludedNoveltyIds: number[]
   products: { noveltyId: number; templateId: string; url: string; categories: string[] }[]
 }
+
 const coverage: Coverage = JSON.parse(readFileSync(new URL('../../docs/inventaire/novelty-2026-couverture.json', import.meta.url), 'utf8'))
 const template = (id: string) => {
   const t = LIBRARY_INDEX.get(id)
   expect(t, id).toBeDefined()
   return t!
 }
+
+describe('références précisées : CCU Sony et Scarlett 2i2', () => {
+  it('distingue les trois générations de Scarlett et leurs prises physiques', () => {
+    const models = [2, 3, 4].map(gen => template(`focusrite-scarlett-2i2-${gen}g`))
+    expect(new Set(models.map(t => t.id)).size).toBe(3)
+    models.forEach((t, i) => {
+      expect(t.status).toBe('verified')
+      expect(searchLibrary(LIBRARY, `Scarlett 2i2 Gen ${i + 2}`)[0].template_id).toBe(t.id)
+    })
+    expect(models[0].ports.find(p => p.id === 'usb')?.connector).toBe('usb-b')
+    expect(models[1].ports.map(p => p.id)).toEqual(['in1', 'in2', 'outL', 'outR', 'phones', 'usb'])
+    expect(models[1].ports.find(p => p.id === 'usb')?.connector).toBe('usb-c')
+    expect(models[2].ports.filter(p => p.direction === 'in' && p.connector === 'xlr3')).toHaveLength(2)
+    expect(models[2].ports.filter(p => p.direction === 'in' && p.connector === 'jack-trs')).toHaveLength(2)
+    expect(models[2].ports.find(p => p.id === 'dc5v')).toMatchObject({ signal: 'power', direction: 'in', connector: 'usb-c' })
+    expect(models[2].description).toContain('pas quatre canaux indépendants')
+  })
+  it('sépare les liaisons caméra et les sorties différentes des deux CCU', () => {
+    const fb = template('sony-hxcu-fb70'), tx = template('sony-hxcu-tx70')
+    for (const t of [fb, tx]) {
+      expect(t.status).toBe('verified')
+      expect(t.family).toBe('control')
+      expect(t.domain).toBe('image')
+      expect(t.ports.filter(p => p.name.startsWith('SDI OUTPUT'))).toHaveLength(4)
+      expect(t.ports.filter(p => p.name.startsWith('SDI RETURN'))).toHaveLength(2)
+      expect(t.rackU).toBe(1.5)
+      expect(t.powerW).toBeUndefined() // les manuels donnent des ampères, pas des watts
+    }
+    expect(fb.ports.find(p => p.id === 'camera')?.connector).toBe('opticalcon')
+    expect(tx.ports.find(p => p.id === 'camera')?.connector).toBe('triax')
+    expect(fb.ports.some(p => p.connector === 'hdmi')).toBe(true)
+    expect(tx.ports.some(p => p.connector === 'hdmi')).toBe(false)
+    expect(fb.ports.find(p => p.id === 'trunk')?.connector).toBe('dsub9')
+    expect(tx.ports.find(p => p.id === 'trunk')?.connector).toBe('dsub25')
+  })
+})
 
 describe('catalogue Novelty hors Structure', () => {
   it('couvre chaque fiche retenue, avec sa source, et exclut toute la catégorie Structure', () => {
