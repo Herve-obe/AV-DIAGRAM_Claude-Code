@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.5 · Édition du 22 octobre 2026 · Windows et macOS
+Version 0.5.6 · Édition du 22 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -332,6 +332,8 @@ Pour un synoptique, précise les quantités, les références et les flux souhai
 Un plateau TV standard peut être construit avec plusieurs caméras SDI identiques, un mélangeur vidéo et une console audio. Le logiciel prépare une entrée SDI distincte par caméra et deux liaisons audio ligne XLR de la console vers le mélangeur ; il refuse une capacité ou une connectique insuffisante. Sur les appareils, affecte les deux sorties audio au programme gauche/droite, règle les entrées du mélangeur en niveau ligne et choisis un format vidéo commun. Le synoptique ne réalise pas ces réglages internes.
 
 Pour une IA externe, choisis IA externe via API, puis le fournisseur et le modèle. Crée ta clé API dans sa console et enregistre-la dans le trousseau sécurisé du système. Un abonnement de discussion ne remplace pas une clé API ; le fournisseur facture son usage selon son offre. L’écran indique les données qui seront envoyées. Donne ton accord puis lance le test des outils sur un schéma fictif avant de terminer. Aucun modèle local n’est nécessaire. Une clé de serveur personnalisé est liée à son adresse, en HTTPS pour un serveur distant.
+
+Décris le résultat souhaité naturellement, par exemple « Génère un plateau avec 5 caméras reliées à un TriCaster ». Une console audio n’est ajoutée que si elle est demandée. Une désignation large peut conduire à une proposition de modèle ou à une question ciblée. Si des fiches demandées sont sans connectique documentée, l’assistant regroupe ses questions pour préciser les modèles, le nombre de micros ou d’ensembles HF et leurs connecteurs. Réponds dans le même chat : la demande initiale est conservée. Il ne doit pas annoncer une recherche future en laissant le schéma vide. Les propositions restent à vérifier et à appliquer dans l’aperçu.
 
 Tu peux citer une référence sans sa marque, par exemple « console CL5 ». Les séparateurs sont tolérés : CL5, CL-5 et CL 5 renvoient à la même référence. Si plusieurs variantes correspondent, précise celle souhaitée. L’assistant reçoit les niveaux des entrées et des sorties séparément : une prise XLR ne signifie pas nécessairement niveau micro. Les niveaux inconnus restent non documentés. Pour un appareil déjà posé dont les prises ont été personnalisées, demande à l’assistant de consulter cet appareil dans le schéma.
 

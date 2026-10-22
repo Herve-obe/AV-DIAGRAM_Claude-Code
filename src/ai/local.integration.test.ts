@@ -44,7 +44,7 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
     expect(add.draft.addedLinks).toHaveLength(0)
     trace({ stage: 'plateau-tv' })
     const tv = await runTurn({ transport, connection: { provider: 'builtin', model: 'qwen3-4b' }, system,
-      history: [], userText: "Propose un synoptique d'un plateau TV avec 5 caméras Sony, un mélangeur vidéo Tricaster et une console Yamaha CL5",
+      history: [], userText: 'Génère un plateau TV avec 5 caméras Sony reliées à un Tricaster et une console CL5 reliée au mélangeur',
       draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: LIBRARY, describe: i => i.code }, onTool: name => console.log('TV outil :', name) })
     const devices = Object.values(tv.draft.project.equipment)
     const cameras = devices.filter(e => e.family === 'camera')
@@ -68,5 +68,19 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
     boxes.forEach((a, i) => boxes.slice(i + 1).forEach(b => expect(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y).toBe(true)))
     expect(Object.keys(base.equipment)).toHaveLength(0)
     console.log(JSON.stringify({ model: 'qwen3-4b', check: check.toolsUsed, proposal: add.toolsUsed, tv: { tools: tv.toolsUsed, devices: devices.map(e => ({ name: e.name, model: e.model, position: e.position })), links: links.length, reply: tv.reply } }))
+  }, 900000)
+  it('clarifie une demande large avec connectique manquante en un seul appel', async () => {
+    const base = createProject('Essai de demande large')
+    let requests = 0
+    const counted: Transport = { async request(...args) { requests++; return transport.request(...args) } }
+    const result = await runTurn({ transport: counted, connection: { provider: 'builtin', model: 'qwen3-4b' },
+      system: buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' }), history: [],
+      userText: 'Génère un plateau TV avec 5 caméra Panasonic P2 reliées à un mélangeur Tricaster. Une console audio CL5 avec des micros Sanken cos11 en HF avec des Sennheiser EW112 G4. La sortie master est envoyée au Tricaster.',
+      draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: LIBRARY, describe: i => i.code } })
+    expect(requests).toBe(1)
+    expect(result.toolsUsed).toEqual(['ask_user'])
+    expect(result.reply).toMatch(/cos|sanken|hf|micro/i)
+    expect(result.draft.addedEquipment).toEqual([])
+    expect(Object.keys(base.equipment)).toHaveLength(0)
   }, 900000)
 })

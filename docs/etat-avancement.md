@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-22)
 
-## Situation actuelle — 0.5.5
+## Situation actuelle — 0.5.6
+
+La 0.5.6 reconnaît les demandes naturelles de plateau et les verbes accentués (« reliées »), ainsi qu’un mélangeur désigné directement par son nom. Le plateau SDI peut être vidéo seul, sans console ajoutée implicitement. Une génération ne peut plus réussir avec une simple annonce sans proposition. Quand une fiche demandée n’a pas de connectique documentée, une seule requête compacte exige au maximum trois questions ciblées ; les précisions conservent la demande initiale. Aucun port constructeur n’est inventé pour contourner une fiche incomplète.
 
 La 0.5.5 précharge les références courtes citées dans une question, sans exiger la marque, et distingue les niveaux des entrées et des sorties audio du format physique des connecteurs. Les outils exposent un résumé des niveaux analogiques sur toutes les prises, indépendamment de la pagination. Les recherches tolèrent les séparateurs CL5 / CL-5 / CL 5 ; les variantes restent à préciser. La fiche CL5 était déjà correcte (+4 dBu sur les sorties XLR) : aucun niveau constructeur n’a été modifié par supposition.
 

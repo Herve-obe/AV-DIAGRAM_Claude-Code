@@ -27,6 +27,17 @@ const openaiToolCall = (id: string, name: string, args: unknown) => ({
 const openaiText = (text: string) => ({ choices: [{ message: { content: text } }] })
 
 describe('assistant : formats des fournisseurs', () => {
+  it('borne une clarification et exige le bon outil sans changer les autres requêtes', () => {
+    const options = { requiredTool: 'ask_user', maxTokens: 512 }
+    const openai = JSON.parse(buildChatRequest('openai', 'test', '', [], TOOL_SPECS, 'openai', options).body!)
+    expect(openai.max_completion_tokens).toBe(512)
+    expect(openai.tool_choice).toBe('required')
+    expect(openai.tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['ask_user'])
+    const anthropic = JSON.parse(buildChatRequest('anthropic', 'test', '', [], TOOL_SPECS, 'anthropic', options).body!)
+    expect(anthropic.max_tokens).toBe(512)
+    expect(anthropic.tool_choice).toEqual({ type: 'tool', name: 'ask_user' })
+    expect(() => buildChatRequest('openai', 'test', '', [], [], 'builtin', options)).toThrow('Outil requis indisponible')
+  })
   it('utilise la limite de sortie actuelle chez OpenAI sans changer les API compatibles', () => {
     const request = (provider: 'openai' | 'mistral') => JSON.parse(buildChatRequest('openai', 'test', 'sys', [], [], provider).body!)
     expect(request('openai').max_completion_tokens).toBe(2048)

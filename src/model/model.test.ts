@@ -99,6 +99,14 @@ describe('plateau vidéo SDI depuis les fiches réelles', () => {
     expect(videoStudioPlan(camera, 5, video, { ...audio, ports: [] }).error).toBeTruthy()
     expect(videoStudioPlan({ ...camera, family: 'console' }, 5, video, audio).error).toBeTruthy()
   })
+  it('permet un plateau vidéo seul sans console implicite', () => {
+    const plan = videoStudioPlan(camera, 5, video)
+    expect(plan.error).toBeUndefined()
+    expect(plan.equipment).toHaveLength(2)
+    expect(plan.connections).toHaveLength(5)
+    expect(plan.connections!.every(l => l.from.startsWith('cam'))).toBe(true)
+    expect(videoStudioPlan(camera, 9, video).error).toBeTruthy()
+  })
   it('refuse les quantités invalides', () => {
     for (const count of [0, -1, 1.5, NaN, 49]) expect(videoStudioPlan(camera, count, video, audio).error).toBeTruthy()
   })

@@ -37,6 +37,11 @@ const portOffset = { type: 'integer', description: 'Décalage pour lire les pris
 
 export const TOOL_SPECS: ToolSpec[] = [
   {
+    name: 'ask_user',
+    description: 'Termine ce tour en demandant une précision indispensable : modèle ambigu, quantité ou connectique manquante. Poser une question concrète ; aucune modification de ce tour ne sera conservée. Ne pas annoncer une action future à la place d’une proposition.',
+    parameters: { type: 'object', properties: { question: { ...str, maxLength: 2000 } }, required: ['question'] },
+  },
+  {
     name: 'search_documentation',
     description: 'Recherche dans le manuel local AV Diagram. Citer le champ source dans la réponse ; ne pas inventer de documentation constructeur.',
     parameters: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'] },
@@ -87,9 +92,9 @@ export const TOOL_SPECS: ToolSpec[] = [
   },
   {
     name: 'propose_video_studio',
-    description: 'Construit un plateau TV standard : N caméras SDI identiques vers N entrées distinctes du mélangeur vidéo, et mix audio stéréo XLR de la console vers le mélangeur. Le logiciel choisit et valide les vrais ports ; aucun identifiant de prise à deviner. Utiliser les template_id chargés depuis le catalogue. Refuse une connectique ou capacité insuffisante. Ne crée aucun retour vidéo vers la console audio.',
+    description: 'Construit un plateau vidéo : N caméras SDI identiques vers N entrées distinctes du mélangeur vidéo. Ajouter audio_console_template_id seulement si une console audio est demandée, pour relier son programme stéréo XLR au mélangeur. Le logiciel choisit et valide les vrais ports ; aucun identifiant de prise à deviner. Ne traite pas les microphones/HF : utiliser propose_diagram pour ces demandes supplémentaires. Refuse une connectique ou capacité insuffisante.',
     parameters: { type: 'object', properties: { camera_template_id: str, camera_count: { type: 'integer', minimum: 1, maximum: 48 }, video_switcher_template_id: str, audio_console_template_id: str },
-      required: ['camera_template_id', 'camera_count', 'video_switcher_template_id', 'audio_console_template_id'] },
+      required: ['camera_template_id', 'camera_count', 'video_switcher_template_id'] },
   },
   {
     name: 'propose_diagram',
@@ -151,7 +156,7 @@ export function referenceScore(t: EquipmentTemplate, query: string): number {
   }
   const full = [t.model, ...(t.aliases ?? [])].filter(matches)
   if (full.length) return t.status === 'generic' ? 25 : 100
-  const refs = norm(t.model).match(/\b(?:[a-z]+\d|\d+[a-z])[a-z0-9]*(?:-[a-z0-9]+)*/g) ?? []
+  const refs = norm(t.model).match(/\b(?:[a-z]+\d|\d+[a-z]+\d)[a-z0-9]*(?:-[a-z0-9]+)*/g) ?? []
   return refs.some(matches) ? 50 : 0
 }
 
@@ -199,6 +204,10 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
   const page = (ports: PortDef[]) => ({ ports_total: ports.length, offset, next_offset: ports.length > offset + 16 ? offset + 16 : null })
 
   switch (call.name) {
+    case 'ask_user': {
+      const question = text(a.question)
+      return question && question.length <= 2000 ? out({ question }) : fail('Poser une question précise de 1 à 2000 caractères.')
+    }
     case 'search_documentation': return out({ results: searchDocumentation(text(a.query)) })
     case 'search_library': {
       const results = searchLibrary(ctx.library, text(a.query))
@@ -300,11 +309,11 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
     case 'propose_video_studio': {
       const find = (id: unknown) => ctx.library.find(t => t.id === text(id))
       const camera = find(a.camera_template_id), video = find(a.video_switcher_template_id), audio = find(a.audio_console_template_id)
-      if (!camera || !video || !audio) return fail('Référence inconnue : utiliser les template_id du catalogue ou search_library.')
+      if (!camera || !video || (a.audio_console_template_id !== undefined && !audio)) return fail('Référence inconnue : utiliser les template_id du catalogue ou search_library.')
       const plan = videoStudioPlan(camera, a.camera_count as number, video, audio)
       if ('error' in plan) return fail(plan.error!)
       const result = runTool(draft, { ...call, name: 'propose_diagram', args: plan }, ctx)
-      return { ...result, content: JSON.stringify({ ...JSON.parse(result.content), routing_note: 'Configurer les deux sorties de la console pour le programme gauche/droite et les entrées du mélangeur en niveau ligne. Vérifier le format vidéo commun sur les appareils ; ces réglages internes ne sont pas effectués par le schéma.' }) }
+      return { ...result, content: JSON.stringify({ ...JSON.parse(result.content), routing_note: (audio ? 'Configurer les deux sorties de la console pour le programme gauche/droite et les entrées du mélangeur en niveau ligne. ' : '') + 'Vérifier le format vidéo commun sur les appareils ; ces réglages internes ne sont pas effectués par le schéma.' }) }
     }
     case 'propose_diagram': {
       if (!Array.isArray(a.equipment) || !Array.isArray(a.connections) || a.equipment.length + draft.addedEquipment.length > 50 || a.connections.length + draft.addedLinks.length > 100) return fail('equipment et connections doivent être des listes, au maximum 50 équipements et 100 liaisons par proposition.')

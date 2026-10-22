@@ -81,13 +81,17 @@ export interface ModelReply {
 
 const MAX_TOKENS = 2048
 
-export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], provider?: ProviderId): ApiRequest {
+export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], provider?: ProviderId, options: { requiredTool?: string; maxTokens?: number } = {}): ApiRequest {
+  if (options.requiredTool && !tools.some(t => t.name === options.requiredTool)) throw new Error('Outil requis indisponible')
+  const availableTools = options.requiredTool ? tools.filter(t => t.name === options.requiredTool) : tools
+  const maxTokens = options.maxTokens ?? MAX_TOKENS
   if (api === 'anthropic') {
     const body = {
       model,
-      max_tokens: MAX_TOKENS,
+      max_tokens: maxTokens,
+      ...(options.requiredTool ? { tool_choice: { type: 'tool', name: options.requiredTool } } : {}),
       system,
-      ...(tools.length ? { tools: tools.map((t) => ({ name: t.name, description: t.description, input_schema: t.parameters })) } : {}),
+      ...(availableTools.length ? { tools: availableTools.map((t) => ({ name: t.name, description: t.description, input_schema: t.parameters })) } : {}),
       messages: messages.map((m) => {
         if (m.role === 'user') return { role: 'user', content: m.text }
         if (m.role === 'assistant') {
@@ -116,11 +120,12 @@ export function buildChatRequest(api: ApiFormat, model: string, system: string, 
   }
   const body = {
     model,
-    ...(provider === 'openai' ? { max_completion_tokens: MAX_TOKENS } : { max_tokens: MAX_TOKENS }),
+    ...(provider === 'openai' ? { max_completion_tokens: maxTokens } : { max_tokens: maxTokens }),
+    ...(options.requiredTool ? { tool_choice: 'required' } : {}),
     messages: out,
     ...(provider === 'builtin' ? { temperature: 0.7, top_p: 0.8, min_p: 0, presence_penalty: 1.5, parallel_tool_calls: false, chat_template_kwargs: { enable_thinking: false } } : {}),
     // Pas de liste d'outils vide : certains serveurs compatibles la refusent
-    ...(tools.length ? { tools: tools.map((t) => ({ type: 'function', function: { name: t.name, description: t.description, parameters: t.parameters } })) } : {}),
+    ...(availableTools.length ? { tools: availableTools.map((t) => ({ type: 'function', function: { name: t.name, description: t.description, parameters: t.parameters } })) } : {}),
   }
   return { method: 'POST', path: '/chat/completions', body: JSON.stringify(body) }
 }
