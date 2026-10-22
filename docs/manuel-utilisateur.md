@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.4 · Édition du 22 octobre 2026 · Windows et macOS
+Version 0.5.5 · Édition du 22 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -332,6 +332,8 @@ Pour un synoptique, précise les quantités, les références et les flux souhai
 Un plateau TV standard peut être construit avec plusieurs caméras SDI identiques, un mélangeur vidéo et une console audio. Le logiciel prépare une entrée SDI distincte par caméra et deux liaisons audio ligne XLR de la console vers le mélangeur ; il refuse une capacité ou une connectique insuffisante. Sur les appareils, affecte les deux sorties audio au programme gauche/droite, règle les entrées du mélangeur en niveau ligne et choisis un format vidéo commun. Le synoptique ne réalise pas ces réglages internes.
 
 Pour une IA externe, choisis IA externe via API, puis le fournisseur et le modèle. Crée ta clé API dans sa console et enregistre-la dans le trousseau sécurisé du système. Un abonnement de discussion ne remplace pas une clé API ; le fournisseur facture son usage selon son offre. L’écran indique les données qui seront envoyées. Donne ton accord puis lance le test des outils sur un schéma fictif avant de terminer. Aucun modèle local n’est nécessaire. Une clé de serveur personnalisé est liée à son adresse, en HTTPS pour un serveur distant.
+
+Tu peux citer une référence sans sa marque, par exemple « console CL5 ». Les séparateurs sont tolérés : CL5, CL-5 et CL 5 renvoient à la même référence. Si plusieurs variantes correspondent, précise celle souhaitée. L’assistant reçoit les niveaux des entrées et des sorties séparément : une prise XLR ne signifie pas nécessairement niveau micro. Les niveaux inconnus restent non documentés. Pour un appareil déjà posé dont les prises ont été personnalisées, demande à l’assistant de consulter cet appareil dans le schéma.
 
 Le modèle local est déjà entraîné. Le manuel, le catalogue et les outils lui permettent de consulter le projet ; aucune conversation ne sert à l’entraîner automatiquement. Enrichir les documents ou corriger les fiches est différent d’un entraînement du modèle.
 

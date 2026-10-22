@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-22)
 
-## Situation actuelle — 0.5.4
+## Situation actuelle — 0.5.5
+
+La 0.5.5 précharge les références courtes citées dans une question, sans exiger la marque, et distingue les niveaux des entrées et des sorties audio du format physique des connecteurs. Les outils exposent un résumé des niveaux analogiques sur toutes les prises, indépendamment de la pagination. Les recherches tolèrent les séparateurs CL5 / CL-5 / CL 5 ; les variantes restent à préciser. La fiche CL5 était déjà correcte (+4 dBu sur les sorties XLR) : aucun niveau constructeur n’a été modifié par supposition.
 
 La 0.5.4 reconnaît également les alias de modèles importés avec une colonne fabricant, en contrôlant la marque pour éviter les rapprochements erronés.
 

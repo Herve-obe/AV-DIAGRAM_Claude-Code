@@ -86,6 +86,55 @@ describe('synoptique IA : plateau TV', () => {
     expect(template.ports.some((p: { id: string }) => p.id === 'out2')).toBe(true)
     expect(template.sources).toHaveLength(2)
   })
+  it('charge la fiche et ses niveaux audio pour une question avec le nom court CL5', async () => {
+    let body = ''
+    const transport: Transport = { async request(_provider, _url, req) {
+      body = req.body!
+      return { status: 200, body: JSON.stringify({ choices: [{ message: { content: 'Sorties ligne.' } }] }) }
+    } }
+    const result = await runTurn({ transport, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Quel est le niveau des sorties de la console CL5 ?',
+      draft: createDraft(createProject('t'), DEFAULT_SHEET_ID), ctx })
+    const system = JSON.parse(body).messages[0].content
+    expect(system).toContain('"template_id":"yamaha-cl5"')
+    expect(system).toContain('"manufacturer":"Yamaha"')
+    expect(system).toContain('"direction":"out","connector":"xlr3","level":"line+4"')
+    expect(system).toContain('ligne +4 dBu')
+    expect(system).toContain('usa.yamaha.com')
+    expect(system).not.toContain('"ports":[')
+    expect(system.length).toBeLessThan(2500)
+    expect(result.draft.addedEquipment).toHaveLength(0)
+  })
+  it('retrouve des références abrégées sans marque ni confusion avec un numéro voisin', () => {
+    for (const query of ['CL5', 'console CL5', 'une console CL-5', 'CL 5']) {
+      expect(searchLibrary(LIBRARY, query)[0].template_id, query).toBe('yamaha-cl5')
+    }
+    expect(searchLibrary(LIBRARY, 'XR18')[0].template_id).toBe('behringer-xr18')
+    const neighbour = { ...LIBRARY.find(t => t.id === 'yamaha-cl5')!, id: 'other', model: 'CL50', aliases: [] }
+    const cl5 = LIBRARY.find(t => t.id === 'yamaha-cl5')!
+    expect(searchLibrary([neighbour, cl5], 'console CL50')[0].template_id).toBe('other')
+  })
+  it('donne les niveaux de toutes les prises analogiques malgré la pagination, sans les déduire du XLR', () => {
+    const cl5 = LIBRARY.find(t => t.id === 'yamaha-cl5')!
+    const longConsole = { ...cl5, id: 'test-long', ports: [
+      ...Array.from({ length: 20 }, (_, i) => ({ ...cl5.ports[0], id: 'in' + i })),
+      ...cl5.ports.filter(p => p.direction === 'out'),
+    ] }
+    const draft = createDraft(createProject('t'), DEFAULT_SHEET_ID)
+    const context = { ...ctx, library: [longConsole, ...LIBRARY] }
+    const result = runTool(draft, { id: '1', name: 'get_template', args: { template_id: longConsole.id } }, context)
+    const fiche = JSON.parse(result.content)
+    expect(fiche.ports.every((p: { direction: string }) => p.direction === 'in')).toBe(true)
+    expect(fiche.audio_levels).toContainEqual({ direction: 'out', connector: 'xlr3', level: 'line+4', nominal_level: 'ligne +4 dBu', ports: 8 })
+    expect(fiche.audio_levels).toContainEqual({ direction: 'in', connector: 'xlr3', level: 'mic', nominal_level: 'micro', ports: 20 })
+    expect(fiche.audio_levels).toContainEqual({ direction: 'out', connector: 'jack-trs', level: 'unspecified', nominal_level: 'non documenté', ports: 1 })
+    const added = runTool(draft, { id: '2', name: 'add_equipment', args: { template_id: longConsole.id } }, context)
+    expect(JSON.parse(added.content).audio_levels).toEqual(fiche.audio_levels)
+    const placed = runTool(added.draft, { id: '3', name: 'get_equipment', args: { equipment_id: added.draft.addedEquipment[0] } }, context)
+    expect(JSON.parse(placed.content).audio_levels).toEqual(fiche.audio_levels)
+    const mic = runTool(draft, { id: '4', name: 'get_template', args: { template_id: 'shure-sm58' } }, context)
+    expect(JSON.parse(mic.content).audio_levels).toContainEqual({ direction: 'out', connector: 'xlr3', level: 'mic', nominal_level: 'micro', ports: 1 })
+  })
   it('retrouve le TriCaster documenté et respecte une référence exacte', () => {
     expect(searchLibrary(LIBRARY, 'Tricaster')[0].template_id).toBe('newtek-tricaster-2-elite')
     expect(searchLibrary(LIBRARY, 'Yamaha CL5')[0].template_id).toBe('yamaha-cl5')

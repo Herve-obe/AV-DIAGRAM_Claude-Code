@@ -126,12 +126,41 @@ function portSummary(p: PortDef) {
   }
 }
 
+/** Le connecteur ne détermine jamais le niveau ; le résumé couvre aussi les pages de prises suivantes. */
+function audioLevels(ports: PortDef[]) {
+  const labels = { mic: 'micro', instrument: 'instrument', phono: 'phono', 'line+4': 'ligne +4 dBu',
+    'line-10': 'ligne -10 dBV', speaker: 'haut-parleur (puissance)', none: 'sans niveau nominal', unspecified: 'non documenté' }
+  const groups = new Map<string, { direction: PortDef['direction']; connector: string; level: string; nominal_level: string; ports: number }>()
+  for (const p of ports.filter(p => p.signal === 'audioAnalog')) {
+    const level = p.level ?? 'unspecified', key = [p.direction, p.connector, level].join('/')
+    const group = groups.get(key)
+    if (group) group.ports++
+    else groups.set(key, { direction: p.direction, connector: p.connector, level, nominal_level: labels[level], ports: 1 })
+  }
+  return [...groups.values()]
+}
+
+const referenceWords = (s: string) => norm(s).replace(/([a-z])(\d)/g, '$1 $2').replace(/(\d)([a-z])/g, '$1 $2').replace(/[^a-z0-9]+/g, ' ').trim()
+
+/** Référence entière prioritaire ; un identifiant court (XR18 dans « X AIR XR18 ») reste recherchable. */
+export function referenceScore(t: EquipmentTemplate, query: string): number {
+  const hay = ' ' + referenceWords(query) + ' '
+  const matches = (s: string) => {
+    const words = referenceWords(s)
+    return words.replace(/ /g, '').length >= 3 && hay.includes(' ' + words + ' ')
+  }
+  const full = [t.model, ...(t.aliases ?? [])].filter(matches)
+  if (full.length) return t.status === 'generic' ? 25 : 100
+  const refs = norm(t.model).match(/\b(?:[a-z]+\d|\d+[a-z])[a-z0-9]*(?:-[a-z0-9]+)*/g) ?? []
+  return refs.some(matches) ? 50 : 0
+}
+
 export function searchLibrary(library: EquipmentTemplate[], query: string, limit = 12) {
   const tokens = norm(query).split(/[^a-z0-9]+/).filter(Boolean)
   return library
     .map((t) => {
       const hay = norm(`${t.manufacturer ?? ''} ${t.model} ${t.id} ${t.family} ${(t.aliases ?? []).join(' ')}`)
-      return { t, score: tokens.filter((k) => hay.includes(k)).length }
+      return { t, score: referenceScore(t, query) + tokens.filter((k) => hay.includes(k)).length }
     })
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score || Number(a.t.portStatus === 'pending') - Number(b.t.portStatus === 'pending')
@@ -186,6 +215,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         status: t.status,
         portStatus: t.portStatus,
         description: t.description,
+        audio_levels: audioLevels(t.ports),
         powerW: t.powerW,
         weightKg: t.weightKg,
         rackU: t.rackU,
@@ -227,6 +257,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         manufacturer: e.manufacturer,
         model: e.model,
         template_id: e.templateId,
+        audio_levels: audioLevels(e.ports),
         ...page(e.ports),
         ports: e.ports.slice(offset, offset + 16).map((port) => ({
           ...portSummary(port),
@@ -245,7 +276,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if (ctx.allowed && !ctx.allowed(draft.base, res.project)) return fail('Ajout refusé par les droits du projet ou du calque.')
       const next = { ...draft, project: res.project, addedEquipment: [...draft.addedEquipment, res.id] }
       const e = res.project.equipment[res.id]
-      return out({ equipment_id: res.id, name: e.name, ports_total: e.ports.length, next_offset: e.ports.length > 16 ? 16 : null, ports: e.ports.slice(0, 16).map(portSummary) }, next)
+      return out({ equipment_id: res.id, name: e.name, audio_levels: audioLevels(e.ports), ports_total: e.ports.length, next_offset: e.ports.length > 16 ? 16 : null, ports: e.ports.slice(0, 16).map(portSummary) }, next)
     }
     case 'connect_ports': {
       if (draft.addedLinks.length >= 100) return fail('Limite de 100 liaisons par proposition : appliquer ou découper la demande.')
