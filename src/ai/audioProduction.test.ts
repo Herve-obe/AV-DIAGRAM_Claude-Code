@@ -67,6 +67,7 @@ describe('proposition audio complète et persistante', () => {
     expect(Object.values(result.draft.project.equipment).filter(e => e.id !== added.id).every(e => e.position.x > 400)).toBe(true)
     const positions = Object.fromEntries(result.draft.addedEquipment.map(id => [id, result.draft.project.equipment[id].position]))
     const more = runTool(result.draft, { id: 'more', name: 'propose_diagram', args: { equipment: [{ ref: 'extra', template_id: 'shure-sm58' }], connections: [] } }, ctx)
+    expect(JSON.parse(more.content).error).toContain('Refuser')
     for (const [id, position] of Object.entries(positions)) expect(more.draft.project.equipment[id].position).toEqual(position)
   })
   it('analyse le cahier des charges puis termine après un appel modèle et la vérification locale', async () => {
@@ -84,5 +85,10 @@ describe('proposition audio complète et persistante', () => {
     expect(result.draft.addedEquipment.length).toBeGreaterThan(20)
     expect(JSON.parse(sent[0]).tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['ask_user', 'propose_audio_production'])
     expect(Object.keys(draft.base.equipment)).toEqual([])
+    const repeated = await runTurn({ connection: { provider: 'builtin', model: 'test' }, system: '', userText: request,
+      history: result.history, draft: result.draft, ctx, transport })
+    expect(repeated.draft).toBe(result.draft)
+    expect(repeated.reply).toContain('Refuser')
+    expect(sent).toHaveLength(1)
   })
 })

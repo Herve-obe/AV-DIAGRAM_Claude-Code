@@ -21,6 +21,8 @@ export interface Draft {
   sheetId: string
   addedEquipment: string[]
   addedLinks: string[]
+  /** Un plan complet reste indivisible jusqu'à son application ou son refus. */
+  audioProduction?: true
 }
 
 export function createDraft(project: Project, sheetId: string): Draft {
@@ -216,6 +218,9 @@ const text = (v: unknown) => (typeof v === 'string' ? v.trim() : '')
 export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft: Draft; content: string } {
   const out = (v: unknown, d: Draft = draft) => ({ draft: d, content: JSON.stringify(v) })
   const fail = (error: string) => out({ error })
+  if (draft.audioProduction && (call.name.startsWith('propose_') || ['add_equipment', 'connect_ports'].includes(call.name))) {
+    return fail((ctx.lang === 'en' ? en : fr).audioProduction.pending)
+  }
   const p = draft.project
   const a = call.args
   const offset = typeof a.offset === 'number' && Number.isFinite(a.offset) ? Math.max(0, Math.floor(a.offset)) : 0
@@ -350,7 +355,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       const refs = new Map<string, string>(value.equipment.map((e: { ref: string; equipment_id: string }) => [e.ref, e.equipment_id]))
       const project = presentAudioProduction(result.draft.project, plan, refs, draft.sheetId, labels)
       if (ctx.allowed && !ctx.allowed(draft.base, project)) return fail('Proposition refusée par les droits du projet ou du calque.')
-      return out({ ...value, assumptions: plan.assumptions, mixes: plan.mixes, routing_note: labels.manualSettings }, { ...result.draft, project })
+      return out({ ...value, assumptions: plan.assumptions, mixes: plan.mixes, routing_note: labels.manualSettings }, { ...result.draft, project, audioProduction: true })
     }
     case 'propose_diagram': {
       if (!Array.isArray(a.equipment) || !Array.isArray(a.connections) || a.equipment.length + draft.addedEquipment.length > 50 || a.connections.length + draft.addedLinks.length > 100) return fail('equipment et connections doivent être des listes, au maximum 50 équipements et 100 liaisons par proposition.')

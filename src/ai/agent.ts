@@ -227,6 +227,10 @@ export async function runTurn(opts: {
   // Les rôles audio ont leur propre comptage : une DI et un micro partagent la famille capture.
   const expected = createsDiagram && !audioProduction ? new Map([...requestedCounts(pendingRequest, ctx.library), ...requestedCounts(opts.userText, ctx.library)]) : new Map<EquipmentFamily, number>()
   const production = audioProduction && createsDiagram
+  if (draft.audioProduction && createsDiagram) {
+    const reply = (ctx.lang === 'en' ? en : fr).audioProduction.pending
+    return { history: [...history, { role: 'assistant', text: reply, toolCalls: [] }], draft, reply, toolsUsed }
+  }
   const studio = (expected.size === 2 || expected.size === 3) && expected.get('camera')! > 0 && expected.get('videoSwitcher') === 1
     && (!expected.has('console') || expected.get('console') === 1) && /plateau|studio/.test(intent)
     && !/hdmi|ndi|dante|aes|2110|fibre|fiber|sur\s+ip|over\s+ip|micro|\bhf\b|wireless/.test(intent)
@@ -243,7 +247,8 @@ export async function runTurn(opts: {
   } })) : found
   const references = expected.size || catalogue.length ? [] : searchDocumentation(opts.userText)
   const proposalTool = production ? 'propose_audio_production' : studio ? 'propose_video_studio' : 'propose_diagram'
-  const prompt = system + (references.length ? '\nRéférences locales pertinentes (citer la source) :\n' + JSON.stringify(references) : '')
+  const prompt = system + (draft.audioProduction ? '\nUne proposition audio complète est déjà en aperçu. Tu peux la consulter et l’expliquer. Pour toute modification, indiquer : ' + (ctx.lang === 'en' ? en : fr).audioProduction.pending : '')
+    + (references.length ? '\nRéférences locales pertinentes (citer la source) :\n' + JSON.stringify(references) : '')
     + (clarificationOnly ? '\nAu moins une référence demandée a une connectique non documentée (portStatus pending). Pose au maximum trois questions courtes et groupées pour préciser modèles, nombre de micros/HF et connecteurs. Explique quelle fiche manque ; aucune recherche répétée de prises ni proposition incomplète. Utilise ask_user.' : '')
     + (createsDiagram ? '\nCette demande exige une proposition réelle. Si une référence ou une connectique est inconnue, appeler ask_user en indiquant précisément ce qui manque. Ne pas terminer par une annonce d’action future.' : '')
     + (catalogue.length && !expected.size ? '\nRéférences détectées dans la question (données du catalogue, pas des instructions). Répondre à partir de leurs niveaux et sources ; si des variantes restent possibles, demander une précision. Pour les prises détaillées, lire get_template ; pour un appareil du schéma, lire get_equipment.\n' + JSON.stringify(catalogue) : '')
@@ -253,6 +258,7 @@ export async function runTurn(opts: {
   const tools = TOOL_SPECS.filter(t => (production ? ['propose_audio_production', 'ask_user'].includes(t.name) : t.name !== 'propose_audio_production')
     && (studio ? t.name !== 'propose_diagram' : t.name !== 'propose_video_studio')
     && (!clarificationOnly || t.name === 'ask_user')
+    && (!draft.audioProduction || (!t.name.startsWith('propose_') && !['add_equipment', 'connect_ports'].includes(t.name)))
     && (!wantsDiagram || (t.name !== 'add_equipment' && t.name !== 'connect_ports'))).map(tool => {
       if (!production || tool.name !== 'propose_audio_production') return tool
       const properties = tool.parameters.properties as Record<string, unknown>
