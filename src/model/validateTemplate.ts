@@ -15,6 +15,7 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/
 export function validateTemplate(t: EquipmentTemplate): string[] {
   const errors: string[] = []
   const where = t.id || '(sans id)'
+  if (t.companyQuantity !== undefined && (t.status !== 'user' || !Number.isInteger(t.companyQuantity) || t.companyQuantity < 0 || t.companyQuantity > 1_000_000)) errors.push(`${where} : quantité du parc invalide`)
   if (!t.id) errors.push('id manquant')
   if (!t.model) errors.push(`${where} : modèle manquant`)
   if ((t.status === 'verified' || t.status === 'community') && !t.manufacturer) errors.push(`${where} : fabricant manquant`)
@@ -30,7 +31,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
   if (t.portStatus !== undefined && !['pending', 'none'].includes(t.portStatus)) errors.push(`${where} : état de connectique inconnu`)
   if (t.portStatus === 'pending' && t.status === 'verified') errors.push(`${where} : une connectique à documenter ne peut pas être vérifiée`)
   if (t.portStatus === 'none' && t.ports.length) errors.push(`${where} : un accessoire sans connectique ne doit pas avoir de port`)
-  if (t.portStatus && t.status === 'community' && !t.sources?.some(s => s.url && /^https?:\/\//.test(s.url) && DATE_RE.test(s.accessed))) errors.push(`${where} : la connectique déclarée doit citer sa source`)
+  if (t.portStatus && t.status === 'community' && !t.sources?.some(s => ((s.url && /^https?:\/\//.test(s.url)) || (typeof s.document === 'string' && s.document.trim())) && DATE_RE.test(s.accessed))) errors.push(`${where} : la connectique déclarée doit citer une source datée (page ou document)`)
   if (t.description !== undefined && typeof t.description !== 'string') errors.push(`${where} : description invalide`)
   if (t.aliases !== undefined && (!Array.isArray(t.aliases) || t.aliases.some(a => typeof a !== 'string' || !a.trim()))) errors.push(`${where} : désignations invalides`)
   if (!t.ports.length && !t.slots?.length && !t.portStatus) errors.push(`${where} : aucun port`)

@@ -3,3 +3,10 @@ dist
 *.local
 .DS_Store
 *.tsbuildinfo
+
+# Moteurs préparés et vérifiés avant le build
+resources/local-ai/win-x64/
+resources/local-ai/mac-arm64/
+resources/local-ai/mac-x64/
+# Produit depuis docs/manuel-utilisateur.md lors de la préparation du build
+/public/manuel.pdf

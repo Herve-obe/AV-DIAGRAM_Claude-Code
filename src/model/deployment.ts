@@ -1,3 +1,4 @@
+import { CONNECTORS } from './connectors'
 import type { Equipment, NetworkInterface, PortDef, PowerCircuit } from './types'
 
 const object = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x)
@@ -17,8 +18,11 @@ export function isNetwork(n: unknown): n is NetworkInterface {
     && optional(n.capacityMbps, 0.001, 1e9) && optional(n.poeW, 0, 1e6)
     && (n.poe === undefined || ['source', 'sink', 'none'].includes(n.poe as string))
 }
-export function isPortDeployment(p: { network?: unknown; intercom?: unknown; clock?: unknown }): boolean {
-  return (p.network === undefined || isNetwork(p.network))
+export function isPortDeployment(p: { network?: unknown; intercom?: unknown; clock?: unknown; modes?: unknown }): boolean {
+  return (p.modes === undefined || (Array.isArray(p.modes) && p.modes.length > 0 && p.modes.length <= 8 && p.modes.every(m => object(m) && CONNECTORS.some(c => c.id === m.connector)
+    && ['mic', 'instrument', 'phono', 'line+4', 'line-10', 'speaker', 'none'].includes(m.level as string)
+    && (m.phantom === undefined || ['required', 'supplied', 'none'].includes(m.phantom as string)))))
+    && (p.network === undefined || isNetwork(p.network))
     && (p.intercom === undefined || (object(p.intercom) && (p.intercom.channel === undefined || text(p.intercom.channel)) && (p.intercom.group === undefined || text(p.intercom.group))))
     && (p.clock === undefined || (object(p.clock) && text(p.clock.protocol) && !!p.clock.protocol.trim() && text(p.clock.domain) && !!p.clock.domain.trim() && ['master', 'follower', 'auto'].includes(p.clock.role as string) && (p.clock.rate === undefined || text(p.clock.rate))))
 }

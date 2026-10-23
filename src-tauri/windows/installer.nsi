@@ -24,6 +24,7 @@ ManifestDPIAwareness PerMonitorV2
 {{/if}}
 
 !include MUI2.nsh
+!include nsDialogs.nsh
 !include FileFunc.nsh
 !include x64.nsh
 !include WordFunc.nsh
@@ -79,6 +80,7 @@ Var UpdateMode
 Var NoShortcutMode
 Var WixMode
 Var OldMainBinaryName
+Var InstallDirectoryOverride
 
 Name "${PRODUCTNAME}"
 BrandingText "${COPYRIGHT}"
@@ -118,13 +120,14 @@ VIAddVersionKey "ProductVersion" "${VERSION}"
   !define MULTIUSER_MUI
   !define MULTIUSER_INSTALLMODE_INSTDIR "${PRODUCTNAME}"
   !define MULTIUSER_INSTALLMODE_COMMANDLINE
+  !define MULTIUSER_INSTALLMODE_DEFAULT_CURRENTUSER
   !if "${ARCH}" == "x64"
     !define MULTIUSER_USE_PROGRAMFILES64
   !else if "${ARCH}" == "arm64"
     !define MULTIUSER_USE_PROGRAMFILES64
   !endif
   !define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_KEY "${UNINSTKEY}"
-  !define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_VALUENAME "CurrentUser"
+  !define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_VALUENAME "InstallMode"
   !define MULTIUSER_INSTALLMODEPAGE_SHOWUSERNAME
   !define MULTIUSER_INSTALLMODE_FUNCTION RestorePreviousInstallLocation
   !define MULTIUSER_EXECUTIONLEVEL Highest
@@ -399,6 +402,72 @@ FunctionEnd
 !define MUI_PAGE_CUSTOMFUNCTION_PRE SkipIfPassive
 !insertmacro MUI_PAGE_DIRECTORY
 
+; IA facultative : le téléchargement reste annulable dans l'application, sans bloquer NSIS.
+Var AiInstall
+Var AiCheckbox
+Var AiDirectory
+Var AiDirectoryEdit
+Var AiBrowse
+Page custom PageLocalAi PageLeaveLocalAi
+Function PageLocalAi
+  Call SkipIfPassive
+  !insertmacro MUI_HEADER_TEXT "$(aiTitle)" "$(aiSubtitle)"
+  nsDialogs::Create 1018
+  Pop $0
+  ${If} $0 == error
+    Abort
+  ${EndIf}
+  ${NSD_CreateCheckbox} 0 0 100% 24u "$(aiInstall)"
+  Pop $AiCheckbox
+  ${NSD_SetState} $AiCheckbox $AiInstall
+  ${NSD_OnClick} $AiCheckbox LocalAiToggle
+  ${NSD_CreateLabel} 0 30u 100% 43u "$(aiDownloadHint)"
+  Pop $0
+  ${NSD_CreateLabel} 0 79u 100% 12u "$(aiDirectory)"
+  Pop $0
+  ${NSD_CreateDirRequest} 0 94u 76% 14u "$AiDirectory"
+  Pop $AiDirectoryEdit
+  ${NSD_CreateBrowseButton} 79% 94u 21% 14u "$(aiBrowse)"
+  Pop $AiBrowse
+  ${NSD_OnClick} $AiBrowse LocalAiBrowse
+  ${NSD_CreateLabel} 0 118u 100% 28u "$(aiLaterHint)"
+  Pop $0
+  Push $AiCheckbox
+  Call LocalAiToggle
+  nsDialogs::Show
+FunctionEnd
+
+Function LocalAiToggle
+  Pop $0
+  ${NSD_GetState} $AiCheckbox $AiInstall
+  EnableWindow $AiDirectoryEdit $AiInstall
+  EnableWindow $AiBrowse $AiInstall
+FunctionEnd
+
+Function LocalAiBrowse
+  Pop $0
+  ${NSD_GetText} $AiDirectoryEdit $AiDirectory
+  nsDialogs::SelectFolderDialog "$(aiDirectory)" "$AiDirectory"
+  Pop $0
+  ${If} $0 != error
+    ${NSD_SetText} $AiDirectoryEdit $0
+  ${EndIf}
+FunctionEnd
+
+Function PageLeaveLocalAi
+  ${NSD_GetText} $AiDirectoryEdit $AiDirectory
+  ${If} $AiInstall = ${BST_CHECKED}
+    System::Call 'shlwapi::PathIsRelativeW(w "$AiDirectory") i .r0'
+    ${StrLoc} $1 $AiDirectory '$\"' '>'
+    ${If} $0 <> 0
+    ${OrIf} $AiDirectory == ""
+    ${OrIf} $1 != ""
+      MessageBox MB_ICONEXCLAMATION "$(aiInvalidDirectory)"
+      Abort
+    ${EndIf}
+  ${EndIf}
+FunctionEnd
+
 ; 6. Start menu shortcut page
 Var AppStartMenuFolder
 !if "${STARTMENUFOLDER}" != ""
@@ -425,10 +494,24 @@ Var AppStartMenuFolder
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_FUNCTION RunMainBinary
 !define MUI_PAGE_CUSTOMFUNCTION_PRE SkipIfPassive
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW LocalAiFinishShow
 !insertmacro MUI_PAGE_FINISH
 
+Function LocalAiFinishShow
+  ${If} $AiInstall = ${BST_CHECKED}
+    ${NSD_Check} $mui.FinishPage.Run
+    ${NSD_SetText} $mui.FinishPage.Run "$(aiFinishRun)"
+    EnableWindow $mui.FinishPage.Run 0
+  ${EndIf}
+FunctionEnd
+
 Function RunMainBinary
-  nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" ""
+  ${If} $AiInstall = ${BST_CHECKED}
+    ; Le point final évite qu'un antislash de dossier échappe le guillemet de fin.
+    nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" '--install-local-ai "$AiDirectory\."'
+  ${Else}
+    nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" ""
+  ${EndIf}
 FunctionEnd
 
 ; Uninstaller Pages
@@ -481,11 +564,35 @@ FunctionEnd
 !insertmacro MUI_LANGUAGE "{{this}}"
 {{/each}}
 !insertmacro MUI_RESERVEFILE_LANGDLL
+LangString aiTitle 1033 "Assistant AI (optional)"
+LangString aiTitle 1036 "Assistant IA (facultatif)"
+LangString aiSubtitle 1033 "Install local AI now or configure it later in Settings."
+LangString aiSubtitle 1036 "Installez l'IA locale maintenant ou depuis les Paramètres."
+LangString aiInstall 1033 "Install local AI - Qwen3 4B (2.5 GB)"
+LangString aiInstall 1036 "Installer l'IA locale - Qwen3 4B (2,5 Go)"
+LangString aiDownloadHint 1033 "After installation, AV Diagram will download the model in a progress window. Internet and 2.5 GB of free disk space are required. License: Apache-2.0. 8 GB RAM recommended."
+LangString aiDownloadHint 1036 "Après l'installation, AV Diagram téléchargera le modèle avec une progression. Internet et 2,5 Go d'espace libre sont nécessaires. Licence : Apache-2.0. Mémoire conseillée : 8 Go."
+LangString aiDirectory 1033 "Model installation folder"
+LangString aiDirectory 1036 "Dossier d'installation des modèles"
+LangString aiBrowse 1033 "Browse..."
+LangString aiBrowse 1036 "Parcourir..."
+LangString aiLaterHint 1033 "You can skip this step and use Settings > Assistant AI later, including an external API. No account is needed for local AI."
+LangString aiLaterHint 1036 "Vous pouvez passer cette étape puis utiliser Paramètres > Assistant IA, y compris pour une API externe. Aucun compte n'est nécessaire pour l'IA locale."
+LangString aiInvalidDirectory 1033 "Choose an absolute folder path without quotation marks."
+LangString aiInvalidDirectory 1036 "Choisissez un chemin de dossier absolu, sans guillemets."
+LangString aiFinishRun 1033 "Open AV Diagram and download local AI"
+LangString aiFinishRun 1036 "Ouvrir AV Diagram et télécharger l'IA locale"
 {{#each language_files}}
   !include "{{this}}"
 {{/each}}
 
 Function .onInit
+  ; MULTIUSER_INIT réinitialise le dossier : préserver un /D explicite pour les déploiements.
+  ${If} $INSTDIR != "${PLACEHOLDER_INSTALL_DIR}"
+    StrCpy $InstallDirectoryOverride $INSTDIR
+  ${EndIf}
+  StrCpy $AiInstall 0
+  StrCpy $AiDirectory "$LOCALAPPDATA\${BUNDLEID}\local-ai\models"
   ${GetOptions} $CMDLINE "/P" $PassiveMode
   ${IfNot} ${Errors}
     StrCpy $PassiveMode 1
@@ -696,6 +803,7 @@ Section Install
     ; Save install mode to be selected by default for the next installation such as updating
     ; or when uninstalling
     WriteRegStr SHCTX "${UNINSTKEY}" $MultiUser.InstallMode 1
+    WriteRegStr SHCTX "${UNINSTKEY}" "InstallMode" $MultiUser.InstallMode
   !endif
 
   ; Remove old main binary if it doesn't match new main binary name
@@ -714,7 +822,11 @@ Section Install
   WriteRegStr SHCTX "${UNINSTKEY}" "DisplayVersion" "${VERSION}"
   WriteRegStr SHCTX "${UNINSTKEY}" "Publisher" "${MANUFACTURER}"
   WriteRegStr SHCTX "${UNINSTKEY}" "InstallLocation" "$\"$INSTDIR$\""
-  WriteRegStr SHCTX "${UNINSTKEY}" "UninstallString" "$\"$INSTDIR\uninstall.exe$\""
+  !if "${INSTALLMODE}" == "both"
+    WriteRegStr SHCTX "${UNINSTKEY}" "UninstallString" "$\"$INSTDIR\uninstall.exe$\" /$MultiUser.InstallMode"
+  !else
+    WriteRegStr SHCTX "${UNINSTKEY}" "UninstallString" "$\"$INSTDIR\uninstall.exe$\""
+  !endif
   WriteRegDWORD SHCTX "${UNINSTKEY}" "NoModify" "1"
   WriteRegDWORD SHCTX "${UNINSTKEY}" "NoRepair" "1"
 
@@ -769,6 +881,18 @@ Function un.onInit
 
   !if "${INSTALLMODE}" == "both"
     !insertmacro MULTIUSER_UNINIT
+    ; Le double-clic direct sur uninstall.exe doit aussi viser la bonne installation.
+    ReadRegStr $0 HKLM "${UNINSTKEY}" "InstallLocation"
+    ${If} $0 == "$\"$INSTDIR$\""
+      Call un.MultiUser.InstallMode.AllUsers
+      ${If} $MultiUser.InstallMode != "AllUsers"
+        MessageBox MB_ICONSTOP "$(unableToUninstall)"
+        SetErrorLevel 740
+        Quit
+      ${EndIf}
+    ${Else}
+      Call un.MultiUser.InstallMode.CurrentUser
+    ${EndIf}
   !endif
 
   !insertmacro MUI_UNGETLANGUAGE
@@ -906,6 +1030,10 @@ Section Uninstall
 SectionEnd
 
 Function RestorePreviousInstallLocation
+  ${If} $InstallDirectoryOverride != ""
+    StrCpy $INSTDIR $InstallDirectoryOverride
+    Return
+  ${EndIf}
   ReadRegStr $4 SHCTX "${MANUPRODUCTKEY}" ""
   StrCmp $4 "" +2 0
     StrCpy $INSTDIR $4

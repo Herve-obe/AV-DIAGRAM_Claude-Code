@@ -1,0 +1,107 @@
+{
+  "id": "focusrite-scarlett-2i2-4g",
+  "family": "recording",
+  "manufacturer": "Focusrite",
+  "model": "Scarlett 2i2 4e génération",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 0.595,
+  "depthMm": 117,
+  "aliases": [
+    "Scarlett 2i2 4th Gen",
+    "Scarlett 2i2 Gen 4",
+    "Scarlett 2i2 4g"
+  ],
+  "description": "Deux canaux d’entrée : les XLR arrière et les jacks avant sont des prises alternatives, pas quatre canaux indépendants. Le jack désactive le XLR du même numéro. USB-C audio/alimentation et USB-C 5 V séparé.",
+  "sources": [
+    {
+      "url": "https://userguides.focusrite.com/hc/en-gb/articles/19640392541202-Scarlett-2i2-4th-Gen-Specifications",
+      "document": "Focusrite, Scarlett 2i2 4th Gen Specifications",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://userguides.focusrite.com/hc/en-gb/articles/19640363197458-Scarlett-2i2-4th-Gen-hardware-features",
+      "document": "Focusrite, Scarlett 2i2 4th Gen hardware features",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "Mic 1 · XLR arrière",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Canal 1 ; désactivé par le jack 1 avant. Fantôme 48 V commutable."
+    },
+    {
+      "id": "line1",
+      "name": "Line / Inst 1 · jack avant",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Mono, symétrique en ligne ; instrument commutable. Canal 1 partagé avec Mic 1."
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2 · XLR arrière",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Canal 2 ; désactivé par le jack 2 avant. Fantôme 48 V commutable."
+    },
+    {
+      "id": "line2",
+      "name": "Line / Inst 2 · jack avant",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Mono, symétrique en ligne ; instrument commutable. Canal 2 partagé avec Mic 2."
+    },
+    {
+      "id": "outL",
+      "name": "Line Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; +16 dBu max."
+    },
+    {
+      "id": "outR",
+      "name": "Line Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; +16 dBu max."
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 mm stéréo ; même programme que les sorties L/R."
+    },
+    {
+      "id": "usb",
+      "name": "USB · audio et alimentation",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-c",
+      "format": "USB 2.0, données et alimentation ; 900 mA requis."
+    },
+    {
+      "id": "dc5v",
+      "name": "5V DC · alimentation seule",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "USB-C 5 V ; alimentation séparée si le port ordinateur ne fournit pas 900 mA."
+    }
+  ]
+}

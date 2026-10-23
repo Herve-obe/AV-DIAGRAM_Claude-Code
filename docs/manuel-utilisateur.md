@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.4.3 · Édition du 20 octobre 2026 · Windows et macOS
+Version 0.5.10 · Édition du 23 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -8,11 +8,15 @@ AV Diagram sert à préparer et documenter une installation audiovisuelle : syno
 
 L'application fonctionne sur le poste de travail. Aucun compte n'est nécessaire pour créer un projet, dessiner, enregistrer ou exporter. Une session collaborative utilise le réseau local. Le cloud et l'assistant IA ne sont pas nécessaires à ces usages.
 
+Sous Windows, l’installeur propose une installation pour le compte courant ou pour tous les utilisateurs. Ce second choix installe le logiciel dans Programmes et nécessite les droits administrateur. Le dossier des modèles IA est choisi séparément et doit rester accessible en écriture au compte qui utilisera l’assistant.
+
 Au lancement, choisir Nouveau projet, Reprendre le dernier projet ou ouvrir un fichier .avd. Les projets récents permettent de retrouver un travail déjà ouvert sur ce poste. Retirer un raccourci de cette liste ne supprime pas le fichier correspondant.
 
-La barre supérieure contient les commandes de fichier, les imports, les exports, la collaboration, l'affichage sur deux écrans, la présentation, les paramètres et l'annulation. Le bouton Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF.
+La barre supérieure rassemble les menus Fichier, Édition, Affichage, Outils et Aide. Fichier contient les imports, les enregistrements et les exports ; Outils contient la collaboration, la configuration IA et les paramètres. Aide > Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF. Les menus s'utilisent aussi au clavier : flèches pour se déplacer, Entrée pour choisir et Échap pour revenir.
 
-La bibliothèque occupe la gauche ; le schéma ou la vue technique se trouve au centre ; l'inspecteur montre les propriétés de la sélection à droite. Le panneau inférieur réunit les listes et alertes. La barre du bas change de vue : Synoptique, Baies, Plan, Réseau, Électrique, Intercom, Synchronisation ou Listes.
+Les cinq raccourcis initiaux sont Ouvrir, Enregistrer, Annuler, Rétablir et Exporter en PDF. Outils > Personnaliser les raccourcis ouvre les préférences de l'interface : cocher les commandes à garder, utiliser les flèches pour les ordonner ou rétablir le choix initial. Les menus restent complets lorsque leurs raccourcis sont masqués. Ces préférences sont conservées sur ce poste. Le bouton Assistant IA reste visible, grisé tant que l'assistant n'est pas configuré.
+
+La bibliothèque occupe la gauche ; le schéma ou la vue technique se trouve au centre ; l'inspecteur montre les propriétés de la sélection à droite. Le panneau inférieur réunit les listes et alertes. La deuxième barre, sous les menus, change de vue : Synoptique, Baies, Plan, Réseau, Électricité, Intercom, Synchronisation ou Listes. Chaque bouton associe une icône et un libellé ; la vue active est soulignée en orange. Le nom du projet est centré dans la première barre, les raccourcis personnalisables et l’Assistant IA se trouvent à droite. La barre du bas indique le nombre d’équipements et de liaisons ainsi que l’état d’enregistrement.
 
 Les captures de ce manuel montrent l'interface réelle en français, avec un projet pédagogique fictif. Les cadres et numéros ajoutés repèrent les éléments expliqués dans la légende. Les valeurs saisies dans cet exemple ne constituent pas des caractéristiques constructeur. Agrandir le PDF pour examiner un détail.
 
@@ -20,7 +24,11 @@ Les captures de ce manuel montrent l'interface réelle en français, avec un pro
 
 Repères : 1. Bibliothèque des équipements à placer ; 2. Canevas du synoptique ; 3. Inspecteur de l'appareil sélectionné ; 4. Boutons de changement de vue.
 
-Le mode Débutant présente les opérations essentielles et des indications de progression. Le mode Expert expose davantage de propriétés, les ports personnalisés et les modèles personnels. Les deux modes utilisent le même projet. Les thèmes clair, sombre ou système et la langue se règlent dans la barre supérieure.
+Le mode Débutant présente les opérations essentielles et des indications de progression. Le mode Expert expose davantage de propriétés, les ports personnalisés et les modèles personnels. Les deux modes utilisent le même projet. Le menu Affichage permet de changer de mode, de thème et de langue ; les préférences Interface proposent aussi ces choix directement.
+
+![Figure 2 - Choisir et ordonner ses raccourcis](../public/manual-assets/09-raccourcis.png)
+
+Repères : 1. Préférences propres au poste ; 2. Cocher ou masquer une commande ; 3. Flèches pour modifier l'ordre des boutons sélectionnés.
 
 ## 2. Créer et organiser un projet
 
@@ -56,7 +64,21 @@ Les statuts distinguent les modèles génériques, les fiches Vérifié, les fic
 
 Le catalogue Novelty français est référencé hors Structure. Les caractéristiques inconnues restent vides. Les variantes réellement différentes sont conservées ; les synonymes d'un même produit peuvent être regroupés. Les fiches constructeur servent à compléter la connectique, les dimensions, le poids et la puissance ; une image commerciale seule ne suffit pas à établir ces valeurs.
 
-En mode Expert, créer ou ajuster les ports d'un équipement, puis enregistrer un modèle dans Mes modèles. Une nouvelle instance issue d'un modèle ne doit pas reprendre les adresses IP et les affectations de déploiement d'un autre projet. Vérifier aussi les options de carte et le type de slot avant leur réutilisation.
+En mode Expert, créer ou ajuster les ports d'un équipement, puis enregistrer un modèle dans Mon entreprise. Une nouvelle instance issue d'un modèle ne doit pas reprendre les adresses IP et les affectations de déploiement d'un autre projet. Vérifier aussi les options de carte et le type de slot avant leur réutilisation.
+
+Fichier > Importer un catalogue d'équipements accepte CSV et Excel (.xlsx). Le même bouton se trouve sous la bibliothèque. Préparer les en-têtes sur la première ligne ; choisir la feuille et les colonnes fabricant et modèle dans l'aperçu. Une colonne facultative peut fournir la quantité totale possédée. Seules les colonnes choisies sont utilisées. Les références reconnues reprennent la fiche existante ; une correspondance ambiguë reste à documenter. Sans quantité, les exemplaires identiques sont regroupés en un modèle. Avec une quantité, préparer une seule ligne par modèle ; les lignes chiffrées en double sont signalées pour éviter un total trompeur.
+
+Pour les nouveaux modèles, choisir une famille commune puis la corriger ligne par ligne si nécessaire. Décocher les éléments à exclure et parcourir les pages de l'aperçu. Les références sans connectique demandent un accord explicite : elles sont ajoutées sans prise inventée. Les compléter dans l'éditeur de ports avant de les relier. L'import reste local dans Mon entreprise, disponible aussi dans la recherche de commandes et pour l'assistant IA ; il ne publie pas le catalogue dans la bibliothèque commune. Réimporter le même catalogue conserve les modèles déjà présents. Une erreur de lecture ou de stockage est signalée avant de présenter l'import comme terminé.
+
+La bibliothèque comporte deux onglets : Mon entreprise et Bibliothèque générale. Les modèles importés ou personnalisés restent locaux dans Mon entreprise ; ils ne sont pas publiés dans la bibliothèque commune. Le même modèle peut exister dans les deux espaces. Utiliser sa version Mon entreprise pour le comptage du parc ; une instance issue de la bibliothèque générale conserve son origine externe. La quantité totale se modifie sous chaque fiche de Mon entreprise ; un champ vide signifie non renseignée, et zéro est une quantité connue.
+
+Les alertes du parc s’appliquent aux ajouts manuels comme aux propositions IA. Elles signalent le matériel externe, les quantités dépassées et la disponibilité non vérifiée, avec des pistes : choisir un autre modèle du parc, réduire les quantités ou prévoir une location. Elles se trouvent dans Alertes et, pour l’IA, avant Appliquer. Le total possédé ne prouve pas la disponibilité aux dates de la prestation. Les connexions aux logiciels de stock, les disponibilités datées et les réservations ne sont pas encore implantées ; vérifier le logiciel de gestion de stock.
+
+Un catalogue en ligne peut fournir un export CSV/Excel à utiliser dans cette fenêtre. Cette version ne parcourt pas automatiquement les sites et ne demande pas leurs identifiants. Pour un export d'inventaire Booqable, choisir les désignations de produits puis vérifier les lots, les variantes et la famille dans l'aperçu. Une ligne de location ne constitue pas à elle seule une fiche constructeur vérifiée.
+
+![Figure 3 - Vérifier un catalogue avant de l'ajouter](../public/manual-assets/10-catalogue.png)
+
+Repères : 1. Colonnes du fichier à utiliser ; 2. Références retenues, familles et état de la connectique ; 3. Accord pour les fiches à documenter puis ajout local à Mon entreprise. Le modèle Atelier fictif sert uniquement à la démonstration.
 
 ## 5. Dessiner et manipuler les équipements
 
@@ -80,11 +102,11 @@ En mode replié, Ajouter une connexion indique le nombre de prises libres access
 
 Les noms et numéros d'origine restent les mêmes. Les prises reliées vers une autre feuille restent visibles avec leur renvoi. Replier ne supprime aucun port ni câble. Les tableaux conservent les données complètes ; les exports graphiques reprennent la présentation choisie.
 
-![Figure 2 - Choisir une sortie sur une stagebox repliée](../public/manual-assets/02-prises-repliees.png)
+![Figure 4 - Choisir une sortie sur une stagebox repliée](../public/manual-assets/02-prises-repliees.png)
 
 Repères : 1. Les prises déjà reliées restent visibles ; 2. Après Ajouter une connexion, choisir Entrées ou Sorties ; 3. Choisir le port libre, puis tirer son câble. L'exemple comporte 32 entrées audio, 24 sorties audio et une prise réseau.
 
-![Figure 3 - Mémoriser le mode de présentation d'un appareil](../public/manual-assets/03-choix-des-prises.png)
+![Figure 5 - Mémoriser le mode de présentation d'un appareil](../public/manual-assets/03-choix-des-prises.png)
 
 Repères : 1. Dans l'inspecteur, Prises visibles sur le schéma propose Automatique, Tous les ports ou Ports reliés. Le réglage concerne l'appareil sélectionné.
 
@@ -128,7 +150,7 @@ Les cartes s'installent dans les emplacements déclarés de l'hôte. Le type mé
 
 La puissance et le poids du châssis s'entendent hors cartes et sont additionnés à ceux des cartes. Ne pas renseigner deux fois une valeur totale constructeur. Exporter les élévations et la nomenclature, puis contrôler les unités, les faces et les limites sur les documents produits.
 
-![Figure 4 - Monter les mêmes équipements dans une baie](../public/manual-assets/04-baies.png)
+![Figure 6 - Monter les mêmes équipements dans une baie](../public/manual-assets/04-baies.png)
 
 Repères : 1. Choisir l'appareil, la baie, la face et l'unité basse, puis Monter / déplacer ; 2. Contrôler les positions sur les faces avant et arrière ; 3. Lire les unités occupées et les bilans renseignés. Les valeurs sont celles de l'exemple.
 
@@ -146,7 +168,7 @@ Un fond DXF peut être importé pour chaque feuille. Confirmer l'unité avant to
 
 Le PDF ajusté indique l'échelle calculée. L'export à échelle fixe utilise le 1:N du plan et peut répartir le résultat sur plusieurs pages. Vérifier les réglages d'impression du lecteur PDF : une seconde option « ajuster au papier » peut modifier l'échelle prévue.
 
-![Figure 5 - Placer les appareils sur un plan métrique](../public/manual-assets/05-plan.png)
+![Figure 7 - Placer les appareils sur un plan métrique](../public/manual-assets/05-plan.png)
 
 Repères : 1. Dimensions du plan en mètres, aimantation et échelle PDF ; 2. Appareil sélectionné, dont la position se règle aussi dans l'inspecteur ; 3. Mesurer une distance droite entre deux points du plan.
 
@@ -160,7 +182,7 @@ Pour le PoE, déclarer le rôle du port, la demande du récepteur ou le plafond 
 
 Le débit prévu concerne le câble et doit être saisi comme un débit agrégé. Le logiciel le compare aux capacités déclarées. Il ne mesure pas le trafic, ne configure pas les appareils et ne simule pas le routage, la redondance ou le multicast. Les exports techniques et Excel servent à partager ces déclarations.
 
-![Figure 6 - Renseigner les interfaces réseau, extrait du tableau](../public/manual-assets/06-reseau.png)
+![Figure 8 - Renseigner les interfaces réseau, extrait du tableau](../public/manual-assets/06-reseau.png)
 
 Repères : 1. Adresse IPv4 de l'interface, avec son préfixe dans la colonne suivante ; 2. VLAN natif déclaré. Ces valeurs documentent le projet ; elles ne configurent pas les appareils.
 
@@ -220,7 +242,7 @@ Le bouton d'import draw.io / Visio accepte .drawio, .xml et .vsdx. Les pages dra
 
 La fenêtre de vérification présente les pages du document. Choisir une page, contrôler les équipements, les fiches proposées et les connexions, puis importer dans une nouvelle feuille. Refaire l'opération pour les autres pages souhaitées. Annuler retire l'import sans modifier les feuilles antérieures. Si Rétablir recrée une feuille, sélectionner son onglet pour retrouver son dessin.
 
-![Figure 7 - Vérifier un synoptique avant son import](../public/manual-assets/07-import.png)
+![Figure 9 - Vérifier un synoptique avant son import](../public/manual-assets/07-import.png)
 
 Repères : 1. Choisir la page du document ; 2. Examiner l'aperçu en parallèle des listes d'équipements et de liaisons à droite ; 3. Importer la sélection après vérification. Le nom de la nouvelle feuille se règle en bas à gauche.
 
@@ -236,7 +258,7 @@ Le format de papier et les marges déterminent les pages affichées sur le canev
 
 À l'export PDF, choisir entre ajuster sur une page et conserver une taille fixe sur plusieurs pages. Ajuster réduit le schéma si nécessaire ; vérifier l'échelle et la taille du texte. La pagination multiple préserve davantage la lisibilité. Le logiciel ne déplace pas automatiquement les appareils pour recomposer le dessin.
 
-![Figure 8 - Choisir la pagination du PDF](../public/manual-assets/08-export.png)
+![Figure 10 - Choisir la pagination du PDF](../public/manual-assets/08-export.png)
 
 Repères : 1. Format de papier ; l'orientation se choisit juste à côté ; 2. Conserver sur plusieurs pages ou Mettre à l'échelle sur une page ; 3. Exporter après contrôle du cartouche, du filigrane et de la protection dans les autres onglets. L'estimation de pages dépend du dessin courant.
 
@@ -293,8 +315,52 @@ Si le PDF contient plus de pages que prévu, examiner les blocs, annotations et 
 
 Avant un chantier, vérifier au minimum : variantes et cartes des appareils ; noms et repères ; sens des flux ; types et longueurs de câbles ; affectations réseau ; budgets PoE et électriques ; références d'horloge ; faces et unités des baies ; échelle, cartouche et révisions. Les fichiers générés décrivent les données renseignées dans AV Diagram, pas une mesure automatique de l'installation.
 
-## 21. Périmètre de cette première version
+## 21. Installer et utiliser l’assistant IA
 
-Le mode formation, la distribution officielle avec certificats et le portage tablette sont en attente. Le manuel couvre les usages disponibles. L'assistant IA et le cloud restent également en attente. Les vidéos explicatives pourront être réalisées à partir de captures du logiciel, accompagnées d'un texte, de sous-titres et éventuellement d'une voix de synthèse.
+Le bouton Assistant IA de la barre supérieure ouvre le chat. Il reste grisé tant que l’assistant n’est pas activé. Pour l’installer ou le configurer, ouvre Paramètres → Assistant IA → Installer / configurer l’IA. Tu peux choisir l’IA locale ou une IA externe via API. Ces réglages concernent ce poste, pas le projet ; AV Diagram reste utilisable sans assistant.
+
+Sous Windows, l’installeur propose une case facultative Installer l’IA locale et le dossier des modèles. Si tu la coches, le logiciel s’ouvre après l’installation et télécharge Qwen3 4B avec progression et annulation. Après le téléchargement, lance le test et active l’assistant. Si tu passes cette étape, retrouve-la dans les paramètres. Sur Mac, utilise directement les paramètres après installation.
+
+Pour l’IA locale, le moteur est inclus dans les builds Windows et macOS. Le moteur Mac exige macOS 13.3 ou plus ; le logiciel reste utilisable sur macOS 12.3 sans ce moteur. Aucun compte ni clé API n’est nécessaire. Choisis le dossier des modèles dans la configuration. Changer de dossier ne déplace ni ne supprime ceux déjà téléchargés : sélectionne à nouveau leur dossier pour les retrouver.
+
+Choisis Qwen3 4B (environ 2,50 Go, au moins 8 Go de mémoire conseillés) ou Qwen3 8B (environ 5,03 Go, au moins 16 Go conseillés). Ces repères ne garantissent pas la vitesse ; garde de la mémoire libre pour le système et les autres logiciels. Les modèles officiels sont sous licence Apache-2.0, consultable dans l’écran de configuration.
+
+Clique sur Télécharger le modèle. Seul ce téléchargement utilise Internet (Hugging Face) ; aucun nom de projet, schéma ou conversation n’est envoyé. Tu peux annuler puis reprendre. AV Diagram vérifie la taille et l’empreinte du fichier avant de l’utiliser. En cas d’erreur d’espace disque ou de réseau, corrige la cause puis reprends. Le modèle reste sur ce poste, hors du dossier du projet et des Save Back Up.
+
+Clique sur Charger et tester. Le logiciel vérifie que le modèle peut répondre et appeler les outils d’AV Diagram sur un projet fictif. L’activation reste bloquée tant que ce test n’a pas réussi. Le premier chargement et les réponses sur processeur peuvent prendre plusieurs minutes. Le moteur démarre à la demande et s’arrête à la fermeture du logiciel ; le bouton Arrêter interrompt une réponse.
+
+Demande par exemple « Propose un micro dynamique générique pour la voix » ou « Comment retrouver une sauvegarde automatique ? ». L’assistant consulte la bibliothèque et le manuel local. Les passages du manuel portent leur chapitre source. Une fiche Communauté ou aux ports non documentés ne devient pas vérifiée parce que l’assistant la consulte.
+
+Les ajouts s’affichent en pointillés. Lis la réponse, les équipements, les prises et les alertes, puis clique sur Appliquer ou Refuser. Appliquer constitue une étape annulable par Ctrl+Z ou Cmd+Z. Aucun équipement existant ne peut être supprimé ou modifié par l’assistant. Les droits attribués par l’hôte s’appliquent aussi à ses propositions. Si le schéma change pendant une demande ou avant l’application, redemande une proposition.
+
+Pour un synoptique, précise les quantités, les références et les flux souhaités. L’assistant peut préparer les appareils et leurs liaisons ensemble ; une prise inconnue, incompatible ou déjà occupée fait refuser cet ensemble. Les ajouts sont rangés selon les liaisons, avec les ports inutilisés repliés. Vérifie les quantités et le câblage proposés : le modèle léger peut encore se tromper. Une proposition de plusieurs appareils isolés est relancée puis refusée si le câblage reste inachevé. Un appareil absent de la bibliothèque doit être signalé.
+
+Pour un besoin complet ou vague, l’assistant analyse les rôles, les quantités, les flux et les contraintes avant de choisir dans le catalogue. Une demande comme « je veux un podcast » doit conduire à quelques questions sur les participants, les sorties attendues et le matériel imposé. Le choix d’une marque laissé libre ne doit pas bloquer la proposition. Les hypothèses, exigences et la demande originale restent dans une note modifiable du projet. Pour un invité sans droit sur les annotations communes, elles sont conservées dans les notes du premier équipement ajouté. Ce parcours couvre plusieurs familles ; ses résultats restent à contrôler, en particulier les bus, les exclusions et les abonnements réseau.
+
+Au-dessus du chat, Matériel autorisé pour l’IA permet Mon entreprise uniquement ou Tous les modèles, priorité à mon entreprise. Le premier choix interdit un ajout extérieur au catalogue local ; une fiche manquante doit être signalée. Le second autorise les compléments de bibliothèque générale. Changer ce réglage efface la conversation et la proposition en attente. Les alertes du parc restent visibles dans les deux cas ; une proposition n’effectue aucune réservation.
+
+La proposition est rangée par flux et zones, avec les prises libres repliées et les notes réparties après les équipements. Les appareils sont placés à l’intérieur des pages imprimables. Si le format courant exige plusieurs pages, Mise en page proposée affiche leur nombre à 100 % et permet de comparer les formats plus grands. L’aperçu se réorganise immédiatement ; le format n’est enregistré qu’avec Appliquer et Ctrl+Z annule aussi ce changement. Pour garder cette taille à l’export, choisir plusieurs pages ; Tenir sur une page réduit le dessin. La proposition ne garantit pas une lisibilité papier identique à tous les formats : vérifier l’aperçu et un tirage d’essai.
+
+Un plateau TV standard peut être construit avec plusieurs caméras SDI identiques, un mélangeur vidéo et une console audio. Le logiciel prépare une entrée SDI distincte par caméra et deux liaisons audio ligne XLR de la console vers le mélangeur ; il refuse une capacité ou une connectique insuffisante. Sur les appareils, affecte les deux sorties audio au programme gauche/droite, règle les entrées du mélangeur en niveau ligne et choisis un format vidéo commun. Le synoptique ne réalise pas ces réglages internes.
+
+Pour une IA externe, choisis IA externe via API, puis le fournisseur et le modèle. Crée ta clé API dans sa console et enregistre-la dans le trousseau sécurisé du système. Un abonnement de discussion ne remplace pas une clé API ; le fournisseur facture son usage selon son offre. L’écran indique les données qui seront envoyées. Donne ton accord puis lance le test des outils sur un schéma fictif avant de terminer. Aucun modèle local n’est nécessaire. Une clé de serveur personnalisé est liée à son adresse, en HTTPS pour un serveur distant.
+
+Décris le résultat souhaité naturellement, par exemple « Génère un plateau avec 5 caméras reliées à un TriCaster ». Une console audio n’est ajoutée que si elle est demandée. Une désignation large peut conduire à une proposition de modèle ou à une question ciblée. Si des fiches demandées sont sans connectique documentée, l’assistant regroupe ses questions pour préciser les modèles, le nombre de micros ou d’ensembles HF et leurs connecteurs. Réponds dans le même chat : la demande initiale est conservée. Il ne doit pas annoncer une recherche future en laissant le schéma vide. Les propositions restent à vérifier et à appliquer dans l’aperçu.
+
+Tu peux citer une référence sans sa marque, par exemple « console CL5 ». Les séparateurs sont tolérés : CL5, CL-5 et CL 5 renvoient à la même référence. Si plusieurs variantes correspondent, précise celle souhaitée. L’assistant reçoit les niveaux des entrées et des sorties séparément : une prise XLR ne signifie pas nécessairement niveau micro. Les niveaux inconnus restent non documentés. Pour un appareil déjà posé dont les prises ont été personnalisées, demande à l’assistant de consulter cet appareil dans le schéma.
+
+Le modèle local est déjà entraîné. Le manuel, le catalogue et les outils lui permettent de consulter le projet ; aucune conversation ne sert à l’entraîner automatiquement. Enrichir les documents ou corriger les fiches est différent d’un entraînement du modèle.
+
+Les réponses peuvent contenir des erreurs. L’assistant ne remplace ni les fiches constructeur ni la validation de conception. Les grandes demandes sont à découper ; l’historique et les résultats d’outils sont limités. La lecture automatique de riders et les documents constructeur personnels ne sont pas inclus dans ce lot. Le mode avancé permet de connecter un serveur déjà installé, uniquement sur ce poste (Ollama, LM Studio ou llama.cpp).
+
+Pour un cahier des charges d’interview suivi d’un duo live dans un autre studio, le parcours documenté utilise une M7CL-48ES et une 01V96 originale. Décrire les personnes, les sources, les retours et les destinations. L’assistant peut préparer les micros d’interview, un micro statique de chant, la reprise de l’ampli guitare, les machines via DI, la lecture PC, deux mixages casque stéréo indépendants, les enceintes du plateau, la sortie audio vers la vidéo et l’enregistrement stéréo. Ce parcours spécialisé conserve ses vérifications de mixage ; les autres architectures passent par l’analyse générale, sans garantir les mêmes vérifications internes de console.
+
+La proposition comporte trois zones, leurs câbles et des notes de routage enregistrées avec le projet. Les enceintes d’interview excluent tous les micros d’interview. Le retour vers le studio live contient la présentatrice et les médias, sans le mix live ; dans la 01V96, ce retour alimente les casques et reste exclu du mix renvoyé à la M7CL. Les deux casques utilisent deux paires d’auxiliaires et des entrées d’amplification distinctes. Les affectations et exclusions restent à configurer sur les appareils.
+
+Les choix non précisés sont annoncés comme hypothèses : deux sorties machines via deux DI, deux retours casque stéréo et une SB168-ES par défaut. Les micros et l’interface ont des références documentées proposées ; machines, guitare/ampli, casques et mélangeur vidéo non référencés restent des blocs génériques à confirmer. Vérifier les notes des trois zones avant Appliquer. Pour changer une hypothèse, cliquer sur Refuser puis redemander le plateau avec les précisions ; une proposition complète en aperçu ne peut pas recevoir de nouveaux ajouts, afin de conserver la cohérence du routage et d’éviter les doublons. AV Diagram ne règle pas les gains, le fantôme, les bus ou l’accès Twitch. Appliquer ajoute le projet proposé en une étape annulable ; une demande de précision conserve le projet source.
+
+## 22. Périmètre de cette première version
+
+Le mode formation, la distribution officielle avec certificats et le portage tablette sont en attente. Le manuel couvre les usages disponibles. L’assistant IA local et les connexions API sont facultatifs et expérimentaux. Le cloud des projets reste en attente. Les vidéos explicatives pourront être réalisées à partir de captures du logiciel, accompagnées d'un texte, de sous-titres et éventuellement d'une voix de synthèse.
 
 Les installateurs de test Windows et Mac ne constituent pas une distribution certifiée. Les parcours natifs, la collaboration sur le réseau réel, les fichiers de production variés et l'impression à l'échelle doivent être validés sur les postes utilisés. Conserver les projets et leurs sauvegardes avant toute mise à jour importante.

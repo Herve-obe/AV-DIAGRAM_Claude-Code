@@ -5,6 +5,7 @@
 //   par l'utilisateur doit être locale (127.0.0.1, localhost) ou, pour « compatible OpenAI », en HTTPS.
 // - Liste stricte de chemins : seuls les points d'accès de discussion et de liste des modèles.
 use serde::Serialize;
+use sha2::{Digest, Sha256};
 use std::time::Duration;
 use url::Url;
 
@@ -41,7 +42,7 @@ fn user_url(base_url: Option<String>, https_allowed: bool) -> Result<Url, String
         "https" => https_allowed || is_loopback(&u),
         _ => false,
     };
-    if !ok || u.query().is_some() || !u.username().is_empty() {
+    if !ok || u.query().is_some() || u.fragment().is_some() || !u.username().is_empty() || u.password().is_some() {
         return Err("adresse refusée : serveur local (localhost) ou HTTPS pour « compatible OpenAI »".into());
     }
     Ok(u)
@@ -66,12 +67,20 @@ fn endpoint(provider: &str, base_url: Option<String>) -> Result<Endpoint, String
     })
 }
 
-fn entry(provider: &str) -> Result<keyring::Entry, String> {
-    keyring::Entry::new(SERVICE, provider).map_err(|e| format!("trousseau indisponible : {e}"))
+fn credential_name(provider: &str, base_url: Option<String>) -> Result<String, String> {
+    if !KEY_PROVIDERS.contains(&provider) { return Err("fournisseur inconnu".into()); }
+    if provider != "compatible" { return Ok(provider.into()); }
+    let u = user_url(base_url, true)?;
+    // Une clé d'un serveur personnalisé ne doit jamais être réutilisée chez un autre.
+    Ok(format!("compatible:{:x}", Sha256::digest(u.as_str().trim_end_matches('/').as_bytes())))
 }
 
-fn read_key(provider: &str) -> Result<Option<String>, String> {
-    match entry(provider)?.get_password() {
+fn entry(provider: &str, base_url: Option<String>) -> Result<keyring::Entry, String> {
+    keyring::Entry::new(SERVICE, &credential_name(provider, base_url)?).map_err(|e| format!("trousseau indisponible : {e}"))
+}
+
+fn read_key(provider: &str, base_url: Option<String>) -> Result<Option<String>, String> {
+    match entry(provider, base_url)?.get_password() {
         Ok(k) => Ok(Some(k)),
         Err(keyring::Error::NoEntry) => Ok(None),
         Err(e) => Err(format!("lecture du trousseau impossible : {e}")),
@@ -79,7 +88,7 @@ fn read_key(provider: &str) -> Result<Option<String>, String> {
 }
 
 #[tauri::command]
-pub fn ai_key_set(provider: String, key: String) -> Result<(), String> {
+pub fn ai_key_set(provider: String, key: String, base_url: Option<String>) -> Result<(), String> {
     if !KEY_PROVIDERS.contains(&provider.as_str()) {
         return Err(format!("fournisseur inconnu : {provider}"));
     }
@@ -87,20 +96,20 @@ pub fn ai_key_set(provider: String, key: String) -> Result<(), String> {
     if key.is_empty() || key.len() > 512 || key.chars().any(|c| c.is_whitespace() || c.is_control()) {
         return Err("clé vide ou mal formée".into());
     }
-    entry(&provider)?.set_password(key).map_err(|e| format!("écriture dans le trousseau impossible : {e}"))
+    entry(&provider, base_url)?.set_password(key).map_err(|e| format!("écriture dans le trousseau impossible : {e}"))
 }
 
 #[tauri::command]
-pub fn ai_key_delete(provider: String) -> Result<(), String> {
-    match entry(&provider)?.delete_credential() {
+pub fn ai_key_delete(provider: String, base_url: Option<String>) -> Result<(), String> {
+    match entry(&provider, base_url)?.delete_credential() {
         Ok(()) | Err(keyring::Error::NoEntry) => Ok(()),
         Err(e) => Err(format!("suppression impossible : {e}")),
     }
 }
 
 #[tauri::command]
-pub fn ai_key_present(provider: String) -> Result<bool, String> {
-    Ok(read_key(&provider)?.is_some())
+pub fn ai_key_present(provider: String, base_url: Option<String>) -> Result<bool, String> {
+    Ok(read_key(&provider, base_url)?.is_some())
 }
 
 #[derive(Serialize)]
@@ -111,31 +120,37 @@ pub struct AiResponse {
 
 #[tauri::command]
 pub async fn ai_request(
+    state: tauri::State<'_, crate::local::LocalServer>,
     provider: String,
     base_url: Option<String>,
     method: String,
     path: String,
     body: Option<String>,
 ) -> Result<AiResponse, String> {
-    let ep = endpoint(&provider, base_url)?;
+    let builtin = if provider == "builtin" { Some(state.connection()?) } else { None };
+    let ep = if let Some((ref url, _)) = builtin {
+        Endpoint { base: url.clone(), auth: Auth::None, key_required: false, local: true }
+    } else { endpoint(&provider, base_url)? };
     if !ALLOWED_PATHS.contains(&path.as_str()) {
         return Err(format!("chemin refusé : {path}"));
     }
-    let key = match ep.auth {
+    let key = if let Some((_, key)) = builtin { Some(key) } else { match ep.auth {
         Auth::None => None,
-        _ => read_key(&provider)?,
-    };
+        _ => read_key(&provider, Some(ep.base.clone()))?,
+    }};
     if ep.key_required && key.is_none() {
         return Err("aucune clé API enregistrée pour ce fournisseur".into());
     }
     // Un modèle local sur processeur peut mettre plusieurs minutes à répondre
     let timeout = Duration::from_secs(if ep.local { 600 } else { 120 });
-    let client = reqwest::Client::builder()
+    let mut builder = reqwest::Client::builder()
         .timeout(timeout)
-        .redirect(reqwest::redirect::Policy::none())
-        .build()
+        .redirect(reqwest::redirect::Policy::none());
+    if ep.local { builder = builder.no_proxy(); }
+    let client = builder.build()
         .map_err(|e| e.to_string())?;
     let url = format!("{}{}", ep.base.trim_end_matches('/'), path);
+    if body.as_ref().map(|s| s.len() > 2_000_000).unwrap_or(false) { return Err("contexte trop volumineux : démarrer une nouvelle conversation".into()); }
     let mut req = match method.as_str() {
         "GET" => client.get(&url),
         "POST" => client.post(&url).header("content-type", "application/json").body(body.unwrap_or_default()),
@@ -144,9 +159,10 @@ pub async fn ai_request(
     req = match (&ep.auth, key) {
         (Auth::Anthropic, Some(k)) => req.header("x-api-key", k).header("anthropic-version", "2023-06-01"),
         (Auth::Bearer, Some(k)) => req.bearer_auth(k),
+        (Auth::None, Some(k)) => req.bearer_auth(k),
         _ => req,
     };
-    let res = req.send().await.map_err(|e| {
+    let mut res = req.send().await.map_err(|e| {
         if e.is_timeout() {
             "délai dépassé".to_string()
         } else if e.is_connect() {
@@ -156,7 +172,12 @@ pub async fn ai_request(
         }
     })?;
     let status = res.status().as_u16();
-    let body = res.text().await.map_err(|e| e.to_string())?;
+    let mut bytes = Vec::new();
+    while let Some(chunk) = res.chunk().await.map_err(|e| e.to_string())? {
+        if bytes.len() + chunk.len() > 2_000_000 { return Err("réponse trop volumineuse".into()); }
+        bytes.extend_from_slice(&chunk);
+    }
+    let body = String::from_utf8(bytes).map_err(|_| "réponse illisible")?;
     Ok(AiResponse { status, body })
 }
 
@@ -173,5 +194,17 @@ mod tests {
         assert!(endpoint("compatible", Some("https://example.com/v1".into())).is_ok());
         assert!(endpoint("compatible", Some("http://example.com/v1".into())).is_err());
         assert!(endpoint("inconnu", None).is_err());
+        assert!(endpoint("compatible", Some("https://:secret@example.com/v1".into())).is_err());
+        assert!(endpoint("compatible", Some("https://example.com/v1#fragment".into())).is_err());
+    }
+
+    #[test]
+    fn cle_personnalisee_attachee_a_son_adresse() {
+        let name = |url: &str| credential_name("compatible", Some(url.into())).unwrap();
+        assert_eq!(name("https://a.example/v1/"), name("https://a.example/v1"));
+        assert_ne!(name("https://a.example/v1"), name("https://b.example/v1"));
+        assert_eq!(credential_name("openai", None).unwrap(), "openai");
+        assert!(credential_name("other", None).is_err());
+        assert!(credential_name("compatible", Some("http://remote.example/v1".into())).is_err());
     }
 }

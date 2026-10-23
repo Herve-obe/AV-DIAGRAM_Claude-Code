@@ -1,5 +1,5 @@
-// Barre supérieure : identité, projet, fichier, annulation, recherche, mode, thème, langue.
-import { useCallback, useEffect, useRef, useState } from 'react'
+// Barre supérieure : menus complets, raccourcis personnalisables et accès à l'assistant.
+import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { startMerge } from './MergeDialog'
 import { startPdfImport } from './PdfImportDialog'
@@ -12,18 +12,23 @@ import { endOf, useRoutes } from '../editor/EdgeRouter'
 import type { RouteEnd } from '../model/routing'
 import { exportWorkbook } from '../io/xlsx'
 import { startPatchImport } from './PatchImportDialog'
+import { startCatalogueImport } from './CatalogueImportDialog'
 import { useExportPdf } from './ExportPdfDialog'
 import { closePanelsWindow, openPanelsWindow } from '../store/windowSync'
 import { exportCableCsv, exportCanvasImage, notifyError } from '../io/files'
 import { openDocument, saveCurrentProject } from '../io/documentLifecycle'
 import { useCollab } from '../collab/session'
-import { useAi } from '../store/aiStore'
+import { isReady, useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { useUi, type ThemePref } from '../store/uiStore'
-import { Icon, type IconName } from './Icon'
+import { Icon } from './Icon'
+import { MenuBar, type MenuCommand } from './MenuBar'
+import { TOP_ACTIONS, type TopActionId } from './topBarActions'
+import { groupSelected, ungroupSelected } from './groupActions'
+import { isGroupNodeId } from '../model/groups'
+import { fitToPage } from '../editor/PageGrid'
 
 const THEME_NEXT: Record<ThemePref, ThemePref> = { system: 'dark', dark: 'light', light: 'system' }
-const THEME_ICON: Record<ThemePref, IconName> = { system: 'monitor', dark: 'moon', light: 'sun' }
 
 export function csvHeaders(t: (k: string) => string) {
   return ['number', 'signal', 'from', 'to', 'connectors', 'cable', 'length'].map((k) => t(`dock.${k}`))
@@ -44,22 +49,16 @@ export function TopBar() {
   const canUndo = useProject((s) => s.past.length > 0) || collabUndo
   const canRedo = useProject((s) => s.future.length > 0) || collabRedo
   const { undo, redo, rename } = useProject.getState()
-  const { mode, theme, lang, setPref, setPaletteOpen } = useUi()
-  const [exportOpen, setExportOpen] = useState(false)
+  const { mode, theme, lang, view, toolbar, selectedEquipment, setPref, setPaletteOpen } = useUi()
   const [readingDiagram, setReadingDiagram] = useState(false)
   const [manualOpen, setManualOpen] = useState(false)
   const closeManual = useCallback(() => setManualOpen(false), [])
   const [name, setName] = useState(project.name)
-  const exportRef = useRef<HTMLDivElement>(null)
   const aiOpen = useAi((s) => s.panelOpen)
+  const aiReady = useAi((s) => isReady(s.settings))
 
   useEffect(() => setName(project.name), [project.name])
-  useEffect(() => {
-    if (!exportOpen) return
-    const close = (e: MouseEvent) => !exportRef.current?.contains(e.target as Node) && setExportOpen(false)
-    window.addEventListener('mousedown', close)
-    return () => window.removeEventListener('mousedown', close)
-  }, [exportOpen])
+
 
   const open = () => void openDocument()
   const dxf = async () => {
@@ -74,15 +73,62 @@ export function TopBar() {
     return exportCad(project,useUi.getState().currentSheetId,useUi.getState().view === 'plan',geometry)
   }
 
+  const runs: Record<TopActionId, () => unknown> = {
+    new: () => useUi.getState().setNewProjectOpen(true), open,
+    save: () => saveCurrentProject(), saveAs: () => saveCurrentProject(true),
+    merge: () => startMerge(t), importPdf: () => startPdfImport(t), importCad: () => startCadImport(t), importPatch: () => startPatchImport(t),
+    importCatalogue: () => startCatalogueImport(t),
+    importDiagram: async () => { setReadingDiagram(true); try { await startDiagramImport(t) } finally { setReadingDiagram(false) } },
+    exportPdf: () => useExportPdf.getState().setOpen(true),
+    exportPng: () => exportCanvasImage(project, 'png'), exportSvg: () => exportCanvasImage(project, 'svg'),
+    exportCsv: () => exportCableCsv(project, csvHeaders(t)),
+    exportCad: () => dxf().catch(() => notifyError(t('cad.exportError'))),
+    exportXlsx: () => exportWorkbook(project, t).catch(() => notifyError(t('xlsx.exportError'))),
+    exportDiagram: () => import('../io/diagramExchange').then(async ({ drawioXml }) => {
+      const { saveContent, slug } = await import('../io/files')
+      await saveContent(slug(project.name) + '.drawio', drawioXml(project), 'application/xml')
+    }).catch(() => notifyError(t('diagramExchange.exportError'))),
+    undo, redo, group: groupSelected, ungroup: ungroupSelected,
+    fit: () => { if (view === 'plan') document.querySelector<HTMLButtonElement>('[data-plan-fit]')?.click(); else if (!fitToPage(rf, project, 300)) void rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 }) },
+    dual: () => detached ? closePanelsWindow() : openPanelsWindow(), present: () => useUi.getState().setPresenting(true),
+    mode: () => setPref('mode', mode === 'expert' ? 'beginner' : 'expert'), theme: () => setPref('theme', THEME_NEXT[theme]), lang: () => setPref('lang', lang === 'fr' ? 'en' : 'fr'),
+    collab: () => useCollab.getState().setDialogOpen(true), chat: () => useCollab.getState().setChatOpen(!chatOpen),
+    aiSetup: () => useAi.getState().setSetupOpen(true), settings: () => useUi.getState().setSettingsOpen(true, 'project'),
+    toolbar: () => useUi.getState().setSettingsOpen(true, 'interface'), manual: () => setManualOpen(true),
+  }
+  const disabled: Partial<Record<TopActionId, boolean>> = {
+    undo: !canUndo, redo: !canRedo, importDiagram: readingDiagram, exportPng: !drawing, exportSvg: !drawing, exportCad: !drawing,
+    exportDiagram: view !== 'diagram', fit: !drawing, group: view !== 'diagram' || !selectedEquipment.length,
+    ungroup: view !== 'diagram' || !selectedEquipment.some(isGroupNodeId), chat: collabStatus === 'off',
+  }
+  const commands: MenuCommand[] = TOP_ACTIONS.map(a => ({ ...a,
+    label: a.id === 'dual' ? t(detached ? 'dual.close' : 'dual.open') : a.id === 'mode' ? t(a.label) + ' · ' + t('mode.' + mode) : a.id === 'theme' ? t('theme.' + theme) : (a.id.startsWith('export') ? t('menu.export') + ' · ' : '') + t(a.label),
+    disabled: disabled[a.id], run: () => { if (!disabled[a.id]) void runs[a.id]() },
+  }))
+  const menus = (['file', 'edit', 'view', 'tools', 'help'] as const).map(id => ({ id, label: t('toolbar.menus.' + id), commands: commands.filter(c => TOP_ACTIONS.find(a => a.id === c.id)?.menu === id) }))
+  const shortcut = (id: TopActionId) => {
+    const action = TOP_ACTIONS.find(a => a.id === id)!, command = commands.find(c => c.id === id)!
+    return <button key={id} className={'icon-btn ' + (id === 'collab' || id === 'chat' ? 'collab-btn' : '')}
+      onClick={command.run} disabled={command.disabled} aria-label={command.label} title={command.label + (command.hint ? ' (' + command.hint + ')' : '')}
+      aria-pressed={id === 'dual' ? detached : id === 'chat' ? chatOpen : undefined}>
+      <Icon name={action.icon} />
+      {id === 'collab' && collabStatus !== 'off' && <span className="collab-count">{collabCount}</span>}
+      {id === 'chat' && unread > 0 && <span className="collab-count chat-unread">{unread > 99 ? '99+' : unread}</span>}
+    </button>
+  }
+
   return (
     <header className="topbar">
-      <div className="brand" title={t('app.tagline')}>
-        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--accent)" strokeWidth="2" />
-          <rect x="15" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--text)" strokeWidth="2" />
-          <path d="M9 9h3v6h3" fill="none" stroke="var(--accent)" strokeWidth="2" />
-        </svg>
-        <span>AV Diagram</span>
+      <div className="topbar-start">
+        <div className="brand" title={t('app.tagline')}>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--accent)" strokeWidth="2" />
+            <rect x="15" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--text)" strokeWidth="2" />
+            <path d="M9 9h3v6h3" fill="none" stroke="var(--accent)" strokeWidth="2" />
+          </svg>
+          <span>AV Diagram</span>
+        </div>
+        <MenuBar label={t('toolbar.menubar')} menus={menus} />
       </div>
 
       <input
@@ -92,89 +138,23 @@ export function TopBar() {
         onChange={(e) => setName(e.target.value)}
         onBlur={() => name.trim() && name !== project.name && rename(name.trim())}
         onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
-        aria-label="Nom du projet"
+        aria-label={t('settings.projectName')}
       />
 
-      <nav className="toolbar" aria-label="Fichier">
-        <button className="icon-btn" onClick={() => useUi.getState().setNewProjectOpen(true)} title={t('menu.new')} aria-label={t('menu.new')}><Icon name="file" /></button>
-        <button className="icon-btn" onClick={open} title={`${t('menu.open')} (Ctrl+O)`} aria-label={t('menu.open')}><Icon name="folder" /></button>
-        <button className="icon-btn" onClick={() => startMerge(t)} title={t('merge.menu')} aria-label={t('merge.menu')}><Icon name="copy" /></button>
-        <button className="icon-btn" onClick={() => startPdfImport(t)} title={t('pdfImport.menu')} aria-label={t('pdfImport.menu')}><Icon name="pdf" /></button>
-        <button className="icon-btn" onClick={() => startCadImport(t)} title={t('cad.menu')} aria-label={t('cad.menu')}><Icon name="plan" /></button>
-        <button className="icon-btn" disabled={readingDiagram} aria-busy={readingDiagram} onClick={async () => { setReadingDiagram(true); try { await startDiagramImport(t) } finally { setReadingDiagram(false) } }} title={t(readingDiagram ? 'diagramExchange.reading' : 'diagramExchange.menu')} aria-label={t('diagramExchange.menu')}><Icon name="layers" /></button>
-        <button className="icon-btn" onClick={() => startPatchImport(t)} title={t('xlsx.importMenu')} aria-label={t('xlsx.importMenu')}><Icon name="lists" /></button>
-        <button className="icon-btn" onClick={() => saveCurrentProject()} title={`${t('menu.save')} (Ctrl+S)`} aria-label={t('menu.save')}><Icon name="save" /></button>
-        <div className="menu" ref={exportRef}>
-          <button className="icon-btn" onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} title={t('menu.export')} aria-label={t('menu.export')}><Icon name="download" /></button>
-          {exportOpen && (
-            <div className="menu-pop" role="menu">
-              <button role="menuitem" onClick={() => { setExportOpen(false); useExportPdf.getState().setOpen(true) }}>{t('menu.exportPdf')}</button>
-              <button role="menuitem" disabled={!drawing} onClick={() => { setExportOpen(false); exportCanvasImage(project, 'png') }}>{t('menu.exportPng')}</button>
-              <button role="menuitem" disabled={!drawing} onClick={() => { setExportOpen(false); exportCanvasImage(project, 'svg') }}>{t('menu.exportSvg')}</button>
-              <button role="menuitem" onClick={() => { setExportOpen(false); exportCableCsv(project, csvHeaders(t)) }}>{t('menu.exportCsv')}</button>
-              <button role="menuitem" disabled={!drawing} onClick={() => { setExportOpen(false); void dxf().catch(() => notifyError(t('cad.exportError'))) }}>{t('cad.export')}</button>
-              <button role="menuitem" onClick={() => { setExportOpen(false); void exportWorkbook(project, t).catch(() => notifyError(t('xlsx.exportError'))) }}>{t('xlsx.export')}</button>
-              <button role="menuitem" disabled={useUi.getState().view !== 'diagram'} onClick={() => { setExportOpen(false); void import('../io/diagramExchange').then(async ({ drawioXml }) => { const { saveContent, slug } = await import('../io/files'); await saveContent(`${slug(project.name)}.drawio`, drawioXml(project), 'application/xml') }).catch(() => notifyError(t('diagramExchange.exportError'))) }}>{t('diagramExchange.export')}</button>
-            </div>
-          )}
-        </div>
-        <button
-          className={`icon-btn collab-btn collab-${collabStatus}`}
-          onClick={() => useCollab.getState().setDialogOpen(true)}
-          title={t(`collab.status.${collabStatus}`)}
-          aria-label={t('collab.title')}
-        >
-          <Icon name="users" />
-          {collabStatus !== 'off' && <span className="collab-count">{collabCount}</span>}
+      <div className="topbar-end">
+        <nav className="toolbar quick-toolbar" aria-label={t('toolbar.title')}>
+          {toolbar.map(shortcut)}
+          {collabStatus !== 'off' && !toolbar.includes('chat') && shortcut('chat')}
+        </nav>
+
+        <button className="cmd-btn" onClick={() => setPaletteOpen(true)}>
+          <Icon name="search" size={14} />
+          <span className="cmd-label">{t('menu.search')}</span>
+          <kbd>Ctrl K</kbd>
         </button>
-        {collabStatus !== 'off' && (
-          <button
-            className="icon-btn collab-btn"
-            aria-pressed={chatOpen}
-            onClick={() => useCollab.getState().setChatOpen(!chatOpen)}
-            title={t('collab.chat.title')}
-            aria-label={t('collab.chat.title')}
-          >
-            <Icon name="chat" />
-            {unread > 0 && <span className="collab-count chat-unread">{unread > 99 ? '99+' : unread}</span>}
-          </button>
-        )}
-        <button
-          className="icon-btn"
-          aria-pressed={detached}
-          onClick={() => void (detached ? closePanelsWindow() : openPanelsWindow())}
-          title={t(detached ? 'dual.close' : 'dual.open')}
-          aria-label={t(detached ? 'dual.close' : 'dual.open')}
-        >
-          <Icon name="screens" />
-        </button>
-        <button className="icon-btn" onClick={() => useUi.getState().setPresenting(true)} title={`${t('presentation.enter')} (F5)`} aria-label={t('presentation.enter')}><Icon name="present" /></button>
-        <button className="icon-btn" onClick={() => useUi.getState().setSettingsOpen(true)} title={t('settings.title')} aria-label={t('settings.title')}><Icon name="settings" /></button>
-        <button className="icon-btn" onClick={() => setManualOpen(true)} title={t('manual.title')} aria-label={t('manual.title')}><Icon name="bookmark" /></button>
-        <span className="sep" />
-        <button className="icon-btn" onClick={undo} disabled={!canUndo} title={`${t('menu.undo')} (Ctrl+Z)`} aria-label={t('menu.undo')}><Icon name="undo" /></button>
-        <button className="icon-btn" onClick={redo} disabled={!canRedo} title={`${t('menu.redo')} (Ctrl+Maj+Z)`} aria-label={t('menu.redo')}><Icon name="redo" /></button>
-      </nav>
 
-      <span className="spacer" />
-
-      <button className="cmd-btn" onClick={() => setPaletteOpen(true)}>
-        <Icon name="search" size={14} />
-        <span className="cmd-label">{t('menu.search')}</span>
-        <kbd>Ctrl K</kbd>
-      </button>
-
-      <button className="icon-btn" aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t('ai.title')} aria-label={t('ai.title')}><Icon name="assistant" /></button>
-      <div className="segmented" role="group" aria-label="Mode">
-        <button aria-pressed={mode === 'beginner'} onClick={() => setPref('mode', 'beginner')}>{t('mode.beginner')}</button>
-        <button aria-pressed={mode === 'expert'} onClick={() => setPref('mode', 'expert')}>{t('mode.expert')}</button>
+        <button className="btn assistant-btn" disabled={!aiReady} aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t(aiReady ? 'ai.open' : 'ai.installHint')}><Icon name="assistant" size={16} />{t('ai.title')}</button>
       </div>
-      <button className="icon-btn" onClick={() => setPref('lang', lang === 'fr' ? 'en' : 'fr')} title={lang === 'fr' ? 'English' : 'Français'} aria-label="Langue">
-        <span className="lang-code">{lang.toUpperCase()}</span>
-      </button>
-      <button className="icon-btn" onClick={() => setPref('theme', THEME_NEXT[theme])} title={t(`theme.${theme}`)} aria-label={t(`theme.${theme}`)}>
-        <Icon name={THEME_ICON[theme]} />
-      </button>
       {manualOpen && <ManualDialog onClose={closeManual} />}
     </header>
   )

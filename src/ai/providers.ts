@@ -3,7 +3,7 @@
 // que reprennent Gemini (point d'accès compatible), Mistral, Ollama, LM Studio et le serveur llama.cpp.
 // Ce module est pur : il construit les requêtes et lit les réponses, sans accès réseau.
 
-export type ProviderId = 'anthropic' | 'openai' | 'gemini' | 'mistral' | 'compatible' | 'ollama' | 'lmstudio' | 'llamacpp'
+export type ProviderId = 'anthropic' | 'openai' | 'gemini' | 'mistral' | 'compatible' | 'builtin' | 'ollama' | 'lmstudio' | 'llamacpp'
 export type ApiFormat = 'anthropic' | 'openai'
 
 export interface ProviderInfo {
@@ -23,10 +23,11 @@ export interface ProviderInfo {
   recommend?: string
 }
 
-// Adresses et pages de console relevées le 2026-09-25, à revérifier à chaque version (section 12.6).
+// Adresses et pages de console vérifiées le 2026-10-21 (section 12.6).
 export const PROVIDERS: ProviderInfo[] = [
-  { id: 'anthropic', label: 'Claude (Anthropic)', api: 'anthropic', kind: 'account', keyUrl: 'https://console.anthropic.com/settings/keys', keyPrefix: 'sk-ant-', recommend: 'sonnet' },
-  { id: 'openai', label: 'ChatGPT (OpenAI)', api: 'openai', kind: 'account', keyUrl: 'https://platform.openai.com/api-keys', keyPrefix: 'sk-' },
+  { id: 'builtin', label: 'AV Diagram · local', api: 'openai', kind: 'local' },
+  { id: 'anthropic', label: 'Claude (Anthropic)', api: 'anthropic', kind: 'account', keyUrl: 'https://platform.claude.com/settings/keys', keyPrefix: 'sk-ant-', recommend: 'sonnet' },
+  { id: 'openai', label: 'OpenAI', api: 'openai', kind: 'account', keyUrl: 'https://platform.openai.com/api-keys', keyPrefix: 'sk-' },
   { id: 'gemini', label: 'Gemini (Google)', api: 'openai', kind: 'account', keyUrl: 'https://aistudio.google.com/apikey', keyPrefix: 'AIza' },
   { id: 'mistral', label: 'Mistral', api: 'openai', kind: 'account', keyUrl: 'https://console.mistral.ai/api-keys' },
   { id: 'compatible', label: 'Autre (compatible OpenAI)', api: 'openai', kind: 'account', defaultBaseUrl: 'https://' },
@@ -80,13 +81,17 @@ export interface ModelReply {
 
 const MAX_TOKENS = 2048
 
-export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[]): ApiRequest {
+export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], provider?: ProviderId, options: { requiredTool?: string; maxTokens?: number } = {}): ApiRequest {
+  if (options.requiredTool && !tools.some(t => t.name === options.requiredTool)) throw new Error('Outil requis indisponible')
+  const availableTools = options.requiredTool ? tools.filter(t => t.name === options.requiredTool) : tools
+  const maxTokens = options.maxTokens ?? MAX_TOKENS
   if (api === 'anthropic') {
     const body = {
       model,
-      max_tokens: MAX_TOKENS,
+      max_tokens: maxTokens,
+      ...(options.requiredTool ? { tool_choice: { type: 'tool', name: options.requiredTool } } : {}),
       system,
-      ...(tools.length ? { tools: tools.map((t) => ({ name: t.name, description: t.description, input_schema: t.parameters })) } : {}),
+      ...(availableTools.length ? { tools: availableTools.map((t) => ({ name: t.name, description: t.description, input_schema: t.parameters })) } : {}),
       messages: messages.map((m) => {
         if (m.role === 'user') return { role: 'user', content: m.text }
         if (m.role === 'assistant') {
@@ -115,10 +120,12 @@ export function buildChatRequest(api: ApiFormat, model: string, system: string, 
   }
   const body = {
     model,
-    max_tokens: MAX_TOKENS,
+    ...(provider === 'openai' ? { max_completion_tokens: maxTokens } : { max_tokens: maxTokens }),
+    ...(options.requiredTool ? { tool_choice: 'required' } : {}),
     messages: out,
+    ...(provider === 'builtin' ? { temperature: 0.7, top_p: 0.8, min_p: 0, presence_penalty: 1.5, parallel_tool_calls: false, chat_template_kwargs: { enable_thinking: false } } : {}),
     // Pas de liste d'outils vide : certains serveurs compatibles la refusent
-    ...(tools.length ? { tools: tools.map((t) => ({ type: 'function', function: { name: t.name, description: t.description, parameters: t.parameters } })) } : {}),
+    ...(availableTools.length ? { tools: availableTools.map((t) => ({ type: 'function', function: { name: t.name, description: t.description, parameters: t.parameters } })) } : {}),
   }
   return { method: 'POST', path: '/chat/completions', body: JSON.stringify(body) }
 }
