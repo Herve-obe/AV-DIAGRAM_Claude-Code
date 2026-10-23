@@ -151,8 +151,11 @@ def test_install_modes():
     personal = next(x for x in windows(hwnd) if x['cls'] == 'Button' and 'just for me' in x['text'])
     assert user.SendMessageW(personal['hwnd'], 0xF0, 0, 0) == 1, 'Existing per-user installation must remain selected'
     click(everyone)
+    wait_for(lambda: user.SendMessageW(everyone['hwnd'], 0xF0, 0, 0) == 1, 'all-users selection')
+    before = page_signature(hwnd)
     click(button(hwnd, 1))
-    directory = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Edit'), None), 'all-users directory')
+    wait_for(lambda: page_signature(hwnd) and not set(before).intersection(page_signature(hwnd)), 'leave install mode page')
+    directory = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Edit' and x['text']), None), 'all-users directory')
     assert Path(directory['text']).resolve() == machine_dir.resolve(), directory
     click(button(hwnd, 1))
     wait_for(lambda: any(x['text'].startswith('Install local AI -') for x in windows(hwnd)), 'AI page')
