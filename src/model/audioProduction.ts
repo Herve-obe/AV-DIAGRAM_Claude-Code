@@ -2,6 +2,7 @@ import type { EquipmentTemplate, PortDef, Project } from './types'
 import { addAnnotation, addZone, updateEquipment, updateLink } from './project'
 import { diagramBlockSize, layoutDiagram } from './diagramLayout'
 import { suggestZoneCode } from './zones'
+import type fr from '../i18n/fr.json'
 
 export interface AudioMix {
   id: string
@@ -31,7 +32,7 @@ export function checkAudioMixes(sources: string[], mixes: AudioMix[]): string[] 
 }
 
 type Group = 'interview' | 'control' | 'live'
-export type ProductionLabels = Record<string, string>
+export type ProductionLabels = typeof fr.audioProduction
 export interface ProductionEquipment {
   ref: string
   template_id: string
@@ -53,7 +54,7 @@ export interface AudioProductionPlan {
 
 /** shortcut: parcours interview + duo live sur M7CL-48ES/01V96 ; étendre les capacités documentées avant d'accepter d'autres consoles. */
 export function audioProductionPlan(library: EquipmentTemplate[], args: Record<string, unknown>, labels: ProductionLabels): AudioProductionPlan | { error: string } {
-  const say = (key: string, values: Record<string, string | number> = {}) => (labels[key] ?? key).replace(/\{\{(\w+)\}\}/g, (_, k) => String(values[k] ?? ''))
+  const say = (key: keyof ProductionLabels, values: Record<string, string | number> = {}) => labels[key].replace(/\{\{(\w+)\}\}/g, (_, k) => String(values[k] ?? ''))
   const interviewCount = args.interview_mic_count ?? 3, loops = args.loop_channels ?? 2, boxes = args.stagebox_count ?? 1
   if (!Number.isInteger(interviewCount) || (interviewCount as number) < 1 || (interviewCount as number) > 10
     || !Number.isInteger(loops) || (loops as number) < 1 || (loops as number) > 8 || ![0, 1, 2].includes(boxes as number)) return { error: say('invalidCounts') }
