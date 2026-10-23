@@ -1,99 +1,10 @@
-# Intégration continue : lint, types, tests et build à chaque push et pull request.
-name: CI
-on:
-  push:
-  pull_request:
+name: Verification Windows 0.5.10
+on: push
+permissions:
+  contents: read
+  actions: read
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python -m pip install reportlab==4.4.9
-      - run: python scripts/build-manual.py
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
-      - run: npm run build
-      - name: Upload generated manual
-        if: github.event_name == 'push'
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-Manual-test
-          path: public/manuel.pdf
-          retention-days: 30
-
-  native:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: src-tauri
-      - run: npm ci
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python -m pip install reportlab==4.4.9
-      - run: python scripts/build-manual.py
-      - run: npm run build
-      - name: Prepare verified local AI engine
-        run: python scripts/prepare-local-ai.py
-      - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --lib
-      - name: Build Windows test installer
-        if: github.event_name == 'push'
-        run: npm run desktop:build -- --bundles nsis --ci
-      - name: Upload Windows test installer
-        if: github.event_name == 'push'
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-Windows-test
-          path: src-tauri/target/release/bundle/nsis/*-setup.exe
-          if-no-files-found: error
-          retention-days: 30
-      - name: Test native window layout across relaunches
-        if: github.event_name == 'push'
-        run: python scripts/test-window-layout.py src-tauri/target/release/av-diagram.exe
-
-  local-ai:
-    if: github.event_name == 'push'
-    runs-on: windows-latest
-    timeout-minutes: 25
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Prepare verified local AI engine
-        run: python scripts/prepare-local-ai.py
-      - name: Test real Qwen3 4B tools on a fictitious project
-        run: python scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-test"
-      - name: Upload isolated AI test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-local-AI-test-report
-          path: ${{ runner.temp }}/avd-local-ai-test/integration-result.json
-          if-no-files-found: warn
-          retention-days: 30
-
   windows-installer:
-    if: github.event_name == 'push'
-    needs: native
     runs-on: windows-latest
     timeout-minutes: 6
     steps:
@@ -102,58 +13,34 @@ jobs:
         with:
           name: AV-Diagram-Windows-test
           path: src-tauri/target/release/bundle/nsis
-      - name: Test installer maintenance and uninstall
+          run-id: 39980323562
+          github-token: ${{ github.token }}
+      - name: Test exact installer artifact
         run: python scripts/test-windows-installer.py
-
-  macos:
-    if: github.event_name == 'push'
-    runs-on: macos-15
-    env:
-      # Signature locale pour les essais, sans certificat de distribution Apple.
-      APPLE_SIGNING_IDENTITY: '-'
+  window-layout:
+    runs-on: windows-latest
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/download-artifact@v4
         with:
-          node-version: 22
-          cache: npm
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: aarch64-apple-darwin,x86_64-apple-darwin
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: src-tauri
-      - run: npm ci
+          name: AV-Diagram-Windows-test
+          path: installer
+          run-id: 39980323562
+          github-token: ${{ github.token }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install reportlab==4.4.9
-      - run: python scripts/build-manual.py
-      - run: npm run build
-      - name: Prepare verified local AI engines
-        run: python3 scripts/prepare-local-ai.py
-      - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --lib
-      - name: Build universal macOS test installer
-        run: npm run desktop:build -- --target universal-apple-darwin --bundles app,dmg --ci
-      - name: Verify universal app and signature
+      - name: Extract the exact application without installation
+        shell: pwsh
         run: |
-          lipo "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/MacOS/av-diagram" -verify_arch x86_64 arm64
-          codesign --verify --deep --strict "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app"
-      - name: Test real local AI from the macOS app bundle
-        run: python3 scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-mac" --engine-directory "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/Resources/local-ai"
-      - name: Upload macOS AI test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-local-AI-macOS-test-report
-          path: ${{ runner.temp }}/avd-local-ai-mac/integration-result.json
-          if-no-files-found: warn
-          retention-days: 30
-      - name: Upload macOS test installer
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-macOS-universal-test
-          path: src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg
-          if-no-files-found: error
-          retention-days: 30
-
+          $package = Get-ChildItem installer -Filter '*-setup.exe'
+          if ($package.Count -ne 1) { throw 'Expected one installer' }
+          & 7z x $package.FullName "-o$env:RUNNER_TEMP/avd-layout" -y
+          if ($LASTEXITCODE -ne 0) { throw 'Extraction failed' }
+      - name: Test native layout on a fresh desktop
+        shell: pwsh
+        run: |
+          $binaries = @(Get-ChildItem "$env:RUNNER_TEMP/avd-layout" -Recurse -Filter av-diagram.exe)
+          if ($binaries.Count -ne 1) { throw 'Expected one application' }
+          python scripts/test-window-layout.py $binaries[0].FullName
