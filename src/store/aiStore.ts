@@ -10,6 +10,8 @@ import { createDraft, hasChanges, type Draft } from '../ai/tools'
 import { nativeTransport } from '../ai/transport'
 import { LIBRARY } from '../library'
 import { sheetName } from '../model/project'
+import { catalogueIdentity } from '../model/catalogueImport'
+import type { PaperSize } from '../model/types'
 import { useLibrary } from './libraryStore'
 import { projectChangeAllowed, useProject } from './projectStore'
 import { useUi } from './uiStore'
@@ -21,6 +23,7 @@ export interface AiSettings {
   model?: string
   /** Accord explicite pour l'envoi du schéma à un fournisseur en ligne (section 12.1) */
   consent: boolean
+  libraryScope?: 'company' | 'all'
   /** llama-server lancé par AV Diagram (option A), avec les fichiers choisis par l'utilisateur */
   managed?: ManagedServer
 }
@@ -42,6 +45,7 @@ function readSettings(): AiSettings {
     const saved = { ...fallback, ...JSON.parse(localStorage.getItem(KEY) ?? '{}') }
     if (saved.provider && !['builtin', 'anthropic', 'openai', 'gemini', 'mistral', 'compatible', 'ollama', 'lmstudio', 'llamacpp'].includes(saved.provider)) return fallback
     if (typeof saved.enabled !== 'boolean' || typeof saved.consent !== 'boolean' || (saved.model !== undefined && typeof saved.model !== 'string')) return fallback
+    if (saved.libraryScope !== undefined && !['company', 'all'].includes(saved.libraryScope)) return fallback
     if (saved.managed && (typeof saved.managed !== 'object' || !(
       typeof saved.managed.catalogId === 'string' || (typeof saved.managed.serverPath === 'string' && typeof saved.managed.modelPath === 'string')
     ))) return fallback
@@ -77,6 +81,7 @@ interface AiState {
   setSetupOpen: (open: boolean) => void
   send: (text: string) => Promise<void>
   applyProposal: () => void
+  setProposalPaper: (paper: PaperSize) => void
   discardProposal: () => void
   clear: () => void
   cancel: () => void
@@ -95,6 +100,7 @@ export const useAi = create<AiState>((set, get) => ({
   contextNote: null,
 
   saveSettings: (settings) => {
+    settings = { ...settings, libraryScope: settings.libraryScope ?? get().settings.libraryScope }
     get().clear()
     try {
       localStorage.setItem(KEY, JSON.stringify(settings))
@@ -119,6 +125,12 @@ export const useAi = create<AiState>((set, get) => ({
       return
     }
     const project = useProject.getState().project
+    const company = useLibrary.getState().userTemplates
+    if (settings.libraryScope === 'company' && !company.length) {
+      set(s => ({ bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('company.emptyAi') }] })); return
+    }
+    const identities = new Set(company.map(catalogueIdentity))
+    const library = settings.libraryScope === 'company' ? company : [...company, ...LIBRARY.filter(t => !identities.has(catalogueIdentity(t))) ]
     const turn = ++generation
     const ui = useUi.getState()
     // Une proposition en attente se complète tant que le schéma n'a pas changé entre-temps
@@ -146,7 +158,8 @@ export const useAi = create<AiState>((set, get) => ({
         userText: note ? `[${note}]\n${question}` : question,
         draft,
         ctx: {
-          library: [...useLibrary.getState().userTemplates, ...LIBRARY],
+          library,
+          company,
           lang: ui.lang,
           describe: (i) => i18n.t(`rules.${i.code}`, i.params),
           allowed: projectChangeAllowed,
@@ -174,9 +187,27 @@ export const useAi = create<AiState>((set, get) => ({
     }
   },
 
+  setProposalPaper: (paper) => {
+    const proposal = get().proposal
+    if (!proposal?.layout || get().busy) return
+    const selected = proposal.layout.choices.findIndex(c => c.paper === paper && c.valid)
+    if (selected < 0) return
+    const project = proposal.layout.choices[selected].project
+    if (proposal.base !== useProject.getState().project) return
+    if (!projectChangeAllowed(proposal.base, project)) {
+      set(s => ({ bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.permissionDenied') }] }))
+      return
+    }
+    set({ proposal: { ...proposal, project, layout: { ...proposal.layout, selected } } })
+  },
+
   applyProposal: () => {
     const p = get().proposal
-    if (!p) return
+    if (!p || get().busy) return
+    if (p.layout && !p.layout.choices[p.layout.selected].valid) {
+      set(s => ({ bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.layout.tooSmall') }] }))
+      return
+    }
     const store = useProject.getState()
     if (p.base !== store.project) {
       set((s) => ({ proposal: null, contextNote: STALE_NOTE, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.proposalStale') }] }))

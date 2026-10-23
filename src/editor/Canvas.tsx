@@ -47,14 +47,15 @@ import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
 function ProposalBanner({ equipment, links, sheetId }: { equipment: number; links: number; sheetId: string }) {
   const { t } = useTranslation()
   const currentSheetId = useUi((s) => s.currentSheetId)
-  const ai = useAi.getState()
+  const ai = useAi()
+  const layout = ai.proposal?.layout
   return (
     <div className="proposal-banner" role="status">
       <span className="proposal-dot" />
       <span>{t('ai.preview', { equipment, links })}</span>
       {sheetId !== currentSheetId && <button className="btn btn-ghost" onClick={() => useUi.getState().setSheet(sheetId)}>{t('ai.showSheet')}</button>}
       <button className="btn btn-ghost" onClick={() => ai.discardProposal()}>{t('ai.discard')}</button>
-      <button className="btn btn-primary" onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
+      <button className="btn btn-primary" disabled={ai.busy || (layout && !layout.choices[layout.selected].valid)} onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
     </div>
   )
 }
@@ -500,11 +501,12 @@ export function Canvas() {
 
   // Nouvelle proposition : on recadre pour que les ajouts soient visibles
   const proposedCount = preview?.addedEquipment.length ?? 0
+  const proposedProject = preview?.project
   useEffect(() => {
     if (!proposedCount) return
     const id = setTimeout(() => rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 }), 60)
     return () => clearTimeout(id)
-  }, [proposedCount, rf])
+  }, [proposedCount, proposedProject, rf])
 
   return (
     <div className="canvas" onPointerDownCapture={onPointerDownCapture} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
@@ -563,7 +565,7 @@ export function Canvas() {
       >
         <EdgeRouter enabled={autoRoute} />
         <Background variant={BackgroundVariant.Dots} gap={20} size={1.4} color="var(--grid-dot)" />
-        <PageGrid />
+        <PageGrid project={project} />
         <Controls showInteractive={false} position="bottom-left" />
         <MiniMap
           position="bottom-right"

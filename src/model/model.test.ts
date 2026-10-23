@@ -17,6 +17,109 @@ import { videoStudioPlan } from './videoStudio'
 import { audioProductionPlan, checkAudioMixes } from './audioProduction'
 import fr from '../i18n/fr.json'
 import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate } from './catalogueImport'
+import { diagramBlockSize } from './diagramLayout'
+import { proposalLayouts } from './proposalLayout'
+import { sheetLayout, tilesFor, exportSettingsOf } from '../io/exportOptions'
+import { SIGNAL_FAMILIES } from './signals'
+import { createDraft, runTool } from '../ai/tools'
+import { companyAlerts } from './company'
+import { validateTemplate } from './validateTemplate'
+import { connectSystem } from './systemDiagram'
+
+it('ne confond pas deux protocoles numériques sur le même connecteur', () => {
+  const template = GENERIC_LIBRARY.find(t => t.id === 'gen-stagebox-madi')!
+  let project = ops.createProject('Protocoles')
+  const from = ops.addEquipment(project, template, { x: 0, y: 0 }); project = from.project
+  const to = ops.addEquipment(project, { ...template, ports: template.ports.map(p => ({ ...p, format: p.signal === 'audioDigital' ? 'S/PDIF' : p.format })) }, { x: 300, y: 0 }); project = to.project
+  const roles = new Map([['source', [from.id]], ['target', [to.id]]]), links = [{ from: 'source', to: 'target', signal: 'audioDigital' }]
+  expect(connectSystem(project, roles, links)).toHaveProperty('error')
+  expect(Object.keys(project.links)).toHaveLength(0)
+  const compatible = ops.updateEquipment(project, to.id, { ports: template.ports })
+  const result = connectSystem(compatible, roles, links)
+  expect('error' in result).toBe(false)
+  if ('project' in result) expect(Object.keys(result.project.links)).toHaveLength(1)
+})
+
+describe('parc entreprise partagé par les contrôles manuels et IA', () => {
+  const company = { ...GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!, id: 'user-mic', status: 'user' as const, companyQuantity: 1 }
+  it('garde les doublons de modèles distincts et signale dépassement et disponibilité inconnue', () => {
+    let project = ops.createProject('Parc')
+    for (const t of [company, company, GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!]) project = ops.addEquipment(project, t, { x: 0, y: 0 }).project
+    expect(companyAlerts(project, [company]).map(a => [a.code, a.required, a.quantity])).toEqual([['shortage', 2, 1], ['outside', 1, undefined], ['unknown', 2, undefined]])
+    expect(companyAlerts(project, [])).toEqual([])
+    expect(companyAlerts(project, [{ ...company, companyQuantity: undefined }]).map(a => a.code)).toEqual(['outside', 'unknown'])
+    expect(validateTemplate({ ...company, companyQuantity: -1 })).not.toEqual([])
+    expect(validateTemplate({ ...company, companyQuantity: 1.5 })).not.toEqual([])
+    expect(validateTemplate({ ...company, companyQuantity: 0 })).toEqual([])
+    const host = Object.keys(project.equipment)[0]
+    const withCard = ops.updateEquipment(project, host, { modules: [{ id: 'card', slotId: 'slot', templateId: 'external-card', type: 'test', model: 'Carte de test', portIds: [] }] })
+    expect(companyAlerts(withCard, [company]).some(a => a.code === 'outside' && a.name === 'Carte de test')).toBe(true)
+  })
+  it('importe la quantité possédée sans recopier de tarif ni inventer une disponibilité', () => {
+    const table = catalogueCsv('Modèle;Quantité;Tarif\nMicro dynamique;2;500')
+    const result = catalogueEntries(table, catalogueColumns(table.rows[0]), [], 'capture')
+    expect(result.problems).toEqual([])
+    expect(catalogueTemplate(result.entries[0]).companyQuantity).toBe(2)
+    for (const value of ['-1', '1.5', 'inconnu', '1000001']) {
+      const invalid = catalogueCsv('Modèle;Quantité\nMicro;' + value)
+      expect(catalogueEntries(invalid, catalogueColumns(invalid.rows[0]), [], 'capture').problems).toEqual([2])
+    }
+    const duplicate = catalogueCsv('Modèle;Quantité\nMicro;2\nMicro;3')
+    expect(catalogueEntries(duplicate, catalogueColumns(duplicate.rows[0]), [], 'capture').problems).toEqual([3])
+  })
+})
+
+describe('mise en page des propositions IA', () => {
+  const production = (base = ops.createProject('Émission')) => runTool(createDraft(base, ops.DEFAULT_SHEET_ID), {
+    id: 'production', name: 'propose_audio_production', args: { main_console_template_id: 'yamaha-m7cl-48es', live_console_template_id: 'yamaha-01v96' },
+  }, { library: LIBRARY, describe: i => i.code }).draft
+
+  it('range le cahier des charges dans les pages imprimables, notes entières et patch conservé', () => {
+    const draft = production(), original = JSON.stringify(draft.project)
+    const layouts = proposalLayouts(draft.base, draft.project, draft.addedEquipment, draft.sheetId)
+    expect(layouts[0].paper).toBe('A3')
+    expect(layouts.some(c => c.valid && c.pages === 1)).toBe(true)
+    for (const choice of layouts.filter(c => c.valid)) {
+      const p = choice.project, opts = exportSettingsOf(p)
+      const { tileW, tileH } = tilesFor(null, sheetLayout(choice.paper, opts.orientation, SIGNAL_FAMILIES.length).area, 100)
+      const boxes = [...draft.addedEquipment.map(id => ({ ...p.equipment[id].position, ...diagramBlockSize(p, p.equipment[id]) })),
+        ...Object.values(p.annotations ?? {}).map(a => ({ ...a.position, ...a.size }))]
+      for (const b of boxes) {
+        expect(Math.floor(b.x / tileW)).toBe(Math.floor((b.x + b.w - 0.01) / tileW))
+        expect(Math.floor(b.y / tileH)).toBe(Math.floor((b.y + b.h - 0.01) / tileH))
+      }
+      const eq = boxes.slice(0, draft.addedEquipment.length)
+      eq.forEach((a, i) => eq.slice(i + 1).forEach(b => expect(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y).toBe(true)))
+      const text = (project: typeof p) => Object.values(project.annotations ?? {}).filter(a => a.kind === 'note').map(a => a.text).join('').replace(/\s/g, '')
+      expect(text(p)).toBe(text(draft.project))
+      expect(p.links).toBe(draft.project.links)
+      expect(ops.isProject(JSON.parse(JSON.stringify(p)))).toBe(true)
+    }
+    expect(JSON.stringify(draft.project)).toBe(original)
+  })
+
+  it('préserve l’existant et les réglages d’export hors format, y compris les autres feuilles', () => {
+    const old = ops.addEquipment(ops.createProject('Existant'), LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 400, y: 100 })
+    const base = ops.addAnnotation(old.project, { kind: 'frame', sheetId: ops.DEFAULT_SHEET_ID, position: { x: 350, y: 50 }, size: { w: 900, h: 500 }, text: 'À conserver' }).project
+    const draft = production(base)
+    const layouts = proposalLayouts(base, draft.project, draft.addedEquipment, draft.sheetId)
+    for (const choice of layouts) {
+      expect(choice.project.equipment[old.id]).toBe(base.equipment[old.id])
+      for (const a of Object.values(base.annotations!)) expect(choice.project.annotations![a.id]).toBe(a)
+      expect(exportSettingsOf(choice.project)).toEqual({ ...exportSettingsOf(base), paper: choice.paper })
+      expect(draft.addedEquipment.every(id => choice.project.equipment[id].position.x >= 1600)).toBe(true)
+    }
+  })
+
+  it('propose de grands formats pour un bloc trop large, sans le réduire ni supprimer ses ports', () => {
+    const base = ops.createProject('Grand bloc')
+    const added = ops.addEquipment(base, LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 0, y: 0 }, { name: 'Équipement '.repeat(45) })
+    const choices = proposalLayouts(base, added.project, [added.id], ops.DEFAULT_SHEET_ID)
+    expect(choices[0].valid).toBe(false)
+    expect(choices.some(c => c.valid)).toBe(true)
+    expect(choices.every(c => c.project.equipment[added.id].ports === added.project.equipment[added.id].ports)).toBe(true)
+  })
+})
 
 const tpl = (id: string) => {
   const t = LIBRARY_BY_ID.get(id)
@@ -77,7 +180,7 @@ describe('import de catalogue utilisateur', () => {
   it('lit les CSV avec BOM, guillemets, point-virgule, retours à la ligne et guillemets doublés', () => {
     const table = catalogueCsv('\uFEFFModèle;Fabricant\r\n"Micro; ""spécial""\n1";Test\r\n')
     expect(table.rows).toEqual([['Modèle', 'Fabricant'], ['Micro; "spécial"\n1', 'Test']])
-    expect(catalogueColumns(table.rows[0])).toEqual({ model: 0, manufacturer: 1 })
+    expect(catalogueColumns(table.rows[0])).toEqual({ model: 0, manufacturer: 1, quantity: -1 })
     expect(catalogueCsv('Name,Brand\nMicro,Test').rows[1]).toEqual(['Micro', 'Test'])
     expect(catalogueCsv('Name\tBrand\nMicro\tTest').rows[1]).toEqual(['Micro', 'Test'])
   })

@@ -1,6 +1,10 @@
-# État d'avancement (mise à jour du 2026-10-23)
+# État d'avancement (mise à jour du 2026-10-24)
 
-## Situation actuelle — 0.5.10
+## Situation actuelle — 0.5.11
+
+La 0.5.11 ajoute un parcours général : analyse du besoin (rôles, quantités, contraintes, hypothèses, trois questions au maximum), recherche groupée dans le catalogue puis câblage des rôles sur des prises libres et compatibles. Les parcours rapides SDI et M7CL/01V96 sont conservés. Le plan interdit la perte silencieuse de ses quantités et les références exactes reconnues sont contrôlées. Les contraintes sont conservées en note ; les affectations internes des autres architectures restent à vérifier. Aucune couverture universelle n’est annoncée.
+
+Les propositions sont placées dans les pages imprimables, avec choix de formats plus grands avant Appliquer ; le format et les ajouts s’annulent ensemble. Les notes sont réparties après les équipements. La largeur estimée des blocs repliés tient compte des deux colonnes de prises et du résumé des ports libres. Mon entreprise est séparé de la Bibliothèque générale, avec des doublons admis entre espaces. L’import accepte une quantité totale déclarée, modifiable localement ; ce total n’est pas une disponibilité datée. Les alertes de parc sont partagées entre ajouts manuels et aperçus IA. Le choix du catalogue IA peut interdire les ajouts externes. Les connecteurs Booqable/ERP, les dates et les réservations restent une étape ultérieure.
 
 La 0.5.10 reprend l’organisation de la capture de référence : menus et titre du projet sur la première ligne, huit vues avec icônes et libellés sur la deuxième. Le nom du projet est centré et les raccourcis restent personnalisables à droite. La navigation quitte la barre du bas, qui conserve les compteurs et l’état d’enregistrement. Mode présentation et fenêtre Infos gardent leur rôle. La disposition est vérifiée à 1920, 1440 et 1024 pixels, avec navigation, raccourcis et thème clair/sombre. Le manuel et sa capture de repérage sont actualisés. Le test d’installation lit les champs Windows par WM_GETTEXT avec délai borné ; GetWindowText renvoyait un texte vide pour un champ rempli après sa création.
 

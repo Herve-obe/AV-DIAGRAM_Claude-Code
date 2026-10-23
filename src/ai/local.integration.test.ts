@@ -27,6 +27,31 @@ const transport: Transport = { async request(provider, _base, req) {
 } }
 
 describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
+  it('analyse une demande vague puis construit une conférence sans scénario spécialisé', async () => {
+    const base = createProject('Conférence fictive'), draft = createDraft(base, DEFAULT_SHEET_ID)
+    const options = { transport, connection: { provider: 'builtin' as const, model: 'qwen3-4b' },
+      system: buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' }),
+      ctx: { library: GENERIC_LIBRARY, describe: (i: { code: string }) => i.code } }
+    trace({ stage: 'vague-podcast' })
+    const vague = await runTurn({ ...options, draft, history: [], userText: 'Je souhaite créer un podcast. Aide-moi à définir le matériel nécessaire.' })
+    expect(vague.draft.addedEquipment).toHaveLength(0)
+    expect(vague.toolsUsed.some(t => ['plan_diagram', 'ask_user'].includes(t))).toBe(true)
+    expect(vague.reply).toMatch(/\?/)
+    trace({ stage: 'conference-generale' })
+    const result = await runTurn({ ...options, draft, history: [],
+      userText: 'Propose le schéma de sonorisation d’une conférence : trois personnes sur trois micros dynamiques, une console numérique, deux enceintes actives. Choisis des modèles génériques. Les micros alimentent la console puis les deux enceintes. Pas d’enregistrement ni d’autres sources.' })
+    const devices = Object.values(result.draft.project.equipment)
+    expect(result.toolsUsed).toContain('plan_diagram')
+    expect(result.toolsUsed).toContain('propose_system')
+    expect(devices.filter(e => e.templateId === 'gen-mic-dyn')).toHaveLength(3)
+    expect(devices.filter(e => e.family === 'console')).toHaveLength(1)
+    expect(devices.filter(e => e.family === 'speaker')).toHaveLength(2)
+    expect(result.draft.addedLinks).toHaveLength(5)
+    expect(checkProject(result.draft.project).filter(i => i.severity !== 'info')).toEqual([])
+    expect(result.draft.brief?.constraints.length).toBeGreaterThan(0)
+    expect(Object.keys(base.equipment)).toHaveLength(0)
+    console.log(JSON.stringify({ generalBrief: { tools: result.toolsUsed, equipment: devices.length, links: result.draft.addedLinks.length, vague: vague.reply } }))
+  }, 600000)
   it('active le modèle avec le vrai test de configuration en un appel, en français et en anglais', async () => {
     const request = vi.spyOn(nativeTransport, 'request').mockImplementation(transport.request)
     try {

@@ -5,8 +5,10 @@ import { useTranslation } from 'react-i18next'
 import { providerInfo } from '../ai/providers'
 import { nativeAvailable } from '../ai/transport'
 import { checkLink } from '../model/rules'
+import type { PaperSize } from '../model/types'
 import { isReady, useAi } from '../store/aiStore'
 import { Icon } from './Icon'
+import { CompanyAlerts } from './CompanyAlerts'
 
 const SUGGESTIONS = ['ai.suggest.review', 'ai.suggest.concert', 'ai.suggest.di'] as const
 
@@ -18,9 +20,28 @@ function Proposal() {
   const p = proposal.project
   const issues = proposal.addedLinks.flatMap((id) => (p.links[id] ? checkLink(p, p.links[id]) : []))
   const errors = issues.filter((i) => i.severity === 'error').length
+  const layout = proposal.layout
+  const selected = layout?.choices[layout.selected]
+  const recommended = layout?.choices.find(c => c.valid && c.pages < layout.choices[0].pages)
+    ?? layout?.choices.find(c => c.valid && c.pages === 1)
   return (
     <section className="ai-proposal" aria-label={t('ai.proposal')}>
       <h3 className="group-title">{t('ai.proposal')}</h3>
+      {layout && selected && <div className="ai-layout">
+        <strong>{t('ai.layout.title')}</strong>
+        <p aria-live="polite">{t('ai.layout.pages', { count: selected.pages, paper: selected.paper })}</p>
+        {(layout.choices[0].pages > 1 || !selected.valid) && <label>{t('ai.layout.format')}
+          <select value={selected.paper} disabled={busy} onChange={e => useAi.getState().setProposalPaper(e.target.value as PaperSize)}>
+            {layout.choices.map(c => <option key={c.paper} value={c.paper} disabled={!c.valid}>
+              {t('ai.layout.pages', { count: c.pages, paper: c.paper })}{!c.valid ? ` · ${t('ai.layout.tooSmall')}` : recommended?.paper === c.paper ? ` · ${t('ai.layout.recommended')}` : ''}
+            </option>)}
+          </select>
+        </label>}
+        {!selected.valid && <p className="ai-status is-error">{t('ai.layout.tooSmall')}</p>}
+        <p className="field-hint">{t('ai.layout.hint')}</p>
+      </div>}
+      <details className="ai-proposal-details" open={!layout}>
+      <summary>{t('ai.layout.details')}</summary>
       <ul className="ai-proposal-list">
         {proposal.addedEquipment.map((id) => (
           <li key={id}><span className="tag">{t('ai.addEq')}</span> {p.equipment[id]?.name} <span className="dim">{p.equipment[id]?.model}</span></li>
@@ -36,14 +57,16 @@ function Proposal() {
           )
         })}
       </ul>
+      </details>
       {issues.length > 0 && (
         <p className={`ai-proposal-issues ${errors ? 'is-error' : ''}`}>
           <Icon name="alert" size={13} /> {t('ai.proposalIssues', { count: issues.length })}
         </p>
       )}
+      <CompanyAlerts project={p} />
       <div className="insp-actions">
         <button className="btn btn-ghost" onClick={() => useAi.getState().discardProposal()} disabled={busy}>{t('ai.discard')}</button>
-        <button className="btn btn-primary" onClick={() => useAi.getState().applyProposal()} disabled={busy}><Icon name="check" size={14} />{t('ai.apply')}</button>
+        <button className="btn btn-primary" onClick={() => useAi.getState().applyProposal()} disabled={busy || selected?.valid === false}><Icon name="check" size={14} />{t('ai.apply')}</button>
       </div>
       <p className="field-hint">{t('ai.applyHint')}</p>
     </section>
@@ -81,6 +104,9 @@ export function AssistantPanel() {
         </span>
       </div>
 
+      <label className="ai-scope">{t('company.aiScope')}<select value={settings.libraryScope ?? 'all'} disabled={busy} onChange={e => useAi.getState().saveSettings({ ...settings, libraryScope: e.target.value as 'company' | 'all' })}>
+        <option value="all">{t('company.allAi')}</option><option value="company">{t('company.onlyAi')}</option>
+      </select></label>
       <div className="ai-thread" ref={listRef}>
         {!native && <p className="ai-note">{t('ai.desktopOnly')}</p>}
         {!ready && (

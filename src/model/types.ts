@@ -83,6 +83,8 @@ export interface EquipmentTemplate {
   poeBudgetW?: number
   status: LibraryStatus
   sources?: EquipmentSource[]
+  /** Quantité totale déclarée dans le parc local ; ce n'est pas la disponibilité à une date. */
+  companyQuantity?: number
   /** Menu de la bibliothèque, quand la famille ne suffit pas (ex. enregistreur vidéo) */
   domain?: LibraryDomain
 }

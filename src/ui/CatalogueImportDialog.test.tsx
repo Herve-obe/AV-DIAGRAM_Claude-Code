@@ -28,9 +28,9 @@ it('montre le bilan puis exige l’accord pour les prises non documentées avant
   await open()
   expect(element.querySelectorAll('tbody tr')).toHaveLength(2)
   expect(useLibrary.getState().userTemplates).toEqual([])
-  expect(button('Ajouter à Mes modèles').disabled).toBe(true)
+  expect(button('Ajouter à Mon entreprise').disabled).toBe(true)
   const ack = [...element.querySelectorAll('label')].find(l => l.textContent?.includes('Ajouter aussi les fiches'))!.querySelector('input')!
-  await click(ack); await click(button('Ajouter à Mes modèles'))
+  await click(ack); await click(button('Ajouter à Mon entreprise'))
   expect(useLibrary.getState().userTemplates).toHaveLength(2)
   expect(useLibrary.getState().userTemplates[0].ports).toHaveLength(1)
   expect(useLibrary.getState().userTemplates[1]).toMatchObject({ portStatus: 'pending', ports: [] })
@@ -44,7 +44,7 @@ it('lit un XLSX avec le lecteur existant et permet de choisir la famille d’un 
   const select = element.querySelector<HTMLSelectElement>('tbody select')!
   await act(async () => { select.value = 'camera'; select.dispatchEvent(new Event('change', { bubbles: true })) })
   await click(element.querySelector<HTMLInputElement>('label input:not([aria-label])')!)
-  await click(button('Ajouter à Mes modèles'))
+  await click(button('Ajouter à Mon entreprise'))
   expect(useLibrary.getState().userTemplates[0].family).toBe('camera')
 })
 it('ignore un fichier arrivé après l’annulation et laisse la bibliothèque intacte', async () => {

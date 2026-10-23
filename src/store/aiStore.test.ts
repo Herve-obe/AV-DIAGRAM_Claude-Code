@@ -3,9 +3,10 @@ import { beforeEach, expect, it, vi } from 'vitest'
 import '../i18n'
 import { GENERIC_LIBRARY } from '../library/generic'
 import { createProject, DEFAULT_SHEET_ID } from '../model/project'
-import { createDraft, runTool } from '../ai/tools'
+import { createDraft, layoutDraft, runTool } from '../ai/tools'
 import { setProjectGuard, useProject } from './projectStore'
 import { isReady, useAi } from './aiStore'
+import { useLibrary } from './libraryStore'
 
 const native = vi.hoisted(() => ({ request: vi.fn(), stop: vi.fn(), ensure: vi.fn() }))
 vi.mock('../ai/transport', () => ({ nativeTransport: { request: native.request } }))
@@ -19,11 +20,25 @@ const proposal = () => {
 }
 
 beforeEach(() => {
+  useLibrary.setState({ userTemplates: [] })
   vi.clearAllMocks(); setProjectGuard(() => true)
   useProject.setState({ project: createProject('Test'), past: [], future: [] })
   useAi.getState().clear(); useAi.setState({ settings, setupOpen: false })
   native.stop.mockResolvedValue(undefined); native.ensure.mockResolvedValue(true)
   native.request.mockResolvedValue(answer('Bonjour'))
+})
+
+it('limite réellement les ajouts IA au parc et bloque un catalogue entreprise vide', async () => {
+  useAi.setState({ settings: { ...settings, libraryScope: 'company' } })
+  await useAi.getState().send('Ajoute un micro')
+  expect(native.request).not.toHaveBeenCalled()
+  expect(useAi.getState().bubbles.at(-1)?.text).toContain('vide')
+  const own = { ...GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!, id: 'user-mic', status: 'user' as const }
+  useLibrary.setState({ userTemplates: [own] })
+  native.request.mockResolvedValueOnce({ status: 200, body: JSON.stringify({ choices: [{ message: { tool_calls: [{ id: '1', type: 'function', function: { name: 'add_equipment', arguments: JSON.stringify({ template_id: 'gen-mic-dyn' }) } }] } }] }) })
+  await useAi.getState().send('Ajoute un micro sans connexion')
+  expect(useAi.getState().proposal).toBeNull()
+  expect(useAi.getState().history.some(m => m.role === 'tool' && m.results.some(r => r.content.includes('Modèle inconnu')))).toBe(true)
 })
 
 it('le mode embarqué ne demande ni compte ni consentement pour envoyer', async () => {
@@ -49,6 +64,39 @@ it('applique une proposition dans une seule étape annulable', () => {
   useAi.setState({ proposal: proposal() }); useAi.getState().applyProposal()
   expect(Object.keys(useProject.getState().project.equipment)).toHaveLength(1)
   useProject.getState().undo(); expect(useProject.getState().project).toBe(before)
+})
+it('prévisualise un nouveau format sans changer le projet ni appeler le modèle, puis annule tout ensemble', () => {
+  const before = useProject.getState().project
+  useAi.setState({ proposal: layoutDraft(proposal()) })
+  useAi.getState().setProposalPaper('A2')
+  expect(useProject.getState().project).toBe(before)
+  expect(useAi.getState().proposal?.project.settings.export?.paper).toBe('A2')
+  expect(native.request).not.toHaveBeenCalled()
+  useAi.getState().applyProposal()
+  expect(useProject.getState().project.settings.export?.paper).toBe('A2')
+  useProject.getState().undo()
+  expect(useProject.getState().project).toBe(before)
+})
+it('refuse un changement de format interdit ou pendant une requête', () => {
+  const draft = layoutDraft(proposal())
+  useAi.setState({ proposal: draft }); setProjectGuard(() => false)
+  useAi.getState().setProposalPaper('A2')
+  expect(useAi.getState().proposal).toBe(draft)
+  expect(useAi.getState().bubbles.at(-1)?.text).toContain('droits')
+  setProjectGuard(() => true); useAi.setState({ busy: true })
+  useAi.getState().setProposalPaper('A2'); useAi.getState().applyProposal()
+  expect(useAi.getState().proposal).toBe(draft)
+  expect(useProject.getState().project).toBe(draft.base)
+  useAi.setState({ busy: false })
+})
+it('recalcule la disposition après de nouveaux ajouts sans perdre les ajouts précédents', () => {
+  const first = layoutDraft(proposal())
+  const next = runTool(first, { id: 'more', name: 'add_equipment', args: { template_id: 'gen-mic-dyn' } }, { library: GENERIC_LIBRARY, describe: i => i.code }).draft
+  expect(next.layout).toBeUndefined()
+  const second = layoutDraft(next)
+  expect(second.addedEquipment).toHaveLength(2)
+  expect(Object.keys(second.project.equipment)).toHaveLength(2)
+  expect(second.layout?.choices.every(c => Object.keys(c.project.equipment).length === 2)).toBe(true)
 })
 it('refuse une proposition si les droits ont changé avant son application', () => {
   const before = useProject.getState().project

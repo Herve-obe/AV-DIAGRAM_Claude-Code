@@ -51,7 +51,7 @@
       "community": "Community",
       "user": "Custom"
     },
-    "mine": "My models",
+    "mine": "My company",
     "removeMine": "Remove from my models",
     "newBlock": "New block",
     "blankName": "Custom block",
@@ -163,7 +163,7 @@
     "pictogram": "Pictogram",
     "userSource": "custom model, values entered by the user.",
     "saveTemplate": "Save as model",
-    "saveTemplateHint": "Adds this block to \"My models\" to reuse it in other projects",
+    "saveTemplateHint": "Adds this block to My company for reuse in other projects",
     "templateSaved": "Model saved",
     "cableNone": "None (direct connectors)",
     "cableFitting": "Compatible with these connectors",
@@ -284,7 +284,7 @@
     "bom": "Bill of materials",
     "issues": "Issues",
     "none": "No links yet.",
-    "noIssues": "No issues: all links are compatible.",
+    "noIssues": "All links are compatible.",
     "number": "No.",
     "from": "From",
     "to": "To",
@@ -552,6 +552,14 @@
     "menu": "Merge another version…"
   },
   "ai": {
+    "brief": {
+      "missing": "Which documented model or equivalent should be used for “{{query}}”? The selected catalogue does not provide usable port information.",
+      "constraints": "REQUIREMENTS TO FOLLOW AND VERIFY",
+      "assumptions": "PROPOSED ASSUMPTIONS",
+      "routing": "Physical wiring is proposed using documented ports. Bus assignments, mixes, exclusions, network subscriptions and equipment availability still need to be verified and configured. No stock is reserved.",
+      "pendingQuestion": "The connections for these models are not documented yet: {{models}}. Which variants and connectors do you use, or can you provide their technical sheets? Include quantities if they are not already in your request.",
+      "request": "ORIGINAL REQUEST TO VERIFY"
+    },
     "title": "AI Assistant",
     "open": "Open the AI assistant",
     "intro": "The assistant helps you build and check your diagram. It only places equipment from the library and has its proposals checked by the rules engine. It stays off until you set it up: local AI on your computer, or your own AI account.",
@@ -566,6 +574,16 @@
     "emptyReply": "(empty reply)",
     "sentTo": "Your messages and the relevant parts of the diagram are sent to {{provider}}.",
     "proposal": "Proposal",
+    "layout": {
+      "title": "Proposed page layout",
+      "details": "Show equipment and connections",
+      "format": "Page size",
+      "pages_one": "{{count}} {{paper}} page at 100%",
+      "pages_other": "{{count}} {{paper}} pages at 100%",
+      "recommended": "recommended",
+      "tooSmall": "A device does not fit this page size. Choose a larger size or shorten its label.",
+      "hint": "Connected ports are shown; unused ports remain available. Routing notes follow the equipment. The chosen page size is saved only when applying the proposal. Export as multiple pages to preserve this size."
+    },
     "addEq": "Equipment",
     "addLink": "Link",
     "proposalIssues_one": "{{count}} rules engine warning on the proposed links",
@@ -594,7 +612,9 @@
       "search_documentation": "Searching the local manual…",
       "propose_diagram": "Preparing diagram and connections…",
       "propose_video_studio": "Building the wired video studio…",
-      "propose_audio_production": "Building the interview and live production…"
+      "propose_audio_production": "Building the interview and live production…",
+      "plan_diagram": "Analysing requirements and finding equipment…",
+      "propose_system": "Preparing the system and checking connections…"
     },
     "error": {
       "auth": "Key rejected by the provider: check it or create a new one.",
@@ -1635,11 +1655,11 @@
     "includeName": "Include {{name}}",
     "familyName": "Family for {{name}}",
     "summary": "{{count}} selected reference(s), including {{pending}} needing documentation.",
-    "badRows": "Correct missing or non-text model names on rows: {{rows}}.",
+    "badRows": "Fix invalid names or quantities and consolidate quantified duplicates on rows: {{rows}}.",
     "matched": "Existing data sheet matched",
     "pending": "Ports need documentation",
     "acceptPending": "Also add models with undocumented ports. I will complete their ports before connecting them.",
-    "apply": "Add to My Templates",
+    "apply": "Add to My company",
     "done": "{{count}} model(s) added to My Templates. Duplicates were skipped.",
     "saving": "Saving the catalogue…",
     "previous": "Previous",
@@ -1648,7 +1668,8 @@
       "large": "This file exceeds the reading limits (10 MB, 10,000 rows, 100 columns or 200,000 cells).",
       "invalid": "Unable to read this catalogue. Use a valid CSV or XLSX file with headers in the first row.",
       "save": "Unable to save the catalogue. Try again; existing templates are preserved."
-    }
+    },
+    "quantity": "Total company quantity"
   },
   "audioProduction": {
     "interview": "Interview set",
@@ -1708,5 +1729,25 @@
     "roleMismatch": "Template {{id}} does not fulfil the required role: {{role}}.",
     "pending": "A complete production is already in preview. To change its assumptions, click Discard, then request the production again with your clarifications. Apply it to keep this proposal. No second production was added.",
     "monitorPlacement": "Place both loudspeakers back from the set, outside the camera frame. Check their orientation, microphone separation and volume to limit acoustic spill."
+  },
+  "company": {
+    "company": "My company",
+    "general": "General library",
+    "alerts": "Company inventory",
+    "outside": "{{required}} unit(s) from the general library or absent from the local catalogue.",
+    "outsideFix": "Choose a model from My company or plan a rental. An identical model from the general library keeps its external origin.",
+    "shortage": "{{required}} unit(s) used, with {{quantity}} declared in the inventory.",
+    "shortageFix": "Reduce the quantity, choose an alternative or plan a rental for the shortfall.",
+    "unknown": "Availability unverified for {{required}} company item(s).",
+    "unknownFix": "Check availability for the event dates in your stock management software. AV Diagram does not reserve equipment.",
+    "unspecified": "Unspecified",
+    "quantityFor": "Total company quantity: {{name}}",
+    "empty": "Import your company catalogue or save your custom models here.",
+    "emptyAi": "My company is empty. Import your catalogue or allow the general library before requesting a proposal.",
+    "aiScope": "Equipment allowed for AI",
+    "allAi": "All models, prefer my company",
+    "onlyAi": "My company only",
+    "importHint": "Quantity is the total owned, not availability on a date. One row per model; consolidate quantities before import. Previously imported models are preserved; edit their quantities in My company.",
+    "quantitySaveError": "The quantity could not be saved on this computer. It remains displayed for this session; retry the change before quitting."
   }
 }

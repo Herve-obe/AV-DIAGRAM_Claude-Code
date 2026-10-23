@@ -7,7 +7,7 @@ import { pickFile } from '../io/pickFile'
 import { readXlsx } from '../io/xlsxRead'
 import type { WorkbookRead } from '../io/xlsx'
 import { notifyError } from '../io/files'
-import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate } from '../model/catalogueImport'
+import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate, type CatalogueColumns } from '../model/catalogueImport'
 import type { EquipmentFamily } from '../model/types'
 import { useLibrary } from '../store/libraryStore'
 import { Icon } from './Icon'
@@ -46,7 +46,7 @@ export function CatalogueImportDialog() {
   const { file, data, busy } = state()
   const userTemplates = useLibrary(s => s.userTemplates)
   const [sheet, setSheet] = useState(0)
-  const [columns, setColumns] = useState({ model: 0, manufacturer: -1 })
+  const [columns, setColumns] = useState<CatalogueColumns>({ model: 0, manufacturer: -1, quantity: -1 })
   const [family, setFamily] = useState<EquipmentFamily>('passive')
   const [overrides, setOverrides] = useState<Record<number, EquipmentFamily>>({})
   const [excluded, setExcluded] = useState<number[]>([])
@@ -99,18 +99,19 @@ export function CatalogueImportDialog() {
       {done !== null ? <p role="status">{t('catalogue.done', { count: done })}</p> : table && <>
         <div className="field-grid">
           <label className="field">{t('xlsx.sheet')}<select disabled={saving} value={sheet} onChange={e => { const i = Number(e.target.value); setSheet(i); setColumns(catalogueColumns(data!.sheets[i].rows[0] ?? [])); clear() }}>{data!.sheets.map((s, i) => <option key={i} value={i}>{s.name}</option>)}</select></label>
-          {(['model', 'manufacturer'] as const).map(k => <label className="field" key={k}>{t('catalogue.' + k)}<select disabled={saving} value={columns[k]} onChange={e => { setColumns({ ...columns, [k]: Number(e.target.value) }); clear() }}>
-            {k === 'manufacturer' && <option value={-1}>{t('catalogue.noColumn')}</option>}
+          {(['model', 'manufacturer', 'quantity'] as const).map(k => <label className="field" key={k}>{t('catalogue.' + k)}<select disabled={saving} value={columns[k] ?? -1} onChange={e => { setColumns({ ...columns, [k]: Number(e.target.value) }); clear() }}>
+            {k !== 'model' && <option value={-1}>{t('catalogue.noColumn')}</option>}
             {table.rows[0].map((v, i) => <option value={i} key={i}>{typeof v === 'string' || typeof v === 'number' ? String(v) : t('catalogue.column', { n: i + 1 })}</option>)}
           </select></label>)}
           <label className="field">{t('catalogue.defaultFamily')}{familyPicker(family, f => { setFamily(f); clear() }, t('catalogue.defaultFamily'))}</label>
         </div>
+        <p className="field-hint">{t('company.importHint')}</p>
         <p>{t('catalogue.summary', { count: selected.length, pending })}</p>
         {!!parsed.problems.length && <p role="alert">{t('catalogue.badRows', { rows: parsed.problems.slice(0, 30).join(', ') })}</p>}
-        <div className="patch-preview"><table><thead><tr><th>{t('catalogue.include')}</th><th>{t('catalogue.manufacturer')}</th><th>{t('catalogue.model')}</th><th>{t('catalogue.family')}</th><th>{t('catalogue.sheetStatus')}</th></tr></thead><tbody>
+        <div className="patch-preview"><table><thead><tr><th>{t('catalogue.include')}</th><th>{t('catalogue.manufacturer')}</th><th>{t('catalogue.model')}</th><th>{t('catalogue.quantity')}</th><th>{t('catalogue.family')}</th><th>{t('catalogue.sheetStatus')}</th></tr></thead><tbody>
           {parsed.entries.slice(page * 100, (page + 1) * 100).map(e => <tr key={e.row}>
             <td><input type="checkbox" disabled={saving} checked={!excluded.includes(e.row)} aria-label={t('catalogue.includeName', { name: e.model })} onChange={() => { setExcluded(excluded.includes(e.row) ? excluded.filter(n => n !== e.row) : [...excluded, e.row]); setAck(false) }} /></td>
-            <td>{e.manufacturer}</td><td>{e.model}</td><td>{e.template ? t('family.' + e.family) : familyPicker(overrides[e.row] ?? e.family, f => setOverrides({ ...overrides, [e.row]: f }), t('catalogue.familyName', { name: e.model }))}</td>
+            <td>{e.manufacturer}</td><td>{e.model}</td><td>{e.quantity ?? t('company.unspecified')}</td><td>{e.template ? t('family.' + e.family) : familyPicker(overrides[e.row] ?? e.family, f => setOverrides({ ...overrides, [e.row]: f }), t('catalogue.familyName', { name: e.model }))}</td>
             <td>{t(e.template ? e.template.portStatus === 'pending' ? 'catalogue.pending' : 'catalogue.matched' : 'catalogue.pending')}</td>
           </tr>)}
         </tbody></table></div>

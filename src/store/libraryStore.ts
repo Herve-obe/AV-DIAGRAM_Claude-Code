@@ -10,6 +10,7 @@ const KEY = 'avd.userLibrary'
 
 interface LibraryState {
   userTemplates: EquipmentTemplate[]
+  setCompanyQuantity: (id: string, quantity: number | undefined) => Promise<boolean>
   addUserTemplate: (t: EquipmentTemplate) => void
   removeUserTemplate: (id: string) => void
   importTemplates: (templates: EquipmentTemplate[]) => Promise<number>
@@ -19,6 +20,14 @@ const persist = (change: (list: EquipmentTemplate[]) => EquipmentTemplate[]) => 
 
 export const useLibrary = create<LibraryState>((setState, getState) => ({
   userTemplates: [],
+  setCompanyQuantity: async (id, quantity) => {
+    const template = getState().userTemplates.find(t => t.id === id)
+    if (!template || validateTemplate({ ...template, companyQuantity: quantity }).length) return false
+    const change = (list: EquipmentTemplate[]) => list.map(t => t.id === id ? { ...t, companyQuantity: quantity } : t)
+    setState({ userTemplates: change(getState().userTemplates) })
+    try { await update<EquipmentTemplate[]>(KEY, stored => change(stored ?? getState().userTemplates)); return true }
+    catch { return false }
+  },
   importTemplates: async templates => {
     if (templates.some(t => validateTemplate(t).length || t.status !== 'user' || !t.id.startsWith('user-'))) throw new Error('invalid')
     const before = getState().userTemplates

@@ -9,8 +9,11 @@ export function diagramBlockSize(project: Project, eq: Equipment) {
   const ports = portsToDisplay(eq.ports, used, eq.portsExpanded)
   const size = estimateBlock({ ...eq, ports })
   const labelWidth = (direction: boolean) => Math.max(0, ...ports.filter(p => (p.direction === 'in') === direction).map(p => p.name.length * 8))
+  // Les colonnes de prises ont la même largeur ; le résumé des prises libres peut élargir le bloc.
+  const free = eq.ports.filter(p => !used.has(p.id))
+  const summaryWidth = ports.length < eq.ports.length ? 410 + ['in', 'out', 'bidir'].reduce((n, d) => n + String(free.filter(p => p.direction === d).length).length * 7, 0) : 0
   return { w: Math.max(size.w, eq.name.length * 9 + 80, `${eq.manufacturer ?? ''} ${eq.model}`.length * 8 + 60,
-    labelWidth(true) + labelWidth(false) + 60), h: size.h + 24 }
+    2 * Math.max(labelWidth(true), labelWidth(false)) + 60, summaryWidth), h: size.h + 24 }
 }
 
 /** Range uniquement les ajouts : sources à gauche, destinations à droite, sans déplacer l'existant. */

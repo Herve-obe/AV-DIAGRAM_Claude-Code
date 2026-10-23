@@ -14,6 +14,15 @@ it('enregistre le lot local avant de l’afficher et ignore les identités déj�
   expect(await useLibrary.getState().importTemplates([fixture('user-next')])).toBe(0)
   expect(stored).toHaveLength(1)
 })
+it('conserve une quantité nulle et signale un échec d’enregistrement sans écraser le stockage', async () => {
+  await useLibrary.getState().importTemplates([fixture()])
+  expect(await useLibrary.getState().setCompanyQuantity('user-test', 0)).toBe(true)
+  expect(stored?.[0].companyQuantity).toBe(0)
+  expect(await useLibrary.getState().setCompanyQuantity('user-test', -1)).toBe(false)
+  db.update.mockRejectedValueOnce(new Error('storage'))
+  expect(await useLibrary.getState().setCompanyQuantity('user-test', 2)).toBe(false)
+  expect(stored?.[0].companyQuantity).toBe(0)
+})
 it('préserve la bibliothèque si le stockage échoue ou si un modèle est invalide', async () => {
   db.update.mockRejectedValueOnce(new Error('storage'))
   await expect(useLibrary.getState().importTemplates([fixture()])).rejects.toThrow('storage')

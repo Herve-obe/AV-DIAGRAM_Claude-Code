@@ -112,7 +112,7 @@ def main():
                 print((folder / 'engine.log').read_text(encoding='utf-8', errors='replace')[-16000:], flush=True)
                 raise
             summary = json.loads(result.read_text(encoding='utf-8'))
-            assert summary['success'] and summary['numPassedTests'] == 4 and summary['numPendingTests'] == 0
+            assert summary['success'] and summary['numPassedTests'] == 5 and summary['numPendingTests'] == 0
             print('PASS : vrai modèle, vérification et proposition validées', flush=True)
         finally:
             process.terminate()

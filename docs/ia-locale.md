@@ -1,4 +1,4 @@
-# Assistant IA — 0.5.1
+# Assistant IA — 0.5.11
 
 Reprise demandée le 21 octobre 2026. Fonction expérimentale, facultative et désactivée par défaut.
 L'application fonctionne entièrement sans assistant. La lecture automatique de riders, le cloud
@@ -120,3 +120,11 @@ Ce premier parcours traite M7CL-48ES / 01V96, 1 à 10 micros interview, une voix
 Les six mixages logiques sont vérifiés contre les boucles et les exclusions transitives. Le patch des entrées, des sorties, les réglages AUX, les exclusions, le choix des modes d’entrée et les consignes restent dans les notes éditables des consoles et des trois zones, ainsi que dans les notes de liaison. Ce sont des consignes de conception, pas une commande des appareils ; les modifications ultérieures de ces textes ne sont pas revérifiées automatiquement comme une matrice de console. Le format `.avd` reste à 1 ; les anciens identifiants de prises sont conservés. Les modes optionnels de prise sont contrôlés à l’import.
 
 Le test réel vérifie ce cahier des charges en plus du plateau SDI et des questions de clarification. Les fichiers de test sont fictifs et les équipements génériques sont explicitement signalés. Le matériel physique, le son, les API payantes et le modèle 8B restent à tester.
+
+## Besoins généraux, mise en page et parc — 0.5.11
+
+`plan_diagram` reçoit but, rôles, quantités, contraintes, hypothèses et au maximum trois questions. La recherche groupée fournit des candidats autorisés. `propose_system` choisit ensuite des prises libres documentées pour les flux entre rôles ; une erreur refuse atomiquement cet appel. Les quantités du plan et les références exactes reconnues sont contrôlées. Les exemples vagues doivent préciser participants, destinations et matériel imposé ; un choix libre devient une hypothèse visible. La qualité s’évalue aussi sur des demandes hors parcours spécialisés ; aucune garantie pour tout cahier des charges.
+
+La mise en page calcule des variantes locales, de la taille courante aux formats supérieurs. Les notes sont réparties après les équipements ; le sélecteur indique les pages à 100 %. Changer l’aperçu ne modifie pas le projet et ne rappelle pas le modèle. Appliquer et annuler concernent ensemble les ajouts et le format.
+
+Le catalogue IA peut être limité à Mon entreprise. En mode tous les modèles, une fiche de l’entreprise est prioritaire sur son doublon commun. Les mêmes contrôles de parc alimentent Alertes, l’aperçu IA et check_project : origine externe, quantité totale dépassée et disponibilité inconnue. Les quantités possédées ne sont pas des disponibilités et ne réservent rien. Pas encore de connecteur ERP/Booqable ou de réservation datée.

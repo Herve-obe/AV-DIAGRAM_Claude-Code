@@ -36,13 +36,13 @@ export function catalogueCsv(input: string): WorkbookTable {
   return { name: 'CSV', rows }
 }
 
-export interface CatalogueColumns { model: number; manufacturer: number }
+export interface CatalogueColumns { model: number; manufacturer: number; quantity?: number }
 export function catalogueColumns(header: TableCell[]): CatalogueColumns {
   const find = (pattern: RegExp) => header.findIndex(v => pattern.test(normal(text(v))))
   const model = find(/^(model|modele|name|nom|designation|product name|nom du produit|equipement)$/)
-  return { model: model < 0 ? 0 : model, manufacturer: find(/^(manufacturer|fabricant|marque|brand)$/) }
+  return { model: model < 0 ? 0 : model, manufacturer: find(/^(manufacturer|fabricant|marque|brand)$/), quantity: find(/^(quantity|quantite|qty|stock total|quantite totale)$/) }
 }
-export interface CatalogueEntry { row: number; manufacturer: string; model: string; family: EquipmentFamily; template?: EquipmentTemplate }
+export interface CatalogueEntry { row: number; manufacturer: string; model: string; family: EquipmentFamily; template?: EquipmentTemplate; quantity?: number }
 export function catalogueEntries(table: WorkbookTable, columns: CatalogueColumns, library: EquipmentTemplate[], family: EquipmentFamily) {
   const entries: CatalogueEntry[] = [], problems: number[] = [], seen = new Set<string>()
   const lookup = library.filter(t => t.status !== 'generic').map(t => ({ template: t, manufacturer: normal(t.manufacturer ?? ''), full: catalogueIdentity(t), short: normal(t.model), aliases: (t.aliases ?? []).map(normal) }))
@@ -52,7 +52,12 @@ export function catalogueEntries(table: WorkbookTable, columns: CatalogueColumns
     const brand = columns.manufacturer >= 0 ? row[columns.manufacturer] : null
     if (!model || model.length > 300 || manufacturer.length > 150 || typeof row[columns.model] === 'object' || brand != null && typeof brand !== 'string' && typeof brand !== 'number') { problems.push(index + 2); continue }
     const key = catalogueIdentity({ manufacturer, model })
-    if (seen.has(key)) continue
+    const quantityCell = columns.quantity !== undefined && columns.quantity >= 0 ? row[columns.quantity] : undefined
+    if (quantityCell != null && typeof quantityCell !== 'number' && typeof quantityCell !== 'string') { problems.push(index + 2); continue }
+    const value = text(quantityCell)
+    const quantity = value ? Number(value) : undefined
+    if (quantity !== undefined && (!/^\d+$/.test(value) || !Number.isInteger(quantity) || quantity > 1_000_000)) { problems.push(index + 2); continue }
+    if (seen.has(key)) { if (quantity !== undefined) problems.push(index + 2); continue }
     seen.add(key)
     const wanted = normal(model)
     const manufacturerKey = normal(manufacturer)
@@ -61,15 +66,15 @@ export function catalogueEntries(table: WorkbookTable, columns: CatalogueColumns
       || !manufacturer && !!t.template.manufacturer && key.startsWith(t.full + ' '))
     // Une variante/génération ambiguë reste à documenter ; aucun rapprochement approximatif.
     const template = matches.length && matches.every(t => t.full === matches[0].full) ? matches[0].template : undefined
-    entries.push({ row: index + 2, manufacturer: template?.manufacturer ?? manufacturer, model: template?.model ?? model, family: template?.family ?? family, template })
+    entries.push({ row: index + 2, manufacturer: template?.manufacturer ?? manufacturer, model: template?.model ?? model, family: template?.family ?? family, template, quantity })
   }
   return { entries, problems }
 }
 
 export function catalogueTemplate(entry: CatalogueEntry): EquipmentTemplate {
   const template = entry.template
-  return template ? { ...structuredClone(template), id: 'user-' + crypto.randomUUID(), status: 'user' } : {
+  return template ? { ...structuredClone(template), id: 'user-' + crypto.randomUUID(), status: 'user', companyQuantity: entry.quantity } : {
     id: 'user-' + crypto.randomUUID(), manufacturer: entry.manufacturer || undefined, model: entry.model, family: entry.family,
-    pictogram: 'patch', status: 'user', portStatus: 'pending', ports: [],
+    pictogram: 'patch', status: 'user', portStatus: 'pending', ports: [], companyQuantity: entry.quantity,
   }
 }

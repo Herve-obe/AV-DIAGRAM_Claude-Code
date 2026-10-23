@@ -51,7 +51,7 @@
       "community": "Communauté",
       "user": "Perso"
     },
-    "mine": "Mes modèles",
+    "mine": "Mon entreprise",
     "removeMine": "Retirer de mes modèles",
     "newBlock": "Nouveau bloc",
     "blankName": "Bloc personnalisé",
@@ -163,7 +163,7 @@
     "pictogram": "Pictogramme",
     "userSource": "modèle perso, caractéristiques saisies par l'utilisateur.",
     "saveTemplate": "Enregistrer comme modèle",
-    "saveTemplateHint": "Ajoute ce bloc à « Mes modèles » pour le réutiliser dans d'autres projets",
+    "saveTemplateHint": "Ajoute ce bloc à « Mon entreprise » pour le réutiliser dans d’autres projets",
     "templateSaved": "Modèle enregistré",
     "cableNone": "Aucun (connecteurs directs)",
     "cableFitting": "Compatibles avec ces connecteurs",
@@ -284,7 +284,7 @@
     "bom": "Nomenclature",
     "issues": "Alertes",
     "none": "Aucune liaison pour l'instant.",
-    "noIssues": "Aucune alerte : toutes les liaisons sont compatibles.",
+    "noIssues": "Toutes les liaisons sont compatibles.",
     "number": "N°",
     "from": "De",
     "to": "Vers",
@@ -552,6 +552,14 @@
     "menu": "Fusionner une autre version…"
   },
   "ai": {
+    "brief": {
+      "missing": "Quelle référence ou quel équivalent documenté utiliser pour « {{query}} » ? Le catalogue sélectionné ne fournit pas de connectique exploitable.",
+      "constraints": "CONTRAINTES À RESPECTER ET À VÉRIFIER",
+      "assumptions": "HYPOTHÈSES PROPOSÉES",
+      "routing": "Le câblage physique est proposé à partir des prises documentées. Les affectations de bus, les mixages, les exclusions, les abonnements réseau et la disponibilité du matériel restent à vérifier et à configurer. Aucun stock n’est réservé.",
+      "pendingQuestion": "La connectique de ces références reste à documenter : {{models}}. Peux-tu préciser les variantes et connecteurs utilisés, ou fournir leurs fiches techniques ? Indique aussi les quantités si elles ne figurent pas encore dans ta demande.",
+      "request": "DEMANDE D’ORIGINE À VÉRIFIER"
+    },
     "title": "Assistant IA",
     "open": "Ouvrir l'assistant IA",
     "intro": "L'assistant t'aide à construire et vérifier ton schéma. Il ne pose que des équipements de la bibliothèque et fait valider ses propositions par le moteur de règles. Il est désactivé tant que tu ne l'as pas configuré : IA locale sur ton ordinateur, ou ton propre compte IA.",
@@ -566,6 +574,16 @@
     "emptyReply": "(réponse vide)",
     "sentTo": "Tes messages et les parties utiles du schéma sont envoyés à {{provider}}.",
     "proposal": "Proposition",
+    "layout": {
+      "title": "Mise en page proposée",
+      "details": "Voir les équipements et les liaisons",
+      "format": "Format des pages",
+      "pages_one": "{{count}} page {{paper}} à 100 %",
+      "pages_other": "{{count}} pages {{paper}} à 100 %",
+      "recommended": "recommandé",
+      "tooSmall": "Un équipement ne tient pas dans ce format. Choisir un format plus grand ou raccourcir son libellé.",
+      "hint": "Les prises reliées sont affichées, les prises libres restent disponibles. Les notes de routage sont rangées après les équipements. Le format choisi ne sera enregistré qu’en appliquant la proposition. À l’export, choisir plusieurs pages pour conserver cette taille."
+    },
     "addEq": "Équipement",
     "addLink": "Liaison",
     "proposalIssues_one": "{{count}} alerte du moteur de règles sur les liaisons proposées",
@@ -594,7 +612,9 @@
       "search_documentation": "Recherche dans le manuel local…",
       "propose_diagram": "Préparation du synoptique et des liaisons…",
       "propose_video_studio": "Construction du plateau vidéo câblé…",
-      "propose_audio_production": "Construction du plateau interview et live…"
+      "propose_audio_production": "Construction du plateau interview et live…",
+      "plan_diagram": "Analyse du besoin et recherche du matériel…",
+      "propose_system": "Préparation du système et vérification du câblage…"
     },
     "error": {
       "auth": "Clé refusée par le fournisseur : vérifie-la ou crée-en une nouvelle.",
@@ -1623,7 +1643,7 @@
   },
   "catalogue": {
     "title": "Importer un catalogue d’équipements…",
-    "hint": "CSV ou Excel (.xlsx), avec les en-têtes sur la première ligne. Choisis les colonnes fabricant et modèle. Les fiches reconnues reprennent leur connectique ; les nouvelles restent à documenter. Ce catalogue reste sur ce poste dans « Mes modèles ». Seules les colonnes choisies sont utilisées.",
+    "hint": "CSV ou Excel (.xlsx), avec les en-têtes sur la première ligne. Choisis les colonnes fabricant et modèle. Les fiches reconnues reprennent leur connectique ; les nouvelles restent à documenter. Ce catalogue reste sur ce poste dans « Mon entreprise ». Seules les colonnes choisies sont utilisées.",
     "manufacturer": "Fabricant",
     "model": "Modèle / désignation",
     "noColumn": "Colonne absente",
@@ -1635,12 +1655,12 @@
     "includeName": "Inclure {{name}}",
     "familyName": "Famille de {{name}}",
     "summary": "{{count}} référence(s) sélectionnée(s), dont {{pending}} à documenter.",
-    "badRows": "Corrige les désignations manquantes ou non textuelles aux lignes : {{rows}}.",
+    "badRows": "Corrige les désignations ou quantités invalides et regroupe les doublons chiffrés aux lignes : {{rows}}.",
     "matched": "Fiche existante reconnue",
     "pending": "Connectique à documenter",
     "acceptPending": "Ajouter aussi les fiches sans prises documentées. Je compléterai leur connectique avant de les relier.",
-    "apply": "Ajouter à Mes modèles",
-    "done": "{{count}} modèle(s) ajouté(s) à Mes modèles. Les doublons ont été ignorés.",
+    "apply": "Ajouter à Mon entreprise",
+    "done": "{{count}} modèle(s) ajouté(s) à Mon entreprise. Les doublons ont été ignorés.",
     "saving": "Enregistrement du catalogue…",
     "previous": "Précédent",
     "next": "Suivant",
@@ -1648,7 +1668,8 @@
       "large": "Le fichier dépasse les limites de lecture (10 Mo, 10 000 lignes, 100 colonnes ou 200 000 cellules).",
       "invalid": "Impossible de lire ce catalogue. Utilise un CSV ou un XLSX valide, avec ses en-têtes sur la première ligne.",
       "save": "Le catalogue n’a pas pu être enregistré. Réessaie ; les modèles déjà présents sont conservés."
-    }
+    },
+    "quantity": "Quantité totale du parc"
   },
   "audioProduction": {
     "interview": "Plateau interview",
@@ -1708,5 +1729,25 @@
     "roleMismatch": "La fiche {{id}} ne correspond pas au rôle requis : {{role}}.",
     "pending": "Un plateau complet est déjà en aperçu. Pour changer ses hypothèses, clique sur Refuser, puis redemande le plateau avec tes précisions. Applique-le pour conserver cette proposition. Aucun second plateau n’a été ajouté.",
     "monitorPlacement": "Placer les deux enceintes en retrait, hors du champ des caméras. Vérifier leur orientation, leur éloignement des micros et le volume pour limiter la reprise acoustique."
+  },
+  "company": {
+    "company": "Mon entreprise",
+    "general": "Bibliothèque générale",
+    "alerts": "Parc de l’entreprise",
+    "outside": "{{required}} exemplaire(s) issu(s) de la bibliothèque générale ou absent(s) du catalogue local.",
+    "outsideFix": "Choisir un modèle dans Mon entreprise ou prévoir une location. Un modèle identique de la bibliothèque générale conserve son origine externe.",
+    "shortage": "{{required}} exemplaire(s) utilisé(s), pour {{quantity}} déclaré(s) dans le parc.",
+    "shortageFix": "Réduire la quantité, choisir une alternative ou prévoir une location pour le complément.",
+    "unknown": "Disponibilité non vérifiée pour les {{required}} équipement(s) du parc.",
+    "unknownFix": "Vérifier les disponibilités aux dates de la prestation dans le logiciel de stock. Aucun matériel n’est réservé par AV Diagram.",
+    "unspecified": "Non renseignée",
+    "quantityFor": "Quantité totale du parc : {{name}}",
+    "empty": "Importe le catalogue de ton entreprise ou enregistre tes modèles personnalisés ici.",
+    "emptyAi": "Le catalogue Mon entreprise est vide. Importe ton catalogue ou autorise la bibliothèque générale avant de demander une proposition.",
+    "aiScope": "Matériel autorisé pour l’IA",
+    "allAi": "Tous les modèles, priorité à mon entreprise",
+    "onlyAi": "Mon entreprise uniquement",
+    "importHint": "La quantité est le total possédé, pas le matériel disponible à une date. Une seule ligne par modèle ; regrouper les quantités avant l’import. Les anciennes fiches déjà importées sont conservées ; leurs quantités se modifient dans Mon entreprise.",
+    "quantitySaveError": "La quantité n’a pas pu être enregistrée sur ce poste. Elle reste affichée pour cette session ; réessaie la modification avant de quitter."
   }
 }

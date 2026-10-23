@@ -15,6 +15,7 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/
 export function validateTemplate(t: EquipmentTemplate): string[] {
   const errors: string[] = []
   const where = t.id || '(sans id)'
+  if (t.companyQuantity !== undefined && (t.status !== 'user' || !Number.isInteger(t.companyQuantity) || t.companyQuantity < 0 || t.companyQuantity > 1_000_000)) errors.push(`${where} : quantité du parc invalide`)
   if (!t.id) errors.push('id manquant')
   if (!t.model) errors.push(`${where} : modèle manquant`)
   if ((t.status === 'verified' || t.status === 'community') && !t.manufacturer) errors.push(`${where} : fabricant manquant`)
