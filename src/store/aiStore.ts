@@ -147,6 +147,7 @@ export const useAi = create<AiState>((set, get) => ({
         draft,
         ctx: {
           library: [...useLibrary.getState().userTemplates, ...LIBRARY],
+          lang: ui.lang,
           describe: (i) => i18n.t(`rules.${i.code}`, i.params),
           allowed: projectChangeAllowed,
         },

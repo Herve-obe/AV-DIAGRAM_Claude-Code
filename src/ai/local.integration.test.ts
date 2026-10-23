@@ -8,6 +8,7 @@ import { LIBRARY } from '../library'
 import { checkProject } from '../model/rules'
 import { diagramBlockSize } from '../model/diagramLayout'
 import { appendFileSync, writeFileSync } from 'node:fs'
+import interviewRequest from './fixtures/interview-live.txt?raw'
 
 const address = process.env.AVD_LOCAL_AI_TEST_URL
 const token = process.env.AVD_LOCAL_AI_TEST_TOKEN
@@ -24,6 +25,27 @@ const transport: Transport = { async request(provider, _base, req) {
 } }
 
 describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
+  it('transforme le cahier des charges interview et duo live en proposition câblée', async () => {
+    const base = createProject('Interview et duo live — test fictif')
+    let requests = 0
+    const counted: Transport = { async request(...args) { requests++; return transport.request(...args) } }
+    trace({ stage: 'interview-live' })
+    const start = performance.now()
+    const result = await runTurn({ transport: counted, connection: { provider: 'builtin', model: 'qwen3-4b' },
+      system: buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' }), history: [], userText: interviewRequest,
+      draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: LIBRARY, describe: i => i.code } })
+    expect(requests).toBe(1)
+    expect(result.toolsUsed).toEqual(['propose_audio_production', 'check_project'])
+    expect(result.draft.addedEquipment).toHaveLength(22)
+    expect(result.draft.addedLinks).toHaveLength(30)
+    expect(checkProject(result.draft.project).filter(i => i.severity !== 'info')).toEqual([])
+    expect(result.draft.project.zones.map(z => z.name)).toContain('Studio live')
+    expect(Object.values(result.draft.project.equipment).find(e => e.templateId === 'yamaha-01v96')?.notes).toContain('exclu de ST')
+    expect(result.reply).toContain('Hypothèse')
+    expect(Object.keys(base.equipment)).toHaveLength(0)
+    if (process.env.AVD_LOCAL_AI_TEST_DIAGRAM) writeFileSync(process.env.AVD_LOCAL_AI_TEST_DIAGRAM.replace('diagram-tv', 'diagram-interview-live'), JSON.stringify(result.draft.project, null, 2))
+    console.log(JSON.stringify({ interviewLive: { seconds: (performance.now() - start) / 1000, requests, tools: result.toolsUsed, equipment: result.draft.addedEquipment.length, links: result.draft.addedLinks.length, reply: result.reply } }))
+  }, 900000)
   it('vérifie un projet fictif puis prépare un ajout sans modifier la source', async () => {
     const base = createProject('Essai IA locale')
     const system = buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' })

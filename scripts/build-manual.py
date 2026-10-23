@@ -38,7 +38,7 @@ styles.add(ParagraphStyle("SmallManual", fontName=normal, fontSize=9, leading=13
 styles.add(ParagraphStyle("CaptionManual", fontName=bold, fontSize=9, leading=13, spaceBefore=7, spaceAfter=5))
 toc = TableOfContents()
 toc.levelStyles = [ParagraphStyle("TOCManual", fontName=normal, fontSize=10, leading=15, spaceBefore=5)]
-story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 21 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
+story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 23 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
 
 chapter = 0
 figures = 0

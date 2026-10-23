@@ -14,6 +14,8 @@ import { familiesCompatible } from './signals'
 import type { Project } from './types'
 import { portsToDisplay } from './portDisplay'
 import { videoStudioPlan } from './videoStudio'
+import { audioProductionPlan, checkAudioMixes } from './audioProduction'
+import fr from '../i18n/fr.json'
 import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate } from './catalogueImport'
 
 const tpl = (id: string) => {
@@ -21,6 +23,53 @@ const tpl = (id: string) => {
   if (!t) throw new Error(id)
   return t
 }
+
+describe('cahier des charges interview et duo live', () => {
+  const args = { main_console_template_id: 'yamaha-m7cl-48es', live_console_template_id: 'yamaha-01v96' }
+  it('prépare toutes les fonctions, six mixages et les exclusions sans boucle', () => {
+    const result = audioProductionPlan(LIBRARY, args, fr.audioProduction)
+    expect(result).not.toHaveProperty('error')
+    if ('error' in result) throw new Error(result.error)
+    expect(result.equipment.filter(e => e.ref.startsWith('interview'))).toHaveLength(3)
+    expect(result.equipment.filter(e => /^di\d/.test(e.ref))).toHaveLength(2)
+    expect(result.equipment.filter(e => /^headphones\d/.test(e.ref))).toHaveLength(2)
+    expect(result.connections.filter(l => l.from === 'machines' && l.to.startsWith('di'))).toHaveLength(2)
+    expect(result.connections.filter(l => l.from === 'main' && l.to === 'live')).toHaveLength(2)
+    expect(result.connections.filter(l => l.from === 'live' && l.to === 'headamp')).toHaveLength(4)
+    expect(result.mixes.find(m => m.id === 'return_live')).toMatchObject({ inputs: ['interview1', 'media'], exclude: ['live_pgm'] })
+    expect(result.mixes.find(m => m.id === 'interview_speakers')).toMatchObject({ inputs: ['live_pgm', 'media'], exclude: ['interview1', 'interview2', 'interview3'] })
+    expect(result.mixes.find(m => m.id === 'live_pgm')?.exclude).toContain('return_live')
+    expect(result.notes.live).toContain('AUX 1/2')
+    expect(result.notes.control).toContain('MATRIX 1/2')
+    expect(result.assumptions.join(' ')).toContain('2 sorties')
+  })
+  it('détecte une exclusion violée indirectement et une boucle entre sous-mixages', () => {
+    expect(checkAudioMixes(['presenter', 'media'], [
+      { id: 'pgm', inputs: ['presenter', 'media'], exclude: [] },
+      { id: 'speakers', inputs: ['pgm'], exclude: ['presenter'] },
+    ]).join(' ')).toContain('speakers contient la source exclue presenter')
+    expect(checkAudioMixes([], [{ id: 'live', inputs: ['main'], exclude: [] }, { id: 'main', inputs: ['live'], exclude: [] }]).join(' ')).toContain('Boucle')
+    expect(checkAudioMixes([], [{ id: 'main', inputs: ['missing'], exclude: [] }]).join(' ')).toContain('inconnue')
+    expect(checkAudioMixes(['same'], [{ id: 'same', inputs: [], exclude: [] }]).join(' ')).toContain('double')
+  })
+  it('adapte le nombre de prises, les stageboxes et refuse une capacité ou une fiche insuffisante', () => {
+    for (const stagebox_count of [0, 1, 2]) {
+      const result = audioProductionPlan(LIBRARY, { ...args, interview_mic_count: 4, loop_channels: 4, stagebox_count }, fr.audioProduction)
+      expect(result).not.toHaveProperty('error')
+      if ('error' in result) throw new Error(result.error)
+      expect(result.equipment.filter(e => e.ref.startsWith('box'))).toHaveLength(stagebox_count)
+      expect(result.equipment.filter(e => /^di\d/.test(e.ref))).toHaveLength(4)
+      expect(result.connections.filter(l => l.from === 'machines')).toHaveLength(4)
+      expect(result.notes.control).toContain(stagebox_count === 2 ? 'CH 17' : 'CH 1')
+    }
+    expect(audioProductionPlan(LIBRARY, { ...args, stagebox_count: 0, interview_mic_count: 5 }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, loop_channels: 1000 }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, main_console_template_id: 'yamaha-cl5' }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY.filter(t => t.id !== 'yamaha-01v96'), args, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, vocal_microphone_template_id: 'absent' }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, vocal_microphone_template_id: 'shure-sm58' }, fr.audioProduction)).toHaveProperty('error')
+  })
+})
 
 describe('import de catalogue utilisateur', () => {
   const device = { id: 'test-mic', manufacturer: 'Fabricant fictif', model: 'Micro 1', family: 'capture' as const, pictogram: 'mic' as const, status: 'community' as const,

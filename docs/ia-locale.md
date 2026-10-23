@@ -104,3 +104,13 @@ Qwen3 est déjà entraîné. AV Diagram lui fournit le manuel, la bibliothèque 
 le schéma : il n'apprend pas les conversations et ne modifie pas ses poids. Un affinage futur demanderait
 des exemples anonymisés de demandes et de réponses validées, un jeu d'essais séparé et un entraînement
 sur du matériel adapté ; il ne remplacerait jamais les fiches constructeur ou les règles de validation.
+
+## Cahier des charges interview et live — 0.5.7
+
+Le scénario de référence est conservé dans `src/ai/fixtures/interview-live.txt`. Qwen3 identifie les consoles et les quantités ; `propose_audio_production` délègue le câblage à `src/model/audioProduction.ts`. Les choix facultatifs ne sont exposés au petit modèle que pour des références réellement citées, avec une liste d’identifiants autorisés. Le chemin réussi nécessite un appel modèle, puis une vérification locale. Le parcours est borné à trois étapes en cas d’échec.
+
+Ce premier parcours traite M7CL-48ES / 01V96, 1 à 10 micros interview, une voix live statique, une guitare sur ampli reprise au micro, 1 à 8 sorties machines chacune via DI, deux casques stéréo indépendants via HA8000, un lecteur PC/interface, deux enceintes actives, une fonction vidéo et un enregistreur stéréo. Il accepte 0, 1 ou 2 SB168-ES, sous réserve du nombre de prises documentées. Les trois micros interview, deux sorties machines et une stagebox sont des hypothèses par défaut visibles, pas des informations déduites avec certitude. Les autres architectures ne sont pas annoncées comme couvertes.
+
+Les six mixages logiques sont vérifiés contre les boucles et les exclusions transitives. Le patch des entrées, des sorties, les réglages AUX, les exclusions, le choix des modes d’entrée et les consignes restent dans les notes éditables des consoles et des trois zones, ainsi que dans les notes de liaison. Ce sont des consignes de conception, pas une commande des appareils ; les modifications ultérieures de ces textes ne sont pas revérifiées automatiquement comme une matrice de console. Le format `.avd` reste à 1 ; les anciens identifiants de prises sont conservés. Les modes optionnels de prise sont contrôlés à l’import.
+
+Le test réel vérifie ce cahier des charges en plus du plateau SDI et des questions de clarification. Les fichiers de test sont fictifs et les équipements génériques sont explicitement signalés. Le matériel physique, le son, les API payantes et le modèle 8B restent à tester.

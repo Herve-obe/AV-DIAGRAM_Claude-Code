@@ -2,13 +2,17 @@
 // ces fonctions, qui s'appuient sur la bibliothèque et le moteur de règles. Elle ne peut donc pas
 // inventer un équipement ou une caractéristique. Les modifications sont faites sur un brouillon,
 // montré en aperçu : l'utilisateur l'applique (une seule étape d'annulation) ou le refuse.
-import { addEquipment, connect, DEFAULT_SHEET_ID, sheetName } from '../model/project'
+import { addEquipment, connect, DEFAULT_SHEET_ID, sheetName, updateEquipment, updateLink } from '../model/project'
+import { cableFits, getCable } from '../model/cables'
 import { checkLink, checkProject, type Issue } from '../model/rules'
 import type { EquipmentTemplate, PortDef, Project } from '../model/types'
 import type { ToolCall, ToolSpec } from './providers'
 import { searchDocumentation } from './knowledge'
 import { diagramBlockSize, layoutDiagram } from '../model/diagramLayout'
 import { videoStudioPlan } from '../model/videoStudio'
+import { audioProductionPlan, presentAudioProduction } from '../model/audioProduction'
+import fr from '../i18n/fr.json'
+import en from '../i18n/en.json'
 
 export interface Draft {
   /** Projet de départ : l'aperçu ne s'applique que s'il n'a pas changé entre-temps */
@@ -27,6 +31,7 @@ export const hasChanges = (d: Draft) => d.addedEquipment.length + d.addedLinks.l
 
 export interface ToolContext {
   library: EquipmentTemplate[]
+  lang?: 'fr' | 'en'
   /** Texte lisible d'une alerte des règles (traduit) */
   describe: (issue: Issue) => string
   allowed?: (before: Project, after: Project) => boolean
@@ -86,7 +91,7 @@ export const TOOL_SPECS: ToolSpec[] = [
       "Propose une liaison entre une sortie et une entrée (identifiants d'équipements et de ports tirés de get_equipment ou add_equipment). Renvoie les alertes du moteur de règles pour cette liaison.",
     parameters: {
       type: 'object',
-      properties: { from_equipment_id: str, from_port_id: str, to_equipment_id: str, to_port_id: str },
+      properties: { from_equipment_id: str, from_port_id: str, to_equipment_id: str, to_port_id: str, cable_type_id: str },
       required: ['from_equipment_id', 'from_port_id', 'to_equipment_id', 'to_port_id'],
     },
   },
@@ -97,13 +102,24 @@ export const TOOL_SPECS: ToolSpec[] = [
       required: ['camera_template_id', 'camera_count', 'video_switcher_template_id'] },
   },
   {
+    name: 'propose_audio_production',
+    description: 'Construit et câble un plateau interview avec duo live dans un autre studio : M7CL-48ES principale et 01V96 live. Micros interview, chant statique, guitare/ampli repris au micro, machines via DI, médias PC, deux casques stéréo indépendants via HA8000, enceintes interview sans micros, retour présentatrice/médias sans rebouclage, vidéo et enregistrement stéréo. Conserve le patch et les mixages dans les notes des trois zones. Les références libres ont des choix par défaut documentés ; blocs fonctionnels génériques signalés. Hypothèses par défaut explicites : 3 micros interview, 2 sorties machines, 1 SB168-ES, deux casques stéréo. Ne convient pas à une autre architecture ou à des sources supplémentaires non représentées.',
+    parameters: { type: 'object', properties: {
+      main_console_template_id: { ...str, enum: ['yamaha-m7cl-48es'] }, live_console_template_id: { ...str, enum: ['yamaha-01v96'] },
+      interview_mic_count: { type: 'integer', minimum: 1, maximum: 10 }, loop_channels: { type: 'integer', minimum: 1, maximum: 8 },
+      stagebox_count: { type: 'integer', minimum: 0, maximum: 2 },
+      interview_microphone_template_id: str, vocal_microphone_template_id: str, guitar_microphone_template_id: str,
+      audio_interface_template_id: str, video_switcher_template_id: str, recorder_template_id: str, monitor_template_id: str,
+    }, required: ['main_console_template_id', 'live_console_template_id'] },
+  },
+  {
     name: 'propose_diagram',
     description: "Prépare un synoptique complet en UN appel : tous les équipements ET toutes les liaisons. Utiliser après search_library/get_template. Pour plusieurs exemplaires identiques, utiliser count : ref=cam, count=5 crée cam1 à cam5. Sans count, la ref est conservée. Dans les liaisons, from/to désignent ces refs ou des equipment_id existants ; les port_id doivent provenir des fiches. Tout est refusé si un seul élément est invalide. Placement automatique selon le flux ; aucune modification de l'existant.",
     parameters: {
       type: 'object',
       properties: {
-        equipment: { type: 'array', maxItems: 50, items: { type: 'object', properties: { ref: str, template_id: str, name: str, count: { type: 'integer', minimum: 1, maximum: 50, description: 'Nombre d’exemplaires identiques. Par défaut 1.' } }, required: ['ref', 'template_id'] } },
-        connections: { type: 'array', maxItems: 100, items: { type: 'object', properties: { from: str, from_port: str, to: str, to_port: str }, required: ['from', 'from_port', 'to', 'to_port'] } },
+        equipment: { type: 'array', maxItems: 50, items: { type: 'object', properties: { ref: str, template_id: str, name: str, count: { type: 'integer', minimum: 1, maximum: 50, description: 'Nombre d’exemplaires identiques. Par défaut 1.' }, port_modes: { type: 'array', maxItems: 64, items: { type: 'object', properties: { port_id: str, mode: { type: 'integer', minimum: 0 } }, required: ['port_id', 'mode'] }, description: 'Choisir un mode documenté du port (index de modes, à partir de 0) ; seulement sur les nouveaux appareils.' } }, required: ['ref', 'template_id'] } },
+        connections: { type: 'array', maxItems: 100, items: { type: 'object', properties: { from: str, from_port: str, to: str, to_port: str, cable_type_id: str }, required: ['from', 'from_port', 'to', 'to_port'] } },
       },
       required: ['equipment', 'connections'],
     },
@@ -125,6 +141,7 @@ function portSummary(p: PortDef) {
     signal: p.signal,
     connector: p.connector,
     ...(p.level ? { level: p.level } : {}),
+    ...(p.modes ? { modes: p.modes } : {}),
     ...(p.channels ? { channels: p.channels } : {}),
     ...(p.format ? { format: p.format } : {}),
     ...(p.phantom ? { phantom: p.phantom } : {}),
@@ -152,7 +169,9 @@ export function referenceScore(t: EquipmentTemplate, query: string): number {
   const hay = ' ' + referenceWords(query) + ' '
   const matches = (s: string) => {
     const words = referenceWords(s)
-    return words.replace(/ /g, '').length >= 3 && hay.includes(' ' + words + ' ')
+    // Une désignation comme « CES » ne doit pas transformer le démonstratif français en référence imposée.
+    return !['ces', 'des', 'les', 'une', 'sur', 'aux', 'the', 'and', 'for', 'with'].includes(words)
+      && words.replace(/ /g, '').length >= 3 && hay.includes(' ' + words + ' ')
   }
   const full = [t.model, ...(t.aliases ?? [])].filter(matches)
   if (full.length) return t.status === 'generic' ? 25 : 100
@@ -298,6 +317,12 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       }
       const res = connect(p, from, to)
       if (!res.id) return fail('Liaison refusée : elle existe déjà, ou les deux extrémités sont identiques.')
+      if (a.cable_type_id !== undefined) {
+        const cable = getCable(text(a.cable_type_id))
+        if (!cable || !cableFits(cable, equipment(from.equipmentId)!.ports.find(p => p.id === from.portId)!.connector,
+          equipment(to.equipmentId)!.ports.find(p => p.id === to.portId)!.connector)) return fail('Câble inconnu ou incompatible avec les deux prises.')
+        res.project = updateLink(res.project, res.id, { cableTypeId: cable.id })
+      }
       const link = res.project.links[res.id]
       if (ctx.allowed && !ctx.allowed(draft.base, res.project)) return fail('Liaison refusée par les droits du projet ou du calque.')
       const unmuted = { ...res.project, settings: { ...res.project.settings, mutedRules: [] } }
@@ -314,6 +339,18 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if ('error' in plan) return fail(plan.error!)
       const result = runTool(draft, { ...call, name: 'propose_diagram', args: plan }, ctx)
       return { ...result, content: JSON.stringify({ ...JSON.parse(result.content), routing_note: (audio ? 'Configurer les deux sorties de la console pour le programme gauche/droite et les entrées du mélangeur en niveau ligne. ' : '') + 'Vérifier le format vidéo commun sur les appareils ; ces réglages internes ne sont pas effectués par le schéma.' }) }
+    }
+    case 'propose_audio_production': {
+      const labels = (ctx.lang === 'en' ? en : fr).audioProduction
+      const plan = audioProductionPlan(ctx.library, a, labels)
+      if ('error' in plan) return fail(plan.error)
+      const result = runTool(draft, { ...call, name: 'propose_diagram', args: { equipment: plan.equipment, connections: plan.connections } }, ctx)
+      const value = JSON.parse(result.content)
+      if (value.error) return result
+      const refs = new Map<string, string>(value.equipment.map((e: { ref: string; equipment_id: string }) => [e.ref, e.equipment_id]))
+      const project = presentAudioProduction(result.draft.project, plan, refs, draft.sheetId, labels)
+      if (ctx.allowed && !ctx.allowed(draft.base, project)) return fail('Proposition refusée par les droits du projet ou du calque.')
+      return out({ ...value, assumptions: plan.assumptions, mixes: plan.mixes, routing_note: labels.manualSettings }, { ...result.draft, project })
     }
     case 'propose_diagram': {
       if (!Array.isArray(a.equipment) || !Array.isArray(a.connections) || a.equipment.length + draft.addedEquipment.length > 50 || a.connections.length + draft.addedLinks.length > 100) return fail('equipment et connections doivent être des listes, au maximum 50 équipements et 100 liaisons par proposition.')
@@ -336,15 +373,27 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
           const result = execute('add_equipment', { template_id: entry.template_id, name })
           if (result.error) return fail(`${ref} : ${result.error}. Aucun élément de cet appel ajouté.`)
           refs.set(ref, result.equipment_id)
+          if (entry.port_modes !== undefined) {
+            if (!Array.isArray(entry.port_modes) || entry.port_modes.length > 64) return fail('port_modes doit être une liste de modes documentés. Aucun élément de cet appel ajouté.')
+            const eq = next.project.equipment[result.equipment_id]
+            const modes = new Map<string, NonNullable<PortDef['modes']>[number]>()
+            for (const selection of entry.port_modes) {
+              if (!selection || typeof selection !== 'object' || !Number.isInteger(selection.mode) || selection.mode < 0) return fail('Mode de prise invalide. Aucun élément de cet appel ajouté.')
+              const port = eq.ports.find(p => p.id === selection.port_id), mode = port?.modes?.[selection.mode]
+              if (!mode || modes.has(selection.port_id)) return fail('Mode non documenté ou prise en double. Aucun élément de cet appel ajouté.')
+              modes.set(selection.port_id, mode)
+            }
+            next = { ...next, project: updateEquipment(next.project, eq.id, { ports: eq.ports.map(p => modes.has(p.id) ? { ...p, ...modes.get(p.id)! } : p) }) }
+          }
         }
       }
       for (const entry of a.connections) {
         if (!entry || typeof entry !== 'object') return fail('Liaison invalide. Aucun élément de cet appel ajouté.')
         const result = execute('connect_ports', { from_equipment_id: refs.get(text(entry.from)) ?? text(entry.from), from_port_id: entry.from_port,
-          to_equipment_id: refs.get(text(entry.to)) ?? text(entry.to), to_port_id: entry.to_port })
+          to_equipment_id: refs.get(text(entry.to)) ?? text(entry.to), to_port_id: entry.to_port, cable_type_id: entry.cable_type_id })
         if (result.error) return fail(`${text(entry.from)} → ${text(entry.to)} : ${result.error}. Aucun élément de cet appel ajouté. Les refs de cet appel n’existent donc pas dans le projet. Lire get_template avec les template_id, puis refaire tout propose_diagram avec les bons ports.`)
       }
-      next = { ...next, project: layoutDiagram(next.project, next.addedEquipment, next.sheetId) }
+      next = { ...next, project: layoutDiagram(next.project, [...refs.values()], next.sheetId) }
       if (ctx.allowed && !ctx.allowed(draft.base, next.project)) return fail('Proposition refusée par les droits du projet ou du calque.')
       return out({ equipment: [...refs].map(([ref, equipment_id]) => ({ ref, equipment_id })), equipment_added: refs.size,
         links_added: a.connections.length, note: 'Proposition complète préparée, à valider par l’utilisateur. Lancer check_project.' }, next)
