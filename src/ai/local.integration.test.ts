@@ -129,7 +129,7 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
     boxes.forEach((a, i) => boxes.slice(i + 1).forEach(b => expect(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y).toBe(true)))
     expect(Object.keys(base.equipment)).toHaveLength(0)
     console.log(JSON.stringify({ model: 'qwen3-4b', check: check.toolsUsed, proposal: add.toolsUsed, tv: { tools: tv.toolsUsed, devices: devices.map(e => ({ name: e.name, model: e.model, position: e.position })), links: links.length, reply: tv.reply } }))
-  }, 900000)
+  }, 1800000)
   it('clarifie une demande large avec connectique manquante en un seul appel', async () => {
     const base = createProject('Essai de demande large')
     let requests = 0

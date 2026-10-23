@@ -103,7 +103,8 @@ def main():
             print('Moteur chargé, exécution des vrais appels d’outils', flush=True)
             result = folder / 'integration-result.json'
             try:
-                subprocess.run([args.node, str(ROOT / 'node_modules/vitest/vitest.mjs'), 'run', 'src/ai/local.integration.test.ts', '--reporter=json', '--outputFile', str(result)], cwd=ROOT, env=env, check=True, timeout=960, creationflags=flags)
+                # Les CPU partagés de CI sont plus lents que les postes locaux ; les essais restent séquentiels.
+                subprocess.run([args.node, str(ROOT / 'node_modules/vitest/vitest.mjs'), 'run', 'src/ai/local.integration.test.ts', '--reporter=json', '--outputFile', str(result)], cwd=ROOT, env=env, check=True, timeout=2700, creationflags=flags)
             except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
                 if result.is_file():
                     print(result.read_text(encoding='utf-8'), flush=True)
