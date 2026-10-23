@@ -148,4 +148,19 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(result.draft).toBe(draft)
     expect(result.reply).toContain('sortie de la console')
   })
+
+  it('conserve les vingt rôles quand le résultat du catalogue dépasse le budget de l’historique', async () => {
+    const library = Array.from({ length: 20 }, (_, i) => ({ ...GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!, id: `user-role-${i}`,
+      model: 'Microphone fictif ' + 'description longue '.repeat(20), aliases: [`Alias${i}`], status: 'user' as const }))
+    const roles = library.map((_, i) => ({ ref: `role${i}`, query: `Alias${i}`, count: 1, required_model: true }))
+    const sent: string[] = [], draft = base()
+    const result = await runTurn({ draft, ctx: { ...ctx, library }, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Propose un podcast avec les vingt microphones du catalogue fictif.',
+      transport: replies([call('plan_diagram', { ...plan, roles }), call('propose_system', { equipment: [], connections: [] }), call('ask_user', { question: 'Quelle console doit recevoir les vingt micros ?' })], sent) })
+    const second = JSON.parse(sent[1])
+    expect(second.messages.some((m: { role: string; content: string }) => m.role === 'tool' && m.content.includes('Extrait limité'))).toBe(true)
+    expect(second.messages[0].content).toContain('"ref":"role19"')
+    expect(second.messages[0].content).toContain('"template_id":"user-role-19"')
+    expect(result.draft).toBe(draft)
+  })
 })
