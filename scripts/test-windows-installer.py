@@ -52,8 +52,8 @@ def windows(parent=None):
             # GetWindowText ne lit pas les champs Edit d'un autre processus.
             if cls.value == 'Edit':
                 text.value = ''
-                result = c.c_size_t()
-                user.SendMessageTimeoutW(hwnd, 0x0D, len(text), c.cast(text, c.c_void_p).value, 2, 500, c.byref(result))
+                text_result = c.c_size_t()
+                user.SendMessageTimeoutW(hwnd, 0x0D, len(text), c.cast(text, c.c_void_p).value, 2, 500, c.byref(text_result))
             user.GetWindowThreadProcessId(hwnd, c.byref(pid))
             result.append(dict(hwnd=hwnd, text=text.value.replace("&", ""), cls=cls.value,
                                pid=pid.value, id=user.GetDlgCtrlID(hwnd), enabled=user.IsWindowEnabled(hwnd)))
