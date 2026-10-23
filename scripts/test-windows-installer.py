@@ -139,6 +139,12 @@ def install_silently():
     print(f"Installed metadata: {installed}", flush=True)
 
 
+def uninstall_silently(directory, *flags):
+    # NSIS exige _?= en dernier, sans guillemets même avec des espaces (Docs/Chapter3.html).
+    command = subprocess.list2cmdline([str(directory / 'uninstall.exe'), '/S', *flags])
+    return subprocess.run(command + f' _?={directory}', timeout=90, creationflags=subprocess.CREATE_NO_WINDOW)
+
+
 def test_install_modes():
     proc = launch()
     root = wait_for(lambda: next((x for x in windows() if x['pid'] == proc.pid
@@ -178,9 +184,9 @@ def test_install_modes():
         assert winreg.QueryValueEx(key, 'InstallMode')[0] == 'AllUsers'
         assert '/AllUsers' in winreg.QueryValueEx(key, 'UninstallString')[0]
     # Même un lancement direct doit désinstaller uniquement cette copie, malgré la copie HKCU.
-    result = subprocess.run([str(machine_dir / 'uninstall.exe'), '/S', f'_?={machine_dir}'], timeout=90,
-                            creationflags=subprocess.CREATE_NO_WINDOW)
-    assert result.returncode == 0 and not machine_binary.exists()
+    result = uninstall_silently(machine_dir)
+    assert result.returncode == 0 and not machine_binary.exists(), \
+        f'All-users uninstall: exit={result.returncode}, machine={machine_binary.exists()}, personal={binary.exists()}'
     try:
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, UNINSTALL_KEY):
             raise AssertionError('All-users registration was not removed')
@@ -316,6 +322,6 @@ finally:
     # All files and registry entries belong to this disposable runner, never a user's installation.
     uninstall = install_dir / "uninstall.exe"
     if uninstall.exists():
-        subprocess.run([str(uninstall), "/S", "/CurrentUser", f"_?={install_dir}"], timeout=30, check=False)
+        uninstall_silently(install_dir, '/CurrentUser')
     if (machine_dir / 'av-diagram.exe').exists():
-        subprocess.run([str(machine_dir / 'uninstall.exe'), '/S', '/AllUsers', f'_?={machine_dir}'], timeout=30, check=False)
+        uninstall_silently(machine_dir, '/AllUsers')
