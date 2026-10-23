@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-23)
 
-## Situation actuelle — 0.5.7
+## Situation actuelle — 0.5.8
+
+La 0.5.8 corrige l’activation de l’IA locale : le moteur démarrait, mais le test de configuration pouvait rappeler des outils jusqu’à sa limite de quatre étapes. Un seul appel explicite à check_project sur un projet fictif suffit maintenant, sans attendre une conclusion libre du modèle. Ce test est exécuté avec le vrai modèle en français et en anglais dans le banc de validation. Les trois parcours de configuration partagent le même diagnostic, avec la cause précise au lieu d’un message générique de téléchargement.
 
 La 0.5.7 ajoute un premier parcours de cahier des charges métier : interview et duo live sur M7CL-48ES/01V96. Le modèle identifie les références et les quantités ; un moteur déterministe prépare les prises, les six mixages, les exclusions et les notes de réglage dans trois zones. Les machines, la guitare/ampli, les casques et la fonction vidéo utilisent des blocs génériques explicitement annoncés ; les entrées à plusieurs modes gardent une seule prise physique. Les choix facultatifs non imposés ne sont pas exposés au petit modèle. Les fiches 01V96, SB168-ES, HA8000 et DR-40 sont documentées et vérifiées ; la M7CL-48ES est complétée. Ce parcours est limité à cette architecture et ne configure aucun appareil. Les autres cahiers des charges restent à prendre en charge progressivement.
 

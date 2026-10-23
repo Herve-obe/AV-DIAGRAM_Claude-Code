@@ -41,7 +41,7 @@ export class AiError extends Error {
   }
 }
 
-async function send(transport: Transport, provider: ProviderId, baseUrl: string | undefined, req: ApiRequest): Promise<string> {
+export async function send(transport: Transport, provider: ProviderId, baseUrl: string | undefined, req: ApiRequest): Promise<string> {
   let res: { status: number; body: string }
   try {
     res = await transport.request(provider, baseUrl, req)

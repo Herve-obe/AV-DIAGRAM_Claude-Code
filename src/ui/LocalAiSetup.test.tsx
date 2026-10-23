@@ -5,13 +5,13 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import '../i18n'
 import { useAi } from '../store/aiStore'
 import { LocalAiSetup } from './LocalAiSetup'
+import { AiError } from '../ai/agent'
 
-const actions = vi.hoisted(() => ({ catalog: vi.fn(), download: vi.fn(), progress: vi.fn(), cancel: vi.fn(), start: vi.fn(), stop: vi.fn(), run: vi.fn(), directory: vi.fn(), pick: vi.fn() }))
+const actions = vi.hoisted(() => ({ catalog: vi.fn(), download: vi.fn(), progress: vi.fn(), cancel: vi.fn(), start: vi.fn(), stop: vi.fn(), request: vi.fn(), directory: vi.fn(), pick: vi.fn() }))
 vi.mock('../ai/local', async original => ({ ...await original<typeof import('../ai/local')>(), localCatalog: actions.catalog, downloadModel: actions.download,
   downloadProgress: actions.progress, cancelDownload: actions.cancel, startServer: actions.start, stopServer: actions.stop, setModelDirectory: actions.directory }))
 vi.mock('@tauri-apps/plugin-dialog', () => ({ open: actions.pick }))
-vi.mock('../ai/agent', async original => ({ ...await original<typeof import('../ai/agent')>(), runTurn: actions.run }))
-vi.mock('../ai/transport', () => ({ nativeAvailable: () => true, nativeTransport: {}, openExternal: vi.fn() }))
+vi.mock('../ai/transport', () => ({ nativeAvailable: () => true, nativeTransport: { request: actions.request }, openExternal: vi.fn() }))
 vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
 const model = { id: 'qwen3-4b', label: 'Qwen3 4B', size: 2497280256, minimum_ram_gb: 8, license: 'Apache-2.0', installed: false, partial: 0 }
 let element: HTMLDivElement, root: Root
@@ -25,7 +25,7 @@ beforeEach(() => {
   actions.start.mockResolvedValue(['qwen3-4b']); actions.stop.mockResolvedValue(undefined)
   actions.cancel.mockResolvedValue(undefined)
   actions.directory.mockResolvedValue(undefined); actions.pick.mockResolvedValue(null)
-  actions.run.mockResolvedValue({ toolsUsed: ['check_project'] })
+  actions.request.mockResolvedValue({ status: 200, body: JSON.stringify({ choices: [{ message: { tool_calls: [{ id: 'test', type: 'function', function: { name: 'check_project', arguments: '{}' } }] } }] }) })
   element = document.createElement('div'); document.body.append(element); root = createRoot(element)
 })
 afterEach(() => { act(() => root.unmount()); element.remove() })
@@ -50,7 +50,7 @@ it('affiche taille et licence, et exige téléchargement puis test avant activat
 })
 it('n’active pas un modèle qui répond sans appeler les outils', async () => {
   actions.catalog.mockResolvedValue({ models: [{ ...model, installed: true }], memory_bytes: 16 * 1024 ** 3, runtime_available: true })
-  actions.run.mockResolvedValue({ toolsUsed: [] })
+  actions.request.mockResolvedValue({ status: 200, body: JSON.stringify({ choices: [{ message: { content: 'Je vais vérifier.' } }] }) })
   await draw(); await click('Charger et tester')
   expect(button('Activer l’IA locale').disabled).toBe(true)
   expect(element.textContent).toContain('n’a pas utilisé les outils')
@@ -97,4 +97,14 @@ it('change le dossier sans activation automatique et invalide le réglage préc�
   expect(actions.directory).toHaveBeenCalledWith('D:/IA locale')
   expect(useAi.getState().settings.enabled).toBe(false)
   expect(actions.download).not.toHaveBeenCalled()
+})
+
+it('affiche la cause précise du chargement sans réclamer un nouveau téléchargement', async () => {
+  actions.catalog.mockResolvedValue({ models: [{ ...model, installed: true }], memory_bytes: 16 * 1024 ** 3, runtime_available: true })
+  actions.start.mockRejectedValue(new AiError('network', 'moteur arrêté (code 12)'))
+  await draw(); await click('Charger et tester')
+  expect(element.textContent).toContain('moteur arrêté (code 12)')
+  expect(element.textContent).not.toContain('Vérifie l’accès à Hugging Face')
+  expect(button('Activer l’IA locale').disabled).toBe(true)
+  expect(button('Télécharger le modèle').disabled).toBe(true)
 })

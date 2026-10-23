@@ -3,8 +3,8 @@
 // de la clé, clé rangée dans le trousseau, test de connexion, modèle et accord sur l'envoi des données.
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AiError, listModels } from '../ai/agent'
-import { testAssistant } from '../ai/setup'
+import { listModels } from '../ai/agent'
+import { assistantErrorText, testAssistant } from '../ai/setup'
 import { checkKeyShape, pickRecommended, PROVIDERS, providerInfo, type ProviderId } from '../ai/providers'
 import { startServer, stopServer } from '../ai/local'
 import { keyStore, nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
@@ -18,13 +18,6 @@ type Status = { state: 'idle' | 'running' | 'ok' | 'error'; text?: string }
 const STEPS: Record<'local' | 'account', string[]> = {
   local: ['server', 'model', 'test'],
   account: ['provider', 'create', 'key', 'connect', 'model', 'test'],
-}
-
-function errorText(t: (k: string) => string, e: unknown): string {
-  if (e === 'tools') return t('ai.local.error.tools')
-  const kind = e instanceof AiError ? e.kind : 'network'
-  const detail = e instanceof Error ? e.message : String(e)
-  return `${t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}`
 }
 
 function StatusLine({ status }: { status: Status }) {
@@ -131,7 +124,7 @@ export function AiSetupDialog() {
       setStatus(list.length ? { state: 'ok', text: t('ai.setup.connected', { count: list.length }) } : { state: 'error', text: t('ai.setup.noModel') })
       return list.length > 0
     } catch (e) {
-      setStatus({ state: 'error', text: errorText(t, e) })
+      setStatus({ state: 'error', text: assistantErrorText(t, e) })
       return false
     }
   }
@@ -157,7 +150,7 @@ export function AiSetupDialog() {
       setModel(list[0] ?? '')
       setStatus({ state: 'ok', text: t('ai.setup.connected', { count: list.length }) })
     } catch (e) {
-      setStatus({ state: 'error', text: errorText(t, e) })
+      setStatus({ state: 'error', text: assistantErrorText(t, e) })
     }
   }
 
@@ -169,7 +162,7 @@ export function AiSetupDialog() {
       setTested(true)
       setStatus({ state: 'ok', text: t('ai.local.tested') })
     } catch (e) {
-      setStatus({ state: 'error', text: errorText(t, e) })
+      setStatus({ state: 'error', text: assistantErrorText(t, e) })
     }
   }
 

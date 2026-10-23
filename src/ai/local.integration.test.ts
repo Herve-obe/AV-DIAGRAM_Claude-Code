@@ -1,5 +1,7 @@
 // Activé seulement par scripts/test-local-ai.py : vrai modèle, serveur éphémère sur le poste, projet fictif.
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+import { testAssistant } from './setup'
+import { nativeTransport } from './transport'
 import { GENERIC_LIBRARY } from '../library/generic'
 import { createProject, DEFAULT_SHEET_ID } from '../model/project'
 import { buildSystemPrompt, runTurn, type Transport } from './agent'
@@ -25,6 +27,18 @@ const transport: Transport = { async request(provider, _base, req) {
 } }
 
 describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
+  it('active le modèle avec le vrai test de configuration en un appel, en français et en anglais', async () => {
+    const request = vi.spyOn(nativeTransport, 'request').mockImplementation(transport.request)
+    try {
+      for (const lang of ['fr', 'en']) {
+        trace({ stage: 'setup-' + lang })
+        request.mockClear()
+        await testAssistant({ provider: 'builtin', model: 'qwen3-4b' }, lang)
+        expect(request).toHaveBeenCalledTimes(1)
+      }
+    } finally { request.mockRestore() }
+  }, 300000)
+
   it('transforme le cahier des charges interview et duo live en proposition câblée', async () => {
     const base = createProject('Interview et duo live — test fictif')
     let requests = 0

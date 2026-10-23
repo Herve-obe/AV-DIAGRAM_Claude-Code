@@ -1,7 +1,7 @@
 // Installation locale : modèle téléchargé sur demande, moteur embarqué, essai des vrais outils avant activation.
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { testAssistant } from '../ai/setup'
+import { assistantErrorText, testAssistant } from '../ai/setup'
 import { cancelDownload, downloadModel, downloadProgress, localCatalog, recommendedModel, setModelDirectory, startServer, stopServer, type DownloadProgress, type LocalCatalog } from '../ai/local'
 import { nativeAvailable, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
@@ -26,9 +26,8 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
   const locked = busy || downloading
   const close = () => { if (!locked) useAi.getState().setSetupOpen(false) }
   const displayError = useCallback((e: unknown) => {
-    const key = typeof e === 'string' ? e : ''
     setError(true)
-    setMessage(t(`ai.local.error.${key}`, { defaultValue: t('ai.local.error.network') }))
+    setMessage(assistantErrorText(t, e))
   }, [t])
   const reload = async () => {
     const c = await localCatalog()
