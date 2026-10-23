@@ -33,6 +33,7 @@ user.PostMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
 user.ShowWindow.argtypes = [w.HWND, c.c_int]
 user.SetForegroundWindow.argtypes = [w.HWND]
 user.SendMessageW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM]
+user.SendMessageTimeoutW.argtypes = [w.HWND, w.UINT, w.WPARAM, w.LPARAM, w.UINT, w.UINT, c.POINTER(c.c_size_t)]
 user.GetParent.argtypes = [w.HWND]
 user.GetParent.restype = w.HWND
 user.IsWindow.argtypes = [w.HWND]
@@ -48,6 +49,11 @@ def windows(parent=None):
             text, cls, pid = c.create_unicode_buffer(2048), c.create_unicode_buffer(80), w.DWORD()
             user.GetWindowTextW(hwnd, text, len(text))
             user.GetClassNameW(hwnd, cls, len(cls))
+            # GetWindowText ne lit pas les champs Edit d'un autre processus.
+            if cls.value == 'Edit':
+                text.value = ''
+                result = c.c_size_t()
+                user.SendMessageTimeoutW(hwnd, 0x0D, len(text), c.cast(text, c.c_void_p).value, 2, 500, c.byref(result))
             user.GetWindowThreadProcessId(hwnd, c.byref(pid))
             result.append(dict(hwnd=hwnd, text=text.value.replace("&", ""), cls=cls.value,
                                pid=pid.value, id=user.GetDlgCtrlID(hwnd), enabled=user.IsWindowEnabled(hwnd)))

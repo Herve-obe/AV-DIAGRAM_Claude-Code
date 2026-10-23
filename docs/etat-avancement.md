@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-23)
 
-## Situation actuelle — 0.5.9
+## Situation actuelle — 0.5.10
+
+La 0.5.10 reprend l’organisation de la capture de référence : menus et titre du projet sur la première ligne, huit vues avec icônes et libellés sur la deuxième. Le nom du projet est centré et les raccourcis restent personnalisables à droite. La navigation quitte la barre du bas, qui conserve les compteurs et l’état d’enregistrement. Mode présentation et fenêtre Infos gardent leur rôle. La disposition est vérifiée à 1920, 1440 et 1024 pixels, avec navigation, raccourcis et thème clair/sombre. Le manuel et sa capture de repérage sont actualisés. Le test d’installation lit les champs Windows par WM_GETTEXT avec délai borné ; GetWindowText renvoyait un texte vide pour un champ rempli après sa création.
 
 La 0.5.9 propose les deux portées d’installation Windows : compte courant (sélection initiale) et tous les utilisateurs (Programmes, droits administrateur). L’emplacement existant est retrouvé à la mise à jour et le paramètre de déploiement /D reste respecté. Les modèles IA gardent leur propre dossier dans le profil utilisateur, choisi séparément ; une installation pour tous partage le logiciel et son moteur, pas automatiquement les modèles ni les réglages de chaque compte. La désinstallation cible la bonne copie, même si une installation personnelle et une installation partagée coexistent.
 

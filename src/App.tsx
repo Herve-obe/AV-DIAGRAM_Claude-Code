@@ -28,7 +28,7 @@ import { NewProjectDialog } from './ui/NewProjectDialog'
 import { LinkCheckDialog } from './ui/LinkCheckDialog'
 import { StartDialog } from './ui/StartDialog'
 import { SeriesDialog } from './ui/SeriesDialog'
-import { PageBar } from './ui/PageBar'
+import { PageBar, ViewNavigation } from './ui/PageBar'
 import { RackView } from './ui/RackView'
 import { FloorPlanView } from './ui/FloorPlanView'
 import { CadImportDialog } from './ui/CadImportDialog'
@@ -186,6 +186,7 @@ export default function App() {
       <div className={`app mode-${mode} ${presenting ? 'is-presenting' : ''} ${detached ? 'is-detached' : ''}`} style={sizes}>
         <div className="app-header">
           {presenting ? <PresentationBar /> : <TopBar />}
+          {!presenting && <ViewNavigation />}
           <CollabSessionBar />
         </div>
         <div className="workspace">

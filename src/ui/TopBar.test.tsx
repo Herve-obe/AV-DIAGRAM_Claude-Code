@@ -6,6 +6,8 @@ import '../i18n'
 import { useUi } from '../store/uiStore'
 import { useAi } from '../store/aiStore'
 import { TopBar } from './TopBar'
+import { PageBar, ViewNavigation } from './PageBar'
+import { useProject } from '../store/projectStore'
 import { InterfaceSettings } from './InterfaceSettings'
 import { DEFAULT_TOOLBAR, toolbarPreference } from './topBarActions'
 
@@ -26,6 +28,23 @@ beforeEach(() => {
   element = document.createElement('div'); document.body.append(element); root = createRoot(element)
 })
 afterEach(() => { act(() => root.unmount()); element.remove() })
+
+it('change de vue depuis la navigation supérieure sans modifier le projet ni les informations d’état', async () => {
+  const project = useProject.getState().project
+  await act(async () => root.render(<><ViewNavigation /><PageBar /></>))
+  const buttons = element.querySelectorAll('.view-navigation button')
+  expect(buttons).toHaveLength(8)
+  const views = ['diagram', 'racks', 'plan', 'network', 'power', 'intercom', 'sync', 'lists']
+  for (let i = 0; i < buttons.length; i++) {
+    await click(buttons[i])
+    expect(useUi.getState().view).toBe(views[i])
+    expect(buttons[i].getAttribute('aria-current')).toBe('page')
+    expect(element.querySelectorAll('[aria-current="page"]')).toHaveLength(1)
+  }
+  expect(element.querySelector('.pagebar nav')).toBeNull()
+  expect(element.querySelector('.status-right')?.textContent).toBeTruthy()
+  expect(useProject.getState().project).toBe(project)
+})
 
 it('migre les anciennes préférences et filtre les commandes inconnues sans rétablir les boutons masqués', () => {
   expect(toolbarPreference(undefined)).toEqual(DEFAULT_TOOLBAR)

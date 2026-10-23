@@ -119,13 +119,16 @@ export function TopBar() {
 
   return (
     <header className="topbar">
-      <div className="brand" title={t('app.tagline')}>
-        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--accent)" strokeWidth="2" />
-          <rect x="15" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--text)" strokeWidth="2" />
-          <path d="M9 9h3v6h3" fill="none" stroke="var(--accent)" strokeWidth="2" />
-        </svg>
-        <span>AV Diagram</span>
+      <div className="topbar-start">
+        <div className="brand" title={t('app.tagline')}>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--accent)" strokeWidth="2" />
+            <rect x="15" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--text)" strokeWidth="2" />
+            <path d="M9 9h3v6h3" fill="none" stroke="var(--accent)" strokeWidth="2" />
+          </svg>
+          <span>AV Diagram</span>
+        </div>
+        <MenuBar label={t('toolbar.menubar')} menus={menus} />
       </div>
 
       <input
@@ -138,21 +141,20 @@ export function TopBar() {
         aria-label={t('settings.projectName')}
       />
 
-      <MenuBar label={t('toolbar.menubar')} menus={menus} />
-      <nav className="toolbar quick-toolbar" aria-label={t('toolbar.title')}>
-        {toolbar.map(shortcut)}
-        {collabStatus !== 'off' && !toolbar.includes('chat') && shortcut('chat')}
-      </nav>
+      <div className="topbar-end">
+        <nav className="toolbar quick-toolbar" aria-label={t('toolbar.title')}>
+          {toolbar.map(shortcut)}
+          {collabStatus !== 'off' && !toolbar.includes('chat') && shortcut('chat')}
+        </nav>
 
-      <span className="spacer" />
+        <button className="cmd-btn" onClick={() => setPaletteOpen(true)}>
+          <Icon name="search" size={14} />
+          <span className="cmd-label">{t('menu.search')}</span>
+          <kbd>Ctrl K</kbd>
+        </button>
 
-      <button className="cmd-btn" onClick={() => setPaletteOpen(true)}>
-        <Icon name="search" size={14} />
-        <span className="cmd-label">{t('menu.search')}</span>
-        <kbd>Ctrl K</kbd>
-      </button>
-
-      <button className="btn assistant-btn" disabled={!aiReady} aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t(aiReady ? 'ai.open' : 'ai.installHint')}><Icon name="assistant" size={16} />{t('ai.title')}</button>
+        <button className="btn assistant-btn" disabled={!aiReady} aria-pressed={aiOpen} onClick={() => useAi.getState().setPanelOpen(!aiOpen)} title={t(aiReady ? 'ai.open' : 'ai.installHint')}><Icon name="assistant" size={16} />{t('ai.title')}</button>
+      </div>
       {manualOpen && <ManualDialog onClose={closeManual} />}
     </header>
   )

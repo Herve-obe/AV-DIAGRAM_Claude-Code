@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.6 · Édition du 22 octobre 2026 · Windows et macOS
+Version 0.5.10 · Édition du 23 octobre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -8,13 +8,15 @@ AV Diagram sert à préparer et documenter une installation audiovisuelle : syno
 
 L'application fonctionne sur le poste de travail. Aucun compte n'est nécessaire pour créer un projet, dessiner, enregistrer ou exporter. Une session collaborative utilise le réseau local. Le cloud et l'assistant IA ne sont pas nécessaires à ces usages.
 
+Sous Windows, l’installeur propose une installation pour le compte courant ou pour tous les utilisateurs. Ce second choix installe le logiciel dans Programmes et nécessite les droits administrateur. Le dossier des modèles IA est choisi séparément et doit rester accessible en écriture au compte qui utilisera l’assistant.
+
 Au lancement, choisir Nouveau projet, Reprendre le dernier projet ou ouvrir un fichier .avd. Les projets récents permettent de retrouver un travail déjà ouvert sur ce poste. Retirer un raccourci de cette liste ne supprime pas le fichier correspondant.
 
 La barre supérieure rassemble les menus Fichier, Édition, Affichage, Outils et Aide. Fichier contient les imports, les enregistrements et les exports ; Outils contient la collaboration, la configuration IA et les paramètres. Aide > Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF. Les menus s'utilisent aussi au clavier : flèches pour se déplacer, Entrée pour choisir et Échap pour revenir.
 
 Les cinq raccourcis initiaux sont Ouvrir, Enregistrer, Annuler, Rétablir et Exporter en PDF. Outils > Personnaliser les raccourcis ouvre les préférences de l'interface : cocher les commandes à garder, utiliser les flèches pour les ordonner ou rétablir le choix initial. Les menus restent complets lorsque leurs raccourcis sont masqués. Ces préférences sont conservées sur ce poste. Le bouton Assistant IA reste visible, grisé tant que l'assistant n'est pas configuré.
 
-La bibliothèque occupe la gauche ; le schéma ou la vue technique se trouve au centre ; l'inspecteur montre les propriétés de la sélection à droite. Le panneau inférieur réunit les listes et alertes. La barre du bas change de vue : Synoptique, Baies, Plan, Réseau, Électrique, Intercom, Synchronisation ou Listes.
+La bibliothèque occupe la gauche ; le schéma ou la vue technique se trouve au centre ; l'inspecteur montre les propriétés de la sélection à droite. Le panneau inférieur réunit les listes et alertes. La deuxième barre, sous les menus, change de vue : Synoptique, Baies, Plan, Réseau, Électricité, Intercom, Synchronisation ou Listes. Chaque bouton associe une icône et un libellé ; la vue active est soulignée en orange. Le nom du projet est centré dans la première barre, les raccourcis personnalisables et l’Assistant IA se trouvent à droite. La barre du bas indique le nombre d’équipements et de liaisons ainsi que l’état d’enregistrement.
 
 Les captures de ce manuel montrent l'interface réelle en français, avec un projet pédagogique fictif. Les cadres et numéros ajoutés repèrent les éléments expliqués dans la légende. Les valeurs saisies dans cet exemple ne constituent pas des caractéristiques constructeur. Agrandir le PDF pour examiner un détail.
 
