@@ -30,6 +30,12 @@ Les réponses sur CPU peuvent demander plusieurs minutes. L'interface affiche la
 Les machines disposant de moins de mémoire reçoivent un avertissement ; la mémoire inconnue ne bloque pas
 le mode avancé. Les serveurs existants Ollama, LM Studio et llama.cpp restent disponibles.
 
+## Installation Windows personnelle ou partagée
+
+L’installeur propose une installation pour le compte courant ou pour tous les utilisateurs. Le second mode utilise Programmes et nécessite les droits administrateur. Les mises à jour retrouvent le dossier et la portée existants ; les déploiements silencieux acceptent `/CurrentUser` ou `/AllUsers`, avec `/D=CHEMIN` en dernier argument pour imposer le dossier du logiciel.
+
+Le logiciel et son moteur sont partagés en mode tous les utilisateurs ; les modèles, conversations et réglages restent propres au compte. Le dossier des modèles est indépendant du dossier du logiciel et doit être accessible en écriture par le compte qui utilisera l’assistant. Si un administrateur installe pour une autre personne, configurer l’IA depuis le compte de cette personne dans Paramètres après installation.
+
 ## Données, téléchargements et arrêt
 
 Le moteur llama.cpp b11747 est embarqué depuis les archives officielles dont les SHA-256 sont figés

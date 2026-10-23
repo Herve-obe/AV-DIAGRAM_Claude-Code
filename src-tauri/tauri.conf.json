@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "AV Diagram",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "identifier": "io.github.herveobe.avdiagram",
   "build": {
     "frontendDist": "../dist",
@@ -52,6 +52,7 @@
     },
     "windows": {
       "nsis": {
+        "installMode": "both",
         "template": "windows/installer.nsi",
         "languages": [
           "English",

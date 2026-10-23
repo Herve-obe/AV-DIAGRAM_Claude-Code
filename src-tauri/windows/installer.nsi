@@ -80,6 +80,7 @@ Var UpdateMode
 Var NoShortcutMode
 Var WixMode
 Var OldMainBinaryName
+Var InstallDirectoryOverride
 
 Name "${PRODUCTNAME}"
 BrandingText "${COPYRIGHT}"
@@ -119,13 +120,14 @@ VIAddVersionKey "ProductVersion" "${VERSION}"
   !define MULTIUSER_MUI
   !define MULTIUSER_INSTALLMODE_INSTDIR "${PRODUCTNAME}"
   !define MULTIUSER_INSTALLMODE_COMMANDLINE
+  !define MULTIUSER_INSTALLMODE_DEFAULT_CURRENTUSER
   !if "${ARCH}" == "x64"
     !define MULTIUSER_USE_PROGRAMFILES64
   !else if "${ARCH}" == "arm64"
     !define MULTIUSER_USE_PROGRAMFILES64
   !endif
   !define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_KEY "${UNINSTKEY}"
-  !define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_VALUENAME "CurrentUser"
+  !define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_VALUENAME "InstallMode"
   !define MULTIUSER_INSTALLMODEPAGE_SHOWUSERNAME
   !define MULTIUSER_INSTALLMODE_FUNCTION RestorePreviousInstallLocation
   !define MULTIUSER_EXECUTIONLEVEL Highest
@@ -585,6 +587,10 @@ LangString aiFinishRun 1036 "Ouvrir AV Diagram et télécharger l'IA locale"
 {{/each}}
 
 Function .onInit
+  ; MULTIUSER_INIT réinitialise le dossier : préserver un /D explicite pour les déploiements.
+  ${If} $INSTDIR != "${PLACEHOLDER_INSTALL_DIR}"
+    StrCpy $InstallDirectoryOverride $INSTDIR
+  ${EndIf}
   StrCpy $AiInstall 0
   StrCpy $AiDirectory "$LOCALAPPDATA\${BUNDLEID}\local-ai\models"
   ${GetOptions} $CMDLINE "/P" $PassiveMode
@@ -797,6 +803,7 @@ Section Install
     ; Save install mode to be selected by default for the next installation such as updating
     ; or when uninstalling
     WriteRegStr SHCTX "${UNINSTKEY}" $MultiUser.InstallMode 1
+    WriteRegStr SHCTX "${UNINSTKEY}" "InstallMode" $MultiUser.InstallMode
   !endif
 
   ; Remove old main binary if it doesn't match new main binary name
@@ -815,7 +822,11 @@ Section Install
   WriteRegStr SHCTX "${UNINSTKEY}" "DisplayVersion" "${VERSION}"
   WriteRegStr SHCTX "${UNINSTKEY}" "Publisher" "${MANUFACTURER}"
   WriteRegStr SHCTX "${UNINSTKEY}" "InstallLocation" "$\"$INSTDIR$\""
-  WriteRegStr SHCTX "${UNINSTKEY}" "UninstallString" "$\"$INSTDIR\uninstall.exe$\""
+  !if "${INSTALLMODE}" == "both"
+    WriteRegStr SHCTX "${UNINSTKEY}" "UninstallString" "$\"$INSTDIR\uninstall.exe$\" /$MultiUser.InstallMode"
+  !else
+    WriteRegStr SHCTX "${UNINSTKEY}" "UninstallString" "$\"$INSTDIR\uninstall.exe$\""
+  !endif
   WriteRegDWORD SHCTX "${UNINSTKEY}" "NoModify" "1"
   WriteRegDWORD SHCTX "${UNINSTKEY}" "NoRepair" "1"
 
@@ -870,6 +881,18 @@ Function un.onInit
 
   !if "${INSTALLMODE}" == "both"
     !insertmacro MULTIUSER_UNINIT
+    ; Le double-clic direct sur uninstall.exe doit aussi viser la bonne installation.
+    ReadRegStr $0 HKLM "${UNINSTKEY}" "InstallLocation"
+    ${If} $0 == "$\"$INSTDIR$\""
+      Call un.MultiUser.InstallMode.AllUsers
+      ${If} $MultiUser.InstallMode != "AllUsers"
+        MessageBox MB_ICONSTOP "$(unableToUninstall)"
+        SetErrorLevel 740
+        Quit
+      ${EndIf}
+    ${Else}
+      Call un.MultiUser.InstallMode.CurrentUser
+    ${EndIf}
   !endif
 
   !insertmacro MUI_UNGETLANGUAGE
@@ -1007,6 +1030,10 @@ Section Uninstall
 SectionEnd
 
 Function RestorePreviousInstallLocation
+  ${If} $InstallDirectoryOverride != ""
+    StrCpy $INSTDIR $InstallDirectoryOverride
+    Return
+  ${EndIf}
   ReadRegStr $4 SHCTX "${MANUPRODUCTKEY}" ""
   StrCmp $4 "" +2 0
     StrCpy $INSTDIR $4

@@ -11,11 +11,12 @@ import winreg
 
 assert os.environ.get("GITHUB_ACTIONS") == "true", "Disposable GitHub Actions runner only"
 UNINSTALL_KEY = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\AV Diagram"
-try:
-    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY):
-        raise RuntimeError("Refusing to alter an existing AV Diagram installation")
-except FileNotFoundError:
-    pass
+for hive in (winreg.HKEY_CURRENT_USER, winreg.HKEY_LOCAL_MACHINE):
+    try:
+        with winreg.OpenKey(hive, UNINSTALL_KEY):
+            raise RuntimeError("Refusing to alter an existing AV Diagram installation")
+    except FileNotFoundError:
+        pass
 
 user = c.WinDLL("user32", use_last_error=True)
 callback_type = c.WINFUNCTYPE(w.BOOL, w.HWND, w.LPARAM)
@@ -102,6 +103,8 @@ processes = []
 launched_app = None
 profile = Path(os.environ['LOCALAPPDATA']) / 'io.github.herveobe.avdiagram'
 assert not profile.exists(), 'Refusing to alter an existing AV Diagram profile'
+machine_dir = Path(os.environ.get('ProgramW6432', os.environ['ProgramFiles'])) / 'AV Diagram'
+assert not machine_dir.exists(), 'Refusing to alter an existing all-users installation folder'
 
 
 def launch(*args):
@@ -114,7 +117,7 @@ def launch(*args):
 
 
 def install_silently():
-    assert launch("/S", f"/D={install_dir}").wait(timeout=90) == 0
+    assert launch("/S", "/CurrentUser", f"/D={install_dir}").wait(timeout=90) == 0
     assert binary.is_file(), "Fresh installation failed"
     with winreg.OpenKey(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY) as key:
         installed = {name: winreg.QueryValueEx(key, name)[0]
@@ -128,6 +131,56 @@ def install_silently():
     assert engine.returncode == 0, f'Moteur installé inutilisable : {engine.stderr!r}'
     print('PASS: installed local AI engine and app-local Visual C++ runtime', flush=True)
     print(f"Installed metadata: {installed}", flush=True)
+
+
+def test_install_modes():
+    proc = launch()
+    root = wait_for(lambda: next((x for x in windows() if x['pid'] == proc.pid
+                                 and x['cls'] == '#32770' and x['text'].startswith('AV Diagram')), None), 'install modes')
+    hwnd = root['hwnd']
+    user.ShowWindow(hwnd, 5)
+    user.SetForegroundWindow(hwnd)
+    for _ in range(5):
+        everyone = next((x for x in windows(hwnd) if x['cls'] == 'Button' and 'anyone using this computer' in x['text']), None)
+        if everyone:
+            break
+        before = page_signature(hwnd)
+        click(button(hwnd, 1))
+        wait_for(lambda: page_signature(hwnd) and not set(before).intersection(page_signature(hwnd)), 'install mode page')
+    assert everyone, 'Installation scope must be offered'
+    personal = next(x for x in windows(hwnd) if x['cls'] == 'Button' and 'just for me' in x['text'])
+    assert user.SendMessageW(personal['hwnd'], 0xF0, 0, 0) == 1, 'Existing per-user installation must remain selected'
+    click(everyone)
+    click(button(hwnd, 1))
+    directory = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Edit'), None), 'all-users directory')
+    assert Path(directory['text']).resolve() == machine_dir.resolve(), directory
+    click(button(hwnd, 1))
+    wait_for(lambda: any(x['text'].startswith('Install local AI -') for x in windows(hwnd)), 'AI page')
+    models = next(x for x in windows(hwnd) if x['cls'] == 'Edit')
+    assert Path(models['text']).resolve() == (profile / 'local-ai' / 'models').resolve(), models
+    cancel(hwnd)
+    proc.wait(timeout=20)
+    assert not machine_dir.exists(), 'Cancelling must not install anything'
+
+    assert launch('/S', '/AllUsers').wait(timeout=90) == 0
+    machine_binary = machine_dir / 'av-diagram.exe'
+    assert machine_binary.is_file(), 'All-users installation must use Program Files'
+    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, UNINSTALL_KEY) as key:
+        assert winreg.QueryValueEx(key, 'InstallMode')[0] == 'AllUsers'
+        assert '/AllUsers' in winreg.QueryValueEx(key, 'UninstallString')[0]
+    # Même un lancement direct doit désinstaller uniquement cette copie, malgré la copie HKCU.
+    result = subprocess.run([str(machine_dir / 'uninstall.exe'), '/S', f'_?={machine_dir}'], timeout=90,
+                            creationflags=subprocess.CREATE_NO_WINDOW)
+    assert result.returncode == 0 and not machine_binary.exists()
+    try:
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, UNINSTALL_KEY):
+            raise AssertionError('All-users registration was not removed')
+    except FileNotFoundError:
+        pass
+    assert binary.is_file(), 'All-users uninstall removed the personal copy'
+    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY):
+        pass
+    print('PASS: scope selection, Program Files installation, independent AI folder and scoped uninstall', flush=True)
 
 
 def page_signature(hwnd):
@@ -178,6 +231,7 @@ def finish_uninstall(hwnd):
 
 try:
     install_silently()
+    test_install_modes()
     proc, hwnd = maintenance("Add/Reinstall components")
     wait_for(lambda: any(x["cls"] == "Edit" for x in windows(hwnd)), "reinstall directory page")
     cancel(hwnd)
@@ -253,4 +307,6 @@ finally:
     # All files and registry entries belong to this disposable runner, never a user's installation.
     uninstall = install_dir / "uninstall.exe"
     if uninstall.exists():
-        subprocess.run([str(uninstall), "/S", f"_?={install_dir}"], timeout=30, check=False)
+        subprocess.run([str(uninstall), "/S", "/CurrentUser", f"_?={install_dir}"], timeout=30, check=False)
+    if (machine_dir / 'av-diagram.exe').exists():
+        subprocess.run([str(machine_dir / 'uninstall.exe'), '/S', '/AllUsers', f'_?={machine_dir}'], timeout=30, check=False)

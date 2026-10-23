@@ -1,6 +1,8 @@
 # État d'avancement (mise à jour du 2026-10-23)
 
-## Situation actuelle — 0.5.8
+## Situation actuelle — 0.5.9
+
+La 0.5.9 propose les deux portées d’installation Windows : compte courant (sélection initiale) et tous les utilisateurs (Programmes, droits administrateur). L’emplacement existant est retrouvé à la mise à jour et le paramètre de déploiement /D reste respecté. Les modèles IA gardent leur propre dossier dans le profil utilisateur, choisi séparément ; une installation pour tous partage le logiciel et son moteur, pas automatiquement les modèles ni les réglages de chaque compte. La désinstallation cible la bonne copie, même si une installation personnelle et une installation partagée coexistent.
 
 La 0.5.8 corrige l’activation de l’IA locale : le moteur démarrait, mais le test de configuration pouvait rappeler des outils jusqu’à sa limite de quatre étapes. Un seul appel explicite à check_project sur un projet fictif suffit maintenant, sans attendre une conclusion libre du modèle. Ce test est exécuté avec le vrai modèle en français et en anglais dans le banc de validation. Les trois parcours de configuration partagent le même diagnostic, avec la cause précise au lieu d’un message générique de téléchargement.
 
