@@ -134,12 +134,21 @@ jobs:
       - name: Prepare verified local AI engines
         run: python3 scripts/prepare-local-ai.py
       - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --lib
-      - name: Build universal macOS test installer
-        run: npm run desktop:build -- --target universal-apple-darwin --bundles app,dmg --ci
+      - name: Build universal macOS test application
+        run: npm run desktop:build -- --target universal-apple-darwin --bundles app --ci
       - name: Verify universal app and signature
         run: |
           lipo "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/MacOS/av-diagram" -verify_arch x86_64 arm64
           codesign --verify --deep --strict "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app"
+      - name: Create and verify macOS test disk image
+        run: |
+          bundle="src-tauri/target/universal-apple-darwin/release/bundle"
+          staging="${{ runner.temp }}/avd-dmg"
+          mkdir -p "$staging" "$bundle/dmg"
+          ditto "$bundle/macos/AV Diagram.app" "$staging/AV Diagram.app"
+          ln -s /Applications "$staging/Applications"
+          hdiutil create -volname "AV Diagram" -srcfolder "$staging" -ov -format UDZO "$bundle/dmg/AV Diagram_universal.dmg"
+          hdiutil verify "$bundle/dmg/AV Diagram_universal.dmg"
       - name: Upload macOS test installer
         uses: actions/upload-artifact@v4
         with:
