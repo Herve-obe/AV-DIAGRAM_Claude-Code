@@ -38,7 +38,7 @@ describe('proposition audio complète et persistante', () => {
   })
   it('refuse atomiquement les droits insuffisants, une fiche manquante et un mode inventé', () => {
     const draft = base()
-    expect(referenceScore(LIBRARY.find(t => t.id === 'novelty-ces')!, request)).toBe(0)
+    expect(referenceScore(LIBRARY.find(t => t.id === 'gen-projector')!, request)).toBe(0)
     for (const context of [{ ...ctx, allowed: () => false }, { ...ctx, library: LIBRARY.filter(t => t.id !== 'behringer-ha8000') }]) {
       const result = runTool(draft, call, context)
       expect(JSON.parse(result.content).error).toBeTruthy()

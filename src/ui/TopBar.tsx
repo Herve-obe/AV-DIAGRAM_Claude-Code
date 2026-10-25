@@ -16,7 +16,7 @@ import { startCatalogueImport } from './CatalogueImportDialog'
 import { useExportPdf } from './ExportPdfDialog'
 import { closePanelsWindow, openPanelsWindow } from '../store/windowSync'
 import { exportCableCsv, exportCanvasImage, notifyError } from '../io/files'
-import { openDocument, saveCurrentProject } from '../io/documentLifecycle'
+import { closeDocument, openDocument, saveCurrentProject } from '../io/documentLifecycle'
 import { useCollab } from '../collab/session'
 import { isReady, useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
@@ -75,7 +75,7 @@ export function TopBar() {
 
   const runs: Record<TopActionId, () => unknown> = {
     new: () => useUi.getState().setNewProjectOpen(true), open,
-    save: () => saveCurrentProject(), saveAs: () => saveCurrentProject(true),
+    save: () => saveCurrentProject(), saveAs: () => saveCurrentProject(true), close: () => closeDocument(),
     merge: () => startMerge(t), importPdf: () => startPdfImport(t), importCad: () => startCadImport(t), importPatch: () => startPatchImport(t),
     importCatalogue: () => startCatalogueImport(t),
     importDiagram: async () => { setReadingDiagram(true); try { await startDiagramImport(t) } finally { setReadingDiagram(false) } },

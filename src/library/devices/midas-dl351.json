@@ -16,78 +16,6 @@
   ],
   "ports": [
     {
-      "id": "slot1",
-      "name": "Carte DL4 1",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot2",
-      "name": "Carte DL4 2",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot3",
-      "name": "Carte DL4 3",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot4",
-      "name": "Carte DL4 4",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot5",
-      "name": "Carte DL4 5",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot6",
-      "name": "Carte DL4 6",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot7",
-      "name": "Carte DL4 7",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
-      "id": "slot8",
-      "name": "Carte DL4 8",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 8,
-      "format": "8 cartes au choix : entrées micro/ligne, sorties ligne, AES3 ; jusqu'à 64 x 64"
-    },
-    {
       "id": "aes50A",
       "name": "AES50 A",
       "direction": "bidir",
@@ -159,6 +87,48 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Alimentation redondante"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Carte DL4 1",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot2",
+      "name": "Carte DL4 2",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot3",
+      "name": "Carte DL4 3",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot4",
+      "name": "Carte DL4 4",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot5",
+      "name": "Carte DL4 5",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot6",
+      "name": "Carte DL4 6",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot7",
+      "name": "Carte DL4 7",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "slot8",
+      "name": "Carte DL4 8",
+      "type": "midas-dl4"
     }
   ]
 }

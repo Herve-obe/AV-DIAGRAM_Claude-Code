@@ -120,20 +120,19 @@
       "format": "10BASE-T / 100BASE-TX, PJLink"
     },
     {
-      "id": "slot",
-      "name": "Function slot",
-      "direction": "bidir",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "Emplacement Intel SDM"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
       "format": "110-240 V, cordon 2 m fourni"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot",
+      "name": "Function slot",
+      "type": "intel-sdm"
     }
   ]
 }

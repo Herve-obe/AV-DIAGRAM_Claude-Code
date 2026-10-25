@@ -1,6 +1,6 @@
 {
   "id": "yamaha-my8-adda96",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "MY8-ADDA96",
   "pictogram": "processor",
@@ -156,14 +156,8 @@
       "connector": "terminal",
       "level": "line+4",
       "format": "Euroblock symétrique"
-    },
-    {
-      "id": "slot",
-      "name": "Slot carte",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot Mini-YGDAI de la console"
     }
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-mini-ygdai"
 }

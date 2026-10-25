@@ -14,6 +14,9 @@ export interface RecentProject { id: string; name: string; updatedAt: string; eq
 const entryOf = (p: Project): RecentProject => ({ id: p.id, name: p.name, updatedAt: p.updatedAt, equipment: Object.keys(p.equipment).length })
 let restored: RecentProject | null = null
 export const restoredProject = () => restored
+// L’écran d’accueil utilise un projet vide transitoire, qui ne doit pas devenir un récent.
+let idleProjectId: string | null = null
+export const setRecoveryIdleProject = (id: string) => { idleProjectId = id }
 
 export async function listRecent(): Promise<RecentProject[]> {
   try { const v = await get(RECENT_KEY); return Array.isArray(v) ? v : [] } catch { return [] }
@@ -83,9 +86,14 @@ export function flushRecovery(): Promise<void> {
 export async function discardRecovery(): Promise<void> {
   await flushRecovery()
   await del(KEY)
+  restored = null
 }
 export function startAutosave(): () => void {
   const unsubscribe = useProject.subscribe((s, prev) => {
+    if (s.project.id === idleProjectId) {
+      if (s.saved) return
+      idleProjectId = null
+    }
     if (s.project === prev.project && s.saved === prev.saved) return
     if (s.project.id !== prev.project.id && pending) void flushRecovery().catch(() => {})
     pending = s.project

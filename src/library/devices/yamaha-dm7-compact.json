@@ -384,14 +384,6 @@
       "channels": 2
     },
     {
-      "id": "py",
-      "name": "Slot PY",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte d'extension PY"
-    },
-    {
       "id": "ac1",
       "name": "AC 1",
       "direction": "in",
@@ -406,6 +398,13 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "V-Lock ; double alimentation"
+    }
+  ],
+  "slots": [
+    {
+      "id": "py",
+      "name": "Slot PY",
+      "type": "yamaha-py"
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { LIBRARY, LIBRARY_INDEX } from '.'
+import excludedDevices from './excluded.json'
 import { groupByDomain } from './domains'
 import { validateTemplate } from '../model/validateTemplate'
 import { addEquipment, createProject, isProject } from '../model/project'
@@ -67,7 +68,11 @@ describe('catalogue Novelty hors Structure', () => {
     for (const p of coverage.products) {
       expect(excluded.has(p.noveltyId), String(p.noveltyId)).toBe(false)
       expect(p.categories.some(c => c.startsWith('Structure')), String(p.noveltyId)).toBe(false)
-      expect(template(p.templateId).sources?.some(s => s.url === p.url), p.templateId).toBe(true)
+      if (Object.hasOwn(excludedDevices, p.templateId)) {
+        expect(LIBRARY_INDEX.has(p.templateId), p.templateId).toBe(false)
+      } else {
+        expect(template(p.templateId).sources?.some(s => s.url === p.url), p.templateId).toBe(true)
+      }
     }
     expect(excluded.has(33763)).toBe(true) // fiche classée à la fois Vidéo et Structure
     expect(coverage.products.some(p => p.noveltyId === 33763)).toBe(false)
@@ -118,8 +123,8 @@ describe('catalogue Novelty hors Structure', () => {
   })
 
   it('ajoute puis sauvegarde et recharge un appareil sans connectique documentée sans inventer de port', () => {
-    const tpl = template('audio-technica-at8615')
-    expect(tpl.portStatus).toBe('pending') // une embase de micro peut être câblée
+    const tpl = template('yamaha-ri8-d')
+    expect(tpl.portStatus).toBe('pending') // sa variante et sa connectique restent à documenter
     const { project, id } = addEquipment(createProject('Catalogue'), tpl, { x: 40, y: 40 })
     const loaded = JSON.parse(JSON.stringify(project))
     expect(isProject(loaded)).toBe(true)
@@ -146,5 +151,65 @@ describe('fiches à connectique explicite', () => {
     expect(validateTemplate({ ...empty, portStatus: 'pending', sources: [] }).join()).toContain('source')
     expect(validateTemplate({ ...empty, portStatus: 'pending', status: 'verified' }).join()).toContain('connectique')
     expect(validateTemplate({ ...empty, portStatus: 'none', ports: [{ id: 'p1', name: 'In', direction: 'in', signal: 'audioAnalog', connector: 'xlr3' }] }).join()).toContain('sans connectique')
+  })
+})
+
+
+describe('audit intégral du périmètre et du classement du catalogue', () => {
+  const files = import.meta.glob<EquipmentTemplate>('./devices/*.json', { eager: true, import: 'default' })
+  const auditUrl = new URL('../../docs/inventaire/catalogue-audit-2026-10-25.json', import.meta.url)
+  const manifest: { parts: string[] } = JSON.parse(readFileSync(auditUrl, 'utf8'))
+  const audit: { entries: { id: string; decision: string }[] } = {
+    entries: manifest.parts.flatMap(part => JSON.parse(readFileSync(new URL(part, auditUrl), 'utf8'))),
+  }
+
+  it('enregistre une décision pour chaque référence et ne retire aucune donnée des projets anciens', () => {
+    const raw = Object.values(files)
+    expect(new Set(raw.map(t => t.id)).size).toBe(raw.length)
+    expect(audit.entries.map(t => t.id).sort()).toEqual(raw.map(t => t.id).sort())
+    expect(new Set(audit.entries.map(t => t.id)).size).toBe(raw.length)
+    for (const row of audit.entries) expect(LIBRARY_INDEX.has(row.id), row.id).toBe(row.decision !== 'excluded')
+    const support = raw.find(t => t.id === 'adam-hall-slt005')!
+    const { project, id } = addEquipment(createProject('Ancien projet'), support, { x: 0, y: 0 })
+    const loaded = JSON.parse(JSON.stringify(project))
+    expect(isProject(loaded)).toBe(true)
+    expect(loaded.equipment[id].model).toBe('SLT005')
+  })
+
+  it('écarte les supports, câbles seuls, licences et consommables, sans exclure les appareils inclus dans des kits', () => {
+    for (const id of ['adam-hall-slt005', 'compulocks-ipadair-stand', 'luke-asb-i', 'novelty-siege-de-pont-pour-poursuite', 'novelty-cmx', 'novelty-hmi2500the-h', 'apple-logic-pro-x', 'shure-sbrc-e', 'audio-technica-at8601', 'l-acoustics-syva-base']) expect(LIBRARY_INDEX.has(id), id).toBe(false)
+    for (const id of ['l-acoustics-108p-kit-x2', 'lightware-kit-fibre-200-modex-opts', 'motorola-dp1400-set-x6', 'indu-electric-ap125tdif', 'oray-fly-duo-150-200', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
+    expect(searchLibrary(LIBRARY, 'SLT005')).toEqual([])
+    expect(template('audio-technica-at8615').ports.map(p => p.direction)).toEqual(['in', 'out'])
+  })
+
+  it('range les appareils par fonction réelle', () => {
+    expect(template('akai-apc40')).toMatchObject({ family: 'control', domain: 'sound' })
+    expect(template('korg-kaoss-pad-kp3-plus').family).toBe('processing')
+    expect(template('toa-pa031').family).toBe('amplification')
+    expect(template('taiden-tmx-0808-sdi')).toMatchObject({ family: 'videoRouting', domain: 'image' })
+    expect(template('panasonic-aw-rp50')).toMatchObject({ family: 'control', domain: 'image' })
+    expect(template('etc-eos-apex-5-console-lumiere-48-univers')).toMatchObject({ family: 'lightingControl', domain: 'light' })
+    expect(template('yamaha-ro8-d').family).toBe('stagebox')
+  })
+
+  it('distingue les cartes, les slots internes et les prises physiques', () => {
+    const my = template('yamaha-my16-at'), desk = template('yamaha-01v96')
+    expect(my).toMatchObject({ family: 'module', moduleType: 'yamaha-mini-ygdai' })
+    expect(my.ports.some(p => p.id === 'slot')).toBe(false)
+    expect(desk.ports.some(p => p.id === 'slot')).toBe(false)
+    expect(desk.slots).toContainEqual(expect.objectContaining({ type: my.moduleType }))
+    expect(template('yamaha-cl5').slots).toHaveLength(3)
+    expect(template('panasonic-ty-sb01qs')).toMatchObject({ family: 'module', moduleType: 'intel-sdm' })
+    expect(template('auvitran-avbx7').slots).toHaveLength(7)
+    expect(template('auvitran-axc-dante').moduleType).toBe('auvitran-axc')
+    expect(template('yamaha-my16-es64').aliases).not.toContain('MY16AE')
+  })
+
+  it('ne fait pas passer la puissance audio pour une consommation électrique', () => {
+    for (const id of ['yamaha-vxs3f', 'yamaha-dzr12', 'yamaha-stagepas-1k', 'bose-dm2c-lp-white']) expect(template(id).powerW, id).toBeUndefined()
+    expect(template('yamaha-hs5').powerW).toBe(45)
+    expect(LIBRARY_INDEX.has('etc-source-four-led-lustr2')).toBe(false)
+    expect(template('etc-source-four-led-series-2-lustr').status).toBe('verified')
   })
 })

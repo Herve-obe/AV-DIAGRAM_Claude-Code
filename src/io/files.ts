@@ -2,6 +2,7 @@
 // Dans l'application bureau (Tauri), on utilise les fenêtres natives du système ;
 // dans un navigateur (développement), on retombe sur le téléchargement classique.
 import { isTauri } from '@tauri-apps/api/core'
+import i18n from '../i18n'
 import { toPng, toSvg } from 'html-to-image'
 import { getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
@@ -184,12 +185,14 @@ export async function createProjectFile(project: Project, folder: string): Promi
   const { exists, mkdir, writeTextFile } = await import('@tauri-apps/plugin-fs')
   const base = projectFolderName(project.name)
   let dir: string
+  let suffix: number
   for (let n = 1; ; n++) {
     dir = await join(folder, n === 1 ? base : `${base} (${n})`)
     if (await exists(dir)) continue
     try {
       // mkdir non récursif réserve le nom, même si un autre poste le crée entre-temps.
       await mkdir(dir)
+      suffix = n
       break
     } catch (e) {
       if (await exists(dir)) continue
@@ -203,6 +206,10 @@ export async function createProjectFile(project: Project, folder: string): Promi
   st.setProjectFile(project.id, path)
   st.markSavedToFile(project.id)
   if (!st.dir) st.setDir(folder)
+  if (suffix > 1) {
+    const { message } = await import('@tauri-apps/plugin-dialog')
+    await message(i18n.t('newProject.duplicateFolder', { folder: dir }), { title: 'AV Diagram', kind: 'info' }).catch(console.error)
+  }
   return path
 }
 

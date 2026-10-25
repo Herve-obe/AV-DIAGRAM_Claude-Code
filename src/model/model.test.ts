@@ -451,11 +451,10 @@ describe('projet d\'exemple et bibliothèque', () => {
   it('chaque port de la bibliothèque a un identifiant unique dans son modèle', () => {
     for (const t of GENERIC_LIBRARY) expect(new Set(t.ports.map((p) => p.id)).size).toBe(t.ports.length)
   })
-  it('l\'exemple contient les alertes volontaires : micro vers ligne et sortie partagée', () => {
+  it('l\'exemple est câblé sans alerte volontaire', () => {
     const p = buildSampleProject()
-    const issues = checkProject(p)
-    expect(issues.map((i) => i.code).sort()).toEqual(['level-mic-to-line', 'output-split', 'output-split', 'phantom-unknown'])
-    expect(Object.keys(p.links)).toHaveLength(14)
+    expect(checkProject(p)).toEqual([])
+    expect(Object.keys(p.links)).toHaveLength(15)
   })
   it('bibliothèque filtrée sur le calque Audio : consoles gardées, projecteurs sans port audio écartés', () => {
     const onSound = LIBRARY.filter((tpl) => equipmentInView(tpl, 'sound'))
@@ -597,6 +596,18 @@ describe('feuilles, annotations et modèles de projets', () => {
     expect(Object.keys(p.equipment)).toHaveLength(0)
     expect(Object.keys(p.annotations ?? {})).toHaveLength(0)
     expect(ops.removeSheet(p, p.sheets![0].id).sheets).toHaveLength(1)
+  })
+  it('le concert enregistre le mix de la console et ne branche aucun microphone sur une entrée ligne', () => {
+    const p = buildSampleProject()
+    const rec = Object.values(p.equipment).find(e => e.templateId === 'gen-recorder')!
+    const incoming = Object.values(p.links).filter(l => l.target.equipmentId === rec.id)
+    expect(incoming).toHaveLength(2)
+    for (const l of incoming) {
+      expect(p.equipment[l.source.equipmentId].templateId).toBe('gen-console')
+      expect(p.equipment[l.source.equipmentId].ports.find(port => port.id === l.source.portId)?.level).toBe('line+4')
+    }
+    expect(new Set(incoming.map(l => l.target.portId)).size).toBe(2)
+    expect(checkProject(p)).toEqual([])
   })
   it('les modèles de projets se construisent sans erreur de compatibilité', async () => {
     const { buildTemplate } = await import('../library/templates')
@@ -1060,6 +1071,9 @@ describe('liaisons en série', () => {
 describe('contrôles désactivés pour le schéma', () => {
   it('une règle désactivée ne signale plus, sur toutes les liaisons, et reste listée pour être réactivée', () => {
     let p = buildSampleProject()
+    const mic = Object.values(p.equipment).find(e => e.templateId === 'gen-mic-cond')!
+    const rec = Object.values(p.equipment).find(e => e.templateId === 'gen-recorder')!
+    p = ops.connect(p, { equipmentId: mic.id, portId: 'p1' }, { equipmentId: rec.id, portId: 'p1' }).project
     const before = checkProject(p).filter((i) => i.code === 'level-mic-to-line')
     expect(before.length).toBeGreaterThan(0)
     p = ops.updateSettings(p, { mutedRules: ['level-mic-to-line'] })

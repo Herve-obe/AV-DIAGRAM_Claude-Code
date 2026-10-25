@@ -1,6 +1,6 @@
 {
   "id": "yamaha-my16-es64",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "MY16-ES64",
   "pictogram": "processor",
@@ -30,18 +30,11 @@
       "connector": "unspecified",
       "channels": 16,
       "format": "EtherSound ; connecteurs non précisés"
-    },
-    {
-      "id": "slot",
-      "name": "Slot carte",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot Mini-YGDAI de la console"
     }
   ],
   "aliases": [
-    "MY16AE",
     "YAMAHA MY16-ES64"
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-mini-ygdai"
 }

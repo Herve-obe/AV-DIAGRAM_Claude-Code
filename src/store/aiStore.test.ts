@@ -7,6 +7,7 @@ import { createDraft, layoutDraft, runTool } from '../ai/tools'
 import { setProjectGuard, useProject } from './projectStore'
 import { isReady, useAi } from './aiStore'
 import { useLibrary } from './libraryStore'
+import { useUi } from './uiStore'
 
 const native = vi.hoisted(() => ({ request: vi.fn(), stop: vi.fn(), ensure: vi.fn() }))
 vi.mock('../ai/transport', () => ({ nativeTransport: { request: native.request } }))
@@ -130,4 +131,16 @@ it('arrête le moteur géré et ignore la réponse d’une requête arrêtée', 
   useAi.getState().cancel(); resolve(answer('Trop tard')); await pending
   expect(useAi.getState().bubbles.some(b => b.text === 'Trop tard')).toBe(false)
   expect(native.stop).toHaveBeenCalledOnce()
+})
+
+it('revient à l’accueil après la configuration ouverte par l’installeur uniquement', () => {
+  useUi.getState().setStartOpen(false)
+  useAi.setState({ setupOpen: true, installerDirectory: 'C:/Models' })
+  useAi.getState().setSetupOpen(false)
+  expect(useUi.getState().startOpen).toBe(true)
+  expect(useAi.getState().installerDirectory).toBeNull()
+  useUi.getState().setStartOpen(false)
+  useAi.getState().setSetupOpen(true)
+  useAi.getState().setSetupOpen(false)
+  expect(useUi.getState().startOpen).toBe(false)
 })

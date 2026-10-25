@@ -1,6 +1,6 @@
 {
   "id": "yamaha-my16-at",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "MY16-AT",
   "pictogram": "processor",
@@ -44,14 +44,8 @@
       "signal": "audioDigital",
       "connector": "toslink",
       "channels": 8
-    },
-    {
-      "id": "slot",
-      "name": "Slot carte",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot Mini-YGDAI de la console"
     }
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-mini-ygdai"
 }

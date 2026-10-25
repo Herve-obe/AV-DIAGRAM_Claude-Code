@@ -6,6 +6,7 @@ export const TOP_ACTIONS = [
   { id: 'open', label: 'menu.open', icon: 'folder', menu: 'file', section: 'document', hint: 'Ctrl/Cmd+O' },
   { id: 'save', label: 'menu.save', icon: 'save', menu: 'file', section: 'document', hint: 'Ctrl/Cmd+S' },
   { id: 'saveAs', label: 'menu.saveAs', icon: 'save', menu: 'file', section: 'document', hint: 'Ctrl/Cmd+⇧+S' },
+  { id: 'close', label: 'menu.closeProject', icon: 'close', menu: 'file', section: 'document' },
   { id: 'merge', label: 'merge.menu', icon: 'copy', menu: 'file', section: 'import' },
   { id: 'importPdf', label: 'pdfImport.menu', icon: 'pdf', menu: 'file', section: 'import' },
   { id: 'importCad', label: 'cad.menu', icon: 'plan', menu: 'file', section: 'import' },

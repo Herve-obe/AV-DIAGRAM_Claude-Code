@@ -37,6 +37,7 @@ import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
+import { canvasViewport, rememberCanvasViewport } from '../store/canvasViewport'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
 import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
@@ -471,12 +472,19 @@ export function Canvas() {
   // Alignement demandé depuis la fenêtre Infos (double écran)
   useEffect(() => onCommand('arrange', (a) => arrangeSelection(rf, a as ArrangeAction)), [rf])
 
-  // Recadrage à l'ouverture d'un autre projet ou d'une autre feuille
+  const savedViewport = useMemo(() => canvasViewport(project.id, currentSheetId), [project.id, currentSheetId])
+  const restoringViewport = useRef(true)
+  // Une feuille déjà visitée retrouve son cadrage local. Le premier affichage montre la page.
   useEffect(() => {
-    // Mode « page » : on montre la feuille entière ; sinon, tout le contenu
-    const timer = setTimeout(() => fitToPage(rf, useProject.getState().project) || rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 }), 80)
-    return () => clearTimeout(timer)
-  }, [project.id, currentSheetId, presenting, rf])
+    restoringViewport.current = true
+    let disposed = false
+    const timer = setTimeout(async () => {
+      if (savedViewport && !presenting) await rf.setViewport(savedViewport)
+      else if (!fitToPage(rf, useProject.getState().project)) await rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 })
+      if (!disposed) restoringViewport.current = false
+    }, 80)
+    return () => { disposed = true; clearTimeout(timer) }
+  }, [project.id, currentSheetId, presenting, rf, savedViewport])
 
   // Centrage demandé depuis une liste (câblage, alertes)
   useEffect(() => {
@@ -550,7 +558,11 @@ export function Canvas() {
         multiSelectionKeyCode={['Shift', 'Meta', 'Control']}
         snapToGrid
         snapGrid={[10, 10]}
-        fitView
+        defaultViewport={savedViewport}
+        onMoveEnd={(_event, viewport) => {
+          if (!restoringViewport.current && !presenting) rememberCanvasViewport(project.id, currentSheetId, viewport)
+        }}
+        fitView={!savedViewport}
         fitViewOptions={{ padding: 0.15, maxZoom: 1 }}
         // Molette : défilement vertical ; Maj + molette : horizontal ; Ctrl (Cmd) + molette : zoom
         panOnScroll

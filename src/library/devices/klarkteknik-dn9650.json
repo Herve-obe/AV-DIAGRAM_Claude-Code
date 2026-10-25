@@ -39,15 +39,6 @@
       "format": "AES50"
     },
     {
-      "id": "module",
-      "name": "Module réseau",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 64,
-      "format": "Emplacement CM-1 : KT-MADI, KT-DANTE64, KT-AES50, KT-USB"
-    },
-    {
       "id": "wcIn",
       "name": "Word Clock In",
       "direction": "in",
@@ -84,6 +75,13 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Alimentation universelle"
+    }
+  ],
+  "slots": [
+    {
+      "id": "module",
+      "name": "Module réseau",
+      "type": "klarkteknik-cm1"
     }
   ]
 }

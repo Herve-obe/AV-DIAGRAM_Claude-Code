@@ -1,6 +1,12 @@
-# État d'avancement (mise à jour du 2026-10-24)
+# État d'avancement (mise à jour du 2026-10-25)
 
-## Situation actuelle — 0.5.11
+## Situation actuelle — 0.5.12
+
+Le template Concert enregistre les sorties ligne de console en stéréo. Les 2 156 fiches ont été revues pour le périmètre et le classement ; le relevé de chaque décision est conservé dans [l’audit de bibliothèque](inventaire/audit-bibliotheque-0.5.12.md). Écrans de projection, optiques et effets sont conservés. Les valeurs et connectiques non établies restent à documenter.
+
+Les retours C01 corrigent l’accueil après installation IA, l’avertissement de dossier homonyme, le zoom/cadrage local par feuille, Fermer le projet et Reprendre le dernier projet après abandon de la récupération. La fermeture conserve la protection des modifications et ne remplace pas le dernier récent par un canevas vide.
+
+## Version précédente — 0.5.11
 
 La 0.5.11 ajoute un parcours général : analyse du besoin (rôles, quantités, contraintes, hypothèses, trois questions au maximum), recherche groupée dans le catalogue puis câblage des rôles sur des prises libres et compatibles. Les parcours rapides SDI et M7CL/01V96 sont conservés. Le plan interdit la perte silencieuse de ses quantités et les références exactes reconnues sont contrôlées. Les contraintes sont conservées en note ; les affectations internes des autres architectures restent à vérifier. Aucune couverture universelle n’est annoncée.
 

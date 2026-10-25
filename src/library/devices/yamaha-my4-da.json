@@ -1,6 +1,6 @@
 {
   "id": "yamaha-my4-da",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "MY4-DA",
   "pictogram": "processor",
@@ -47,14 +47,8 @@
       "connector": "unspecified",
       "level": "line+4",
       "format": "Connecteur non précisé"
-    },
-    {
-      "id": "slot",
-      "name": "Slot carte",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot Mini-YGDAI de la console"
     }
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-mini-ygdai"
 }

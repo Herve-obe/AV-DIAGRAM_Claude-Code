@@ -3,10 +3,11 @@ import i18n from '../i18n'
 import { createProject } from '../model/project'
 import { useProject } from '../store/projectStore'
 import capability from '../../src-tauri/capabilities/default.json'
-import { guardWindowClose, openDocument, prepareToLeave, setDocumentSessionActive } from './documentLifecycle'
+import { useUi } from '../store/uiStore'
+import { closeDocument, guardWindowClose, openDocument, prepareToLeave, setDocumentSessionActive } from './documentLifecycle'
 
 const files = vi.hoisted(() => ({ saveProjectFile: vi.fn(), openProjectFile: vi.fn(), notifyError: vi.fn() }))
-const recovery = vi.hoisted(() => ({ flushRecovery: vi.fn(), discardRecovery: vi.fn() }))
+const recovery = vi.hoisted(() => ({ flushRecovery: vi.fn(), discardRecovery: vi.fn(), setRecoveryIdleProject: vi.fn() }))
 const dialog = vi.hoisted(() => ({ message: vi.fn() }))
 const nativeWindow = vi.hoisted(() => ({ onCloseRequested: vi.fn(), close: vi.fn() }))
 const panelsWindow = vi.hoisted(() => ({ destroy: vi.fn() }))
@@ -182,4 +183,23 @@ describe('changement et fermeture de document', () => {
     expect(await prepareToLeave(true)).toBe(false)
     expect(files.notifyError).toHaveBeenCalled()
   })
+})
+
+it('Fermer le projet efface le canevas et revient à l’accueil sans fermer les fenêtres', async () => {
+  useProject.setState({ saved: true })
+  const before = useProject.getState().project
+  expect(await closeDocument()).toBe(true)
+  expect(useProject.getState().project.id).not.toBe(before.id)
+  expect(useUi.getState().startOpen).toBe(true)
+  expect(Object.keys(useProject.getState().project.equipment)).toHaveLength(0)
+  expect(recovery.setRecoveryIdleProject).toHaveBeenCalledWith(useProject.getState().project.id)
+  expect(panelsWindow.destroy).not.toHaveBeenCalled()
+})
+it('Annuler Fermer le projet conserve le document et son accueil fermé', async () => {
+  useUi.getState().setStartOpen(false)
+  const before = useProject.getState().project
+  dialog.message.mockResolvedValue(i18n.t('series.cancel'))
+  expect(await closeDocument()).toBe(false)
+  expect(useProject.getState().project).toBe(before)
+  expect(useUi.getState().startOpen).toBe(false)
 })

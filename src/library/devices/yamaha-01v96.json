@@ -597,19 +597,18 @@
       "connector": "din5"
     },
     {
-      "id": "slot",
-      "name": "Slot MY",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Mini-YGDAI, carte optionnelle"
-    },
-    {
       "id": "ac",
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot",
+      "name": "Slot MY",
+      "type": "yamaha-mini-ygdai"
     }
   ]
 }

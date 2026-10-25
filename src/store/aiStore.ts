@@ -110,7 +110,10 @@ export const useAi = create<AiState>((set, get) => ({
     set({ settings, ...(!isReady(settings) ? { panelOpen: false } : {}) })
   },
   setPanelOpen: (panelOpen) => panelOpen && !isReady(get().settings) ? set({ setupOpen: true }) : set({ panelOpen }),
-  setSetupOpen: (setupOpen) => set({ setupOpen, ...(!setupOpen ? { installerDirectory: null } : {}) }),
+  setSetupOpen: (setupOpen) => {
+    if (!setupOpen && get().installerDirectory) useUi.getState().setStartOpen(true)
+    set({ setupOpen, ...(!setupOpen ? { installerDirectory: null } : {}) })
+  },
 
   send: async (text) => {
     const { settings, busy, history, contextNote } = get()

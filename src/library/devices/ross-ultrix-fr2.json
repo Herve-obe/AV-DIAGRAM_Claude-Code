@@ -288,14 +288,6 @@
       "format": "SDI ou MADI"
     },
     {
-      "id": "slots",
-      "name": "Emplacements cartes",
-      "direction": "bidir",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "3 emplacements E/S ou traitement"
-    },
-    {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
@@ -317,6 +309,23 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Bloc externe redondant"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Slot 1",
+      "type": "ross-ultrix-fr2-option"
+    },
+    {
+      "id": "slot2",
+      "name": "Slot 2",
+      "type": "ross-ultrix-fr2-option"
+    },
+    {
+      "id": "slot3",
+      "name": "Slot 3",
+      "type": "ross-ultrix-fr2-option"
     }
   ]
 }

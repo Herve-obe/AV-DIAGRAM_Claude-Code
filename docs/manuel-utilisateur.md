@@ -34,7 +34,7 @@ Repères : 1. Préférences propres au poste ; 2. Cocher ou masquer une commande
 
 Choisir Nouveau projet, saisir un nom, choisir le dossier parent et le format de papier, puis sélectionner un départ vide ou un modèle. Un modèle constitue un exemple de travail à adapter aux appareils et au câblage réels.
 
-L'application de bureau crée un dossier au nom du projet. Il contient le fichier principal .avd et le dossier Save Back Up. Si ce nom existe déjà, un numéro est ajouté au nouveau dossier ; le projet existant n'est pas écrasé. Les exports sont proposés à côté du fichier principal ; leur destination reste modifiable.
+L'application de bureau crée un dossier au nom du projet. Il contient le fichier principal .avd et le dossier Save Back Up. Si ce nom existe déjà, un numéro est ajouté au nouveau dossier ; le projet existant n'est pas écrasé. Un message indique le dossier numéroté réellement créé en cas de nom déjà utilisé. Les exports sont proposés à côté du fichier principal ; leur destination reste modifiable.
 
 Les onglets supérieurs du synoptique représentent des feuilles logiques. Une feuille peut occuper plusieurs pages physiques A3, A4 ou d'un autre format. Ajouter et renommer des feuilles pour séparer plateau, régie ou distributions. Déplacer un équipement vers une autre feuille conserve son identité et ses connexions ; les câbles qui changent de feuille sont représentés par des renvois.
 
@@ -48,7 +48,7 @@ Dans Paramètres > Enregistrement, définir l'intervalle des copies de sécurit�
 
 Une copie automatique ne fait pas passer l'indicateur du fichier principal à « enregistré ». Enregistrer sous ne déplace pas les anciennes sauvegardes. Les copies suivantes suivent le nouvel emplacement ; un dossier de secours peut être utilisé si l'emplacement principal devient inaccessible. Les paramètres indiquent le chemin réellement utilisé.
 
-Fermer l'application ou changer de projet propose Enregistrer, Ne pas enregistrer ou Annuler lorsqu'il reste des modifications. Enregistrer doit réussir pour poursuivre la fermeture. Ne pas enregistrer ferme sans remplacer le .avd par les dernières modifications. Annuler permet de continuer à travailler.
+Fichier > Fermer le projet revient à l’accueil avec un canevas vide. Fermer le projet, fermer l’application ou changer de projet propose Enregistrer, Ne pas enregistrer ou Annuler lorsqu’il reste des modifications. Enregistrer doit réussir pour poursuivre la fermeture. Ne pas enregistrer ferme sans remplacer le .avd par les dernières modifications. Annuler permet de continuer à travailler.
 
 Une copie interne sur le poste aide à reprendre après un arrêt inattendu ; elle ne remplace pas le .avd et les sauvegardes de sécurité. Pour récupérer une copie de Save Back Up, ouvrir le fichier choisi, contrôler le contenu, puis utiliser Enregistrer sous afin de conserver aussi le fichier d'origine.
 
@@ -62,7 +62,7 @@ Glisser un modèle sur le synoptique crée une instance. Plusieurs instances d'u
 
 Les statuts distinguent les modèles génériques, les fiches Vérifié, les fiches Communauté et les modèles personnels. Vérifié indique une documentation référencée ; ce statut ne dispense pas de contrôler la variante, la carte ou l'option réellement installée. Communauté signifie que des informations restent à vérifier. Une fiche sans ports documentés reste utilisable pour le placement et les listes ; aucune prise manquante ne doit être supposée présente.
 
-Le catalogue Novelty français est référencé hors Structure. Les caractéristiques inconnues restent vides. Les variantes réellement différentes sont conservées ; les synonymes d'un même produit peuvent être regroupés. Les fiches constructeur servent à compléter la connectique, les dimensions, le poids et la puissance ; une image commerciale seule ne suffit pas à établir ces valeurs.
+Le catalogue commun est filtré selon les usages d’AV Diagram : supports mécaniques, câbles seuls, consommables, licences seules et prestations sont écartés. Les écrans de projection, optiques et machines à effets restent disponibles. Les appareils d’un ancien projet ne sont pas supprimés quand leur fiche est retirée du catalogue actif. Le relevé de nettoyage distingue les fiches conservées, reclassées et écartées. Le catalogue Novelty français reste référencé hors Structure, avec ces exclusions supplémentaires. Les caractéristiques inconnues restent vides. Les variantes réellement différentes sont conservées ; les synonymes d'un même produit peuvent être regroupés. Les fiches constructeur servent à compléter la connectique, les dimensions, le poids et la puissance ; une image commerciale seule ne suffit pas à établir ces valeurs.
 
 En mode Expert, créer ou ajuster les ports d'un équipement, puis enregistrer un modèle dans Mon entreprise. Une nouvelle instance issue d'un modèle ne doit pas reprendre les adresses IP et les affectations de déploiement d'un autre projet. Vérifier aussi les options de carte et le type de slot avant leur réutilisation.
 
@@ -272,7 +272,7 @@ Avant diffusion, ouvrir le fichier exporté dans un lecteur indépendant, vérif
 
 ## 18. Deux écrans et présentation
 
-Au premier lancement, la fenêtre principale est maximisée, avec sa barre de titre et les boutons du système. Les ouvertures suivantes reprennent la position, la taille et le mode de chaque fenêtre. Une fenêtre minimisée n'est pas restaurée comme telle. Ces préférences restent propres au poste ; elles ne sont pas enregistrées dans le projet ni partagées en collaboration.
+Au premier lancement, la fenêtre principale est maximisée, avec sa barre de titre et les boutons du système. Les ouvertures suivantes reprennent la position, la taille et le mode de chaque fenêtre. Une fenêtre minimisée n'est pas restaurée comme telle. Ces préférences restent propres au poste ; elles ne sont pas enregistrées dans le projet ni partagées en collaboration. Le zoom et le cadrage du synoptique sont également retenus localement pour chaque projet et feuille.
 
 La disposition est retenue après la décision de fermeture. Si Infos était ouverte, elle est rouverte au lancement suivant. Lorsqu'une disposition sur deux écrans est mémorisée mais qu'un seul reste disponible, Infos ne s'ouvre pas automatiquement ; le bouton de double écran permet toujours de l'ouvrir. Une fenêtre dont l'écran a disparu est replacée dans la zone de travail disponible.
 
