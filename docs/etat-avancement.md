@@ -1,10 +1,16 @@
 # État d'avancement (mise à jour du 2026-10-26)
 
-## Situation actuelle — 0.5.15
+## Situation actuelle — 0.5.16
 
-La réorganisation locale de l’existant et le cahier des charges interview/live passent le banc réel Windows 0.5.14, mais la conférence générique échoue encore sur le nombre de câbles par appareil (cinq essais réussis sur six). La 0.5.15 fournit un diagnostic de capacité précis et explicite le paramètre de câblage, avec test de reprise. 476 tests locaux réussis ; nouveau banc réel Windows/Mac à confirmer. [Détail](ia-correctifs-0.5.15.md).
+Le banc Qwen3 4B de la 0.5.15 a réussi ses six essais réels sous Windows et ses six essais sous macOS : réorganisation de l’existant, clarification, configuration et construction des scénarios de recette. Cela ne garantit pas toutes les formulations. 476 tests locaux réussis pour cette correction. [Détail IA](ia-correctifs-0.5.15.md).
 
-Le complément de recherche manuelle corrige notamment la PRO1 (passée Vérifié), le DL351 et la HD96. Les divergences de version restent documentées et empêchent leur validation globale. Bibliothèque active : 476 Vérifié, 1 236 Communauté, 30 génériques. [Suivi documentaire](inventaire/suite-manualslib-2026-10-26.md).
+Le contrôle natif Windows attend maintenant la fin de l’animation de restauration avant de vérifier la géométrie, avec le même délai maximal et la même tolérance. Il a échoué auparavant sur une lecture transitoire ; aucun changement de la mémorisation des fenêtres de l’application n’est introduit. Le nouveau passage de ce contrôle et les builds 0.5.16 restent à confirmer sur GitHub.
+
+La recherche documentaire ajoute seize fiches Vérifié et documente cinq réserves supplémentaires. Les sorties manquantes, les poids et les variantes sont corrigés à partir des manuels lus ; l’AT831b seul reprend sa prise TA3F et non le XLR de son module AT8531. Bibliothèque active : 492 Vérifié, 1 220 Communauté, 30 génériques. Le journal distingue les documents lus des références non examinées ; la vérification globale reste inachevée. [Suivi documentaire](inventaire/suite-manualslib-2026-10-26.md).
+
+## Version précédente — 0.5.15
+
+Le diagnostic du nombre de câbles explicite la différence entre quantité d’appareils et câbles par paire. Le lot Midas corrige la PRO1 (passée Vérifié), le DL351 et la HD96 ; les divergences de version restent documentées.
 
 ## Version précédente — 0.5.13
 

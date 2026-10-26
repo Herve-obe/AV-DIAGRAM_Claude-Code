@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "Sennheiser",
   "model": "MK4",
-  "status": "community",
-  "description": "Microphone statique à condensateur à large diaphragme, cardioïde",
+  "status": "verified",
+  "description": "Microphone analogique à condensateur à large diaphragme, cardioïde. Sortie symétrique XLR 3 mâle au niveau microphone ; alimentation fantôme P48 (48 V ± 4 V, 3,1 mA). Version distincte du MK 4 digital.",
   "aliases": [
     "MK4-SENN",
     "SENNHEISER MK4"
@@ -31,9 +31,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/sennheiser_mk4_manuel-uk.pdf",
       "document": "Novelty — MK4 : MK4 (UK)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/151008/Sennheiser-Mk-4.html",
+      "document": "Sennheiser — MK 4 analogique, manuel pages 9 et 13 (imprimées 8 et 12) : XLR 3, P48 et données techniques",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Condensateur cardioïde, P48 48 V ± 4 V (3,1 mA)",
+      "phantom": "required"
+    }
+  ],
   "weightKg": 0.485
 }

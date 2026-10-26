@@ -99,8 +99,8 @@ try:
     close(proc, hwnd)  # Sans attendre le délai de mémorisation des déplacements.
 
     proc, hwnd = launch()
-    assert not user.IsZoomed(hwnd), "Le choix du mode fenêtre n'a pas été repris"
-    assert all(abs(a - b) <= 2 for a, b in zip(rect(hwnd), expected)), (rect(hwnd), expected)
+    wait_for(lambda: not user.IsZoomed(hwnd) and all(abs(a - b) <= 2 for a, b in zip(rect(hwnd), expected)),
+             "mode fenêtre et géométrie restaurés")
     print("PASS: window size and position survive closing and relaunching", flush=True)
     window_command(hwnd, 0xF030)  # SC_MAXIMIZE
     wait_for(lambda: user.IsZoomed(hwnd), "agrandissement")
@@ -109,8 +109,9 @@ try:
     proc, hwnd = launch()
     wait_for(lambda: user.IsZoomed(hwnd), "agrandissement restauré")
     window_command(hwnd, 0xF120)
-    wait_for(lambda: not user.IsZoomed(hwnd), "retour à la taille normale")
-    assert all(abs(a - b) <= 2 for a, b in zip(rect(hwnd), expected)), (rect(hwnd), expected)
+    # IsZoomed peut être faux avant la fin de l’animation Windows.
+    wait_for(lambda: not user.IsZoomed(hwnd) and all(abs(a - b) <= 2 for a, b in zip(rect(hwnd), expected)),
+             "retour à la taille normale et géométrie restaurée")
     print("PASS: maximized state preserves the normal window geometry", flush=True)
     close(proc, hwnd)
 finally:

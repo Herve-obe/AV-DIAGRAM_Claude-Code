@@ -10,18 +10,23 @@
       "url": "https://soundpro.com/products/audio-technica-at8531-power-module",
       "document": "SoundPro, module AT8531 compatible AT831b (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2920964/Audio-Technica-At831b.html",
+      "document": "Audio-Technica — AT831b / AT831, fiche constructeur, copie ManualsLib, page 1 : TA3F du microphone, XLR du module AT8531 et alimentation",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "out",
-      "name": "Sortie",
+      "name": "Sortie du microphone — TA3F",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "xlr3",
+      "connector": "ta3",
       "level": "mic",
-      "format": "Cravate statique cardioïde ; XLR via module AT8531 (pile AA ou fantôme 9-52 V), entrée TA3M",
-      "phantom": "required"
+      "format": "Câble fixe 1,8 m, TA3F vers module externe AT8531. La sortie XLR et l’alimentation pile AA ou fantôme 11–52 V sont celles du module ; pas une prise XLR native du micro."
     }
-  ]
+  ],
+  "description": "Microphone cravate à condensateur cardioïde. Son câble fixe de 1,8 m se termine en TA3F vers le module externe AT8531 ; la sortie XLR 3 mâle appartient au module, pas au microphone seul. Le module fonctionne sur pile AA 1,5 V ou fantôme 11–52 V. Module à représenter séparément ; la fiche reste Communauté."
 }

@@ -4,8 +4,8 @@ import { LIBRARY, LIBRARY_INDEX } from '.'
 import excludedDevices from './excluded.json'
 import { groupByDomain } from './domains'
 import { validateTemplate } from '../model/validateTemplate'
-import { addEquipment, createProject, isProject } from '../model/project'
-import { searchLibrary } from '../ai/tools'
+import { addEquipment, createProject, DEFAULT_SHEET_ID, isProject } from '../model/project'
+import { createDraft, runTool, searchLibrary } from '../ai/tools'
 import { connectorsMate } from '../model/connectors'
 import type { EquipmentTemplate } from '../model/types'
 
@@ -250,4 +250,24 @@ describe('appareils unitaires — décision du 26 octobre', () => {
     for (const id of ['sennheiser-ew100-eng-g4', 'sennheiser-ew335-g3-a', 'shure-psm1000', 'shure-ur4d-plus-ur2-x2-freq-g1e', 'swit-flow500', 'teradek-beam', 'novelty-regie-4k-compacte', 'l-acoustics-la-rak-ii-avb']) expect(LIBRARY_INDEX.has(id), id).toBe(false)
     for (const id of ['sennheiser-ek-100-g4', 'sennheiser-sk-100-g4', 'sennheiser-em-300-g3', 'shure-ur1', 'shure-ur4d', 'shure-p10t', 'shure-p10r-plus', 'digico-sd-rack', 'blackmagic-design-smartview-duo', 'marshall-electronics-v-r44p-hdsdi']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
   })
+})
+
+it('traite les prises parallèles de l’AR-133 comme une seule entrée mono en jack ou XLR', () => {
+  const di = template('bss-audio-ar133')
+  for (const connector of ['jack-ts', 'xlr3']) {
+    const source: EquipmentTemplate = { id: 'source-instrument-test', model: 'Source fictive', family: 'capture', pictogram: 'di', status: 'generic',
+      ports: [{ id: 'out', name: 'Sortie', direction: 'out', signal: 'audioAnalog', connector, level: 'instrument' }] }
+    const draft = createDraft(createProject('Entrée mono fictive'), DEFAULT_SHEET_ID)
+    const ctx = { library: [source, di], describe: (i: { code: string }) => i.code }
+    const args = { equipment: [{ ref: 'source', template_id: source.id, count: 2 }, { ref: 'di', template_id: di.id }],
+      connections: [{ from: 'source', to: 'di', signal: 'audioAnalog' }] }
+    const two = runTool(draft, { id: 'two', name: 'propose_system', args }, ctx)
+    expect(JSON.parse(two.content).error).toBeTruthy()
+    expect(two.draft).toBe(draft)
+    const one = runTool(draft, { id: 'one', name: 'propose_system', args: { ...args,
+      equipment: [{ ...args.equipment[0], count: 1 }, args.equipment[1]] } }, ctx)
+    expect(JSON.parse(one.content).error).toBeUndefined()
+    expect(one.draft.addedLinks).toHaveLength(1)
+    expect(Object.keys(draft.base.equipment)).toHaveLength(0)
+  }
 })

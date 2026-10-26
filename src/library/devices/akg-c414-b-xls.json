@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "AKG",
   "model": "C414 B-XLS",
-  "status": "community",
-  "description": "Microphone statique + suspension, multi-directivité",
+  "status": "verified",
+  "description": "Microphone à condensateur à large diaphragme, cinq directivités commutables : omnidirectionnelle, cardioïde large, cardioïde, hypercardioïde et figure en huit. Sortie symétrique XLR 3 au niveau microphone ; alimentation fantôme P48 (48 V ± 4 V, 4,5 mA). Variante B-XLS, distincte du C414 XLS sans le B.",
   "aliases": [
     "C414B/XLS",
     "AKG C414 B-XLS"
@@ -26,9 +26,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-c414b_xls_xlII_manual.pdf",
       "document": "Novelty — C414 B-XLS : Duplication : C414 B-XLII",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/362176/Akg-C-414-B-Xl-Ii.html",
+      "document": "AKG — C 414 B-XLS / C 414 B-XLII User Instructions, pages 17–19 et 28 : cinq directivités, sortie XLR, P48 et masse",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Condensateur à cinq directivités, P48 48 V ± 4 V (4,5 mA)",
+      "phantom": "required"
+    }
+  ],
   "weightKg": 0.3
 }
