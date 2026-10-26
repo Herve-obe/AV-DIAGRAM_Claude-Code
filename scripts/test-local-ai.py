@@ -98,7 +98,7 @@ def main():
                 except OSError:
                     time.sleep(1)
             else:
-                raise TimeoutError('chargement trop long')
+                raise TimeoutError('API du moteur local injoignable après trois minutes ; consulter engine.log')
             verify_local_crt(process.pid, engine)
             print('Moteur chargé, exécution des vrais appels d’outils', flush=True)
             result = folder / 'integration-result.json'
@@ -113,7 +113,7 @@ def main():
                 print((folder / 'engine.log').read_text(encoding='utf-8', errors='replace')[-16000:], flush=True)
                 raise
             summary = json.loads(result.read_text(encoding='utf-8'))
-            assert summary['success'] and summary['numPassedTests'] == 5 and summary['numPendingTests'] == 0
+            assert summary['success'] and summary['numPassedTests'] == 6 and summary['numPendingTests'] == 0
             print('PASS : vrai modèle, vérification et proposition validées', flush=True)
         finally:
             process.terminate()

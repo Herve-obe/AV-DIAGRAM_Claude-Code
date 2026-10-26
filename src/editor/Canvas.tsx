@@ -53,7 +53,7 @@ function ProposalBanner({ equipment, links, sheetId }: { equipment: number; link
   return (
     <div className="proposal-banner" role="status">
       <span className="proposal-dot" />
-      <span>{t('ai.preview', { equipment, links })}</span>
+      <span>{t(ai.proposal?.rearrangedEquipment?.length ? 'ai.layout.preview' : 'ai.preview', { equipment: ai.proposal?.rearrangedEquipment?.length ?? equipment, links })}</span>
       {sheetId !== currentSheetId && <button className="btn btn-ghost" onClick={() => useUi.getState().setSheet(sheetId)}>{t('ai.showSheet')}</button>}
       <button className="btn btn-ghost" onClick={() => ai.discardProposal()}>{t('ai.discard')}</button>
       <button className="btn btn-primary" disabled={ai.busy || (layout && !layout.choices[layout.selected].valid)} onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
@@ -86,7 +86,7 @@ export function Canvas() {
   const proposal = useAi((s) => s.proposal)
   const preview = proposal && proposal.base === stored ? proposal : null
   const project = preview?.project ?? stored
-  const proposedEq = useMemo(() => new Set(preview?.addedEquipment ?? []), [preview])
+  const proposedEq = useMemo(() => new Set([...(preview?.addedEquipment ?? []), ...(preview?.rearrangedEquipment ?? [])]), [preview])
   const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
   const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute, layer } = useUi()
@@ -164,7 +164,9 @@ export function Canvas() {
           id: a.id,
           type: 'annotation',
           position: a.position,
-          data: { annotation: a, readOnly: presenting },
+          data: { annotation: a, readOnly: presenting || !!preview },
+          draggable: !presenting && !preview,
+          deletable: !preview,
           measured: measured.get(a.id),
           zIndex: a.kind === 'frame' ? -1 : 1,
           // Cadre : saisi par son onglet de titre ou ses bords (l'intérieur laisse passer la souris)
@@ -205,7 +207,7 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
+  }, [project, mode, currentSheetId, presenting, preview, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
 
   // Sélection appliquée au rendu, comme pour les liaisons, plutôt que par l'effet ci-dessus (un rendu
   // plus tard) : blocs et liaisons montrent toujours la même sélection que le store.
@@ -508,7 +510,7 @@ export function Canvas() {
   }, [focusRequest, rf])
 
   // Nouvelle proposition : on recadre pour que les ajouts soient visibles
-  const proposedCount = preview?.addedEquipment.length ?? 0
+  const proposedCount = (preview?.addedEquipment.length ?? 0) + (preview?.rearrangedEquipment?.length ?? 0)
   const proposedProject = preview?.project
   useEffect(() => {
     if (!proposedCount) return

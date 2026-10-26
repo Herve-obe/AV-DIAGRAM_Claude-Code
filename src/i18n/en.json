@@ -584,7 +584,13 @@
       "pages_other": "{{count}} {{paper}} pages at 100%",
       "recommended": "recommended",
       "tooSmall": "A device does not fit this page size. Choose a larger size or shorten its label.",
-      "hint": "Connected ports are shown; unused ports remain available. Routing notes follow the equipment. The chosen page size is saved only when applying the proposal. Export as multiple pages to preserve this size."
+      "hint": "Connected ports are shown; unused ports remain available. Routing notes follow the equipment. The chosen page size is saved only when applying the proposal. Export as multiple pages to preserve this size.",
+      "ready": "Layout proposed: {{equipment}} devices, {{pages}} {{paper}} page(s) at 100%. Connections are preserved; compare paper sizes before applying.",
+      "empty": "No equipment to rearrange on this sheet or in the selection.",
+      "groups": "This sheet contains subsheet groups. Open a subsheet to rearrange its equipment separately.",
+      "permission": "Project or layer permissions do not allow this rearrangement.",
+      "preview": "Preview: {{equipment}} rearranged devices, connections preserved.",
+      "changed": "Rearranged"
     },
     "addEq": "Equipment",
     "addLink": "Link",
@@ -616,7 +622,8 @@
       "propose_video_studio": "Building the wired video studio…",
       "propose_audio_production": "Building the interview and live production…",
       "plan_diagram": "Analysing requirements and finding equipment…",
-      "propose_system": "Preparing the system and checking connections…"
+      "propose_system": "Preparing the system and checking connections…",
+      "rearrange_diagram": "Rearranging the sheet…"
     },
     "error": {
       "auth": "Key rejected by the provider: check it or create a new one.",

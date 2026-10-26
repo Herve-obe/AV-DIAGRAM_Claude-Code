@@ -152,4 +152,4 @@ Exécuter d’abord les tests des outils et du moteur, puis les vrais tours du m
 4. Mesure sur un corpus indépendant ; comparaison des modèles et réglages.
 5. Affinage éventuel si les mesures le justifient ; connecteurs de stock daté ultérieurs.
 
-État au 26 octobre : le tri des ensembles de bibliothèque est corrigé dans la prochaine version. Le présent document et le registre de recette sont préparés. Les nouvelles actions d’édition IA ne sont pas encore développées ; le défaut de mise en page de la capture reste à corriger dans l’étape 1.
+État de reprise 0.5.14 : la réorganisation de la feuille active ou de la sélection est codée, avec variantes de format, aperçu et annulation. Les commandes de mise en page explicites ont un parcours local et un outil est disponible pour les autres formulations. La reprise après un câblage refusé et les capacités envoyées au modèle sont corrigées. Voir les tests et limites dans ia-correctifs-0.5.14.md. Le remplacement, la suppression, les renvois inter-pages et une orientation générale de toutes les intentions restent à développer. Le vrai modèle et la recette native de cette version ne sont pas encore déclarés validés.

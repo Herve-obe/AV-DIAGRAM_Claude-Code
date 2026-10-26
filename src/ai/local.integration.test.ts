@@ -10,6 +10,8 @@ import { LIBRARY } from '../library'
 import { checkProject } from '../model/rules'
 import { diagramBlockSize } from '../model/diagramLayout'
 import { appendFileSync, writeFileSync } from 'node:fs'
+import { request as httpRequest } from 'node:http'
+import { buildTemplate } from '../library/templates'
 import interviewRequest from './fixtures/interview-live.txt?raw'
 
 const address = process.env.AVD_LOCAL_AI_TEST_URL
@@ -20,13 +22,39 @@ function trace(event: Record<string, unknown>) {
 const transport: Transport = { async request(provider, _base, req) {
   if (!address || !/^http:\/\/127\.0\.0\.1:\d+\/v1$/.test(address) || provider !== 'builtin') throw new Error('serveur de test local requis')
   trace({ event: 'request', bytes: req.body?.length })
-  const response = await fetch(address + req.path, { method: req.method, headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: req.body })
-  const body = await response.text()
-  trace({ event: 'response', status: response.status, body })
-  return { status: response.status, body }
+  // Même délai que le transport natif local ; fetch de Node coupe ses en-têtes après cinq minutes.
+  const response = await new Promise<{ status: number; body: string }>((resolve, reject) => {
+    const request = httpRequest(address + req.path, { method: req.method, headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' } }, response => {
+      const chunks: Buffer[] = []
+      response.on('data', chunk => chunks.push(Buffer.from(chunk)))
+      response.on('end', () => resolve({ status: response.statusCode ?? 500, body: Buffer.concat(chunks).toString('utf8') }))
+      response.on('error', reject)
+    })
+    request.setTimeout(600000, () => request.destroy(new Error('Délai du moteur local dépassé (10 minutes)')))
+    request.on('error', reject)
+    request.end(req.body)
+  })
+  trace({ event: 'response', ...response })
+  return response
 } }
 
 describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
+
+  it('réorganise un concert existant sans appel au modèle ni modification du patch', async () => {
+    const base = buildTemplate('concert', 'Concert fictif'), before = JSON.stringify(base)
+    let requests = 0
+    const result = await runTurn({ transport: { request: (...args) => { requests++; return transport.request(...args) } },
+      connection: { provider: 'builtin', model: 'qwen3-4b' }, system: '', history: [],
+      userText: 'Adapte ce schéma pour qu’il tienne sur une seule page.', draft: createDraft(base, DEFAULT_SHEET_ID),
+      ctx: { library: LIBRARY, describe: i => i.code } })
+    expect(requests).toBe(0)
+    expect(result.draft.rearrangedEquipment).toHaveLength(13)
+    expect(result.draft.addedLinks).toHaveLength(0)
+    expect(Object.keys(result.draft.project.links)).toHaveLength(15)
+    expect(result.draft.layout!.choices[result.draft.layout!.selected]).toMatchObject({ valid: true, pages: 1 })
+    expect(JSON.stringify(base)).toBe(before)
+  })
+
   it('analyse une demande vague puis construit une conférence sans scénario spécialisé', async () => {
     const base = createProject('Conférence fictive'), draft = createDraft(base, DEFAULT_SHEET_ID)
     const options = { transport, connection: { provider: 'builtin' as const, model: 'qwen3-4b' },

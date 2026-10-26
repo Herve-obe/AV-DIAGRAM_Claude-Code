@@ -5,6 +5,8 @@
 import { addAnnotation, addEquipment, connect, DEFAULT_SHEET_ID, sheetName, updateEquipment, updateLink } from '../model/project'
 import { cableFits, getCable } from '../model/cables'
 import { checkLink, checkProject, type Issue } from '../model/rules'
+import { exportSettingsOf } from '../io/exportOptions'
+import { PAPER_SIZES } from '../model/types'
 import type { EquipmentTemplate, PortDef, Project } from '../model/types'
 import type { ToolCall, ToolSpec } from './providers'
 import { searchDocumentation } from './knowledge'
@@ -25,6 +27,7 @@ export interface Draft {
   sheetId: string
   addedEquipment: string[]
   addedLinks: string[]
+  rearrangedEquipment?: string[]
   /** Un plan complet reste indivisible jusqu'à son application ou son refus. */
   audioProduction?: true
   /** Variantes locales de mise en page, sans nouvel appel au modèle. */
@@ -42,7 +45,7 @@ export function createDraft(project: Project, sheetId: string): Draft {
   return { base: project, project, sheetId, addedEquipment: [], addedLinks: [] }
 }
 
-export const hasChanges = (d: Draft) => d.addedEquipment.length + d.addedLinks.length > 0
+export const hasChanges = (d: Draft) => d.addedEquipment.length + d.addedLinks.length + (d.rearrangedEquipment?.length ?? 0) > 0
 
 export function layoutDraft(draft: Draft): Draft {
   if (draft.layout || !draft.addedEquipment.length) return draft
@@ -53,6 +56,7 @@ export function layoutDraft(draft: Draft): Draft {
 export interface ToolContext {
   library: EquipmentTemplate[]
   company?: EquipmentTemplate[]
+  selectedEquipment?: string[]
   lang?: 'fr' | 'en'
   /** Texte lisible d'une alerte des règles (traduit) */
   describe: (issue: Issue) => string
@@ -66,6 +70,11 @@ const equipmentList = { type: 'array', maxItems: 50, items: { type: 'object', pr
 const phrases = { type: 'array', maxItems: 30, items: { ...str, maxLength: 500 } }
 
 export const TOOL_SPECS: ToolSpec[] = [
+  {
+    name: 'rearrange_diagram',
+    description: 'Réorganise la feuille existante ou la sélection sans ajouter ni supprimer de matériel ou de connexion. Placement lisible calculé par le logiciel, prises inutilisées repliées et tracés recalculés. target=single_page propose un format plus grand si nécessaire ; target=readable conserve le format courant sur plusieurs pages. paper impose un format parmi A4, A3, A2, A1, A0. L’utilisateur applique ou refuse l’aperçu.',
+    parameters: { type: 'object', properties: { scope: { ...str, enum: ['current_sheet', 'selection'] }, target: { ...str, enum: ['single_page', 'readable'] }, paper: { ...str, enum: PAPER_SIZES } }, required: ['scope', 'target'] },
+  },
   {
     name: 'plan_diagram',
     description: 'Analyse un cahier des charges quelconque, même vague, avant de construire : but, rôles matériels, quantités, contraintes et hypothèses. Le logiciel recherche toutes les fiches en un appel. Ne pas inventer de template_id. Si une précision conditionne le résultat, poser au maximum 3 questions groupées dans questions ; ne pas créer de schéma partiel. Pour un choix libre, proposer une hypothèse explicite. required_model=true seulement si un modèle exact est imposé. Les rôles décrivent uniquement les ajouts ; réutiliser les equipment_id du projet pour les appareils déjà présents.',
@@ -149,7 +158,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   },
   {
     name: 'propose_system',
-    description: 'Prépare un système de n’importe quelle famille à partir de rôles matériels et de leurs flux : audio, vidéo, lumière, réseau, intercom, synchronisation. Les template_id viennent du catalogue ou de plan_diagram. Dans connections, from/to désignent une ref de rôle (tous ses exemplaires), une ref individuelle comme cam1, ou un equipment_id existant. N→1 et 1→N sont développés ; N→N apparie les numéros. links_per_pair est un nombre de câbles physiques, 2 pour une paire stéréo, pas un nombre de canaux Dante/SDI. Le logiciel choisit des prises libres documentées et compatibles. Préciser purpose pour les affectations de mixage ou de routage à réaliser sur les appareils. Aucune conversion de signal ni capacité non documentée n’est inventée. Lire get_template pour imposer un mode de prise documenté. Tout est refusé si un raccordement est impossible.',
+    description: 'Prépare un système de n’importe quelle famille à partir de rôles matériels et de leurs flux : audio, vidéo, lumière, réseau, intercom, synchronisation. Les template_id viennent du catalogue ou de plan_diagram. Dans connections, from/to désignent une ref de rôle (tous ses exemplaires), une ref individuelle comme cam1, ou un equipment_id existant. N→1 et 1→N sont développés ; N→N apparie les numéros. links_per_pair est un nombre de câbles physiques, 2 uniquement entre deux appareils disposant chacun de deux prises pour ce flux. Une paire d’enceintes mono est count=2 avec links_per_pair=1 : chaque enceinte reçoit un câble. Ce n’est pas un nombre de canaux Dante/SDI. Le logiciel choisit des prises libres documentées et compatibles. Préciser purpose pour les affectations de mixage ou de routage à réaliser sur les appareils. Aucune conversion de signal ni capacité non documentée n’est inventée. Lire get_template pour imposer un mode de prise documenté. Tout est refusé si un raccordement est impossible.',
     parameters: { type: 'object', properties: {
       equipment: equipmentList,
       connections: { type: 'array', maxItems: 100, items: { type: 'object', properties: { from: str, to: str, signal: { ...str, enum: SIGNAL_FAMILIES }, links_per_pair: { type: 'integer', minimum: 1, maximum: 16 }, purpose: { ...str, maxLength: 1000 } }, required: ['from', 'to', 'signal'] } },
@@ -269,6 +278,27 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
   const page = (ports: PortDef[]) => ({ ports_total: ports.length, offset, next_offset: ports.length > offset + 16 ? offset + 16 : null })
 
   switch (call.name) {
+    case 'rearrange_diagram': {
+      const labels = (ctx.lang === 'en' ? en : fr).ai.layout
+      if (!['current_sheet', 'selection'].includes(text(a.scope)) || !['single_page', 'readable'].includes(text(a.target))
+        || (a.paper !== undefined && !PAPER_SIZES.includes(a.paper as typeof PAPER_SIZES[number]))) return fail('Portée, objectif ou format de mise en page invalide.')
+      const ids = Object.values(p.equipment).filter(e => (e.sheetId ?? DEFAULT_SHEET_ID) === draft.sheetId
+        && (a.scope !== 'selection' || ctx.selectedEquipment?.includes(e.id))).map(e => e.id)
+      if (!ids.length) return fail(labels.empty)
+      if (p.sheets?.some(s => s.parentId === draft.sheetId)) return fail(labels.groups)
+      const source = a.paper ? { ...p, settings: { ...p.settings, export: { ...exportSettingsOf(p), paper: a.paper as typeof PAPER_SIZES[number] } } } : p
+      const choices = proposalLayouts(draft.base, source, ids, draft.sheetId, true)
+        .filter(c => !ctx.allowed || ctx.allowed(draft.base, c.project))
+      if (!choices.length) return fail(labels.permission)
+      let selected = a.paper ? choices.findIndex(c => c.paper === a.paper) : a.target === 'single_page' ? choices.findIndex(c => c.valid && c.pages === 1) : 0
+      if (selected < 0) selected = choices.findIndex(c => c.valid)
+      if (selected < 0) selected = 0
+      const choice = choices[selected]
+      const message = labels.ready.replace('{{equipment}}', String(ids.length)).replace('{{pages}}', String(choice.pages)).replace('{{paper}}', choice.paper)
+        + (!choice.valid ? '\n' + labels.tooSmall : '')
+      return { draft: { ...draft, project: choice.project, rearrangedEquipment: ids, layout: { choices, selected } },
+        content: JSON.stringify({ equipment_rearranged: ids.length, pages: choice.pages, paper: choice.paper, message }) }
+    }
     case 'plan_diagram': {
       const labels = (ctx.lang === 'en' ? en : fr).ai.brief
       const list = (value: unknown, max: number): value is string[] => Array.isArray(value) && value.length <= max && value.every(s => typeof s === 'string' && s.length > 0 && s.length <= 500)

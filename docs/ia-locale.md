@@ -58,7 +58,7 @@ dans le code, sans nouvelles fonctionnalités ni essais de fournisseur en ligne 
 
 ## Propositions et connaissances
 
-Les seuls outils d'action ajoutent un équipement connu de la bibliothèque ou une liaison entre des
+Les outils d’action ajoutent un équipement connu, réorganisent les appareils existants ou proposent une liaison entre des
 ports existants. Le moteur de règles refuse les erreurs de liaison ; les avertissements restent
 visibles. Les droits de collaboration sont contrôlés pendant la préparation puis à l'application.
 Un projet modifié rend le brouillon caduc. Appliquer est une seule étape d'annulation.
@@ -70,6 +70,12 @@ documentaires des fiches de la bibliothèque restent consultables. Une donnée m
 Communauté reste incertaine ; l'assistant peut malgré ces consignes produire une réponse erronée.
 Il faut vérifier toute conception proposée. Les gros schémas sont lus par pages ; l'historique ancien
 et les gros résultats sont limités pour ne pas saturer le modèle.
+
+## Réorganiser un schéma existant — 0.5.14
+
+Une commande explicite comme « Adapte ce schéma pour qu’il tienne sur une seule page » prépare localement un aperçu sans appel au modèle. L’outil rearrange_diagram traite aussi la feuille active ou la sélection. Les appareils et les connexions sont conservés ; les prises inutilisées se replient et les tracés manuels concernés sont recalculés. Un format plus grand peut être présélectionné dans l’aperçu, sans changement enregistré avant Appliquer. Les autres variantes restent disponibles ; Annuler restaure aussi le format. Les groupes de sous-feuilles doivent être traités en ouvrant leur feuille. Le remplacement et la suppression par l’IA restent indisponibles.
+
+Après un câblage de système refusé, le modèle dispose des capacités des prises et peut corriger sa proposition. Le nombre de tentatives est borné. Le contexte de la phase de construction ne duplique plus l’analyse. Voir [les corrections et leur validation](ia-correctifs-0.5.14.md).
 
 ## Sources et licences
 

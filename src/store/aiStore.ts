@@ -3,7 +3,7 @@
 // ce qui en fait une seule étape d'annulation.
 import { create } from 'zustand'
 import i18n from '../i18n'
-import { AiError, buildSystemPrompt, runTurn } from '../ai/agent'
+import { AiError, buildSystemPrompt, localLayoutRequest, runTurn } from '../ai/agent'
 import { providerInfo, type ChatMessage, type ProviderId } from '../ai/providers'
 import { ensureServer, stopServer, type ManagedServer } from '../ai/local'
 import { createDraft, hasChanges, type Draft } from '../ai/tools'
@@ -129,7 +129,7 @@ export const useAi = create<AiState>((set, get) => ({
     }
     const project = useProject.getState().project
     const company = useLibrary.getState().userTemplates
-    if (settings.libraryScope === 'company' && !company.length) {
+    if (settings.libraryScope === 'company' && !company.length && !localLayoutRequest(question)) {
       set(s => ({ bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('company.emptyAi') }] })); return
     }
     const identities = new Set(company.map(catalogueIdentity))
@@ -148,7 +148,7 @@ export const useAi = create<AiState>((set, get) => ({
     draft ??= createDraft(project, ui.currentSheetId)
     set({ busy: true, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question }] })
     try {
-      if ((settings.provider === 'builtin' || settings.provider === 'llamacpp') && settings.managed) {
+      if (!localLayoutRequest(question) && (settings.provider === 'builtin' || settings.provider === 'llamacpp') && settings.managed) {
         set({ activeTool: 'start_local' })
         await ensureServer(settings.managed, settings.baseUrl)
         set({ activeTool: null })
@@ -163,6 +163,7 @@ export const useAi = create<AiState>((set, get) => ({
         ctx: {
           library,
           company,
+          selectedEquipment: ui.selectedEquipment,
           lang: ui.lang,
           describe: (i) => i18n.t(`rules.${i.code}`, i.params),
           allowed: projectChangeAllowed,
@@ -223,7 +224,7 @@ export const useAi = create<AiState>((set, get) => ({
     store.replaceProject(p.project)
     // Équipements seulement : sélectionner en même temps blocs et liaisons par programme fait boucler
     // la synchronisation de sélection avec React Flow (erreur React #185)
-    useUi.getState().select(p.addedEquipment, [])
+    useUi.getState().select([...new Set([...p.addedEquipment, ...(p.rearrangedEquipment ?? [])])], [])
     set((s) => ({ proposal: null, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.applied') }] }))
   },
   discardProposal: () => set((s) => ({ proposal: null, contextNote: DISCARD_NOTE, bubbles: [...s.bubbles, { kind: 'note', text: i18n.t('ai.discarded') }] })),

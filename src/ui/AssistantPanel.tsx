@@ -43,6 +43,7 @@ function Proposal() {
       <details className="ai-proposal-details" open={!layout}>
       <summary>{t('ai.layout.details')}</summary>
       <ul className="ai-proposal-list">
+        {proposal.rearrangedEquipment?.map(id => <li key={'layout-' + id}><span className="tag">{t('ai.layout.changed')}</span> {p.equipment[id]?.name}</li>)}
         {proposal.addedEquipment.map((id) => (
           <li key={id}><span className="tag">{t('ai.addEq')}</span> {p.equipment[id]?.name} <span className="dim">{p.equipment[id]?.model}</span></li>
         ))}

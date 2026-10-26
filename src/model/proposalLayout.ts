@@ -22,10 +22,11 @@ interface Panel {
 const MARGIN = 64, GAP = 48, PAD = 24, HEAD = 48
 
 /** Ne déplace que les ajouts et leurs annotations ; les prises inutilisées restent disponibles. */
-export function proposalLayouts(base: Project, source: Project, ids: string[], sheetId: string): ProposalLayout[] {
+export function proposalLayouts(base: Project, source: Project, ids: string[], sheetId: string, rearrange = false): ProposalLayout[] {
   const settings = exportSettingsOf(source)
   const added = ids.filter(id => source.equipment[id] && (source.equipment[id].sheetId ?? DEFAULT_SHEET_ID) === sheetId)
-  const annotations = Object.values(source.annotations ?? {}).filter(a => !base.annotations?.[a.id] && a.sheetId === sheetId)
+  const wholeSheet = rearrange && Object.values(source.equipment).filter(e => (e.sheetId ?? DEFAULT_SHEET_ID) === sheetId).every(e => added.includes(e.id))
+  const annotations = Object.values(source.annotations ?? {}).filter(a => (wholeSheet || (!rearrange && !base.annotations?.[a.id])) && a.sheetId === sheetId)
   const frames = annotations.filter(a => a.kind === 'frame' && a.zoneId)
     .filter((a, i, list) => list.findIndex(b => b.zoneId === a.zoneId) === i)
   const groups: { frame?: Annotation; ids: string[] }[] = frames.map(frame => ({ frame, ids: added.filter(id => source.equipment[id].zoneId === frame.zoneId) }))
@@ -34,7 +35,8 @@ export function proposalLayouts(base: Project, source: Project, ids: string[], s
   const equipment = { ...source.equipment }
   for (const id of added) equipment[id] = { ...equipment[id], portsExpanded: false }
   const compact = { ...source, equipment }
-  const existing = sheetBounds(base, sheetId, DEFAULT_SHEET_ID)
+  const existing = sheetBounds(rearrange ? { ...source, equipment: Object.fromEntries(Object.entries(source.equipment).filter(([id]) => !added.includes(id))),
+    annotations: Object.fromEntries(Object.entries(source.annotations ?? {}).filter(([id]) => !annotations.some(a => a.id === id))) } : base, sheetId, DEFAULT_SHEET_ID)
 
   return PAPER_SIZES.slice(PAPER_SIZES.indexOf(settings.paper)).map(paper => {
     const { area } = sheetLayout(paper, settings.orientation, SIGNAL_FAMILIES.length, source.info?.revisions?.length ?? 0)
@@ -43,7 +45,14 @@ export function proposalLayouts(base: Project, source: Project, ids: string[], s
     const panels: Panel[] = []
     let valid = true
     for (const group of groups) {
-      if (!group.ids.length) continue
+      if (!group.ids.length) {
+        if (rearrange && group.frame) {
+          const a = group.frame
+          if (a.size.w > width || a.size.h > height) valid = false
+          panels.push({ w: a.size.w, h: a.size.h, equipment: [], annotation: a })
+        }
+        continue
+      }
       const local = layoutDiagram({ ...compact, equipment: Object.fromEntries(group.ids.map(id => [id, equipment[id]])) }, group.ids, sheetId)
       const columns = [...new Set(group.ids.map(id => local.equipment[id].position.x))].sort((a, b) => a - b)
       const inset = group.frame ? PAD : 0, top = group.frame ? HEAD : 0
@@ -78,7 +87,14 @@ export function proposalLayouts(base: Project, source: Project, ids: string[], s
     // Le patch détaillé reste entier, sur des cartes séparées du dessin plutôt qu'au milieu des câbles.
     const noteWidth = Math.min(900, width), chars = Math.max(1, Math.floor((noteWidth - 32) / 8))
     const maxLines = Math.max(1, Math.floor((height - 32) / 20))
-    for (const note of annotations.filter(a => a.kind === 'note')) {
+    for (const note of annotations.filter(a => a.kind === 'note' || (rearrange && a.kind === 'frame' && !frames.some(f => f.id === a.id)))) {
+      if (rearrange) {
+        const w = Math.max(200, note.size.w), rows = note.text.split('\n').reduce((n, line) => n + Math.max(1, Math.ceil(line.length / Math.max(1, Math.floor((w - 32) / 8)))), 0)
+        const h = Math.max(note.size.h, rows * 20 + 32)
+        if (w > width || h > height) valid = false
+        panels.push({ w, h, equipment: [], annotation: note })
+        continue
+      }
       const lines = note.text.split('\n').flatMap(line => line.match(new RegExp(`.{1,${chars}}`, 'gu')) ?? [''])
       for (let start = 0; start < lines.length; start += maxLines) {
         const part = lines.slice(start, start + maxLines)
@@ -116,7 +132,12 @@ export function proposalLayouts(base: Project, source: Project, ids: string[], s
         nextAnnotations[id] = { ...a, id, position: { x: px, y: py }, size: { w: item.panel.w, h: item.panel.h } }
       }
     }
-    const project = { ...source, equipment: nextEquipment, ...(annotations.length ? { annotations: nextAnnotations } : {}),
+    const links = rearrange ? Object.fromEntries(Object.entries(source.links).map(([id, link]) => {
+      if (!added.includes(link.source.equipmentId) && !added.includes(link.target.equipmentId)) return [id, link]
+      const next = { ...link }; delete next.bendX; delete next.bendY
+      return [id, next]
+    })) : source.links
+    const project = { ...source, equipment: nextEquipment, links, ...(annotations.length ? { annotations: nextAnnotations } : {}),
       settings: paper === settings.paper ? source.settings : { ...source.settings, export: { ...settings, paper } } }
     const grid = tilesFor(sheetBounds(project, sheetId, DEFAULT_SHEET_ID, new Map(Object.values(nextEquipment).map(e => [e.id, diagramBlockSize(project, e)]))), area, 100)
     return { paper, pages: grid.cols * grid.rows, valid, project }

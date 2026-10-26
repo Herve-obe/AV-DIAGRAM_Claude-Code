@@ -158,9 +158,24 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
       userText: 'Propose un podcast avec les vingt microphones du catalogue fictif.',
       transport: replies([call('plan_diagram', { ...plan, roles }), call('propose_system', { equipment: [], connections: [] }), call('ask_user', { question: 'Quelle console doit recevoir les vingt micros ?' })], sent) })
     const second = JSON.parse(sent[1])
-    expect(second.messages.some((m: { role: string; content: string }) => m.role === 'tool' && m.content.includes('Extrait limité'))).toBe(true)
+    expect(second.messages.filter((m: { role: string }) => m.role === 'tool')).toEqual([])
     expect(second.messages[0].content).toContain('"ref":"role19"')
     expect(second.messages[0].content).toContain('"template_id":"user-role-19"')
     expect(result.draft).toBe(draft)
   })
+})
+
+it('corrige le nombre de câbles par enceinte observé avec Qwen3 sans perdre le plan', async () => {
+  const draft = base(), sent: string[] = []
+  const bad = { ...audio, connections: [audio.connections[0], { ...audio.connections[1], links_per_pair: 2 }] }
+  const result = await runTurn({ draft, ctx, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+    userText: 'Propose une conférence avec trois micros dynamiques, une console et deux enceintes actives.',
+    transport: replies([call('plan_diagram', plan), call('propose_system', bad), call('propose_system', audio)], sent) })
+  expect(result.draft.addedEquipment).toHaveLength(6)
+  expect(result.draft.addedLinks).toHaveLength(5)
+  expect(result.toolsUsed).not.toContain('ask_user')
+  expect(JSON.parse(sent[2]).tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['propose_system'])
+  expect(JSON.parse(sent[2]).messages[0].content).toContain('in/audioAnalog/xlr3/line+4')
+  expect(sent[2]).toContain('Aucune paire')
+  expect(Object.keys(draft.base.equipment)).toHaveLength(0)
 })

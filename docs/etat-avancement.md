@@ -1,6 +1,10 @@
 # État d'avancement (mise à jour du 2026-10-26)
 
-## Situation actuelle — 0.5.13
+## Situation actuelle — 0.5.14
+
+L’assistant prépare maintenant la réorganisation de l’existant, avec choix de format, aperçu, droits et annulation. Les demandes explicites sont traitées localement ; un outil de réorganisation est aussi disponible pour le modèle. Le plan de câblage reçoit les capacités utiles des appareils et peut corriger une tentative refusée. Le contexte est réduit entre analyse et construction ; le plateau vidéo validé ne demande plus un tour supplémentaire. Le délai HTTP du banc réel est aligné sur le transport natif local. [Détail, tests et limites](ia-correctifs-0.5.14.md). Les essais avec le vrai modèle et la recette native de cette version restent à confirmer.
+
+## Version précédente — 0.5.13
 
 Le tri exclut désormais les ensembles de plusieurs appareils, même fabricant : 78 ensembles et deux accessoires sont écartés ; 30 fiches deviennent explicitement unitaires. 1712 références constructeur et 30 génériques restent disponibles. Les anciens projets conservent les appareils déjà placés. [Détail et recherche de manuels en cours](inventaire/bibliotheque-unitaire-2026-10-26.md).
 
