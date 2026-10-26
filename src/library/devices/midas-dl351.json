@@ -5,13 +5,22 @@
   "model": "DL351",
   "pictogram": "stagebox",
   "status": "community",
-  "weightKg": 16.9,
   "rackU": 7,
   "sources": [
     {
       "url": "https://www.fullcompass.com/common/files/38476-DL351datasheet.pdf",
       "document": "Midas, fiche technique DL351 (hébergée par Full Compass)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1877429/Midas-Pro-6-Dl351.html",
+      "document": "Midas — DL351 Modular I/O Operator Manual, DOC02-DL351 issue C (juillet 2010), pages imprimées 7–8 et 27–31 (lecteur 23–24 et 43–47)",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manuals.co.uk/midas/dl351/manual?file=2937347",
+      "document": "Midas — DL351 Product Information Document, page 1 : Ethernet de commande annoncé ; recoupement requis avec le manuel de 2010",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -21,8 +30,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz ; quatre prises dont une de secours N+1"
     },
     {
       "id": "aes50B",
@@ -30,8 +39,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz ; quatre prises dont une de secours N+1"
     },
     {
       "id": "aes50C",
@@ -39,8 +48,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz ; quatre prises dont une de secours N+1"
     },
     {
       "id": "aes50D",
@@ -48,20 +57,43 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz ; quatre prises dont une de secours N+1"
     },
     {
-      "id": "gpio",
-      "name": "GPIO",
-      "direction": "bidir",
+      "id": "gpioIn",
+      "name": "GPIO IN",
+      "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "dsub25",
+      "format": "25 broches opto-isolées"
     },
     {
-      "id": "midi",
-      "name": "MIDI In/Out/Thru",
-      "direction": "bidir",
+      "id": "gpioOut",
+      "name": "GPIO OUT",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "25 broches opto-isolées"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
       "signal": "control",
       "connector": "din5"
     },
@@ -70,23 +102,24 @@
       "name": "Ethernet (commande)",
       "direction": "bidir",
       "signal": "network",
-      "connector": "unspecified"
+      "connector": "ethercon",
+      "format": "Commande Ethernet ; réservé dans le manuel de 2010, annoncé comme actif dans le Product Information Document ultérieur : vérifier le firmware"
     },
     {
       "id": "ac1",
       "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "100–240 V CA, 50–60 Hz ; alimentations redondantes"
     },
     {
       "id": "ac2",
       "name": "Secteur 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "100–240 V CA, 50–60 Hz ; alimentations redondantes"
     }
   ],
   "slots": [
@@ -130,5 +163,6 @@
       "name": "Carte DL4 8",
       "type": "midas-dl4"
     }
-  ]
+  ],
+  "description": "Châssis modulaire 7U, huit emplacements DL4. Les entrées et sorties locales dépendent des cartes réellement installées (DL441, DL442, DL443, DL444 ou DL452). USB réservé dans le manuel de 2010. Poids et commande Ethernet à confirmer selon la version : documentation constructeur contradictoire."
 }

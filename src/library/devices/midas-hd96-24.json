@@ -10,63 +10,565 @@
       "url": "https://www.fullcompass.com/prod/602302-midas-hd96-24-cc-ip-ul-live-digital-console-144-input-ch-21-touch-screen",
       "document": "Full Compass, fiche HD96-24 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2372341/Midas-Hd96-24-Cc-Tp.html",
+      "document": "Midas — HD96-24-CC-TP User Manual V2.0, pages 15–16, 71 et 241–242 : cartes CM-1, connexions fixes et casques",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2419775/Midas-Hd96-24-Cc-Tp.html",
+      "document": "Midas — HD96-24-CC-TP Quick Start Guide V2.0, pages imprimées 209–211 (lecteur 105–106) : connecteurs, niveaux et dimensions ; annonce Ultranet à recouper",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out1",
+      "name": "Output 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out2",
+      "name": "Output 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out3",
+      "name": "Output 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out4",
+      "name": "Output 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in5",
+      "name": "Input 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out5",
+      "name": "Output 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in6",
+      "name": "Input 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out6",
+      "name": "Output 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in7",
+      "name": "Input 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out7",
+      "name": "Output 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
+      "id": "in8",
+      "name": "Input 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Micro/ligne symétrique, gain −22,5 à +65 dB, max +24 dBu, fantôme 48 V commutable"
+    },
+    {
+      "id": "out8",
+      "name": "Output 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie ligne symétrique, max +21 dBu"
+    },
+    {
       "id": "aes50",
-      "name": "AES50",
+      "name": "AES50 1",
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "Liaison vers stageboxes DL ; nombre de ports non précisé"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
-      "id": "madi",
-      "name": "MADI",
+      "id": "aes502",
+      "name": "AES50 2",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Nombre et type de ports non précisés"
+      "connector": "ethercon",
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
-      "id": "dante",
-      "name": "Dante",
+      "id": "aes503",
+      "name": "AES50 3",
       "direction": "bidir",
-      "signal": "audioIp",
-      "connector": "unspecified",
-      "format": "Nombre de ports non précisé"
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
-      "id": "wc",
-      "name": "Word Clock",
+      "id": "aes504",
+      "name": "AES50 4",
       "direction": "bidir",
-      "signal": "sync",
-      "connector": "unspecified"
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
+    },
+    {
+      "id": "hmacCopper1",
+      "name": "HyperMAC cuivre 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 192,
+      "format": "HyperMAC, 192 canaux bidirectionnels à 96 kHz ; alternative cuivre du Snake 1"
+    },
+    {
+      "id": "hmacFibre1",
+      "name": "HyperMAC fibre 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "opticalcon",
+      "channels": 192,
+      "format": "HyperMAC, Opticon XLR selon le guide constructeur ; alternative fibre du Snake 1"
+    },
+    {
+      "id": "aes3in1",
+      "name": "AES3 In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, deux canaux par prise"
+    },
+    {
+      "id": "aes3out1",
+      "name": "AES3 Out 1",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, deux canaux par prise"
     },
     {
       "id": "hdmi",
-      "name": "HDMI",
+      "name": "Moniteur HDMI 1",
       "direction": "out",
       "signal": "video",
       "connector": "hdmi",
-      "format": "Écran externe"
+      "format": "Écran externe 1080p59,94/60 ou 480p59,94/60"
+    },
+    {
+      "id": "phones1",
+      "name": "Casque A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute stéréo du bus monitor A"
+    },
+    {
+      "id": "lamp1",
+      "name": "Lampe 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC, 5 W"
     },
     {
       "id": "ac1",
       "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "100–240 V CA, 50/60 Hz ; alimentations redondantes"
+    },
+    {
+      "id": "hmacCopper2",
+      "name": "HyperMAC cuivre 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 192,
+      "format": "HyperMAC, 192 canaux bidirectionnels à 96 kHz ; alternative cuivre du Snake 2"
+    },
+    {
+      "id": "hmacFibre2",
+      "name": "HyperMAC fibre 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "opticalcon",
+      "channels": 192,
+      "format": "HyperMAC, Opticon XLR selon le guide constructeur ; alternative fibre du Snake 2"
+    },
+    {
+      "id": "aes3in2",
+      "name": "AES3 In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, deux canaux par prise"
+    },
+    {
+      "id": "aes3out2",
+      "name": "AES3 Out 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, deux canaux par prise"
+    },
+    {
+      "id": "hdmi2",
+      "name": "Moniteur HDMI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Écran externe 1080p59,94/60 ou 480p59,94/60"
+    },
+    {
+      "id": "phones2",
+      "name": "Casque B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute stéréo du bus monitor B"
+    },
+    {
+      "id": "lamp2",
+      "name": "Lampe 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC, 5 W"
     },
     {
       "id": "ac2",
       "name": "Secteur 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "100–240 V CA, 50/60 Hz ; alimentations redondantes"
+    },
+    {
+      "id": "talkMic",
+      "name": "Talk Mic (surface)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro de communication, gain +15 à +60 dB"
+    },
+    {
+      "id": "talkback",
+      "name": "Talkback In (arrière)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Entrée ligne de communication, max +21 dBu"
+    },
+    {
+      "id": "aesSyncIn",
+      "name": "AES3 Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Référence AES3 à 96 kHz"
+    },
+    {
+      "id": "aesSyncOut",
+      "name": "AES3 Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Référence AES3 à 96 kHz"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "96 kHz, TTL, 75 Ω"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "96 kHz, TTL"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet Control",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "usbRear1",
+      "name": "USB arrière 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Hub USB 3.0, clavier et périphériques ; pas d’audio USB direct"
+    },
+    {
+      "id": "usbFader1",
+      "name": "USB Fader Port 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Extension de banques de faders, réservée aux extensions futures selon le guide"
+    },
+    {
+      "id": "usbRear2",
+      "name": "USB arrière 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Hub USB 3.0, clavier et périphériques ; pas d’audio USB direct"
+    },
+    {
+      "id": "usbFader2",
+      "name": "USB Fader Port 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Extension de banques de faders, réservée aux extensions futures selon le guide"
+    },
+    {
+      "id": "usbRear3",
+      "name": "USB arrière 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Hub USB 3.0, clavier et périphériques ; pas d’audio USB direct"
+    },
+    {
+      "id": "usbFader3",
+      "name": "USB Fader Port 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Extension de banques de faders, réservée aux extensions futures selon le guide"
+    },
+    {
+      "id": "usbRear4",
+      "name": "USB arrière 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Hub USB 3.0, clavier et périphériques ; pas d’audio USB direct"
+    },
+    {
+      "id": "usbFader4",
+      "name": "USB Fader Port 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Extension de banques de faders, réservée aux extensions futures selon le guide"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB surface",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0, stockage des shows ; pas d’audio USB direct"
     }
-  ]
+  ],
+  "slots": [
+    {
+      "id": "cm1",
+      "name": "Extension CM-1 1",
+      "type": "klarkteknik-cm1"
+    },
+    {
+      "id": "cm2",
+      "name": "Extension CM-1 2",
+      "type": "klarkteknik-cm1"
+    }
+  ],
+  "weightKg": 43.2,
+  "depthMm": 719,
+  "description": "Surface HD96-24 : huit préamplis locaux et huit sorties ligne. Dante/MADI/USB audio dépendent des cartes optionnelles CM-1 installées ; aucune carte supposée montée. Chaque Snake HyperMAC offre une alternative cuivre/fibre, pas deux flux indépendants. Reste Communauté : les deux ports Ultranet annoncés dans le tableau du guide V2 ne sont pas identifiés sur son dessin arrière ; contrôler la version matérielle avant de les représenter."
 }

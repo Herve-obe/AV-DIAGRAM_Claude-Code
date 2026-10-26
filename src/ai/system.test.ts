@@ -179,3 +179,22 @@ it('corrige le nombre de câbles par enceinte observé avec Qwen3 sans perdre le
   expect(sent[2]).toContain('Aucune paire')
   expect(Object.keys(draft.base.equipment)).toHaveLength(0)
 })
+
+it('explique le nombre de câbles total et corrige séparément les micros et les enceintes', async () => {
+  const draft = base(), sent: string[] = []
+  const bad = { ...audio, connections: [{ ...audio.connections[0], links_per_pair: 3 }, { ...audio.connections[1], links_per_pair: 2 }] }
+  const half = { ...audio, connections: [audio.connections[0], bad.connections[1]] }
+  const refused = runTool(draft, call('propose_system', bad), ctx)
+  expect(refused.draft).toBe(draft)
+  expect(JSON.parse(refused.content).error).toContain('9 câbles pour ce flux')
+  expect(JSON.parse(refused.content).error).toContain('links_per_pair=1')
+  const result = await runTurn({ draft, ctx, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+    userText: 'Propose une conférence avec trois micros dynamiques, une console et deux enceintes actives.',
+    transport: replies([call('plan_diagram', plan), call('propose_system', bad), call('propose_system', half), call('propose_system', audio)], sent) })
+  expect(sent).toHaveLength(4)
+  expect(sent[2]).toContain('9 câbles pour ce flux')
+  expect(sent[3]).toContain('4 câbles pour ce flux')
+  expect(result.draft.addedEquipment).toHaveLength(6)
+  expect(result.draft.addedLinks).toHaveLength(5)
+  expect(checkProject(result.draft.project).filter(i => i.severity !== 'info')).toEqual([])
+})

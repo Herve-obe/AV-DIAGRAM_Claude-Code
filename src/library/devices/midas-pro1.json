@@ -4,7 +4,7 @@
   "manufacturer": "Midas",
   "model": "PRO1",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.proacousticsusa.com/midas-pro1-digital-mixing-console.html",
@@ -15,6 +15,16 @@
       "url": "https://ravepubs.com/?p=19199",
       "document": "rAVe, annonce PRO1",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2805822/Midas-Pro1.html",
+      "document": "Midas — PRO1 Live Audio System Owner’s Manual, DOC02-DL1SERIES issue B (novembre 2012), pages imprimées 20–21, 241–246, 315 et 321–323 (lecteur 38–39, 259–264, 333 et 339–341)",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2726869/Midas-Pro1.html",
+      "document": "Midas — PRO1 Quick Start Guide, panneaux arrière pages 36–38",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -25,8 +35,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -35,8 +52,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -45,8 +69,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -55,8 +86,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -65,8 +103,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in6",
@@ -75,8 +120,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in7",
@@ -85,8 +137,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in8",
@@ -95,8 +154,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in9",
@@ -105,8 +171,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in10",
@@ -115,8 +188,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in11",
@@ -125,8 +205,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in12",
@@ -135,8 +222,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in13",
@@ -145,8 +239,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in14",
@@ -155,8 +256,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in15",
@@ -165,8 +273,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in16",
@@ -175,8 +290,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in17",
@@ -185,8 +307,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in18",
@@ -195,8 +324,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in19",
@@ -205,8 +341,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in20",
@@ -215,8 +358,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in21",
@@ -225,8 +375,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in22",
@@ -235,8 +392,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in23",
@@ -245,8 +409,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in24",
@@ -255,8 +426,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne symétrique ; gain −22,5 à +65 dB ; maximum +24 dBu ; fantôme commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "out1",
@@ -265,7 +443,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out2",
@@ -274,7 +452,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out3",
@@ -283,7 +461,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out4",
@@ -292,7 +470,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out5",
@@ -301,7 +479,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out6",
@@ -310,7 +488,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out7",
@@ -319,7 +497,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out8",
@@ -328,7 +506,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out9",
@@ -337,7 +515,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out10",
@@ -346,7 +524,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out11",
@@ -355,7 +533,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out12",
@@ -364,7 +542,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out13",
@@ -373,7 +551,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out14",
@@ -382,7 +560,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out15",
@@ -391,7 +569,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out16",
@@ -400,87 +578,89 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique ; maximum +21 dBu"
     },
     {
       "id": "out17",
-      "name": "Output 17",
+      "name": "Master L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out18",
-      "name": "Output 18",
+      "name": "Master R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out19",
-      "name": "Output 19",
+      "name": "Master M",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out20",
-      "name": "Output 20",
+      "name": "Talk Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out21",
-      "name": "Output 21",
+      "name": "Monitor A L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out22",
-      "name": "Output 22",
+      "name": "Monitor A R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out23",
-      "name": "Output 23",
+      "name": "Monitor B L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "out24",
-      "name": "Output 24",
+      "name": "Monitor B R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Dont 2 sorties écoute stéréo"
+      "format": "Sortie ligne symétrique dédiée ; maximum +24 dBu"
     },
     {
       "id": "tb",
-      "name": "Talkback",
+      "name": "Talk Mic (surface)",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic"
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Micro de communication, fantôme 48 V"
     },
     {
       "id": "aes50A",
@@ -488,8 +668,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
       "id": "aes50B",
@@ -497,8 +677,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
       "id": "aes50C",
@@ -506,8 +686,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
       "id": "aes50D",
@@ -515,8 +695,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
       "id": "aes50E",
@@ -524,8 +704,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
       "id": "aes50F",
@@ -533,25 +713,26 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "channels": 48,
-      "format": "AES50 (SuperMAC)"
+      "channels": 24,
+      "format": "AES50 / SuperMAC, 24 canaux bidirectionnels à 96 kHz"
     },
     {
       "id": "aes3in",
-      "name": "AES3 In",
+      "name": "AES3 In 1",
       "direction": "in",
       "signal": "audioDigital",
       "connector": "xlr3",
-      "channels": 2
+      "channels": 2,
+      "format": "AES3, deux canaux par prise ; SRC commutable"
     },
     {
       "id": "aes3out",
-      "name": "AES3 Out",
+      "name": "AES3 Out 1",
       "direction": "out",
       "signal": "audioDigital",
       "connector": "xlr3",
       "channels": 2,
-      "format": "3 sorties AES3"
+      "format": "AES3, deux canaux par prise ; SRC commutable"
     },
     {
       "id": "wcin",
@@ -576,7 +757,7 @@
     },
     {
       "id": "phones",
-      "name": "Casque",
+      "name": "Casque A",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
@@ -602,14 +783,124 @@
       "direction": "out",
       "signal": "video",
       "connector": "dvi",
-      "format": "DVI / DP"
+      "format": "DVI, sortie de la vue de la console"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
+    },
+    {
+      "id": "aes3in2",
+      "name": "AES3 In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, deux canaux ; SRC commutable"
+    },
+    {
+      "id": "aes3out2",
+      "name": "AES3 Out 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, deux canaux ; SRC commutable"
+    },
+    {
+      "id": "aesSyncIn",
+      "name": "AES3 Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Synchronisation AES3 à 96 kHz"
+    },
+    {
+      "id": "aesSyncOut",
+      "name": "AES3 Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Référence AES3 à 96 kHz"
+    },
+    {
+      "id": "talkbackIn",
+      "name": "Talkback In (arrière)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Entrée ligne de communication ; distincte du Talk Mic de surface"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet Control",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "network": {
+        "capacityMbps": 100
+      },
+      "format": "Commande Ethernet 100 Mb/s"
+    },
+    {
+      "id": "usb1",
+      "name": "USB arrière 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB hôte pour clavier/souris ; ne transporte pas d’audio USB"
+    },
+    {
+      "id": "usb2",
+      "name": "USB arrière 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB hôte pour clavier/souris ; ne transporte pas d’audio USB"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB surface",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Stockage des shows et mises à jour ; ne transporte pas d’audio USB"
+    },
+    {
+      "id": "phonesB",
+      "name": "Casque B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute stéréo sous l’accoudoir"
+    },
+    {
+      "id": "lamp",
+      "name": "Lampe 12 V",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V, broches 3 masse et 4 +12 V"
+    },
+    {
+      "id": "footswitch",
+      "name": "Footswitch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs"
     }
-  ]
+  ],
+  "description": "Console autonome : 24 entrées micro/ligne locales ; 16 sorties ligne, 3 masters, 4 sorties monitor et 1 talk out. AES3 audio et prises de synchronisation représentés séparément. Les stagebox externes sont des appareils distincts."
 }

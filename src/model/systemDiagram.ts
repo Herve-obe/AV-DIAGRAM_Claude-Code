@@ -51,7 +51,7 @@ export function connectSystem(project: Project, roles: Map<string, string[]>, co
           }
           if (selected) break
         }
-        if (!selected) return { error: `Aucune paire de prises libres et documentées compatible (${entry.signal}) entre ${next.equipment[sourceId].name} et ${next.equipment[targetId].name}. Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision.` }
+        if (!selected) return { error: (cableIndex > 0 ? `La simulation a trouvé ${cableIndex} câble(s) compatible(s) pour cette paire, mais links_per_pair=${count} en demande ${count} pour CHAQUE paire (${count * Math.max(from.length, to.length)} câbles pour ce flux). Si un seul câble par appareil est voulu, utiliser links_per_pair=1 ou omettre ce champ ; ne pas y mettre la quantité d’équipements. Si ces câbles indépendants sont obligatoires, choisir des appareils ou interfaces disposant des prises nécessaires. ` : '') + `Aucune paire de prises libres et documentées compatible (${entry.signal}) entre ${next.equipment[sourceId].name} et ${next.equipment[targetId].name}. Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision.` }
         next = selected.project
         addedLinks.push(selected.id)
       }

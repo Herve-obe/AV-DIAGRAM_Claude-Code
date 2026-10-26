@@ -630,7 +630,7 @@
   {
     "id": "midas-dl351",
     "model": "DL351",
-    "status": "document identifié, accès à confirmer",
+    "status": "document retrouvé",
     "documents": [
       {
         "url": "https://mediadl.musictribe.com/media/PLM/data/docs/P0ACD/DL351-Modular-lO-Operators-Manual_OM_EN.pdf",
@@ -639,12 +639,31 @@
         "state": "document indexé sur ancien hébergement ; téléchargement à vérifier",
         "accessed": "2026-10-26",
         "method": "recherche ciblée sur les documents officiels"
+      },
+      {
+        "url": "https://www.manualslib.com/manual/1877429/Midas-Pro-6-Dl351.html",
+        "document": "Midas — DL351 Modular I/O Operator Manual, DOC02-DL351 issue C (juillet 2010), pages imprimées 7–8 et 27–31 (lecteur 23–24 et 43–47)",
+        "accessed": "2026-10-26",
+        "kind": "manuel fabricant hébergé par un tiers",
+        "state": "Pages techniques lues dans le navigateur ; fiche corrigée seulement pour les points prouvés",
+        "method": "lecture des pages et inspection des dessins de connectique"
+      },
+      {
+        "url": "https://www.manuals.co.uk/midas/dl351/manual?file=2937347",
+        "document": "Midas — DL351 Product Information Document, page 1 : Ethernet de commande annoncé ; recoupement requis avec le manuel de 2010",
+        "accessed": "2026-10-26",
+        "kind": "manuel fabricant hébergé par un tiers",
+        "state": "Pages techniques lues dans le navigateur ; fiche corrigée seulement pour les points prouvés",
+        "method": "lecture des pages et inspection des dessins de connectique"
       }
     ],
     "notes": [
-      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant."
+      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant.",
+      "Châssis modulaire 7U, huit emplacements DL4. Les entrées et sorties locales dépendent des cartes réellement installées (DL441, DL442, DL443, DL444 ou DL452). USB réservé dans le manuel de 2010. Poids et commande Ethernet à confirmer selon la version : documentation constructeur contradictoire."
     ],
-    "corrections": []
+    "corrections": [
+      "AES50 : 24 canaux par prise ; GPIO et MIDI séparés ; IEC identifié ; poids contradictoire retiré."
+    ]
   },
   {
     "id": "midas-dm12",
@@ -666,7 +685,7 @@
   {
     "id": "midas-hd96-24",
     "model": "Heritage-D HD96-24",
-    "status": "document identifié, accès à confirmer",
+    "status": "document retrouvé",
     "documents": [
       {
         "url": "https://mediadl.musictribe.com/media/PLM/data/docs/HD96/QSG_MI_0603-AED_HD96-24-CC-TP_WW.pdf",
@@ -675,12 +694,31 @@
         "state": "document indexé sur ancien hébergement ; téléchargement à vérifier",
         "accessed": "2026-10-26",
         "method": "recherche ciblée sur les documents officiels"
+      },
+      {
+        "url": "https://www.manualslib.com/manual/2372341/Midas-Hd96-24-Cc-Tp.html",
+        "document": "Midas — HD96-24-CC-TP User Manual V2.0, pages 15–16, 71 et 241–242 : cartes CM-1, connexions fixes et casques",
+        "accessed": "2026-10-26",
+        "kind": "manuel fabricant hébergé par un tiers",
+        "state": "Pages techniques lues dans le navigateur ; fiche corrigée seulement pour les points prouvés",
+        "method": "lecture des pages et inspection des dessins de connectique"
+      },
+      {
+        "url": "https://www.manualslib.com/manual/2419775/Midas-Hd96-24-Cc-Tp.html",
+        "document": "Midas — HD96-24-CC-TP Quick Start Guide V2.0, pages imprimées 209–211 (lecteur 105–106) : connecteurs, niveaux et dimensions ; annonce Ultranet à recouper",
+        "accessed": "2026-10-26",
+        "kind": "manuel fabricant hébergé par un tiers",
+        "state": "Pages techniques lues dans le navigateur ; fiche corrigée seulement pour les points prouvés",
+        "method": "lecture des pages et inspection des dessins de connectique"
       }
     ],
     "notes": [
-      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant."
+      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant.",
+      "Surface HD96-24 : huit préamplis locaux et huit sorties ligne. Dante/MADI/USB audio dépendent des cartes optionnelles CM-1 installées ; aucune carte supposée montée. Chaque Snake HyperMAC offre une alternative cuivre/fibre, pas deux flux indépendants. Reste Communauté : les deux ports Ultranet annoncés dans le tableau du guide V2 ne sont pas identifiés sur son dessin arrière ; contrôler la version matérielle avant de les représenter."
     ],
-    "corrections": []
+    "corrections": [
+      "Prises fixes ajoutées ; MADI/Dante retirés des prises natives et remplacés par deux emplacements CM-1 ; Ultranet non confirmé signalé."
+    ]
   },
   {
     "id": "midas-heritage-3000",
@@ -713,17 +751,26 @@
         "state": "document indexé sur ancien hébergement ; téléchargement à vérifier",
         "accessed": "2026-10-26",
         "method": "recherche ciblée sur les documents officiels"
+      },
+      {
+        "url": "https://cdn.mediavalet.com/aunsw/musictribe/_NkA_392TEi1RDmBgHawqQ/27f-J7oqGkmu399Kl-40OQ/Original/QSG_MI_0603-AEO_M32-LIVE_WW.pdf",
+        "document": "Midas — M32 LIVE Quick Start Guide v6.0",
+        "kind": "manuel fabricant",
+        "state": "Document identifié ; accès PDF complet à confirmer",
+        "accessed": "2026-10-26",
+        "method": "recherche ciblée sur le nouveau CDN officiel"
       }
     ],
     "notes": [
-      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant."
+      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant.",
+      "ManualsLib regroupe notamment un manuel M32R LIVE sur sa page M32 LIVE : ne pas appliquer ses 16 préamplis à la M32. Guide M32 LIVE v6 identifié sur le nouveau CDN constructeur ; lecture complète à reprendre."
     ],
     "corrections": []
   },
   {
     "id": "midas-pro1",
     "model": "PRO1",
-    "status": "document identifié, accès à confirmer",
+    "status": "document retrouvé",
     "documents": [
       {
         "url": "https://mediadl.musictribe.com/media/PLM/data/docs/P0BNP/PRO1-Operators-Manual_OM_EN.pdf",
@@ -732,12 +779,31 @@
         "state": "document indexé sur ancien hébergement ; téléchargement à vérifier",
         "accessed": "2026-10-26",
         "method": "recherche ciblée sur les documents officiels"
+      },
+      {
+        "url": "https://www.manualslib.com/manual/2805822/Midas-Pro1.html",
+        "document": "Midas — PRO1 Live Audio System Owner’s Manual, DOC02-DL1SERIES issue B (novembre 2012), pages imprimées 20–21, 241–246, 315 et 321–323 (lecteur 38–39, 259–264, 333 et 339–341)",
+        "accessed": "2026-10-26",
+        "kind": "manuel fabricant hébergé par un tiers",
+        "state": "Pages techniques lues dans le navigateur ; fiche corrigée seulement pour les points prouvés",
+        "method": "lecture des pages et inspection des dessins de connectique"
+      },
+      {
+        "url": "https://www.manualslib.com/manual/2726869/Midas-Pro1.html",
+        "document": "Midas — PRO1 Quick Start Guide, panneaux arrière pages 36–38",
+        "accessed": "2026-10-26",
+        "kind": "manuel fabricant hébergé par un tiers",
+        "state": "Pages techniques lues dans le navigateur ; fiche corrigée seulement pour les points prouvés",
+        "method": "lecture des pages et inspection des dessins de connectique"
       }
     ],
     "notes": [
-      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant."
+      "Le domaine historique répond 502 pour plusieurs documents ; rechercher le nouveau lien dans le support fabricant.",
+      "Connectique locale, niveaux, AES3, synchronisation et AES50 corrigés après lecture ; fiche passée Vérifié."
     ],
-    "corrections": []
+    "corrections": [
+      "Deux paires AES3 et sync séparés ; MIDI/USB/commande ajoutés ; niveaux micro/ligne distingués."
+    ]
   },
   {
     "id": "midas-pro2c",

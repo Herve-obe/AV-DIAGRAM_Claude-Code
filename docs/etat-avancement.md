@@ -1,8 +1,10 @@
 # État d'avancement (mise à jour du 2026-10-26)
 
-## Situation actuelle — 0.5.14
+## Situation actuelle — 0.5.15
 
-L’assistant prépare maintenant la réorganisation de l’existant, avec choix de format, aperçu, droits et annulation. Les demandes explicites sont traitées localement ; un outil de réorganisation est aussi disponible pour le modèle. Le plan de câblage reçoit les capacités utiles des appareils et peut corriger une tentative refusée. Le contexte est réduit entre analyse et construction ; le plateau vidéo validé ne demande plus un tour supplémentaire. Le délai HTTP du banc réel est aligné sur le transport natif local. [Détail, tests et limites](ia-correctifs-0.5.14.md). Les essais avec le vrai modèle et la recette native de cette version restent à confirmer.
+La réorganisation locale de l’existant et le cahier des charges interview/live passent le banc réel Windows 0.5.14, mais la conférence générique échoue encore sur le nombre de câbles par appareil (cinq essais réussis sur six). La 0.5.15 fournit un diagnostic de capacité précis et explicite le paramètre de câblage, avec test de reprise. 476 tests locaux réussis ; nouveau banc réel Windows/Mac à confirmer. [Détail](ia-correctifs-0.5.15.md).
+
+Le complément de recherche manuelle corrige notamment la PRO1 (passée Vérifié), le DL351 et la HD96. Les divergences de version restent documentées et empêchent leur validation globale. Bibliothèque active : 476 Vérifié, 1 236 Communauté, 30 génériques. [Suivi documentaire](inventaire/suite-manualslib-2026-10-26.md).
 
 ## Version précédente — 0.5.13
 
