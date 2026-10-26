@@ -5,7 +5,7 @@
   "pictogram": "mic",
   "manufacturer": "Shure",
   "model": "SM58 SE",
-  "status": "community",
+  "status": "verified",
   "description": "Microphone dynamique cardioïde, avec interrupteur",
   "aliases": [
     "SM58SE",
@@ -26,9 +26,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1186146756.pdf",
       "document": "Novelty — SM58 SE : SM58",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.shure.com/en-US/docs/guide/SM58",
+      "document": "Shure SM58 User Guide",
+      "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.298
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie micro",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "XLR 3 broches mâle ; microphone dynamique, interrupteur marche/arrêt (SM58SE)."
+    }
+  ],
+  "weightKg": 0.33
 }

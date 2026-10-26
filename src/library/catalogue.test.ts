@@ -87,7 +87,7 @@ describe('catalogue Novelty hors Structure', () => {
     expect(template('audio-technica-at8615').domain).toBe('sound')
   })
 
-  it('conserve les variantes et les ensembles qui ne sont pas équivalents à un appareil seul', () => {
+  it('conserve la traçabilité des variantes et des ensembles désormais exclus', () => {
     const linked = (id: number) => coverage.products.find(p => p.noveltyId === id)!.templateId
     expect(linked(14310)).not.toBe('l-acoustics-112p') // kit de deux enceintes
     expect(linked(35417)).not.toBe('blackmagic-web-presenter') // version 4K
@@ -168,7 +168,10 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
     expect(new Set(raw.map(t => t.id)).size).toBe(raw.length)
     expect(audit.entries.map(t => t.id).sort()).toEqual(raw.map(t => t.id).sort())
     expect(new Set(audit.entries.map(t => t.id)).size).toBe(raw.length)
-    for (const row of audit.entries) expect(LIBRARY_INDEX.has(row.id), row.id).toBe(row.decision !== 'excluded')
+    for (const row of audit.entries) {
+      if (row.decision === 'excluded') expect(Object.hasOwn(excludedDevices, row.id), row.id).toBe(true)
+      expect(LIBRARY_INDEX.has(row.id), row.id).toBe(!Object.hasOwn(excludedDevices, row.id))
+    }
     const support = raw.find(t => t.id === 'adam-hall-slt005')!
     const { project, id } = addEquipment(createProject('Ancien projet'), support, { x: 0, y: 0 })
     const loaded = JSON.parse(JSON.stringify(project))
@@ -176,9 +179,9 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
     expect(loaded.equipment[id].model).toBe('SLT005')
   })
 
-  it('écarte les supports, câbles seuls, licences et consommables, sans exclure les appareils inclus dans des kits', () => {
+  it('écarte les accessoires et les ensembles, et conserve les appareils physiques', () => {
     for (const id of ['adam-hall-slt005', 'compulocks-ipadair-stand', 'luke-asb-i', 'novelty-siege-de-pont-pour-poursuite', 'novelty-cmx', 'novelty-hmi2500the-h', 'apple-logic-pro-x', 'shure-sbrc-e', 'audio-technica-at8601', 'l-acoustics-syva-base']) expect(LIBRARY_INDEX.has(id), id).toBe(false)
-    for (const id of ['l-acoustics-108p-kit-x2', 'lightware-kit-fibre-200-modex-opts', 'motorola-dp1400-set-x6', 'indu-electric-ap125tdif', 'oray-fly-duo-150-200', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
+    for (const id of ['l-acoustics-108p', 'motorola-dp1400', 'indu-electric-ap125tdif', 'oray-fly-duo-150-200', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
     expect(searchLibrary(LIBRARY, 'SLT005')).toEqual([])
     expect(template('audio-technica-at8615').ports.map(p => p.direction)).toEqual(['in', 'out'])
   })
@@ -211,5 +214,40 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
     expect(template('yamaha-hs5').powerW).toBe(45)
     expect(LIBRARY_INDEX.has('etc-source-four-led-lustr2')).toBe(false)
     expect(template('etc-source-four-led-series-2-lustr').status).toBe('verified')
+  })
+})
+
+
+describe('appareils unitaires — décision du 26 octobre', () => {
+  const files = import.meta.glob<EquipmentTemplate>('./devices/*.json', { eager: true, import: 'default' })
+  const audit: { entries: { id: string; decision: 'excluded' | 'normalized'; modelAfter?: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/ensembles-audit-2026-10-26.json', import.meta.url), 'utf8'))
+
+  it('applique toutes les exclusions sans altérer les appareils enregistrés dans les anciens projets', () => {
+    for (const row of audit.entries.filter(r => r.decision === 'excluded')) {
+      expect(LIBRARY_INDEX.has(row.id), row.id).toBe(false)
+      const original = Object.values(files).find(t => t.id === row.id)!
+      expect(original, row.id).toBeDefined()
+      const { project, id } = addEquipment(createProject('Projet existant'), original, { x: 0, y: 0 })
+      const loaded = JSON.parse(JSON.stringify(project))
+      expect(isProject(loaded), row.id).toBe(true)
+      expect(loaded.equipment[id].ports, row.id).toEqual(original.ports)
+      expect(loaded.equipment[id].model, row.id).toBe(original.model)
+    }
+  })
+
+  it('présente les lots homogènes comme un seul appareil, sans poids de transport supposé', () => {
+    for (const row of audit.entries.filter(r => r.decision === 'normalized')) {
+      const unit = template(row.id)
+      expect(unit.model, row.id).toBe(row.modelAfter)
+      expect([unit.model, unit.description, ...(unit.aliases ?? [])].join(' '), row.id).not.toMatch(/(?:kit|set)\s*(?:de\s*)?[x×]?\s*[2-9]|(?:kit|set)\s*x?\s*2[0-9]/i)
+    }
+    expect(template('l-acoustics-12xt-kit-x2').weightKg).toBeUndefined()
+    expect(template('novelty-matled-cbat-setx4').weightKg).toBeUndefined()
+    expect(template('astera-quikpunch').weightKg).toBe(6.567)
+  })
+
+  it('sépare les ensembles HF des appareils à plusieurs canaux dans un même châssis', () => {
+    for (const id of ['sennheiser-ew100-eng-g4', 'sennheiser-ew335-g3-a', 'shure-psm1000', 'shure-ur4d-plus-ur2-x2-freq-g1e', 'swit-flow500', 'teradek-beam', 'novelty-regie-4k-compacte', 'l-acoustics-la-rak-ii-avb']) expect(LIBRARY_INDEX.has(id), id).toBe(false)
+    for (const id of ['sennheiser-ek-100-g4', 'sennheiser-sk-100-g4', 'sennheiser-em-300-g3', 'shure-ur1', 'shure-ur4d', 'shure-p10t', 'shure-p10r-plus', 'digico-sd-rack', 'blackmagic-design-smartview-duo', 'marshall-electronics-v-r44p-hdsdi']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
   })
 })

@@ -1,6 +1,14 @@
-# État d'avancement (mise à jour du 2026-10-25)
+# État d'avancement (mise à jour du 2026-10-26)
 
-## Situation actuelle — 0.5.12
+## Situation actuelle — 0.5.13
+
+Le tri exclut désormais les ensembles de plusieurs appareils, même fabricant : 78 ensembles et deux accessoires sont écartés ; 30 fiches deviennent explicitement unitaires. 1712 références constructeur et 30 génériques restent disponibles. Les anciens projets conservent les appareils déjà placés. [Détail et recherche de manuels en cours](inventaire/bibliotheque-unitaire-2026-10-26.md).
+
+Quatre fiches Shure sont vérifiées après consultation de leur documentation. Les autres liens documentaires ajoutés n’impliquent pas une vérification technique complète. La recherche reste inachevée et distingue les documents retrouvés, les accès à confirmer et les références non encore examinées.
+
+Le [cahier des charges IA](cahier-des-charges-ia.md) analyse le défaut de mise en page de l’existant et définit les actions à ajouter, la clarification, les connaissances et la recette. 25 scénarios initiaux sont enregistrés. Les nouvelles actions IA ne sont pas encore codées : le problème de la capture reste ouvert.
+
+## Version précédente — 0.5.12
 
 Le template Concert enregistre les sorties ligne de console en stéréo. Les 2 156 fiches ont été revues pour le périmètre et le classement ; le relevé de chaque décision est conservé dans [l’audit de bibliothèque](inventaire/audit-bibliotheque-0.5.12.md). Écrans de projection, optiques et effets sont conservés. Les valeurs et connectiques non établies restent à documenter.
 

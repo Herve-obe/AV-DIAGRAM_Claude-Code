@@ -1,0 +1,2980 @@
+{
+  "date": "2026-10-26",
+  "baseVersion": "0.5.12",
+  "policy": "Un bloc représente un appareil physique. Exclure les lots de location et les ensembles fabricant de plusieurs appareils indépendants. Pour un lot homogène sans fiche unitaire existante, conserver une seule fiche explicitement unitaire et retirer les valeurs agrégées non établies.",
+  "scope": {
+    "rawTemplates": 2156,
+    "activeTemplatesBefore": 1792,
+    "activeTemplatesAfter": 1712
+  },
+  "entries": [
+    {
+      "id": "acclaim-lighting-al-driver-8rgbw-24v",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "AL-Driver-8RGBW 24V",
+        "description": "Set de 2 x Alimentation-gradateur LED, DMX512 (XLR 3b), 8 x 4 circuits (R,G,B,W), 144W maxi, 24V",
+        "aliases": [
+          "DRIVELED8RGBX2",
+          "Acclaim Lighting AL-Driver-8RGBW 24V"
+        ],
+        "weightKg": 2.4,
+        "powerW": null
+      },
+      "modelAfter": "AL-Driver-8RGBW 24V",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/al-driver-8rgbw-24v/",
+          "document": "Novelty — AL-Driver-8RGBW 24V",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/acclaim-lighting_al-driver-8rgbw_ft.pdf",
+          "document": "Novelty — AL-Driver-8RGBW 24V : AL-Driver-RGBW 24V",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/acclaim-lighting_al-driver-8rgbw_manuel.pdf",
+          "document": "Novelty — AL-Driver-8RGBW 24V : AL-Driver-RGBW 24V",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "ambiance-lumiere-piko-set-x8",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "PIKO set x8",
+      "descriptionBefore": "Set de 8 x spots à LED sur tige, gamme \"Muséo\", orientable et réglable de 35 mm à 370 mm, 1,25W",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/piko-set-x8/",
+          "document": "Novelty — PIKO set x8",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-ambiancelumiere_piko_ft.pdf",
+          "document": "Novelty — PIKO set x8 : Duplication : Piko",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "apple-sonnet-xmac-mini-server-logic-pro-x",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "xMac Mini Server – Logic Pro X",
+      "descriptionBefore": "Kit station audio, composée d'un MacMini (quadricoeur Intel Core i7 2,3 Ghz, RAM 4Go, SSD 256Go) + logiciels séquenceurs Logic Pro X + carte audio HDSPe MADI FX + carte virtuelle Dante, monté dans 1 rack 1U avec alimentation",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/bureau/xmac-mini-server-logic-pro-x/",
+          "document": "Novelty — xMac Mini Server – Logic Pro X",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sonnet_xMacMiniServer_ft.pdf",
+          "document": "Novelty — xMac Mini Server – Logic Pro X : xMac Mini Server",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "astera-ax3-novelty-35658",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "AX3",
+      "descriptionBefore": "Projecteur LED sur batterie, LED 15W, RGBW, angle 16° set de 8, blanc",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/ax3/",
+          "document": "Novelty — AX3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/8799-4660-ax3-ch.pdf",
+          "document": "Novelty — AX3 : AX3_ch",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/5619-4660-ax3-dc.pdf",
+          "document": "Novelty — AX3 : AX3_dc",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "astera-ax5-novelty-35566",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "AX5",
+      "descriptionBefore": "Projecteur LED sur batterie, LED 45W RGBW, angle 13° set de 8",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/ax5/",
+          "document": "Novelty — AX5",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10536-4647-ax5-triplepar-datasheet-v3.pdf",
+          "document": "Novelty — AX5 : AX5_TriplePar_Datasheet",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/9772-4647-ax5-triplepar-manual-en-de-it-es-fr-cn-674x540-v1.pdf",
+          "document": "Novelty — AX5 : AX5_TriplePAR_Manual",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "astera-ax9-novelty-35577",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "AX9",
+      "descriptionBefore": "Projecteur LED sur batterie, LED 105W, RGBW, angle 13° set de 8",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/ax9/",
+          "document": "Novelty — AX9",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/5307-4648-ax9-powerpar-datasheet-v3.pdf",
+          "document": "Novelty — AX9 : AX9_PowerPar_Datasheet",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/4396-4648-ax9-powerpar-manual-en-de-it-es-fr-pt-674x540-v1.pdf",
+          "document": "Novelty — AX9 : AX9_PowerPAR_Manual",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "astera-hydrapanel",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "HydraPanel",
+        "description": "Projecteur LED sur batterie, 6 LED Titan 25W RGBMA, IP65, set de 4",
+        "aliases": [
+          "Astera HydraPanel"
+        ],
+        "weightKg": 0.6,
+        "powerW": null
+      },
+      "modelAfter": "HydraPanel",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/hydrapanel/",
+          "document": "Novelty — HydraPanel",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/2025/09/FP6_HydraPanel_Datasheet_V3-1.pdf",
+          "document": "Novelty — HydraPanel : Fiche technique",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "astera-quikpunch",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "QuikPunch",
+        "description": "Projecteur LED sur batterie, LED 75W RGBMA, IP65, set de 8",
+        "aliases": [
+          "Astera QuikPunch"
+        ],
+        "weightKg": 6.567,
+        "powerW": 100
+      },
+      "modelAfter": "QuikPunch",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/quikpunch/",
+          "document": "Novelty — QuikPunch",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/2025/09/Datasheet_QuikPunch_V3.pdf",
+          "document": "Novelty — QuikPunch : Fiche technique",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "astera-quikspot",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "QuikSpot",
+        "description": "Projecteur LED sur batterie, LED 60W RGBMA, IP65, set de 8",
+        "aliases": [
+          "QUIKPUNCH",
+          "Astera QuikSpot"
+        ],
+        "weightKg": 3.45,
+        "powerW": 50
+      },
+      "modelAfter": "QuikSpot",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/quikspot/",
+          "document": "Novelty — QuikSpot",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/2025/09/QuikSpot_Datasheet_V3.pdf",
+          "document": "Novelty — QuikSpot : Fiche technique",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "avab-congo-kid-pupitre-manuel-40-circuits",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "CONGO KID PUPITRE MANUEL 40 CIRCUITS",
+        "description": "Ensemble Congo Kid + 2 écrans",
+        "aliases": [
+          "AVAB | CONGO KID PUPITRE MANUEL 40 CIRCUITS",
+          "CONGOKID",
+          "AVAB AVAB | CONGO KID PUPITRE MANUEL 40 CIRCUITS"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "Congo Kid",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/48-circuits/avab-congo-kid-pupitre-manuel-40-circuits/",
+          "document": "Novelty — AVAB | CONGO KID PUPITRE MANUEL 40 CIRCUITS",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "avid-venue-profile",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "VENUE Profile",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://cuesale.com/product/digidesign-venue-profile-set/",
+          "document": "Cuesale, système VENUE Profile (occasion)",
+          "accessed": "2026-10-08"
+        },
+        {
+          "url": "https://www.pssl.com/products/digidesign-stage-rack-48-16-digital-avid-profile",
+          "document": "PSSL, Stage Rack VENUE (revendeur)",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "behringer-ultralink-pro-mx882",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "Ultralink Pro MX882",
+        "description": "Kit de 2 mixeurs ligne (8 entrées/2 sorties) ou splitteurs ligne (2 entrées/8 sorties)",
+        "aliases": [
+          "MX882-SET",
+          "BEHRINGER Ultralink Pro MX882"
+        ],
+        "weightKg": 3,
+        "powerW": null
+      },
+      "modelAfter": "Ultralink Pro MX882",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/mixage/analogique-8-voies/ultralink-pro-mx882/",
+          "document": "Novelty — Ultralink Pro MX882",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/berhinger_ultralinkpro_manuel.pdf",
+          "document": "Novelty — Ultralink Pro MX882 : Ultra Link Pro MX882",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/berhinger_ultralinkpro_ft.pdf",
+          "document": "Novelty — Ultralink Pro MX882 : Ultra Link Pro MX882",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "bose-dm2c-lp-white",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "DM2C-LP WHITE",
+        "description": "Kit d'enceintes, 80W, 97 dB",
+        "aliases": [
+          "BOSE® DM2C-LP WHITE"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "DM2C-LP White",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/kit-d-enceintes/dm2c-lp-white/",
+          "document": "Novelty — DM2C-LP WHITE",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "bose-dm5c-white",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "DM5C White",
+        "description": "Kit d'enceintes 240W, 105 dB",
+        "aliases": [
+          "DM5CW",
+          "BOSE® DM5C White"
+        ],
+        "weightKg": 4.45,
+        "powerW": null
+      },
+      "modelAfter": "DM5C White",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/kit-d-enceintes/dm5c-white/",
+          "document": "Novelty — DM5C White",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6108-4370-tds-designmax-dm5c-fr.pdf",
+          "document": "Novelty — DM5C White : dm5c_fr",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "bose-dmc3",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "DMC3",
+        "description": "Kit d'enceintes, 120W, 98 dB",
+        "aliases": [
+          "DM3C",
+          "BOSE® DMC3"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "DMC3",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/kit-d-enceintes/dmc3/",
+          "document": "Novelty — DMC3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8599-4371-tds-designmax-dm3c-fr.pdf",
+          "document": "Novelty — DMC3 : dm3c_fr",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "bron-kobold-dw400-set-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Kobold DW400 set x2",
+      "descriptionBefore": "Kit de 2 projecteurs à lampe 400W, étanches, \"Daylight\", 15 à 45°",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-hmi/400w/kobold-dw400-set-x2/",
+          "document": "Novelty — Kobold DW400 set x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/broncolor_kobold_openface_dw400_manuel_fr.pdf",
+          "document": "Novelty — Kobold DW400 set x2 : DW400",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/broncolor_kobold_openface_dw400_ft.pdf",
+          "document": "Novelty — Kobold DW400 set x2 : DW400",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/Certificat_de_conformite_Kobold.pdf",
+          "document": "Novelty — Kobold DW400 set x2 : KOBOLD",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "clear-com-body-pack",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "BODY-PACK",
+      "descriptionBefore": "Poste intercom individuel composé de 1 Body RS501 + 1 casque DT108 ou DT109, CC40, CC95, ...",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/body-pack/",
+          "document": "Novelty — BODY-PACK",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186142831.pdf",
+          "document": "Novelty — BODY-PACK : CC95-CC260",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "clear-com-freespeak-ii",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Freespeak II",
+      "descriptionBefore": "Set interphonie HF 10 postes, fréq 1,9Ghz, 3 antennes actives, 1 splitter",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/freespeak-ii/",
+          "document": "Novelty — Freespeak II",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_base-ii_manuel.pdf",
+          "document": "Novelty — Freespeak II : Freespeak II Base Station",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_base-ii_ft.pdf",
+          "document": "Novelty — Freespeak II : Freespeak II base Station",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii-base-ii_quickstartguide.pdf",
+          "document": "Novelty — Freespeak II : Freespeak II Quickstartguide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_1-9beltpack_ft.pdf",
+          "document": "Novelty — Freespeak II : Beltpack",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_1-9antenna_ft.pdf",
+          "document": "Novelty — Freespeak II : Antenne 1,9 Ghz",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_antenna_quickstartguide.pdf",
+          "document": "Novelty — Freespeak II : Antenne 1,9 Ghz Quickstartguide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_beltpack_quickstartguide.pdf",
+          "document": "Novelty — Freespeak II : Beltpack Quickstartguide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_charger_quickstartguide.pdf",
+          "document": "Novelty — Freespeak II : Battery Charger Quickstartguide",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "clear-com-helixnet-kitx20",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "HELIXNET KITx20",
+      "descriptionBefore": "Kit interphonie numérique 4 canaux, livrée avec 2 0 postes 2 canaux et 1 station de table 22 canaux",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/helixnet-kitx20/",
+          "document": "Novelty — HELIXNET KITx20",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_hbp-2x_.pdf",
+          "document": "Novelty — HELIXNET KITx20 : HBP-2X",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_hkb-2x_ft.pdf",
+          "document": "Novelty — HELIXNET KITx20 : HKB-2X",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_hms-4x_ft.pdf",
+          "document": "Novelty — HELIXNET KITx20 : HMS-4X",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_HelixNet_Partyline_manuel.pdf",
+          "document": "Novelty — HELIXNET KITx20 : HelixNet PartyLine",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_helixNet_linking_QuickStartGuide.pdf",
+          "document": "Novelty — HELIXNET KITx20 : HelixNet Linking (QuickStart)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_helixNet_partyline_QuickStartGuide.pdf",
+          "document": "Novelty — HELIXNET KITx20 : HelixNet PartyLine (QuickStart)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/clearcom_Digital-Analog_Partyline_Cabling_Comparison_Technical_Guide.pdf",
+          "document": "Novelty — HELIXNET KITx20 : Digital & Analog PartyLine Intercom cabling comparison",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "d-san-limitimer-pro2000",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Limitimer PRO2000",
+      "descriptionBefore": "Kit chronométreur de temps de parole Bluetooth, composé d'1 console de commande Bluetooth LimiTimer PRO2000, 1 récepteur Bluetooth avec son alimentation TR-2000BT, 1 affichage podium PSL-20V, 1 affichage audience ASLA-ND3",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/limitimer-pro2000/",
+          "document": "Novelty — Limitimer PRO2000",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "diwel-melody-caster-kit",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Melody Caster – kit",
+      "descriptionBefore": "Kit liaison sans fil, bande 5Ghz, 1 émetteur stéréo, 2 récepteurs stéréo, antennes omni et directionnelles",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/cablage-modulation/divers-cablage-modulation/melody-caster-kit/",
+          "document": "Novelty — Melody Caster – kit",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/diwel_melody-caster_manuel.pdf",
+          "document": "Novelty — Melody Caster – kit : Melody Caster",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/diwel_melody-caster_ft.pdf",
+          "document": "Novelty — Melody Caster – kit : Melody Caster",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/diwel_melody-caster_Avis_organisme_notifie_0470.pdf",
+          "document": "Novelty — Melody Caster – kit : Melody Caster",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/diwel_ant_omni_10.pdf",
+          "document": "Novelty — Melody Caster – kit : Antenne Omni",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/diwel_ant_dir_23db.pdf",
+          "document": "Novelty — Melody Caster – kit : Antenne Directionnelle",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/DIWEL_fr_web.pdf",
+          "document": "Novelty — Melody Caster – kit : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "dpa-dak4060",
+      "decision": "excluded",
+      "reason": "Accessoire mécanique ou kit d’accessoires sans appareil à représenter.",
+      "modelBefore": "DAK4060",
+      "descriptionBefore": "Kit d'accessoires pour microphones miniatures DPA",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/cravatte/dak4060/",
+          "document": "Novelty — DAK4060",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "dts-fl1300",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "FL1300",
+        "description": "Set de 2 Blinders 2 lampes de 650W/120V DWE PAR36, 1 alim PC16",
+        "aliases": [
+          "DTS FL1300"
+        ],
+        "weightKg": 3,
+        "powerW": 1300
+      },
+      "modelAfter": "FL1300",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/basse-tension/fl1300/",
+          "document": "Novelty — FL1300",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/252_1257_flash_2000l-4000l.pdf",
+          "document": "Novelty — FL1300 : Blinder2",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "dynatec-booster-6s-set-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "Booster 6S, set x2",
+        "description": "Set de 2 amplificateurs de protocole RS485 / DMX 512, 1 x entrée (+ reprise) / 6 x sorties",
+        "aliases": [
+          "DMXBOOST-SET02",
+          "Dynatec Booster 6S, set x2"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "Booster 6S",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/booster-6s-set-x2/",
+          "document": "Novelty — Booster 6S, set x2",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "dynatec-trusssplitter",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "TrussSplitter",
+        "description": "Kit de 2 x splitter DMX512 1 IN / 6 OUT",
+        "aliases": [
+          "TRUSSPLIT-SET02/KIT2",
+          "Dynatec TrussSplitter"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "TrussSplitter",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/trusssplitter/",
+          "document": "Novelty — TrussSplitter",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "genelec-8030a-set-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "8030A-SET x2",
+        "description": "Paire d'enceintes monitoring amplifiées, 80W, 58Hz - 20 kHz",
+        "aliases": [
+          "8030-SET",
+          "GENELEC 8030A-SET x2"
+        ],
+        "weightKg": 5.6,
+        "powerW": null
+      },
+      "modelAfter": "8030A",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-monitoring/8030a-set-x2/",
+          "document": "Novelty — 8030A-SET x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Genelec_8030A_manuel.pdf",
+          "document": "Novelty — 8030A-SET x2 : 8030A",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/genele_8030a_ft.pdf",
+          "document": "Novelty — 8030A-SET x2 : 8030A",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/genelec_8030a_quickstart.pdf",
+          "document": "Novelty — 8030A-SET x2 : 8030A (QuickStart)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/genelec_8030a_acousticaxis.pdf",
+          "document": "Novelty — 8030A-SET x2 : Acoustic Axis",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "hollyland-set-intercom-solidcom-m1-plus-ms702",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Set Intercom SOLIDCOM M1+MS702",
+      "descriptionBefore": "Set intercom, stations SOLIDCOM M1 et MS702",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/set-intercom-solidcom-m1ms702/",
+          "document": "Novelty — Set Intercom SOLIDCOM M1+MS702",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3542-4683-clear-com-ms-702-manual.pdf",
+          "document": "Novelty — Set Intercom SOLIDCOM M1+MS702 : MS702",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/2153-4683-rs-701-quickstartguide-399g034.pdf",
+          "document": "Novelty — Set Intercom SOLIDCOM M1+MS702 : RS-701",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/9174-4683-solidcom-m1-user-manual.pdf",
+          "document": "Novelty — Set Intercom SOLIDCOM M1+MS702 : SOLIDCOM-M1",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3893-4683-clear-com-ms-702-datasheet.pdf",
+          "document": "Novelty — Set Intercom SOLIDCOM M1+MS702 : MS702",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "kef-ci50r",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "Ci50R",
+        "description": "Kit d'enceintes, 10 W, 82 dB",
+        "aliases": [
+          "CI50RW",
+          "KEF Ci50R"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "Ci50R",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/kit-d-enceintes/ci50r/",
+          "document": "Novelty — Ci50R",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9190-4374-eedf13f65f3a431982816fa6b57eaa830e4fa46e.pdf",
+          "document": "Novelty — Ci50R : KEF Ci50R",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "kino-flo-kinoflo-set",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "KinoFlo-Set",
+      "descriptionBefore": "Set de projecteur 4 tubes fluo 1,20m + pied + balast",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/photo-video/kinoflo-set/",
+          "document": "Novelty — KinoFlo-Set",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/kino_flo_4bank_manuel.pdf",
+          "document": "Novelty — KinoFlo-Set : Kino Flo 4 bank",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "kramer-tp580-set",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "TP580-SET",
+      "descriptionBefore": "Set extenseur vidéo (HDMI, RS-232 et IR) -> RJ45 CAT6/7, composé d'un transmetteur (TP-580T) & d'un récepteur (TP-580R)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/tp580-set/",
+          "document": "Novelty — TP580-SET",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580r_ft.pdf",
+          "document": "Novelty — TP580-SET : TP-580R",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580t_ft.pdf",
+          "document": "Novelty — TP580-SET : TP-580T",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580_manuel.pdf",
+          "document": "Novelty — TP580-SET : TP-580",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-108p-kit-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "108P – Kit x2",
+      "descriptionBefore": "Set de 2 enceintes amplifiée active 2 voies 750W, 100°. Livrées avec lyres d'accroche.",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/108p-kit-x2/",
+          "document": "Novelty — 108P – Kit x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1199804963.pdf",
+          "document": "Novelty — 108P – Kit x2 : 108P",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1199805014.pdf",
+          "document": "Novelty — 108P – Kit x2 : 108P",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_108p_certificat.pdf",
+          "document": "Novelty — 108P – Kit x2 : 108P",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-112p-kit-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "112P – Kit x2",
+      "descriptionBefore": "Set de 2 enceintes amplifiée 2 voies actives (LF 12\", HF 3\"), 90°. Livrées avec lyres d'accroches.",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/112p-kit-x2/",
+          "document": "Novelty — 112P – Kit x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1199804810.pdf",
+          "document": "Novelty — 112P – Kit x2 : 112P",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1199804867.pdf",
+          "document": "Novelty — 112P – Kit x2 : 112P",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-115xt-hiq-kit-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "115XT HiQ – Kit x2",
+        "description": "Set de 2 x enceintes 1400W / 8Ω, 2 voies actives. Livrées avec lyres d'accroche.",
+        "aliases": [
+          "115HIQ-SET",
+          "L-ACOUSTICS 115XT HiQ – Kit x2"
+        ],
+        "weightKg": 28.5,
+        "powerW": null
+      },
+      "modelAfter": "115XT HiQ",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/115xt-hiq-kit-x2/",
+          "document": "Novelty — 115XT HiQ – Kit x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186132930.pdf",
+          "document": "Novelty — 115XT HiQ – Kit x2 : 115XT HiQ",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186143975.pdf",
+          "document": "Novelty — 115XT HiQ – Kit x2 : Série XT",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_115xt_hiq_certificat.pdf",
+          "document": "Novelty — 115XT HiQ – Kit x2 : 115XT HiQ",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-115xt-kit-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "115XT – Kit x2",
+        "description": "Set de 2 enceintes 1000W / 8ohms, 2 voies actives. Livrées avec lyres d'accroches.",
+        "aliases": [
+          "115XT",
+          "115XT-SET",
+          "L-ACOUSTICS 115XT – Kit x2"
+        ],
+        "weightKg": 29.5,
+        "powerW": null
+      },
+      "modelAfter": "115XT",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/115xt-kit-x2/",
+          "document": "Novelty — 115XT – Kit x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144005.pdf",
+          "document": "Novelty — 115XT – Kit x2 : Série XT",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_115xt_certificat-1349337593.pdf",
+          "document": "Novelty — 115XT – Kit x2 : 115XT",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-12xt-kit-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "12XT – Kit x2",
+        "description": "Set de 2 enceintes 2 voies active/passive, 123 dB (cont), LF = HP 12\", HF = moteur 3\". Livrées avec lyres d'accroches.",
+        "aliases": [
+          "12XT-SET",
+          "L-ACOUSTICS 12XT – Kit x2"
+        ],
+        "weightKg": 29,
+        "powerW": null
+      },
+      "modelAfter": "12XT",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/12xt-kit-x2/",
+          "document": "Novelty — 12XT – Kit x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1208785034.pdf",
+          "document": "Novelty — 12XT – Kit x2 : 12XT",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1208785007.pdf",
+          "document": "Novelty — 12XT – Kit x2 : 12XT",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_12XT_certificat.pdf",
+          "document": "Novelty — 12XT – Kit x2 : 12XT",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-8xt-kit-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "8XT – Kit x2",
+        "description": "Set de 2 enceintes 2 voies active/passive, LF = HP 8\", HF = moteur 1,5\". Ouverture 100°. livrées avec lyres d'accroches",
+        "aliases": [
+          "8XT-SET",
+          "L-ACOUSTICS 8XT – Kit x2"
+        ],
+        "weightKg": 11,
+        "powerW": null
+      },
+      "modelAfter": "8XT",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/8xt-kit-x2/",
+          "document": "Novelty — 8XT – Kit x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lacoustics_8xt_ft_02.pdf",
+          "document": "Novelty — 8XT – Kit x2 : 8XT",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lacoustics_8xt_manuel.pdf",
+          "document": "Novelty — 8XT – Kit x2 : 8XT",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-kara-kit-x3",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "Kara – Kit x3",
+        "description": "Kit de 3 enceintes ligne source active 2 voies, 139dB, 55 Hz/20 kHz",
+        "aliases": [
+          "KARA-SET03FLX",
+          "L-ACOUSTICS Kara – Kit x3"
+        ],
+        "weightKg": 26,
+        "powerW": null
+      },
+      "modelAfter": "Kara",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/kara-kit-x3/",
+          "document": "Novelty — Kara – Kit x3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_kara_ft_01.pdf",
+          "document": "Novelty — Kara – Kit x3 : Kara",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_kara_ft_02.pdf",
+          "document": "Novelty — Kara – Kit x3 : Système Kara",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_kara_minibu.pdf",
+          "document": "Novelty — Kara – Kit x3 : Procédures d'accrochage avec le Kara-Minibu",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_kara_mbump.pdf",
+          "document": "Novelty — Kara – Kit x3 : Procédures d'accrochage avec le Kara-MBump",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_kara_manuel.pdf",
+          "document": "Novelty — Kara – Kit x3 : Kara",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_Kara_certificat.pdf",
+          "document": "Novelty — Kara – Kit x3 : Kara",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-la-rack-ii",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LA-Rack II",
+      "descriptionBefore": "Rack de tournée comprenant 3 contrôleurs amplifiés LA12X, jusqu'à 12 x 3 300W à 2,7Ω",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/rack/la-rack-ii/",
+          "document": "Novelty — LA-Rack II",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_la-rack-ii_ft-fr.pdf",
+          "document": "Novelty — LA-Rack II : LA-Rack II (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_la-rack-ii_ft.pdf",
+          "document": "Novelty — LA-Rack II : LA-Rack II (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_la-rack-ii_ft-1508238308.pdf",
+          "document": "Novelty — LA-Rack II : LA-Rack II (DE)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_la-rack-ii_certificat.pdf",
+          "document": "Novelty — LA-Rack II : LA-Rack II (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_la-rack-ii_manuel-uk.pdf",
+          "document": "Novelty — LA-Rack II : LA-Rack II (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_la-rack-ii_manuel-fr.pdf",
+          "document": "Novelty — LA-Rack II : LA-Rack II (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_la-rack-ii-bump_manuel.pdf",
+          "document": "Novelty — LA-Rack II : Bumper LA-Rack",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-la-rak",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LA-RAK",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/LA-RAK/documents.zip",
+          "document": "L-Acoustics, archive de documentation : LA-RAK User manual",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-la-rak-ii-avb",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LA-RAK II AVB",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://www.l-acoustics.com/products/la-rak-ii-avb/",
+          "document": "L-Acoustics, page produit LA-RAK II AVB",
+          "accessed": "2026-10-08"
+        },
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/rack/la-rak-ii-avb/",
+          "document": "Novelty — LA-RAK II AVB",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/2429-4669-la-rak-ii-avb-sps-en-1-0.pdf",
+          "document": "Novelty — LA-RAK II AVB : LA-RAK II_AVB_SPS_EN_1.0",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-la-rak-iii",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LA-RAK III",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://www.l-acoustics.com/products/la-rak-iii/",
+          "document": "L-Acoustics, page produit LA-RAK III",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-la-rak-iii-avb",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LA-RAK III AVB",
+      "descriptionBefore": "Rack de 3 LA7.16 avec switch LS10 AVB",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/rack/la-rak-iii-avb/",
+          "document": "Novelty — LA-RAK III AVB",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6005-4744-l-acoustics-la-rack-iii-ft.pdf",
+          "document": "Novelty — LA-RAK III AVB : l-acoustics_la-rack_III",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7997-4744-l-acoustics-la-rack-iii-ft01.pdf",
+          "document": "Novelty — LA-RAK III AVB : l-acoustics_la-rack_III_ft",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "l-acoustics-larak-aes",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LARAK-AES",
+      "descriptionBefore": "Rack de 3 amplificateurs et filtre numérique, 12x1800W / 4Ω, (AES/EBU Ethernet). Possibilité d'accroche et couplage.",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/rack/larak-aes/",
+          "document": "Novelty — LARAK-AES",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-1199805927.pdf",
+          "document": "Novelty — LARAK-AES : LA8",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-1199805898.pdf",
+          "document": "Novelty — LARAK-AES : LA8",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/dupli-dupli-1199878728.zip",
+          "document": "Novelty — LARAK-AES : LA8 preset library",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_larak_ft.pdf",
+          "document": "Novelty — LARAK-AES : LARAK",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_larak_certificat.pdf",
+          "document": "Novelty — LARAK-AES : LARAK",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_larak_manuel.pdf",
+          "document": "Novelty — LARAK-AES : LARAK",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/l-acoustics_larak_configs.pdf",
+          "document": "Novelty — LARAK-AES : LARAK Configurations",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "lightware-edid-manager-set-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Edid Manager – Set x2",
+      "descriptionBefore": "Set de 2 boitiers DVI emulator et DVI repeater",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/edid-manager-set-x2/",
+          "document": "Novelty — Edid Manager – Set x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/EDID_MANAGER.pdf",
+          "document": "Novelty — Edid Manager – Set x2 : Edid Manager",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/EDID_Manager_User_Manual.pdf",
+          "document": "Novelty — Edid Manager – Set x2 : Edid Manager",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "lightware-hdmi-optique-tx-rx100-set",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "HDMI-Optique TX-RX100 set",
+      "descriptionBefore": "Set émetteur/récepteur HDMI 1.3 / Fibre optique",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/hdmi-optique-tx-rx100-set/",
+          "document": "Novelty — HDMI-Optique TX-RX100 set",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_HDMI-OPT-TX-RX100_Bootloader-manuel.pdf",
+          "document": "Novelty — HDMI-Optique TX-RX100 set : Bootloader manuel",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_HDMI-OPT-TX-RX100_manuel.pdf",
+          "document": "Novelty — HDMI-Optique TX-RX100 set : TX-RX100",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lightware_HDMI-OPT-TX-RX100_ft-1422440883.pdf",
+          "document": "Novelty — HDMI-Optique TX-RX100 set : TX-RX100",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_HDMI-OPT-TX-RX100_quickstart.pdf",
+          "document": "Novelty — HDMI-Optique TX-RX100 set : QuickStart Guide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/lightware_HDMI-OPT-TX-RX100_certificat.pdf",
+          "document": "Novelty — HDMI-Optique TX-RX100 set : TX-RX100",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "lightware-kit-fibre-200-modex-opts",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Kit Fibre 200 MODEX-OPTS",
+      "descriptionBefore": "Kit fibre optique DVI-HDMI 200m, composé d'un émetteur OPTS-TX, d'un récepteur OPTS-RX, 1 câble fibre 200m Ethercon 4K Neutrik",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/cablage-video/fibre-optique/kit-fibre-200-modex-opts/",
+          "document": "Novelty — Kit Fibre 200 MODEX-OPTS",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_modex_manuel.pdf",
+          "document": "Novelty — Kit Fibre 200 MODEX-OPTS : Modex",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_modex_quickstart.pdf",
+          "document": "Novelty — Kit Fibre 200 MODEX-OPTS : Quick Start Guide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/lightware_modex_certificat.pdf",
+          "document": "Novelty — Kit Fibre 200 MODEX-OPTS : Modex",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lightware_modex_ft.pdf",
+          "document": "Novelty — Kit Fibre 200 MODEX-OPTS : Modex",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "ltm-lt300b-led-pc16-kit-x12",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LT300B-LED-PC16 – Kit x12",
+      "descriptionBefore": "Kit de 12 projecteurs LED 1x40W, lentille fresnel type \"MIZAR\", blanc, 4000° K, conso 12W, volets 4 faces (équivalent 400W halogène)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/fresnel-projecteurs-a-led/lt300b-led-pc16-kit-x12/",
+          "document": "Novelty — LT300B-LED-PC16 – Kit x12",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "ltm-lt300b-led-pc16-kit-x6",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LT300B-LED-PC16 – Kit x6",
+      "descriptionBefore": "Kit de 6 projecteurs LED 1x40W, lentille fresnel type \"MIZAR\", blanc, 4000° K, conso 12W, volets 4 faces (équivalent 400W halogène)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/fresnel-projecteurs-a-led/lt300b-led-pc16-kit-x6/",
+          "document": "Novelty — LT300B-LED-PC16 – Kit x6",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "ltm-lt300b-led-rail-kit-x12",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LT300B-LED-RAIL – Kit x12",
+      "descriptionBefore": "Kit de 12 projecteurs LED 1x40W, lentille fresnel type \"MIZAR\", blanc, 4000° K, conso 12W, volets 4 faces, équipés alim rail LITA (équivalent 400W halogène)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/eclairage-sur-rail-eclairage/projecteur/lt300b-led-rail-kit-x12/",
+          "document": "Novelty — LT300B-LED-RAIL – Kit x12",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "ltm-lt300b-led-rail-kit-x6",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "LT300B-LED-RAIL – Kit x6",
+      "descriptionBefore": "Kit de 6 projecteurs LED 1x40W, lentille fresnel type \"MIZAR\", blanc, 4000° K, conso 12W, volets 4 faces, équipés alim rail LITA (équivalent 400W halogène)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/eclairage-sur-rail-eclairage/projecteur/lt300b-led-rail-kit-x6/",
+          "document": "Novelty — LT300B-LED-RAIL – Kit x6",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "ma-lighting-npu-kit",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "NPU Kit",
+      "descriptionBefore": "Unités de traitement des réseaux pour console GrandMA, 8 univers DMX, 4096 circuits, ethernet, livré avec clavier & switch (Netgear GS724T) ondulé (Eaton 5P 650)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/asservis/npu-kit/",
+          "document": "Novelty — NPU Kit",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1448901499-NPU_network_processing_unit_malighting_notice.pdf",
+          "document": "Novelty — NPU Kit : Duplication : NPU",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1448901499-MA_NPU_RPU_Quickstart_Manual_2013-03_de-en.pdf",
+          "document": "Novelty — NPU Kit : Duplication : NPU",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "manfrotto-piece-detachee-plateau-rapide-avec-pas-de-vis-1",
+      "decision": "excluded",
+      "reason": "Accessoire mécanique ou kit d’accessoires sans appareil à représenter.",
+      "modelBefore": "Pièce détachée – Plateau rapide avec pas de vis 1/",
+      "descriptionBefore": "Plateau photo, pas de vis de 1/4'’",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/accessoires-video/support-video-divers/piece-detachee-plateau-rapide-avec-pas-de-vis-1/",
+          "document": "Novelty — Pièce détachée – Plateau rapide avec pas de vis 1/",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "martin-atomic3000-plus-detonator",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "ATOMIC3000 + Detonator",
+      "descriptionBefore": "Stroboscope 3000W, pilotable en DMX",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/stroboscope/atomic3000-detonator/",
+          "document": "Novelty — ATOMIC3000 + Detonator",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186134309.pdf",
+          "document": "Novelty — ATOMIC3000 + Detonator : Atomic 3000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144585.pdf",
+          "document": "Novelty — ATOMIC3000 + Detonator : Atomic 3000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/martin_atomic3000_certificat.pdf",
+          "document": "Novelty — ATOMIC3000 + Detonator : Atomic 3000",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "martin-p3-powerport-1500-plus-switch",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "P3 PowerPort 1500 + Switch",
+      "descriptionBefore": "Processeur d´alimentation et de données pour la gamme de LEDs vidéo créatives de Martin + switch powerport / DMX-RDM, entrée sortie RJ45, reprise DMX 5 broches",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/panneaux-effets/p3-powerport-1500-switch/",
+          "document": "Novelty — P3 PowerPort 1500 + Switch",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1507643448-martin_p3-powerport-1500_manuel.pdf",
+          "document": "Novelty — P3 PowerPort 1500 + Switch : Duplication : P3 PowerPort 1500",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1507643448-martin_p3-powerport-1500_ft.pdf",
+          "document": "Novelty — P3 PowerPort 1500 + Switch : Duplication : P3 PowerPort 1500",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-1507643448-martin_p3-powerport-1500_certificat.pdf",
+          "document": "Novelty — P3 PowerPort 1500 + Switch : Duplication : P3 PowerPort 1500 - CE",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-1507643448-martin_p3-powerport-1500_certificat-etl.pdf",
+          "document": "Novelty — P3 PowerPort 1500 + Switch : Duplication : P3 PowerPort 1500 - ETL",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/dupli-1507643448-martin_p3-powerport-1500_P3PowerPortsCapacity_EN_B.pdf",
+          "document": "Novelty — P3 PowerPort 1500 + Switch : Duplication : Capacity Information Note",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "motorola-dp1400-set-x6",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "DP1400-SET x6",
+      "descriptionBefore": "Set de 6 walkie-talkie DP1400, 4 canaux analogiques + 11 numériques, livrés avec micro-oreillette, micro déporté, 2 batteries par talkie, chargeur x6",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/talkie-walkie/dp1400-set-x6/",
+          "document": "Novelty — DP1400-SET x6",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/motorola_dp1400_403-470MHz BER-214098-DC-A_certificat.pdf",
+          "document": "Novelty — DP1400-SET x6 : Bande 403-470 Mhz",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/motorola_dp144_136-174MHz BER-214102-DC-A_certificat.pdf",
+          "document": "Novelty — DP1400-SET x6 : Bande 136-174 Mhz",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/motorola_dp1400_ft.pdf",
+          "document": "Novelty — DP1400-SET x6 : DP1400",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/motorola_dp1400_manuel.pdf",
+          "document": "Novelty — DP1400-SET x6 : DP1400",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "mrc-audio-eqlimit-kit",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EQlimit-kit",
+      "descriptionBefore": "Limiteur de pression accoustique, global ou 1/3 d'octave, à mémoire. Livré avec microphone d emesure MS-1 et affichage numérique déporté DD-1.",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/mesure-acoustique/divers-mesure-acoustique/eqlimit-kit/",
+          "document": "Novelty — EQlimit-kit",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/mrc_eqlimit_ft-fr.pdf",
+          "document": "Novelty — EQlimit-kit : EQlimit (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/mrc_eqlimit_ft-uk.pdf",
+          "document": "Novelty — EQlimit-kit : EQlimit (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mrc_eqlimit_manuel-fr.pdf",
+          "document": "Novelty — EQlimit-kit : EQlimit (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mrc_eqlimit_manuel-uk.pdf",
+          "document": "Novelty — EQlimit-kit : EQlimit (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/mrc_eqlimit_Declaracion-CE.pdf",
+          "document": "Novelty — EQlimit-kit : Déclaration de conformité CE",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/mrc_eqlimit_Certificado-AT4W.pdf",
+          "document": "Novelty — EQlimit-kit : Déclaration de conformité AT4 Wireless",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "networksound-mamba-digital-snake",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Mamba Digital Snake",
+      "descriptionBefore": "Kit multipaire digitale RJ45, 16 entrées / 16 sorties analogiques XLR Line, + liaison intercom en aux. (2 boitiers + 1 touret RJ45 100m)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/cablage-multipaire-sonorisation/numerique-cablage-multipaire-sonorisation/mamba-digital-snake/",
+          "document": "Novelty — Mamba Digital Snake",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/networksound_mamba-digital-snake-16llp_manuel.pdf",
+          "document": "Novelty — Mamba Digital Snake : Mamba Digital Snake",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/networksound_mamba-digital-snake-16llp_ft.pdf",
+          "document": "Novelty — Mamba Digital Snake : Mamba Digital Snake",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/networksound_mamba-digital-snake-16llp_quickstart.pdf",
+          "document": "Novelty — Mamba Digital Snake : Quick Start Guide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/networksound_mamba-digital-snake-16llp_DB-25_Pinout.pdf",
+          "document": "Novelty — Mamba Digital Snake : TASCAM’s DB-25 Pinout Standard",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/networksound_mamba-digital-snake-16llp_yamaha-aes-db25-pinout-pdf",
+          "document": "Novelty — Mamba Digital Snake : Yamaha AES DB25 Pin out",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/networksound_mamba-digital-snake-16llp_brochure.pdf",
+          "document": "Novelty — Mamba Digital Snake : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "neumann-km184-set-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "KM184 – Set x2",
+      "descriptionBefore": "Microphone statique + suspension, multi-directivité",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/statique/km184-set-x2/",
+          "document": "Novelty — KM184 – Set x2",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "neutrick-xirium",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Xirium",
+      "descriptionBefore": "Liaison audio numérique sans fil DIWA (Digital Wireless Audio) sans licence, sans compression, bande passante complète et latence extrêmement faible",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/cablage-modulation/divers-cablage-modulation/xirium/",
+          "document": "Novelty — Xirium",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/neutrik_xirium-pro-nxp2rx-e_ft.pdf",
+          "document": "Novelty — Xirium : Xirium NXP2RX-E",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/neutrik_xirium-pro-nxp2tx-e_ft.pdf",
+          "document": "Novelty — Xirium : Xirium NXP2TX-E",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2tx-e_user-manual_en.pdf",
+          "document": "Novelty — Xirium : Xirium Pro (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2tx-e_manuel_fr.pdf",
+          "document": "Novelty — Xirium : Xirium Pro (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/neutrik_xirium-pro-nxp2tx-e_certif.pdf",
+          "document": "Novelty — Xirium : Xirium Pro",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2rx-e_mounting-guide-en.pdf",
+          "document": "Novelty — Xirium : Xirium Pro Mounting guide",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2tx-e_quick-start-guide-en.pdf",
+          "document": "Novelty — Xirium : Quick Start",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-bdx54u-setx1",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "BDX54U-SET×1",
+        "description": "Boiter DMX512 (3 broches et 5 broches) 4 univers sur RJ45 Cat 5e + fouet extendeur",
+        "aliases": [
+          "NOVELTY BDX54U-SET×1"
+        ],
+        "weightKg": 0.758,
+        "powerW": null
+      },
+      "modelAfter": "BDX54U",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/cablage-data/dmx/bdx54u-setx1/",
+          "document": "Novelty — BDX54U-SET×1",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-driveled-306-set-x1",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "DriveLED 306 Set x1",
+        "description": "Set de 1 x Alimentation-gradateur LED, DMX512 (XLR et RJ45 in-out), 3 x 6A, 3 x 144W, 24V",
+        "aliases": [
+          "DRIVELED306X1",
+          "NOVELTY DriveLED 306 Set x1"
+        ],
+        "weightKg": 2.4,
+        "powerW": null
+      },
+      "modelAfter": "DriveLED 306",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/driveled-306-set-x1/",
+          "document": "Novelty — DriveLED 306 Set x1",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-driveled-306-set-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "DriveLED 306 Set x2",
+      "descriptionBefore": "Set de 2 x Alimentation-gradateur LED, DMX512 (XLR et RJ45 in-out), 3 x 6A, 3 x 144W, 24V",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/driveled-306-set-x2/",
+          "document": "Novelty — DriveLED 306 Set x2",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-driveled-410-set-x1",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "DriveLED 410 Set x1",
+        "description": "Alimentation-gradateur LED, DMX512 (XLR et RJ45 in-out), 4 x 10A, 4 x 240W, 24V",
+        "aliases": [
+          "DRIVELED410",
+          "NOVELTY DriveLED 410 Set x1"
+        ],
+        "weightKg": 4,
+        "powerW": null
+      },
+      "modelAfter": "DriveLED 410",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/driveled-410-set-x1/",
+          "document": "Novelty — DriveLED 410 Set x1",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-matled-calim-setx4",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "MatLED-CALIM Setx4",
+        "description": "Set de 4 mâts LED chromés, 5 PAR16 par mât, sur secteur 220v",
+        "aliases": [
+          "MATLED-SET4CSEC",
+          "NOVELTY MatLED-CALIM Setx4"
+        ],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "MatLED-CALIM",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/decoration/matled-calim-setx4/",
+          "document": "Novelty — MatLED-CALIM Setx4",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-matled-cbat-setx4",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "MatLED-CBAT Setx4",
+        "description": "Set de 4 mâts LED chromés, 5 PAR16 par mât, sur batterie, 8h d'autonomie",
+        "aliases": [
+          "MATLED-SET4CALM",
+          "MATLED-SET4CBAT",
+          "NOVELTY MatLED-CBAT Setx4"
+        ],
+        "weightKg": 32,
+        "powerW": null
+      },
+      "modelAfter": "MatLED-CBAT",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/decoration/matled-cbat-setx4/",
+          "document": "Novelty — MatLED-CBAT Setx4",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-matled-v2-setx4",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "MatLED V2 Setx4",
+        "description": "Set de 4 mâts LED chromés, 5 PAR16 à LED par mât, sur secteur ou batterie (8h d'autonomie)",
+        "aliases": [
+          "MATLEDV2-SET×4",
+          "NOVELTY MatLED V2 Setx4"
+        ],
+        "weightKg": 32,
+        "powerW": null
+      },
+      "modelAfter": "MatLED V2",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/decoration/matled-v2-setx4/",
+          "document": "Novelty — MatLED V2 Setx4",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-rack-conference-v2-bx",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Rack Conférence V2 – BX",
+      "descriptionBefore": "Rack \"conférence\" équipé de 2 micros HF (main et serre-tête), 2 micros pupitre \"col de cygnes\", 1 lecteur CD/MP3, 1 console numérique avec fonction enregistrement, accessoires.",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/regie/collectivite/rack-conference-v2-bx/",
+          "document": "Novelty — Rack Conférence V2 – BX",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-regie-4k-compacte",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Régie 4K Compacte",
+      "descriptionBefore": "Puissante régie de captation 4k en format compacte",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/regie-video/regie-numerique/regie-4k-compacte/",
+          "document": "Novelty — Régie 4K Compacte",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "novelty-regie-compacte",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Régie compacte",
+      "descriptionBefore": "Régie caméras compacte HD, 1 poste ou 2 postes pour réalisateur et opérateur tourelles / vision",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/regie-video/regie-numerique/regie-compacte/",
+          "document": "Novelty — Régie compacte",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "oxo-simoun-2-set-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Simoun 2, set x2",
+      "descriptionBefore": "Set de 2 gradateurs unitaires 1x10A / 2kW, DMX512",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/2kw/simoun-2-set-x2/",
+          "document": "Novelty — Simoun 2, set x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_simoun2_manuel.pdf",
+          "document": "Novelty — Simoun 2, set x2 : Simoun 2",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "panasonic-av-hs6000",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "AV-HS6000",
+      "descriptionBefore": "Mélangeur vidéo 2ME, composé d'un panneau de contrôle AV-HS60C4P/E + une unité centrale AV-HS60U2P/E + un écran AV-HS60C3G",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/av-hs6000/",
+          "document": "Novelty — AV-HS6000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_av-hs6000_ft.pdf",
+          "document": "Novelty — AV-HS6000 : AV-HS6000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/panasonic_av-hs6000_format-compatibility.pdf",
+          "document": "Novelty — AV-HS6000 : Format compatibility",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/panasonic_av-hs6000_brochure.pdf",
+          "document": "Novelty — AV-HS6000 : Brochure commerciale",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/panasonic_av-hs6000_block-diagram.pdf",
+          "document": "Novelty — AV-HS6000 : Block diagram",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "para-nocta-lampadaire",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "Lampadaire",
+        "description": "Lampadaire sur batterie LED, 3000°K, IP6, set de 2",
+        "aliases": [
+          "BULBEE1R",
+          "PARA NOCTA Lampadaire"
+        ],
+        "weightKg": 1.5,
+        "powerW": null
+      },
+      "modelAfter": "Lampadaire",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/decoration/lampadaire/",
+          "document": "Novelty — Lampadaire",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "procedes-hallier-luneo-5w-set-x24",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "Luneo 5W – Set x24",
+        "description": "Set de 24 mini-spot LED 5W, 24v, 4000°K, angle d'ouverture 25°, support magnétique",
+        "aliases": [
+          "LUNEO5WN-SETX24",
+          "Procedes Hallier Luneo 5W – Set x24"
+        ],
+        "weightKg": 0.093,
+        "powerW": null
+      },
+      "modelAfter": "Luneo 5W",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/luneo-5w-set-x24/",
+          "document": "Novelty — Luneo 5W – Set x24",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "saf-licialed-kit-x6",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "LiciaLED Kit x6",
+        "description": "Kit de 6 projecteurs 7 x LED 3W, full color, DMX. Etanches.",
+        "aliases": [
+          "LICIALED-SET",
+          "SAF LiciaLED Kit x6"
+        ],
+        "weightKg": 4,
+        "powerW": null
+      },
+      "modelAfter": "LiciaLED",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/par/licialed-kit-x6/",
+          "document": "Novelty — LiciaLED Kit x6",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/Licialed_A4.pdf",
+          "document": "Novelty — LiciaLED Kit x6 : LiciaLED",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/licialed_manuel.pdf",
+          "document": "Novelty — LiciaLED Kit x6 : LiciaLED",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/licialed_accessoires.pdf",
+          "document": "Novelty — LiciaLED Kit x6 : LiciaLED accessoires",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/CE_CERTIFICAT_LICIALED.pdf",
+          "document": "Novelty — LiciaLED Kit x6 : Licialed",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "sennheiser-ew100-eng-g3",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EW100 ENG G3",
+      "descriptionBefore": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+      "sources": [
+        {
+          "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+          "accessed": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "id": "sennheiser-ew100-eng-g4",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EW100 ENG G4",
+      "descriptionBefore": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+      "sources": [
+        {
+          "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+          "accessed": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "id": "sennheiser-ew335-g3-a",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EW335-G3-A",
+      "descriptionBefore": "Ensemble UHF main, plan A (516-558 MHz), émetteur SKM300-835, récepteur EM300 G3",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ew335-g3-a/",
+          "document": "Novelty — EW335-G3-A",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1450261239-dupli-1450261015-sennheiser_ew300_manuel-fr.pdf",
+          "document": "Novelty — EW335-G3-A : Duplication : EW335-G3 (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1450261239-dupli-1450261015-sennheiser_ew300_ft-fr.pdf",
+          "document": "Novelty — EW335-G3-A : Duplication : EW335-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-1450261239-dupli-1450261015-sennheiser_ew300_certificat.pdf",
+          "document": "Novelty — EW335-G3-A : Duplication : EW335-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1450261239-dupli-1450261015-sennheiser_ew300_manuel-uk.pdf",
+          "document": "Novelty — EW335-G3-A : Duplication : EW335-G3 (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/dupli-1450261239-dupli-1450261015-sennheiser_ew300_brochure.pdf",
+          "document": "Novelty — EW335-G3-A : Duplication : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "sennheiser-ew335-g3-g",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EW335-G3-G",
+      "descriptionBefore": "Ensemble UHF main, plan G (566-608 MHz), émetteur SKM300-835, récepteur EM300 G3",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ew335-g3-g/",
+          "document": "Novelty — EW335-G3-G",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/sennheiser_ew300_manuel-fr.pdf",
+          "document": "Novelty — EW335-G3-G : EW335-G3 (FR)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sennheiser_ew300_ft-fr.pdf",
+          "document": "Novelty — EW335-G3-G : EW335-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/sennheiser_ew300_certificat.pdf",
+          "document": "Novelty — EW335-G3-G : EW",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/sennheiser_ew300_manuel-uk.pdf",
+          "document": "Novelty — EW335-G3-G : EW335-G3 (UK)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/sennheiser_ew300_brochure.pdf",
+          "document": "Novelty — EW335-G3-G : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "sennheiser-ew352-g3-b",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EW352-G3-B",
+      "descriptionBefore": "Ensemble UHF pocket serre-tête, plan B (626-668 MHz), émetteur SK300-G3, récepteur EM300 G3",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ew352-g3-b/",
+          "document": "Novelty — EW352-G3-B",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1450262605-dupli-1450261347-sennheiser_ew300_manuel-fr.pdf",
+          "document": "Novelty — EW352-G3-B : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1450262605-dupli-1450261347-sennheiser_ew300_ft-fr.pdf",
+          "document": "Novelty — EW352-G3-B : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-1450262605-dupli-1450261347-sennheiser_ew300_certificat.pdf",
+          "document": "Novelty — EW352-G3-B : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1450262605-dupli-1450261347-sennheiser_ew300_manuel-uk.pdf",
+          "document": "Novelty — EW352-G3-B : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/dupli-1450262605-dupli-1450261347-sennheiser_ew300_brochure.pdf",
+          "document": "Novelty — EW352-G3-B : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "sennheiser-ew352-g3-g",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "EW352-G3-G",
+      "descriptionBefore": "Ensemble UHF pocket serre-tête, plan G (566-608 MHz), émetteur SK300-G3, récepteur EM300 G3",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ew352-g3-g/",
+          "document": "Novelty — EW352-G3-G",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1450261347-sennheiser_ew300_manuel-fr.pdf",
+          "document": "Novelty — EW352-G3-G : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1450261347-sennheiser_ew300_ft-fr.pdf",
+          "document": "Novelty — EW352-G3-G : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-1450261347-sennheiser_ew300_certificat.pdf",
+          "document": "Novelty — EW352-G3-G : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1450261347-sennheiser_ew300_manuel-uk.pdf",
+          "document": "Novelty — EW352-G3-G : EW352-G3",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/dupli-1450261347-sennheiser_ew300_brochure.pdf",
+          "document": "Novelty — EW352-G3-G : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-mx418-set",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "MX418-SET",
+      "descriptionBefore": "Set de 2 x microphones statiques \"col de cygne\" pour pupitre, livrés avec embases",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/pupitre/mx418-set/",
+          "document": "Novelty — MX418-SET",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mx412s-418s-user-manual-MULTI-455kB.pdf",
+          "document": "Novelty — MX418-SET : MX418",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-psm1000",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "PSM1000",
+      "descriptionBefore": "Système \"Ear-Monitor\" HF + écouteur E1 (ou E5 en option)",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/ear-monitor/psm1000/",
+          "document": "Novelty — PSM1000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/PSM_1000_Spec_Sheet.pdf",
+          "document": "Novelty — PSM1000 : PSM1000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pdf_fr_psm1000_ug.pdf",
+          "document": "Novelty — PSM1000 : PSM1000",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/p10r.pdf",
+          "document": "Novelty — PSM1000 : P10R",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/p10t.pdf",
+          "document": "Novelty — PSM1000 : P10T",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ua845-set",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UA845-SET",
+      "descriptionBefore": "Kit splitter d'antennes, actif, pour 5 récepteurs",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/ua845-set/",
+          "document": "Novelty — UA845-SET",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/shure_UA845_manuel.pdf",
+          "document": "Novelty — UA845-SET : Splitter UA845",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/shure_ua870_wb_manuel.pdf",
+          "document": "Novelty — UA845-SET : Antenne UA870",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ua845sbwe-set",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UA845SBWE-SET",
+      "descriptionBefore": "Kit splitter d'antennes, actif, pour 5 récepteurs",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/ua845sbwe-set/",
+          "document": "Novelty — UA845SBWE-SET",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/dupli-shure_UA845_manuel.pdf",
+          "document": "Novelty — UA845SBWE-SET : Splitter UA845",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-shure_ua870_wb_manuel.pdf",
+          "document": "Novelty — UA845SBWE-SET : Antenne UA870",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur1-x1-freq-l3e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR1 x1 (fréq L3E)",
+      "descriptionBefore": "Système UHF livré avec 1 émetteur pocket UR1, récepteur 3000 fréquences sur plan L3E (638 à 698 MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1-x1-freq-l3e/",
+          "document": "Novelty — UR4D+ / UR1 x1 (fréq L3E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1 x1 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1 x1 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur1-x2-freq-l3e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR1 x2 (fréq L3E)",
+      "descriptionBefore": "Système UHF livré avec 2 émetteurs pocket UR1, récepteur 3000 fréquences sur plan L3E (638 à 698 MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1-x2-freq-l3e/",
+          "document": "Novelty — UR4D+ / UR1 x2 (fréq L3E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1 x2 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1 x2 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur1m-x1-freq-g1e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR1M x1 (fréq G1E)",
+      "descriptionBefore": "Système UHF livré avec émetteur pocket UR1M, récepteur 3000 fréquences sur plan G1E (470–530MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x1-freq-g1e/",
+          "document": "Novelty — UR4D+ / UR1M x1 (fréq G1E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-dupli-dupli-dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x1 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-dupli-dupli-dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x1 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur1m-x1-freq-l3e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR1M x1 (fréq L3E)",
+      "descriptionBefore": "Système UHF livré avec émetteur pocket UR1M, récepteur 3000 fréquences sur plan L3E (638 à 698 MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x1-freq-l3e/",
+          "document": "Novelty — UR4D+ / UR1M x1 (fréq L3E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-dupli-dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x1 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-dupli-dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x1 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur1m-x2-freq-g1e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR1M x2 (fréq G1E)",
+      "descriptionBefore": "Système UHF livré avec 2 émetteurs pocket UR1M, récepteur 3000 fréquences sur plan G1E (470–530MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x2-freq-g1e/",
+          "document": "Novelty — UR4D+ / UR1M x2 (fréq G1E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-dupli-dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x2 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-dupli-dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x2 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur1m-x2-freq-l3e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR1M x2 (fréq L3E)",
+      "descriptionBefore": "Système UHF livré avec 2 émetteurs pocket UR1M, récepteur 3000 fréquences sur plan L3E (638 à 698 MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x2-freq-l3e/",
+          "document": "Novelty — UR4D+ / UR1M x2 (fréq L3E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x2 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR1M x2 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur2-x1-freq-g1e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR2 x1 (fréq G1E)",
+      "descriptionBefore": "Système UHF livré avec 1 émetteur main (SM58, Beta58, Beta87A ou KSM9BK), récepteur 3000 fréquences sur plan G1E (470–530MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x1-freq-g1e/",
+          "document": "Novelty — UR4D+ / UR2 x1 (fréq G1E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x1 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x1 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur2-x1-freq-l3e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR2 x1 (fréq L3E)",
+      "descriptionBefore": "Système UHF livré avec 1 émetteur main (SM58, Beta58, Beta87A ou KSM9BK), récepteur 3000 fréquences sur plan L3E (638 à 698 MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x1-freq-l3e/",
+          "document": "Novelty — UR4D+ / UR2 x1 (fréq L3E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x1 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x1 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur2-x2-freq-g1e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR2 x2 (fréq G1E)",
+      "descriptionBefore": "Système UHF livré avec 2 émetteurs main (SM58, Beta58, Beta87A ou KSM9BK), récepteur 3000 fréquences sur plan G1E (470–530MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x2-freq-g1e/",
+          "document": "Novelty — UR4D+ / UR2 x2 (fréq G1E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x2 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x2 (fréq G1E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-plus-ur2-x2-freq-l3e",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D+ / UR2 x2 (fréq L3E)",
+      "descriptionBefore": "Système UHF livré avec 2 émetteurs main (SM58, Beta58, Beta87A ou KSM9BK), récepteur 3000 fréquences sur plan L3E (638 à 698 MHz).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x2-freq-l3e/",
+          "document": "Novelty — UR4D+ / UR2 x2 (fréq L3E)",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-uhf-r-plus_spec_sheet_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x2 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-uhf-r-plus_user_guide_EN.pdf",
+          "document": "Novelty — UR4D+ / UR2 x2 (fréq L3E) : UR4D+",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-ur1-x1",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D/UR1 x1",
+      "descriptionBefore": "Système UHF livré avec 1 émetteur pocket UR1 (+ WL185, Beta98, WCM16 ou WH20) récepteur 2400 fréquences",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1-x1/",
+          "document": "Novelty — UR4D/UR1 x1",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1202206885.pdf",
+          "document": "Novelty — UR4D/UR1 x1 : UR4D",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-ur1-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D/UR1 x2",
+      "descriptionBefore": "Système UHF double livré avec 2 émetteurs pocket UR1 (+ WL185, Beta98, WCM16 ou WH20) récepteur double 2400 fréquences",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1-x2/",
+          "document": "Novelty — UR4D/UR1 x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1202141125.pdf",
+          "document": "Novelty — UR4D/UR1 x2 : UR4D",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1202142085.pdf",
+          "document": "Novelty — UR4D/UR1 x2 : WL185",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-ur2-x1",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D/UR2 x1",
+      "descriptionBefore": "Système UHF livré avec 1 émetteur main (SM58, Beta58, Beta87A ou KSM9BK), récepteur 2400 fréquences",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x1/",
+          "document": "Novelty — UR4D/UR2 x1",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1202207658.pdf",
+          "document": "Novelty — UR4D/UR2 x1 : UR4D",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "shure-ur4d-ur2-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "UR4D/UR2 x2",
+      "descriptionBefore": "Système UHF double livré avec 2 émetteurs main (SM58, Beta58, Beta87A ou KSM9BK), récepteur double 2400 fréquences",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x2/",
+          "document": "Novelty — UR4D/UR2 x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1202139511.pdf",
+          "document": "Novelty — UR4D/UR2 x2 : UR4D",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1202139450.pdf",
+          "document": "Novelty — UR4D/UR2 x2 : UR4D",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1202139559.pdf",
+          "document": "Novelty — UR4D/UR2 x2 : Brochure commercial UR4D",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "sony-panasonic-rvhd-01",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "RVHD-01",
+      "descriptionBefore": "Régie numérique HD, livrée avec 3 caméras. Tarif hors prestation ingé vision agréé Novelty. (option caméra supplémentaire 1150€ HT).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/regie-video/regie-numerique/rvhd-01/",
+          "document": "Novelty — RVHD-01",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rosendhal_mif4_manuel.pdf",
+          "document": "Novelty — RVHD-01 : Rosendahl Mif4",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/harris_CMN-91_ft.pdf",
+          "document": "Novelty — RVHD-01 : Harris CMN-91",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/VS-R45-instructionsE.pdf",
+          "document": "Novelty — RVHD-01 : Venetex VS-R45",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "sony-panasonic-rvhd-02",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "RVHD-02",
+      "descriptionBefore": "Régie numérique HD, livrée avec 3 caméras. Tarif hors prestation ingé vision agréé Novelty. (option caméra supplémentaire 1150€ HT).",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/regie-video/regie-numerique/rvhd-02/",
+          "document": "Novelty — RVHD-02",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1447061523-rosendhal_mif4_manuel.pdf",
+          "document": "Novelty — RVHD-02 : Duplication : Rosendahl Mif4",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1447061523-harris_CMN-91_ft.pdf",
+          "document": "Novelty — RVHD-02 : Duplication : Harris CMN-91",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1447061523-VS-R45-instructionsE.pdf",
+          "document": "Novelty — RVHD-02 : Duplication : Venetex VS-R45",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "soundtube-fp6020-ii-kit",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "FP6020-II Kit",
+      "descriptionBefore": "Enceinte parabolique directive mono ou stéréo - 15W/8Ohms - 10W/100V - 143Hz-21kHz, livrée avec mini-amplificateur 2x50W 8Ohms classe D - stéréo, dual mono ou mono bridgé",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/fp6020-ii-kit/",
+          "document": "Novelty — FP6020-II Kit",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/soundtube_fp6020-II_ft.pdf",
+          "document": "Novelty — FP6020-II Kit : FP620-II",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/soundtube_fp6020-II_manuel.pdf",
+          "document": "Novelty — FP6020-II Kit : FP620-II",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/soundtube_sa502_ft.pdf",
+          "document": "Novelty — FP6020-II Kit : SA502",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/soundtube_sa502_manuel.pdf",
+          "document": "Novelty — FP6020-II Kit : SA502",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "swit-flow-500",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "FLOW 500",
+      "descriptionBefore": "Distributeur 3G SDI & HDMI 500ft/150m",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/video/peripherique/distributeur-sdi/flow-500/",
+          "document": "Novelty — FLOW 500",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/919-4473-261423319227.zip",
+          "document": "Novelty — FLOW 500 : Firmware",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1715-4473-flow500-user-manual.pdf",
+          "document": "Novelty — FLOW 500 : FLOW500 User Manual",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "swit-flow500",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "FLOW500 (TX / RX)",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://www.bhphotovideo.com/c/product/1523147-REG/swit_flow500_500_hdmi_wireless_video.html",
+          "document": "B&H, fiche FLOW500 (revendeur)",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "t-racks-ds2418-set-x2",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "DS2418 – Set x2",
+        "description": "Boitier de distribution audio (\"valise de presse\" / splitter), 2 entrées vers 4 sorties ou 1 entrée vers 8 sorties",
+        "aliases": [
+          "DS2418-SET3",
+          "T.Racks DS2418 – Set x2"
+        ],
+        "weightKg": 2.5,
+        "powerW": null
+      },
+      "modelAfter": "DS2418",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/mixage/presse/ds2418-set-x2/",
+          "document": "Novelty — DS2418 – Set x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/t-racks_ds2418_manuel.pdf",
+          "document": "Novelty — DS2418 – Set x2 : DS2418",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "tc-electronic-system-6000",
+      "decision": "normalized",
+      "reason": "Appareil unitaire conservé ; le lot ne constitue plus un choix dans la bibliothèque. Valeurs de transport ou de lot non établies retirées.",
+      "before": {
+        "model": "System 6000 MKII",
+        "description": null,
+        "aliases": [],
+        "weightKg": null,
+        "powerW": null
+      },
+      "modelAfter": "Mainframe 6000 MKII",
+      "sources": [
+        {
+          "url": "https://cdn.mediavalet.com/aunsw/musictribe/atsr2rqJk0CQQEHdz8zBWg/8n1djIW4iUOrITp-O61HUQ/Original/tc_electronic_system_6000_mkii_operation_manual_english.pdf",
+          "document": "TC Electronic, mode d'emploi System 6000 MKII",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "telex-btr800-plus-tr800",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "BTR800+TR800",
+      "descriptionBefore": "Centrale intercommunication 2 directions HF + 4 postes individuels + 2 antennes directionnelles",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/btr800tr800/",
+          "document": "Novelty — BTR800+TR800",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/telex_btr800_tr800_manuel.pdf",
+          "document": "Novelty — BTR800+TR800 : BTR800 + TR800",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/telex_btr800_ft.pdf",
+          "document": "Novelty — BTR800+TR800 : BTR800",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/telex_alp450_manuel.pdf",
+          "document": "Novelty — BTR800+TR800 : ALP450",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/telex_btr800_tr800_plan-de-frequences.pdf",
+          "document": "Novelty — BTR800+TR800 : BTR800 + TR800 plan de fréquences",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/telex_btr800_tr800_brochure.pdf",
+          "document": "Novelty — BTR800+TR800 : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "telex-set-intercom-btr800-plus-tr800-plus-ms702",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Set Intercom BTR800+TR800+MS702",
+      "descriptionBefore": "Set intercom 4 postes HF + 8 postes filaires, stations BTR800 et MS702",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/set-intercom-btr800tr800ms702/",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-telex_btr800_tr800_manuel.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : BTR800 + TR800",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-telex_btr800_ft.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : BTR800",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-telex_alp450_manuel.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : ALP450",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/dupli-telex_btr800_tr800_plan-de-frequences.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : BTR800 + TR800 plan de fréquences",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/dupli-telex_btr800_tr800_brochure.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : Brochure commerciale BTR800",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/Clear-Com_MS-702_Datasheet.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : MS702",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Clear-Com_MS-702_Manual.pdf",
+          "document": "Novelty — Set Intercom BTR800+TR800+MS702 : MS702",
+          "accessed": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "teradek-beam",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Beam (TX / RX)",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://www.markertek.com/Attachments/Specifications/TERADEK/10-0571-Specifications.pdf",
+          "document": "Teradek, caractéristiques Beam (via Markertek)",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "teradek-bolt-500-xt",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "Bolt 500 XT (TX / RX)",
+      "descriptionBefore": null,
+      "sources": [
+        {
+          "url": "https://www.adorama.com/tebolt500xtt.html",
+          "document": "Adorama, fiche Bolt 500 XT (revendeur)",
+          "accessed": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "yamaha-msp5-set-x2",
+      "decision": "excluded",
+      "reason": "Ensemble de plusieurs appareils indépendants (fabricant ou loueur) : placer les appareils séparément.",
+      "modelBefore": "MSP5 – Set x2",
+      "descriptionBefore": "Set de 2 x enceintes bi-amplifiées 67W, 2 voies actives",
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-monitoring/msp5-set-x2/",
+          "document": "Novelty — MSP5 – Set x2",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_msp5_manuel.pdf",
+          "document": "Novelty — MSP5 – Set x2 : MSP5 Studio",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/yamaha_msp5_ft.pdf",
+          "document": "Novelty — MSP5 – Set x2 : MSP5 Studio",
+          "accessed": "2026-10-19"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/yamaha_msp5_brochure.pdf",
+          "document": "Novelty — MSP5 – Set x2 : Brochure commerciale",
+          "accessed": "2026-10-19"
+        }
+      ]
+    }
+  ]
+}
