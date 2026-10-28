@@ -5,7 +5,7 @@
   "pictogram": "camera",
   "manufacturer": "Panasonic",
   "model": "AW-HE145K",
-  "status": "community",
+  "status": "verified",
   "description": "Caméra PTZ HD, capteur MOS 1''",
   "aliases": [
     "AWHE145",
@@ -21,10 +21,72 @@
       "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE145P.PJ.E.EJ_simple%28DVQX2205XA%29_E.pdf",
       "document": "Panasonic — AW-HE145 — Operating Instructions (Basics), DVQX2205XA",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/en/products/aw-he145/spec.html",
+      "document": "Panasonic AW-HE145W/K specifications and Operating Instructions pp.47–48,69",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4:2:2 10 bits"
+    },
+    {
+      "id": "sdi",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 292M / 424M, niveau A ou B"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux ; PoE++"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "CONTROL IN RS-422A"
+    },
+    {
+      "id": "mic",
+      "name": "MIC/LINE In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 ; flux IP uniquement"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC, 4,0 A (ou PoE++)"
+    }
+  ],
   "weightKg": 4.1,
-  "powerW": 48
+  "powerW": 48,
+  "depthMm": 219
 }

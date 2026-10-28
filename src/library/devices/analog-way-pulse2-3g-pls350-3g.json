@@ -36,10 +36,254 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_pulse2-3g_quick-start-guide.pdf",
       "document": "Novelty — Pulse2-3G (PLS350-3G) : Quick Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://shop.sinus.de/wp-content/uploads/2022/08/analogway_pulse_pls350_3g_usermanual.pdf",
+      "document": "Analog Way Pulse² PLS350/PLS350-3G User Manual, rear panel PLS350-3G",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "Input 1 DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dvi2",
+      "name": "Input 2 DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dvi3",
+      "name": "Input 3 DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dvi4",
+      "name": "Input 4 DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vga1",
+      "name": "Input 1 Universal Analog",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vga2",
+      "name": "Input 2 Universal Analog",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vga3",
+      "name": "Input 3 Universal Analog",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vga4",
+      "name": "Input 4 Universal Analog",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "hdmi3",
+      "name": "Input 3 HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi4",
+      "name": "Input 4 HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi5",
+      "name": "Input 5 HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi6",
+      "name": "Input 6 HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi7",
+      "name": "Input 7 SDI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdi8",
+      "name": "Input 8 SDI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "dviOut1",
+      "name": "Output 1 DVI-I",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut2",
+      "name": "Output 2 DVI-I",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vgaOut1",
+      "name": "Output 1 Universal Analog",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaOut2",
+      "name": "Output 2 Universal Analog",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "sdiOut",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique"
+    },
+    {
+      "id": "audioIn3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique"
+    },
+    {
+      "id": "audioIn4",
+      "name": "Audio In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique"
+    },
+    {
+      "id": "audioOut1",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique"
+    },
+    {
+      "id": "spdifIn1",
+      "name": "S/PDIF In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF / AES3id"
+    },
+    {
+      "id": "spdifIn2",
+      "name": "S/PDIF In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF / AES3id"
+    },
+    {
+      "id": "spdifOut1",
+      "name": "S/PDIF Out 1",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF / AES3id"
+    },
+    {
+      "id": "spdifOut2",
+      "name": "S/PDIF Out 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF / AES3id"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100–240 V AC"
+    }
+  ],
   "weightKg": 6.3,
-  "powerW": 110
+  "powerW": 110,
+  "rackU": 2
 }

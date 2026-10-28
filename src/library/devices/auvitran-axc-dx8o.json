@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AxC-DX8O",
-  "status": "community",
-  "description": "Carte interface 4 sorties stéréo AES/EBU pour Audio ToolBox",
+  "status": "verified",
+  "description": "4 prises AES3 stéréo, soit 8 canaux sortants ; alimentation par le châssis. Le texte de détail précise XLR mâle malgré une ligne contradictoire dans la fiche. Format carte : 200 × 100 × 40 mm ; compatible AVBx3/AVBx7.",
   "aliases": [
     "Auvitran AxC-DX8O"
   ],
@@ -30,9 +30,50 @@
       "url": "https://www.auvitran.com/productrange/axc-cards/",
       "document": "AuviTran — Audio ToolBox AxC Cards, famille et compatibilité des cartes",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/auvitran_axc-dx8o_ft-en.pdf",
+      "document": "AuviTran AxC-DX8O : fiche technique, pages 1–2",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out1",
+      "name": "AES OUT 1/2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR mâle 110 Ω",
+      "channels": 2
+    },
+    {
+      "id": "out2",
+      "name": "AES OUT 3/4",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR mâle 110 Ω",
+      "channels": 2
+    },
+    {
+      "id": "out3",
+      "name": "AES OUT 5/6",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR mâle 110 Ω",
+      "channels": 2
+    },
+    {
+      "id": "out4",
+      "name": "AES OUT 7/8",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR mâle 110 Ω",
+      "channels": 2
+    }
+  ],
   "moduleType": "auvitran-axc"
 }

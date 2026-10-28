@@ -27,7 +27,44 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 5.1
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vga1",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "audioIn",
+      "name": "Stereo audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "weightKg": 5.1,
+  "powerW": 21,
+  "depthMm": 244.5
 }

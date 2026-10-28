@@ -4,12 +4,17 @@
   "manufacturer": "Green-GO",
   "model": "WPX (Wall Panel X)",
   "pictogram": "intercom",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.canford.de/ProductResources/resources/G/Green-GO/WPX-Quick-Start-Guide.pdf",
       "document": "Green-GO, guide de démarrage WPX (via Canford)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/wpx/",
+      "document": "Green-GO — WPX Wall Panel X, Internal connectors et Technical specifications",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -17,9 +22,13 @@
       "id": "lan",
       "name": "Réseau",
       "direction": "bidir",
-      "signal": "intercom",
+      "signal": "network",
       "connector": "rj45",
-      "format": "Réseau Green-GO, PoE 802.3af"
+      "format": "Réseau Green-GO, PoE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
     },
     {
       "id": "headset",
@@ -27,16 +36,20 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "xlr4",
-      "format": "XLR 4 points"
+      "format": "XLR4 mâle, entrée microphone sur 1/2 avec bias maximal 2,5 V ; sortie casque sur 3/4."
     },
     {
       "id": "spk",
       "name": "Haut-parleur externe",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "terminal",
       "level": "speaker",
-      "format": "Jusqu'à 10 W"
+      "format": "Bornier à vis interne pour haut-parleur externe 8 Ω, 7,5 W ; même sortie audio que le haut-parleur intégré."
     }
-  ]
+  ],
+  "weightKg": 0.48,
+  "powerW": 2,
+  "depthMm": 30,
+  "description": "Panneau intercom mural à trois accès directs, réseau Green-GO et PoE. Dimensions H × L × P : 80 × 150 × 30 mm. Consommation 2 W typique, 13 W maximale. Le haut-parleur interne est de 2 W ; le manuel spécifie un haut-parleur externe de 8 Ω, 7,5 W sur les mêmes signaux, via bornier interne."
 }

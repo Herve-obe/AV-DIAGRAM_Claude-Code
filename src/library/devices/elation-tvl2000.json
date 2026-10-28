@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Elation",
   "model": "TVL2000",
-  "status": "community",
-  "description": "Projecteur LED (450 cool white & 450 warm white), 3200 à 6500° K, DMX512 0 à 100%, 4 Volets",
+  "status": "verified",
+  "description": "Panneau TVL2000 à900 LED blanc chaud/froid,76 W,6,2 kg,371 ×328 ×110 mm. Température de couleur3200–6500 K. DMX XLR3 etXLR5 entrée/sortie ; entrée et renvoi secteurIEC100–240 V. Quatre appareils maximum en chaînage secteur selon notice.",
   "aliases": [
     "Elation TVL2000"
   ],
@@ -18,13 +18,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/elation_tvl2000_ft.pdf",
-      "document": "Novelty — TVL2000 : TVL2000",
-      "accessed": "2026-10-19"
+      "document": "Elation — TVL2000 LED panel datasheet,p.1 :76 W,6,2 kg et dimensions",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_tvl2000_manuel.pdf",
-      "document": "Novelty — TVL2000 : TVL 2000",
-      "accessed": "2026-10-19"
+      "document": "Elation — TVL2000 instruction manual,p.4 panneau rendu (imprimées7–8),p.10 caractéristiques",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_tvl2000_photometrics.pdf",
@@ -32,8 +32,53 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In3",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "4 appareils maximum en chaîne"
+    }
+  ],
   "weightKg": 6.2,
-  "powerW": 76
+  "powerW": 76,
+  "depthMm": 110
 }

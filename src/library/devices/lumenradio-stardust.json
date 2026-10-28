@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "LumenRadio",
   "model": "STARDUST",
-  "status": "community",
-  "description": "Émetteur récepteur CRMX, Liaison DMX HF",
+  "status": "verified",
+  "description": "Émetteur Stardust 8 univers CRMX² ou4 univers CRMX Classic/W-DMX. 4 antennes CRMX RP-TNC et1 Wi-Fi RP-TNC. Alimentation par secteur TRUE1, DC10–18 V ou PoE+802.3at, redondance possible. USB-A de mise à jour ; aucune prise DMX XLR filaire.",
   "aliases": [
     "LUMENRADIO STARDUST"
   ],
@@ -20,8 +20,89 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/8630-4377-stardust-usermanual.pdf",
       "document": "Novelty — STARDUST : stardust-usermanual",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://lumenradio.com/support-materials/user-manual/",
+      "document": "LumenRadio — Stardust User Manual, 9 avril2026, pages13–14,30 : repérage des connecteurs et alimentations",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "eth",
+      "name": "Ethernet / PoE+",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net4 / sACN ;100 Mbit/s logiciel ; PoE+802.3at Type2, source30 W conseillée",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "rf",
+      "name": "Antenne CRMX A/B",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rp-tnc",
+      "format": "RP-TNC : polarité inversée, antenne RP-TNC appropriée requise"
+    },
+    {
+      "id": "rf2",
+      "name": "Antenne CRMX C/D",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rp-tnc",
+      "format": "RP-TNC : polarité inversée, antenne RP-TNC appropriée requise"
+    },
+    {
+      "id": "rf3",
+      "name": "Antenne CRMX E/F",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rp-tnc",
+      "format": "RP-TNC : polarité inversée, antenne RP-TNC appropriée requise"
+    },
+    {
+      "id": "rf4",
+      "name": "Antenne CRMX G/H",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rp-tnc",
+      "format": "RP-TNC : polarité inversée, antenne RP-TNC appropriée requise"
+    },
+    {
+      "id": "wifi",
+      "name": "Antenne Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rp-tnc",
+      "format": "RP-TNC ; Wi-Fi5 GHz"
+    },
+    {
+      "id": "usb",
+      "name": "USB firmware",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour par clé USB"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "90–240 V CA"
+    },
+    {
+      "id": "dc",
+      "name": "DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "10–18 V CC, jack verrouillable5,5 ×2,5 mm"
+    }
+  ]
 }

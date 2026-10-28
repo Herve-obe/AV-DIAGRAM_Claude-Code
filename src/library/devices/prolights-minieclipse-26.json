@@ -6,7 +6,7 @@
   "manufacturer": "Prolights",
   "model": "MiniEclipse 26°",
   "status": "community",
-  "description": "Mini découpe à LED, 28W, noire, 6000° K, couteaux, objectif 26°",
+  "description": "Mini découpe noire à LED Cree 28 W, 6 000 K, objectif 26°. Consommation maximale 29 W ; alimentation 100–240 V sur câble avec fiche secteur 16 A moulée. La documentation distingue les versions simples et W-DMX (1,5 kg pour W-DMX) ; aucune prise DMX filaire n'est indiquée.",
   "aliases": [
     "Prolights MiniEclipse 26°"
   ],
@@ -25,10 +25,28 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1584003518-prolights_minieclipse_corps_de_decoupe_manuel.pdf",
       "document": "Novelty — MiniEclipse 26° : MiniEclipse",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/prolights_minieclipse_corps_de_decoupe_fiche_produit2.pdf",
+      "document": "Prolights / ESL — MiniEclipse, p.1–2 : versions noires, alimentation 16 A moulée et versions W-DMX",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/prolights_minieclipse_corps_de_decoupe_manuel.pdf",
+      "document": "Prolights — MiniEclipseWD / MiniEclipseTRWD user manual, p.24 et 29 : 29 W, 1,5 kg, éléments et connexions",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble avec fiche 16 A moulée ; forme de fiche non précisée sur la fiche produit"
+    }
+  ],
   "weightKg": 1.5,
   "powerW": 29
 }

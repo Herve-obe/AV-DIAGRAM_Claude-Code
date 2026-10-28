@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "Panasonic",
   "model": "AWRP60",
-  "status": "community",
+  "status": "verified",
   "description": "Contrôleur de caméra à distance compact",
   "aliases": [
     "PANASONIC AWRP60"
@@ -32,7 +32,73 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.5
+  "ports": [
+    {
+      "id": "camera1",
+      "name": "Camera Control 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera2",
+      "name": "Camera Control 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera3",
+      "name": "Camera Control 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera4",
+      "name": "Camera Control 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera5",
+      "name": "Camera Control 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX, IEEE802.3af PoE",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "tally",
+      "name": "Tally / GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ],
+  "weightKg": 1.5,
+  "depthMm": 177
 }

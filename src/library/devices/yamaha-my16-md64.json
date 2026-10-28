@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Yamaha",
   "model": "MY16-MD64",
-  "status": "community",
-  "description": "Carte d'extension MADI 16-in/16-out pour consoles numériques YAMAHA",
+  "status": "verified",
+  "description": "Carte mini-YGDAI MADI. Seize canaux locaux par carte à 48 kHz, jusqu’à 64 avec trois MY16-EX ; mode 56/64 canaux et 44,1/48 ou 88,2/96 kHz. Entrées fibre/coaxiale redondantes, sorties dupliquées. Alimentation par le châssis. Dimensions L × H × P : 120 × 40 × 176,1 mm.",
   "aliases": [
     "MY16AD64",
     "YAMAHA MY16-MD64"
@@ -31,10 +31,68 @@
       "url": "https://at.yamaha.com/files/download/other_assets/2/335182/my16md64_en_om_c0.pdf",
       "document": "Yamaha MY16-MD64 Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_my16-md64_manuel.pdf",
+      "document": "Yamaha MY16-MD64 : manuel, panneaux et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "optical-in",
+      "name": "MADI OPTICAL IN",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "format": "MADI fibre multimode, 56/64 canaux ; entrée prioritaire sur coaxial",
+      "channels": 64
+    },
+    {
+      "id": "optical-out",
+      "name": "MADI OPTICAL OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "format": "MADI fibre multimode, mêmes canaux que COAXIAL OUT",
+      "channels": 64
+    },
+    {
+      "id": "coax-in",
+      "name": "MADI COAXIAL IN",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "MADI 75 Ω, redondance de OPTICAL IN, pas de canaux supplémentaires",
+      "channels": 64
+    },
+    {
+      "id": "coax-out",
+      "name": "MADI COAXIAL OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "MADI 75 Ω, mêmes canaux que OPTICAL OUT",
+      "channels": 64
+    },
+    {
+      "id": "next-in",
+      "name": "NEXT MY16-EX IN",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "Extension Yamaha propriétaire, pas Ethernet"
+    },
+    {
+      "id": "next-out",
+      "name": "NEXT MY16-EX OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "Extension Yamaha propriétaire, pas Ethernet"
+    }
+  ],
   "weightKg": 0.16,
-  "moduleType": "yamaha-mini-ygdai"
+  "moduleType": "yamaha-mini-ygdai",
+  "depthMm": 176.1
 }

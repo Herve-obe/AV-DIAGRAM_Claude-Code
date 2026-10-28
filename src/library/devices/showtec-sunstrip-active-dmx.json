@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "SHOWTEC",
   "model": "Sunstrip Active DMX",
-  "status": "community",
-  "description": "Projecteur basse tension, 10 x dichroïques 75W = 750W/240V, DMX (1, 2, 5 ou 10 canaux) + gradateur intégré",
+  "status": "verified",
+  "description": "Sunstrip Active DMX, code 30710, dix lampes GU10 240 V / 75 W et gradateurs intégrés, soit 750 W. 5,32 kg, dimensions 1 000 × 130 × 80 mm. DMX 3 points entrée/sortie et powerCON bleu/gris entrée/sortie. Les versions à autres lampes existent : contrôler la plaque.",
   "aliases": [
     "SUNSTRIP ACTIVE",
     "SHOWTEC Sunstrip Active DMX"
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1208246429.pdf",
-      "document": "Novelty — Sunstrip Active DMX : Sunstrip Active DMX",
-      "accessed": "2026-10-19"
+      "document": "Showtec — Sunstrip Active DMX 30710 manual, p.7 et16 (imprimées 5 et14) : toutes connexions et 10 × 75 W",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/showtec_sunstrip_certificat.pdf",
@@ -28,8 +28,39 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "240 V / 50 Hz, entrée bleue"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Sortie grise, 20 A maximum"
+    }
+  ],
   "weightKg": 5.32,
-  "powerW": 750
+  "powerW": 750,
+  "depthMm": 80
 }

@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Briteq",
   "model": "BT-Hurricane",
-  "status": "community",
-  "description": "Ventilateur contrôlé par DMX, jusqu’à 3500 m³/h ou 58 m³/min (2060 cfm)",
+  "status": "verified",
+  "description": "Ventilateur de scène DMX,230 V CA ; débit3500 m³/h, IP44.",
   "aliases": [
     "Briteq BT-Hurricane"
   ],
@@ -43,8 +43,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-hurricane_manuel-en.pdf",
-      "document": "Novelty — BT-Hurricane : BT-Hurricane (UK)",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur briteq-bt-hurricane, pages PDF 5,8 : repérage des connecteurs et spécifications",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-hurricane_manuel-fr.pdf",
@@ -52,8 +52,55 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmx-in3",
+      "name": "DMX In XLR3",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out XLR3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Recopie secteur"
+    }
+  ],
   "weightKg": 16.5,
   "powerW": 200
 }

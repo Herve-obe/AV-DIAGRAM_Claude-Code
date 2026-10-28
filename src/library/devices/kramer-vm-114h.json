@@ -4,14 +4,78 @@
   "manufacturer": "Kramer",
   "model": "VM-114H",
   "pictogram": "router",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://cdn.kramerav.com/web/downloads/manuals/vm-114h.pdf",
+      "document": "Kramer VM-114H manual Rev 10, pp. 6-7, 13",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "catIn",
+      "name": "DGKat In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "Kramer DGKat; not Ethernet"
+    },
+    {
+      "id": "hdmiOut1",
+      "name": "HDMI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiOut2",
+      "name": "HDMI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiOut3",
+      "name": "HDMI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiOut4",
+      "name": "HDMI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 0.5 A; positive center"
+    }
+  ],
+  "weightKg": 0.9
 }

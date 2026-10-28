@@ -4,9 +4,8 @@
   "manufacturer": "Shure",
   "model": "SLX1",
   "pictogram": "wireless",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Émetteur ceinture SLX analogique. Alimentation par deux piles AA ; masse sans piles. Bande radio déterminée par la variante ; entrée TA4M avec polarisation 5 V.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -16,7 +15,46 @@
       "url": "https://www.shure.com/en-US/docs/guide/SLX",
       "document": "Shure SLX User Guide — SLX1",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.shure.com/en-US/docs/guide/SLX",
+      "document": "Shure SLX User Guide, p. 10 (PDF p. 10) : SLX1 ; vues émetteur et caractéristiques",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://lexiconusa.com/support/support_links/schematics/shure/SLX_guide_en-US.pdf",
+      "document": "Shure SLX User Guide, p. 10 (PDF p. 10) : SLX1 ; vues émetteur et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "audio-in",
+      "name": "Audio Input TA4M",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "Broche 1 masse, 2 polarisation +5 V, 3 audio, 4 charge active ; position MIC ou instrument 0/−10 dB",
+      "modes": [
+        {
+          "connector": "ta4",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ],
+      "phantom": "none"
+    },
+    {
+      "id": "rf-out",
+      "name": "Émission UHF",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "channels": 1,
+      "format": "Antenne intégrée ; fréquence selon bande de l’émetteur"
+    }
+  ],
+  "weightKg": 0.081,
+  "depthMm": 19
 }

@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "GENELEC",
   "model": "8030A",
-  "status": "community",
-  "description": "Enceinte de monitoring active 8030A, une enceinte.",
+  "status": "verified",
+  "description": "Genelec 8030A, une enceinte ; entrée et sortie XLR distinctes, alimentation IEC. Consommation constructeur publiée en VA (10 au repos/80 en sortie maximale).",
   "aliases": [
     "GENELEC 8030A"
   ],
@@ -35,8 +35,41 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/genelec_8030a_acousticaxis.pdf",
       "document": "Novelty — 8030A-SET x2 : Acoustic Axis",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Genelec_8030A_manuel.pdf",
+      "document": "Genelec 8030A Operating Manual, pp.2–3 et7 ; panneau arrière contrôlé visuellement",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "INPUT",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique 10 kΩ ; sensibilité variable"
+    },
+    {
+      "id": "out",
+      "name": "OUTPUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Reprise du signal d’entrée ajustée par volume ; chaîne jusqu’à six 8030A"
+    },
+    {
+      "id": "ac",
+      "name": "MAINS INPUT",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Tension de la version 100/120/220/230 V ; 10 VA repos,80 VA pleine sortie"
+    }
+  ],
+  "weightKg": 5.6,
+  "depthMm": 178
 }

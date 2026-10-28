@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "Syva N",
-  "status": "community",
-  "description": "Enceinte 2 voies passives, MF = 6x5\", HF = 3x1,75\", ouverture horizontale 140°, ouverture vertical +5/-21°, 137db SPL, 8Ω",
+  "status": "verified",
+  "description": "Syva : une colonne passive 8 Ω ; trois connexions alternatives vers le même signal. AutoConnect uniquement avec Syva Low.",
   "aliases": [
     "SYVA",
     "L-ACOUSTICS Syva N"
@@ -36,9 +36,42 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_syva_manuel.pdf",
       "document": "Novelty — Syva N : Syva",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_syva_manuel.pdf",
+      "document": "L-Acoustics Syva User Manual v1.0, pp.14–15 et fiches Syva p.5",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 21
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "8 Ω, 1+/1− ; alternative au bornier et AutoConnect"
+    },
+    {
+      "id": "terminal",
+      "name": "IN screw terminal",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Bornier 2 points ; alternative à speakON et AutoConnect"
+    },
+    {
+      "id": "autoconnect",
+      "name": "AutoConnect",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "syva-autoconnect",
+      "level": "speaker",
+      "format": "Connexion d’accueil avec Syva Low ; ne pas utiliser les autres entrées simultanément"
+    }
+  ],
+  "weightKg": 21,
+  "depthMm": 209
 }

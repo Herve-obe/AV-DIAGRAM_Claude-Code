@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Bose",
   "model": "ShowMatch DeltaQ SMS118",
-  "status": "community",
-  "description": "Renfort de grave pour système SoundMatch DeltaQ, 133 dB SPL, 1x18\", 29 Hz - 300 Hz",
+  "status": "verified",
+  "description": "ShowMatch SMS118 passif4 Ω :1+/1− utilisés,2+/2− non connectés ; deux NL4 en parallèle. DSP et amplification adaptés requis.",
   "aliases": [
     "BOSE® ShowMatch DeltaQ SMS118"
   ],
@@ -30,9 +30,40 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/tds_ShowMatch_SMS118_Letter.pdf",
       "document": "Novelty — ShowMatch DeltaQ SMS118 : SMS118",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/tds_ShowMatch_SMS118_Letter.pdf",
+      "document": "Bose ShowMatch Technical Data p.1 ; Installation and Safety Guidelines, p.11",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_ShowMatch-loudspeakers_manuel.pdf",
+      "document": "Bose ShowMatch Technical Data p.1 ; Installation and Safety Guidelines, p.11",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 61.9
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "SMS118 passif4 Ω :1+/1− utilisés,2+/2− non connectés"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; SMS118 passif4 Ω :1+/1− utilisés,2+/2− non connectés"
+    }
+  ],
+  "weightKg": 61.9,
+  "depthMm": 775
 }

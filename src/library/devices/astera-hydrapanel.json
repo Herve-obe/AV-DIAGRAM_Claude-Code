@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Astera",
   "model": "HydraPanel",
-  "status": "community",
-  "description": "Projecteur LED autonome HydraPanel, un appareil.",
+  "status": "verified",
+  "description": "Panneau LED RGBMintAmber 6 pixels sur batterie ; moteur LED 25 W, consommation LED 17 W. Dimensions 166 × 85 × 43,5 mm. CRMX et Bluetooth Bridge intégrés ; IP65 avec bouchons/câbles prescrits. Alimentation et DMX filaire partagent les prises DC ; PowerBox ou DataLink externe nécessaire.",
   "aliases": [
     "Astera HydraPanel"
   ],
@@ -18,10 +18,29 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/2025/09/FP6_HydraPanel_Datasheet_V3-1.pdf",
-      "document": "Novelty — HydraPanel : Fiche technique",
-      "accessed": "2026-10-19"
+      "document": "Astera — HydraPanel Datasheet v3, 21 février 2023, pages 1–3 : spécifications et Power+Data In/Out",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "power-data-in",
+      "name": "Alimentation / données In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC / 0,85 A ; 5,5 × 2,1 mm, DMX sur la même prise via PowerBox/DataLink"
+    },
+    {
+      "id": "power-data-out",
+      "name": "Alimentation / données Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Recopie alimentation et données 5,5 × 2,1 mm"
+    }
+  ],
+  "weightKg": 0.604,
+  "powerW": 17,
+  "depthMm": 43.5
 }

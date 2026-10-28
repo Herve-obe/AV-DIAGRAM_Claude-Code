@@ -4,12 +4,17 @@
   "manufacturer": "Kiloview",
   "model": "N6",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://videoguys.com/products/kiloview-n6-1080p60-hdmi-full-ndi-and-ndi-hx-encoder-decoder",
       "document": "Videoguys, fiche N6 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/09/N6ampN5-for-NDI%C2%AEUser-ManuelV1.pdf",
+      "document": "Kiloview N6/N5 manual, technical parameters and interface description; official N6 specifications",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -42,7 +47,26 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "12-18 V DC, 5.5/2.5 mm"
+    },
+    {
+      "id": "audio",
+      "name": "Line In / Out",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Shared 3.5 mm line in/out"
+    },
+    {
+      "id": "usb",
+      "name": "USB expansion",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.0"
     }
-  ]
+  ],
+  "powerW": 6,
+  "weightKg": 0.5
 }

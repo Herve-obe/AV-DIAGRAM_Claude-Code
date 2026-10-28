@@ -6,7 +6,7 @@
   "manufacturer": "Fohhn",
   "model": "ABX-2",
   "status": "community",
-  "description": "Convertisseur analogique-digitale pour système Airea",
+  "description": "Convertisseur 2 canaux analogiques vers AES/EBU ou Airea-Net. Consommation 2 W (charge Airea-Net max.5 W). Alimentation 12–24 V DC externe ou 48 V via prise Airea-Net.",
   "aliases": [
     "Fohhn ABX-2"
   ],
@@ -20,10 +20,67 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_abx-2_manuel2.pdf",
       "document": "Novelty — ABX-2 : ABX-2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_abx-2_manuel2.pdf",
+      "document": "Manuel ABX-1/ABX-2 pp.16–17 et 20 (prises et caractéristiques).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "analog-in-1",
+      "name": "Analog IN CH1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique, maximum +15 dBu"
+    },
+    {
+      "id": "analog-in-2",
+      "name": "Analog IN CH2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique, maximum +15 dBu"
+    },
+    {
+      "id": "aes-out",
+      "name": "AES/EBU OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU 24 bits / 48 kHz, isolé et symétrique"
+    },
+    {
+      "id": "airea-out",
+      "name": "AIREA-NET OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net ; peut recevoir l’alimentation 48 V du maître ; pas de sortie alimentant une enceinte"
+    },
+    {
+      "id": "fohhn-net",
+      "name": "FOHHN-NET IN",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ethercon",
+      "format": "Commande Fohhn-Net ; pas Ethernet IP"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12–24 V DC / 0,5 A, centre positif ; alternative à alimentation via Airea-Net"
+    }
+  ],
   "weightKg": 0.3,
   "powerW": 2
 }

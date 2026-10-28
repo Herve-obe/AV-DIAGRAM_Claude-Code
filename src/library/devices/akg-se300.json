@@ -4,9 +4,9 @@
   "domain": "sound",
   "pictogram": "mic",
   "manufacturer": "AKG",
-  "model": "SE300",
-  "status": "community",
-  "description": "Microphone statique, avec capsule CK91",
+  "model": "SE 300 B + CK 91",
+  "status": "verified",
+  "description": "Ensemble micro AKG SE300B avec capsule cardioïde CK91, aussi nommé C391B. Sortie XLR3, fantôme 9–52 V ; masse nette 115 g et longueur 146 mm pour l’ensemble, distinctes des 80 g du module SE300B seul.",
   "aliases": [
     "SE300/CK91",
     "AKG SE300"
@@ -16,8 +16,29 @@
       "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/statique/se300/",
       "document": "Novelty — SE300",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manuals.plus/m/b4718a908749f02d772732dcbbe66dd49bac2bf7b5aa128bf3c578ba05e84ce9",
+      "document": "Catalogue constructeur AKG Full Line 2004/2005, pp.36–38 (C391B=SE300B+CK91, masse et alimentation) ; CK91 Service Documentation p.3, capsule 35 g.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.akg.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw5b1a444a/pdfs/AKG_CK91_CK92_CK93_Service_Documentation.pdf",
+      "document": "Catalogue constructeur AKG Full Line 2004/2005, pp.36–38 (C391B=SE300B+CK91, masse et alimentation) ; CK91 Service Documentation p.3, capsule 35 g.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie XLR3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Module SE300B avec capsule CK91 (ensemble C391B) ; fantôme 9–52 V, ≤2 mA"
+    }
+  ],
+  "weightKg": 0.115
 }

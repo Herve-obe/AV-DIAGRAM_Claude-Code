@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Ayrton",
   "model": "Arcaline2 3G",
-  "status": "community",
-  "description": "Rampe de 10 LED Full Color RGBW, angle 40°, 1020mm",
+  "status": "verified",
+  "description": "Barre LED ARCALINE2 3G IP65, 100 W, 7,9 kg, DMX/RDM. Deux câbles captifs avec connecteurs hybrides étanches à vis sept contacts, transportant ensemble le secteur 110–240 V et les données DMX. Raccordement par EASYBOX 3G ou adaptateurs hybrides dédiés ; aucune prise XLR/powerCON séparée sur le projecteur.",
   "aliases": [
     "ARCALINE23G",
     "AYRTON Arcaline2 3G"
@@ -24,8 +24,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ayrton_arcaline2-3G_manuel.pdf",
-      "document": "Novelty — Arcaline2 3G : Arcaline2 3G",
-      "accessed": "2026-10-19"
+      "document": "Ayrton — ARCALINE2 3G manuel FR3, p.8–10,14–15 : connecteurs hybrides 7 contacts, 100 W et 7,9 kg",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/ayrton_arcalyne2-3G_certificat.pdf",
@@ -33,8 +33,24 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hybridIn",
+      "name": "Entrée hybride secteur / DMX",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Ayrton série 3G hybride étanche à vis, 7 contacts ; secteur + DMX512/RDM"
+    },
+    {
+      "id": "hybridOut",
+      "name": "Renvoi hybride secteur / DMX",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Ayrton série 3G hybride étanche à vis, 7 contacts ; secteur + DMX512/RDM"
+    }
+  ],
   "weightKg": 7.9,
   "powerW": 100
 }

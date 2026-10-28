@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "MERLIN GERIN",
   "model": "AD32T/3x32M+6xPC16",
-  "status": "community",
-  "description": "Armoire de distribution sur pied. Entrée : P17 32A tri. Sorties : 3 x P17 32mono + 6 x PC16A. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Armoire de distribution sur pied. Entrée : P17 32A tri. Sorties : 3 x P17 32mono + 6 x PC16A. Protection différentielle 30mA Dimensions unitaires documentées : 55 × 29 × 74,5 cm (ordre d’axes non précisé par la page).",
   "aliases": [
     "AD32T/003",
     "MERLIN GERIN AD32T/3x32M+6xPC16"
@@ -16,80 +16,94 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/ad32t-3x32m6xpc16/",
       "document": "Novelty — AD32T/3x32M+6xPC16",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/ad32t-3x32m6xpc16/",
+      "document": "Novelty : merlin-gerin-ad32t-3x32m-plus-6xpc16, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 32A tri",
+      "name": "Arrivée p17-32-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out1",
-      "name": "Sortie P17 32mono 1",
+      "name": "p17-32-mono 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-mono"
+      "connector": "p17-32-mono",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out2",
-      "name": "Sortie P17 32mono 2",
+      "name": "p17-32-mono 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-mono"
+      "connector": "p17-32-mono",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out3",
-      "name": "Sortie P17 32mono 3",
+      "name": "p17-32-mono 3",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-mono"
+      "connector": "p17-32-mono",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out4",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out5",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out6",
-      "name": "Sortie PC16A 3",
+      "name": "PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out7",
-      "name": "Sortie PC16A 4",
+      "name": "PC16 4",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out8",
-      "name": "Sortie PC16A 5",
+      "name": "PC16 5",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out9",
-      "name": "Sortie PC16A 6",
+      "name": "PC16 6",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 26.5
 }

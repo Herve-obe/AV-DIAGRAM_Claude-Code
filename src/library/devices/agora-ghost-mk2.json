@@ -1,12 +1,12 @@
 {
   "id": "agora-ghost-mk2",
-  "family": "dmxDistribution",
-  "domain": "light",
+  "family": "network",
+  "domain": "network",
   "pictogram": "patch",
   "manufacturer": "Agora",
   "model": "Ghost MK2",
   "status": "community",
-  "description": "Processeur Artnet 2 x 1GB EtherCon - 256 univ In / 64 Flux Out",
+  "description": "Plateforme réseau GHOST-MK2,14 ports Ethernet gigabit etherCON (10 avant,4 arrière),2 entrées IEC redondantes.482,6 ×368 ×43,6 mm,1,7 kg hors options. Optiques OpticalCON/Smartbeam1/10 Gb/s et PoE selon options ; non présumées installées.",
   "aliases": [
     "Agora Ghost MK2"
   ],
@@ -18,11 +18,184 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/987-4739-agora-ghost-mk2-tech-fr.pdf",
-      "document": "Novelty — Ghost MK2 : agora_ghost-mk2-tech-fr",
-      "accessed": "2026-10-19"
+      "document": "Agora — Ghost-MK2 Datasheet FR, pages1–2 : ports de base, options optiques, puissance, format rack",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.7
+  "ports": [
+    {
+      "id": "eth1",
+      "name": "Avant 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth2",
+      "name": "Avant 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth3",
+      "name": "Avant 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth4",
+      "name": "Avant 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth5",
+      "name": "Avant 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth6",
+      "name": "Avant 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth7",
+      "name": "Avant 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth8",
+      "name": "Avant 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth9",
+      "name": "Avant 9",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth10",
+      "name": "Avant 10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth11",
+      "name": "Arrière 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth12",
+      "name": "Arrière 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth13",
+      "name": "Arrière 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth14",
+      "name": "Arrière 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur A",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V CA50/60 Hz"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur B",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Alimentation redondante100–240 V CA50/60 Hz"
+    }
+  ],
+  "weightKg": 1.7,
+  "rackU": 1,
+  "powerW": 26.6,
+  "depthMm": 368
 }

@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "Schoeps",
   "model": "CMC6+MK21g",
-  "status": "community",
-  "description": "Microphone statique, infracardioïde",
+  "status": "verified",
+  "description": "Microphone infracardioïde CMC 6 + capsule Colette ; masse 77 g (préampli 60 g + capsule 17 g), hors suspension.",
   "aliases": [
     "CMC6 MK21",
     "SCHOEPS CMC6+MK21g"
@@ -21,8 +21,29 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/schoeps_mk21g_manuel.pdf",
       "document": "Novelty — CMC6+MK21g : CMC6 + MK21g",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/mikrofonverstaerker/cmc-6.html",
+      "document": "Schoeps CMC 6 et capsule MK 4 / MK 21, sections Technische Daten : masse calculée 60 + 17 g",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/kapseln/breite-nieren/mk-21.html",
+      "document": "Schoeps CMC 6 et capsule MK 4 / MK 21, sections Technische Daten : masse calculée 60 + 17 g",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "CMC 6 : fantôme P12 (8 mA) ou P48 (4 mA)"
+    }
+  ],
+  "weightKg": 0.077
 }

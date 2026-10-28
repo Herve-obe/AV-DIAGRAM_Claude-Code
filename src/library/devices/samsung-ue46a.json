@@ -28,7 +28,117 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 12
+  "ports": [
+    {
+      "id": "vga",
+      "name": "RGB In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "component",
+      "name": "AV / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Shared AV/component adapter connector"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "3.5 mm stereo serial adapter"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "3.5 mm stereo serial adapter"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR / ambient sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    }
+  ],
+  "weightKg": 12,
+  "depthMm": 29.9
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Elation",
   "model": "DTW Blinder 700 IP",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -22,8 +22,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_dtw700ip_manuel.pdf",
-      "document": "Novelty — DTW Blinder 700 IP : DTW Blinder 700 IP",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur elation-dtw-blinder-700-ip, pages PDF 21 : repérage des connecteurs et spécifications",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_dtw700ip_photometrics_(No Lens) Amber.pdf",
@@ -59,28 +59,40 @@
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In XLR5",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Thru",
+      "name": "DMX Out XLR5",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Recopie DMX"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Secteur In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Blinder LED IP65, 4 × 175 W COB"
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
     }
   ],
   "aliases": [
     "Elation DTW Blinder 700 IP"
-  ]
+  ],
+  "weightKg": 12.7,
+  "powerW": 680,
+  "description": "Blinder LED700 W IP65,4 modules warm white/ambre ; consommation680 W max.400 ×241 ×410 mm."
 }

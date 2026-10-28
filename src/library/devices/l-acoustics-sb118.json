@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "SB118",
-  "status": "community",
-  "description": "Enceinte \"Sub-Bass\" 1200W / 8Ω",
+  "status": "verified",
+  "description": "SB118 passif 8 Ω. Une enceinte.",
   "aliases": [
     "L-ACOUSTICS SB118"
   ],
@@ -20,9 +20,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133083.pdf",
       "document": "Novelty — SB118 : SB118",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133083.pdf",
+      "document": "L-Acoustics SB118 fiche p.1",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 63
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "SB118 passif 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; SB118 passif 8 Ω"
+    }
+  ],
+  "weightKg": 63,
+  "depthMm": 820
 }

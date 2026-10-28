@@ -4,7 +4,7 @@
   "manufacturer": "Ayrton",
   "model": "MagicDot-SX",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -27,8 +27,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/ayrton_magicdot-sx_ft.pdf",
-      "document": "Novelty — MagicDot SX : MagicDot SX",
-      "accessed": "2026-10-19"
+      "document": "Ayrton — MagicDot-SX specification sheet, p.3 : toutes connexions, 130 W, 5,7 kg et dimensions",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -37,26 +37,37 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Lyre beam LED 60 W ; CRMX intégré"
+      "connector": "powercon-true1",
+      "format": "110–240 V 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
     }
   ],
   "aliases": [
     "MagicDot SX",
     "AYRTON MagicDot SX"
-  ]
+  ],
+  "powerW": 130,
+  "weightKg": 5.7,
+  "depthMm": 210,
+  "description": "Lyre LED RGBW MagicDot-SX, zoom motorisé 5–40°, pan/tilt continus, CRMX et RDM intégrés. 130 W maximum, 5,7 kg ; dimensions 210 × 318 × 210 mm. DMX XLR 5 points et powerCON TRUE1 en entrée/sortie, alimentation 110–240 V."
 }

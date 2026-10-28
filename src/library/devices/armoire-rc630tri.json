@@ -9,24 +9,158 @@
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, page 166 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Arrivée",
+      "name": "Arrivée powerlock",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "630 A d'après la désignation (à confirmer) ; connecteur non précisé"
+      "connector": "powerlock",
+      "format": "Jeu de conducteurs unipolaires triphasés + neutre + terre"
+    },
+    {
+      "id": "in2",
+      "name": "Deuxième jeu Powerlock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Deuxième jeu d’arrivée, pas une alimentation séparée présumée"
     },
     {
       "id": "out",
-      "name": "Départs",
+      "name": "p17-125-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Départs non détaillés dans le catalogue"
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure2",
+      "name": "p17-125-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure3",
+      "name": "p17-125-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure4",
+      "name": "p17-125-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure5",
+      "name": "p17-125-tri 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure6",
+      "name": "p17-63-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure7",
+      "name": "p17-63-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure8",
+      "name": "p17-32-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure9",
+      "name": "p17-32-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure10",
+      "name": "p17-32-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure11",
+      "name": "p17-32-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure12",
+      "name": "p17-32-tri 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure13",
+      "name": "p17-32-tri 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure14",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure15",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure16",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
     }
-  ]
+  ],
+  "description": "Armoire RC630TRI en rack déclassable à 400 A : deux jeux de Powerlock en entrée ; sorties 5 P17 125 A tri, 2 P17 63 A tri, 6 P17 32 A tri et 3 PC16. Différentiels réglables sur les départs indiqués au catalogue."
 }

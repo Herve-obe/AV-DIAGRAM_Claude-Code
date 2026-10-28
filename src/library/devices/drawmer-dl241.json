@@ -6,7 +6,7 @@
   "manufacturer": "DRAWMER",
   "model": "DL241",
   "status": "community",
-  "description": "Compresseur stéréo, entrées/sorties XLR",
+  "description": "DL241 version XLR du catalogue ; connectique alternative jack non ajoutée. 9 W, 1 U.",
   "aliases": [
     "DRAWMER DL241"
   ],
@@ -25,9 +25,85 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186143304.pdf",
       "document": "Novelty — DL241 : DL241",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186143304.pdf",
+      "document": "Drawmer DL241 Operators’ Manual, version XLR du parc, pp. 3 et 11",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.4
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ],
+      "format": "+4 / −10 commutable"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ],
+      "format": "+4 / −10 commutable"
+    },
+    {
+      "id": "out1",
+      "name": "OUTPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ],
+      "format": "+4 / −10 commutable"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ],
+      "format": "+4 / −10 commutable"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur fourni ; 115/230 V selon sélecteur"
+    }
+  ],
+  "weightKg": 2.4,
+  "powerW": 9,
+  "rackU": 1,
+  "depthMm": 200
 }

@@ -56,27 +56,65 @@
       "direction": "bidir",
       "signal": "videoIp",
       "connector": "rj45",
-      "format": "Contrôle IP et flux ; PoE+"
+      "format": "Contrôle IP et flux vidéo ; IEEE 802.3at PoE+",
+      "network": {
+        "poe": "sink",
+        "capacityMbps": 100
+      }
     },
     {
       "id": "usb",
       "name": "USB",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Sortie USB"
+      "connector": "usb-mini",
+      "format": "USB 2.0 mini-B, UVC/UAC"
     },
     {
       "id": "dc",
       "name": "DC 12 V In",
       "direction": "in",
       "signal": "power",
-      "connector": "xlr4",
-      "format": "12 V CC"
+      "connector": "dc-barrel",
+      "format": "12 V CC, prise cylindrique avec maintien du câble"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Commande série Panasonic / standard ; tally sur broches1–2"
+    },
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Commande série ; IR Out sur broches7–8"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Chaînage commande série"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Entrée micro/ligne ; diamètre à confirmer"
     }
   ],
   "aliases": [
     "AWHE42K",
     "PANASONIC AW-HE42"
-  ]
+  ],
+  "weightKg": 1.5,
+  "depthMm": 179
 }

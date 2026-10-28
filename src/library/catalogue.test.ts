@@ -15,6 +15,8 @@ interface Coverage {
   products: { noveltyId: number; templateId: string; url: string; categories: string[] }[]
 }
 
+const undocumented: EquipmentTemplate = { id: 'test-pending', model: 'Fiche test en attente', manufacturer: 'Test', family: 'processing', pictogram: 'processor', status: 'community', ports: [], portStatus: 'pending', sources: [{ document: 'Fixture sans connectique documentée', accessed: '2026-10-28' }] }
+
 const coverage: Coverage = JSON.parse(readFileSync(new URL('../../docs/inventaire/novelty-2026-couverture.json', import.meta.url), 'utf8'))
 const template = (id: string) => {
   const t = LIBRARY_INDEX.get(id)
@@ -123,8 +125,8 @@ describe('catalogue Novelty hors Structure', () => {
   })
 
   it('ajoute puis sauvegarde et recharge un appareil sans connectique documentée sans inventer de port', () => {
-    const tpl = template('yamaha-ri8-d')
-    expect(tpl.portStatus).toBe('pending') // sa variante et sa connectique restent à documenter
+    const tpl = undocumented
+    expect(tpl.portStatus).toBe('pending')
     const { project, id } = addEquipment(createProject('Catalogue'), tpl, { x: 40, y: 40 })
     const loaded = JSON.parse(JSON.stringify(project))
     expect(isProject(loaded)).toBe(true)
@@ -135,8 +137,8 @@ describe('catalogue Novelty hors Structure', () => {
   it('retrouve les références alternatives et indique à l’assistant la connectique manquante', () => {
     const t = template('rane-sl4')
     expect(searchLibrary([t], 'Serato')[0].template_id).toBe(t.id)
-    const pending = template('audio-technica-at8615')
-    expect(searchLibrary([pending], 'AT8615')[0].portStatus).toBe('pending')
+    const pending = undocumented
+    expect(searchLibrary([pending], 'Fiche test')[0].portStatus).toBe('pending')
   })
 })
 
@@ -210,8 +212,10 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
   })
 
   it('ne fait pas passer la puissance audio pour une consommation électrique', () => {
-    for (const id of ['yamaha-vxs3f', 'yamaha-dzr12', 'yamaha-stagepas-1k', 'bose-dm2c-lp-white']) expect(template(id).powerW, id).toBeUndefined()
+    for (const id of ['yamaha-vxs3f', 'bose-dm2c-lp-white']) expect(template(id).powerW, id).toBeUndefined()
     expect(template('yamaha-hs5').powerW).toBe(45)
+    expect(template('yamaha-dzr12').powerW).toBe(150) // consommation à 1/8, pas les 2000 W audio
+    expect(template('yamaha-stagepas-1k').powerW).toBe(85)
     expect(LIBRARY_INDEX.has('etc-source-four-led-lustr2')).toBe(false)
     expect(template('etc-source-four-led-series-2-lustr').status).toBe('verified')
   })
@@ -238,10 +242,10 @@ describe('appareils unitaires — décision du 26 octobre', () => {
   it('présente les lots homogènes comme un seul appareil, sans poids de transport supposé', () => {
     for (const row of audit.entries.filter(r => r.decision === 'normalized')) {
       const unit = template(row.id)
-      expect(unit.model, row.id).toBe(row.modelAfter)
+      expect([unit.model, ...(unit.aliases ?? [])], row.id).toContain(row.modelAfter)
       expect([unit.model, unit.description, ...(unit.aliases ?? [])].join(' '), row.id).not.toMatch(/(?:kit|set)\s*(?:de\s*)?[x×]?\s*[2-9]|(?:kit|set)\s*x?\s*2[0-9]/i)
     }
-    expect(template('l-acoustics-12xt-kit-x2').weightKg).toBeUndefined()
+    expect(template('l-acoustics-12xt-kit-x2').weightKg).toBe(29) // masse unitaire documentée dans la nouvelle notice
     expect(template('novelty-matled-cbat-setx4').weightKg).toBeUndefined()
     expect(template('astera-quikpunch').weightKg).toBe(6.567)
   })

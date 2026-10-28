@@ -67,8 +67,101 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.2"
+    },
+    {
+      "id": "hdbt",
+      "name": "HDBaseT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "sdi3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "sdi4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "remote",
+      "name": "Wired Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "XLR"
+    },
+    {
+      "id": "dmx",
+      "name": "DMX 512",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
   "weightKg": 92,
-  "powerW": 3100
+  "powerW": 3100,
+  "depthMm": 830
 }

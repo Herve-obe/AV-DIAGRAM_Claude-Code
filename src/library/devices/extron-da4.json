@@ -23,8 +23,52 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2,
-  "powerW": 100
+  "ports": [
+    {
+      "id": "vgaIn",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "VGA-QXGA RGBHV/RGBS/RGsB"
+    },
+    {
+      "id": "vgaOut1",
+      "name": "VGA Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaOut2",
+      "name": "VGA Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaOut3",
+      "name": "VGA Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaOut4",
+      "name": "VGA Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Internal universal 100-240 V AC"
+    }
+  ],
+  "weightKg": 0.9,
+  "depthMm": 152
 }

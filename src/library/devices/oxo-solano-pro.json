@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "OXO",
   "model": "Solano Pro",
-  "status": "community",
-  "description": "Boitier d'enregistrement-restitution DMX512, temps réel, carte mémoire.",
+  "status": "verified",
+  "description": "SolanoPRO Rack, enregistreur/restitueur DMX512, 482 × 78 × 44 mm,1,2 kg. DMX XLR3 entrée/sortie, MIDI DIN5 et SMPTE XLR3 en entrée, USB-B pour PC, lecteur SD. Douze borniers distincts de contacts secs : mémoires1–8, play,pause,stop,blackout. Alimentation externe9–12 VDC sur embase jack.",
   "aliases": [
     "OXO Solano Pro"
   ],
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_solano-pro_manuel.pdf",
-      "document": "Novelty — Solano Pro : Solano Pro",
-      "accessed": "2026-10-19"
+      "document": "OXO/Axente — SolanoPRO Rack QUICKstart,p.3–4 vue rendue : toutes prises avant/arrière et caractéristiques",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/oxo_solano_pro_rack_certificat.pdf",
@@ -27,7 +27,149 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Embase femelle"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "usb",
+      "name": "USB PC",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "9–12 VDC,500 mA minimum"
+    },
+    {
+      "id": "memory1",
+      "name": "Contact mémoire 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory2",
+      "name": "Contact mémoire 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory3",
+      "name": "Contact mémoire 3",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory4",
+      "name": "Contact mémoire 4",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory5",
+      "name": "Contact mémoire 5",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory6",
+      "name": "Contact mémoire 6",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory7",
+      "name": "Contact mémoire 7",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "memory8",
+      "name": "Contact mémoire 8",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "play",
+      "name": "Contact play",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "pause",
+      "name": "Contact pause",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "stop",
+      "name": "Contact stop",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    },
+    {
+      "id": "blackout",
+      "name": "Contact blackout",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec individuel"
+    }
+  ],
+  "weightKg": 1.2,
+  "rackU": 1,
+  "depthMm": 78
 }

@@ -5,13 +5,86 @@
   "model": "Teranex Mini HDMI to SDI 12G",
   "pictogram": "router",
   "status": "community",
-  "portStatus": "pending",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/sg/products/teranexmini/techspecs/W-TERAMIN-07",
+      "document": "Blackmagic Teranex Mini, exact HDMI/SDI 12G variant technical specification",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "audio1",
+      "name": "Audio 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Analogique symétrique ou AES/EBU ; XLR droit configurable en LTC",
+      "level": "line+4"
+    },
+    {
+      "id": "audio2",
+      "name": "Audio 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Analogique symétrique ou AES/EBU ; XLR droit configurable en LTC",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet PoE+",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V AC"
+    }
+  ],
+  "powerW": 16
 }

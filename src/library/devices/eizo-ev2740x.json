@@ -4,50 +4,120 @@
   "manufacturer": "EIZO",
   "model": "FlexScan EV2740X",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.adorama.com/eiev2740xbk.html",
       "document": "Adorama, fiche EV2740X-BK (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/10153-4703-eizo-flexscan-ev2740x-manuel-uk.pdf",
+      "document": "EIZO EV2740X user manual pp.11-12,47-48",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "usbc",
-      "name": "USB-C",
-      "direction": "in",
+      "name": "USB-C video / host",
+      "direction": "bidir",
       "signal": "video",
       "connector": "usb-c",
-      "format": "DP Alt Mode, charge 94 W, réseau"
+      "format": "DisplayPort Alt Mode +USB5Gbps;94W PowerDelivery source"
     },
     {
       "id": "displayport1",
-      "name": "DP In",
+      "name": "DisplayPort In",
       "direction": "in",
       "signal": "video",
       "connector": "displayport"
     },
     {
       "id": "hdmi1",
-      "name": "HDMI In 1",
+      "name": "HDMI1 In",
       "direction": "in",
       "signal": "video",
       "connector": "hdmi"
     },
     {
       "id": "hdmi2",
-      "name": "HDMI In 2",
+      "name": "HDMI2 In",
       "direction": "in",
       "signal": "video",
       "connector": "hdmi"
     },
     {
+      "id": "usbB",
+      "name": "USB-B upstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbA1",
+      "name": "USB-A downstream 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbA2",
+      "name": "USB-A downstream 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbA3",
+      "name": "USB-A downstream 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbCdown",
+      "name": "USB-C downstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB5Gbps;15W source"
+    },
+    {
+      "id": "lan",
+      "name": "LAN dock",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T USB LAN adapter"
+    },
+    {
+      "id": "phones",
+      "name": "Headphones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
     }
-  ]
+  ],
+  "powerW": 186,
+  "weightKg": 8.2,
+  "depthMm": 250.1
 }

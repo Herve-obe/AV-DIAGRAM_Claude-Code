@@ -63,7 +63,86 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.73
+  "ports": [
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422 Control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "composite",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "PAL/NTSC composite"
+    },
+    {
+      "id": "ref",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst / tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN / PoE+",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "IP control / streaming",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "audio",
+      "name": "Mic / Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo, plug-in 2.5 V commutable"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "weightKg": 2.73,
+  "depthMm": 234
 }

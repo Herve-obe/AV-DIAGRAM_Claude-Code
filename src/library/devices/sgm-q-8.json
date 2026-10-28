@@ -17,13 +17,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3032-4653-sgm-q-8-user-manual.pdf",
-      "document": "Novelty — Q8 : SGM_Q-8_User-Manual",
-      "accessed": "2026-10-19"
+      "document": "SGM — Q-8 manual rev.E, 31 janvier 2023, p.8,11–12 : connectique standard et puissance",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7674-4653-q-8-fiche-technique.pdf",
-      "document": "Novelty — Q8 : Q_8_fiche-technique",
-      "accessed": "2026-10-19"
+      "document": "SGM — Q-8 specifications, p.4–5 : 630 W, 13,5 kg, DMX et secteur entrée/sortie",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -32,26 +32,40 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "IP67"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Renvoi passif IP67"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Flood / strobe 1 812 LED RGBW, IP65"
+      "format": "powerCON verrouillable IP, référence à confirmer ; 100–277 V"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Renvoi secteur IP, type exact à confirmer, 13 A maximum"
     }
   ],
   "aliases": [
     "Q8",
     "SGM Q8"
-  ]
+  ],
+  "powerW": 630,
+  "weightKg": 13.5,
+  "depthMm": 166,
+  "description": "Q-8 standard, flood/strobe/blinder IP66 RGBW à huit segments, 630 W maximum, 13,5 kg. Dimensions nominales 520 × 320 × 166 mm. Entrée/sortie DMX XLR 5 points et entrée/sortie secteur verrouillable. La notice décrit un powerCON sans préciser sa référence ; la génération de connecteur doit être confirmée avant câblage."
 }

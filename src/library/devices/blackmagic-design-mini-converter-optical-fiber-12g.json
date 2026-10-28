@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "Mini Converter Optical Fiber 12G",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur de signaux SDI en fibre optique et fibre optique en SDI dans les deux directions, 12G-SDI multi-débits",
   "aliases": [
     "BlackMagicDesign Mini Converter Optical Fiber 12G"
@@ -25,8 +25,45 @@
       "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf?_v=1723186810000",
       "document": "Blackmagic Converters — Installation and Operation Manual, juillet 2024",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs",
+      "document": "Blackmagic Mini Converter Optical Fiber 12G, Technical Specifications",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G/6G/12G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G/6G/12G-SDI"
+    },
+    {
+      "id": "sfp",
+      "name": "Emplacement SFP",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module optique optionnel, vendu séparément"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 6–36 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ],
+  "powerW": 2
 }

@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Green-GO",
   "model": "RDX",
-  "status": "community",
-  "description": "Interface pour talkie-walkie",
+  "status": "verified",
+  "description": "Interface pour talkie-walkie. Dimensions H × L × P : 41 × 95 × 119 mm. Consommation typique 2,5 W, maximale 5 W.",
   "aliases": [
     "GreenGo RDX"
   ],
@@ -20,8 +20,36 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8991-4662-rdx-walkie-talkie.pdf",
       "document": "Novelty — RDX : RDX-Walkie-Talkie",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/rdx/",
+      "document": "Green-GO — RDX Radio Interface, Device overview et Technical specifications (documentation fabricant Green-GO 5)",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "radio",
+      "name": "Radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub9",
+      "format": "Émission, réception et alternat (PTT) vers talkie-walkie ; câble à réaliser selon brochage"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    }
+  ],
+  "weightKg": 0.246,
+  "powerW": 2.5,
+  "depthMm": 119
 }

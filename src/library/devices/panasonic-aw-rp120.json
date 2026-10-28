@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "Panasonic",
   "model": "AW-RP120",
-  "status": "community",
+  "status": "verified",
   "description": "Pupitre de commande jusqu'à 10 caméras tourelle PTZ, ou 100 caméras IP",
   "aliases": [
     "AWRP120",
@@ -48,8 +48,79 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.1,
-  "powerW": 8
+  "ports": [
+    {
+      "id": "camera1",
+      "name": "Camera Control 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera2",
+      "name": "Camera Control 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera3",
+      "name": "Camera Control 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera4",
+      "name": "Camera Control 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera5",
+      "name": "Camera Control 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "tally",
+      "name": "Tally / GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C"
+    }
+  ],
+  "weightKg": 3,
+  "powerW": 6,
+  "depthMm": 265
 }

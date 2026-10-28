@@ -6,7 +6,7 @@
   "manufacturer": "Swisson",
   "model": "XSR-5R-5R",
   "status": "community",
-  "description": "Splitter-Booster DMX / RDM, 2 univers, 5 sorties par univers",
+  "description": "Double splitter-booster DMX/RDM XSR-5R-5R, référence 10 12 31 : deux entrées, deux renvois et dix sorties isolées en XLR 5 points. Rack 19 pouces 1 U, dimensions 482 × 112 × 45 mm. Alimentation 100–240 V sur câble captif, fiche locale à monter sur version internationale.",
   "aliases": [
     "DMXSPLITXSR5R5R",
     "Swisson XSR-5R-5R"
@@ -29,16 +29,136 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/swisson_xsr-5r-5r_manuel-uk.pdf",
-      "document": "Novelty — XSR-5R-5R : XSR-5R-5R (UK)",
-      "accessed": "2026-10-19"
+      "document": "Swisson — XSP/XSR user manual, p.9,12,14,20 : câble secteur, double rack et dessin exact XSR-5R-5R",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/swisson_xsr-5r-5r_pinouts.pdf",
-      "document": "Novelty — XSR-5R-5R : Pinouts",
-      "accessed": "2026-10-19"
+      "document": "Swisson — XSR/XSP pinouts, p.4 : XLR5 DMX standard",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 9
+  "ports": [
+    {
+      "id": "dmxInA",
+      "name": "DMX A In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxThruA",
+      "name": "DMX A Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Renvoi de l’entrée, non isolé"
+    },
+    {
+      "id": "outA1",
+      "name": "DMX A Out 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outA2",
+      "name": "DMX A Out 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outA3",
+      "name": "DMX A Out 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outA4",
+      "name": "DMX A Out 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outA5",
+      "name": "DMX A Out 5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "dmxInB",
+      "name": "DMX B In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxThruB",
+      "name": "DMX B Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Renvoi de l’entrée, non isolé"
+    },
+    {
+      "id": "outB1",
+      "name": "DMX B Out 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outB2",
+      "name": "DMX B Out 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outB3",
+      "name": "DMX B Out 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outB4",
+      "name": "DMX B Out 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "outB5",
+      "name": "DMX B Out 5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie isolée optiquement, DMX/RDM"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble captif environ 1,45 m, version internationale livrée sans fiche, 100–240 V"
+    }
+  ],
+  "powerW": 9,
+  "rackU": 1,
+  "depthMm": 112
 }

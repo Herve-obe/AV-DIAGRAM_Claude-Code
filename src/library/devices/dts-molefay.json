@@ -17,21 +17,31 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/252_1256_flash_4000-8000-10000-1.pdf",
-      "document": "Novelty — Molefay : Blinder8",
-      "accessed": "2026-10-19"
+      "document": "DTS — FLASH series, pages2–3 : puissances et schémas de raccordement ; document lié à la désignation loueur",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "acIn",
-      "name": "Alimentation",
+      "name": "Circuit 1",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "8 × PAR36 650 W = 5 200 W / 230 V"
+      "format": "230 V CA ;2600 W ; câble/fiche du parc à confirmer"
+    },
+    {
+      "id": "ac-in2",
+      "name": "Circuit 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "230 V CA ;2600 W ; câble/fiche du parc à confirmer"
     }
   ],
   "aliases": [
     "DTS Molefay"
-  ]
+  ],
+  "powerW": 5200,
+  "description": "Blinder8 lampes,2 circuits2600 W indépendants. PAR36120 V650 W en séries adaptées230 V ; commande par gradateur externe, pas de DMX natif. Manuel lié : gamme FLASH8000."
 }

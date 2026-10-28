@@ -1,6 +1,10 @@
-# État d'avancement (mise à jour du 2026-10-26)
+# État d'avancement (mise à jour du 2026-10-28)
 
-## Situation actuelle — 0.5.16
+## Situation actuelle — 0.5.17
+
+Le lot de recherche déjà réalisé est contrôlé pour publication : 458 fiches enrichies, 740 Vérifié et 972 Communauté dans la bibliothèque active, plus 30 génériques. Quarante statuts provisoires sont conservés en Communauté quand une prise ou le fabricant reste incertain. Les 762 références non examinées restent en attente ; aucune nouvelle recherche n’est lancée. [Bilan, sources et réserves](inventaire/recherche-equipements-2026-10-28.md). Validation locale : 479 tests réussis, types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Les installateurs et essais natifs de cette version restent à confirmer dans la CI.
+
+## Version précédente — 0.5.16
 
 Le banc Qwen3 4B de la 0.5.15 a réussi ses six essais réels sous Windows et ses six essais sous macOS : réorganisation de l’existant, clarification, configuration et construction des scénarios de recette. Cela ne garantit pas toutes les formulations. 476 tests locaux réussis pour cette correction. [Détail IA](ia-correctifs-0.5.15.md).
 

@@ -31,10 +31,114 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/822-4487-conformite.zip",
       "document": "Novelty — 55UH5F-H : Conformité",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6327-4643-65-55-49-43uh5f-h-series-datasheet-low-lg-uhd-signage-200603.pdf",
+      "document": "LG UH5F-H series datasheet p.5",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "usb",
+      "name": "USB In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR /light sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
   "weightKg": 19,
-  "powerW": 145
+  "powerW": 145,
+  "depthMm": 39.9
 }

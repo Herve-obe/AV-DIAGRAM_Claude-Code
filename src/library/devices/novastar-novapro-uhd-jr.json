@@ -4,7 +4,7 @@
   "manufacturer": "NovaStar",
   "model": "NovaPro UHD Jr",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "powerW": 70,
   "rackU": 3,
   "sources": [
@@ -32,10 +32,11 @@
   "ports": [
     {
       "id": "dp",
-      "name": "DP 1.1 In",
+      "name": "DP 1.2 In",
       "direction": "in",
       "signal": "video",
-      "connector": "displayport"
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
     },
     {
       "id": "hdmi",
@@ -269,14 +270,73 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "70 W"
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    },
+    {
+      "id": "monitor",
+      "name": "HDMI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet control",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "usbFront",
+      "name": "Front USB debugging",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "usbRear",
+      "name": "Rear USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "usbCascade",
+      "name": "USB cascade Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "genlockLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Serial control, not Ethernet"
     }
   ],
   "aliases": [
     "Novastar NovaPro UHD Jr"
-  ]
+  ],
+  "weightKg": 6.3,
+  "depthMm": 396.5
 }

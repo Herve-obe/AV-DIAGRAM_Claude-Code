@@ -4,9 +4,8 @@
   "manufacturer": "Yamaha",
   "model": "MSP5 Studio",
   "pictogram": "speaker",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "MSP5 STUDIO : entrées XLR et jack mono physiques distinctes, alternatives d’usage ; une enceinte.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -16,7 +15,41 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/5/334365/msp7studio_en_om_b0.pdf",
       "document": "Yamaha MSP7 STUDIO / MSP5 STUDIO / SW10 STUDIO Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/5/334365/msp7studio_en_om_b0.pdf",
+      "document": "Yamaha MSP7 STUDIO/MSP5 STUDIO/SW10 STUDIO Owner’s Manual, pp.11,13 (31,65)",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT1 XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; utiliser cette entrée ou INPUT2, une seule à la fois"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT2 PHONE",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Asymétrique −10 dBu nominal ; alternative à INPUT1"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "weightKg": 7.9,
+  "depthMm": 208,
+  "powerW": 60
 }

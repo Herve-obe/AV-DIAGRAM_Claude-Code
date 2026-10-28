@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AxC-AX4O",
-  "status": "community",
-  "description": "Carte 4 sorties analogiques haute qualité sur XLR pour Audio ToolBox",
+  "status": "verified",
+  "description": "4 sorties ligne symétriques ; les valeurs +10/+24 dBu désignent le niveau à pleine échelle, pas un niveau micro. Alimentation par fond de panier. Format carte : 200 × 100 × 40 mm ; compatible AVBx3/AVBx7.",
   "aliases": [
     "Auvitran AxC-AX4O"
   ],
@@ -30,9 +30,46 @@
       "url": "https://www.auvitran.com/productrange/axc-cards/",
       "document": "AuviTran — Audio ToolBox AxC Cards, famille et compatibilité des cartes",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/auvitran_axc-ax4o_ft-en.pdf",
+      "document": "AuviTran AxC-AX4O : fiche technique, pages 1–2",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out1",
+      "name": "LINE OUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle servo-symétrique ; niveau à 0 dBFS configurable +24 ou +10 dBu, réglage logiciel"
+    },
+    {
+      "id": "out2",
+      "name": "LINE OUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle servo-symétrique ; niveau à 0 dBFS configurable +24 ou +10 dBu, réglage logiciel"
+    },
+    {
+      "id": "out3",
+      "name": "LINE OUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle servo-symétrique ; niveau à 0 dBFS configurable +24 ou +10 dBu, réglage logiciel"
+    },
+    {
+      "id": "out4",
+      "name": "LINE OUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle servo-symétrique ; niveau à 0 dBFS configurable +24 ou +10 dBu, réglage logiciel"
+    }
+  ],
   "moduleType": "auvitran-axc"
 }

@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Roland",
   "model": "Studio-Capture UA-1610",
-  "status": "community",
-  "description": "Interface audio-numérique USB 2.0, 16 entrées / 10 sorties, 12 préamplis micro, 24 bits / 192 kHz",
+  "status": "verified",
+  "description": "Interface USB 2.0 UA-1610, 12 entrées combo avec préamplis et 4 entrées ligne, 8 sorties TRS plus Monitor XLR et deux casques. Masse hors adaptateur/équerres ; bornerie de terre au panneau arrière.",
   "aliases": [
     "UA1610",
     "Roland Studio-Capture UA-1610"
@@ -51,9 +51,427 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/roland_ua1610_driver-1-0-1_windows.zip",
       "document": "Novelty — Studio-Capture UA-1610 : Version 1.0.1 - Windows",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.roland.com/global/products/studio-capture/",
+      "document": "Roland STUDIO-CAPTURE UA-1610 Owner’s Manual, pp. 7–10, 53, 70–71",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/roland_ua1610_manuel.pdf",
+      "document": "Roland STUDIO-CAPTURE UA-1610 Owner’s Manual, pp. 7–10, 53, 70–71",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.9
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu ; Hi-Z disponible sur le jack",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu ; Hi-Z disponible sur le jack",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in5",
+      "name": "Input 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in6",
+      "name": "Input 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in7",
+      "name": "Input 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in8",
+      "name": "Input 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in9",
+      "name": "Input 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in10",
+      "name": "Input 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in11",
+      "name": "Input 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in12",
+      "name": "Input 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "line13",
+      "name": "Line In 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
+    },
+    {
+      "id": "line14",
+      "name": "Line In 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
+    },
+    {
+      "id": "line15",
+      "name": "Line In 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
+    },
+    {
+      "id": "line16",
+      "name": "Line In 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
+    },
+    {
+      "id": "out1",
+      "name": "Line Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out2",
+      "name": "Line Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out3",
+      "name": "Line Out 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out4",
+      "name": "Line Out 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out5",
+      "name": "Line Out 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out6",
+      "name": "Line Out 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out7",
+      "name": "Line Out 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "out8",
+      "name": "Line Out 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS"
+    },
+    {
+      "id": "monL",
+      "name": "Monitor L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "monR",
+      "name": "Monitor R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "digIn",
+      "name": "Digital In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial IEC60958, 2 canaux 44,1/48/96 kHz ; indisponible à 192 kHz"
+    },
+    {
+      "id": "digOut",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial IEC60958, 2 canaux 44,1/48/96 kHz ; indisponible à 192 kHz"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "USB 2.0 audio/MIDI, 16 entrées × 10 sorties à 44,1/48/96 kHz ; 8 × 4 à 192 kHz"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur secteur fourni ; 1,6 A selon manuel, consommation W non publiée"
+    },
+    {
+      "id": "phones1",
+      "name": "Phones 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, volume indépendant"
+    },
+    {
+      "id": "phones2",
+      "name": "Phones 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, volume indépendant"
+    }
+  ],
+  "weightKg": 1.9,
+  "depthMm": 162,
+  "rackU": 2
 }

@@ -5,13 +5,90 @@
   "model": "SmartView Duo",
   "pictogram": "display",
   "status": "community",
-  "portStatus": "pending",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/sg/products/smartview/techspecs/W-HDL-05",
+      "document": "Blackmagic SmartView Duo Technical Specifications",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "Monitor 1 SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "Monitor 1 SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "Monitor 2 SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "Monitor 2 SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T"
+    },
+    {
+      "id": "lanLoop",
+      "name": "Ethernet Loop",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12–15 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "powerW": 20,
+  "rackU": 3
 }

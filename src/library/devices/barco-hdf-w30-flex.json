@@ -38,8 +38,106 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dvi",
+      "name": "Dual-Link DVI-I",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Loop Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Loop Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T, Art-Net"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "remote",
+      "name": "Remote Control",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "XLR filaire"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232/422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "dcOut",
+      "name": "12 V / 1 A Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "200–240 V AC"
+    }
+  ],
   "weightKg": 99,
   "powerW": 4550
 }

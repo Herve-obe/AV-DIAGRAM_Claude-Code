@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "NOVELTY",
   "model": "RS32",
-  "status": "community",
-  "description": "Armoire de distribution en flight-case. Entrée : P17 32A tri. Sorties : 1 x SOCA419 6 circuits + 6 x PC16A. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Armoire de distribution en flight-case. Entrée : P17 32A tri. Sorties : 1 x SOCA419 6 circuits + 6 x PC16A. Protection différentielle 30mA Les prises Socapex et leurs reprises PC16 partagent des circuits ; leur présence ne multiplie pas la puissance disponible. Les cotes et masses de flight-case ne sont pas utilisées comme celles de l’appareil.",
   "aliases": [
     "NOVELTY RS32"
   ],
@@ -20,58 +20,78 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dynatec_RS32-V1R1_certificat.pdf",
       "document": "Novelty — RS32 : RS32",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/rs32/",
+      "document": "Novelty : arrivées, sorties et caractéristiques propres à novelty-rs32",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 32A tri",
+      "name": "Arrivée p17-32-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Arrivée de puissance"
     },
     {
       "id": "out1",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out2",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out3",
-      "name": "Sortie PC16A 3",
+      "name": "PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out4",
-      "name": "Sortie PC16A 4",
+      "name": "PC16 4",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out5",
-      "name": "Sortie PC16A 5",
+      "name": "PC16 5",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out6",
-      "name": "Sortie PC16A 6",
+      "name": "PC16 6",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure1",
+      "name": "Socapex SL419 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "Six circuits ; prises PC16 pouvant reprendre les mêmes circuits",
+      "channels": 6
     }
-  ],
-  "portStatus": "pending"
+  ]
 }

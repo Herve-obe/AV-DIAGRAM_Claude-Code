@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Yamaha",
   "model": "DXR12",
-  "status": "community",
-  "description": "Enceinte bi-amplifiée, 12\" Bass-reflex, 700W, 2 entrées micro et 2 entrées ligne",
+  "status": "verified",
+  "description": "DXR12 première génération ; 110 W de consommation à 1/8 de puissance de sortie (35 W au repos).",
   "aliases": [
     "YAMAHA DXR12"
   ],
@@ -25,10 +25,100 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/3/325553/dxr-dxs_en_om_c0.pdf",
       "document": "Yamaha DXR15 / DXR12 / DXR10 / DXR8 / DXS15 / DXS12 Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/3/325553/dxr-dxs_en_om_c0.pdf",
+      "document": "Yamaha DXR/DXS Owner’s Manual C0, pp. 7–9 et 80–81",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "none"
+        }
+      ],
+      "format": "MIC/LINE commutable"
+    },
+    {
+      "id": "in21",
+      "name": "INPUT 2 L/MONO",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Ligne asymétrique"
+    },
+    {
+      "id": "in22",
+      "name": "INPUT 2 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Ligne asymétrique"
+    },
+    {
+      "id": "in31",
+      "name": "INPUT 3 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Ligne asymétrique"
+    },
+    {
+      "id": "in32",
+      "name": "INPUT 3 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Ligne asymétrique"
+    },
+    {
+      "id": "thru",
+      "name": "THRU INPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ],
+      "format": "Reprise parallèle INPUT 1 ; niveau identique à la source"
+    },
+    {
+      "id": "link",
+      "name": "LINK OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie mixée, LINK MODE mono/stéréo"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V 50/60 Hz ; 110 W à 1/8 de puissance"
+    }
+  ],
   "weightKg": 19.3,
-  "powerW": 110
+  "powerW": 110,
+  "depthMm": 350
 }

@@ -5,7 +5,7 @@
   "pictogram": "console",
   "manufacturer": "Yamaha",
   "model": "DM3",
-  "status": "community",
+  "status": "verified",
   "description": "Console numérique 9 Faders, 16 canaux, 8 bus",
   "aliases": [
     "YAMAHA DM3"
@@ -20,10 +20,281 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/1/1525801/dm3_en_om_b1.pdf",
       "document": "Yamaha DM3 / DM3 Standard Owner’s Manual, rev. B1",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/1/1525801/dm3_en_om_b1.pdf",
+      "document": "Owner’s Manual B1 pp.10–12 (toutes les prises ; schéma p.11 DC XLR4, sorties +4 dBu) et 16 (masse, dimensions, consommation).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "input-1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-3",
+      "name": "INPUT 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-4",
+      "name": "INPUT 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-5",
+      "name": "INPUT 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-6",
+      "name": "INPUT 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-7",
+      "name": "INPUT 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-8",
+      "name": "INPUT 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-9",
+      "name": "INPUT 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-10",
+      "name": "INPUT 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-11",
+      "name": "INPUT 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-12",
+      "name": "INPUT 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-13",
+      "name": "INPUT 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-14",
+      "name": "INPUT 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-15",
+      "name": "INPUT 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "input-16",
+      "name": "INPUT 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "none",
+      "format": "Entrée micro/ligne ; 13–16 : combo XLR/TRS"
+    },
+    {
+      "id": "omni-1",
+      "name": "OMNI OUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-2",
+      "name": "OMNI OUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-3",
+      "name": "OMNI OUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-4",
+      "name": "OMNI OUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-5",
+      "name": "OMNI OUT 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-6",
+      "name": "OMNI OUT 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-7",
+      "name": "OMNI OUT 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "omni-8",
+      "name": "OMNI OUT 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "PHONES",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo"
+    },
+    {
+      "id": "usb-memory",
+      "name": "USB mémoire",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb-host",
+      "name": "USB TO HOST",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 18,
+      "format": "18 entrées / 18 sorties USB audio ; USB-MIDI ; 96 kHz / 32 bits max."
+    },
+    {
+      "id": "dante-primary",
+      "name": "Dante PRIMARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Dante, DM3 uniquement ; pas DM3 STANDARD"
+    },
+    {
+      "id": "dante-secondary",
+      "name": "Dante SECONDARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Dante secondaire"
+    },
+    {
+      "id": "network",
+      "name": "NETWORK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc-input",
+      "name": "DC INPUT 24 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "Adaptateur PA-L500, 24 V DC / 2,5 A ; 1 GND, 4 +24 V"
+    }
+  ],
   "weightKg": 6.5,
-  "powerW": 43
+  "powerW": 43,
+  "depthMm": 455
 }

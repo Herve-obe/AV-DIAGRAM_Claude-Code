@@ -5,13 +5,52 @@
   "model": "PM0.4n",
   "pictogram": "speaker",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Moniteur actif PM0.4n, un appareil. Deux entrées physiques TS et RCA alternatives ; le jack est prioritaire. Masse 3,6 kg et dimensions 144 × 220 × 180 mm selon fabricant.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.fostex.jp/en/products/pm0-4n/",
+      "document": "Fiche fabricant Main Specifications ; manuel pp.4–5 (cordon captif, entrées, caractéristiques).",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.fostex.jp/cms/wp-content/uploads/2016/01/PM04n_MB_OM_j.pdf",
+      "document": "Fiche fabricant Main Specifications ; manuel pp.4–5 (cordon captif, entrées, caractéristiques).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "input-ts",
+      "name": "INPUT jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Jack 6,35 mm asymétrique ; prioritaire sur RCA"
+    },
+    {
+      "id": "input-rca",
+      "name": "INPUT RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Asymétrique ; coupé quand une fiche jack est insérée"
+    },
+    {
+      "id": "power",
+      "name": "Cordon secteur captif",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Cordon captif ; tension selon version régionale ; 40 W"
+    }
+  ],
+  "weightKg": 3.6,
+  "depthMm": 180,
+  "powerW": 40
 }

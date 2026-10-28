@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AxC-AX4M",
-  "status": "community",
-  "description": "Carte 4 entrées micro/ligne haute performance pour Audio ToolBox",
+  "status": "verified",
+  "description": "4 préamplis micro/ligne sur XLR femelles ; alimentation par le châssis Audio ToolBox, pas de prise secteur propre. Format carte : 200 × 100 × 40 mm ; compatible AVBx3/AVBx7.",
   "aliases": [
     "Auvitran AxC-AX4M"
   ],
@@ -30,9 +30,102 @@
       "url": "https://www.auvitran.com/productrange/axc-cards/",
       "document": "AuviTran — Audio ToolBox AxC Cards, famille et compatibilité des cartes",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/auvitran_axc-ax4m_ft-en.pdf",
+      "document": "AuviTran AxC-AX4M : fiche technique, pages 1–2",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in1",
+      "name": "MIC/LINE 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique ; sensibilité −55 à +24 dBu ; gain 0 à +79 dB ; P48 commutable par canal",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "supplied"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "MIC/LINE 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique ; sensibilité −55 à +24 dBu ; gain 0 à +79 dB ; P48 commutable par canal",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "supplied"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "MIC/LINE 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique ; sensibilité −55 à +24 dBu ; gain 0 à +79 dB ; P48 commutable par canal",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "supplied"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    },
+    {
+      "id": "in4",
+      "name": "MIC/LINE 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique ; sensibilité −55 à +24 dBu ; gain 0 à +79 dB ; P48 commutable par canal",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "supplied"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
+    }
+  ],
   "moduleType": "auvitran-axc"
 }

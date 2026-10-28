@@ -33,8 +33,71 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "camera1",
+      "name": "Camera Control 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera2",
+      "name": "Camera Control 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera3",
+      "name": "Camera Control 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera4",
+      "name": "Camera Control 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera5",
+      "name": "Camera Control 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "tally",
+      "name": "Tally / GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
   "weightKg": 1.1,
-  "powerW": 8
+  "powerW": 8,
+  "depthMm": 177
 }

@@ -5,7 +5,7 @@
   "pictogram": "recorder",
   "manufacturer": "Blackmagic Design",
   "model": "Web Presenter 4K",
-  "status": "community",
+  "status": "verified",
   "description": "Solution de streaming, 2160p60",
   "aliases": [
     "BlackMagicDesign Web Presenter 4K"
@@ -27,8 +27,76 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiMon",
+      "name": "SDI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiMon",
+      "name": "HDMI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "Rear USB-C webcam",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "Webcam / setup / mobile tethering"
+    },
+    {
+      "id": "usbFront",
+      "name": "Front USB-C configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet streaming",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc",
+      "name": "DC12V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
   "weightKg": 0.755,
-  "powerW": 25
+  "powerW": 25,
+  "depthMm": 175.5,
+  "rackU": 1
 }

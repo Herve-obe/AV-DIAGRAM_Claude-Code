@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "AV Matrix",
   "model": "PVS0615",
-  "status": "community",
+  "status": "verified",
   "description": "Mixeur/mélangeur vidéo HD 6 entrées portable",
   "aliases": [
     "AV Matrix PVS0615"
@@ -27,8 +27,187 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "hdmiIn5",
+      "name": "HDMI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dviIn5",
+      "name": "DVI-I In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Shared channel with HDMI; analog VGA via adapter"
+    },
+    {
+      "id": "hdmiIn6",
+      "name": "HDMI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dviIn6",
+      "name": "DVI-I In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Shared channel with HDMI; analog VGA via adapter"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI PGM 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "PGM"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI PGM 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "PGM"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "SDI PGM 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "PGM / AUX"
+    },
+    {
+      "id": "hdmiOut1",
+      "name": "HDMI PGM 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiOut2",
+      "name": "HDMI PGM 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "multiview",
+      "name": "HDMI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioInL",
+      "name": "Balanced audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioOutL",
+      "name": "Balanced audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioInR",
+      "name": "Balanced audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioOutR",
+      "name": "Balanced audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "phones",
+      "name": "Headphones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "usb1",
+      "name": "USB media 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB media 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub25"
+    },
+    {
+      "id": "lan",
+      "name": "LAN firmware / time",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC"
+    }
+  ],
   "weightKg": 3.8,
-  "powerW": 33
+  "powerW": 33,
+  "depthMm": 271.5
 }

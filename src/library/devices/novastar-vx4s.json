@@ -4,8 +4,8 @@
   "manufacturer": "NovaStar",
   "model": "VX4S",
   "pictogram": "processor",
-  "status": "community",
-  "rackU": 2,
+  "status": "verified",
+  "rackU": 1,
   "sources": [
     {
       "url": "https://www.elationlighting.com/novastar-vx4s",
@@ -103,17 +103,18 @@
     },
     {
       "id": "dviOut",
-      "name": "DVI Out",
+      "name": "DVI Monitor Out 1",
       "direction": "out",
       "signal": "video",
       "connector": "dvi"
     },
     {
       "id": "vgaOut",
-      "name": "VGA Out",
+      "name": "DVI Monitor Out 2",
       "direction": "out",
       "signal": "video",
-      "connector": "vga"
+      "connector": "dvi",
+      "format": "Second DVI monitor connector; not VGA"
     },
     {
       "id": "sdiLoop",
@@ -171,14 +172,38 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "16 W"
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    },
+    {
+      "id": "usbFrontA",
+      "name": "Front USB storage",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbFrontB",
+      "name": "Front USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "usbRearA",
+      "name": "Rear USB cascade Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-a"
     }
   ],
   "aliases": [
     "Novastar VX4S"
-  ]
+  ],
+  "powerW": 25,
+  "weightKg": 2.55,
+  "depthMm": 251.5
 }

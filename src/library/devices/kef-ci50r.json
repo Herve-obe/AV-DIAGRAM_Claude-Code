@@ -6,7 +6,7 @@
   "manufacturer": "KEF",
   "model": "Ci50R",
   "status": "community",
-  "description": "Enceinte encastrable Ci50R, une enceinte.",
+  "description": "Enceinte encastrable passive Ci50R, impédance 6 Ω. Masse 135 g selon fiche fabricant de mars 2018 ; boîtier arrière CI50CAN optionnel.",
   "aliases": [
     "KEF Ci50R"
   ],
@@ -20,8 +20,28 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9190-4374-eedf13f65f3a431982816fa6b57eaa830e4fa46e.pdf",
       "document": "Novelty — Ci50R : KEF Ci50R",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://stoneaudio.co.uk/resources/downloads/KEF_Ci50R.pdf",
+      "document": "KEF Information Sheet PL1592EN p. 2 (bornier) ; Ci50R Architectural Speaker 03.2018 pp. 2, 5",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9190-4374-eedf13f65f3a431982816fa6b57eaa830e4fa46e.pdf",
+      "document": "KEF Information Sheet PL1592EN p. 2 (bornier) ; Ci50R Architectural Speaker 03.2018 pp. 2, 5",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée haut-parleur",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Bornier pour conducteur jusqu’à 2,5 mm de diamètre ; 6 Ω"
+    }
+  ],
+  "weightKg": 0.135
 }

@@ -23,22 +23,24 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_t12_manuel.pdf",
-      "document": "Novelty — Studio T12 : Studio T12",
-      "accessed": "2026-10-19"
+      "document": "ARRI — T12/T24 Short Instructions L5.82399.0, pages3–4 : fiche à installer et lampes admises",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "acIn",
-      "name": "Alimentation",
+      "name": "Alimentation sur câble",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Fresnel tungstène 12 kW ; sorties de câble nues, gradateur externe"
+      "format": "Câble captif, fiche adaptée à monter ; commande par gradateur externe"
     }
   ],
   "aliases": [
     "ARRIT12",
     "ARRI Studio T12"
-  ]
+  ],
+  "powerW": 12000,
+  "description": "Fresnel tungstène T12, lampe12 kW (10/12 kW admissibles en230 V). Câble secteur livré sans fiche à équiper par technicien qualifié ; pas de commande DMX native. La masse varie avec la version et doit être relevée sur la plaque."
 }

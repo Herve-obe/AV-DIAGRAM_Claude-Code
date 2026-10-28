@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Datapath",
   "model": "FX4SDI",
-  "status": "community",
+  "status": "verified",
   "description": "Découpe d'image 4 sorties 3GSDI, entrée DP 1.2, HDMI 1.4, 3GSDI",
   "aliases": [
     "DATAPATHFX4SDI",
@@ -23,8 +23,112 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.8,
-  "powerW": 35
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dpLoop",
+      "name": "DisplayPort Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "3G-SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "3G-SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "3G-SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "3G-SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lan1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T; managed switch"
+    },
+    {
+      "id": "lan2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T; managed switch"
+    },
+    {
+      "id": "usb",
+      "name": "USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
+  "weightKg": 1.86,
+  "powerW": 35,
+  "depthMm": 172
 }

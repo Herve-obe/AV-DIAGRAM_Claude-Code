@@ -6,7 +6,7 @@
   "manufacturer": "AKG",
   "model": "C414 B-TLII",
   "status": "community",
-  "description": "Microphone statique + suspension, multi-directivité",
+  "description": "Microphone à condensateur C414 B-TLII ; sortie XLR 3 symétrique, alimentation fantôme 9–52 V.",
   "aliases": [
     "C414B/TLII",
     "AKG C414 B-TLII"
@@ -16,8 +16,24 @@
       "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/statique/c414-b-tlii/",
       "document": "Novelty — C414 B-TLII",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.akg.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw60bd09ea/pdfs/C414_manual.pdf",
+      "document": "AKG C414 B-ULS / B-TLII User Instructions, p. 14 : connecteur, fantôme et poids",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Condensateur multi-directivité ; fantôme 9–52 V"
+    }
+  ],
+  "weightKg": 0.31
 }

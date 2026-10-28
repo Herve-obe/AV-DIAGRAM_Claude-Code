@@ -4,7 +4,7 @@
   "manufacturer": "Yamaha",
   "model": "SPX2000",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -26,62 +26,151 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/1/323961/spx2000_en_om_f0.pdf",
       "document": "Yamaha SPX2000 Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/1/323961/spx2000_en_om_f0.pdf",
+      "document": "Owner’s Manual pp.8–9 et99. Quatre XLR et quatre jacks analogiques séparés, pas de prises combo ; nominal −10 dBu distinct de −10 dBV.",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "inL",
-      "name": "Input L",
+      "name": "INPUT L XLR",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS, symétrique"
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique, sélecteur +4 dBu / −10 dBu"
     },
     {
-      "id": "inR",
-      "name": "Input R",
+      "id": "inL-trs",
+      "name": "INPUT L TRS",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "jack-trs",
       "level": "line+4",
-      "format": "XLR et jack TRS, symétrique"
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte de l’XLR, ligne symétrique +4 dBu / −10 dBu"
     },
     {
       "id": "outL",
-      "name": "Output L",
+      "name": "OUTPUT L XLR",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS"
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique, sélecteur +4 dBu / −10 dBu"
+    },
+    {
+      "id": "outL-trs",
+      "name": "OUTPUT L TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte de l’XLR, ligne symétrique +4 dBu / −10 dBu"
+    },
+    {
+      "id": "inR",
+      "name": "INPUT R XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique, sélecteur +4 dBu / −10 dBu"
+    },
+    {
+      "id": "inR-trs",
+      "name": "INPUT R TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte de l’XLR, ligne symétrique +4 dBu / −10 dBu"
     },
     {
       "id": "outR",
-      "name": "Output R",
+      "name": "OUTPUT R XLR",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS"
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique, sélecteur +4 dBu / −10 dBu"
+    },
+    {
+      "id": "outR-trs",
+      "name": "OUTPUT R TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte de l’XLR, ligne symétrique +4 dBu / −10 dBu"
     },
     {
       "id": "midiIn",
-      "name": "MIDI In",
+      "name": "MIDI IN",
       "direction": "in",
       "signal": "control",
       "connector": "din5"
     },
     {
       "id": "midiOut",
-      "name": "MIDI Out/Thru",
+      "name": "MIDI OUT/THRU",
       "direction": "out",
       "signal": "control",
       "connector": "din5"
     },
     {
       "id": "aesIn",
-      "name": "AES/EBU In",
+      "name": "AES/EBU IN",
       "direction": "in",
       "signal": "audioDigital",
       "connector": "xlr3",
@@ -89,7 +178,7 @@
     },
     {
       "id": "aesOut",
-      "name": "AES/EBU Out",
+      "name": "AES/EBU OUT",
       "direction": "out",
       "signal": "audioDigital",
       "connector": "xlr3",
@@ -97,27 +186,40 @@
     },
     {
       "id": "wc",
-      "name": "Word Clock In",
+      "name": "WORD CLOCK IN",
       "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Entrée 75 Ω terminée"
     },
     {
       "id": "usb",
-      "name": "USB",
+      "name": "USB TO HOST",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-b",
+      "format": "USB 1.1, MIDI et télécommande ; pas audio USB"
+    },
+    {
+      "id": "fs",
+      "name": "FOOT SW TAP",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Pédale optionnelle FC5 pour tempo"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
     }
   ],
   "aliases": [
     "YAMAHA SPX2000"
-  ]
+  ],
+  "weightKg": 4,
+  "depthMm": 372.5,
+  "powerW": 25
 }

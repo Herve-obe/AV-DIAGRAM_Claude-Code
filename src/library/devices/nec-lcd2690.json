@@ -27,6 +27,41 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dviD",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviI",
+      "name": "DVI-I In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dcOut",
+      "name": "Optional soundbar DC Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
 }

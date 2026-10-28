@@ -4,7 +4,7 @@
   "manufacturer": "Yamaha",
   "model": "MY16-AT",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://es.yamaha.com/files/download/other_assets/0/1098700/MY16-AT_datasheet.pdf",
@@ -15,6 +15,11 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/7/333807/my16-ae_at_td_en_om_c0.pdf",
       "document": "Yamaha MY16-AE / MY16-AT / MY16-TD Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/7/333807/my16-ae_at_td_en_om_c0.pdf",
+      "document": "Yamaha MY16-AT : manuel, panneaux et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -24,7 +29,8 @@
       "direction": "in",
       "signal": "audioDigital",
       "connector": "toslink",
-      "channels": 8
+      "channels": 8,
+      "format": "ADAT optique, 8 canaux par prise à 44,1/48 kHz, 24 bits"
     },
     {
       "id": "in2",
@@ -32,7 +38,8 @@
       "direction": "in",
       "signal": "audioDigital",
       "connector": "toslink",
-      "channels": 8
+      "channels": 8,
+      "format": "ADAT optique, 8 canaux par prise à 44,1/48 kHz, 24 bits"
     },
     {
       "id": "out1",
@@ -40,7 +47,8 @@
       "direction": "out",
       "signal": "audioDigital",
       "connector": "toslink",
-      "channels": 8
+      "channels": 8,
+      "format": "ADAT optique, 8 canaux par prise à 44,1/48 kHz, 24 bits"
     },
     {
       "id": "out2",
@@ -48,9 +56,11 @@
       "direction": "out",
       "signal": "audioDigital",
       "connector": "toslink",
-      "channels": 8
+      "channels": 8,
+      "format": "ADAT optique, 8 canaux par prise à 44,1/48 kHz, 24 bits"
     }
   ],
   "domain": "misc",
-  "moduleType": "yamaha-mini-ygdai"
+  "moduleType": "yamaha-mini-ygdai",
+  "description": "Carte mini-YGDAI ADAT 16 entrées / 16 sorties sur quatre prises optiques TOSLINK (deux entrées, deux sorties). Alimentation par le châssis hôte."
 }

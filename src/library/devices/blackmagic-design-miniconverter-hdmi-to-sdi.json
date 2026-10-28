@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "MiniConverter HDMI to SDI",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur HDMI vers SDI (avec audio intégré), plus AES/EBU...",
   "aliases": [
     "HDMI23GSDI",
@@ -28,6 +28,63 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "audioL",
+      "name": "Analog L / AES-EBU In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Balanced analog left or AES/EBU pair; exclusive modes"
+    },
+    {
+      "id": "audioR",
+      "name": "Analog R In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12-31 V DC"
+    }
+  ],
+  "powerW": 4.44,
+  "weightKg": 0.198,
+  "depthMm": 92.2
 }

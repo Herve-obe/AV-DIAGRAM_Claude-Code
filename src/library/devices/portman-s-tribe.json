@@ -4,7 +4,7 @@
   "manufacturer": "Portman",
   "model": "S-Tribe",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -22,8 +22,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/2168-4349-um-s-tribe.pdf",
-      "document": "Novelty — S-TRIBE : UM_S-TRIBE",
-      "accessed": "2026-10-19"
+      "document": "Portman — S-TRIBE user manual, p.6–9, 15–16 : connexions, puissance, poids et Art-Net",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/7852-4349-dmxchart-s-tribe.xlsx",
@@ -34,28 +34,47 @@
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Thru",
+      "name": "DMX Thru 5 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
+    },
+    {
+      "id": "eth",
+      "name": "Art-Net",
+      "direction": "in",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net ; peut fonctionner comme node vers DMX"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Projecteur décoratif"
+      "connector": "powercon-true1",
+      "format": "100–240 V 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
     }
   ],
   "aliases": [
     "Portman S-TRIBE"
-  ]
+  ],
+  "powerW": 280,
+  "weightKg": 7.5,
+  "depthMm": 179,
+  "description": "Projecteur décoratif LED S-TRIBE, cinq HaloLED et dix GLOW RGBW, 280 W, 7,5 kg. Dimensions 1 184 × 151 × 179 mm. DMX 5 points entrée/sortie, un etherCON pour Art-Net et entrée/sortie powerCON TRUE1. Module W-DMX et prise d’antenne SMA optionnels, non présumés installés."
 }

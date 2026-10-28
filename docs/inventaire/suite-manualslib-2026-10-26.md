@@ -1,5 +1,8 @@
 # Recherche manuelle — complément ManualsLib
 
+Suivi actualisé : [lot contrôlé du 28 octobre, version 0.5.17](recherche-equipements-2026-10-28.md). Les chiffres ci-dessous décrivent le point de reprise du 26 octobre.
+
+
 26 octobre 2026. Priorité aux documents constructeur, y compris leurs copies hébergées par un tiers. La couverture, la variante et les pages techniques sont vérifiées ; une entrée dans l’index du site ne suffit pas. Aucun CAPTCHA n’a été résolu automatiquement.
 
 ## Lot examiné

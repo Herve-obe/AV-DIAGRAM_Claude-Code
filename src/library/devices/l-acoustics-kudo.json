@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "Kudo",
-  "status": "community",
-  "description": "Enceinte 3 voies quadri-amplifiée, 2 x 12\" 4x5\" 2x1,75\", 140dB SPL, 35 - 20kHz",
+  "status": "verified",
+  "description": "KUDO 3 voies, 4 canaux. Une enceinte.",
   "aliases": [
     "L-ACOUSTICS Kudo"
   ],
@@ -30,9 +30,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/FR_synoptique_KUDO.pdf",
       "document": "Novelty — Kudo : Kudo",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_kudo_ft.pdf",
+      "document": "L-Acoustics KUDO, fiche p.1 et manuel p.24",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 87
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "pa-com",
+      "level": "speaker",
+      "channels": 4,
+      "format": "KUDO 3 voies, 4 canaux"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "pa-com",
+      "level": "speaker",
+      "channels": 4,
+      "format": "Reprise parallèle ; KUDO 3 voies, 4 canaux"
+    }
+  ],
+  "weightKg": 87,
+  "depthMm": 689
 }

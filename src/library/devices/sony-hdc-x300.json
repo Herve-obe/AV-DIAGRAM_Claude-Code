@@ -28,6 +28,63 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "HD-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "video",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD D-sub 15 broches : RGBHV ou Y/Pb/Pr"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst / tri-level"
+    },
+    {
+      "id": "trigger",
+      "name": "Trigger / séquence 2–3",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "TTL ; entrée image fixe ou entrée/sortie séquence 2–3 en 24P"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sony-remote8",
+      "format": "Sony RCP-700/750, RM-B750/B150, MSU-700"
+    },
+    {
+      "id": "tally",
+      "name": "Tally Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-jack vers module de signalisation ; diamètre non précisé"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC, adaptateur fourni ; connecteur circulaire multipoints"
+    }
+  ],
+  "powerW": 18,
+  "weightKg": 1.2
 }

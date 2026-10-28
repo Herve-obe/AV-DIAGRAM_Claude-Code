@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Chauvet Professional",
   "model": "Rogue Outcast 1 Hybrid",
-  "status": "community",
-  "description": "Projecteur asservi à LED 400W, type lyre, 6632 K",
+  "status": "verified",
+  "description": "Lyre hybride IP65 Rogue Outcast 1 Hybrid, lampe USHIO 400 W / 6 500 K. Consommation totale 520 W à 230 V, 514 W à 120 V ; poids 38 kg ; dimensions 404 × 310 × 766 mm. Deux DMX XLR5 IP et entrée/sortie secteur Seetronic Powerkon IP65. Contrôle DMX/RDM, sans prise réseau native.",
   "aliases": [
     "ROGUEOUTCAST1",
     "Chauvet Rogue Outcast 1 Hybrid"
@@ -21,10 +21,47 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/2157-4515-rogue-outcast-1-hybrid-qrg-ml5-rev2.pdf",
       "document": "Novelty — Rogue Outcast 1 Hybrid : Rogue_Outcast_1_Hybrid",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://chauvetprofessional.com/wp-content/uploads/2020/03/Rogue_Outcast_1_Hybrid_UM_Rev5.pdf",
+      "document": "Chauvet Professional — Rogue Outcast 1 Hybrid user manual rev.5, p.7 et30 (imprimées5 et28) : connectique, 520 W, poids et dimensions",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "IP65"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "IP65"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerkon-ip65",
+      "format": "100–240 V 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powerkon-ip65"
+    }
+  ],
   "weightKg": 38,
-  "powerW": 520
+  "powerW": 520,
+  "depthMm": 404
 }

@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "NOVELTY",
   "model": "RS32-V3",
-  "status": "community",
-  "description": "Armoire de distribution. 2 x Soca, 6 x PC16, 6 x True1. Recopie 32T",
+  "status": "verified",
+  "description": "Armoire RS32 V3 : arrivée P17 32 A tri ; deux Socapex SL419 (6 circuits chacune), six TRUE1 et neuf PC16. Plusieurs prises reprennent les mêmes circuits : ne pas additionner leurs intensités comme des alimentations indépendantes. Dimensions L × l × H : 53 × 58,5 × 55 cm.",
   "aliases": [
     "NOVELTY RS32-V3"
   ],
@@ -15,8 +15,160 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/rs32-v3/",
       "document": "Novelty — RS32-V3",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, page 164 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Arrivée p17-32-tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Arrivée triphasée"
+    },
+    {
+      "id": "out1",
+      "name": "Socapex SL419 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; brochage SL419 ; circuits éventuellement partagés avec prises PC16",
+      "channels": 6
+    },
+    {
+      "id": "departure2",
+      "name": "Socapex SL419 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; brochage SL419 ; circuits éventuellement partagés avec prises PC16",
+      "channels": 6
+    },
+    {
+      "id": "departure3",
+      "name": "TRUE1 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure4",
+      "name": "TRUE1 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure5",
+      "name": "TRUE1 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure6",
+      "name": "TRUE1 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure7",
+      "name": "TRUE1 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure8",
+      "name": "TRUE1 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure9",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure10",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure11",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure12",
+      "name": "PC16 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure13",
+      "name": "PC16 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure14",
+      "name": "PC16 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure15",
+      "name": "PC16 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure16",
+      "name": "PC16 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure17",
+      "name": "PC16 9",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    }
+  ],
+  "weightKg": 49
 }

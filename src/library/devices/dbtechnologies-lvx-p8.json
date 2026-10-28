@@ -4,9 +4,8 @@
   "manufacturer": "dBTechnologies",
   "model": "LVX P8",
   "pictogram": "speaker",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "LVX P8 passive ; deux prises NL4 IN/LINK en parallèle. Puissance admissible200 W RMS distincte de consommation secteur.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -16,7 +15,40 @@
       "url": "https://www.dbtechnologies.com/docs/299/5246/LVX-P8_QUICK_REV.1.1_site.pdf",
       "document": "dBTechnologies LVX P8 — Quick Start User Manual, 420120301Q rev.1.1",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.dbtechnologies.com/docs/299/5246/LVX-P8_QUICK_REV.1.1_site.pdf",
+      "document": "dBTechnologies LVX P8 Quick Start rev1.1, p.2, panneau contrôlé visuellement",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.dbtechnologies.com/us/products/lvx-p/lvx-p8",
+      "document": "Fiche fabricant, Input et Mechanics ; Quick Start rev.1.1 p.2.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "LVX P8 passive8 Ω ; 1+/1− utilisés,2+/2− non connectés"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; LVX P8 passive8 Ω ; 1+/1− utilisés,2+/2− non connectés"
+    }
+  ],
+  "weightKg": 8.1,
+  "depthMm": 258
 }

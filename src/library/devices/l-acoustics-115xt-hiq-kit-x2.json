@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "115XT HiQ",
-  "status": "community",
-  "description": "Enceinte 115XT HiQ, une enceinte.",
+  "status": "verified",
+  "description": "115XT HiQ : bi-amplifié LF / HF, 2 × 8 Ω. Une enceinte ; deux prises NL4 en parallèle.",
   "aliases": [
     "L-Acoustics 115XT HiQ"
   ],
@@ -30,8 +30,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_115xt_hiq_certificat.pdf",
       "document": "Novelty — 115XT HiQ – Kit x2 : 115XT HiQ",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://static.rt-events.fr/document/lacoustics-115xthiq-user-manual.pdf",
+      "document": "L-Acoustics 115XT HiQ User Manual v1.3, p. 19",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "115XT HiQ : bi-amplifié LF / HF, 2 × 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise câblée en parallèle ; 115XT HiQ : bi-amplifié LF / HF, 2 × 8 Ω"
+    }
+  ],
+  "weightKg": 28.5,
+  "depthMm": 440
 }

@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "EIZO",
   "model": "EV2740X FlexScan",
-  "status": "community",
+  "status": "verified",
   "description": "Moniteur calibré 27'' 4K",
   "aliases": [
     "EV2740X-BK",
@@ -23,8 +23,107 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "usbc",
+      "name": "USB-C video / host",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "DisplayPort Alt Mode +USB5Gbps;94W PowerDelivery source"
+    },
+    {
+      "id": "displayport1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usbB",
+      "name": "USB-B upstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbA1",
+      "name": "USB-A downstream 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbA2",
+      "name": "USB-A downstream 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbA3",
+      "name": "USB-A downstream 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB5Gbps"
+    },
+    {
+      "id": "usbCdown",
+      "name": "USB-C downstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB5Gbps;15W source"
+    },
+    {
+      "id": "lan",
+      "name": "LAN dock",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T USB LAN adapter"
+    },
+    {
+      "id": "phones",
+      "name": "Headphones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
   "weightKg": 8.2,
-  "powerW": 186
+  "powerW": 186,
+  "depthMm": 250.1
 }

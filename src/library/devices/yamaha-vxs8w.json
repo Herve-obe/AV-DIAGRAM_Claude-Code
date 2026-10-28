@@ -6,7 +6,7 @@
   "manufacturer": "Yamaha",
   "model": "VXS8W",
   "status": "community",
-  "description": "Enceinte 2 voies, bass-reflex, 8Ω, 117db SPL, finition noire",
+  "description": "Enceinte passive à transformateur 70/100 V, une embase Euroblock 4 points. Masse à recouper : manuel F0 3,3 kg (VXS5) / 7,2 kg (VXS8), ancienne fiche 3,6 kg / 8,2 kg.",
   "aliases": [
     "YAMAHA VXS8W"
   ],
@@ -55,9 +55,29 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/1/329381/vxs8_vxs8w_vxs5_vxs5w_en_om_f0.pdf",
       "document": "Yamaha VXS8 / VXS8W / VXS5 / VXS5W Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://de.yamaha.com/de/business/audio/products/speakers/vxs/specs.html",
+      "document": "Yamaha VXS Specifications et manuel F0 : connectique et dimensions",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://jp.yamaha.com/files/download/other_assets/1/329381/vxs8_vxs8w_vxs5_vxs5w_en_om_f0.pdf",
+      "document": "Yamaha VXS Specifications et manuel F0 : connectique et dimensions",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 8.2
+  "ports": [
+    {
+      "id": "in",
+      "name": "INPUT / LOOP THRU",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Une embase Euroblock 4 points : entrée +/− et loop-thru +/− ; 8 Ω ou 70/100 V"
+    }
+  ],
+  "weightKg": 8.2,
+  "depthMm": 239
 }

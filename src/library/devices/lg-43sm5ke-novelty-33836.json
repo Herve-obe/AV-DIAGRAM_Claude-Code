@@ -15,10 +15,116 @@
       "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/43sm5ke/",
       "document": "Novelty — 43SM5KE",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.lg.com/us/business/download/resources/BT00001837/LG_SPEC-SHEET_SM5KE_061823_PR.pdf",
+      "document": "LG SM5KE manufacturer specification sheet, pp. 8–9",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "SST"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "rsIn",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "RS-232C"
+    },
+    {
+      "id": "rsOut",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "RS-232C"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "ir",
+      "name": "IR & Light Sensor",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "power",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
   "weightKg": 10,
   "powerW": 95
 }

@@ -6,7 +6,7 @@
   "manufacturer": "ETC",
   "model": "S470",
   "status": "community",
-  "description": "Découpe Source 4, optique + objectif 70 ° , 575W ou 750W",
+  "description": "Découpe Source 4, optique + objectif 70 ° , 575W ou 750W Câble secteur captif fourni à fils libres, fiche selon installation ; maximum 750 W. Pas de connecteur DMX sur la version halogène.",
   "aliases": [
     "S4 70°",
     "ETC S470"
@@ -44,10 +44,23 @@
     },
     {
       "url": "https://www.etcconnect.com/WorkArea/DownloadAsset.aspx?id=10737461352",
-      "document": "ETC Source Four CE — User Manual 7060M1210-06.01 rev.B, juin 2008",
+      "document": "ETC — Source Four CE User Manual, pages 3–4 : corps et raccordement secteur par câble à équiper d’une fiche ; lampes HPL",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.etcconnect.com/WorkArea/DownloadAsset.aspx?id=10737478602",
+      "document": "ETC — Source Four CE 70 Degree Datasheet, pages 1 et 4 : alimentation et modèle exact",
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur captif livré à fils libres ; HPL 575/750 W, gradateur externe"
+    }
+  ]
 }

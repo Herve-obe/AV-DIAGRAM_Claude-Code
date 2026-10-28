@@ -5,7 +5,7 @@
   "pictogram": "recorder",
   "manufacturer": "Blackmagic Design",
   "model": "UltraStudio 4K",
-  "status": "community",
+  "status": "verified",
   "description": "Boîtier de capture et de lecture Thunderbolt ou Thunderbolt 2.",
   "aliases": [
     "BlackMagicDesign UltraStudio 4K"
@@ -37,7 +37,234 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.6
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI / dual link"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI / dual link"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI / dual link"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI / dual link"
+    },
+    {
+      "id": "sdiLoop1",
+      "name": "SDI Loop 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop2",
+      "name": "SDI Loop 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "analogInY",
+      "name": "Y In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogOutY",
+      "name": "Y Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogInBY",
+      "name": "BY In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogOutBY",
+      "name": "BY Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogInRY",
+      "name": "RY In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogOutRY",
+      "name": "RY Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogInComposite",
+      "name": "Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogOutComposite",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "balancedInL",
+      "name": "Balanced audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "balancedOutL",
+      "name": "Balanced audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "rcaInL",
+      "name": "Unbalanced audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "balancedInR",
+      "name": "Balanced audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "balancedOutR",
+      "name": "Balanced audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "rcaInR",
+      "name": "Unbalanced audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "aesIn",
+      "name": "AES In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "Unbalanced AES3"
+    },
+    {
+      "id": "aesOut",
+      "name": "AES Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "Unbalanced AES3"
+    },
+    {
+      "id": "ltcIn",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "ltcOut",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "remote",
+      "name": "RS-422 remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "tb1",
+      "name": "Thunderbolt 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "mini-displayport",
+      "format": "Thunderbolt / Thunderbolt2; not DisplayPort video input"
+    },
+    {
+      "id": "tb2",
+      "name": "Thunderbolt 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "mini-displayport",
+      "format": "Thunderbolt / Thunderbolt2; not DisplayPort video input"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "weightKg": 1.6,
+  "depthMm": 142,
+  "rackU": 1
 }

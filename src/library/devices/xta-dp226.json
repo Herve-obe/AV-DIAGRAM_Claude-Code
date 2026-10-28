@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "XTA",
   "model": "DP226",
-  "status": "community",
-  "description": "Processeur numérique 6 voies",
+  "status": "verified",
+  "description": "Processeur 2 entrées / 6 sorties analogiques ; MIDI, RS232 et RS485 intégrés. Option AES/EBU non présumée installée. Consommation inférieure à 20 W ; profondeur hors connecteurs.",
   "aliases": [
     "XTA DP226"
   ],
@@ -25,9 +25,125 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/xta_dp2_ft.pdf",
       "document": "Novelty — DP226 : DP226",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://teamtech-location.fr/wp-content/uploads/2023/04/XTADP226manual.pdf",
+      "document": "XTA DP226 Operating Instructions Issue 2, pp. 6 et 22",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.5
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique"
+    },
+    {
+      "id": "out1",
+      "name": "OUTPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +20 dBm max sous 600 Ω"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +20 dBm max sous 600 Ω"
+    },
+    {
+      "id": "out3",
+      "name": "OUTPUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +20 dBm max sous 600 Ω"
+    },
+    {
+      "id": "out4",
+      "name": "OUTPUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +20 dBm max sous 600 Ω"
+    },
+    {
+      "id": "out5",
+      "name": "OUTPUT 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +20 dBm max sous 600 Ω"
+    },
+    {
+      "id": "out6",
+      "name": "OUTPUT 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +20 dBm max sous 600 Ω"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI IN",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "rs232",
+      "name": "EXTERNAL RS232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "rs485-in",
+      "name": "RS485 IN",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3"
+    },
+    {
+      "id": "rs485-out",
+      "name": "RS485 OUT",
+      "direction": "out",
+      "signal": "control",
+      "connector": "xlr3"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "60–250 V ±15 %, 50/60 Hz ; moins de 20 W"
+    }
+  ],
+  "weightKg": 3.5,
+  "rackU": 1,
+  "depthMm": 300,
+  "powerW": 20
 }

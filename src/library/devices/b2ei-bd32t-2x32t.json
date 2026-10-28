@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "B2Ei",
   "model": "BD32T/2X32T",
-  "status": "community",
-  "description": "Sabot de distribution. Entrée : P17 32A tri. Sorties : 2 x P17 32tri. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Sabot de distribution. Entrée : P17 32A tri. Sorties : 2 x P17 32tri. Protection différentielle 30mA Dimensions unitaires documentées : 46,5 × 15 × 16 cm (ordre d’axes non précisé par la page).",
   "aliases": [
     "B2Ei BD32T/2X32T"
   ],
@@ -15,31 +15,38 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32t-2x32t-3/",
       "document": "Novelty — BD32T/2X32T",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32t-2x32t-3/",
+      "document": "Novelty : b2ei-bd32t-2x32t, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 32A tri",
+      "name": "Arrivée p17-32-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out1",
-      "name": "Sortie P17 32tri 1",
+      "name": "p17-32-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out2",
-      "name": "Sortie P17 32tri 2",
+      "name": "p17-32-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 5
 }

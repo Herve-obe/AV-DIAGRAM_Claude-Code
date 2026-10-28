@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "Kara",
-  "status": "community",
-  "description": "Enceinte Kara première génération, une enceinte, distincte de Kara II.",
+  "status": "verified",
+  "description": "Kara première génération : bi-amplifié LF 1+/1−, HF 2+/2−. Une enceinte ; deux prises NL4 en parallèle.",
   "aliases": [
     "L-Acoustics Kara"
   ],
@@ -45,8 +45,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_Kara_certificat.pdf",
       "document": "Novelty — Kara – Kit x3 : Kara",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.avc-group.com/assets/products/L-Acoustics/pdf/lacoustics-um-k1sb.pdf",
+      "document": "L-Acoustics K1/KS28 User Manual v2.0, pp. 18 et 29",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Kara première génération : bi-amplifié LF 1+/1−, HF 2+/2−"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise câblée en parallèle ; Kara première génération : bi-amplifié LF 1+/1−, HF 2+/2−"
+    }
+  ],
+  "weightKg": 26,
+  "depthMm": 482
 }

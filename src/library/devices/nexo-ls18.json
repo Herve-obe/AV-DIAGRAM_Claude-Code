@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "LS18",
-  "status": "community",
-  "description": "Enceinte Sub-Bass, 18\", 107 dB SPL Nominal / 8Ω, pour séries Nexo PS et Geo S12",
+  "status": "verified",
+  "description": "LS18 : 8 Ω sur 1+/1−, 2+/2− traversants. Deux prises NL4 en parallèle ; contrôleur NEXO requis.",
   "aliases": [
     "NEXO LS18"
   ],
@@ -20,9 +20,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nexo_ls18_ft.pdf",
       "document": "Novelty — LS18 : LS18",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/PSR2-System-Manual-Rev05-1.pdf",
+      "document": "NEXO PSR2 System Manual Rev05, p. 8 et pp. 63, 69, 72",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 55.5
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "LS18 : 8 Ω sur 1+/1−, 2+/2− traversants"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise câblée en parallèle ; LS18 : 8 Ω sur 1+/1−, 2+/2− traversants"
+    }
+  ],
+  "weightKg": 55.5,
+  "depthMm": 775
 }

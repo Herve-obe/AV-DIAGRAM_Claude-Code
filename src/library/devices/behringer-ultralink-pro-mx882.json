@@ -5,7 +5,7 @@
   "pictogram": "console",
   "manufacturer": "Behringer",
   "model": "Ultralink Pro MX882",
-  "status": "community",
+  "status": "verified",
   "description": "Mixeur/splitter de niveau ligne MX882, un appareil.",
   "aliases": [
     "Behringer Ultralink Pro MX882"
@@ -25,8 +25,173 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/berhinger_ultralinkpro_ft.pdf",
       "document": "Novelty — Ultralink Pro MX882 : Ultra Link Pro MX882",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/berhinger_ultralinkpro_manuel.pdf",
+      "document": "Manuel pp.3–5 (prises, canaux 1–4 XLR et 5–6 TRS) ; fiche technique p.4 (35 W max., dimensions et masse).",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/berhinger_ultralinkpro_ft.pdf",
+      "document": "Manuel pp.3–5 (prises, canaux 1–4 XLR et 5–6 TRS) ; fiche technique p.4 (35 W max., dimensions et masse).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "main-in-l",
+      "name": "MAIN IN L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "main-out-l",
+      "name": "MAIN OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "main-in-r",
+      "name": "MAIN IN R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "main-out-r",
+      "name": "MAIN OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-1-in",
+      "name": "CH 1 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-2-in",
+      "name": "CH 2 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-3-in",
+      "name": "CH 3 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-4-in",
+      "name": "CH 4 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-5-in",
+      "name": "CH 5 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-6-in",
+      "name": "CH 6 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-1-out",
+      "name": "CH 1 OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-2-out",
+      "name": "CH 2 OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-3-out",
+      "name": "CH 3 OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-4-out",
+      "name": "CH 4 OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-5-out",
+      "name": "CH 5 OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ch-6-out",
+      "name": "CH 6 OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique, niveau nominal −10 dBV à +4 dBu"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "weightKg": 3,
+  "depthMm": 217,
+  "rackU": 1,
+  "powerW": 35
 }

@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Yamaha",
   "model": "DZR12",
-  "status": "community",
-  "description": "Enceinte 2 voies, 139 dB SPL, finition noire",
+  "status": "verified",
+  "description": "Enceinte amplifiée DZR12 sans Dante. Consommation 150 W à 1/8 de puissance, 45 W au repos ; les 2000 W annoncés désignent la puissance audio dynamique et non la consommation.",
   "aliases": [
     "YAMAHA DZR12"
   ],
@@ -25,9 +25,67 @@
       "url": "https://usa.yamaha.com/files/download/other_assets/4/1177634/DZR_DXS-XLF_owners_manual_En_D0.pdf",
       "document": "Yamaha DZR / DXS-XLF Owner’s Manual",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/10605-4193-manuel-yamaha-dzr12.pdf",
+      "document": "Manuel DZR(-D), pp.40–41 imprimées (PDF8–9) et 151 (PDF20), DZR12 sans suffixe -D.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 21.4
+  "ports": [
+    {
+      "id": "input-1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "none",
+      "format": "Niveau ligne, maximum +24 dBu ; XLR ou TRS"
+    },
+    {
+      "id": "input-2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "none",
+      "format": "Niveau ligne, maximum +24 dBu ; XLR ou TRS"
+    },
+    {
+      "id": "output-1",
+      "name": "CH1 THRU",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Reprise directe de CH1"
+    },
+    {
+      "id": "output-2",
+      "name": "CH2 THRU / DSP OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Reprise de CH2 ou sortie après DSP, selon commutateur"
+    },
+    {
+      "id": "usb",
+      "name": "USB mémoire",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN V-Lock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC secteur avec verrouillage V-Lock"
+    }
+  ],
+  "weightKg": 21.4,
+  "depthMm": 394,
+  "powerW": 150
 }
