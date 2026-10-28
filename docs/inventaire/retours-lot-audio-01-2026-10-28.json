@@ -1,0 +1,364 @@
+{
+  "date": "2026-10-28",
+  "version": "0.5.19",
+  "batch": "audio-01",
+  "inputRevision": 533,
+  "scope": "Retours utilisateur sur le lot existant uniquement ; aucun nouveau lot de recherche.",
+  "summary": {
+    "responses": 20,
+    "removedFromGeneralLibrary": 6,
+    "kept": 14,
+    "changedDeviceFiles": 11,
+    "verified": 749,
+    "community": 957,
+    "generic": 30,
+    "unexaminedFromInitialCommunityBatch": 742
+  },
+  "records": [
+    {
+      "id": "aeq-th-02-mk3",
+      "decision": "Retirer",
+      "information": "",
+      "source": "",
+      "modelBefore": "TH-02 EX Mk-III",
+      "modelAfter": "TH-02 EX Mk-III",
+      "statusBefore": "community",
+      "statusAfter": "excluded",
+      "changedFields": [],
+      "result": "Retiré de la bibliothèque générale, JSON historique et équipements des projets conservés.",
+      "remaining": []
+    },
+    {
+      "id": "atterotech-undiox2x",
+      "decision": "Conserver",
+      "information": "Weight = 0.8 lbs.",
+      "source": "https://www.qscaudio.com/resource-files/productresources/dn/attero_tech/undio2x2_plus/q_dn_undio2x2_plus_usermanual.pdf",
+      "modelBefore": "unDIO2x2",
+      "modelAfter": "unDIO2x2",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [
+        "description",
+        "sources"
+      ],
+      "result": "Conservé sans changement de génération ; poids du modèle + non transféré.",
+      "remaining": [
+        "Poids net de l’unDIO2x2 sans + toujours à confirmer."
+      ]
+    },
+    {
+      "id": "avalon-vt-737sp",
+      "decision": "Conserver",
+      "information": "Conso = 75W",
+      "source": "https://www.avalondesign.com/vt-737-sp",
+      "modelBefore": "VT-737sp",
+      "modelAfter": "VT-737sp",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [
+        "sources",
+        "description",
+        "powerW"
+      ],
+      "result": "75 W maximum confirmés sur la page constructeur actuelle.",
+      "remaining": []
+    },
+    {
+      "id": "bss-soundweb-9088ii",
+      "decision": "Retirer",
+      "information": "",
+      "source": "",
+      "modelBefore": "Soundweb 9088ii",
+      "modelAfter": "Soundweb 9088ii",
+      "statusBefore": "community",
+      "statusAfter": "excluded",
+      "changedFields": [],
+      "result": "Retiré de la bibliothèque générale, JSON historique et équipements des projets conservés.",
+      "remaining": []
+    },
+    {
+      "id": "dbx-120a",
+      "decision": "Conserver",
+      "information": "Conso = 15W.\n2 entrées ligne sur connecteur Jack TRS.\n2 sorties lignes sur connecteurs Jack TRS.\n1 sortie Sub sur connecteur Jack TRS",
+      "source": "https://adn.harmanpro.com/product_documents/documents/382_1323451227/120A%20Manual%2018-2217-C_original.pdf",
+      "modelBefore": "120A",
+      "modelAfter": "120A",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [
+        "description",
+        "sources"
+      ],
+      "result": "Connectique confirmée ; entrées RCA conservées car documentées.",
+      "remaining": [
+        "15 W déclarés par l’utilisateur mais non retrouvés dans le manuel transmis ; powerW reste non renseigné."
+      ]
+    },
+    {
+      "id": "digigrid-mgb",
+      "decision": "Conserver",
+      "information": "Poids = 0.4kg\nConnecteur alim propriétaire, transfo d’alim fourni.\nDimensions Width: 10.6 cm / 4.17 inches Height: 14.82 cm / 5.83 inches Depth: 2.9 cm / 1.14 inches Device Weight: 0.4 kg / 0.88 lbs\nMaximum Power Draw: Up to 10 watts (calculated from the 5V / 2A DC specification)",
+      "source": "",
+      "modelBefore": "MGB",
+      "modelAfter": "MGB",
+      "statusBefore": "verified",
+      "statusAfter": "community",
+      "changedFields": [
+        "status",
+        "sources",
+        "ports",
+        "description",
+        "weightKg",
+        "depthMm",
+        "portStatus"
+      ],
+      "result": "Poids 0,4 kg et dimensions confirmés par Waves ; alimentation à verrouillage signalée.",
+      "remaining": [
+        "Référence mécanique exacte du connecteur DC à verrouillage à confirmer.",
+        "Consommation réelle non documentée ; 5 V × 2 A décrit la capacité du bloc, pas une consommation mesurée.",
+        "La fiche DiGiGrid 2020 mentionne 0,5 kg et réoriente les axes ; le manuel Waves v2 / la page Waves retiennent 0,4 kg et 106 × 148,2 × 29 mm (L × H × P)."
+      ]
+    },
+    {
+      "id": "empirical-labs-distressor-el8x",
+      "decision": "Conserver",
+      "information": "Unit weight: 3.6kg\nLength: 48.3 cm\nWidth: 25.4 cm\nHeight: 4.4 cm\nPrise IEC C14",
+      "source": "https://wrdtunes.com/fr/products/empirical-labs-el8x-distressor",
+      "modelBefore": "Distressor EL8-X",
+      "modelAfter": "Distressor EL8-X",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "portStatus",
+        "weightKg"
+      ],
+      "result": "Poids unitaire 3,6 kg corroboré par le revendeur ; IEC C14 déclarée par l’utilisateur.",
+      "remaining": [
+        "Profondeur à confirmer : 254 mm transmis, 216 mm sur la page WRD actuelle ; aucune des deux valeurs n’est inscrite dans depthMm."
+      ]
+    },
+    {
+      "id": "empirical-labs-el-q-lilfreq",
+      "decision": "Retirer",
+      "information": "",
+      "source": "",
+      "modelBefore": "EL-Q LilFreq",
+      "modelAfter": "EL-Q LilFreq",
+      "statusBefore": "verified",
+      "statusAfter": "excluded",
+      "changedFields": [],
+      "result": "Retiré de la bibliothèque générale, JSON historique et équipements des projets conservés.",
+      "remaining": []
+    },
+    {
+      "id": "focusrite-octopre-platinum",
+      "decision": "Conserver",
+      "information": "Dimensions: 480mm (w) x 44 mm (H) x 265 (D)\nWeight: 3.2 Kg\nPrise secteur IEC C14, version 220-240V, pas de cartes optionnelle installée,\nPower = 30W",
+      "source": "",
+      "modelBefore": "OctoPre Platinum",
+      "modelAfter": "OctoPre Platinum",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "portStatus",
+        "weightKg",
+        "depthMm"
+      ],
+      "result": "Configuration utilisateur 220–240 V, sans carte numérique, IEC C14 ; dimensions et poids déclarés intégrés.",
+      "remaining": [
+        "Poids 3,2 kg et profondeur 265 mm déclarés par l’utilisateur, non revérifiés dans une source constructeur.",
+        "Consommation 30 W déclarée sans source : conservée comme information à confirmer, powerW non renseigné."
+      ]
+    },
+    {
+      "id": "focusrite-rednet-d16r",
+      "decision": "Conserver",
+      "information": "Power = 25W",
+      "source": "",
+      "modelBefore": "RedNet D16R",
+      "modelAfter": "RedNet D16R",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [
+        "description",
+        "sources"
+      ],
+      "result": "Conservé ; distinction maintenue entre les 30 VA constructeur et les 25 W déclarés.",
+      "remaining": [
+        "25 W déclarés sans source ; manuel constructeur : 30 VA. La valeur en W reste à confirmer et n’est pas substituée à la valeur apparente."
+      ]
+    },
+    {
+      "id": "lexicon-pcm80",
+      "decision": "Conserver",
+      "information": "",
+      "source": "",
+      "modelBefore": "PCM80",
+      "modelAfter": "PCM80",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [],
+      "result": "Conservé ; aucune correction supplémentaire demandée.",
+      "remaining": []
+    },
+    {
+      "id": "lexicon-pcm96-surround",
+      "decision": "Conserver",
+      "information": "Version DB25\nFirewire présent\n19.0” W x 1.75” H x 16” D (483 mm x 44,5 mm x 317,5 mm) 6,5 kg",
+      "source": "https://adn.harmanpro.com/product_documents/documents/1018_1602284184/PCM96_Surround-Manual-French_original.pdf",
+      "modelBefore": "PCM96 Surround",
+      "modelAfter": "PCM96 Surround (PCM96SUR-A, FireWire)",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "model",
+        "status",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "portStatus",
+        "weightKg"
+      ],
+      "result": "Variante analogique/numérique DB25 + FireWire confirmée ; connectique et poids 6,5 kg complétés.",
+      "remaining": [
+        "Profondeur non tranchée : la notice et le retour copient 16 pouces et 317,5 mm, unités incompatibles. depthMm reste non renseigné."
+      ]
+    },
+    {
+      "id": "nexo-dtd-t-n",
+      "decision": "Conserver",
+      "information": "Prise IEC C14",
+      "source": "",
+      "modelBefore": "DTD-T-N",
+      "modelAfter": "DTD-T-N",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "portStatus"
+      ],
+      "result": "IEC C14 renseignée sur confirmation utilisateur.",
+      "remaining": [
+        "Embase IEC C14 déclarée par l’utilisateur, non recoupée dans une vue constructeur de cette reprise."
+      ]
+    },
+    {
+      "id": "rami-sel110",
+      "decision": "Conserver",
+      "information": "SEL110-2",
+      "source": "",
+      "modelBefore": "SEL110",
+      "modelAfter": "SEL110-2",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "model",
+        "status",
+        "portStatus",
+        "description",
+        "sources",
+        "ports",
+        "rackU",
+        "depthMm",
+        "weightKg",
+        "powerW",
+        "aliases"
+      ],
+      "result": "Modèle SEL110-2 confirmé : notice exacte réutilisée, prises complétées sans créer de doublon.",
+      "remaining": []
+    },
+    {
+      "id": "rane-sl3-serato-scratch-live",
+      "decision": "Retirer",
+      "information": "",
+      "source": "",
+      "modelBefore": "SL3",
+      "modelAfter": "SL3",
+      "statusBefore": "verified",
+      "statusAfter": "excluded",
+      "changedFields": [],
+      "result": "Retiré de la bibliothèque générale, JSON historique et équipements des projets conservés.",
+      "remaining": []
+    },
+    {
+      "id": "rane-sl4",
+      "decision": "Retirer",
+      "information": "",
+      "source": "",
+      "modelBefore": "SL 4",
+      "modelAfter": "SL 4",
+      "statusBefore": "verified",
+      "statusAfter": "excluded",
+      "changedFields": [],
+      "result": "Retiré de la bibliothèque générale, JSON historique et équipements des projets conservés.",
+      "remaining": []
+    },
+    {
+      "id": "rme-madi-routeur",
+      "decision": "Conserver",
+      "information": "Power max = 100W",
+      "source": "",
+      "modelBefore": "MADI Router",
+      "modelAfter": "MADI Router",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [],
+      "result": "Conservé ; 100 W maximum déjà renseignés, périphériques inclus.",
+      "remaining": []
+    },
+    {
+      "id": "sound-performance-lab-channel-one",
+      "decision": "Conserver",
+      "information": "Version sans carte.\nPrise IES C14\nPower = 20W",
+      "source": "",
+      "modelBefore": "Channel One 2950",
+      "modelAfter": "Channel One 2950",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "description",
+        "sources",
+        "ports",
+        "portStatus"
+      ],
+      "result": "Configuration sans carte et IEC C14 renseignées ; prise A/D Input 2 inactive exclue des prises utilisables.",
+      "remaining": [
+        "20 W déclarés sans source : valeur conservée en note, powerW non renseigné."
+      ]
+    },
+    {
+      "id": "t-racks-ds2418-set-x2",
+      "decision": "Retirer",
+      "information": "",
+      "source": "",
+      "modelBefore": "DS2418",
+      "modelAfter": "DS2418",
+      "statusBefore": "verified",
+      "statusAfter": "excluded",
+      "changedFields": [],
+      "result": "Retiré de la bibliothèque générale, JSON historique et équipements des projets conservés.",
+      "remaining": []
+    },
+    {
+      "id": "xta-ds800",
+      "decision": "Conserver",
+      "information": "",
+      "source": "",
+      "modelBefore": "DS800",
+      "modelAfter": "DS800",
+      "statusBefore": "verified",
+      "statusAfter": "verified",
+      "changedFields": [],
+      "result": "Conservé ; aucune correction supplémentaire demandée.",
+      "remaining": []
+    }
+  ]
+}

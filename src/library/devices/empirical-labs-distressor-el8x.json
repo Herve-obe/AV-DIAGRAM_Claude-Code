@@ -31,6 +31,15 @@
       "url": "https://www.empiricallabs.com/wp-content/uploads/distressor_manual.pdf",
       "document": "Empirical Labs Distressor, manuel actuel, pages PDF 2, 9 et 13 : 14 W max, sortie jack asymétrique et deux Link TRS EL8-X",
       "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://wrdtunes.com/products/empirical-labs-el8x-distressor",
+      "document": "WRD Tunes, Technical Specifications : appareil 3,6 kg, dimensions 483 × 44 × 216 mm ; source revendeur et non constructeur",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : 3,6 kg, dimensions 483 × 44 × 254 mm, IEC C14 ; profondeur 254 mm non confirmée par le lien revendeur.",
+      "accessed": "2026-10-28"
     }
   ],
   "ports": [
@@ -87,15 +96,15 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "115/230 V commutable ; embase secteur à confirmer"
+      "connector": "iec-c13",
+      "format": "IEC C14 confirmée par l’utilisateur ; secteur 115/230 V commutable selon manuel"
     }
   ],
   "aliases": [
     "DISTRESSOR",
     "Empirical Labs Distressor EL8-X"
   ],
-  "description": "Compresseur mono EL8-X. Entrée XLR ou jack TRS symétrique ; sortie XLR symétrique et jack asymétrique en parallèle. Deux prises Link TRS pour le couplage de deux appareils, pas deux canaux audio. Consommation 10 W typique / 14 W maximum ; poids net non confirmé.",
+  "description": "Compresseur mono EL8-X. Entrée XLR ou jack TRS symétrique ; sortie XLR symétrique et jack asymétrique en parallèle. Deux prises Link TRS pour le couplage de deux appareils, pas deux canaux audio. Consommation 10 W typique / 14 W maximum ; poids unitaire 3,6 kg indiqué par WRD. Embase IEC C14 déclarée par l’utilisateur. Profondeur divergente : 254 mm transmis contre 216 mm chez WRD ; non tranchée.",
   "powerW": 14,
-  "portStatus": "pending"
+  "weightKg": 3.6
 }

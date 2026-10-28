@@ -135,8 +135,8 @@ describe('catalogue Novelty hors Structure', () => {
   })
 
   it('retrouve les références alternatives et indique à l’assistant la connectique manquante', () => {
-    const t = template('rane-sl4')
-    expect(searchLibrary([t], 'Serato')[0].template_id).toBe(t.id)
+    const t = template('rme-madi-routeur')
+    expect(searchLibrary([t], 'MADI Routeur')[0].template_id).toBe(t.id)
     const pending = undocumented
     expect(searchLibrary([pending], 'Fiche test')[0].portStatus).toBe('pending')
   })
@@ -225,9 +225,10 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
 describe('appareils unitaires — décision du 26 octobre', () => {
   const files = import.meta.glob<EquipmentTemplate>('./devices/*.json', { eager: true, import: 'default' })
   const audit: { entries: { id: string; decision: 'excluded' | 'normalized'; modelAfter?: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/ensembles-audit-2026-10-26.json', import.meta.url), 'utf8'))
+  const feedback: { records: { id: string; decision: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/retours-lot-audio-01-2026-10-28.json', import.meta.url), 'utf8'))
 
   it('applique toutes les exclusions sans altérer les appareils enregistrés dans les anciens projets', () => {
-    for (const row of audit.entries.filter(r => r.decision === 'excluded')) {
+    for (const row of [...audit.entries.filter(r => r.decision === 'excluded'), ...feedback.records.filter(r => r.decision === 'Retirer')]) {
       expect(LIBRARY_INDEX.has(row.id), row.id).toBe(false)
       const original = Object.values(files).find(t => t.id === row.id)!
       expect(original, row.id).toBeDefined()
@@ -240,7 +241,7 @@ describe('appareils unitaires — décision du 26 octobre', () => {
   })
 
   it('présente les lots homogènes comme un seul appareil, sans poids de transport supposé', () => {
-    for (const row of audit.entries.filter(r => r.decision === 'normalized')) {
+    for (const row of audit.entries.filter(r => r.decision === 'normalized' && !Object.hasOwn(excludedDevices, r.id))) {
       const unit = template(row.id)
       expect([unit.model, ...(unit.aliases ?? [])], row.id).toContain(row.modelAfter)
       expect([unit.model, unit.description, ...(unit.aliases ?? [])].join(' '), row.id).not.toMatch(/(?:kit|set)\s*(?:de\s*)?[x×]?\s*[2-9]|(?:kit|set)\s*x?\s*2[0-9]/i)

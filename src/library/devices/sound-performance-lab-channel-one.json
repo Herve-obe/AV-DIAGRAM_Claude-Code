@@ -6,7 +6,7 @@
   "manufacturer": "Sound Performance Lab",
   "model": "Channel One 2950",
   "status": "community",
-  "description": "Tranche mono SPL Channel One modèle 2950, conformément à la référence catalogue CHANNELONE2950. Micro XLR avec P48, ligne TRS ou instrument en façade ; insert Send/Return, sorties XLR/TRS parallèles, Playback L/R et casque. A/D Input 2 n’agit qu’avec la carte convertisseur optionnelle ; aucune sortie numérique n’est supposée installée. L × H × P : 482 × 88 × 210 mm, poids net 4,15 kg.",
+  "description": "Tranche mono SPL Channel One 2950. Micro XLR avec P48, ligne TRS ou instrument, insert Send/Return, sorties XLR/TRS parallèles, Playback L/R et casque. Configuration confirmée par l’utilisateur : aucune carte convertisseur installée, IEC C14. L’entrée physique A/D Input 2 est inactive sans la carte et n’est pas proposée au câblage ; aucune sortie numérique supposée. 482 × 88 × 210 mm, poids 4,15 kg. Consommation déclarée 20 W sans source, non utilisée dans les budgets électriques.",
   "aliases": [
     "Channel One",
     "CHANNELONE2950",
@@ -22,6 +22,10 @@
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Channel_One_2950_BA_E.pdf",
       "document": "SPL Channel One modèle 2950, manuel : une voie, insert, écoute et convertisseur optionnel — pages PDF 7, 8, 9, 10, 11, 12, 21, 24",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Version sans carte, prise IEC C14 (IES normalisé), consommation 20 W déclarée sans source.",
       "accessed": "2026-10-28"
     }
   ],
@@ -86,14 +90,6 @@
       "format": "Ligne symétrique, en parallèle avec la XLR ; une fiche TS asymétrise aussi la XLR"
     },
     {
-      "id": "ad2",
-      "name": "A/D Input 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "format": "Symétrique ; fonction uniquement avec convertisseur 2376 optionnel, maximum +12 dBu pour 0 dBFS"
-    },
-    {
       "id": "playbackL",
       "name": "Playback L",
       "direction": "in",
@@ -123,11 +119,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "115/230 V selon sélecteur ; embase à confirmer"
+      "connector": "iec-c13",
+      "format": "IEC C14 confirmée par l’utilisateur ; tension à sélectionner selon notice"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 4.15,
   "rackU": 2,
   "depthMm": 210

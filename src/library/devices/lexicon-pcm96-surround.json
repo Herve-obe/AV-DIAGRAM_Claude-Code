@@ -4,12 +4,14 @@
   "domain": "sound",
   "pictogram": "processor",
   "manufacturer": "Lexicon",
-  "model": "PCM96 Surround",
-  "status": "community",
-  "description": "PCM96 Surround existe en version numérique (3 XLR AES In + 3 XLR AES Out) et analogique/numérique (3 DB25). La version et la révision doivent être identifiées avant de représenter ses prises audio ; elles ne sont pas additionnées. Seules les commandes, Word Clock et alimentation communes aux notices sont représentées. FireWire figure sur la brochure 2008 mais pas sur les panneaux de la notice plus récente. 26 W maximum.",
+  "model": "PCM96 Surround (PCM96SUR-A, FireWire)",
+  "status": "verified",
+  "description": "PCM96 Surround PCM96SUR-A, variante DB25 analogique/numérique avec FireWire confirmée par l’utilisateur. Trois DB25 : six entrées analogiques, six sorties analogiques, six entrées/sorties AES. Deux FireWire 400 partagent le même flux, pas douze canaux indépendants. MIDI, deux Ethernet de commande, Word Clock et IEC. Manuel FR : 1U, poids 6,5 kg, 26 W max. Profondeur non tranchée : 16 pouces et 317,5 mm figurent ensemble dans la notice.",
   "aliases": [
     "PCM96SUR",
-    "lexicon PCM96 Surround"
+    "lexicon PCM96 Surround",
+    "PCM96 Surround",
+    "PCM96SUR-A"
   ],
   "sources": [
     {
@@ -29,12 +31,16 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lexicon_pcm96surround_manuel-fr.pdf",
-      "document": "Novelty — PCM96 Surround : PCM96 Surround (FR)",
-      "accessed": "2026-10-19"
+      "document": "Lexicon PCM96 Surround, manuel FR, pages PDF 13, 22, 59–61 : variante DB25, deux FireWire, niveaux, 6,5 kg ; profondeur contradictoire",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lexicon_pcm96surround_manuel-uk.pdf",
       "document": "Lexicon PCM96 Surround, manuel : prises communes et distinction des deux variantes — pages PDF 12, 13, 54, 55, 56",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Variante DB25, FireWire présents ; 6,5 kg ; dimensions copiées du manuel, incohérence pouces/mm conservée en réserve.",
       "accessed": "2026-10-28"
     }
   ],
@@ -91,9 +97,68 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "IEC C14, 100–240 V, 50/60 Hz"
+    },
+    {
+      "id": "analogIn",
+      "name": "Analog In 1–6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 6,
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line-10"
+        }
+      ],
+      "format": "DB25 femelle, six entrées analogiques symétriques ; mode +4 dBu / −10 dBV"
+    },
+    {
+      "id": "analogOut",
+      "name": "Analog Out 1–6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 6,
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line-10"
+        }
+      ],
+      "format": "DB25 femelle, six sorties analogiques symétriques ; mode +4 dBu / −10 dBV"
+    },
+    {
+      "id": "aes",
+      "name": "AES In/Out 1–6",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 6,
+      "format": "Six entrées et six sorties AES3 ; utiliser le brochage numérique Lexicon, pas celui du DB25 analogique"
+    },
+    {
+      "id": "firewire1",
+      "name": "FireWire 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394",
+      "channels": 6,
+      "format": "FireWire 400 ; flux partagé de six entrées / six sorties, second port Thru, capacité non doublée"
+    },
+    {
+      "id": "firewire2",
+      "name": "FireWire 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394",
+      "channels": 6,
+      "format": "FireWire 400 ; flux partagé de six entrées / six sorties, second port Thru, capacité non doublée"
     }
   ],
-  "portStatus": "pending",
   "rackU": 1,
-  "powerW": 26
+  "powerW": 26,
+  "weightKg": 6.5
 }

@@ -31,6 +31,10 @@
       "url": "https://www.nexo-sa.com/wp-content/uploads/DTD_USER_MANUAL_EN_FR_v1.4.pdf",
       "document": "NEXO DTD User Manual v1.4, pages 4–7 : variante -N, Dante, amplification externe et patch Speakon",
       "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Raccordement secteur : embase IEC C14.",
+      "accessed": "2026-10-28"
     }
   ],
   "ports": [
@@ -162,11 +166,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "90–240 V, 50/60 Hz ; raccordement mécanique à confirmer"
+      "connector": "iec-c13",
+      "format": "IEC C14 confirmée par l’utilisateur ; 90–240 V, 50/60 Hz selon notice"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 1.3,
   "rackU": 1,
   "depthMm": 65,

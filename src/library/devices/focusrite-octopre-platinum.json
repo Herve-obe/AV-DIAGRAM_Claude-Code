@@ -31,6 +31,10 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/octoprediginstall.pdf",
       "document": "Novelty — Octo Pre Platinum : OCTOPRE DIGITAL OPTION INSTALLATION GUIDE",
       "accessed": "2026-10-19"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Configuration 220–240 V / IEC C14 sans carte, dimensions 480 × 44 × 265 mm, poids 3,2 kg ; 30 W déclarés sans document justificatif.",
+      "accessed": "2026-10-28"
     }
   ],
   "ports": [
@@ -145,7 +149,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "IEC C14 ; version 220–240 V confirmée par l’utilisateur ; ne pas utiliser la variante 100–120 V"
     }
   ],
   "aliases": [
@@ -153,6 +158,7 @@
     "OCTOPRE",
     "Focusrite Octo Pre Platinum"
   ],
-  "description": "Préamplificateur analogique 8 canaux avec compresseur/limiteur. Huit entrées micro XLR (+48 V), huit entrées/sorties ligne +4 dBu sur deux DB25 et deux entrées instrument alternatives aux canaux 1–2. Cartes ADAT ou AES/SPDIF/ADAT et Word Clock optionnels : aucune sortie numérique n’est supposée installée.",
-  "portStatus": "pending"
+  "description": "Préamplificateur analogique 8 canaux avec compresseur/limiteur. Huit entrées micro XLR avec P48, huit entrées/sorties ligne +4 dBu sur deux DB25, deux entrées instrument alternatives aux canaux 1–2. Configuration confirmée par l’utilisateur : 220–240 V, IEC C14, aucune carte numérique installée. Dimensions L × H × P déclarées : 480 × 44 × 265 mm ; poids net déclaré 3,2 kg. Consommation déclarée 30 W sans source constructeur, non utilisée dans un budget électrique.",
+  "weightKg": 3.2,
+  "depthMm": 265
 }
