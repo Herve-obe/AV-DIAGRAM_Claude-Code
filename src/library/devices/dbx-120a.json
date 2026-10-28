@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "dbx",
   "model": "120A",
-  "status": "community",
-  "description": "Harmonic enhancer stéréo",
+  "status": "verified",
+  "description": "Synthétiseur subharmonique stéréo. Deux canaux d’entrée avec prises TRS (+4 dBu) et RCA (−10 dBV) alternatives pour chaque canal ; deux sorties principales et une sortie subwoofer TRS à +4 dBu. Dimensions L × H × P : 483 × 45 × 157,5 mm ; poids net 2,2 kg.",
   "aliases": [
     "DBX 120A"
   ],
@@ -23,11 +23,84 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dbx_120a_manuel.pdf",
-      "document": "Novelty — 120A : DBX120A",
-      "accessed": "2026-10-19"
+      "document": "dbx 120A, manuel constructeur : entrées alternatives, trois sorties, gabarit et poids net — pages PDF 9, 14",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.2
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1 TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Nominal +4 dBu ; alternative à la RCA du même canal, pas un canal supplémentaire"
+    },
+    {
+      "id": "inRca1",
+      "name": "Input 1 RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Nominal −10 dBV ; alternative au jack TRS du même canal"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2 TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Nominal +4 dBu ; alternative à la RCA du même canal, pas un canal supplémentaire"
+    },
+    {
+      "id": "inRca2",
+      "name": "Input 2 RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Nominal −10 dBV ; alternative au jack TRS du même canal"
+    },
+    {
+      "id": "out1",
+      "name": "Main Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 à impédance symétrique ; nominal +4 dBu"
+    },
+    {
+      "id": "out2",
+      "name": "Main Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 à impédance symétrique ; nominal +4 dBu"
+    },
+    {
+      "id": "sub",
+      "name": "Subwoofer Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Sortie mono, nominal +4 dBu, maximum +22 dBu"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14 ; 100–120 V ou 220–240 V selon version, 50/60 Hz"
+    }
+  ],
+  "weightKg": 2.2,
+  "rackU": 1,
+  "depthMm": 157.5
 }

@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "XTA",
   "model": "DS800",
-  "status": "community",
-  "description": "Valise de presse 8 entrées / 32 sorties; Gain ajustable, alim. 48V.",
+  "status": "verified",
+  "description": "DS800, un distributeur actif 8 entrées micro/ligne vers 32 sorties. Par entrée : FOH et MON actifs + 2 sorties isolées sur transformateur en façade (atténuation −10 dB, pas un nominal −10 dBV). P48 commutable, bus Solo In/Out et écoute casque. Dimensions L × H × P : 482 × 88 × 312 mm hors connecteurs, poids net 8,1 kg ; consommation <40 W.",
   "aliases": [
     "XTA DS800"
   ],
@@ -23,11 +23,383 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/xta_ds800_brochure.pdf",
-      "document": "Novelty — DS800 : DS800",
-      "accessed": "2026-10-19"
+      "document": "XTA DS800, brochure constructeur : vues avant/arrière, 8 entrées, 32 sorties, écoute, gabarit et consommation — pages PDF 1, 2",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 8.1
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in5",
+      "name": "Input 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in6",
+      "name": "Input 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in7",
+      "name": "Input 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "in8",
+      "name": "Input 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle, micro/ligne selon réglage ; +48 V commutable, pad distant"
+    },
+    {
+      "id": "foh1",
+      "name": "FOH 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon1",
+      "name": "MON 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso1A",
+      "name": "Isolated 1 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso1B",
+      "name": "Isolated 1 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh2",
+      "name": "FOH 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon2",
+      "name": "MON 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso2A",
+      "name": "Isolated 2 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso2B",
+      "name": "Isolated 2 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh3",
+      "name": "FOH 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon3",
+      "name": "MON 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso3A",
+      "name": "Isolated 3 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso3B",
+      "name": "Isolated 3 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh4",
+      "name": "FOH 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon4",
+      "name": "MON 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso4A",
+      "name": "Isolated 4 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso4B",
+      "name": "Isolated 4 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh5",
+      "name": "FOH 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon5",
+      "name": "MON 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso5A",
+      "name": "Isolated 5 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso5B",
+      "name": "Isolated 5 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh6",
+      "name": "FOH 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon6",
+      "name": "MON 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso6A",
+      "name": "Isolated 6 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso6B",
+      "name": "Isolated 6 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh7",
+      "name": "FOH 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon7",
+      "name": "MON 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso7A",
+      "name": "Isolated 7 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso7B",
+      "name": "Isolated 7 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "foh8",
+      "name": "FOH 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique ; maximum +20 dBm / 600 Ω"
+    },
+    {
+      "id": "mon8",
+      "name": "MON 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, sortie active symétrique du même canal"
+    },
+    {
+      "id": "iso8A",
+      "name": "Isolated 8 A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "iso8B",
+      "name": "Isolated 8 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle en façade, isolée par transformateur, broche 1 levée ; −10 dB par rapport au signal, pas −10 dBV nominal"
+    },
+    {
+      "id": "soloIn",
+      "name": "Solo Bus In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Bus d’écoute entre DS800 ; pas une entrée programme supplémentaire"
+    },
+    {
+      "id": "soloOut",
+      "name": "Solo Bus Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Bus d’écoute entre DS800 ; pas une sortie de distribution supplémentaire"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute casque du canal sélectionné"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14, 80–250 V AC, 50/60 Hz"
+    }
+  ],
+  "weightKg": 8.1,
+  "rackU": 2,
+  "depthMm": 312,
+  "powerW": 40
 }

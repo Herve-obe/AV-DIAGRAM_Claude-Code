@@ -5,7 +5,6 @@
   "model": "Distressor EL8-X",
   "pictogram": "processor",
   "status": "community",
-  "weightKg": 3.6,
   "rackU": 1,
   "sources": [
     {
@@ -20,44 +19,83 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/empirical_labs_distressor_manuel.pdf",
-      "document": "Novelty — Distressor EL8-X : Distressor",
-      "accessed": "2026-10-19"
+      "document": "Empirical Labs Distressor, ancien manuel : une voie et E/S analogiques — pages PDF 1, 2",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/feuille_de_notes/empirical_labs_distressor_sheet.pdf",
       "document": "Novelty — Distressor EL8-X : Distressor",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.empiricallabs.com/wp-content/uploads/distressor_manual.pdf",
+      "document": "Empirical Labs Distressor, manuel actuel, pages PDF 2, 9 et 13 : 14 W max, sortie jack asymétrique et deux Link TRS EL8-X",
+      "accessed": "2026-10-28"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Input",
+      "name": "Input XLR",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "XLR et jack TRS en parallèle"
+      "format": "Entrée ligne symétrique ; même trajet que le jack, niveau ajustable"
+    },
+    {
+      "id": "inTrs",
+      "name": "Input TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne symétrique, alternative à la XLR"
     },
     {
       "id": "out",
-      "name": "Output",
+      "name": "Output XLR",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "XLR et jack TRS en parallèle"
+      "format": "Sortie ligne symétrique ; en parallèle avec le jack"
+    },
+    {
+      "id": "outTs",
+      "name": "Output Jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Sortie ligne asymétrique ; pointe reliée à la broche 2 de la XLR, pas une sortie indépendante"
+    },
+    {
+      "id": "linkIn",
+      "name": "Link In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Couplage détecteur et Stereo Image Link EL8-X ; pas une entrée programme"
+    },
+    {
+      "id": "linkOut",
+      "name": "Link Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Couplage détecteur et Stereo Image Link EL8-X ; deux câbles TRS croisés pour deux unités"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "115/230 V commutable ; embase secteur à confirmer"
     }
   ],
   "aliases": [
     "DISTRESSOR",
     "Empirical Labs Distressor EL8-X"
-  ]
+  ],
+  "description": "Compresseur mono EL8-X. Entrée XLR ou jack TRS symétrique ; sortie XLR symétrique et jack asymétrique en parallèle. Deux prises Link TRS pour le couplage de deux appareils, pas deux canaux audio. Consommation 10 W typique / 14 W maximum ; poids net non confirmé.",
+  "powerW": 14,
+  "portStatus": "pending"
 }

@@ -4,12 +4,13 @@
   "domain": "sound",
   "pictogram": "processor",
   "manufacturer": "RME",
-  "model": "MADI Routeur",
-  "status": "community",
-  "description": "Routeur MADI 12 ports et convertisseur de format",
+  "model": "MADI Router",
+  "status": "verified",
+  "description": "Routeur MADI : 4 liaisons duplex optiques SC, 4 paires BNC coaxiales et 4 liaisons RJ45 MADI TP propriétaires, pas Ethernet/Dante. 12 flux indépendants, matrices 768 vers 64 canaux. Word Clock In/Out, USB-A pour presets/mises à jour et USB-B réservé ; logements SFP réservés non assimilés à des ports optiques installés. Deux alimentations IEC redondantes, 100 W maximum incluant les périphériques MADI TP/USB ; poids net 2,8 kg.",
   "aliases": [
-    "MADIBRIDGE",
-    "RME MADI Routeur"
+    "MADI Routeur",
+    "RME MADI Routeur",
+    "RME MADI Router"
   ],
   "sources": [
     {
@@ -24,12 +25,205 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rme_rmadi_manuel.pdf",
-      "document": "Novelty — MADI Routeur : MADI Routeur",
-      "accessed": "2026-10-19"
+      "document": "RME MADI Router, manuel v1.0 : interfaces, restrictions MADI TP, puissance maximale et gabarit — pages PDF 4, 5, 6, 7, 11",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "optA",
+      "name": "MADI Optical A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "Duplex SC multimode, une entrée et une sortie ; 64 canaux à fréquence simple, capacité réduite aux fréquences doubles/quadruples"
+    },
+    {
+      "id": "bncInA",
+      "name": "MADI Coax A In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "bncOutA",
+      "name": "MADI Coax A Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "tpA",
+      "name": "MADI TP A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI TP propriétaire RME, alimentation distante ; pas Ethernet ni PoE. Firmware 1.28 : 56/28/14 canaux à 48/96/192 kHz, 64/32/16 à 44,1/88,2/176,4 kHz"
+    },
+    {
+      "id": "optB",
+      "name": "MADI Optical B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "Duplex SC multimode, une entrée et une sortie ; 64 canaux à fréquence simple, capacité réduite aux fréquences doubles/quadruples"
+    },
+    {
+      "id": "bncInB",
+      "name": "MADI Coax B In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "bncOutB",
+      "name": "MADI Coax B Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "tpB",
+      "name": "MADI TP B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI TP propriétaire RME, alimentation distante ; pas Ethernet ni PoE. Firmware 1.28 : 56/28/14 canaux à 48/96/192 kHz, 64/32/16 à 44,1/88,2/176,4 kHz"
+    },
+    {
+      "id": "optC",
+      "name": "MADI Optical C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "Duplex SC multimode, une entrée et une sortie ; 64 canaux à fréquence simple, capacité réduite aux fréquences doubles/quadruples"
+    },
+    {
+      "id": "bncInC",
+      "name": "MADI Coax C In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "bncOutC",
+      "name": "MADI Coax C Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "tpC",
+      "name": "MADI TP C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI TP propriétaire RME, alimentation distante ; pas Ethernet ni PoE. Firmware 1.28 : 56/28/14 canaux à 48/96/192 kHz, 64/32/16 à 44,1/88,2/176,4 kHz"
+    },
+    {
+      "id": "optD",
+      "name": "MADI Optical D",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "Duplex SC multimode, une entrée et une sortie ; 64 canaux à fréquence simple, capacité réduite aux fréquences doubles/quadruples"
+    },
+    {
+      "id": "bncInD",
+      "name": "MADI Coax D In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "bncOutD",
+      "name": "MADI Coax D Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "BNC 75 Ω MADI, AES10"
+    },
+    {
+      "id": "tpD",
+      "name": "MADI TP D",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 64,
+      "format": "MADI TP propriétaire RME, alimentation distante ; pas Ethernet ni PoE. Firmware 1.28 : 56/28/14 canaux à 48/96/192 kHz, 64/32/16 à 44,1/88,2/176,4 kHz"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Terminaison 75 Ω commutable"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "usbA",
+      "name": "USB Storage",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Stockage presets et mises à jour, pas audio USB"
+    },
+    {
+      "id": "usbB",
+      "name": "USB-B réservé",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Réservé à un usage futur dans cette notice ; aucune fonction audio revendiquée"
+    },
+    {
+      "id": "psu1",
+      "name": "PSU 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "PSU 1 IEC C14, 100–240 V AC"
+    },
+    {
+      "id": "psu2",
+      "name": "PSU 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "PSU 2 IEC C14, redondante, 100–240 V AC"
+    }
+  ],
   "weightKg": 2.8,
-  "powerW": 100
+  "powerW": 100,
+  "rackU": 1,
+  "depthMm": 240
 }

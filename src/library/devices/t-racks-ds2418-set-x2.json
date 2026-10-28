@@ -3,10 +3,10 @@
   "family": "processing",
   "domain": "sound",
   "pictogram": "processor",
-  "manufacturer": "T.Racks",
+  "manufacturer": "the t.racks",
   "model": "DS2418",
-  "status": "community",
-  "description": "Distributeur audio DS2418, un appareil.",
+  "status": "verified",
+  "description": "Un seul distributeur analogique DS2418, pas le lot de deux du loueur. Deux entrées XLR et deux Link directs ; huit sorties XLR réglables. Mode 2 entrées vers 4 sorties chacune ou 1 entrée vers 8 sorties ; aucune liaison USB, réseau ou DSP. Poids net 2,5 kg ; consommation inférieure à 8 W.",
   "aliases": [
     "T.Racks DS2418"
   ],
@@ -18,10 +18,117 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/t-racks_ds2418_manuel.pdf",
-      "document": "Novelty — DS2418 – Set x2 : DS2418",
-      "accessed": "2026-10-19"
+      "document": "the t.racks DS2418, manuel constructeur : appareil unitaire, distribution analogique, Link et modes — pages PDF 3, 4, 5, 7",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "inA",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique, maximum >+20 dBu ; entrée ligne"
+    },
+    {
+      "id": "linkA",
+      "name": "Link A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, recopie directe de l’entrée A"
+    },
+    {
+      "id": "inB",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique, maximum >+20 dBu ; entrée ligne"
+    },
+    {
+      "id": "linkB",
+      "name": "Link B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, recopie directe de l’entrée B"
+    },
+    {
+      "id": "out1",
+      "name": "Output 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée A ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out2",
+      "name": "Output 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée A ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out3",
+      "name": "Output 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée A ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out4",
+      "name": "Output 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée A ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out5",
+      "name": "Output 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée B ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out6",
+      "name": "Output 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée B ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out7",
+      "name": "Output 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée B ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "out8",
+      "name": "Output 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique réglable ; mode 2×4 : entrée B ; mode 1×8 : entrée A. Maximum >+20 dBu, pas un niveau nominal"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14 ; 115/230 V commutable selon vue arrière"
+    }
+  ],
+  "weightKg": 2.5,
+  "rackU": 1,
+  "powerW": 8
 }

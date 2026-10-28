@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Empirical Labs",
   "model": "EL-Q LilFreq",
-  "status": "community",
-  "description": "Egaliseur paramètrique 7 bandes, 2 canaux, entrées/sorties XLR, 3 Hz à 180 kHz",
+  "status": "verified",
+  "description": "Égaliseur analogique mono EL-Q Lil FrEQ : préampli instrument, filtres, égalisation et dé-esseur. Une entrée ligne XLR/TRS alternative et une entrée instrument en façade. Trois prises de sortie du même programme, dont une XLR à transformateur ; le jack de sortie est asymétrique. 16 W typiques / 34 W maximum, secteur 115/230 V commutable.",
   "aliases": [
     "EL-Q",
     "Empirical Labs EL-Q LilFreq"
@@ -24,11 +24,69 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/empirical-lab_elqlilfreq_manuel.pdf",
-      "document": "Novelty — EL-Q LilFreq : EL-Q Lil'Freq",
-      "accessed": "2026-10-19"
+      "document": "Empirical Labs Lil FrEQ, manuel constructeur, pages PDF 2, 3, 11, 12 et 13 : mono, prises, IEC, sorties et puissance",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 34
+  "ports": [
+    {
+      "id": "lineXlr",
+      "name": "Line In XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Entrée ligne symétrique ; alternative au jack arrière"
+    },
+    {
+      "id": "lineTrs",
+      "name": "Line In TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne symétrique ; même voie que la XLR"
+    },
+    {
+      "id": "instrument",
+      "name": "Instrument In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 asymétrique haute impédance en façade"
+    },
+    {
+      "id": "outXlr",
+      "name": "Active Out XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne active symétrique ; même programme que les deux autres sorties"
+    },
+    {
+      "id": "outTs",
+      "name": "Active Out Jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Sortie asymétrique en parallèle avec broche 2 de Active Out XLR"
+    },
+    {
+      "id": "transformer",
+      "name": "Class A Transformer Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie symétrique à transformateur du même programme ; les trois sorties peuvent être utilisées simultanément"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 3 contacts ; 115/230 V commutable"
+    }
+  ],
+  "powerW": 34,
+  "rackU": 1
 }

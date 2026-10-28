@@ -3,13 +3,15 @@
   "family": "processing",
   "domain": "sound",
   "pictogram": "processor",
-  "manufacturer": "Atterotech",
-  "model": "unDIOx2x",
-  "status": "community",
-  "description": "Interface Dante™ 2 entrées analogiques symétriques + 2 sorties analogiques symétriques sur connecteurs Euroblock.",
+  "manufacturer": "Attero Tech",
+  "model": "unDIO2x2",
+  "status": "verified",
+  "description": "Interface Dante 2 entrées / 2 sorties analogiques sur Euroblock 3 contacts. Alimentation PoE 802.3af ou 12 V DC ; consommation inférieure à 3 W. Fantôme +24 V uniquement : aucune alimentation P48 revendiquée. Dimensions H × L × P : environ 26,9 × 163,8 × 87,6 mm.",
   "aliases": [
+    "unDIOx2x",
+    "Atterotech unDIOx2x",
     "UNDUO2X2",
-    "Atterotech unDIOx2x"
+    "Attero Tech unDIO2x2"
   ],
   "sources": [
     {
@@ -19,8 +21,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/atterotech_undio2x2_manuel.pdf",
-      "document": "Novelty — unDIOx2x : unDIO2x2",
-      "accessed": "2026-10-19"
+      "document": "Attero Tech unDIO2x2, manuel constructeur : nom exact, connectique et fantôme 24 V — pages PDF 6, 16",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/atterotech_undio2x2_ft.pdf",
@@ -28,7 +30,61 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 3
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Mic/Line In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Euroblock débrochable 3 contacts, symétrique ; gain 0/+25/+40 dB ; fantôme +24 V commutable, pas +48 V garanti"
+    },
+    {
+      "id": "in2",
+      "name": "Mic/Line In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Euroblock débrochable 3 contacts, symétrique ; gain 0/+25/+40 dB ; fantôme +24 V commutable, pas +48 V garanti"
+    },
+    {
+      "id": "out1",
+      "name": "Line Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Euroblock 3 contacts, symétrique ; niveau maximal +9 dBu au réglage 0 dB, nominal non précisé"
+    },
+    {
+      "id": "out2",
+      "name": "Line Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Euroblock 3 contacts, symétrique ; niveau maximal +9 dBu au réglage 0 dB, nominal non précisé"
+    },
+    {
+      "id": "dante",
+      "name": "Dante / PoE",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 2,
+      "format": "Dante, 2 entrées / 2 sorties ; 100 Mbit/s, PoE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe optionnel 12 V DC ; alternative au PoE"
+    }
+  ],
+  "powerW": 3,
+  "depthMm": 87.6
 }

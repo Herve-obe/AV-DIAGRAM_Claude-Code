@@ -1,6 +1,10 @@
 # État d'avancement (mise à jour du 2026-10-28)
 
-## Situation actuelle — 0.5.17
+## Situation actuelle — 0.5.18
+
+Un lot limité de 20 fiches audio est examiné avec un seul agent et priorité aux notices locales : 12 passent en Vérifié, 8 restent Communauté avec réserves explicites. Bibliothèque active : 752 Vérifié, 960 Communauté et 30 génériques. Les copies de sorties, cartes optionnelles, puissances en VA et poids de transport sont distingués. Les 742 références encore non examinées restent en attente ; aucun second lot n’est lancé. [Bilan, sources et réserves du lot](inventaire/lot-audio-01-2026-10-28.md). Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Les nouveaux installateurs et essais natifs restent à confirmer dans la CI.
+
+## Version précédente — 0.5.17
 
 Le lot de recherche déjà réalisé est contrôlé pour publication : 458 fiches enrichies, 740 Vérifié et 972 Communauté dans la bibliothèque active, plus 30 génériques. Quarante statuts provisoires sont conservés en Communauté quand une prise ou le fabricant reste incertain. Les 762 références non examinées restent en attente ; aucune nouvelle recherche n’est lancée. [Bilan, sources et réserves](inventaire/recherche-equipements-2026-10-28.md). Validation locale : 479 tests réussis, types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Les installateurs et essais natifs de cette version restent à confirmer dans la CI.
 

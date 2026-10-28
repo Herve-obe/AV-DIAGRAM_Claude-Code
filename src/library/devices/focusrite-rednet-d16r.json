@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Focusrite",
   "model": "RedNet D16R",
-  "status": "community",
-  "description": "Interface 16 canaux AES/EBU vers et depuis un réseau Dante, parfait comme passerelle entre consoles numériques, amplificateurs de puissance ou tout autre équipement audio AES3 et Dante",
+  "status": "verified",
+  "description": "Interface 16 × 16 AES3 / Dante, version D16R à deux alimentations IEC et deux etherCON redondants ou commutés. Les entrées XLR et S/PDIF remplacent respectivement les canaux 1–2 et 3–4 des DB25 ; les sorties sont des copies, pas des canaux en plus. 30 VA (pas 30 W), 1U, L × H × P : 482,6 × 44,5 × 263 mm ; poids net 3,84 kg.",
   "aliases": [
     "Focusrite RedNet D16R"
   ],
@@ -18,17 +18,121 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/focusrite_rednet-d16r_manuel-uk.pdf",
-      "document": "Novelty — RedNet D16R : RedNet D16R (UK)",
+      "document": "RedNet Getting Started, guide général : non utilisé comme notice spécifique du D16R",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/focusrite_rednet-d16r_manuel-fr.pdf",
-      "document": "Novelty — RedNet D16R : RedNet D16R (FR)",
-      "accessed": "2026-10-19"
+      "document": "Focusrite RedNet D16/D16R, manuel français : variante D16R, AES, redondance et 30 VA — pages PDF 4, 6, 7, 15, 16",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "aes1",
+      "name": "AES3 1–8 In/Out",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "AES59/Tascam Digital ; 8 entrées et 8 sorties"
+    },
+    {
+      "id": "aes2",
+      "name": "AES3 9–16 In/Out",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "AES59/Tascam Digital ; 8 entrées et 8 sorties"
+    },
+    {
+      "id": "aesIn",
+      "name": "AES3 In / DARS",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle ; remplace entrées AES 1–2, ou référence DARS"
+    },
+    {
+      "id": "aesOut",
+      "name": "AES3 Out 1–2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR mâle ; copie des sorties AES 1–2"
+    },
+    {
+      "id": "spdifIn",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Remplace les entrées AES 3–4"
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Copie logicielle d’une paire de sorties, pas deux canaux supplémentaires"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Terminaison 75 Ω commutable"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "primary",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 16,
+      "format": "Dante 16 × 16 ; redondance ou commutation, capacité non doublée par le second port"
+    },
+    {
+      "id": "secondary",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 16,
+      "format": "Dante 16 × 16 ; redondance ou commutation, capacité non doublée par le second port"
+    },
+    {
+      "id": "psuA",
+      "name": "PSU A",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "PSU A, IEC C14"
+    },
+    {
+      "id": "psuB",
+      "name": "PSU B",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "PSU B, IEC C14 redondante"
+    }
+  ],
   "weightKg": 3.84,
-  "powerW": 10
+  "rackU": 1,
+  "depthMm": 263
 }

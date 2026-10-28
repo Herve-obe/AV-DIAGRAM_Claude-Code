@@ -6,7 +6,7 @@
   "manufacturer": "Lexicon",
   "model": "PCM96 Surround",
   "status": "community",
-  "description": "Processeur multi-effet surround, E/S AES/EBU, Ethernet, Firewire",
+  "description": "PCM96 Surround existe en version numérique (3 XLR AES In + 3 XLR AES Out) et analogique/numérique (3 DB25). La version et la révision doivent être identifiées avant de représenter ses prises audio ; elles ne sont pas additionnées. Seules les commandes, Word Clock et alimentation communes aux notices sont représentées. FireWire figure sur la brochure 2008 mais pas sur les panneaux de la notice plus récente. 26 W maximum.",
   "aliases": [
     "PCM96SUR",
     "lexicon PCM96 Surround"
@@ -34,10 +34,66 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lexicon_pcm96surround_manuel-uk.pdf",
-      "document": "Novelty — PCM96 Surround : PCM96 Surround (UK)",
-      "accessed": "2026-10-19"
+      "document": "Lexicon PCM96 Surround, manuel : prises communes et distinction des deux variantes — pages PDF 12, 13, 54, 55, 56",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "midiin",
+      "name": "MIDI IN",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiout",
+      "name": "MIDI OUT",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midithru",
+      "name": "MIDI THRU",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ethernet1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Télécommande réseau ; pas un port Dante"
+    },
+    {
+      "id": "ethernet2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Télécommande réseau"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Entrée non terminée ; terminaison externe 75 Ω en fin de chaîne"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14, 100–240 V, 50/60 Hz"
+    }
+  ],
+  "portStatus": "pending",
+  "rackU": 1,
+  "powerW": 26
 }

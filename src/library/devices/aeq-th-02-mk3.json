@@ -4,10 +4,12 @@
   "domain": "sound",
   "pictogram": "processor",
   "manufacturer": "AEQ",
-  "model": "TH-02 MK3",
+  "model": "TH-02 EX Mk-III",
   "status": "community",
-  "description": "Insert téléphonique 2 lignes simultanée.",
+  "description": "Hybride téléphonique. Le catalogue désigne une version 2 lignes ; la notice prévoit aussi une version 1 ligne. Seules les prises communes de la ligne 1 sont représentées en attendant confirmation du châssis. Audio programme nominal 0 dBm ; secteur 90–250 V, 50/60 Hz.",
   "aliases": [
+    "TH-02 MK3",
+    "TH02 Mk3",
     "INSERTT1",
     "AEQ TH-02 MK3"
   ],
@@ -19,15 +21,75 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/aeq_th02mk3_manuel.pdf",
-      "document": "Novelty — TH-02 MK3 : TH02 Mk3",
-      "accessed": "2026-10-19"
+      "document": "AEQ TH-02 EX Mk-III, manuel constructeur : audio, téléphone, télécommande et dimensions — pages PDF 7, 8, 9, 16, 17, 18",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/aeq_th02mk3_brochure.pdf",
-      "document": "Novelty — TH-02 MK3 : TH02 Mk3",
+      "document": "Brochure AEQ TH-02 EX Mk-II : autre génération, non utilisée pour valider le Mk-III",
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "programIn1",
+      "name": "Program In — ligne 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle, symétrique ; nominal 0 dBm"
+    },
+    {
+      "id": "programOut1",
+      "name": "Program Out — ligne 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, symétrique ; nominal 0 dBm"
+    },
+    {
+      "id": "line1",
+      "name": "Ligne téléphonique 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "RJ11, ligne téléphonique analogique 2 fils ; pas Ethernet"
+    },
+    {
+      "id": "set1",
+      "name": "Téléphone — ligne 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "RJ11, poste téléphonique"
+    },
+    {
+      "id": "fourWire1",
+      "name": "Ligne 1 — 4 fils",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2,
+      "format": "Hartmann, barrette 4 contacts ; paire émission et paire réception, 0 dBm ; format mécanique à confirmer"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "Sub-D 15, commandes et états des lignes"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "90–250 V, 50/60 Hz ; embase à identifier"
+    }
+  ],
+  "portStatus": "pending",
+  "rackU": 1,
+  "depthMm": 356
 }

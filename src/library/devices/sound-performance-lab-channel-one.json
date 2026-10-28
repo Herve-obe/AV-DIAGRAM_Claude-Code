@@ -4,11 +4,13 @@
   "domain": "sound",
   "pictogram": "processor",
   "manufacturer": "Sound Performance Lab",
-  "model": "Channel One",
+  "model": "Channel One 2950",
   "status": "community",
-  "description": "Préampli, tranche de console complète (De-esser, Compresseur/Limiteur, Noise-Gate, EQ 3 bandes)",
+  "description": "Tranche mono SPL Channel One modèle 2950, conformément à la référence catalogue CHANNELONE2950. Micro XLR avec P48, ligne TRS ou instrument en façade ; insert Send/Return, sorties XLR/TRS parallèles, Playback L/R et casque. A/D Input 2 n’agit qu’avec la carte convertisseur optionnelle ; aucune sortie numérique n’est supposée installée. L × H × P : 482 × 88 × 210 mm, poids net 4,15 kg.",
   "aliases": [
+    "Channel One",
     "CHANNELONE2950",
+    "SPL Channel One 2950",
     "Sound Performance Lab Channel One"
   ],
   "sources": [
@@ -19,11 +21,114 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Channel_One_2950_BA_E.pdf",
-      "document": "Novelty — Channel One : Channel One",
-      "accessed": "2026-10-19"
+      "document": "SPL Channel One modèle 2950, manuel : une voie, insert, écoute et convertisseur optionnel — pages PDF 7, 8, 9, 10, 11, 12, 21, 24",
+      "accessed": "2026-10-28"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle symétrique, +48 V commutable"
+    },
+    {
+      "id": "line",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Ligne symétrique, maximum +22 dBu ; désactivée si instrument connecté"
+    },
+    {
+      "id": "instrument",
+      "name": "Instrument In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 haute impédance en façade, maximum +14 dBu ; alternative à Line In"
+    },
+    {
+      "id": "send",
+      "name": "Insert Send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique, après dé-esseur"
+    },
+    {
+      "id": "return",
+      "name": "Insert Return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique, avant compresseur"
+    },
+    {
+      "id": "outXlr",
+      "name": "Output XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Ligne symétrique, maximum +20 dBu ; même programme que le TRS, usage alternatif recommandé"
+    },
+    {
+      "id": "outTrs",
+      "name": "Output TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Ligne symétrique, en parallèle avec la XLR ; une fiche TS asymétrise aussi la XLR"
+    },
+    {
+      "id": "ad2",
+      "name": "A/D Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; fonction uniquement avec convertisseur 2376 optionnel, maximum +12 dBu pour 0 dBFS"
+    },
+    {
+      "id": "playbackL",
+      "name": "Playback L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque"
+    },
+    {
+      "id": "playbackR",
+      "name": "Playback R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Casque stéréo TRS 6,35 ; pas une sortie ligne symétrique"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "115/230 V selon sélecteur ; embase à confirmer"
+    }
+  ],
   "portStatus": "pending",
-  "weightKg": 4.15
+  "weightKg": 4.15,
+  "rackU": 2,
+  "depthMm": 210
 }
