@@ -1,6 +1,88 @@
-# État d'avancement (mise à jour du 2026-10-20)
+# État d'avancement (mise à jour du 2026-10-29)
 
-## Situation actuelle — 0.4.3
+## Situation actuelle — 0.5.23
+
+Les vingt décisions du lot audio 02 sont appliquées : douze équipements retirés du catalogue général, huit conservés et validés par l’utilisateur. L’instruction explicite ultérieure valide le D5000 : cordon secteur captif avec fiche de type C déclaré, prises de pédalier omises, quatre jacks audio conservés. Les puissances Midas 75/95/120 W et QSC 42 W sont documentées ; le poids QSC 2,98 kg est retenu sur choix utilisateur avec contradiction livres/kg signalée. Le XTA précise la commutation AES sur les mêmes XLR. Les réserves mécaniques restent techniques et ne remettent pas les décisions utilisateur en attente.
+
+Bibliothèque active : 749 Vérifié, 945 Communauté et 30 génériques ; 722 références du chantier initial restent non examinées. Les anciens projets gardent leurs appareils et ports. [Décisions, sources et réserves](inventaire/retours-lot-audio-02-2026-10-29.md). Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint 0 erreur / 4 avertissements préexistants. Installateurs et essais natifs à confirmer dans GitHub Actions. Aucun nouveau lot lancé ; chaque prochain lot sera présenté dans son tableau avant validation finale.
+
+## Version précédente — 0.5.22
+
+Le sélecteur d’affichage devient **Câbles / Multi**, avec l’infobulle « Mode d'affichage des liaisons ». Le premier mode conserve les liaisons séparées, le second regroupe les liaisons déjà affectées aux multipaires ; les préférences existantes gardent leur sens. Le manuel et la traduction anglaise suivent ce renommage.
+
+À la demande de l’utilisateur, chaque lot documentaire doit être présenté dans un tableau interactif avant validation finale. Le contrôle documentaire du lot audio 02 est publié, mais sa validation utilisateur est **en attente** du tableau de vingt lignes fourni dans la conversation. Les 8 statuts techniques Vérifié / 12 Communauté ne constituent pas un accord utilisateur. Les réponses partielles ne valident pas les lignes absentes. Voir la [règle de vérification par lots](inventaire/methode-verification-par-lots.md) et le [lot audio 02](inventaire/lot-audio-02-2026-10-29.md). Aucun nouveau lot lancé. Contrôles ciblés : traductions synchronisées, clés de préférences conservées, saisie/restauration/envoi du tableau et transmission partielle validés. Manuel HTML/PDF régénéré (22 chapitres, 10 captures) ; compilation réussie. Les installateurs et le survol dans l’application native restent à confirmer après publication.
+
+## Version précédente — 0.5.21
+
+Deuxième lot audio borné : 20 fiches examinées avec un seul agent, 8 passent Vérifié et 12 restent Communauté avec réserves explicites. Les prises USB, générations Pioneer, entrées TouchMix-16, sorties et niveaux audio, poids nets et budgets documentés sont corrigés. Bibliothèque active : 753 Vérifié, 953 Communauté et 30 génériques. Le chantier initial totalise 498 fiches examinées ; 722 restent non examinées. [Bilan, sources et données encore manquantes](inventaire/lot-audio-02-2026-10-29.md). Aucun troisième lot lancé. Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer dans la CI.
+
+## Version précédente — 0.5.20
+
+Les neuf compléments du 29 octobre sont intégrés : puissances choisies pour les budgets, poids Attero et profondeurs Distressor/Lexicon renseignés, avec origine publiée/déclarée/calculée et réserves explicites. Les six retraits précédents restent appliqués ; les anciennes réponses ne sont pas rejouées. Bibliothèque active : 745 Vérifié, 961 Communauté et 30 génériques. Quatre fiches repassent Communauté à cause de valeurs actives encore déclaratives ou contradictoires. [Détail des compléments, sources et limites](inventaire/complements-lot-audio-01-2026-10-29.md). Aucun nouveau lot lancé ; 742 références non examinées restent en attente. Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer après publication.
+
+## Version précédente — 0.5.19
+
+Les vingt réponses utilisateur au lot audio 01 sont traitées : six équipements retirés de la bibliothèque générale, quatorze conservés, onze fiches corrigées ou annotées. Les projets enregistrés gardent leurs équipements et leur patch. Le SEL110-2 et le PCM96SUR-A DB25/FireWire sont maintenant identifiés ; les valeurs déclarées sans justificatif et les contradictions de notices restent explicites. Bibliothèque active : 749 Vérifié, 957 Communauté et 30 génériques. Aucun nouveau lot lancé ; 742 références non examinées restent en attente. [Décisions, corrections et réserves](inventaire/retours-lot-audio-01-2026-10-28.md). Validation locale : 479 tests validés (460 hors catalogue, 19 catalogue), 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer après publication.
+
+## Version précédente — 0.5.18
+
+Un lot limité de 20 fiches audio est examiné avec un seul agent et priorité aux notices locales : 12 passent en Vérifié, 8 restent Communauté avec réserves explicites. Bibliothèque active : 752 Vérifié, 960 Communauté et 30 génériques. Les copies de sorties, cartes optionnelles, puissances en VA et poids de transport sont distingués. Les 742 références encore non examinées restent en attente ; aucun second lot n’est lancé. [Bilan, sources et réserves du lot](inventaire/lot-audio-01-2026-10-28.md). Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Les nouveaux installateurs et essais natifs restent à confirmer dans la CI.
+
+## Version précédente — 0.5.17
+
+Le lot de recherche déjà réalisé est contrôlé pour publication : 458 fiches enrichies, 740 Vérifié et 972 Communauté dans la bibliothèque active, plus 30 génériques. Quarante statuts provisoires sont conservés en Communauté quand une prise ou le fabricant reste incertain. Les 762 références non examinées restent en attente ; aucune nouvelle recherche n’est lancée. [Bilan, sources et réserves](inventaire/recherche-equipements-2026-10-28.md). Validation locale : 479 tests réussis, types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Les installateurs et essais natifs de cette version restent à confirmer dans la CI.
+
+## Version précédente — 0.5.16
+
+Le banc Qwen3 4B de la 0.5.15 a réussi ses six essais réels sous Windows et ses six essais sous macOS : réorganisation de l’existant, clarification, configuration et construction des scénarios de recette. Cela ne garantit pas toutes les formulations. 476 tests locaux réussis pour cette correction. [Détail IA](ia-correctifs-0.5.15.md).
+
+Le contrôle natif Windows attend maintenant la fin de l’animation de restauration avant de vérifier la géométrie, avec le même délai maximal et la même tolérance. Il a échoué auparavant sur une lecture transitoire ; aucun changement de la mémorisation des fenêtres de l’application n’est introduit. Le nouveau passage de ce contrôle et les builds 0.5.16 restent à confirmer sur GitHub.
+
+La recherche documentaire ajoute seize fiches Vérifié et documente cinq réserves supplémentaires. Les sorties manquantes, les poids et les variantes sont corrigés à partir des manuels lus ; l’AT831b seul reprend sa prise TA3F et non le XLR de son module AT8531. Bibliothèque active : 492 Vérifié, 1 220 Communauté, 30 génériques. Le journal distingue les documents lus des références non examinées ; la vérification globale reste inachevée. [Suivi documentaire](inventaire/suite-manualslib-2026-10-26.md).
+
+## Version précédente — 0.5.15
+
+Le diagnostic du nombre de câbles explicite la différence entre quantité d’appareils et câbles par paire. Le lot Midas corrige la PRO1 (passée Vérifié), le DL351 et la HD96 ; les divergences de version restent documentées.
+
+## Version précédente — 0.5.13
+
+Le tri exclut désormais les ensembles de plusieurs appareils, même fabricant : 78 ensembles et deux accessoires sont écartés ; 30 fiches deviennent explicitement unitaires. 1712 références constructeur et 30 génériques restent disponibles. Les anciens projets conservent les appareils déjà placés. [Détail et recherche de manuels en cours](inventaire/bibliotheque-unitaire-2026-10-26.md).
+
+Quatre fiches Shure sont vérifiées après consultation de leur documentation. Les autres liens documentaires ajoutés n’impliquent pas une vérification technique complète. La recherche reste inachevée et distingue les documents retrouvés, les accès à confirmer et les références non encore examinées.
+
+Le [cahier des charges IA](cahier-des-charges-ia.md) analyse le défaut de mise en page de l’existant et définit les actions à ajouter, la clarification, les connaissances et la recette. 25 scénarios initiaux sont enregistrés. Les nouvelles actions IA ne sont pas encore codées : le problème de la capture reste ouvert.
+
+## Version précédente — 0.5.12
+
+Le template Concert enregistre les sorties ligne de console en stéréo. Les 2 156 fiches ont été revues pour le périmètre et le classement ; le relevé de chaque décision est conservé dans [l’audit de bibliothèque](inventaire/audit-bibliotheque-0.5.12.md). Écrans de projection, optiques et effets sont conservés. Les valeurs et connectiques non établies restent à documenter.
+
+Les retours C01 corrigent l’accueil après installation IA, l’avertissement de dossier homonyme, le zoom/cadrage local par feuille, Fermer le projet et Reprendre le dernier projet après abandon de la récupération. La fermeture conserve la protection des modifications et ne remplace pas le dernier récent par un canevas vide.
+
+## Version précédente — 0.5.11
+
+La 0.5.11 ajoute un parcours général : analyse du besoin (rôles, quantités, contraintes, hypothèses, trois questions au maximum), recherche groupée dans le catalogue puis câblage des rôles sur des prises libres et compatibles. Les parcours rapides SDI et M7CL/01V96 sont conservés. Le plan interdit la perte silencieuse de ses quantités et les références exactes reconnues sont contrôlées. Les contraintes sont conservées en note ; les affectations internes des autres architectures restent à vérifier. Aucune couverture universelle n’est annoncée.
+
+Les propositions sont placées dans les pages imprimables, avec choix de formats plus grands avant Appliquer ; le format et les ajouts s’annulent ensemble. Les notes sont réparties après les équipements. La largeur estimée des blocs repliés tient compte des deux colonnes de prises et du résumé des ports libres. Mon entreprise est séparé de la Bibliothèque générale, avec des doublons admis entre espaces. L’import accepte une quantité totale déclarée, modifiable localement ; ce total n’est pas une disponibilité datée. Les alertes de parc sont partagées entre ajouts manuels et aperçus IA. Le choix du catalogue IA peut interdire les ajouts externes. Les connecteurs Booqable/ERP, les dates et les réservations restent une étape ultérieure.
+
+La 0.5.10 reprend l’organisation de la capture de référence : menus et titre du projet sur la première ligne, huit vues avec icônes et libellés sur la deuxième. Le nom du projet est centré et les raccourcis restent personnalisables à droite. La navigation quitte la barre du bas, qui conserve les compteurs et l’état d’enregistrement. Mode présentation et fenêtre Infos gardent leur rôle. La disposition est vérifiée à 1920, 1440 et 1024 pixels, avec navigation, raccourcis et thème clair/sombre. Le manuel et sa capture de repérage sont actualisés. Le test d’installation lit les champs Windows par WM_GETTEXT avec délai borné ; GetWindowText renvoyait un texte vide pour un champ rempli après sa création.
+
+La 0.5.9 propose les deux portées d’installation Windows : compte courant (sélection initiale) et tous les utilisateurs (Programmes, droits administrateur). L’emplacement existant est retrouvé à la mise à jour et le paramètre de déploiement /D reste respecté. Les modèles IA gardent leur propre dossier dans le profil utilisateur, choisi séparément ; une installation pour tous partage le logiciel et son moteur, pas automatiquement les modèles ni les réglages de chaque compte. La désinstallation cible la bonne copie, même si une installation personnelle et une installation partagée coexistent.
+
+La 0.5.8 corrige l’activation de l’IA locale : le moteur démarrait, mais le test de configuration pouvait rappeler des outils jusqu’à sa limite de quatre étapes. Un seul appel explicite à check_project sur un projet fictif suffit maintenant, sans attendre une conclusion libre du modèle. Ce test est exécuté avec le vrai modèle en français et en anglais dans le banc de validation. Les trois parcours de configuration partagent le même diagnostic, avec la cause précise au lieu d’un message générique de téléchargement.
+
+La 0.5.7 ajoute un premier parcours de cahier des charges métier : interview et duo live sur M7CL-48ES/01V96. Le modèle identifie les références et les quantités ; un moteur déterministe prépare les prises, les six mixages, les exclusions et les notes de réglage dans trois zones. Les machines, la guitare/ampli, les casques et la fonction vidéo utilisent des blocs génériques explicitement annoncés ; les entrées à plusieurs modes gardent une seule prise physique. Les choix facultatifs non imposés ne sont pas exposés au petit modèle. Les fiches 01V96, SB168-ES, HA8000 et DR-40 sont documentées et vérifiées ; la M7CL-48ES est complétée. Ce parcours est limité à cette architecture et ne configure aucun appareil. Les autres cahiers des charges restent à prendre en charge progressivement.
+
+La 0.5.6 reconnaît les demandes naturelles de plateau et les verbes accentués (« reliées »), ainsi qu’un mélangeur désigné directement par son nom. Le plateau SDI peut être vidéo seul, sans console ajoutée implicitement. Une génération ne peut plus réussir avec une simple annonce sans proposition. Quand une fiche demandée n’a pas de connectique documentée, une seule requête compacte exige au maximum trois questions ciblées ; les précisions conservent la demande initiale. Aucun port constructeur n’est inventé pour contourner une fiche incomplète.
+
+La 0.5.5 précharge les références courtes citées dans une question, sans exiger la marque, et distingue les niveaux des entrées et des sorties audio du format physique des connecteurs. Les outils exposent un résumé des niveaux analogiques sur toutes les prises, indépendamment de la pagination. Les recherches tolèrent les séparateurs CL5 / CL-5 / CL 5 ; les variantes restent à préciser. La fiche CL5 était déjà correcte (+4 dBu sur les sorties XLR) : aucun niveau constructeur n’a été modifié par supposition.
+
+La 0.5.4 reconnaît également les alias de modèles importés avec une colonne fabricant, en contrôlant la marque pour éviter les rapprochements erronés.
+
+La 0.5.3 regroupe les commandes dans cinq menus et permet de choisir et d’ordonner les raccourcis dans les préférences Interface. L’import CSV/Excel propose un aperçu, les colonnes marque/modèle, le tri des lignes et les familles ; il enregistre les modèles sur le poste, sans publier de stock ou de prix. Une référence connue reprend sa fiche ; les autres restent sans prises et « à documenter ». Aucun catalogue en ligne n’est parcouru automatiquement.
+
+L’assistant propose désormais un synoptique complet en une opération annulable et vérifie les quantités demandées. Pour le plateau TV SDI standard, le logiciel choisit les vrais ports des références retenues, avec des entrées SDI distinctes et un mix audio stéréo XLR ; aucune prise n’est inventée. Les affectations internes des appareils restent à configurer. Le contexte fourni au petit modèle est réduit pour cette opération. Le manuel comprend dix captures annotées, dont les préférences et l’import de catalogue.
+
+La 0.5.1 rend l’IA accessible : bouton Assistant IA grisé avant activation, onglet dans les paramètres, option dans l’installeur Windows et choix du dossier des modèles. Les API externes sont configurables avec accord d’envoi des données, clé dans le trousseau et test des outils sur un projet fictif. La 0.5.0 avait ajouté le moteur llama.cpp embarqué sur Windows/macOS, les modèles Qwen3 4B/8B téléchargés sur demande avec reprise et contrôle SHA-256, la recherche dans le manuel et la validation humaine des ajouts. Voir [le fonctionnement et les limites](ia-locale.md).
 
 La 0.4.3 ajoute huit captures réelles annotées au manuel hors ligne HTML/PDF. Au premier lancement, la fenêtre principale est maximisée ; les ouvertures suivantes reprennent la disposition locale, y compris Infos lorsqu'elle était ouverte et que les écrans nécessaires sont disponibles. Les positions sont ramenées dans la zone de travail si un écran a été débranché.
 
@@ -8,11 +90,11 @@ Depuis 0.4.1, la présentation repliée des prises est mémorisée par équipeme
 
 Les baies, le plan d'implantation métrique, l'import/export DXF, les listes Excel et le réimport de patch, les vues réseau/électrique/intercom/synchronisation et le réglage des câbles sur blocs pivotés sont codés. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md) pour leurs fonctions et limites. Le protocole LAN est passé à 3 : installer la même version sur tous les postes.
 
-Le catalogue reste celui de 0.3.5 : 2 043 modèles réels et 24 génériques, dont 1 585 fiches Communauté à documenter. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
+Le catalogue contient 2 156 modèles réels et 30 génériques : 474 fiches vérifiées et 1 682 fiches Communauté. La 0.5.2 avait ajouté le TriCaster 2 Elite ; la 0.5.3 ajoute 108 références après le tri de l’inventaire fourni (7 vérifiées et 101 à documenter, sans connectique supposée). Les ordinateurs, logiciels, câbles, structure, supports, consommables, batteries/chargeurs, appareils de mesure et panneaux de brassage ont été exclus de cet ajout. La 0.5.4 complète ce lot avec les CCU HXCU-FB70/HXCU-TX70 et les Scarlett 2i2 de 2e/4e générations, soit 112 ajouts au total dont 11 vérifiés et 101 à documenter. La Scarlett 2i2 de 3e génération existante garde son identifiant. Le Kino Flo à quatre tubes non identifié est écarté à la demande de l’utilisateur ; les trois désignations en attente de ce relevé sont donc résolues. L'intégralité du catalogue français Novelty hors Structure est référencée, avec les variantes et synonymes regroupés ; l'ajout d'une référence ne vérifie pas ses caractéristiques.
 
-Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud et l'assistant IA restent en attente. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
+Prochaines validations : fichiers draw.io/Visio et DWG de production avec ODA installé, DXF réels, patch Excel, budgets saisis avec les fiches constructeur, export papier à l'échelle, collaboration et dialogues natifs sur Windows/macOS. Le contrôle manuel à deux écrans reste à faire lorsqu'un second écran sera disponible. Décision du 20 octobre : mode formation, distribution officielle avec certificats et portage tablette en attente pour la première version ; le manuel remplace le lot formation. Le cloud des projets reste en attente. Les API IA externes sont configurables ; aucun compte payant n’a été utilisé dans nos essais. Pas de lecteur DWG autonome embarqué ; pas d'export Visio natif.
 
-Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version 0.4.2.
+Les sections suivantes conservent l'historique antérieur ; leurs décomptes et anciennes listes de tâches ne décrivent pas la version actuelle.
 
 ## Historique au 2026-10-09
 

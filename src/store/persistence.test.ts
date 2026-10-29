@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createProject } from '../model/project'
 import { useProject } from './projectStore'
 import { useSaveFolder } from './saveFolderStore'
-import { flushRecovery, forgetRecent, listRecent, loadRecent, restoreProject, startAutosave } from './persistence'
+import { flushRecovery, forgetRecent, listRecent, loadRecent, restoreProject, startAutosave, setRecoveryIdleProject } from './persistence'
 
 const data = vi.hoisted(() => new Map<string, unknown>())
 const disk = vi.hoisted(() => ({ readProjectFile: vi.fn() }))
@@ -71,4 +71,15 @@ describe('récupération locale et raccourcis récents', () => {
     expect(useProject.getState().project.name).toBe('Disque retiré')
     expect(useProject.getState().saved).toBe(false)
   })
+})
+
+it('ne remplace pas le dernier récent par le canevas vide de fermeture, puis récupère une nouvelle modification', async () => {
+  const stop = startAutosave(), p = createProject('Projet réel'), idle = createProject('Accueil')
+  useProject.getState().load(p); await flushRecovery()
+  setRecoveryIdleProject(idle.id)
+  useProject.getState().load(idle); await flushRecovery()
+  expect((await listRecent())[0].id).toBe(p.id)
+  useProject.getState().rename('Nouveau dessin depuis accueil'); await flushRecovery()
+  expect((await listRecent())[0].id).toBe(idle.id)
+  stop()
 })

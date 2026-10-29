@@ -5,7 +5,7 @@
   "pictogram": "camera",
   "manufacturer": "Panasonic",
   "model": "AW-UE150K",
-  "status": "community",
+  "status": "verified",
   "description": "Caméra PTZ professionnelle 4K 50p, angle de vue horizontal de 75,1°, zoom optique 20x",
   "aliases": [
     "PANASONIC AW-UE150K"
@@ -32,7 +32,86 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 4.2
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "sdi12",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdi3",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "monitor",
+      "name": "Moni Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI"
+    },
+    {
+      "id": "sfp",
+      "name": "SFP+ Fiber cage",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Optical module optional; mirrors 12G-SDI"
+    },
+    {
+      "id": "ref",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BBS / tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN / PoE++",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "IP streaming / control, IEEE802.3bt",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "audio",
+      "name": "Mic / Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ],
+  "weightKg": 4.2,
+  "depthMm": 219
 }

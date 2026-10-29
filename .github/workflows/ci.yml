@@ -13,10 +13,22 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install reportlab==4.4.9
+      - run: python scripts/build-manual.py
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: Upload generated manual
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-Manual-test
+          path: public/manuel.pdf
+          retention-days: 30
 
   native:
     runs-on: windows-latest
@@ -31,7 +43,14 @@ jobs:
         with:
           workspaces: src-tauri
       - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install reportlab==4.4.9
+      - run: python scripts/build-manual.py
       - run: npm run build
+      - name: Prepare verified local AI engine
+        run: python scripts/prepare-local-ai.py
       - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --lib
       - name: Build Windows test installer
         if: github.event_name == 'push'
@@ -47,6 +66,30 @@ jobs:
       - name: Test native window layout across relaunches
         if: github.event_name == 'push'
         run: python scripts/test-window-layout.py src-tauri/target/release/av-diagram.exe
+
+  local-ai:
+    if: github.event_name == 'push'
+    runs-on: windows-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Prepare verified local AI engine
+        run: python scripts/prepare-local-ai.py
+      - name: Test real Qwen3 4B tools on a fictitious project
+        run: python scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-test"
+      - name: Upload isolated AI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-local-AI-test-report
+          path: ${{ runner.temp }}/avd-local-ai-test/integration-result.json
+          if-no-files-found: warn
+          retention-days: 30
 
   windows-installer:
     if: github.event_name == 'push'
@@ -65,6 +108,7 @@ jobs:
   macos:
     if: github.event_name == 'push'
     runs-on: macos-15
+    timeout-minutes: 70
     env:
       # Signature locale pour les essais, sans certificat de distribution Apple.
       APPLE_SIGNING_IDENTITY: '-'
@@ -81,14 +125,30 @@ jobs:
         with:
           workspaces: src-tauri
       - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install reportlab==4.4.9
+      - run: python scripts/build-manual.py
       - run: npm run build
+      - name: Prepare verified local AI engines
+        run: python3 scripts/prepare-local-ai.py
       - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --lib
-      - name: Build universal macOS test installer
-        run: npm run desktop:build -- --target universal-apple-darwin --bundles app,dmg --ci
+      - name: Build universal macOS test application
+        run: npm run desktop:build -- --target universal-apple-darwin --bundles app --ci
       - name: Verify universal app and signature
         run: |
           lipo "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/MacOS/av-diagram" -verify_arch x86_64 arm64
           codesign --verify --deep --strict "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app"
+      - name: Create and verify macOS test disk image
+        run: |
+          bundle="src-tauri/target/universal-apple-darwin/release/bundle"
+          staging="${{ runner.temp }}/avd-dmg"
+          mkdir -p "$staging" "$bundle/dmg"
+          ditto "$bundle/macos/AV Diagram.app" "$staging/AV Diagram.app"
+          ln -s /Applications "$staging/Applications"
+          hdiutil create -volname "AV Diagram" -srcfolder "$staging" -ov -format UDZO "$bundle/dmg/AV Diagram_universal.dmg"
+          hdiutil verify "$bundle/dmg/AV Diagram_universal.dmg"
       - name: Upload macOS test installer
         uses: actions/upload-artifact@v4
         with:
@@ -97,3 +157,14 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+
+      - name: Test real local AI from the macOS app bundle
+        run: python3 scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-mac" --engine-directory "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/Resources/local-ai"
+      - name: Upload macOS AI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-local-AI-macOS-test-report
+          path: ${{ runner.temp }}/avd-local-ai-mac/integration-result.json
+          if-no-files-found: warn
+          retention-days: 30

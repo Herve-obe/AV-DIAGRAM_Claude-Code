@@ -22,8 +22,56 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3; up to 1080p60"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOut",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "audioIn",
+      "name": "Stereo audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Stereo audio jack"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Socket shown in manufacturer dimensional drawing; function not specified"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5-24 V DC, nominal 12 V"
+    }
+  ],
   "weightKg": 0.095,
-  "powerW": 5
+  "powerW": 5,
+  "depthMm": 20
 }

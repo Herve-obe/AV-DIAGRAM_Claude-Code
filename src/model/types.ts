@@ -13,6 +13,8 @@ export interface PortDef {
   signal: SignalFamily
   connector: string
   level?: Level
+  /** Autres modes documentés de cette même prise ; choisir un mode ne crée pas de prise supplémentaire. */
+  modes?: { connector: string; level: Level; phantom?: 'required' | 'supplied' | 'none' }[]
   /** Nombre de canaux transportés (ex. 64 pour un port Dante) */
   channels?: number
   /** Détail libre : format, débit, protocole (ex. "3G-SDI", "AES3", "Dante primaire") */
@@ -81,6 +83,8 @@ export interface EquipmentTemplate {
   poeBudgetW?: number
   status: LibraryStatus
   sources?: EquipmentSource[]
+  /** Quantité totale déclarée dans le parc local ; ce n'est pas la disponibilité à une date. */
+  companyQuantity?: number
   /** Menu de la bibliothèque, quand la famille ne suffit pas (ex. enregistreur vidéo) */
   domain?: LibraryDomain
 }

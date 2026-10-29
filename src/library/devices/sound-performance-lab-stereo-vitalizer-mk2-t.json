@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Sound Performance Lab",
   "model": "Stéréo Vitalizer MK2-T",
-  "status": "community",
-  "description": "Egaliseur stéréo à lampe",
+  "status": "verified",
+  "description": "Stereo Vitalizer MK2-T modèle 9739 ; EQ stéréo. 4 entrées et 4 sorties physiques (XLR et TRS), sorties en parallèle ; une seule paire d’entrées à connecter.",
   "aliases": [
     "VITALIZER",
     "Sound Performance Lab Stéréo Vitalizer MK2-T"
@@ -21,9 +21,96 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/stereo_vitalizer_mk2_t_9739_manual.pdf",
       "document": "Novelty — Stéréo Vitalizer MK2-T : Vitalizer MK2-T",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://spl.audio/wp-content/uploads/VitalizerMK2-T_9739_OM_E.pdf",
+      "document": "SPL Stereo Vitalizer MK2-T modèle 9739, manuel v2.3, pp. 5 et 17",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.4
+  "ports": [
+    {
+      "id": "in-xlr3-1",
+      "name": "INPUT L xlr3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique, nominal +6 dBu ; une seule paire d’entrées à la fois"
+    },
+    {
+      "id": "in-xlr3-2",
+      "name": "INPUT R xlr3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique, nominal +6 dBu ; une seule paire d’entrées à la fois"
+    },
+    {
+      "id": "out-xlr3-1",
+      "name": "OUTPUT L xlr3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique, +20 dBu max ; sorties en parallèle"
+    },
+    {
+      "id": "out-xlr3-2",
+      "name": "OUTPUT R xlr3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique, +20 dBu max ; sorties en parallèle"
+    },
+    {
+      "id": "in-jack-trs-1",
+      "name": "INPUT L jack-trs",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Ligne symétrique, nominal +6 dBu ; une seule paire d’entrées à la fois"
+    },
+    {
+      "id": "in-jack-trs-2",
+      "name": "INPUT R jack-trs",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Ligne symétrique, nominal +6 dBu ; une seule paire d’entrées à la fois"
+    },
+    {
+      "id": "out-jack-trs-1",
+      "name": "OUTPUT L jack-trs",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Ligne symétrique, +20 dBu max ; sorties en parallèle"
+    },
+    {
+      "id": "out-jack-trs-2",
+      "name": "OUTPUT R jack-trs",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Ligne symétrique, +20 dBu max ; sorties en parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–120 V ou 220–240 V selon sélecteur ; transformateur 15 VA"
+    }
+  ],
+  "weightKg": 3.4,
+  "rackU": 1,
+  "depthMm": 237
 }

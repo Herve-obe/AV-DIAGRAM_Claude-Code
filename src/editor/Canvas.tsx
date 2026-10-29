@@ -37,6 +37,7 @@ import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
+import { canvasViewport, rememberCanvasViewport } from '../store/canvasViewport'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
 import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
@@ -47,14 +48,15 @@ import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
 function ProposalBanner({ equipment, links, sheetId }: { equipment: number; links: number; sheetId: string }) {
   const { t } = useTranslation()
   const currentSheetId = useUi((s) => s.currentSheetId)
-  const ai = useAi.getState()
+  const ai = useAi()
+  const layout = ai.proposal?.layout
   return (
     <div className="proposal-banner" role="status">
       <span className="proposal-dot" />
-      <span>{t('ai.preview', { equipment, links })}</span>
+      <span>{t(ai.proposal?.rearrangedEquipment?.length ? 'ai.layout.preview' : 'ai.preview', { equipment: ai.proposal?.rearrangedEquipment?.length ?? equipment, links })}</span>
       {sheetId !== currentSheetId && <button className="btn btn-ghost" onClick={() => useUi.getState().setSheet(sheetId)}>{t('ai.showSheet')}</button>}
       <button className="btn btn-ghost" onClick={() => ai.discardProposal()}>{t('ai.discard')}</button>
-      <button className="btn btn-primary" onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
+      <button className="btn btn-primary" disabled={ai.busy || (layout && !layout.choices[layout.selected].valid)} onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
     </div>
   )
 }
@@ -84,7 +86,7 @@ export function Canvas() {
   const proposal = useAi((s) => s.proposal)
   const preview = proposal && proposal.base === stored ? proposal : null
   const project = preview?.project ?? stored
-  const proposedEq = useMemo(() => new Set(preview?.addedEquipment ?? []), [preview])
+  const proposedEq = useMemo(() => new Set([...(preview?.addedEquipment ?? []), ...(preview?.rearrangedEquipment ?? [])]), [preview])
   const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
   const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute, layer } = useUi()
@@ -162,7 +164,9 @@ export function Canvas() {
           id: a.id,
           type: 'annotation',
           position: a.position,
-          data: { annotation: a, readOnly: presenting },
+          data: { annotation: a, readOnly: presenting || !!preview },
+          draggable: !presenting && !preview,
+          deletable: !preview,
           measured: measured.get(a.id),
           zIndex: a.kind === 'frame' ? -1 : 1,
           // Cadre : saisi par son onglet de titre ou ses bords (l'intérieur laisse passer la souris)
@@ -203,7 +207,7 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
+  }, [project, mode, currentSheetId, presenting, preview, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
 
   // Sélection appliquée au rendu, comme pour les liaisons, plutôt que par l'effet ci-dessus (un rendu
   // plus tard) : blocs et liaisons montrent toujours la même sélection que le store.
@@ -470,12 +474,19 @@ export function Canvas() {
   // Alignement demandé depuis la fenêtre Infos (double écran)
   useEffect(() => onCommand('arrange', (a) => arrangeSelection(rf, a as ArrangeAction)), [rf])
 
-  // Recadrage à l'ouverture d'un autre projet ou d'une autre feuille
+  const savedViewport = useMemo(() => canvasViewport(project.id, currentSheetId), [project.id, currentSheetId])
+  const restoringViewport = useRef(true)
+  // Une feuille déjà visitée retrouve son cadrage local. Le premier affichage montre la page.
   useEffect(() => {
-    // Mode « page » : on montre la feuille entière ; sinon, tout le contenu
-    const timer = setTimeout(() => fitToPage(rf, useProject.getState().project) || rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 }), 80)
-    return () => clearTimeout(timer)
-  }, [project.id, currentSheetId, presenting, rf])
+    restoringViewport.current = true
+    let disposed = false
+    const timer = setTimeout(async () => {
+      if (savedViewport && !presenting) await rf.setViewport(savedViewport)
+      else if (!fitToPage(rf, useProject.getState().project)) await rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 })
+      if (!disposed) restoringViewport.current = false
+    }, 80)
+    return () => { disposed = true; clearTimeout(timer) }
+  }, [project.id, currentSheetId, presenting, rf, savedViewport])
 
   // Centrage demandé depuis une liste (câblage, alertes)
   useEffect(() => {
@@ -499,12 +510,13 @@ export function Canvas() {
   }, [focusRequest, rf])
 
   // Nouvelle proposition : on recadre pour que les ajouts soient visibles
-  const proposedCount = preview?.addedEquipment.length ?? 0
+  const proposedCount = (preview?.addedEquipment.length ?? 0) + (preview?.rearrangedEquipment?.length ?? 0)
+  const proposedProject = preview?.project
   useEffect(() => {
     if (!proposedCount) return
     const id = setTimeout(() => rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 }), 60)
     return () => clearTimeout(id)
-  }, [proposedCount, rf])
+  }, [proposedCount, proposedProject, rf])
 
   return (
     <div className="canvas" onPointerDownCapture={onPointerDownCapture} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
@@ -548,7 +560,11 @@ export function Canvas() {
         multiSelectionKeyCode={['Shift', 'Meta', 'Control']}
         snapToGrid
         snapGrid={[10, 10]}
-        fitView
+        defaultViewport={savedViewport}
+        onMoveEnd={(_event, viewport) => {
+          if (!restoringViewport.current && !presenting) rememberCanvasViewport(project.id, currentSheetId, viewport)
+        }}
+        fitView={!savedViewport}
         fitViewOptions={{ padding: 0.15, maxZoom: 1 }}
         // Molette : défilement vertical ; Maj + molette : horizontal ; Ctrl (Cmd) + molette : zoom
         panOnScroll
@@ -563,7 +579,7 @@ export function Canvas() {
       >
         <EdgeRouter enabled={autoRoute} />
         <Background variant={BackgroundVariant.Dots} gap={20} size={1.4} color="var(--grid-dot)" />
-        <PageGrid />
+        <PageGrid project={project} />
         <Controls showInteractive={false} position="bottom-left" />
         <MiniMap
           position="bottom-right"

@@ -10,93 +10,272 @@
       "url": "https://www.manualsbase.com/manual/224069/musical_instrument/yamaha/emx660/",
       "document": "Yamaha, mode d'emploi EMX660 (archive de manuels)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/3/318553/EMX660E.pdf",
+      "document": "Yamaha EMX660 Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/3/318553/EMX660E.pdf",
+      "document": "Owner’s Manual pp.8–10 et18–19.",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Input 1",
+      "name": "CH1 Lo-Z",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Symétrique, PAD micro/ligne ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in2",
-      "name": "Input 2",
+      "name": "CH2 Lo-Z",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Symétrique, PAD micro/ligne ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in3",
-      "name": "Input 3",
+      "name": "CH3 Lo-Z",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Symétrique, PAD micro/ligne ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in4",
-      "name": "Input 4",
+      "name": "CH4 Lo-Z",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Symétrique, PAD micro/ligne ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in5",
-      "name": "Input 5",
+      "name": "CH5 MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in6",
-      "name": "Input 6",
+      "name": "CH6 MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
+    },
+    {
+      "id": "hiz-1",
+      "name": "CH1 Hi-Z",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+    },
+    {
+      "id": "hiz-2",
+      "name": "CH2 Hi-Z",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+    },
+    {
+      "id": "hiz-3",
+      "name": "CH3 Hi-Z",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+    },
+    {
+      "id": "hiz-4",
+      "name": "CH4 Hi-Z",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+    },
+    {
+      "id": "line5-1",
+      "name": "CH5 LINE 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique nominal −10 dBu"
+    },
+    {
+      "id": "line5-2",
+      "name": "CH5 LINE 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique nominal −10 dBu"
+    },
+    {
+      "id": "inst6-1",
+      "name": "CH6 INST 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Haute impédance 470 kΩ, nominal −30 dBu ; accepte aussi niveau ligne"
+    },
+    {
+      "id": "inst6-2",
+      "name": "CH6 INST 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Haute impédance 470 kΩ, nominal −30 dBu ; accepte aussi niveau ligne"
+    },
+    {
+      "id": "aux-in",
+      "name": "AUX IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Nominal −10 dBu"
+    },
+    {
+      "id": "tape-in-1",
+      "name": "TAPE IN 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "tape-in-2",
+      "name": "TAPE IN 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "rec-out-1",
+      "name": "REC OUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "rec-out-2",
+      "name": "REC OUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "main-out",
+      "name": "MAIN OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4"
+    },
+    {
+      "id": "monitor-out",
+      "name": "MONITOR OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4"
+    },
+    {
+      "id": "effect-out",
+      "name": "EFFECT OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4"
+    },
+    {
+      "id": "foot-sw",
+      "name": "FOOT SW",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Commande effet par pédale FC5"
     },
     {
       "id": "spk1",
-      "name": "Power Amp 1",
+      "name": "POWER AMP 1 A",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "jack-ts",
+      "level": "speaker"
+    },
+    {
+      "id": "spk1-b",
+      "name": "POWER AMP 1 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
       "level": "speaker",
-      "format": "300 W ; connecteur non précisé"
+      "format": "Parallèle à POWER AMP1 A"
     },
     {
       "id": "spk2",
-      "name": "Power Amp 2",
+      "name": "POWER AMP 2 A",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "jack-ts",
+      "level": "speaker"
+    },
+    {
+      "id": "spk2-b",
+      "name": "POWER AMP 2 B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
       "level": "speaker",
-      "format": "300 W ; principal ou retour"
+      "format": "Parallèle à POWER AMP2 A"
+    },
+    {
+      "id": "bridge",
+      "name": "BRIDGE",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "speaker",
+      "format": "Utilisation exclusive du mode ponté ; les autres prises amplifiées doivent rester libres"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "230 V AC /50 Hz version Europe ; raccordement secteur non détaillé sur le schéma"
     }
-  ]
+  ],
+  "powerW": 250,
+  "weightKg": 17,
+  "depthMm": 275,
+  "description": "Console amplifiée EMX660. Prises micro XLR et jacks Hi-Z séparées, quatre entrées ligne/instrument supplémentaires, sorties ligne et cinq sorties amplifiées. Fantôme +15 V commun aux XLR, distinct du P48. Consommation 250 W."
 }

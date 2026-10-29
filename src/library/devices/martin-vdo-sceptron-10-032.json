@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Martin",
   "model": "VDO Sceptron 10-032",
-  "status": "community",
-  "description": "Rampe LED RVB, 16 bits, pitch 10mm, long. 32cm, 120° x 120°. Avec ou sans diffusant (3 types).",
+  "status": "verified",
+  "description": "Barre LED vidéo VDO Sceptron 10, longueur 320 mm, largeur 27 mm, hauteur 28 mm. Consommation 11 W à pleine intensité blanc ; alimentation externe 48 VDC. Deux connecteurs captifs hybrides BBD propriétaires six contacts IP66 transportent alimentation et données P3 ou DMX. Aucun XLR ni secteur direct sur la barre ; adaptateurs externes nécessaires. Poids publié 1,2 kg par mètre.",
   "aliases": [
     "SCEPT10-0320",
     "MARTIN VDO Sceptron 10-032"
@@ -24,8 +24,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1465994164-martin_sceptron_manuel-uk.pdf",
-      "document": "Novelty — VDO Sceptron 10-032 : VDO Sceptron 10 (UK)",
-      "accessed": "2026-10-19"
+      "document": "Martin — VDO Sceptron family safety/installation guide, p.7,10,20,40–43 : modèles 320/1000 mm, connexions BBD6 et puissance par version",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-1465994164-martin_sceptron_certificat.pdf",
@@ -33,7 +33,24 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 11
+  "ports": [
+    {
+      "id": "hybridIn",
+      "name": "Alimentation / données In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "martin-bbd6",
+      "format": "Martin BBD propriétaire 6 contacts IP66, mâle ; 48 VDC + P3/DMX"
+    },
+    {
+      "id": "hybridOut",
+      "name": "Alimentation / données Thru",
+      "direction": "out",
+      "signal": "power",
+      "connector": "martin-bbd6",
+      "format": "Martin BBD propriétaire 6 contacts IP66, femelle ; 48 VDC + P3/DMX"
+    }
+  ],
+  "powerW": 11,
+  "depthMm": 27
 }

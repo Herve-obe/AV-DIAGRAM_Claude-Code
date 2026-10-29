@@ -1,0 +1,614 @@
+{
+  "id": "yamaha-01v96",
+  "family": "console",
+  "manufacturer": "Yamaha",
+  "model": "01V96",
+  "pictogram": "console",
+  "status": "verified",
+  "description": "01V96 originale, manuel Version 2 (même matériel), distincte de la 01V96i. Les entrées A/B 1 à 12 partagent leur préampli ; une seule prise est utilisée par canal. 48 V commuté par groupes de quatre.",
+  "sources": [
+    {
+      "url": "https://data.yamaha.com/files/download/other_assets/5/334235/01v96v2_om_en_f0.pdf",
+      "document": "Yamaha 01V96 Version 2 Owner’s Manual : prises p. 14–25, affectations p. 43–44, caractéristiques analogiques p. 286",
+      "accessed": "2026-10-23"
+    },
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT A/B 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in2",
+      "name": "INPUT A/B 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in3",
+      "name": "INPUT A/B 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in4",
+      "name": "INPUT A/B 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in5",
+      "name": "INPUT A/B 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in6",
+      "name": "INPUT A/B 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in7",
+      "name": "INPUT A/B 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in8",
+      "name": "INPUT A/B 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in9",
+      "name": "INPUT A/B 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in10",
+      "name": "INPUT A/B 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in11",
+      "name": "INPUT A/B 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in12",
+      "name": "INPUT A/B 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "A : XLR ; B : jack TRS symétrique, même préampli, entrées alternatives. PAD 20 dB et gain pour niveau ligne ; 48 V sur XLR uniquement, par groupes 1–4, 5–8, 9–12."
+    },
+    {
+      "id": "in13",
+      "name": "INPUT 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "phantom": "none",
+      "format": "Symétrique, gain +4 à −26 dBu"
+    },
+    {
+      "id": "in14",
+      "name": "INPUT 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "phantom": "none",
+      "format": "Symétrique, gain +4 à −26 dBu"
+    },
+    {
+      "id": "in15",
+      "name": "INPUT 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "phantom": "none",
+      "format": "Symétrique, gain +4 à −26 dBu"
+    },
+    {
+      "id": "in16",
+      "name": "INPUT 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "phantom": "none",
+      "format": "Symétrique, gain +4 à −26 dBu"
+    },
+    {
+      "id": "insert1",
+      "name": "INSERT I/O 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert2",
+      "name": "INSERT I/O 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert3",
+      "name": "INSERT I/O 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert4",
+      "name": "INSERT I/O 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert5",
+      "name": "INSERT I/O 5",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert6",
+      "name": "INSERT I/O 6",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert7",
+      "name": "INSERT I/O 7",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert8",
+      "name": "INSERT I/O 8",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert9",
+      "name": "INSERT I/O 9",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert10",
+      "name": "INSERT I/O 10",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert11",
+      "name": "INSERT I/O 11",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "insert12",
+      "name": "INSERT I/O 12",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique : pointe départ, bague retour ; niveau nominal −2 dBu"
+    },
+    {
+      "id": "stL",
+      "name": "STEREO OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Bus stéréo L/R, symétrique, maximum +24 dBu"
+    },
+    {
+      "id": "stR",
+      "name": "STEREO OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Bus stéréo L/R, symétrique, maximum +24 dBu"
+    },
+    {
+      "id": "omni1",
+      "name": "OMNI OUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, maximum +24 dBu ; affectation par PATCH, AUX 1 par défaut"
+    },
+    {
+      "id": "omni2",
+      "name": "OMNI OUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, maximum +24 dBu ; affectation par PATCH, AUX 2 par défaut"
+    },
+    {
+      "id": "omni3",
+      "name": "OMNI OUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, maximum +24 dBu ; affectation par PATCH, AUX 3 par défaut"
+    },
+    {
+      "id": "omni4",
+      "name": "OMNI OUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Symétrique, maximum +24 dBu ; affectation par PATCH, AUX 4 par défaut"
+    },
+    {
+      "id": "monitorL",
+      "name": "MONITOR OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "monitorR",
+      "name": "MONITOR OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "2trinL",
+      "name": "2TR IN L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "2trinR",
+      "name": "2TR IN R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "adatin",
+      "name": "ADAT IN",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT optical ; double channel en 88,2/96 kHz"
+    },
+    {
+      "id": "spdifin",
+      "name": "2TR DIGITAL IN",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "wcin",
+      "name": "WORD CLOCK IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "2troutL",
+      "name": "2TR OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "2troutR",
+      "name": "2TR OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "adatout",
+      "name": "ADAT OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT optical ; double channel en 88,2/96 kHz"
+    },
+    {
+      "id": "spdifout",
+      "name": "2TR DIGITAL OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF"
+    },
+    {
+      "id": "wcout",
+      "name": "WORD CLOCK OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "phones",
+      "name": "PHONES",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo"
+    },
+    {
+      "id": "usb",
+      "name": "USB TO HOST",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "MIDI/commande uniquement, pas une interface audio USB"
+    },
+    {
+      "id": "midiin",
+      "name": "MIDI IN",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiout",
+      "name": "MIDI OUT",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midithru",
+      "name": "MIDI THRU",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot",
+      "name": "Slot MY",
+      "type": "yamaha-mini-ygdai"
+    }
+  ]
+}

@@ -26,10 +26,107 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9412-4697-panasonic-65eq2-ft-uk.pdf",
       "document": "Novelty — Moniteur EQ2 65 : panasonic_65eq2_ft-uk",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
+      "document": "Panasonic EQ2 Series, Specifications",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.2"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.2"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.2"
+    },
+    {
+      "id": "vga",
+      "name": "PC In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "serial",
+      "name": "Serial",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX, PJLink"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbC",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "DisplayPort Alternate Mode, USB 2.0, PD 60 W"
+    },
+    {
+      "id": "power",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "110–240 V, 50/60 Hz"
+    }
+  ],
   "weightKg": 29.7,
-  "powerW": 340
+  "powerW": 340,
+  "depthMm": 94
 }

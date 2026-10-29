@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "Neumann",
   "model": "KMS105 bk",
-  "status": "community",
-  "description": "Microphone statique hypercardioïde",
+  "status": "verified",
+  "description": "Microphone statique supercardioïde, finition noire (réf. 008455). Sortie mono symétrique XLR 3, niveau micro et alimentation fantôme P48 requise.",
   "aliases": [
     "KMS105BK",
     "NEUMANN KMS105 bk"
@@ -21,9 +21,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/copi0118.PDF",
       "document": "Novelty — KMS105 bk : KMS105",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1625194/Neumann-Berlin-Kms-104.html",
+      "document": "Neumann — KMS 104/104 plus / KMS 105 Operating Instructions, pages imprimées 2–5 et 8–9 (lecteur 2–3 et 5) ; KMS 105 bk explicitement identifié page 2",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Statique supercardioïde ; 48 V ±4 V, 3,5 mA ; sortie symétrique (2 chaud, 3 froid)"
+    }
+  ],
   "weightKg": 0.3
 }

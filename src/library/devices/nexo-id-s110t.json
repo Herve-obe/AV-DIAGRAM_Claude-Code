@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "ID S110T",
-  "status": "community",
-  "description": "Renfort de grave, 1 x 10\", 650W/4&Omega;, 43-130Hz, noir",
+  "status": "verified",
+  "description": "Subwoofer passif IDS110-T, 4 Ω, 525 × 285 × 550 mm. Masse fabricant actuelle 21 kg ; ancienne brochure locative indiquait 20 kg.",
   "aliases": [
     "IDS110",
     "NEXO ID S110T"
@@ -21,9 +21,40 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nexo_id-serie_brochure.pdf",
       "document": "Novelty — ID S110T : Brochure commerciale",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/products/id-s110t/?lang=ja",
+      "document": "Fiche fabricant, rubrique Features ; brochure ID Series p.6 (ancienne masse 20 kg).",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nexo_id-serie_brochure.pdf",
+      "document": "Fiche fabricant, rubrique Features ; brochure ID Series p.6 (ancienne masse 20 kg).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 20
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "1+/1− : IDS110, 4 Ω ; 2+/2− : passage"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; 1+/1− : IDS110, 4 Ω ; 2+/2− : passage"
+    }
+  ],
+  "weightKg": 21,
+  "depthMm": 550
 }

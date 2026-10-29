@@ -4,7 +4,7 @@
   "manufacturer": "Rane",
   "model": "SL 4",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.fullcompass.com/prod/184339-rane-sl-4-sl4",
@@ -23,108 +23,170 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rame_serato-sl4_quickstart.pdf",
-      "document": "Novelty — SL4 Serato Scratch Live : Quick Start guide",
-      "accessed": "2026-10-19"
+      "document": "Rane SL4, manuel constructeur : sorties réelles, USB, alimentation ; poids de transport écarté — pages PDF 6, 7, 8, 11",
+      "accessed": "2026-10-28"
     }
   ],
   "ports": [
     {
-      "id": "in1",
-      "name": "Input 1",
+      "id": "in1L",
+      "name": "Deck 1 Input L",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Phono / ligne commutable"
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono L"
     },
     {
-      "id": "in2",
-      "name": "Input 2",
+      "id": "in1R",
+      "name": "Deck 1 Input R",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Phono / ligne commutable"
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono R"
     },
     {
-      "id": "in3",
-      "name": "Input 3",
+      "id": "in2L",
+      "name": "Deck 2 Input L",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Phono / ligne commutable"
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono L"
     },
     {
-      "id": "in4",
-      "name": "Input 4",
+      "id": "in2R",
+      "name": "Deck 2 Input R",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Phono / ligne commutable"
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono R"
     },
     {
-      "id": "thru1",
-      "name": "Thru 1",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Recopie analogique commutée par logiciel"
-    },
-    {
-      "id": "thru2",
-      "name": "Thru 2",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Recopie analogique commutée par logiciel"
-    },
-    {
-      "id": "thru3",
-      "name": "Thru 3",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Recopie analogique commutée par logiciel"
-    },
-    {
-      "id": "thru4",
-      "name": "Thru 4",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "rca",
-      "level": "line-10",
-      "channels": 2,
-      "format": "Recopie analogique commutée par logiciel"
-    },
-    {
-      "id": "auxIn",
-      "name": "Aux In",
+      "id": "in3L",
+      "name": "Deck 3 Input L",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono L"
     },
     {
-      "id": "auxOut",
-      "name": "Aux Out",
+      "id": "in3R",
+      "name": "Deck 3 Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono R"
+    },
+    {
+      "id": "in4L",
+      "name": "Deck 4 Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono L"
+    },
+    {
+      "id": "in4R",
+      "name": "Deck 4 Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique ; phono/ligne commutable, maximum 3 Vrms en ligne, nominal non précisé ; prise mono R"
+    },
+    {
+      "id": "auxInL",
+      "name": "Aux Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne uniquement, maximum 3 Vrms ; prise mono L"
+    },
+    {
+      "id": "auxInR",
+      "name": "Aux Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne uniquement, maximum 3 Vrms ; prise mono R"
+    },
+    {
+      "id": "thru1L",
+      "name": "Deck 1 Output L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono L"
+    },
+    {
+      "id": "thru1R",
+      "name": "Deck 1 Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono R"
+    },
+    {
+      "id": "thru2L",
+      "name": "Deck 2 Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono L"
+    },
+    {
+      "id": "thru2R",
+      "name": "Deck 2 Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono R"
+    },
+    {
+      "id": "thru3L",
+      "name": "Deck 3 Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono L"
+    },
+    {
+      "id": "thru3R",
+      "name": "Deck 3 Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono R"
+    },
+    {
+      "id": "thru4L",
+      "name": "Deck 4 Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono L"
+    },
+    {
+      "id": "thru4R",
+      "name": "Deck 4 Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne ; lecture USB ou Thru logiciel sur la même prise, maximum 3 Vrms ; prise mono R"
+    },
+    {
+      "id": "auxOutL",
+      "name": "Aux Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne, sortie auxiliaire 2 canaux, maximum 3 Vrms ; prise mono L"
+    },
+    {
+      "id": "auxOutR",
+      "name": "Aux Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA ligne, sortie auxiliaire 2 canaux, maximum 3 Vrms ; prise mono R"
     },
     {
       "id": "usb1",
@@ -133,7 +195,7 @@
       "signal": "audioDigital",
       "connector": "usb-b",
       "channels": 10,
-      "format": "USB 2.0, 10 entrées / 10 sorties, 24 bits"
+      "format": "USB 2.0 ; 10 entrées / 10 sorties, 24 bits, 48/96 kHz ; deux ordinateurs possibles"
     },
     {
       "id": "usb2",
@@ -142,20 +204,22 @@
       "signal": "audioDigital",
       "connector": "usb-b",
       "channels": 10,
-      "format": "Second ordinateur (enchaînement de DJ)"
+      "format": "USB 2.0 ; 10 entrées / 10 sorties, 24 bits, 48/96 kHz ; deux ordinateurs possibles"
     },
     {
       "id": "dc",
-      "name": "Alimentation",
+      "name": "Alimentation 7,5 V DC",
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "Bloc externe 7,5 V (ou alimentation USB)"
+      "format": "Bloc régulé 7,5 V DC, 1 A ; fiche P6, 5,5/2,5 mm, centre positif ; alternative à USB"
     }
   ],
   "aliases": [
     "SL4 Serato Scratch Live",
     "SL4",
     "Rane SL4 Serato Scratch Live"
-  ]
+  ],
+  "depthMm": 126,
+  "description": "Interface SL4 seule : 5 paires RCA d’entrée (Deck 1–4 commutables phono/ligne, Aux ligne) et 5 paires RCA de sortie. Les sorties Deck servent à la lecture USB ou au Thru : pas de prises Thru indépendantes. Deux USB type B, 10 entrées / 10 sorties 24 bits à 48/96 kHz ; USB 5 V / 500 mA ou bloc 7,5 V DC. Poids de transport et dimensions contradictoires de la table non repris comme poids net ou gabarit complet."
 }

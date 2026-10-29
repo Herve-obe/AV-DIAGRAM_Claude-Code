@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "PS15 R2",
-  "status": "community",
-  "description": "Enceinte 1200W 102 dB SPL Nominal / 8 Ohms, 2 voies passives ou actives",
+  "status": "verified",
+  "description": "PS15R2 : passif 8 Ω sur 2+/2− ; actif LF 1+/1− et HF 2+/2−. Deux prises NL4 en parallèle ; contrôleur NEXO requis.",
   "aliases": [
     "SOLO/PS15R2L",
     "NEXO PS15 R2"
@@ -31,9 +31,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Nexo_PS-R2BROCHURE.pdf",
       "document": "Novelty — PS15 R2 : Brochure série PS R2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/PSR2-System-Manual-Rev05-1.pdf",
+      "document": "NEXO PSR2 System Manual Rev05, p. 8 et pp. 63, 69, 72",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 28
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "PS15R2 : passif 8 Ω sur 2+/2− ; actif LF 1+/1− et HF 2+/2−"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise câblée en parallèle ; PS15R2 : passif 8 Ω sur 2+/2− ; actif LF 1+/1− et HF 2+/2−"
+    }
+  ],
+  "weightKg": 28,
+  "depthMm": 368
 }

@@ -6,7 +6,7 @@
   "manufacturer": "Elation",
   "model": "Dartz 360",
   "status": "community",
-  "description": "Projecteur asservi à LED 50W, type \"beam\" 3°",
+  "description": "Lyre beam LED RGB50 W ; consommation154 W max.284,15 ×195,97 ×454,7 mm ; DMX/RDM, Art-Net/sACN et E-FLY intégré.",
   "aliases": [
     "Elation Dartz 360"
   ],
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_dartz360_manuel.pdf",
-      "document": "Novelty — Dartz 360 : Dartz 360",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur elation-dartz-360, description des connecteurs (Bora p7 ; Elation p9) et caractéristiques finales",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/elation_dartz360_ft.pdf",
@@ -37,6 +37,61 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie réseau"
+    },
+    {
+      "id": "usb",
+      "name": "Service USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour firmware, port de maintenance"
+    }
+  ],
+  "weightKg": 12.7,
+  "powerW": 154,
+  "depthMm": 195.97
 }

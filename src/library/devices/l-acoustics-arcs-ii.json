@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "Arcs II",
-  "status": "community",
-  "description": "Enceinte \"ligne source WST\" à courbure constante, 50Hz à 20kHz, 60° assymétrique x 22,5°",
+  "status": "verified",
+  "description": "ARCS II bi-amplifiée LF/HF. Une enceinte.",
   "aliases": [
     "ARCSII",
     "L-ACOUSTICS Arcs II"
@@ -36,9 +36,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_arcsII_manuel_accrochage.pdf",
       "document": "Novelty — Arcs II : Accrochage Arcs II",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_arcsII_ft.pdf",
+      "document": "L-Acoustics ARCS II, fiche p.1 et manuel p.9",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 50
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "ARCS II bi-amplifiée LF/HF"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise parallèle ; ARCS II bi-amplifiée LF/HF"
+    }
+  ],
+  "weightKg": 50,
+  "depthMm": 652
 }

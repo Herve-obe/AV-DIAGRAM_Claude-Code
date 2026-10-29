@@ -10,6 +10,11 @@
       "url": "https://www.scan.co.uk/products/215-iiyama-prolite-b2280hs-monitor-1920x1080-5ms-250cd-m-brightness-integrated-speakers-hdmi-dvi-vga",
       "document": "Scan, fiche B2280HS (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/iiyama_b2280hs_manuel.pdf",
+      "document": "iiyama B2280HS-B1/W1 manual p.8; manufacturer datasheet pp.2-3",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -22,7 +27,7 @@
     },
     {
       "id": "dvi1",
-      "name": "DVI In",
+      "name": "DVI-D In",
       "direction": "in",
       "signal": "video",
       "connector": "dvi"
@@ -35,11 +40,21 @@
       "connector": "vga"
     },
     {
+      "id": "audioIn",
+      "name": "Stereo audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified"
     }
-  ]
+  ],
+  "powerW": 21,
+  "weightKg": 5.1,
+  "depthMm": 244.5
 }

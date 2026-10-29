@@ -31,10 +31,95 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/7070-4484-dismantling-information-200723-type2-simple-version-32sm5j.pdf",
       "document": "Novelty — LG 32SM5J-B : Dismantling+information",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://media.us.lg.com/m/3f0602d8f7d3cf79/original/32SM5J-Spec-Sheet.pdf",
+      "document": "LG32SM5J manufacturerdatasheet pp.3-4; global32SM5J specifications",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm 4 points"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm 4 points"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR / capteur",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Récepteur IR et capteur de lumière (fourni)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation intégrée 100-240 V ; connecteur non précisé"
+    }
+  ],
   "weightKg": 5.7,
-  "powerW": 75
+  "powerW": 75,
+  "depthMm": 55.5
 }

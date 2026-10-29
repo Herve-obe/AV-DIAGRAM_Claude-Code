@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "45N12",
-  "status": "community",
-  "description": "Wedge actif/passif, 106 dB, 50Hz - 20kHz, 30° H - 22,5° Diag - 60° V, 2000 W",
+  "status": "verified",
+  "description": "45°N-12 : retour à mode passif ou bi-amplifié configurable en interne ; deux prises NL4 en parallèle, contrôleur NEXO requis.",
   "aliases": [
     "NEXO 45N12"
   ],
@@ -25,9 +25,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nexo_45n12_user_manual.pdf",
       "document": "Novelty — 45N12 : 45N12",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/14090-45N12OwnersManual.pdf",
+      "document": "NEXO 45°N-12 User Manual v1.01, pp. 8 et 23",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 24
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Passif : 2+/2− ; actif : LF 1+/1−, HF 2+/2−"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise parallèle ; Passif : 2+/2− ; actif : LF 1+/1−, HF 2+/2−"
+    }
+  ],
+  "weightKg": 24,
+  "depthMm": 576
 }

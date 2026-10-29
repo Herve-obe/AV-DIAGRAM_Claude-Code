@@ -4,7 +4,7 @@
   "manufacturer": "Elation",
   "model": "Artiste Picasso",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "weightKg": 38.1,
   "sources": [
     {
@@ -34,8 +34,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_artiste-picasso_manuel-uk.pdf",
-      "document": "Novelty — Artiste Picasso : Picasso",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur elation-artiste-picasso, description des connecteurs (Bora p7 ; Elation p9) et caractéristiques finales",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_artiste-picasso_photometric.pdf",
@@ -46,17 +46,24 @@
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In XLR5",
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Thru",
+      "name": "DMX Out XLR5",
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
     },
     {
       "id": "ethIn",
@@ -68,21 +75,25 @@
     },
     {
       "id": "ethOut",
-      "name": "Ethernet Thru",
+      "name": "Ethernet Out",
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Recopie"
+      "format": "Recopie réseau"
     },
     {
-      "id": "acIn",
-      "name": "Secteur",
-      "direction": "in",
-      "signal": "power",
-      "connector": "powercon-true1"
+      "id": "usb",
+      "name": "Service USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour firmware, port de maintenance"
     }
   ],
   "aliases": [
     "Elation Artiste Picasso"
-  ]
+  ],
+  "powerW": 1000,
+  "depthMm": 544.5,
+  "description": "Lyre profile LED620 W ; consommation1000 W max.457 ×544,5 ×757,5 mm ; DMX/RDM, Art-Net/sACN et E-FLY intégrés."
 }

@@ -1,0 +1,199 @@
+{
+  "id": "yamaha-ri8-d",
+  "family": "stagebox",
+  "manufacturer": "Yamaha",
+  "model": "Ri8-D",
+  "pictogram": "stagebox",
+  "status": "verified",
+  "description": "Rack Dante 8 préamplis micro/ligne à fantôme 48 V, deux ports réseau redondants.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/4/328734/ri8-d_ro8-d_en_om_f0.pdf",
+      "document": "Yamaha Ri8-D / Ro8-D Owner’s Manual, rev. F0",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/4/328734/ri8-d_ro8-d_en_om_f0.pdf",
+      "document": "Yamaha Ri8-D/Ro8-D Owner’s Manual F0, pp. 10, 13, 153–155",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in3",
+      "name": "INPUT 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in4",
+      "name": "INPUT 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in5",
+      "name": "INPUT 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in6",
+      "name": "INPUT 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in7",
+      "name": "INPUT 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "in8",
+      "name": "INPUT 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; gain −6 à +66 dB ; +30 dBu max"
+    },
+    {
+      "id": "primary",
+      "name": "PRIMARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "Dante 8 canaux émis ; 44,1–96 kHz",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "secondary",
+      "name": "SECONDARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "Dante 8 canaux émis ; 44,1–96 kHz",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "110–240 V, 50/60 Hz ; embase V-LOCK"
+    }
+  ],
+  "weightKg": 4.5,
+  "powerW": 35,
+  "rackU": 1,
+  "depthMm": 362
+}

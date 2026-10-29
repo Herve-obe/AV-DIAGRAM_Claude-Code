@@ -6,7 +6,7 @@
   "manufacturer": "Yamaha",
   "model": "MG102C",
   "status": "community",
-  "description": "Console 10 voies (2 mono + 2 mono/stéréo + 2 stéréo), 1 aux., 2 sorties",
+  "description": "MG102C : 4 entrées micro XLR, prises ligne dédiées, inserts sur canaux 1/2. Une prise par canal à utiliser à la fois ; alimentation externe PA-10.",
   "aliases": [
     "YAMAHA MG102C"
   ],
@@ -35,9 +35,311 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/feuille_de_notes/yamaha_mg102c_tracksheet.pdf",
       "document": "Novelty — MG102C : MG102C",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/4/334554/mg82cx_en_om.pdf",
+      "document": "Yamaha MG82CX / MG102C Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_mg102c_manuel.pdf",
+      "document": "Yamaha MG82CX/MG102C Mode d’emploi, pp. 36–39 et 55–56 ; panneau contrôlé visuellement",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 6
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "MIC 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Entrée micro dédiée, fantôme global +48 V"
+    },
+    {
+      "id": "mic2",
+      "name": "MIC 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Entrée micro dédiée, fantôme global +48 V"
+    },
+    {
+      "id": "mic3-4",
+      "name": "MIC 3/4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Entrée micro dédiée, fantôme global +48 V"
+    },
+    {
+      "id": "mic5-6",
+      "name": "MIC 5/6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Entrée micro dédiée, fantôme global +48 V"
+    },
+    {
+      "id": "line1",
+      "name": "LINE 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Ligne symétrique, gain réglable −34 à +10 dBu nominal"
+    },
+    {
+      "id": "line2",
+      "name": "LINE 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Ligne symétrique, gain réglable −34 à +10 dBu nominal"
+    },
+    {
+      "id": "line3-4L",
+      "name": "LINE 3/4 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line3-4R",
+      "name": "LINE 3/4 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line5-6L",
+      "name": "LINE 5/6 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line5-6R",
+      "name": "LINE 5/6 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line7-8L",
+      "name": "LINE 7/8 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line7-8R",
+      "name": "LINE 7/8 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line9-10L",
+      "name": "LINE 9/10 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "line9-10R",
+      "name": "LINE 9/10 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
+    },
+    {
+      "id": "rca7-8L",
+      "name": "LINE 7/8 L RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
+    },
+    {
+      "id": "rca7-8R",
+      "name": "LINE 7/8 R RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
+    },
+    {
+      "id": "rca9-10L",
+      "name": "LINE 9/10 L RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
+    },
+    {
+      "id": "rca9-10R",
+      "name": "LINE 9/10 R RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
+    },
+    {
+      "id": "insert1",
+      "name": "INSERT 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Insert 0 dBu : pointe envoi, anneau retour"
+    },
+    {
+      "id": "insert2",
+      "name": "INSERT 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Insert 0 dBu : pointe envoi, anneau retour"
+    },
+    {
+      "id": "returnL",
+      "name": "RETURN L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4"
+    },
+    {
+      "id": "2trL",
+      "name": "2TR IN L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "stL",
+      "name": "STEREO OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "monitorL",
+      "name": "MONITOR OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "recL",
+      "name": "REC OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "returnR",
+      "name": "RETURN R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4"
+    },
+    {
+      "id": "2trR",
+      "name": "2TR IN R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "stR",
+      "name": "STEREO OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "monitorR",
+      "name": "MONITOR OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "recR",
+      "name": "REC OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10"
+    },
+    {
+      "id": "aux1",
+      "name": "AUX SEND 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "PHONES",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo"
+    },
+    {
+      "id": "power",
+      "name": "AC ADAPTOR IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Adaptateur Yamaha PA-10, AC 38 VCT 0,62 A"
+    }
+  ],
+  "weightKg": 1.5,
+  "powerW": 21,
+  "depthMm": 302.5
 }

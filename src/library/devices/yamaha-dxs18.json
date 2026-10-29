@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Yamaha",
   "model": "DXS18",
-  "status": "community",
-  "description": "Caisson de graves Amplifiée",
+  "status": "verified",
+  "description": "DXS18 ; subwoofer amplifié. Consommation 100 W à 1/8 de puissance ; poids 49,7 kg selon manuel B0.",
   "aliases": [
     "YAMAHA DXS18"
   ],
@@ -15,10 +15,70 @@
       "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/dxs18/",
       "document": "Novelty — DXS18",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/2/450492/dxs18_15mkll_12mkll_en_om_b0.pdf",
+      "document": "Yamaha DXS18 / DXS15mkII / DXS12mkII Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/1/450501/dxs18_15mkll_12mkll_en_ts_a0.pdf",
+      "document": "Yamaha DXS18 / DXS15mkII / DXS12mkII Technical Specifications",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/2/450492/dxs18_15mkll_12mkll_en_om_b0.pdf",
+      "document": "Yamaha DXS18 / DXS15mkII / DXS12mkII Owner’s Manual B0, p. 1",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 48.9,
-  "powerW": 1600
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +24 dBu max"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique ; +24 dBu max"
+    },
+    {
+      "id": "out1",
+      "name": "OUTPUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "THROUGH ou HPF POST selon commutateur"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "THROUGH ou HPF POST selon commutateur"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "V-LOCK ; consommation 100 W à 1/8 de puissance"
+    }
+  ],
+  "weightKg": 49.7,
+  "depthMm": 721,
+  "powerW": 100
 }

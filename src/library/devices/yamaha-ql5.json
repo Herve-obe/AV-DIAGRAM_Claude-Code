@@ -567,22 +567,18 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "Embase IEC à verrouillage V-Lock ; 200 W"
-    },
+    }
+  ],
+  "slots": [
     {
       "id": "my1",
       "name": "Slot MY 1",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Emplacement pour carte Mini-YGDAI (connectique selon la carte)"
+      "type": "yamaha-mini-ygdai"
     },
     {
       "id": "my2",
       "name": "Slot MY 2",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Emplacement pour carte Mini-YGDAI (connectique selon la carte)"
+      "type": "yamaha-mini-ygdai"
     }
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "id": "sennheiser-me2",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "ME2",
+  "pictogram": "mic",
+  "status": "community",
+  "description": "Cravate omnidirectionnel ME 2, câble 1,6 m terminé en mini-jack 3,5 mm. Les générations ME2-II et ME2 actuel ont des caractéristiques et alimentations différentes (7,5 V / 10 V) ; génération du modèle générique à identifier.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/lavalier-mics/specifications.html",
+      "document": "Documentation fabricant ME2 actuelle et fiche ME2-II v1.0, connectique commune 3,5 mm.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.sennheiser.com/globalassets/digizuite/41600-en-sp_1166_v1.0_me_2_product_specification_en.pdf",
+      "document": "Documentation fabricant ME2 actuelle et fiche ME2-II v1.0, connectique commune 3,5 mm.",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie câble 3,5 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Mini-jack 3,5 mm pour émetteur Sennheiser ; alimentation basse tension via émetteur, pas P48 direct"
+    }
+  ]
+}

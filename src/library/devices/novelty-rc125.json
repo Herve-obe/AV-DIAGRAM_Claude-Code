@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "NOVELTY",
   "model": "RC125",
-  "status": "community",
-  "description": "Armoire de distribution en flight-case. IN = P17 125tri / OUT = 2 x P17 63A + 4 P17 32A + 2 x PC16A. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Armoire de distribution en flight-case. IN = P17 125tri / OUT = 2 x P17 63A + 4 P17 32A + 2 x PC16A. Protection différentielle 30mA Les prises Socapex et leurs reprises PC16 partagent des circuits ; leur présence ne multiplie pas la puissance disponible. Les cotes et masses de flight-case ne sont pas utilisées comme celles de l’appareil.",
   "aliases": [
     "NOVELTY RC125"
   ],
@@ -20,30 +20,85 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dynatec_RC125-V1R1_certificat.pdf",
       "document": "Novelty — RC125 : RC125",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/rc125/",
+      "document": "Novelty : arrivées, sorties et caractéristiques propres à novelty-rc125",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 125tri",
+      "name": "Arrivée p17-125-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Arrivée de puissance"
+    },
+    {
+      "id": "departure1",
+      "name": "p17-63-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure2",
+      "name": "p17-63-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure3",
+      "name": "p17-32-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure4",
+      "name": "p17-32-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure5",
+      "name": "p17-32-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure6",
+      "name": "p17-32-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out1",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out2",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     }
-  ],
-  "portStatus": "pending"
+  ]
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Schoeps",
   "model": "CMC 6 + MK 21",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.dcaudiovisuel.com/product_info.php/language/en/products_id/228",
@@ -15,6 +15,16 @@
       "url": "https://www.adorama.com/schoeps-cmc-6u-phantom-power-microphone-amplifier-matte-gray/p/sccmc6ug",
       "document": "Adorama, fiche CMC 6 U (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/mikrofonverstaerker/cmc-6.html",
+      "document": "Schoeps CMC 6 et capsule MK 4 / MK 21, sections Technische Daten : masse calculée 60 + 17 g",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/kapseln/breite-nieren/mk-21.html",
+      "document": "Schoeps CMC 6 et capsule MK 4 / MK 21, sections Technische Daten : masse calculée 60 + 17 g",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -25,8 +35,10 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Statique infracardioïde (large cardioïde) ; préampli CMC 6 : fantôme 12 V (8 mA) ou 48 V (4 mA)",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "CMC 6 : fantôme P12 (8 mA) ou P48 (4 mA)"
     }
-  ]
+  ],
+  "weightKg": 0.077,
+  "description": "Microphone infracardioïde CMC 6 + capsule Colette ; masse 77 g (préampli 60 g + capsule 17 g), hors suspension."
 }

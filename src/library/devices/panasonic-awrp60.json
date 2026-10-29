@@ -1,11 +1,11 @@
 {
   "id": "panasonic-awrp60",
-  "family": "camera",
+  "family": "control",
   "domain": "image",
-  "pictogram": "camera",
+  "pictogram": "control",
   "manufacturer": "Panasonic",
   "model": "AWRP60",
-  "status": "community",
+  "status": "verified",
   "description": "Contrôleur de caméra à distance compact",
   "aliases": [
     "PANASONIC AWRP60"
@@ -25,9 +25,80 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/6329-4512-panasonic-aw-rp60-manuel.pdf",
       "document": "Novelty — AWRP60 : panasonic-aw-rp60-manuel",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-RP60G.GJ_full%28DVQP2093XA%29_E.pdf",
+      "document": "Panasonic — AW-RP60 — Operating Instructions, DVQP2093XA",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.5
+  "ports": [
+    {
+      "id": "camera1",
+      "name": "Camera Control 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera2",
+      "name": "Camera Control 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera3",
+      "name": "Camera Control 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera4",
+      "name": "Camera Control 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera5",
+      "name": "Camera Control 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX, IEEE802.3af PoE",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "tally",
+      "name": "Tally / GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ],
+  "weightKg": 1.5,
+  "depthMm": 177
 }

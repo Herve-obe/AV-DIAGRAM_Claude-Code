@@ -32,8 +32,200 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn5",
+      "name": "HDMI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn6",
+      "name": "HDMI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dpIn1",
+      "name": "DisplayPort In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.2"
+    },
+    {
+      "id": "dpIn2",
+      "name": "DisplayPort In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.2"
+    },
+    {
+      "id": "sdi12In1",
+      "name": "12G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi12In2",
+      "name": "12G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi3In1",
+      "name": "3G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Alternative à HDMI 1.4 de la même entrée"
+    },
+    {
+      "id": "sdi3In2",
+      "name": "3G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Alternative à HDMI 1.4 de la même entrée"
+    },
+    {
+      "id": "hdmiLoop1",
+      "name": "HDMI Loop Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Boucles des entrées 5 et 8"
+    },
+    {
+      "id": "hdmiLoop2",
+      "name": "HDMI Loop Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Boucles des entrées 5 et 8"
+    },
+    {
+      "id": "hdmiOut1",
+      "name": "HDMI Program Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut2",
+      "name": "HDMI Program Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Program Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, miroir HDMI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Program Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, miroir HDMI"
+    },
+    {
+      "id": "mvHdmi",
+      "name": "Multiviewer HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "mvSdi",
+      "name": "Multiviewer SDI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "refIn",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "refOut",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "usb",
+      "name": "USB Host",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100–240 V AC"
+    }
+  ],
   "weightKg": 7.6,
-  "powerW": 95
+  "powerW": 95,
+  "rackU": 2,
+  "depthMm": 434
 }

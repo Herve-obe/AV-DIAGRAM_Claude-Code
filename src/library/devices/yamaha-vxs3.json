@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Yamaha",
   "model": "VXS3",
-  "status": "community",
-  "description": "Enceinte murale 40 W",
+  "status": "verified",
+  "description": "VXS3F / VXS3FW basse impédance, 8 Ω, 20 W bruit / 40 W programme. Masse et profondeur du haut-parleur seul ; avec support : 1,1 kg et 134 mm.",
   "aliases": [
     "VXS3F (Noir) VXS3FW (Blanche)",
     "YAMAHA VXS3"
@@ -21,10 +21,29 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/8651-4369-y-s3-v3-1-en-om-a2.pdf",
       "document": "Novelty — VXS3 : Manual_VXS3",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/5/716045/vxs3f_en_om_a0.pdf",
+      "document": "Yamaha VXS3F Owner’s Manual, p. 1 : caractéristiques et Euroblock ; désignation de variante Novelty",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-monitoring/vxs3/",
+      "document": "Yamaha VXS3F Owner’s Manual, p. 1 : caractéristiques et Euroblock ; désignation de variante Novelty",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input / Thru",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Unique Euroblock 4 pôles : entrée +/− et reprise +/− ; 8 Ω"
+    }
+  ],
   "weightKg": 1,
-  "powerW": 40
+  "depthMm": 95
 }

@@ -6,7 +6,7 @@
   "manufacturer": "Shure",
   "model": "BETA52",
   "status": "community",
-  "description": "Microphone dynamique supercardioïde",
+  "description": "Dynamique supercardioïde ; XLR mâle. Poids hors câble.",
   "aliases": [
     "SHURE BETA52"
   ],
@@ -20,8 +20,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186146097.pdf",
       "document": "Novelty — BETA52 : Beta52",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186146097.pdf",
+      "document": "Shure guide BETA52 fourni avec la référence de location, p. 2",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Dynamique supercardioïde ; XLR mâle"
+    }
+  ],
+  "weightKg": 0.605
 }

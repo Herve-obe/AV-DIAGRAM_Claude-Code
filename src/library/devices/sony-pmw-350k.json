@@ -20,10 +20,149 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3402-4621-pmw-350k.pdf",
       "document": "Novelty — PMW-350k : PMW-350K",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro.sony/support/res/manuals/4164/cdf0f1d1909933443fd6de8196a2c41a/41644652M.pdf",
+      "document": "Sony — PMW-350K/350L — Mode d’emploi 4-164-465-25",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "comp",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite NTSC/PAL ou composante Y"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr5",
+      "level": "mic"
+    },
+    {
+      "id": "aOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr5"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sony-remote8",
+      "format": "Télécommande Sony 8 broches"
+    },
+    {
+      "id": "ilink",
+      "name": "i.LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "IEEE 1394 4 broches, S400, HDV / DVCAM"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    },
+    {
+      "id": "dcOut",
+      "name": "DC Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sortie CC 4 broches ; famille mécanique non précisée par la fiche Sony"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "8 broches ; famille mécanique non précisée"
+    }
+  ],
   "weightKg": 3.2,
-  "powerW": 18
+  "powerW": 18,
+  "depthMm": 332
 }

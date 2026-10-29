@@ -11,6 +11,21 @@
       "url": "https://www.soundseasy.com.au/products/midas-dl153-16-input-8-output-stage-box-with-16-midas-microphone-preamplifiers",
       "document": "Sounds Easy, fiche DL153 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://cdn-media.empowertribe.com/748621517896417dbde95612c9f9db1f/DL152_P0AUA_MANUAL_EN.pdf",
+      "document": "Midas DL150 Series — Operator Manual (DL151/DL152/DL153/DL154/DL155)",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://cdn-media.empowertribe.com/748621517896417dbde95612c9f9db1f/DL152_P0AUA_MANUAL_EN.pdf",
+      "document": "Manuel DL150 Series pp.11–12 et16 ; QSG série DL15x (prises, puissance, dimensions de version).",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://mediadl.musictribe.com/media/PLM/data/docs/P0AUD/DL155_DL154_DL153_DL152_DL151_QSG_EN.pdf",
+      "document": "Manuel DL150 Series pp.11–12 et16 ; QSG série DL15x (prises, puissance, dimensions de version).",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -269,7 +284,24 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
+    },
+    {
+      "id": "eth",
+      "name": "ETHERNET CONTROL",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "diagnostics",
+      "name": "DIAGNOSTICS",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Maintenance réservée au personnel de service"
     }
-  ]
+  ],
+  "powerW": 150,
+  "description": " Consommation inférieure à 150 W. Les masses et profondeurs divergent entre versions de la documentation DL150 : 5 kg / 380 mm dans le manuel de série, 6,7 kg / 416 mm dans les fiches produit ; version matérielle à identifier."
 }

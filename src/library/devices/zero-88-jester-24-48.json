@@ -5,8 +5,8 @@
   "pictogram": "console",
   "manufacturer": "ZERO 88",
   "model": "Jester 24/48",
-  "status": "community",
-  "description": "Jeux d'orgue / pupitre manuel à mémoire, 24/48 circuits, DMX512",
+  "status": "verified",
+  "description": "Console mémoire Jester 24/48, un univers DMX en entrée et sortie. Dimensions 710 × 278 × 88 mm, poids 6,5 kg. Alimentation par bloc externe et XLR4 (+5 V/+12 V), audio et remote sur jacks stéréo 6,35 mm, MIDI In/Thru DIN5, VGA et un port USB pour stockage.",
   "aliases": [
     "ZERO 88 Jester 24/48"
   ],
@@ -18,16 +18,84 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/zero88_jester24-48_ft.pdf",
-      "document": "Novelty — Jester 24/48 : Jester 24/48",
-      "accessed": "2026-10-19"
+      "document": "Zero 88 / Eaton — Jester 24/48 datasheet rev.3 juin 2015, p.2 : poids et dimensions",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/zero88_jester24-48_manuel.pdf",
-      "document": "Novelty — Jester 24/48 : Jester 24/48",
-      "accessed": "2026-10-19"
+      "document": "Zero 88 — Jester operating manual 73-403-00 issue 3.4, p.44,50–51 : toutes connexions",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 6.5
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation depuis bloc externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "1=0 V, 2=+5 V, 3=+12 V, 4 non utilisé"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Stéréo 6,35 mm"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Contact sec entre pointe et masse"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "vga",
+      "name": "Moniteur VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "640 × 400 texte"
+    },
+    {
+      "id": "usb",
+      "name": "USB stockage",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    }
+  ],
+  "weightKg": 6.5,
+  "depthMm": 278
 }

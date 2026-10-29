@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Bose",
   "model": "S1",
-  "status": "community",
-  "description": "Enceinte amplifiée, table de mixage 3 canaux intégrée, avec réverbération et streaming Bluetooth, entrées XLR et Jack 3,5mm",
+  "status": "verified",
+  "description": "Système Bose S1 Pro original, 330 × 241 × 286 mm, 6,8 kg selon notice 2017 / brochure 2018. Deux entrées combo micro/instrument, AUX ou Bluetooth, sortie ligne et micro-USB de service. Batterie optionnelle dans cette version ; consommation W non spécifiée dans la notice.",
   "aliases": [
     "BOSE® S1"
   ],
@@ -30,9 +30,96 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_s1_ft.pdf",
       "document": "Novelty — S1 : S1",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_s1_manuel-fr.pdf",
+      "document": "Notice Bose S1 Pro AM807173 Rev00 pp.7–8 et17 ; fiche fabricant 2018 p.2.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_s1_ft.pdf",
+      "document": "Notice Bose S1 Pro AM807173 Rev00 pp.7–8 et17 ; fiche fabricant 2018 p.2.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 6.8
+  "ports": [
+    {
+      "id": "in1",
+      "name": "CH 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ],
+      "phantom": "none",
+      "format": "Entrée micro XLR ou instrument jack TS ; pas de fantôme"
+    },
+    {
+      "id": "in2",
+      "name": "CH 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ],
+      "phantom": "none",
+      "format": "Entrée micro XLR ou instrument jack TS ; pas de fantôme"
+    },
+    {
+      "id": "aux",
+      "name": "AUX IN CH3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "none",
+      "channels": 2,
+      "format": "Ligne stéréo 3,5 mm ; indisponible lorsque Bluetooth est actif"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth CH3",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Audio Bluetooth intégré, alternative à AUX"
+    },
+    {
+      "id": "lineOut",
+      "name": "LINE OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Ligne symétrique mono post-mix"
+    },
+    {
+      "id": "service",
+      "name": "SERVICE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "Port de service Bose uniquement, pas audio USB"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "weightKg": 6.8,
+  "depthMm": 286
 }

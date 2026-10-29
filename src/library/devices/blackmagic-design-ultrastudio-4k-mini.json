@@ -27,7 +27,158 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 75
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOutA",
+      "name": "12G-SDI Out A",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOutB",
+      "name": "12G-SDI Out B",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "12G-SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0b"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0b"
+    },
+    {
+      "id": "analogY",
+      "name": "Analog video Y In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Component Y / composite"
+    },
+    {
+      "id": "analogBY",
+      "name": "Analog video BY In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Component"
+    },
+    {
+      "id": "analogRY",
+      "name": "Analog video RY In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Component"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Balanced audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioOut1",
+      "name": "Balanced audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Balanced audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Balanced audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "mic",
+      "name": "Microphone In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Switchable48V phantom"
+    },
+    {
+      "id": "phones",
+      "name": "Headphones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "remote",
+      "name": "RS-422 remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "usb",
+      "name": "USB data",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB3.1Gen1"
+    },
+    {
+      "id": "thunderbolt",
+      "name": "Thunderbolt3 host",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt3;45W host charging"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
+  "powerW": 75.3,
+  "weightKg": 1.2,
+  "depthMm": 177
 }

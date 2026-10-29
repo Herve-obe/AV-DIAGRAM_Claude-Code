@@ -40,10 +40,136 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_dm75e_quick-start$.pdf",
       "document": "Novelty — DM75E : Quick Start Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+      "document": "Samsung DBE/DME/DHE User Manual, p. 19",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "vga",
+      "name": "RGB In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "component",
+      "name": "AV / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Connecteur pour adaptateur AV/composante"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100–240 V"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "dp-out",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 5 V / 1.5 A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    }
+  ],
   "weightKg": 34.1,
   "powerW": 308
 }

@@ -4,12 +4,11 @@
   "domain": "sound",
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
-  "model": "8XT – Kit x2",
-  "status": "community",
-  "description": "Set de 2 enceintes 2 voies active/passive, LF = HP 8\", HF = moteur 1,5\". Ouverture 100°. livrées avec lyres d'accroches",
+  "model": "8XT",
+  "status": "verified",
+  "description": "8XT : enceinte passive 8 Ω. Une enceinte ; deux prises NL4 en parallèle.",
   "aliases": [
-    "8XT-SET",
-    "L-ACOUSTICS 8XT – Kit x2"
+    "L-Acoustics 8XT"
   ],
   "sources": [
     {
@@ -26,9 +25,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lacoustics_8xt_manuel.pdf",
       "document": "Novelty — 8XT – Kit x2 : 8XT",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://static.rt-events.fr/document/guide-utilisation-enceinte-l-acoustics-8xt.pdf",
+      "document": "L-Acoustics 8XT User Manual v1.4, pp. 10 et 20",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 11
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "8XT : enceinte passive 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise câblée en parallèle ; 8XT : enceinte passive 8 Ω"
+    }
+  ],
+  "weightKg": 11,
+  "depthMm": 271
 }

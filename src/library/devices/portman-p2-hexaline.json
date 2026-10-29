@@ -17,40 +17,63 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/portman_p2-hexaline_manuel.pdf",
-      "document": "Novelty — P2 Hexaline : P2 Hexaline",
-      "accessed": "2026-10-19"
+      "document": "Portman — P2 Hexaline user manual, p.6 rendue : 1 900 W max, 9 kg + base 3 kg, deux paires DMX, révision powerCON / trueCON",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/portman_p2-hexaline_certificat-ce.pdf",
       "document": "Novelty — P2 Hexaline : P2 Hexaline",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://portmanlights.com/luminaires/p2-hexaline/",
+      "document": "Portman — P2 Hexaline, fiche actuelle : TRUE1 et 6 × 230 W ; différence de révision avec ancienne notice",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Thru",
+      "name": "DMX Thru 5 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "6 × 250 W"
+      "format": "Ancienne notice : powerCON / trueCON ; fiche actuelle : TRUE1, 230 V 50/60 Hz"
     }
   ],
   "aliases": [
     "Portman P2 Hexaline"
-  ]
+  ],
+  "powerW": 1900,
+  "weightKg": 9,
+  "depthMm": 170,
+  "description": "Projecteur décoratif halogène à six lampes R7s 118 mm et gradateurs intégrés, six canaux DMX. Ancienne notice : 1 900 W maximum avec lampes jusqu’à 300 W, 9 kg hors base de 3 kg, dimensions 1 910 × 205 × 170 mm avec adaptateurs. La fiche actuelle indique 6 × 230 W et 1 380 W, 12,5 kg. DMX entrée/sortie 3 et 5 points. Révision secteur powerCON ou TRUE1 à confirmer."
 }

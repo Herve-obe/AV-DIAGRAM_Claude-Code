@@ -9,24 +9,230 @@
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/novelty_rs125v3_ft.pdf",
+      "document": "INDU-ELECTRIC DIM-8x19P014A-4-125 n° 11412397, dessin du 29/01/2019",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty 2025, page 165 : RS125 V3",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Arrivée",
+      "name": "Arrivée P17 125 A tri",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "125 A d'après la désignation (à confirmer) ; connecteur non précisé"
+      "connector": "p17-125-tri",
+      "format": "230/400 V, 5 pôles"
     },
     {
-      "id": "out",
-      "name": "Départs",
+      "id": "recopie",
+      "name": "Recopie P17 125 A tri",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Départs non détaillés dans le catalogue"
+      "connector": "p17-125-tri",
+      "format": "Sortie bouclée sur l’arrivée"
+    },
+    {
+      "id": "soca1",
+      "name": "Socapex SL419 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca2",
+      "name": "Socapex SL419 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca3",
+      "name": "Socapex SL419 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca4",
+      "name": "Socapex SL419 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca5",
+      "name": "Socapex SL419 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca6",
+      "name": "Socapex SL419 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca7",
+      "name": "Socapex SL419 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "soca8",
+      "name": "Socapex SL419 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits ; Socapex 1 et 2 repris respectivement sur PC16 1–6 et 7–12",
+      "channels": 6
+    },
+    {
+      "id": "pc1",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 1"
+    },
+    {
+      "id": "pc2",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 1"
+    },
+    {
+      "id": "pc3",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 1"
+    },
+    {
+      "id": "pc4",
+      "name": "PC16 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 1"
+    },
+    {
+      "id": "pc5",
+      "name": "PC16 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 1"
+    },
+    {
+      "id": "pc6",
+      "name": "PC16 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 1"
+    },
+    {
+      "id": "pc7",
+      "name": "PC16 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 2"
+    },
+    {
+      "id": "pc8",
+      "name": "PC16 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 2"
+    },
+    {
+      "id": "pc9",
+      "name": "PC16 9",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 2"
+    },
+    {
+      "id": "pc10",
+      "name": "PC16 10",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 2"
+    },
+    {
+      "id": "pc11",
+      "name": "PC16 11",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 2"
+    },
+    {
+      "id": "pc12",
+      "name": "PC16 12",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française, parallèle à un circuit du Socapex 2"
+    },
+    {
+      "id": "pc13",
+      "name": "PC16 13",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française en façade, protection individuelle 16 A / 30 mA"
+    },
+    {
+      "id": "pc14",
+      "name": "PC16 14",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française en façade, protection individuelle 16 A / 30 mA"
+    },
+    {
+      "id": "pc15",
+      "name": "PC16 15",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française en façade, protection individuelle 16 A / 30 mA"
     }
-  ]
+  ],
+  "weightKg": 66,
+  "rackU": 18,
+  "depthMm": 410,
+  "description": "Armoire Novelty RS125 V3 construite par INDU-ELECTRIC (dessin 11412397). Arrivée et recopie P17 125 A triphasées ; huit Socapex 19 points, 12 prises françaises parallèles aux deux premiers Socapex et trois prises françaises supplémentaires en façade. Ces 12 reprises ne créent pas de circuits indépendants. Châssis 18 U, largeur 483 mm, hauteur 800 mm, profondeur totale 410 mm (corps 250 mm) selon le dessin ; masse catalogue 66 kg."
 }

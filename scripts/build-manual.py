@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VERSION = json.loads((ROOT / "package.json").read_text(encoding="utf8"))["version"]
 blocks = (ROOT / "docs/manuel-utilisateur.md").read_text(encoding="utf8").split("\n\n")
 chapters = [b[3:].strip() for b in blocks if b.startswith("## ")]
-assert len(chapters) == 21
+assert len(chapters) == 22
 public = ROOT / "public"
 public.mkdir(exist_ok=True)
 html = [f'<header><p>AV Diagram · {escape(VERSION)}</p><h1>Manuel utilisateur</h1><p>Windows et macOS · Version de développement</p></header><nav aria-label="Sommaire"><h2>Sommaire</h2><ol>']
@@ -24,11 +24,12 @@ html += [f'<li><a href="#chapitre-{i}">{escape(t)}</a></li>' for i, t in enumera
 html.append('</ol></nav><main>')
 
 styles = getSampleStyleSheet()
-font = Path("C:/Windows/Fonts/arial.ttf")
+font = next((p for p in [Path("C:/Windows/Fonts/arial.ttf"), Path("/System/Library/Fonts/Supplemental/Arial.ttf"), Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")] if p.exists()), Path("C:/Windows/Fonts/arial.ttf"))
 normal, bold = "Helvetica", "Helvetica-Bold"
 if font.exists():
     pdfmetrics.registerFont(TTFont("Manual", str(font)))
-    pdfmetrics.registerFont(TTFont("ManualBold", str(font.with_name("arialbd.ttf"))))
+    bold_file = font.with_name("DejaVuSans-Bold.ttf" if font.name == "DejaVuSans.ttf" else "Arial Bold.ttf" if font.name == "Arial.ttf" else "arialbd.ttf")
+    pdfmetrics.registerFont(TTFont("ManualBold", str(bold_file)))
     normal, bold = "Manual", "ManualBold"
 styles.add(ParagraphStyle("BodyManual", fontName=normal, fontSize=10.2, leading=15, spaceAfter=10))
 styles.add(ParagraphStyle("Chapter", fontName=bold, fontSize=15, leading=20, spaceBefore=18, spaceAfter=10, keepWithNext=True))
@@ -37,7 +38,7 @@ styles.add(ParagraphStyle("SmallManual", fontName=normal, fontSize=9, leading=13
 styles.add(ParagraphStyle("CaptionManual", fontName=bold, fontSize=9, leading=13, spaceBefore=7, spaceAfter=5))
 toc = TableOfContents()
 toc.levelStyles = [ParagraphStyle("TOCManual", fontName=normal, fontSize=10, leading=15, spaceBefore=5)]
-story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 20 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
+story = [Spacer(1, 100), Paragraph("AV Diagram", styles["CoverManual"]), Paragraph("Manuel utilisateur", styles["CoverManual"]), Paragraph(f"Version {VERSION} · 25 octobre 2026", styles["BodyManual"]), Paragraph("Projets · Synoptiques · Collaboration · Baies · Plans · Réseau · Électricité · Intercom · Synchronisation · Échanges et exports", styles["BodyManual"]), Paragraph("Application en développement. Vérifier les documents produits et conserver les fichiers de référence.", styles["BodyManual"]), PageBreak(), Paragraph("Sommaire", styles["Chapter"]), toc, PageBreak()]
 
 chapter = 0
 figures = 0
@@ -79,6 +80,10 @@ for index, block in enumerate(blocks):
         html.append(f'<p>{text}</p>')
         story.append(Paragraph(text, styles["BodyManual"]))
 
+# Le dernier chapitre court reste entier, au lieu de laisser deux lignes seules en dernière page.
+last_chapter = next(i for i, flow in enumerate(story) if isinstance(flow, Paragraph) and flow.style.name == 'Chapter' and flow.getPlainText().startswith('22.'))
+story = story[:last_chapter] + [KeepTogether(story[last_chapter:])]
+
 html.append('</main><footer>AV Diagram — conserver le .avd et les sauvegardes de chaque projet.</footer>')
 css = "body{font:17px/1.65 Arial,sans-serif;color:#243344;margin:0 auto;max-width:920px;padding:36px 40px;background:#fff}header{border-bottom:4px solid #d95b12;padding-bottom:22px}h1{font-size:38px;line-height:1.2}h2{line-height:1.35;margin-top:40px;scroll-margin-top:20px}nav{background:#f2f5f8;padding:15px 28px;margin:30px 0}a{color:#175d98}li{margin:7px 0}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #c8d0d8;padding:9px;text-align:left}th{background:#e8edf2}figure{margin:28px 0;padding:12px;border:1px solid #c8d0d8;border-radius:6px;break-inside:avoid}figure img{display:block;max-width:100%;width:auto;height:auto;margin:auto}figcaption{font-weight:bold;margin-top:12px;font-size:15px}figure p{font-size:15px;margin:6px 0 0}footer{border-top:1px solid #c8d0d8;margin-top:40px;padding-top:20px;font-size:14px}@media print{body{max-width:none;padding:0;font-size:11pt}nav{break-after:page}h2{break-after:avoid}table,tr{break-inside:avoid}a{color:inherit}}"
 (public / "manuel.html").write_text('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AV Diagram — Manuel utilisateur</title><style>'+css+'</style></head><body>'+''.join(html)+'</body></html>', encoding="utf8")
@@ -102,4 +107,4 @@ def footer(canvas, doc):
 
 doc = Manual(str(public / "manuel.pdf"), pagesize=A4, rightMargin=48, leftMargin=48, topMargin=45, bottomMargin=46, title="AV Diagram — Manuel utilisateur", author="AV Diagram")
 doc.multiBuild(story, onFirstPage=footer, onLaterPages=footer)
-print(f"Manuel {VERSION} : HTML et PDF générés, 21 chapitres, {figures} captures")
+print(f"Manuel {VERSION} : HTML et PDF générés, 22 chapitres, {figures} captures")

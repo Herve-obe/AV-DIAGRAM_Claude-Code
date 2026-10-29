@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "Sennheiser",
   "model": "MD441",
-  "status": "community",
-  "description": "Microphone dynamique",
+  "status": "verified",
+  "description": "Dynamique supercardioïde ; version MD441 U, XLR3. Poids hors câble.",
   "aliases": [
     "SENNHEISER MD441"
   ],
@@ -20,9 +20,29 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sennheiser_md441_ft.pdf",
       "document": "Novelty — MD441 : MD441",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/345659/Sennheiser-Md-441.html?page=7#manual",
+      "document": "Sennheiser — MD 441 Manual, page 7 scannée : variantes N (DIN vissante) et U (XLR 3), poids 450 g",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sennheiser_md441_ft.pdf",
+      "document": "Sennheiser MD441 U fiche constructeur, p. 1",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Dynamique supercardioïde ; version MD441 U, XLR3"
+    }
+  ],
   "weightKg": 0.45
 }

@@ -4,24 +4,35 @@
   "manufacturer": "Audio-Technica",
   "model": "AT831b",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://soundpro.com/products/audio-technica-at8531-power-module",
       "document": "SoundPro, module AT8531 compatible AT831b (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2920964/Audio-Technica-At831b.html",
+      "document": "Audio-Technica — AT831b / AT831, fiche constructeur, copie ManualsLib, page 1 : TA3F du microphone, XLR du module AT8531 et alimentation",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://docs.audio-technica.com/us/0001_0183_02_at831b_submittal.pdf",
+      "document": "Fiche constructeur AT831b, pp.1–2 (câble TA3F, masse micro seul, module distinct).",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "out",
-      "name": "Sortie",
+      "name": "Sortie du microphone — TA3F",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "xlr3",
+      "connector": "ta3",
       "level": "mic",
-      "format": "Cravate statique cardioïde ; XLR via module AT8531 (pile AA ou fantôme 9-52 V), entrée TA3M",
-      "phantom": "required"
+      "format": "Câble fixe 1,8 m, TA3F vers module externe AT8531. La sortie XLR et l’alimentation pile AA ou fantôme 11–52 V sont celles du module ; pas une prise XLR native du micro."
     }
-  ]
+  ],
+  "description": "Microphone cravate cardioïde AT831b seul, 2,8 g. Câble fixe 1,8 m terminé en TA3F vers module externe AT8531. Le module (139 g) possède la sortie XLR3 et fonctionne sur pile AA ou fantôme 11–52 V ; le représenter séparément.",
+  "weightKg": 0.0028
 }

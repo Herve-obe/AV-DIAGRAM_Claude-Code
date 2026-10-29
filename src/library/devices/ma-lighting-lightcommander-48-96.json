@@ -6,7 +6,7 @@
   "manufacturer": "MA Lighting",
   "model": "Lightcommander 48/96",
   "status": "community",
-  "description": "Jeux d'orgues \"Lightcommander\", 48 ou 96 circuits DMX",
+  "description": "Lightcommander II48/6, désignation du parc 48/96. Sortie DMX XLR5, 2 sortie(s) Socapex EF337, MIDI In/Out/Thru, audio jack6,35 mm. Secteur90–240 V CA ; 48/6 avec second Socapex pour canaux31–54.",
   "aliases": [
     "LIGHTCOMII 48/6",
     "MA LIGHTING Lightcommander 48/96"
@@ -24,11 +24,71 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144442.pdf",
-      "document": "Novelty — Lightcommander 48/96 : Lightcommander",
-      "accessed": "2026-10-19"
+      "document": "MA Lighting — Lightcommander II24/6 et48/6 User Manual v2.x, pages4–5,42 : variantes et connectique",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "analog1",
+      "name": "Analog 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "multipin-37",
+      "format": "Socapex EF337 ;1–30 ; masses36/37"
+    },
+    {
+      "id": "analog2",
+      "name": "Analog 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "multipin-37",
+      "format": "Socapex EF337 ;31–54 ; masses36/37"
+    },
+    {
+      "id": "sound",
+      "name": "Sound In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "6,35 mm ; isolation galvanique,1 kΩ, seuil100 mV"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-thru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "90–240 V CA40–60 Hz"
+    }
+  ],
   "weightKg": 24
 }

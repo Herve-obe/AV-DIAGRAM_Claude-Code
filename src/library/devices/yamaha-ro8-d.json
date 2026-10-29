@@ -1,12 +1,12 @@
 {
   "id": "yamaha-ro8-d",
-  "family": "passive",
+  "family": "stagebox",
   "domain": "sound",
-  "pictogram": "patch",
+  "pictogram": "stagebox",
   "manufacturer": "Yamaha",
   "model": "Ro8-D",
-  "status": "community",
-  "description": "Racks d'entrée / sortie de haute performances pour consoles numériques, 8 sorties analogiques, protocole réseau DANTE",
+  "status": "verified",
+  "description": "Rack Dante 8 sorties analogiques, deux ports réseau redondants.",
   "aliases": [
     "YAMAHA Ro8-D"
   ],
@@ -30,10 +30,126 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_ro8d_guide_installation_en.pdf",
       "document": "Novelty — Ro8-D : Installation guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/4/328734/ri8-d_ro8-d_en_om_f0.pdf",
+      "document": "Yamaha Ri8-D / Ro8-D Owner’s Manual, rev. F0",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/4/328734/ri8-d_ro8-d_en_om_f0.pdf",
+      "document": "Yamaha Ri8-D/Ro8-D Owner’s Manual F0, pp. 10, 13, 153–155",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out1",
+      "name": "OUTPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out3",
+      "name": "OUTPUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out4",
+      "name": "OUTPUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out5",
+      "name": "OUTPUT 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out6",
+      "name": "OUTPUT 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out7",
+      "name": "OUTPUT 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "out8",
+      "name": "OUTPUT 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; nominal +4 dBu, +24 dBu max par défaut"
+    },
+    {
+      "id": "primary",
+      "name": "PRIMARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "Dante 8 canaux reçus ; 44,1–96 kHz",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "secondary",
+      "name": "SECONDARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "Dante 8 canaux reçus ; 44,1–96 kHz",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "110–240 V, 50/60 Hz ; embase V-LOCK"
+    }
+  ],
   "weightKg": 4.4,
-  "powerW": 35
+  "powerW": 35,
+  "rackU": 1,
+  "depthMm": 359
 }

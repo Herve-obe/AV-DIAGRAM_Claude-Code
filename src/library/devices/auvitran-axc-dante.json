@@ -1,12 +1,12 @@
 {
   "id": "auvitran-axc-dante",
-  "family": "processing",
-  "domain": "sound",
+  "family": "module",
+  "domain": "misc",
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AxC-DANTE",
-  "status": "community",
-  "description": "Carte DanteTM pour Audio ToolBox",
+  "status": "verified",
+  "description": "Carte Dante 64 × 64 : deux etherCON et deux RJ45 Gigabit ; les prises dupliquent/commutent les réseaux et ne multiplient pas les canaux. Alimentée par le châssis. Format carte : 200 × 100 × 40 mm ; compatible AVBx3/AVBx7.",
   "aliases": [
     "Auvitran AxC-DANTE"
   ],
@@ -30,8 +30,65 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/auvitran_axc-dante_manual-fr.pdf",
       "document": "Novelty — AxC-DANTE : AxC-DANTE (FR)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.auvitran.com/productrange/axc-cards/",
+      "document": "AuviTran — Audio ToolBox AxC Cards, famille et compatibilité des cartes",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/auvitran_axc-dante_ft-en.pdf",
+      "document": "AuviTran AxC-DANTE : fiche technique, pages 1–2",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "primary",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "64 entrées / 64 sorties partagées ; mode switched ou redondant",
+      "channels": 64,
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "secondary",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Même ensemble de canaux ; secondaire redondant ou switch selon configuration",
+      "channels": 64,
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "port3",
+      "name": "Port 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commutateur intégré ; réseau primaire/secondaire selon mode",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "port4",
+      "name": "Port 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commutateur intégré ; réseau primaire/secondaire selon mode",
+      "network": {
+        "capacityMbps": 1000
+      }
+    }
+  ],
+  "moduleType": "auvitran-axc"
 }

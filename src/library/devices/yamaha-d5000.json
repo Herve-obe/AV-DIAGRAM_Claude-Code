@@ -6,7 +6,7 @@
   "manufacturer": "Yamaha",
   "model": "D5000",
   "status": "community",
-  "description": "Délai numérique stéréo, entrées/sorties XLR",
+  "description": "D5000 : deux canaux analogiques sur XLR et TRS alternatifs ; niveaux +4/−20 dBm commutables, MIDI. Les deux prises de pédalier sont omises à la demande de l’utilisateur ; les quatre jacks audio L/R d’entrée et de sortie sont conservés. Cordon secteur captif avec fiche de type C déclaré puis validé par l’utilisateur le 29 octobre 2026. Puissance 25 W et dimensions reprises du manuel constructeur.",
   "aliases": [
     "YAMAHA D5000"
   ],
@@ -15,8 +15,118 @@
       "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/delai/d5000/",
       "document": "Novelty — D5000",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/3/319313/D5000E1.pdf",
+      "document": "Yamaha D5000, manuel constructeur — pages PDF 6, 7, 31, 34",
+      "accessed": "2026-10-29"
+    },
+    {
+      "document": "Retour utilisateur lot audio 02 révision 822, puis instruction explicite « Valide le D5000 selon mes réponses », 29 octobre 2026 : omettre les prises de pédalier, conserver les prises audio documentées ; cordon secteur captif avec fiche de type C déclaré, non recoupé par une photo constructeur.",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "inLXlr",
+      "name": "Input L XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "inLJack",
+      "name": "Input L TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "inRXlr",
+      "name": "Input R XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "inRJack",
+      "name": "Input R TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "outLXlr",
+      "name": "Output L XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "outLJack",
+      "name": "Output L TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "outRXlr",
+      "name": "Output R XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "outRJack",
+      "name": "Output R TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; même voie que la prise alternative ; nominal +4/−20 dBm commutable",
+      "level": "line+4"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out/Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI Out ou Thru commutable"
+    },
+    {
+      "id": "ac",
+      "name": "Cordon secteur captif",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Cordon intégré à l’appareil, fiche secteur de type C déclarée par l’utilisateur ; version générale 230 V. Pas d’embase IEC sur l’appareil."
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 4.7,
+  "powerW": 25,
+  "rackU": 1,
+  "depthMm": 336.4
 }

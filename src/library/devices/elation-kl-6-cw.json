@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Elation",
   "model": "KL 6 CW",
-  "status": "community",
-  "description": "Projecteur à LED, lentille Fresnel, 170W, 5600°K, zoom 15°-38°, DMX512",
+  "status": "verified",
+  "description": "Fresnel LED150 W5600 K ; consommation183 W max,498,5 ×294,5 ×393 mm. USB réservé à la maintenance.",
   "aliases": [
     "Elation KL 6 CW"
   ],
@@ -23,8 +23,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_kl6_fresnel_led_150w_5600°K_manuel.pdf",
-      "document": "Novelty — KL 6 CW : KL6 CW",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur elation-kl-6-cw, pages PDF 9,20 : repérage des connecteurs et spécifications",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_kl6_fresnel_led_150w_5600°K_photometric .pdf",
@@ -32,8 +32,63 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 9,
-  "powerW": 170
+  "ports": [
+    {
+      "id": "dmx-in3",
+      "name": "DMX In XLR3",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out XLR3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    },
+    {
+      "id": "usb",
+      "name": "M-DMX / Service",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "Mise à jour logicielle, port de maintenance"
+    }
+  ],
+  "weightKg": 8.9,
+  "powerW": 183
 }

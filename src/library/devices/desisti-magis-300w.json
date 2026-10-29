@@ -6,7 +6,7 @@
   "manufacturer": "DeSisti",
   "model": "Magis 300w",
   "status": "community",
-  "description": "Projecteur lentille fresnel, 300W/220V, avec volets 4 faces",
+  "description": "Fresnel tungstène Magis pour lampes300/500/600 W selon montage ; câble secteur avec fiche adaptée au parc. Fiche constructeur :2,4 kg en commande manuelle,4,7 kg en commande à perche. Le manuel lié séparément décrit Magis650 W ; seule la fiche300/500/600 W est utilisée ici.",
   "aliases": [
     "DESISTI Magis 300w"
   ],
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/desisti_magis300_ft.pdf",
-      "document": "Novelty — Magis 300w : Magis",
-      "accessed": "2026-10-19"
+      "document": "DeSisti — MAGIS300/500/600 W Datasheet, modèles300/301, pages1–3 : lampes, alimentation et masses",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/desisti_magis300_manuel.pdf",
@@ -27,7 +27,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Secteur sur câble ; lampe300 W selon catalogue, pas de DMX natif"
+    }
+  ],
   "powerW": 300
 }

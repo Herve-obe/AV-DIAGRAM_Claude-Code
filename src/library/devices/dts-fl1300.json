@@ -6,7 +6,7 @@
   "manufacturer": "DTS",
   "model": "FL1300",
   "status": "community",
-  "description": "Set de 2 Blinders 2 lampes de 650W/120V DWE PAR36, 1 alim PC16",
+  "description": "Blinder2 lampes,1300 W. PAR36120 V650 W en séries adaptées230 V ; commande par gradateur externe, pas de DMX natif. Manuel lié : gamme FLASH2000L/4000L/4000.",
   "aliases": [
     "DTS FL1300"
   ],
@@ -18,12 +18,19 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/252_1257_flash_2000l-4000l.pdf",
-      "document": "Novelty — FL1300 : Blinder2",
-      "accessed": "2026-10-19"
+      "document": "DTS — FLASH series, pages2–3 : puissances et schémas de raccordement ; document lié à la désignation loueur",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3,
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Circuit 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "230 V CA ;1300 W ; câble/fiche du parc à confirmer"
+    }
+  ],
   "powerW": 1300
 }

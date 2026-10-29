@@ -31,77 +31,185 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1491.pdf",
       "document": "Novelty — SPX 990 : Document",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/6/317186/SPX990E.pdf",
+      "document": "Yamaha SPX990 Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/6/317186/SPX990E.pdf",
+      "document": "Operation Manual p.5 (PDF7) et Add-1 (PDF62).",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "inL",
-      "name": "Input L",
+      "name": "INPUT L XLR",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS, symétrique"
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique +4 dBu / −20 dBu"
     },
     {
-      "id": "inR",
-      "name": "Input R",
+      "id": "inL-trs",
+      "name": "INPUT L TRS",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "jack-trs",
       "level": "line+4",
-      "format": "XLR et jack TRS, symétrique"
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte XLR ; symétrique +4 dBu / −20 dBu"
     },
     {
       "id": "outL",
-      "name": "Output L",
+      "name": "OUTPUT L XLR",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS"
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique +4 dBu / −20 dBu"
+    },
+    {
+      "id": "outL-trs",
+      "name": "OUTPUT L TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte XLR ; symétrique +4 dBu / −20 dBu"
+    },
+    {
+      "id": "inR",
+      "name": "INPUT R XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique +4 dBu / −20 dBu"
+    },
+    {
+      "id": "inR-trs",
+      "name": "INPUT R TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte XLR ; symétrique +4 dBu / −20 dBu"
     },
     {
       "id": "outR",
-      "name": "Output R",
+      "name": "OUTPUT R XLR",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS"
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "none"
+        }
+      ],
+      "format": "Ligne symétrique +4 dBu / −20 dBu"
+    },
+    {
+      "id": "outR-trs",
+      "name": "OUTPUT R TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "none"
+        }
+      ],
+      "format": "Prise distincte XLR ; symétrique +4 dBu / −20 dBu"
     },
     {
       "id": "midiIn",
-      "name": "MIDI In",
+      "name": "MIDI IN",
       "direction": "in",
       "signal": "control",
       "connector": "din5"
     },
     {
       "id": "midiOut",
-      "name": "MIDI Out/Thru",
+      "name": "MIDI OUT/THRU",
       "direction": "out",
       "signal": "control",
       "connector": "din5"
     },
     {
       "id": "fs",
-      "name": "Foot Switch",
+      "name": "FOOT SW BYPASS / MEMORY INC/DEC",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "jack-ts",
+      "format": "Pédale FC4 / FC5 ; bypass ou changement mémoire"
+    },
+    {
+      "id": "trigger",
+      "name": "TRIGGER FOOT SW",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Pédale FC4 / FC5, déclenchement effet / tap"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "230 V AC /50 Hz modèle général ; raccordement non détaillé dans le schéma"
     }
   ],
   "aliases": [
     "YAMAHA SPX990",
     "SPX 990",
     "YAMAHA SPX 990"
-  ]
+  ],
+  "weightKg": 4.6,
+  "depthMm": 324.4,
+  "powerW": 25,
+  "description": "SPX990 : quatre XLR analogiques et quatre jacks TRS distincts, deux MIDI et deux commandes de pédales. Sélecteurs +4 / −20 dBu ; pas de connecteurs combo. Consommation 25 W."
 }

@@ -6,7 +6,7 @@
   "manufacturer": "NEXO",
   "model": "DTD-T-N",
   "status": "community",
-  "description": "Contrôleur numérique pour diffusion Nexo, carte Dante",
+  "description": "DTD-T-N : contrôleur NEXO avec réception Dante stéréo. Entrées analogiques XLR et Link, entrée AES3, Mini-USB, sorties ligne L/R/Sub. Deux entrées Speakon de mesure reçoivent les amplificateurs et deux sorties Speakon en façade les redistribuent aux enceintes : le DTD ne les amplifie pas. 1U, 480 × 44 × 65 mm, 1,3 kg, 20 W maximum.",
   "aliases": [
     "DTD-TN",
     "NEXO DTD-T-N"
@@ -19,16 +19,164 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nexo_dtd-t_ft.pdf",
-      "document": "Novelty — DTD-T-N : DTD-T-N",
-      "accessed": "2026-10-19"
+      "document": "NEXO DTD, fiche constructeur : caractéristiques du contrôleur uniquement, pas celles du NXAMP — pages PDF 1, 2",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/nexo_dtd-t_brochure.pdf",
       "document": "Novelty — DTD-T-N : Brochure commerciale",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/DTD_USER_MANUAL_EN_FR_v1.4.pdf",
+      "document": "NEXO DTD User Manual v1.4, pages 4–7 : variante -N, Dante, amplification externe et patch Speakon",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Raccordement secteur : embase IEC C14.",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://www.getdante.com/product/nexo-dtd-t-n/",
+      "document": "Catalogue officiel Dante/Audinate, NEXO DTD-T-N : identité produit et interface Dante ; pas de confirmation textuelle de l’IEC C14",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.3
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Analog In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique, maximum +22 dBu ; source alternative à AES/USB/Dante"
+    },
+    {
+      "id": "linkL",
+      "name": "Analog Link L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, recopie passive de l’entrée correspondante"
+    },
+    {
+      "id": "inR",
+      "name": "Analog In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique, maximum +22 dBu ; source alternative à AES/USB/Dante"
+    },
+    {
+      "id": "linkR",
+      "name": "Analog Link R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle, recopie passive de l’entrée correspondante"
+    },
+    {
+      "id": "outL",
+      "name": "L Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique vers amplificateur ; maximum +22 dBu"
+    },
+    {
+      "id": "outR",
+      "name": "R Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique vers amplificateur ; maximum +22 dBu"
+    },
+    {
+      "id": "outSub",
+      "name": "Sub Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR mâle symétrique vers amplificateur ; maximum +22 dBu"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3 stéréo, XLR femelle ; 44,1–96 kHz"
+    },
+    {
+      "id": "usb",
+      "name": "USB Audio / Dory",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "usb-mini",
+      "channels": 2,
+      "format": "Mini-USB type B ; audio 16 bits / 48 kHz et télécommande Dory"
+    },
+    {
+      "id": "dante",
+      "name": "Dante In / Remote",
+      "direction": "in",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "Version -N ; réception Dante 2 canaux 24 bits, 48–96 kHz selon notice ; pas une sortie Dante"
+    },
+    {
+      "id": "senseMain",
+      "name": "Amplifier Main In / Sense",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "channels": 2,
+      "level": "speaker",
+      "format": "2 paires de sortie amplifiée ; mesure haute tension et redistribution passive, jamais une entrée ligne"
+    },
+    {
+      "id": "senseSub",
+      "name": "Amplifier Sub In / Sense",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "channels": 2,
+      "level": "speaker",
+      "format": "2 paires de sortie amplifiée ; mesure haute tension et redistribution passive, jamais une entrée ligne"
+    },
+    {
+      "id": "speakerL",
+      "name": "Speaker L / Sub Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "channels": 2,
+      "level": "speaker",
+      "format": "1+/1− = sub ; 2+/2− = enceinte principale L ; signaux provenant des amplificateurs externes"
+    },
+    {
+      "id": "speakerR",
+      "name": "Speaker R / Sub Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "channels": 2,
+      "level": "speaker",
+      "format": "1+/1− = sub ; 2+/2− = enceinte principale R ; signaux provenant des amplificateurs externes"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14 confirmée par l’utilisateur ; 90–240 V, 50/60 Hz selon notice"
+    }
+  ],
+  "weightKg": 1.3,
+  "rackU": 1,
+  "depthMm": 65,
+  "powerW": 20
 }

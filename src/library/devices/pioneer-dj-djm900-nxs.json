@@ -4,12 +4,13 @@
   "domain": "sound",
   "pictogram": "console",
   "manufacturer": "Pioneer DJ",
-  "model": "DJM900 NXS",
+  "model": "DJM-900NXS",
   "status": "community",
-  "description": "Console \"DJ\" 4 voies audio, 2 voies Mic, 4 entrées numériques, 6 line, 2 phono",
+  "description": "DJM-900NXS originale : six entrées ligne stéréo et deux phono, quatre entrées numériques, un USB-B et MIDI DIN. Ne pas confondre avec NXS2 (quatre phono, deux USB-B et USB-A).",
   "aliases": [
     "DJM900FLX",
-    "PIONEER DJM900 NXS"
+    "PIONEER DJM900 NXS",
+    "DJM900 NXS"
   ],
   "sources": [
     {
@@ -18,18 +19,259 @@
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm900nxs_manuel.pdf",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/pioneer_djm900nxs_ft.pdf",
       "document": "Novelty — DJM900 NXS : DJM900 NXS",
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/pioneer_djm900nxs_ft.pdf",
-      "document": "Novelty — DJM900 NXS : DJM900 NXS",
-      "accessed": "2026-10-19"
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm900nxs_manuel.pdf",
+      "document": "Pioneer DJM-900NXS, manuel constructeur — pages PDF 6, 7, 25",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "line1",
+      "name": "CD/Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 1",
+      "channels": 2
+    },
+    {
+      "id": "digital1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 1",
+      "channels": 2
+    },
+    {
+      "id": "phono1",
+      "name": "Phono 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "line2",
+      "name": "CD/Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 2",
+      "channels": 2
+    },
+    {
+      "id": "digital2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 2",
+      "channels": 2
+    },
+    {
+      "id": "extraLine2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée ligne supplémentaire de la même voie 2",
+      "channels": 2
+    },
+    {
+      "id": "line3",
+      "name": "CD/Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 3",
+      "channels": 2
+    },
+    {
+      "id": "digital3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 3",
+      "channels": 2
+    },
+    {
+      "id": "extraLine3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée ligne supplémentaire de la même voie 3",
+      "channels": 2
+    },
+    {
+      "id": "line4",
+      "name": "CD/Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 4",
+      "channels": 2
+    },
+    {
+      "id": "digital4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 4",
+      "channels": 2
+    },
+    {
+      "id": "phono4",
+      "name": "Phono 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "format": "XLR/TRS micro ; pas une sortie ligne",
+      "level": "mic"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Micro symétrique",
+      "level": "mic"
+    },
+    {
+      "id": "masterL",
+      "name": "Master 1 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne symétrique ; nominal +8 dBu, pas niveau micro"
+    },
+    {
+      "id": "masterR",
+      "name": "Master 1 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne symétrique ; nominal +8 dBu, pas niveau micro"
+    },
+    {
+      "id": "master2",
+      "name": "Master 2 L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Sortie ligne asymétrique ; nominal +2 dBu, même mix master",
+      "channels": 2
+    },
+    {
+      "id": "booth",
+      "name": "Booth L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks TRS symétriques ; nominal +8 dBu",
+      "channels": 2
+    },
+    {
+      "id": "rec",
+      "name": "Rec Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Ligne, nominal −8 dBu",
+      "channels": 2
+    },
+    {
+      "id": "send",
+      "name": "Send L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Départ effets sur jack 6,35 mm ; nominal −12 dBu ; nombre de contacts TS/TRS non établi par les pages lues",
+      "channels": 2
+    },
+    {
+      "id": "return",
+      "name": "Return L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Retour effets sur jack 6,35 mm ; nominal −12 dBu ; nombre de contacts TS/TRS non établi par les pages lues",
+      "channels": 2
+    },
+    {
+      "id": "digitalOut",
+      "name": "Digital Master Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Sortie numérique coaxiale S/PDIF",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque 6,35 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Casque stéréo",
+      "channels": 2
+    },
+    {
+      "id": "link1",
+      "name": "PRO DJ LINK 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "usb1",
+      "name": "USB ordinateur 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio et contrôle ; capacité dépendante du réglage logiciel"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Secteur 220–240 V, cordon fourni"
+    }
+  ],
   "weightKg": 7.1,
-  "powerW": 42
+  "powerW": 41,
+  "depthMm": 409,
+  "portStatus": "pending"
 }

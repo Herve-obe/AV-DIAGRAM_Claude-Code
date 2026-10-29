@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "MERLIN GERIN",
   "model": "BD32T/3X2PC",
-  "status": "community",
-  "description": "Boitier de distribution. Entrée P17 32A tri. Sortie : 6 x PC16A. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Boitier de distribution. Entrée P17 32A tri. Sortie : 6 x PC16A. Protection différentielle 30mA Dimensions unitaires documentées : 35,5 × 21,5 × 20,5 cm (ordre d’axes non précisé par la page).",
   "aliases": [
     "MERLIN GERIN BD32T/3X2PC"
   ],
@@ -15,59 +15,70 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32t-3x2pc/",
       "document": "Novelty — BD32T/3X2PC",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32t-3x2pc/",
+      "document": "Novelty : merlin-gerin-bd32t-3x2pc, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 32A tri",
+      "name": "Arrivée p17-32-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out1",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out2",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out3",
-      "name": "Sortie PC16A 3",
+      "name": "PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out4",
-      "name": "Sortie PC16A 4",
+      "name": "PC16 4",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out5",
-      "name": "Sortie PC16A 5",
+      "name": "PC16 5",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out6",
-      "name": "Sortie PC16A 6",
+      "name": "PC16 6",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 3.1
 }

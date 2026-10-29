@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Martin",
   "model": "Rush MH1 Profile Plus",
-  "status": "community",
-  "description": "Projecteur lyre asservie type Profile, 180W, effet strob, iris, 2 roues de couleurs et 2 roues de gobos",
+  "status": "verified",
+  "description": "Lyre RUSH MH1 Profile Plus, source LED 180 W, faisceau 16°, 18 kg ; dimensions 418 × 314 × 552 mm. Entrées/sorties DMX XLR3 et XLR5, powerCON bleu/gris entrée/sortie 100–240 V. Brochure Plus : consommation typique 280 W ; une fiche constructeur plus récente indique 300 W, révision à contrôler. Les notices liées du MH1 sans Plus ne sont pas utilisées pour les caractéristiques.",
   "aliases": [
     "RUSHMH1PRPLUS",
     "MARTIN Rush MH1 Profile Plus"
@@ -31,10 +31,64 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/martin_rush-mh1-profile-plus_certificat.pdf",
       "document": "Novelty — Rush MH1 Profile Plus : Rush MH1 Profile Plus",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/22303-MartinProfessionalRUSHMH1ProfilePlusBrochure.pdf",
+      "document": "Martin — RUSH MH1 Profile Plus brochure, p.1–2 : version Plus, toutes connexions, dimensions et 280 W typiques",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.martin.com/en/site_elements/rush-mh-1-profile-plus-spec-sheet-english",
+      "document": "Martin — RUSH MH1 Profile Plus spec sheet, extrait constructeur indexé 300 W ; téléchargement 403, variation de révision signalée",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 19,
-  "powerW": 180
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In 5 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "100–240 V nominal, 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ],
+  "weightKg": 18,
+  "powerW": 280,
+  "depthMm": 418
 }

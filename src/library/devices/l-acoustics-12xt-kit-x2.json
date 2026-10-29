@@ -4,12 +4,11 @@
   "domain": "sound",
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
-  "model": "12XT – Kit x2",
-  "status": "community",
-  "description": "Set de 2 enceintes 2 voies active/passive, 123 dB (cont), LF = HP 12\", HF = moteur 3\". Livrées avec lyres d'accroches.",
+  "model": "12XT",
+  "status": "verified",
+  "description": "12XT : passif 8 Ω ou bi-amplifié 2 × 8 Ω, selon commutateur. Une enceinte ; deux prises NL4 en parallèle.",
   "aliases": [
-    "12XT-SET",
-    "L-ACOUSTICS 12XT – Kit x2"
+    "L-Acoustics 12XT"
   ],
   "sources": [
     {
@@ -31,9 +30,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_12XT_certificat.pdf",
       "document": "Novelty — 12XT – Kit x2 : 12XT",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1208785034.pdf",
+      "document": "L-Acoustics 12XT User Manual v1, pp. 10 et 22",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 29
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "12XT : passif 8 Ω ou bi-amplifié 2 × 8 Ω, selon commutateur"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise câblée en parallèle ; 12XT : passif 8 Ω ou bi-amplifié 2 × 8 Ω, selon commutateur"
+    }
+  ],
+  "weightKg": 29,
+  "depthMm": 389
 }

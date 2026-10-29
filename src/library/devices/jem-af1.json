@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "JEM",
   "model": "AF1",
-  "status": "community",
-  "description": "Ventilateur \"Air Force One\" à commande DMX\", 1600m3/h",
+  "status": "verified",
+  "description": "Ventilateur JEM/Martin AF-1, version Europe 230 V : 120 W typiques, 10 kg avec lyre, dimensions 320 × 180 × 360 mm hors lyre. Entrée secteur IEC, DMX XLR3 entrée/sortie, télécommande XLR3 et liaisons analogiques 0–10 V XLR3 entrée/sortie. La version US 115 V consomme 175 W.",
   "aliases": [
     "AIR FORCE ONE",
     "JEM AF1"
@@ -24,11 +24,57 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/jem_af1_manuel.pdf",
-      "document": "Novelty — AF1 : AF1",
-      "accessed": "2026-10-19"
+      "document": "JEM/Martin — AF-1/AF-2 user manual, p.4,8,11–12,23 : panneau AF-1 complet et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 10
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "analogIn",
+      "name": "Analog 0–10 V In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3"
+    },
+    {
+      "id": "analogOut",
+      "name": "Analog 0–10 V Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "xlr3"
+    },
+    {
+      "id": "remote",
+      "name": "Télécommande",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "1=masse, 2=+15 V, 3=signal 0–10 V"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Version Europe 220–245 V, 50 Hz"
+    }
+  ],
+  "weightKg": 10,
+  "powerW": 120,
+  "depthMm": 320
 }

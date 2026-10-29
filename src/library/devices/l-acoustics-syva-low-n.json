@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "Syva-Low N",
-  "status": "community",
-  "description": "Renfort de grave pour système \"Syva\", 4Ω, 137 dB SPL, 2 x 12\"",
+  "status": "verified",
+  "description": "Syva Low : renfort grave passif 4 Ω avec embase AutoConnect vers une colonne Syva ; une prise NL4 en entrée.",
   "aliases": [
     "SYVALOW",
     "L-ACOUSTICS Syva-Low N"
@@ -31,9 +31,39 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_syva-low_certificat.pdf",
       "document": "Novelty — Syva-Low N : Syva Low",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_syva_manuel.pdf",
+      "document": "L-Acoustics Syva User Manual v1.0, p.15 ; Syva Low Product Information v2 p.5",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_syva-low_ft.pdf",
+      "document": "L-Acoustics Syva User Manual v1.0, p.15 ; Syva Low Product Information v2 p.5",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 29
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "LF sur1+/1− ; signal Syva sur2+/2− en association AutoConnect"
+    },
+    {
+      "id": "autoconnect",
+      "name": "AutoConnect vers Syva",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "syva-autoconnect",
+      "level": "speaker",
+      "format": "Accueil de Syva ; signal MF/HF transmis depuis les points2+/2−"
+    }
+  ],
+  "weightKg": 29,
+  "depthMm": 350
 }

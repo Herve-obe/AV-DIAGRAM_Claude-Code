@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Robert Juliat",
   "model": "710SX2",
-  "status": "community",
-  "description": "Projecteur découpe 2000W-2500W/220V, zoom 10/25°",
+  "status": "verified",
+  "description": "Découpe halogène 710SX2, zoom 10–25°, lampe G22 2 000 ou 2 500 W. 23 kg, dimensions 925 × 380 × 525 mm. Cordon secteur captif 3 m H07RN-F 3G1,5 terminé par CEE 7/7 NF/Schuko standard ; P17 proposé en option. Aucun DMX natif.",
   "aliases": [
     "710SXIIV3",
     "JULIAT 710SX2"
@@ -26,10 +26,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/juliat_710sx2_ft-uk.pdf",
       "document": "Novelty — 710SX2 : 710SX2 (UK)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN065_710SX2.pdf",
+      "document": "Robert Juliat — DSEN065 710SX2, révision 15 octobre 2026, p.1–4 : poids, dimensions et secteur standard",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 24,
-  "powerW": 2500
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "Cordon captif 3 m CEE 7/7, version standard 230/240 V"
+    }
+  ],
+  "weightKg": 23,
+  "powerW": 2500,
+  "depthMm": 925
 }

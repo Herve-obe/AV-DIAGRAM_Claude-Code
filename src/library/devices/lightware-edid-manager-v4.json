@@ -6,7 +6,7 @@
   "manufacturer": "LIGHTWARE",
   "model": "Edid Manager V4",
   "status": "community",
-  "description": "&Eacute;mulateur d'EDID DVI et répéteur DVI",
+  "description": "Émulateur d'EDID DVI et répéteur DVI",
   "aliases": [
     "LIGHTWARE Edid Manager V4"
   ],
@@ -37,7 +37,41 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.225
+  "ports": [
+    {
+      "id": "dviIn",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I socket, digital single-link only"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I socket, digital single-link only"
+    },
+    {
+      "id": "usb",
+      "name": "USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "EDID management and firmware"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Locking 2.5 / 5.5 mm, +5 V"
+    }
+  ],
+  "weightKg": 0.225,
+  "powerW": 1.4,
+  "depthMm": 67.6
 }

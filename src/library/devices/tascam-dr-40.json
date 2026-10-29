@@ -4,8 +4,13 @@
   "manufacturer": "Tascam",
   "model": "DR-40",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "sources": [
+    {
+      "url": "https://www.tascam.eu/en/docs/Tascam_DR-40.pdf",
+      "document": "Tascam DR-40, caractéristiques officielles : entrée micro XLR, entrée ligne jack TRS +4 dBu / +20 dBu max",
+      "accessed": "2026-10-23"
+    },
     {
       "url": "https://kitsplit.com/rent-product/tascam-dr-40/all",
       "document": "KitSplit, fiche DR-40 (loueur)",
@@ -20,8 +25,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack verrouillable, fantôme",
-      "phantom": "supplied"
+      "format": "Même prise combo : XLR micro ou jack TRS ligne ; EXT IN sur LINE pour +4 dBu, maximum +20 dBu ; fantôme désactivé pour une console",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -30,8 +42,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack verrouillable, fantôme",
-      "phantom": "supplied"
+      "format": "Même prise combo : XLR micro ou jack TRS ligne ; EXT IN sur LINE pour +4 dBu, maximum +20 dBu ; fantôme désactivé pour une console",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "mic",

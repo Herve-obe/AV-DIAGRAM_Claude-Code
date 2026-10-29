@@ -6,7 +6,7 @@
   "manufacturer": "ETC",
   "model": "S4ZOOM15/30",
   "status": "community",
-  "description": "Découpe Source 4 Zoom, optique + zoom 15/30 ° , 575W ou 750W",
+  "description": "Découpe Source 4 Zoom, optique + zoom 15/30 ° , 575W ou 750W Raccordement par câble secteur captif, fiche selon installation. Puissance selon lampe, 750 W maximum ; pas de prise DMX native.",
   "aliases": [
     "S4 ZOOM15/30",
     "ETC S4ZOOM15/30"
@@ -31,9 +31,22 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/etc_decoupes_source_four_zoom_certificat-1349336320.pdf",
       "document": "Novelty — S4ZOOM15/30 : Source Four Zoom",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.etcconnect.com/WorkArea/DownloadAsset.aspx?id=10737461270",
+      "document": "ETC — Source Four CE Zoom User Manual, pages 3–4 : zooms 15–30° et 25–50°, câble secteur et lampes HPL",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur captif ; fiche à monter selon installation ; HPL 575/750 W, gradateur externe"
+    }
+  ],
   "weightKg": 9.5
 }

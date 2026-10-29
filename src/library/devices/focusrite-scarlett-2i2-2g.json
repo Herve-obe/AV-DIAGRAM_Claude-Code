@@ -1,0 +1,78 @@
+{
+  "id": "focusrite-scarlett-2i2-2g",
+  "family": "recording",
+  "manufacturer": "Focusrite",
+  "model": "Scarlett 2i2 2e génération",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 0.6,
+  "depthMm": 115,
+  "aliases": [
+    "Scarlett 2i2 2nd Gen",
+    "Scarlett 2i2 Gen 2",
+    "Scarlett 2i2 2g"
+  ],
+  "description": "Interface USB 2 entrées / 2 sorties, 24 bits / 192 kHz. Deux entrées combo micro/ligne/instrument ; alimentation par le bus USB.",
+  "sources": [
+    {
+      "url": "https://fael-downloads-prod.focusrite.com/customer/prod/downloads/Scarlett%202i2%202nd%20Gen%20User%20Guide%20v1.1%20English%20-%20EN.pdf",
+      "document": "Focusrite, Scarlett 2i2 2nd Gen User Guide v1.1, p. 13–16",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR micro ou jack 6,35 mm ligne/instrument ; 48 V commun aux deux XLR."
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR micro ou jack 6,35 mm ligne/instrument ; 48 V commun aux deux XLR."
+    },
+    {
+      "id": "outL",
+      "name": "Line Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; +10 dBu max."
+    },
+    {
+      "id": "outR",
+      "name": "Line Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique ; +10 dBu max."
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 mm stéréo."
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Audio 2 entrées / 2 sorties et alimentation par bus USB."
+    }
+  ]
+}

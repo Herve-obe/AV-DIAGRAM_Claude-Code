@@ -11,6 +11,16 @@
       "url": "https://www.vahire.com/wp-content/uploads/Sony-PMW-350-Specifications.pdf",
       "document": "Sony, caractéristiques PMW-350 (via VA Hire)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://pro.sony/support/res/manuals/4164/cdf0f1d1909933443fd6de8196a2c41a/41644652M.pdf",
+      "document": "Sony — PMW-350K/350L — Mode d’emploi 4-164-465-25",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3402-4621-pmw-350k.pdf",
+      "document": "Sony — PMW-350K, spécifications constructeur, pp24,27–28 (copie Novelty)",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -27,7 +37,8 @@
       "name": "Composite Out",
       "direction": "out",
       "signal": "video",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Composite NTSC/PAL ou composante Y"
     },
     {
       "id": "hdmi",
@@ -105,15 +116,16 @@
       "name": "Remote",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "8 points"
+      "connector": "sony-remote8",
+      "format": "Télécommande Sony 8 broches"
     },
     {
       "id": "ilink",
       "name": "i.LINK",
       "direction": "bidir",
       "signal": "video",
-      "connector": "ieee1394"
+      "connector": "ieee1394",
+      "format": "IEEE 1394 4 broches, S400, HDV / DVCAM"
     },
     {
       "id": "usb",
@@ -134,7 +146,18 @@
       "name": "DC Out",
       "direction": "out",
       "signal": "power",
-      "connector": "hirose4"
+      "connector": "unspecified",
+      "format": "Sortie CC 4 broches ; famille mécanique non précisée par la fiche Sony"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "8 broches ; famille mécanique non précisée"
     }
-  ]
+  ],
+  "powerW": 18,
+  "depthMm": 332
 }

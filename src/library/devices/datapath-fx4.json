@@ -37,8 +37,80 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dpLoop",
+      "name": "DisplayPort Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lan1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T; managed switch"
+    },
+    {
+      "id": "lan2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T; managed switch"
+    },
+    {
+      "id": "usb",
+      "name": "USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
   "weightKg": 1.86,
-  "powerW": 35
+  "powerW": 35,
+  "depthMm": 172
 }

@@ -1,11 +1,11 @@
 {
   "id": "novastar-cvt4k-s",
-  "family": "passive",
+  "family": "videoRouting",
   "domain": "image",
-  "pictogram": "patch",
+  "pictogram": "router",
   "manufacturer": "NovaStar",
   "model": "CVT4K-S",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur de fibres optiques haute performance, 16 ports de sortie Ethernet + 4 ports de sortie optiques SFP",
   "aliases": [
     "Novastar CVT4K-S"
@@ -22,8 +22,199 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "led1",
+      "name": "LED Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led2",
+      "name": "LED Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led3",
+      "name": "LED Ethernet 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led4",
+      "name": "LED Ethernet 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led5",
+      "name": "LED Ethernet 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led6",
+      "name": "LED Ethernet 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led7",
+      "name": "LED Ethernet 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led8",
+      "name": "LED Ethernet 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led9",
+      "name": "LED Ethernet 9",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led10",
+      "name": "LED Ethernet 10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led11",
+      "name": "LED Ethernet 11",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led12",
+      "name": "LED Ethernet 12",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led13",
+      "name": "LED Ethernet 13",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led14",
+      "name": "LED Ethernet 14",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led15",
+      "name": "LED Ethernet 15",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "led16",
+      "name": "LED Ethernet 16",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "NovaStar LED transport"
+    },
+    {
+      "id": "opt1",
+      "name": "Optical 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "lc",
+      "format": "Single-mode duplex LC, 1310 nm; factory-installed modules"
+    },
+    {
+      "id": "opt2",
+      "name": "Optical 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "lc",
+      "format": "Single-mode duplex LC, 1310 nm; factory-installed modules"
+    },
+    {
+      "id": "opt3",
+      "name": "Optical 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "lc",
+      "format": "Single-mode duplex LC, 1310 nm; factory-installed modules"
+    },
+    {
+      "id": "opt4",
+      "name": "Optical 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "lc",
+      "format": "Single-mode duplex LC, 1310 nm; factory-installed modules"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet control",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "usb",
+      "name": "USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    },
+    {
+      "id": "powercon",
+      "name": "powerCON In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "100-240 V AC"
+    }
+  ],
   "weightKg": 4.6,
-  "powerW": 10
+  "powerW": 10,
+  "depthMm": 386
 }

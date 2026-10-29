@@ -4,7 +4,7 @@
   "manufacturer": "Yamaha",
   "model": "EMX312SC",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.expandore.com/yamaha/powered_mixer/EMX312SC.htm",
@@ -15,113 +15,307 @@
       "url": "https://www.andertons.co.uk/p/EMX312SC/powered-mixers/yamaha-emx312sc-600w-stereo-powered-mixer",
       "document": "Andertons, fiche EMX312SC (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/7/335497/emx512sc_en_om_f0.pdf",
+      "document": "Yamaha EMX512SC / EMX312SC / EMX212S Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/7/335497/emx512sc_en_om_f0.pdf",
+      "document": "Owner’s Manual pp.20–26 et33 (variante EMX312SC, puissance consommée distincte EMX512SC).",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Input 1",
+      "name": "CH1 INPUT B",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in2",
-      "name": "Input 2",
+      "name": "CH2 INPUT B",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in3",
-      "name": "Input 3",
+      "name": "CH3 INPUT B",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in4",
-      "name": "Input 4",
+      "name": "CH4 INPUT B",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in5",
-      "name": "Input 5",
+      "name": "CH5/6 MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in6",
-      "name": "Input 6",
+      "name": "CH7/8 MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in7",
-      "name": "Input 7",
+      "name": "CH9/10 MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
     },
     {
       "id": "in8",
-      "name": "Input 8",
+      "name": "CH11/12 MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Micro/ligne ; connecteur non précisé",
-      "phantom": "supplied"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
+    },
+    {
+      "id": "line-1",
+      "name": "CH1 INPUT A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+    },
+    {
+      "id": "line-2",
+      "name": "CH2 INPUT A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+    },
+    {
+      "id": "line-3",
+      "name": "CH3 INPUT A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+    },
+    {
+      "id": "line-4",
+      "name": "CH4 INPUT A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+    },
+    {
+      "id": "st-line-1",
+      "name": "CH5/6 LINE L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "st-line-2",
+      "name": "CH5/6 LINE R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "st-line-3",
+      "name": "CH7/8 LINE L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "st-line-4",
+      "name": "CH7/8 LINE R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "rca-line-1",
+      "name": "CH9/10 LINE L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "rca-line-2",
+      "name": "CH9/10 LINE R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "rca-line-3",
+      "name": "CH11/12 LINE L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "rca-line-4",
+      "name": "CH11/12 LINE R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique, nominal −10 dBu"
+    },
+    {
+      "id": "main-L",
+      "name": "MAIN OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique"
+    },
+    {
+      "id": "main-R",
+      "name": "MAIN OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique"
+    },
+    {
+      "id": "rec-L",
+      "name": "REC OUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique avant MASTER/EQ"
+    },
+    {
+      "id": "rec-R",
+      "name": "REC OUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne asymétrique avant MASTER/EQ"
+    },
+    {
+      "id": "monitor-out",
+      "name": "MONITOR OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique mono"
+    },
+    {
+      "id": "effect-out",
+      "name": "EFFECT OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique mono"
+    },
+    {
+      "id": "foot-sw",
+      "name": "FOOT SW",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Pédale FC5, activation effet"
     },
     {
       "id": "spk1",
-      "name": "Power Amp 1",
+      "name": "SPEAKERS A1",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "300 W ; connecteur non précisé"
+      "format": "1+/1−, 2+/2− inutilisés ; MAIN L ou MAIN L+R selon mode"
+    },
+    {
+      "id": "spk1-jack",
+      "name": "SPEAKERS A2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "speaker",
+      "format": "Même canal amplifié que A1"
     },
     {
       "id": "spk2",
-      "name": "Power Amp 2",
+      "name": "SPEAKERS B1",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "300 W ; principal ou retour"
+      "format": "1+/1−, 2+/2− inutilisés ; MAIN R ou MONITOR selon mode"
+    },
+    {
+      "id": "spk2-jack",
+      "name": "SPEAKERS B2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "speaker",
+      "format": "Même canal amplifié que B1"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
     }
-  ]
+  ],
+  "powerW": 450,
+  "weightKg": 8,
+  "depthMm": 264,
+  "description": "Console amplifiée EMX312SC. Huit XLR micro et huit entrées ligne stéréo distinctes, plus quatre jacks micro/ligne. Fantôme +15 V commun aux XLR (pas P48). Deux canaux amplifiés disponibles chacun sur NL4 et jack ; consommation 450 W."
 }

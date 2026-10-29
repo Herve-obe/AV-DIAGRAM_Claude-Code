@@ -398,14 +398,6 @@
       "connector": "jack-ts"
     },
     {
-      "id": "slot",
-      "name": "Slot d'extension",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte d'extension (connectique selon la carte)"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -416,5 +408,12 @@
   ],
   "aliases": [
     "YAMAHA TF1"
+  ],
+  "slots": [
+    {
+      "id": "slot",
+      "name": "Slot d'extension",
+      "type": "yamaha-ny"
+    }
   ]
 }

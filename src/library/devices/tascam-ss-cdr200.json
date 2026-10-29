@@ -28,14 +28,14 @@
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tascam_ss-cdr200_manuel.pdf",
-      "document": "Novelty — SS-CDR200 : SS-CDR200",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/tascam_ss-cdr200_firmware_v111.pdf",
       "document": "Novelty — SS-CDR200 : Infos sur firmware v111",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tascam_ss-cdr200_manuel.pdf",
+      "document": "Tascam SS-CDR200/SS-R200/SS-R100, manuel constructeur — pages PDF 15, 80, 81",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -112,7 +112,8 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB-A hôte : support mémoire ou clavier USB, pas interface audio PC"
     },
     {
       "id": "phones",
@@ -127,11 +128,56 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Télécommande série"
+    },
+    {
+      "id": "parallel",
+      "name": "Control I/O Parallel",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "Télécommande parallèle RC-SS20 ; pas AES/analogique DB25"
+    },
+    {
+      "id": "remote",
+      "name": "Remote In RC-SS2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire, jack TRS 3,5 mm"
+    },
+    {
+      "id": "pedal",
+      "name": "Remote pédalier",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack TRS 2,5 mm (RC-3F / RC-20), pas 3,5 mm"
+    },
+    {
+      "id": "keyboard",
+      "name": "Keyboard PS/2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-DIN PS/2 ; pas DIN pleine taille"
     }
   ],
   "aliases": [
     "CDR200",
     "TASCAM SS-CDR200"
-  ]
+  ],
+  "weightKg": 3.7,
+  "powerW": 23,
+  "depthMm": 301,
+  "description": "SS-CDR200 (et non SS-R100/R200) : XLR ligne +4 dBu, RCA ligne −10 dBV, numérique RCA, télécommandes distinctes. Consommation 23 W à 110–240 V (20 W à 100 V), masse 3,7 kg. USB stockage/clavier, pas une carte son USB.",
+  "portStatus": "pending"
 }

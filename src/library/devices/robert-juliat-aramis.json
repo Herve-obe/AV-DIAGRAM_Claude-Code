@@ -19,31 +19,37 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1203954324.pdf",
-      "document": "Novelty — Aramis : Aramis",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — Aramis 1013+ brochure, p.1–2",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203954397.pdf",
-      "document": "Novelty — Aramis : Aramis (dossier technique)",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — Aramis 1013+ / B / BS / M / BSM, dossier technique 20 novembre 2007, p.10–15 : connexions distinctes selon versions",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203954472.pdf",
       "document": "Novelty — Aramis : Pied GT4000 (dossier technique)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.robertjuliat.com/PDF/Documents/DN30750100_dt_1013.pdf",
+      "document": "Robert Juliat Aramis+ v3, 1013+ — Dossier technique DN30750100-G, juin 2020",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Alimentation depuis ballast",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Poursuite HMI 2500 W, 4,5-8°"
+      "connector": "multipin",
+      "format": "Harting 16 × 16 A + terre (magnétique) ou 6 × 35 A + terre (version M électronique) ; version à confirmer"
     }
   ],
   "aliases": [
     "JULIAT Aramis"
-  ]
+  ],
+  "description": "Poursuite Aramis 1013+, lampe HMI 2 500 W, zoom 4,5–8°, alimentation séparée. La tête reçoit une liaison Harting : 16 × 16 A avec ballast magnétique, 6 × 35 A sur versions M à ballast électronique. Les versions B/BSM ajoutent commande motorisée et DMX ; suffixe exact et ballast du parc non identifiés. Les 2 500 W désignent la lampe."
 }

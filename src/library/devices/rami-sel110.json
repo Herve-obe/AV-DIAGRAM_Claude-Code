@@ -1,0 +1,207 @@
+{
+  "id": "rami-sel110",
+  "family": "processing",
+  "manufacturer": "RAMI",
+  "model": "SEL110-2",
+  "pictogram": "processor",
+  "status": "verified",
+  "description": "Sélecteur numérique SEL110-2, modèle confirmé par l’utilisateur : dix entrées AES3 stéréo vers Main et CUE sélectionnables séparément. Sortie Main XLR et copie Main AES sur un DB15 partagé avec CUE AES et Monitor analogique L/R. Trois groupes logiques décrivent cette unique embase partagée, pas trois prises distinctes. Deux autres DB15 servent aux GPI/GPO, plus RS232 DB9, casque et IEC. 1U, 483 × 44 × 230 mm, 3,9 kg, 12 W.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.ramiaudio.com/fichiers/notice/SEL110-2_notice.pdf",
+      "document": "RAMI SEL110-2, manuel, pages 4–10 : connectique, brochages du DB15 partagé, RS232, GPI/GPO, IEC et 12 W ; modèle désormais confirmé",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://www.ramiaudio.com/produit_uk.php?id_prod=48",
+      "document": "RAMI SEL110-2, page constructeur : 1U, 483 × 44 × 230 mm, 3,90 kg",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : La référence exacte est SEL110-2.",
+      "accessed": "2026-10-28"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in5",
+      "name": "Digital In 5",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in6",
+      "name": "Digital In 6",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in7",
+      "name": "Digital In 7",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in8",
+      "name": "Digital In 8",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in9",
+      "name": "Digital In 9",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "in10",
+      "name": "Digital In 10",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR femelle AES3 ; source stéréo à sélectionner, pas sommation des dix entrées"
+    },
+    {
+      "id": "main",
+      "name": "Main AES Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "XLR mâle AES3 ; une paire stéréo sélectionnée, copie disponible sur le DB15 partagé"
+    },
+    {
+      "id": "db15Cue",
+      "name": "DB15 partagé — CUE AES",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "dsub15",
+      "channels": 2,
+      "format": "Même embase DB15 mâle que Main copie et Monitor L/R ; paire CUE AES3, brochage exact dans le manuel p. 8"
+    },
+    {
+      "id": "db15Main",
+      "name": "DB15 partagé — Main copie",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "dsub15",
+      "channels": 2,
+      "format": "Même embase DB15 mâle ; copie de Main XLR, pas deux canaux supplémentaires ; brochage manuel p. 8"
+    },
+    {
+      "id": "db15Monitor",
+      "name": "DB15 partagé — Monitor L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub15",
+      "channels": 2,
+      "format": "Même embase DB15 mâle que CUE et Main AES ; une paire analogique stéréo symétrique, brochage manuel p. 8 ; volume casque indépendant par défaut"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI / TLC100",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "Embase DB15 femelle dédiée, distincte du DB15 audio ; commande des 10 sources"
+    },
+    {
+      "id": "gpo",
+      "name": "GPO / Remote Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "Embase DB15 femelle dédiée, optocoupleurs collecteur ouvert pour appareil esclave / voyants"
+    },
+    {
+      "id": "serial",
+      "name": "RS232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Embase DB9 femelle, liaison série"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute casque stéréo en façade, sélection Main/CUE"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 2 pôles + terre ; 230 V, 50/60 Hz, 12 W selon panneau constructeur"
+    }
+  ],
+  "rackU": 1,
+  "depthMm": 230,
+  "weightKg": 3.9,
+  "powerW": 12,
+  "aliases": [
+    "SEL110",
+    "RAMI SEL110",
+    "RAMI SEL110-2"
+  ]
+}

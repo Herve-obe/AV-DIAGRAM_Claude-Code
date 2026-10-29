@@ -4,7 +4,7 @@
   "manufacturer": "Green-GO",
   "model": "Dante Interface X",
   "pictogram": "intercom",
-  "status": "community",
+  "status": "verified",
   "weightKg": 2.38,
   "rackU": 1,
   "sources": [
@@ -22,25 +22,59 @@
       "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/dante-interface-x/",
       "document": "Novelty — DANTE INTERFACE X",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/dntx/",
+      "document": "Green-GO DNTI : Technical specifications et Dante connection",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.canford.co.uk/ProductResources/resources/G/Green-GO/Dante-Interface-X-Quick-Start-Guide.pdf",
+      "document": "Green-GO Dante Interface X Quick Start Guide, pages 2 et 10",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "dante",
-      "name": "Dante / AES67",
+      "name": "Dante externe 1",
       "direction": "bidir",
       "signal": "audioIp",
-      "connector": "unspecified",
-      "channels": 4,
-      "format": "4 entrées / 4 sorties"
+      "connector": "ethercon",
+      "format": "4 entrées / 4 sorties Dante partagées entre les deux prises ; réseau primaire uniquement",
+      "channels": 4
+    },
+    {
+      "id": "dante2",
+      "name": "Dante externe 2",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Même réseau Dante primaire ; aucune redondance ni canal supplémentaire",
+      "channels": 4
     },
     {
       "id": "ggo",
-      "name": "Réseau Green-GO",
+      "name": "Green-GO interne 1 / PoE",
       "direction": "bidir",
-      "signal": "intercom",
-      "connector": "unspecified",
-      "format": "PoE 802.3af"
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100BASE-T ; PoE IEEE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "ggo2",
+      "name": "Green-GO interne 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100BASE-T",
+      "network": {
+        "capacityMbps": 100
+      }
     },
     {
       "id": "dc",
@@ -48,10 +82,13 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "Bloc externe en option"
+      "format": "12 V DC, diamètre 2,1 mm ; alimentation externe en option"
     }
   ],
   "aliases": [
     "GreenGo DANTE INTERFACE X"
-  ]
+  ],
+  "powerW": 5,
+  "depthMm": 165,
+  "description": "Interface Green-GO / Dante à quatre flux entrants et quatre sortants. Deux prises etherCON pour Green-GO et deux pour Dante ; ces dernières partagent le même réseau primaire et ne constituent pas une paire redondante. Alimentation PoE sur le réseau interne ou 12 V DC. Consommation 5 W typique, 6 W maximale ; dimensions H × L × P : 44 × 483 × 165 mm. La notice actuelle indique 2,38 kg (ancien guide rapide : 2,48 kg) et un débit Dante contradictoire entre sa présentation et son tableau ; le débit externe n’est donc pas figé ici."
 }

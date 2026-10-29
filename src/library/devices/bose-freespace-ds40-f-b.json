@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Bose",
   "model": "FreeSpace DS40 F – B",
-  "status": "community",
-  "description": "Enceinte passive 40 W / 8 Ω ou 70V / 100V, blanche",
+  "status": "verified",
+  "description": "FreeSpace DS40F noir, version avec transformateur ; bornier d’entrée à vis3 points, masse3,7 kg.",
   "aliases": [
     "DS40FW",
     "BOSE® FreeSpace DS40 F – B"
@@ -36,9 +36,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/bose_ds40f_design-guide.pdf",
       "document": "Novelty — FreeSpace DS40 F – B : Design Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_ds40f_ft-uk.pdf",
+      "document": "Bose FreeSpace DS40F Technical Data, pp.1 et6",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.7
+  "ports": [
+    {
+      "id": "in",
+      "name": "INPUT",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Bornier à vis 3 points ; version avec transformateur70/100 V et bypass8 Ω"
+    }
+  ],
+  "weightKg": 3.7,
+  "depthMm": 153
 }

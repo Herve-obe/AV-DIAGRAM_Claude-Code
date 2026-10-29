@@ -4,33 +4,50 @@
   "manufacturer": "Yamaha",
   "model": "VXS3F",
   "pictogram": "speaker",
-  "status": "community",
-  "powerW": 40,
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.fullcompass.com/prod/590617-yamaha-vxs3f-3-5-low-impedance-surface-mount-speaker-8-ohm",
       "document": "Full Compass, fiche VXS3F (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/5/716045/vxs3f_en_om_a0.pdf",
+      "document": "Yamaha VXS3F / VXS3FW / VXS3FT / VXS3FTW Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/5/716045/vxs3f_en_om_a0.pdf",
+      "document": "Yamaha VXS3F Owner’s Manual, p. 1 : caractéristiques et Euroblock ; désignation de variante Novelty",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-monitoring/vxs3/",
+      "document": "Yamaha VXS3F Owner’s Manual, p. 1 : caractéristiques et Euroblock ; désignation de variante Novelty",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Input",
+      "name": "Entrée Euroblock",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
       "level": "speaker",
-      "format": "Euroblock 4 points (entrée + recopie), 8 Ω"
+      "format": "8 Ω ; entrée +/− sur le connecteur Euroblock 4 pôles commun avec Thru"
     },
     {
       "id": "thru",
-      "name": "Thru",
+      "name": "Thru Euroblock",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "terminal",
       "level": "speaker",
-      "format": "Recopie (même bornier)"
+      "format": "Paire de reprise +/− du même connecteur Euroblock 4 pôles ; aucune seconde prise"
     }
-  ]
+  ],
+  "weightKg": 1,
+  "depthMm": 95,
+  "description": "VXS3F / VXS3FW basse impédance, 8 Ω, 20 W bruit / 40 W programme. Masse et profondeur du haut-parleur seul ; avec support : 1,1 kg et 134 mm."
 }

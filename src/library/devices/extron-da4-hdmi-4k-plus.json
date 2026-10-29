@@ -4,12 +4,17 @@
   "manufacturer": "Extron",
   "model": "DA4 HDMI 4K PLUS",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/video/",
       "document": "Catalogue Novelty (désignation « EXTRON DA4HDMI 4K/4K+ 1x4 »)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://media.extron.com/public/download/files/specs/da_hd_4K_plus_6065-D10.pdf",
+      "document": "Extron DA HD 4K PLUS specifications pp. 2-3; user guide Rev J pp. 5,7-9",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -50,10 +55,31 @@
     },
     {
       "id": "dc",
-      "name": "Alimentation",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "3-pole captive screw"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini USB B, USB 2.0"
     }
-  ]
+  ],
+  "powerW": 8.6,
+  "weightKg": 0.7,
+  "depthMm": 152,
+  "rackU": 1
 }

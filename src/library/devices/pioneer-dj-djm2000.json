@@ -4,11 +4,12 @@
   "domain": "sound",
   "pictogram": "console",
   "manufacturer": "Pioneer DJ",
-  "model": "DJM2000",
+  "model": "DJM-2000",
   "status": "community",
-  "description": "Console \"DJ\" 4 voies audio, 1 voie Mic, 4 entrées numériques, 6 line, 2 phono",
+  "description": "DJM-2000 originale : quatre voies audio et un micro, six entrées ligne stéréo et deux phono. Connectique et dimensions propres à cette génération, sans reprendre les 42 W/8,6 kg de la NXS.",
   "aliases": [
-    "PIONEER DJM2000"
+    "PIONEER DJM2000",
+    "DJM2000"
   ],
   "sources": [
     {
@@ -18,12 +19,300 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/pioneer_djm2000_ft.pdf",
-      "document": "Novelty — DJM2000 : DJM 2000",
-      "accessed": "2026-10-19"
+      "document": "Pioneer DJM-2000, fiche constructeur — pages PDF 2",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "line1",
+      "name": "CD/Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 1",
+      "channels": 2
+    },
+    {
+      "id": "digital1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 1",
+      "channels": 2
+    },
+    {
+      "id": "phono1",
+      "name": "Phono 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "line2",
+      "name": "CD/Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 2",
+      "channels": 2
+    },
+    {
+      "id": "digital2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 2",
+      "channels": 2
+    },
+    {
+      "id": "extraLine2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée ligne supplémentaire de la même voie 2",
+      "channels": 2
+    },
+    {
+      "id": "line3",
+      "name": "CD/Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 3",
+      "channels": 2
+    },
+    {
+      "id": "digital3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 3",
+      "channels": 2
+    },
+    {
+      "id": "extraLine3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée ligne supplémentaire de la même voie 3",
+      "channels": 2
+    },
+    {
+      "id": "line4",
+      "name": "CD/Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 4",
+      "channels": 2
+    },
+    {
+      "id": "digital4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 4",
+      "channels": 2
+    },
+    {
+      "id": "phono4",
+      "name": "Phono 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "format": "XLR/TRS micro ; pas une sortie ligne",
+      "level": "mic"
+    },
+    {
+      "id": "masterL",
+      "name": "Master 1 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne symétrique"
+    },
+    {
+      "id": "masterR",
+      "name": "Master 1 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne symétrique"
+    },
+    {
+      "id": "master2",
+      "name": "Master 2 L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Même mix master, sortie asymétrique",
+      "channels": 2
+    },
+    {
+      "id": "booth",
+      "name": "Booth L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks TRS symétriques",
+      "channels": 2
+    },
+    {
+      "id": "rec",
+      "name": "Rec Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Sortie enregistrement stéréo",
+      "channels": 2
+    },
+    {
+      "id": "send",
+      "name": "Send L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Départ effets stéréo, jacks 6,35 ; nombre de contacts TS/TRS non établi par les pages lues",
+      "channels": 2
+    },
+    {
+      "id": "return",
+      "name": "Return L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Retour effets stéréo, jacks 6,35 ; nombre de contacts TS/TRS non établi par les pages lues",
+      "channels": 2
+    },
+    {
+      "id": "digitalOut",
+      "name": "Digital Master Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Sortie numérique coaxiale S/PDIF",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque 6,35 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Casque stéréo",
+      "channels": 2
+    },
+    {
+      "id": "link1",
+      "name": "PRO DJ LINK 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "link2",
+      "name": "PRO DJ LINK 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "link3",
+      "name": "PRO DJ LINK 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "link4",
+      "name": "PRO DJ LINK 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "link5",
+      "name": "PRO DJ LINK 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "link6",
+      "name": "PRO DJ LINK 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "usb1",
+      "name": "USB ordinateur 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio et contrôle ; capacité dépendante du réglage logiciel"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "control1",
+      "name": "Fader Start 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Commande de lecteur compatible, pas audio"
+    },
+    {
+      "id": "control2",
+      "name": "Fader Start 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Commande de lecteur compatible, pas audio"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Secteur 220–240 V, cordon fourni"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 8.5,
-  "powerW": 40
+  "powerW": 40,
+  "depthMm": 409
 }

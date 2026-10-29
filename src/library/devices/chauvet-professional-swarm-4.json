@@ -6,7 +6,7 @@
   "manufacturer": "Chauvet Professional",
   "model": "Swarm 4",
   "status": "community",
-  "description": "Projecteur à LED effet discothèque, type \"beam\"",
+  "description": "Effet Swarm4 (pas Swarm4FX),4 canaux DMX,308 ×189 ×308 mm. Manuel rev2 : consommation39 W à230 V. Raccordement en chaîne secteur dépendant de la version régionale ; l’Edison montré sur le schéma concerne uniquement les USA.",
   "aliases": [
     "SWARM4",
     "Chauvet Swarm 4"
@@ -24,11 +24,43 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_swarm4_manuel.pdf",
-      "document": "Novelty — Swarm 4 : Swarm 4",
-      "accessed": "2026-10-19"
+      "document": "Chauvet DJ — Swarm4 User Manual rev2 ML, pages4–5,32 : panneau, version régionale et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.7
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V CA,50/60 Hz"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur propre à la région ; schéma Edison USA non applicable automatiquement en Europe"
+    }
+  ],
+  "weightKg": 3.7,
+  "powerW": 39,
+  "depthMm": 189
 }

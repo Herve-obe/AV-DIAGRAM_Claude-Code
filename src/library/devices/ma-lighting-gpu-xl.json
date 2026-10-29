@@ -5,8 +5,8 @@
   "pictogram": "console",
   "manufacturer": "MA Lighting",
   "model": "GPU XL",
-  "status": "community",
-  "description": "Unité de traitement, 8 univers DMX, Ethernet.",
+  "status": "verified",
+  "description": "grandMA3 processing unit XL, référence4010508,16 384 paramètres MA-Net3 ou4 096 en Mode2. Huit sorties DMX XLR5, deux etherCON, trois USB-A et une entrée TRUE1. Rack2 U,482 ×372 ×87 mm,5 kg. Puissance apparente maximale200 VA ; aucune conversion en watts.",
   "aliases": [
     "GPU/XL",
     "MA LIGHTING GPU XL"
@@ -19,11 +19,114 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1443-4610-4010508-en.pdf",
-      "document": "Novelty — GPU XL : grandMA3 processing unit XL",
-      "accessed": "2026-10-19"
+      "document": "MA Lighting — grandMA3 processing unit XL4010508 datasheet,1 février2023,p.1–2 : toutes connexions et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 5
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX Out1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX Out2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX Out3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX Out4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx5",
+      "name": "DMX Out5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx6",
+      "name": "DMX Out6",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx7",
+      "name": "DMX Out7",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx8",
+      "name": "DMX Out8",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-A1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB-A2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3",
+      "name": "USB-A3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "eth1",
+      "name": "Réseau1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "MA-Net3 / Mode2"
+    },
+    {
+      "id": "eth2",
+      "name": "Réseau2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "MA-Net3 / Mode2"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100–240 V50/60 Hz"
+    }
+  ],
+  "weightKg": 5,
+  "rackU": 2,
+  "depthMm": 372
 }

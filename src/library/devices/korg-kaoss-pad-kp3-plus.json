@@ -1,14 +1,15 @@
 {
   "id": "korg-kaoss-pad-kp3-plus",
-  "family": "console",
+  "family": "processing",
   "domain": "sound",
-  "pictogram": "console",
+  "pictogram": "processor",
   "manufacturer": "Korg",
-  "model": "Kaoss Pad KP3+",
-  "status": "community",
-  "description": "Processeur d’effets/échantillonneur en temps réel avec un contrôle instantané sur les effets de pointe",
+  "model": "KAOSS PAD KP3+",
+  "status": "verified",
+  "description": "Effets/sampler KP3+ confirmé dans le contenu du manuel malgré son nom de fichier « kaoss-pad-3 ». USB pour données et MIDI, pas de liaison audio USB. MIC et LINE sont sélectionnés alternativement.",
   "aliases": [
-    "Korg Kaoss Pad KP3+"
+    "Korg Kaoss Pad KP3+",
+    "Kaoss Pad KP3+"
   ],
   "sources": [
     {
@@ -17,17 +18,87 @@
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/korg_kaoss-pad-3_manuel.pdf",
-      "document": "Novelty — Kaoss Pad KP3+ : Kaos Pad KP3+",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/korg_kaoss-pad-3-editor_manuel.pdf",
       "document": "Novelty — Kaoss Pad KP3+ : Editor",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/korg_kaoss-pad-3_manuel.pdf",
+      "document": "Korg KP3+, manuel constructeur — pages PDF 5, 6, 7, 24, 95",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.3
+  "ports": [
+    {
+      "id": "lineIn",
+      "name": "Line In L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée ligne stéréo ; nominal non publié",
+      "channels": 2
+    },
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Micro asymétrique 6,35 mm ; alternative à Line In",
+      "level": "mic",
+      "phantom": "none"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Sortie ligne stéréo",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Casque stéréo 6,35 mm",
+      "channels": 2
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "usb",
+      "name": "USB vers ordinateur",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Éditeur, sauvegarde des échantillons et MIDI ; pas une interface audio USB"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "DC 9 V ; adaptateur fourni"
+    }
+  ],
+  "weightKg": 1.3,
+  "depthMm": 226
 }

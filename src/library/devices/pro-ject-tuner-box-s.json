@@ -6,7 +6,7 @@
   "manufacturer": "Pro-Ject",
   "model": "Tuner Box S",
   "status": "community",
-  "description": "Tuner FM stéréo 87.5-108MHz, 99 mémoires",
+  "description": "Tuner Box S : sortie ligne RCA 0,775 Vrms, antenne et triggers 2,5 mm séparés. Profondeur 115 mm prises incluses (104 mm sans prises) et masse 565 g hors bloc.",
   "aliases": [
     "TUNERBOX",
     "Pro-Ject Tuner Box S"
@@ -24,10 +24,54 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Pro-Ject_TunerBoxS_manuel.pdf",
-      "document": "Novelty — Tuner Box S : Tuner Box S",
-      "accessed": "2026-10-19"
+      "document": "Pro-Ject Tuner Box S, notice constructeur révision 2011.12.01 — pages PDF 2, 6",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Line Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Ligne stéréo 0,775 Vrms ; nominal 0 dBu, pas −10 dBV",
+      "channels": 2
+    },
+    {
+      "id": "antenna",
+      "name": "FM Antenne",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "unspecified",
+      "format": "Europe : coaxial DIN 75 Ω ; version USA F, variante à confirmer"
+    },
+    {
+      "id": "triggerIn",
+      "name": "Trigger In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 2,5 mm 2 contacts ; commutation 12 V, pas audio 3,5 mm"
+    },
+    {
+      "id": "triggerOut",
+      "name": "Trigger Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 2,5 mm 2 contacts ; report du trigger"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "9 V ; notice contradictoire AC/DC, utiliser uniquement le bloc approprié"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 0.565,
+  "depthMm": 115
 }

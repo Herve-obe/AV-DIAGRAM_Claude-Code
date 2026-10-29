@@ -1,10 +1,10 @@
 {
   "id": "yamaha-my16-es64",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "MY16-ES64",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogue Novelty 2025 ; fiche technique Yamaha non trouvée",
@@ -19,29 +19,72 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1253002640.pdf",
       "document": "Novelty — MY16-ES64 : MY16-ES64",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/2/334862/my16es64_en_om_c0.pdf",
+      "document": "Yamaha MY16-ES64 Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/2/334862/my16es64_en_om_c0.pdf",
+      "document": "Yamaha MY16-ES64 : manuel, panneaux et caractéristiques",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://data.yamaha.com/files/download/other_assets/6/1098706/MY16-ES64_datasheet.pdf",
+      "document": "Yamaha MY16-ES64 Technical Data Sheet, p. 1 : 8 canaux à 96 kHz",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "es",
-      "name": "EtherSound",
+      "name": "EtherSound IN",
       "direction": "bidir",
       "signal": "audioIp",
-      "connector": "unspecified",
-      "channels": 16,
-      "format": "EtherSound ; connecteurs non précisés"
+      "connector": "ethercon",
+      "format": "Réseau EtherSound ; 16 canaux locaux à 44,1/48 kHz, jusqu’à 64 avec trois MY16-EX",
+      "channels": 16
     },
     {
-      "id": "slot",
-      "name": "Slot carte",
+      "id": "es-out",
+      "name": "EtherSound OUT",
       "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "Chaînage EtherSound ; mêmes canaux que IN",
+      "channels": 16
+    },
+    {
+      "id": "ha-remote",
+      "name": "HA REMOTE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422 ou RS-232C ; commande AD8HR/AD824 via EtherSound"
+    },
+    {
+      "id": "next-in",
+      "name": "NEXT MY16-EX IN",
+      "direction": "in",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot Mini-YGDAI de la console"
+      "connector": "rj45",
+      "format": "Liaison d’extension Yamaha propriétaire, audio et word clock ; pas un port Ethernet"
+    },
+    {
+      "id": "next-out",
+      "name": "NEXT MY16-EX OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "format": "Liaison d’extension Yamaha propriétaire, audio et word clock ; pas un port Ethernet"
     }
   ],
   "aliases": [
-    "MY16AE",
     "YAMAHA MY16-ES64"
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-mini-ygdai",
+  "depthMm": 176.1,
+  "description": "Carte mini-YGDAI EtherSound, 16 canaux d’E/S locaux à 44,1/48 kHz ; 8 à 88,2/96 kHz. Trois MY16-EX permettent de porter la liaison à 64 canaux à 48 kHz. Deux etherCON, deux RJ45 d’extension propriétaire et un D-Sub 9 HA Remote. Alimentation par le châssis ; dimensions L × H × P : 120 × 40 × 176,1 mm."
 }

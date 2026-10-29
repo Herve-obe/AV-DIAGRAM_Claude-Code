@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "Micro Converter BiDirectional SDI/HDMI 12G",
-  "status": "community",
+  "status": "verified",
   "description": "Micro convertisseur 12GSDI vers HDMI 4K bi-directionnel",
   "aliases": [
     "3GSDI2HDMIBIDI",
@@ -16,10 +16,60 @@
       "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/micro-converter-bidirectional-sdi-hdmi-12g/",
       "document": "Novelty — Micro Converter BiDirectional SDI/HDMI 12G",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf?_v=1723186810000",
+      "document": "Blackmagic Converters — Installation and Operation Manual, juillet 2024",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/microconverters/techspecs",
+      "document": "Blackmagic Micro Converter BiDirectional SDI/HDMI 12G, Technical Specifications",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C configuration / alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "5 V DC, USB configuration"
+    }
+  ],
   "weightKg": 0.174,
   "powerW": 5
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Robert Juliat",
   "model": "614SX",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "powerW": 1000,
   "sources": [
     {
@@ -20,6 +20,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186131571.pdf",
       "document": "Novelty — 614SX : Série SX",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN049_614SX.pdf",
+      "document": "Robert Juliat — DSEN049_614SX, pages 1–4 : spécifications, lampe, dimensions et câble secteur standard",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -28,11 +33,14 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Découpe 1000 W, zoom 16-35° ; pas de commande DMX, gradateur externe"
+      "connector": "schuko",
+      "format": "CEE 7/7 NF/Schuko sur câble captif 3 m, 230/240 V ; option P17 distincte"
     }
   ],
   "aliases": [
     "JULIAT 614SX"
-  ]
+  ],
+  "weightKg": 13,
+  "depthMm": 695,
+  "description": "Découpe tungstène 1000/1200 W, zoom 16–35°, culot Gx9.5 ; dimensions L × l × H 695 × 330 × 415 mm. Câble captif 3 m avec fiche CEE 7/7 en version standard (P17 en option). Commande par gradateur externe ; lampe 1000 W du catalogue, 1200 W admissible."
 }

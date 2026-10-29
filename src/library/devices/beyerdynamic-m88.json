@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "beyerdynamic",
   "model": "M88",
-  "status": "community",
-  "description": "Microphone dynamique",
+  "status": "verified",
+  "description": "Dynamique hypercardioïde ; XLR mâle. Poids hors câble.",
   "aliases": [
     "BEYERDYNAMIC M88"
   ],
@@ -25,9 +25,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/beyerdynamic_m88_schema.pdf",
       "document": "Novelty — M88 : M88",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/beyerdynamic_m88_manuel.pdf",
+      "document": "Beyerdynamic M88 manuel associé au parc, p. 7",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Dynamique hypercardioïde ; XLR mâle"
+    }
+  ],
   "weightKg": 0.32
 }

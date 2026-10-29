@@ -9,24 +9,103 @@
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, page 167 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Arrivée",
+      "name": "Arrivée p17-32-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "32 A d'après la désignation (à confirmer) ; connecteur non précisé"
+      "connector": "p17-32-tri",
+      "format": "Arrivée triphasée"
     },
     {
       "id": "out",
-      "name": "Départs",
+      "name": "p17-32-mono 1",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Départs non détaillés dans le catalogue"
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure2",
+      "name": "p17-32-mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure3",
+      "name": "p17-32-mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure4",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure5",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure6",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure7",
+      "name": "PC16 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure8",
+      "name": "PC16 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure9",
+      "name": "PC16 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure10",
+      "name": "Recopie 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
     }
-  ]
+  ],
+  "weightKg": 26.5,
+  "description": "Armoire 32 A triphasée : 3 départs P17 32 A mono, 6 PC16 et une recopie P17 32 A tri ; protection 30 mA. Dimensions catalogue L × l × H : 55 × 30 × 75 cm."
 }

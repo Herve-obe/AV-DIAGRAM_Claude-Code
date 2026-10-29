@@ -9,24 +9,118 @@
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, page 166 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Arrivée",
+      "name": "Arrivée powerlock",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "250 A d'après la désignation (à confirmer) ; connecteur non précisé"
+      "connector": "powerlock",
+      "format": "Jeu de conducteurs unipolaires triphasés + neutre + terre"
     },
     {
       "id": "out",
-      "name": "Départs",
+      "name": "p17-125-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Départs non détaillés dans le catalogue"
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure2",
+      "name": "p17-125-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure3",
+      "name": "p17-125-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure4",
+      "name": "p17-63-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure5",
+      "name": "p17-63-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure6",
+      "name": "p17-32-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure7",
+      "name": "p17-32-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure8",
+      "name": "p17-32-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure9",
+      "name": "p17-32-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure10",
+      "name": "p17-32-mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure11",
+      "name": "p17-32-mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure12",
+      "name": "p17-32-mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
     }
-  ]
+  ],
+  "description": "Armoire RC250TRI en rack : arrivée Powerlock ; sorties 3 P17 125 A tri, 2 P17 63 A tri, 4 P17 32 A tri et 3 P17 32 A mono. Le catalogue précise un différentiel réglable sur l’un des quatre départs 32 A tri."
 }

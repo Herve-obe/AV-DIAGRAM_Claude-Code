@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Green-GO",
   "model": "BPX",
-  "status": "community",
-  "description": "Boîtier ceinture 32 canaux filaires",
+  "status": "verified",
+  "description": "Boîtier ceinture 32 canaux filaires. Dimensions H × L × P : 46 × 95 × 119 mm. Consommation typique 2 W, maximale 5 W.",
   "aliases": [
     "GreenGo BPX"
   ],
@@ -15,9 +15,36 @@
       "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/bpx/",
       "document": "Novelty — BPX",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/bpx/",
+      "document": "Green-GO — BPX Beltpack X, Device overview et Technical specifications (documentation fabricant Green-GO 5)",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.26
+  "ports": [
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR4 mâle pour casque micro, 32 à 600 ohms"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    }
+  ],
+  "weightKg": 0.261,
+  "powerW": 2,
+  "depthMm": 119
 }

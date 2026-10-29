@@ -4,7 +4,7 @@
   "manufacturer": "Schoeps",
   "model": "CMC 6 + MK 4",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.dcaudiovisuel.com/product_info.php/language/en/products_id/228",
@@ -25,6 +25,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/schoeps_cmc6_et_mk4_manuel_gamme_cmc.pdf",
       "document": "Novelty — CMC6+MK4 : CMC6-MK4",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/mikrofonverstaerker/cmc-6.html",
+      "document": "Schoeps CMC 6 et capsule MK 4 / MK 21, sections Technische Daten : masse calculée 60 + 17 g",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/kapseln/nieren/mk-4.html",
+      "document": "Schoeps CMC 6 et capsule MK 4 / MK 21, sections Technische Daten : masse calculée 60 + 17 g",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -35,13 +45,15 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Statique cardioïde ; préampli CMC 6 : fantôme 12 V (8 mA) ou 48 V (4 mA)",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "CMC 6 : fantôme P12 (8 mA) ou P48 (4 mA)"
     }
   ],
   "aliases": [
     "CMC6+MK4",
     "CMC6 MK4",
     "SCHOEPS CMC6+MK4"
-  ]
+  ],
+  "weightKg": 0.077,
+  "description": "Microphone cardioïde CMC 6 + capsule Colette ; masse 77 g (préampli 60 g + capsule 17 g), hors suspension."
 }

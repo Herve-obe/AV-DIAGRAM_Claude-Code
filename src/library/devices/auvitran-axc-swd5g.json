@@ -1,12 +1,12 @@
 {
   "id": "auvitran-axc-swd5g",
-  "family": "processing",
-  "domain": "sound",
+  "family": "module",
+  "domain": "misc",
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AxC SWD5G",
-  "status": "community",
-  "description": "Carte double switch Gigabit administrable pour Audio ToolBox",
+  "status": "verified",
+  "description": "Carte commutateur : 8 RJ45 et 2 cages SFP ; mode lié à 10 ports ou deux groupes isolés de 5. Ne pas déduire une prise LC du seul logement SFP. Alimentation par le châssis. Format carte : 200 × 100 × 40 mm ; compatible AVBx3/AVBx7.",
   "aliases": [
     "Auvitran AxC SWD5G"
   ],
@@ -30,8 +30,123 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/auvitran_axc-sxd5g_manual.pdf",
       "document": "Novelty — AxC SWD5G : AxC SWD5G (FR)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.auvitran.com/productrange/axc-cards/",
+      "document": "AuviTran — Audio ToolBox AxC Cards, famille et compatibilité des cartes",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/auvitran_axc-sxd5g_ft-en.pdf",
+      "document": "AuviTran AxC SWD5G : fiche technique, pages 1–2",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "lan1",
+      "name": "RJ45 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan2",
+      "name": "RJ45 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan3",
+      "name": "RJ45 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan4",
+      "name": "RJ45 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan5",
+      "name": "RJ45 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan6",
+      "name": "RJ45 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan7",
+      "name": "RJ45 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "lan8",
+      "name": "RJ45 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP Gigabit ; transceiver optionnel, connectique fibre selon module"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP 10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP Gigabit ; transceiver optionnel, connectique fibre selon module"
+    }
+  ],
+  "moduleType": "auvitran-axc"
 }
