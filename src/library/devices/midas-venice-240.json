@@ -24,167 +24,571 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1203692576.pdf",
       "document": "Novelty — Venice 240 : Venice",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1203693243.pdf",
+      "document": "Midas Venice, manuel constructeur — pages PDF 3, 7, 11, 26",
+      "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1190027584.pdf",
+      "document": "Midas Venice 160/240/320, brochure constructeur — pages PDF 8, 9, 10, 11, 15",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Input 1",
+      "name": "Micro 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line1",
+      "name": "Ligne 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 1 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert1",
+      "name": "Insert 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct1",
+      "name": "Direct Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 1 ; ligne nominale 0 dBu"
     },
     {
       "id": "in2",
-      "name": "Input 2",
+      "name": "Micro 2",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line2",
+      "name": "Ligne 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 2 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert2",
+      "name": "Insert 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct2",
+      "name": "Direct Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 2 ; ligne nominale 0 dBu"
     },
     {
       "id": "in3",
-      "name": "Input 3",
+      "name": "Micro 3",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line3",
+      "name": "Ligne 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 3 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert3",
+      "name": "Insert 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct3",
+      "name": "Direct Out 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 3 ; ligne nominale 0 dBu"
     },
     {
       "id": "in4",
-      "name": "Input 4",
+      "name": "Micro 4",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line4",
+      "name": "Ligne 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 4 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert4",
+      "name": "Insert 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct4",
+      "name": "Direct Out 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 4 ; ligne nominale 0 dBu"
     },
     {
       "id": "in5",
-      "name": "Input 5",
+      "name": "Micro 5",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line5",
+      "name": "Ligne 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 5 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert5",
+      "name": "Insert 5",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct5",
+      "name": "Direct Out 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 5 ; ligne nominale 0 dBu"
     },
     {
       "id": "in6",
-      "name": "Input 6",
+      "name": "Micro 6",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line6",
+      "name": "Ligne 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 6 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert6",
+      "name": "Insert 6",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct6",
+      "name": "Direct Out 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 6 ; ligne nominale 0 dBu"
     },
     {
       "id": "in7",
-      "name": "Input 7",
+      "name": "Micro 7",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line7",
+      "name": "Ligne 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 7 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert7",
+      "name": "Insert 7",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct7",
+      "name": "Direct Out 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 7 ; ligne nominale 0 dBu"
     },
     {
       "id": "in8",
-      "name": "Input 8",
+      "name": "Micro 8",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line8",
+      "name": "Ligne 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 8 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert8",
+      "name": "Insert 8",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct8",
+      "name": "Direct Out 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 8 ; ligne nominale 0 dBu"
     },
     {
       "id": "in9",
-      "name": "Input 9",
+      "name": "Micro 9",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line9",
+      "name": "Ligne 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 9 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert9",
+      "name": "Insert 9",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct9",
+      "name": "Direct Out 9",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 9 ; ligne nominale 0 dBu"
     },
     {
       "id": "in10",
-      "name": "Input 10",
+      "name": "Micro 10",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line10",
+      "name": "Ligne 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 10 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert10",
+      "name": "Insert 10",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct10",
+      "name": "Direct Out 10",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 10 ; ligne nominale 0 dBu"
     },
     {
       "id": "in11",
-      "name": "Input 11",
+      "name": "Micro 11",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line11",
+      "name": "Ligne 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 11 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert11",
+      "name": "Insert 11",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct11",
+      "name": "Direct Out 11",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 11 ; ligne nominale 0 dBu"
     },
     {
       "id": "in12",
-      "name": "Input 12",
+      "name": "Micro 12",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line12",
+      "name": "Ligne 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 12 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert12",
+      "name": "Insert 12",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct12",
+      "name": "Direct Out 12",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 12 ; ligne nominale 0 dBu"
     },
     {
       "id": "in13",
-      "name": "Input 13",
+      "name": "Micro 13",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line13",
+      "name": "Ligne 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 13 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert13",
+      "name": "Insert 13",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct13",
+      "name": "Direct Out 13",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 13 ; ligne nominale 0 dBu"
     },
     {
       "id": "in14",
-      "name": "Input 14",
+      "name": "Micro 14",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
+    },
+    {
+      "id": "line14",
+      "name": "Ligne 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 14 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert14",
+      "name": "Insert 14",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct14",
+      "name": "Direct Out 14",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 14 ; ligne nominale 0 dBu"
     },
     {
       "id": "in15",
-      "name": "Input 15",
+      "name": "Micro 15",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
       "phantom": "supplied"
     },
     {
-      "id": "in16",
-      "name": "Input 16",
+      "id": "line15",
+      "name": "Ligne 15",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 15 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert15",
+      "name": "Insert 15",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct15",
+      "name": "Direct Out 15",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 15 ; ligne nominale 0 dBu"
+    },
+    {
+      "id": "in16",
+      "name": "Micro 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Micro/ligne symétrique ; P48 commutable",
       "level": "mic",
-      "format": "Entrée micro/ligne ; connecteur non précisé",
+      "phantom": "supplied"
+    },
+    {
+      "id": "line16",
+      "name": "Ligne 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Même voie mono que Micro 16 ; nominal 0 dBu, sans P48"
+    },
+    {
+      "id": "insert16",
+      "name": "Insert 16",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Un seul jack : Tip départ, Ring retour"
+    },
+    {
+      "id": "direct16",
+      "name": "Direct Out 16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie directe de la voie 16 ; ligne nominale 0 dBu"
+    },
+    {
+      "id": "stMic1",
+      "name": "Micro voie stéréo 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Préampli micro distinct des entrées ligne stéréo",
+      "level": "mic",
       "phantom": "supplied"
     },
     {
@@ -192,63 +596,347 @@
       "name": "Stereo In 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
       "channels": 2
+    },
+    {
+      "id": "return1",
+      "name": "Retour stéréo 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
+      "channels": 2
+    },
+    {
+      "id": "group1",
+      "name": "Groupe 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Impédance symétrique ; nominal ligne 0 dBu"
+    },
+    {
+      "id": "groupInsert1",
+      "name": "Insert groupe 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Tip départ, Ring retour"
+    },
+    {
+      "id": "stMic2",
+      "name": "Micro voie stéréo 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Préampli micro distinct des entrées ligne stéréo",
+      "level": "mic",
+      "phantom": "supplied"
     },
     {
       "id": "st2",
       "name": "Stereo In 2",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
       "channels": 2
+    },
+    {
+      "id": "return2",
+      "name": "Retour stéréo 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
+      "channels": 2
+    },
+    {
+      "id": "group2",
+      "name": "Groupe 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Impédance symétrique ; nominal ligne 0 dBu"
+    },
+    {
+      "id": "groupInsert2",
+      "name": "Insert groupe 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Tip départ, Ring retour"
+    },
+    {
+      "id": "stMic3",
+      "name": "Micro voie stéréo 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Préampli micro distinct des entrées ligne stéréo",
+      "level": "mic",
+      "phantom": "supplied"
     },
     {
       "id": "st3",
       "name": "Stereo In 3",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
       "channels": 2
+    },
+    {
+      "id": "return3",
+      "name": "Retour stéréo 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
+      "channels": 2
+    },
+    {
+      "id": "group3",
+      "name": "Groupe 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Impédance symétrique ; nominal ligne 0 dBu"
+    },
+    {
+      "id": "groupInsert3",
+      "name": "Insert groupe 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Tip départ, Ring retour"
+    },
+    {
+      "id": "stMic4",
+      "name": "Micro voie stéréo 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Préampli micro distinct des entrées ligne stéréo",
+      "level": "mic",
+      "phantom": "supplied"
     },
     {
       "id": "st4",
       "name": "Stereo In 4",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
       "channels": 2
+    },
+    {
+      "id": "return4",
+      "name": "Retour stéréo 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks L/R ; ligne nominale 0 dBu",
+      "channels": 2
+    },
+    {
+      "id": "group4",
+      "name": "Groupe 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Impédance symétrique ; nominal ligne 0 dBu"
+    },
+    {
+      "id": "groupInsert4",
+      "name": "Insert groupe 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Tip départ, Ring retour"
     },
     {
       "id": "stL",
       "name": "Master L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4"
+      "connector": "xlr3",
+      "format": "Symétrique, nominal ligne 0 dBu"
+    },
+    {
+      "id": "masterBL",
+      "name": "Master B L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; stéréo ou mono commutable"
+    },
+    {
+      "id": "masterInsertL",
+      "name": "Insert Master L",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Tip départ, Ring retour"
+    },
+    {
+      "id": "speakerL",
+      "name": "Écoute L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie enceinte de contrôle, impédance symétrique"
     },
     {
       "id": "stR",
       "name": "Master R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4"
+      "connector": "xlr3",
+      "format": "Symétrique, nominal ligne 0 dBu"
+    },
+    {
+      "id": "masterBR",
+      "name": "Master B R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; stéréo ou mono commutable"
+    },
+    {
+      "id": "masterInsertR",
+      "name": "Insert Master R",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Tip départ, Ring retour"
+    },
+    {
+      "id": "speakerR",
+      "name": "Écoute R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Sortie enceinte de contrôle, impédance symétrique"
+    },
+    {
+      "id": "monitor1",
+      "name": "Monitor 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; départ pré-fader"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; pré/post commutable"
+    },
+    {
+      "id": "fx1",
+      "name": "FX 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Impédance symétrique ; départ post-fader"
+    },
+    {
+      "id": "phones1",
+      "name": "Casque 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Écoute stéréo 6,35 mm",
+      "channels": 2
+    },
+    {
+      "id": "monitor2",
+      "name": "Monitor 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; départ pré-fader"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique ; pré/post commutable"
+    },
+    {
+      "id": "fx2",
+      "name": "FX 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Impédance symétrique ; départ post-fader"
+    },
+    {
+      "id": "phones2",
+      "name": "Casque 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Écoute stéréo 6,35 mm",
+      "channels": 2
+    },
+    {
+      "id": "tapeIn",
+      "name": "Tape In L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo, niveau ligne",
+      "channels": 2
+    },
+    {
+      "id": "tapeOut",
+      "name": "Tape Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Enregistrement stéréo pré-master",
+      "channels": 2
+    },
+    {
+      "id": "talkback",
+      "name": "Talkback",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Entrée micro avec alimentation fantôme permanente ; tension non quantifiée dans la brochure",
+      "level": "mic"
     },
     {
       "id": "psu",
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Secteur interne 220–240 V ou 100–120 V selon configuration ; ne pas supposer universel"
+    },
+    {
+      "id": "externalPsu",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Entrée d’alimentation externe EPS1200 ; modèle mécanique de la prise non identifié"
     }
   ],
   "aliases": [
     "VENICE240",
     "MIDAS Venice 240"
-  ]
+  ],
+  "weightKg": 21.1,
+  "depthMm": 568,
+  "description": "Venice 240 : 16 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. Alimentation EPS1200 externe optionnelle, non fournie implicitement.",
+  "portStatus": "pending"
 }

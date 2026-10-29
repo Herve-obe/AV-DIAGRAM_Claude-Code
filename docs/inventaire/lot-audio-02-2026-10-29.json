@@ -1,0 +1,608 @@
+{
+  "date": "2026-10-29",
+  "version": "0.5.21",
+  "batch": "audio-02",
+  "method": {
+    "agents": 1,
+    "limit": 20,
+    "priority": "Notices déjà en cache ; pages connectique et spécifications ; vues arrière inspectées si nécessaire ; recherches complémentaires bornées ; arrêt après publication du lot."
+  },
+  "summary": {
+    "reviewed": 20,
+    "promotedVerified": 8,
+    "remainCommunity": 12,
+    "verified": 753,
+    "community": 953,
+    "generic": 30,
+    "previousResearchReviewed": 478,
+    "cumulativeResearchReviewed": 498,
+    "unexaminedFromInitialCommunityBatch": 722
+  },
+  "validation": {
+    "testsPassed": 479,
+    "testsSkipped": 6,
+    "typecheck": "passed",
+    "build": "passed",
+    "lint": {
+      "errors": 0,
+      "preexistingWarnings": 4
+    },
+    "native": "À confirmer dans GitHub Actions après publication"
+  },
+  "records": [
+    {
+      "id": "allen-heath-xone-92",
+      "reviewed": true,
+      "manufacturer": "Allen & Heath",
+      "model": "Xone:92",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "status",
+        "weightKg",
+        "sources",
+        "ports",
+        "depthMm",
+        "description"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/allen&health_xone92_manuel.pdf",
+          "document": "Allen & Heath Xone:92, manuel constructeur — pages PDF 14, 16, 19, 34, 35"
+        }
+      ],
+      "changes": "Xone:92 originale (AP5345), sans transposition depuis la Mk2. Phono distinct du niveau ligne ; Mix 1 +4 dBu, Mix 2/Aux/Booth −2 dBu. Deux prises casque partagent la même écoute.",
+      "remaining": []
+    },
+    {
+      "id": "korg-kaoss-pad-kp3-plus",
+      "reviewed": true,
+      "manufacturer": "Korg",
+      "model": "KAOSS PAD KP3+",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "model",
+        "status",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "portStatus",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/korg_kaoss-pad-3_manuel.pdf",
+          "document": "Korg KP3+, manuel constructeur — pages PDF 5, 6, 7, 24, 95"
+        }
+      ],
+      "changes": "Effets/sampler KP3+ confirmé dans le contenu du manuel malgré son nom de fichier « kaoss-pad-3 ». USB pour données et MIDI, pas de liaison audio USB. MIC et LINE sont sélectionnés alternativement.",
+      "remaining": [
+        "Consommation en W non publiée dans les pages lues."
+      ]
+    },
+    {
+      "id": "midas-venice-160",
+      "reviewed": true,
+      "manufacturer": "Midas",
+      "model": "Venice 160",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "status",
+        "sources",
+        "ports",
+        "weightKg",
+        "depthMm",
+        "description"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1203693243.pdf",
+          "document": "Midas Venice, manuel constructeur — pages PDF 3, 7, 11, 26"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1190027584.pdf",
+          "document": "Midas Venice 160/240/320, brochure constructeur — pages PDF 8, 9, 10, 11, 15"
+        }
+      ],
+      "changes": "Venice 160 : 8 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. Alimentation EPS1200 externe optionnelle, non fournie implicitement.",
+      "remaining": [
+        "Consommation secteur en W non publiée dans les pages lues."
+      ]
+    },
+    {
+      "id": "midas-venice-240",
+      "reviewed": true,
+      "manufacturer": "Midas",
+      "model": "Venice 240",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "weightKg",
+        "depthMm",
+        "description",
+        "portStatus"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1203693243.pdf",
+          "document": "Midas Venice, manuel constructeur — pages PDF 3, 7, 11, 26"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1190027584.pdf",
+          "document": "Midas Venice 160/240/320, brochure constructeur — pages PDF 8, 9, 10, 11, 15"
+        }
+      ],
+      "changes": "Venice 240 : 16 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. Alimentation EPS1200 externe optionnelle, non fournie implicitement.",
+      "remaining": [
+        "Connecteur mécanique EPS1200 à identifier.",
+        "Consommation secteur en W non publiée dans les pages lues."
+      ]
+    },
+    {
+      "id": "midas-venice-320",
+      "reviewed": true,
+      "manufacturer": "Midas",
+      "model": "Venice 320",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "weightKg",
+        "depthMm",
+        "description",
+        "portStatus"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1203693243.pdf",
+          "document": "Midas Venice, manuel constructeur — pages PDF 3, 7, 11, 26"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1190027584.pdf",
+          "document": "Midas Venice 160/240/320, brochure constructeur — pages PDF 8, 9, 10, 11, 15"
+        }
+      ],
+      "changes": "Venice 320 : 24 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. Alimentation EPS1200 externe optionnelle, non fournie implicitement.",
+      "remaining": [
+        "Connecteur mécanique EPS1200 à identifier.",
+        "Consommation secteur en W non publiée dans les pages lues."
+      ]
+    },
+    {
+      "id": "numark-mp103usb",
+      "reviewed": true,
+      "manufacturer": "Numark",
+      "model": "MP103USB",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "powerW",
+        "sources",
+        "ports",
+        "depthMm",
+        "description",
+        "portStatus"
+      ],
+      "sources": [
+        {
+          "url": "https://www.numark.com/images/product_downloads/mp103usb___quickstart_guide___v1.2.pdf",
+          "document": "Numark MP103USB, Quickstart v1.2 — pages PDF 4, 6, 23"
+        },
+        {
+          "url": "https://im.static-thomann.de/pics/atg/atgdata/document/specs/267417_datenblatt.pdf",
+          "document": "Numark MP103USB, fiche constructeur — pages PDF 1"
+        }
+      ],
+      "changes": "Lecteur CD/USB : sorties analogiques XLR et RCA du même programme, S/PDIF coaxial ajouté. USB-A réservé aux fichiers MP3 sur stockage ; niveaux nominaux et consommation précédemment supposés retirés.",
+      "remaining": [
+        "Type mécanique de l’embase secteur à confirmer.",
+        "Consommation en W non publiée dans la notice consultée."
+      ]
+    },
+    {
+      "id": "pioneer-dj-cdj-2000-nexus-2",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "CDJ-2000NXS2",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "model",
+        "status",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "portStatus",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_cdj-2000nxs2_manual_EN.pdf",
+          "document": "Pioneer CDJ-2000NXS2, manuel constructeur — pages PDF 9, 16"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_cdj-2000nxs2_quickstart_manual.pdf",
+          "document": "Pioneer CDJ-2000NXS2, guide de démarrage constructeur — pages PDF 11"
+        }
+      ],
+      "changes": "CDJ-2000NXS2 : RCA analogique et S/PDIF du même programme ; USB-A hôte séparé du port USB-B vers ordinateur. PRO DJ LINK ne constitue pas un port Dante.",
+      "remaining": []
+    },
+    {
+      "id": "pioneer-dj-djm2000-nexus",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "DJM-2000NXS",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "model",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "powerW",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm2000nexus_manuel.pdf",
+          "document": "Pioneer DJM-2000NXS, manuel constructeur — pages PDF 6, 8, 31"
+        }
+      ],
+      "changes": "DJM-2000NXS : quatre voies audio, six entrées ligne stéréo et deux phono, un micro combo, quatre entrées numériques, six PRO DJ LINK. Les sorties XLR Master sont de niveau ligne (+8 dBu nominal), pas micro.",
+      "remaining": [
+        "TS/TRS des jacks Send/Return à confirmer ; ne pas déduire le brochage depuis Booth TRS."
+      ]
+    },
+    {
+      "id": "pioneer-dj-djm2000",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "DJM-2000",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "model",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/pioneer_djm2000_ft.pdf",
+          "document": "Pioneer DJM-2000, fiche constructeur — pages PDF 2"
+        }
+      ],
+      "changes": "DJM-2000 originale : quatre voies audio et un micro, six entrées ligne stéréo et deux phono. Connectique et dimensions propres à cette génération, sans reprendre les 42 W/8,6 kg de la NXS.",
+      "remaining": [
+        "Embase secteur et détail des niveaux nominaux non établis par la brochure ; pas de transposition depuis la NXS.",
+        "TS/TRS des jacks Send/Return à confirmer ; ne pas déduire le brochage depuis Booth TRS."
+      ]
+    },
+    {
+      "id": "pioneer-dj-djm900-nexus-2",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "DJM-900NXS2",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "model",
+        "status",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "portStatus",
+        "powerW",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm-900nxs2_manual_EN.pdf",
+          "document": "Pioneer DJM-900NXS2, manuel constructeur — pages PDF 6, 7, 8, 9, 10"
+        },
+        {
+          "url": "https://www.pioneerdj.com/pl/news/2016/meet-the-new-cdj-2000nxs2-and-djm-900nxs2/",
+          "document": "Pioneer DJ, annonce constructeur 2016 : dimensions et masse DJM-900NXS2"
+        }
+      ],
+      "changes": "DJM-900NXS2 : quatre entrées ligne et quatre phono (et non six ligne/deux phono), quatre numériques, deux USB-B, un USB-A Send/Return et deux prises casque. Les niveaux de la génération NXS ne sont pas transposés.",
+      "remaining": [
+        "Consommation en W et niveaux nominaux propres à NXS2 non confirmés dans les documents lus ; ancienne puissance non validée retirée."
+      ]
+    },
+    {
+      "id": "pioneer-dj-djm900-nxs",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "DJM-900NXS",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "model",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "powerW",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm900nxs_manuel.pdf",
+          "document": "Pioneer DJM-900NXS, manuel constructeur — pages PDF 6, 7, 25"
+        }
+      ],
+      "changes": "DJM-900NXS originale : six entrées ligne stéréo et deux phono, quatre entrées numériques, un USB-B et MIDI DIN. Ne pas confondre avec NXS2 (quatre phono, deux USB-B et USB-A).",
+      "remaining": [
+        "TS/TRS des jacks Send/Return à confirmer ; ne pas déduire le brochage depuis Booth TRS."
+      ]
+    },
+    {
+      "id": "pioneer-dj-efx1000",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "EFX-1000",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "model",
+        "description",
+        "aliases",
+        "sources",
+        "ports",
+        "weightKg",
+        "depthMm",
+        "powerW"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1216656548.pdf",
+          "document": "Pioneer EFX-1000, manuel constructeur — pages PDF 9, 10, 19, 28"
+        }
+      ],
+      "changes": "EFX-1000 : effet stéréo avec prises RCA/jack alternatives, numérique coaxial et MIDI. Le sélecteur −10 dBV/+4 dBu concerne les entrées et sorties ; EFX LINK est une liaison propriétaire.",
+      "remaining": [
+        "Nombre de contacts/type mécanique EFX LINK et embase secteur à confirmer.",
+        "Câblage TS des jacks audio à confirmer par une spécification ou vue plus détaillée."
+      ]
+    },
+    {
+      "id": "pioneer-dj-rmx-1000-platinium-ltd-edition",
+      "reviewed": true,
+      "manufacturer": "Pioneer DJ",
+      "model": "RMX-1000-M (Platinum)",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "model",
+        "description",
+        "aliases",
+        "sources",
+        "weightKg"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_rmx1000platinum_manuel.pdf",
+          "document": "Pioneer remixbox, manuel logiciel : rejeté pour valider les prises matérielles — pages PDF 1"
+        },
+        {
+          "url": "https://www.pioneerdj.com/en/product/dj-effectors/rmx-1000-m/",
+          "document": "Pioneer DJ, page constructeur RMX-1000-M ; lien de notice matérielle indisponible (404)"
+        }
+      ],
+      "changes": "RMX-1000-M : édition Platinum du processeur RMX-1000, appareil unitaire. Les deux notices locales concernent remixbox et le plug-in, pas la connectique matérielle. Aucune prise déduite de ces logiciels.",
+      "remaining": [
+        "Notice matérielle RMX-1000-M/RMX-1000 constructeur à récupérer ; connecteurs, niveaux, gabarit et consommation restent à valider."
+      ]
+    },
+    {
+      "id": "pro-ject-tuner-box-s",
+      "reviewed": true,
+      "manufacturer": "Pro-Ject",
+      "model": "Tuner Box S",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "description",
+        "sources",
+        "ports",
+        "weightKg",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Pro-Ject_TunerBoxS_manuel.pdf",
+          "document": "Pro-Ject Tuner Box S, notice constructeur révision 2011.12.01 — pages PDF 2, 6"
+        }
+      ],
+      "changes": "Tuner Box S : sortie ligne RCA 0,775 Vrms, antenne et triggers 2,5 mm séparés. Profondeur 115 mm prises incluses (104 mm sans prises) et masse 565 g hors bloc.",
+      "remaining": [
+        "Variante d’antenne Europe/USA et désignation mécanique à confirmer.",
+        "Connecteur trigger 2,5 mm non représentable exactement dans le catalogue actuel ; pas assimilé à mini-jack 3,5 mm.",
+        "Notice contradictoire : bloc 9 V/300 mA AC, consommation 9 V/70 mA DC ; aucun W secteur déduit."
+      ]
+    },
+    {
+      "id": "qsc-touchmix-16",
+      "reviewed": true,
+      "manufacturer": "QSC",
+      "model": "TouchMix-16",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "weightKg",
+        "sources",
+        "ports",
+        "depthMm",
+        "description",
+        "portStatus"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/qsc_touchmix16_manuel-uk.pdf",
+          "document": "QSC TouchMix-8/16, manuel constructeur firmware 2.1 — pages PDF 32, 33, 35, 68, 80"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/qsc_touchmix16_ft.pdf",
+          "document": "QSC TouchMix-16, fiche constructeur 2014 — pages PDF 3, 4"
+        }
+      ],
+      "changes": "TouchMix-16 : XLR sur 1–12, combos sur 13–16 (corrigé), deux entrées stéréo TRS, dix départs Aux et écoute. Deux USB-A hôtes ; P48 uniquement sur les XLR, jamais sur les jacks. Masse retirée : le document associe 5,9 lb à 2,98 kg, valeurs incompatibles.",
+      "remaining": [
+        "Référence mécanique de la prise du bloc externe et consommation en W à confirmer.",
+        "Masse nette contradictoire dans les documents (5,9 lb / 2,98 kg), non choisie arbitrairement."
+      ]
+    },
+    {
+      "id": "rane-ttm57sl",
+      "reviewed": true,
+      "manufacturer": "Rane",
+      "model": "TTM 57SL",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "status",
+        "sources",
+        "ports",
+        "weightKg",
+        "depthMm",
+        "description"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rane_ttm57slmanual22.pdf",
+          "document": "Rane TTM 57SL, manuel constructeur 2.2 — pages PDF 7, 9, 55"
+        },
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/rane_ttm57sldat.pdf",
+          "document": "Rane TTM 57SL, fiche constructeur — pages PDF 2, 4"
+        }
+      ],
+      "changes": "TTM 57SL : quatre paires RCA phono/ligne commutables, sorties Main/Booth/Aux du même mix, boucle FlexFX TS et deux prises casque. USB : 4 canaux par sens, pas 8 par sens. Pas de fantôme sur l’entrée micro.",
+      "remaining": [
+        "Consommation en W non publiée dans les pages lues."
+      ]
+    },
+    {
+      "id": "tascam-ss-cdr200",
+      "reviewed": true,
+      "manufacturer": "Tascam",
+      "model": "SS-CDR200",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "weightKg",
+        "powerW",
+        "depthMm",
+        "description",
+        "portStatus"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tascam_ss-cdr200_manuel.pdf",
+          "document": "Tascam SS-CDR200/SS-R200/SS-R100, manuel constructeur — pages PDF 15, 80, 81"
+        }
+      ],
+      "changes": "SS-CDR200 (et non SS-R100/R200) : XLR ligne +4 dBu, RCA ligne −10 dBV, numérique RCA, télécommandes distinctes. Consommation 23 W à 110–240 V (20 W à 100 V), masse 3,7 kg. USB stockage/clavier, pas une carte son USB.",
+      "remaining": [
+        "Connecteurs 2,5 mm TRS et PS/2 non représentables exactement dans le catalogue actuel ; laissés non précisés, avec leur désignation exacte."
+      ]
+    },
+    {
+      "id": "universal-audio-uad-2-live-rack",
+      "reviewed": true,
+      "manufacturer": "Universal Audio",
+      "model": "UAD-2 Live Rack",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "status",
+        "description",
+        "sources",
+        "ports",
+        "portStatus",
+        "rackU",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/uad2_live_rack_manual.pdf",
+          "document": "Universal Audio UAD-2 Live Rack, manuel constructeur 190523 — pages PDF 13, 14, 21, 22, 23, 148, 149"
+        }
+      ],
+      "changes": "UAD-2 Live Rack : MADI optique SC uniquement, Word Clock BNC et deux Thunderbolt 3. FireWire 1394b sans fonction utilisateur, non proposé. Deux alimentations redondantes : 30 W pour l’unité, 45 W maximum avec périphérique Thunderbolt alimenté (budget retenu), pas 45 W par PSU.",
+      "remaining": []
+    },
+    {
+      "id": "xta-dp448",
+      "reviewed": true,
+      "manufacturer": "XTA",
+      "model": "DP448",
+      "statusBefore": "community",
+      "statusAfter": "verified",
+      "changedFields": [
+        "status",
+        "description",
+        "sources",
+        "ports",
+        "portStatus",
+        "weightKg",
+        "powerW",
+        "depthMm",
+        "rackU"
+      ],
+      "sources": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186147054.pdf",
+          "document": "XTA série 4 / DP448, manuel constructeur 1.10 — pages PDF 10, 31, 32, 50"
+        }
+      ],
+      "changes": "DP448 : 4 entrées et 8 sorties analogiques, 3,3 kg net (pas le poids de transport), consommation <30 W (borne utilisée pour le budget). AES partage les entrées A/C et les sorties 1/3/5/7 ; la fiche représente le mode analogique, sans ajouter de fausses prises numériques.",
+      "remaining": [
+        "Le mode AES est documenté mais la fiche utilise les ports analogiques par défaut ; changer le signal des prises partagées pour un projet AES.",
+        "Niveau analogique nominal non publié dans les pages lues ; +22 dBu est un seuil maximal, pas +4 dBu nominal."
+      ]
+    },
+    {
+      "id": "yamaha-d5000",
+      "reviewed": true,
+      "manufacturer": "Yamaha",
+      "model": "D5000",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "description",
+        "sources",
+        "ports",
+        "weightKg",
+        "powerW",
+        "rackU",
+        "depthMm"
+      ],
+      "sources": [
+        {
+          "url": "https://usa.yamaha.com/files/download/other_assets/3/319313/D5000E1.pdf",
+          "document": "Yamaha D5000, manuel constructeur — pages PDF 6, 7, 31, 34"
+        }
+      ],
+      "changes": "D5000 : deux canaux analogiques, chacun sur XLR et TRS alternatifs, MIDI et deux pédales. Niveaux +4/−20 dBm selon commutateurs ; −20 ne signifie pas −10 dBV. Dimensions et 25 W repris du manuel D5000 malgré le texte YDG2030 sur la couverture extraite.",
+      "remaining": [
+        "Types de jacks des pédales et raccordement mécanique secteur non confirmés ; pas d’embase IEC supposée."
+      ]
+    }
+  ]
+}

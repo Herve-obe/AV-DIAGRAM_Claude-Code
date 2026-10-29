@@ -1,6 +1,10 @@
-# État d'avancement (mise à jour du 2026-10-28)
+# État d'avancement (mise à jour du 2026-10-29)
 
-## Situation actuelle — 0.5.20
+## Situation actuelle — 0.5.21
+
+Deuxième lot audio borné : 20 fiches examinées avec un seul agent, 8 passent Vérifié et 12 restent Communauté avec réserves explicites. Les prises USB, générations Pioneer, entrées TouchMix-16, sorties et niveaux audio, poids nets et budgets documentés sont corrigés. Bibliothèque active : 753 Vérifié, 953 Communauté et 30 génériques. Le chantier initial totalise 498 fiches examinées ; 722 restent non examinées. [Bilan, sources et données encore manquantes](inventaire/lot-audio-02-2026-10-29.md). Aucun troisième lot lancé. Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer dans la CI.
+
+## Version précédente — 0.5.20
 
 Les neuf compléments du 29 octobre sont intégrés : puissances choisies pour les budgets, poids Attero et profondeurs Distressor/Lexicon renseignés, avec origine publiée/déclarée/calculée et réserves explicites. Les six retraits précédents restent appliqués ; les anciennes réponses ne sont pas rejouées. Bibliothèque active : 745 Vérifié, 961 Communauté et 30 génériques. Quatre fiches repassent Communauté à cause de valeurs actives encore déclaratives ou contradictoires. [Détail des compléments, sources et limites](inventaire/complements-lot-audio-01-2026-10-29.md). Aucun nouveau lot lancé ; 742 références non examinées restent en attente. Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer après publication.
 

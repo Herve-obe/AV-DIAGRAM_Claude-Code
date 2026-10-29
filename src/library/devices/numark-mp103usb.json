@@ -5,19 +5,23 @@
   "model": "MP103USB",
   "pictogram": "recorder",
   "status": "community",
-  "powerW": 20,
   "weightKg": 4.6,
   "rackU": 2,
   "sources": [
     {
-      "url": "https://im.static-thomann.de/pics/atg/atgdata/document/specs/267417_datenblatt.pdf",
-      "document": "Thomann, fiche technique MP103USB (revendeur)",
-      "accessed": "2026-10-08"
-    },
-    {
       "url": "https://www.gak.co.uk/en/numark-mp103usb/52723",
       "document": "GAK, fiche MP103USB (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.numark.com/images/product_downloads/mp103usb___quickstart_guide___v1.2.pdf",
+      "document": "Numark MP103USB, Quickstart v1.2 — pages PDF 4, 6, 23",
+      "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://im.static-thomann.de/pics/atg/atgdata/document/specs/267417_datenblatt.pdf",
+      "document": "Numark MP103USB, fiche constructeur — pages PDF 1",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -27,8 +31,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Symétrique"
+      "format": "Sortie ligne ; tension de sortie publiée 1,9 V ±0,2 V, sans nominal +4 dBu/−10 dBV établi"
     },
     {
       "id": "outR",
@@ -36,8 +39,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Symétrique"
+      "format": "Sortie ligne ; tension de sortie publiée 1,9 V ±0,2 V, sans nominal +4 dBu/−10 dBV établi"
     },
     {
       "id": "outRca",
@@ -45,9 +47,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
       "channels": 2,
-      "format": "1,9 V"
+      "format": "Sortie ligne ; tension de sortie publiée 1,9 V ±0,2 V, sans nominal +4 dBu/−10 dBV établi"
     },
     {
       "id": "usb",
@@ -63,7 +64,19 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "115-230 V, 20 W"
+      "format": "Secteur 115/230 V commutable ; embase à identifier"
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Sortie numérique coaxiale",
+      "channels": 2
     }
-  ]
+  ],
+  "depthMm": 269,
+  "description": "Lecteur CD/USB : sorties analogiques XLR et RCA du même programme, S/PDIF coaxial ajouté. USB-A réservé aux fichiers MP3 sur stockage ; niveaux nominaux et consommation précédemment supposés retirés.",
+  "portStatus": "pending"
 }

@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Universal Audio",
   "model": "UAD-2 Live Rack",
-  "status": "community",
-  "description": "Processeur multi-effets MADI 16 canaux",
+  "status": "verified",
+  "description": "UAD-2 Live Rack : MADI optique SC uniquement, Word Clock BNC et deux Thunderbolt 3. FireWire 1394b sans fonction utilisateur, non proposé. Deux alimentations redondantes : 30 W pour l’unité, 45 W maximum avec périphérique Thunderbolt alimenté (budget retenu), pas 45 W par PSU.",
   "aliases": [
     "Universal Audio UAD-2 Live Rack"
   ],
@@ -23,12 +23,80 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/uad2_live_rack_manual.pdf",
-      "document": "Novelty — UAD-2 Live Rack : UAD-2 Live Rack",
-      "accessed": "2026-10-19"
+      "document": "Universal Audio UAD-2 Live Rack, manuel constructeur 190523 — pages PDF 13, 14, 21, 22, 23, 148, 149",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "madiIn",
+      "name": "MADI In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "format": "SC optique multimode ; flux AES10 64 canaux à 44,1/48 kHz, 32 à 88,2/96 kHz",
+      "channels": 64
+    },
+    {
+      "id": "madiOut",
+      "name": "MADI Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "format": "SC optique multimode ; mêmes limites de fréquence, 16 canaux traités par unité",
+      "channels": 64
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "75 Ω, terminaison commutable"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word clock standard 1x"
+    },
+    {
+      "id": "tb1",
+      "name": "Thunderbolt 3 hôte",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 3 obligatoire ; USB-C seul ne suffit pas. Contrôle du DSP, pas une interface audio Thunderbolt"
+    },
+    {
+      "id": "tb2",
+      "name": "Thunderbolt 3 chaînage",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 3 uniquement ; périphérique externe possible"
+    },
+    {
+      "id": "ac1",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Secteur IEC"
+    },
+    {
+      "id": "ac2",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Secteur IEC"
+    }
+  ],
   "weightKg": 4.1,
-  "powerW": 45
+  "powerW": 45,
+  "rackU": 1,
+  "depthMm": 304.8
 }
