@@ -1,6 +1,10 @@
 # État d'avancement (mise à jour du 2026-10-28)
 
-## Situation actuelle — 0.5.19
+## Situation actuelle — 0.5.20
+
+Les neuf compléments du 29 octobre sont intégrés : puissances choisies pour les budgets, poids Attero et profondeurs Distressor/Lexicon renseignés, avec origine publiée/déclarée/calculée et réserves explicites. Les six retraits précédents restent appliqués ; les anciennes réponses ne sont pas rejouées. Bibliothèque active : 745 Vérifié, 961 Communauté et 30 génériques. Quatre fiches repassent Communauté à cause de valeurs actives encore déclaratives ou contradictoires. [Détail des compléments, sources et limites](inventaire/complements-lot-audio-01-2026-10-29.md). Aucun nouveau lot lancé ; 742 références non examinées restent en attente. Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer après publication.
+
+## Version précédente — 0.5.19
 
 Les vingt réponses utilisateur au lot audio 01 sont traitées : six équipements retirés de la bibliothèque générale, quatorze conservés, onze fiches corrigées ou annotées. Les projets enregistrés gardent leurs équipements et leur patch. Le SEL110-2 et le PCM96SUR-A DB25/FireWire sont maintenant identifiés ; les valeurs déclarées sans justificatif et les contradictions de notices restent explicites. Bibliothèque active : 749 Vérifié, 957 Communauté et 30 génériques. Aucun nouveau lot lancé ; 742 références non examinées restent en attente. [Décisions, corrections et réserves](inventaire/retours-lot-audio-01-2026-10-28.md). Validation locale : 479 tests validés (460 hors catalogue, 19 catalogue), 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer après publication.
 

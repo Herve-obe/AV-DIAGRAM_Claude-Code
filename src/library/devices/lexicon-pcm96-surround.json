@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Lexicon",
   "model": "PCM96 Surround (PCM96SUR-A, FireWire)",
-  "status": "verified",
-  "description": "PCM96 Surround PCM96SUR-A, variante DB25 analogique/numérique avec FireWire confirmée par l’utilisateur. Trois DB25 : six entrées analogiques, six sorties analogiques, six entrées/sorties AES. Deux FireWire 400 partagent le même flux, pas douze canaux indépendants. MIDI, deux Ethernet de commande, Word Clock et IEC. Manuel FR : 1U, poids 6,5 kg, 26 W max. Profondeur non tranchée : 16 pouces et 317,5 mm figurent ensemble dans la notice.",
+  "status": "community",
+  "description": "PCM96 Surround PCM96SUR-A, variante DB25 analogique/numérique avec FireWire. Trois DB25 : six entrées analogiques, six sorties analogiques et six entrées/sorties AES ; deux FireWire sur le même bus, MIDI, Ethernet, Word Clock et IEC. 1U, 6,5 kg, 26 W max. Gabarit métrique retenu du manuel recopié par l’utilisateur : 483 × 44,5 × 317,5 mm (L × H × P). Réserve : le document indique aussi 16 pouces pour la profondeur (406,4 mm), incompatible avec 317,5 mm ; valeur métrique retenue sans validation physique.",
   "aliases": [
     "PCM96SUR",
     "lexicon PCM96 Surround",
@@ -42,6 +42,15 @@
     {
       "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Variante DB25, FireWire présents ; 6,5 kg ; dimensions copiées du manuel, incohérence pouces/mm conservée en réserve.",
       "accessed": "2026-10-28"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Dimensions retransmises : 483 × 44,5 × 317,5 mm et 19 × 1,75 × 16 pouces. Valeur métrique 317,5 mm retenue avec mention de la contradiction.",
+      "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://adn.harmanpro.com/product_documents/documents/1018_1602284184/PCM96_Surround-Manual-French_original.pdf",
+      "document": "Lexicon PCM96 Surround, manuel FR fourni, profondeur métrique 317,5 mm contradictoire avec 16 pouces ; URL Harman non chargée, copie du même manuel déjà disponible chez Novelty utilisée",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -160,5 +169,6 @@
   ],
   "rackU": 1,
   "powerW": 26,
-  "weightKg": 6.5
+  "weightKg": 6.5,
+  "depthMm": 317.5
 }

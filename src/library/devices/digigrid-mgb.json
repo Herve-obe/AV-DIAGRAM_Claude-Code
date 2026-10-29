@@ -48,12 +48,16 @@
     },
     {
       "url": "https://digigrid.net/wp-content/uploads/2022/08/DiGiGrid-Complete-2022-Web.pdf",
-      "document": "DiGiGrid catalogue 2022, MGB/MGO : Professional grade screw lock power connector",
-      "accessed": "2026-10-28"
+      "document": "DiGiGrid Product Brochure 2022, page PDF 25 : MGB/MGO, Professional grade screw lock power connector ; aucune consommation en W publiée",
+      "accessed": "2026-10-29"
     },
     {
       "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Poids/dimensions fournis ; connecteur propriétaire et bloc fourni. Calcul 5 V × 2 A non repris comme consommation.",
       "accessed": "2026-10-28"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Conserver 10 W pour le budget, d’après le calcul de capacité 5 V / 2 A du bloc ; connecteur à verrouillage vissé.",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -116,14 +120,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Alimentation DC 5 V, connecteur à verrouillage / bloc DiGiGrid fourni ; référence mécanique à confirmer, ne pas supposer une fiche DC standard interchangeable"
+      "format": "DC 5 V, verrouillage vissé professionnel (catalogue DiGiGrid 2022) ; bloc dédié fourni, référence mécanique / brochage exacts non publiés ; ne pas supposer un connecteur standard interchangeable"
     }
   ],
   "aliases": [
     "DigiGrid MGB"
   ],
-  "description": "Interface MADI coaxial / SoundGrid avec deux entrées et deux sorties BNC distinctes, un RJ45 et Word Clock In. Capacités : 112/128 canaux à 44,1/48 kHz, 56/64 à 88,2/96 kHz. Page Waves / manuel v2 : L × H × P = 106 × 148,2 × 29 mm, poids unitaire 0,4 kg ; la fiche DiGiGrid 2020 indique 0,5 kg. Bloc externe 5 V / 2 A fourni, prise à verrouillage ; 10 W calculés sur le bloc ne constituent pas une consommation réelle publiée.",
+  "description": "Interface MADI coaxial / SoundGrid, deux entrées et deux sorties BNC distinctes, RJ45 SoundGrid et Word Clock In. Capacité 112/128 canaux à 44,1/48 kHz, moitié à 88,2/96 kHz. Dimensions selon Waves L × H × P : 106 × 148,2 × 29 mm ; poids 0,4 kg (fiche DiGiGrid 2020 : 0,5 kg). Alimentation 5 V / 2 A à verrouillage vissé professionnel. Puissance retenue pour les budgets sur choix utilisateur : 10 W, calcul 5 V × 2 A du bloc ; pas une consommation réelle mesurée ou publiée.",
   "weightKg": 0.4,
   "depthMm": 29,
-  "portStatus": "pending"
+  "portStatus": "pending",
+  "powerW": 10
 }

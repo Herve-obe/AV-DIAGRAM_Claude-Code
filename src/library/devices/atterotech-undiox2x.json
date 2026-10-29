@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Attero Tech",
   "model": "unDIO2x2",
-  "status": "verified",
-  "description": "Interface Dante 2 entrées / 2 sorties analogiques sur Euroblock 3 contacts. Alimentation PoE 802.3af ou 12 V DC ; consommation inférieure à 3 W. Fantôme +24 V uniquement : aucune alimentation P48 revendiquée. Dimensions H × L × P : environ 26,9 × 163,8 × 87,6 mm. La référence commerciale Novelty « unDIOx2x » est conservée comme alias. Le manuel unDIO2x2+ transmis par l’utilisateur concerne une autre génération (+48 V / <5 W) et ne valide pas le poids de ce modèle +24 V.",
+  "status": "community",
+  "description": "Interface unDIO2x2 sans +, deux entrées/sorties analogiques sur Euroblock et Dante. Fantôme +24 V ; consommation <3 W selon sa notice d’origine. Poids retenu : 0,363 kg (0,8 lb arrondies), déclaré par l’utilisateur identique à la version +, sans confirmation constructeur du poids de l’ancienne génération. Dimensions H × L × P : environ 26,9 × 163,8 × 87,6 mm. Aucun gain ni fantôme +48 V du modèle + n’est transposé.",
   "aliases": [
     "unDIOx2x",
     "Atterotech unDIOx2x",
@@ -32,6 +32,15 @@
     {
       "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Conserver ; désignation Novelty unDIOx2x confirmée. Poids 0,8 lb proposé via un manuel du modèle + : non appliqué.",
       "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://seesound.es/productos/pdfs/Datasheet_unDIO2x2+-7723-7724.pdf",
+      "document": "Attero Tech unDIO2x2+ Product Brief, fiche fournie : concerne le modèle + ; ne valide pas à elle seule le poids de l’unDIO2x2 sans +",
+      "accessed": "2026-10-29"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Même poids que la version + : 0,8 lb ; valeur retenue 0,363 kg après conversion, autres caractéristiques de l’ancien modèle conservées.",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -90,5 +99,6 @@
     }
   ],
   "powerW": 3,
-  "depthMm": 87.6
+  "depthMm": 87.6,
+  "weightKg": 0.363
 }

@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Focusrite",
   "model": "RedNet D16R",
-  "status": "verified",
-  "description": "Interface 16 × 16 AES3 / Dante, version D16R à deux alimentations IEC et deux etherCON redondants ou commutés. Les entrées XLR et S/PDIF remplacent respectivement les canaux 1–2 et 3–4 des DB25 ; les sorties sont des copies, pas des canaux en plus. 30 VA (pas 30 W), 1U, L × H × P : 482,6 × 44,5 × 263 mm ; poids net 3,84 kg. Retour utilisateur : 25 W annoncés, sans source justificative ; cette valeur en W reste à confirmer et n’est pas utilisée dans les budgets électriques.",
+  "status": "community",
+  "description": "Interface RedNet D16R 16 × 16 AES3 / Dante ; deux alimentations IEC et deux etherCON. XLR/S/PDIF remplacent ou recopient des paires du DB25, sans capacité supplémentaire. 1U, 482,6 × 44,5 × 263 mm, 3,84 kg. Constructeur : 30 VA. Puissance retenue pour les budgets sur choix explicite utilisateur : 25 W. Cette valeur déclarée n’est pas une conversion démontrée des 30 VA (facteur de puissance non documenté).",
   "aliases": [
     "Focusrite RedNet D16R"
   ],
@@ -29,6 +29,10 @@
     {
       "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Consommation 25 W déclarée sans source, non substituée aux 30 VA du manuel.",
       "accessed": "2026-10-28"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Garder 25 W pour les budgets ; valeur utilisateur distincte des 30 VA publiés, sans prétendre à une conversion vérifiée.",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -138,5 +142,6 @@
   ],
   "weightKg": 3.84,
   "rackU": 1,
-  "depthMm": 263
+  "depthMm": 263,
+  "powerW": 25
 }
