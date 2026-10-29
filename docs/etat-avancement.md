@@ -1,6 +1,12 @@
 # État d'avancement (mise à jour du 2026-10-29)
 
-## Situation actuelle — 0.5.21
+## Situation actuelle — 0.5.22
+
+Le sélecteur d’affichage devient **Câbles / Multi**, avec l’infobulle « Mode d'affichage des liaisons ». Le premier mode conserve les liaisons séparées, le second regroupe les liaisons déjà affectées aux multipaires ; les préférences existantes gardent leur sens. Le manuel et la traduction anglaise suivent ce renommage.
+
+À la demande de l’utilisateur, chaque lot documentaire doit être présenté dans un tableau interactif avant validation finale. Le contrôle documentaire du lot audio 02 est publié, mais sa validation utilisateur est **en attente** du tableau de vingt lignes fourni dans la conversation. Les 8 statuts techniques Vérifié / 12 Communauté ne constituent pas un accord utilisateur. Les réponses partielles ne valident pas les lignes absentes. Voir la [règle de vérification par lots](inventaire/methode-verification-par-lots.md) et le [lot audio 02](inventaire/lot-audio-02-2026-10-29.md). Aucun nouveau lot lancé. Contrôles ciblés : traductions synchronisées, clés de préférences conservées, saisie/restauration/envoi du tableau et transmission partielle validés. Manuel HTML/PDF régénéré (22 chapitres, 10 captures) ; compilation réussie. Les installateurs et le survol dans l’application native restent à confirmer après publication.
+
+## Version précédente — 0.5.21
 
 Deuxième lot audio borné : 20 fiches examinées avec un seul agent, 8 passent Vérifié et 12 restent Communauté avec réserves explicites. Les prises USB, générations Pioneer, entrées TouchMix-16, sorties et niveaux audio, poids nets et budgets documentés sont corrigés. Bibliothèque active : 753 Vérifié, 953 Communauté et 30 génériques. Le chantier initial totalise 498 fiches examinées ; 722 restent non examinées. [Bilan, sources et données encore manquantes](inventaire/lot-audio-02-2026-10-29.md). Aucun troisième lot lancé. Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint sans erreur (quatre avertissements préexistants). Installateurs et essais natifs à confirmer dans la CI.
 

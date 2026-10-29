@@ -120,7 +120,7 @@ Sélectionner un câble pour renseigner sa longueur, sa référence, ses canaux 
 
 Relier en série raccorde les sorties sélectionnées aux entrées libres d'une destination, à partir d'un port choisi. Contrôler l'ordre de départ et d'arrivée avant d'appliquer. Un multipaire regroupe plusieurs liaisons sous un câble physique commun ; les paires et les extrémités restent distinctes.
 
-La vue Flux montre les liaisons logiques ; la vue Câbles regroupe les branches d'un multipaire. Le tracé automatique contourne les blocs et ordonne les voies. En sélectionnant un câble, déplacer sa poignée pour régler un coude ; les deux axes sont pris en charge selon l'orientation des ports. Les flèches déplacent la poignée de 5 unités et Maj multiplie ce pas par dix. Réinitialiser le tracé rend la main au calcul automatique. Annuler rétablit le réglage précédent.
+Le sélecteur Câbles / Multi porte l’infobulle « Mode d'affichage des liaisons ». Câbles montre chaque liaison séparément ; Multi regroupe les liaisons affectées à un même multipaire. Sans affectation à un multipaire, les deux modes peuvent sembler identiques. Ce choix modifie l’affichage sans changer les connexions. Le tracé automatique contourne les blocs et ordonne les voies. En sélectionnant un câble, déplacer sa poignée pour régler un coude ; les deux axes sont pris en charge selon l'orientation des ports. Les flèches déplacent la poignée de 5 unités et Maj multiplie ce pas par dix. Réinitialiser le tracé rend la main au calcul automatique. Annuler rétablit le réglage précédent.
 
 ## 8. Calques et travail collaboratif en LAN
 
