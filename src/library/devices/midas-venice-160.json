@@ -29,6 +29,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1190027584.pdf",
       "document": "Midas Venice 160/240/320, brochure constructeur — pages PDF 8, 9, 10, 11, 15",
       "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.proscene.ch/data/web/proscene.ch/uploads/database/S02040/midas_venice_manual.pdf",
+      "document": "Midas Venice, manuel constructeur : consommations 75/95/120 W, EPS1200 réservé aux 240/320 et talkback +48 V permanent — pages PDF 4, 21, 25",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -634,8 +639,9 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Entrée micro avec alimentation fantôme permanente ; tension non quantifiée dans la brochure",
-      "level": "mic"
+      "format": "Entrée micro XLR avec +48 V permanent (manuel constructeur p. 21)",
+      "level": "mic",
+      "phantom": "supplied"
     },
     {
       "id": "psu",
@@ -652,5 +658,6 @@
   ],
   "weightKg": 16.4,
   "depthMm": 568,
-  "description": "Venice 160 : 8 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. Alimentation EPS1200 externe optionnelle, non fournie implicitement."
+  "description": "Venice 160 : 8 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. La Venice 160 ne reçoit pas l’EPS1200 externe. Consommation constructeur : 75 W (manuel p. 25).",
+  "powerW": 75
 }

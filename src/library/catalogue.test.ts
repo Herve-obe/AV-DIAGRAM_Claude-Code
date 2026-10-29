@@ -190,7 +190,7 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
 
   it('range les appareils par fonction réelle', () => {
     expect(template('akai-apc40')).toMatchObject({ family: 'control', domain: 'sound' })
-    expect(template('korg-kaoss-pad-kp3-plus').family).toBe('processing')
+    expect(template('yamaha-d5000').family).toBe('processing')
     expect(template('toa-pa031').family).toBe('amplification')
     expect(template('taiden-tmx-0808-sdi')).toMatchObject({ family: 'videoRouting', domain: 'image' })
     expect(template('panasonic-aw-rp50')).toMatchObject({ family: 'control', domain: 'image' })
@@ -226,9 +226,10 @@ describe('appareils unitaires — décision du 26 octobre', () => {
   const files = import.meta.glob<EquipmentTemplate>('./devices/*.json', { eager: true, import: 'default' })
   const audit: { entries: { id: string; decision: 'excluded' | 'normalized'; modelAfter?: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/ensembles-audit-2026-10-26.json', import.meta.url), 'utf8'))
   const feedback: { records: { id: string; decision: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/retours-lot-audio-01-2026-10-28.json', import.meta.url), 'utf8'))
+  const feedback02: typeof feedback = JSON.parse(readFileSync(new URL('../../docs/inventaire/retours-lot-audio-02-2026-10-29.json', import.meta.url), 'utf8'))
 
   it('applique toutes les exclusions sans altérer les appareils enregistrés dans les anciens projets', () => {
-    for (const row of [...audit.entries.filter(r => r.decision === 'excluded'), ...feedback.records.filter(r => r.decision === 'Retirer')]) {
+    for (const row of [...audit.entries.filter(r => r.decision === 'excluded'), ...feedback.records.filter(r => r.decision === 'Retirer'), ...feedback02.records.filter(r => r.decision === 'Retirer')]) {
       expect(LIBRARY_INDEX.has(row.id), row.id).toBe(false)
       const original = Object.values(files).find(t => t.id === row.id)!
       expect(original, row.id).toBeDefined()

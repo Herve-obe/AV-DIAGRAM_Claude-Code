@@ -1,6 +1,12 @@
 # État d'avancement (mise à jour du 2026-10-29)
 
-## Situation actuelle — 0.5.22
+## Situation actuelle — 0.5.23
+
+Les vingt décisions du lot audio 02 sont appliquées : douze équipements retirés du catalogue général, huit conservés et validés par l’utilisateur. L’instruction explicite ultérieure valide le D5000 : cordon secteur captif avec fiche de type C déclaré, prises de pédalier omises, quatre jacks audio conservés. Les puissances Midas 75/95/120 W et QSC 42 W sont documentées ; le poids QSC 2,98 kg est retenu sur choix utilisateur avec contradiction livres/kg signalée. Le XTA précise la commutation AES sur les mêmes XLR. Les réserves mécaniques restent techniques et ne remettent pas les décisions utilisateur en attente.
+
+Bibliothèque active : 749 Vérifié, 945 Communauté et 30 génériques ; 722 références du chantier initial restent non examinées. Les anciens projets gardent leurs appareils et ports. [Décisions, sources et réserves](inventaire/retours-lot-audio-02-2026-10-29.md). Validation locale : 479 tests réussis, 6 ignorés ; types et compilation réussis, lint 0 erreur / 4 avertissements préexistants. Installateurs et essais natifs à confirmer dans GitHub Actions. Aucun nouveau lot lancé ; chaque prochain lot sera présenté dans son tableau avant validation finale.
+
+## Version précédente — 0.5.22
 
 Le sélecteur d’affichage devient **Câbles / Multi**, avec l’infobulle « Mode d'affichage des liaisons ». Le premier mode conserve les liaisons séparées, le second regroupe les liaisons déjà affectées aux multipaires ; les préférences existantes gardent leur sens. Le manuel et la traduction anglaise suivent ce renommage.
 

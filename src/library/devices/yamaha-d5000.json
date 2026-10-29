@@ -6,7 +6,7 @@
   "manufacturer": "Yamaha",
   "model": "D5000",
   "status": "community",
-  "description": "D5000 : deux canaux analogiques, chacun sur XLR et TRS alternatifs, MIDI et deux pédales. Niveaux +4/−20 dBm selon commutateurs ; −20 ne signifie pas −10 dBV. Dimensions et 25 W repris du manuel D5000 malgré le texte YDG2030 sur la couverture extraite.",
+  "description": "D5000 : deux canaux analogiques sur XLR et TRS alternatifs ; niveaux +4/−20 dBm commutables, MIDI. Les deux prises de pédalier sont omises à la demande de l’utilisateur ; les quatre jacks audio L/R d’entrée et de sortie sont conservés. Cordon secteur captif avec fiche de type C déclaré puis validé par l’utilisateur le 29 octobre 2026. Puissance 25 W et dimensions reprises du manuel constructeur.",
   "aliases": [
     "YAMAHA D5000"
   ],
@@ -19,6 +19,10 @@
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/3/319313/D5000E1.pdf",
       "document": "Yamaha D5000, manuel constructeur — pages PDF 6, 7, 31, 34",
+      "accessed": "2026-10-29"
+    },
+    {
+      "document": "Retour utilisateur lot audio 02 révision 822, puis instruction explicite « Valide le D5000 selon mes réponses », 29 octobre 2026 : omettre les prises de pédalier, conserver les prises audio documentées ; cordon secteur captif avec fiche de type C déclaré, non recoupé par une photo constructeur.",
       "accessed": "2026-10-29"
     }
   ],
@@ -112,28 +116,12 @@
       "format": "MIDI Out ou Thru commutable"
     },
     {
-      "id": "bypass",
-      "name": "Bypass / Program Inc-Dec",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Pédale jack ; contacts à confirmer"
-    },
-    {
-      "id": "trigger",
-      "name": "Trigger",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Pédale jack ; contacts à confirmer"
-    },
-    {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Cordon secteur captif",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Secteur 230 V version générale ; type mécanique du raccordement non confirmé"
+      "format": "Cordon intégré à l’appareil, fiche secteur de type C déclarée par l’utilisateur ; version générale 230 V. Pas d’embase IEC sur l’appareil."
     }
   ],
   "portStatus": "pending",
