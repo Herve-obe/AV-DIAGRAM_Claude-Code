@@ -7,7 +7,7 @@
     "tree": "bfd3481c97c153c5e66799fa345a8b7fc2a2a366",
     "branch": "codex/ia-locale"
   },
-  "phase": "awaiting_user_validation_after_tri",
+  "phase": "tri_user_decisions_complete_technical_proposals_pending",
   "scope": "Toutes les références actives : retrait explicite DJ/CD et équipements grand public certains, puis audit des informations manquantes et tableaux de validation.",
   "counts": {
     "active": 1694,
@@ -20,7 +20,13 @@
       "generic": 30
     },
     "researchedThisPass": 40,
-    "reusedAudioPending": 20
+    "reusedAudioPending": 20,
+    "afterUserDecisions": {
+      "real": 1646,
+      "verified": 741,
+      "community": 905,
+      "generic": 30
+    }
   },
   "partitions": {
     "audio": {
@@ -145,29 +151,7 @@
     "novelty-gobos",
     "novelty-cdxadapt"
   ],
-  "ambiguous": [
-    "fohhn-fp22-cd-rx",
-    "fohhn-fp22-cd-rx-tx",
-    "fohhn-fp-22-rx",
-    "fohhn-fp-22-rxtx",
-    "prozor-dac001",
-    "shure-se112",
-    "gopro-hero-12-black",
-    "gopro-hero-3-black-edition-surf",
-    "panasonic-dc-gh5",
-    "panasonic-dmc-gh4",
-    "panasonic-dmc-gh5",
-    "dell-g5-15-5590-noir-rtx-2060-hexa-core-i7",
-    "starway-jupiter",
-    "divers-starflash",
-    "sunlitlux-tl2001-6-13w-4000-k",
-    "sunlitlux-tl2001-6-13w-6500-k",
-    "sunlitlux-tl2001-6-21w-4000-k",
-    "sunlitlux-tl2001-6-21w-6500-k",
-    "sunlitlux-tl2001-6-28w-4000-k",
-    "sunlitlux-tl2001-6-28w-6500-k",
-    "chauvet-dj-bank"
-  ],
+  "ambiguous": [],
   "research": {
     "audio03": {
       "status": "already_prepared_awaiting_user",
@@ -326,5 +310,87 @@
       ],
       "tri": false
     }
+  ],
+  "publication": {
+    "version": "0.5.25",
+    "commit": "eed6f49094f3c007ee46420e6ae3d3c2151ccee7",
+    "tree": "52ce14d9d5b8770c327d3599e9c2a8ad1adfee55",
+    "files": 17,
+    "deleted": 0,
+    "deviceSourceChanges": 0,
+    "branch": "codex/ia-locale",
+    "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
+    "draft": true,
+    "runs": [
+      {
+        "id": 41231105875,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231105875",
+        "status": "in_progress",
+        "conclusion": null,
+        "event": "pull_request"
+      },
+      {
+        "id": 41231102225,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231102225",
+        "status": "in_progress",
+        "conclusion": null,
+        "event": "push"
+      }
+    ]
+  },
+  "userDecisions": {
+    "lot": "av-diagram-tri-pro-2026-10-31",
+    "revision": 21,
+    "version": "0.5.26",
+    "status": "complete",
+    "removed": 16,
+    "kept": 5,
+    "pending": 0,
+    "technicalDataApplied": false,
+    "report": "docs/inventaire/retours-tri-av-professionnel-2026-10-31.json",
+    "validation": {
+      "lint": {
+        "exit": 0,
+        "warnings": 4
+      },
+      "typecheck": {
+        "exit": 0
+      },
+      "tests": {
+        "passed": 490,
+        "skipped": 6,
+        "exit": 0
+      },
+      "build": {
+        "tscExit": 0,
+        "viteExit": 0
+      },
+      "versions": "0.5.26",
+      "dependenciesChanged": false,
+      "sourceModelsUnchanged": 2156
+    }
+  },
+  "initialAmbiguous": [
+    "fohhn-fp22-cd-rx",
+    "fohhn-fp22-cd-rx-tx",
+    "fohhn-fp-22-rx",
+    "fohhn-fp-22-rxtx",
+    "prozor-dac001",
+    "shure-se112",
+    "gopro-hero-12-black",
+    "gopro-hero-3-black-edition-surf",
+    "panasonic-dc-gh5",
+    "panasonic-dmc-gh4",
+    "panasonic-dmc-gh5",
+    "dell-g5-15-5590-noir-rtx-2060-hexa-core-i7",
+    "starway-jupiter",
+    "divers-starflash",
+    "sunlitlux-tl2001-6-13w-4000-k",
+    "sunlitlux-tl2001-6-13w-6500-k",
+    "sunlitlux-tl2001-6-21w-4000-k",
+    "sunlitlux-tl2001-6-21w-6500-k",
+    "sunlitlux-tl2001-6-28w-4000-k",
+    "sunlitlux-tl2001-6-28w-6500-k",
+    "chauvet-dj-bank"
   ]
 }

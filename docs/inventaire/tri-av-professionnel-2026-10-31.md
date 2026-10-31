@@ -1,6 +1,6 @@
 # Tri de la bibliothèque audiovisuelle professionnelle — 31 octobre 2026
 
-## Résultat appliqué — 0.5.25
+## Tri initial appliqué — 0.5.25
 
 Le tri porte sur les 1 694 références constructeur actives de la base 0.5.24. Trois domaines ont été répartis entre les agents ; les 112 références réseau/distribution/modules ont été relues par le principal. Le principal a contrôlé les propositions, fait reprendre les omissions DJ et conservé les cas mixtes. Ce travail repose sur les intitulés, fonctions, sources déjà présentes et pages ciblées ; il ne constitue pas la lecture technique de 1 694 notices.
 
@@ -75,7 +75,7 @@ Les panneaux de signalétique Samsung UE46/UE55 restent distincts des télévise
 | Sunlitlux TL2001-6 28w 6500°K | La réglette est-elle un simple luminaire domestique ou une référence de mise en lumière professionnelle ? Retrouver la fiche constructeur exacte. |
 | Chauvet DJ DJ Bank | Retirer ce jeu de fête autonome de la bibliothèque professionnelle ? |
 
-Ces cas ne sont pas retirés par défaut. Le DJ Bank est ainsi présenté au tableau : la destination fête et la mention DJ mobile débutant ne suffisent pas au principal à imposer un seuil professionnel sur le seul critère DMX. Une réponse partielle ne valide pas les autres références.
+État historique initial : ces cas n’étaient pas retirés par défaut. Le DJ Bank est ainsi présenté au tableau : la destination fête et la mention DJ mobile débutant ne suffisent pas au principal à imposer un seuil professionnel sur le seul critère DMX. Une réponse partielle ne valide pas les autres références.
 
 ## Données encore à examiner
 
@@ -103,3 +103,8 @@ Le [journal JSON du tri](tri-av-professionnel-2026-10-31.json) contient une déc
 - Audio 03 : vingt propositions déjà préparées, non réexaminées ni appliquées dans cette campagne.
 
 Quarante nouvelles références sont examinées, pas quarante fiches totalement vérifiées. Les 921 Communauté et les autres manques restent à traiter progressivement ; l’audit et les tableaux rendent ce reste explicite.
+
+
+## Décisions utilisateur appliquées — 0.5.26
+
+La révision 21 du tableau tranche les 21 cas ci-dessus : 16 retraits supplémentaires et 5 conservations (deux GoPro, trois références Panasonic GH4/GH5). Aucun autre choix de périmètre n’est en attente. Le tri totalise 48 retraits et conserve 1 646 modèles réels (741 Vérifié / 905 Communauté), plus 30 génériques. Les statuts techniques des appareils conservés restent inchangés. Les compteurs et tableaux initiaux ci-dessus sont historiques. Voir le [bilan des décisions](retours-tri-av-professionnel-2026-10-31.md). Les trois lots documentaires restent indépendants et en attente.

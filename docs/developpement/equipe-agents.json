@@ -4,9 +4,9 @@
   "updatedAt": "2026-10-31",
   "status": "completed_with_reservations",
   "base": {
-    "version": "0.5.24",
-    "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
-    "tree": "bfd3481c97c153c5e66799fa345a8b7fc2a2a366",
+    "version": "0.5.25",
+    "commit": "eed6f49094f3c007ee46420e6ae3d3c2151ccee7",
+    "tree": "52ce14d9d5b8770c327d3599e9c2a8ad1adfee55",
     "branch": "codex/ia-locale",
     "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
     "draft": true
@@ -441,16 +441,54 @@
   ],
   "currentCampaign": "catalogue-pro-2026-10-31",
   "catalogueCampaign": {
-    "state": "awaiting_user_validation_after_tri",
-    "targetVersion": "0.5.25",
+    "state": "technical_proposals_awaiting_user_after_scope_decisions",
+    "targetVersion": "0.5.26",
     "statePath": "docs/inventaire/campagne-catalogue-pro-2026-10-31.json",
     "report": "docs/inventaire/tri-av-professionnel-2026-10-31.md",
     "removed": 32,
-    "ambiguous": 21,
+    "ambiguous": 0,
     "newResearch": 40,
     "audioPendingReused": 20,
     "sourceTemplatesChanged": 0,
     "testsPassed": 490,
-    "testsSkipped": 6
+    "testsSkipped": 6,
+    "publication": {
+      "version": "0.5.25",
+      "commit": "eed6f49094f3c007ee46420e6ae3d3c2151ccee7",
+      "tree": "52ce14d9d5b8770c327d3599e9c2a8ad1adfee55",
+      "files": 17,
+      "deleted": 0,
+      "deviceSourceChanges": 0,
+      "branch": "codex/ia-locale",
+      "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
+      "draft": true,
+      "runs": [
+        {
+          "id": 41231105875,
+          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231105875",
+          "status": "in_progress",
+          "conclusion": null,
+          "event": "pull_request"
+        },
+        {
+          "id": 41231102225,
+          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231102225",
+          "status": "in_progress",
+          "conclusion": null,
+          "event": "push"
+        }
+      ]
+    },
+    "userDecisionRevision": 21,
+    "userDecisionStatus": "complete",
+    "userRemoved": 16,
+    "userKept": 5,
+    "finalCounts": {
+      "real": 1646,
+      "verified": 741,
+      "community": 905,
+      "generic": 30
+    },
+    "userDecisionReport": "docs/inventaire/retours-tri-av-professionnel-2026-10-31.md"
   }
 }

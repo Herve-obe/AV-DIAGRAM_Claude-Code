@@ -228,9 +228,10 @@ describe('appareils unitaires — décision du 26 octobre', () => {
   const feedback: { records: { id: string; decision: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/retours-lot-audio-01-2026-10-28.json', import.meta.url), 'utf8'))
   const feedback02: typeof feedback = JSON.parse(readFileSync(new URL('../../docs/inventaire/retours-lot-audio-02-2026-10-29.json', import.meta.url), 'utf8'))
   const professionalScope: { exclusions: { id: string }[]; ambiguous: { id: string }[] } = JSON.parse(readFileSync(new URL('../../docs/inventaire/tri-av-professionnel-2026-10-31.json', import.meta.url), 'utf8'))
+  const professionalFeedback: typeof feedback = JSON.parse(readFileSync(new URL('../../docs/inventaire/retours-tri-av-professionnel-2026-10-31.json', import.meta.url), 'utf8'))
 
   it('applique toutes les exclusions sans altérer les appareils enregistrés dans les anciens projets', () => {
-    for (const row of [...audit.entries.filter(r => r.decision === 'excluded'), ...feedback.records.filter(r => r.decision === 'Retirer'), ...feedback02.records.filter(r => r.decision === 'Retirer'), ...professionalScope.exclusions]) {
+    for (const row of [...audit.entries.filter(r => r.decision === 'excluded'), ...feedback.records.filter(r => r.decision === 'Retirer'), ...feedback02.records.filter(r => r.decision === 'Retirer'), ...professionalScope.exclusions, ...professionalFeedback.records.filter(r => r.decision === 'Retirer')]) {
       expect(LIBRARY_INDEX.has(row.id), row.id).toBe(false)
       const original = Object.values(files).find(t => t.id === row.id)!
       expect(original, row.id).toBeDefined()
@@ -242,8 +243,13 @@ describe('appareils unitaires — décision du 26 octobre', () => {
     }
   })
 
-  it('conserve les références à usage mixte tant que leur retrait n’est pas décidé', () => {
-    for (const row of professionalScope.ambiguous) expect(LIBRARY_INDEX.has(row.id), row.id).toBe(true)
+  it('respecte les décisions de périmètre sans promouvoir les fiches techniques conservées', () => {
+    const removed = new Set(professionalFeedback.records.filter(r => r.decision === 'Retirer').map(r => r.id))
+    for (const row of professionalScope.ambiguous) expect(LIBRARY_INDEX.has(row.id), row.id).toBe(!removed.has(row.id))
+    for (const row of professionalFeedback.records.filter(r => r.decision === 'Valider')) {
+      const original = Object.values(files).find(t => t.id === row.id)!
+      expect(template(row.id)).toEqual(original)
+    }
   })
 
   it('présente les lots homogènes comme un seul appareil, sans poids de transport supposé', () => {

@@ -1,6 +1,14 @@
-# État d'avancement (mise à jour du 2026-10-31)
+# État d’avancement (mise à jour du 2026-10-31)
 
-## Situation actuelle — 0.5.25
+## Situation actuelle — 0.5.26
+
+Les 21 décisions du tableau de périmètre sont appliquées : **16 retraits et 5 conservations** (les deux GoPro et les trois références Panasonic GH4/GH5). Aucun cas de ce tableau ne reste à trancher. Les 2 156 fichiers de modèles et les appareils/ports des anciens projets sont conservés ; aucun statut technique n’est promu par ce choix de périmètre.
+
+Bibliothèque active : **1 646 modèles réels**, dont **741 Vérifié et 905 Communauté**, plus 30 génériques. Les 32 retraits initiaux et les 16 retraits utilisateur portent le total à 48. Le relevé des champs est recalculé : 459 connectiques explicitement à documenter. Voir le [bilan des décisions](inventaire/retours-tri-av-professionnel-2026-10-31.md).
+
+Les lots techniques audio 03, vidéo pro 01 et lumière pro 01 attendent leurs réponses spécifiques. Leurs caractéristiques ne sont pas validées par ce tableau de périmètre. Aucune nouvelle recherche n’est lancée ; les anciennes révisions 533/156/822 et le D5000 ne sont pas rejoués. Contrôles finaux réussis : 490 tests, types et compilation ; lint sans erreur avec quatre avertissements historiques. Six essais IA réels sont ignorés localement. Les nouvelles builds restent à confirmer dans la CI ; la réserve IA macOS antérieure reste indépendante.
+
+## Version précédente — 0.5.25
 
 La bibliothèque est recentrée sur l’audiovisuel professionnel : 32 retraits appliqués sur les catégories DJ/CD, certains appareils vidéo grand public et accessoires sans appareil autonome. Le nouvel ordre retire les mixettes et platines DJ même professionnelles ; le Xone:92 n’est donc plus conservé malgré la décision antérieure. Les 21 cas mixtes restent présents en attente du tableau utilisateur. Les 2 156 fichiers source et les équipements déjà enregistrés dans les projets sont préservés.
 
