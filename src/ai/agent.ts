@@ -128,7 +128,9 @@ export function boundedHistory(messages: ChatMessage[]): ChatMessage[] {
 /** shortcut: commandes de mise en page explicites traitées localement ; les autres formulations passent par l’outil du modèle. */
 export function localLayoutRequest(text: string): Record<string, string> | undefined {
   const value = text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
-  if (/^(?:comment|pourquoi|what|why|how)\b/.test(value) || /(?:n[’']?e?\s+.{0,25}(?:reorganis|rang|adapt|optimis).{0,8}pas|(?:don.t|do not)\s+(?:rearrange|organize|adapt))/.test(value)) return
+  if (/^(?:comment|pourquoi|what|why|how)\b/.test(value)
+    || /\b(?:expliqu\w*|explain\w*|dire|tell)\b.{0,40}\b(?:comment|how)\b/.test(value)
+    || /(?:n[’']?e?\s+.{0,25}(?:reorganis|rang|adapt|optimis|fais|faire|mets|mettre|place).{0,8}pas|(?:don.t|do not)\s+(?:rearrange|organize|adapt|optimi[sz]e|make|fit|place))/.test(value)) return
   const action = /adapt|reorganis|rearrang|optimis|dispos|\brang|\bplace|\bfais|\bfaire|\bfit|\bmake|\bmets|\bmettre/.test(value)
   const layout = /mise en page|page layout|\bpage|\bfeuille|lisib|readab|disposition|\ba[0-4]\b/.test(value)
   if (/(?:ne\s+pas|pas\s+de|sans)\s+(?:reorganis|rearrang|rang|adapt|optimis)/.test(value)) return
@@ -234,7 +236,9 @@ export async function runTurn(opts: {
   }
   let pendingRequest = ''
   const previous = opts.history.at(-1)
-  if (previous?.role === 'tool') {
+  // Un abandon explicite commence un nouveau besoin ; une vraie précision conserve le précédent.
+  const abandonsRequest = /^(?:annule(?:r)?\s+(?:cette|la|ma)\s+demande|changeons\s+de\s+sujet|cancel\s+(?:this|that|the|my)\s+request|let[’']s\s+change\s+the\s+subject)\b/i.test(opts.userText.trim())
+  if (previous?.role === 'tool' && !abandonsRequest) {
     const ask = previous.results.find(r => r.name === 'ask_user' || r.name === 'plan_diagram')
     try {
       const request = ask && JSON.parse(ask.content).request

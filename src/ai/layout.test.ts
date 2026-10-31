@@ -33,7 +33,11 @@ describe('réorganisation du schéma existant', () => {
     expect(result.draft.addedLinks).toHaveLength(0)
   })
 
-  it.each(['Comment faire tenir mon schéma sur une page ?', 'Ne réorganise pas cette page', 'Ne pas réorganiser cette page', 'Pas de réorganisation de la page', 'Sans optimiser la mise en page', 'Ajoute deux caméras et optimise la mise en page', 'Génère une conférence', 'Fais un schéma de conférence'])('laisse la demande au modèle : %s', text => {
+  it.each(['Comment faire tenir mon schéma sur une page ?', 'Ne réorganise pas cette page', 'Ne pas réorganiser cette page', 'Pas de réorganisation de la page', 'Sans optimiser la mise en page', 'Ajoute deux caméras et optimise la mise en page', 'Génère une conférence', 'Fais un schéma de conférence',
+    'Peux-tu m’expliquer comment réorganiser cette page ?', 'Could you explain how to rearrange this page?',
+    'Ne fais pas tenir ce schéma sur une seule page', 'Ne mets pas ces éléments sur une page',
+    'Do not make this diagram fit on one page', "Don’t optimize this page layout",
+  ])('laisse la demande au modèle : %s', text => {
     expect(localLayoutRequest(text)).toBeUndefined()
   })
 

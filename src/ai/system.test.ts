@@ -61,6 +61,37 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(second.draft.addedLinks).toHaveLength(5)
   })
 
+  it.each([
+    ['plan_diagram', 'Annule cette demande. Quelle différence entre un câble XLR et un jack ?'],
+    ['ask_user', 'Cancel that request. What is the difference between XLR and jack?'],
+    ['plan_diagram', 'Changeons de sujet. Quelle différence entre un câble XLR et un jack ?'],
+    ['ask_user', "Let's change the subject. What is the difference between XLR and jack?"],
+  ])('abandonne la clarification %s après : %s', async (tool, userText) => {
+    const draft = base(), original = JSON.stringify(draft.project)
+    const options = { draft, ctx, connection: { provider: 'builtin' as const, model: 'test' }, system: '', history: [] }
+    const first = await runTurn({ ...options, userText: 'Je veux faire un podcast.', transport: replies([call(tool,
+      tool === 'ask_user' ? { question: 'Combien de participants ?' } : { ...plan, roles: [], questions: ['Combien de participants ?'] })]) })
+    const sent: string[] = []
+    const transport: Transport = { async request(_provider, _url, req) {
+      sent.push(req.body!)
+      return { status: 200, body: JSON.stringify({ choices: [{ message: { content: 'Explication des connecteurs.' } }] }) }
+    } }
+    const second = await runTurn({ ...options, history: first.history, userText, transport })
+    const third = await runTurn({ ...options, history: second.history, userText: 'Et les niveaux ?', transport })
+    expect(sent).toHaveLength(2)
+    for (const body of sent) {
+      const request = JSON.parse(body)
+      expect(request.tool_choice).not.toBe('required')
+      expect(request.messages.at(-1).content).not.toContain('Je veux faire un podcast')
+    }
+    expect(second.reply).toBe('Explication des connecteurs.')
+    expect(second.toolsUsed).toEqual([])
+    expect(third.toolsUsed).toEqual([])
+    expect(second.draft).toBe(draft)
+    expect(third.draft).toBe(draft)
+    expect(JSON.stringify(draft.project)).toBe(original)
+  })
+
   it('demande une référence absente au lieu de substituer un appareil imposé', () => {
     const draft = base()
     const result = runTool(draft, call('plan_diagram', { ...plan, roles: [{ ref: 'desk', query: 'Inconnue ZZ9000', family: 'console', count: 1, required_model: true }] }), ctx)

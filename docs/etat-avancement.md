@@ -1,6 +1,16 @@
-# État d'avancement (mise à jour du 2026-10-29)
+# État d'avancement (mise à jour du 2026-10-31)
 
-## Situation actuelle — 0.5.23
+## Situation actuelle — 0.5.24
+
+Le développement est organisé en équipe : un principal attribue des tâches bornées, choisit le modèle selon leur difficulté, relit les changements et contrôle leur intégration. Les vérifications courantes utilisent un agent économique ; les corrections IA emploient un modèle généraliste plus capable. Les responsabilités, preuves et limites de relance sont conservées dans le [guide de l'équipe](developpement/equipe-agents.md) et son tableau de travail. Un suivi local reprend la campagne toutes les heures et s'arrête quand elle est terminée ou ne contient plus que des décisions à soumettre au bilan final.
+
+Deux erreurs d'intention de l'assistant sont corrigées : une explication ou une interdiction explicite ne déclenche plus la réorganisation locale du schéma ; l'abandon explicite d'une demande ne réutilise plus son ancienne clarification. Les commandes positives et la reprise normale d'une réponse restent contrôlées. Neuf régressions ont échoué avant correction, puis les 38 tests ciblés ont réussi. Le contrôle intégré final a réussi : 489 tests, types et compilation ; lint sans erreur avec quatre avertissements historiques. Six essais IA réels restent ignorés localement. Les builds de ce nouveau commit sont suivis dans le [bilan de campagne](developpement/bilan-2026-10-31.md).
+
+La CI de la base 0.5.23 a réussi ses contrôles courants, natifs Windows, installation Windows et IA réelle Windows. Le banc réel macOS a atteint son plafond cumulé de 45 minutes après chargement du moteur : la lenteur est démontrée, sa cause matérielle ne l'est pas. La réussite de toutes ses assertions reste à établir ; aucun délai n'est augmenté arbitrairement. Le prochain run doit être suivi sur le commit corrigé.
+
+Aucune fiche du lot audio 03 n'est appliquée : son tableau préparé attend les réponses utilisateur. La bibliothèque et les décisions des lots antérieurs restent identiques à la 0.5.23. Formation, tablette, distribution officielle et stock daté restent en attente ; la PR demeure en brouillon.
+
+## Version précédente — 0.5.23
 
 Les vingt décisions du lot audio 02 sont appliquées : douze équipements retirés du catalogue général, huit conservés et validés par l’utilisateur. L’instruction explicite ultérieure valide le D5000 : cordon secteur captif avec fiche de type C déclaré, prises de pédalier omises, quatre jacks audio conservés. Les puissances Midas 75/95/120 W et QSC 42 W sont documentées ; le poids QSC 2,98 kg est retenu sur choix utilisateur avec contradiction livres/kg signalée. Le XTA précise la commutation AES sur les mêmes XLR. Les réserves mécaniques restent techniques et ne remettent pas les décisions utilisateur en attente.
 
