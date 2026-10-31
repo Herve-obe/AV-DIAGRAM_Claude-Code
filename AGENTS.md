@@ -10,3 +10,5 @@ Le tableau de travail courant est `docs/developpement/equipe-agents.json`.
 - Ne jamais réinitialiser le checkout historique ni publier toutes ses modifications. Comparer au dernier commit distant et publier seulement le delta relu, avec contrôle du commit parent. La PR reste en brouillon.
 - Les lots documentaires restent soumis à `docs/inventaire/methode-verification-par-lots.md`. Ne pas valider des fiches à la place de l'utilisateur. Le lot audio 03 est préparé, pas approuvé.
 - `/graphify` : utiliser la compétence graphify installée avant toute autre action. Ne pas construire de graphe pour une tâche qui ne le demande pas.
+
+- Catalogue, ordre du 31 octobre : suivre docs/inventaire/campagne-catalogue-pro-2026-10-31.json et le rapport tri-av-professionnel-2026-10-31.md. Les 32 retraits certains sont autorisés/appliqués ; les 21 cas mixtes et les lots techniques vidéo/lumière restent en attente. Le nouvel ordre exclut les mixettes DJ, dont Xone:92, malgré une conservation antérieure. Ne jamais déduire un statut amateur du seul prix, de la marque ou de l’absence de DMX.

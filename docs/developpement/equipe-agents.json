@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "campaign": "stabilisation-v1-2026-10-31",
   "updatedAt": "2026-10-31",
-  "status": "running",
+  "status": "completed_with_reservations",
   "base": {
-    "version": "0.5.23",
-    "commit": "c222419bd1108cc880b66637abbf73ffe8ef3c84",
-    "tree": "4660eb3271849d14cf705f10bbcf2932076a1dce",
+    "version": "0.5.24",
+    "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+    "tree": "bfd3481c97c153c5e66799fa345a8b7fc2a2a366",
     "branch": "codex/ia-locale",
     "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
     "draft": true
@@ -26,8 +26,10 @@
       "id": "av-diagram-quipe-de-d-veloppement",
       "kind": "heartbeat",
       "cadence": "1 heure",
-      "status": "ACTIVE"
-    }
+      "status": "DELETED",
+      "reason": "Campagne bornée close, réserve macOS consignée ; éviter de répéter un contrôle non actionnable."
+    },
+    "lastCheckedAt": "2026-10-31T16:17:43.217Z"
   },
   "catalogue": {
     "lot": "audio-03",
@@ -153,7 +155,7 @@
       "id": "QA-002",
       "title": "Relire, contrôler et publier le lot intégré",
       "owner": "principal + verification",
-      "state": "review",
+      "state": "complete",
       "dependsOn": [
         "QA-001",
         "AI-001",
@@ -196,14 +198,14 @@
         "environmentRetry": "Vite relancé seul après argument PowerShell erroné, aucun code modifié",
         "versions": "0.5.24 synchronisées, dépendances inchangées",
         "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/verification-finale.md",
-        "publication": "en préparation"
+        "publication": "13 fichiers vérifiés, publiés sur codex/ia-locale ; PR4 en brouillon"
       }
     },
     {
       "id": "CI-002",
       "title": "Suivre le banc réel et les builds du commit intégré",
       "owner": "principal",
-      "state": "ready",
+      "state": "complete",
       "dependsOn": [
         "QA-002"
       ],
@@ -213,10 +215,242 @@
         "Maximum une relance ciblée seulement si justifiée",
         "Bilan final sauvegardé, suivi en pause à la fin"
       ],
-      "attempts": 0,
+      "attempts": 1,
       "evidence": {
-        "retryCount": 0
-      }
+        "retryCount": 0,
+        "runs": [
+          {
+            "id": 41210298738,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210298738",
+            "event": "pull_request",
+            "status": "completed",
+            "conclusion": "success",
+            "attempt": 1
+          },
+          {
+            "id": 41210293278,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278",
+            "event": "push",
+            "status": "completed",
+            "conclusion": "failure",
+            "attempt": 1
+          }
+        ],
+        "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+        "jobs": [
+          {
+            "id": 124563685168,
+            "name": "check",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685168"
+          },
+          {
+            "id": 124563685305,
+            "name": "macos",
+            "status": "completed",
+            "conclusion": "failure",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685305"
+          },
+          {
+            "id": 124563685362,
+            "name": "local-ai",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685362"
+          },
+          {
+            "id": 124563685402,
+            "name": "native",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685402"
+          },
+          {
+            "id": 124564948791,
+            "name": "windows-installer",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124564948791"
+          }
+        ],
+        "lastCheckedAt": "2026-10-31T16:17:43.217Z",
+        "nextAction": "Campagne close. Avant validation IA macOS : diagnostic ciblé de la lenteur et essai sur Mac physique ; examiner la survie des requêtes après timeout.",
+        "artifacts": [
+          {
+            "id": 13046878106,
+            "name": "AV-Diagram-local-AI-macOS-test-report",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046878106"
+          },
+          {
+            "id": 13046790933,
+            "name": "AV-Diagram-local-AI-test-report",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046790933"
+          },
+          {
+            "id": 13046256492,
+            "name": "AV-Diagram-Manual-test",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046256492"
+          },
+          {
+            "id": 13045339412,
+            "name": "AV-Diagram-macOS-universal-test",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045339412"
+          },
+          {
+            "id": 13045309416,
+            "name": "AV-Diagram-Windows-test",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045309416"
+          }
+        ],
+        "macOS": {
+          "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+          "run": 41210293278,
+          "job": 124563685305,
+          "total": 6,
+          "passed": 4,
+          "failed": 2,
+          "pending": 0,
+          "cases": [
+            {
+              "title": "réorganise un concert existant sans appel au modèle ni modification du patch",
+              "status": "passed",
+              "durationMs": 16.864000000000487,
+              "failure": []
+            },
+            {
+              "title": "analyse une demande vague puis construit une conférence sans scénario spécialisé",
+              "status": "failed",
+              "durationMs": 600377.178458,
+              "failure": [
+                "Error: Test timed out in 600000ms."
+              ]
+            },
+            {
+              "title": "active le modèle avec le vrai test de configuration en un appel, en français et en anglais",
+              "status": "failed",
+              "durationMs": 300062.927666,
+              "failure": [
+                "Error: Test timed out in 300000ms."
+              ]
+            },
+            {
+              "title": "transforme le cahier des charges interview et duo live en proposition câblée",
+              "status": "passed",
+              "durationMs": 286052.57175,
+              "failure": []
+            },
+            {
+              "title": "vérifie un projet fictif puis prépare un ajout sans modifier la source",
+              "status": "passed",
+              "durationMs": 1064226.9720839998,
+              "failure": []
+            },
+            {
+              "title": "clarifie une demande large avec connectique manquante en un seul appel",
+              "status": "passed",
+              "durationMs": 191468.66575000016,
+              "failure": []
+            }
+          ]
+        },
+        "outcome": "completed_with_macos_reservation",
+        "retryDecision": "Pas de panne transitoire démontrée ; pas de relance aveugle ni de hausse des délais."
+      },
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ci-macos-cloture.md"
     }
-  ]
+  ],
+  "publication": {
+    "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+    "tree": "bfd3481c97c153c5e66799fa345a8b7fc2a2a366",
+    "files": 13,
+    "deleted": 0,
+    "checkedHashes": true,
+    "published": true,
+    "runs": [
+      {
+        "id": 41210298738,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210298738",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "attempt": 1
+      },
+      {
+        "id": 41210293278,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "attempt": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 13046878106,
+        "name": "AV-Diagram-local-AI-macOS-test-report",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046878106"
+      },
+      {
+        "id": 13046790933,
+        "name": "AV-Diagram-local-AI-test-report",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046790933"
+      },
+      {
+        "id": 13046256492,
+        "name": "AV-Diagram-Manual-test",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046256492"
+      },
+      {
+        "id": 13045339412,
+        "name": "AV-Diagram-macOS-universal-test",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045339412"
+      },
+      {
+        "id": 13045309416,
+        "name": "AV-Diagram-Windows-test",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045309416"
+      }
+    ]
+  },
+  "reservations": [
+    {
+      "area": "macOS IA réelle",
+      "status": "unresolved",
+      "passed": 4,
+      "failed": 2,
+      "total": 6,
+      "reason": "Délais des essais conférence et configuration dépassés, cause de lenteur non établie",
+      "review": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ci-macos-cloture.md"
+    },
+    {
+      "area": "Recette physique",
+      "status": "not_run",
+      "reason": "Mac physique et deux écrans non vérifiés"
+    }
+  ],
+  "currentCampaign": "catalogue-pro-2026-10-31",
+  "catalogueCampaign": {
+    "state": "awaiting_user_validation_after_tri",
+    "targetVersion": "0.5.25",
+    "statePath": "docs/inventaire/campagne-catalogue-pro-2026-10-31.json",
+    "report": "docs/inventaire/tri-av-professionnel-2026-10-31.md",
+    "removed": 32,
+    "ambiguous": 21,
+    "newResearch": 40,
+    "audioPendingReused": 20,
+    "sourceTemplatesChanged": 0,
+    "testsPassed": 490,
+    "testsSkipped": 6
+  }
 }

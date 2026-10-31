@@ -1,6 +1,17 @@
 # État d'avancement (mise à jour du 2026-10-31)
 
-## Situation actuelle — 0.5.24
+## Situation actuelle — 0.5.25
+
+La bibliothèque est recentrée sur l’audiovisuel professionnel : 32 retraits appliqués sur les catégories DJ/CD, certains appareils vidéo grand public et accessoires sans appareil autonome. Le nouvel ordre retire les mixettes et platines DJ même professionnelles ; le Xone:92 n’est donc plus conservé malgré la décision antérieure. Les 21 cas mixtes restent présents en attente du tableau utilisateur. Les 2 156 fichiers source et les équipements déjà enregistrés dans les projets sont préservés.
+
+Après tri : 1 662 modèles réels, dont 741 Vérifié et 921 Communauté, plus 30 génériques. Le relevé des champs manquants couvre toutes les références conservées ; il ne constitue pas une vérification technique complète. 471 fiches indiquent encore une connectique à documenter. Deux agents ont examiné vingt références vidéo et vingt lumière en priorité à partir des notices locales ; le lot audio03 déjà préparé n’est pas repris. Les propositions techniques attendent la validation de leurs tableaux avant intégration. Voir le [bilan et les limites](inventaire/tri-av-professionnel-2026-10-31.md).
+
+Le test catalogue a été vérifié en échec avant les exclusions, puis vingt cas catalogue ont réussi. Contrôles globaux réussis : 490 tests, types et compilation ; lint sans erreur et quatre avertissements historiques. Six essais IA réels restent ignorés localement. Les nouvelles builds restent à constater dans la CI. La réserve IA macOS de la 0.5.24 reste distincte ; aucun changement du moteur IA n’est fait dans ce lot.
+
+
+## Version précédente — 0.5.24
+
+Clôture du suivi du 31 octobre : le commit bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386 est publié, la CI de PR et les contrôles Windows sont réussis. Les deux installateurs sont disponibles. Réserve IA macOS : 4 essais sur 6 réussis, 2 délais dépassés (conférence et configuration), cause de lenteur encore inconnue. Aucun rerun sans preuve transitoire et aucun allongement de délai ; suivi périodique supprimé à la clôture pour éviter des vérifications répétitives. Bilan publié dans la description de PR et consigné localement.
 
 Le développement est organisé en équipe : un principal attribue des tâches bornées, choisit le modèle selon leur difficulté, relit les changements et contrôle leur intégration. Les vérifications courantes utilisent un agent économique ; les corrections IA emploient un modèle généraliste plus capable. Les responsabilités, preuves et limites de relance sont conservées dans le [guide de l'équipe](developpement/equipe-agents.md) et son tableau de travail. Un suivi local reprend la campagne toutes les heures et s'arrête quand elle est terminée ou ne contient plus que des décisions à soumettre au bilan final.
 

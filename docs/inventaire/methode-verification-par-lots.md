@@ -10,4 +10,10 @@ Attendre les réponses avant de déclarer le lot validé. Les réponses partiell
 
 Après les réponses, appliquer les corrections et retraits demandés, conserver la provenance des valeurs publiées, déclarées et calculées, contrôler puis publier le bilan. Les anciens projets gardent leurs équipements et leurs ports enregistrés. Ne pas fusionner la PR ni lancer le lot suivant automatiquement.
 
-Cette règle s’applique dès le lot audio 02 : contrôle documentaire publié en 0.5.21, validation utilisateur en attente du tableau du 29 octobre 2026. Les anciennes réponses du lot audio 01 restent traitées et ne doivent pas être rejouées.
+Cette règle s’applique dès le lot audio 02. Les lots audio 01 et 02, dont la validation explicite du D5000, sont traités ; ne pas rejouer leurs anciennes réponses. Le lot audio 03 préparé reste en attente de ses réponses.
+
+## Tri professionnel et équipe — décision du 31 octobre 2026
+
+L’utilisateur a demandé un tri global préalable, réparti par domaine entre les agents, puis la recherche des informations manquantes sur les références conservées. Les retraits certains des catégories explicitement demandées sont autorisés sans nouvelle confirmation, y compris les platines/lecteurs DJ, mixettes DJ et lecteurs CD dédiés professionnels. Les cas mixtes restent présents au tableau. Ne pas déduire un usage amateur d’un prix, d’une marque ou d’une absence de DMX.
+
+Le tri de tout le catalogue et l’audit automatique de présence des champs ne sont pas des lots de vérification technique. Pour la recherche documentaire, garder au plus vingt références par lot avec un agent responsable ; plusieurs lots disjoints peuvent être préparés en parallèle. Chaque lot conserve son tableau et son statut en attente. Aucune donnée technique ni promotion Vérifié n’est appliquée avant les réponses.
