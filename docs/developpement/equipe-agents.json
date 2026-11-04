@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "campaign": "stabilisation-v1-2026-10-31",
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-04",
   "status": "completed_with_reservations",
   "base": {
-    "version": "0.5.25",
-    "commit": "eed6f49094f3c007ee46420e6ae3d3c2151ccee7",
-    "tree": "52ce14d9d5b8770c327d3599e9c2a8ad1adfee55",
+    "version": "0.5.26",
+    "commit": "0ecb94af6c9aed8c7d9def4a37d89e27c4b2b697",
+    "tree": "5f5e5a9b8b7ee15fbb02b4f4972be8d2f5bf6988",
     "branch": "codex/ia-locale",
     "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
     "draft": true
@@ -441,7 +441,7 @@
   ],
   "currentCampaign": "catalogue-pro-2026-10-31",
   "catalogueCampaign": {
-    "state": "technical_proposals_awaiting_user_after_scope_decisions",
+    "state": "scope_decisions_published_technical_proposals_pending",
     "targetVersion": "0.5.26",
     "statePath": "docs/inventaire/campagne-catalogue-pro-2026-10-31.json",
     "report": "docs/inventaire/tri-av-professionnel-2026-10-31.md",
@@ -453,26 +453,26 @@
     "testsPassed": 490,
     "testsSkipped": 6,
     "publication": {
-      "version": "0.5.25",
-      "commit": "eed6f49094f3c007ee46420e6ae3d3c2151ccee7",
-      "tree": "52ce14d9d5b8770c327d3599e9c2a8ad1adfee55",
-      "files": 17,
-      "deleted": 0,
+      "version": "0.5.26",
+      "commit": "0ecb94af6c9aed8c7d9def4a37d89e27c4b2b697",
+      "tree": "5f5e5a9b8b7ee15fbb02b4f4972be8d2f5bf6988",
+      "files": 16,
+      "deletions": 0,
       "deviceSourceChanges": 0,
       "branch": "codex/ia-locale",
-      "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
-      "draft": true,
+      "draftPullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
+      "filesSnapshot": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/retours-tri-rev21/publication-files.json",
       "runs": [
         {
-          "id": 41231105875,
-          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231105875",
+          "id": 41249051482,
+          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41249051482",
           "status": "in_progress",
           "conclusion": null,
           "event": "pull_request"
         },
         {
-          "id": 41231102225,
-          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231102225",
+          "id": 41249048768,
+          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41249048768",
           "status": "in_progress",
           "conclusion": null,
           "event": "push"
@@ -490,5 +490,59 @@
       "generic": 30
     },
     "userDecisionReport": "docs/inventaire/retours-tri-av-professionnel-2026-10-31.md"
+  },
+  "catalogueRetours": {
+    "lot": "av-diagram-audio04-lumiere02-2026-11-04",
+    "version": "0.5.27",
+    "status": "complete_with_technical_limits",
+    "report": "docs/inventaire/retours-audio04-lumiere02-2026-11-04.json",
+    "baseCommit": "0ecb94af6c9aed8c7d9def4a37d89e27c4b2b697",
+    "writingBlockId": "76193",
+    "userResponseHash": "81cc1f1beaa82dbf7aa5b1f7d46d72ead156b1df66965c7d601b055ca399c100",
+    "counts": {
+      "sourceFiles": 2171,
+      "activeReal": 1650,
+      "verified": 741,
+      "community": 909,
+      "created": 15,
+      "updated": 6,
+      "excludedDuplicates": 11,
+      "reusedCanonical": 6
+    },
+    "cards": [
+      {
+        "id": "AUDIO04-IDENTITES",
+        "owner": "/root/recherche_audio04",
+        "state": "complete",
+        "fixAttempts": 2
+      },
+      {
+        "id": "LUMIERE02-IDENTITES",
+        "owner": "/root/variantes_lumiere_retours",
+        "state": "complete",
+        "fixAttempts": 1
+      },
+      {
+        "id": "REVIEW-CHOIX",
+        "owner": "/root/superviseur_catalogue",
+        "state": "complete"
+      },
+      {
+        "id": "QA-CHOIX",
+        "owner": "/root/recherche_audio04",
+        "state": "complete",
+        "fixAttempts": 2
+      }
+    ],
+    "automationCreated": false,
+    "validation": {
+      "targetedPassed": 28,
+      "testsPassed": 498,
+      "testsSkipped": 6,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true
+    }
   }
 }

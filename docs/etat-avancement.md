@@ -1,6 +1,14 @@
-# État d’avancement (mise à jour du 2026-10-31)
+# État d’avancement (mise à jour du 2026-11-04)
 
-## Situation actuelle — 0.5.26
+## Situation actuelle — 0.5.27
+
+Les 17 réponses des lots audio 04 et lumière 02 sont prises en compte : 15 fiches distinctes créées, 6 fiches précisées, 11 doublons génériques ou combinés écartés du catalogue actif et 6 fiches canoniques réutilisées sans modification. Les anciens projets gardent leurs appareils et leurs ports. Les variantes non documentées restent Communauté ; aucune nouvelle promotion Vérifié.
+
+La bibliothèque active compte **1 650 modèles réels : 741 Vérifié et 909 Communauté**, plus 30 génériques. La séparation augmente le nombre de fiches à compléter. Les références SX/SX2, Korrigan/Super Korrigan, Victor, Arcaline, MFW, Gio et SmartPack portable 6/12 sont distinctes ; le ME 80 est limité à sa capsule. Aramis reste HMI 2 500 W lampe, sans consommation système déduite. Voir le [bilan et les limites](inventaire/retours-audio04-lumiere02-2026-11-04.md).
+
+La recherche de 40 références du 4 novembre est partielle : ces choix de variantes ne valident pas globalement les caractéristiques des deux lots. Les anciens lots audio 03, vidéo pro 01 et lumière pro 01 restent en attente. Les réponses déjà appliquées et les anciens lots ne doivent pas être rejoués. Contrôles de la 0.5.27 réussis : 28 tests ciblés, 498 tests généraux, types et compilation ; lint sans erreur avec quatre avertissements historiques. Six essais IA réelle ignorés ne comptent pas comme réussis. Builds natives à confirmer dans la CI, essais matériels non effectués.
+
+## Version précédente — 0.5.26
 
 Les 21 décisions du tableau de périmètre sont appliquées : **16 retraits et 5 conservations** (les deux GoPro et les trois références Panasonic GH4/GH5). Aucun cas de ce tableau ne reste à trancher. Les 2 156 fichiers de modèles et les appareils/ports des anciens projets sont conservés ; aucun statut technique n’est promu par ce choix de périmètre.
 

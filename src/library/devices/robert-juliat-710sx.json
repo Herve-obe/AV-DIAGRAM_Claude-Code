@@ -1,12 +1,17 @@
 {
   "id": "robert-juliat-710sx",
   "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
   "manufacturer": "Robert Juliat",
   "model": "710SX",
-  "pictogram": "light",
   "status": "community",
-  "powerW": 2000,
+  "description": "Découpe 710SX, génération ancienne conservée séparément de 710SX2. Caractéristiques et connectique propres à cette génération à compléter ; aucune transposition des documents SX2.",
   "sources": [
+    {
+      "document": "Réponses utilisateur du 4 novembre 2026, lot lumière 02 : identité des variantes uniquement",
+      "accessed": "2026-11-04"
+    },
     {
       "document": "Catalogue Novelty 2025 ; modèle ancien, absent du site Robert Juliat",
       "accessed": "2026-10-08"
@@ -15,31 +20,8 @@
       "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/decoupe-projecteurs-traditionnels/710-sx/",
       "document": "Novelty — 710 SX",
       "accessed": "2026-10-19"
-    },
-    {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1205323869.pdf",
-      "document": "Robert Juliat — brochure séries 600SX/700SX2, p.1,3–4 : lampes et cordon secteur standard",
-      "accessed": "2026-10-27"
-    },
-    {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1186131644.pdf",
-      "document": "Novelty — 710 SX : Duplication : Série 700SX (détail pièces détachées)",
-      "accessed": "2026-10-19"
     }
   ],
-  "ports": [
-    {
-      "id": "ac",
-      "name": "Alimentation secteur",
-      "direction": "in",
-      "signal": "power",
-      "connector": "schuko",
-      "format": "Cordon captif 3 m NF/Schuko, document série 700 SX2 ; génération du parc à confirmer"
-    }
-  ],
-  "aliases": [
-    "710 SX",
-    "JULIAT 710 SX"
-  ],
-  "description": "Découpe 2 kW, zoom 10-25° ; pas de commande DMX, gradateur externe. La brochure liée décrit la génération 700 SX2 à lampe G22 2 000/2 500 W, cordon captif 3 m NF/Schuko, sans DMX natif. Génération SX ou SX2 du parc à confirmer."
+  "ports": [],
+  "portStatus": "pending"
 }
