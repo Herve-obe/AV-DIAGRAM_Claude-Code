@@ -34,7 +34,7 @@ import { setHistoryDriver, setProjectGuard, useProject } from '../store/projectS
 import { useUi } from '../store/uiStore'
 import { claimMembers, type Claims } from './protection'
 import { HostValidation } from './hostValidation'
-import { checkGuestChange, guestLayers } from './access'
+import { guestChangeReason, guestLayers, type AccessReason } from './access'
 import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
 import { COLLAB_PROTOCOL, createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
 
@@ -251,11 +251,15 @@ export const useCollab = create<CollabState>((set, get) => ({
 setProjectGuard((prev, next) => {
   const st = useCollab.getState()
   if (st.status === 'off') return true
-  const allowed = prev.id === next.id && (st.role === 'host' || (st.started && checkGuestChange(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer)))
-  if (!allowed) notify({ key: 'accessDenied', tone: 'warn' })
-  return allowed
+  if (st.role === 'host') return prev.id === next.id
+  const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer)
+  if (reason) notifyAccess(reason)
+  return reason === null
 })
 
+function notifyAccess(reason: AccessReason) {
+  notify({ key: `access.${reason.code}`, params: reason.params, tone: 'warn' })
+}
 function notify(notice: Notice) {
   if (noticeTimer) clearTimeout(noticeTimer)
   noticeTimer = null
@@ -756,10 +760,12 @@ async function start(o: StartOptions): Promise<void> {
       if (origin === LOCAL) return
       if (origin !== 'network' && current.synced && useCollab.getState().role === 'guest') {
         const next = readProject(doc)
-        if (!useCollab.getState().started || !checkGuestChange(current.synced, next, guestLayers(useCollab.getState().claims, useCollab.getState().userId), useUi.getState().layer)) {
+        const st = useCollab.getState()
+        const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, next, guestLayers(st.claims, st.userId), useUi.getState().layer)
+        if (reason) {
           // Les droits ont pu changer depuis la création du pas d'annulation.
           writeProject(doc, next, current.synced, LOCAL)
-          notify({ key: 'accessDenied', tone: 'warn' })
+          notifyAccess(reason)
           return
         }
       }
@@ -772,10 +778,10 @@ async function start(o: StartOptions): Promise<void> {
     current.cleanups.push(useProject.subscribe((s) => {
       if (s.project === current.synced) return
       const st = useCollab.getState()
-      const v = current.synced && (current.synced.id !== s.project.id || (st.role !== 'host' && (!st.started || !checkGuestChange(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer))))
-      if (v && current.synced) {
+      const reason: AccessReason | null = current.synced && st.role !== 'host' ? !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer) : null
+      if (reason && current.synced) {
         useProject.setState({ project: current.synced })
-        notify({ key: 'accessDenied', tone: 'warn' })
+        notifyAccess(reason)
         return
       }
       writeProject(doc, current.synced, s.project, LOCAL)
@@ -791,19 +797,31 @@ async function start(o: StartOptions): Promise<void> {
       undo.on(ev, onStack)
       current.cleanups.push(() => undo.off(ev, onStack))
     }
-    const rememberLayer = ({ stackItem }: { stackItem: { meta: Map<unknown, unknown> } }) => { stackItem.meta.set('layer', useUi.getState().layer) }
-    undo.on('stack-item-added', rememberLayer)
-    current.cleanups.push(() => undo.off('stack-item-added', rememberLayer))
-    const historyAllowed = (stack: typeof undo.undoStack) => {
-      if (useCollab.getState().role === 'host') return true
-      const layer = useUi.getState().layer
-      const ok = useCollab.getState().started && layer !== 'all' && guestLayers(useCollab.getState().claims, useCollab.getState().userId).has(layer) && stack.at(-1)?.meta.get('layer') === layer
-      if (!ok) notify({ key: 'accessDenied', tone: 'warn' })
-      return ok
+    const historyAllowed = (redo: boolean) => {
+      const st = useCollab.getState()
+      if (st.role === 'host') return true
+      let reason: AccessReason | null = !st.started ? { code: 'waiting' } : useUi.getState().layer === 'all' ? { code: 'general' } : null
+      const stack = redo ? undo.redoStack : undo.undoStack
+      if (!reason && stack.length) {
+        // Essayer l'annulation hors réseau avant de toucher au document partagé et à sa pile.
+        const preview = new Y.Doc({ gc: false })
+        readProject(preview)
+        Y.applyUpdate(preview, Y.encodeStateAsUpdate(doc))
+        const trial = createUndoManager(preview, LOCAL)
+        const copy = stack.map(item => ({ ...item, meta: new Map(item.meta) }))
+        if (redo) trial.redoStack = copy
+        else trial.undoStack = copy
+        try {
+          if (redo) trial.redo(); else trial.undo()
+          reason = guestChangeReason(readProject(doc), readProject(preview), guestLayers(st.claims, st.userId), useUi.getState().layer)
+        } finally { trial.destroy(); preview.destroy() }
+      }
+      if (reason) notifyAccess(reason)
+      return !reason
     }
     setHistoryDriver({
-      undo: () => { if (historyAllowed(undo.undoStack)) undo.undo() },
-      redo: () => { if (historyAllowed(undo.redoStack)) undo.redo() },
+      undo: () => { if (historyAllowed(false)) undo.undo() },
+      redo: () => { if (historyAllowed(true)) undo.redo() },
       gesture: () => undo.stopCapturing(),
     })
     refreshParticipants()

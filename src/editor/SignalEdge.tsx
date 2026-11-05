@@ -39,7 +39,7 @@ function SignalEdgeView(props: EdgeProps<SignalFlowEdge>) {
   const project = useProject(s => s.project), edit = useEditing(), link = project.links[id]
   const a = link && project.equipment[link.source.equipmentId], b = link && project.equipment[link.target.equipmentId]
   const ap = a?.ports.find(p => p.id === link?.source.portId), bp = b?.ports.find(p => p.id === link?.target.portId)
-  const allowed = !!(a && b && ap && bp && edit.link(ap, bp))
+  const allowed = !!(a && b && ap && bp && edit.link(a, ap, b, bp, id))
   const sideways = (p: Position) => p === Position.Left || p === Position.Right
   const horizontal = sideways(sourcePosition), axis = horizontal ? 'x' : 'y'
   const facing = (sourcePosition === Position.Right && targetPosition === Position.Left) || (sourcePosition === Position.Left && targetPosition === Position.Right) || (sourcePosition === Position.Top && targetPosition === Position.Bottom) || (sourcePosition === Position.Bottom && targetPosition === Position.Top)

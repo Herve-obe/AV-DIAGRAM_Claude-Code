@@ -11,7 +11,7 @@ import { EquipmentNode, type EquipmentFlowNode, type EquipmentNodeData } from '.
 
 const measure = vi.hoisted(() => vi.fn())
 const rights = vi.hoisted(() => ({ equipment: true, port: true }))
-vi.mock('../collab/useEditing', () => ({ useEditing: () => ({ equipment: () => rights.equipment, port: () => rights.port }) }))
+vi.mock('../collab/useEditing', () => ({ useEditing: () => ({ equipment: () => rights.equipment, port: () => rights.port, connectable: () => rights.port, shared: () => false, technical: () => false }) }))
 vi.mock('@xyflow/react', () => ({
   Handle: ({ id }: { id: string }) => <span data-handle={id} />,
   Position: { Left: 'left', Right: 'right', Top: 'top', Bottom: 'bottom' },

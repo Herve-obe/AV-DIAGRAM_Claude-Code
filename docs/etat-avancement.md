@@ -1,6 +1,14 @@
 # État d’avancement (mise à jour du 2026-11-05)
 
-## Situation actuelle — 0.5.28
+## Situation actuelle — 0.5.29
+
+Les droits collaboratifs suivent les métiers attribués à l’invité, indépendamment du filtre affiché ; Général reste en lecture seule. Le métier Audio peut renseigner l’interface réseau de sa console et la raccorder à une prise libre d’un switch partagé, sans pouvoir modifier les paramètres de ce switch ni les interfaces Image d’autres appareils. Les ports Audio d’une caméra restent modifiables sans ouvrir ses propriétés Vidéo.
+
+Trois refus sont reproduits puis corrigés : suppression d’un appareil mixte non relié, liaison Dante vers un switch et ajout d’une prise en mode Expert Image. Les suppressions touchant une liaison protégée restent atomiquement refusées. L’annulation et le rétablissement vérifient les droits actuels avant tout envoi, y compris après retrait d’une attribution. Les motifs de refus indiquent l’appareil ou la prise concernés.
+
+Contrôles : 57 tests ciblés sur les droits, les sessions et les interfaces, puis 516 tests généraux réussis ; 6 essais IA réelle ignorés. Types et compilation réussis ; lint sans erreur, avec les quatre avertissements historiques. Une revue indépendante a contrôlé les règles et les interfaces ; son observation sur le motif d’une infobulle est corrigée et vérifiée séparément. Manuel HTML/PDF régénéré. Le protocole LAN passe à **5** : tous les postes doivent utiliser la 0.5.29. Aucun équipement du catalogue n’est modifié. Les contrôles Rust/Tauri passent par la CI du commit publié ; la séance sur le LAN de l’établissement reste à retester. [Périmètre et preuves](developpement/collaboration-metiers-2026-11-05.md).
+
+## Version précédente — 0.5.28
 
 L’hôte choisit les calques de chaque invité par cases à cocher. Un invité peut modifier plusieurs calques et plusieurs invités peuvent travailler sur un même calque. Le retrait est individuel, y compris pour un poste déconnecté ; les autres droits sont conservés. La vue générale reste en lecture seule pour les invités et l’hôte garde tous les droits. Les anciennes réservations uniques restent lisibles lors d’une reprise.
 

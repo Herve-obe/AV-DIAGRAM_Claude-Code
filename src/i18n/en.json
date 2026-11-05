@@ -833,8 +833,8 @@
       "forget": "Forget"
     },
     "layers": {
-      "title": "Layer access",
-      "hint": "Several guests can share a layer. You can edit your assigned layers; the general view remains read-only. The host can edit everything.",
+      "title": "Editing roles",
+      "hint": "Your roles allow their equipment, ports and related technical interfaces, regardless of the displayed filter. The general view remains read-only. The host keeps full access.",
       "free": "Host only",
       "mine": "reserved by you",
       "by": "reserved by {{name}}",
@@ -843,9 +843,9 @@
       "unassigned": "Host only",
       "assign": "Assign {{layer}} layer",
       "offline": "{{name}} (disconnected)",
-      "hostHint": "Check the layers each guest may edit. A guest can access several layers and several guests can share a layer. Changes apply immediately; a guest with no checked layers remains read-only.",
+      "hostHint": "Check the roles each guest may edit. Several guests may share a role. Related equipment interfaces are included; connecting to a free shared network port is allowed. Switch settings remain restricted to the Network role and the host.",
       "userAccess": "Access for {{name}}",
-      "none": "No assigned layers: read-only."
+      "none": "No assigned roles: read-only."
     },
     "chat": {
       "title": "Session chat",
@@ -854,6 +854,16 @@
       "send": "Send"
     },
     "notice": {
+      "access": {
+        "general": "The general view is read-only. Choose another filter to edit items allowed by your roles.",
+        "waiting": "The host has not started the session yet.",
+        "equipment": "Change refused: equipment “{{name}}” is protected for your current roles.",
+        "port": "Change refused: port “{{port}}” on “{{name}}” is protected for your current roles.",
+        "link": "Action refused: the link at “{{name}} / {{port}}” is protected.",
+        "busy": "Connection refused: port “{{port}}” on “{{name}}” is already in use.",
+        "common": "Change refused: these shared settings are reserved for the host.",
+        "history": "Undo or redo refused: this change exceeds your current permissions."
+      },
       "hostLost": "Host unreachable. Your work is kept on this computer; you can keep working, reconnection is automatic.",
       "relayLost": "This computer's relay is not answering; retrying.",
       "since": "(for {{seconds}} s)",

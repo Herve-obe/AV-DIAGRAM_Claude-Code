@@ -10,7 +10,7 @@ class RelaySocket {
   static OPEN = 1
   static peers = new Map<number, RelaySocket>()
   static next = 1
-  static protocol: number | undefined = 4
+  static protocol: number | undefined = 5
   static held = false
   static queued: (() => void)[] = []
   static flush() {
@@ -33,7 +33,7 @@ class RelaySocket {
   send(value: string | Uint8Array) {
     if (typeof value === 'string') {
       const h = JSON.parse(value)
-      expect(h.protocol).toBe(4)
+      expect(h.protocol).toBe(5)
       this.id = RelaySocket.next++; this.host = h.hostToken === 'private-host'
       this.userId = createHash('sha256').update(h.clientToken ?? 'probe').digest('hex')
       const peers = [...RelaySocket.peers.values()].map(p => ({ id: p.id, userId: p.userId, name: 'Poste', address: '127.0.0.1' }))
@@ -76,10 +76,10 @@ afterEach(() => {
   RelaySocket.held = false; RelaySocket.queued = []
   videoGuest?.session.leave(); videoGuest = undefined
   guest?.session.leave(); host?.session.leave()
-  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 4; vi.unstubAllGlobals()
+  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 5; vi.unstubAllGlobals()
 })
 
-it.each([undefined, 1, 2, 3])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
+it.each([undefined, 1, 2, 3, 4])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
   vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
   vi.stubGlobal('WebSocket', RelaySocket)
   native.invoke.mockResolvedValue(undefined)
@@ -296,4 +296,58 @@ it('deux invités partagent le même calque, gardent leur annulation et perdent 
   await vi.waitFor(() => expect(host.useProject.getState().project.equipment[second].position.x).toBe(260))
   host.useProject.getState().moveEquipment(first, { x: 60, y: 0 })
   await vi.waitFor(() => expect(guest.useProject.getState().project.equipment[first].position.x).toBe(60))
+})
+
+it('le profil Audio configure son interface, raccorde le switch et annule depuis Réseau sans exclusion, puis respecte le retrait', async () => {
+  vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
+  vi.stubGlobal('WebSocket', RelaySocket)
+  native.invoke.mockReset().mockImplementation(async (command: string, args?: { peerId?: number }) => {
+    if (command === 'collab_local_addresses') return ['127.0.0.1:4455']
+    if (command === 'collab_host_start' || command === 'collab_host_status') return { port: 4455, code: '123456', hostToken: 'private-host', addresses: ['127.0.0.1:4455'], peers: [] }
+    if (command === 'collab_kick') { RelaySocket.peers.get(args!.peerId!)?.close(); return true }
+  })
+  host = await instance('Hôte')
+  const consoleId = host.useProject.getState().addEquipment(host.LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 0 })
+  const swId = host.useProject.getState().addEquipment(host.LIBRARY_BY_ID.get('gen-switch8')!, { x: 400, y: 0 })
+  const rxId = host.useProject.getState().addEquipment(host.LIBRARY_BY_ID.get('gen-wireless-rx')!, { x: 0, y: 300 })
+  const portId = host.useProject.getState().addPort(consoleId, { name: 'Gestion', signal: 'network', direction: 'bidir', connector: 'rj45' })!
+  await host.session.hostSession()
+  await vi.waitFor(() => expect(host.session.useCollab.getState().status).toBe('connected'))
+  guest = await instance('Son'); await guest.session.joinSession('127.0.0.1', '123456')
+  const userId = guest.session.useCollab.getState().userId
+  await vi.waitFor(() => expect(host.session.useCollab.getState().participants).toHaveLength(2))
+  host.session.assignLayer('sound', userId, true); host.session.beginSession()
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().started).toBe(true))
+  guest.useUi.getState().setPref('layer', 'network')
+  guest.useProject.getState().updatePort(consoleId, portId, { network: { address: '192.168.1.50', vlan: 10 } })
+  const address = (node: typeof host) => node.useProject.getState().project.equipment[consoleId].ports.find(p => p.id === portId)?.network?.address
+  await vi.waitFor(() => expect(address(host)).toBe('192.168.1.50'))
+  guest.useProject.getState().undo()
+  await vi.waitFor(() => expect(address(host)).toBeUndefined())
+  guest.useProject.getState().redo()
+  await vi.waitFor(() => expect(address(host)).toBe('192.168.1.50'))
+  guest.useProject.getState().beginGesture()
+  const p = guest.useProject.getState().project, desk = p.equipment[consoleId].ports.find(p => p.signal === 'audioIp')!, slot = p.equipment[swId].ports[0]
+  const linkId = guest.useProject.getState().connect({ equipmentId: consoleId, portId: desk.id }, { equipmentId: swId, portId: slot.id })!
+  await vi.waitFor(() => expect(host.useProject.getState().project.links[linkId]).toBeDefined())
+  guest.useProject.getState().undo()
+  await vi.waitFor(() => expect(host.useProject.getState().project.links[linkId]).toBeUndefined())
+  guest.useProject.getState().redo()
+  await vi.waitFor(() => expect(host.useProject.getState().project.links[linkId]).toBeDefined())
+  guest.useProject.getState().beginGesture()
+  guest.useProject.getState().remove([rxId], [])
+  await vi.waitFor(() => expect(host.useProject.getState().project.equipment[rxId]).toBeUndefined())
+  guest.useProject.getState().undo()
+  await vi.waitFor(() => expect(host.useProject.getState().project.equipment[rxId]).toBeDefined())
+  host.session.assignLayer('sound', userId, false)
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.sound).toBeUndefined())
+  const accepted = guest.useProject.getState().project
+  const socket = [...RelaySocket.peers.values()].find(p => !p.host)!, send = vi.spyOn(socket, 'send')
+  guest.useProject.getState().redo()
+  guest.useProject.getState().updatePort(consoleId, portId, { network: { address: '192.168.1.99' } })
+  expect(guest.useProject.getState().project).toBe(accepted)
+  expect(send).not.toHaveBeenCalled()
+  send.mockRestore()
+  expect(guest.session.useCollab.getState().status).toBe('connected')
+  expect(native.invoke.mock.calls.some(([command]) => command === 'collab_kick')).toBe(false)
 })

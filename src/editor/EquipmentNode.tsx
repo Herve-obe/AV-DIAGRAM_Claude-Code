@@ -42,7 +42,7 @@ const SIDES: Record<Rotation, { input: Side; output: Side }> = {
   270: { input: 'bottom', output: 'top' },
 }
 
-function PortRow({ port, side, input, offPage, dim }: { port: PortDef; side: Side; input: boolean; offPage?: string; dim: boolean }) {
+function PortRow({ port, side, input, offPage, dim, connectable }: { port: PortDef; side: Side; input: boolean; offPage?: string; dim: boolean; connectable: boolean }) {
   const style = SIGNAL_STYLE[port.signal]
   // Info-bulle complète : sens, signal, niveau, connecteur (aide à choisir le bon port)
   const t = i18n.t.bind(i18n)
@@ -60,6 +60,7 @@ function PortRow({ port, side, input, offPage, dim }: { port: PortDef; side: Sid
     <div className={`port port-${side}${dim ? ' port-dim' : ''}`} title={title} data-sig={port.signal} data-dir={port.direction}>
       <Handle
         id={port.id}
+        isConnectable={connectable}
         type={input ? 'target' : 'source'}
         position={POSITION[side]}
         className={`handle ${port.direction === 'bidir' ? 'handle-bidir' : ''}`}
@@ -94,7 +95,7 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
   const inputs = shown.filter((p) => p.direction === 'in')
   const outputs = shown.filter((p) => p.direction !== 'in')
   const free = eq.ports.filter(p => !connected.has(p.id))
-  const available = free.filter(p => portInView(p, data.layer) && editing.port(eq, p))
+  const available = free.filter(p => (portInView(p, data.layer) || editing.shared(eq) || editing.technical(eq, p)) && editing.connectable(eq, p))
   const directions = (['in', 'out', 'bidir'] as const).filter(direction => available.some(p => p.direction === direction))
   const chosenDirection = directions.includes(pickerDirection) ? pickerDirection : directions[0]
   const directionLabel = { in: 'inputs', out: 'outputs', bidir: 'bidir' } as const
@@ -124,7 +125,7 @@ function EquipmentNodeView({ id, data, selected }: NodeProps<EquipmentFlowNode>)
     {pendingPort && !pendingConnected && <span>{t('portDisplay.dragHint')} <button type="button" className="btn btn-ghost" onClick={() => setPendingPort('')}>{t('portDisplay.cancel')}</button></span>}
   </div>
   const row = (list: PortDef[], side: Side, isInput: boolean) =>
-    list.map((p) => <PortRow key={p.id} port={p} side={side} input={isInput} offPage={data.offPage[p.id]} dim={!portInView(p, data.layer)} />)
+    list.map((p) => <PortRow key={p.id} port={p} side={side} input={isInput} offPage={data.offPage[p.id]} dim={!portInView(p, data.layer) && !editing.shared(eq) && !editing.technical(eq, p)} connectable={editing.connectable(eq, p)} />)
   const ins = row(inputs, input, true)
   const outs = row(outputs, output, false)
   const head = (

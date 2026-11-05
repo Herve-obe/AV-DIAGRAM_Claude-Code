@@ -5,6 +5,7 @@ import { CONNECTORS, connectorLabel } from '../model/connectors'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, Level, PortDef, PortDirection } from '../model/types'
 import { useProject } from '../store/projectStore'
+import { useEditing } from '../collab/useEditing'
 import { Field } from './Field'
 import { Icon } from './Icon'
 
@@ -14,11 +15,12 @@ const AUDIO_ANALOG = 'audioAnalog'
 
 function PortForm({ eq, port }: { eq: Equipment; port: PortDef }) {
   const { t } = useTranslation()
+  const editing = useEditing(), reason = editing.portReason(eq, port)
   const { updatePort, removePort } = useProject.getState()
   const set = (patch: Partial<Omit<PortDef, 'id'>>) => updatePort(eq.id, port.id, patch)
   const fid = `port-${eq.id}-${port.id}`
   return (
-    <div className="port-form">
+    <fieldset className="port-form" disabled={!editing.port(eq, port)} title={!editing.port(eq, port) ? t(`collab.notice.access.${reason.code}`, reason.params) : undefined}>
       <Field id={`${fid}-name`} label={t('ports.name')} value={port.name} onCommit={(v) => set({ name: v.trim() || port.name })} />
       <div className="field-row">
         <div className="field">
@@ -30,7 +32,7 @@ function PortForm({ eq, port }: { eq: Equipment; port: PortDef }) {
         <div className="field">
           <label htmlFor={`${fid}-sig`}>{t('ports.signal')}</label>
           <select id={`${fid}-sig`} value={port.signal} onChange={(e) => set({ signal: e.target.value as PortDef['signal'] })}>
-            {SIGNAL_FAMILIES.map((s) => <option key={s} value={s}>{t(`signal.${s}`)}</option>)}
+            {SIGNAL_FAMILIES.filter(signal => signal === port.signal || editing.port(eq, { ...port, signal })).map((s) => <option key={s} value={s}>{t(`signal.${s}`)}</option>)}
           </select>
         </div>
       </div>
@@ -71,12 +73,13 @@ function PortForm({ eq, port }: { eq: Equipment; port: PortDef }) {
           <Icon name="trash" size={14} />{t('ports.remove')}
         </button>
       </div>
-    </div>
+    </fieldset>
   )
 }
 
 export function PortEditor({ eq }: { eq: Equipment }) {
   const { t } = useTranslation()
+  const editing = useEditing(), defaults = editing.initialPort(eq), reason = editing.equipmentReason(eq)
   const [open, setOpen] = useState<string | null>(null)
   const groups: { key: string; title: string; ports: PortDef[] }[] = [
     { key: 'in', title: t('inspector.inputs'), ports: eq.ports.filter((p) => p.direction === 'in') },
@@ -84,9 +87,8 @@ export function PortEditor({ eq }: { eq: Equipment }) {
     { key: 'bidir', title: t('inspector.bidir'), ports: eq.ports.filter((p) => p.direction === 'bidir') },
   ]
   const add = () => {
-    const id = useProject.getState().addPort(eq.id, {
-      name: t('ports.newName'), direction: 'in', signal: 'audioAnalog', connector: 'xlr3', level: 'line+4',
-    })
+    if (!defaults) return
+    const id = useProject.getState().addPort(eq.id, { ...defaults, name: t('ports.newName') })
     setOpen(id)
   }
   return (
@@ -110,7 +112,7 @@ export function PortEditor({ eq }: { eq: Equipment }) {
         </div>
       ))}
       <div className="insp-actions">
-        <button className="btn" onClick={add}><Icon name="plus" size={14} />{t('ports.add')}</button>
+        <button className="btn" onClick={add} disabled={!defaults} title={!defaults ? t(`collab.notice.access.${reason.code}`, reason.params) : undefined}><Icon name="plus" size={14} />{t('ports.add')}</button>
       </div>
     </section>
   )

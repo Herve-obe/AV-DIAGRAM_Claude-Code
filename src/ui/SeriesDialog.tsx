@@ -2,10 +2,11 @@
 // les entrées libres d'un autre équipement, dans l'ordre, avec aperçu et multipaire proposé.
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { freeInputs, planSeries, schemaOrder, sourceFamilies } from '../model/series'
+import { applySeries, freeInputs, planSeries, schemaOrder, sourceFamilies } from '../model/series'
 import type { SignalFamily } from '../model/signals'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
+import { useEditing } from '../collab/useEditing'
 import { Icon } from './Icon'
 
 export function SeriesDialog() {
@@ -16,6 +17,7 @@ export function SeriesDialog() {
 
 function SeriesForm({ from }: { from: string[] }) {
   const { t } = useTranslation()
+  const editing = useEditing()
   const project = useProject((s) => s.project)
   const close = () => useUi.getState().setSeriesFrom(null)
   const sheetId = useUi.getState().currentSheetId
@@ -34,7 +36,7 @@ function SeriesForm({ from }: { from: string[] }) {
     () => (dest && fam ? planSeries(project, sources, dest, { family: fam, startPortId: start || undefined }) : null),
     [project, sources.join(), dest, fam, start],
   )
-  const [useMc, setUseMc] = useState(true)
+  const [useMc, setUseMc] = useState(editing.common)
   const [mc, setMc] = useState('__new')
   const multicores = Object.values(project.multicores ?? {}).sort((a, b) => a.label.localeCompare(b.label))
   // Destinations possibles : équipements de la feuille hors sources, sélection d'abord
@@ -52,8 +54,10 @@ function SeriesForm({ from }: { from: string[] }) {
   const portName = (eqId: string, portId: string) => project.equipment[eqId]?.ports.find((p) => p.id === portId)?.name ?? portId
   const count = plan?.pairs.length ?? 0
   const withMc = useMc && count >= 2
+  const candidate = plan ? applySeries(project, plan, withMc ? (mc === '__new' ? null : mc) : undefined).project : project
+  const denial = editing.changeReason(candidate)
   const create = () => {
-    if (!plan || !count) return
+    if (!plan || !count || denial) return
     const ids = useProject.getState().connectSeries(plan, withMc ? (mc === '__new' ? null : mc) : undefined)
     useUi.getState().select([], ids)
     if (withMc) useUi.getState().setPref('linkView', 'cables')
@@ -113,7 +117,7 @@ function SeriesForm({ from }: { from: string[] }) {
           {count >= 2 && (
             <div className="series-mc">
               <label className="check-line">
-                <input type="checkbox" checked={useMc} onChange={(e) => setUseMc(e.target.checked)} />
+                <input type="checkbox" disabled={!editing.common} checked={useMc} onChange={(e) => setUseMc(e.target.checked)} />
                 {t('series.multicore', { count })}
               </label>
               {useMc && (
@@ -127,7 +131,7 @@ function SeriesForm({ from }: { from: string[] }) {
         </div>
         <footer className="dialog-foot">
           <button className="btn" onClick={close}>{t('series.cancel')}</button>
-          <button className="btn btn-primary" onClick={create} disabled={!count}>{t('series.create', { count })}</button>
+          <button className="btn btn-primary" onClick={create} disabled={!count || !!denial} title={denial ? t(`collab.notice.access.${denial.code}`, denial.params) : undefined}>{t('series.create', { count })}</button>
         </footer>
       </div>
     </div>

@@ -4,9 +4,9 @@
   "updatedAt": "2026-11-05",
   "status": "completed_with_reservations",
   "base": {
-    "version": "0.5.27",
-    "commit": "faab2ae46e6b19e0b71f34ac4fc6dee4eadb887a",
-    "tree": "8f104cb5b389f596fe204c9ca240620cd2429824",
+    "version": "0.5.28",
+    "commit": "f543818254b43e8a84cddabd1560687001e1a0cc",
+    "tree": "30fe90f5c96e5cdff73ebd2c71139dbd98482c02",
     "branch": "codex/ia-locale",
     "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
     "draft": true
@@ -582,5 +582,52 @@
     },
     "nativeCi": "pending_at_publication",
     "physicalLan": "not_tested"
+  },
+  "collaborationClassroomFix": {
+    "id": "COLLAB-METIERS-001",
+    "status": "complete",
+    "date": "2026-11-05",
+    "work": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/collab-metiers-2026-11-05",
+    "baseCommit": "f543818254b43e8a84cddabd1560687001e1a0cc",
+    "baseVersion": "0.5.28",
+    "version": "0.5.29",
+    "protocol": 5,
+    "owner": "/root/collab_droits_multiples",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "reviewer": "gpt-6-luna",
+    "reviewerReasoning": "medium",
+    "attempts": 2,
+    "acceptance": [
+      "Filtres indépendants des métiers, Général en lecture seule",
+      "Interfaces techniques propres et ports métier d'appareils mixtes",
+      "Prises libres de switches partagés raccordables sans édition de leurs paramètres",
+      "Suppression atomique et refus de réaffectation protégée",
+      "Ajout Expert et undo/redo contrôlés avant émission"
+    ],
+    "review": "Relecture indépendante et principale ; précision du motif de liaison corrigée avec test UI",
+    "validation": {
+      "targetedPassed": 57,
+      "testsPassed": 516,
+      "testsSkipped": 6,
+      "filesPassed": 56,
+      "filesSkipped": 1,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true,
+      "manualGenerated": true,
+      "nativeLocal": false,
+      "physicalLan": false,
+      "aiRealLocal": false,
+      "finalTooltipUi": {
+        "passed": 4,
+        "files": 1,
+        "redConfirmed": true
+      }
+    },
+    "nativeCi": "pending_at_publication",
+    "physicalLan": "not_tested",
+    "report": "docs/developpement/collaboration-metiers-2026-11-05.md"
   }
 }
