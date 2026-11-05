@@ -5,6 +5,8 @@ import { discoverSessions, type DiscoveredSession } from '../collab/discovery'
 import {
   canHost, assignLayer, beginSession, DEFAULT_PORT, forgetResume, hostSession, joinSession, kick, leave, resumeSession, useCollab,
 } from '../collab/session'
+import { claimMembers, type Claim } from '../collab/protection'
+import { guestLayers } from '../collab/access'
 import { LAYERS } from '../model/layers'
 import { Icon } from './Icon'
 
@@ -28,6 +30,10 @@ export function CollabDialog() {
   const previousStarted = useRef(started)
   const active = status !== 'off'
   const guests = participants.filter(p => !p.self && p.peerId != null && p.userId)
+  const users = [...new Map<string, Claim & { online: boolean }>([
+    ...LAYERS.flatMap(layer => claimMembers(claims[layer])).map(c => [c.userId, { ...c, online: false }] as const),
+    ...guests.map(p => [p.userId!, { ...p, userId: p.userId!, online: true }] as const),
+  ]).values()]
   const selectedSession = manualAddress.trim() ? undefined : sessions.find(s => s.id === selectedHost)
   const joinAddress = manualAddress.trim() ? manualAddress : selectedSession?.address ?? ''
   const close = () => setDialogOpen(false)
@@ -177,21 +183,24 @@ export function CollabDialog() {
             </li>)}</ul>
             {guests.length === 0 && Object.keys(claims).length === 0 ? <p className="dialog-hint">{t('collab.lobby.assignAfterJoin')}</p> : <>
               <h3 className="group-title">{t('collab.layers.title')}</h3>
-              <p className="dialog-hint">{t('collab.layers.hint')}</p>
-              <ul className="collab-people">{LAYERS.map(layer => <li key={layer}>
-                <span className="collab-person">{t(`library.domain.${layer}`)}</span>
-                <select aria-label={t('collab.layers.assign', { layer: t(`library.domain.${layer}`) })} value={claims[layer]?.userId ?? ''} onChange={e => assignLayer(layer, guests.find(p => p.userId === e.target.value)?.peerId ?? null)}>
-                  <option value="">{t('collab.layers.unassigned')}</option>
-                  {claims[layer] && !guests.some(p => p.userId === claims[layer]?.userId) && <option value={claims[layer]!.userId} disabled>{t('collab.layers.offline', { name: claims[layer]!.name })}</option>}
-                  {guests.map(p => <option key={p.peerId} value={p.userId}>{p.name}</option>)}
-                </select>
-              </li>)}</ul>
+              <p className="dialog-hint">{t('collab.layers.hostHint')}</p>
+              {users.map(p => <fieldset className="collab-layer-access" key={p.userId}>
+                <legend>{t('collab.layers.userAccess', { name: p.online ? p.name : t('collab.layers.offline', { name: p.name }) })}</legend>
+                {LAYERS.map(layer => {
+                  const checked = guestLayers(claims, p.userId).has(layer)
+                  return <label className="collab-layer-check" key={layer}>
+                    <input type="checkbox" checked={checked} disabled={!p.online && !checked} onChange={e => assignLayer(layer, p.userId, e.target.checked)} />
+                    <span>{t(`library.domain.${layer}`)}</span>
+                  </label>
+                })}
+              </fieldset>)}
             </>}
           </>}
           {role === 'guest' && started && <>
             <h3 className="group-title">{t('collab.layers.title')}</h3>
             <p className="dialog-hint">{t('collab.layers.hint')}</p>
-            <ul className="collab-people">{LAYERS.filter(layer => claims[layer]?.userId === userId).map(layer => <li key={layer}>{t(`library.domain.${layer}`)}</li>)}</ul>
+            {guestLayers(claims, userId).size === 0 && <p className="dialog-hint">{t('collab.layers.none')}</p>}
+            <ul className="collab-people">{[...guestLayers(claims, userId)].map(layer => <li key={layer}>{t(`library.domain.${layer}`)}</li>)}</ul>
           </>}
         </>}
       </div>

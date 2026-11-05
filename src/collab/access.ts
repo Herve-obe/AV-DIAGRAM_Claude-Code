@@ -1,11 +1,11 @@
 // Droits attribués par l'hôte. Un invité n'édite que depuis un calque explicitement attribué.
 import { LAYERS, layerOfSignal, primaryLayer, type Layer, type LayerView } from '../model/layers'
 import type { Project } from '../model/types'
-import { checkChange, linkLayer, type Claims } from './protection'
+import { checkChange, claimMembers, linkLayer, type Claims } from './protection'
 import { sameData as equal } from './compare'
 
 export function guestLayers(claims: Claims, userId: string): Set<Layer> {
-  return new Set(LAYERS.filter(l => claims[l]?.userId === userId))
+  return new Set(LAYERS.filter(l => claimMembers(claims[l]).some(c => c.userId === userId)))
 }
 export function checkGuestChange(prev: Project, next: Project, allowed: Set<Layer>, view: LayerView): boolean {
   if (equal(prev, next)) return true

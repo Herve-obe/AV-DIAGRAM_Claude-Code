@@ -4,7 +4,7 @@ Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/
 
 ## Nouvelles vues — 0.4.0
 
-Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Pour partager les nouveaux champs, utiliser 0.4.0 sur tous les postes (protocole 3).
+Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Depuis 0.5.28, les droits partagés demandent une version compatible avec le protocole 4 sur tous les postes.
 
 ## Fichiers et sauvegardes
 
@@ -30,7 +30,7 @@ Depuis **Session Collaborative**, l’hôte ouvre une salle d’attente avec son
 
 Depuis la version **0.2.3**, un hôte unique est présélectionné. S'il y a plusieurs sessions, l'invité choisit celle à rejoindre. Le nom de l'invité reste à renseigner en haut de la fenêtre ; le nom affiché sous le projet est celui de l'hôte. À côté du bouton Rejoindre, un message précise s'il manque le nom, la sélection d'une session ou les six chiffres du code. Une saisie d'adresse manuelle reste prioritaire. Le choix de l'hôte est conservé pendant l'actualisation ; sa disparition ne choisit pas un autre hôte à sa place, même s'il avait été présélectionné.
 
-Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. Un invité peut recevoir plusieurs calques ; un même calque est réservé à un invité à la fois. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
+Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. L’hôte coche les calques autorisés pour chaque invité : un invité peut recevoir plusieurs calques et plusieurs invités peuvent modifier le même calque en même temps. Retirer une case ne modifie pas les droits des autres invités. Les sessions partagées demandent la version 0.5.28 ou une version compatible avec le protocole 4 sur tous les postes. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
 
 Le bouton **Terminer la session** reste visible dans le bandeau du logiciel chez l’hôte, même si la fenêtre de gestion est fermée. Les invités disposent de **Quitter la session**. Le schéma reste ouvert sur chaque poste.
 

@@ -2,7 +2,7 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fullyLocked } from '../collab/protection'
+import { claimMembers, fullyLocked } from '../collab/protection'
 import { guestLayers } from '../collab/access'
 import { LAYERS } from '../model/layers'
 import { useCollab } from '../collab/session'
@@ -100,8 +100,8 @@ export function Canvas() {
   const locked = useMemo(() => {
     if (access.status === 'off' || access.role === 'host') return new Set<import('../model/layers').Layer>()
     const allowed = guestLayers(claims, access.userId)
-    return new Set(LAYERS.filter(l => layer === 'all' || l !== layer || !allowed.has(l)))
-  }, [claims, access.status, access.role, access.userId, layer])
+    return new Set(LAYERS.filter(l => !access.started || layer === 'all' || l !== layer || !allowed.has(l)))
+  }, [claims, access.status, access.role, access.userId, access.started, layer])
   const presenceByEq = useMemo(() => {
     const m = new Map<string, { name: string; color: string }[]>()
     for (const p of participants) {
@@ -113,7 +113,7 @@ export function Canvas() {
   /** Nom de la personne qui a réservé tous les calques de l'équipement (sinon undefined) */
   const lockOf = useCallback((eq: Equipment) => {
     const l = fullyLocked(eq, locked)
-    return l ? `${t(`library.domain.${l}`)} : ${claims[l]?.name ?? '?'}` : undefined
+    return l ? `${t(`library.domain.${l}`)} : ${claimMembers(claims[l]).map(c => c.name).join(', ') || '?'}` : undefined
   }, [locked, claims, t])
   const hintsByEq = useMemo(() => {
     const m = new Map<string, string[]>()

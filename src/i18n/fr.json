@@ -833,8 +833,8 @@
       "forget": "Oublier"
     },
     "layers": {
-      "title": "Calques réservés",
-      "hint": "L’hôte attribue les calques aux postes invités. Les invités voient tout ; ils modifient uniquement depuis un calque attribué. Le calque général reste en lecture seule pour eux. L’hôte peut tout modifier.",
+      "title": "Accès aux calques",
+      "hint": "Plusieurs invités peuvent partager un calque. Tu peux modifier les calques qui te sont attribués ; la vue générale reste en lecture seule. L’hôte peut tout modifier.",
       "free": "Hôte uniquement",
       "mine": "réservé par toi",
       "by": "réservé par {{name}}",
@@ -842,7 +842,10 @@
       "release": "Libérer",
       "unassigned": "Hôte uniquement",
       "assign": "Attribuer le calque {{layer}}",
-      "offline": "{{name}} (déconnecté)"
+      "offline": "{{name}} (déconnecté)",
+      "hostHint": "Coche les calques autorisés pour chaque invité. Un invité peut accéder à plusieurs calques et plusieurs invités au même calque. Les changements s’appliquent immédiatement ; sans case cochée, l’invité reste en lecture seule.",
+      "userAccess": "Accès de {{name}}",
+      "none": "Aucun calque attribué : lecture seule."
     },
     "chat": {
       "title": "Tchat de la session",

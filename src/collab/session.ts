@@ -32,7 +32,7 @@ import { normalizeProject } from '../model/project'
 import type { Layer, LayerView } from '../model/layers'
 import { setHistoryDriver, setProjectGuard, useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
-import { type Claim, type Claims } from './protection'
+import { claimMembers, type Claims } from './protection'
 import { HostValidation } from './hostValidation'
 import { checkGuestChange, guestLayers } from './access'
 import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
@@ -648,7 +648,7 @@ function saveSoon(cur: Live) {
   }, SAVE_DELAY_MS)
 }
 
-const claimsMap = (doc: Y.Doc) => doc.getMap<Claim>('claims')
+const claimsMap = (doc: Y.Doc) => doc.getMap<Claims[Layer]>('claims')
 const chatArray = (doc: Y.Doc) => doc.getArray<ChatMessage>('chat')
 
 interface StartOptions {
@@ -958,11 +958,14 @@ export async function kick(peerId: number) {
 }
 
 /** Seul le poste qui héberge attribue ou retire les réservations. */
-export function assignLayer(layer: Layer, peerId: number | null) {
+export function assignLayer(layer: Layer, userId: string, granted: boolean) {
   if (!live || useCollab.getState().role !== 'host') return
-  const person = useCollab.getState().participants.find(p => p.peerId === peerId && !p.self)
+  const person = useCollab.getState().participants.find(p => p.userId === userId && !p.self && p.peerId != null)
+  if (!userId || (granted && !person)) return
+  const members = claimMembers(claimsMap(live.doc).get(layer)).filter(c => c.userId !== userId)
+  if (granted) members.push({ peerId: person!.peerId, userId, name: person!.name, color: person!.color })
   live.doc.transact(() => {
-    if (person && peerId != null) claimsMap(live!.doc).set(layer, { peerId, userId: person.userId ?? '', name: person.name, color: person.color })
+    if (members.length) claimsMap(live!.doc).set(layer, members)
     else claimsMap(live!.doc).delete(layer)
   }, 'claims')
 }

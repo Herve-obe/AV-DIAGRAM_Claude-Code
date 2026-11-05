@@ -14,6 +14,15 @@ function setup() {
   return { p, consoleId: console.id, camId: camera.id }
 }
 describe('droits attribués par l’hôte', () => {
+  it('autorise plusieurs invités sur un calque et plusieurs calques pour le même invité', () => {
+    const audio = { userId: 'audio', name: 'Audio', color: '#000' }
+    const video = { userId: 'video', name: 'Vidéo', color: '#111' }
+    const claims = { sound: [audio, video], image: [audio] }
+    expect([...guestLayers(claims, 'audio')]).toEqual(['sound', 'image'])
+    expect([...guestLayers(claims, 'video')]).toEqual(['sound'])
+    expect(guestLayers(claims, 'intrus').size).toBe(0)
+    expect([...guestLayers({ sound: audio }, 'audio')]).toEqual(['sound'])
+  })
   it('réserve la présentation mémorisée des prises au propriétaire du domaine principal', () => {
     const { p, camId, consoleId } = setup()
     const camera = ops.updateEquipment(p, camId, { portsExpanded: false })
@@ -149,6 +158,21 @@ describe('validation des propositions reçues sur le poste hôte', () => {
     expect(validator.apply(move(), 'intrus', 'sound')).toBe(false)
     expect(validator.apply(move(), 'audio', 'all')).toBe(false)
     expect(validator.apply(move(), 'audio', 'sound')).toBe(true)
+    validator.destroy(); host.destroy()
+  })
+  it('refuse de falsifier les listes de membres, y compris avec une édition autorisée', () => {
+    const { host, validator, propose, consoleId } = session()
+    const member = { userId: 'audio', name: 'Audio', color: '#000' }
+    host.getMap('claims').set('sound', [member, { ...member, userId: 'other' }])
+    const before = readProject(host)
+    const forged = propose(g => {
+      const p = readProject(g)
+      writeProject(g, p, ops.moveEquipment(p, consoleId, { x: 88, y: 0 }))
+      g.getMap('claims').set('sound', [member])
+    })
+    expect(validator.apply(forged, 'audio', 'sound')).toBe(false)
+    expect(readProject(host)).toEqual(before)
+    expect(host.getMap('claims').get('sound')).toHaveLength(2)
     validator.destroy(); host.destroy()
   })
   it('refuse les types cachés et les mises à jour incomplètes qui attendraient un message ultérieur', () => {

@@ -1,6 +1,14 @@
-# État d’avancement (mise à jour du 2026-11-04)
+# État d’avancement (mise à jour du 2026-11-05)
 
-## Situation actuelle — 0.5.27
+## Situation actuelle — 0.5.28
+
+L’hôte choisit les calques de chaque invité par cases à cocher. Un invité peut modifier plusieurs calques et plusieurs invités peuvent travailler sur un même calque. Le retrait est individuel, y compris pour un poste déconnecté ; les autres droits sont conservés. La vue générale reste en lecture seule pour les invités et l’hôte garde tous les droits. Les anciennes réservations uniques restent lisibles lors d’une reprise.
+
+Les droits, le démarrage de session et leur retrait sont transmis à la fenêtre Infos détachée. Les propositions reçues restent contrôlées chez l’hôte et un invité ne peut pas modifier les attributions. Le protocole LAN passe à **4** : mettre à jour tous les postes avant de tester, notamment les Mac encore en 0.5.26.
+
+Contrôles locaux : défaut reproduit avant correction, 43 tests ciblés puis **504 tests réussis, 6 essais IA réelle ignorés**, types et compilation réussis ; lint sans erreur avec quatre avertissements historiques. Le manuel HTML/PDF est régénéré. Les simulations couvrent trois instances, les modifications simultanées, l’annulation individuelle, la reconnexion et le retrait sélectif. Rust/Tauri et le LAN physique ne sont pas testés localement ; les builds natives doivent être confirmées par la CI du commit publié. Ce changement ne modifie aucune fiche du catalogue.
+
+## Version précédente — 0.5.27
 
 Les 17 réponses des lots audio 04 et lumière 02 sont prises en compte : 15 fiches distinctes créées, 6 fiches précisées, 11 doublons génériques ou combinés écartés du catalogue actif et 6 fiches canoniques réutilisées sans modification. Les anciens projets gardent leurs appareils et leurs ports. Les variantes non documentées restent Communauté ; aucune nouvelle promotion Vérifié.
 

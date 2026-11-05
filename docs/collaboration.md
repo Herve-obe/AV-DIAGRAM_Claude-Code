@@ -43,9 +43,9 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
 7. **Enregistrement** : Ctrl+S / Cmd+S enregistre le fichier principal `.avd` ; chaque participant peut
    garder une copie locale. Les sauvegardes de sécurité automatiques vont dans « Save Back Up ».
 
-## Compatibilité des nouvelles vues (0.4.0)
+## Compatibilité des sessions (0.5.28)
 
-Tous les postes doivent utiliser la version 0.4.0, au protocole 3, pour partager les plans et les nouvelles données techniques. Le protocole antérieur est refusé. Les données par port suivent les droits du signal ; les fonds de plan, circuits et imports restent réservés à l'hôte. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md). Les sections datées ci-dessous conservent l'historique des essais.
+Les droits partagés utilisent le protocole 4 : installer la version 0.5.28 ou une version ultérieure compatible sur tous les postes. Les versions au protocole antérieur sont refusées avant la synchronisation. Les réservations uniques des reprises locales sont lues comme un seul membre ; les fichiers .avd ne contiennent pas les droits et restent compatibles. Les données par port suivent les droits du signal ; les fonds de plan, circuits et imports restent réservés à l'hôte. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md). Les sections datées ci-dessous conservent l'historique des essais.
 
 ## État historique (2026-10-16, version 0.2.3)
 
@@ -87,11 +87,12 @@ Bouton bulle dans la barre du haut pendant une session (compteur de messages non
 passent par le document partagé : un participant qui arrive voit l'historique (500 derniers messages).
 Ils ne sont pas enregistrés dans le fichier `.avd`.
 
-### Calques réservés
+### Accès partagés aux calques
 
-Seul l'hôte attribue ou libère les calques dans la fenêtre Collaboration. Un invité peut recevoir
-plusieurs calques ; un même calque est réservé à un invité à la fois. Sans attribution, il reste
-réservé à l'hôte. Les invités voient tout mais éditent uniquement depuis un calque attribué ; leur
+Seul l'hôte gère les accès dans la fenêtre Collaboration, avec des cases à cocher pour chaque invité.
+Un invité peut recevoir plusieurs calques et un même calque peut être modifié par plusieurs invités
+en même temps. Retirer une case ne retire que le droit de cet invité sur ce calque, sans changer
+les autres attributions. Sans attribution, le calque reste réservé à l'hôte. Les invités voient tout mais éditent uniquement depuis un calque attribué ; leur
 vue générale reste en lecture seule. L'hôte peut tout modifier, y compris depuis la vue générale.
 
 Sur un équipement partagé, les ports de chaque domaine sont protégés séparément. Le nom et la
@@ -146,13 +147,15 @@ Windows et macOS travaillent ensemble dans la même session (même protocole, m�
 
 ## Tester
 
-1. Installer la version 0.2.3 sur les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
+1. Installer la version 0.5.28 ou une version compatible avec le protocole 4 sur tous les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
    « Ouvrir la session ». Le code à 6 chiffres et la salle d'attente s'affichent.
 2. Invité : renseigner son propre nom en haut, onglet Rejoindre, choisir l'hôte trouvé (présélectionné
    s'il est seul) et saisir les six chiffres du code. Si la recherche reste vide,
    essayer Actualiser puis l'adresse affichée chez l'hôte dans les options avancées
    (ex. `192.168.1.20:4455`). Noter séparément le résultat de la découverte et de la connexion manuelle.
-3. Hôte : attribuer les calques aux invités connectés, puis « Commencer la session ».
+3. Hôte : cocher Audio et Image pour un invité, puis Audio pour un second, et « Commencer la session ».
+   Vérifier que les deux modifient Audio ; que le premier peut passer sur Image ; que le second
+   ne peut pas modifier Image. Décocher Audio pour le premier : le second doit conserver son accès.
 4. Points à vérifier : ajout et déplacement de blocs des deux côtés, liaisons, calques différents sur
    chaque poste, réservation de calque et refus, tchat, Ctrl+Z (ne défait que ses propres
    modifications), coupure du Wi-Fi d'un invité puis retour (fusion), fermeture brutale de l'hôte

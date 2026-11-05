@@ -1,14 +1,5 @@
-// Calques réservés pendant une session : la personne qui s'occupe de l'audio réserve le calque Audio,
-// les autres ne peuvent plus y toucher par erreur (et inversement). Sans réservation, tout est libre.
-//
-// Règles, pour un calque réservé par quelqu'un d'autre :
-// - équipement dont tous les calques sont réservés par d'autres : aucune modification ;
-// - équipement partagé (ex. caméra avec entrées audio) : disposition libre (position, orientation,
-//   feuille, rappels) ; ses autres réglages seulement si son calque principal est libre ; ses ports
-//   seulement ceux d'un calque libre ; pas de suppression ;
-// - ajout d'un équipement dont le calque principal est réservé : refusé ;
-// - liaison d'un calque réservé : ni ajout, ni modification, ni suppression.
-// Les notes, feuilles, zones et réglages du projet restent libres.
+// Contrôles des équipements et liaisons dont les calques sont verrouillés.
+// Les droits sont attribués par l'hôte à plusieurs membres ; access.ts protège aussi les données communes.
 import { layerOfSignal, layersOf, primaryLayer, type Layer } from '../model/layers'
 import type { Equipment, Link, PortDef, Project } from '../model/types'
 import { sameData } from './compare'
@@ -19,7 +10,11 @@ export interface Claim {
   name: string
   color: string
 }
-export type Claims = Partial<Record<Layer, Claim>>
+// Un ancien instantané peut encore contenir une réservation unique.
+export type Claims = Partial<Record<Layer, Claim[] | Claim>>
+export function claimMembers(value: Claims[Layer]): Claim[] {
+  return value ? Array.isArray(value) ? value : [value] : []
+}
 
 export interface Violation {
   kind: 'equipment' | 'link'
@@ -30,7 +25,10 @@ export interface Violation {
 /** Calques réservés par d'autres que moi. */
 export function lockedLayers(claims: Claims, me: string): Set<Layer> {
   const out = new Set<Layer>()
-  for (const [layer, c] of Object.entries(claims) as [Layer, Claim | undefined][]) if (c && c.userId !== me) out.add(layer)
+  for (const layer of Object.keys(claims) as Layer[]) {
+    const members = claimMembers(claims[layer])
+    if (members.length && !members.some(c => c.userId === me)) out.add(layer)
+  }
   return out
 }
 

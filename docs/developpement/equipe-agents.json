@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "campaign": "stabilisation-v1-2026-10-31",
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-05",
   "status": "completed_with_reservations",
   "base": {
-    "version": "0.5.26",
-    "commit": "0ecb94af6c9aed8c7d9def4a37d89e27c4b2b697",
-    "tree": "5f5e5a9b8b7ee15fbb02b4f4972be8d2f5bf6988",
+    "version": "0.5.27",
+    "commit": "faab2ae46e6b19e0b71f34ac4fc6dee4eadb887a",
+    "tree": "8f104cb5b389f596fe204c9ca240620cd2429824",
     "branch": "codex/ia-locale",
     "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
     "draft": true
@@ -544,5 +544,43 @@
       "typecheck": true,
       "build": true
     }
+  },
+  "collaborationMultiAccess": {
+    "id": "COLLAB-MULTI-001",
+    "status": "complete",
+    "work": "C:\\Users\\herve\\Documents\\Codex\\2026-10-12\\est\\work\\collab-droits-multiples-2026-11-05",
+    "owner": "/root/collab_droits_multiples",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "attempts": 1,
+    "baseCommit": "faab2ae46e6b19e0b71f34ac4fc6dee4eadb887a",
+    "acceptance": [
+      "Plusieurs calques par invité",
+      "Plusieurs invités par calque",
+      "Retrait individuel sans perte des autres droits",
+      "Validation réseau hôte et annulation respectent les droits",
+      "Protocoles précédents refusés"
+    ],
+    "version": "0.5.28",
+    "protocol": 4,
+    "review": "Aucun défaut bloquant après revue indépendante et relecture principale",
+    "validation": {
+      "targetedPassed": 43,
+      "testsPassed": 504,
+      "testsSkipped": 6,
+      "filesPassed": 54,
+      "filesSkipped": 1,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true,
+      "manualGenerated": true,
+      "nativeLocal": false,
+      "physicalLan": false,
+      "aiRealLocal": false,
+      "tempFolder": "C:\\Users\\herve\\Documents\\Codex\\2026-10-12\\est\\work\\collab-droits-multiples-2026-11-05\\tmp"
+    },
+    "nativeCi": "pending_at_publication",
+    "physicalLan": "not_tested"
   }
 }
