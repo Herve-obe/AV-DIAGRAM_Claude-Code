@@ -80,11 +80,27 @@ fn entry(provider: &str, base_url: Option<String>) -> Result<keyring::Entry, Str
 }
 
 fn read_key(provider: &str, base_url: Option<String>) -> Result<Option<String>, String> {
-    match entry(provider, base_url)?.get_password() {
+    let current = entry(provider, base_url)?;
+    match current.get_password() {
         Ok(k) => Ok(Some(k)),
+        Err(keyring::Error::NoEntry) if provider == "compatible" => migrate_legacy_key(&current),
         Err(keyring::Error::NoEntry) => Ok(None),
         Err(e) => Err(format!("lecture du trousseau impossible : {e}")),
     }
+}
+
+/// Avant la 0.5, la clé « compatible » était rangée sans adresse. Elle est rattachée à l'adresse
+/// configurée lors de la première lecture, puis l'ancienne entrée est supprimée.
+fn migrate_legacy_key(current: &keyring::Entry) -> Result<Option<String>, String> {
+    let legacy = keyring::Entry::new(SERVICE, "compatible").map_err(|e| format!("trousseau indisponible : {e}"))?;
+    let key = match legacy.get_password() {
+        Ok(k) => k,
+        Err(keyring::Error::NoEntry) => return Ok(None),
+        Err(e) => return Err(format!("lecture du trousseau impossible : {e}")),
+    };
+    current.set_password(&key).map_err(|e| format!("écriture dans le trousseau impossible : {e}"))?;
+    let _ = legacy.delete_credential();
+    Ok(Some(key))
 }
 
 #[tauri::command]

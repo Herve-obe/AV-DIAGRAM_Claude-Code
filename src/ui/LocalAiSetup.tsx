@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { assistantErrorText, testAssistant } from '../ai/setup'
 import { cancelDownload, downloadModel, downloadProgress, localCatalog, recommendedModel, setModelDirectory, startServer, stopServer, type DownloadProgress, type LocalCatalog } from '../ai/local'
 import { nativeAvailable, openExternal } from '../ai/transport'
+import { pickDirectory } from '../io/files'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
 
@@ -80,9 +81,8 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
     finally { setBusy(false); setProgress(await downloadProgress().catch(() => null)) }
   }
   const chooseDirectory = async () => {
-    const { open } = await import('@tauri-apps/plugin-dialog')
-    const directory = await open({ directory: true, multiple: false, defaultPath: catalog?.directory })
-    if (typeof directory !== 'string' || directory === catalog?.directory) return
+    const directory = await pickDirectory(catalog?.directory)
+    if (!directory || directory === catalog?.directory) return
     setBusy(true); setTested(false); setMessage('')
     try {
       await setModelDirectory(directory)

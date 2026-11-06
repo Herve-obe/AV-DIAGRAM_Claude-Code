@@ -89,7 +89,7 @@ export function TopBar() {
       await saveContent(slug(project.name) + '.drawio', drawioXml(project), 'application/xml')
     }).catch(() => notifyError(t('diagramExchange.exportError'))),
     undo, redo, group: groupSelected, ungroup: ungroupSelected,
-    fit: () => { if (view === 'plan') document.querySelector<HTMLButtonElement>('[data-plan-fit]')?.click(); else if (!fitToPage(rf, project, 300)) void rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 }) },
+    fit: () => { if (view === 'plan') document.querySelector<HTMLButtonElement>('[data-plan-fit]')?.click(); else fitToPage(rf, project, 300) },
     dual: () => detached ? closePanelsWindow() : openPanelsWindow(), present: () => useUi.getState().setPresenting(true),
     mode: () => setPref('mode', mode === 'expert' ? 'beginner' : 'expert'), theme: () => setPref('theme', THEME_NEXT[theme]), lang: () => setPref('lang', lang === 'fr' ? 'en' : 'fr'),
     collab: () => useCollab.getState().setDialogOpen(true), chat: () => useCollab.getState().setChatOpen(!chatOpen),

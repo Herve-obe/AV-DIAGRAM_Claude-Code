@@ -118,7 +118,7 @@ export function Shortcuts() {
       }
       if (!mod && key === 'f') {
         if (ui.view === 'plan') document.querySelector<HTMLButtonElement>('[data-plan-fit]')?.click()
-        else if (ui.view === 'diagram' && !fitToPage(rf, store.project, 300)) rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 })
+        else if (ui.view === 'diagram') fitToPage(rf, store.project, 300)
       }
       // R : quart de tour horaire des équipements sélectionnés ; Maj+R : sens inverse
       if (!mod && !e.altKey && key === 'r' && ui.selectedEquipment.length && !ui.presenting) {

@@ -320,7 +320,7 @@ export function Canvas() {
         else moveEquipment(c.id, c.position)
       }
     },
-    [moveEquipment, moveAnnotation, moveGroup],
+    [applySelection, moveEquipment, moveAnnotation, moveGroup],
   )
 
   // Pendant qu'on tire une liaison, les ports compatibles s'allument (sens opposé, signal compatible)
@@ -352,7 +352,7 @@ export function Canvas() {
     [connect, select],
   )
 
-  const onEdgesChange = useCallback((changes: EdgeChange<SignalFlowEdge>[]) => applySelection(changes, 'links'), [])
+  const onEdgesChange = useCallback((changes: EdgeChange<SignalFlowEdge>[]) => applySelection(changes, 'links'), [applySelection])
 
   // Menu clic droit : un clic droit hors de la sélection sélectionne d'abord l'élément visé
   const [menu, setMenu] = useState<MenuAt | null>(null)
@@ -476,7 +476,7 @@ export function Canvas() {
     let disposed = false
     const timer = setTimeout(async () => {
       if (savedViewport && !presenting) await rf.setViewport(savedViewport)
-      else if (!fitToPage(rf, useProject.getState().project)) await rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 })
+      else fitToPage(rf, useProject.getState().project)
       if (!disposed) restoringViewport.current = false
     }, 80)
     return () => { disposed = true; clearTimeout(timer) }

@@ -22,10 +22,12 @@ export async function listRecent(): Promise<RecentProject[]> {
   try { const v = await get(RECENT_KEY); return Array.isArray(v) ? v : [] } catch { return [] }
 }
 async function remember(p: Project) {
-  const list = (await listRecent()).filter(r => r.id !== p.id)
-  // La limite porte uniquement sur les raccourcis. Les anciens projets locaux sont conservés.
+  const list = [entryOf(p), ...(await listRecent()).filter(r => r.id !== p.id)]
   await set(projectKey(p.id), p)
-  await set(RECENT_KEY, [entryOf(p), ...list].slice(0, RECENT_MAX))
+  await set(RECENT_KEY, list.slice(0, RECENT_MAX))
+  // Projet sorti des récents : son instantané local est libéré seulement si un fichier .avd le conserve.
+  const files = useSaveFolder.getState().projectFiles
+  for (const old of list.slice(RECENT_MAX)) if (files[old.id]) await del(projectKey(old.id)).catch(() => {})
 }
 export async function loadRecent(id: string): Promise<Project | null> {
   try {
@@ -72,6 +74,8 @@ export function flushRecovery(): Promise<void> {
   pending = null
   if (p) {
     const saved = useProject.getState().project === p && useProject.getState().saved
+    // Supprimer avant d'ajouter : le projet courant passe en fin de Map, donc écrit en dernier dans KEY.
+    waiting.delete(p.id)
     waiting.set(p.id, { project: p, saved })
   }
   writes = writes.catch(() => {}).then(async () => {

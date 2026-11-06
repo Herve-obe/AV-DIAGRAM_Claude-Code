@@ -21,7 +21,8 @@ import { useUi } from './store/uiStore'
 const main = WINDOW_ROLE === 'main'
 Promise.all([main ? restoreProject() : Promise.resolve(), restoreUserLibrary()]).finally(async () => {
   if (main) {
-    await guardWindowClose()
+    // La fenêtre part cachée : une erreur ici ne doit jamais empêcher son affichage.
+    await guardWindowClose().catch(console.error)
     await restoreMainWindow().catch(console.error)
     startAutosave()
     // Sauvegardes de sécurité tournantes dans le dossier choisi (Paramètres > Enregistrement)

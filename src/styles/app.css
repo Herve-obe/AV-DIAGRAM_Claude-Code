@@ -1235,7 +1235,7 @@ body.is-resizing-y, body.is-resizing-y * { cursor: row-resize !important; user-s
 .plan-layers { padding:5px 12px; max-height:140px; overflow:auto; }
 .plan-layers label { display:inline-flex; gap:6px; margin:4px 12px 4px 0; }
 .cad-dialog { width:min(920px, 94vw); }
-.cad-background-preview { display:block; width:100%; height:340px; margin:12px 0; background:#fff; border:1px solid var(--border); }
+.cad-background-preview { display:block; width:100%; height:340px; margin:12px 0; background:var(--paper); border:1px solid var(--border); }
 .cad-preview { background:#fff; }
 .patch-dialog { width:min(1100px, 94vw); }
 .patch-problems { max-height:180px; overflow:auto; color:var(--err); }

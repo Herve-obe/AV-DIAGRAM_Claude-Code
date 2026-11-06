@@ -26,7 +26,7 @@ function SeriesForm({ from }: { from: string[] }) {
   const freeCount = (id: string) => project.equipment[id].ports.filter((p) => p.direction !== 'out').length
   const guess = selected.length > 1 ? [...selected].sort((a, b) => freeCount(b) - freeCount(a))[0] : ''
   const [dest, setDest] = useState(guess)
-  const sources = selected.filter((id) => id !== dest)
+  const sources = useMemo(() => from.filter((id) => project.equipment[id] && id !== dest), [from, project, dest])
   const families = sourceFamilies(project, sources)
   const [family, setFamily] = useState<SignalFamily | ''>(families[0] ?? '')
   const fam = (family || families[0]) as SignalFamily | undefined
@@ -34,7 +34,7 @@ function SeriesForm({ from }: { from: string[] }) {
   const [start, setStart] = useState('')
   const plan = useMemo(
     () => (dest && fam ? planSeries(project, sources, dest, { family: fam, startPortId: start || undefined }) : null),
-    [project, sources.join(), dest, fam, start],
+    [project, sources, dest, fam, start],
   )
   const [useMc, setUseMc] = useState(editing.common)
   const [mc, setMc] = useState('__new')

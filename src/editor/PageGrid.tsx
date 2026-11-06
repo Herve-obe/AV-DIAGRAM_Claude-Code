@@ -36,10 +36,9 @@ export function PageGrid({ project }: { project: Project }) {
 }
 
 /** La touche F recadre sur les pages, sans dépendre du choix d'export. */
-export function fitToPage(rf: Pick<ReactFlowInstance, 'fitBounds' | 'getNodes' | 'getEdges'>, project: Project, duration = 250): boolean {
+export function fitToPage(rf: Pick<ReactFlowInstance, 'fitBounds' | 'getNodes' | 'getEdges'>, project: Project, duration = 250): void {
   const opts = exportSettingsOf(project)
   const { area } = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, project.info?.revisions?.length ?? 0)
   const grid = tilesFor(drawingBounds(rf.getNodes(), rf.getEdges()), area, 100)
   void rf.fitBounds({ x: grid.x, y: grid.y, width: grid.cols * grid.tileW, height: grid.rows * grid.tileH }, { padding: 0.04, duration })
-  return true
 }

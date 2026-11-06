@@ -61,6 +61,13 @@ export async function pickSaveFolder(): Promise<string | null> {
   return typeof dir === 'string' ? dir : null
 }
 
+/** Choisit un dossier sans autorisation d'écriture du plugin fs (ex. modèles d'IA gérés côté Rust). */
+export async function pickDirectory(defaultPath?: string): Promise<string | null> {
+  const { open } = await import('@tauri-apps/plugin-dialog')
+  const dir = await open({ directory: true, multiple: false, defaultPath })
+  return typeof dir === 'string' ? dir : null
+}
+
 /**
  * Enregistre un contenu : fenêtre "Enregistrer sous" native dans l'application bureau.
  * Renvoie false si l'utilisateur annule.
