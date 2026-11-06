@@ -5,7 +5,6 @@
   "model": "SYNC E mkII",
   "pictogram": "clock",
   "status": "community",
-  "portStatus": "pending",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
@@ -23,5 +22,22 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "tc",
+      "name": "Timecode 3,5 mm",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "minijack",
+      "format": "Mini-jack TRS, timecode en entrée (jam) ou sortie ; niveau AUTO / LINE / MIC"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Charge, mise à jour, MIDI timecode (mkII)"
+    }
+  ]
 }

@@ -27,7 +27,25 @@
       "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Microphone (XLR F)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Embase XLRF du support antichoc"
+    },
+    {
+      "id": "out",
+      "name": "Sortie bornier",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "mic",
+      "format": "Bornier à vis, ordre 1-3-2 ; blindage en 1, signal symétrique et fantôme en 2 et 3"
+    }
+  ],
   "weightKg": 0.064
 }

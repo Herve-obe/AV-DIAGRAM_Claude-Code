@@ -10,23 +10,27 @@
       "url": "https://digico.biz/racks/sd-rack/",
       "document": "DiGiCo, page produit SD-Rack",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://support.digico.biz/hc/en-gb/article_attachments/29324830752401",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
     {
       "id": "madi1",
-      "name": "MADI 1",
+      "name": "MADI Main",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "bnc",
       "format": "MADI, 56 canaux redondants à 48 kHz"
     },
     {
       "id": "madi2",
-      "name": "MADI 2",
+      "name": "MADI Aux",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "bnc",
       "format": "MADI"
     },
     {
@@ -39,11 +43,51 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation remplaçable à chaud"
+      "connector": "iec-c13",
+      "format": "IEC, alimentation MOD-SDR-PSU redondante remplaçable à chaud"
+    },
+    {
+      "id": "madiSplitMain",
+      "name": "MADI Split Main",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "Sortie MADI split (MadiSM)"
+    },
+    {
+      "id": "madiSplitAux",
+      "name": "MADI Split Aux",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "Sortie MADI split (MadiSX)"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "48/96 kHz, 5 V c-c max"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "48/96 kHz, 5 V c-c"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC, seconde alimentation MOD-SDR-PSU redondante"
     }
   ],
   "slots": [
@@ -117,5 +161,7 @@
       "name": "Slot 14",
       "type": "digico-sd-rack"
     }
-  ]
+  ],
+  "rackU": 10,
+  "depthMm": 365
 }

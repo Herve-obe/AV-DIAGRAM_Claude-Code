@@ -10,6 +10,10 @@
       "url": "https://soniccircus.com/product/sennheiser-em-300-500-g4-wireless-half-rack-receiver/",
       "document": "Sonic Circus, fiche EM 300-500 G4 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bimobject.com/en-us/sennheiser/product/em300-500g4",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
@@ -26,22 +30,14 @@
       "name": "Antenne A",
       "direction": "in",
       "signal": "rf",
-      "connector": "unspecified"
+      "connector": "bnc"
     },
     {
       "id": "antB",
       "name": "Antenne B",
       "direction": "in",
       "signal": "rf",
-      "connector": "unspecified"
-    },
-    {
-      "id": "out",
-      "name": "Sortie audio",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Connecteurs non confirmés"
+      "connector": "bnc"
     },
     {
       "id": "eth",
@@ -57,7 +53,23 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "Bloc secteur fourni"
+      "format": "12 V CC, 350 mA, bloc secteur externe"
+    },
+    {
+      "id": "afBal",
+      "name": "AF OUT BAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3M symétrique, +18 dBu max"
+    },
+    {
+      "id": "afUnbal",
+      "name": "AF OUT UNBAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, +12 dBu max"
     }
   ]
 }

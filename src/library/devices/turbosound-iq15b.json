@@ -11,19 +11,13 @@
       "url": "https://thomann.fr/turbosound_iq15b.htm",
       "document": "Thomann, fiche iQ15B (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/tbiq15b.html",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
-    {
-      "id": "in",
-      "name": "Inputs",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
-      "channels": 2,
-      "format": "Nombre et type non confirmés"
-    },
     {
       "id": "linkA",
       "name": "Out A",
@@ -59,8 +53,42 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "3 000 W"
+      "connector": "powercon",
+      "format": "powerCON entrée (20 A)"
+    },
+    {
+      "id": "in1",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Combo XLR/jack, sensibilité micro/ligne commutable"
+    },
+    {
+      "id": "in2",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Combo XLR/jack, sensibilité micro/ligne commutable"
+    },
+    {
+      "id": "mixOut",
+      "name": "Mix Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie mixée symétrique XLR"
+    },
+    {
+      "id": "acLink",
+      "name": "Secteur Link",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON recopie (15 A)"
     }
   ]
 }

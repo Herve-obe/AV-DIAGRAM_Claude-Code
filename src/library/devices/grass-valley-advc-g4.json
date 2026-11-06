@@ -5,13 +5,105 @@
   "model": "ADVC G4",
   "pictogram": "clock",
   "status": "community",
-  "portStatus": "pending",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/795772/grass-valley-advc-g4.html?page=20",
+      "accessed": "2026-11-06"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "refIn",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence SD ou HD"
+    },
+    {
+      "id": "out1",
+      "name": "Out 1 (Line A)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne A (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out2",
+      "name": "Out 2 (Line A)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne A (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out3",
+      "name": "Out 3 (Line A)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne A (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out4",
+      "name": "Out 4 (Line B)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne B (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out5",
+      "name": "Out 5 (Line B)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne B (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out6",
+      "name": "Out 6 (Line B)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne B (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out7",
+      "name": "Out 7 (Line C)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out8",
+      "name": "Out 8 (Line C)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out9",
+      "name": "Out 9 (Line C)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "domain": "image"
 }

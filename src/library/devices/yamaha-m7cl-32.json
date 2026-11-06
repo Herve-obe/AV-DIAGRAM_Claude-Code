@@ -10,6 +10,10 @@
       "url": "https://usa.yamaha.com/products/proaudio/mixers/m7cl/specs.html",
       "document": "Yamaha USA, page Specs M7CL-32",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/393162/Yamaha-M7cl.html?page=25",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
@@ -618,6 +622,28 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "250 W"
+    },
+    {
+      "id": "network",
+      "name": "NETWORK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet vers ordinateur (M7CL Editor)"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI IN",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI OUT",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
     }
   ],
   "slots": [

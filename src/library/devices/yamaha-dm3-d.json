@@ -11,6 +11,10 @@
       "url": "https://usa.yamaha.com/products/proaudio/mixers/dm3/specs.html",
       "document": "Yamaha USA, page Specs DM3-D",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://manual.yamaha.com/pa/mixers/dm3/rm/en-US/6203378827.html",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
@@ -275,6 +279,22 @@
       "signal": "power",
       "connector": "xlr4",
       "format": "XLR 4 points ; 43 W"
+    },
+    {
+      "id": "network",
+      "name": "NETWORK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb-host",
+      "name": "USB TO HOST",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 18,
+      "format": "18 entrées / 18 sorties, 96 kHz / 32 bits"
     }
   ]
 }

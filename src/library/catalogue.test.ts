@@ -18,6 +18,8 @@ interface Coverage {
 const undocumented: EquipmentTemplate = { id: 'test-pending', model: 'Fiche test en attente', manufacturer: 'Test', family: 'processing', pictogram: 'processor', status: 'community', ports: [], portStatus: 'pending', sources: [{ document: 'Fixture sans connectique documentée', accessed: '2026-10-28' }] }
 
 const coverage: Coverage = JSON.parse(readFileSync(new URL('../../docs/inventaire/novelty-2026-couverture.json', import.meta.url), 'utf8'))
+// Fiches supprimées du dépôt (audit audio du 6 novembre 2026)
+const deletedDevices = new Set((JSON.parse(readFileSync(new URL('../../docs/inventaire/suppressions-audio-2026-11-06.json', import.meta.url), 'utf8')) as { deleted: { id: string }[] }).deleted.map(d => d.id))
 const template = (id: string) => {
   const t = LIBRARY_INDEX.get(id)
   expect(t, id).toBeDefined()
@@ -70,7 +72,7 @@ describe('catalogue Novelty hors Structure', () => {
     for (const p of coverage.products) {
       expect(excluded.has(p.noveltyId), String(p.noveltyId)).toBe(false)
       expect(p.categories.some(c => c.startsWith('Structure')), String(p.noveltyId)).toBe(false)
-      if (Object.hasOwn(excludedDevices, p.templateId)) {
+      if (Object.hasOwn(excludedDevices, p.templateId) || deletedDevices.has(p.templateId)) {
         expect(LIBRARY_INDEX.has(p.templateId), p.templateId).toBe(false)
       } else {
         expect(template(p.templateId).sources?.some(s => s.url === p.url), p.templateId).toBe(true)
@@ -168,9 +170,11 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
   it('enregistre une décision pour chaque référence et ne retire aucune donnée des projets anciens', () => {
     const raw = Object.values(files)
     expect(new Set(raw.map(t => t.id)).size).toBe(raw.length)
-    expect(audit.entries.map(t => t.id).sort()).toEqual(raw.map(t => t.id).sort())
-    expect(new Set(audit.entries.map(t => t.id)).size).toBe(raw.length)
-    for (const row of audit.entries) {
+    const entries = audit.entries.filter(t => !deletedDevices.has(t.id))
+    expect(entries.map(t => t.id).sort()).toEqual(raw.map(t => t.id).sort())
+    expect(new Set(entries.map(t => t.id)).size).toBe(raw.length)
+    for (const id of deletedDevices) expect(raw.some(t => t.id === id), id).toBe(false)
+    for (const row of entries) {
       if (row.decision === 'excluded') expect(Object.hasOwn(excludedDevices, row.id), row.id).toBe(true)
       expect(LIBRARY_INDEX.has(row.id), row.id).toBe(!Object.hasOwn(excludedDevices, row.id))
     }

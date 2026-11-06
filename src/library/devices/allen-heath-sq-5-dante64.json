@@ -19,6 +19,10 @@
     {
       "document": "Allen & Heath, M-SQ-DANT32 / M-SQ-DANT64 Fitting Note AP13279 Issue 1",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.allen-heath.com/content/uploads/2023/05/SQ-5-Technical-Datasheet_G.pdf",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
@@ -381,6 +385,22 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "100-240 V AC, 50/60 Hz"
+    },
+    {
+      "id": "usb-a",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "SQ-Drive : enregistrement/lecture stéréo et multipiste, transferts, mises à jour"
+    },
+    {
+      "id": "footswitch",
+      "name": "Footswitch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Pédale simple ou double"
     }
   ]
 }

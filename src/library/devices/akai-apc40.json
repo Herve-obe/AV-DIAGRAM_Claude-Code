@@ -40,9 +40,43 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-akai_APC40_ft.pdf",
       "document": "Novelty — APC40 : Duplication : APC40",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/459718/akai-apc40.html?page=5",
+      "accessed": "2026-11-06"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "MIDI USB vers ordinateur ; type de prise non nommé par le manuel"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur 12 V – 2 A fourni"
+    },
+    {
+      "id": "fs1",
+      "name": "Footswitch 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts"
+    },
+    {
+      "id": "fs2",
+      "name": "Footswitch 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts"
+    }
+  ],
   "weightKg": 2.64
 }

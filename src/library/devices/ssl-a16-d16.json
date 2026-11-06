@@ -12,6 +12,10 @@
     {
       "document": "SSL, A16.D16, A32, D64 and GPIO 32 User Guide Rev 1.1 (décembre 2018)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.solidstatelogic.com/assets/uploads/downloads/Mixed%20Format/A16.D16,%20A32,%20D64%20and%20GPIO%2032%20User%20Guide%20(Rev%201.2).pdf",
+      "accessed": "2026-11-06"
     }
   ],
   "ports": [
@@ -86,9 +90,9 @@
       "name": "Dante réseau A",
       "direction": "bidir",
       "signal": "audioIp",
-      "connector": "unspecified",
+      "connector": "ethercon",
       "channels": 32,
-      "format": "En façade ; type de connecteur non précisé ; réseau B pas encore activé selon le guide"
+      "format": "En façade, etherCON ; réseau B (cage SFP) non utilisé selon le guide"
     },
     {
       "id": "ac1",
