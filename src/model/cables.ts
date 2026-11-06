@@ -21,6 +21,7 @@ export interface CableType {
 // EK 100 G3 (Publ. 12/16) et ew 100 G4 v2.2 ; câbles Sound Devices d'après la liste du parc.
 export const CABLE_CATALOG: CableType[] = [
   { id: 'mod-xlr3', label: 'Modulation XLR 3 points', ends: ['xlr3', 'xlr3'], lengthsM: [3, 5, 10, 20] },
+  { id: 'mod-xlr-trs', label: 'Câble audio symétrique XLR 3 / jack TRS', ends: ['xlr3', 'jack-trs'], adapter: true },
   { id: 'eth-cat6', label: 'Ethernet RJ45 Cat6', ends: ['rj45', 'rj45'] },
   { id: 'sdi-bnc', label: 'Vidéo HD-SDI (BNC)', ends: ['bnc', 'bnc'] },
   { id: 'hdmi', label: 'HDMI', ends: ['hdmi', 'hdmi'] },

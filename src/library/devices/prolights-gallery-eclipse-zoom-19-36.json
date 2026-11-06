@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Prolights",
   "model": "Gallery Eclipse Zoom 19-36",
-  "status": "community",
-  "description": "Mini découpe à LED, 35W, noir, 4000° K, couteaux, zoom 19°-36°",
+  "status": "verified",
+  "description": "Mini découpe LED blanche 4 000 K, zoom manuel 19–36°, corps noir. Consommation maximale 41,5 W sous 230 V, poids 2,5 kg. Alimentation 100–240 V sur fiche Schuko 16 A ; contrôle W-DMX intégré, sans prise DMX filaire. Adaptateur rail disponible séparément.",
   "aliases": [
     "Prolights Gallery Eclipse Zoom 19-36"
   ],
@@ -18,17 +18,26 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/prolights_eclipse_35w_fiche_produit.pdf",
-      "document": "Novelty — Gallery Eclipse Zoom 19-36 : Gallery Eclipse",
-      "accessed": "2026-10-19"
+      "document": "Prolights / ESL — GalleryEclipse, p.1–2 : variante NW noire 4 000 K, contrôle W-DMX, Schuko, 41,5 W, 2,5 kg",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/prolights_eclipse_35w_manuel_uk.pdf",
-      "document": "Novelty — Gallery Eclipse Zoom 19-36 : Gallery Eclipse",
-      "accessed": "2026-10-19"
+      "document": "Prolights — GalleryEclipseTU/DY user manual, p.19–21 : connectique et zoom 19–36°",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "Fiche Schuko 16 A sur câble, 100–240 V 50/60 Hz"
+    }
+  ],
   "weightKg": 2.5,
-  "powerW": 41.5
+  "powerW": 41.5,
+  "depthMm": 338
 }

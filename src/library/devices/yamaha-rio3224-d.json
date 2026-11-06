@@ -1,12 +1,12 @@
 {
   "id": "yamaha-rio3224-d",
-  "family": "passive",
+  "family": "stagebox",
   "domain": "sound",
-  "pictogram": "patch",
+  "pictogram": "stagebox",
   "manufacturer": "Yamaha",
   "model": "Rio3224-D",
-  "status": "community",
-  "description": "Patch d'entrée/sorties numérique, protocole DANTE, 32 IN, 16 OUT, 4 OUT AES/EBU",
+  "status": "verified",
+  "description": "Rack Dante 32 entrées micro/ligne, 16 sorties analogiques, 8 sorties AES/EBU sur 4 XLR. Deux ports Dante redondants.",
   "aliases": [
     "RIO3224D",
     "YAMAHA Rio3224-D"
@@ -36,10 +36,778 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/yamaha_rio3224d_certificat.pdf",
       "document": "Novelty — Rio3224-D : Rio 3224-D",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/1/326211/rio3224d_en_om_f0.pdf",
+      "document": "Yamaha Rio3224-D / Rio1608-D Owner’s Manual, rev. F0",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://es.yamaha.com/files/download/other_assets/1/326211/rio3224d_en_om_f0.pdf",
+      "document": "Yamaha Rio3224-D/Rio1608-D Owner’s Manual F0, pp. 9–12, 19–21",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in3",
+      "name": "INPUT 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in4",
+      "name": "INPUT 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in5",
+      "name": "INPUT 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in6",
+      "name": "INPUT 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in7",
+      "name": "INPUT 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in8",
+      "name": "INPUT 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in9",
+      "name": "INPUT 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in10",
+      "name": "INPUT 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in11",
+      "name": "INPUT 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in12",
+      "name": "INPUT 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in13",
+      "name": "INPUT 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in14",
+      "name": "INPUT 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in15",
+      "name": "INPUT 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in16",
+      "name": "INPUT 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in17",
+      "name": "INPUT 17",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in18",
+      "name": "INPUT 18",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in19",
+      "name": "INPUT 19",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in20",
+      "name": "INPUT 20",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in21",
+      "name": "INPUT 21",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in22",
+      "name": "INPUT 22",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in23",
+      "name": "INPUT 23",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in24",
+      "name": "INPUT 24",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in25",
+      "name": "INPUT 25",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in26",
+      "name": "INPUT 26",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in27",
+      "name": "INPUT 27",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in28",
+      "name": "INPUT 28",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in29",
+      "name": "INPUT 29",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in30",
+      "name": "INPUT 30",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in31",
+      "name": "INPUT 31",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "in32",
+      "name": "INPUT 32",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Mic/line ; −62 à +10 dBu nominal, gain −6 à +66 dB"
+    },
+    {
+      "id": "out1",
+      "name": "OUTPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out3",
+      "name": "OUTPUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out4",
+      "name": "OUTPUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out5",
+      "name": "OUTPUT 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out6",
+      "name": "OUTPUT 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out7",
+      "name": "OUTPUT 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out8",
+      "name": "OUTPUT 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out9",
+      "name": "OUTPUT 9",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out10",
+      "name": "OUTPUT 10",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out11",
+      "name": "OUTPUT 11",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out12",
+      "name": "OUTPUT 12",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out13",
+      "name": "OUTPUT 13",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out14",
+      "name": "OUTPUT 14",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out15",
+      "name": "OUTPUT 15",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "out16",
+      "name": "OUTPUT 16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; +4 dBu nominal, +24 dBu max"
+    },
+    {
+      "id": "aes1",
+      "name": "AES/EBU 1/2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU 24 bits"
+    },
+    {
+      "id": "aes2",
+      "name": "AES/EBU 3/4",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU 24 bits"
+    },
+    {
+      "id": "aes3",
+      "name": "AES/EBU 5/6",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU 24 bits"
+    },
+    {
+      "id": "aes4",
+      "name": "AES/EBU 7/8",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU 24 bits"
+    },
+    {
+      "id": "primary",
+      "name": "PRIMARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 32,
+      "format": "Dante 32 canaux émis / 24 reçus ; 44,1–96 kHz",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "secondary",
+      "name": "SECONDARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 32,
+      "format": "Dante 32 canaux émis / 24 reçus ; 44,1–96 kHz",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "110–240 V 50/60 Hz ; V-LOCK"
+    }
+  ],
   "weightKg": 12.4,
-  "powerW": 120
+  "powerW": 120,
+  "rackU": 5,
+  "depthMm": 361.5
 }

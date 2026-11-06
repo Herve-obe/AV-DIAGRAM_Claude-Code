@@ -1,11 +1,11 @@
 {
   "id": "shure-ua870wb",
-  "family": "passive",
+  "family": "wireless",
   "domain": "sound",
-  "pictogram": "patch",
+  "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "UA870WB",
-  "status": "community",
+  "status": "verified",
   "description": "Antenne directive amplifiée large bande (470 à 900MHz). Gain antenne 7dB. Gain ampli +3dB / +10dB commutable",
   "aliases": [
     "SHURE UA870WB"
@@ -22,7 +22,17 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.317
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC femelle, 50 Ω ; réception 470–900 MHz ; amplification 3 ou 10 dB ; alimentation 12 V DC reçue par le coaxial."
+    }
+  ],
+  "weightKg": 0.317,
+  "powerW": 0.68,
+  "depthMm": 35.5
 }

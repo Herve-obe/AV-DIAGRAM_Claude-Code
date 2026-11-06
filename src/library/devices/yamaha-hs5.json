@@ -1,0 +1,50 @@
+{
+  "id": "yamaha-hs5",
+  "family": "speaker",
+  "manufacturer": "Yamaha",
+  "model": "HS5",
+  "pictogram": "speaker",
+  "status": "verified",
+  "description": "Enceinte de monitoring active. XLR et jack sont deux accès à la même entrée : ne pas les utiliser simultanément.",
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/speakers/hs_series/specs.html",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://es.yamaha.com/files/download/other_assets/4/329474/HS8_en_om_a0.pdf",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "xlr",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; alternative à l’entrée jack"
+    },
+    {
+      "id": "jack",
+      "name": "Entrée jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 TRS symétrique ; alternative à l’entrée XLR"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation secteur ; consommation 45 W"
+    }
+  ],
+  "powerW": 45,
+  "weightKg": 5.3,
+  "depthMm": 222
+}

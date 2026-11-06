@@ -60,11 +60,19 @@ describe('vue Baies : commandes et cartes', () => {
     expect(state().project.equipment[id].mount?.u).toBe(4)
   })
   it('désactive les réglages communs de baie côté invité', () => {
-    useCollab.setState({ role: 'guest' })
+    useCollab.setState({ role: 'guest', status: 'connected', started: true, userId: 'guest', claims: {} })
     act(() => root.render(<RackView />))
     expect(element.querySelector<HTMLInputElement>('.rack-name')!.disabled).toBe(true)
     expect(element.querySelector<HTMLFieldSetElement>('.rack-limits')!.disabled).toBe(true)
     expect([...element.querySelectorAll('button')].find(b => b.textContent?.includes('Ajouter une baie'))!.disabled).toBe(true)
+  })
+  it('ouvre les réglages communs avec plein droit et les referme à sa révocation', () => {
+    useCollab.setState({ role: 'guest', status: 'connected', started: true, userId: 'guest', claims: { full: [{ userId: 'guest', name: 'Invité', color: '#333' }] } })
+    act(() => root.render(<RackView />))
+    expect(element.querySelector<HTMLInputElement>('.rack-name')!.disabled).toBe(false)
+    expect(element.querySelector<HTMLFieldSetElement>('.rack-limits')!.disabled).toBe(false)
+    act(() => useCollab.setState({ claims: {} }))
+    expect(element.querySelector<HTMLInputElement>('.rack-name')!.disabled).toBe(true)
   })
   it('insère une carte et demande confirmation avant de supprimer ses câbles ; Annuler restaure tout', () => {
     function Editor() { const eq = useProject(s => s.project.equipment[id]); return <ModuleEditor eq={eq} /> }

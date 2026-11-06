@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Astera",
   "model": "AX2-100 PIXELBAR",
-  "status": "community",
-  "description": "Projecteur linéaire à LED, 16 x 10W RGBMA,",
+  "status": "verified",
+  "description": "AX2-100 PixelBar,16 pixels RGBMintAmber,1000 ×165 ×65 mm sans crochets,7,4 kg. Puissance LED160 W, consommation après calibration80 W. Batterie jusqu’à20 h ; CRMX intégré et DMX filaire XLR5 ; alimentation100–240 V CA.",
   "aliases": [
     "AX2",
     "Astera AX2-100 PIXELBAR"
@@ -24,8 +24,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10793-4379-ax2-datasheet.pdf",
-      "document": "Novelty — AX2-100 PIXELBAR : ax2-datasheet",
-      "accessed": "2026-10-19"
+      "document": "Astera — AX2-50/100 Datasheet v1,22septembre2020, pages1 et3 : colonne AX2-100 et connecteurs gauche/droite",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/6440-4379-ax2-100-dmx-profiles.pdf",
@@ -33,7 +33,37 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 160
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ],
+  "powerW": 80,
+  "weightKg": 7.4,
+  "depthMm": 65
 }

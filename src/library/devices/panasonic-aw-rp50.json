@@ -1,8 +1,8 @@
 {
   "id": "panasonic-aw-rp50",
-  "family": "videoSwitcher",
+  "family": "control",
   "domain": "image",
-  "pictogram": "switcher",
+  "pictogram": "control",
   "manufacturer": "Panasonic",
   "model": "AW-RP50",
   "status": "community",
@@ -26,10 +26,78 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-rp50_manuel-basic.pdf",
       "document": "Novelty — AW-RP50 : QuickStart",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2020-12/AW-RP50%20Operating%20Manual.pdf",
+      "document": "Panasonic — AW-RP50 — Operating Instructions",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "camera1",
+      "name": "Camera Control 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera2",
+      "name": "Camera Control 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera3",
+      "name": "Camera Control 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera4",
+      "name": "Camera Control 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "camera5",
+      "name": "Camera Control 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "tally",
+      "name": "Tally / GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
   "weightKg": 1.1,
-  "powerW": 8
+  "powerW": 8,
+  "depthMm": 177
 }

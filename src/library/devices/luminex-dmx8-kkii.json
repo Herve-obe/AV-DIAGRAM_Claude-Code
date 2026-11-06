@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "Luminex",
   "model": "DMX8 KkII",
-  "status": "community",
-  "description": "Node / Interface de routage DMX, 8 univers, compatible DMX512/RDM/sACN/Art-Net",
+  "status": "verified",
+  "description": "Node Ethernet-DMX8 MkII rack1U (désignation catalogue DMX8 KkII). 8 ports DMX bidirectionnels configurables XLR5,2 Ethernet etherCON avant/arrière. Version Truss distincte.",
   "aliases": [
     "Luminex DMX8 KkII"
   ],
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/luminex_dmx8mkii_manual_user_uk.pdf",
-      "document": "Novelty — DMX8 KkII : DMX8 MkII",
-      "accessed": "2026-10-19"
+      "document": "Luminex — Ethernet-DMX8 MkII Range User Guide V4 rev4, pages imprimées6–10 : rack, consommation et connectique",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/luminex_dmx8mkii_specification_sheet.pdf",
@@ -37,8 +37,97 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx5",
+      "name": "DMX 5",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx6",
+      "name": "DMX 6",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx7",
+      "name": "DMX 7",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "dmx8",
+      "name": "DMX 8",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM ; direction configurable, embase femelle standard"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "100BaseTX ; Art-Net / sACN, avant et arrière"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "100BaseTX ; Art-Net / sACN, avant et arrière"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90–260 V CA ; version rack, différente de la version Truss powerCON"
+    }
+  ],
   "weightKg": 2.3,
-  "powerW": 20
+  "powerW": 20,
+  "rackU": 1
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Portman",
   "model": "P1 Retro",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -17,36 +17,54 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5067-4526-um-p1.pdf",
-      "document": "Novelty — P1 Retro : UM_P1",
-      "accessed": "2026-10-19"
+      "document": "Portman — P1 Retro Lamp user manual v2.0, p.6–9 : caractéristiques et connexions",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Thru",
+      "name": "DMX Thru 5 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "7 × 230 W"
+      "connector": "powercon",
+      "format": "200–240 V 50/60 Hz"
     }
   ],
   "aliases": [
     "P1RETRO",
     "Portman P1 Retro"
-  ]
+  ],
+  "powerW": 1700,
+  "weightKg": 12.5,
+  "depthMm": 170,
+  "description": "Projecteur décoratif halogène à sept lampes R7s 230 W et gradateurs intégrés, sept canaux DMX. Consommation 1 700 W ; poids 12,5 kg ; dimensions 842 × 999 × 170 mm. Entrées et sorties DMX 3 et 5 points, entrée powerCON 200–240 V."
 }

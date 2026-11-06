@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-26",
+  "status": "Scénarios à implémenter et exécuter, aucun résultat supposé",
+  "cases": [
+    {
+      "id": "IA-001",
+      "priority": "P0",
+      "intent": "layout",
+      "request": "Adapte ce schéma pour qu’il tienne sur une seule page.",
+      "initial": "Template Concert 0.5.12, 13 appareils et 15 liaisons",
+      "expected": "Même contenu et connectivité ; aperçu de placement imprimable ; aucun appel de création.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-002",
+      "priority": "P0",
+      "intent": "layout",
+      "request": "Range ça sur une feuille, sans toucher aux câbles.",
+      "initial": "Projet audio hors template, 18 appareils, zones et notes",
+      "expected": "Aucune nouvelle liaison ni question sur le type de prestation ; positions et chemins seuls modifiés.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-003",
+      "priority": "P0",
+      "intent": "layout",
+      "request": "Make the current diagram fit on one readable page.",
+      "initial": "Projet vidéo sur deux pages A4",
+      "expected": "Placement ou format proposé ; aucune génération de studio audio.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-004",
+      "priority": "P0",
+      "intent": "layout",
+      "request": "Garde l’A3 mais répartis proprement sur plusieurs pages.",
+      "initial": "Projet dense avec annotations longues",
+      "expected": "Pages occupées sans boîte coupée, renvois de liaison, pas de page vide.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-005",
+      "priority": "P0",
+      "intent": "layout",
+      "request": "Ne réorganise que les éléments sélectionnés.",
+      "initial": "Deux feuilles, sélection partielle et autres appareils",
+      "expected": "Éléments hors sélection et autre feuille inchangés.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-006",
+      "priority": "P0",
+      "intent": "permissions",
+      "request": "Fais tenir tout le schéma sur une page.",
+      "initial": "Invité autorisé Audio, équipements Vidéo verrouillés",
+      "expected": "Pas de modification interdite ; portée explicite ou refus ciblé.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-007",
+      "priority": "P0",
+      "intent": "preview",
+      "request": "Annule la proposition.",
+      "initial": "Aperçu de réorganisation avec changement A3 vers A2",
+      "expected": "Projet original intact, format compris.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-008",
+      "priority": "P0",
+      "intent": "undo",
+      "request": "Applique puis Ctrl+Z.",
+      "initial": "Aperçu de réorganisation",
+      "expected": "Une annulation restaure positions, format, notes et liaisons.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-009",
+      "priority": "P0",
+      "intent": "stale",
+      "request": "Applique.",
+      "initial": "Projet changé pendant le calcul",
+      "expected": "Proposition périmée refusée, aucune donnée récente écrasée.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-010",
+      "priority": "P1",
+      "intent": "vague",
+      "request": "Je veux faire un podcast.",
+      "initial": "Projet vide",
+      "expected": "Questions sur participants/sources, diffusion et parc ; pas de création arbitraire.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-011",
+      "priority": "P1",
+      "intent": "clarify",
+      "request": "Trois personnes, audio seulement, enregistré, matériel libre.",
+      "initial": "Réponse à IA-010",
+      "expected": "Reprend la demande ; crée trois micros avec chaîne audio ; pas de vidéo implicite.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-012",
+      "priority": "P1",
+      "intent": "aliases",
+      "request": "Ajoute une console CL5.",
+      "initial": "Catalogue général",
+      "expected": "Reconnaît Yamaha CL5 sans exiger la marque ; affiche sources et niveau ligne des sorties.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-013",
+      "priority": "P1",
+      "intent": "ambiguity",
+      "request": "Génère un plateau avec cinq caméras Panasonic P2 vers un TriCaster.",
+      "initial": "Plusieurs modèles P2 documentés",
+      "expected": "Question ciblée ou choix explicite ; cinq caméras et entrées compatibles, aucune boucle de recherche.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-014",
+      "priority": "P1",
+      "intent": "extend",
+      "request": "Ajoute deux caméras à ce plateau.",
+      "initial": "Mélangeur existant avec une seule entrée libre",
+      "expected": "Signale capacité insuffisante ; ne duplique pas silencieusement le mélangeur ou une entrée occupée.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-015",
+      "priority": "P1",
+      "intent": "replace",
+      "request": "Remplace la CL5 par une 01V96 et garde les connexions compatibles.",
+      "initial": "Projet avec Dante et sorties nombreuses",
+      "expected": "Propose correspondances et pertes explicites ; aucune équivalence Dante inventée.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-016",
+      "priority": "P1",
+      "intent": "company",
+      "request": "Fais ce schéma uniquement avec mon entreprise.",
+      "initial": "Catalogue entreprise sans console",
+      "expected": "Signale matériel absent ; aucun appareil externe ajouté sans changement de portée.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-017",
+      "priority": "P1",
+      "intent": "stock",
+      "request": "Est-ce que ces micros seront disponibles vendredi ?",
+      "initial": "Quantités importées, aucun connecteur de réservation",
+      "expected": "Dit disponibilité datée inconnue ; ne confond pas total et disponible.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-018",
+      "priority": "P1",
+      "intent": "bundles",
+      "request": "Ajoute un ensemble EW335 G3.",
+      "initial": "Bibliothèque unitaire",
+      "expected": "Recherche émetteur et récepteur séparés et compatibles ; aucun bloc représentant les deux.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-019",
+      "priority": "P1",
+      "intent": "pending",
+      "request": "Relie cet appareil dont les prises ne sont pas documentées.",
+      "initial": "Fiche Communauté portStatus pending",
+      "expected": "Aucun port inventé ; identifie la fiche et propose une alternative ou une question.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-020",
+      "priority": "P1",
+      "intent": "audio",
+      "request": "Une sortie XLR de console, c’est du niveau micro ?",
+      "initial": "Console documentée",
+      "expected": "Distingue format et niveau, s’appuie sur la fiche, aucune modification.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-021",
+      "priority": "P1",
+      "intent": "mixing",
+      "request": "Les retours interview doivent entendre les médias et le live, jamais les micros interview.",
+      "initial": "Projet avec deux consoles",
+      "expected": "Exclusions de sources et réglages internes explicités ; pas de simple câble présenté comme mix-minus garanti.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-022",
+      "priority": "P1",
+      "intent": "general",
+      "request": "Sonorise une conférence avec trois micros, console numérique et deux enceintes actives ; références libres.",
+      "initial": "Projet vide",
+      "expected": "Choix réversible sans question de marque, trois micros et liaisons cohérentes.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-023",
+      "priority": "P1",
+      "intent": "general",
+      "request": "Éclairage : six projecteurs DMX vers une console, pas de vidéo ni d’audio.",
+      "initial": "Catalogue lumière documenté",
+      "expected": "Architecture lumière, capacité/univers contrôlés, pas de plateau TV ajouté.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-024",
+      "priority": "P1",
+      "intent": "failure",
+      "request": "Génère un système impossible avec vingt sources sur cette entrée mono unique.",
+      "initial": "Appareil sans sommation documentée",
+      "expected": "Explique la limite et propose adaptation ; aucune fausse réussite.",
+      "status": "À exécuter"
+    },
+    {
+      "id": "IA-025",
+      "priority": "P0",
+      "intent": "cancellation",
+      "request": "Annuler le traitement.",
+      "initial": "Calcul en cours",
+      "expected": "Arrêt rapide et projet inchangé, résultat tardif non appliqué.",
+      "status": "À exécuter"
+    }
+  ]
+}

@@ -6,11 +6,9 @@ import { exportSettingsOf, sheetLayout, tileRef, tilesFor } from '../io/exportOp
 import { drawingBounds, useRoutes } from './EdgeRouter'
 import type { Project } from '../model/types'
 import { SIGNAL_FAMILIES } from '../model/signals'
-import { useProject } from '../store/projectStore'
 
-export function PageGrid() {
+export function PageGrid({ project }: { project: Project }) {
   const { t } = useTranslation()
-  const project = useProject(s => s.project)
   const nodes = useNodes()
   const edges = useEdges()
   const routing = useRoutes()

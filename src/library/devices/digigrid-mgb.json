@@ -5,7 +5,6 @@
   "model": "MGB",
   "pictogram": "processor",
   "status": "community",
-  "weightKg": 0.4,
   "sources": [
     {
       "url": "https://www.fullcompass.com/prod/254086-digigrid-mgb-coaxial-madi-interface-for-soundgrid",
@@ -24,33 +23,79 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/digigrid_mgb_manual.pdf",
-      "document": "Novelty — MGB : MGB",
-      "accessed": "2026-10-19"
+      "document": "DiGiGrid MGB/MGO, manuel constructeur : quatre BNC MADI distincts et capacités selon fréquence — pages PDF 3, 7, 17, 18",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/digigrid_mgb_setup-guide.pdf",
       "document": "Novelty — MGB : SetUp Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.waves.com/hardware/digigrid-mgb",
+      "document": "Waves DiGiGrid MGB, Dimensions : 106 × 148,2 × 29 mm (L × H × P), poids appareil 0,4 kg ; bloc fourni",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://www.waves.com/1lib/pdf/hardware/mgb-mgo-manual-v2.pdf",
+      "document": "Waves MGB/MGO User Guide v2, p. 17 : dimensions et poids 0,4 kg",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://digigrid.net/wp-content/uploads/2020/05/DiGiGrid-MGB-Data-Sheet.pdf",
+      "document": "DiGiGrid MGB Datasheet 2020, p. 4 : 5 V / 2 A, poids 0,5 kg divergent",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://digigrid.net/wp-content/uploads/2022/08/DiGiGrid-Complete-2022-Web.pdf",
+      "document": "DiGiGrid Product Brochure 2022, page PDF 25 : MGB/MGO, Professional grade screw lock power connector ; aucune consommation en W publiée",
+      "accessed": "2026-10-29"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Poids/dimensions fournis ; connecteur propriétaire et bloc fourni. Calcul 5 V × 2 A non repris comme consommation.",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Conserver 10 W pour le budget, d’après le calcul de capacité 5 V / 2 A du bloc ; connecteur à verrouillage vissé.",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
     {
-      "id": "madi1",
-      "name": "MADI 1",
-      "direction": "bidir",
+      "id": "madi1In",
+      "name": "MADI 1 In",
+      "direction": "in",
       "signal": "audioDigital",
       "connector": "bnc",
       "channels": 64,
-      "format": "MADI coaxial"
+      "format": "MADI coaxial ; 56/64 canaux à 44,1/48 kHz, 28/32 à 88,2/96 kHz"
     },
     {
-      "id": "madi2",
-      "name": "MADI 2",
-      "direction": "bidir",
+      "id": "madi1Out",
+      "name": "MADI 1 Out",
+      "direction": "out",
       "signal": "audioDigital",
       "connector": "bnc",
       "channels": 64,
-      "format": "MADI coaxial"
+      "format": "MADI coaxial ; capacité dépend du mode et de la fréquence"
+    },
+    {
+      "id": "madi2In",
+      "name": "MADI 2 In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial ; 56/64 canaux à 44,1/48 kHz, 28/32 à 88,2/96 kHz"
+    },
+    {
+      "id": "madi2Out",
+      "name": "MADI 2 Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial ; capacité dépend du mode et de la fréquence"
     },
     {
       "id": "sg",
@@ -59,24 +104,31 @@
       "signal": "audioIp",
       "connector": "rj45",
       "channels": 128,
-      "format": "Réseau Waves SoundGrid"
+      "format": "Waves SoundGrid ; 112/128 canaux à 44,1/48 kHz, moitié à 88,2/96 kHz"
     },
     {
       "id": "wc",
       "name": "Word Clock In",
       "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Horloge externe"
     },
     {
       "id": "dc",
-      "name": "Alimentation",
+      "name": "Alimentation 5 V DC",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "DC 5 V, verrouillage vissé professionnel (catalogue DiGiGrid 2022) ; bloc dédié fourni, référence mécanique / brochage exacts non publiés ; ne pas supposer un connecteur standard interchangeable"
     }
   ],
   "aliases": [
     "DigiGrid MGB"
-  ]
+  ],
+  "description": "Interface MADI coaxial / SoundGrid, deux entrées et deux sorties BNC distinctes, RJ45 SoundGrid et Word Clock In. Capacité 112/128 canaux à 44,1/48 kHz, moitié à 88,2/96 kHz. Dimensions selon Waves L × H × P : 106 × 148,2 × 29 mm ; poids 0,4 kg (fiche DiGiGrid 2020 : 0,5 kg). Alimentation 5 V / 2 A à verrouillage vissé professionnel. Puissance retenue pour les budgets sur choix utilisateur : 10 W, calcul 5 V × 2 A du bloc ; pas une consommation réelle mesurée ou publiée.",
+  "weightKg": 0.4,
+  "depthMm": 29,
+  "portStatus": "pending",
+  "powerW": 10
 }

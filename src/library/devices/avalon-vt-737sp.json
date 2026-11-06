@@ -4,7 +4,7 @@
   "manufacturer": "Avalon",
   "model": "VT-737sp",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "weightKg": 10,
   "rackU": 2,
   "sources": [
@@ -20,8 +20,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/avalon_vt737sp_ft.pdf",
-      "document": "Novelty — VT737SP : VT737SP",
-      "accessed": "2026-10-19"
+      "document": "Avalon VT-737sp, fiche constructeur 1999 : audio, dimensions et poids net — pages PDF 2",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/feuille_de_notes/avalon_vt737sp_note_schema.pdf",
@@ -32,6 +32,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/avalon_vt737sp_shema.pdf",
       "document": "Novelty — VT737SP : VT737SP (SCHÉMA)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.avalondesignarchive.com/manuals/Vt737sp_Manual_2016.pdf",
+      "document": "Avalon VT-737sp Operation Manual 2.0 (2016), p. 18 et 45 : XLR, Link asymétrique, IEC ; consommation différente de la fiche 1999",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://www.avalondesign.com/vt-737-sp",
+      "document": "Avalon VT-737sp, page constructeur, Technical Specifications : 75 W maximum",
+      "accessed": "2026-10-28"
     }
   ],
   "ports": [
@@ -42,52 +52,57 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "format": "XLR femelle symétrique ; +48 V commutable"
     },
     {
       "id": "line",
       "name": "Line In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "combo",
-      "level": "line+4",
-      "format": "Combo XLR / jack symétrique"
+      "connector": "xlr3",
+      "format": "XLR femelle symétrique ; entrée ligne, maximum +36 dB selon notice"
     },
     {
       "id": "di",
-      "name": "DI In",
+      "name": "Instrument In",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "instrument"
+      "level": "instrument",
+      "format": "Jack 6,35 TS asymétrique en façade"
     },
     {
       "id": "out",
       "name": "Line Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "jack-trs",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Jack 6,35 symétrique"
+      "format": "XLR mâle symétrique ; 0 VU = +4 dBu, maximum +30 dBu / 600 Ω"
     },
     {
       "id": "link",
-      "name": "Link",
+      "name": "Stereo Link",
       "direction": "bidir",
       "signal": "control",
-      "connector": "jack-trs",
-      "format": "Couplage de deux unités"
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique ; couplage des compresseurs de deux VT-737sp"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "IEC C14 ; tension à sélectionner selon la version, 50/60 Hz"
     }
   ],
   "aliases": [
     "VT737SP",
     "AVALON VT737SP"
-  ]
+  ],
+  "depthMm": 305,
+  "description": "Tranche mono à lampes : entrées micro XLR, ligne XLR et instrument jack, sélectionnées pour un seul trajet audio. Sortie ligne XLR, 0 VU = +4 dBu. Link stéréo sur jack TS. Dimensions L × H × P : 482 × 89 × 305 mm, 2U ; poids net 10 kg. Consommation maximale retenue : 75 W selon la page Avalon actuelle ; le manuel 2016 indique 60 W pour sa révision.",
+  "powerW": 75
 }

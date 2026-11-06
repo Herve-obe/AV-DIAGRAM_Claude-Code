@@ -4,12 +4,13 @@
   "domain": "sound",
   "pictogram": "recorder",
   "manufacturer": "Pioneer DJ",
-  "model": "CDJ 2000 Nexus 2",
-  "status": "community",
-  "description": "Lecteur CD DJ avec pitch, touché identique à une platine vynil",
+  "model": "CDJ-2000NXS2",
+  "status": "verified",
+  "description": "CDJ-2000NXS2 : RCA analogique et S/PDIF du même programme ; USB-A hôte séparé du port USB-B vers ordinateur. PRO DJ LINK ne constitue pas un port Dante.",
   "aliases": [
     "CDJ2000NXS2",
-    "PIONEER CDJ 2000 Nexus 2"
+    "PIONEER CDJ 2000 Nexus 2",
+    "CDJ 2000 Nexus 2"
   ],
   "sources": [
     {
@@ -23,23 +24,75 @@
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_cdj-2000nxs2_manual_EN.pdf",
-      "document": "Novelty — CDJ 2000 Nexus 2 : CDJ-2000NXS2 (UK)",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_cdj-2000nxs2_manual_DE.pdf",
       "document": "Novelty — CDJ 2000 Nexus 2 : CDJ-2000NXS2 (DE)",
       "accessed": "2026-10-19"
     },
     {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_cdj-2000nxs2_manual_EN.pdf",
+      "document": "Pioneer CDJ-2000NXS2, manuel constructeur — pages PDF 9, 16",
+      "accessed": "2026-10-29"
+    },
+    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_cdj-2000nxs2_quickstart_manual.pdf",
-      "document": "Novelty — CDJ 2000 Nexus 2 : Quick Start Guide",
-      "accessed": "2026-10-19"
+      "document": "Pioneer CDJ-2000NXS2, guide de démarrage constructeur — pages PDF 11",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Audio Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Sortie ligne stéréo 2,0 Vrms ; ne pas assimiler à un nominal −10 dBV",
+      "channels": 2
+    },
+    {
+      "id": "digitalOut",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial",
+      "channels": 2
+    },
+    {
+      "id": "link",
+      "name": "PRO DJ LINK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100Base-TX ; réseau Pioneer, pas Dante"
+    },
+    {
+      "id": "usb",
+      "name": "USB vers ordinateur",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Carte son / contrôle HID-MIDI",
+      "channels": 2
+    },
+    {
+      "id": "usbStorage",
+      "name": "USB stockage",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Supports de fichiers / contrôleur compatible ; pas une entrée audio analogique"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Secteur IEC"
+    }
+  ],
   "weightKg": 5.7,
-  "powerW": 41
+  "powerW": 41,
+  "depthMm": 414.4
 }

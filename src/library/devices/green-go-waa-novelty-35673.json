@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Green-GO",
   "model": "WAA",
-  "status": "community",
-  "description": "Antenne active pour boîtier sans fil",
+  "status": "verified",
+  "description": "Antenne active pour boîtier sans fil. Dimensions H × L × P : 41 × 95 × 119 mm. Consommation typique 2,5 W, maximale 4,5 W.",
   "aliases": [
     "GreenGo WAA"
   ],
@@ -15,9 +15,44 @@
       "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/waa/",
       "document": "Novelty — WAA",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/waa/",
+      "document": "Green-GO — WAA Antenna X, Device overview et Technical specifications (documentation fabricant Green-GO 5)",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.3
+  "ports": [
+    {
+      "id": "radio",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "1870 à 1930 MHz, jusqu'à 4 boîtiers WBPX simultanés"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "usb",
+      "name": "Mini-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-mini",
+      "format": "Alimentation alternative sans switch PoE"
+    }
+  ],
+  "weightKg": 0.218,
+  "powerW": 2.5,
+  "depthMm": 119
 }

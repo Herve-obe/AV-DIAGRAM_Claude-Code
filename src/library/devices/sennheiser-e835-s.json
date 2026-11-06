@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "Sennheiser",
   "model": "e835 S",
-  "status": "community",
-  "description": "Microphone dynamique à interrupteur, pour chant et parole",
+  "status": "verified",
+  "description": "Microphone dynamique cardioïde pour chant et parole, avec interrupteur silencieux. Sortie XLR 3 points au niveau microphone, sans alimentation fantôme.",
   "aliases": [
     "SENNHEISER e835 S"
   ],
@@ -25,9 +25,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1204284307.pdf",
       "document": "Novelty — e835 S : e835 S",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/975934/Sennheiser-E835.html?page=12",
+      "document": "Sennheiser — e 835 / e 835 S, fiche technique page 12 : sortie XLR 3, niveau microphone, interrupteur et masse de 330 g",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Dynamique cardioïde, interrupteur silencieux",
+      "phantom": "none"
+    }
+  ],
   "weightKg": 0.33
 }

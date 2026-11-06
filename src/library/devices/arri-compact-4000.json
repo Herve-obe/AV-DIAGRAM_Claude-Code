@@ -6,7 +6,7 @@
   "manufacturer": "ARRI",
   "model": "Compact 4000",
   "status": "community",
-  "description": "Projecteur HMI 4000W \"Compact SE4000\", ballast selfique DMX déporté. Prix jour avec heure de lampe intégré.",
+  "description": "Tête HMI Compact4000, lampe4000 W ; 21.5 kg sans accessoires. Ballast externe requis, à représenter séparément. La tête reçoit la puissance du ballast par son câble mâle dédié ; aucun DMX sur la tête.",
   "aliases": [
     "ARRI Compact 4000"
   ],
@@ -18,10 +18,20 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_2500_compact_manuel.pdf",
-      "document": "Novelty — Compact 4000 : Compact 4000",
-      "accessed": "2026-10-19"
+      "document": "ARRI — Compact575/1200/2500/4000 Operating Instructions,6 juillet2004, pages3 et5 : masse et liaison tête/ballast",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "head-power",
+      "name": "Alimentation depuis ballast",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur mâle dédié du câble de tête, vers sortie femelle du ballast ; type exact à confirmer"
+    }
+  ],
+  "weightKg": 21.5,
+  "powerW": 4000
 }

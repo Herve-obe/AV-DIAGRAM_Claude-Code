@@ -4,22 +4,18 @@
   "domain": "sound",
   "pictogram": "console",
   "manufacturer": "Pioneer DJ",
-  "model": "DJM900 Nexus 2",
-  "status": "community",
-  "description": "Console \"DJ\" 4 voies audio, 2 voies Mic, 4 entrées numériques, 6 line, 2 phono",
+  "model": "DJM-900NXS2",
+  "status": "verified",
+  "description": "DJM-900NXS2 : quatre entrées ligne et quatre phono (et non six ligne/deux phono), quatre numériques, deux USB-B, un USB-A Send/Return et deux prises casque. Les niveaux de la génération NXS ne sont pas transposés.",
   "aliases": [
     "DJM900NXS2",
-    "PIONEER DJM900 Nexus 2"
+    "PIONEER DJM900 Nexus 2",
+    "DJM900 Nexus 2"
   ],
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/sonorisation/mixage/dj/djm900-nexus-2/",
       "document": "Novelty — DJM900 Nexus 2",
-      "accessed": "2026-10-19"
-    },
-    {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm-900nxs2_manual_EN.pdf",
-      "document": "Novelty — DJM900 Nexus 2 : DJM-900NXS2 (UK)",
       "accessed": "2026-10-19"
     },
     {
@@ -36,10 +32,278 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/pioneer_djm-900nxs2_quickstart.pdf",
       "document": "Novelty — DJM900 Nexus 2 : Quick Start Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pioneer_djm-900nxs2_manual_EN.pdf",
+      "document": "Pioneer DJM-900NXS2, manuel constructeur — pages PDF 6, 7, 8, 9, 10",
+      "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.pioneerdj.com/pl/news/2016/meet-the-new-cdj-2000nxs2-and-djm-900nxs2/",
+      "document": "Pioneer DJ, annonce constructeur 2016 : dimensions et masse DJM-900NXS2",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 1",
+      "channels": 2
+    },
+    {
+      "id": "digital1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 1",
+      "channels": 2
+    },
+    {
+      "id": "phono1",
+      "name": "Phono 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 2",
+      "channels": 2
+    },
+    {
+      "id": "digital2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 2",
+      "channels": 2
+    },
+    {
+      "id": "phono2",
+      "name": "Phono 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "line3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 3",
+      "channels": 2
+    },
+    {
+      "id": "digital3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 3",
+      "channels": 2
+    },
+    {
+      "id": "phono3",
+      "name": "Phono 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "line4",
+      "name": "Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée stéréo ligne ; source alternative de la voie 4",
+      "channels": 2
+    },
+    {
+      "id": "digital4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF coaxial ; alternative aux entrées analogiques de la voie 4",
+      "channels": 2
+    },
+    {
+      "id": "phono4",
+      "name": "Phono 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cellule MM/RIAA ; jamais une entrée ligne",
+      "channels": 2,
+      "level": "phono"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "format": "XLR/TRS micro ; pas une sortie ligne",
+      "level": "mic"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Micro symétrique",
+      "level": "mic"
+    },
+    {
+      "id": "masterL",
+      "name": "Master 1 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne symétrique ; nominal non confirmé pour NXS2, pas niveau micro"
+    },
+    {
+      "id": "masterR",
+      "name": "Master 1 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie ligne symétrique ; nominal non confirmé pour NXS2, pas niveau micro"
+    },
+    {
+      "id": "master2",
+      "name": "Master 2 L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Sortie ligne asymétrique ; nominal non confirmé pour NXS2, même mix master",
+      "channels": 2
+    },
+    {
+      "id": "booth",
+      "name": "Booth L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Deux jacks TRS symétriques ; nominal non confirmé pour NXS2",
+      "channels": 2
+    },
+    {
+      "id": "rec",
+      "name": "Rec Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Ligne, nominal −8 dBu",
+      "channels": 2
+    },
+    {
+      "id": "send",
+      "name": "Send L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Départ effets asymétrique ; nominal non confirmé pour NXS2",
+      "channels": 2
+    },
+    {
+      "id": "return",
+      "name": "Return L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Retour effets asymétrique ; nominal non confirmé pour NXS2",
+      "channels": 2
+    },
+    {
+      "id": "digitalOut",
+      "name": "Digital Master Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Sortie numérique coaxiale S/PDIF",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque 6,35 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Casque stéréo",
+      "channels": 2
+    },
+    {
+      "id": "phonesMini",
+      "name": "Casque 3,5 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Même écoute que le casque 6,35 mm",
+      "channels": 2
+    },
+    {
+      "id": "link1",
+      "name": "PRO DJ LINK 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau Pioneer 100Base-TX ; pas Dante"
+    },
+    {
+      "id": "usb1",
+      "name": "USB ordinateur 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio et contrôle ; capacité dépendante du réglage logiciel"
+    },
+    {
+      "id": "usb2",
+      "name": "USB ordinateur 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio et contrôle ; capacité dépendante du réglage logiciel"
+    },
+    {
+      "id": "usbMobile",
+      "name": "USB appareil mobile",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-a",
+      "format": "Send/Return USB vers appareil compatible ; pas un lecteur de clés MP3"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Secteur 220–240 V, cordon fourni"
+    }
+  ],
   "weightKg": 8,
-  "powerW": 42
+  "depthMm": 414.2
 }

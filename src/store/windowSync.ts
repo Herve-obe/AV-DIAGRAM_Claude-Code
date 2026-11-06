@@ -21,7 +21,7 @@ const UI_KEYS = ['selectedEquipment', 'selectedLinks', 'currentSheetId', 'focusR
 type SharedUi = Partial<Pick<ReturnType<typeof useUi.getState>, (typeof UI_KEYS)[number]>>
 
 export type SyncMessage =
-  | { kind: 'access'; access: Pick<ReturnType<typeof useCollab.getState>, 'status' | 'role' | 'claims' | 'participants' | 'userId'> }
+  | { kind: 'access'; access: Pick<ReturnType<typeof useCollab.getState>, 'status' | 'role' | 'claims' | 'participants' | 'userId' | 'started'> }
   | { kind: 'saved'; project: Project; saved: boolean }
   | { kind: 'hello' }
   | { kind: 'state'; project: Project; ui: SharedUi }
@@ -67,7 +67,7 @@ export async function startWindowSync() {
     remote = true
     try { fn() } finally { remote = false }
   }
-  const sendAccess = () => { const { status, role, claims, participants, userId } = useCollab.getState(); send({ kind: 'access', access: { status, role, claims, participants, userId } }) }
+  const sendAccess = () => { const { status, role, claims, participants, userId, started } = useCollab.getState(); send({ kind: 'access', access: { status, role, claims, participants, userId, started } }) }
   let pending: Project | null = null
   let base: Project | null = null
   const post = await transport((m) => {

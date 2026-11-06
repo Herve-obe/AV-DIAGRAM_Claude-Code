@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "B2Ei",
   "model": "BD32M/4XPC",
-  "status": "community",
-  "description": "Sabot de distribution. Entrée : P17 32A mono. Sorties : 4 x PC16A. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Sabot de distribution. Entrée : P17 32A mono. Sorties : 4 x PC16A. Protection différentielle 30mA Dimensions unitaires documentées : 46,5 × 15 × 11 cm (ordre d’axes non précisé par la page).",
   "aliases": [
     "B2Ei BD32M/4XPC"
   ],
@@ -15,45 +15,54 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32m-4xpc/",
       "document": "Novelty — BD32M/4XPC",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32m-4xpc/",
+      "document": "Novelty : b2ei-bd32m-4xpc, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 32A mono",
+      "name": "Arrivée p17-32-mono",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-mono"
+      "connector": "p17-32-mono",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out1",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out2",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out3",
-      "name": "Sortie PC16A 3",
+      "name": "PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out4",
-      "name": "Sortie PC16A 4",
+      "name": "PC16 4",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Sortie de puissance"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 4.4
 }

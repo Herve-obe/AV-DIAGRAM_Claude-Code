@@ -6,7 +6,7 @@
   "manufacturer": "OXO",
   "model": "BBox 6 RDM",
   "status": "community",
-  "description": "Distributeur de ligne DMX 6 sorties amplifiées avec isolation optoélectronique",
+  "description": "Splitter (B)Box 6 RDM : une entrée et un renvoi DMX chacun doublés en XLR3 et XLR5, six lignes isolées chacune doublée en XLR3/XLR5, soit seize prises DMX physiques. Rack 19 pouces 1 U, 482 × 135 × 42 mm, 2,25 kg. Alimentation 230 V sur cordon captif ; fiche locale non détaillée. RDM désactivable.",
   "aliases": [
     "OXO BBox 6 RDM"
   ],
@@ -18,17 +18,151 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/oxo_bbox6_rdm_fiche_technique_fr.pdf",
-      "document": "Novelty — BBox 6 RDM : BBox 6 RDM",
-      "accessed": "2026-10-19"
+      "document": "Levenly — fiche BBox6 RDM, p.1–2 : cordon prisonnier et 1 U",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_bbox6_rdm_manuel_fr.pdf",
-      "document": "Novelty — BBox 6 RDM : BBox 6 RDM",
-      "accessed": "2026-10-19"
+      "document": "OXO — (B)Box 6 RDM mode d’emploi V1 mars2017, p.3–4 : panneau rendu et seize prises DMX",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.1,
-  "powerW": 10
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In 5 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxThru3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "out1",
+      "name": "DMX Out 1 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Ligne 1 isolée, DMX/RDM"
+    },
+    {
+      "id": "out13",
+      "name": "DMX Out 1 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Même ligne isolée 1"
+    },
+    {
+      "id": "out2",
+      "name": "DMX Out 2 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Ligne 2 isolée, DMX/RDM"
+    },
+    {
+      "id": "out23",
+      "name": "DMX Out 2 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Même ligne isolée 2"
+    },
+    {
+      "id": "out3",
+      "name": "DMX Out 3 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Ligne 3 isolée, DMX/RDM"
+    },
+    {
+      "id": "out33",
+      "name": "DMX Out 3 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Même ligne isolée 3"
+    },
+    {
+      "id": "out4",
+      "name": "DMX Out 4 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Ligne 4 isolée, DMX/RDM"
+    },
+    {
+      "id": "out43",
+      "name": "DMX Out 4 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Même ligne isolée 4"
+    },
+    {
+      "id": "out5",
+      "name": "DMX Out 5 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Ligne 5 isolée, DMX/RDM"
+    },
+    {
+      "id": "out53",
+      "name": "DMX Out 5 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Même ligne isolée 5"
+    },
+    {
+      "id": "out6",
+      "name": "DMX Out 6 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Ligne 6 isolée, DMX/RDM"
+    },
+    {
+      "id": "out63",
+      "name": "DMX Out 6 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Même ligne isolée 6"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Cordon secteur captif 230 V / 50 Hz, 0,5 A maximum ; fiche du parc à confirmer"
+    }
+  ],
+  "weightKg": 2.25,
+  "powerW": 10,
+  "rackU": 1,
+  "depthMm": 135
 }

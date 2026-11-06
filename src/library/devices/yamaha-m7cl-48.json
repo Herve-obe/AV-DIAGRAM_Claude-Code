@@ -772,36 +772,29 @@
       "connector": "usb-a"
     },
     {
-      "id": "my1",
-      "name": "Slot MY 1",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte Mini-YGDAI"
-    },
-    {
-      "id": "my2",
-      "name": "Slot MY 2",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte Mini-YGDAI"
-    },
-    {
-      "id": "my3",
-      "name": "Slot MY 3",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte Mini-YGDAI"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
       "format": "300 W"
+    }
+  ],
+  "slots": [
+    {
+      "id": "my1",
+      "name": "Slot MY 1",
+      "type": "yamaha-mini-ygdai"
+    },
+    {
+      "id": "my2",
+      "name": "Slot MY 2",
+      "type": "yamaha-mini-ygdai"
+    },
+    {
+      "id": "my3",
+      "name": "Slot MY 3",
+      "type": "yamaha-mini-ygdai"
     }
   ]
 }

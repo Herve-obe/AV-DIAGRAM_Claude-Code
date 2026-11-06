@@ -37,6 +37,155 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "rgb1-1",
+      "name": "RGB 1 R / Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-2",
+      "name": "RGB 1 G / Y / Video",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-3",
+      "name": "RGB 1 B / Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-4",
+      "name": "RGB 1 H / Sync",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-5",
+      "name": "RGB 1 V / C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb2",
+      "name": "RGB 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "serialIn",
+      "name": "Serial In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C"
+    },
+    {
+      "id": "serialOut",
+      "name": "Serial Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C link"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Remote 1 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Remote 1 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3"
+    },
+    {
+      "id": "remote2",
+      "name": "Remote 2 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Commande parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "lanDigitalLink",
+      "name": "LAN / DIGITAL LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT, réseau 100BASE-TX, PJLink, Art-Net"
+    },
+    {
+      "id": "sync1",
+      "name": "3D Sync 1",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "sync2",
+      "name": "3D Sync 2 Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    }
+  ],
+  "powerW": 1200,
+  "weightKg": 44,
+  "depthMm": 740
 }

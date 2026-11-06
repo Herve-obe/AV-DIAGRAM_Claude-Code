@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "AV Matrix",
   "model": "VS0601",
-  "status": "community",
+  "status": "verified",
   "description": "Switcher vidéo HD 6 entrées portable",
   "aliases": [
     "AV Matrix VS0601"
@@ -27,7 +27,162 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiPgm1",
+      "name": "SDI PGM 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiPgm2",
+      "name": "SDI PGM 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiAux",
+      "name": "SDI AUX",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiMv",
+      "name": "SDI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiPgm",
+      "name": "HDMI PGM",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiMv",
+      "name": "HDMI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioInL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audioOutL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audioInR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audioOutR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "stereoIn",
+      "name": "Stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "stereoOut",
+      "name": "Stereo Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "out",
+      "signal": "control",
+      "connector": "vga",
+      "format": "HD-15 three-row connector, tally pinout; not VGA video"
+    },
+    {
+      "id": "lan",
+      "name": "LAN firmware / time",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC"
+    }
+  ],
+  "weightKg": 1,
+  "powerW": 33,
+  "depthMm": 172.3
 }

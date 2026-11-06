@@ -6,7 +6,7 @@
   "manufacturer": "Chauvet Professional",
   "model": "Well Fit C",
   "status": "community",
-  "description": "Projecteur LEDs chromé (4xRGBW de 10W), ouverture 11-18°, sur batterie (autonomie 8 à 20h) pilotable via DMX, HF, pied inclinable",
+  "description": "WELL Fit sur batterie,138 ×145 ×202 mm,3,4 kg par appareil. Commande W-DMX/IR sans embase DMX filaire. Prise de charge propriétaire sous le projecteur ; le powerCON appartient au flight-case chargeur séparé. Consommation de charge48 W par appareil,288 W pour6.",
   "aliases": [
     "WELLFIT/C",
     "Chauvet Well Fit C"
@@ -31,10 +31,29 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/dupli-1484910128-chauvet_well-fit_dmx-chart.pdf",
       "document": "Novelty — Well Fit C : DMX Chart",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_well-fit_manuel.pdf",
+      "document": "Chauvet Professional — WELL Fit User Manual rev1, pagesPDF8–11 et22 : prise de charge, chargeur externe et puissance par appareil",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/chauvet_well-fit_ft2.pdf",
+      "document": "Chauvet — WELL Fit Specification Sheet, page2 : masse unitaire3,4 kg ; la masse6,5 kg du manuel contredit7,4 lb",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "charge",
+      "name": "Charge depuis flight-case",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Prise propriétaire de charge sous l’appareil, sans prise secteur powerCON sur le projecteur"
+    }
+  ],
   "weightKg": 3.4,
-  "powerW": 48
+  "powerW": 48,
+  "depthMm": 145
 }

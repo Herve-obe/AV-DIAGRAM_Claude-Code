@@ -4,7 +4,7 @@
   "manufacturer": "Lexicon",
   "model": "PCM80",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lexicon_pcm_80_manuel.pdf",
-      "document": "Novelty — PCM80 : PCM80",
-      "accessed": "2026-10-19"
+      "document": "Lexicon PCM80, manuel constructeur : sorties parallèles, commandes, dimensions, poids net et 35 W — pages PDF 13, 133, 134",
+      "accessed": "2026-10-28"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lexicon_pcm_80_manuel_rapide.pdf",
@@ -54,7 +54,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR symétrique (et jack 6,35)"
+      "format": "XLR symétrique ; même canal que la sortie TRS correspondante"
     },
     {
       "id": "outR",
@@ -63,7 +63,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR symétrique (et jack 6,35)"
+      "format": "XLR symétrique ; même canal que la sortie TRS correspondante"
     },
     {
       "id": "spdifIn",
@@ -111,14 +111,45 @@
       "format": "2 interrupteurs momentanés"
     },
     {
+      "id": "outTrsL",
+      "name": "Output L TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique ; copie de la XLR du même canal, pas une sortie indépendante"
+    },
+    {
+      "id": "outTrsR",
+      "name": "Output R TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 symétrique ; copie de la XLR du même canal, pas une sortie indépendante"
+    },
+    {
+      "id": "footController",
+      "name": "Foot Controller",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Pédale 100 Ω à 10 kΩ ; distinct de la prise Footswitch"
+    },
+    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "IEC C14 ; 100–240 V, 50/60 Hz"
     }
   ],
   "aliases": [
     "lexicon PCM80"
-  ]
+  ],
+  "depthMm": 305,
+  "weightKg": 2.9,
+  "powerW": 35,
+  "description": "Processeur stéréo PCM80. Deux entrées combo XLR/TRS ; sorties XLR et TRS parallèles pour chaque canal, S/PDIF, MIDI et deux prises de commande distinctes (Footswitch / Foot Controller). 1U, L × H × P : 483 × 45 × 305 mm, poids net 2,9 kg, 35 W."
 }

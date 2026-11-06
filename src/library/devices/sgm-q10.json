@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "SGM",
   "model": "Q10",
-  "status": "community",
-  "description": "Projecteur architectural à LED. 2 048 LED SMD RVB et 2 048 LED SMD blanches, 57140 lumens, Wireless DMX & RDM",
+  "status": "verified",
+  "description": "Q-10 standard IP65, flood/strobe/blinder RGBW à huit segments, 1 250 W maximum, 19,8 kg ; dimensions 702 × 402 × 206 mm. Entrée/sortie DMX XLR 5 points IP65 et entrée/sortie powerCON TRUE1. CRMX intégré. Les connexions captives de la version POI sont différentes.",
   "aliases": [
     "SGM Q10"
   ],
@@ -18,13 +18,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/158-4612-q-10-21728.pdf",
-      "document": "Novelty — Q10 : Q_10",
-      "accessed": "2026-10-19"
+      "document": "SGM — Q-10 specifications, p.3–4 : 19,8 kg, 1 250 W, 702 × 402 × 206 mm, power input/link",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/4638-4612-sgm-q-10-user-manual-std-and-poi-rev-f.pdf",
-      "document": "Novelty — Q10 : SGM Q10 User Manual",
-      "accessed": "2026-10-19"
+      "document": "SGM — Q-10 standard / POI user manual rev.F, p.7 : TRUE1 standard ; p.9–10 : secteur et DMX",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/9254-4612-declaration-of-conformity-q-10.pdf",
@@ -32,8 +32,38 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In 5 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100–277 V 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ],
   "weightKg": 19.8,
-  "powerW": 1250
+  "powerW": 1250,
+  "depthMm": 206
 }

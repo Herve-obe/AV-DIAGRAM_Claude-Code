@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Fohhn",
   "model": "LX-10",
-  "status": "community",
-  "description": "Enceinte de proximité 4“, 2 voies axiales passives",
+  "status": "verified",
+  "description": "Enceinte passive Linea LX-10, 2 voies coaxiales 4” / 0,75”, 16 Ω, 50 W nominaux admissibles. Connecteur Phoenix 8 points ; transformateur 100 V optionnel non présumé présent. Les anciennes notices ASX rattachées au catalogue concernent une autre variante active.",
   "aliases": [
     "Fohhn LX-10"
   ],
@@ -30,9 +30,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/fohhn_lx10_measurement-charts.pdf",
       "document": "Novelty — LX-10 : Measurement charts",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://fohhn-polska.pl/wp-content/uploads/2020/10/Datasheet_LX-10.pdf",
+      "document": "Fiche constructeur Fohhn Linea LX-10 passif, pp.2–3.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.4
+  "ports": [
+    {
+      "id": "speaker-in",
+      "name": "Entrée Phoenix 8 points",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Connecteur Phoenix 8 points ; LX-10 passif 16 Ω ; brochage à consulter sur l’enceinte"
+    }
+  ],
+  "weightKg": 1.4,
+  "depthMm": 120
 }

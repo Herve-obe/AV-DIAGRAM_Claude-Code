@@ -1,0 +1,41 @@
+{
+  "id": "sennheiser-me2",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "ME 2",
+  "pictogram": "mic",
+  "status": "community",
+  "description": "Micro cravate omnidirectionnel ME 2, distinct du ME 2-II, terminé en mini-jack 3,5 mm et alimenté à basse tension par l’émetteur Sennheiser.",
+  "sources": [
+    {
+      "accessed": "2026-10-22",
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/lavalier-mics/specifications.html",
+      "document": "Documentation fabricant ME 2 actuelle, spécifications lavalier",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.sennheiser.com/globalassets/digizuite/41600-en-sp_1166_v1.0_me_2_product_specification_en.pdf",
+      "document": "Sennheiser ME 2 Product Specification v1.0",
+      "accessed": "2026-10-27"
+    },
+    {
+      "document": "Choix utilisateur reçu le 4 novembre 2026",
+      "accessed": "2026-11-04"
+    }
+  ],
+  "ports": [
+    {
+      "signal": "audioAnalog",
+      "format": "Mini-jack 3,5 mm pour émetteur Sennheiser ; alimentation basse tension via émetteur, pas P48 direct",
+      "name": "Sortie câble 3,5 mm",
+      "id": "out",
+      "connector": "minijack",
+      "direction": "out",
+      "phantom": "none",
+      "level": "mic"
+    }
+  ]
+}

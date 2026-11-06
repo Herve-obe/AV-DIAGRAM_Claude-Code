@@ -6,7 +6,7 @@ import { createProjectFile, openProjectFile, projectFolderName, saveContent, sav
 import { writeBackup } from './backups'
 
 const fs = vi.hoisted(() => ({ writeTextFile: vi.fn(), writeFile: vi.fn(), readTextFile: vi.fn(), exists: vi.fn(), mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn() }))
-const dialog = vi.hoisted(() => ({ save: vi.fn(), open: vi.fn() }))
+const dialog = vi.hoisted(() => ({ save: vi.fn(), open: vi.fn(), message: vi.fn() }))
 vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => true }))
 vi.mock('@tauri-apps/plugin-fs', () => fs)
 vi.mock('@tauri-apps/plugin-dialog', () => dialog)
@@ -14,6 +14,7 @@ vi.mock('@tauri-apps/api/path', () => ({ join: async (...p: string[]) => p.join(
 
 beforeEach(() => {
   vi.resetAllMocks()
+  dialog.message.mockResolvedValue(undefined)
   fs.writeTextFile.mockResolvedValue(undefined)
   fs.mkdir.mockResolvedValue(undefined)
   fs.exists.mockResolvedValue(false)
@@ -87,6 +88,7 @@ describe('dossier autonome à la création', () => {
     expect(fs.mkdir).not.toHaveBeenCalledWith('/p/Concert')
     expect(fs.writeTextFile.mock.calls.map(c => c[0])).toEqual(['/p/Concert (3)/concert.avd'])
     expect(fs.remove).not.toHaveBeenCalled()
+    expect(dialog.message).toHaveBeenCalledWith(expect.stringContaining('/p/Concert (3)'), expect.objectContaining({ kind: 'info' }))
   })
   it.each(['mkdir', 'backup', 'write'])('un échec à l’étape %s garde le document courant et ne mémorise aucun faux enregistrement', async step => {
     const p = createProject('Autre'), current = useProject.getState().project

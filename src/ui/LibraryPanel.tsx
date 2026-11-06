@@ -16,6 +16,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
 import { Pictogram } from './Pictogram'
+import { startCatalogueImport } from './CatalogueImportDialog'
 
 const OPEN_KEY = 'avd.libraryOpen'
 /** Événement : remplir la recherche de la bibliothèque (detail = texte) */
@@ -34,6 +35,14 @@ function readOpen(): string[] {
 export function LibraryPanel() {
   const { t } = useTranslation()
   const [query, setQuery] = useState('')
+  const [quantityError, setQuantityError] = useState(false)
+  const [tab, setTab] = useState<'company' | 'general'>(() => {
+    try { return localStorage.getItem('avd.libraryTab') === 'company' ? 'company' : 'general' } catch { return 'general' }
+  })
+  const chooseTab = (next: 'company' | 'general') => {
+    setTab(next)
+    try { localStorage.setItem('avd.libraryTab', next) } catch { /* préférence gardée pour cette session */ }
+  }
   const mode = useUi((s) => s.mode)
   const userTemplates = useLibrary((s) => s.userTemplates)
   const rf = useReactFlow()
@@ -110,8 +119,8 @@ export function LibraryPanel() {
     const ins = tpl.ports.filter((p) => p.direction === 'in').length
     const outs = tpl.ports.length - ins
     return (
+      <div key={tpl.id}>
       <div
-        key={tpl.id}
         className="lib-item"
         draggable
         onDragStart={(e) => onDragStart(e, tpl)}
@@ -139,6 +148,9 @@ export function LibraryPanel() {
           mode === 'expert' && <span className={`tag tag-${tpl.status}`}>{t(`library.status.${tpl.status}`)}</span>
         )}
       </div>
+      {tpl.status === 'user' && <label className="lib-quantity">{t('catalogue.quantity')}<input type="number" min={0} max={1000000} step={1} value={tpl.companyQuantity ?? ''} placeholder={t('company.unspecified')} aria-label={t('company.quantityFor', { name: tpl.model })}
+        onChange={e => { void useLibrary.getState().setCompanyQuantity(tpl.id, e.target.value === '' ? undefined : Number(e.target.value)).then(ok => setQuantityError(!ok)) }} /></label>}
+      </div>
     )
   }
 
@@ -147,6 +159,14 @@ export function LibraryPanel() {
       <div className="panel-title">
         {t('library.title')}
         <span className="count-chip">{LIBRARY.length + userTemplates.length}</span>
+      </div>
+      <div className="lib-tabs" role="tablist" aria-label={t('library.title')}>
+        {(['company', 'general'] as const).map(id => <button id={`library-tab-${id}`} aria-controls="library-panel" tabIndex={tab === id ? 0 : -1} className="seg-btn" role="tab" aria-selected={tab === id} key={id} onClick={() => chooseTab(id)} onKeyDown={e => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return
+          e.preventDefault()
+          const next = e.key === 'Home' ? 'company' : e.key === 'End' ? 'general' : id === 'company' ? 'general' : 'company'
+          chooseTab(next); document.getElementById(`library-tab-${next}`)?.focus()
+        }}>{t(`company.${id}`)}<span className="count-chip">{id === 'company' ? userTemplates.length : LIBRARY.length}</span></button>)}
       </div>
       <label className="search">
         <Icon name="search" size={14} />
@@ -171,7 +191,8 @@ export function LibraryPanel() {
         )}
       </label>
       {mode === 'beginner' && <p className="hint">{t('library.hint')}</p>}
-      {layer !== 'all' && (
+      {quantityError && <p className="hint" role="alert">{t('company.quantitySaveError')}</p>}
+      {tab === 'general' && layer !== 'all' && (
         <div className="lib-layer-filter" role="status">
           {filtered ? (
             <>
@@ -186,15 +207,15 @@ export function LibraryPanel() {
           )}
         </div>
       )}
-      <div className="library-list">
-        {total + mine.length === 0 && <p className="empty">{t('library.empty')}</p>}
-        {mine.length > 0 && (
+      <div id="library-panel" className="library-list" role="tabpanel" aria-labelledby={`library-tab-${tab}`}>
+        {(tab === 'company' ? mine.length : total) === 0 && <p className="empty">{t(tab === 'company' && !q ? 'company.empty' : 'library.empty')}</p>}
+        {tab === 'company' && mine.length > 0 && (
           <section>
             <h3 className="group-title">{t('library.mine')}</h3>
             {mine.map(renderItem)}
           </section>
         )}
-        {domains.map(({ domain, families }) => {
+        {tab === 'general' && domains.map(({ domain, families }) => {
           const count = families.reduce((n, f) => n + f.items.length, 0)
           if ((q || filtered) && count === 0) return null
           return (
@@ -227,6 +248,7 @@ export function LibraryPanel() {
         })}
       </div>
       <div className="library-foot">
+        <button className="btn" onClick={() => void startCatalogueImport(t)}>{t('catalogue.title')}</button>
         <button className="btn" onClick={newBlock}><Icon name="plus" size={14} />{t('library.newBlock')}</button>
       </div>
     </aside>

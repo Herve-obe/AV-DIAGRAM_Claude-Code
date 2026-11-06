@@ -6,7 +6,7 @@
   "manufacturer": "DeSisti",
   "model": "Monet 150mm – 1kW",
   "status": "community",
-  "description": "Projecteur type \"Fresnel\", 1000 W, angle d'ouverture 7,5° à 54°",
+  "description": "Monet Fresnel150 mm, lampe1000 W, zoom7,5–54,5°. Câble secteur sans interrupteur sur versions théâtre G22/GX9,5 ; fiche selon installation. Douille interchangeable selon variante, commande par gradateur externe.",
   "aliases": [
     "MONET1KW",
     "DESISTI Monet 150mm – 1kW"
@@ -19,12 +19,20 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/desisti_monet-150mm-1000w_ft.pdf",
-      "document": "Novelty — Monet 150mm – 1kW : Monet 150 mm",
-      "accessed": "2026-10-19"
+      "document": "DeSisti — MONET150 mm6-inch Fresnel, pages2–4 : versions1000 W, câble secteur et lampes",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "ac-in",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur ;1000 W, tension selon lampe ; pas de DMX natif"
+    }
+  ],
   "weightKg": 8,
   "powerW": 1000
 }

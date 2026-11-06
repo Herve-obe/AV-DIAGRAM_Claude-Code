@@ -8,7 +8,13 @@ Logiciel gratuit, sous licence [PolyForm Shield 1.0.0](LICENSE.md) : l'usage est
 
 [Manuel utilisateur illustré](docs/manuel-utilisateur.md) · [Version PDF](public/manuel.pdf) · Captures annotées et légendes, disponibles aussi hors ligne dans l'application.
 
-Version 0.4.3 : manuel illustré et mémorisation de la disposition des fenêtres. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle et tablette en attente pour la première version ; cloud et assistant IA toujours en attente.
+Version 0.5.12 : correction du template Concert (enregistrement du mix stéréo de console), nettoyage et reclassement de la bibliothèque, retour à l’accueil après installation IA, reprise du dernier projet, cadrage mémorisé et commande Fermer le projet. [Audit détaillé des 2 156 fiches](docs/inventaire/audit-bibliotheque-0.5.12.md).
+
+La 0.5.11 apporte : analyse générale des besoins par rôles, quantités, flux et hypothèses, questions ciblées pour les demandes vagues et câblage à partir des ports documentés. Mise en page des propositions par pages, choix de formats plus grands dans l’aperçu, sans changer le projet avant Appliquer. Mon entreprise et Bibliothèque générale séparées, import facultatif des quantités totales, choix du catalogue autorisé pour l’IA et alertes de parc communes aux ajouts manuels et IA. Disponibilités datées, réservations et connexion aux logiciels de stock restent à venir.
+
+La 0.5.10 apporte : navigation des huit vues regroupée sous les menus, avec icônes et libellés ; nom du projet centré et raccourcis à droite. Choix d’installation Windows pour le compte courant ou pour tous les utilisateurs (Programmes), avec dossier des modèles IA séparé. Activation de l’IA corrigée grâce à un test d’outil unique, sans boucle de conversation ; les erreurs précises de chargement et de test sont conservées. Menus Fichier, Édition, Affichage, Outils et Aide, raccourcis personnalisables, import local de catalogues CSV/Excel avec aperçu. Le catalogue commun accueille 112 références supplémentaires (11 vérifiées, 101 à documenter). Les CCU Sony HXCU-FB70/HXCU-TX70 et les trois générations de Scarlett 2i2 sont distinguées. L’assistant reconnaît les références courtes sans marque (par exemple « console CL5 ») et consulte leurs niveaux audio sans les déduire du connecteur XLR. Les demandes naturelles de plateau sont reconnues, avec ou sans console audio. Si des fiches sont incomplètes, l’assistant pose des questions ciblées avant de câbler. Le parcours interview + duo live sur M7CL-48ES/01V96 transforme un cahier des charges en câbles, mixages et notes de patch, avec des exclusions contre les boucles et des hypothèses explicites. Il ne configure pas les appareils. Le manuel comprend dix captures annotées. L’assistant prépare les équipements et les liaisons ensemble ; le plateau TV standard bénéficie d’un câblage SDI et audio validé par le logiciel.
+
+L’assistant IA est facultatif, avec bouton de chat explicite et configuration dans les paramètres. L'installeur Windows propose l'IA locale et le dossier des modèles ; les API externes sont configurables avec clé sécurisée, accord d'envoi et test des outils. Voir [installation, confidentialité et limites](docs/ia-locale.md). La disposition des fenêtres est mémorisée. Échanges draw.io, import Visio partiel et conversion DWG facultative via ODA File Converter installé séparément : voir [fonctions et limites](docs/echanges-0.4.2.md). Formation, distribution officielle, tablette et cloud des projets restent en attente.
 
 Ce qui est fait, ce qui est en cours et ce qu'il reste à faire : voir [docs/etat-avancement.md](docs/etat-avancement.md).
 
@@ -36,10 +42,13 @@ Ils ne sont pas signés pour l'instant. Au premier lancement :
 
 ## Développer
 
-Il faut Node.js 22 et Rust (https://rustup.rs). Sous Linux, il faut aussi les bibliothèques WebKitGTK (voir `.github/workflows/desktop.yml`).
+Il faut Python 3.12 (manuel et préparation du moteur), Node.js 22 et Rust (https://rustup.rs). Sous Linux, il faut aussi les bibliothèques WebKitGTK (voir `.github/workflows/desktop.yml`).
 
 ```bash
 npm install
+python -m pip install reportlab==4.4.9
+python scripts/build-manual.py
+python scripts/prepare-local-ai.py
 npm run desktop         # lance l'application bureau en mode développement
 npm run dev             # interface seule dans le navigateur : http://localhost:5173
 npm test                # tests unitaires du modèle et des règles
@@ -66,3 +75,5 @@ npm run desktop:build   # installateur pour le système courant, dans src-tauri/
 - [Équipements à documenter](docs/bibliotheque-a-documenter.md)
 - [Maquette d'origine](docs/maquette/index.html)
 - [Écrire une fiche constructeur](src/library/devices/README.md)
+
+Le PDF du manuel est généré depuis sa source pendant les builds et fourni comme artefact de CI ; il n’est plus suivi en binaire dans Git.

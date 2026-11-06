@@ -1,21 +1,14 @@
 # Installeur Windows
 
-`installer.nsi` reprend le modèle de Tauri CLI **2.11.5**, sous licence MIT
-(voir `LICENSE-TAURI.txt`) :
+`installer.nsi` reprend le modèle de Tauri CLI **2.11.5**, sous licence MIT (voir `LICENSE-TAURI.txt`) :
 https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.11.5/crates/tauri-bundler/src/bundle/windows/nsis/installer.nsi
 
-La seule modification fonctionnelle est dans `PageLeaveReinstall`, après le
-contrôle du résultat de la désinstallation : quitter l'installeur si l'utilisateur
-a choisi **Uninstall** pour la même version. Une annulation ou une erreur revient
-au choix de maintenance ; une mise à jour, une migration WiX ou le mode passif
-conservent leur parcours d'installation.
+Personnalisations à conserver lors d’une mise à jour du modèle :
 
-Le CLI est figé dans `package.json` et le verrou npm pour garder le modèle et ses
-fichiers d'aide cohérents. Lors d'une mise à jour du CLI, comparer le modèle avec
-la nouvelle version amont et conserver ce correctif tant qu'il y est nécessaire.
+- Installation personnelle ou pour tous les utilisateurs, via le mode NSIS `both`. Le choix initial reste personnel ; le registre mémorise le mode et le dossier de chaque portée. Le paramètre `/D` est conservé malgré la réinitialisation de `MULTIUSER_INIT`.
+- Désinstallation dans la bonne portée, depuis Windows, l’installeur ou directement `uninstall.exe`, y compris si deux copies coexistent. Un choix explicite de désinstallation de la même version quitte ensuite l’installeur. Annulation et mise à jour gardent leur parcours.
+- IA facultative, dossier des modèles séparé du logiciel et lancement avec `RunAsUser`. Le téléchargement se fait dans l’application ; aucun modèle n’est inclus dans l’installeur.
 
-La CI exécute `scripts/test-windows-installer.py` sur une machine Windows jetable :
-installation neuve, choix Réinstaller, annulation de la désinstallation, puis
-désinstallation complète sans réouverture de l'installation. Elle vérifie aussi
-que désinstaller avant une mise à jour mène toujours au choix du dossier.
-Ce test refuse de s'exécuter hors GitHub Actions ou si AV Diagram est déjà installé.
+Le CLI est figé dans `package.json` et le verrou npm pour garder le modèle et ses fichiers d’aide cohérents.
+
+La CI exécute `scripts/test-windows-installer.py` sur une machine Windows jetable : choix des deux modes, dossier Programmes, dossier IA utilisateur, installation et désinstallation partagée sans toucher à la copie personnelle, installation personnelle à un emplacement imposé, réinstallation, annulation et mise à jour. Le test refuse de s’exécuter hors GitHub Actions, si un profil AV Diagram existe, ou si une installation personnelle/partagée est déjà présente.

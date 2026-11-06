@@ -3,7 +3,9 @@
 // pures : le dessin (PDF, image, SVG) est fait ailleurs à partir de ces calculs.
 import { groupInterface, groupNodeId } from '../model/groups'
 import { DEFAULT_SHEET_ID } from '../model/project'
-import type { Equipment, ExportSettings, PaperSize, Project, WatermarkSettings } from '../model/types'
+import type { ExportSettings, PaperSize, Project, WatermarkSettings } from '../model/types'
+import { estimateBlock } from '../model/portDisplay'
+export { estimateBlock } from '../model/portDisplay'
 
 /** Dimensions ISO 216 en mm, côté court x côté long */
 const ISO_A: Record<PaperSize, [number, number]> = {
@@ -144,15 +146,6 @@ export interface Bounds {
   y: number
   w: number
   h: number
-}
-
-/** Encombrement approximatif d'un bloc (en-tête et rangées de ports), en unités du schéma */
-export function estimateBlock(eq: Pick<Equipment, 'ports' | 'rotation'>): { w: number; h: number } {
-  const ins = eq.ports.filter((p) => p.direction === 'in').length
-  const outs = eq.ports.length - ins
-  const rows = Math.max(ins, outs)
-  const vertical = eq.rotation === 90 || eq.rotation === 270
-  return vertical ? { w: Math.max(200, rows * 70), h: 120 } : { w: 240, h: 64 + rows * 20 }
 }
 
 /** Encombrement estimé d'une feuille, groupes repliés compris ; null si elle est vide. */

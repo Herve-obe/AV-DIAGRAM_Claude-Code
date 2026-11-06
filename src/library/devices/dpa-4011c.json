@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "DPA",
   "model": "4011C",
-  "status": "community",
-  "description": "Microphone statique compact, à condensateur et petite membrane",
+  "status": "verified",
+  "description": "4011C compact : capsule MMC4011 + préamplificateur MMP-C ; une sortie XLR 3 mâle, fantôme 48 V.",
   "aliases": [
     "DPA 4011C"
   ],
@@ -25,9 +25,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/DPA-Reference-Standard-Mics.pdf",
       "document": "Novelty — 4011C : Brochure commerciale",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.talamas.com/sites/default/files/sales/DPA/application/pdf/ddicate-4011C-Compact-Cardioid-Microphone-Quick-Guide_0.pdf",
+      "document": "DPA 4011C Quick Guide DPI-4011C-QG, p. 2",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Condensateur cardioïde ; P48 ±4 V, 2,8 mA"
+    }
+  ],
   "weightKg": 0.058
 }

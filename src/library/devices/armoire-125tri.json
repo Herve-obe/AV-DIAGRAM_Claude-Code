@@ -9,24 +9,103 @@
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, page 168 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Arrivée",
+      "name": "Arrivée p17-125-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "125 A d'après la désignation (à confirmer) ; connecteur non précisé"
+      "connector": "p17-125-tri",
+      "format": "Arrivée triphasée"
     },
     {
       "id": "out",
-      "name": "Départs",
+      "name": "p17-63-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Départs non détaillés dans le catalogue"
+      "connector": "p17-63-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure2",
+      "name": "p17-63-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure3",
+      "name": "p17-32-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure4",
+      "name": "p17-32-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure5",
+      "name": "p17-32-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure6",
+      "name": "p17-32-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure7",
+      "name": "p17-32-mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure8",
+      "name": "p17-32-mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Départ de puissance, calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure9",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
+    },
+    {
+      "id": "departure10",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A, 2P+T"
     }
-  ]
+  ],
+  "weightKg": 69.2,
+  "description": "Armoire 125 A triphasée : 2 P17 63 A tri, 4 P17 32 A tri, 2 P17 32 A mono d’alimentation des blocs de secours et 2 PC16. Différentiel général réglable ; protections des départs décrites dans le catalogue. Dimensions L × l × H : 75 × 40 × 110 cm."
 }

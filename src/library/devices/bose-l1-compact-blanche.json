@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Bose",
   "model": "L1® Compact – blanche",
-  "status": "community",
-  "description": "Enceinte Line-Array Compact, amplifiée, position verticale, 3 hauteurs différentes de montage",
+  "status": "verified",
+  "description": "Système L1 Compact complet avec deux extensions : 13,3 kg en position développée (11,2 kg sans extensions). Entrées stéréo sommées en mono ; sorties Record et Line du mix.",
   "aliases": [
     "BOSE® L1® Compact – blanche"
   ],
@@ -25,8 +25,115 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-1543485331-bose_L1_compact_manuel.pdf",
       "document": "Novelty — L1® Compact – blanche : L1® Compact",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://products.bose.com/pdf/customer_service/owners/og_l1_compact.pdf",
+      "document": "Bose L1 Compact Technical Data Sheet pp. 2, 7 ; notice française pp. 5–7 (PDF 11–13)",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_L1_compact_ft.pdf",
+      "document": "Bose L1 Compact Technical Data Sheet pp. 2, 7 ; notice française pp. 5–7 (PDF 11–13)",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_L1_compact_manuel.pdf",
+      "document": "Bose L1 Compact Technical Data Sheet pp. 2, 7 ; notice française pp. 5–7 (PDF 11–13)",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Ch 1 Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Micro dynamique ; traitement ToneMatch permanent"
+    },
+    {
+      "id": "inst",
+      "name": "Ch 2 Line / Instrument",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ],
+      "format": "Ligne symétrique TRS ou guitare piezo asymétrique TS avec ToneMatch"
+    },
+    {
+      "id": "rca",
+      "name": "Ch 2 RCA G",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Entrée ligne G ; sommation mono"
+    },
+    {
+      "id": "rca-r",
+      "name": "Ch 2 RCA D",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Entrée ligne D ; sommation mono"
+    },
+    {
+      "id": "mini",
+      "name": "Ch 2 mini-jack stéréo",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "none",
+      "channels": 2,
+      "format": "3,5 mm TRS stéréo ; sommation mono"
+    },
+    {
+      "id": "out",
+      "name": "Record Out RCA G",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Mix mono ; nominal −3,8 dBu"
+    },
+    {
+      "id": "out-rca-r",
+      "name": "Record Out RCA D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Mix mono identique ; nominal −3,8 dBu"
+    },
+    {
+      "id": "line-out",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Mix mono symétrique TRS / asymétrique TS ; nominal +2,2 dBu"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V, 50/60 Hz ; 200 W maximum"
+    }
+  ],
+  "weightKg": 13.3,
+  "depthMm": 426,
+  "powerW": 200
 }

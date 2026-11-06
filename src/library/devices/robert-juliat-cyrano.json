@@ -5,7 +5,7 @@
   "model": "Cyrano",
   "pictogram": "light",
   "status": "community",
-  "powerW": 2500,
+  "powerW": 3100,
   "sources": [
     {
       "url": "https://www.robertjuliat.com/followspots/cyrano.html",
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/juliat_cyrano_ft_1015.pdf",
-      "document": "Novelty — Cyrano : Cyrano",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — Cyrano 1015 datasheet, p.1–3 : ballast magnétique, 3 100 W système, tête 65 kg, Harting",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/juliat_cyrano_dossier-technique.pdf",
@@ -31,20 +31,28 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/juliat_cyrano_balast-electronique.pdf",
       "document": "Novelty — Cyrano : Dossier technique balast",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.robertjuliat.com/PDF/Documents/DN30750000_dt_1015.pdf",
+      "document": "Robert Juliat Cyrano v3, 1015 — Dossier technique DN30750000-F, juin 2015",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Alimentation depuis ballast",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Poursuite HMI 2500 W, 3-8°, alimentation électronique sans scintillement"
+      "connector": "multipin",
+      "format": "Harting Han 16 × 16 A + terre, câble détachable 3 m ; version standard magnétique"
     }
   ],
   "aliases": [
     "Ivanhoé",
     "JULIAT Cyrano"
-  ]
+  ],
+  "weightKg": 65,
+  "depthMm": 1655,
+  "description": "Poursuite Cyrano 1015, lampe HMI 2 500 W, zoom 3–8°. Fiche standard avec ballast magnétique : consommation système 3 100 W ; tête 65 kg, ballast séparé 31 kg ; tête 1 655 × 550 × 505 mm. Liaison tête-ballast Harting 16 × 16 A + terre. Le ballast reçoit le secteur P17 32 A ; ce connecteur secteur n’est pas sur la tête. Révision électronique/motorisée éventuelle à confirmer."
 }

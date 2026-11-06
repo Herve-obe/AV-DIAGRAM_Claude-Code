@@ -9,6 +9,11 @@
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144481.pdf",
+      "document": "MA Lighting — Lightcommander12/2 User Manual v1.32, page29 : tous signaux et brochages",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -17,14 +22,63 @@
       "name": "DMX Out",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "USITT DMX512(1990)"
     },
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "230 V CA50 Hz ;180–240 V"
+    },
+    {
+      "id": "analog",
+      "name": "Analog Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "0–10 V positif ;1–12+S1/S2, masse15"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "sound",
+      "name": "Sound In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Isolation transformateur ;1 kΩ, seuil100 mV"
+    },
+    {
+      "id": "remote",
+      "name": "Remote Go",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Contact sec, avance chenillard"
+    },
+    {
+      "id": "lamp",
+      "name": "Lampe pupitre",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr3",
+      "format": "12 V CC ;2=masse,3=+12 V,1=non connecté"
     }
-  ]
+  ],
+  "description": "Lightcommander12/2 (12/24 circuits), DMX et analogique0–10 V14 canaux D-Sub15. MIDI In/Out, audio RCA, Remote Go jack6,35 mm, lampe pupitre XLR3 12 V. Secteur230 V, plage180–240 V ; fiche à confirmer."
 }

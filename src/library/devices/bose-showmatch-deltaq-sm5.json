@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Bose",
   "model": "ShowMatch DeltaQ SM5",
-  "status": "community",
-  "description": "Enceinte DeltaQ array\" 8 Ohms, 2 voies, 127dB SPL, ouverture 70° H x 5° V",
+  "status": "verified",
+  "description": "ShowMatch SM5 bi-amplifiée : LF1+/1−, HF2+/2− ; deux NL4 en parallèle. DSP et amplification adaptés requis.",
   "aliases": [
     "BOSE® ShowMatch DeltaQ SM5"
   ],
@@ -30,9 +30,40 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_ShowMatch-sm5-deltaqarray_ft.pdf",
       "document": "Novelty — ShowMatch DeltaQ SM5 : ShowMatch DeltaQ SM5",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_ShowMatch-sm5-deltaqarray_ft.pdf",
+      "document": "Bose ShowMatch Technical Data p.1 ; Installation and Safety Guidelines, p.11",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_ShowMatch-loudspeakers_manuel.pdf",
+      "document": "Bose ShowMatch Technical Data p.1 ; Installation and Safety Guidelines, p.11",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 30.6
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "SM5 bi-amplifiée : LF1+/1−, HF2+/2−"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise parallèle ; SM5 bi-amplifiée : LF1+/1−, HF2+/2−"
+    }
+  ],
+  "weightKg": 30.6,
+  "depthMm": 467
 }

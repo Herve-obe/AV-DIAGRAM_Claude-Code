@@ -1,9 +1,9 @@
 {
   "id": "panasonic-ty-sb01qs",
-  "family": "display",
+  "family": "module",
   "manufacturer": "Panasonic",
   "model": "TY-SB01QS",
-  "pictogram": "display",
+  "pictogram": "processor",
   "status": "verified",
   "weightKg": 0.3,
   "sources": [
@@ -26,6 +26,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9752-4701-panasonic-sb01qs-ft-uk.pdf",
       "document": "Novelty — TY-SB01QS : panasonic_sb01qs_ft-uk",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://partner.connect.panasonic.com/sites/default/files/CS/PCO/Product%20Documents/Basic%20Docs/asset/solweb/second/new/shnm_files/torisetu1/TY-SB01QS_3LANG_220415.PDF",
+      "document": "Panasonic — TY-SB01QS, carte SDM et connecteurs physiques",
+      "accessed": "2026-10-25"
     }
   ],
   "ports": [
@@ -67,17 +72,11 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc"
-    },
-    {
-      "id": "slot",
-      "name": "Emplacement SDM",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Carte pour écran Panasonic à slot Intel SDM"
     }
   ],
   "aliases": [
     "PANASONIC TY-SB01QS"
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "intel-sdm"
 }

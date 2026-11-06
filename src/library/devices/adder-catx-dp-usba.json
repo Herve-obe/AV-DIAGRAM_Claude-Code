@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Adder",
   "model": "CATx-DP-USBA",
-  "status": "community",
+  "status": "verified",
   "description": "Commutateur KVM, Display port + USB + Audio mini-jack vers Ethernet RJ45",
   "aliases": [
     "Adder CATx-DP-USBA"
@@ -22,7 +22,40 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.2
+  "ports": [
+    {
+      "id": "videoIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.1; DDC/EDID"
+    },
+    {
+      "id": "usb",
+      "name": "USB host / power",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "HID keyboard/mouse; bus powered 5 V, 500 mA maximum"
+    },
+    {
+      "id": "audioIn",
+      "name": "Stereo audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm; separate analog audio, not embedded DisplayPort"
+    },
+    {
+      "id": "catx",
+      "name": "CATx KVM link",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "Proprietary Adder KVM, not Ethernet"
+    }
+  ],
+  "weightKg": 0.1,
+  "depthMm": 75
 }

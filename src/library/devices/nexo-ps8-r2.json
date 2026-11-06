@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "PS8 R2",
-  "status": "community",
-  "description": "Enceinte 500W 96 dB SPL Nominal / 8 Ohms, 2 voies passives",
+  "status": "verified",
+  "description": "PS8 passive de la série PSR2, 8 Ω. Deux NL4 en parallèle ; amplification et traitement NEXO externes requis.",
   "aliases": [
     "PS8-R2/SOLO",
     "NEXO PS8 R2"
@@ -31,9 +31,38 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Nexo_PS-R2BROCHURE.pdf",
       "document": "Novelty — PS8 R2 : Brochure série PS R2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/PSR2-System-Manual-Rev05-1.pdf",
+      "document": "NEXO PSR2 System Manual rev05, p. 75 ; PS8 Data Sheet p. 2",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nexo_PS8DATASHEET.pdf",
+      "document": "NEXO PSR2 System Manual rev05, p. 75 ; PS8 Data Sheet p. 2",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 7.5
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée NL4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "PS8 passive 8 Ω sur 2+/2− ; 1+/1− en traversée"
+    },
+    {
+      "id": "link",
+      "name": "Reprise NL4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Parallèle ; PS8 sur 2+/2−, 1+/1− en traversée"
+    }
+  ],
+  "weightKg": 7.5,
+  "depthMm": 219
 }

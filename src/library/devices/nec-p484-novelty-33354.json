@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "NEC",
   "model": "P484",
-  "status": "community",
+  "status": "verified",
   "description": "Moniteur LED tactile 48\" Full HD (1920 x 1080), contraste 4000:1",
   "aliases": [
     "NEC P484"
@@ -52,8 +52,173 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "displayport1",
+      "name": "DisplayPort1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "displayport2",
+      "name": "DisplayPort2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vga1",
+      "name": "VGA / YPbPr In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "bnc1",
+      "name": "Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "remote",
+      "name": "Remote sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232",
+      "name": "RS232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb1",
+      "name": "USB1 downstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB2 upstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "usbCM1",
+      "name": "USB CM1 power",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "5 V /2 A"
+    },
+    {
+      "id": "usbCM2",
+      "name": "USB CM2 service",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbMP",
+      "name": "USB MediaPlayer",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "speakerL",
+      "name": "Speaker L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "15 W /8 ohm"
+    },
+    {
+      "id": "speakerR",
+      "name": "Speaker R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "15 W /8 ohm"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
   "weightKg": 17.6,
-  "powerW": 140
+  "powerW": 140,
+  "depthMm": 54.7
 }

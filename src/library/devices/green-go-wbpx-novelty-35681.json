@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Green-GO",
   "model": "WBPX",
-  "status": "community",
-  "description": "Boîtier ceinture 32 canaux sans fil",
+  "status": "verified",
+  "description": "Boîtier ceinture 32 canaux sans fil. Dimensions H × L × P : 46 × 95 × 119 mm. Masse 345 g avec batterie, 300 g sans batterie. Consommation typique 2 W, maximale 2,5 W.",
   "aliases": [
     "GreenGo WBPX"
   ],
@@ -25,9 +25,40 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/383-4664-gg-wbpx.pdf",
       "document": "Novelty — WBPX : GG_WBPX",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/wbpx/",
+      "document": "Green-GO — WBPX Beltpack X (sans fil), Device overview et Technical specifications (documentation fabricant Green-GO 5)",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.3
+  "ports": [
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR4 mâle pour casque micro, 32 à 600 ohms"
+    },
+    {
+      "id": "radio",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "Liaison sans fil vers antenne WAA"
+    },
+    {
+      "id": "usb",
+      "name": "Mini-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-mini",
+      "format": "Charge de la batterie NRGP 1800 mAh, programmation et mise à jour"
+    }
+  ],
+  "weightKg": 0.345,
+  "powerW": 2,
+  "depthMm": 119
 }

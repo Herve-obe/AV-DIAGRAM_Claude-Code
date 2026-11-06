@@ -6,7 +6,7 @@
   "manufacturer": "Fohhn",
   "model": "AM-50",
   "status": "community",
-  "description": "Amplificateur \"AIREA-Master\", interface centrale / alimentation, 8 x AES/EBU, Entrées Fohhn-Net, 8 sorties réseau AIREA permettant d’alimenter jusqu’à 32 enceintes actives.",
+  "description": "Maître Airea AM-50 : huit départs Airea-Net 200 W, 16 canaux audio et huit signaux AES/EBU. Les entrées et reprises AES/EBU sont regroupées par quatre paires sur deux RJ45. Puissance électrique nominale 1600 W.",
   "aliases": [
     "Fohhn AM-50"
   ],
@@ -25,10 +25,149 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_am-50_Airea-Soundsystem_DE.pdf",
       "document": "Novelty — AM-50 : Système Airea",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_am-50_manuel.pdf",
+      "document": "Manuel Airea Master pp.22–23 et28 (AM-50).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "aes-in-1",
+      "name": "AES/EBU INPUT CH1–4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "4 paires AES/EBU sur RJ45, 32–96 kHz, 16/24 bits ; brochage constructeur"
+    },
+    {
+      "id": "aes-in-2",
+      "name": "AES/EBU INPUT CH5–8",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "4 paires AES/EBU sur RJ45, 32–96 kHz, 16/24 bits ; brochage constructeur"
+    },
+    {
+      "id": "aes-link-1",
+      "name": "AES/EBU LINK OUT CH1–4",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "Reprise de 4 paires AES/EBU sur RJ45"
+    },
+    {
+      "id": "aes-link-2",
+      "name": "AES/EBU LINK OUT CH5–8",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 8,
+      "format": "Reprise de 4 paires AES/EBU sur RJ45"
+    },
+    {
+      "id": "airea-1",
+      "name": "AIREA-NET OUT 1",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-2",
+      "name": "AIREA-NET OUT 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-3",
+      "name": "AIREA-NET OUT 3",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-4",
+      "name": "AIREA-NET OUT 4",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-5",
+      "name": "AIREA-NET OUT 5",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-6",
+      "name": "AIREA-NET OUT 6",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-7",
+      "name": "AIREA-NET OUT 7",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "airea-8",
+      "name": "AIREA-NET OUT 8",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 2,
+      "format": "AES/EBU + commande Fohhn-Net + alimentation Airea-Net, 200 W par départ ; pas Ethernet IP"
+    },
+    {
+      "id": "fohhn-net-1",
+      "name": "FOHHN-NET REMOTE 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ethercon",
+      "format": "Commande Fohhn-Net"
+    },
+    {
+      "id": "fohhn-net-2",
+      "name": "FOHHN-NET REMOTE 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ethercon",
+      "format": "Commande Fohhn-Net"
+    },
+    {
+      "id": "ac",
+      "name": "MAINS",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "110–230 V AC, 50/60 Hz"
+    }
+  ],
   "weightKg": 8.1,
-  "powerW": 1600
+  "powerW": 1600,
+  "depthMm": 380,
+  "rackU": 2
 }

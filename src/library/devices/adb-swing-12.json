@@ -5,8 +5,8 @@
   "pictogram": "console",
   "manufacturer": "ADB",
   "model": "SWING 12",
-  "status": "community",
-  "description": "Jeux d'orgues \"Swing\", 12 circuits DMX",
+  "status": "verified",
+  "description": "Pupitre manuel SWING12,12 circuits en double préparation ;280 ×247 ×48 mm,2,2 kg. Alimentation externe9 V CC ; sortie DMX XLR5 femelle.",
   "aliases": [
     "ADB SWING 12"
   ],
@@ -18,10 +18,28 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186128922.pdf",
-      "document": "Novelty — SWING 12 : SWING 12",
-      "accessed": "2026-10-19"
+      "document": "ADB — SWING DF1011, pages1–2, spécifications et vue arrière du SWING12 inspectées",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512/1990"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "9 V CC ; polarité et diamètre non indiqués"
+    }
+  ],
+  "weightKg": 2.2,
+  "depthMm": 247
 }

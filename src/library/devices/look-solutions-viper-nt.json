@@ -6,7 +6,7 @@
   "manufacturer": "Look Solutions",
   "model": "Viper NT",
   "status": "community",
-  "description": "Générateur de fumée à évaporateur",
+  "description": "Machine à fumée Viper NT, 1 300 W, 8,6 kg sans réservoir, dimensions 470 × 230 × 240 mm. DMX XLR5 entrée/sortie, entrée analogique XLR3 0–10 V et alimentation sur câble captif. Versions secteur 230 V / 50 Hz ou 120 V / 60 Hz ; fiche montée selon destination.",
   "aliases": [
     "Look Solutions Viper NT"
   ],
@@ -38,11 +38,43 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/look_viper-nt_manuel-uk.pdf",
-      "document": "Novelty — Viper NT : Viper NT (UK)",
-      "accessed": "2026-10-19"
+      "document": "Look Solutions — Viper NT operating manual, p.6–7,14,16 : connexions, 1 300 W, poids hors réservoir et dimensions",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 9
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "analog",
+      "name": "Commande analogique",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "1=masse, 2=entrée +0–10 V, 3=sortie +12 V 50 mA"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur captif ; fiche selon pays"
+    }
+  ],
+  "weightKg": 8.6,
+  "powerW": 1300,
+  "depthMm": 470
 }

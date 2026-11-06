@@ -10,6 +10,11 @@
       "url": "https://usa.yamaha.com/products/proaudio/mixers/m7cl/specs.html",
       "document": "Yamaha USA, page Specs M7CL-48ES",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://data.yamaha.com/files/download/other_assets/7/323187/m7clv3_en_om_i0.pdf",
+      "document": "Yamaha M7CL V3 Owner’s Manual : modèle ES, prises p. 13 et 29–31, stageboxes et patch p. 43–46",
+      "accessed": "2026-10-23"
     }
   ],
   "ports": [
@@ -20,8 +25,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni2",
@@ -30,8 +41,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni3",
@@ -40,8 +57,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni4",
@@ -50,8 +73,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni5",
@@ -60,8 +89,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni6",
@@ -70,8 +105,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni7",
@@ -80,8 +121,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "omni8",
@@ -90,8 +137,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR3-31",
-      "phantom": "supplied"
+      "format": "Entrée micro/ligne, gain et PAD à régler selon le niveau ; 48 V désactivé pour les sources ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "out1",
@@ -167,12 +220,12 @@
     },
     {
       "id": "es",
-      "name": "EtherSound",
+      "name": "EtherSound IN",
       "direction": "bidir",
       "signal": "audioIp",
       "connector": "ethercon",
       "channels": 48,
-      "format": "EtherSound 100Base-TX, 48 in / 24 out"
+      "format": "EtherSound 100BASE-TX, 48 entrées / 24 sorties, IN ; distinct de NETWORK"
     },
     {
       "id": "tb",
@@ -221,36 +274,38 @@
       "connector": "usb-a"
     },
     {
-      "id": "my1",
-      "name": "Slot MY 1",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte Mini-YGDAI"
-    },
-    {
-      "id": "my2",
-      "name": "Slot MY 2",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte Mini-YGDAI"
-    },
-    {
-      "id": "my3",
-      "name": "Slot MY 3",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Carte Mini-YGDAI"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
       "format": "150 W"
+    },
+    {
+      "id": "esout",
+      "name": "EtherSound OUT",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 48,
+      "format": "EtherSound 100BASE-TX, vers le IN de la première SB168-ES"
+    }
+  ],
+  "slots": [
+    {
+      "id": "my1",
+      "name": "Slot MY 1",
+      "type": "yamaha-mini-ygdai"
+    },
+    {
+      "id": "my2",
+      "name": "Slot MY 2",
+      "type": "yamaha-mini-ygdai"
+    },
+    {
+      "id": "my3",
+      "name": "Slot MY 3",
+      "type": "yamaha-mini-ygdai"
     }
   ]
 }

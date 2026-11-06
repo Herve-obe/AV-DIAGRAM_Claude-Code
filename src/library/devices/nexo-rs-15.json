@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "RS 15",
-  "status": "community",
-  "description": "Enceinte Sub-Bass 2400W / 4--OHM-- (2x Ø38cm)",
+  "status": "verified",
+  "description": "RS15 : subwoofer double 15 pouces ; poids 52 kg sans accessoires, deux NL4 en parallèle. Mode omni ou directionnel selon contrôleur.",
   "aliases": [
     "RS15",
     "NEXO RS 15"
@@ -26,8 +26,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1253097327.pdf",
       "document": "Novelty — RS 15 : nexo rs 15",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/RS-System-Manual-Rev01.pdf",
+      "document": "NEXO RS System Manual Rev01, pp. 8 et 54",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Deux transducteurs 8 Ω : 1+/1− droit/arrière, 2+/2− gauche/avant"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise parallèle ; Deux transducteurs 8 Ω : 1+/1− droit/arrière, 2+/2− gauche/avant"
+    }
+  ],
+  "weightKg": 52,
+  "depthMm": 1074
 }

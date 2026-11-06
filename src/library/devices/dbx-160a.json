@@ -4,40 +4,85 @@
   "manufacturer": "dbx",
   "model": "160A",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
       "url": "https://en.audiofanzine.com/studio-compressor/dbx/user_reviews/p.4.html",
       "document": "Audiofanzine, avis dbx 160A",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://adn.harmanpro.com/product_documents/documents/721_1602283220/dbx160A_Manual_18-2040V-E_original.pdf",
+      "document": "dbx 160A Owner’s Manual 18-2040V-E, pp. 4–5 et 14",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Input",
+      "name": "INPUT XLR",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR ou jack 6,35 symétrique"
+      "format": "Entrée ligne symétrique"
+    },
+    {
+      "id": "input-trs",
+      "name": "INPUT TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Entrée ligne, en parallèle avec XLR"
     },
     {
       "id": "out",
-      "name": "Output",
+      "name": "OUTPUT XLR",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR symétrique (et jack)"
+      "format": "Symétrique flottante"
+    },
+    {
+      "id": "output-trs",
+      "name": "OUTPUT TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Asymétrique en fonctionnement, symétrique en bypass"
+    },
+    {
+      "id": "detector",
+      "name": "DETECTOR INPUT",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Entrée side-chain normalisée, symétrique ou asymétrique"
+    },
+    {
+      "id": "link",
+      "name": "STEREO STRAPPING",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Liaison TRS entre deux 160A uniquement"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "15 W ; vérifier la tension de la version"
     }
-  ]
+  ],
+  "weightKg": 2,
+  "depthMm": 165.1,
+  "powerW": 15,
+  "description": "Compresseur mono dbx 160A ; entrées XLR/TRS, sorties XLR et TRS physiques distinctes ; side-chain et liaison stéréo."
 }

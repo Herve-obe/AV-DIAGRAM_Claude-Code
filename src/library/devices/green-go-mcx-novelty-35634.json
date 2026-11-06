@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Green-GO",
   "model": "MCX",
-  "status": "community",
-  "description": "Station rackable 32 canaux filaires",
+  "status": "verified",
+  "description": "Station rackable 32 canaux filaires. Dimensions H × L × P : 44 × 483 × 110 mm, 1 U. Consommation typique 5 W, maximale 13 W.",
   "aliases": [
     "GreenGo MCX"
   ],
@@ -20,8 +20,90 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/4883-4656-ce-declaration-mcx.pdf",
       "document": "Novelty — MCX : CE-declaration-MCX",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/mcx/",
+      "document": "Green-GO — MCX Rack Station, Device overview et Technical specifications (documentation fabricant Green-GO 5)",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro col de cygne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR3 femelle, alimentation micro jusqu'à 10 V en option"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR4 mâle pour casque micro, 32 à 600 ohms"
+    },
+    {
+      "id": "linein",
+      "name": "Entrée ligne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle symétrique (4 fils) ; entrée ligne, gain −6 à +24 dB"
+    },
+    {
+      "id": "lineout",
+      "name": "Sortie ligne",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 mâle symétrique (4 fils) ; niveau ligne nominal 0 dBu, maximum +12 dBu"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 entrées et 2 sorties de commande"
+    },
+    {
+      "id": "dc",
+      "name": "Alim 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, alimentation secondaire (bloc en option)"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "none"
+      }
+    }
+  ],
+  "weightKg": 1.74,
+  "powerW": 5,
+  "depthMm": 110,
+  "rackU": 1
 }

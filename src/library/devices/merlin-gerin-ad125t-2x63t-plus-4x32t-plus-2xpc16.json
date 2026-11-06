@@ -16,72 +16,101 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/ad125t-2x63t4x32t2xpc16/",
       "document": "Novelty — AD125T/2X63T+4X32T+2XPC16",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/ad125t-2x63t4x32t2xpc16/",
+      "document": "Novelty : merlin-gerin-ad125t-2x63t-plus-4x32t-plus-2xpc16, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 125A tri",
+      "name": "Arrivée p17-125-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out1",
-      "name": "Sortie P17 63tri 1",
+      "name": "p17-63-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out2",
-      "name": "Sortie P17 63tri 2",
+      "name": "p17-63-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out3",
-      "name": "Sortie P17 32tri 1",
+      "name": "p17-32-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out4",
-      "name": "Sortie P17 32tri 2",
+      "name": "p17-32-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out5",
-      "name": "Sortie P17 32tri 3",
+      "name": "p17-32-tri 3",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out6",
-      "name": "Sortie P17 32tri 4",
+      "name": "p17-32-tri 4",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out7",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out8",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "departure9",
+      "name": "Alimentation bloc de secours 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sortie mentionnée par le loueur ; connecteur encore à confirmer"
+    },
+    {
+      "id": "departure10",
+      "name": "Alimentation bloc de secours 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sortie mentionnée par le loueur ; connecteur encore à confirmer"
     }
-  ],
-  "portStatus": "pending"
+  ]
 }

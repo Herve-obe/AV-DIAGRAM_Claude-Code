@@ -4,7 +4,7 @@
   "manufacturer": "Chauvet DJ",
   "model": "SlimPAR Pro H USB",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://djcity.com.au/product/chauvet-dj-slimpar-pro-h-usb-white-led-parcan/",
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_slimpar-pro-h-usb_manuel.pdf",
-      "document": "Novelty — SlimPAR Pro H USB : SlimPAR Pro H USB",
-      "accessed": "2026-10-19"
+      "document": "Chauvet DJ — SlimPAR Pro H USB User Manual rev4, pages5 et17 : vue arrière, connectique Europe et caractéristiques",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_slimpar-pro-h-usb_quick-start.pdf",
@@ -47,14 +47,16 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powercon"
+      "connector": "iec-c13",
+      "format": "Version Europe,100–240 V CA50/60 Hz"
     },
     {
       "id": "acOut",
       "name": "Recopie secteur",
       "direction": "out",
       "signal": "power",
-      "connector": "powercon"
+      "connector": "iec-c13",
+      "format": "Version Europe,100–240 V CA50/60 Hz"
     },
     {
       "id": "usb",
@@ -67,5 +69,9 @@
   ],
   "aliases": [
     "Chauvet SlimPAR Pro H USB"
-  ]
+  ],
+  "powerW": 96,
+  "weightKg": 3.3,
+  "depthMm": 98,
+  "description": "PAR LED RGBWA+UV,253 ×98 ×290 mm,3,3 kg. Consommation96 W à230 V (99 W à120 V). Europe : alimentation IEC In/Out ; DMX XLR3 In/Out. USB réservé au dongle D-Fi, pas aux ordinateurs."
 }

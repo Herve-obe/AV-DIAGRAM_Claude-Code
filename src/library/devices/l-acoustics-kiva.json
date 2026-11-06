@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "Kiva",
-  "status": "community",
-  "description": "Enceinte \"line-array\" 8 Ohms, 2 voies, 132 dB",
+  "status": "verified",
+  "description": "Kiva première génération ; une enceinte passive, prises IN et LINK NL4 en parallèle.",
   "aliases": [
     "L-ACOUSTICS Kiva"
   ],
@@ -25,9 +25,34 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1195229228.pdf",
       "document": "Novelty — Kiva : kiva",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.promusic.cz/sites/default/files/product/field_files/kivakilo_um_en_2.1.pdf",
+      "document": "L-Acoustics KIVA/KILO User Manual v2.1, annexes B et C",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Kiva première génération : enceinte passive 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise câblée en parallèle ; Kiva première génération : enceinte passive 8 Ω"
+    }
+  ],
   "weightKg": 13
 }

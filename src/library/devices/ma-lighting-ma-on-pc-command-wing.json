@@ -5,8 +5,8 @@
   "pictogram": "console",
   "manufacturer": "MA Lighting",
   "model": "MA on PC Command Wing",
-  "status": "community",
-  "description": "Surface de contrôle pour logiciel \"GrandMA on PC\"",
+  "status": "verified",
+  "description": "MA onPC command wing pour grandMA2 : deux sorties et une entrée DMX XLR5, LTC XLR3, entrée remote analogique D-Sub15, MIDI In/Out DIN5 et USB-B vers PC. Entrée secteur IEC, alimentation universelle90–264 V. Fiche technique récente :536 ×395 ×70 mm,6 kg ; la notice ancienne indique540 ×400 ×75 mm.",
   "aliases": [
     "MAWINGONPC",
     "MA LIGHTING MA on PC Command Wing"
@@ -19,13 +19,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/malighting_commandwing_manuel.pdf",
-      "document": "Novelty — MA on PC Command Wing : Command Wing",
-      "accessed": "2026-10-19"
+      "document": "MA Lighting — onPC command wing QuickMAnual XII.04,p.24 et31 : connectique, panneau rendu et variantes secteur",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/malighting_commandwing_ft.pdf",
-      "document": "Novelty — MA on PC Command Wing : Command Wing",
-      "accessed": "2026-10-19"
+      "document": "MA Lighting — onPC command wing datasheet,p.1–2 :536 ×395 ×70 mm et6 kg",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/malighting_commandwing_brochure.pdf",
@@ -38,7 +38,73 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 6
+  "ports": [
+    {
+      "id": "dmxOut1",
+      "name": "DMX Out1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut2",
+      "name": "DMX Out2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ltc",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "remote",
+      "name": "Remote analogique",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "15 points,DC remote control"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "usb",
+      "name": "USB PC",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90–264 V50/60 Hz, version universelle"
+    }
+  ],
+  "weightKg": 6,
+  "depthMm": 395
 }

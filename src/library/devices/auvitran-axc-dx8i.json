@@ -1,12 +1,12 @@
 {
   "id": "auvitran-axc-dx8i",
-  "family": "processing",
-  "domain": "sound",
+  "family": "module",
+  "domain": "misc",
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AxC-DX8I",
-  "status": "community",
-  "description": "Carte interface 4 entrées stéréo AES/EBU pour Audio ToolBox",
+  "status": "verified",
+  "description": "4 prises AES3 stéréo, soit 8 canaux entrants ; alimentation par le châssis. La fiche technique inverse le sexe du connecteur dans une ligne ; le manuel et le panneau indiquent XLR femelle. Format carte : 200 × 100 × 40 mm ; compatible AVBx3/AVBx7.",
   "aliases": [
     "Auvitran AxC-DX8I"
   ],
@@ -30,8 +30,60 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/auvitran_axc-dx8i_manual-en.pdf",
       "document": "Novelty — AxC-DX8I : AxC-DX8I (UK)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.auvitran.com/productrange/axc-cards/",
+      "document": "AuviTran — Audio ToolBox AxC Cards, famille et compatibilité des cartes",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/auvitran_axc-dx8i_ft-en.pdf",
+      "document": "AuviTran AxC-DX8I : fiche technique, pages 1–2",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/auvitran_axc-dx8i_manual-en.pdf",
+      "document": "AuviTran AxC-DX8I User Manual v1.1, p. 6–7 : XLR femelles",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in1",
+      "name": "AES IN 1/2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR femelle 110 Ω, SRC commutable",
+      "channels": 2
+    },
+    {
+      "id": "in2",
+      "name": "AES IN 3/4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR femelle 110 Ω, SRC commutable",
+      "channels": 2
+    },
+    {
+      "id": "in3",
+      "name": "AES IN 5/6",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR femelle 110 Ω, SRC commutable",
+      "channels": 2
+    },
+    {
+      "id": "in4",
+      "name": "AES IN 7/8",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 / AES-EBU, XLR femelle 110 Ω, SRC commutable",
+      "channels": 2
+    }
+  ],
+  "moduleType": "auvitran-axc"
 }

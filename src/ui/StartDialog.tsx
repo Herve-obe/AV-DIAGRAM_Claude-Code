@@ -29,7 +29,9 @@ export function StartDialog() {
   const { t } = useTranslation()
   const open = useUi((s) => s.startOpen)
   const [recent, setRecent] = useState<RecentProject[]>([])
-  const last = restoredProject()
+  const projectId = useProject(s => s.project.id)
+  const restored = restoredProject()
+  const last = restored?.id === projectId ? restored : recent[0] ?? null
   const close = () => useUi.getState().setStartOpen(false)
 
   useEffect(() => {
@@ -70,7 +72,7 @@ export function StartDialog() {
         <div className="dialog-body">
           <div className="template-grid">
             {action('plus', t('start.new'), t('start.newDesc'), () => { close(); useUi.getState().setNewProjectOpen(true) })}
-            {action('synoptic', t('start.last'), last ? t('start.lastDesc', { name: last.name, count: last.equipment, date: when(last.updatedAt) }) : t('start.lastNone'), close, !last)}
+            {action('synoptic', t('start.last'), last ? t('start.lastDesc', { name: last.name, count: last.equipment, date: when(last.updatedAt) }) : t('start.lastNone'), () => { if (last?.id === restored?.id && last?.id === projectId) close(); else if (last) void openRecent(last.id) }, !last)}
             {action('folder', t('start.file'), t('start.fileDesc'), openFile)}
             {action('users', t('start.collab'), t('start.collabDesc'), () => { close(); useCollab.getState().setDialogOpen(true) })}
           </div>

@@ -5,22 +5,17 @@
   "model": "ME 80",
   "pictogram": "mic",
   "status": "community",
+  "description": "Capsule ME 80 seule. Ne pas inclure ni présumer un module d’alimentation K3.",
   "sources": [
     {
       "document": "Catalogue Novelty 2025",
       "accessed": "2026-10-08"
+    },
+    {
+      "document": "Choix utilisateur reçu le 4 novembre 2026",
+      "accessed": "2026-11-04"
     }
   ],
-  "ports": [
-    {
-      "id": "out",
-      "name": "Sortie",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "mic",
-      "format": "Tête statique (module d'alimentation de la série K3) ; connecteur non précisé",
-      "phantom": "required"
-    }
-  ]
+  "ports": [],
+  "portStatus": "pending"
 }

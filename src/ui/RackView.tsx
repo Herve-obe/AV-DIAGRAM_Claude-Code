@@ -10,7 +10,7 @@ import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
 import { Field, toNumber } from './Field'
 import { useExportPdf } from './ExportPdfDialog'
-import { useCollab } from '../collab/session'
+import { useEditing } from '../collab/useEditing'
 
 /** Hauteur d'une unité à l'écran, en px */
 const ROW = 22
@@ -111,7 +111,7 @@ function RackCard({ rack, onError }: { rack: Rack; onError: (msg: string) => voi
   const project = useProject((s) => s.project)
   const usage = rackUsage(project, rack.id)
   const store = useProject.getState()
-  const readOnly = useCollab(s => s.role === 'guest')
+  const readOnly = !useEditing().common
   return (
     <section className="rack-card" aria-label={rack.name}>
       <header className="rack-head">
@@ -209,7 +209,7 @@ export function RackView() {
   const pending = unmountedRackable(project)
   const invalid = invalidMounts(project)
   const [message, setMessage] = useState<string | null>(null)
-  const readOnly = useCollab(s => s.role === 'guest')
+  const readOnly = !useEditing().common
   const selected = useUi(s => s.selectedEquipment[0])
   const onError = (msg: string) => { setMessage(msg); window.setTimeout(() => setMessage(null), 4000) }
 

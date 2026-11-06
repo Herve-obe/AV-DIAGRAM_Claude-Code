@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Ayrton",
   "model": "Khamsin S",
-  "status": "community",
-  "description": "Projecteur asservi à LED 1 150W, type lyre, zoom 7° - 58°",
+  "status": "verified",
+  "description": "Lyre profile LED Khamsin S, zoom 7–58°, découpe quatre couteaux, CRMX intégré. Consommation maximale 1 150 W, poids 39,8 kg ; dimensions 494 × 778 × 280 mm. DMX XLR 5 points entrée/sortie, deux etherCON pour Art-Net/sACN, entrée secteur TRUE1 120–240 V.",
   "aliases": [
     "AYRTON Khamsin S"
   ],
@@ -23,11 +23,56 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6567-4522-khamsin.pdf",
-      "document": "Novelty — Khamsin S : Khamsin",
-      "accessed": "2026-10-19"
+      "document": "Ayrton — Khamsin brochure, p.3 : variante S 011640",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.ayrton.eu/produit/khamsin/",
+      "document": "Ayrton — Khamsin, Hardware features / Power supply / Size : deux etherCON et une entrée TRUE1",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 39.8
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ethIn",
+      "name": "Réseau In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "ethOut",
+      "name": "Réseau Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "120–240 V 50/60 Hz"
+    }
+  ],
+  "weightKg": 39.8,
+  "powerW": 1150,
+  "depthMm": 280
 }

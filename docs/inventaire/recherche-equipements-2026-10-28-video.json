@@ -1,0 +1,4079 @@
+[
+  {
+    "id": "absen-pl-3-9-pro-v2",
+    "reviewed": false
+  },
+  {
+    "id": "absen-pl2-5",
+    "reviewed": false
+  },
+  {
+    "id": "absen-pl2-5pro",
+    "reviewed": false
+  },
+  {
+    "id": "absen-pl3-9-pro-v2",
+    "reviewed": false
+  },
+  {
+    "id": "adder-catx-dp-usba",
+    "reviewed": true,
+    "manufacturer": "Adder",
+    "model": "CATx-DP-USBA",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/adder_catx-dp-mdp_ft.pdf",
+        "document": "Adder CATX-DP-USBA / CATX-MDP-USBA datasheet, pp. 1-2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model variants, host plugs and proprietary CATx connection; 45 W x 75 D x 25 H mm, 100 g; USB powered. No separate DC input."
+  },
+  {
+    "id": "adder-catx-mdp-usba",
+    "reviewed": true,
+    "manufacturer": "Adder",
+    "model": "CATx-MDP-USBA",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/adder_catx-dp-mdp_ft.pdf",
+        "document": "Adder CATX-DP-USBA / CATX-MDP-USBA datasheet, pp. 1-2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model variants, host plugs and proprietary CATx connection; 45 W x 75 D x 25 H mm, 100 g; USB powered. No separate DC input."
+  },
+  {
+    "id": "adder-x200a",
+    "reviewed": true,
+    "manufacturer": "Adder",
+    "model": "X200A",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/adder_x200_mmanuel.pdf",
+        "document": "Adder X200 user guide, pp. 6, 15; datasheet p. 2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Receiver only: two USB-A sockets confirmed from connection drawing, two CATx, VGA, stereo audio, DC jack and four-way modular firmware socket; datasheet gives 430 g, 172 x 26 x 75 mm."
+  },
+  {
+    "id": "aja-ioxt",
+    "reviewed": false
+  },
+  {
+    "id": "analog-way-aquilon-c-plus",
+    "reviewed": false
+  },
+  {
+    "id": "analog-way-ascender-16-livecore-asc1602",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "Ascender 16 (LiveCore) – ASC1602",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "rackU",
+      "depthMm",
+      "powerW"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_ascender16_quick-start-guide.pdf",
+        "document": "Analog Way ASC1602 Quick Start Guide p. 2 and manufacturer datasheet"
+      }
+    ],
+    "remaining": [
+      "Exact connector subtypes for monitoring analog, USB, LiveCore Link and Device Sync; 4K ASC3204 upgrade format requires specific 4K sheet."
+    ],
+    "evidence": "Rear panel descriptions; combined DVI-A/DVI digital sockets counted once. 4K upgrade capability not assumed on ASC1602; optical module sockets only."
+  },
+  {
+    "id": "analog-way-ascender-32-livecore-4k-asc3204",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "Ascender 32 (LiveCore) 4k – ASC3204",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "rackU",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_ascender32_quick-start-guide-fr.pdf",
+        "document": "Analog Way ASC3204 Quick Start Guide p. 2 and manufacturer datasheet"
+      }
+    ],
+    "remaining": [
+      "Exact connector subtypes for monitoring analog, USB, LiveCore Link and Device Sync; 4K ASC3204 upgrade format requires specific 4K sheet."
+    ],
+    "evidence": "Rear panel descriptions; combined DVI-A/DVI digital sockets counted once. 4K upgrade capability not assumed on ASC1602; optical module sockets only."
+  },
+  {
+    "id": "analog-way-eikos-eks500",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "EIKOS EKS500",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "rackU",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/EKS500_231210_VF_LR.pdf",
+        "document": "Analog Way Eikos EKS500 technical sheet EKS500-231210-FR-V2, p.2"
+      }
+    ],
+    "remaining": [
+      "S-Video uses mini-DIN 4 absent from connector catalogue; mains subtype unspecified."
+    ],
+    "evidence": "All physical connectors listed, matching Eikos exact reference; separate Main/Preview plugs and video output."
+  },
+  {
+    "id": "analog-way-nextage-16-4k",
+    "reviewed": false
+  },
+  {
+    "id": "analog-way-pulse-4k",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "Pulse 4K",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "rackU",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8261-4642-pulse-4k-datasheet-en.pdf",
+        "document": "Analog Way Pulse 4K PLS4K_EN-09/01/2022 p.4; Midra 4K User Manual pp.24–26"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype unspecified."
+    ],
+    "evidence": "Exact Pulse 4K specification and shared Midra 4K rear-panel description. Optional audio card excluded."
+  },
+  {
+    "id": "analog-way-pulse-pls300",
+    "reviewed": false
+  },
+  {
+    "id": "analog-way-pulse2-3g-pls350-3g",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "Pulse2-3G (PLS350-3G)",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://shop.sinus.de/wp-content/uploads/2022/08/analogway_pulse_pls350_3g_usermanual.pdf",
+        "document": "Analog Way Pulse² PLS350/PLS350-3G User Manual, rear panel PLS350-3G"
+      }
+    ],
+    "remaining": [
+      "Power inlet physical subtype; datasheet revision differs from older manual on power/depth/weight, existing values retained pending revision resolution."
+    ],
+    "evidence": "Rear panel and hardware specifications: 14 physical input plugs, DVI-I and HD15 mirrored outputs, separate 3G-SDI video out, MCO and RCA audio."
+  },
+  {
+    "id": "analog-way-rc400t",
+    "reviewed": false
+  },
+  {
+    "id": "analog-way-smart-matrix-smx200",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "Smart Matrix SMX200",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "rackU",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/SMX200-231210_VF_LR.pdf",
+        "document": "Analog Way Smart MatriX SMX200 technical sheet SMX200-231210-V2, p. 2"
+      }
+    ],
+    "remaining": [
+      "S-Video uses mini-DIN 4 not available in connector catalogue; power inlet subtype unspecified."
+    ],
+    "evidence": "Physical connectors listed explicitly; DVI-I analog/digital share one socket, supplied splitter cables are not extra device ports."
+  },
+  {
+    "id": "analog-way-vio-4k",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "VIO 4K",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "rackU",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/analog-way_vio-4k_ft-uk.pdf",
+        "document": "Analog Way VIO 4K V701 datasheet May 2017 pp. 2,4; Quick Start Guide p.2; User Manual pp.7,17"
+      }
+    ],
+    "remaining": [
+      "Genlock auxiliary physical loop/subtype to recheck against high resolution rear image."
+    ],
+    "evidence": "Base I/O only; optional video/audio cards excluded; corrected 8.7 kg shipping weight to 6.2 kg device mass. Rear panel image visually read."
+  },
+  {
+    "id": "analog-way-zenith-200",
+    "reviewed": true,
+    "manufacturer": "Analog Way",
+    "model": "Zenith 200",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "rackU",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8480-4689-analog-way-zenith-200-ft-fr.pdf",
+        "document": "Analog Way Zenith 200 ZEN200_FR-01/09/2022, p.5"
+      }
+    ],
+    "remaining": [
+      "Mains inlet connector subtype not established by text table."
+    ],
+    "evidence": "Technical connections list; 2 HDMI/SDI logical inputs represented by separate physical plugs; optional Dante/analog audio card excluded."
+  },
+  {
+    "id": "apple-apple-tv-3",
+    "reviewed": false
+  },
+  {
+    "id": "apple-ipad-air-2",
+    "reviewed": false
+  },
+  {
+    "id": "apple-macbook-pro-15-2018-i7-2-6-ghz",
+    "reviewed": false
+  },
+  {
+    "id": "apple-thunderbolt-display",
+    "reviewed": false
+  },
+  {
+    "id": "aten-vs194",
+    "reviewed": true,
+    "manufacturer": "Aten",
+    "model": "VS194",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/5099-4706-aten-vs194-ft-uk.pdf",
+        "document": "ATEN VS192 / VS194 datasheet V3.0, p. 1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact VS194 column confirms one input/four outputs, DC jack, 3.36 W, 0.33 kg, 12.50 x 8.00 x 2.50 cm."
+  },
+  {
+    "id": "atomos-shogun-connect",
+    "reviewed": false
+  },
+  {
+    "id": "av-matrix-pvs0615",
+    "reviewed": true,
+    "manufacturer": "AV Matrix",
+    "model": "PVS0615",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/avmatrix_pvs0615_manuel-uk.pdf",
+        "document": "AVMATRIX PVS0615 manual, pp. 2-4, 11"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Full connector drawing read: four SDI plus two HDMI/two DVI sockets, three SDI/two HDMI PGM and separate multiview, four balanced TRS audio sockets, headphones, dual USB-A, DB25 tally, LAN and DC barrel. 3.8 kg, <33 W, 271.5 mm depth."
+  },
+  {
+    "id": "av-matrix-vs0601",
+    "reviewed": true,
+    "manufacturer": "AV Matrix",
+    "model": "VS0601",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/avmatrix_vs0601_ft2-en.pdf",
+        "document": "AVMATRIX VS0601 manual, pp. 1-3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Six video inputs, four physical SDI outputs (two PGM, AUX, multiview), two HDMI outputs, RCA L/R plus 3.5 mm stereo I/O, HD15 tally, LAN and DC barrel confirmed. 1 kg, <33 W, 172.3 mm depth."
+  },
+  {
+    "id": "avermedia-cp150",
+    "reviewed": false
+  },
+  {
+    "id": "avid-nitris-dx",
+    "reviewed": false
+  },
+  {
+    "id": "barco-e2-novelty-29668",
+    "reviewed": false
+  },
+  {
+    "id": "barco-e2",
+    "reviewed": false
+  },
+  {
+    "id": "barco-hdf-w30-flex",
+    "reviewed": true,
+    "manufacturer": "Barco",
+    "model": "HDF-W30 Flex",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdf-w30-flex_Quick-Start-Guide.pdf",
+        "document": "Barco HDF W series Quick Start Guide, p.2, standard inputs and communication panel"
+      }
+    ],
+    "remaining": [
+      "Remote XLR pin count, 12 V output and mains connector subtype require detailed manual; DMX 5-pin proven by UDX family manual but exact HDF/HDX pinout should recheck."
+    ],
+    "evidence": "Only standard DVI-I and dual SDI I/O installed; optional 5-cable and 3D HDMI/DP boards excluded."
+  },
+  {
+    "id": "barco-hdx-w20-flex",
+    "reviewed": true,
+    "manufacturer": "Barco",
+    "model": "HDX-W20 Flex",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_QuickStartGuide.pdf",
+        "document": "Barco HDX series Quick Start Guide, p.2, standard inputs and communication panel"
+      }
+    ],
+    "remaining": [
+      "Remote XLR pin count, 12 V output and mains connector subtype require detailed manual; DMX 5-pin proven by UDX family manual but exact HDF/HDX pinout should recheck."
+    ],
+    "evidence": "Only standard DVI-I and dual SDI I/O installed; optional 5-cable and 3D HDMI/DP boards excluded."
+  },
+  {
+    "id": "barco-imagepro-ii",
+    "reviewed": false
+  },
+  {
+    "id": "barco-tld-1-2",
+    "reviewed": false
+  },
+  {
+    "id": "barco-tld-hb-0-8",
+    "reviewed": false
+  },
+  {
+    "id": "barco-tld-hb-1-6-2",
+    "reviewed": false
+  },
+  {
+    "id": "barco-tld-hb-2-2-8",
+    "reviewed": false
+  },
+  {
+    "id": "barco-tld-hb-2-8-5",
+    "reviewed": false
+  },
+  {
+    "id": "barco-tld-hb-5-8",
+    "reviewed": false
+  },
+  {
+    "id": "barco-udm-4k30",
+    "reviewed": true,
+    "manufacturer": "Barco",
+    "model": "UDM-4K30",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1191-4756-barco-udm-4k30-ft-fr.pdf",
+        "document": "Barco UDM-4K30 manufacturer datasheet generated 20 Nov 2023, pp.3–4"
+      }
+    ],
+    "remaining": [
+      "Full communication panel connector counts/subtypes require UDM manual; published dimensions column order W×L×H followed for depth."
+    ],
+    "evidence": "Standard inputs and control/network tables; optional Quad DP and SFP not included."
+  },
+  {
+    "id": "barco-udx-4k32",
+    "reviewed": true,
+    "manufacturer": "Barco",
+    "model": "UDX-4K32",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_udx-4k32_ft.pdf",
+        "document": "Barco UDX-4K32 manufacturer datasheet 22 Sep 2017, p.3; UDX manual p.22"
+      }
+    ],
+    "remaining": [
+      "Communication panel USB, sync, 12 V and DMX physical counts/subtypes require further manual verification before full status upgrade."
+    ],
+    "evidence": "Standard input card and control panel, optional Quad DP excluded."
+  },
+  {
+    "id": "barco-xld-hb-1-0",
+    "reviewed": false
+  },
+  {
+    "id": "barco-xld-hb-1-45-1-8",
+    "reviewed": false
+  },
+  {
+    "id": "barco-xld-hb-1-8-2-4",
+    "reviewed": false
+  },
+  {
+    "id": "barco-xld-hb-2-2-3",
+    "reviewed": false
+  },
+  {
+    "id": "barco-xld-hb-2-8-5-5",
+    "reviewed": false
+  },
+  {
+    "id": "barco-xld-hb-5-5-8-5",
+    "reviewed": false
+  },
+  {
+    "id": "benq-mh680",
+    "reviewed": true,
+    "manufacturer": "BenQ",
+    "model": "MH680",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/benq_mh680_ft2.pdf",
+        "document": "BenQ MH680 digital projector manufacturer spec sheet 11/01/2013, p.1"
+      }
+    ],
+    "remaining": [
+      "Mini-DIN 4 and mains connector subtypes not available/established."
+    ],
+    "evidence": "Exact interface counts; normal consumption 270 W; published device weight 2.8 kg; depth 9.6 inches converted to mm."
+  },
+  {
+    "id": "benq-mh684",
+    "reviewed": true,
+    "manufacturer": "BenQ",
+    "model": "MH684",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/benq_mh684_manuel-uk.pdf",
+        "document": "BenQ MH684 User Manual pp.67–68"
+      }
+    ],
+    "remaining": [
+      "Mini-DIN 4 and mains connector subtypes not available/established."
+    ],
+    "evidence": "Input/output terminal counts and mechanical/electrical specifications. Corrected prior 310 W to manual maximum 350 W."
+  },
+  {
+    "id": "blackmagic-atem-television-studio-pro-4k",
+    "reviewed": false
+  },
+  {
+    "id": "blackmagic-design-atem-constellation-hd-2-me",
+    "reviewed": false
+  },
+  {
+    "id": "blackmagic-design-blackmagic-video-assist-7",
+    "reviewed": false
+  },
+  {
+    "id": "blackmagic-design-duplicator-4k",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Duplicator 4K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/black-magic_duplicator4k_manuel.pdf",
+        "document": "Blackmagic Duplicator 4K operation manual pp.5,14; technical specifications pp.1,3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Rear-panel drawing and DB9 daisy-chain instruction confirm exact physical sockets. Optical SFP cage included without assuming optional module; 25 SD media slots excluded from cable ports. 1U."
+  },
+  {
+    "id": "blackmagic-design-hyperdeck-studio-mini",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "HyperDeck Studio Mini",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://kameha.com.my/wp-content/uploads/2021/03/BMD-035.pdf",
+        "document": "Blackmagic HyperDeck Studio Mini Technical Specifications (2021), pp. 1, 3–4"
+      }
+    ],
+    "remaining": [
+      "RS-422 and power inlet physical subtype not confirmed; exact depth and weight require diagram."
+    ],
+    "evidence": "Connections, external control, reference generator, power and physical installation sections."
+  },
+  {
+    "id": "blackmagic-design-micro-converter-bidirectional-sdi-hdmi-12g",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Micro Converter BiDirectional SDI/HDMI 12G",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.blackmagicdesign.com/products/microconverters/techspecs",
+        "document": "Blackmagic Micro Converter BiDirectional SDI/HDMI 12G, Technical Specifications"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Connections and power requirements, exact bidirectional 12G variant."
+  },
+  {
+    "id": "blackmagic-design-microconverter-12gsdi-vers-hdmi-2-0",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Microconverter 12GSDI vers HDMI 2.0",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.blackmagicdesign.com/products/microconverters/techspecs",
+        "document": "Blackmagic Micro Converter SDI to HDMI 12G, Technical Specifications"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Connections and 4 W maximum, exact SDI to HDMI 12G variant."
+  },
+  {
+    "id": "blackmagic-design-mini-converter-audio-to-sdi-4k",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Mini Converter Audio to SDI 4K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "portStatus",
+      "sources",
+      "ports",
+      "powerW"
+    ],
+    "sources": [
+      {
+        "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+        "document": "Blackmagic Converters manual pp.59,67"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact4K model connector table resolves remainingUSBsubtype asMini-B. Existingsharedanalog/AESjacksunchanged."
+  },
+  {
+    "id": "blackmagic-design-mini-converter-optical-fiber-12g",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Mini Converter Optical Fiber 12G",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "portStatus",
+      "powerW"
+    ],
+    "sources": [
+      {
+        "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs",
+        "document": "Blackmagic Mini Converter Optical Fiber 12G, Technical Specifications"
+      }
+    ],
+    "remaining": [],
+    "evidence": "SDI input/output, optional SFP socket, 2 W; no installed optical module or LC connector assumed."
+  },
+  {
+    "id": "blackmagic-design-mini-converter-sdi-to-audio-4k",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Mini Converter SDI to Audio 4K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "portStatus",
+      "sources",
+      "ports",
+      "powerW"
+    ],
+    "sources": [
+      {
+        "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+        "document": "Blackmagic Converters manual pp.59,67"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact4K model connector table resolves remainingUSBsubtype asMini-B. Existingsharedanalog/AESjacksunchanged."
+  },
+  {
+    "id": "blackmagic-design-miniconverter-hdmi-to-sdi",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "MiniConverter HDMI to SDI",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.lensrentals.com/product-assets/0a49a5f4-9339-4629-8787-04234c1187bd/588190.pdf",
+        "document": "Blackmagic Converters manual June2018 p.32; manufacturer HDMI to SDI spec pp.2-3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact legacy 3G model has two SDI outputs, not a loop input; Mini-B USB. 4.44 W; source mass6.98 oz converted/rounded0.198kg; depth3.63in converted92.2mm."
+  },
+  {
+    "id": "blackmagic-design-miniconverter-sdi-to-hdmi-4k",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "MiniConverter SDI To HDMI 4K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.lensrentals.com/product-assets/0a49a5f4-9339-4629-8787-04234c1187bd/588190.pdf",
+        "document": "Blackmagic Converters manual June2018 pp.23-24"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact legacy model connector descriptions confirm redundant SDI input, SDI loop, HDMI, shared analog/AES left jack plus analog right, Mini-B USB and barrel DC. Legacy 4K model distinguished from current 6G-branded replacement."
+  },
+  {
+    "id": "blackmagic-design-miniconverter-sdi-to-hdmi",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "MiniConverter SDI To HDMI",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.lensrentals.com/product-assets/0a49a5f4-9339-4629-8787-04234c1187bd/588190.pdf",
+        "document": "Blackmagic Converters manual June2018 pp.19-20"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact legacy model connector descriptions confirm redundant SDI input, SDI loop, HDMI, shared analog/AES left jack plus analog right, Mini-B USB and barrel DC. Legacy 4K model distinguished from current 6G-branded replacement."
+  },
+  {
+    "id": "blackmagic-design-smartview-duo",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "SmartView Duo",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "portStatus",
+      "sources",
+      "ports",
+      "powerW",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://www.blackmagicdesign.com/sg/products/smartview/techspecs/W-HDL-05",
+        "document": "Blackmagic SmartView Duo Technical Specifications"
+      }
+    ],
+    "remaining": [
+      "USB and DC connector physical subtype requires manual."
+    ],
+    "evidence": "Two independent SDI monitors with reclocked loop outputs, Ethernet loop, DB9 tally, USB, DC; consumption below 20 W."
+  },
+  {
+    "id": "blackmagic-design-teranex-av",
+    "reviewed": false
+  },
+  {
+    "id": "blackmagic-design-teranex-mini-hdmi-to-sdi-12g",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Teranex Mini HDMI to SDI 12G",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "portStatus",
+      "sources",
+      "ports",
+      "powerW"
+    ],
+    "sources": [
+      {
+        "url": "https://www.blackmagicdesign.com/sg/products/teranexmini/techspecs/W-TERAMIN-07",
+        "document": "Blackmagic Teranex Mini, exact HDMI/SDI 12G variant technical specification"
+      }
+    ],
+    "remaining": [
+      "USB subtype not proven by technical table."
+    ],
+    "evidence": "Connections table: shared XLR analog/AES/LTC, USB, Ethernet PoE+, IEC C14 supply."
+  },
+  {
+    "id": "blackmagic-design-teranex-mini-sdi-distribution-12g",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Teranex Mini SDI Distribution 12G",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.manualslib.com/manual/1254043/Blackmagicdesign-Teranex-Mini.html?page=51",
+        "document": "Blackmagic Teranex Mini Installation and Operation Manual, p. 51"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Connector descriptions 1–7 specify mini-B USB, IEC C14, 8 BNC outputs, BNC input and Ethernet PoE+."
+  },
+  {
+    "id": "blackmagic-design-teranex-mini-sdi-to-hdmi-12g",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Teranex Mini SDI to HDMI 12G",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.blackmagicdesign.com/sg/products/teranexmini/techspecs/W-TERAMIN-07",
+        "document": "Blackmagic Teranex Mini, exact HDMI/SDI 12G variant technical specification"
+      }
+    ],
+    "remaining": [
+      "USB subtype not proven by technical table."
+    ],
+    "evidence": "Connections table: shared XLR analog/AES/LTC, USB, Ethernet PoE+, IEC C14 supply."
+  },
+  {
+    "id": "blackmagic-design-ultrastudio-4k-mini",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "UltraStudio 4K Mini",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/black-magic_ultrastudio4K-mini_ft.pdf",
+        "document": "Blackmagic UltraStudio4K Mini specifications pp.1,5, panel image"
+      }
+    ],
+    "remaining": [
+      "Front headphone jack diameter not specified in manufacturer text."
+    ],
+    "evidence": "12G-SDI1in/2programout/1loop, three shared component/composite BNC inputs,HDMIin/out,4balancedTRS,frontXLRmic/headphones,USB-C and separateThunderbolt3 USB-C,DB9syncIEC;1.2kg,177mm,75.3Wmax."
+  },
+  {
+    "id": "blackmagic-design-ultrastudio-4k",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "UltraStudio 4K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/blackmagicdesign_ultrastudio4k_ft.pdf",
+        "document": "Blackmagic UltraStudio4K specifications pp.1-2,5"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Legacy exact4K (notExtreme) connector table and rear image:2SDIin/2out/2loop, fouranalogBNCeachdirection,2AESBNC,LTCXLR,6analogXLR/RCA,HDMIpair,DB9,reference,2ThunderboltminiDP-shaped andIEC.1.6kg,142mm,1U."
+  },
+  {
+    "id": "blackmagic-design-web-presenter-4k",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Web Presenter 4K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/476-4617-blackmagic-web-presenter-4k-techspecs.pdf",
+        "document": "Blackmagic Web Presenter4K spec pp.1,3; operation manual pp.5-6"
+      }
+    ],
+    "remaining": [],
+    "evidence": "SDI input/loop/monitor,HDMImonitor,dualUSB-C(front/rear),Ethernet,XLR4DC andIEC.25W,755g,175.5mm,44mmheight."
+  },
+  {
+    "id": "blackmagic-hyperdeck-studio-pro",
+    "reviewed": false
+  },
+  {
+    "id": "blackmagic-ultrascope",
+    "reviewed": false
+  },
+  {
+    "id": "blackmagic-web-presenter-hd",
+    "reviewed": true,
+    "manufacturer": "Blackmagic Design",
+    "model": "Web Presenter HD",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1368-4617-blackmagicwebpresenterhdmanual.pdf",
+        "document": "Blackmagic Web Presenter HD/4K operation manual pp.5-6"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Shared hardware instructions explicitly distinguish HDvs4K stream format and show same SDI/HDMImonitor/rear/frontUSB-C/Ethernet/IEC/XLR4ports. No4K-specificpower/weightcopied."
+  },
+  {
+    "id": "blackmagic-web-presenter",
+    "reviewed": false
+  },
+  {
+    "id": "canon-hj11x4-7-ias-e",
+    "reviewed": false
+  },
+  {
+    "id": "canon-hj40x-ias-d",
+    "reviewed": false
+  },
+  {
+    "id": "canon-xf205",
+    "reviewed": false
+  },
+  {
+    "id": "canopus-advc-700",
+    "reviewed": false
+  },
+  {
+    "id": "christie-hd10k-m",
+    "reviewed": false
+  },
+  {
+    "id": "christie-hd14k-m",
+    "reviewed": false
+  },
+  {
+    "id": "christie-hd20k-j",
+    "reviewed": false
+  },
+  {
+    "id": "cyanview-rio-live",
+    "reviewed": false
+  },
+  {
+    "id": "d-san-pc-as4-grn",
+    "reviewed": false
+  },
+  {
+    "id": "d-san-perfectcue-mini",
+    "reviewed": false
+  },
+  {
+    "id": "datapath-fx4",
+    "reviewed": true,
+    "manufacturer": "Datapath",
+    "model": "Fx4",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/datapath_fx4_ft-en.pdf",
+        "document": "Datapath Fx4 datasheet, pp. 1-2"
+      }
+    ],
+    "remaining": [
+      "Exact Fx4/H or Fx4/D output variant unresolved; four output connectors not invented."
+    ],
+    "evidence": "Common ports confirmed. Four processed outputs depend on Fx4/H (HDMI) versus Fx4/D (DisplayPort) variant; generic rental record explicitly allows either. IEC inlet shown in manufacturer panel drawing."
+  },
+  {
+    "id": "datapath-fx4sdi",
+    "reviewed": true,
+    "manufacturer": "Datapath",
+    "model": "FX4SDI",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/5291-4696-datapath-fx4-sdi-datasheet-fr.pdf",
+        "document": "Datapath Fx4-SDI datasheet, pp. 1-2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "One each SDI/HDMI/DisplayPort input, four SDI outputs and DisplayPort loop, two Ethernet sockets, USB-B, genlock and IEC mains; 35 W, 1.86 kg, 316 x 172 x 42 mm."
+  },
+  {
+    "id": "datavideo-se-2800",
+    "reviewed": false
+  },
+  {
+    "id": "daytron-dv6710",
+    "reviewed": false
+  },
+  {
+    "id": "decimator-12g-cross-novelty-35472",
+    "reviewed": true,
+    "manufacturer": "Decimator",
+    "model": "12G-CROSS",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6379-4627-12g-cross-brochure.pdf",
+        "document": "Decimator 12G-CROSS brochure v1, p. 1"
+      }
+    ],
+    "remaining": [
+      "USB connector subtype not specified in brochure."
+    ],
+    "evidence": "Exact model: HDMI and SDI inputs, genlock, HDMI output, two SDI processing and two reclocked SDI outputs; USB control/firmware; locking DC 5-32 V. Existing Decimator port IDs preserved."
+  },
+  {
+    "id": "decimator-12g-cross",
+    "reviewed": true,
+    "manufacturer": "Decimator Design",
+    "model": "12G-CROSS (DD-12G-CROSS)",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6379-4627-12g-cross-brochure.pdf",
+        "document": "Decimator 12G-CROSS brochure v1, p. 1"
+      }
+    ],
+    "remaining": [
+      "USB connector subtype not specified in brochure."
+    ],
+    "evidence": "Exact model: HDMI and SDI inputs, genlock, HDMI output, two SDI processing and two reclocked SDI outputs; USB control/firmware; locking DC 5-32 V. Existing Decimator port IDs preserved."
+  },
+  {
+    "id": "decimator-dmon-4s",
+    "reviewed": true,
+    "manufacturer": "Decimator Design",
+    "model": "DMON-4S (DD-4S)",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://decimator.com/specs/DMON-4S_HARDWARE_MANUAL_FV2.0.pdf",
+        "document": "Decimator DMON-4S hardware manual V2.0 pp.1,3; brochure"
+      }
+    ],
+    "remaining": [
+      "USB connector subtype not specified by manufacturer manual."
+    ],
+    "evidence": "Four mini HDMI Type C outputs; BNC2/4 are mode-switchable input/active loop output, not additional physical ports. Power 6 W and dimensions from brochure."
+  },
+  {
+    "id": "decimator-md-hx",
+    "reviewed": true,
+    "manufacturer": "Decimator Design",
+    "model": "MD-HX",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://decimator.com/brochures/MD-HX_brochure.pdf",
+        "document": "Decimator MD-HX brochure V1.1 p. 1"
+      }
+    ],
+    "remaining": [
+      "USB connector subtype remains unspecified in manufacturer brochure."
+    ],
+    "evidence": "Existing HDMI/SDI/USB/DC port inventory corroborated by exact manufacturer brochure, four SDI outputs; 79.5 x 123 x 29.5 mm."
+  },
+  {
+    "id": "dell-e248wfp",
+    "reviewed": false
+  },
+  {
+    "id": "dell-e5570-lattitude",
+    "reviewed": false
+  },
+  {
+    "id": "dell-g5-15-5590-noir-rtx-2060-hexa-core-i7",
+    "reviewed": false
+  },
+  {
+    "id": "dell-m4400",
+    "reviewed": false
+  },
+  {
+    "id": "dell-m4700-precision",
+    "reviewed": false
+  },
+  {
+    "id": "dell-u2415",
+    "reviewed": false
+  },
+  {
+    "id": "digital-forecast-bridge-m-hh",
+    "reviewed": true,
+    "manufacturer": "Digital Forecast",
+    "model": "Bridge-M-HH",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/digital-forecast_bridge-m-hh_ft.pdf",
+        "document": "Digital Forecast Bridge M_HH datasheet, p. 1"
+      }
+    ],
+    "remaining": [
+      "Audio jack diameter and USB function not specified by datasheet."
+    ],
+    "evidence": "HDMI input, separate monitor HDMI output and SDI output, stereo jack, USB mini and DC barrel visible in exact-model drawing. 95 g, 4.37 W typical/5 W maximum."
+  },
+  {
+    "id": "ecler-dva15s",
+    "reviewed": false
+  },
+  {
+    "id": "ecler-sva-15s",
+    "reviewed": false
+  },
+  {
+    "id": "eizo-ev2740x-flexscan",
+    "reviewed": true,
+    "manufacturer": "EIZO",
+    "model": "EV2740X FlexScan",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/10153-4703-eizo-flexscan-ev2740x-manuel-uk.pdf",
+        "document": "EIZO EV2740X user manual pp.11-12,47-48"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model full dock ports andIEC drawing verified. OneUSB-C video/host connector shared with data/PD; separate downstreamC not duplicate.186Wmax,8.2kg including suppliedstand, depth250.1max at0degree tilt (head alone5.5kg/60.5mm)."
+  },
+  {
+    "id": "eizo-ev2740x",
+    "reviewed": true,
+    "manufacturer": "EIZO",
+    "model": "FlexScan EV2740X",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/10153-4703-eizo-flexscan-ev2740x-manuel-uk.pdf",
+        "document": "EIZO EV2740X user manual pp.11-12,47-48"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model full dock ports andIEC drawing verified. OneUSB-C video/host connector shared with data/PD; separate downstreamC not duplicate.186Wmax,8.2kg including suppliedstand, depth250.1max at0degree tilt (head alone5.5kg/60.5mm)."
+  },
+  {
+    "id": "eizo-foris-fs2434",
+    "reviewed": false
+  },
+  {
+    "id": "epson-eb-pu1007b",
+    "reviewed": false
+  },
+  {
+    "id": "epson-eb-pu1008b",
+    "reviewed": false
+  },
+  {
+    "id": "epson-elpll08",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLL08",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Long-Throw-Zoom-Lens-(ELPLL08)/p/V12H004L08",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplm10",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLM10",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Middle-Throw-Zoom-Lens-%233-(ELPLM10)/p/V12H004M0A",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplm11",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLM11",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Middle-Throw-Zoom-Lens-%234-(ELPLM11)/p/V12H004M0B",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplm15",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLM15",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Middle-Throw-Zoom-Lens-%232-(ELPLM15)/p/V12H004M0F",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplu04",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLU04",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Short-Throw-%232-Zoom-Lens-(ELPLU04)/p/V12H004U04",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplw06",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLW06",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Wide-Throw-%232-Zoom-Lens-(ELPLW06)/p/V12H004W06",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplw08",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLW08",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://epson.com/Accessories/Projector-Accessories/Wide-Throw-%233-Zoom-Lens-ELPLW08/p/V12H004W08",
+        "document": "Epson exact lens product page, technical feature list"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Manufacturer explicitly states lens mass in grams; converted to kilograms. External ports correctly remain none."
+  },
+  {
+    "id": "epson-elplx02s",
+    "reviewed": true,
+    "manufacturer": "Epson",
+    "model": "ELPLX02S",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://files.support.epson.com/pdf/specs/specifications_ebpu2010series_en_r106.pdf",
+        "document": "Epson EB-PU2010-series specifications Rev06, optional lenses p.8"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact ELPLX02S group lens-mass table5000g. Installed-projector size and protrusion are not lens depth and were not copied."
+  },
+  {
+    "id": "epson-elpu03s",
+    "reviewed": false
+  },
+  {
+    "id": "epson-elpx01s",
+    "reviewed": false
+  },
+  {
+    "id": "extron-da4-hdmi-4k-plus",
+    "reviewed": true,
+    "manufacturer": "Extron",
+    "model": "DA4 HDMI 4K PLUS",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "powerW",
+      "weightKg",
+      "depthMm",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://media.extron.com/public/download/files/specs/da_hd_4K_plus_6065-D10.pdf",
+        "document": "Extron DA HD 4K PLUS specifications pp. 2-3; user guide Rev J pp. 5,7-9"
+      }
+    ],
+    "remaining": [],
+    "evidence": "DA4 column confirms one/four HDMI, USB mini B, three-pole RS232, internal mains, 8.6 W, 0.7 kg, 152 mm depth, 1U. Original dc ID retained for corrected AC inlet."
+  },
+  {
+    "id": "extron-da4",
+    "reviewed": true,
+    "manufacturer": "Extron",
+    "model": "DA4",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1672.pdf",
+        "document": "Extron P/2 DA4xi catalogue datasheet p. 289, linked from exact rental DA4 record"
+      }
+    ],
+    "remaining": [
+      "Confirm rental DA4 is P/2 DA4xi variant; mains inlet subtype not stated by technical sheet."
+    ],
+    "evidence": "Rental-labelled DA4 links to manufacturer P/2 DA4xi technical sheet: 1 VGA input/four VGA outputs, internal universal mains; 0.9 kg, depth152 mm. Removed unsupported 100 W (datasheet supplies DC rail rating, not consumption)."
+  },
+  {
+    "id": "folsom-imagepro-ii",
+    "reviewed": false
+  },
+  {
+    "id": "folsom-matrixpro-8x8-hdsdi",
+    "reviewed": false
+  },
+  {
+    "id": "fougerolle-d3gduo1x4",
+    "reviewed": false
+  },
+  {
+    "id": "fujinon-rmd-30",
+    "reviewed": false
+  },
+  {
+    "id": "fusion-hdmi2-0-fiber-link",
+    "reviewed": false
+  },
+  {
+    "id": "gopro-hero-12-black",
+    "reviewed": false
+  },
+  {
+    "id": "gopro-hero-3-black-edition-surf",
+    "reviewed": false
+  },
+  {
+    "id": "id-al-evp380",
+    "reviewed": false
+  },
+  {
+    "id": "iiyama-b2280hs-novelty-27883",
+    "reviewed": true,
+    "manufacturer": "iiyama",
+    "model": "B2280HS",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/iiyama_b2280hs_manuel.pdf",
+        "document": "iiyama B2280HS-B1/W1 manual p.8; manufacturer datasheet pp.2-3"
+      }
+    ],
+    "remaining": [
+      "AC inlet subtype not legible in available manual render."
+    ],
+    "evidence": "Exact baseB1/W1(non-DP) hasVGA,DVI,HDMI andanalogstereoin, notDisplayPort.21Wtypical;5.1kg/244.5mm including suppliedstand."
+  },
+  {
+    "id": "iiyama-b2280hs",
+    "reviewed": true,
+    "manufacturer": "iiyama",
+    "model": "ProLite B2280HS",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/iiyama_b2280hs_manuel.pdf",
+        "document": "iiyama B2280HS-B1/W1 manual p.8; manufacturer datasheet pp.2-3"
+      }
+    ],
+    "remaining": [
+      "AC inlet subtype not legible in available manual render."
+    ],
+    "evidence": "Exact baseB1/W1(non-DP) hasVGA,DVI,HDMI andanalogstereoin, notDisplayPort.21Wtypical;5.1kg/244.5mm including suppliedstand."
+  },
+  {
+    "id": "iiyama-g-master-g2530hsu",
+    "reviewed": false
+  },
+  {
+    "id": "iiyama-prolite-b2780hsu-b1",
+    "reviewed": false
+  },
+  {
+    "id": "iiyama-prolite-t1531sr-b1",
+    "reviewed": false
+  },
+  {
+    "id": "iiyama-xb2481hs-b1",
+    "reviewed": false
+  },
+  {
+    "id": "infiled-x3-9-curve",
+    "reviewed": false
+  },
+  {
+    "id": "infiled-x3-9-edge",
+    "reviewed": false
+  },
+  {
+    "id": "infiled-x3-9-flat",
+    "reviewed": false
+  },
+  {
+    "id": "interspace-industries-microcue3",
+    "reviewed": false
+  },
+  {
+    "id": "jvc-dt-v17l2du",
+    "reviewed": false
+  },
+  {
+    "id": "kiloview-n50-novelty-36142",
+    "reviewed": true,
+    "manufacturer": "Kiloview",
+    "model": "N50",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1945-4804-kiloview-n50-ft-uk.pdf",
+        "document": "Kiloview N50 specifications pp. 2-4"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model connector table, both USB variants, dual Ethernet (one PoE+), stereo 3.5 mm I/O and DC barrel confirmed; 16 W maximum. Memory slot not represented as an AV cable port."
+  },
+  {
+    "id": "kiloview-n6",
+    "reviewed": true,
+    "manufacturer": "Kiloview",
+    "model": "N6",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "powerW",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/09/N6ampN5-for-NDI%C2%AEUser-ManuelV1.pdf",
+        "document": "Kiloview N6/N5 manual, technical parameters and interface description; official N6 specifications"
+      }
+    ],
+    "remaining": [],
+    "evidence": "One HDMI input/output, one PoE network, shared line in/out 3.5 mm, USB-C and DC barrel confirmed by current manufacturer specification/manual. 6 W maximum, 500 g. Older N6 datasheet three audio labels conflicts with current physical one socket; current manual used."
+  },
+  {
+    "id": "kiloview-n60-novelty-36147",
+    "reviewed": true,
+    "manufacturer": "Kiloview",
+    "model": "N60",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1200-4805-kiloview-n60-manual-uk.pdf",
+        "document": "Kiloview N60 manual V1.6 pp. 7-10"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model connector table, both USB variants, dual Ethernet (one PoE+), stereo 3.5 mm I/O and DC barrel confirmed; 16 W maximum. Memory slot not represented as an AV cable port."
+  },
+  {
+    "id": "konvision-kvm-2250w",
+    "reviewed": false
+  },
+  {
+    "id": "kramer-vm-10xl",
+    "reviewed": false
+  },
+  {
+    "id": "kramer-vm-114h",
+    "reviewed": true,
+    "manufacturer": "Kramer",
+    "model": "VM-114H",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "portStatus",
+      "sources",
+      "ports",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://cdn.kramerav.com/web/downloads/manuals/vm-114h.pdf",
+        "document": "Kramer VM-114H manual Rev 10, pp. 6-7, 13"
+      }
+    ],
+    "remaining": [],
+    "evidence": "One HDMI and one proprietary DGKat input, four HDMI outputs, DB9 serial and DC barrel; 0.9 kg. Manufacturer datasheet and manual disagree on depth (75 versus 163 mm); depth not set."
+  },
+  {
+    "id": "kramer-vm-4hdcpxl-novelty-23158",
+    "reviewed": true,
+    "manufacturer": "Kramer",
+    "model": "VM-4HDCPxl",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm",
+      "rackU"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/kramer_vm-4hdcpxl_manuel.pdf",
+        "document": "Kramer VM-4HDCPxl user manual, pp. 4-5; datasheet p. 2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "DVI input/four outputs, DB9 service and IEC mains confirmed in panel drawing. 2.5 kg, 177.8 mm depth, 1U. 17 VA is apparent power, not recorded as watts."
+  },
+  {
+    "id": "kramer-vm-5s",
+    "reviewed": false
+  },
+  {
+    "id": "kramer-vs-311h-novelty-28015",
+    "reviewed": true,
+    "manufacturer": "Kramer",
+    "model": "VS-311H",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/kramer_vs-311h_manuel.pdf",
+        "document": "Kramer VS-311H user manual, pp. 5-6, 14"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Three HDMI, analog stereo and coaxial digital inputs; HDMI/stereo/balanced/S-PDIF outputs, contact closure, RS232, Ethernet and DC barrel verified from panel and specification table. 1.2 kg; 216 W x 161 D x 44 H mm."
+  },
+  {
+    "id": "lansee-d12g-duo",
+    "reviewed": false
+  },
+  {
+    "id": "lansee-extender-12g-sdi",
+    "reviewed": false
+  },
+  {
+    "id": "lenovo-thinkpad-e15-gen-2",
+    "reviewed": false
+  },
+  {
+    "id": "lenovo-thinkpad-e570",
+    "reviewed": false
+  },
+  {
+    "id": "lenovo-thinkpad-e580-20ks001-jfr",
+    "reviewed": false
+  },
+  {
+    "id": "lg-32sm5j",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "32SM5J (32\")",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://media.us.lg.com/m/3f0602d8f7d3cf79/original/32SM5J-Spec-Sheet.pdf",
+        "document": "LG32SM5J manufacturerdatasheet pp.3-4; global32SM5J specifications"
+      }
+    ],
+    "remaining": [
+      "USB quantity conflict across manufacturer documents; AC inlet subtype unresolved."
+    ],
+    "evidence": "ThreeHDMI,IR/audioout/LAN/RS232in-out andUSB-A confirmed frompanel diagram.USB quantity conflict:diagram/global1versusUSspecificationtable2; regionalmass5.4versusglobal5.7kg.ExistingEU5.7kgretained."
+  },
+  {
+    "id": "lg-43lt340c0zb",
+    "reviewed": false
+  },
+  {
+    "id": "lg-43sm5ke-novelty-33836",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "43SM5KE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.lg.com/us/business/download/resources/BT00001837/LG_SPEC-SHEET_SM5KE_061823_PR.pdf",
+        "document": "LG SM5KE manufacturer specification sheet, pp. 8–9"
+      }
+    ],
+    "remaining": [
+      "RS-232C and IR physical connector subtype remains unspecified; power inlet subtype not established."
+    ],
+    "evidence": "Exact 43/49/55 SM5KE models listed; connection table and labeled connector drawing."
+  },
+  {
+    "id": "lg-43uh5f-h-novelty-35526",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "43UH5F-H",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6327-4643-65-55-49-43uh5f-h-series-datasheet-low-lg-uhd-signage-200603.pdf",
+        "document": "LG UH5F-H series datasheet p.5"
+      }
+    ],
+    "remaining": [
+      "Power inlet subtype and jack sizes need exact hardware manual confirmation."
+    ],
+    "evidence": "Exact43/55model panel diagrams share13 signal sockets:3HDMI,DVI,DPin/out,LAN,USB,IR,audioin/out,serialin/out.39.9mm headdepth."
+  },
+  {
+    "id": "lg-49sm5ke",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "49SM5KE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.lg.com/us/business/download/resources/BT00001837/LG_SPEC-SHEET_SM5KE_061823_PR.pdf",
+        "document": "LG SM5KE manufacturer specification sheet, pp. 8–9"
+      }
+    ],
+    "remaining": [
+      "RS-232C and IR physical connector subtype remains unspecified; power inlet subtype not established."
+    ],
+    "evidence": "Exact 43/49/55 SM5KE models listed; connection table and labeled connector drawing."
+  },
+  {
+    "id": "lg-55sm5ke-novelty-33853",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "55SM5KE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.lg.com/us/business/download/resources/BT00001837/LG_SPEC-SHEET_SM5KE_061823_PR.pdf",
+        "document": "LG SM5KE manufacturer specification sheet, pp. 8–9"
+      }
+    ],
+    "remaining": [
+      "RS-232C and IR physical connector subtype remains unspecified; power inlet subtype not established."
+    ],
+    "evidence": "Exact 43/49/55 SM5KE models listed; connection table and labeled connector drawing."
+  },
+  {
+    "id": "lg-55uh5f-h-novelty-35100",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "55UH5F-H",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6327-4643-65-55-49-43uh5f-h-series-datasheet-low-lg-uhd-signage-200603.pdf",
+        "document": "LG UH5F-H series datasheet p.5"
+      }
+    ],
+    "remaining": [
+      "Power inlet subtype and jack sizes need exact hardware manual confirmation."
+    ],
+    "evidence": "Exact43/55model panel diagrams share13 signal sockets:3HDMI,DVI,DPin/out,LAN,USB,IR,audioin/out,serialin/out.39.9mm headdepth."
+  },
+  {
+    "id": "lg-75um3dg-h",
+    "reviewed": false
+  },
+  {
+    "id": "lg-75um3e",
+    "reviewed": false
+  },
+  {
+    "id": "lg-98uh5e",
+    "reviewed": false
+  },
+  {
+    "id": "lg-lg-32sm5j-b",
+    "reviewed": true,
+    "manufacturer": "LG",
+    "model": "LG 32SM5J-B",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://media.us.lg.com/m/3f0602d8f7d3cf79/original/32SM5J-Spec-Sheet.pdf",
+        "document": "LG32SM5J manufacturerdatasheet pp.3-4; global32SM5J specifications"
+      }
+    ],
+    "remaining": [
+      "USB quantity conflict across manufacturer documents; AC inlet subtype unresolved."
+    ],
+    "evidence": "ThreeHDMI,IR/audioout/LAN/RS232in-out andUSB-A confirmed frompanel diagram.USB quantity conflict:diagram/global1versusUSspecificationtable2; regionalmass5.4versusglobal5.7kg.ExistingEU5.7kgretained."
+  },
+  {
+    "id": "lg-uh5f-h",
+    "reviewed": false
+  },
+  {
+    "id": "lightware-edid-manager-v4",
+    "reviewed": true,
+    "manufacturer": "LIGHTWARE",
+    "model": "Edid Manager V4",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_edid-manager-v4_manuel-1455881987.pdf",
+        "document": "Lightware EDID Manager V4 user manual, pp. 8-11, 32"
+      }
+    ],
+    "remaining": [
+      "USB connector subtype not stated in manual text or legible panel view."
+    ],
+    "evidence": "DVI digital-only ports, USB control and locking DC barrel; 1.4 W typical, 225 g, 100.4 W x 67.6 D x 26 H mm."
+  },
+  {
+    "id": "lilliput-fs7",
+    "reviewed": false
+  },
+  {
+    "id": "lilliput-pvm220s",
+    "reviewed": false
+  },
+  {
+    "id": "lilliput-q23-8k",
+    "reviewed": false
+  },
+  {
+    "id": "lumantek-ez-pro-vs10",
+    "reviewed": true,
+    "manufacturer": "Lumantek",
+    "model": "ez-Pro VS10",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.markertek.com/Attachments/Manuals/Lumantek/vs10-manual.pdf",
+        "document": "Lumantek ez-Pro VS10 manual, pp. 8-9, 33"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Full interface drawing and specification: eight SDI/two HDMI inputs; four AUX/two PGM BNC and PGM/multiview HDMI; two XLR in/two XLR out, BNC reference, DB9 remote, RJ45, USB-A, XLR4 power. 40 W, 3.7 kg, 294 mm depth."
+  },
+  {
+    "id": "lumantek-ez-pro-vs4",
+    "reviewed": true,
+    "manufacturer": "Lumantek",
+    "model": "ez-Pro VS4",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/2370-4694-lumantek-ez-pro-vs4-ft-uk.pdf",
+        "document": "Lumantek ez-Pro VS4 datasheet, pp. 1-2"
+      }
+    ],
+    "remaining": [
+      "USB and DC connector subtypes not readable in available manual diagrams."
+    ],
+    "evidence": "Five physical video input sockets for four logical channels (2 BNC plus 3 HDMI), separate balanced L/R TRS inputs; existing stereo-on-one-balanced-TRS representation corrected. 1.7 kg, 20 W, 230 mm depth."
+  },
+  {
+    "id": "ma-vpu-basic-mk2",
+    "reviewed": false
+  },
+  {
+    "id": "marshall-electronics-v-r44p-hdsdi",
+    "reviewed": false
+  },
+  {
+    "id": "mled-m6-ech",
+    "reviewed": false
+  },
+  {
+    "id": "mled-m6",
+    "reviewed": false
+  },
+  {
+    "id": "modulo-pi-modulo-player-6-flux",
+    "reviewed": false
+  },
+  {
+    "id": "modulo-pi-modulo-player",
+    "reviewed": false
+  },
+  {
+    "id": "nec-lcd2690",
+    "reviewed": true,
+    "manufacturer": "NEC",
+    "model": "LCD2690",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_2690_manuel.pdf",
+        "document": "NEC LCD2690WUXi usermanual pp.4,15; LCD2690WUXi² manufacturer specsheet"
+      }
+    ],
+    "remaining": [
+      "Exact LCD2690WUXi vsLCD2690WUXi² revision; AC/DC connector subtypes."
+    ],
+    "evidence": "Both linked generations haveDVI-D,DVI-I,VGA. OriginalmanualshowsDCoutforsoundbar; genericrentalLCD2690doesnotidentifyWUXivsWUXi², so physicalmass/powernotmerged."
+  },
+  {
+    "id": "nec-lcd4020",
+    "reviewed": false
+  },
+  {
+    "id": "nec-multeos-m461-dst-touch",
+    "reviewed": false
+  },
+  {
+    "id": "nec-p484-novelty-33354",
+    "reviewed": true,
+    "manufacturer": "NEC",
+    "model": "P484",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_p484_manuel-uk.pdf",
+        "document": "NEC P404/P484/P554 manufacturer manual pp.10-11,18; exact model datasheet pp.2-3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Full base chassis inventory verified from terminal drawing; both DP/two HDMI, composite BNC, two LAN, four USB-A plus USB-B, speaker spring terminals, IEC. No optional OPS/Compute module interfaces assumed. Datasheet bare panel mass/depth."
+  },
+  {
+    "id": "nec-p484",
+    "reviewed": true,
+    "manufacturer": "NEC",
+    "model": "MultiSync P484",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_p484_manuel-uk.pdf",
+        "document": "NEC P404/P484/P554 manufacturer manual pp.10-11,18; exact model datasheet pp.2-3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Full base chassis inventory verified from terminal drawing; both DP/two HDMI, composite BNC, two LAN, four USB-A plus USB-B, speaker spring terminals, IEC. No optional OPS/Compute module interfaces assumed. Datasheet bare panel mass/depth."
+  },
+  {
+    "id": "nec-p554-novelty-33386",
+    "reviewed": true,
+    "manufacturer": "NEC",
+    "model": "P554",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_p554_manuel-uk.pdf",
+        "document": "NEC P404/P484/P554 manufacturer manual pp.10-11,18; exact model datasheet pp.2-3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Full base chassis inventory verified from terminal drawing; both DP/two HDMI, composite BNC, two LAN, four USB-A plus USB-B, speaker spring terminals, IEC. No optional OPS/Compute module interfaces assumed. Datasheet bare panel mass/depth."
+  },
+  {
+    "id": "nec-p554",
+    "reviewed": true,
+    "manufacturer": "NEC",
+    "model": "MultiSync P554",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "sources",
+      "ports",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_p554_manuel-uk.pdf",
+        "document": "NEC P404/P484/P554 manufacturer manual pp.10-11,18; exact model datasheet pp.2-3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Full base chassis inventory verified from terminal drawing; both DP/two HDMI, composite BNC, two LAN, four USB-A plus USB-B, speaker spring terminals, IEC. No optional OPS/Compute module interfaces assumed. Datasheet bare panel mass/depth."
+  },
+  {
+    "id": "neovo-hx-24",
+    "reviewed": true,
+    "manufacturer": "NEOVO",
+    "model": "HX-24",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "weightKg",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neovo_hx-24_manuel-uk.pdf",
+        "document": "AGNeovo HX24 usermanual p.8; datasheet p.2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exactmodel rear drawing andtable confirmSDI/CVBSBNCin/out,VGA,DVI,HDMI,stereominijack/RCAaudio andDCbarrel.<27W,7.7kg,155mm depth includingstand."
+  },
+  {
+    "id": "neovo-x-20",
+    "reviewed": true,
+    "manufacturer": "NEOVO",
+    "model": "X-20",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1601.pdf",
+        "document": "AGNeovo X20 manual pp.6,24"
+      }
+    ],
+    "remaining": [
+      "Installed optional DVI/S-video/CVBS configuration unidentified; AC inlet subtype."
+    ],
+    "evidence": "StandardVGAandACconfirmed;DVI-D,S-videoandCVBSexplicitlyoptionalinthemanual.8.2kg net,<60W. Optionalportsnotassumed."
+  },
+  {
+    "id": "newtek-spark-plus-io",
+    "reviewed": false
+  },
+  {
+    "id": "newtek-tricaster-450cs",
+    "reviewed": false
+  },
+  {
+    "id": "newtek-tricaster-455",
+    "reviewed": false
+  },
+  {
+    "id": "novastar-cvt10-pro-s",
+    "reviewed": false
+  },
+  {
+    "id": "novastar-cvt4k-s",
+    "reviewed": true,
+    "manufacturer": "NovaStar",
+    "model": "CVT4K-S",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/novastar_cvt4k-s_fiche_produit.pdf",
+        "document": "NovaStar CVT4K-S specifications V1.0.1, pp. 3-7"
+      }
+    ],
+    "remaining": [],
+    "evidence": "16 Neutrik data sockets and four duplex LC modules explicitly factory installed; etherCON control, USB-B, IEC and powerCON mains verified on rear panel. 10 W, 4.6 kg, 386 mm depth."
+  },
+  {
+    "id": "novastar-mx30",
+    "reviewed": false
+  },
+  {
+    "id": "novastar-mx40-pro",
+    "reviewed": false
+  },
+  {
+    "id": "novastar-novapro-uhd-jr",
+    "reviewed": true,
+    "manufacturer": "NovaStar",
+    "model": "NovaPro UHD Jr",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/novastar_pro_uhd_jr_fiche_produit.pdf",
+        "document": "NovaStar NovaPro UHD Jr specifications V1.1.1, pp. 2-5"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact rear-panel ports and front USB, DP1.2 correction; SFP cages retained without assuming module type. 6.3 kg net versus 13 kg total case, 396.5 mm depth; 70 W."
+  },
+  {
+    "id": "novastar-v1-video-processor",
+    "reviewed": false
+  },
+  {
+    "id": "novastar-vx4s",
+    "reviewed": true,
+    "manufacturer": "NovaStar",
+    "model": "VX4S",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "rackU",
+      "ports",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/novastar_vx4s_ft.pdf",
+        "document": "NovaStar VX4S specifications Rev1.0.3, pp. 2-5"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact VX4S rear-panel drawing confirms two DVI monitor connectors (previous VGA was incorrect), two CVBS BNCs and IEC; front and rear USB-A/USB-B pairs. 25 W, 2.55 kg, 482.6 x 251.5 x 45 mm; corrected 2U to 1U."
+  },
+  {
+    "id": "oray-fly-duo-150-200",
+    "reviewed": false
+  },
+  {
+    "id": "panasonic-ag-ec4",
+    "reviewed": false
+  },
+  {
+    "id": "panasonic-ag-hpx371ej",
+    "reviewed": false
+  },
+  {
+    "id": "panasonic-ak-ucu600",
+    "reviewed": false
+  },
+  {
+    "id": "panasonic-aw-he130k",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-HE130K",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_aw-he130k_ft-uk.pdf",
+        "document": "Panasonic AW-HE130W/K manufacturer brochure p.5; Operating Instructions pp.17–18"
+      }
+    ],
+    "remaining": [
+      "Physical DC inlet subtype not specified by table; published 3.1 kg includes mount bracket, existing bare camera mass retained."
+    ],
+    "evidence": "All exposed terminals including two separate mini-DIN8 RS-232 ports; mount bracket excluded from existing bare camera mass."
+  },
+  {
+    "id": "panasonic-aw-he145k",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-HE145K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://pro-av.panasonic.net/en/products/aw-he145/spec.html",
+        "document": "Panasonic AW-HE145W/K specifications and Operating Instructions pp.47–48,69"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact black variant explicitly listed; complete fixed ports and XLR4 power pinout confirmed."
+  },
+  {
+    "id": "panasonic-aw-he40ske",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-HE40SKE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "portStatus",
+      "sources",
+      "ports",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://eu.connect.panasonic.com/it/it/broadcast-proav/aw-he40s",
+        "document": "Panasonic AW-HE40S full specifications, exact S variant"
+      }
+    ],
+    "remaining": [
+      "DC inlet physical subtype; device current rating given rather than power consumption."
+    ],
+    "evidence": "S model documented with SDI output only, distinct H model HDMI excluded. RS232 pair/RS422/USB/LAN and audio documented."
+  },
+  {
+    "id": "panasonic-aw-he42",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-HE42",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE42P.PJ.E.EJ_simple%28DVQX1917ZA%29_E.pdf",
+        "document": "Panasonic — AW-HE42, Operating Instructions Basics DVQX1917ZA, pp26,62–64,72"
+      }
+    ],
+    "remaining": [
+      "Diamètre exact du connecteur audio micro/ligne à confirmer dans les spécifications détaillées."
+    ],
+    "evidence": [
+      "p26 : USB mini-B UVC/UAC. pp62–64 : panneau complet, RS422 RJ45, RS232 miniDIN8 entrée/sortie, audio micro/ligne, alimentation cylindrique et G/L BNC. p72 : 1,5 kg et profondeur179 mm hors saillies et support plafond.",
+      "Pas de conversion des courants d’alimentation en consommation W et pas de copie des 36 W de l’adaptateur sur la caméra."
+    ]
+  },
+  {
+    "id": "panasonic-aw-rp120",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-RP120",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "weightKg",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-rp120_manuel-basic-uk.pdf",
+        "document": "Panasonic AW-RP120 Basic Operating Instructions pp.16,40"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Five RJ45 camera ports, separate LAN, DB25 tally/GPI, DB9 remote and XLR4 DC; exact 6 W unit power/3 kg."
+  },
+  {
+    "id": "panasonic-aw-rp50",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-RP50",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-rp50_manuel-basic.pdf",
+        "document": "Panasonic AW-RP50 Basic Operating Instructions pp.15,38 (English section)"
+      }
+    ],
+    "remaining": [
+      "DC inlet subtype; manual supplies 12 V/0.5 A instead of explicit operating power, existing 8 W retained pending resolution."
+    ],
+    "evidence": "Five camera RS422 ports, LAN, 15-pin two-row D-sub GPIO, DC inlet."
+  },
+  {
+    "id": "panasonic-aw-ue150k",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AW-UE150K",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_ue150k_ft-fr.pdf",
+        "document": "Panasonic AW-UE150W/K manufacturer technical specifications pp.2–3; Operating Instructions p.19"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Fixed output ports, SFP+ cage only, IP PoE++, control/audio and XLR4 power pinout. Bare camera 4.2 kg confirmed."
+  },
+  {
+    "id": "panasonic-awrp60",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "AWRP60",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://pro-av.panasonic.net/manual/pdf/AW-RP60G.GJ_full%28DVQP2093XA%29_E.pdf",
+        "document": "Panasonic AW-RP60 Operating Instructions pp.20,85"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Five RJ45 serial controls, LAN PoE, DB25 tally/GPIO and XLR4 DC, 1.5 kg."
+  },
+  {
+    "id": "panasonic-bt-lh80w",
+    "reviewed": false
+  },
+  {
+    "id": "panasonic-dle050",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "DLE050",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1766.pdf",
+        "document": "Panasonic ET-DLE050 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-dle100",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "DLE100",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1767.pdf",
+        "document": "Panasonic ET-DLE100 manufacturer spec file p.2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-dle200",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "DLE200",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1768.pdf",
+        "document": "Panasonic ET-DLE200 manufacturer spec file p.3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-dle410",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "DLE410",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1769.pdf",
+        "document": "Panasonic ET-DLE410 manufacturer spec file p.7"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-dmc-gh5",
+    "reviewed": false
+  },
+  {
+    "id": "panasonic-et-d75le20",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-D75LE20",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_zoom_etd75le20.pdf",
+        "document": "Panasonic ET-D75LE20 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-d75le30",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-D75LE30",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_zoom_etd75le30.pdf",
+        "document": "Panasonic ET-D75LE30 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-d75le4",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-D75LE4",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_et-d75le_ft.pdf",
+        "document": "Panasonic ET-D75LE4 manufacturer spec file p.4"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-d75le5",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-D75LE5",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_zoom_etd75le5.pdf",
+        "document": "Panasonic ET-D75LE5 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-d75le6",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-D75LE6",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_et-d75le_ft.pdf",
+        "document": "Panasonic ET-D75LE6 manufacturer spec file p.6"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-dle055",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-DLE055",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_et-dle055.pdf",
+        "document": "Panasonic ET-DLE055 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-dle250",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-DLE250",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_et-dle250.pdf",
+        "document": "Panasonic ET-DLE250 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-dle350",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-DLE350",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "sources",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://eu.connect.panasonic.com/gb/en/projectors/et-dle350",
+        "document": "Panasonic Connect ET-DLE350 technical specification table"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact model official full table:95 x95 x169mm and1.1kg. No external cable ports."
+  },
+  {
+    "id": "panasonic-et-dle450",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "ET-DLE450",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_et-dle450.pdf",
+        "document": "Panasonic ET-DLE450 manufacturer spec file p.1"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-le1",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "LE1",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1745.pdf",
+        "document": "Panasonic ET-D75LE1 manufacturer spec file p.2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-le2",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "LE2",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1746.pdf",
+        "document": "Panasonic ET-D75LE2 manufacturer spec file p.3"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-le3",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "LE3",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1747.pdf",
+        "document": "Panasonic ET-D75LE3 manufacturer spec file p.4"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Exact lens sheet: lens-only net mass and W/H/D, excluding attached projector dimension shown separately. Rental short reference resolved by directly linked manufacturer model and matching host projectors/throw range. No external cable ports."
+  },
+  {
+    "id": "panasonic-moniteur-eq2-43",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "Moniteur EQ2 43",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
+        "document": "Panasonic EQ2 Series, Specifications"
+      }
+    ],
+    "remaining": [
+      "Au moins une fiche ou prise reste à confirmer ; les ports non identifiés ne sont pas déclarés vérifiés."
+    ],
+    "evidence": "Terminals table and electrical/mechanical tables, both size groups; optional SDM cards excluded.",
+    "publicationReview": "Informations conservées ; statut Communauté jusqu’à confirmation de la prise ou du fabricant."
+  },
+  {
+    "id": "panasonic-moniteur-eq2-55",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "Moniteur EQ2 55",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
+        "document": "Panasonic EQ2 Series, Specifications"
+      }
+    ],
+    "remaining": [
+      "Au moins une fiche ou prise reste à confirmer ; les ports non identifiés ne sont pas déclarés vérifiés."
+    ],
+    "evidence": "Terminals table and electrical/mechanical tables, both size groups; optional SDM cards excluded.",
+    "publicationReview": "Informations conservées ; statut Communauté jusqu’à confirmation de la prise ou du fabricant."
+  },
+  {
+    "id": "panasonic-moniteur-eq2-65",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "Moniteur EQ2 65",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
+        "document": "Panasonic EQ2 Series, Specifications"
+      }
+    ],
+    "remaining": [
+      "Au moins une fiche ou prise reste à confirmer ; les ports non identifiés ne sont pas déclarés vérifiés."
+    ],
+    "evidence": "Terminals table and electrical/mechanical tables, both size groups; optional SDM cards excluded.",
+    "publicationReview": "Informations conservées ; statut Communauté jusqu’à confirmation de la prise ou du fabricant."
+  },
+  {
+    "id": "panasonic-moniteur-eq2-75",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "Moniteur EQ2 75",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
+        "document": "Panasonic EQ2 Series, Specifications"
+      }
+    ],
+    "remaining": [
+      "Au moins une fiche ou prise reste à confirmer ; les ports non identifiés ne sont pas déclarés vérifiés."
+    ],
+    "evidence": "Terminals table and electrical/mechanical tables, both size groups; optional SDM cards excluded.",
+    "publicationReview": "Informations conservées ; statut Communauté jusqu’à confirmation de la prise ou du fabricant."
+  },
+  {
+    "id": "panasonic-moniteur-eq2-86",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "Moniteur EQ2 86",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "weightKg",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
+        "document": "Panasonic EQ2 Series, Specifications"
+      }
+    ],
+    "remaining": [
+      "Au moins une fiche ou prise reste à confirmer ; les ports non identifiés ne sont pas déclarés vérifiés."
+    ],
+    "evidence": "Terminals table and electrical/mechanical tables, both size groups; optional SDM cards excluded.",
+    "publicationReview": "Informations conservées ; statut Communauté jusqu’à confirmation de la prise ou du fabricant."
+  },
+  {
+    "id": "panasonic-pt-dz10ke",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-DZ10KE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-dz10ke_ft.pdf",
+        "document": "Panasonic PT-DZ10K Spec File SFD12M023 April 2013 pp.2–4"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "panasonic-pt-dz780",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-DZ780",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-dz780_ft-3.pdf",
+        "document": "Panasonic PT-DZ780 Spec File SFD15M023 April 2015 pp.2–4"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "panasonic-pt-rz12",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-RZ12",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz12_ft.pdf",
+        "document": "Panasonic PT-RZ12 technical specifications pp.2–4"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "panasonic-pt-rz120be",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-RZ120BE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz120be_ft-fr.pdf",
+        "document": "Panasonic PT-RZ120 technical specifications pp.2–3"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "panasonic-pt-rz660we",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-RZ660WE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
+        "document": "Panasonic PT-RZ970/RZ770/RZ660 series brochure September 2016 pp.6,8"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "panasonic-pt-rz670be",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-RZ670BE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz670_ft.pdf",
+        "document": "Panasonic PT-RZ670 Spec File SFD14M021 September 2014 pp.2–4"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "panasonic-pt-rz970be",
+    "reviewed": true,
+    "manufacturer": "Panasonic",
+    "model": "PT-RZ970BE",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
+        "document": "Panasonic PT-RZ970/RZ770/RZ660 series brochure September 2016 pp.6,8"
+      }
+    ],
+    "remaining": [
+      "Mains inlet subtype not established by text table."
+    ],
+    "evidence": "Exact family/variant listed; standard terminal counts, separate physical BNC RGB contacts, shared analog modes counted once. Power uses published rated value; dimensions/mass with supplied lens except lensless DZ10K/RZ12."
+  },
+  {
+    "id": "peekton-pk6750-hdmi",
+    "reviewed": false
+  },
+  {
+    "id": "pioneer-dj-v6000",
+    "reviewed": false
+  },
+  {
+    "id": "pioneer-dj-v8000",
+    "reviewed": false
+  },
+  {
+    "id": "pioneer-pdp-503mxe",
+    "reviewed": false
+  },
+  {
+    "id": "proietta-af20",
+    "reviewed": false
+  },
+  {
+    "id": "ross-carbonite-black-solo-novelty-35405",
+    "reviewed": false
+  },
+  {
+    "id": "ross-ultrix-fr2-novelty-35964",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db10",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db10d",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DB10D",
+    "statusBefore": "community",
+    "statusAfter": "verified",
+    "changedFields": [
+      "status",
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db10d_manuel.pdf",
+        "document": "Samsung DB10D manual pp. 17, 150; datasheet p. 2"
+      }
+    ],
+    "remaining": [],
+    "evidence": "Rear socket drawing and specification table confirm five cabled interfaces, 600 g and 24.9 mm depth; power enters adapter-powered DC14V barrel, not direct AC."
+  },
+  {
+    "id": "samsung-db22",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db32",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db32e",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DB32E",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+        "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter connector subtype and mains inlet subtype not established."
+    ],
+    "evidence": "Exact models share rear-panel diagram and port description table."
+  },
+  {
+    "id": "samsung-db40",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db40e",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DB40E",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+        "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter connector subtype and mains inlet subtype not established."
+    ],
+    "evidence": "Exact models share rear-panel diagram and port description table."
+  },
+  {
+    "id": "samsung-db48",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db48e",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DB48E",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+        "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter connector subtype and mains inlet subtype not established."
+    ],
+    "evidence": "Exact models share rear-panel diagram and port description table."
+  },
+  {
+    "id": "samsung-db55",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-db55e",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DB55E",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+        "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter connector subtype and mains inlet subtype not established."
+    ],
+    "evidence": "Exact models share rear-panel diagram and port description table."
+  },
+  {
+    "id": "samsung-dm32",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-dm32d",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-dm32e",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DM32E",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+        "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter connector subtype and mains inlet subtype not established."
+    ],
+    "evidence": "Exact models share rear-panel diagram and port description table."
+  },
+  {
+    "id": "samsung-dm75",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-dm75d",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DM75D",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_dm75d_manuel-uk.pdf",
+        "document": "Samsung DM75D manual, rear-panel p. 17; specifications164"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Exact cover model, distinct HDMI counts (ME75C2/ME95C3/DM75D1), DP input and separate loop output, full controls/audio and bare-panel dimensions/weight."
+  },
+  {
+    "id": "samsung-dm75e",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "DM75E",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+        "document": "Samsung DBE/DME/DHE User Manual, p. 19"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter connector subtype and mains inlet subtype not established."
+    ],
+    "evidence": "DM75E rear-panel diagram includes two HDMI, DisplayPort in/out, IR out and second USB."
+  },
+  {
+    "id": "samsung-ed75e",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-me32",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-me32b",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "ME32B",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_syncmaster_me32b_manuel.pdf",
+        "document": "Samsung ME-B / UE-A manual pp. 26-27, 39, 203-204"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Cover explicitly lists exact model; rear-panel table, 3.5 mm RS232 pinout and bare-panel dimensions/weight read. One DVI input and separate DVI loop output; analog adapter is one shared physical socket."
+  },
+  {
+    "id": "samsung-me75",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-me75c",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "ME75C",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_me75c_manuel.pdf",
+        "document": "Samsung ME75C manual, rear-panel p. 21; specifications 236"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Exact cover model, distinct HDMI counts (ME75C2/ME95C3/DM75D1), DP input and separate loop output, full controls/audio and bare-panel dimensions/weight."
+  },
+  {
+    "id": "samsung-me95",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-me95c",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "ME95C",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_me95c_manuel.pdf",
+        "document": "Samsung ME95C manual, rear-panel p. 21; specifications 238"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Exact cover model, distinct HDMI counts (ME75C2/ME95C3/DM75D1), DP input and separate loop output, full controls/audio and bare-panel dimensions/weight."
+  },
+  {
+    "id": "samsung-qb75h-novelty-32249",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "QB75H",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_qb75h_ft.pdf",
+        "document": "Samsung QBH series manufacturer datasheet p.1; QB75H quick guide"
+      }
+    ],
+    "remaining": [
+      "IR socket and mains inlet subtype unresolved."
+    ],
+    "evidence": "Exact QB75H column: two HDMI/one DP/one DVI, two USB, analog stereo input/output, RS232in/out, LAN and external IR. 407 W maximum, 34.8 kg bare set vs55.1 kg package, depth66 mm."
+  },
+  {
+    "id": "samsung-qb75h",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "QB75H (75\")",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "weightKg",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_qb75h_ft.pdf",
+        "document": "Samsung QBH series manufacturer datasheet p.1; QB75H quick guide"
+      }
+    ],
+    "remaining": [
+      "IR socket and mains inlet subtype unresolved."
+    ],
+    "evidence": "Exact QB75H column: two HDMI/one DP/one DVI, two USB, analog stereo input/output, RS232in/out, LAN and external IR. 407 W maximum, 34.8 kg bare set vs55.1 kg package, depth66 mm."
+  },
+  {
+    "id": "samsung-qm98f-novelty-33029",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "QM98F",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_qm98f_manuel-uk.pdf",
+        "document": "Samsung QM98F user manual pp.17,108"
+      }
+    ],
+    "remaining": [
+      "IR connector subtypes and mains inlet subtype unresolved."
+    ],
+    "evidence": "Exact model rear table: four HDMI/two DP inputs, combined DVI/analog PC connector, no separate VGA, audio and serial pairs, LAN, USB service, IR pair and AC."
+  },
+  {
+    "id": "samsung-u28e850r",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue40n7125",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue43au7172",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue46",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue46a",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "UE46A",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_ue46a_manuel.pdf",
+        "document": "Samsung ME-B / UE-A manual pp. 26-27, 39, 203-204"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Cover explicitly lists exact model; rear-panel table, 3.5 mm RS232 pinout and bare-panel dimensions/weight read. One DVI input and separate DVI loop output; analog adapter is one shared physical socket."
+  },
+  {
+    "id": "samsung-ue46c",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue46d",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "UE46D",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://static.rt-events.fr/document/-ued46-55-eu-webmanual_eng_for_europe-01_20140414_2.pdf",
+        "document": "Samsung UE46D / UE55D user manual pp. 16,162"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Cover and common rear-panel table read, HDMI/DVI/DP/VGA/AV, DP loop out, stereo I/O, USB and controls. Net display weights 10 /13.3 kg, depth31.3 mm."
+  },
+  {
+    "id": "samsung-ue46es6560sxzf",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue48h5000",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue48j5000",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue55",
+    "reviewed": false
+  },
+  {
+    "id": "samsung-ue55a",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "UE55A",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_ue55a_manuel.pdf",
+        "document": "Samsung ME-B / UE-A manual pp. 26-27, 39, 203-204"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Cover explicitly lists exact model; rear-panel table, 3.5 mm RS232 pinout and bare-panel dimensions/weight read. One DVI input and separate DVI loop output; analog adapter is one shared physical socket."
+  },
+  {
+    "id": "samsung-ue55d",
+    "reviewed": true,
+    "manufacturer": "Samsung",
+    "model": "UE55D",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://static.rt-events.fr/document/-ued46-55-eu-webmanual_eng_for_europe-01_20140414_2.pdf",
+        "document": "Samsung UE46D / UE55D user manual pp. 16,162"
+      }
+    ],
+    "remaining": [
+      "AV/component adapter and IR socket subtypes, mains inlet subtype not specified by manual text."
+    ],
+    "evidence": "Cover and common rear-panel table read, HDMI/DVI/DP/VGA/AV, DP loop out, stereo I/O, USB and controls. Net display weights 10 /13.3 kg, depth31.3 mm."
+  },
+  {
+    "id": "sierra-video-aspen-1616hd",
+    "reviewed": false
+  },
+  {
+    "id": "sierra-video-aspen-3232hd",
+    "reviewed": false
+  },
+  {
+    "id": "sierra-video-aspen-rcp-3232",
+    "reviewed": false
+  },
+  {
+    "id": "sony-ac500",
+    "reviewed": false
+  },
+  {
+    "id": "sony-dsr-400p",
+    "reviewed": false
+  },
+  {
+    "id": "sony-fwd-s47h1",
+    "reviewed": false
+  },
+  {
+    "id": "sony-fx6",
+    "reviewed": false
+  },
+  {
+    "id": "sony-hdc-x300",
+    "reviewed": true,
+    "manufacturer": "Sony",
+    "model": "HDC-X300",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "powerW",
+      "weightKg"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/sony_hdc_x300_manuel.pdf",
+        "document": "Sony — HDC-X300/X300K/X310/X310K, mode d’emploi, pp15–17,41–42 (copie Novelty)"
+      }
+    ],
+    "remaining": [
+      "Confirmer famille exacte DC et diamètre mini-jack tally ; masse du kit de location avec objectif/télécommande non assimilée à la tête seule."
+    ],
+    "evidence": [
+      "pp15–17 et42 : HDC-X300 possède SDI BNC, RGB/composantes HD15, Genlock BNC, Trigger BNC, Remote 8 broches, tally mini-jack, alimentation CC ; aucune fibre LC réservée au X310 ajoutée.",
+      "p41 : 18 W et 1,2 kg tête seule sans objectif ; 1,7 kg avec module de signalisation et 23,5 W avec accessoires explicitement distincts."
+    ]
+  },
+  {
+    "id": "sony-icp-3016",
+    "reviewed": false
+  },
+  {
+    "id": "sony-lmd-2451w",
+    "reviewed": false
+  },
+  {
+    "id": "sony-mvs-3000a",
+    "reviewed": false
+  },
+  {
+    "id": "sony-pmw-350",
+    "reviewed": true,
+    "manufacturer": "Sony",
+    "model": "PMW-350",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "sources",
+      "ports",
+      "powerW",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3402-4621-pmw-350k.pdf",
+        "document": "Sony — PMW-350K, spécifications constructeur, pp24,27–28 (copie Novelty)"
+      }
+    ],
+    "remaining": [
+      "Identifier les familles mécaniques exactes de la sortie DC 4 broches et du connecteur objectif 8 broches ; la prise viseur accessoire est à contrôler dans le manuel complet."
+    ],
+    "evidence": [
+      "pp24 : 3,2 kg et 124×269×332 mm boîtier sans objectif ; 18 W avec viseur/objectif/micro pendant enregistrement, 15 W boîtier seul. Masse existante 3,2 kg conservée sur cette base, pas masse du kit complet.",
+      "pp27–28 : connecteurs exacts ; sortie CC quatre broches et objectif huit broches sans précision de famille mécanique. Aucune option DVCAM présumée installée."
+    ]
+  },
+  {
+    "id": "sony-pmw-350k",
+    "reviewed": true,
+    "manufacturer": "Sony",
+    "model": "PMW-350k",
+    "statusBefore": "community",
+    "statusAfter": "community",
+    "changedFields": [
+      "ports",
+      "portStatus",
+      "depthMm"
+    ],
+    "sources": [
+      {
+        "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3402-4621-pmw-350k.pdf",
+        "document": "Sony — PMW-350K, spécifications constructeur, pp24,27–28 (copie Novelty)"
+      }
+    ],
+    "remaining": [
+      "Identifier les familles mécaniques exactes de la sortie DC 4 broches et du connecteur objectif 8 broches ; la prise viseur accessoire est à contrôler dans le manuel complet."
+    ],
+    "evidence": [
+      "pp24 : 3,2 kg et 124×269×332 mm boîtier sans objectif ; 18 W avec viseur/objectif/micro pendant enregistrement, 15 W boîtier seul. Masse existante 3,2 kg conservée sur cette base, pas masse du kit complet.",
+      "pp27–28 : connecteurs exacts ; sortie CC quatre broches et objectif huit broches sans précision de famille mécanique. Aucune option DVCAM présumée installée."
+    ]
+  },
+  {
+    "id": "sony-pmw-ex1",
+    "reviewed": false
+  },
+  {
+    "id": "sony-pmw-ex3",
+    "reviewed": false
+  },
+  {
+    "id": "sony-pvm-14l4",
+    "reviewed": false
+  },
+  {
+    "id": "sony-pxw-fs5",
+    "reviewed": false
+  },
+  {
+    "id": "sony-pxw-x160",
+    "reviewed": false
+  },
+  {
+    "id": "sony-pxw-x70",
+    "reviewed": false
+  },
+  {
+    "id": "sony-rcp-1500",
+    "reviewed": false
+  },
+  {
+    "id": "sony-rm-1bp",
+    "reviewed": false
+  },
+  {
+    "id": "sony-selp18105g",
+    "reviewed": false
+  },
+  {
+    "id": "startech-dock-usb-c-usb-a",
+    "reviewed": false
+  },
+  {
+    "id": "startech-tb3dkm2hdl",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-6-30-x-4-77",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-2-64-x-2-03",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-2-86-x-1-70-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-3-00-x-2-30",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-3-25-x-2-49",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-3-45-x-2-03-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-4-25-x-2-49-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-4-47-x-2-60-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-4-47-x-3-40",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-5-08-x-2-94-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-5-08-x-3-86",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-6-30-x-3-63-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-6-30-x-4-77",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfaceb-8-20-x-4-70-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfacen-2-64-x-2-03",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfacen-3-25-x-2-49",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfacen-4-47-x-3-40",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecfacen-6-30-x-4-77",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-2-64-x-2-03",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-2-86-x-1-70",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-3-25-x-2-49",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-3-45-x-2-03-16-9",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-4-25-x-2-49",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-4-47-x-3-40",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-5-08-x-2-94",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-5-08-x-3-86",
+    "reviewed": false
+  },
+  {
+    "id": "stumpfl-ecretro-6-30-x-3-63",
+    "reviewed": false
+  },
+  {
+    "id": "swit-m-1070h",
+    "reviewed": false
+  },
+  {
+    "id": "swit-m1051-h",
+    "reviewed": false
+  },
+  {
+    "id": "swit-s-1071h",
+    "reviewed": false
+  },
+  {
+    "id": "swit-s-4600",
+    "reviewed": false
+  },
+  {
+    "id": "taiden-tmx-0808-sdi",
+    "reviewed": false
+  },
+  {
+    "id": "theatrixx-hdmi-da-1-4",
+    "reviewed": false
+  },
+  {
+    "id": "theatrixx-xpresscue",
+    "reviewed": false
+  },
+  {
+    "id": "theatrixx-xvvdp2qsdi",
+    "reviewed": false
+  },
+  {
+    "id": "video-devices-pix-270i",
+    "reviewed": false
+  },
+  {
+    "id": "vivitek-du7098z-b",
+    "reviewed": false
+  },
+  {
+    "id": "vivitek-du7098z-n",
+    "reviewed": false
+  },
+  {
+    "id": "xvision-xvv-sdi2hdmi-true1",
+    "reviewed": false
+  }
+]

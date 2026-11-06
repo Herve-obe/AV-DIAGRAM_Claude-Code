@@ -15,6 +15,9 @@ import { useUi, type DockTab } from '../store/uiStore'
 import { Icon } from './Icon'
 import { Splitter } from './Splitter'
 import { translateParams } from './Inspector'
+import { companyAlerts } from '../model/company'
+import { useLibrary } from '../store/libraryStore'
+import { CompanyAlerts } from './CompanyAlerts'
 
 const fmt = (n: number, digits = 0) => n.toLocaleString(undefined, { maximumFractionDigits: digits, minimumFractionDigits: digits })
 
@@ -285,9 +288,11 @@ function IssuesTable() {
   const { t } = useTranslation()
   const issues = useIssues()
   const links = useProject((s) => s.project.links)
-  if (!issues.length) return <><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /><RackHintsTable /><MutedTable /></>
+  const project = useProject(s => s.project)
+  if (!issues.length) return <><CompanyAlerts project={project} /><p className="empty ok-text"><Icon name="check" size={14} /> {t('dock.noIssues')}</p><LayerHintsTable /><RackHintsTable /><MutedTable /></>
   return (
     <>
+    <CompanyAlerts project={project} />
     <LayerHintsTable />
     <RackHintsTable />
     <table>
@@ -315,6 +320,8 @@ export function Dock() {
   const { dockTab, dockOpen, mode, setDockTab, setPref } = useUi()
   const issues = useIssues()
   const project = useProject((s) => s.project)
+  const company = useLibrary(s => s.userTemplates)
+  const companyCount = useMemo(() => companyAlerts(project, company).length, [project, company])
   const linkCount = Object.keys(project.links).length
   const errors = issues.filter((i) => i.severity === 'error').length
   const hintCount = useMemo(() => crossLayerHints(project).filter((h) => !h.dismissed).length + rackHints(project).length, [project])
@@ -322,7 +329,7 @@ export function Dock() {
     { id: 'cables', label: t('dock.cables'), count: linkCount },
     { id: 'multicores', label: t('dock.multicores'), count: Object.keys(project.multicores ?? {}).length || undefined },
     { id: 'bom', label: t('dock.bom') },
-    { id: 'issues', label: t('dock.issues'), count: issues.length + hintCount, tone: errors ? 'err' : issues.length ? 'warn' : undefined },
+    { id: 'issues', label: t('dock.issues'), count: issues.length + hintCount + companyCount, tone: errors ? 'err' : issues.length || companyCount ? 'warn' : undefined },
   ]
   return (
     <section className={`dock ${dockOpen ? '' : 'is-collapsed'}`} aria-label={t('dock.cables')}>

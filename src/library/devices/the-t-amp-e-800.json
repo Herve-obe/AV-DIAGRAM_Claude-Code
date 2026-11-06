@@ -1,0 +1,109 @@
+{
+  "id": "the-t-amp-e-800",
+  "family": "amplification",
+  "manufacturer": "the t.amp",
+  "model": "E-800",
+  "pictogram": "amp",
+  "status": "community",
+  "description": "Amplificateur E-800, 2 × 350 W / 8 Ω ou 2 × 500 W / 4 Ω en sortie. Consommation électrique 1500 W. Entrées XLR et jack distinctes ; sorties verrouillables et borniers.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://images.static-thomann.de/pics/atg/atgdata/document/manual/173889_c_173889_v2_r4_en_online.pdf",
+      "document": "the t.amp E-800 — User Manual, ID 173889 V2, 20 mai 2016",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://images.static-thomann.de/pics/atg/atgdata/document/manual/173889_c_173889_v2_r4_en_online.pdf",
+      "document": "Manuel E-800 ID173889 V2, pp.19–23 (panneau arrière et caractéristiques).",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in-a-xlr",
+      "name": "INPUT A XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée ligne symétrique ; sensibilité 0,77 V / 1,4 V ou gain 26 dB"
+    },
+    {
+      "id": "in-a-jack",
+      "name": "INPUT A jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Entrée ligne symétrique ou asymétrique"
+    },
+    {
+      "id": "out-a-nl4",
+      "name": "OUTPUT A verrouillable",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "1+ et 2+ : positif ; 1− et 2− : négatif"
+    },
+    {
+      "id": "out-a-posts",
+      "name": "OUTPUT A bornes +/−",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "level": "speaker"
+    },
+    {
+      "id": "in-b-xlr",
+      "name": "INPUT B XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée ligne symétrique ; sensibilité 0,77 V / 1,4 V ou gain 26 dB"
+    },
+    {
+      "id": "in-b-jack",
+      "name": "INPUT B jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Entrée ligne symétrique ou asymétrique"
+    },
+    {
+      "id": "out-b-nl4",
+      "name": "OUTPUT B verrouillable",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "1+ et 2+ : positif ; 1− et 2− : négatif"
+    },
+    {
+      "id": "out-b-posts",
+      "name": "OUTPUT B bornes +/−",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "level": "speaker"
+    },
+    {
+      "id": "power",
+      "name": "Cordon secteur captif",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "230 V AC / 50 Hz ; cordon captif, type de fiche non indiqué"
+    }
+  ],
+  "powerW": 1500,
+  "weightKg": 11.3,
+  "depthMm": 375,
+  "rackU": 2
+}

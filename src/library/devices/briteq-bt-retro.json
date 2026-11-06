@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Briteq",
   "model": "BT-Retro",
-  "status": "community",
-  "description": "Projecteur type \"BT\", lampe HPL575 + 48 x LEDs 3,5W RGB, DMX512",
+  "status": "verified",
+  "description": "Effet rétro halogène+LED RGB : lampe HPL575 W limitée à320 W, consommation totale480 W max. USB M-DMX réservé au dongle WTR-DMX optionnel.",
   "aliases": [
     "Briteq BT-Retro"
   ],
@@ -48,11 +48,67 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-retro_manuel-uk.pdf",
-      "document": "Novelty — BT-Retro : BT-Retro (UK)",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur briteq-bt-retro, pages PDF 5,17 : repérage des connecteurs et spécifications",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 9
+  "ports": [
+    {
+      "id": "dmx-in3",
+      "name": "DMX In XLR3",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out XLR3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Recopie secteur"
+    },
+    {
+      "id": "usb",
+      "name": "M-DMX / Service",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Dongle WTR-DMX uniquement ; pas USB ordinateur"
+    }
+  ],
+  "weightKg": 8.66,
+  "powerW": 480
 }

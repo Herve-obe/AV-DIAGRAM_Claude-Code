@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Briteq",
   "model": "BT-Blinder2-IP",
-  "status": "community",
-  "description": "Blinder 2 x LED COB 130W",
+  "status": "verified",
+  "description": "Blinder IP65 2 LED135 W ; consommation310 W. 8,1 kg sans kit d’accroche,8,8 kg avec kit. XLR3 uniquement avec kit de conversion optionnel.",
   "aliases": [
     "Briteq BT-Blinder2-IP"
   ],
@@ -33,8 +33,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-blinder2-ip_manuel-uk.pdf",
-      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP (UK)",
-      "accessed": "2026-10-19"
+      "document": "Manuel constructeur briteq-bt-blinder2-ip, pages PDF 5,12 : repérage des connecteurs et spécifications",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/briteq_bt-blinder2-ip_ft-de.pdf",
@@ -52,6 +52,39 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    }
+  ],
+  "weightKg": 8.1,
+  "powerW": 310
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Neumann",
   "model": "KM 184",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "weightKg": 0.08,
   "sources": [
     {
@@ -16,22 +16,28 @@
       "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/statique/km184/",
       "document": "Novelty — KM184",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2146228/Neumann-Berlin-180-Series.html",
+      "document": "Neumann — Series 180 Operating Manual (KM 183/184/185), pages 6–8 : connectique, P48, directivités et poids",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "out",
-      "name": "Sortie",
+      "name": "Sortie XLR",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Statique cardioïde, P48 ± 4 V, 3,2 mA",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "Statique cardioïde ; 48 V ±4 V, 3,2 mA ; sortie symétrique (2 chaud, 3 froid)"
     }
   ],
   "aliases": [
     "KM184",
     "NEUMANN KM184"
-  ]
+  ],
+  "description": "Microphone statique cardioïde. Sortie mono symétrique XLR 3, niveau micro et alimentation fantôme P48 requise."
 }

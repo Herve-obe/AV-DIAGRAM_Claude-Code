@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Green-GO",
   "model": "InterfaceX",
-  "status": "community",
-  "description": "Interface 2 fils - 4 fils",
+  "status": "verified",
+  "description": "Interface 2 fils - 4 fils. Dimensions H × L × P : 44 × 483 × 165 mm, 1 U. Consommation typique 4 W, maximale 6 W.",
   "aliases": [
     "GreenGo InterfaceX"
   ],
@@ -15,8 +15,105 @@
       "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/interfacex/",
       "document": "Novelty — InterfaceX",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manual.greengoconnect.com/en/devices/interfacex/",
+      "document": "Green-GO — Interface X (INTX), Device overview et Technical specifications (documentation fabricant Green-GO 5)",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "linein1",
+      "name": "Entrée ligne 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle symétrique (4 fils) ; entrée ligne, gain −6 à +24 dB"
+    },
+    {
+      "id": "lineout1",
+      "name": "Sortie ligne 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 mâle symétrique (4 fils) ; niveau ligne nominal 0 dBu, maximum +12 dBu"
+    },
+    {
+      "id": "linein2",
+      "name": "Entrée ligne 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 femelle symétrique (4 fils) ; entrée ligne, gain −6 à +24 dB"
+    },
+    {
+      "id": "lineout2",
+      "name": "Sortie ligne 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR3 mâle symétrique (4 fils) ; niveau ligne nominal 0 dBu, maximum +12 dBu"
+    },
+    {
+      "id": "gpio1",
+      "name": "GPIO 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 entrées et 2 sorties de commande"
+    },
+    {
+      "id": "gpio2",
+      "name": "GPIO 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 entrées et 2 sorties de commande"
+    },
+    {
+      "id": "2w",
+      "name": "2 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR3 femelle, party-line analogique 2 fils, terminaison commutable"
+    },
+    {
+      "id": "dc",
+      "name": "Alim 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, alimentation secondaire (bloc en option)"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO, alimentation PoE IEEE 802.3af",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 10/100 Mbit/s, réseau Green-GO",
+      "network": {
+        "capacityMbps": 100,
+        "poe": "none"
+      }
+    }
+  ],
+  "weightKg": 2.41,
+  "powerW": 4,
+  "depthMm": 165,
+  "rackU": 1
 }

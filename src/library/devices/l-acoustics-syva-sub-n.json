@@ -6,7 +6,7 @@
   "manufacturer": "L-Acoustics",
   "model": "Syva-Sub N",
   "status": "community",
-  "description": "Renfort infra-grave pour système \"Syva\", 8Ω, 128 dB SPL, 1 x 12\"",
+  "description": "Syva Sub passif 8 Ω ; une entrée NL4 prouvée par le manuel. La fiche produit mentionne AutoConnect, sans dock confirmé dans le schéma du Sub : cette interface reste à recouper.",
   "aliases": [
     "SYVASUB",
     "L-ACOUSTICS Syva-Sub N"
@@ -31,9 +31,29 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_syva-sub_ft.pdf",
       "document": "Novelty — Syva-Sub N : Syva Low",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/l-acoustics_syva_manuel.pdf",
+      "document": "L-Acoustics Syva User Manual v1.0 p.15 ; Syva Sub Product Information v2 p.5",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_syva-sub_ft.pdf",
+      "document": "L-Acoustics Syva User Manual v1.0 p.15 ; Syva Sub Product Information v2 p.5",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 27
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "8 Ω ; LF1+/1−,2+/2− non liés"
+    }
+  ],
+  "weightKg": 27,
+  "depthMm": 350
 }

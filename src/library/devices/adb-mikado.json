@@ -27,8 +27,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/adb_mikado_manuel-uk.pdf",
-      "document": "Novelty — Mikado : Mikado (UK)",
-      "accessed": "2026-10-19"
+      "document": "ADB — Mikado User Manual issue 1.0, pages imprimées 4–5, 8, 27–29",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/adb_mikado_ft-de.pdf",
@@ -52,18 +52,48 @@
       "name": "DMX Out",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "DMX512-A"
     },
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC, 190–260 V CA, 47–63 Hz"
+    },
+    {
+      "id": "audio-in",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "1 V RMS, déclenchement des chenillards",
+      "level": "none"
+    },
+    {
+      "id": "trigger",
+      "name": "External Trigger",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 mm mono ; contact sec uniquement, ne pas injecter de tension"
+    },
+    {
+      "id": "comms",
+      "name": "COMMS PORT",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Module mémoire externe optionnel"
     }
   ],
   "aliases": [
     "MIKADO 12/24",
     "ADB Mikado"
-  ]
+  ],
+  "weightKg": 5,
+  "depthMm": 352,
+  "description": "Console 12 circuits en double préparation ou 24 circuits, 36 mémoires ; 440 × 352 × 90 mm. Alimentation interne 190–260 V CA (variante 110 V distincte). Entrée audio ligne RCA et déclenchement par contact sec uniquement."
 }

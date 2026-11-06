@@ -1,0 +1,322 @@
+{
+  "id": "newtek-tricaster-2-elite",
+  "family": "videoSwitcher",
+  "domain": "image",
+  "manufacturer": "NewTek",
+  "model": "TriCaster 2 Elite",
+  "pictogram": "switcher",
+  "status": "verified",
+  "rackU": 3,
+  "weightKg": 15,
+  "description": "Connectique audiovisuelle physique documentée. Audio SDI embarqué sur les prises vidéo. Les canaux NDI sont logiques et ne constituent pas des prises supplémentaires. Dante nécessite une licence Dante Virtual Soundcard distincte.",
+  "aliases": [
+    "TriCaster",
+    "Vizrt TriCaster 2 Elite",
+    "TC2 Elite"
+  ],
+  "sources": [
+    {
+      "url": "https://routing.vizrt.com/products/tricaster/tricaster-2-elite/tech-specs/",
+      "document": "Vizrt / NewTek — TriCaster 2 Elite, Technical Specifications",
+      "accessed": "2026-10-21"
+    },
+    {
+      "url": "https://downloads.newtek.com/LiveProductionSystems/TCVectar/TriCaster_Vectar_User_Guide.pdf",
+      "document": "TriCaster User Guide — annexe B.8 TC2 Elite Connections",
+      "accessed": "2026-10-21"
+    }
+  ],
+  "ports": [
+    {
+      "id": "audio-in-l",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Ligne symétrique"
+    },
+    {
+      "id": "audio-in-r",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Ligne symétrique"
+    },
+    {
+      "id": "audio-out-l",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Ligne symétrique"
+    },
+    {
+      "id": "audio-out-r",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Ligne symétrique"
+    },
+    {
+      "id": "sdi-in-1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-7",
+      "name": "SDI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-in-8",
+      "name": "SDI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-5",
+      "name": "SDI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-6",
+      "name": "SDI Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-7",
+      "name": "SDI Out 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdi-out-8",
+      "name": "SDI Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "line-in-2-l",
+      "name": "Line In 2 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "line-in-2-r",
+      "name": "Line In 2 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "line-in-3-l",
+      "name": "Line In 3 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "line-in-3-r",
+      "name": "Line In 3 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "line-in-4-l",
+      "name": "Line In 4 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "line-in-4-r",
+      "name": "Line In 4 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "aux-out-l",
+      "name": "Aux Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "aux-out-r",
+      "name": "Aux Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm, ligne symétrique"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6,35 mm stéréo",
+      "channels": 2
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bi-level SD / Tri-level HD"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "HD15 GPI"
+    },
+    {
+      "id": "lan-10g",
+      "name": "LAN 10 GbE",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "lan-1g",
+      "name": "LAN 1 GbE",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "multiview-hdmi",
+      "name": "Multiview HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "multiview-dp-1",
+      "name": "Multiview DisplayPort 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "multiview-dp-2",
+      "name": "Multiview DisplayPort 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "multiview-dp-3",
+      "name": "Multiview DisplayPort 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    }
+  ]
+}

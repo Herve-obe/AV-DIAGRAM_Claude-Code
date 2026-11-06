@@ -5,10 +5,9 @@
   "pictogram": "light",
   "manufacturer": "Astera",
   "model": "QuikSpot",
-  "status": "community",
-  "description": "Projecteur LED sur batterie, LED 60W RGBMA, IP65, set de 8",
+  "status": "verified",
+  "description": "Projecteur Fresnel LED RGBMintAmber sur batterie, zoom 13–60°, IP65 ; autonomie jusqu’à 20 h (4,5 h à luminosité maximale). Dimensions du corps : 164 × 164 × 182 mm. Consommation maximale 50 W ; moteur LED 60 W.",
   "aliases": [
-    "QUIKPUNCH",
     "Astera QuikSpot"
   ],
   "sources": [
@@ -19,12 +18,45 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/2025/09/QuikSpot_Datasheet_V3.pdf",
-      "document": "Novelty — QuikSpot : Fiche technique",
-      "accessed": "2026-10-19"
+      "document": "Astera — QuikSpot Datasheet v3, 25 avril 2025, pages 1–3 : consommation, masse, dimensions et connecteurs",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX / RDM"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100–240 V CA, 50/60 Hz"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    }
+  ],
   "weightKg": 3.45,
-  "powerW": 50
+  "powerW": 50,
+  "depthMm": 182
 }

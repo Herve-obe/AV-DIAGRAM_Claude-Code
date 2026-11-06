@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Adder",
   "model": "X200A",
-  "status": "community",
+  "status": "verified",
   "description": "USB keyboard, video and mouse extender with 44.1kHz digital stereo audio support and switching for two remote devices",
   "aliases": [
     "Adder X200A"
@@ -32,7 +32,69 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.43
+  "ports": [
+    {
+      "id": "catx1",
+      "name": "To Local 1",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "Proprietary CATx KVM"
+    },
+    {
+      "id": "catx2",
+      "name": "To Local 2",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "Proprietary CATx KVM"
+    },
+    {
+      "id": "vgaOut",
+      "name": "VGA Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "usb1",
+      "name": "Keyboard USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "Mouse USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "audioOut",
+      "name": "Stereo audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm"
+    },
+    {
+      "id": "service",
+      "name": "Firmware upgrade",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj10",
+      "format": "4-way modular service socket; CAB-9DF-RJ9-2M RS-232 cable"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "2.5 mm DC jack"
+    }
+  ],
+  "weightKg": 0.43,
+  "depthMm": 75
 }

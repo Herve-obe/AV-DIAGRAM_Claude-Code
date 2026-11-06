@@ -4,34 +4,44 @@
   "manufacturer": "Astera",
   "model": "ART7 BlueBox",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/astera_art7_ft.pdf",
+      "document": "Astera — AsteraBox ART7, fiche technique, pages 1–2",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "dmx",
-      "name": "DMX",
-      "direction": "bidir",
+      "name": "DMX In",
+      "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
-    },
-    {
-      "id": "rf",
-      "name": "Bluetooth / CRMX / W-DMX",
-      "direction": "bidir",
-      "signal": "rf",
-      "connector": "rf"
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm ; câble adaptateur XLR externe fourni"
     },
     {
       "id": "dc",
-      "name": "Alimentation",
+      "name": "Charge micro-USB",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "usb-micro",
+      "format": "Micro-USB de charge,5 V CC/1 A"
+    },
+    {
+      "id": "rf",
+      "name": "CRMX / Astera / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "CRMX 2,4 GHz ; UHF Astera ; Bluetooth 4.0"
     }
-  ]
+  ],
+  "weightKg": 0.23,
+  "description": "Interface AsteraBox ART7 entre AsteraApp, console et éclairages ; émetteur CRMX intégré. Dimensions 144 × 78 × 30 mm. Batterie interne ; charge 5 V / 1 A par micro-USB. Entrée DMX par mini-jack 3,5 mm avec adaptateur XLR externe."
 }

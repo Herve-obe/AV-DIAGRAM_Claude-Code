@@ -13,6 +13,9 @@ import PanelsApp from './PanelsApp'
 import { startBackups } from './io/backups'
 import { useProject } from './store/projectStore'
 import { restoreMainWindow } from './store/windowLayout'
+import { installerSetupRequest } from './ai/local'
+import { useAi } from './store/aiStore'
+import { useUi } from './store/uiStore'
 
 // Fenêtre Infos (double écran) : le projet vient de la fenêtre principale, qui seule l'enregistre
 const main = WINDOW_ROLE === 'main'
@@ -23,6 +26,11 @@ Promise.all([main ? restoreProject() : Promise.resolve(), restoreUserLibrary()])
     startAutosave()
     // Sauvegardes de sécurité tournantes dans le dossier choisi (Paramètres > Enregistrement)
     startBackups(() => useProject.getState().project)
+    const directory = await installerSetupRequest().catch(() => null)
+    if (directory) {
+      useUi.getState().setStartOpen(false)
+      useAi.setState({ setupOpen: true, installerDirectory: directory })
+    }
   }
   void startWindowSync()
   createRoot(document.getElementById('root')!).render(

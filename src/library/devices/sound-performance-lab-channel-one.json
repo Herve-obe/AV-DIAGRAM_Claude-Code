@@ -4,11 +4,13 @@
   "domain": "sound",
   "pictogram": "processor",
   "manufacturer": "Sound Performance Lab",
-  "model": "Channel One",
+  "model": "Channel One 2950",
   "status": "community",
-  "description": "Préampli, tranche de console complète (De-esser, Compresseur/Limiteur, Noise-Gate, EQ 3 bandes)",
+  "description": "Tranche mono SPL Channel One 2950, sans carte convertisseur selon l’utilisateur. Micro XLR P48, ligne TRS ou instrument, insert Send/Return, sorties XLR/TRS parallèles, Playback et casque. IEC C14 confirmée par l’utilisateur ; A/D Input 2 inactive sans carte et non proposée au câblage. Gabarit du manuel 2950 conservé : 482 × 88 × 210 mm, 4,15 kg. Consommation retenue : 20 W maximum, publiée sur la page SPL Channel One fournie ; cette page décrit aussi un gabarit différent (300 mm / 4,85 kg), non transposé au 2950.",
   "aliases": [
+    "Channel One",
     "CHANNELONE2950",
+    "SPL Channel One 2950",
     "Sound Performance Lab Channel One"
   ],
   "sources": [
@@ -19,11 +21,119 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Channel_One_2950_BA_E.pdf",
-      "document": "Novelty — Channel One : Channel One",
-      "accessed": "2026-10-19"
+      "document": "SPL Channel One modèle 2950, manuel : une voie, insert, écoute et convertisseur optionnel — pages PDF 7, 8, 9, 10, 11, 12, 21, 24",
+      "accessed": "2026-10-28"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Version sans carte, prise IEC C14 (IES normalisé), consommation 20 W déclarée sans source.",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://spl.audio/en/spl-produkt/channel-one/",
+      "document": "SPL Channel One, page constructeur produit arrêté, Mains Power Supply : max. 20 W ; page sans référence 2950, dimensions et poids différents du manuel 2950 conservé",
+      "accessed": "2026-10-29"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Lien SPL fourni pour les 20 W annoncés ; valeur maintenant renseignée, gabarit spécifique du manuel 2950 conservé.",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 4.15
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle symétrique, +48 V commutable"
+    },
+    {
+      "id": "line",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Ligne symétrique, maximum +22 dBu ; désactivée si instrument connecté"
+    },
+    {
+      "id": "instrument",
+      "name": "Instrument In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 haute impédance en façade, maximum +14 dBu ; alternative à Line In"
+    },
+    {
+      "id": "send",
+      "name": "Insert Send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique, après dé-esseur"
+    },
+    {
+      "id": "return",
+      "name": "Insert Return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Symétrique, avant compresseur"
+    },
+    {
+      "id": "outXlr",
+      "name": "Output XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Ligne symétrique, maximum +20 dBu ; même programme que le TRS, usage alternatif recommandé"
+    },
+    {
+      "id": "outTrs",
+      "name": "Output TRS",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Ligne symétrique, en parallèle avec la XLR ; une fiche TS asymétrise aussi la XLR"
+    },
+    {
+      "id": "playbackL",
+      "name": "Playback L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque"
+    },
+    {
+      "id": "playbackR",
+      "name": "Playback R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Casque stéréo TRS 6,35 ; pas une sortie ligne symétrique"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14 confirmée par l’utilisateur ; tension à sélectionner selon notice"
+    }
+  ],
+  "weightKg": 4.15,
+  "rackU": 2,
+  "depthMm": 210,
+  "powerW": 20
 }

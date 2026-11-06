@@ -27,6 +27,104 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP1.2"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI1 / ARC",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "usb1",
+      "name": "USB1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC"
+    }
+  ],
+  "powerW": 407,
+  "weightKg": 34.8,
+  "depthMm": 66
 }

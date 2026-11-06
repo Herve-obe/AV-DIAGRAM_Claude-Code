@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Kramer",
   "model": "VS-311H",
-  "status": "community",
+  "status": "verified",
   "description": "Sélécteur auto.3×1 HDMI, audio stéréo & S/PDIF",
   "aliases": [
     "KRAMER VS-311H"
@@ -42,7 +42,138 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.2
+  "ports": [
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Stereo In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Stereo In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm"
+    },
+    {
+      "id": "audioIn3",
+      "name": "Stereo In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm"
+    },
+    {
+      "id": "spdifIn1",
+      "name": "S/PDIF In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF"
+    },
+    {
+      "id": "spdifIn2",
+      "name": "S/PDIF In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF"
+    },
+    {
+      "id": "spdifIn3",
+      "name": "S/PDIF In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioOut",
+      "name": "Stereo Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm"
+    },
+    {
+      "id": "balancedOut",
+      "name": "Balanced stereo Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "5-pin"
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "S/PDIF"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "remote",
+      "name": "Remote contacts",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "4-pin"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet control",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 380 mA"
+    }
+  ],
+  "weightKg": 1.2,
+  "depthMm": 161
 }

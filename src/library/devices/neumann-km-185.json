@@ -4,7 +4,7 @@
   "manufacturer": "Neumann",
   "model": "KM 185",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "weightKg": 0.08,
   "sources": [
     {
@@ -16,18 +16,24 @@
       "url": "https://thomann.ae/neumann_km185.htm",
       "document": "Thomann, fiche KM 185 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2146228/Neumann-Berlin-180-Series.html",
+      "document": "Neumann — Series 180 Operating Manual (KM 183/184/185), pages 6–8 : connectique, P48, directivités et poids",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "out",
-      "name": "Sortie",
+      "name": "Sortie XLR",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Statique hypercardioïde, P48",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "Statique hypercardioïde ; 48 V ±4 V, 3,2 mA ; sortie symétrique (2 chaud, 3 froid)"
     }
-  ]
+  ],
+  "description": "Microphone statique hypercardioïde. Sortie mono symétrique XLR 3, niveau micro et alimentation fantôme P48 requise."
 }

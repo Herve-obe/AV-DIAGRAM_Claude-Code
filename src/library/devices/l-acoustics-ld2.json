@@ -4,9 +4,9 @@
   "domain": "sound",
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
-  "model": "LD2",
-  "status": "community",
-  "description": "Enceinte active 16 canaux WST courbe progressive 60°",
+  "model": "L2D",
+  "status": "verified",
+  "description": "Enceinte L2D à courbure progressive 60°, 16 canaux d’amplification externe. Désignation locative LD2 corrigée en L2D selon la fiche fabricant jointe. Une prise SC32 (37 points, 32 utilisés), masse nette 149 kg.",
   "aliases": [
     "L-ACOUSTICS LD2"
   ],
@@ -25,9 +25,30 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7319-4735-l-acoustics-l2-fiche-technique.pdf",
       "document": "Novelty — LD2 : L-acoustics-L2_fiche-technique",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.l-acoustics.com/products/L2D/",
+      "document": "Fiche L2D_SP_EN_1.0/04-23 p.1 ; fabricant L2D, Physical specs et câble SC32.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7319-4735-l-acoustics-l2-fiche-technique.pdf",
+      "document": "Fiche L2D_SP_EN_1.0/04-23 p.1 ; fabricant L2D, Physical specs et câble SC32.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 149
+  "ports": [
+    {
+      "id": "speaker-in",
+      "name": "SC32 IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "sc32",
+      "level": "speaker",
+      "channels": 16,
+      "format": "37 points mâle, 32 contacts utilisés ; 16 canaux amplifiés par LA7.16 / LA7.16i"
+    }
+  ],
+  "weightKg": 149,
+  "depthMm": 559
 }

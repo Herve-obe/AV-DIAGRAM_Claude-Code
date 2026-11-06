@@ -6,7 +6,7 @@
   "manufacturer": "Robert Juliat",
   "model": "714SX/SX2",
   "status": "community",
-  "description": "Projecteur découpe 2kW/220V zoom 15/40°",
+  "description": "Projecteur découpe 2kW/220V zoom 15/40°. La brochure liée décrit la génération 700 SX2 à lampe G22 2 000/2 500 W, cordon captif 3 m NF/Schuko, sans DMX natif. Génération SX ou SX2 du parc à confirmer.",
   "aliases": [
     "714SXII",
     "JULIAT 714SX/SX2"
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1205323869.pdf",
-      "document": "Novelty — 714SX/SX2 : série 700SX",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — brochure séries 600SX/700SX2, p.1,3–4 : lampes et cordon secteur standard",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186131644.pdf",
@@ -28,7 +28,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "Cordon captif 3 m NF/Schuko, document série 700 SX2 ; génération du parc à confirmer"
+    }
+  ],
   "weightKg": 21.5
 }

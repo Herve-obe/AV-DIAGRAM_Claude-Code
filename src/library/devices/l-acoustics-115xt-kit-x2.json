@@ -4,13 +4,11 @@
   "domain": "sound",
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
-  "model": "115XT – Kit x2",
-  "status": "community",
-  "description": "Set de 2 enceintes 1000W / 8ohms, 2 voies actives. Livrées avec lyres d'accroches.",
+  "model": "115XT",
+  "status": "verified",
+  "description": "115XT originale, une enceinte ; deux embases NL4 en parallèle. Deux voies à amplification externe, distincte de 115XT HiQ.",
   "aliases": [
-    "115XT",
-    "115XT-SET",
-    "L-ACOUSTICS 115XT – Kit x2"
+    "L-Acoustics 115XT"
   ],
   "sources": [
     {
@@ -27,9 +25,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_115xt_certificat-1349337593.pdf",
       "document": "Novelty — 115XT – Kit x2 : 115XT",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144005.pdf",
+      "document": "L-Acoustics Manuel XT version 2, pp.13 et63",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 29.5
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "115XT bi-amplifiée 2 × 8 Ω"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise parallèle ; 115XT bi-amplifiée 2 × 8 Ω"
+    }
+  ],
+  "weightKg": 29.5,
+  "depthMm": 474
 }

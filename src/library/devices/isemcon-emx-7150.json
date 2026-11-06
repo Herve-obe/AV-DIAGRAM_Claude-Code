@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "ISEMcon",
   "model": "EMX-7150",
-  "status": "community",
-  "description": "Microphone de mesure Omnidirectionnel, 145 dB SPL",
+  "status": "verified",
+  "description": "Microphone de mesure ; fantôme 12–52 V. Poids hors câble.",
   "aliases": [
     "ISEMcon EMX-7150"
   ],
@@ -20,9 +20,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/isemcon_emx7150_ft-en.pdf",
       "document": "Novelty — EMX-7150 : EMX-7150",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/isemcon_emx7150_ft-en.pdf",
+      "document": "iSEMcon EMX-7150 fiche constructeur 2013, pp. 2 et 7",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Microphone de mesure ; fantôme 12–52 V"
+    }
+  ],
   "weightKg": 0.075
 }

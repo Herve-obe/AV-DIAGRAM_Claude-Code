@@ -4,13 +4,23 @@
   "manufacturer": "Midas",
   "model": "DL251",
   "pictogram": "stagebox",
-  "status": "community",
+  "status": "verified",
   "rackU": 5,
   "sources": [
     {
       "url": "https://www.proaudiodesign.com/products/midas-dl251-midas-fixed-format-i-o-unit",
       "document": "Pro Audio Design, fiche DL251 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://cdn-media.empowertribe.com/b10b636f57ea4a0083845fc7e37fbe96/M_MI_0606-AAU_DL251-DL252_WW.pdf",
+      "document": "Midas DL251/DL252 — User Manual multilingue",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://cdn-media.empowertribe.com/b10b636f57ea4a0083845fc7e37fbe96/M_MI_0606-AAU_DL251-DL252_WW.pdf",
+      "document": "Manuel DL251/DL252 pp.36–37 imprimées (PDF19), p.54–55 (PDF28).",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -691,23 +701,35 @@
       "name": "Ethernet (commande)",
       "direction": "bidir",
       "signal": "network",
-      "connector": "unspecified"
+      "connector": "ethercon"
     },
     {
       "id": "ac1",
       "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "Secteur IEC avec verrouillage Volex, alimentation redondante"
     },
     {
       "id": "ac2",
       "name": "Secteur 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "Secteur IEC avec verrouillage Volex, alimentation redondante"
+    },
+    {
+      "id": "diagnostics",
+      "name": "DIAGNOSTICS",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Prise de maintenance réservée au personnel de service"
     }
-  ]
+  ],
+  "weightKg": 10,
+  "depthMm": 410,
+  "powerW": 110,
+  "description": "Stagebox DL251, 48 entrées micro/ligne et 16 sorties ligne. Trois AES50, Ethernet de commande, MIDI IN/OUT/THRU et diagnostic D-Sub9. Deux alimentations secteur redondantes ; consommation 110 W avec deux alimentations, 90 W avec une à 230 V."
 }

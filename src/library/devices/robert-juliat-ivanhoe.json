@@ -18,13 +18,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203953552.pdf",
-      "document": "Novelty — Ivanhoé : Ivanhoé (dossier technique)",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — 1039/1439 /B/C/CB, dossier technique, 13 février 2008, p.10–13 : raccordements des têtes selon version",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1203954615.pdf",
-      "document": "Novelty — Ivanhoé : Ivanhoé",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — brochure du modèle, p.1–2 : lampe 2 500 W, ballast séparé et sortie auxiliaire",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203954632.pdf",
@@ -35,15 +35,24 @@
   "ports": [
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Alimentation depuis ballast",
       "direction": "in",
       "signal": "power",
+      "connector": "multipin",
+      "format": "Harting 16 × 16 A + terre, liaison 3 m"
+    },
+    {
+      "id": "auxPower",
+      "name": "Secteur auxiliaire scroller",
+      "direction": "out",
+      "signal": "power",
       "connector": "unspecified",
-      "format": "Poursuite HMI 2500 W"
+      "format": "Prise femelle CEE 10 A / 250 V ; forme exacte non précisée dans la légende"
     }
   ],
   "aliases": [
     "Ivanhoé",
     "JULIAT Ivanhoé"
-  ]
+  ],
+  "description": "Poursuite Ivanhoe 1039, lampe HMI 2 500 W et ballast séparé. La tête a une entrée Harting 16 × 16 A + terre et une sortie secteur auxiliaire CEE 10 A / 250 V pour scroller. Le câble P17 32 A décrit appartient au ballast. Les versions B/CB ajoutent XLR7 de commande et sortie DATA XLR5 ; suffixe du parc non connu, ces options ne sont pas ajoutées."
 }

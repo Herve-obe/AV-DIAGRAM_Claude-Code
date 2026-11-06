@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Bose",
   "model": "802 III",
-  "status": "community",
-  "description": "Enceinte passive 91dB SPL, 240 W / 8&Omega;, directivté 120° H x 100° V",
+  "status": "verified",
+  "description": "Bose Panaray 802 Series III ; deux embases NL4 en parallèle, 8 Ω, égalisation active constructeur requise.",
   "aliases": [
     "802BSERIEIII",
     "BOSE® 802 III"
@@ -31,9 +31,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/bose_802III_conformité.pdf",
       "document": "Novelty — 802 III : 802 III",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_802III_FT2.pdf",
+      "document": "Bose Panaray 802 Series III Technical Data Sheet ©2012, pp. 1 et 6",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 16.8
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "8 Ω ; 802 Series III"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; 8 Ω ; 802 Series III"
+    }
+  ],
+  "weightKg": 16.8,
+  "depthMm": 327
 }

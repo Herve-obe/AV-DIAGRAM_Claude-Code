@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "PS10 R2",
-  "status": "community",
-  "description": "Enceinte 500W 98 dB SPL Nominal / 8 Ohms, 2 voies passives",
+  "status": "verified",
+  "description": "PS10R2 : enceinte passive 8 Ω ; câblage constructeur p. 8 / 72. Deux prises NL4 en parallèle ; contrôleur NEXO requis.",
   "aliases": [
     "SOLO/PS10R2L",
     "NEXO PS10 R2"
@@ -31,9 +31,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Nexo_PS-R2BROCHURE.pdf",
       "document": "Novelty — PS10 R2 : Brochure série PS R2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/PSR2-System-Manual-Rev05-1.pdf",
+      "document": "NEXO PSR2 System Manual Rev05, p. 8 et pp. 63, 69, 72",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 14
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "PS10R2 : enceinte passive 8 Ω ; câblage constructeur p. 8 / 72"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise câblée en parallèle ; PS10R2 : enceinte passive 8 Ω ; câblage constructeur p. 8 / 72"
+    }
+  ],
+  "weightKg": 14,
+  "depthMm": 277
 }

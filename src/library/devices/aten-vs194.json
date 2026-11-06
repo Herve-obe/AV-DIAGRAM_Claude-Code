@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Aten",
   "model": "VS194",
-  "status": "community",
+  "status": "verified",
   "description": "Distributeur 4 sorties DisplayPort 1.2a 1x4, mode MST ou SST",
   "aliases": [
     "Aten VS194"
@@ -32,8 +32,56 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2a"
+    },
+    {
+      "id": "dpOut1",
+      "name": "DisplayPort Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2a"
+    },
+    {
+      "id": "dpOut2",
+      "name": "DisplayPort Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2a"
+    },
+    {
+      "id": "dpOut3",
+      "name": "DisplayPort Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2a"
+    },
+    {
+      "id": "dpOut4",
+      "name": "DisplayPort Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2a"
+    },
+    {
+      "id": "dc",
+      "name": "DC 5 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ],
   "weightKg": 0.33,
-  "powerW": 3.36
+  "powerW": 3.36,
+  "depthMm": 80
 }

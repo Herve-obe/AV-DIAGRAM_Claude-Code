@@ -4,9 +4,9 @@
   "manufacturer": "Allen & Heath",
   "model": "Xone:92",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "powerW": 30,
-  "weightKg": 7,
+  "weightKg": 6,
   "sources": [
     {
       "url": "https://www.allen-heath.com/content/uploads/2024/10/Xone92-Mk2-User-Guide.pdf",
@@ -24,11 +24,6 @@
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/allen&health_xone92_manuel.pdf",
-      "document": "Novelty — XONE 92 : Xone 92",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/allen&health_xone92__midi_korg.pdf",
       "document": "Novelty — XONE 92 : interface MIDI pour Ableton",
       "accessed": "2026-10-19"
@@ -37,6 +32,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/allen&health_xone_92_midi_korg.pdf",
       "document": "Novelty — XONE 92 : Interface MIDI pour Korg",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/allen&health_xone92_manuel.pdf",
+      "document": "Allen & Heath Xone:92, manuel constructeur — pages PDF 14, 16, 19, 34, 35",
+      "accessed": "2026-10-29"
     }
   ],
   "ports": [
@@ -64,9 +64,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line-10",
       "channels": 2,
-      "format": "Jack 6,35 TRS (G et D)"
+      "format": "Deux jacks 6,35 asymétriques L/Mono et R ; sensibilité −15 à +20 dBu"
     },
     {
       "id": "rtn2",
@@ -74,9 +73,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line-10",
       "channels": 2,
-      "format": "Jack 6,35 TRS (G et D)"
+      "format": "Deux jacks 6,35 asymétriques L/Mono et R ; sensibilité −15 à +20 dBu"
     },
     {
       "id": "phono1",
@@ -84,9 +82,9 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
+      "level": "phono",
       "channels": 2,
-      "format": "RCA, platine (RIAA)"
+      "format": "RCA RIAA, 3 à 100 mV ; alternative à Line sur la même voie"
     },
     {
       "id": "phono2",
@@ -94,9 +92,9 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
+      "level": "phono",
       "channels": 2,
-      "format": "RCA, platine (RIAA)"
+      "format": "RCA RIAA, 3 à 100 mV ; alternative à Line sur la même voie"
     },
     {
       "id": "phono3",
@@ -104,9 +102,9 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
+      "level": "phono",
       "channels": 2,
-      "format": "RCA, platine (RIAA)"
+      "format": "RCA RIAA, 3 à 100 mV ; alternative à Line sur la même voie"
     },
     {
       "id": "phono4",
@@ -114,9 +112,9 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
+      "level": "phono",
       "channels": 2,
-      "format": "RCA, platine (RIAA)"
+      "format": "RCA RIAA, 3 à 100 mV ; alternative à Line sur la même voie"
     },
     {
       "id": "line1",
@@ -124,9 +122,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
       "channels": 2,
-      "format": "RCA"
+      "format": "RCA stéréo ; sensibilité réglable −10 à +20 dBu"
     },
     {
       "id": "line2",
@@ -134,9 +131,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
       "channels": 2,
-      "format": "RCA"
+      "format": "RCA stéréo ; sensibilité réglable −10 à +20 dBu"
     },
     {
       "id": "line3",
@@ -144,9 +140,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
       "channels": 2,
-      "format": "RCA"
+      "format": "RCA stéréo ; sensibilité réglable −10 à +20 dBu"
     },
     {
       "id": "line4",
@@ -154,9 +149,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
       "channels": 2,
-      "format": "RCA"
+      "format": "RCA stéréo ; sensibilité réglable −10 à +20 dBu"
     },
     {
       "id": "mix1",
@@ -175,7 +169,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Jack TRS impédance symétrique"
+      "format": "Deux jacks TRS, impédance symétrique ; niveau nominal −2 dBu"
     },
     {
       "id": "booth",
@@ -184,7 +178,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Jack TRS, retour cabine"
+      "format": "Deux jacks TRS, impédance symétrique ; niveau nominal −2 dBu"
     },
     {
       "id": "aux1",
@@ -193,7 +187,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Jack TRS"
+      "format": "Deux jacks TRS, impédance symétrique ; niveau nominal −2 dBu"
     },
     {
       "id": "aux2",
@@ -202,7 +196,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Jack TRS"
+      "format": "Deux jacks TRS, impédance symétrique ; niveau nominal −2 dBu"
     },
     {
       "id": "rec",
@@ -228,11 +222,31 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "IEC, 100-240 V"
+    },
+    {
+      "id": "phones",
+      "name": "Casque 6,35 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Une prise casque stéréo",
+      "channels": 2
+    },
+    {
+      "id": "phonesMini",
+      "name": "Casque 3,5 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Même écoute que le casque 6,35 mm",
+      "channels": 2
     }
   ],
   "aliases": [
     "XONE 92",
     "XONE92",
     "ALLEN & HEATH XONE 92"
-  ]
+  ],
+  "depthMm": 358,
+  "description": "Xone:92 originale (AP5345), sans transposition depuis la Mk2. Phono distinct du niveau ligne ; Mix 1 +4 dBu, Mix 2/Aux/Booth −2 dBu. Deux prises casque partagent la même écoute."
 }

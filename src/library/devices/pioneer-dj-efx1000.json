@@ -4,11 +4,12 @@
   "domain": "sound",
   "pictogram": "processor",
   "manufacturer": "Pioneer DJ",
-  "model": "EFX1000",
+  "model": "EFX-1000",
   "status": "community",
-  "description": "Boîte d'effets pour DJ et musiciens",
+  "description": "EFX-1000 : effet stéréo avec prises RCA/jack alternatives, numérique coaxial et MIDI. Le sélecteur −10 dBV/+4 dBu concerne les entrées et sorties ; EFX LINK est une liaison propriétaire.",
   "aliases": [
-    "PIONEER EFX1000"
+    "PIONEER EFX1000",
+    "EFX1000"
   ],
   "sources": [
     {
@@ -18,11 +19,108 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1216656548.pdf",
-      "document": "Novelty — EFX1000 : EFX-1000",
-      "accessed": "2026-10-19"
+      "document": "Pioneer EFX-1000, manuel constructeur — pages PDF 9, 10, 19, 28",
+      "accessed": "2026-10-29"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "inRca",
+      "name": "Input RCA L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "−10 dBV / +4 dBu commutables ; même programme que les jacks",
+      "channels": 2
+    },
+    {
+      "id": "inJack",
+      "name": "Input jack L/R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Jack audio 6,35 mm, nombre de contacts à confirmer ; −10 dBV / +4 dBu commutables",
+      "channels": 2
+    },
+    {
+      "id": "inDigital",
+      "name": "Digital In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Numérique coaxial",
+      "channels": 2
+    },
+    {
+      "id": "inMidi",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "outRca",
+      "name": "Output RCA L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "−10 dBV / +4 dBu commutables ; même programme que les jacks",
+      "channels": 2
+    },
+    {
+      "id": "outJack",
+      "name": "Output jack L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Jack audio 6,35 mm, nombre de contacts à confirmer ; −10 dBV / +4 dBu commutables",
+      "channels": 2
+    },
+    {
+      "id": "outDigital",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Numérique coaxial",
+      "channels": 2
+    },
+    {
+      "id": "outMidi",
+      "name": "MIDI Out/Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI"
+    },
+    {
+      "id": "foot",
+      "name": "Foot Switch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Contact de pédale 6,35 mm"
+    },
+    {
+      "id": "efxLink",
+      "name": "EFX LINK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-DIN propriétaire ; uniquement câble EFX LINK et appareil compatible, pas Ethernet"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Secteur 220–240 V ; embase à identifier"
+    }
+  ],
   "portStatus": "pending",
-  "weightKg": 2
+  "weightKg": 2.4,
+  "depthMm": 234,
+  "powerW": 16
 }

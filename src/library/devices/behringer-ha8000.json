@@ -5,12 +5,22 @@
   "pictogram": "amp",
   "manufacturer": "Behringer",
   "model": "HA8000",
-  "status": "community",
-  "description": "Ampli casques 8 canaux à forte puissance de distribution",
+  "status": "verified",
+  "description": "Deux entrées principales stéréo sélectionnables par canal. DIRECT IN remplace le signal principal du canal. Pour deux mixages indépendants, alimenter MAIN 1 et MAIN 2 séparément.",
   "aliases": [
     "BEHRINGER HA8000"
   ],
   "sources": [
+    {
+      "url": "https://www.behringer.com/en/products/0835-AAC",
+      "document": "Behringer HA8000 original : deux MAIN IN stéréo, huit amplificateurs et prises casque avant/arrière, DIRECT IN par canal",
+      "accessed": "2026-10-23"
+    },
+    {
+      "url": "https://mediadl.musictribe.com/media/PLM/data/docs/HA-Series/QSG_BE_0835-AAH_HA6000-HA8000-V2_WW.pdf",
+      "document": "Music Tribe, POWERPLAY HA8000/HA6000 Quick Start Guide : raccordements MAIN/DIRECT/PHONES",
+      "accessed": "2026-10-23"
+    },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/unitaire/ha8000/",
       "document": "Novelty — HA8000",
@@ -27,7 +37,266 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "main1L",
+      "name": "MAIN IN 1 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Entrée mono symétrique de la paire stéréo 1"
+    },
+    {
+      "id": "main1R",
+      "name": "MAIN IN 1 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Entrée mono symétrique de la paire stéréo 1"
+    },
+    {
+      "id": "main2L",
+      "name": "MAIN IN 2 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Entrée mono symétrique de la paire stéréo 2"
+    },
+    {
+      "id": "main2R",
+      "name": "MAIN IN 2 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Entrée mono symétrique de la paire stéréo 2"
+    },
+    {
+      "id": "direct1",
+      "name": "DIRECT IN 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct2",
+      "name": "DIRECT IN 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct3",
+      "name": "DIRECT IN 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct4",
+      "name": "DIRECT IN 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct5",
+      "name": "DIRECT IN 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct6",
+      "name": "DIRECT IN 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct7",
+      "name": "DIRECT IN 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "direct8",
+      "name": "DIRECT IN 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "TRS stéréo asymétrique, remplace MAIN pour ce canal"
+    },
+    {
+      "id": "hp1",
+      "name": "PHONES 1 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp2",
+      "name": "PHONES 2 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp3",
+      "name": "PHONES 3 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp4",
+      "name": "PHONES 4 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp5",
+      "name": "PHONES 5 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp6",
+      "name": "PHONES 6 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp7",
+      "name": "PHONES 7 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "hp8",
+      "name": "PHONES 8 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Stéréo, MAIN 1/2 sélectionné par canal ou DIRECT IN si branché"
+    },
+    {
+      "id": "rearhp1",
+      "name": "PHONES 1 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp2",
+      "name": "PHONES 2 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp3",
+      "name": "PHONES 3 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp4",
+      "name": "PHONES 4 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp5",
+      "name": "PHONES 5 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp6",
+      "name": "PHONES 6 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp7",
+      "name": "PHONES 7 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "rearhp8",
+      "name": "PHONES 8 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Même signal que PHONES avant du canal"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
   "weightKg": 2.35
 }

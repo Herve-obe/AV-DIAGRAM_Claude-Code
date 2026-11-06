@@ -6,7 +6,7 @@
   "manufacturer": "MA Lighting",
   "model": "NPU",
   "status": "community",
-  "description": "Unités de traitement des réseaux pour console GrandMA, 8 univers DMX, 4096 circuits, ethernet, livré avec clavier",
+  "description": "MA NPU, huit DMX XLR5 configurables en entrée ou sortie, un etherCON MA-Net/MA-Net2. Dimensions fiche actuelle485 ×332 ×126 mm,9 kg. La notice montre trois USB-A et deux variantes secteur : powerCON entrée seule ou entrée/sortie. La fiche annonce quatre USB et renvoi secteur ; révision exacte à confirmer. Puissance apparente150 VA, pas150 W.",
   "aliases": [
     "MA LIGHTING NPU"
   ],
@@ -18,16 +18,120 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/NPU_network_processing_unit_malighting_notice.pdf",
-      "document": "Novelty — NPU : NPU",
-      "accessed": "2026-10-19"
+      "document": "MA Lighting — MA NPU datasheet,p.1 : quatreUSB annoncés, poids9 kg et dimensions",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/MA_NPU_RPU_Quickstart_Manual_2013-03_de-en.pdf",
-      "document": "Novelty — NPU : NPU",
-      "accessed": "2026-10-19"
+      "document": "MA Lighting — NPU/RPU QuickMAnual XIII.03,p.20,27–28 :150 VA, panneaux et différences selon révision",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 9
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX3",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX4",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx5",
+      "name": "DMX5",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx6",
+      "name": "DMX6",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx7",
+      "name": "DMX7",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "dmx8",
+      "name": "DMX8",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX Out configurable In selon fiche constructeur"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-A1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Avant"
+    },
+    {
+      "id": "usb2",
+      "name": "USB-A2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Avant"
+    },
+    {
+      "id": "usb3",
+      "name": "USB-A3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Arrière"
+    },
+    {
+      "id": "eth",
+      "name": "MA-Net / MA-Net2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Version120/230 V50/60 Hz"
+    }
+  ],
+  "weightKg": 9,
+  "depthMm": 332
 }

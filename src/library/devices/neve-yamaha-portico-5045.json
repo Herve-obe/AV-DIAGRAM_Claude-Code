@@ -6,7 +6,7 @@
   "manufacturer": "Neve - Yamaha",
   "model": "Portico 5045",
   "status": "community",
-  "description": "",
+  "description": "Portico 5045 Primary Source Enhancer, deux canaux ligne sur XLR3. Alimentation externe 12 V DC centre positif. Le manuel ne donne pas de masse ou dimensions et indique environ 15 W dissipés, distincts de la spécification 12 V / 1 A.",
   "aliases": [
     "Neve - Yamaha Portico 5045"
   ],
@@ -25,8 +25,62 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_portico5045_manuel d'utilisation_uk.pdf",
       "document": "Novelty — Portico 5045 : Portico 5045",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_portico5045_manuel d'utilisation_uk.pdf",
+      "document": "Manuel pp.3–5 et 9 ; brochure p.1 (2 entrées et 2 sorties XLR).",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/yamaha_portico5045_brochure_uk.pdf",
+      "document": "Manuel pp.3–5 et 9 ; brochure p.1 (2 entrées et 2 sorties XLR).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in-a",
+      "name": "INPUT A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique sur transformateur, entrée 10 kΩ"
+    },
+    {
+      "id": "out-a",
+      "name": "OUTPUT A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique flottante sur transformateur, maximum +25 dBu"
+    },
+    {
+      "id": "in-b",
+      "name": "INPUT B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique sur transformateur, entrée 10 kΩ"
+    },
+    {
+      "id": "out-b",
+      "name": "OUTPUT B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique flottante sur transformateur, maximum +25 dBu"
+    },
+    {
+      "id": "dc",
+      "name": "DC INPUT 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, centre positif, alimentation externe ; spécification 1 A"
+    }
+  ]
 }

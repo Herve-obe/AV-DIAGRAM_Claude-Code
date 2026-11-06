@@ -4,7 +4,7 @@
   "manufacturer": "Klark Teknik",
   "model": "DN100 V2",
   "pictogram": "di",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.andertons.co.uk/klark-teknik-dn100-v2-active-di-box",
@@ -15,26 +15,45 @@
       "url": "https://prostage.gr/en/klark-teknik-dn-100-v2.html",
       "document": "Prostage, fiche DN100 V2 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://mediadl.musictribe.com/media/PLM/data/docs/P0E3F/QSG_KT_0809-AAR_DN100%20V2_WW.pdf",
+      "document": "DN100 V2 Quick Start Guide, contrôles p. 1 et caractéristiques p. 4",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://manualzz.com/doc/58422678/klark-teknik-dn100-v2-di-box-quick-start-guide",
+      "document": "DN100 V2 Quick Start Guide, contrôles p. 1 et caractéristiques p. 4",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Input",
+      "name": "Input XLR",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Entrée ligne symétrique/asymétrique ; 20 kΩ si XLR seul ; parallèle aux deux jacks"
+    },
+    {
+      "id": "in-jack",
+      "name": "Input TRS",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
       "level": "instrument",
-      "format": "XLR et 2 jacks TRS 6,35 en parallèle, 1 MΩ, pad 20 dB"
+      "format": "Symétrique ou asymétrique, 1 MΩ ; parallèle à Input XLR et Link"
     },
     {
       "id": "link",
-      "name": "Link",
+      "name": "Link TRS",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "instrument",
-      "format": "Recopie de l'entrée"
+      "format": "Reprise parallèle de l’entrée ; peut aussi servir d’entrée"
     },
     {
       "id": "out",
@@ -43,8 +62,11 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Symétrique 50 Ω ; fantôme 48 V requis",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "Symétrique, 50 Ω ; P48 requis, courant inférieur à 10 mA"
     }
-  ]
+  ],
+  "weightKg": 0.44,
+  "depthMm": 112,
+  "description": "DI active mono, alimentation fantôme 48 V par la sortie XLR. Entrée XLR et deux jacks TRS distincts reliés en parallèle ; pad 20 dB."
 }

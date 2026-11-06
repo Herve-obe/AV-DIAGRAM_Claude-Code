@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "ID24T-B",
-  "status": "community",
-  "description": "Enceinte compacte large bande, 500W/16&Omega;, 120°x40°, noire",
+  "status": "verified",
+  "description": "ID24t version Touring ; deux NL4 en parallèle, une enceinte. La directivité dépend du pavillon installé.",
   "aliases": [
     "ID24T",
     "NEXO ID24T-B"
@@ -26,9 +26,35 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/nexo_id-serie_brochure.pdf",
       "document": "Novelty — ID24T-B : Brochure commerciale",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.jpleisure.co.uk/Data/nexo_id24_manual.pdf",
+      "document": "NEXO ID24 User Manual DP2117-08d, pp. 6 et 19",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 5.2
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "ID24t : 2+/2− enceinte ; 1+/1− traversants pour le sub"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; ID24t : 2+/2− enceinte ; 1+/1− traversants pour le sub"
+    }
+  ],
+  "weightKg": 6,
+  "depthMm": 233
 }

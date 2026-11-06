@@ -23,6 +23,23 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "3-pin AC"
+    }
+  ],
+  "powerW": 60,
+  "weightKg": 8.2
 }

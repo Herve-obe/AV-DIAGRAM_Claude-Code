@@ -4,12 +4,22 @@
   "manufacturer": "Roland",
   "model": "UA-1610 Studio-Capture",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.soundhouse.co.jp/en/products/detail/item/181877/",
       "document": "Sound House, fiche UA-1610 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.roland.com/global/products/studio-capture/",
+      "document": "Roland STUDIO-CAPTURE UA-1610 Owner’s Manual, pp. 7–10, 53, 70–71",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/roland_ua1610_manuel.pdf",
+      "document": "Roland STUDIO-CAPTURE UA-1610 Owner’s Manual, pp. 7–10, 53, 70–71",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -20,8 +30,20 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu ; Hi-Z disponible sur le jack",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -30,8 +52,20 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu ; Hi-Z disponible sur le jack",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -40,8 +74,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -50,8 +91,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -60,8 +108,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in6",
@@ -70,8 +125,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in7",
@@ -80,8 +142,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in8",
@@ -90,8 +159,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in9",
@@ -100,8 +176,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in10",
@@ -110,8 +193,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in11",
@@ -120,8 +210,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in12",
@@ -130,8 +227,15 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack",
-      "phantom": "supplied"
+      "format": "XLR micro avec P48 ou jack TRS ligne symétrique ; nominal XLR −60 à −2 dBu / TRS −54 à +4 dBu",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "line13",
@@ -140,7 +244,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Jack TRS"
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
     },
     {
       "id": "line14",
@@ -149,7 +253,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Jack TRS"
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
     },
     {
       "id": "line15",
@@ -158,7 +262,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Jack TRS"
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
     },
     {
       "id": "line16",
@@ -167,7 +271,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Jack TRS"
+      "format": "Symétrique ; nominal sélectionnable −20, −10 ou +4 dBu"
     },
     {
       "id": "out1",
@@ -263,7 +367,8 @@
       "direction": "in",
       "signal": "audioDigital",
       "connector": "rca",
-      "channels": 2
+      "channels": 2,
+      "format": "S/PDIF coaxial IEC60958, 2 canaux 44,1/48/96 kHz ; indisponible à 192 kHz"
     },
     {
       "id": "digOut",
@@ -271,7 +376,8 @@
       "direction": "out",
       "signal": "audioDigital",
       "connector": "rca",
-      "channels": 2
+      "channels": 2,
+      "format": "S/PDIF coaxial IEC60958, 2 canaux 44,1/48/96 kHz ; indisponible à 192 kHz"
     },
     {
       "id": "midiIn",
@@ -293,14 +399,39 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "usb-b",
-      "format": "16 × 10, 24 bits / 192 kHz"
+      "format": "USB 2.0 audio/MIDI, 16 entrées × 10 sorties à 44,1/48/96 kHz ; 8 × 4 à 192 kHz"
     },
     {
       "id": "dc",
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "Adaptateur secteur fourni ; 1,6 A selon manuel, consommation W non publiée"
+    },
+    {
+      "id": "phones1",
+      "name": "Phones 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, volume indépendant"
+    },
+    {
+      "id": "phones2",
+      "name": "Phones 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, volume indépendant"
     }
-  ]
+  ],
+  "weightKg": 1.9,
+  "depthMm": 162,
+  "rackU": 2,
+  "description": "Interface USB 2.0 UA-1610, 12 entrées combo avec préamplis et 4 entrées ligne, 8 sorties TRS plus Monitor XLR et deux casques. Masse hors adaptateur/équerres ; bornerie de terre au panneau arrière."
 }

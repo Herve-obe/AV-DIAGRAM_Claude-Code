@@ -5,7 +5,7 @@
   "pictogram": "recorder",
   "manufacturer": "Blackmagic Design",
   "model": "Duplicator 4K",
-  "status": "community",
+  "status": "verified",
   "description": "Enregistreur / duplicateur sur carte SD, 25 ports, entrée/sortie vidéo SDI",
   "aliases": [
     "BlackMagicDesign Duplicator 4K"
@@ -27,8 +27,69 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "12G-SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "optical",
+      "name": "Optical SFP slot",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Optional SMPTE optical module; not assumed installed"
+    },
+    {
+      "id": "remoteIn",
+      "name": "RS-422 Remote In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "remoteOut",
+      "name": "RS-422 Remote Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "usb",
+      "name": "USB control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B USB2.0"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
   "weightKg": 2,
-  "powerW": 50
+  "powerW": 50,
+  "rackU": 1
 }

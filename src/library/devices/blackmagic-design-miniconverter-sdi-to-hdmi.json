@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "MiniConverter SDI To HDMI",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur 3G SDI vers HDMI (avec audio intégré), plus AES/EBU symétrique ou audio analogique",
   "aliases": [
     "3GSHDI2HDMI",
@@ -21,8 +21,73 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/blackmagic_MiniConverterSDItoHDMI_manuel.pdf",
       "document": "Novelty — MiniConverter SDI To HDMI : MiniConverter SDI to HDMI",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/0a49a5f4-9339-4629-8787-04234c1187bd/588190.pdf",
+      "document": "Blackmagic Converters — Installation and Operation Manual, juin 2018, copie Lensrentals",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiAlt",
+      "name": "ALT SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioL",
+      "name": "Analog L / AES-EBU Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Balanced analog left or AES/EBU pair; exclusive modes"
+    },
+    {
+      "id": "audioR",
+      "name": "Analog R Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC"
+    }
+  ]
 }

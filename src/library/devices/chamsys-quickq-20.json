@@ -4,7 +4,7 @@
   "manufacturer": "ChamSys",
   "model": "QuickQ 20",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.thomann.co.uk/chamsys_quickq_20.htm",
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chamsys_quickq20_manuel.pdf",
-      "document": "Novelty — QuickQ 20 : QuickQ 20",
-      "accessed": "2026-10-19"
+      "document": "ChamSys — QuickQ User Manual, page7 : vue arrière QuickQ20 inspectée ; page37 MIDI5 points, page38 audio3,5 mm",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/chamsys_quickq20_ft.pdf",
@@ -30,6 +30,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/chamsys_quickq20_brochure.pdf",
       "document": "Novelty — QuickQ 20 : Brochure commercial",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://chamsyslighting.com/product/quickq-20/",
+      "document": "ChamSys — QuickQ20, spécifications matérielles, dimensions et alimentation",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://docs.chamsys.co.uk/quickq/8.0/audio/audio.html",
+      "document": "ChamSys — QuickQ Audio : entrée/sortie 3,5 mm stéréo",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -48,18 +58,12 @@
       "connector": "xlr5"
     },
     {
-      "id": "dmxIn",
-      "name": "DMX In",
-      "direction": "in",
-      "signal": "dmx",
-      "connector": "xlr5"
-    },
-    {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "unspecified"
+      "connector": "rj45",
+      "format": "10/100 Mbit/s ; Art-Net / sACN / Pathport"
     },
     {
       "id": "midiIn",
@@ -94,10 +98,38 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "12 V CC centre positif, bloc externe"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "audio-in",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3,5 mm stéréo, synchronisation musique"
+    },
+    {
+      "id": "audio-out",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3,5 mm stéréo, lecture audio"
     }
   ],
   "aliases": [
     "ChamSys QuickQ 20"
-  ]
+  ],
+  "weightKg": 5.2,
+  "powerW": 60,
+  "depthMm": 350,
+  "description": "QuickQ 20 : 2 univers, 2 sorties DMX XLR5, réseau 10/100, HDMI, MIDI In/Out DIN5, 2 USB-A et audio stéréo In/Out. Alimentation externe 12 V CC centre positif ; 565 × 350 × 106 mm. Pas d’entrée DMX filaire dédiée."
 }

@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "ETC / iLites",
   "model": "S450 LED",
-  "status": "community",
-  "description": "Découpe Source 4, LED, objectif 50°, 170W, 5600° K",
+  "status": "verified",
+  "description": "Découpe Source 4, LED, objectif 50°, 170W, 5600° K. Corps ETC Source Four converti par module iLites HPLED White 170 W (Bridgelux BXRC). Alimentation 100–240 V, entrée/sortie powerCON et entrée/sortie DMX XLR 5 points, RDM. Le poids de 2,03 kg indiqué pour le module seul ne représente pas le projecteur complet.",
   "aliases": [
     "S4-LED50",
     "ETC / iLites S450 LED"
@@ -51,8 +51,49 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-dupli-etc-ilites_hpled_manuel-1413190388.pdf",
       "document": "Novelty — S450 LED : iLites HPLED White",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/etc-ilites_hpled_manuel-1413190388.pdf",
+      "document": "iLites — HPLED White owner/service manual, rev.02 du 4 septembre 2014, p.2–6 : montage ETC Source Four, connectique, 170 W BXRC",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/etc-ilites_hpled_ft-1413190369.pdf",
+      "document": "iLites — HPLED White specifications, p.1 : conversion Source Four, 170 W, powerCON et XLR5 entrée/sortie",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "100–240 V 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Renvoi secteur, 10 unités maximum à 230 V selon notice"
+    }
+  ],
+  "powerW": 170
 }

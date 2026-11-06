@@ -23,8 +23,268 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "vgaIn1",
+      "name": "Analog In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaIn2",
+      "name": "Analog In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaIn3",
+      "name": "Analog In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaIn4",
+      "name": "Analog In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dviIn1",
+      "name": "DVI-I In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Analogique / numérique, entrée commune"
+    },
+    {
+      "id": "dviIn2",
+      "name": "DVI-I In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Analogique / numérique, entrée commune"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "dviOut1",
+      "name": "DVI-I Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut2",
+      "name": "DVI-I Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vgaOut1",
+      "name": "Analog Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaOut2",
+      "name": "Analog Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "sdiOut",
+      "name": "Video SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "analogY",
+      "name": "Y Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogCb",
+      "name": "Cb Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogCr",
+      "name": "Cr Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogComposite",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sVideo",
+      "name": "S-Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Mini-DIN 4"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn4",
+      "name": "Audio In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn5",
+      "name": "Audio In 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn6",
+      "name": "Audio In 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn7",
+      "name": "Audio In 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn8",
+      "name": "Audio In 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioIn9",
+      "name": "Audio In 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioOut1",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100–240 V AC"
+    }
+  ],
   "weightKg": 5.4,
-  "powerW": 140
+  "powerW": 140,
+  "rackU": 2,
+  "depthMm": 330
 }

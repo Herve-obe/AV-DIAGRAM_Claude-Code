@@ -47,7 +47,8 @@ export function buildSampleProject(): Project {
   link('dsp', 'p5', 'amp', 'p2', 40)
   link('amp', 'p5', 'spkL', 'p1', 15)
   link('amp', 'p6', 'spkR', 'p1', 15)
-  // Erreur volontaire pour montrer le contrôle : un micro directement sur une entrée ligne
-  link('vox', 'p1', 'rec', 'p1')
+  // Le mix stéréo de la console alimente les deux entrées ligne de l’enregistreur.
+  link('desk', 'p9', 'rec', 'p1', 2)
+  link('desk', 'p10', 'rec', 'p2', 2)
   return p
 }

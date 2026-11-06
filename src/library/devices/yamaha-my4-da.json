@@ -1,14 +1,24 @@
 {
   "id": "yamaha-my4-da",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "MY4-DA",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogue Novelty 2025 ; fiche technique Yamaha non trouvée",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/0/335140/my4da_en_om_r8.pdf",
+      "document": "Yamaha MY4-DA / MY4-AD / MY8 series Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/0/335140/my4da_en_om_r8.pdf",
+      "document": "Yamaha MY4-DA : manuel, panneaux et caractéristiques",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -17,44 +27,79 @@
       "name": "Analog Out 1",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Connecteur non précisé"
+      "format": "XLR-3-32 mâle symétrique ; +4 dBu nominal / +18 dBu maximal en réglage standard ; autre réglage −10 dBV nominal / +4 dBV maximal",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "out2",
       "name": "Analog Out 2",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Connecteur non précisé"
+      "format": "XLR-3-32 mâle symétrique ; +4 dBu nominal / +18 dBu maximal en réglage standard ; autre réglage −10 dBV nominal / +4 dBV maximal",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "out3",
       "name": "Analog Out 3",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Connecteur non précisé"
+      "format": "XLR-3-32 mâle symétrique ; +4 dBu nominal / +18 dBu maximal en réglage standard ; autre réglage −10 dBV nominal / +4 dBV maximal",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "out4",
       "name": "Analog Out 4",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Connecteur non précisé"
-    },
-    {
-      "id": "slot",
-      "name": "Slot carte",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot Mini-YGDAI de la console"
+      "format": "XLR-3-32 mâle symétrique ; +4 dBu nominal / +18 dBu maximal en réglage standard ; autre réglage −10 dBV nominal / +4 dBV maximal",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     }
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-mini-ygdai",
+  "description": "Carte mini-YGDAI, quatre sorties analogiques ligne sur XLR mâles. Deux réglages de niveau : +4 dBu nominal avec +18 dBu maximal, ou −10 dBV nominal avec +4 dBV maximal. Aucune sortie au niveau micro. Alimentation par le châssis."
 }

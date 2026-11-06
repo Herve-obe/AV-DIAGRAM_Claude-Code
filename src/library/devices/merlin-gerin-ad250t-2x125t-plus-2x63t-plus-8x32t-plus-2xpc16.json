@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "MERLIN GERIN",
   "model": "AD250T/2X125T + 2x63T + 8x32T + 2xPC16",
-  "status": "community",
-  "description": "Armoire de distribution sur pied. Entrée : Bornier. Sorties : 2 x P17 125tri + 2 x P17 63tri + 8 x P17 32tri + 2 x PC16A. Protection différentielle 30mA",
+  "status": "verified",
+  "description": "Armoire de distribution sur pied. Entrée : Bornier. Sorties : 2 x P17 125tri + 2 x P17 63tri + 8 x P17 32tri + 2 x PC16A. Protection différentielle 30mA Dimensions unitaires documentées : 102 × 40 × 130 cm (ordre d’axes non précisé par la page).",
   "aliases": [
     "00641",
     "MERLIN GERIN AD250T/2X125T + 2x63T + 8x32T + 2xPC16"
@@ -16,115 +16,134 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/250a/ad250t-2x125t-2x63t-8x32t-2xpc16/",
       "document": "Novelty — AD250T/2X125T + 2x63T + 8x32T + 2xPC16",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/250a/ad250t-2x125t-2x63t-8x32t-2xpc16/",
+      "document": "Novelty : merlin-gerin-ad250t-2x125t-plus-2x63t-plus-8x32t-plus-2xpc16, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée Bornier",
+      "name": "Arrivée terminal",
       "direction": "in",
       "signal": "power",
-      "connector": "terminal"
+      "connector": "terminal",
+      "format": "Bornier / jeu de barres de puissance"
     },
     {
       "id": "out1",
-      "name": "Sortie P17 125tri 1",
+      "name": "p17-125-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out2",
-      "name": "Sortie P17 125tri 2",
+      "name": "p17-125-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out3",
-      "name": "Sortie P17 63tri 1",
+      "name": "p17-63-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out4",
-      "name": "Sortie P17 63tri 2",
+      "name": "p17-63-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out5",
-      "name": "Sortie P17 32tri 1",
+      "name": "p17-32-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out6",
-      "name": "Sortie P17 32tri 2",
+      "name": "p17-32-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out7",
-      "name": "Sortie P17 32tri 3",
+      "name": "p17-32-tri 3",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out8",
-      "name": "Sortie P17 32tri 4",
+      "name": "p17-32-tri 4",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out9",
-      "name": "Sortie P17 32tri 5",
+      "name": "p17-32-tri 5",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out10",
-      "name": "Sortie P17 32tri 6",
+      "name": "p17-32-tri 6",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out11",
-      "name": "Sortie P17 32tri 7",
+      "name": "p17-32-tri 7",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out12",
-      "name": "Sortie P17 32tri 8",
+      "name": "p17-32-tri 8",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out13",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     },
     {
       "id": "out14",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Sortie de puissance"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 110
 }

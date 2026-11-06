@@ -4,8 +4,7 @@
   "manufacturer": "Yamaha",
   "model": "STAGEPAS 1K",
   "pictogram": "speaker",
-  "status": "community",
-  "powerW": 1000,
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.alamomusic.com/products/yamaha-stagepas-1k-1000-watt-5-channel-portable-column-pa-system",
@@ -16,6 +15,16 @@
       "url": "https://usa.yamaha.com/products/proaudio/pa_systems/stagepas_1k/training.html",
       "document": "Yamaha, formation STAGEPAS 1K",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/8/1269498/stagepas1k_en_om_b0.pdf",
+      "document": "Yamaha STAGEPAS 1K Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/8/1269498/stagepas1k_en_om_b0.pdf",
+      "document": "Yamaha STAGEPAS 1K Owner’s Manual B0, pp. 8–11, 51–53 et schéma fonctionnel",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -24,40 +33,89 @@
       "name": "Input 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "combo",
       "level": "mic",
-      "format": "Micro/ligne, Hi-Z",
-      "phantom": "supplied"
+      "phantom": "none",
+      "format": "Micro/ligne symétrique XLR ou TRS ; ligne nominale XLR −10 dBu / jack −4 dBu",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "none",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in2",
       "name": "Input 2",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "combo",
       "level": "mic",
-      "format": "Micro/ligne, Hi-Z",
-      "phantom": "supplied"
+      "phantom": "none",
+      "format": "Micro/ligne symétrique XLR ou TRS ; ligne nominale XLR −10 dBu / jack −4 dBu ; Hi-Z commutable sur jack",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "none",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "in3",
       "name": "Input 3",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "combo",
       "level": "mic",
-      "format": "Micro/ligne",
-      "phantom": "supplied"
+      "phantom": "none",
+      "format": "Micro/ligne symétrique XLR ou TRS ; ligne nominale XLR −10 dBu / jack −4 dBu ; Hi-Z commutable sur jack",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "none",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ]
     },
     {
       "id": "st",
-      "name": "Stereo In",
+      "name": "ST L / Mono",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique ; nominal −4 dBu"
+    },
+    {
+      "id": "st-r",
+      "name": "ST R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "none",
+      "format": "Ligne asymétrique ; nominal −4 dBu"
+    },
+    {
+      "id": "st-mini",
+      "name": "Line mini-jack stéréo",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "none",
       "channels": 2,
-      "format": "Jack 6,35 ou mini-jack 3,5 mm"
+      "format": "3,5 mm TRS asymétrique, nominal −4 dBu ; mixé au canal ST"
     },
     {
       "id": "bt",
@@ -66,39 +124,54 @@
       "signal": "audioDigital",
       "connector": "rf",
       "channels": 2,
-      "format": "Bluetooth 5.0, A2DP"
+      "format": "Bluetooth 5.0 A2DP SBC/AAC, mixé au canal ST"
+    },
+    {
+      "id": "link-in",
+      "name": "Link In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Ligne symétrique +10 dBu"
     },
     {
       "id": "link",
-      "name": "Link Out",
+      "name": "Link Out Mono / R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Vers un second STAGEPAS 1K"
+      "level": "none",
+      "format": "Ligne symétrique +10 dBu ; mix mono ou canal droit selon mode"
     },
     {
       "id": "mon",
       "name": "Monitor Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4"
+      "connector": "xlr3",
+      "level": "none",
+      "format": "Mix mono symétrique +10 dBu, volume Monitor indépendant"
     },
     {
       "id": "fs",
-      "name": "Foot Switch",
+      "name": "Reverb Foot SW",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Réverbération"
+      "connector": "jack-ts",
+      "format": "Pédale momentanée non verrouillable, Yamaha FC5"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "1000 W (HF 190 W + LF 810 W)"
+      "connector": "iec-c13",
+      "format": "220–240 V 50/60 Hz suivant région ; 85 W à 1/8 puissance, 25 W au repos"
     }
-  ]
+  ],
+  "weightKg": 23,
+  "depthMm": 418,
+  "powerW": 85,
+  "description": "STAGEPAS 1K original : colonne active et mixage 5 canaux ; Hi-Z sur les canaux 2 et 3. Consommation indiquée à 1/8 puissance : 85 W (25 W au repos), distincte des 1000 W de sortie dynamique."
 }

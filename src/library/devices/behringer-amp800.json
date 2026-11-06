@@ -5,8 +5,8 @@
   "pictogram": "amp",
   "manufacturer": "Behringer",
   "model": "AMP800",
-  "status": "community",
-  "description": "Ampli casque 4 canaux",
+  "status": "verified",
+  "description": "Ampli casque à 4 canaux stéréo. Deux prises physiques par canal (avant et arrière), deux entrées stéréo A/B et une reprise stéréo de A. Alimentation externe 9 V AC.",
   "aliases": [
     "BEHRINGER AMP800"
   ],
@@ -25,9 +25,158 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1199718009.pdf",
       "document": "Novelty — AMP800 : AMP800",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1199717737.pdf",
+      "document": "Manuel AMP800 pp.4–5 (prises) et 7 (caractéristiques).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.5
+  "ports": [
+    {
+      "id": "input-1",
+      "name": "INPUT A L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Entrée ligne symétrique, jack 6,35 mm"
+    },
+    {
+      "id": "input-2",
+      "name": "INPUT A R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Entrée ligne symétrique, jack 6,35 mm"
+    },
+    {
+      "id": "input-3",
+      "name": "INPUT B L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Entrée ligne symétrique, jack 6,35 mm"
+    },
+    {
+      "id": "input-4",
+      "name": "INPUT B R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Entrée ligne symétrique, jack 6,35 mm"
+    },
+    {
+      "id": "phones-front-1",
+      "name": "PHONES 1 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise arrière"
+    },
+    {
+      "id": "phones-front-2",
+      "name": "PHONES 2 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise arrière"
+    },
+    {
+      "id": "phones-front-3",
+      "name": "PHONES 3 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise arrière"
+    },
+    {
+      "id": "phones-front-4",
+      "name": "PHONES 4 avant",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise arrière"
+    },
+    {
+      "id": "phones-rear-1",
+      "name": "PHONES OUT 1 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise avant"
+    },
+    {
+      "id": "phones-rear-2",
+      "name": "PHONES OUT 2 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise avant"
+    },
+    {
+      "id": "phones-rear-3",
+      "name": "PHONES OUT 3 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise avant"
+    },
+    {
+      "id": "phones-rear-4",
+      "name": "PHONES OUT 4 arrière",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Casque stéréo, jack 6,35 mm ; même canal que la prise avant"
+    },
+    {
+      "id": "link-l",
+      "name": "LINK OUT A L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Reprise symétrique de INPUT A avant les réglages"
+    },
+    {
+      "id": "link-r",
+      "name": "LINK OUT A R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Reprise symétrique de INPUT A avant les réglages"
+    },
+    {
+      "id": "power",
+      "name": "Alimentation 9 V AC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe 9 V alternatif / 750 mA ; consommation 11 W"
+    }
+  ],
+  "weightKg": 0.495,
+  "depthMm": 120,
+  "powerW": 11
 }

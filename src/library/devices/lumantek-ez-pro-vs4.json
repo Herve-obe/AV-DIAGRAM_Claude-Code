@@ -52,10 +52,11 @@
     },
     {
       "id": "in4",
-      "name": "In 4 (SDI ou HDMI)",
+      "name": "SDI In 4",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified"
+      "connector": "bnc",
+      "format": "Shared logical input 4 with HDMI"
     },
     {
       "id": "pgmHdmi",
@@ -80,12 +81,13 @@
     },
     {
       "id": "audioIn",
-      "name": "Audio In",
+      "name": "Audio In L",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "channels": 2
+      "channels": 2,
+      "format": "6.35 mm balanced mono"
     },
     {
       "id": "audioOut",
@@ -102,10 +104,36 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "7 à 14 V, 20 W"
+    },
+    {
+      "id": "hdmiIn4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Shared logical input 4 with SDI"
+    },
+    {
+      "id": "audioInR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "6.35 mm balanced mono"
+    },
+    {
+      "id": "usb",
+      "name": "USB management",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB 2.0"
     }
   ],
   "aliases": [
     "EZPROVS4",
     "Lumantek EZ-PRO VS4"
-  ]
+  ],
+  "weightKg": 1.7,
+  "depthMm": 230
 }

@@ -2,9 +2,7 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fullyLocked } from '../collab/protection'
-import { guestLayers } from '../collab/access'
-import { LAYERS } from '../model/layers'
+import { useEditing } from '../collab/useEditing'
 import { useCollab } from '../collab/session'
 import { fitToPage, PageGrid } from './PageGrid'
 import { CanvasMenu, type MenuAt } from './CanvasMenu'
@@ -32,11 +30,12 @@ import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { familiesCompatible, SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, Link, Project } from '../model/types'
 import { checkLink, checkProject } from '../model/rules'
-import { crossLayerHints, equipmentInView, layerOfSignal } from '../model/layers'
+import { crossLayerHints, primaryLayer, layerOfSignal } from '../model/layers'
 import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
 import { worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
+import { canvasViewport, rememberCanvasViewport } from '../store/canvasViewport'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
 import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
@@ -47,14 +46,15 @@ import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
 function ProposalBanner({ equipment, links, sheetId }: { equipment: number; links: number; sheetId: string }) {
   const { t } = useTranslation()
   const currentSheetId = useUi((s) => s.currentSheetId)
-  const ai = useAi.getState()
+  const ai = useAi()
+  const layout = ai.proposal?.layout
   return (
     <div className="proposal-banner" role="status">
       <span className="proposal-dot" />
-      <span>{t('ai.preview', { equipment, links })}</span>
+      <span>{t(ai.proposal?.rearrangedEquipment?.length ? 'ai.layout.preview' : 'ai.preview', { equipment: ai.proposal?.rearrangedEquipment?.length ?? equipment, links })}</span>
       {sheetId !== currentSheetId && <button className="btn btn-ghost" onClick={() => useUi.getState().setSheet(sheetId)}>{t('ai.showSheet')}</button>}
       <button className="btn btn-ghost" onClick={() => ai.discardProposal()}>{t('ai.discard')}</button>
-      <button className="btn btn-primary" onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
+      <button className="btn btn-primary" disabled={ai.busy || (layout && !layout.choices[layout.selected].valid)} onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
     </div>
   )
 }
@@ -84,7 +84,7 @@ export function Canvas() {
   const proposal = useAi((s) => s.proposal)
   const preview = proposal && proposal.base === stored ? proposal : null
   const project = preview?.project ?? stored
-  const proposedEq = useMemo(() => new Set(preview?.addedEquipment ?? []), [preview])
+  const proposedEq = useMemo(() => new Set([...(preview?.addedEquipment ?? []), ...(preview?.rearrangedEquipment ?? [])]), [preview])
   const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
   const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute, layer } = useUi()
@@ -93,13 +93,7 @@ export function Canvas() {
   // Rappels inter-calques en attente, par équipement (ports d'un autre domaine non reliés)
   // Session de collaboration : blocs sélectionnés par les autres participants
   const participants = useCollab((s) => s.participants)
-  const claims = useCollab((s) => s.claims)
-  const access = useCollab()
-  const locked = useMemo(() => {
-    if (access.status === 'off' || access.role === 'host') return new Set<import('../model/layers').Layer>()
-    const allowed = guestLayers(claims, access.userId)
-    return new Set(LAYERS.filter(l => layer === 'all' || l !== layer || !allowed.has(l)))
-  }, [claims, access.status, access.role, access.userId, layer])
+  const editing = useEditing()
   const presenceByEq = useMemo(() => {
     const m = new Map<string, { name: string; color: string }[]>()
     for (const p of participants) {
@@ -108,11 +102,11 @@ export function Canvas() {
     }
     return m
   }, [participants])
-  /** Nom de la personne qui a réservé tous les calques de l'équipement (sinon undefined) */
   const lockOf = useCallback((eq: Equipment) => {
-    const l = fullyLocked(eq, locked)
-    return l ? `${t(`library.domain.${l}`)} : ${claims[l]?.name ?? '?'}` : undefined
-  }, [locked, claims, t])
+    if (editing.equipment(eq)) return undefined
+    const reason = editing.equipmentReason(eq)
+    return t(`collab.notice.access.${reason.code}`, reason.params)
+  }, [editing, t])
   const hintsByEq = useMemo(() => {
     const m = new Map<string, string[]>()
     for (const h of crossLayerHints(project)) {
@@ -162,7 +156,9 @@ export function Canvas() {
           id: a.id,
           type: 'annotation',
           position: a.position,
-          data: { annotation: a, readOnly: presenting },
+          data: { annotation: a, readOnly: presenting || !!preview },
+          draggable: !presenting && !preview,
+          deletable: !preview,
           measured: measured.get(a.id),
           zIndex: a.kind === 'frame' ? -1 : 1,
           // Cadre : saisi par son onglet de titre ou ses bords (l'intérieur laisse passer la souris)
@@ -190,11 +186,13 @@ export function Canvas() {
             lockedBy: lockOf(eq),
           },
           // Calque actif : seuls les équipements de ce domaine (ou qui en ont des ports) restent visibles
-          hidden: !equipmentInView(eq, layer),
+          hidden: !editing.visible(eq, layer),
           measured: measured.get(eq.id),
           // Un équipement proposé n'existe pas encore dans le projet : ni déplaçable, ni supprimable
           // Équipement d'un calque réservé par quelqu'un d'autre : ni déplaçable, ni supprimable
-          ...(lockOf(eq) ? { draggable: false, deletable: false, connectable: false } : {}),
+          draggable: editing.equipment(eq),
+          deletable: editing.equipment(eq),
+          connectable: eq.ports.some(p => editing.connectable(eq, p)),
           ...(proposedEq.has(eq.id)
             ? { className: 'is-proposed', draggable: false, selectable: false, deletable: false, connectable: false }
             : {}),
@@ -203,7 +201,7 @@ export function Canvas() {
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
-  }, [project, mode, currentSheetId, presenting, proposedEq, layer, hintsByEq, presenceByEq, lockOf])
+  }, [project, mode, currentSheetId, presenting, preview, proposedEq, layer, hintsByEq, presenceByEq, lockOf, editing])
 
   // Sélection appliquée au rendu, comme pour les liaisons, plutôt que par l'effet ci-dessus (un rendu
   // plus tard) : blocs et liaisons montrent toujours la même sélection que le store.
@@ -218,11 +216,11 @@ export function Canvas() {
     // Calque actif : liaisons de ce domaine (synchro et contrôle : si leurs deux équipements sont visibles)
     const linkInView = (l: Link, signal: keyof typeof SIGNAL_STYLE) => {
       if (layer === 'all') return true
+      const a = project.equipment[l.source.equipmentId], b = project.equipment[l.target.equipmentId]
+      if (a && b && (editing.shared(a) || editing.shared(b)) && editing.existingLink(l) && (layer === 'network' || primaryLayer(a) === layer || primaryLayer(b) === layer)) return true
       const sl = layerOfSignal(signal)
       if (sl && sl !== layer) return false
-      const a = project.equipment[l.source.equipmentId]
-      const b = project.equipment[l.target.equipmentId]
-      return (!a || equipmentInView(a, layer)) && (!b || equipmentInView(b, layer))
+      return (!a || editing.visible(a, layer)) && (!b || editing.visible(b, layer))
     }
     // Liaison dans un multipaire : l'étiquette indique le câble et la paire (ex. FOH-AUD-001 · MP-01/3)
     const via = (l: Link) => {
@@ -286,7 +284,7 @@ export function Canvas() {
     }
     edgeLinkIds.current = new Map([...bundles.values()].map((e) => [e.id, e.data!.linkIds!]))
     return [...flows, ...bundles.values()]
-  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks, layer])
+  }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks, layer, editing])
 
   // La sélection ne revient au store que par les changements « select » que React Flow émet sur un geste
   // (clic, cadre de sélection, Échap, clic dans le vide). onSelectionChange n'est pas utilisé : il
@@ -470,12 +468,19 @@ export function Canvas() {
   // Alignement demandé depuis la fenêtre Infos (double écran)
   useEffect(() => onCommand('arrange', (a) => arrangeSelection(rf, a as ArrangeAction)), [rf])
 
-  // Recadrage à l'ouverture d'un autre projet ou d'une autre feuille
+  const savedViewport = useMemo(() => canvasViewport(project.id, currentSheetId), [project.id, currentSheetId])
+  const restoringViewport = useRef(true)
+  // Une feuille déjà visitée retrouve son cadrage local. Le premier affichage montre la page.
   useEffect(() => {
-    // Mode « page » : on montre la feuille entière ; sinon, tout le contenu
-    const timer = setTimeout(() => fitToPage(rf, useProject.getState().project) || rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 }), 80)
-    return () => clearTimeout(timer)
-  }, [project.id, currentSheetId, presenting, rf])
+    restoringViewport.current = true
+    let disposed = false
+    const timer = setTimeout(async () => {
+      if (savedViewport && !presenting) await rf.setViewport(savedViewport)
+      else if (!fitToPage(rf, useProject.getState().project)) await rf.fitView({ padding: 0.15, duration: 250, maxZoom: 1 })
+      if (!disposed) restoringViewport.current = false
+    }, 80)
+    return () => { disposed = true; clearTimeout(timer) }
+  }, [project.id, currentSheetId, presenting, rf, savedViewport])
 
   // Centrage demandé depuis une liste (câblage, alertes)
   useEffect(() => {
@@ -499,12 +504,13 @@ export function Canvas() {
   }, [focusRequest, rf])
 
   // Nouvelle proposition : on recadre pour que les ajouts soient visibles
-  const proposedCount = preview?.addedEquipment.length ?? 0
+  const proposedCount = (preview?.addedEquipment.length ?? 0) + (preview?.rearrangedEquipment?.length ?? 0)
+  const proposedProject = preview?.project
   useEffect(() => {
     if (!proposedCount) return
     const id = setTimeout(() => rf.fitView({ duration: 300, padding: 0.15, maxZoom: 1 }), 60)
     return () => clearTimeout(id)
-  }, [proposedCount, rf])
+  }, [proposedCount, proposedProject, rf])
 
   return (
     <div className="canvas" onPointerDownCapture={onPointerDownCapture} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }} onDrop={onDrop}>
@@ -548,7 +554,11 @@ export function Canvas() {
         multiSelectionKeyCode={['Shift', 'Meta', 'Control']}
         snapToGrid
         snapGrid={[10, 10]}
-        fitView
+        defaultViewport={savedViewport}
+        onMoveEnd={(_event, viewport) => {
+          if (!restoringViewport.current && !presenting) rememberCanvasViewport(project.id, currentSheetId, viewport)
+        }}
+        fitView={!savedViewport}
         fitViewOptions={{ padding: 0.15, maxZoom: 1 }}
         // Molette : défilement vertical ; Maj + molette : horizontal ; Ctrl (Cmd) + molette : zoom
         panOnScroll
@@ -563,7 +573,7 @@ export function Canvas() {
       >
         <EdgeRouter enabled={autoRoute} />
         <Background variant={BackgroundVariant.Dots} gap={20} size={1.4} color="var(--grid-dot)" />
-        <PageGrid />
+        <PageGrid project={project} />
         <Controls showInteractive={false} position="bottom-left" />
         <MiniMap
           position="bottom-right"

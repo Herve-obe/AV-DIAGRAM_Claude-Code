@@ -7,7 +7,7 @@ import { crossLayerHints, hintKey } from '../model/layers'
 import { findPort } from '../model/rules'
 import { SIGNAL_STYLE } from '../model/signals'
 import { groupInterface, isGroupNodeId, isInside, sheetIdOfGroupNode } from '../model/groups'
-import { DEFAULT_SHEET_ID, firstFreePair, multicoreUsage, templateFromEquipment } from '../model/project'
+import { DEFAULT_SHEET_ID, firstFreePair, multicoreUsage, templateFromEquipment, removeElements } from '../model/project'
 import type { Annotation, Equipment, EquipmentFamily, Link, PictogramId, PortDef } from '../model/types'
 import { getTemplate, useLibrary } from '../store/libraryStore'
 import { useProject } from '../store/projectStore'
@@ -89,11 +89,15 @@ function SourceNote({ templateId }: { templateId: string }) {
 function EquipmentInspector({ eq }: { eq: Equipment }) {
   const { t } = useTranslation()
   const editing = useEditing()
+  const project = useProject(s => s.project)
   const zones = useProject((s) => s.project.zones)
   const sheets = useProject((s) => s.project.sheets ?? [])
   const { updateEquipment, duplicate, remove } = useProject.getState()
   const expert = useUi((s) => s.mode) === 'expert'
   const [savedTpl, setSavedTpl] = useState(false)
+  const reason = editing.equipmentReason(eq)
+  const disabled = !editing.equipment(eq)
+  const deleteReason = editing.changeReason(removeElements(project, [eq.id], []))
   const set = (patch: Partial<Equipment>) => updateEquipment(eq.id, patch)
   const saveAsTemplate = () => {
     useLibrary.getState().addUserTemplate(templateFromEquipment(eq))
@@ -101,6 +105,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
   }
   return (
     <>
+      <fieldset disabled={disabled} title={disabled ? t(`collab.notice.access.${reason.code}`, reason.params) : undefined}>
       <div className="insp-head">
         <span className="insp-pict"><Pictogram id={eq.pictogram} size={20} /></span>
         <div>
@@ -137,7 +142,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         <div className="field-row">
           <div className="field">
             <label htmlFor="eq-family">{t('inspector.family')}</label>
-            <select id="eq-family" value={eq.family} onChange={(e) => set({ family: e.target.value as EquipmentFamily })}>
+            <select disabled={!editing.common} id="eq-family" value={eq.family} onChange={(e) => set({ family: e.target.value as EquipmentFamily })}>
               {FAMILIES.map((f) => <option key={f} value={f}>{t(`family.${f}`)}</option>)}
             </select>
           </div>
@@ -177,6 +182,7 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
         </select>
       </div>}
       {expert && <Field id="eq-notes" label={t('inspector.notes')} value={eq.notes} multiline onCommit={(v) => set({ notes: v || undefined })} />}
+      </fieldset>
       {expert ? (
         <PortEditor eq={eq} />
       ) : (
@@ -189,13 +195,13 @@ function EquipmentInspector({ eq }: { eq: Equipment }) {
       {(expert || getTemplate(eq.templateId)?.portStatus) && <SourceNote templateId={eq.templateId} />}
       {!expert && getTemplate(eq.templateId)?.portStatus === 'pending' && <button className="btn" onClick={() => useUi.getState().setPref('mode', 'expert')}>{t('inspector.completePorts')}</button>}
       <div className="insp-actions wrap">
-        <button className="btn" onClick={() => useUi.getState().select(duplicate([eq.id]), [])}><Icon name="copy" size={14} />{t('inspector.duplicate')}</button>
+        <button className="btn" disabled={disabled} onClick={() => useUi.getState().select(duplicate([eq.id]), [])}><Icon name="copy" size={14} />{t('inspector.duplicate')}</button>
         {expert && (
           <button className="btn" onClick={saveAsTemplate} disabled={savedTpl || (eq.ports.length === 0 && !eq.slots?.length) || (eq.family === 'module' && !eq.moduleType?.trim())} title={t('inspector.saveTemplateHint')}>
             <Icon name={savedTpl ? 'check' : 'bookmark'} size={14} />{savedTpl ? t('inspector.templateSaved') : t('inspector.saveTemplate')}
           </button>
         )}
-        <button className="btn btn-danger" onClick={() => remove([eq.id], [])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
+        <button className="btn btn-danger" disabled={!!deleteReason} title={deleteReason ? t(`collab.notice.access.${deleteReason.code}`, deleteReason.params) : undefined} onClick={() => remove([eq.id], [])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
     </>
   )
@@ -229,6 +235,7 @@ function LayerHints({ eq }: { eq: Equipment }) {
 
 function LinkInspector({ link }: { link: Link }) {
   const { t } = useTranslation()
+  const editing = useEditing()
   const project = useProject((s) => s.project)
   const { updateLink, remove } = useProject.getState()
   const expert = useUi((s) => s.mode) === 'expert'
@@ -238,9 +245,11 @@ function LinkInspector({ link }: { link: Link }) {
   const se = project.equipment[link.source.equipmentId]
   const te = project.equipment[link.target.equipmentId]
   const cable = getCable(link.cableTypeId)
+  const disabled = !editing.existingLink(link)
+  const reason = editing.changeReason(removeElements(project, [], [link.id]))
   if (!sp || !tp || !se || !te) return null
   return (
-    <>
+    <fieldset disabled={disabled} title={disabled && reason ? t(`collab.notice.access.${reason.code}`, reason.params) : undefined}>
       <div className="insp-head">
         <span className="insp-swatch" style={{ background: SIGNAL_STYLE[sp.signal].color }} />
         <div>
@@ -291,7 +300,7 @@ function LinkInspector({ link }: { link: Link }) {
       <div className="insp-actions">
         <button className="btn btn-danger" onClick={() => remove([], [link.id])}><Icon name="trash" size={14} />{t('inspector.delete')}</button>
       </div>
-    </>
+    </fieldset>
   )
 }
 

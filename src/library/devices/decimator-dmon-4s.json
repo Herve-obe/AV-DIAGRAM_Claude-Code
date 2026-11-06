@@ -15,6 +15,11 @@
       "url": "https://soundpro.com/products/decimator-dd-4s",
       "document": "SoundPro, fiche DD-4S (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://decimator.com/specs/DMON-4S_HARDWARE_MANUAL_FV2.0.pdf",
+      "document": "Decimator DMON-4S hardware manual V2.0 pp.1,3; brochure",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
@@ -29,7 +34,7 @@
     {
       "id": "in2",
       "name": "SDI In 2",
-      "direction": "in",
+      "direction": "bidir",
       "signal": "video",
       "connector": "bnc",
       "format": "3G / HD / SD-SDI ; configurable en recopie active"
@@ -45,7 +50,7 @@
     {
       "id": "in4",
       "name": "SDI In 4",
-      "direction": "in",
+      "direction": "bidir",
       "signal": "video",
       "connector": "bnc",
       "format": "3G / HD / SD-SDI ; configurable en recopie active"
@@ -55,7 +60,7 @@
       "name": "HDMI Out 1",
       "direction": "out",
       "signal": "video",
-      "connector": "hdmi",
+      "connector": "hdmi-mini",
       "format": "HDMI type C ; entrée ou multiview"
     },
     {
@@ -63,7 +68,7 @@
       "name": "HDMI Out 2",
       "direction": "out",
       "signal": "video",
-      "connector": "hdmi",
+      "connector": "hdmi-mini",
       "format": "HDMI type C ; entrée ou multiview"
     },
     {
@@ -71,7 +76,7 @@
       "name": "HDMI Out 3",
       "direction": "out",
       "signal": "video",
-      "connector": "hdmi",
+      "connector": "hdmi-mini",
       "format": "HDMI type C ; entrée ou multiview"
     },
     {
@@ -79,7 +84,7 @@
       "name": "HDMI Out 4",
       "direction": "out",
       "signal": "video",
-      "connector": "hdmi",
+      "connector": "hdmi-mini",
       "format": "HDMI type C ; entrée ou multiview"
     },
     {
@@ -98,5 +103,7 @@
       "connector": "dc-barrel",
       "format": "5 à 32 V, prise verrouillable"
     }
-  ]
+  ],
+  "powerW": 6,
+  "depthMm": 123
 }

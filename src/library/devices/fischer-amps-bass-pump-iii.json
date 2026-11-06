@@ -6,7 +6,7 @@
   "manufacturer": "Fischer Amps",
   "model": "Bass Pump III",
   "status": "community",
-  "description": "Système de reproduction de grave type \"Shaker\", amplifié, idéal pour tabouret de batteur.",
+  "description": "Transducteur tactile passif Bass Pump III, 50 W RMS admissibles. Diamètre 135 mm, hauteur 43 mm. Le manuel décrit deux variantes 4 Ω et 8 Ω ; impédance exacte du parc non précisée.",
   "aliases": [
     "BASSBUMPIII",
     "Fischer Amps Bass Pump III"
@@ -26,8 +26,23 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/FisherAmps_DrumInearAmp_manuel.pdf",
       "document": "Novelty — Bass Pump III : Drum Inear Amp",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/FisherAmps_BassPumpIII_manuel.pdf",
+      "document": "Notice Bass Pump III pp.1–2 (bornes, dimensions et variantes 4/8 Ω).",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "speaker-in",
+      "name": "Entrée haut-parleur +/−",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Bornes pour câble haut-parleur ; version 4 Ω ou 8 Ω à contrôler sur le transducteur"
+    }
+  ],
+  "depthMm": 43
 }

@@ -4,32 +4,47 @@
   "manufacturer": "Yamaha",
   "model": "VXS10S",
   "pictogram": "speaker",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://muzeekworld.com/collections/passive-speakers/products/yamaha-vxs10s-10-surface-mount-subwoofer-low-impedance-for-studio-or-live-use",
       "document": "Muzeek World, fiche VXS10S (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/2/329382/vxs10s_en_om_e0.pdf",
+      "document": "Yamaha VXS10S / VXS10SW / VXS10ST / VXS10STW Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/2/329382/vxs10s_en_om_e0.pdf",
+      "document": "Yamaha VXS10S Owner’s Manual E0, pp. 1–2",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in",
-      "name": "Input",
+      "name": "Input CH1 / CH2",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "terminal",
       "level": "speaker",
-      "format": "Sub passif, transformateur basse / haute impédance"
+      "channels": 2,
+      "format": "Euroblock 4 pôles, CH1 +/− et CH2 +/− ; double bobine 8 Ω + 8 Ω"
     },
     {
       "id": "satL",
-      "name": "Sortie satellites",
+      "name": "Satellite ST1 / ST2",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "terminal",
       "level": "speaker",
-      "format": "Vers enceintes satellites, 4 Ω minimum par sortie"
+      "channels": 2,
+      "format": "Euroblock 4 pôles, ST1 +/− et ST2 +/− ; passe-haut 200 Hz ; 4 Ω minimum par sortie"
     }
-  ]
+  ],
+  "weightKg": 16.5,
+  "depthMm": 389,
+  "description": "Subwoofer passif VXS10S basse impédance, double bobine 8 Ω + 8 Ω ; sorties satellites filtrées 200 Hz. Dimensions 260×500×389 mm et masse du haut-parleur seul. Version sans transformateur 70/100 V."
 }

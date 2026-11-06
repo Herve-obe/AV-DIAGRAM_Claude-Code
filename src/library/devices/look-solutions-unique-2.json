@@ -6,7 +6,7 @@
   "manufacturer": "Look Solutions",
   "model": "Unique 2",
   "status": "community",
-  "description": "Machine à brouillard",
+  "description": "Machine à brouillard Unique 2, pompe et ventilateur réglables séparément. Notice d’origine : version Europe 230 V / 50 Hz, 1 500 W sur la plaque illustrée ; version US 120 V / 60 Hz 1 300 W. DMX XLR5 entrée/sortie, commande analogique XLR3 0–10 V et câble secteur captif. La notice Unique 2.1 liée par le loueur concerne une révision différente.",
   "aliases": [
     "UNIQUE2",
     "Look Solutions Unique 2"
@@ -31,8 +31,44 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/5333-2043-unique-2.pdf",
       "document": "Novelty — Unique 2 : Unique 2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manualzz.com/doc/81046214/look-solutions-unique-2-operating-manual",
+      "document": "Look Solutions — Unique2 operating manual, p.2,6,11,16,18 : modèle original, connectique et versions Europe/US",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "analogIn",
+      "name": "Analog 0–10 V",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "1=masse, 2=entrée 0–10 V, 3=sortie +12 V 50 mA"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble captif ; forme de fiche et version tension à confirmer"
+    }
+  ],
+  "powerW": 1500
 }

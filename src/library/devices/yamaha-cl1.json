@@ -309,34 +309,27 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "Embase IEC à verrouillage V-Lock ; 170 W (200 W avec PW800W)"
-    },
-    {
-      "id": "my1",
-      "name": "Slot MY 1",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Emplacement pour carte Mini-YGDAI (connectique selon la carte)"
-    },
-    {
-      "id": "my2",
-      "name": "Slot MY 2",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Emplacement pour carte Mini-YGDAI (connectique selon la carte)"
-    },
-    {
-      "id": "my3",
-      "name": "Slot MY 3",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Emplacement pour carte Mini-YGDAI (connectique selon la carte)"
     }
   ],
   "aliases": [
     "CL1-SET",
     "YAMAHA CL1"
+  ],
+  "slots": [
+    {
+      "id": "my1",
+      "name": "Slot MY 1",
+      "type": "yamaha-mini-ygdai"
+    },
+    {
+      "id": "my2",
+      "name": "Slot MY 2",
+      "type": "yamaha-mini-ygdai"
+    },
+    {
+      "id": "my3",
+      "name": "Slot MY 3",
+      "type": "yamaha-mini-ygdai"
+    }
   ]
 }

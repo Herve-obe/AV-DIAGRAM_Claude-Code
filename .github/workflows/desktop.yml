@@ -24,6 +24,13 @@ jobs:
         with:
           workspaces: src-tauri
       - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install reportlab==4.4.9
+      - run: python scripts/build-manual.py
+      - name: Prepare verified local AI engine
+        run: python scripts/prepare-local-ai.py
       - uses: tauri-apps/tauri-action@v0
       - uses: actions/upload-artifact@v4
         with:
@@ -50,6 +57,13 @@ jobs:
         with:
           workspaces: src-tauri
       - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install reportlab==4.4.9
+      - run: python scripts/build-manual.py
+      - name: Prepare verified local AI engines
+        run: python scripts/prepare-local-ai.py
       - uses: tauri-apps/tauri-action@v0
         with:
           args: --target universal-apple-darwin
@@ -89,6 +103,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf libdbus-1-dev pkg-config
       - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install reportlab==4.4.9
+      - run: python scripts/build-manual.py
+      - name: Prepare verified local AI engines
+        run: python scripts/prepare-local-ai.py
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

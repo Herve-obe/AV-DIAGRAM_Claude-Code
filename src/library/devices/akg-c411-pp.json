@@ -4,13 +4,18 @@
   "manufacturer": "AKG",
   "model": "C411 PP",
   "pictogram": "mic",
-  "status": "community",
-  "weightKg": 0.018,
+  "status": "verified",
+  "weightKg": 0.098,
   "sources": [
     {
       "url": "https://musicstore.de/en_DE/EUR/AKG-C411PP-Vibration-Pickup-Microphone-Condenser/art-PAH0000037-000",
       "document": "Music Store, fiche C411 PP (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1590737/Akg-C411-Series.html",
+      "document": "AKG — C411 (L, PP) User Instructions, pages imprimées 22–23 et 32 (lecteur 6–7 et 16) : variantes, raccordement et poids",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
@@ -21,8 +26,9 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Capteur de vibrations statique, fantôme 9-52 V ; XLR via adaptateur MPA V L (version PP)",
+      "format": "Version PP, sortie XLR 3 mâle sur adaptateur fantôme intégré au câble ; 9–52 V, environ 2,2 mA",
       "phantom": "required"
     }
-  ]
+  ],
+  "description": "Capteur de vibrations électrostatique, version PP : câble fixe 3 m terminé par un adaptateur fantôme avec XLR mâle 3 points intégré. Le connecteur mini-XLR et le poids de 18 g concernent la version L."
 }

@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "Teranex Mini SDI Distribution 12G",
-  "status": "community",
+  "status": "verified",
   "description": "Distributeur 1x8 12GSDI Teranex",
   "aliases": [
     "D12G1X8",
@@ -16,10 +16,112 @@
       "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/teranex-mini-sdi-distribution-12g/",
       "document": "Novelty — Teranex Mini SDI Distribution 12G",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1254043/Blackmagicdesign-Teranex-Mini.html?page=51",
+      "document": "Blackmagic Teranex Mini Installation and Operation Manual, p. 51",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut5",
+      "name": "SDI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut6",
+      "name": "SDI Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut7",
+      "name": "SDI Out 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut8",
+      "name": "SDI Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet PoE+",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V AC"
+    }
+  ],
   "weightKg": 0.58,
   "powerW": 16
 }

@@ -25,37 +25,45 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_a1_manuel.pdf",
       "document": "Novelty — A-1 Live : A-1 Live",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_a1_manuel.pdf",
+      "document": "Manuel A-1 live pp.2–4 (toutes les prises, alimentation USB et dimensions).",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "usb",
-      "name": "USB",
+      "name": "USB audio et alimentation",
       "direction": "in",
       "signal": "audioDigital",
       "connector": "usb-b",
       "channels": 2,
-      "format": "USB 1.1, isolé galvaniquement ; alimente l'appareil"
+      "format": "USB 1.1 Full Speed, DAC 16 bits / 44,1 ou 48 kHz, isolé galvaniquement et alimenté USB"
     },
     {
       "id": "outL",
-      "name": "Out L",
+      "name": "CH1 gauche",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "none",
+      "format": "Sortie ligne symétrique, 1 masse / 2 + / 3 −"
     },
     {
       "id": "outR",
-      "name": "Out R",
+      "name": "CH2 droite",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "none",
+      "format": "Sortie ligne symétrique, 1 masse / 2 + / 3 −"
     }
   ],
   "aliases": [
     "A1LIVE",
     "Fohhn A-1 Live"
-  ]
+  ],
+  "depthMm": 50
 }

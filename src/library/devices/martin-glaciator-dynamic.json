@@ -6,7 +6,7 @@
   "manufacturer": "Martin",
   "model": "Glaciator Dynamic",
   "status": "community",
-  "description": "Machine à fumée lourde, 80 m3 / mn",
+  "description": "JEM Glaciator Dynamic, machine à fumée lourde réfrigérée, 3 500 W au maximum typique, 124 kg à sec / 129 kg remplie. Dimensions 785 × 648 × 769 mm avec roulettes. DMX/RDM XLR3 et XLR5 entrée/sortie, télécommande numérique XLR3, prise de programmation AVR et câble secteur captif 208–250 V.",
   "aliases": [
     "MARTIN Glaciator Dynamic"
   ],
@@ -28,8 +28,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/martin_jem_glaciator_dynamic_user_manual_en.pdf",
-      "document": "Novelty — Glaciator Dynamic : Glaciator Dynamic (UK)",
-      "accessed": "2026-10-19"
+      "document": "Martin/Harman — JEM Glaciator Dynamic user manual 35010046 rev.E, p.9,12,29–30 : panneau, connectique et caractéristiques",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/martin_jem_glaciator_dynamic_certif_en.pdf",
@@ -67,8 +67,61 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In 5 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut5",
+      "name": "DMX Thru 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "remote",
+      "name": "Télécommande numérique",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "Télécommande détachable, câble jusqu’à 25 m"
+    },
+    {
+      "id": "firmware",
+      "name": "Programmation firmware",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Socket AVR, programmateur Epsilon 5"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble captif 3,3 m, 3 × 4 mm² ; 208–250 V monophasé"
+    }
+  ],
   "weightKg": 124,
-  "powerW": 3500
+  "powerW": 3500,
+  "depthMm": 785
 }

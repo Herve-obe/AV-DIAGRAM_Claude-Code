@@ -4,25 +4,31 @@
   "manufacturer": "Neumann",
   "model": "KMS 105",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "weightKg": 0.3,
   "sources": [
     {
       "url": "https://www.barryrudolph.com/recall/manuals/neumannkms105.pdf",
       "document": "Neumann, mode d'emploi KMS 105 (archive)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1625194/Neumann-Berlin-Kms-104.html",
+      "document": "Neumann — KMS 104/104 plus / KMS 105 Operating Instructions, pages imprimées 2–5 et 8–9 (lecteur 2–3 et 5) ; KMS 105 bk explicitement identifié page 2",
+      "accessed": "2026-10-26"
     }
   ],
   "ports": [
     {
       "id": "out",
-      "name": "Sortie",
+      "name": "Sortie XLR",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Statique supercardioïde de scène, P48 ± 4 V, 3,5 mA",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "Statique supercardioïde ; 48 V ±4 V, 3,5 mA ; sortie symétrique (2 chaud, 3 froid)"
     }
-  ]
+  ],
+  "description": "Microphone statique supercardioïde. Sortie mono symétrique XLR 3, niveau micro et alimentation fantôme P48 requise."
 }

@@ -1,17 +1,27 @@
 {
   "id": "yamaha-sb168es",
-  "family": "passive",
+  "family": "stagebox",
   "domain": "sound",
-  "pictogram": "patch",
+  "pictogram": "stagebox",
   "manufacturer": "Yamaha",
-  "model": "SB168ES",
-  "status": "community",
-  "description": "Kit Stage Box numérique 16 entrées 8 sorties, livré avec 1 carte AVY16-ES100, 1 touret 100m RJ45 et 1 RJ45 30m.",
+  "model": "SB168-ES",
+  "status": "verified",
+  "description": "Stagebox EtherSound 16 entrées micro/ligne et 8 sorties analogiques. Les accessoires du kit de location ne font pas partie des caractéristiques du boîtier.",
   "aliases": [
     "SB168ES/KIT",
     "YAMAHA SB168ES"
   ],
   "sources": [
+    {
+      "url": "https://data.yamaha.com/files/download/other_assets/9/313519/sb168es_en_om_e0.pdf",
+      "document": "Yamaha SB168-ES Owner’s Manual : prises p. 8–9, caractéristiques p. 167",
+      "accessed": "2026-10-23"
+    },
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/interfaces/sb-168es/faq.html",
+      "document": "Yamaha FAQ : raccordement de sources de niveau ligne, gain sans PAD",
+      "accessed": "2026-10-23"
+    },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/cablage-multipaire-sonorisation/numerique-cablage-multipaire-sonorisation/sb168es/",
       "document": "Novelty — SB168ES",
@@ -28,7 +38,367 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 8
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in3",
+      "name": "INPUT 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in4",
+      "name": "INPUT 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in5",
+      "name": "INPUT 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in6",
+      "name": "INPUT 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in7",
+      "name": "INPUT 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in8",
+      "name": "INPUT 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in9",
+      "name": "INPUT 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in10",
+      "name": "INPUT 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in11",
+      "name": "INPUT 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in12",
+      "name": "INPUT 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in13",
+      "name": "INPUT 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in14",
+      "name": "INPUT 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in15",
+      "name": "INPUT 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "in16",
+      "name": "INPUT 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "Micro/ligne, gain −62 à +10 dB, jusqu’à +30 dBu à gain +10, sans PAD ; régler le gain selon la source"
+    },
+    {
+      "id": "out1",
+      "name": "OUTPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out3",
+      "name": "OUTPUT 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out4",
+      "name": "OUTPUT 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out5",
+      "name": "OUTPUT 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out6",
+      "name": "OUTPUT 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out7",
+      "name": "OUTPUT 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "out8",
+      "name": "OUTPUT 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, +24 dBu max par défaut"
+    },
+    {
+      "id": "esin",
+      "name": "EtherSound IN",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "EtherSound 100BASE-TX, transport bidirectionnel 16 entrées / 8 sorties ; le nombre de prises analogiques locales ne limite pas le transport des autres boîtiers chaînés"
+    },
+    {
+      "id": "esout",
+      "name": "EtherSound OUT",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "format": "EtherSound 100BASE-TX, chaînage ; le nombre de prises analogiques locales ne limite pas le transport des autres boîtiers chaînés"
+    },
+    {
+      "id": "network",
+      "name": "NETWORK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle/mise à jour ; ne transporte pas le flux EtherSound"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "weightKg": 8,
+  "rackU": 3
 }

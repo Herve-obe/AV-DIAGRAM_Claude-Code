@@ -4,7 +4,7 @@
   "manufacturer": "Portman",
   "model": "P3 Pix 3L",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -17,37 +17,41 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/4538-4505-um-p3.pdf",
-      "document": "Novelty — P3 PIX3L : UM_P3",
-      "accessed": "2026-10-19"
+      "document": "Portman — P3 PIX3L user manual v2.0, p.6–9 : 730 W / 940 W maximum, connexions",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Thru",
+      "name": "DMX Thru 5 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5"
     },
     {
       "id": "acIn",
-      "name": "Secteur",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "3 × 230 W"
+      "connector": "powercon-true1",
+      "format": "200–240 V 50/60 Hz"
     }
   ],
   "aliases": [
     "P3 PIX3L",
     "P3PIX3L/GOLD",
     "Portman P3 PIX3L"
-  ]
+  ],
+  "powerW": 940,
+  "weightKg": 3.5,
+  "depthMm": 212,
+  "description": "Projecteur décoratif à trois lampes halogènes R7s 118 mm, gradateurs intégrés, trois canaux DMX et RDM. Consommation 730 W avec lampes 230 W, 940 W maximale avec lampes 300 W. Dimensions 404 × 455 × 212 mm ; poids 3,5 kg. DMX XLR 5 points entrée/sortie et entrée TRUE1. Module W-DMX optionnel, non présumé installé."
 }

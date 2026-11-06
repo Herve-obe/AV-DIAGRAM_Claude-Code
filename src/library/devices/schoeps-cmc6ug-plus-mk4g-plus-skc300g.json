@@ -6,7 +6,7 @@
   "manufacturer": "Schoeps",
   "model": "CMC6Ug + MK4g + SKC300g",
   "status": "community",
-  "description": "Microphone statique + col de cygne, cardioïde",
+  "description": "Ensemble CMC 6 Ug + MK 4 g et col de cygne SKC300g ; sortie XLR 3 du CMC 6 U, fantôme 12 ou 48 V.",
   "aliases": [
     "CMC6 MK4 SKC",
     "SCHOEPS CMC6Ug + MK4g + SKC300g"
@@ -21,8 +21,28 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/schoeps_cmc6_et_mk4_manuel_gamme_cmc.pdf",
       "document": "Novelty — CMC6Ug + MK4g + SKC300g : CMC6-MK4",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/mikrofonverstaerker/cmc-6.html",
+      "document": "Schoeps CMC 6 U et MK 4, connectique et alimentation du préamplificateur",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://schoeps.de/produkte/colette/kapseln/nieren/mk-4.html",
+      "document": "Schoeps CMC 6 U et MK 4, connectique et alimentation du préamplificateur",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie CMC 6 U",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Préampli CMC 6 U ; P12 / P48"
+    }
+  ]
 }

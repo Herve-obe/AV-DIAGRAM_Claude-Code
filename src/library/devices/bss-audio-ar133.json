@@ -1,12 +1,12 @@
 {
   "id": "bss-audio-ar133",
-  "family": "passive",
+  "family": "capture",
   "domain": "sound",
-  "pictogram": "patch",
+  "pictogram": "di",
   "manufacturer": "BSS Audio",
   "model": "AR133",
-  "status": "community",
-  "description": "Boite de direct active",
+  "status": "verified",
+  "description": "Boîtier de direct actif mono. Le jack INPUT et le XLR INPUT sont reliés en parallèle : deux prises pour une seule entrée, représentée par un port avec choix de connecteur. Le jack LINK reprend cette entrée, directement ou via le buffer optionnel. Sortie XLR symétrique par transformateur vers une entrée microphone. Pad 0/−20/−40 dB pour instrument, ligne ou sortie ampli selon la position. Alimentation fantôme 20–48 V ou pile 9 V ; bascule automatique sur pile. Masse sans pile : 650 g.",
   "aliases": [
     "BSS AR133"
   ],
@@ -25,9 +25,78 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bss_audio_ar133_active_dibox_ft.pdf",
       "document": "Novelty — AR133 : AR133",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/759203/bss-audio-ar-133-owners-manual.html",
+      "document": "BSS Audio — AR-133 User Manual ZM0199-01 issue 1, copie ManualsDir : prises parallèles, LINK, sortie et alimentation",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://bssaudio.com/en/products/ar-133.html",
+      "document": "BSS Audio — AR-133, page constructeur : architecture mono, pad, alimentation fantôme ou pile et masse",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input mono — jack ou XLR (parallèles)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "instrument"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "line+4"
+        },
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "speaker"
+        },
+        {
+          "connector": "xlr3",
+          "level": "speaker"
+        }
+      ],
+      "format": "Entrée asymétrique unique, jack 6,35 mono et XLR en parallèle ; pad 0/−20/−40 dB selon niveau. Ne pas brancher deux sources sur les prises parallèles."
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "line+4"
+        },
+        {
+          "connector": "jack-ts",
+          "level": "speaker"
+        }
+      ],
+      "format": "Recopie de l’entrée mono, directe ou buffer optionnel ; le niveau dépend de la source et ne constitue pas une deuxième entrée."
+    },
+    {
+      "id": "out",
+      "name": "Output XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Sortie symétrique par transformateur vers préampli micro ; fantôme 20–48 V ou pile 9 V, fantôme non obligatoire avec pile."
+    }
+  ],
   "weightKg": 0.65
 }

@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "Indu-Electric",
   "model": "AD630 Indoor",
-  "status": "community",
-  "description": "Armoire de distribution en rack. Entrée : 2 jeux de Powerlock. Sorties : 5 x P17 125tri + 2 x P17 63tri + 6 x P17 32tri + 3 x PC16A. Protection différentielle réglable sur chaque départ. Dé-classable en 400A, 250A. Voltmètre et ampèremètre intégré.",
+  "status": "verified",
+  "description": "Armoire de distribution en rack. Entrée : 2 jeux de Powerlock. Sorties : 5 x P17 125tri + 2 x P17 63tri + 6 x P17 32tri + 3 x PC16A. Protection différentielle réglable sur chaque départ. Dé-classable en 400A, 250A. Voltmètre et ampèremètre intégré. Les prises Socapex et leurs reprises PC16 partagent des circuits ; leur présence ne multiplie pas la puissance disponible. Les cotes et masses de flight-case ne sont pas utilisées comme celles de l’appareil.",
   "aliases": [
     "Indu-Electric AD630 Indoor"
   ],
@@ -15,121 +15,157 @@
       "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/630a/ad630-indoor/",
       "document": "Novelty — AD630 Indoor",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/630a/ad630-indoor/",
+      "document": "Novelty : arrivées, sorties et caractéristiques propres à indu-electric-ad630-indoor",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
+      "id": "in1",
+      "name": "Arrivée powerlock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Premier jeu de conducteurs Powerlock"
+    },
+    {
+      "id": "arrival2",
+      "name": "Deuxième jeu Powerlock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Second jeu de raccordement"
+    },
+    {
       "id": "out1",
-      "name": "Sortie P17 125tri 1",
+      "name": "p17-125-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out2",
-      "name": "Sortie P17 125tri 2",
+      "name": "p17-125-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out3",
-      "name": "Sortie P17 125tri 3",
+      "name": "p17-125-tri 3",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out4",
-      "name": "Sortie P17 125tri 4",
+      "name": "p17-125-tri 4",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out5",
-      "name": "Sortie P17 125tri 5",
+      "name": "p17-125-tri 5",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out6",
-      "name": "Sortie P17 63tri 1",
+      "name": "p17-63-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out7",
-      "name": "Sortie P17 63tri 2",
+      "name": "p17-63-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out8",
-      "name": "Sortie P17 32tri 1",
+      "name": "p17-32-tri 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out9",
-      "name": "Sortie P17 32tri 2",
+      "name": "p17-32-tri 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out10",
-      "name": "Sortie P17 32tri 3",
+      "name": "p17-32-tri 3",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out11",
-      "name": "Sortie P17 32tri 4",
+      "name": "p17-32-tri 4",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out12",
-      "name": "Sortie P17 32tri 5",
+      "name": "p17-32-tri 5",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out13",
-      "name": "Sortie P17 32tri 6",
+      "name": "p17-32-tri 6",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out14",
-      "name": "Sortie PC16A 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out15",
-      "name": "Sortie PC16A 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out16",
-      "name": "Sortie PC16A 3",
+      "name": "PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     }
-  ],
-  "portStatus": "pending"
+  ]
 }

@@ -37,7 +37,123 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "UHD 60Hz"
+    },
+    {
+      "id": "dp2",
+      "name": "DisplayPort In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "UHD 60Hz"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI / PC / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Analog RGB via DVI adapter, not extra VGA socket"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "ir",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb",
+      "name": "USB Service",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC"
+    }
+  ],
   "weightKg": 80
 }

@@ -1,7 +1,9 @@
 // Changer de document ou fermer : choix explicite de l'utilisateur, sans écrasement automatique.
 import { isTauri } from '@tauri-apps/api/core'
 import i18n from '../i18n'
-import { discardRecovery, flushRecovery } from '../store/persistence'
+import { discardRecovery, flushRecovery, setRecoveryIdleProject } from '../store/persistence'
+import { createProject } from '../model/project'
+import { useUi } from '../store/uiStore'
 import { useProject } from '../store/projectStore'
 import { notifyError, openProjectFile, saveProjectFile } from './files'
 import { saveDesktopLayout } from '../store/windowLayout'
@@ -42,6 +44,24 @@ export async function openDocument(): Promise<boolean> {
   if (!(await prepareToLeave())) return false
   try { const p = await openProjectFile(); if (!p) return false; useProject.getState().load(p); return true }
   catch { await notifyError(i18n.t('menu.openError')); return false }
+}
+export async function closeDocument(): Promise<boolean> {
+  if (!(await prepareToLeave())) return false
+  try {
+    await discardRecovery()
+    const empty = createProject(i18n.t('menu.newProjectName'))
+    setRecoveryIdleProject(empty.id)
+    useProject.getState().load(empty)
+    const ui = useUi.getState()
+    ui.select([], [])
+    ui.setSheet(empty.sheets?.[0]?.id ?? '')
+    ui.setView('diagram')
+    ui.setStartOpen(true)
+    return true
+  } catch (e) {
+    await notifyError(i18n.t('storage.saveError', { error: String(e) }))
+    return false
+  }
 }
 export async function guardWindowClose() {
   if (isTauri()) {

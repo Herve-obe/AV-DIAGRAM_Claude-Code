@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "NOVELTY",
   "model": "RS125-V2",
-  "status": "community",
-  "description": "Armoire de distribution IN = P17 125tri / OUT = 24+3 x PC16 + 4 x Soca 419, 30mA, Vigi 0.3-3A, recopie 125A",
+  "status": "verified",
+  "description": "Armoire de distribution IN = P17 125tri / OUT = 24+3 x PC16 + 4 x Soca 419, 30mA, Vigi 0.3-3A, recopie 125A Les prises Socapex et leurs reprises PC16 partagent des circuits ; leur présence ne multiplie pas la puissance disponible. Les cotes et masses de flight-case ne sont pas utilisées comme celles de l’appareil.",
   "aliases": [
     "NOVELTY RS125-V2"
   ],
@@ -25,205 +25,281 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/novelty_rs125-v2-PM1000_manuel.pdf",
       "document": "Novelty — RS125-V2 : Centrale de mesure",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/rs125-v2/",
+      "document": "Novelty : arrivées, sorties et caractéristiques propres à novelty-rs125-v2",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Entrée P17 125tri",
+      "name": "Arrivée p17-125-tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-125-tri"
+      "connector": "p17-125-tri",
+      "format": "Arrivée de puissance"
     },
     {
       "id": "out1",
-      "name": "Sortie PC16 1",
+      "name": "PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out2",
-      "name": "Sortie PC16 2",
+      "name": "PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out3",
-      "name": "Sortie PC16 3",
+      "name": "PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out4",
-      "name": "Sortie PC16 4",
+      "name": "PC16 4",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out5",
-      "name": "Sortie PC16 5",
+      "name": "PC16 5",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out6",
-      "name": "Sortie PC16 6",
+      "name": "PC16 6",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out7",
-      "name": "Sortie PC16 7",
+      "name": "PC16 7",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out8",
-      "name": "Sortie PC16 8",
+      "name": "PC16 8",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out9",
-      "name": "Sortie PC16 9",
+      "name": "PC16 9",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out10",
-      "name": "Sortie PC16 10",
+      "name": "PC16 10",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out11",
-      "name": "Sortie PC16 11",
+      "name": "PC16 11",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out12",
-      "name": "Sortie PC16 12",
+      "name": "PC16 12",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out13",
-      "name": "Sortie PC16 13",
+      "name": "PC16 13",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out14",
-      "name": "Sortie PC16 14",
+      "name": "PC16 14",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out15",
-      "name": "Sortie PC16 15",
+      "name": "PC16 15",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out16",
-      "name": "Sortie PC16 16",
+      "name": "PC16 16",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out17",
-      "name": "Sortie PC16 17",
+      "name": "PC16 17",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out18",
-      "name": "Sortie PC16 18",
+      "name": "PC16 18",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out19",
-      "name": "Sortie PC16 19",
+      "name": "PC16 19",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out20",
-      "name": "Sortie PC16 20",
+      "name": "PC16 20",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out21",
-      "name": "Sortie PC16 21",
+      "name": "PC16 21",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out22",
-      "name": "Sortie PC16 22",
+      "name": "PC16 22",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out23",
-      "name": "Sortie PC16 23",
+      "name": "PC16 23",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out24",
-      "name": "Sortie PC16 24",
+      "name": "PC16 24",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out25",
-      "name": "Sortie PC16 25",
+      "name": "PC16 25",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out26",
-      "name": "Sortie PC16 26",
+      "name": "PC16 26",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
     },
     {
       "id": "out27",
-      "name": "Sortie PC16 27",
+      "name": "PC16 27",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "departure1",
+      "name": "Socapex SL419 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "Six circuits ; prises PC16 pouvant reprendre les mêmes circuits",
+      "channels": 6
+    },
+    {
+      "id": "departure2",
+      "name": "Socapex SL419 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "Six circuits ; prises PC16 pouvant reprendre les mêmes circuits",
+      "channels": 6
+    },
+    {
+      "id": "departure3",
+      "name": "Socapex SL419 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "Six circuits ; prises PC16 pouvant reprendre les mêmes circuits",
+      "channels": 6
+    },
+    {
+      "id": "departure4",
+      "name": "Socapex SL419 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "Six circuits ; prises PC16 pouvant reprendre les mêmes circuits",
+      "channels": 6
+    },
+    {
+      "id": "departure5",
+      "name": "Recopie 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
     }
-  ],
-  "portStatus": "pending"
+  ]
 }

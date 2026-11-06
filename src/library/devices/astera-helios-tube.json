@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Astera",
   "model": "Helios Tube",
-  "status": "community",
-  "description": "Tube évènementiel décoratif LED sans fil 50cm, sur batterie jusqu'à 20h, LED 36W RGBMA, angle 120°",
+  "status": "verified",
+  "description": "Tube LED RGBMintAmber 8 pixels sur batterie ; 550 mm × Ø43 mm, IP65 avec capot FP1-SP. Consommation LED 24 W, entrée 24 V CC / 1,25 A. DMX filaire sur la prise DC avec PowerBox/DataLink externe ; CRMX intégré. Le Bluetooth Bridge concerne la variante FP2-BTB (après septembre 2021).",
   "aliases": [
     "HELIOS-SET8",
     "Astera Helios Tube"
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/2025/07/FP2_Helios_Tube_Datasheet_V3.pdf",
-      "document": "Novelty — Helios Tube : Fiche technique",
-      "accessed": "2026-10-19"
+      "document": "Astera — Helios Tube Datasheet v3, 31 janvier 2023, pages 1–2 : FP2 et FP2-BTB, alimentation et données communes",
+      "accessed": "2026-10-26"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/2025/07/FP2_HeliosTube_Manual_EN.pdf",
@@ -28,8 +28,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "power-data",
+      "name": "Alimentation / données",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V CC / 1,25 A ; 5,5 × 2,1 mm. Cette même prise reçoit aussi le DMX via FP1-PWB / FP3-DTL / PWB-2-86, sans embase XLR sur le tube."
+    }
+  ],
   "weightKg": 0.765,
   "powerW": 24
 }

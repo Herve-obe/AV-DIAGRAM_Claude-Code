@@ -5,8 +5,8 @@
   "pictogram": "mic",
   "manufacturer": "Telefunken",
   "model": "M80",
-  "status": "community",
-  "description": "Micro dynamique cardioïde",
+  "status": "verified",
+  "description": "Microphone dynamique supercardioïde, version M80 filaire à main ; distinct des versions courtes SH et des capsules HF WH/WH2.",
   "aliases": [
     "M80-TELEF",
     "Telefunken M80"
@@ -16,9 +16,34 @@
       "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/dynamique/m80/",
       "document": "Novelty — M80",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2591027/Telefunken-Dynamic-Series.html",
+      "document": "Telefunken — Dynamic Series Microphone Product Manual, pages imprimées 4–5 (lecteur 3) : M80 filaire, directivité, sensibilité et poids",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.telefunken-elektroakustik.com/product/m80-standard/",
+      "document": "Telefunken — M80 standard : fiche fabricant, supercardioïde et poids 430 g",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.telefunken-elektroakustik.com/m80-m81-microphone-set-screw-repair-and-replacement/",
+      "document": "Telefunken — XLR Connector Set Screw Repair and Replacement : texte et photo du connecteur mâle trois broches",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.371
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Dynamique à bobine mobile, sortie micro XLR 3 mâle, impédance 325 Ω"
+    }
+  ],
+  "weightKg": 0.43
 }

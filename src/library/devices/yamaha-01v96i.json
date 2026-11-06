@@ -249,15 +249,6 @@
       "format": "Connecteur non précisé"
     },
     {
-      "id": "slot",
-      "name": "Slot Mini-YGDAI",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 16,
-      "format": "16 in / 16 out"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -268,5 +259,12 @@
   ],
   "aliases": [
     "YAMAHA 01V96i"
+  ],
+  "slots": [
+    {
+      "id": "slot",
+      "name": "Slot Mini-YGDAI",
+      "type": "yamaha-mini-ygdai"
+    }
   ]
 }

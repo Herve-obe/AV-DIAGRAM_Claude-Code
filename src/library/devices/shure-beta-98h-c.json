@@ -4,12 +4,8 @@
   "manufacturer": "Shure",
   "model": "Beta 98H/C",
   "pictogram": "mic",
-  "status": "community",
+  "status": "verified",
   "sources": [
-    {
-      "document": "Catalogue Novelty 2025 ; documentation Shure non trouvée en ligne (à compléter)",
-      "accessed": "2026-10-08"
-    },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/micros-a-fil/statique/beta98h-c/",
       "document": "Novelty — BETA98H/C",
@@ -24,23 +20,29 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/shure_beta98hc_ft.pdf",
       "document": "Novelty — BETA98H/C : Beta98H/C",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/BETA98H/en-US.pdf",
+      "document": "Shure BETA98H/C / WB98H/C User Guide",
+      "accessed": "2026-10-25"
     }
   ],
   "ports": [
     {
       "id": "out",
-      "name": "Sortie",
+      "name": "Sortie micro",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
-      "format": "Statique cardioïde pour instrument, pince ; préampli vers XLR (à vérifier)",
-      "phantom": "required"
+      "phantom": "required",
+      "format": "Sortie XLR 3 broches symétrique via le préamplificateur RPM626 fourni ; alimentation fantôme 11–52 V DC."
     }
   ],
   "aliases": [
     "BETA98H/C",
     "BETA98HC",
     "SHURE BETA98H/C"
-  ]
+  ],
+  "weightKg": 0.156
 }

@@ -6,7 +6,7 @@
   "manufacturer": "AKG",
   "model": "C535",
   "status": "community",
-  "description": "Microphone statique cardioïde à electret",
+  "description": "Condensateur cardioïde ; C535 EB, fantôme 9–52 V. Poids hors câble.",
   "aliases": [
     "AKG C535"
   ],
@@ -20,8 +20,24 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/akg_c535_manuel.pdf",
       "document": "Novelty — C535 : C535",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/akg_c535_manuel.pdf",
+      "document": "AKG C535 EB User Instructions associé à la référence de location, p. 19",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Condensateur cardioïde ; C535 EB, fantôme 9–52 V"
+    }
+  ],
+  "weightKg": 0.3
 }

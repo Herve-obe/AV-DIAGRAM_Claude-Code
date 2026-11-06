@@ -1,6 +1,6 @@
 {
   "id": "yamaha-py8-ae",
-  "family": "processing",
+  "family": "module",
   "manufacturer": "Yamaha",
   "model": "PY8-AE",
   "pictogram": "processor",
@@ -10,6 +10,11 @@
       "url": "https://www.fullcompass.com/prod/621888-yamaha-py8-ae-8x8-aes-ebu-format-with-input-src",
       "document": "Full Compass, fiche PY8-AE (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://de.yamaha.com/files/download/other_assets/1/2138651/py8ae_en_om_a0.pdf",
+      "document": "Yamaha — PY8-AE Owner’s Manual, carte pour slot PY",
+      "accessed": "2026-10-25"
     }
   ],
   "ports": [
@@ -21,14 +26,8 @@
       "connector": "dsub25",
       "channels": 8,
       "format": "D-sub 25 : 8 entrées / 8 sorties (4 paires AES3 chacune), SRC en entrée"
-    },
-    {
-      "id": "slot",
-      "name": "Slot carte",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Se loge dans un slot PY (DM7) de la console"
     }
-  ]
+  ],
+  "domain": "misc",
+  "moduleType": "yamaha-py"
 }

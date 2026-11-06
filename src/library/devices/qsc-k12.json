@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "QSC",
   "model": "K12",
-  "status": "community",
-  "description": "Enceinte 12\" amplifiée, 1000W, 2 entrées XLR/Jack/RCA, égalisation",
+  "status": "verified",
+  "description": "QSC K12 première génération ; 9 prises physiques dont sorties directes A/B, sortie mixée et commande distante. Consommation publiée en A, pas en W.",
   "aliases": [
     "QSC K12"
   ],
@@ -45,9 +45,119 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/qsc_k12_certificat.pdf",
       "document": "Novelty — K12 : K12",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/qsc_k12_manuel-fr.pdf",
+      "document": "QSC K Series Mode d’emploi, pp.9–12,15 et20",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 18.6
+  "ports": [
+    {
+      "id": "a",
+      "name": "INPUT A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "phantom": "none",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line+4",
+          "phantom": "none"
+        }
+      ],
+      "format": "Combo XLR/TRS, commutateur MIC/LINE, sans fantôme"
+    },
+    {
+      "id": "b",
+      "name": "INPUT B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "phantom": "none",
+      "format": "Ligne XLR/TRS"
+    },
+    {
+      "id": "rcaL",
+      "name": "INPUT B RCA L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Entrée ligne asymétrique"
+    },
+    {
+      "id": "rcaR",
+      "name": "INPUT B RCA R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Entrée ligne asymétrique"
+    },
+    {
+      "id": "thruA",
+      "name": "DIRECT OUT A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ],
+      "format": "Reprise avant gain de INPUT A ; même niveau que la source"
+    },
+    {
+      "id": "thruB",
+      "name": "DIRECT OUT B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Reprise avant gain de INPUT B ; RCA exclues"
+    },
+    {
+      "id": "mix",
+      "name": "POST GAIN LINE OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Somme de A, B et RCA après gains"
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE GAIN",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Euroblock 3 points, atténuation 0–5 V et standby"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "V-LOCK 100–240 V 50/60 Hz ; consommation 1,13 A à 230 V à 1/8 puissance"
+    }
+  ],
+  "weightKg": 18.6,
+  "depthMm": 356
 }

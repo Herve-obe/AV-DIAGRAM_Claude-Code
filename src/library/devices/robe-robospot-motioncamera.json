@@ -5,8 +5,8 @@
   "pictogram": "console",
   "manufacturer": "Robe",
   "model": "RoboSpot MotionCamera",
-  "status": "community",
-  "description": "Caméra montée sur lyre motorisée conçue pour s’associer aux BMFL Spot, Blade et Wash Beam, piloté par le pupitre \"RoboSpot BaseStation\"",
+  "status": "verified",
+  "description": "RoboSpot MotionCamera, caméra motorisée pour système de poursuite RoboSpot,35 W maximum à230 V,5,7 kg. DMX/RDM XLR5 entrée/sortie, sortie caméra RJ45 et powerCON TRUE1 entrée/sortie100–240 V. Le module DMX sans fil externe est optionnel.",
   "aliases": [
     "Robe RoboSpot MotionCamera"
   ],
@@ -18,13 +18,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/robe_robospot-camera_manuel.pdf",
-      "document": "Novelty — RoboSpot MotionCamera : MotionCamera",
-      "accessed": "2026-10-19"
+      "document": "Robe — RoboSpot MotionCamera user manual v1.5,p.5,8,22–23 : connectique et caractéristiques",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/robe_robospot-camera_ft.pdf",
-      "document": "Novelty — RoboSpot MotionCamera : MotionCamera",
-      "accessed": "2026-10-19"
+      "document": "Robe — RoboSpot MotionCamera specifications,p.2–3",
+      "accessed": "2026-10-27"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/robe_robospot-camera_certificat-ec-doc.pdf",
@@ -47,8 +47,46 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 6.5,
-  "powerW": 35
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "cameraOut",
+      "name": "Sortie caméra",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Liaison caméra vers système RoboSpot"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100–240 V50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ],
+  "weightKg": 5.7,
+  "powerW": 35,
+  "depthMm": 147
 }

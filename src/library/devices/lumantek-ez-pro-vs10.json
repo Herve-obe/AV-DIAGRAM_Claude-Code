@@ -4,7 +4,7 @@
   "manufacturer": "Lumantek",
   "model": "ez-Pro VS10",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.markertek.com/Attachments/Manuals/Lumantek/vs10-manual.pdf",
@@ -103,29 +103,29 @@
     },
     {
       "id": "outs",
-      "name": "Sorties SDI / HDMI",
+      "name": "SDI PGM 1",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Programme, clean, preview, AUX et multiview (nombre selon les sources)"
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "audioIn",
-      "name": "Audio In",
+      "name": "Audio In CH1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "channels": 2
+      "channels": 1
     },
     {
       "id": "audioOut",
-      "name": "Audio Out",
+      "name": "Audio Out CH1",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "channels": 2
+      "channels": 1
     },
     {
       "id": "ref",
@@ -153,7 +153,7 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-a"
     },
     {
       "id": "dc",
@@ -161,10 +161,76 @@
       "direction": "in",
       "signal": "power",
       "connector": "xlr4"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In CH2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Audio Out CH2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "pgmSdi2",
+      "name": "SDI PGM 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux1",
+      "name": "SDI AUX 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux2",
+      "name": "SDI AUX 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux3",
+      "name": "SDI AUX 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux4",
+      "name": "SDI AUX 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "pgmHdmi",
+      "name": "HDMI PGM",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "mvHdmi",
+      "name": "HDMI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
     }
   ],
   "aliases": [
     "EZPROVS10",
     "Lumantek ez-Pro VS10"
-  ]
+  ],
+  "powerW": 40,
+  "weightKg": 3.7,
+  "depthMm": 294
 }

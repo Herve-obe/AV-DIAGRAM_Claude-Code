@@ -10,37 +10,82 @@
     {
       "url": "https://www.radialeng.com/product/jpc",
       "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.radialeng.com/product/jpc/specifications",
+      "document": "JPC User Guide MK3 v3.1, pp. 2, 4–6, 11 ; fiche fabricant actuelle",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.radialeng.com/wp-content/uploads/2018/04/JPC-Manual-WEB-08-2022.pdf",
+      "document": "JPC User Guide MK3 v3.1, pp. 2, 4–6, 11 ; fiche fabricant actuelle",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "in-jack",
-      "name": "Entrée jack 6,35",
-      "direction": "in",
+      "name": "Entrée jack G",
+      "direction": "bidir",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line-10",
-      "channels": 2,
-      "format": "1/4 pouce, 10 kohm ; nombre et câblage des jacks non précisés"
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Mono asymétrique, 10 kΩ ; parallèle aux entrées G et utilisable comme reprise"
+    },
+    {
+      "id": "in-jack-r",
+      "name": "Entrée jack D",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Mono asymétrique, 10 kΩ ; parallèle aux entrées D et utilisable comme reprise"
     },
     {
       "id": "in-rca",
-      "name": "Entrée RCA",
-      "direction": "in",
+      "name": "Entrée RCA G",
+      "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2
+      "level": "none",
+      "format": "Ligne grand public asymétrique ; parallèle aux entrées G"
+    },
+    {
+      "id": "in-rca-r",
+      "name": "Entrée RCA D",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Ligne grand public asymétrique ; parallèle aux entrées D"
     },
     {
       "id": "in-mini",
-      "name": "Entrée mini-jack",
-      "direction": "in",
+      "name": "Entrée mini-jack stéréo",
+      "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "level": "line-10",
+      "level": "none",
       "channels": 2,
-      "format": "3,5 mm TRS"
+      "format": "3,5 mm TRS ; ligne ou casque avec pad ; entrées en parallèle"
+    },
+    {
+      "id": "thru-rca-l",
+      "name": "Thru RCA G",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Reprise parallèle entrée G"
+    },
+    {
+      "id": "thru-rca-r",
+      "name": "Thru RCA D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "none",
+      "format": "Reprise parallèle entrée D"
     },
     {
       "id": "out-l",
@@ -62,5 +107,6 @@
       "format": "XLR 600 ohms, fantôme 48 V exigé sur chaque canal",
       "phantom": "required"
     }
-  ]
+  ],
+  "description": "DI stéréo pour sources asymétriques grand public, transformateurs d’isolation en entrée et sorties actives. Les connecteurs d’entrée sont en parallèle ; P48 exigé sur chaque sortie XLR."
 }

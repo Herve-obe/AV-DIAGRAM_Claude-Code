@@ -6,7 +6,7 @@
   "manufacturer": "DRAWMER",
   "model": "DS201",
   "status": "community",
-  "description": "Noise-Gate stéréo, entrées/sorties XLR",
+  "description": "DS201 version XLR ; deux entrées KEY indépendantes en jack mono. Poids net non établi : 3,4 kg indiqué emballage compris.",
   "aliases": [
     "DRAWMER DS201"
   ],
@@ -25,8 +25,74 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186143271.pdf",
       "document": "Novelty — DS201 : DS201",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.drawmer.com/uploads/manuals/ds201_operators_manual.pdf",
+      "document": "Drawmer DS201 Operator’s Manual, pp. 4–5 et 13",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out1",
+      "name": "OUTPUT 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "out2",
+      "name": "OUTPUT 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "key1",
+      "name": "KEY INPUT 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Entrée audio de déclenchement externe"
+    },
+    {
+      "id": "key2",
+      "name": "KEY INPUT 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Entrée audio de déclenchement externe"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur fourni ; 115/230 V selon sélecteur"
+    }
+  ],
+  "powerW": 9,
+  "rackU": 1,
+  "depthMm": 200
 }

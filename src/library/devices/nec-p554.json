@@ -4,26 +4,45 @@
   "manufacturer": "NEC",
   "model": "MultiSync P554",
   "pictogram": "display",
-  "status": "community",
-  "weightKg": 26.6,
+  "status": "verified",
+  "weightKg": 24.5,
   "sources": [
     {
       "url": "https://www.ampronix.com/nec-p554",
       "document": "Ampronix, fiche P554 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_p554_manuel-uk.pdf",
+      "document": "NEC P404/P484/P554 manufacturer manual pp.10-11,18; exact model datasheet pp.2-3",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "hdmi1",
-      "name": "HDMI In",
+      "name": "HDMI1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI2 In",
       "direction": "in",
       "signal": "video",
       "connector": "hdmi"
     },
     {
       "id": "displayport1",
-      "name": "DP In",
+      "name": "DisplayPort1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "displayport2",
+      "name": "DisplayPort2 In",
       "direction": "in",
       "signal": "video",
       "connector": "displayport"
@@ -37,17 +56,134 @@
     },
     {
       "id": "vga1",
-      "name": "VGA In",
+      "name": "VGA / YPbPr In",
       "direction": "in",
       "signal": "video",
       "connector": "vga"
     },
     {
+      "id": "bnc1",
+      "name": "Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "remote",
+      "name": "Remote sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232",
+      "name": "RS232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb1",
+      "name": "USB1 downstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB2 upstream",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "usbCM1",
+      "name": "USB CM1 power",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "5 V /2 A"
+    },
+    {
+      "id": "usbCM2",
+      "name": "USB CM2 service",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbMP",
+      "name": "USB MediaPlayer",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "speakerL",
+      "name": "Speaker L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "15 W /8 ohm"
+    },
+    {
+      "id": "speakerR",
+      "name": "Speaker R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "15 W /8 ohm"
+    },
+    {
       "id": "ac",
-      "name": "Secteur",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13"
     }
-  ]
+  ],
+  "powerW": 175,
+  "depthMm": 62.9
 }

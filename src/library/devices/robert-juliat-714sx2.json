@@ -4,22 +4,30 @@
   "manufacturer": "Robert Juliat",
   "model": "714SX2",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "powerW": 2500,
   "sources": [
     {
       "document": "Catalogue Novelty 2025 ; modèle ancien, absent du site Robert Juliat",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN074_714SX2.pdf",
+      "document": "Robert Juliat — DSEN074 714SX2, p.1–4 : modèle exact, poids 20 kg et cordon standard",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Découpe 2 ou 2,5 kW, zoom 15-40° ; pas de commande DMX, gradateur externe"
+      "connector": "schuko",
+      "format": "Câble captif 3 m H07RN-F 3G1,5, CEE 7/7 standard, 230/240 V"
     }
-  ]
+  ],
+  "weightKg": 20,
+  "depthMm": 740,
+  "description": "Découpe halogène 714SX2, zoom 15–40°, lampe G22 2 000 ou 2 500 W. Poids 20 kg, dimensions 740 × 380 × 525 mm. Un cordon secteur captif 3 m terminé par fiche CEE 7/7 NF/Schuko standard ; option P17 séparée. Aucun DMX natif."
 }

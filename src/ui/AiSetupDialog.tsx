@@ -3,25 +3,21 @@
 // de la clé, clé rangée dans le trousseau, test de connexion, modèle et accord sur l'envoi des données.
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AiError, listModels, testChat } from '../ai/agent'
+import { listModels } from '../ai/agent'
+import { assistantErrorText, testAssistant } from '../ai/setup'
 import { checkKeyShape, pickRecommended, PROVIDERS, providerInfo, type ProviderId } from '../ai/providers'
 import { startServer, stopServer } from '../ai/local'
 import { keyStore, nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
+import { LocalAiSetup } from './LocalAiSetup'
 
-type Path = 'choose' | 'local' | 'account'
+type Path = 'choose' | 'local' | 'account' | 'builtin'
 type Status = { state: 'idle' | 'running' | 'ok' | 'error'; text?: string }
 
-const STEPS: Record<Exclude<Path, 'choose'>, string[]> = {
+const STEPS: Record<'local' | 'account', string[]> = {
   local: ['server', 'model', 'test'],
-  account: ['provider', 'create', 'key', 'connect', 'model'],
-}
-
-function errorText(t: (k: string) => string, e: unknown): string {
-  const kind = e instanceof AiError ? e.kind : 'network'
-  const detail = e instanceof Error ? e.message : String(e)
-  return `${t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}`
+  account: ['provider', 'create', 'key', 'connect', 'model', 'test'],
 }
 
 function StatusLine({ status }: { status: Status }) {
@@ -36,9 +32,11 @@ function StatusLine({ status }: { status: Status }) {
 }
 
 export function AiSetupDialog() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const open = useAi((s) => s.setupOpen)
   const settings = useAi((s) => s.settings)
+  const installerDirectory = useAi((s) => s.installerDirectory)
+  const [tested, setTested] = useState(false)
   const [path, setPath] = useState<Path>('choose')
   const [step, setStep] = useState(0)
   const [provider, setProvider] = useState<ProviderId>('ollama')
@@ -55,13 +53,14 @@ export function AiSetupDialog() {
   const [modelPath, setModelPath] = useState('')
   const native = nativeAvailable()
   const info = providerInfo(provider)
-  const close = () => useAi.getState().setSetupOpen(false)
+  const close = () => { if (status.state !== 'running') useAi.getState().setSetupOpen(false) }
 
   // À l'ouverture : on repart des réglages enregistrés
   useEffect(() => {
     if (!open) return
+    const settings = useAi.getState().settings
     const p = settings.provider ?? 'ollama'
-    setPath(settings.enabled && settings.provider ? providerInfo(p).kind : 'choose')
+    setPath(installerDirectory ? 'builtin' : settings.enabled && settings.provider ? p === 'builtin' ? 'builtin' : providerInfo(p).kind : 'choose')
     setStep(0)
     setProvider(p)
     setBaseUrl(settings.baseUrl ?? providerInfo(p).defaultBaseUrl ?? '')
@@ -70,20 +69,29 @@ export function AiSetupDialog() {
     setConsent(settings.consent)
     setKey('')
     setStatus({ state: 'idle' })
+    setTested(false)
     setManagedOn(!!settings.managed)
-    setServerPath(settings.managed?.serverPath ?? '')
-    setModelPath(settings.managed?.modelPath ?? '')
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
+    setServerPath(settings.managed && 'serverPath' in settings.managed ? settings.managed.serverPath : '')
+    setModelPath(settings.managed && 'modelPath' in settings.managed ? settings.managed.modelPath : '')
+  }, [open, installerDirectory])
+
+  useEffect(() => {
+    if (!open || path === 'builtin') return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && status.state !== 'running') useAi.getState().setSetupOpen(false) }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [open, settings])
+  }, [open, path, status.state])
 
   useEffect(() => {
     if (!open || !native || path !== 'account') return
-    keyStore.present(provider).then(setKeyPresent, () => setKeyPresent(false))
-  }, [open, native, path, provider])
+    let disposed = false
+    setKeyPresent(false)
+    keyStore.present(provider, provider === 'compatible' ? baseUrl.trim() : undefined).then((present) => { if (!disposed) setKeyPresent(present) }, () => { if (!disposed) setKeyPresent(false) })
+    return () => { disposed = true }
+  }, [open, native, path, provider, baseUrl])
 
   if (!open) return null
+  if (path === 'builtin') return <LocalAiSetup back={() => setPath('choose')} advanced={() => { setPath('local'); setStep(0); setProvider('ollama'); setBaseUrl(providerInfo('ollama').defaultBaseUrl ?? ''); setModels([]) }} />
 
   const usesUrl = info.kind === 'local' || provider === 'compatible'
   const url = usesUrl ? baseUrl.trim() : undefined
@@ -96,6 +104,10 @@ export function AiSetupDialog() {
     setModels([])
     setModel('')
     setStatus({ state: 'idle' })
+    setConsent(false)
+    setKey('')
+    setKeyPresent(false)
+    setTested(false)
   }
   const choosePath = (p: Path) => {
     setPath(p)
@@ -112,7 +124,7 @@ export function AiSetupDialog() {
       setStatus(list.length ? { state: 'ok', text: t('ai.setup.connected', { count: list.length }) } : { state: 'error', text: t('ai.setup.noModel') })
       return list.length > 0
     } catch (e) {
-      setStatus({ state: 'error', text: errorText(t, e) })
+      setStatus({ state: 'error', text: assistantErrorText(t, e) })
       return false
     }
   }
@@ -138,23 +150,26 @@ export function AiSetupDialog() {
       setModel(list[0] ?? '')
       setStatus({ state: 'ok', text: t('ai.setup.connected', { count: list.length }) })
     } catch (e) {
-      setStatus({ state: 'error', text: errorText(t, e) })
+      setStatus({ state: 'error', text: assistantErrorText(t, e) })
     }
   }
 
   const runTest = async () => {
     setStatus({ state: 'running', text: t('ai.setup.testing') })
     try {
-      const answer = await testChat(nativeTransport, { provider, baseUrl: url, model }, t('ai.setup.testQuestion'))
-      setStatus({ state: 'ok', text: answer || t('ai.emptyReply') })
+      setTested(false)
+      await testAssistant({ provider, baseUrl: url, model }, i18n.language)
+      setTested(true)
+      setStatus({ state: 'ok', text: t('ai.local.tested') })
     } catch (e) {
-      setStatus({ state: 'error', text: errorText(t, e) })
+      setStatus({ state: 'error', text: assistantErrorText(t, e) })
     }
   }
 
   const saveKey = async () => {
+    setStatus({ state: 'running', text: t('ai.setup.testing') })
     try {
-      await keyStore.set(provider, key)
+      await keyStore.set(provider, key, provider === 'compatible' ? url : undefined)
       setKey('')
       setKeyPresent(true)
       setStatus({ state: 'ok', text: t('ai.setup.keySaved') })
@@ -163,8 +178,9 @@ export function AiSetupDialog() {
     }
   }
   const removeKey = async () => {
+    setStatus({ state: 'running', text: t('ai.setup.testing') })
     try {
-      await keyStore.remove(provider)
+      await keyStore.remove(provider, provider === 'compatible' ? url : undefined)
       setKeyPresent(false)
       setStatus({ state: 'ok', text: t('ai.setup.keyRemoved') })
     } catch (e) {
@@ -173,11 +189,13 @@ export function AiSetupDialog() {
   }
 
   const finish = () => {
+    if (!tested || (path === 'account' && !consent)) return
     const managed = provider === 'llamacpp' && managedOn && serverPath && modelPath ? { serverPath, modelPath } : undefined
     useAi.getState().saveSettings({ enabled: true, provider, baseUrl: usesUrl ? url : undefined, model, consent: info.kind === 'local' ? false : consent, managed })
     // Serveur local lancé pendant la configuration mais plus utilisé
     if (!managed && native) void stopServer().catch(() => undefined)
     close()
+    useAi.getState().setPanelOpen(true)
   }
   const disable = () => {
     useAi.getState().saveSettings({ ...settings, enabled: false })
@@ -193,6 +211,7 @@ export function AiSetupDialog() {
       case 'key': return keyPresent || (provider === 'compatible')
       case 'connect': return models.length > 0
       case 'model': return !!model && (path === 'local' || consent)
+      case 'test': return tested && status.state === 'ok'
       default: return false
     }
   })()
@@ -201,7 +220,7 @@ export function AiSetupDialog() {
 
   const providerList = (kind: 'local' | 'account') => (
     <div className="ai-choices" role="radiogroup">
-      {PROVIDERS.filter((p) => p.kind === kind).map((p) => (
+      {PROVIDERS.filter((p) => p.kind === kind && p.id !== 'builtin').map((p) => (
         <label key={p.id} className={`ai-choice ${provider === p.id ? 'is-on' : ''}`}>
           <input type="radio" name="ai-provider" checked={provider === p.id} onChange={() => pickProvider(p.id)} />
           <span>{p.id === 'compatible' ? t('ai.setup.compatible') : p.label}</span>
@@ -212,13 +231,13 @@ export function AiSetupDialog() {
   const urlField = (
     <div className="field">
       <label htmlFor="ai-url">{t('ai.setup.url')}</label>
-      <input id="ai-url" className="mono" value={baseUrl} onChange={(e) => { setBaseUrl(e.target.value); setModels([]) }} spellCheck={false} />
+      <input id="ai-url" className="mono" value={baseUrl} onChange={(e) => { setBaseUrl(e.target.value); setModels([]); setTested(false) }} spellCheck={false} />
     </div>
   )
   const modelSelect = (
     <div className="field">
       <label htmlFor="ai-model">{t('ai.setup.model')}</label>
-      <select id="ai-model" value={model} onChange={(e) => setModel(e.target.value)}>
+      <select id="ai-model" value={model} onChange={(e) => { setModel(e.target.value); setTested(false) }}>
         {models.map((m) => <option key={m} value={m}>{m}</option>)}
       </select>
     </div>
@@ -229,7 +248,7 @@ export function AiSetupDialog() {
       <div className="dialog ai-setup" role="dialog" aria-modal="true" aria-labelledby="ai-setup-title">
         <header className="dialog-head">
           <h2 id="ai-setup-title">{t('ai.setup.title')}</h2>
-          <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
+          <button className="icon-btn" disabled={status.state === 'running'} onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>
         </header>
         <div className="dialog-body">
           {!native && <p className="ai-note">{t('ai.desktopOnly')}</p>}
@@ -238,7 +257,7 @@ export function AiSetupDialog() {
             <section>
               <p className="dialog-hint">{t('ai.setup.chooseHint')}</p>
               <div className="ai-options">
-                <button className="ai-option" onClick={() => choosePath('local')}>
+                <button className="ai-option" onClick={() => setPath('builtin')}>
                   <strong>{t('ai.setup.local')}</strong>
                   <span>{t('ai.setup.localDesc')}</span>
                 </button>
@@ -289,7 +308,7 @@ export function AiSetupDialog() {
                       <button className="btn" onClick={fetchModels} disabled={!native || status.state === 'running'}>{t('ai.setup.detect')}</button>
                     )}
                   </div>
-                  <p className="field-hint">{t('ai.setup.downloadLater')}</p>
+                  <p className="field-hint">{t('ai.local.advancedHint')}</p>
                 </>
               )}
 
@@ -359,7 +378,7 @@ export function AiSetupDialog() {
               {stepId === 'test' && (
                 <>
                   <p className="dialog-hint">{t('ai.setup.testHint')}</p>
-                  <p className="dialog-hint mono">{t('ai.setup.testQuestion')}</p>
+                  <p className="dialog-hint">{t('ai.setup.toolTestHint')}</p>
                   <div className="dialog-actions"><button className="btn" onClick={runTest} disabled={!native || !model || status.state === 'running'}>{t('ai.setup.runTest')}</button></div>
                 </>
               )}
@@ -367,11 +386,11 @@ export function AiSetupDialog() {
               <StatusLine status={status} />
 
               <div className="dialog-actions">
-                <button className="btn btn-ghost" onClick={() => { setStatus({ state: 'idle' }); if (step === 0) setPath('choose'); else setStep(step - 1) }}>{t('ai.setup.back')}</button>
+                <button className="btn btn-ghost" disabled={status.state === 'running'} onClick={() => { setStatus({ state: 'idle' }); setTested(false); if (step === 0) setPath('choose'); else setStep(step - 1) }}>{t('ai.setup.back')}</button>
                 {stepId === 'test' || (last && path === 'account') ? (
-                  <button className="btn btn-primary" onClick={finish} disabled={!model || (path === 'account' && !consent)}><Icon name="check" size={14} />{t('ai.setup.finish')}</button>
+                  <button className="btn btn-primary" onClick={finish} disabled={!canNext}><Icon name="check" size={14} />{t('ai.setup.finish')}</button>
                 ) : (
-                  <button className="btn btn-primary" onClick={() => { setStatus({ state: 'idle' }); setStep(step + 1) }} disabled={!canNext}>{t('ai.setup.next')}</button>
+                  <button className="btn btn-primary" onClick={() => { setStatus({ state: 'idle' }); setTested(false); setStep(step + 1) }} disabled={!canNext || status.state === 'running'}>{t('ai.setup.next')}</button>
                 )}
               </div>
             </section>

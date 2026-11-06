@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "K1SB",
-  "status": "community",
-  "description": "Renfort de grave pour système \"line-array\" K1-K2, 1200 W / 4&Omega;, 143 dB SPL, 2x15\"",
+  "status": "verified",
+  "description": "K1-SB : renfort de grave 2 × 15 pouces, une seule embase NL4. Amplification et preset constructeur requis.",
   "aliases": [
     "K1-SUB",
     "L-ACOUSTICS K1SB"
@@ -31,9 +31,23 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_k1sb_conformité.pdf",
       "document": "Novelty — K1SB : K1SB",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.avc-group.com/assets/products/L-Acoustics/pdf/lacoustics-um-k1sb.pdf",
+      "document": "L-Acoustics K1/KS28 User Manual v2.0, pp. 19, 27",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "4 Ω ; LF sur 1+/1−, 2+/2− non connectés"
+    }
+  ],
   "weightKg": 83
 }

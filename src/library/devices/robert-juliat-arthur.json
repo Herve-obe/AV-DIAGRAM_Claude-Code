@@ -4,8 +4,8 @@
   "manufacturer": "Robert Juliat",
   "model": "Arthur",
   "pictogram": "light",
-  "status": "community",
-  "powerW": 800,
+  "status": "verified",
+  "powerW": 960,
   "sources": [
     {
       "url": "https://www.robertjuliat.com/followspots/Arthur.html",
@@ -19,29 +19,61 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/11055-4742-robert-juliat-arthur-ft.pdf",
-      "document": "Novelty — Arthur : robert-juliat_arthur_ft",
-      "accessed": "2026-10-19"
+      "document": "Robert Juliat — DSFR363 Arthur 1014, 2 octobre 2023, p.1–3 : connexions, consommation totale, poids et dimensions",
+      "accessed": "2026-10-27"
     }
   ],
   "ports": [
     {
       "id": "dmxIn",
-      "name": "Data In",
+      "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified",
-      "format": "DMX, RDM, Art-Net, sACN ; connecteurs non précisés sur la page"
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "eth1",
+      "name": "Réseau 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "eth2",
+      "name": "Réseau 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Switch intégré"
     },
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Poursuite LED 800 W, 5,5-15°"
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "acOut",
+      "name": "Renvoi secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "3 unités maximum à 230 V"
     }
   ],
   "aliases": [
     "Robert Juliat Arthur"
-  ]
+  ],
+  "weightKg": 68.8,
+  "depthMm": 1665,
+  "description": "Poursuite LED Arthur 1014, source 800 W, zoom 5,5–15°. Consommation 960 W à 230 V, 1 030 W à 120 V, 1 080 W à 100 V ; poids 68,8 kg ; dimensions 1 665 × 461 × 508 mm. DMX XLR5 entrée/sortie, deux etherCON avec switch Art-Net/sACN et powerCON TRUE1 TOP entrée/sortie. Options SpotMe non présumées installées."
 }

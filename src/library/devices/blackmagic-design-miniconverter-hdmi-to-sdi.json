@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "MiniConverter HDMI to SDI",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur HDMI vers SDI (avec audio intégré), plus AES/EBU...",
   "aliases": [
     "HDMI23GSDI",
@@ -21,8 +21,70 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/blackmagicdesign_MiniConverterHDMItoSDI_ft.pdf",
       "document": "Novelty — MiniConverter HDMI to SDI : Mini Converter HDMI to SDI",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/0a49a5f4-9339-4629-8787-04234c1187bd/588190.pdf",
+      "document": "Blackmagic Converters — Installation and Operation Manual, juin 2018, copie Lensrentals",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "audioL",
+      "name": "Analog L / AES-EBU In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Balanced analog left or AES/EBU pair; exclusive modes"
+    },
+    {
+      "id": "audioR",
+      "name": "Analog R In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12-31 V DC"
+    }
+  ],
+  "powerW": 4.44,
+  "weightKg": 0.198,
+  "depthMm": 92.2
 }

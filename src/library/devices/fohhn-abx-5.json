@@ -6,7 +6,7 @@
   "manufacturer": "Fohhn",
   "model": "ABX-5",
   "status": "community",
-  "description": "Interface pour système Airea entre réseau Dante et système amplification ou moodule de dérivation entre Dnate et AES/EBU",
+  "description": "Interface Dante vers AES/EBU et Fohhn-Net, avec deux modes d’utilisation : Airea-Net vers Focus Venue, ou sorties AES/EBU et Fohhn-Net avec bloc externe. Consommation 4 W, charge Airea-Net max.5 W.",
   "aliases": [
     "Fohhn ABX-5"
   ],
@@ -20,9 +20,64 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_abx-5_manuel.pdf",
       "document": "Novelty — ABX-5 : ABX-5",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/fohhn_abx-5_manuel.pdf",
+      "document": "Manuel ABX-5 pp.8–10 et 13 imprimées (PDF9–11 et14), schéma de prises et modes exclusifs.",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 0.3
+  "ports": [
+    {
+      "id": "dante-primary",
+      "name": "Dante PRIMARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Dante Brooklyn II, 1000BASE-T ; transporte aussi la commande Fohhn-Net"
+    },
+    {
+      "id": "dante-secondary",
+      "name": "Dante SECONDARY",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Dante redondant"
+    },
+    {
+      "id": "aes-out",
+      "name": "AES/EBU OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU 24 bits / 48 kHz ; connecteur XLR3 confirmé par schéma, malgré mention RJ45 erronée dans le paragraphe"
+    },
+    {
+      "id": "airea-out",
+      "name": "AIREA-NET OUT",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "format": "AES/EBU et Fohhn-Net ; alimentation reçue par ce port en mode Focus Venue ; autres prises DC/AES/Fohhn-Net alors inutilisées"
+    },
+    {
+      "id": "fohhn-net",
+      "name": "FOHHN-NET OUT",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ethercon",
+      "format": "Fohhn-Net ; alternative au raccordement Airea-Net"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12–48 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Alimentation externe 12–48 V DC, centre positif"
+    }
+  ],
+  "weightKg": 0.3,
+  "powerW": 4
 }

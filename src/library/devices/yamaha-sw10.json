@@ -5,8 +5,8 @@
   "pictogram": "speaker",
   "manufacturer": "Yamaha",
   "model": "SW10",
-  "status": "community",
-  "description": "Enceinte grave amplifiée \"subwoofer\", 160W, cône 10\", 111dB",
+  "status": "verified",
+  "description": "SW10 STUDIO : trois entrées XLR mixées vers le sub et trois reprises XLR indépendantes, alimentation IEC.",
   "aliases": [
     "YAMAHA SW10"
   ],
@@ -30,10 +30,79 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/yamaha_sw10studio_brochure.pdf",
       "document": "Novelty — SW10 : Brochure commerciale",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/5/334365/msp7studio_en_om_b0.pdf",
+      "document": "Yamaha MSP7 STUDIO / MSP5 STUDIO / SW10 STUDIO Owner’s Manual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/5/334365/msp7studio_en_om_b0.pdf",
+      "document": "Yamaha MSP7 STUDIO/MSP5 STUDIO/SW10 STUDIO Owner’s Manual, pp.12–13 (32,65)",
+      "accessed": "2026-10-27"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "inL",
+      "name": "INPUT L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outL",
+      "name": "OUTPUT L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Reprise symétrique parallèle à INPUT correspondant"
+    },
+    {
+      "id": "inR",
+      "name": "INPUT R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "OUTPUT R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Reprise symétrique parallèle à INPUT correspondant"
+    },
+    {
+      "id": "inSUBWOOFER",
+      "name": "INPUT SUBWOOFER",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outSUBWOOFER",
+      "name": "OUTPUT SUBWOOFER",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Reprise symétrique parallèle à INPUT correspondant"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
   "weightKg": 26.5,
+  "depthMm": 476,
   "powerW": 160
 }

@@ -4,20 +4,35 @@
   "domain": "sound",
   "pictogram": "speaker",
   "manufacturer": "Bose",
-  "model": "DM2C-LP WHITE",
-  "status": "community",
-  "description": "Kit d'enceintes, 80W, 97 dB",
+  "model": "DM2C-LP White",
+  "status": "verified",
+  "description": "DesignMax DM2C-LP blanc ; une enceinte avec grille, poids 1,6 kg hors pont de montage.",
   "aliases": [
-    "BOSE® DM2C-LP WHITE"
+    "Bose DM2C-LP White"
   ],
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/kit-d-enceintes/dm2c-lp-white/",
       "document": "Novelty — DM2C-LP WHITE",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://assets.boseprofessional.com/m/178b8b93924aad8b/original/tds_DesignMax_DM2C-LP_LTR_enUS.pdf",
+      "document": "Bose DesignMax DM2C-LP Technical Data, 04/2026, pp. 1–2",
+      "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 80
+  "ports": [
+    {
+      "id": "in",
+      "name": "INPUT / LOOP THROUGH",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Euroblock 6 points, entrée et reprise ; 70/100 V ou 16 Ω en bypass"
+    }
+  ],
+  "weightKg": 1.6,
+  "depthMm": 110
 }
