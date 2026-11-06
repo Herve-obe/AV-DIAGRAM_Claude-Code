@@ -5,13 +5,13 @@ import type { Equipment, Link, PortDef } from '../model/types'
 import { useUi } from '../store/uiStore'
 import { useProject } from '../store/projectStore'
 import { useCollab } from './session'
-import { canEditEquipment, canEditPort, guestChangeReason, guestLayers, initialPort, linkAccess, portOccupied, sharedNetworkPort, type AccessReason } from './access'
+import { canEditEquipment, canEditPort, guestChangeReason, guestLayers, hasFullAccess, initialPort, linkAccess, portOccupied, sharedNetworkPort, type AccessReason } from './access'
 
 /** Les commandes affichées emploient la même politique que le garde et l'hôte. */
 export function useEditing() {
   const c = useCollab(), layer = useUi(s => s.layer), project = useProject(s => s.project)
   return useMemo(() => {
-    const common = c.status === 'off' || c.role === 'host'
+    const common = c.status === 'off' || c.role === 'host' || (c.role === 'guest' && c.started && hasFullAccess(c.claims, c.userId))
     const active = c.role === 'guest' && c.started && layer !== 'all'
     const allowed = common ? new Set(LAYERS) : active ? guestLayers(c.claims, c.userId) : new Set<import('../model/layers').Layer>()
     const reason: AccessReason = !c.started ? { code: 'waiting' as const } : layer === 'all' ? { code: 'general' as const } : { code: 'equipment' as const }

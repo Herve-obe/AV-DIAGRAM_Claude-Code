@@ -2,7 +2,7 @@
 import * as Y from 'yjs'
 import { isProject } from '../model/project'
 import type { LayerView } from '../model/layers'
-import { checkGuestChange, guestLayers } from './access'
+import { checkGuestChange, guestLayers, hasFullAccess } from './access'
 import type { Claims } from './protection'
 import { readProject } from './ydoc'
 import { stableJson as stable } from './compare'
@@ -36,7 +36,7 @@ export class HostValidation {
       const next = readProject(this.shadow)
       if (stable(session) !== stable(this.shadow.getMap('session').toJSON())) throw new Error('session')
       if (session.started === false && stable(before) !== stable(next)) throw new Error('waiting')
-      if (!isProject(next) || !checkGuestChange(before, next, guestLayers(claims, userId), view ?? 'all')) throw new Error('rights')
+      if (!isProject(next) || !checkGuestChange(before, next, guestLayers(claims, userId), view ?? 'all', hasFullAccess(claims, userId))) throw new Error('rights')
       if (stable(claims) !== stable(this.shadow.getMap('claims').toJSON())) throw new Error('claims')
       const known = new Set(['meta', 'clock', 'equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets', 'claims', 'chat', 'session'])
       for (const key of this.shadow.share.keys()) if (!known.has(key)) throw new Error('type')

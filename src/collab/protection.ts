@@ -1,6 +1,6 @@
 // Contrôles des équipements et liaisons dont les calques sont verrouillés.
 // Les droits sont attribués par l'hôte à plusieurs membres ; access.ts protège aussi les données communes.
-import { layerOfSignal, layersOf, primaryLayer, type Layer } from '../model/layers'
+import { LAYERS, layerOfSignal, layersOf, primaryLayer, type Layer } from '../model/layers'
 import type { Equipment, Link, PortDef, Project } from '../model/types'
 import { sameData } from './compare'
 
@@ -11,7 +11,7 @@ export interface Claim {
   color: string
 }
 // Un ancien instantané peut encore contenir une réservation unique.
-export type Claims = Partial<Record<Layer, Claim[] | Claim>>
+export type Claims = Partial<Record<Layer | 'full', Claim[] | Claim>>
 export function claimMembers(value: Claims[Layer]): Claim[] {
   return value ? Array.isArray(value) ? value : [value] : []
 }
@@ -25,7 +25,7 @@ export interface Violation {
 /** Calques réservés par d'autres que moi. */
 export function lockedLayers(claims: Claims, me: string): Set<Layer> {
   const out = new Set<Layer>()
-  for (const layer of Object.keys(claims) as Layer[]) {
+  for (const layer of LAYERS) {
     const members = claimMembers(claims[layer])
     if (members.length && !members.some(c => c.userId === me)) out.add(layer)
   }

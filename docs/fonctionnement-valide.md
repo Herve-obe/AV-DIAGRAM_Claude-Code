@@ -4,7 +4,7 @@ Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/
 
 ## Nouvelles vues — 0.4.0
 
-Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Depuis 0.5.29, les droits par métier demandent une version compatible avec le protocole 5 sur tous les postes.
+Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Depuis 0.5.30, les droits simplifiés demandent une version compatible avec le protocole 6 sur tous les postes.
 
 ## Fichiers et sauvegardes
 
@@ -30,13 +30,13 @@ Depuis **Session Collaborative**, l’hôte ouvre une salle d’attente avec son
 
 Depuis la version **0.2.3**, un hôte unique est présélectionné. S'il y a plusieurs sessions, l'invité choisit celle à rejoindre. Le nom de l'invité reste à renseigner en haut de la fenêtre ; le nom affiché sous le projet est celui de l'hôte. À côté du bouton Rejoindre, un message précise s'il manque le nom, la sélection d'une session ou les six chiffres du code. Une saisie d'adresse manuelle reste prioritaire. Le choix de l'hôte est conservé pendant l'actualisation ; sa disparition ne choisit pas un autre hôte à sa place, même s'il avait été présélectionné.
 
-Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. L’hôte coche les calques autorisés pour chaque invité : un invité peut recevoir plusieurs calques et plusieurs invités peuvent modifier le même calque en même temps. Retirer une case ne modifie pas les droits des autres invités. Les sessions partagées demandent la version 0.5.29 ou une version compatible avec le protocole 5 sur tous les postes. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
+Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. L’hôte coche les calques autorisés pour chaque invité : un invité peut recevoir plusieurs calques et plusieurs invités peuvent modifier le même calque en même temps. Retirer une case ne modifie pas les droits des autres invités. Les sessions partagées demandent la version 0.5.30 ou une version compatible avec le protocole 6 sur tous les postes. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
 
 Le bouton **Terminer la session** reste visible dans le bandeau du logiciel chez l’hôte, même si la fenêtre de gestion est fermée. Les invités disposent de **Quitter la session**. Le schéma reste ouvert sur chaque poste.
 
 L'annonce de fin précède la fermeture des connexions, y compris lorsque les canaux internes ont déjà été fermés par le relais. Une fermeture voulue doit rester distincte d'une interruption qui déclenche la reprise.
 
-Les invités voient le schéma complet. Ils doivent sélectionner un calque attribué pour l’éditer. Leur vue générale reste en lecture seule. Les réglages communs du projet restent réservés à l’hôte. Sur un appareil partagé, un invité peut modifier les ports de son domaine, sans changer les éléments protégés des autres domaines.
+Les invités voient le schéma complet. Les métiers attribués incluent automatiquement le calque et le matériel Réseau. Réseau seul ne donne pas les autres métiers. Leur vue générale reste en lecture seule, sauf avec Droits complets. Les réglages communs du projet sont accessibles à l’hôte et aux invités avec Droits complets. Sur un appareil partagé, un invité peut modifier les ports de son domaine, sans changer les éléments protégés des autres domaines.
 
 Deux invités peuvent modifier ou ajouter simultanément des ports audio et vidéo du même appareil. Annuler une modification conserve celles de l’autre invité. Les fichiers `.avd` existants restent compatibles.
 
@@ -117,3 +117,8 @@ La CI de la PR vérifie les tests TypeScript et les tests natifs Windows et macO
 ### Droits métier et appareils mixtes — 0.5.29
 
 Les attributions existantes deviennent des droits par métier, conservés lors d’un changement de filtre. Audio inclut les interfaces techniques des appareils audio et le raccordement compatible à un port réseau partagé libre ; Image et Lumière suivent la même règle. Le métier Réseau et l’hôte conservent la configuration des switches. Les ports métier d’un appareil partagé restent protégés séparément. La suppression d’un appareil mixte non relié est autorisée à son métier principal ; une suppression de liaison protégée reste refusée avec son motif. Le mode général reste en lecture seule pour les invités.
+
+
+### Droits simplifiés — 0.5.30
+
+Chaque métier inclut désormais l’édition du calque et du matériel Réseau, y compris les paramètres des switches. Réseau seul reste limité à ce domaine. L’hôte peut accorder Droits complets à un invité : édition de tout le projet, y compris Général, paramètres communs, feuilles et baies. Ce droit est distinct des métiers cochés ; son retrait restaure les attributions précédentes. L’administration de la session reste à l’hôte, et tous les invités restent en lecture seule avant le démarrage. Les anciennes réservations uniques restent lisibles.

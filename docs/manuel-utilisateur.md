@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.10 · Édition du 23 octobre 2026 · Windows et macOS
+Version 0.5.30 · Édition du 6 novembre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -130,11 +130,13 @@ Pour héberger une session, ouvrir le projet puis Session Collaborative. Renseig
 
 Côté invité, lancer Session Collaborative, renseigner son nom, sélectionner le projet de l'hôte trouvé sur le réseau et saisir son code. Si la recherche automatique échoue, les options avancées permettent de saisir l'adresse IP de l'hôte. Une connexion manuelle réussie avec une découverte absente peut indiquer un filtrage réseau des annonces.
 
-L’hôte coche les métiers autorisés pour chaque invité, puis utilise Commencer la session. Plusieurs invités peuvent partager un métier et un invité peut cumuler plusieurs métiers. Les changements de droits prennent effet pendant la session. La vue générale reste en lecture seule pour les invités ; l’hôte garde tous les droits. Utiliser la version 0.5.29 ou une version compatible avec le protocole 5 sur tous les postes.
+L’hôte coche les métiers autorisés pour chaque invité, puis utilise Commencer la session. Plusieurs invités peuvent partager un métier et un invité peut cumuler plusieurs métiers. Chaque métier inclut le calque et le matériel Réseau : sa case est cochée automatiquement. Réseau seul reste limité au domaine Réseau. Les changements de droits prennent effet pendant la session. Utiliser la version 0.5.30 ou une version compatible avec le protocole 6 sur tous les postes.
 
-Le métier Audio permet de travailler sur les appareils audio et leurs interfaces techniques : par exemple renseigner l’IP d’une console ou raccorder son port Dante à un port libre d’un switch partagé. Les paramètres du switch restent gérés par l’hôte ou le métier Réseau. Choisir le filtre Réseau ne retire pas les droits sur les interfaces de ses propres appareils. Les mêmes principes s’appliquent aux métiers Image et Lumière. Sur une caméra, les ports audio relèvent de l’Audio et les ports vidéo de l’Image.
+Le métier Audio permet de travailler sur les appareils audio et leurs interfaces techniques, ainsi que sur les équipements réseau : renseigner l’IP d’une console, ajouter ou configurer un switch, puis raccorder son port Dante. Choisir le filtre Réseau ne retire pas les droits sur les interfaces de ses propres appareils. Les mêmes principes s’appliquent aux métiers Image, Lumière et Électrique. Sur une caméra, les ports audio relèvent de l’Audio et les ports vidéo de l’Image ; Réseau seul n'accorde pas ces ports.
 
-Un appareil non relié peut être supprimé par son métier principal malgré ses ports d’autres domaines. Une liaison protégée empêche sa suppression et le message explique l’élément bloquant. Les interfaces proposent les actions permises, et les propositions des invités restent contrôlées par l’hôte. Les réglages communs du projet, fonds de plan, circuits et imports restent réservés à l’hôte.
+Cocher **Droits complets** permet à un invité de modifier tout le projet, y compris depuis Général, les feuilles, les baies et les paramètres communs. Les métiers précédemment cochés sont conservés et reprennent effet au retrait de ce droit. Les autres invités gardent Général en lecture seule. Seul l'hôte commence ou termine la session, gère les attributions et exclut les participants. Avant le démarrage, tous les invités restent en lecture seule.
+
+Un appareil non relié peut être supprimé par son métier principal malgré ses ports d’autres domaines. Une liaison protégée empêche sa suppression et le message explique l’élément bloquant. Les interfaces proposent les actions permises, et les propositions des invités restent contrôlées par l’hôte. Les réglages communs du projet, fonds de plan, circuits et imports sont accessibles à l’hôte et aux invités avec Droits complets.
 
 Terminer la session reste visible chez l'hôte ; Quitter la session permet à un invité de partir. Le projet reste ouvert sur les postes. Une perte de connexion est traitée différemment d'une fin volontaire : les modifications locales sont conservées et la reconnexion est tentée. Un poste de secours configuré peut reprendre l'hébergement ; le poste initial rejoint ensuite cette session actualisée.
 
@@ -190,7 +192,7 @@ Repères : 1. Adresse IPv4 de l'interface, avec son préfixe dans la colonne sui
 
 ## 12. Préparer les bilans électriques
 
-Créer les circuits depuis la vue Électrique. Définir leur nom, le caractère monophasé ou triphasé, la tension phase-neutre et le calibre par phase lorsqu'il est connu. L'hôte gère ces éléments communs en collaboration.
+Créer les circuits depuis la vue Électrique. Définir leur nom, le caractère monophasé ou triphasé, la tension phase-neutre et le calibre par phase lorsqu'il est connu. L'hôte et les invités avec Droits complets gèrent ces éléments communs en collaboration.
 
 Affecter chaque équipement à son circuit et à une phase. L1, L2 et L3 représentent les charges monophasées. ABC indique explicitement une charge triphasée déclarée équilibrée ; aucune répartition n'est déduite pour une charge non affectée.
 

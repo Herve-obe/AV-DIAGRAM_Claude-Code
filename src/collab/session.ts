@@ -34,7 +34,7 @@ import { setHistoryDriver, setProjectGuard, useProject } from '../store/projectS
 import { useUi } from '../store/uiStore'
 import { claimMembers, type Claims } from './protection'
 import { HostValidation } from './hostValidation'
-import { guestChangeReason, guestLayers, type AccessReason } from './access'
+import { guestChangeReason, guestLayers, hasFullAccess, type AccessReason } from './access'
 import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
 import { COLLAB_PROTOCOL, createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
 
@@ -252,7 +252,7 @@ setProjectGuard((prev, next) => {
   const st = useCollab.getState()
   if (st.status === 'off') return true
   if (st.role === 'host') return prev.id === next.id
-  const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer)
+  const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
   if (reason) notifyAccess(reason)
   return reason === null
 })
@@ -761,7 +761,7 @@ async function start(o: StartOptions): Promise<void> {
       if (origin !== 'network' && current.synced && useCollab.getState().role === 'guest') {
         const next = readProject(doc)
         const st = useCollab.getState()
-        const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, next, guestLayers(st.claims, st.userId), useUi.getState().layer)
+        const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, next, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
         if (reason) {
           // Les droits ont pu changer depuis la création du pas d'annulation.
           writeProject(doc, next, current.synced, LOCAL)
@@ -778,7 +778,7 @@ async function start(o: StartOptions): Promise<void> {
     current.cleanups.push(useProject.subscribe((s) => {
       if (s.project === current.synced) return
       const st = useCollab.getState()
-      const reason: AccessReason | null = current.synced && st.role !== 'host' ? !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer) : null
+      const reason: AccessReason | null = current.synced && st.role !== 'host' ? !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId)) : null
       if (reason && current.synced) {
         useProject.setState({ project: current.synced })
         notifyAccess(reason)
@@ -800,7 +800,7 @@ async function start(o: StartOptions): Promise<void> {
     const historyAllowed = (redo: boolean) => {
       const st = useCollab.getState()
       if (st.role === 'host') return true
-      let reason: AccessReason | null = !st.started ? { code: 'waiting' } : useUi.getState().layer === 'all' ? { code: 'general' } : null
+      let reason: AccessReason | null = !st.started ? { code: 'waiting' } : useUi.getState().layer === 'all' && !hasFullAccess(st.claims, st.userId) ? { code: 'general' } : null
       const stack = redo ? undo.redoStack : undo.undoStack
       if (!reason && stack.length) {
         // Essayer l'annulation hors réseau avant de toucher au document partagé et à sa pile.
@@ -813,7 +813,7 @@ async function start(o: StartOptions): Promise<void> {
         else trial.undoStack = copy
         try {
           if (redo) trial.redo(); else trial.undo()
-          reason = guestChangeReason(readProject(doc), readProject(preview), guestLayers(st.claims, st.userId), useUi.getState().layer)
+          reason = guestChangeReason(readProject(doc), readProject(preview), guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
         } finally { trial.destroy(); preview.destroy() }
       }
       if (reason) notifyAccess(reason)
@@ -971,12 +971,13 @@ function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
 
 /** Exclut un participant (poste qui fait tourner le relais). */
 export async function kick(peerId: number) {
+  if (useCollab.getState().role !== 'host') return
   await invoke('collab_kick', { peerId })
   await refreshHost()
 }
 
 /** Seul le poste qui héberge attribue ou retire les réservations. */
-export function assignLayer(layer: Layer, userId: string, granted: boolean) {
+export function assignLayer(layer: Layer | 'full', userId: string, granted: boolean) {
   if (!live || useCollab.getState().role !== 'host') return
   const person = useCollab.getState().participants.find(p => p.userId === userId && !p.self && p.peerId != null)
   if (!userId || (granted && !person)) return

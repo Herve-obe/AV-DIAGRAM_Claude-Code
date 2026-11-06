@@ -18,10 +18,10 @@ describe('droits attribués par l’hôte', () => {
     const audio = { userId: 'audio', name: 'Audio', color: '#000' }
     const video = { userId: 'video', name: 'Vidéo', color: '#111' }
     const claims = { sound: [audio, video], image: [audio] }
-    expect([...guestLayers(claims, 'audio')]).toEqual(['sound', 'image'])
-    expect([...guestLayers(claims, 'video')]).toEqual(['sound'])
+    expect([...guestLayers(claims, 'audio')]).toEqual(['sound', 'image', 'network'])
+    expect([...guestLayers(claims, 'video')]).toEqual(['sound', 'network'])
     expect(guestLayers(claims, 'intrus').size).toBe(0)
-    expect([...guestLayers({ sound: audio }, 'audio')]).toEqual(['sound'])
+    expect([...guestLayers({ sound: audio }, 'audio')]).toEqual(['sound', 'network'])
   })
   it('réserve la présentation mémorisée des prises au propriétaire du domaine principal', () => {
     const { p, camId, consoleId } = setup()
@@ -134,6 +134,27 @@ describe('validation des propositions reçues sur le poste hôte', () => {
     }
     return { host, validator, propose, consoleId, camId }
   }
+  it('accorde le plein droit en Général sans autoriser son auto-attribution et le révoque', () => {
+    const { host, validator, propose } = session()
+    const member = { userId: 'audio', name: 'Audio', color: '#000' }
+    const rename = () => propose(g => { const p = readProject(g); writeProject(g, p, { ...p, name: 'Commun modifié', settings: { ...p.settings, mainsVoltage: 120 } }) })
+    expect(validator.apply(propose(g => g.getMap('claims').set('full', [member])), 'audio', 'all')).toBe(false)
+    host.getMap('claims').set('full', [member])
+    host.getMap('session').set('started', false)
+    expect(validator.apply(rename(), 'audio', 'all')).toBe(false)
+    host.getMap('session').set('started', true)
+    expect(validator.apply(rename(), 'audio', 'all')).toBe(true)
+    expect(readProject(host).name).toBe('Commun modifié')
+    expect(readProject(host).settings.mainsVoltage).toBe(120)
+    expect(validator.apply(propose(g => g.getMap('claims').set('image', [member])), 'audio', 'all')).toBe(false)
+    expect(validator.apply(propose(g => { const p = readProject(g); writeProject(g, p, { ...p, id: 'autre-projet' }) }), 'audio', 'all')).toBe(false)
+    expect(validator.apply(propose(g => g.getArray('chat').push([{ userId: 'host', text: 'Identité falsifiée' }])), 'audio', 'all')).toBe(false)
+    expect(validator.apply(propose(g => g.getMap('session').set('started', false)), 'audio', 'all')).toBe(false)
+    expect(validator.apply(propose(g => g.getMap('hidden').set('x', true)), 'audio', 'all')).toBe(false)
+    host.getMap('claims').delete('full')
+    expect(validator.apply(propose(g => { const p = readProject(g); writeProject(g, p, { ...p, name: 'Interdit' }) }), 'audio', 'all')).toBe(false)
+    validator.destroy(); host.destroy()
+  })
   it('accepte une édition audio et la rend disponible aux autres invités', () => {
     const { host, validator, propose, consoleId } = session()
     const update = propose(g => { const p = readProject(g); writeProject(g, p, ops.moveEquipment(p, consoleId, { x: 42, y: 10 })) })
@@ -279,4 +300,21 @@ describe('protection des métiers et de l’infrastructure', () => {
     expect(checkGuestChange(p, p, new Set(), 'all')).toBe(true)
     expect(checkGuestChange(p, { ...p, name: 'Nom commun' }, new Set(['sound', 'image']), 'sound')).toBe(false)
   })
+})
+
+it('inclut le switch entier avec Audio et garde Réseau seul hors des ports Audio/IP et Image/IP', () => {
+  const member = { userId: 'audio', name: 'Audio', color: '#000' }
+  const { p, consoleId, camId } = setup()
+  const sw = ops.addEquipment(p, LIBRARY_BY_ID.get('gen-switch8')!, { x: 0, y: 0 })
+  const allowed = guestLayers({ sound: [member] }, 'audio')
+  expect(checkGuestChange(sw.project, ops.updateEquipment(sw.project, sw.id, { name: 'Switch scène' }), allowed, 'network')).toBe(true)
+  const slot = sw.project.equipment[sw.id].ports[0]
+  expect(checkGuestChange(sw.project, ops.updatePort(sw.project, sw.id, slot.id, { signal: 'videoIp' }), allowed, 'network')).toBe(true)
+  const network = guestLayers({ network: [member] }, 'audio')
+  for (const id of [consoleId, camId]) {
+    expect(checkGuestChange(p, ops.updateEquipment(p, id, { name: 'Interdit' }), network, 'network')).toBe(false)
+    expect(checkGuestChange(p, ops.moveEquipment(p, id, { x: 9, y: 9 }), network, 'network')).toBe(false)
+  }
+  expect(canEditPort(p.equipment[consoleId], { signal: 'audioIp' }, network)).toBe(false)
+  expect(canEditPort(p.equipment[camId], { signal: 'videoIp' }, network)).toBe(false)
 })

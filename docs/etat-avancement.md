@@ -1,6 +1,14 @@
-# État d’avancement (mise à jour du 2026-11-05)
+# État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.29
+## Situation actuelle — 0.5.30
+
+Chaque métier inclut automatiquement l'édition du calque et du matériel Réseau, y compris la configuration des switches. Réseau seul ne donne pas accès aux métiers Audio, Image, Lumière ou Électrique. L'hôte peut cocher **Droits complets** par invité : celui-ci peut modifier tout le projet, y compris depuis Général, les feuilles, les baies et les paramètres communs. Le retrait rétablit ses métiers précédents. Seul l'hôte administre la session et les attributions ; avant son démarrage, tous les invités restent en lecture seule.
+
+La case Réseau indique son attribution implicite ; les attributions explicites sont conservées. Droits complets est distinct des cinq métiers, désactive leurs cases sans les effacer et reste révocable pour un utilisateur déconnecté. Les gardes locaux, la validation chez l'hôte, l'historique et la fenêtre Infos suivent cette règle.
+
+Contrôles : trois attentes en échec avant correction, puis 73 tests ciblés sur neuf fichiers et **523 tests généraux réussis, six essais IA réelle ignorés**. Types et compilation réussis ; lint sans erreur avec quatre avertissements historiques. Revue indépendante et contrôle du principal sans défaut du delta restant. Manuel HTML/PDF régénéré. **Protocole LAN 6 : installer la 0.5.30 sur tous les postes.** Aucun fichier d'équipement ou format .avd modifié. Les contrôles natifs et installateurs doivent être confirmés par la CI du commit publié ; le LAN physique reste à retester. [Périmètre et preuves](developpement/collaboration-droits-simplifies-2026-11-06.md).
+
+## Version précédente — 0.5.29
 
 Les droits collaboratifs suivent les métiers attribués à l’invité, indépendamment du filtre affiché ; Général reste en lecture seule. Le métier Audio peut renseigner l’interface réseau de sa console et la raccorder à une prise libre d’un switch partagé, sans pouvoir modifier les paramètres de ce switch ni les interfaces Image d’autres appareils. Les ports Audio d’une caméra restent modifiables sans ouvrir ses propriétés Vidéo.
 

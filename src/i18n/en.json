@@ -834,7 +834,7 @@
     },
     "layers": {
       "title": "Editing roles",
-      "hint": "Your roles allow their equipment, ports and related technical interfaces, regardless of the displayed filter. The general view remains read-only. The host keeps full access.",
+      "hint": "Each role includes its equipment and Network. Network alone remains limited to Network. The general view is read-only unless Full access is granted.",
       "free": "Host only",
       "mine": "reserved by you",
       "by": "reserved by {{name}}",
@@ -843,9 +843,12 @@
       "unassigned": "Host only",
       "assign": "Assign {{layer}} layer",
       "offline": "{{name}} (disconnected)",
-      "hostHint": "Check the roles each guest may edit. Several guests may share a role. Related equipment interfaces are included; connecting to a free shared network port is allowed. Switch settings remain restricted to the Network role and the host.",
+      "hostHint": "Check the permitted roles: each includes the Network layer and equipment. Network alone does not grant other roles. Full access allows all project edits, including from General.",
       "userAccess": "Access for {{name}}",
-      "none": "No assigned roles: read-only."
+      "none": "No assigned roles: read-only.",
+      "full": "Full access",
+      "fullHint": "Edit the entire project, including the general view and shared settings. Only the host manages the session and permissions.",
+      "networkIncluded": "Network is automatically included with each role."
     },
     "chat": {
       "title": "Session chat",
@@ -861,7 +864,7 @@
         "port": "Change refused: port “{{port}}” on “{{name}}” is protected for your current roles.",
         "link": "Action refused: the link at “{{name}} / {{port}}” is protected.",
         "busy": "Connection refused: port “{{port}}” on “{{name}}” is already in use.",
-        "common": "Change refused: these shared settings are reserved for the host.",
+        "common": "Edit denied: these shared settings require Full access or the Host role.",
         "history": "Undo or redo refused: this change exceeds your current permissions."
       },
       "hostLost": "Host unreachable. Your work is kept on this computer; you can keep working, reconnection is automatic.",
@@ -1411,7 +1414,7 @@
     "newSheet": "New sheet",
     "currentSheet": "Current sheet",
     "replaceHint": "The current background will be replaced. Equipment and floor plan positions are preserved.",
-    "hostOnly": "The session host manages imports and backgrounds.",
+    "hostOnly": "Imports and floor plans require Full access or the Host role.",
     "cancel": "Cancel",
     "applyBackground": "Import background",
     "reviewSynoptic": "Review equipment and connections",

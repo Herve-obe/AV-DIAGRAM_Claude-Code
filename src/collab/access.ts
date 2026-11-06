@@ -1,4 +1,4 @@
-// Les profils attribués autorisent des opérations métier ; le filtre Général reste en lecture seule.
+// Les métiers incluent le Réseau ; seul le plein droit ouvre aussi Général et les paramètres communs.
 import { LAYERS, layerOfSignal, primaryLayer, type Layer, type LayerView } from '../model/layers'
 import { familiesCompatible } from '../model/signals'
 import type { Equipment, Link, PortDef, Project } from '../model/types'
@@ -6,8 +6,11 @@ import { claimMembers, type Claims } from './protection'
 import { sameData as equal } from './compare'
 
 export function guestLayers(claims: Claims, userId: string): Set<Layer> {
-  return new Set(LAYERS.filter(l => claimMembers(claims[l]).some(c => c.userId === userId)))
+  const layers = new Set(LAYERS.filter(l => claimMembers(claims[l]).some(c => c.userId === userId)))
+  if ([...layers].some(l => l !== 'network')) layers.add('network')
+  return layers
 }
+export const hasFullAccess = (claims: Claims, userId: string): boolean => claimMembers(claims.full).some(c => c.userId === userId)
 export interface AccessReason {
   code: 'general' | 'waiting' | 'equipment' | 'port' | 'link' | 'busy' | 'common' | 'history'
   params?: Record<string, string | number>
@@ -19,7 +22,7 @@ export function canEditEquipment(e: Pick<Equipment, 'family'>, allowed: Set<Laye
 export const sharedNetworkPort = (e: Pick<Equipment, 'family'>, p: Pick<PortDef, 'signal'>) => e.family === 'network' && p.signal === 'network'
 export function canEditPort(e: Pick<Equipment, 'family'>, p: Pick<PortDef, 'signal'>, allowed: Set<Layer>): boolean {
   // Un port de switch reste une configuration d'infrastructure, quel que soit son signal annoncé.
-  if (e.family === 'network' && !allowed.has('network')) return false
+  if (e.family === 'network') return allowed.has('network')
   const layer = layerOfSignal(p.signal)
   if (layer === 'sound' || layer === 'image' || layer === 'light') return allowed.has(layer)
   return (layer !== null && allowed.has(layer)) || canEditEquipment(e, allowed)
@@ -64,8 +67,9 @@ export function initialPort(e: Pick<Equipment, 'family'>, allowed: Set<Layer>, v
   }
   return null
 }
-export function guestChangeReason(prev: Project, next: Project, allowed: Set<Layer>, view: LayerView): AccessReason | null {
+export function guestChangeReason(prev: Project, next: Project, allowed: Set<Layer>, view: LayerView, full = false): AccessReason | null {
   if (equal(prev, next)) return null
+  if (full && prev.id === next.id) return null
   if (view === 'all') return { code: 'general' }
   if (prev.id !== next.id || !allowed.size) return { code: 'common' }
   for (const k of new Set([...Object.keys(prev), ...Object.keys(next)])) {
@@ -109,6 +113,6 @@ export function guestChangeReason(prev: Project, next: Project, allowed: Set<Lay
   }
   return null
 }
-export function checkGuestChange(prev: Project, next: Project, allowed: Set<Layer>, view: LayerView): boolean {
-  return guestChangeReason(prev, next, allowed, view) === null
+export function checkGuestChange(prev: Project, next: Project, allowed: Set<Layer>, view: LayerView, full = false): boolean {
+  return guestChangeReason(prev, next, allowed, view, full) === null
 }

@@ -19,7 +19,7 @@ vi.mock('@xyflow/react', async original => ({
   useUpdateNodeInternals: () => flow.measure,
   Handle: ({ id, isConnectable }: { id: string; isConnectable: boolean }) => <span data-port={id} data-connectable={String(isConnectable)} />,
 }))
-it('affiche le switch partagé et ses ports raccordables sans ouvrir sa configuration, puis garde le câble visible en Audio et Réseau', () => {
+it('affiche le switch partagé et ses ports raccordables avec sa configuration incluse, puis garde le câble visible en Audio et Réseau', () => {
   Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
   const desk = addEquipment(createProject('Dante'), LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 0 })
   const sw = addEquipment(desk.project, LIBRARY_BY_ID.get('gen-switch8')!, { x: 400, y: 0 })
@@ -31,11 +31,11 @@ it('affiche le switch partagé et ses ports raccordables sans ouvrir sa configur
     act(() => root.render(<Canvas />))
     const node = flow.props!.nodes!.find(n => n.id === sw.id)!
     expect(node.hidden).toBe(false)
-    expect(node.draggable).toBe(false)
+    expect(node.draggable).toBe(true)
     expect(node.connectable).toBe(true)
     act(() => root.render(<EquipmentNode {...({ id: sw.id, data: node.data as EquipmentNodeData, selected: true } as NodeProps<EquipmentFlowNode>)} />))
     expect(element.querySelector('[data-connectable="true"]')).not.toBeNull()
-    expect(element.querySelector<HTMLButtonElement>('.eq-port-tools button')!.disabled).toBe(true)
+    expect(element.querySelector<HTMLButtonElement>('.eq-port-tools button')!.disabled).toBe(false)
     const a = sw.project.equipment[desk.id].ports.find(p => p.signal === 'audioIp')!, b = sw.project.equipment[sw.id].ports[0]
     let id: string | null = null
     act(() => { id = useProject.getState().connect({ equipmentId: desk.id, portId: a.id }, { equipmentId: sw.id, portId: b.id }); root.render(<Canvas />) })

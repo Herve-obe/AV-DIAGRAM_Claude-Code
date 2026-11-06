@@ -53,7 +53,7 @@ it('grise les propriétés caméra et son port vidéo sans bloquer son port Audi
   } finally { act(() => root.unmount()); element.remove(); useCollab.setState({ status: 'off' }) }
 })
 
-it('la vue Réseau permet l’IP de sa console Audio et grise les ports du switch', () => {
+it('la vue Réseau permet l’IP de sa console Audio et ouvre les ports du switch inclus', () => {
   Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
   const desk = addEquipment(createProject('Interfaces'), LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 0 })
   const added = addPort(desk.project, desk.id, { name: 'Gestion locale', signal: 'network', direction: 'bidir', connector: 'rj45' })
@@ -68,7 +68,7 @@ it('la vue Réseau permet l’IP de sa console Audio et grise les ports du switc
     const own = inputs.find(i => i.getAttribute('aria-label')!.includes('Gestion locale'))!
     expect(own.disabled).toBe(false)
     const infra = inputs.find(i => i.getAttribute('aria-label')!.includes(sw.project.equipment[sw.id].name))!
-    expect(infra.disabled).toBe(true)
+    expect(infra.disabled).toBe(false)
     act(() => {
       Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!.set!.call(own, '192.168.1.51')
       own.dispatchEvent(new Event('input', { bubbles: true }))
@@ -82,7 +82,7 @@ it('nomme la caméra et sa prise protégées dans le refus de liaison, sans accu
   Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
   const desk = addEquipment(createProject('Liaison protégée'), LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 0 })
   const camera = addEquipment(desk.project, LIBRARY_BY_ID.get('gen-camera')!, { x: 400, y: 0 })
-  const added = addPort(camera.project, camera.id, { name: 'Gestion caméra protégée', direction: 'bidir', signal: 'network', connector: 'rj45' })
+  const added = addPort(camera.project, camera.id, { name: 'Vidéo IP protégée', direction: 'bidir', signal: 'videoIp', connector: 'rj45' })
   const audio = added.project.equipment[desk.id].ports.find(p => p.signal === 'audioIp')!
   const linked = connect(added.project, { equipmentId: desk.id, portId: audio.id }, { equipmentId: camera.id, portId: added.id! })
   useProject.setState({ project: linked.project })
@@ -95,7 +95,7 @@ it('nomme la caméra et sa prise protégées dans le refus de liaison, sans accu
     expect(fields.disabled).toBe(true)
     expect(element.querySelector('#lk-length')!.matches(':disabled')).toBe(true)
     expect(fields.title).toContain(added.project.equipment[camera.id].name)
-    expect(fields.title).toContain('Gestion caméra protégée')
+    expect(fields.title).toContain('Vidéo IP protégée')
     expect(fields.title).not.toContain(added.project.equipment[desk.id].name)
   } finally { act(() => root.unmount()); element.remove(); useCollab.setState({ status: 'off' }) }
 })

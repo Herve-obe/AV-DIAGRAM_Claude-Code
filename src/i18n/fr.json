@@ -834,7 +834,7 @@
     },
     "layers": {
       "title": "Droits par métier",
-      "hint": "Tes métiers autorisent leurs appareils, leurs ports et leurs interfaces techniques associées, quel que soit le filtre affiché. La vue générale reste en lecture seule. L’hôte garde tous les droits.",
+      "hint": "Chaque métier inclut ses appareils et le Réseau. Réseau seul reste limité au domaine Réseau. La vue générale est en lecture seule, sauf avec Droits complets.",
       "free": "Hôte uniquement",
       "mine": "réservé par toi",
       "by": "réservé par {{name}}",
@@ -843,9 +843,12 @@
       "unassigned": "Hôte uniquement",
       "assign": "Attribuer le calque {{layer}}",
       "offline": "{{name}} (déconnecté)",
-      "hostHint": "Coche les métiers autorisés pour chaque invité. Plusieurs invités peuvent partager un métier. Les interfaces techniques des appareils sont incluses ; le raccordement à un port réseau partagé libre est permis. Les paramètres des switches restent réservés au métier Réseau et à l’hôte.",
+      "hostHint": "Coche les métiers autorisés : chaque métier inclut le calque et le matériel Réseau. Réseau seul n’ouvre pas les autres métiers. Droits complets autorise toutes les modifications du projet, y compris depuis Général.",
       "userAccess": "Accès de {{name}}",
-      "none": "Aucun métier attribué : lecture seule."
+      "none": "Aucun métier attribué : lecture seule.",
+      "full": "Droits complets",
+      "fullHint": "Modifier tout le projet, y compris la vue générale et les paramètres communs. La gestion de la session et des droits reste réservée à l’hôte.",
+      "networkIncluded": "Réseau inclus automatiquement avec chaque métier."
     },
     "chat": {
       "title": "Tchat de la session",
@@ -861,7 +864,7 @@
         "port": "Modification refusée : la prise « {{port}} » de « {{name}} » est protégée pour tes métiers actuels.",
         "link": "Action refusée : la liaison sur « {{name}} / {{port}} » est protégée.",
         "busy": "Raccordement refusé : la prise « {{port}} » de « {{name}} » est déjà utilisée.",
-        "common": "Modification refusée : ces paramètres communs sont réservés à l’hôte.",
+        "common": "Modification refusée : ces paramètres communs demandent les Droits complets ou le rôle Hôte.",
         "history": "Annulation ou rétablissement refusé : cette modification dépasse tes droits actuels."
       },
       "hostLost": "Hôte injoignable. Ton travail est conservé sur ce poste ; tu peux continuer, la reconnexion est automatique.",
@@ -1411,7 +1414,7 @@
     "newSheet": "Nouvelle feuille",
     "currentSheet": "Feuille courante",
     "replaceHint": "Le fond actuel sera remplacé. Les équipements et leur position sur le plan sont conservés.",
-    "hostOnly": "L’hôte de la session gère les imports et les fonds de plan.",
+    "hostOnly": "Les imports et fonds de plan demandent les Droits complets ou le rôle Hôte.",
     "cancel": "Annuler",
     "applyBackground": "Importer le fond de plan",
     "reviewSynoptic": "Vérifier les équipements et liaisons",

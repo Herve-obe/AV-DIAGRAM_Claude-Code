@@ -10,7 +10,7 @@ class RelaySocket {
   static OPEN = 1
   static peers = new Map<number, RelaySocket>()
   static next = 1
-  static protocol: number | undefined = 5
+  static protocol: number | undefined = 6
   static held = false
   static queued: (() => void)[] = []
   static flush() {
@@ -33,7 +33,7 @@ class RelaySocket {
   send(value: string | Uint8Array) {
     if (typeof value === 'string') {
       const h = JSON.parse(value)
-      expect(h.protocol).toBe(5)
+      expect(h.protocol).toBe(6)
       this.id = RelaySocket.next++; this.host = h.hostToken === 'private-host'
       this.userId = createHash('sha256').update(h.clientToken ?? 'probe').digest('hex')
       const peers = [...RelaySocket.peers.values()].map(p => ({ id: p.id, userId: p.userId, name: 'Poste', address: '127.0.0.1' }))
@@ -76,10 +76,10 @@ afterEach(() => {
   RelaySocket.held = false; RelaySocket.queued = []
   videoGuest?.session.leave(); videoGuest = undefined
   guest?.session.leave(); host?.session.leave()
-  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 5; vi.unstubAllGlobals()
+  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 6; vi.unstubAllGlobals()
 })
 
-it.each([undefined, 1, 2, 3, 4])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
+it.each([undefined, 1, 2, 3, 4, 5])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {
   vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
   vi.stubGlobal('WebSocket', RelaySocket)
   native.invoke.mockResolvedValue(undefined)
@@ -348,6 +348,58 @@ it('le profil Audio configure son interface, raccorde le switch et annule depuis
   expect(guest.useProject.getState().project).toBe(accepted)
   expect(send).not.toHaveBeenCalled()
   send.mockRestore()
+  expect(guest.session.useCollab.getState().status).toBe('connected')
+  expect(native.invoke.mock.calls.some(([command]) => command === 'collab_kick')).toBe(false)
+})
+
+it('le plein droit ouvre Général et les paramètres communs, puis sa révocation protège undo et redo sans exclusion', async () => {
+  vi.stubGlobal('window', { location: { search: '' }, addEventListener: vi.fn() })
+  vi.stubGlobal('WebSocket', RelaySocket)
+  native.invoke.mockReset().mockImplementation(async (command: string) => {
+    if (command === 'collab_local_addresses') return ['127.0.0.1:4455']
+    if (command === 'collab_host_start' || command === 'collab_host_status') return { port: 4455, code: '123456', hostToken: 'private-host', addresses: ['127.0.0.1:4455'], peers: [] }
+  })
+  host = await instance('Hôte'); await host.session.hostSession()
+  await vi.waitFor(() => expect(host.session.useCollab.getState().status).toBe('connected'))
+  guest = await instance('Invité'); await guest.session.joinSession('127.0.0.1', '123456')
+  const userId = guest.session.useCollab.getState().userId
+  await vi.waitFor(() => expect(host.session.useCollab.getState().participants).toHaveLength(2))
+  host.session.assignLayer('sound', userId, true)
+  host.session.assignLayer('full', userId, true)
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.full).toBeDefined())
+  const waiting = guest.useProject.getState().project
+  guest.useProject.getState().rename('Attente interdite')
+  expect(guest.useProject.getState().project).toBe(waiting)
+  host.session.beginSession()
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().started).toBe(true))
+  guest.useUi.getState().setPref('layer', 'all')
+  expect(guest.session.beginSession()).toBe(false)
+  guest.session.assignLayer('image', userId, true)
+  expect(guest.session.useCollab.getState().claims.image).toBeUndefined()
+  await guest.session.kick(1)
+  expect(native.invoke.mock.calls.some(([command]) => command === 'collab_kick')).toBe(false)
+  guest.useProject.getState().rename('Nom partagé')
+  await vi.waitFor(() => expect(host.useProject.getState().project.name).toBe('Nom partagé'))
+  guest.useProject.getState().undo()
+  await vi.waitFor(() => expect(host.useProject.getState().project.name).toBe(waiting.name))
+  host.session.assignLayer('full', userId, false)
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.full).toBeUndefined())
+  expect(guest.session.useCollab.getState().claims.sound).toBeDefined()
+  const socket = [...RelaySocket.peers.values()].find(p => !p.host)!, send = vi.spyOn(socket, 'send')
+  guest.useProject.getState().redo()
+  guest.useProject.getState().rename('Interdit')
+  expect(send).not.toHaveBeenCalled()
+  send.mockRestore()
+  host.session.assignLayer('full', userId, true)
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.full).toBeDefined())
+  guest.useProject.getState().redo()
+  await vi.waitFor(() => expect(host.useProject.getState().project.name).toBe('Nom partagé'))
+  host.session.assignLayer('full', userId, false)
+  await vi.waitFor(() => expect(guest.session.useCollab.getState().claims.full).toBeUndefined())
+  const sendAgain = vi.spyOn(socket, 'send')
+  guest.useProject.getState().undo()
+  expect(sendAgain).not.toHaveBeenCalled()
+  sendAgain.mockRestore()
   expect(guest.session.useCollab.getState().status).toBe('connected')
   expect(native.invoke.mock.calls.some(([command]) => command === 'collab_kick')).toBe(false)
 })

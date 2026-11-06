@@ -48,7 +48,7 @@ it('la fenêtre Infos reçoit aussi le retrait des droits et la salle d’attent
   window.location.search = '?window=panels'
   const { startWindowSync } = await import('./windowSync')
   await startWindowSync()
-  const access = { status: 'connected', role: 'guest', userId: 'me', participants: [], claims: { sound: [{ userId: 'me', name: 'Son', color: '#333' }, { userId: 'other', name: 'Autre', color: '#333' }] }, started: true }
+  const access = { status: 'connected', role: 'guest', userId: 'me', participants: [], claims: { full: [{ userId: 'me', name: 'Son', color: '#333' }], sound: [{ userId: 'me', name: 'Son', color: '#333' }, { userId: 'other', name: 'Autre', color: '#333' }] }, started: true }
   channel.onmessage!({ data: { from: 'main', kind: 'access', access } })
   expect(collab.setState).toHaveBeenLastCalledWith(access)
   channel.onmessage!({ data: { from: 'main', kind: 'access', access: { ...access, started: false, claims: {} } } })

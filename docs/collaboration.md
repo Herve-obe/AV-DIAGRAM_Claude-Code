@@ -43,9 +43,9 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
 7. **Enregistrement** : Ctrl+S / Cmd+S enregistre le fichier principal `.avd` ; chaque participant peut
    garder une copie locale. Les sauvegardes de sécurité automatiques vont dans « Save Back Up ».
 
-## Compatibilité des sessions (0.5.29)
+## Compatibilité des sessions (0.5.30)
 
-Les droits par métier utilisent le protocole 5 : installer la version 0.5.29 ou une version ultérieure compatible sur tous les postes. Les versions au protocole antérieur sont refusées avant la synchronisation. Les réservations uniques des reprises locales sont lues comme un seul membre ; les fichiers .avd ne contiennent pas les droits et restent compatibles. Les données par port suivent les droits du signal ; les fonds de plan, circuits et imports restent réservés à l'hôte. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md). Les sections datées ci-dessous conservent l'historique des essais.
+Les droits simplifiés utilisent le protocole 6 : installer la version 0.5.30 ou une version ultérieure compatible sur tous les postes. Les versions au protocole antérieur sont refusées avant la synchronisation. Les réservations uniques des reprises locales sont lues comme un seul membre ; les fichiers .avd ne contiennent pas les droits et restent compatibles. Les données par port suivent les droits du signal ; les fonds de plan, circuits et imports sont accessibles à l'hôte et aux invités avec Droits complets. Voir le [guide des vues et échanges](vues-et-echanges-0.4.0.md). Les sections datées ci-dessous conservent l'historique des essais.
 
 ## État historique (2026-10-16, version 0.2.3)
 
@@ -89,15 +89,17 @@ Ils ne sont pas enregistrés dans le fichier `.avd`.
 
 ### Droits partagés par métier
 
-Seul l’hôte gère les droits, avec des cases Audio, Image, Lumière, Réseau et Électrique pour chaque invité. Un invité peut recevoir plusieurs métiers et plusieurs invités peuvent partager le même métier. Décocher une case retire uniquement le droit concerné. La vue générale reste en lecture seule pour les invités ; l’hôte garde tous les droits.
+Seul l’hôte gère les droits, avec des cases Audio, Image, Lumière, Réseau et Électrique pour chaque invité. Un invité peut recevoir plusieurs métiers et plusieurs invités peuvent partager le même métier. Chaque métier inclut automatiquement l'édition du calque et du matériel Réseau ; Réseau seul n'accorde pas les autres métiers. La case Réseau est cochée et non décochable tant qu'un autre métier l'inclut, sans effacer une éventuelle attribution Réseau explicite.
+
+L'hôte peut cocher **Droits complets** : cet invité modifie tout le projet, y compris depuis Général, les feuilles, les baies et les paramètres communs. Les métiers préexistants sont conservés et reprennent effet si l'hôte décoche Droits complets. Ce droit est révocable pendant la session, y compris pour un poste déconnecté. La vue générale reste en lecture seule pour les autres invités. L'administration de la session, le démarrage, les attributions et l'exclusion restent réservés à l'hôte ; avant le démarrage, tous les invités restent en lecture seule.
 
 Le filtre d’affichage ne réduit plus les droits au seul signal du calque affiché. Un intervenant Audio gère ses appareils audio, leurs ports audio et leurs interfaces techniques associées, notamment les interfaces réseau de sa console ou de ses stageboxes. Les ports audio d’une caméra restent également accessibles au métier Audio, tandis que ses ports vidéo relèvent du métier Image. Le nom et la disposition d’un appareil relèvent de son métier principal. Les autres métiers suivent les mêmes principes.
 
-Les équipements réseau du projet sont raccordables sur un port libre compatible depuis un appareil autorisé. Une liaison Dante console–switch peut donc être créée par le métier Audio. Cette possibilité ne donne pas le droit de renommer les ports du switch ni de modifier ses paramètres IP/VLAN : la configuration de l’infrastructure reste réservée à l’hôte et au métier Réseau. Une liaison protégée ne peut pas être écrasée ou réaffectée par une opération combinée.
+Les équipements réseau du projet sont modifiables par tous les métiers : un intervenant Audio peut ajouter un switch, le déplacer, renommer ses ports ou renseigner ses paramètres IP/VLAN, et raccorder sa console. Les ports Audio-IP ou Vidéo-IP d'autres appareils restent dans leur métier respectif ; Réseau seul ne donne pas le droit de modifier une console Audio ou une caméra Image. Une liaison protégée ne peut pas être écrasée ou réaffectée par une opération combinée.
 
 Un appareil non relié peut être supprimé par son métier principal même s’il possède des ports techniques d’autres domaines. Une suppression touchant une liaison protégée reste refusée, avec un motif identifiant l’élément concerné. Les commandes visibles, le garde local et la validation chez l’hôte utilisent la même politique. L’ajout de port Expert initialise une prise autorisée pour l’appareil, au lieu de créer systématiquement un port audio.
 
-Les modifications simultanées restent synchronisées par champ et l’annulation est individuelle. Les anciens fichiers .avd et les réservations uniques des reprises restent lisibles. Les réglages communs du projet, feuilles, zones, baies, multipaires et imports restent réservés à l’hôte. Les propositions réseau sont contrôlées avant de modifier le document accepté ; une proposition invalide ne doit pas devenir un changement diffusé.
+Les modifications simultanées restent synchronisées par champ et l’annulation est individuelle. Les anciens fichiers .avd et les réservations uniques des reprises restent lisibles. Les réglages communs du projet, feuilles, zones, baies, multipaires et imports sont réservés à l’hôte et aux invités avec Droits complets. Les propositions réseau sont contrôlées avant de modifier le document accepté ; une proposition invalide ne doit pas devenir un changement diffusé.
 
 Quitter ou terminer la session avant de changer de schéma : une ouverture locale ne remplace pas
 le projet partagé. Une reconnexion normale du même poste conserve ses attributions.
@@ -141,7 +143,7 @@ Windows et macOS travaillent ensemble dans la même session (même protocole, m�
 
 ## Tester
 
-1. Installer la version 0.5.29 ou une version compatible avec le protocole 5 sur tous les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
+1. Installer la version 0.5.30 ou une version compatible avec le protocole 6 sur tous les postes. Hôte : « Session Collaborative », nom, onglet Héberger,
    « Ouvrir la session ». Le code à 6 chiffres et la salle d'attente s'affichent.
 2. Invité : renseigner son propre nom en haut, onglet Rejoindre, choisir l'hôte trouvé (présélectionné
    s'il est seul) et saisir les six chiffres du code. Si la recherche reste vide,
@@ -151,7 +153,9 @@ Windows et macOS travaillent ensemble dans la même session (même protocole, m�
    Vérifier que les deux modifient Audio ; que le premier peut passer sur Image ; que le second
    ne peut pas modifier Image. Décocher Audio pour le premier : le second doit conserver son accès.
    Avec Audio seul, vérifier aussi console Dante vers port libre de switch, modification de l’IP
-   de la console et suppression d’un appareil mixte non relié ; les réglages du switch restent protégés.
+   de la console, configuration du switch et suppression d’un appareil mixte non relié. Attribuer
+   Réseau seul : les paramètres des appareils Audio/Image doivent rester protégés. Cocher Droits
+   complets puis modifier le cartouche et Général ; décocher et vérifier le retour aux métiers précédents.
 4. Points à vérifier : ajout et déplacement de blocs des deux côtés, liaisons, calques différents sur
    chaque poste, réservation de calque et refus, tchat, Ctrl+Z (ne défait que ses propres
    modifications), coupure du Wi-Fi d'un invité puis retour (fusion), fermeture brutale de l'hôte
