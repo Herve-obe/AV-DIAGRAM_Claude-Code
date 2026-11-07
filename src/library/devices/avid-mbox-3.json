@@ -5,13 +5,133 @@
   "model": "Mbox 3",
   "pictogram": "recorder",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Interface audio et MIDI USB 2.0 (Mbox 3e génération, 2010) : 2 combos micro/ligne avec fantôme 48 V, 2 entrées instrument en façade, 2 sorties moniteur TRS, casque, S/PDIF coaxial, MIDI In/Out ; alimentée par le bus USB.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.delight.rent/upload/iblock/8a0/1009000.pdf",
+      "document": "Avid, Mbox User Guide Version 9.0 (© 2010), chapitre 2 : Front Panel Features p. 5-7 et Back Panel Features p. 8-9 (copie loueur Delight)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Mic/Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ],
+      "format": "Combo XLR / TRS arrière : micro sur XLR, ligne sur TRS ou TS ; fantôme 48 V commutable (commun), pad -20 dB"
+    },
+    {
+      "id": "in2",
+      "name": "Mic/Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ],
+      "format": "Combo XLR / TRS arrière : micro sur XLR, ligne sur TRS ou TS ; fantôme 48 V commutable (commun), pad -20 dB"
+    },
+    {
+      "id": "inst1",
+      "name": "Instrument 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 TS en façade ; remplace Mic/Line 1 selon le sélecteur de source"
+    },
+    {
+      "id": "inst2",
+      "name": "Instrument 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Jack 6,35 TS en façade ; remplace Mic/Line 2 selon le sélecteur de source"
+    },
+    {
+      "id": "mon1",
+      "name": "Monitor Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique (ou TS asymétrique) ; niveau nominal non publié"
+    },
+    {
+      "id": "mon2",
+      "name": "Monitor Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique (ou TS asymétrique) ; niveau nominal non publié"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 stéréo en façade, recopie des sorties moniteur"
+    },
+    {
+      "id": "spdifIn",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial RCA, 24 bits"
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial RCA, 24 bits"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "usb",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "USB 2.0 haute vitesse, embase type B (dessin du panneau arrière) ; alimentation par le bus"
+    }
+  ]
 }

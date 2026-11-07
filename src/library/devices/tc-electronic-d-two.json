@@ -11,6 +11,16 @@
       "url": "https://toneprints.com/media/216395/tc_electronic_d-two_manual_english.pdf",
       "document": "TC Electronic, mode d'emploi D-Two",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/382-tcelectronicDTwoBrochure.pdf",
+      "document": "TC Electronic, brochure D-Two (copie Full Compass) : photo de la face arrière et caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/280346/tc-electronic-d-two.html?page=30",
+      "document": "TC Electronic D-Two User Manual, caractéristiques techniques p. 30 (copie ManualsDir)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -99,7 +109,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC (photo de la face arrière, brochure TC), alimentation automatique 100-240 V, étiquette « 15W »"
     }
-  ]
+  ],
+  "powerW": 15
 }

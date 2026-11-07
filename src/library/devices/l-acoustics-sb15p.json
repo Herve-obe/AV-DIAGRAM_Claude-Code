@@ -5,7 +5,7 @@
   "pictogram": "speaker",
   "manufacturer": "L-Acoustics",
   "model": "SB15P",
-  "status": "community",
+  "status": "verified",
   "description": "Enceinte \"Sub-Bass\" amplifié 1000W / 8Ω",
   "aliases": [
     "L-ACOUSTICS SB15P"
@@ -28,7 +28,13 @@
     },
     {
       "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/LOUDSPEAKERS/SB15P/EN/Product%20Spec%20Sheet/SB15P_SP_EN_5.0.pdf",
-      "accessed": "2026-11-06"
+      "accessed": "2026-11-07",
+      "document": "L-Acoustics, SB15P spec sheet 5.0 (03-17) : 2 XLR en parallèle, 2 powerCON, entrée symétrique +12 dBu max"
+    },
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/108P/108P%20Archive.zip",
+      "document": "L-Acoustics, P Series Manual 5.0 (10/2021), archive 108P : § Signal input / loop through et § mains (powerCON entrée et sortie)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -56,7 +62,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "powercon",
-      "format": "« 2 x Powercon », 120 ou 230 V selon commutateur"
+      "format": "powerCON bleu (entrée, NAC3FCA), 120 ou 230 V selon commutateur"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON gris (sortie, NAC3FCB) ; chaînage de 3 enceintes P Series au plus"
     }
   ],
   "weightKg": 36

@@ -4,12 +4,22 @@
   "manufacturer": "L-Acoustics",
   "model": "V-DOSC",
   "pictogram": "speaker",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/V-DOSC/documents.zip",
       "document": "L-Acoustics, archive de documentation : V-DOSC déclaration de conformité (manuel absent de l'archive)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bestecaudio.com/wp/wp-content/uploads/v-dosc-manual_j-v4.pdf",
+      "document": "L-Acoustics, V-DOSC Manual Version 4 (juin 2005), édition japonaise du distributeur Bestec : liste des câbles p. 32 (DO.7 V, DO7 V, DO25 V : V-DOSC 8 conducteurs 4 mm², CA-COM)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.expandore.com/professional-audio/Lacoustics/lacoustics_13.htm",
+      "document": "Expandore, fiche V-DOSC : « Connectors : 2x 8-pin CA-COM »",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -18,17 +28,18 @@
       "name": "Input",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "ca-com",
       "level": "speaker",
-      "format": "Enceinte 3 voies ; connecteurs non précisés dans l'archive"
+      "format": "CA-COM 8 points (enceinte 3 voies actives : 3 paires de voies sur un seul connecteur)"
     },
     {
       "id": "link",
       "name": "Link",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "speaker"
+      "connector": "ca-com",
+      "level": "speaker",
+      "format": "CA-COM 8 points, recopie vers l'enceinte suivante (câble DO.7 V, 8 conducteurs 4 mm², 0,7 m)"
     }
   ]
 }

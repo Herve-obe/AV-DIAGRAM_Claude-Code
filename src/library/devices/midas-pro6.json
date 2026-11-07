@@ -15,24 +15,29 @@
       "url": "https://www.manualslib.com/manual/1919930/Midas-Pro6.html?page=270",
       "document": "Midas PRO6 Owner’s Manual, chapitre 29 Panel Connections p. 270-272 (copie ManualsLib)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1919930/Midas-Pro6.html?page=279",
+      "document": "Midas PRO6 Owner’s Manual, sections snake X/Y, word clock, AES50, Ethernet, I/O p. 277-280 et spécification p. 352 (copie ManualsLib)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "snakeA",
-      "name": "Snake A (vers DL371)",
+      "name": "Snake X cuivre (HyperMAC)",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Liaison redondante HyperMAC vers le moteur DL371 ; cuivre 100 m ou fibre 500 m"
+      "connector": "ethercon",
+      "format": "HyperMAC Gigabit, 192 canaux bidirectionnels, vers le moteur DL371 ; cuivre jusqu’à 100 m"
     },
     {
       "id": "snakeB",
-      "name": "Snake B (vers DL371)",
+      "name": "Snake Y cuivre (HyperMAC)",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Liaison redondante"
+      "connector": "ethercon",
+      "format": "HyperMAC Gigabit, 192 canaux bidirectionnels, liaison redondante de la X"
     },
     {
       "id": "ac",
@@ -134,6 +139,170 @@
       "level": "none",
       "channels": 2,
       "format": "Sous l’accoudoir droit, bus monitor B ; type de prise non précisé"
+    },
+    {
+      "id": "snakeXopt",
+      "name": "Snake X fibre (HyperMAC)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "opticalcon",
+      "format": "HyperMAC 192 canaux bidirectionnels, fibre optique"
+    },
+    {
+      "id": "snakeYopt",
+      "name": "Snake Y fibre (HyperMAC)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "opticalcon",
+      "format": "HyperMAC 192 canaux bidirectionnels, fibre optique, redondance"
+    },
+    {
+      "id": "aes50a",
+      "name": "AES50 A",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 24,
+      "format": "AES50, 24 canaux bidirectionnels"
+    },
+    {
+      "id": "aes50b",
+      "name": "AES50 B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 24,
+      "format": "AES50, 24 canaux bidirectionnels"
+    },
+    {
+      "id": "aes50c",
+      "name": "AES50 C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ethercon",
+      "channels": 24,
+      "format": "AES50, 24 canaux bidirectionnels"
+    },
+    {
+      "id": "ext",
+      "name": "External (Ethernet 10 Mb/s)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Port Ethernet 10 Mb/s pour équipements non Midas (switch, concentrateur)"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet Control 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Commande Ethernet 100 Mb/s (ex. Klark Teknik DN9331)"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet Control 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Commande Ethernet 100 Mb/s"
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "75 ohms"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "75 ohms"
+    },
+    {
+      "id": "aessyncin",
+      "name": "AES3 Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchronisation AES3 96 kHz"
+    },
+    {
+      "id": "aessyncout",
+      "name": "AES3 Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchronisation AES3 96 kHz"
+    },
+    {
+      "id": "kvm1vga",
+      "name": "KVM 1 VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "Entrée écran d’ordinateur portable, Sub-D 15"
+    },
+    {
+      "id": "kvm1usb",
+      "name": "KVM 1 USB (clavier/souris)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Sortie clavier et souris vers l’ordinateur, USB type B"
+    },
+    {
+      "id": "kvm2vga",
+      "name": "KVM 2 VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "Entrée écran d’ordinateur portable, Sub-D 15"
+    },
+    {
+      "id": "kvm2usb",
+      "name": "KVM 2 USB (clavier/souris)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Sortie clavier et souris vers l’ordinateur, USB type B"
+    },
+    {
+      "id": "kvm3vga",
+      "name": "KVM 3 VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "Entrée écran d’ordinateur portable, Sub-D 15"
+    },
+    {
+      "id": "kvm3usb",
+      "name": "KVM 3 USB (clavier/souris)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Sortie clavier et souris vers l’ordinateur, USB type B"
+    }
+  ],
+  "slots": [
+    {
+      "id": "io1",
+      "name": "I/O 1",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "io2",
+      "name": "I/O 2",
+      "type": "midas-dl4"
+    },
+    {
+      "id": "io3",
+      "name": "I/O 3",
+      "type": "midas-dl4"
     }
   ]
 }

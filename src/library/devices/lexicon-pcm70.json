@@ -22,6 +22,11 @@
       "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/reverberation/pcm70/",
       "document": "Novelty — PCM70",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://archive.org/stream/lexicon_lexicon_pcm-70_sm/lexicon_pcm-70_sm_djvu.txt",
+      "document": "Lexicon, PCM 70 Service Packet (texte archive.org) : § 2.1.1 Rear Panel Connections et § 2.2 Specifications",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -32,7 +37,13 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Mono, jack 6,35 ; -20 dB asymétrique ou +4 dB symétrique"
+      "format": "Main Input mono, jack 6,35 TRS ; mode +4 dB : -8 à +18 dBV symétrique ou non, 40 kohms ; mode -20 dB : -23 à +3 dBV asymétrique > 500 kohms (instruments, micros)",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ]
     },
     {
       "id": "outL",
@@ -41,7 +52,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Jack 6,35 (sources divergentes : TS ou TRS)"
+      "format": "Jack 6,35 (accepte TRS), 600 ohms asymétrique ; mode +4 dB : +10 dBV max sur 600 ohms ; mode -20 dB : -8 dBV max"
     },
     {
       "id": "outR",
@@ -50,25 +61,59 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "format": "Jack 6,35 (sources divergentes : TS ou TRS)"
+      "format": "Jack 6,35 (accepte TRS), 600 ohms asymétrique ; mode +4 dB : +10 dBV max sur 600 ohms ; mode -20 dB : -8 dBV max"
     },
     {
       "id": "midi",
-      "name": "MIDI",
-      "direction": "bidir",
+      "name": "MIDI In",
+      "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "MIDI (connecteurs non précisés)"
+      "connector": "din5",
+      "format": "DIN 5 broches"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "DIN 5 broches, changements de programme"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "DIN 5 broches"
+    },
+    {
+      "id": "fsReg",
+      "name": "Register Step",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 TS, pédale momentanée (Lexicon 750-02834)"
+    },
+    {
+      "id": "fsByp",
+      "name": "Bypass",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 TS, pédale à verrouillage (Lexicon A-FS-41)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Secteur 100 / 120 / 220 / 240 V commutable, 25 W max ; type de cordon ou d'embase non décrit par le Service Packet"
     }
   ],
   "aliases": [
     "lexicon PCM70"
-  ]
+  ],
+  "powerW": 25
 }

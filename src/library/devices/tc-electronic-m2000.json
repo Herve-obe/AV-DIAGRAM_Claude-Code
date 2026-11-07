@@ -19,8 +19,13 @@
     },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/multi-effets/m2000/",
-      "document": "Novelty — M2000",
+      "document": "Novelty : M2000",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/280363/tc-electronic-m2000.html?page=8",
+      "document": "TC Electronic M2000 manual, face arrière p. 8, caractéristiques p. 31, niveaux nominaux p. 35 (copie ManualsDir)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -121,11 +126,13 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur arrière (dessin de la face arrière, manuel p. 8), 100-240 V automatique"
     }
   ],
   "aliases": [
     "M2000 TC",
     "TC-ELECTRONIC M2000"
-  ]
+  ],
+  "powerW": 20
 }

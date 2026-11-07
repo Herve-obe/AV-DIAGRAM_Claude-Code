@@ -26,6 +26,11 @@
       "url": "https://r2.gear4music.com/media/21/219923/download_219923.pdf",
       "document": "Behringer MS16 Technical Specifications (copie revendeur Gear4music), ancienne révision à bloc externe",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://r2.gear4music.com/media/21/219922/download_219922.pdf",
+      "document": "Behringer MS16 User Manual, § 2 Control Elements and Connections (copie revendeur Gear4music)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -82,7 +87,16 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Secteur 100/120/230 V selon région ; type de cordon ou d'embase non publié (une ancienne révision utilisait un bloc externe 9 V~ 750 mA)"
+      "format": "« AC POWER input » (n° 13) : le dessin du manuel montre un passage rond sans embase identifiable (cordon probablement captif, non écrit) ; 0,14 A / 230 V"
+    },
+    {
+      "id": "spkOut",
+      "name": "Speaker to Left",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Prise SPEAKER TO LEFT vers l'enceinte passive gauche, câble fourni ; type de prise non nommé"
     }
   ],
   "powerW": 32

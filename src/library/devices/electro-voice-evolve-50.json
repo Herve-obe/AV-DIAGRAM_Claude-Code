@@ -16,6 +16,11 @@
       "url": "https://www.bananamusic.it/stampa/prodotto/159814",
       "document": "Banana Music, fiche EVOLVE 50 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/44248-EVOLVE50QuickStartManual.pdf",
+      "document": "Electro-Voice, EVOLVE 50 Installation manual 2018-11 (F.01U.341.540), § 5.1 Amplifier DSP controls p. 15-16 et § 9 Technical data (copie Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -26,8 +31,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack ; fantôme 15 V",
-      "phantom": "supplied"
+      "format": "Combo XLR / jack TRS, symétrie électronique, micro ou ligne (« line level signal source (such as mixer) or a microphone ») ; fantôme +15 V commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -36,8 +47,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack ; fantôme 15 V",
-      "phantom": "supplied"
+      "format": "Combo XLR / jack TRS, symétrie électronique, micro ou ligne (« line level signal source (such as mixer) or a microphone ») ; fantôme +15 V commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "rca",
@@ -45,8 +62,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
-      "channels": 2
+      "channels": 2,
+      "format": "INPUT 3, RCA stéréo asymétrique (lecteur CD / MP3) ; niveau nominal non publié"
     },
     {
       "id": "mini",
@@ -54,8 +71,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "level": "line-10",
-      "channels": 2
+      "channels": 2,
+      "format": "INPUT 3, mini-jack 3,5 : mono symétrique ou stéréo asymétrique ; niveau nominal non publié"
     },
     {
       "id": "bt",
@@ -71,8 +88,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Recopie de l'entrée"
+      "format": "XLR, recopie passive en parallèle de INPUT 1 (avant fader) ; même signal que l'entrée"
     },
     {
       "id": "mix",
@@ -80,15 +96,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "format": "XLR, mélange après fader des entrées 1 à 3, câblage GND-sensing ; niveau nominal non publié"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "MAINS IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Amplification 2 × 500 W"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec fusible T5AL (dessin du panneau, manuel p. 16), 100-240 V ; 1,5 A à 100 V / 0,6 A à 240 V à 1/8 de puissance"
     }
-  ]
+  ],
+  "powerW": 150
 }

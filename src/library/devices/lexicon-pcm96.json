@@ -16,6 +16,16 @@
       "url": "https://www.prosoundweb.com/lexicon-pcm96-processor/",
       "document": "ProSoundWeb, annonce PCM96",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://m.barryrudolph.com/recall/manuals/pcm96.pdf",
+      "document": "Lexicon, PCM96 Owner's Manual, The Rear Panel p. 4 et Specifications p. 47-48",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://barryrudolph.com/mix/pcm96.html",
+      "document": "Barry Rudolph, essai PCM96 (Mix) : description du panneau arrière",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -25,7 +35,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR femelle, symétrique 20 kohms ; niveau +4 dBu ou -10 dBV commutable (0 dBFS = +20 dBu / +8,2 dBu)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "inR",
@@ -33,7 +50,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR femelle, symétrique 20 kohms ; niveau +4 dBu ou -10 dBV commutable (0 dBFS = +20 dBu / +8,2 dBu)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "outL",
@@ -41,7 +65,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR mâle, symétrie électronique 30 ohms ; niveau +4 dBu ou -10 commutable, +20 dBu max",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "outR",
@@ -49,7 +80,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR mâle, symétrie électronique 30 ohms ; niveau +4 dBu ou -10 commutable, +20 dBu max",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "aesIn",
@@ -69,10 +107,11 @@
     },
     {
       "id": "wc",
-      "name": "Word Clock",
-      "direction": "bidir",
+      "name": "Word Clock In",
+      "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "BNC TTL 75 ohms, non terminé"
     },
     {
       "id": "midiIn",
@@ -100,14 +139,16 @@
       "name": "FireWire 1",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "ieee1394"
+      "connector": "ieee1394",
+      "format": "FireWire 400 cité par la presse (Barry Rudolph) ; absent du dessin du panneau arrière du manuel lu : à vérifier sur l'appareil"
     },
     {
       "id": "fw2",
       "name": "FireWire 2",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "ieee1394"
+      "connector": "ieee1394",
+      "format": "FireWire 400 cité par la presse (Barry Rudolph) ; absent du dessin du panneau arrière du manuel lu : à vérifier sur l'appareil"
     },
     {
       "id": "eth1",
@@ -128,7 +169,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC 3 broches, 100-240 V, 50-60 Hz, 20 W max"
     }
-  ]
+  ],
+  "powerW": 20
 }

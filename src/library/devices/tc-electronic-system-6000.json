@@ -10,6 +10,11 @@
       "url": "https://cdn.mediavalet.com/aunsw/musictribe/atsr2rqJk0CQQEHdz8zBWg/8n1djIW4iUOrITp-O61HUQ/Original/tc_electronic_system_6000_mkii_operation_manual_english.pdf",
       "document": "TC Electronic, mode d'emploi System 6000 MKII",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/8070-TCReverb6000TechSpecs.pdf",
+      "document": "TC Electronic, brochure System 6000 (copie Full Compass) : photo de la face arrière du Mainframe et caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -80,11 +85,13 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC (photo de la face arrière, brochure System 6000), alimentation automatique 100-240 V"
     }
   ],
   "description": "Processeur Mainframe 6000 MKII seul. La télécommande TC Icon et son Remote CPU sont des appareils distincts, non représentés par ce bloc.",
   "aliases": [
     "TC Electronic Mainframe 6000 MKII"
-  ]
+  ],
+  "powerW": 45
 }
