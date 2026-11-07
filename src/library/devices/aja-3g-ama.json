@@ -4,7 +4,7 @@
   "manufacturer": "AJA",
   "model": "3G-AMA",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "powerW": 5,
   "sources": [
     {
@@ -39,6 +39,14 @@
       "signal": "video",
       "connector": "bnc",
       "format": "3G-SDI"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B (photo du manuel) : configuration par AJA MiniConfig"
     },
     {
       "id": "ain1",
@@ -109,8 +117,8 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "+5 à 20 V CC, bloc secteur fourni ; connecteur non précisé"
+      "connector": "dc-barrel",
+      "format": "+5 à 20 V CC, 5 W ; prise DC ronde à bague de verrouillage (photo du manuel AJA, bloc AJA DWP fourni)"
     }
   ],
   "aliases": [

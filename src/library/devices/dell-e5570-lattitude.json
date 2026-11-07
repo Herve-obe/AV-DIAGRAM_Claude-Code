@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "DELL",
   "model": "e5570 Lattitude",
-  "status": "community",
+  "status": "verified",
   "description": "PC portable, Intel Core i7-6820HQ (2,7GHz, 4 coeurs), RAM 16 Go, SSD 128 Go, Windows 7 Pro, 15\" full HD (1920x1080)",
   "aliases": [
     "E5570",
@@ -16,10 +16,72 @@
       "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/portable/e5570-lattitude/",
       "document": "Novelty — e5570 Lattitude",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dl.dell.com/topicspdf/latitude-e5570-laptop_owners-manual_en-us.pdf",
+      "document": "Dell, Latitude E5570 Owner's Manual, Technical specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.09,
-  "powerW": 90
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "vga",
+      "name": "VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "lan",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3.0 PowerShare",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "headset",
+      "name": "Casque / micro",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Combo stéréo casque / micro"
+    },
+    {
+      "id": "dc",
+      "name": "DC-In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur 65 W ou 90 W (quadricœur)"
+    }
+  ],
+  "weightKg": 2.09
 }

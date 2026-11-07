@@ -16,9 +16,22 @@
       "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/pc-as4-grn/",
       "document": "Novelty — PC-AS4-Grn",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1071680-REG/dsan_corp_pc_as_4_green_4_button_wireless_transmitter_with.html",
+      "document": "B&H Photo, fiche D'San PC-AS4-GRN (revendeur)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émetteur HF",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "433 MHz, 256 canaux, portée environ 90 m, vers un récepteur PerfectCue"
+    }
+  ],
   "weightKg": 0.08
 }

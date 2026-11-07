@@ -5,14 +5,121 @@
   "model": "Shogun Connect",
   "pictogram": "recorder",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Moniteur-enregistreur 7 pouces 12G-SDI / HDMI connecté au réseau (Wi-Fi 6, Ethernet)",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/7974bd1c-49ad-41b4-a2c8-60c629f83747/SHOGUN-CONNECT-USER-MANUAL-160922.pdf",
+      "document": "Atomos, Shogun Connect User Manual (16/09/2022), « SHOGUN CONNECT Connections » et caractéristiques (copie Lensrentals)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, rétrocompatible"
+    },
+    {
+      "id": "sdiOut",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a, audio et timecode intégrés"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a, bouclage ou lecture"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Réservé à des fonctions futures"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 GbE"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi 6 / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 6 (antennes fournies), Bluetooth LE"
+    },
+    {
+      "id": "airglu",
+      "name": "AirGlu (sync sans fil)",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Timecode sans fil AirGlu, antenne RF fournie"
+    },
+    {
+      "id": "micIn",
+      "name": "Mic/Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ],
+      "format": "Mini-jack 3,5 mm, source micro ou ligne"
+    },
+    {
+      "id": "phones",
+      "name": "Casque / Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm, casque ou sortie analogique"
+    },
+    {
+      "id": "remote",
+      "name": "Remote/LANC",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "LANC (client, formats Sony et Canon), commande série et calibrage par câbles optionnels ; type de prise non nommé"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack DC verrouillable 5,5 / 2,1 mm, 6,2 à 16,8 V ; batteries NP-F / série L en option"
+    }
+  ],
   "domain": "image"
 }

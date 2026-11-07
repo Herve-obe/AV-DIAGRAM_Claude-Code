@@ -20,8 +20,66 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lenovo_thinkpad-e580_ft.pdf",
       "document": "Novelty — ThinkPad E580 (20KS001-JFR) : ThinkPad E580",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E580/ThinkPad_E580_Spec.PDF",
+      "document": "Lenovo PSREF, ThinkPad E580 Specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "usbc",
+      "name": "USB-C 3.1 Gen 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Power Delivery (charge 45 ou 65 W) et DisplayPort"
+    },
+    {
+      "id": "usb3a",
+      "name": "USB 3.1 Gen 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Always On"
+    },
+    {
+      "id": "usb3b",
+      "name": "USB 3.1 Gen 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4b"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "headset",
+      "name": "Casque / micro",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Combo"
+    }
+  ]
 }

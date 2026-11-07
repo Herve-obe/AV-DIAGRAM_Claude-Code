@@ -5,13 +5,311 @@
   "model": "VM-10XL",
   "pictogram": "router",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Distributeur vidéo composite et audio stéréo 1:10 sur BNC et RCA, avec bouclages.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://cdn.kramerav.com/web/downloads/manuals/vm-10xl.pdf",
+      "document": "Kramer VM-10xl User Manual, p. 6 et 12",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "vin",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms, terminaison commutable"
+    },
+    {
+      "id": "vloop",
+      "name": "Video Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage (Hi-Z)"
+    },
+    {
+      "id": "vout1",
+      "name": "Video Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout2",
+      "name": "Video Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout3",
+      "name": "Video Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout4",
+      "name": "Video Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout5",
+      "name": "Video Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout6",
+      "name": "Video Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout7",
+      "name": "Video Out 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout8",
+      "name": "Video Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout9",
+      "name": "Video Out 9",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "vout10",
+      "name": "Video Out 10",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1 Vcc / 75 ohms"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "aloopL",
+      "name": "Audio Loop L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "aloopR",
+      "name": "Audio Loop R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "aout1L",
+      "name": "Audio Out 1 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout1R",
+      "name": "Audio Out 1 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout2L",
+      "name": "Audio Out 2 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout2R",
+      "name": "Audio Out 2 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout3L",
+      "name": "Audio Out 3 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout3R",
+      "name": "Audio Out 3 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout4L",
+      "name": "Audio Out 4 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout4R",
+      "name": "Audio Out 4 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout5L",
+      "name": "Audio Out 5 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout5R",
+      "name": "Audio Out 5 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout6L",
+      "name": "Audio Out 6 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout6R",
+      "name": "Audio Out 6 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout7L",
+      "name": "Audio Out 7 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout7R",
+      "name": "Audio Out 7 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout8L",
+      "name": "Audio Out 8 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout8R",
+      "name": "Audio Out 8 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout9L",
+      "name": "Audio Out 9 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout9R",
+      "name": "Audio Out 9 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout10L",
+      "name": "Audio Out 10 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "aout10R",
+      "name": "Audio Out 10 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "230 V CA (115 V USA), embase IEC avec fusible"
+    }
+  ],
+  "powerW": 4.7
 }

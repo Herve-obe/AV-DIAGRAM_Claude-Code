@@ -16,9 +16,30 @@
       "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/tablettes/ipad-air-2/",
       "document": "Novelty — iPad Air 2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://support.apple.com/kb/SP708",
+      "document": "Apple, iPad Air 2 - Technical Specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "lightning",
+      "name": "Lightning",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur Lightning (absent du catalogue) : charge, données ; sortie vidéo jusqu'à 1080p par adaptateur Lightning AV numérique ou VGA"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm"
+    }
+  ],
   "weightKg": 0.437
 }

@@ -5,13 +5,214 @@
   "model": "ADVC-700",
   "pictogram": "router",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Convertisseur bidirectionnel analogique (composante, S-Vidéo, composite, audio XLR et RCA) et DV/IEEE 1394, avec LTC, référence et RS-422.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/795783/grass-valley-advc-700.html?page=52",
+      "document": "Grass Valley (Canopus) ADVC700 User Manual, p. 16-17 et 52 (copie manualsdir, tiers)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "dv1",
+      "name": "DV1 (6 broches)",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "IEEE 1394 6 broches, DV/DVCAM ; sans alimentation de bus"
+    },
+    {
+      "id": "dv2",
+      "name": "DV2 (4 broches)",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "IEEE 1394 4 broches, DV/DVCAM"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In CH1 (sym.)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3-31, symétrique"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In CH2 (sym.)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3-31, symétrique"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Out CH1 (sym.)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3-32, symétrique"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Out CH2 (sym.)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3-32, symétrique"
+    },
+    {
+      "id": "uinL",
+      "name": "Audio In CH1 (asym.)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, ligne asymétrique"
+    },
+    {
+      "id": "uinR",
+      "name": "Audio In CH2 (asym.)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, ligne asymétrique"
+    },
+    {
+      "id": "uoutL",
+      "name": "Audio Out CH1 (asym.)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, ligne asymétrique"
+    },
+    {
+      "id": "uoutR",
+      "name": "Audio Out CH2 (asym.)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, ligne asymétrique"
+    },
+    {
+      "id": "compInY",
+      "name": "Component In Y",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compInPb",
+      "name": "Component In Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compInPr",
+      "name": "Component In Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compOutY",
+      "name": "Component Out Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compOutPb",
+      "name": "Component Out Pb",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compOutPr",
+      "name": "Component Out Pr",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "svIn",
+      "name": "S-Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4"
+    },
+    {
+      "id": "svOut",
+      "name": "S-Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4"
+    },
+    {
+      "id": "cvbsIn",
+      "name": "Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOut",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcIn",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "refIn",
+      "name": "REF In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst, terminaison 75 ohms automatique"
+    },
+    {
+      "id": "refLoop",
+      "name": "REF Loop Through",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, RS-422A"
+    },
+    {
+      "id": "dc",
+      "name": "DC-IN 12V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, 2 A, bloc secteur fourni"
+    }
+  ],
+  "powerW": 20.4
 }

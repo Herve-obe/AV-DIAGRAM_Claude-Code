@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Startech",
   "model": "TB3DKM2HDL",
-  "status": "community",
+  "status": "verified",
   "description": "Station d'accueil avec fil Thunderbolt 3 Gris",
   "aliases": [
     "Startech TB3DKM2HDL"
@@ -22,7 +22,53 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "host",
+      "name": "Thunderbolt 3 (câble captif)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Câble Thunderbolt 3 captif de 28 cm, 40 Gbit/s, alimentation par le bus"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "4K60"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "4K60"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-A 3.2 Gen 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB-A 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "lan",
+      "name": "Gigabit Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PXE, Wake-on-LAN"
+    }
+  ],
   "weightKg": 0.14780000000000001
 }

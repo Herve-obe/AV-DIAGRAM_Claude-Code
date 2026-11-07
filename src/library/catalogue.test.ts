@@ -45,7 +45,8 @@ describe('références précisées : CCU Sony et Scarlett 2i2', () => {
   it('sépare les liaisons caméra et les sorties différentes des deux CCU', () => {
     const fb = template('sony-hxcu-fb70'), tx = template('sony-hxcu-tx70')
     for (const t of [fb, tx]) {
-      expect(t.status).toBe('verified')
+      // Embase secteur non identifiée (site constructeur inaccessible) : repassées en Communauté le 7 novembre 2026
+      expect(t.status).toBe('community')
       expect(t.family).toBe('control')
       expect(t.domain).toBe('image')
       expect(t.ports.filter(p => p.name.startsWith('SDI OUTPUT'))).toHaveLength(4)

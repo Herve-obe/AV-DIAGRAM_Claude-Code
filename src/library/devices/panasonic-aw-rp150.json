@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AW-RP150",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.rentex.com/wp-content/uploads/2019/05/Panasonic-AW-RP150-Spec-Sheet-from-Rentex.pdf",
@@ -44,7 +44,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Caméra en série (protocole AW)"
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
     },
     {
       "id": "rs422_2",
@@ -52,7 +52,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Caméra en série (protocole AW)"
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
     },
     {
       "id": "rs422_3",
@@ -60,7 +60,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Caméra en série (protocole AW)"
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
     },
     {
       "id": "rs422_4",
@@ -68,7 +68,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Caméra en série (protocole AW)"
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
     },
     {
       "id": "rs422_5",
@@ -76,15 +76,18 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Caméra en série (protocole AW)"
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
     },
     {
       "id": "lan",
-      "name": "LAN",
+      "name": "IP CONT",
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Jusqu'à 200 caméras IP ; PoE+"
+      "format": "10BASE-T/100BASE-TX, caméras IP ; entrée PoE+",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "sdiIn",
@@ -103,28 +106,32 @@
     },
     {
       "id": "gpio1",
-      "name": "GPIO 1",
+      "name": "TALLY/GPIO 1",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "dsub25",
+      "format": "D-Sub 25 points femelle : 10 entrées tally, 6 GPI, 5 GPIO"
     },
     {
       "id": "gpio2",
       "name": "GPIO 2",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "dsub25",
+      "format": "D-Sub 25 points femelle : 10 GPI, 10 GPIO"
     },
     {
       "id": "dc",
       "name": "DC 12 V In",
       "direction": "in",
       "signal": "power",
-      "connector": "xlr4"
+      "connector": "xlr4",
+      "format": "12 V CC (10,8 à 13,2 V), XLR 4 points ; alimentation PoE+ possible par IP CONT"
     }
   ],
   "aliases": [
     "PANASONIC AW-RP150"
   ],
-  "domain": "image"
+  "domain": "image",
+  "powerW": 12
 }

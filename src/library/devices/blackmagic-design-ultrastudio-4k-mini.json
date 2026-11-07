@@ -25,6 +25,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/black-magic_ultrastudio4K-mini_manuel.pdf",
       "document": "Novelty — UltraStudio 4K Mini : UltraStudio 4K Mini",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-11",
+      "document": "Blackmagic Design, UltraStudio 4K Mini Tech Specs",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -101,28 +106,32 @@
       "name": "Balanced audio In 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 symétrique ; niveau nominal non publié"
     },
     {
       "id": "audioOut1",
       "name": "Balanced audio Out 1",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 symétrique ; niveau nominal non publié"
     },
     {
       "id": "audioIn2",
       "name": "Balanced audio In 2",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 symétrique ; niveau nominal non publié"
     },
     {
       "id": "audioOut2",
       "name": "Balanced audio Out 2",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 symétrique ; niveau nominal non publié"
     },
     {
       "id": "mic",
@@ -130,14 +139,17 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Switchable48V phantom"
+      "format": "XLR face avant, fantôme 48 V commutable par logiciel",
+      "level": "mic",
+      "phantom": "supplied"
     },
     {
       "id": "phones",
-      "name": "Headphones",
+      "name": "Casque",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified"
+      "connector": "jack-trs",
+      "format": "Face avant ; prise jack 6,35 stéréo d'après le dessin de la face avant du manuel (diamètre comparable), type non écrit dans le texte"
     },
     {
       "id": "ref",

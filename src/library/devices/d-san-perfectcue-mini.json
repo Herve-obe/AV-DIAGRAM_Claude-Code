@@ -21,8 +21,69 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/UserGuide.pdf",
       "document": "Novelty — PerfectCue Mini : PerfectCue",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.dsan.com/perfectcue-mini",
+      "document": "D'San, page produit PerfectCue Mini",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Récepteur HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Depuis la télécommande fournie"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB programmable, ordinateur 1 ; type non précisé ; alimentation 5 V par le bus possible"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB programmable, ordinateur 2 ; type non précisé"
+    },
+    {
+      "id": "serXlr",
+      "name": "Série XLR",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Liaison série sur XLR vers autres PerfectCue / voyants (nombre de points non précisé)"
+    },
+    {
+      "id": "serRj",
+      "name": "Série RJ45",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison série sur câble Cat5 vers autres PerfectCue / voyants"
+    },
+    {
+      "id": "phono",
+      "name": "Phono Jack",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Prise « phono jack » (contact filaire), diamètre non précisé"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc 12 V ou 110-220 V externe ; type de prise non précisé"
+    }
+  ]
 }

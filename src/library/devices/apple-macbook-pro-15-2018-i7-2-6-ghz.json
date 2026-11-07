@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "APPLE",
   "model": "MacBook Pro 15′ 2018 i7 2.6 Ghz",
-  "status": "community",
+  "status": "verified",
   "description": "Ordinateur portable 15\", processeur quadricoeur i7 2.6 GHz",
   "aliases": [
     "APPLE MacBook Pro 15′ 2018 i7 2.6 Ghz"
@@ -15,9 +15,54 @@
       "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/portable/macbook-pro-15-2018-i7-2-6-ghz/",
       "document": "Novelty — MacBook Pro 15′ 2018 i7 2.6 Ghz",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://support.apple.com/kb/SP776",
+      "document": "Apple, MacBook Pro (15-inch, 2018) - Technical Specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "tb1",
+      "name": "Thunderbolt 3 (USB-C) 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 3 40 Gb/s, USB 3.1 gen 2, DisplayPort natif, charge"
+    },
+    {
+      "id": "tb2",
+      "name": "Thunderbolt 3 (USB-C) 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 3 40 Gb/s, USB 3.1 gen 2, DisplayPort natif, charge"
+    },
+    {
+      "id": "tb3",
+      "name": "Thunderbolt 3 (USB-C) 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 3 40 Gb/s, USB 3.1 gen 2, DisplayPort natif, charge"
+    },
+    {
+      "id": "tb4",
+      "name": "Thunderbolt 3 (USB-C) 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 3 40 Gb/s, USB 3.1 gen 2, DisplayPort natif, charge"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm"
+    }
+  ],
   "weightKg": 1.83
 }

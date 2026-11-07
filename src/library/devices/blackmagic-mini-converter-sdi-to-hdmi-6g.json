@@ -4,12 +4,17 @@
   "manufacturer": "Blackmagic Design",
   "model": "Mini Converter SDI to HDMI 6G",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-26",
       "document": "Blackmagic Design, fiche technique Mini Converter SDI to HDMI 6G (W-CONM-26)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -42,32 +47,32 @@
       "name": "HDMI Out",
       "direction": "out",
       "signal": "video",
-      "connector": "hdmi"
+      "connector": "hdmi",
+      "format": "HDMI type A"
     },
     {
       "id": "aout",
-      "name": "Audio analogique Out",
+      "name": "L - Analog / AES-EBU Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 2,
-      "format": "Symétrique"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique gauche ou paire AES/EBU (commutateur 8)"
     },
     {
-      "id": "aes",
-      "name": "AES/EBU Out",
+      "id": "aoutR",
+      "name": "R - Analog Out",
       "direction": "out",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 2
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, voie analogique droite"
     },
     {
       "id": "usb",
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour et configuration"
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
     },
     {
       "id": "dc",
@@ -77,5 +82,7 @@
       "connector": "dc-barrel",
       "format": "12 V universel fourni"
     }
-  ]
+  ],
+  "powerW": 5.2,
+  "description": "Convertisseur SDI (jusqu'au 6G-SDI) vers HDMI avec désintégration audio vers HDMI, AES/EBU ou analogique, LUT 3D."
 }

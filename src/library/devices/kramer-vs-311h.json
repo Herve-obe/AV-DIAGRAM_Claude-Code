@@ -4,7 +4,7 @@
   "manufacturer": "Kramer",
   "model": "VS-311H (commutateur automatique HDMI 3x1)",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "weightKg": 1.2,
   "sources": [
     {
@@ -111,7 +111,6 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "level": "line+4",
       "format": "Stéréo symétrique, bornier 5 points"
     },
     {
@@ -143,8 +142,9 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
+      "connector": "dc-barrel",
       "format": "12 V CC, 380 mA, bloc fourni"
     }
-  ]
+  ],
+  "powerW": 4.56
 }

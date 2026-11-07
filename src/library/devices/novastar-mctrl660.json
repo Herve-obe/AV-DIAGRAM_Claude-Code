@@ -4,7 +4,7 @@
   "manufacturer": "NovaStar",
   "model": "MCTRL660",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "domain": "image",
   "powerW": 16,
   "weightKg": 3.6,
@@ -47,8 +47,8 @@
       "name": "Audio In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Entrée audio (connecteur non précisé)"
+      "connector": "minijack",
+      "format": "Entrée audio, petite prise jack ronde (dessin du panneau) ; niveau non publié"
     },
     {
       "id": "out1",
@@ -111,24 +111,24 @@
       "name": "UART In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Cascade (jusqu'à 20 appareils)"
+      "connector": "rj45",
+      "format": "Prise modulaire type RJ45 (dessin) : cascade, jusqu'à 20 appareils"
     },
     {
       "id": "uart-out",
       "name": "UART Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Cascade"
+      "connector": "rj45",
+      "format": "Prise modulaire type RJ45 (dessin) : cascade"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14"
     }
   ],
   "aliases": [

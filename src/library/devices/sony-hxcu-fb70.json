@@ -5,7 +5,7 @@
   "manufacturer": "Sony",
   "model": "HXCU-FB70 (CCU fibre opticalCON DUO)",
   "pictogram": "control",
-  "status": "verified",
+  "status": "community",
   "rackU": 1.5,
   "weightKg": 6.5,
   "description": "CCU pour HXC-D70 via CA-FB70. Montage standard opticalCON DUO ; le kit HKC-LC02 remplace cette prise par une LEMO. Hauteur physique 1,5 U ; deux U entières réservées dans la vue baies.",
@@ -24,6 +24,11 @@
       "url": "https://pro.sony/en_PR/pdf/products/camera-control-unit/hxcu-fb70",
       "document": "Sony, HXCU-FB70 product sheet, Connector options",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/19866-DigitalTriaxBrochurewithSpecifications.pdf",
+      "document": "Sony, brochure Digital Triax / Fiber HXC-D70, HXCU-FB70, HXCU-TX70 avec caractéristiques (via Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -199,8 +204,8 @@
       "name": "S-VIDEO OUTPUT",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "S-Video, 4 broches."
+      "connector": "minidin4",
+      "format": "S-Video (Y/C), Mini DIN 4 points"
     },
     {
       "id": "audio-out1",

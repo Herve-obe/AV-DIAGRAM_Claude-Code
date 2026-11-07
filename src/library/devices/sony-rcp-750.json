@@ -19,15 +19,15 @@
       "name": "CCU / CNU",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Multiconnecteur 8 points (câble CCA-5) ; alimentation 10,5-35 V par la CCU"
+      "connector": "sony-remote8",
+      "format": "Multiconnecteur 8 points (câble CCA-5) ; alimentation 10,5-35 V CC par la CCU ou la CNU"
     },
     {
       "id": "aux",
       "name": "AUX",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
+      "connector": "sony-remote8",
       "format": "Multiconnecteur 8 points"
     },
     {
@@ -35,8 +35,10 @@
       "name": "EXT I/O",
       "direction": "bidir",
       "signal": "control",
-      "connector": "dsub9"
+      "connector": "dsub9",
+      "format": "D-Sub 9 points"
     }
   ],
-  "domain": "image"
+  "domain": "image",
+  "powerW": 4
 }

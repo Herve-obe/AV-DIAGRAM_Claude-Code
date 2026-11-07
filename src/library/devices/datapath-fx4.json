@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Datapath",
   "model": "Fx4",
-  "status": "community",
+  "status": "verified",
   "description": "Contrôleur d'affichage de mur d'écrans vidéo, 1x entrée DisplayPort + 2x HDMI, 4x sorties Genlock DisplayPort ou HDMI",
   "aliases": [
     "Datapath Fx4"
@@ -71,11 +71,44 @@
       "format": "DisplayPort 1.2"
     },
     {
+      "id": "hdmiOut1",
+      "name": "HDMI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, genlockée, jusqu'à 1080p60 / 1200p60"
+    },
+    {
+      "id": "hdmiOut2",
+      "name": "HDMI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, genlockée, jusqu'à 1080p60 / 1200p60"
+    },
+    {
+      "id": "hdmiOut3",
+      "name": "HDMI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, genlockée, jusqu'à 1080p60 / 1200p60"
+    },
+    {
+      "id": "hdmiOut4",
+      "name": "HDMI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, genlockée, jusqu'à 1080p60 / 1200p60"
+    },
+    {
       "id": "genlock",
       "name": "Genlock In",
       "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Black burst ou tri-level (BNC dédié)"
     },
     {
       "id": "lan1",
@@ -107,7 +140,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "100-240 V AC"
+      "format": "100-240 V CA, embase IEC avec interrupteur et fusible"
     }
   ],
   "weightKg": 1.86,

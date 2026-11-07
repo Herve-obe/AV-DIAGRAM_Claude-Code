@@ -27,7 +27,160 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 5.3
+  "ports": [
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin), AC 240 V"
+    },
+    {
+      "id": "ext",
+      "name": "EXT TERMINAL",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "D-Sub 15 : contacts externes ou RS-232C"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "syncIn",
+      "name": "EXT SYNC IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst, terminaison 75 ohms commutable"
+    },
+    {
+      "id": "syncLoop",
+      "name": "EXT SYNC (bouclage)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "coax",
+      "name": "Digital Audio Out (coaxial)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca"
+    },
+    {
+      "id": "opt",
+      "name": "Digital Audio Out (optique)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink"
+    },
+    {
+      "id": "audioOutL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "200 mVrms (1 kHz, -20 dB)"
+    },
+    {
+      "id": "audioOutR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "200 mVrms (1 kHz, -20 dB)"
+    },
+    {
+      "id": "audioInL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Passage (pass through), 2 Vrms = 0 dBFS"
+    },
+    {
+      "id": "audioInR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Passage, 2 Vrms = 0 dBFS"
+    },
+    {
+      "id": "usb",
+      "name": "USB (MOUSE/MEMORY)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Arrière ; deux autres USB A en face avant"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D 24 points, HDCP"
+    },
+    {
+      "id": "compY",
+      "name": "Component Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compPb",
+      "name": "Component Pb",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "compPr",
+      "name": "Component Pr",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "svideo",
+      "name": "S-Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4"
+    },
+    {
+      "id": "cvbs",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composite avec incrustation des informations"
+    },
+    {
+      "id": "vin",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite, passage d'une source externe"
+    }
+  ],
+  "weightKg": 5.3,
+  "powerW": 23
 }

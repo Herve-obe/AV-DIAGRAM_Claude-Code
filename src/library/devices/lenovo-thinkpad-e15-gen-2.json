@@ -23,8 +23,54 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.7,
-  "powerW": 65
+  "ports": [
+    {
+      "id": "tb4",
+      "name": "Thunderbolt 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 4 / USB4 40 Gb/s, Power Delivery 3.0 (charge 65 W USB-C), DisplayPort 1.4"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3.2 Gen 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Always On"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4b, jusqu'à 4096x2160 à 30 Hz"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "headset",
+      "name": "Casque / micro",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Combo 3,5 mm"
+    }
+  ],
+  "weightKg": 1.7
 }

@@ -22,7 +22,104 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.5
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "compY",
+      "name": "Component Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca"
+    },
+    {
+      "id": "compPb",
+      "name": "Component Pb",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca"
+    },
+    {
+      "id": "compPr",
+      "name": "Component Pr",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca"
+    },
+    {
+      "id": "cvbs",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composite"
+    },
+    {
+      "id": "audioL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audioR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "opt",
+      "name": "Digital Out (optique)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX, BD-Live"
+    },
+    {
+      "id": "usb",
+      "name": "USB (BD Storage)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "ctrl",
+      "name": "Control In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Entrée télécommande filaire (prise ronde de petit diamètre sur le dessin)"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c7",
+      "format": "220-240 V, 32 W (plaque signalétique)"
+    }
+  ],
+  "weightKg": 3.5,
+  "powerW": 32
 }

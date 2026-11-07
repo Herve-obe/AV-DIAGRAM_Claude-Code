@@ -5,7 +5,7 @@
   "pictogram": "recorder",
   "manufacturer": "ID-AL",
   "model": "EVP380",
-  "status": "community",
+  "status": "verified",
   "description": "Lecteur de show control pour l’audio, la vidéo 4K et le DMX/Art-Net",
   "aliases": [
     "ID-AL EVP380"
@@ -24,7 +24,7 @@
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/id-al_evp380_ft-uk.pdf",
       "document": "Novelty — EVP380 : EVP380 (UK)",
-      "accessed": "2026-10-19"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/id-al_evp380_manuel-fr.pdf",
@@ -42,6 +42,107 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0b type A, HDR10, CEC ; jusqu'à 2160p60"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 hôte, clé USB de médias"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 hôte"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX IN",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX OUT",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mb/s : TCP/IP, Art-Net, FTP"
+    },
+    {
+      "id": "line",
+      "name": "Sortie ligne",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "level": "line+4",
+      "format": "Stéréo asymétrique 0 dBu sur RCA"
+    },
+    {
+      "id": "spk",
+      "name": "Sortie HP",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "channels": 2,
+      "level": "speaker",
+      "format": "Ampli classe D 2 x 8 W / 8 ohms (2 x 15 W / 4 ohms), bornier 3,81 mm"
+    },
+    {
+      "id": "gpi",
+      "name": "Entrées contacts",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "8 + 1 entrées optoisolées, bornier 3,81 mm"
+    },
+    {
+      "id": "gpo",
+      "name": "Sorties contacts",
+      "direction": "out",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "8 sorties MOSFET 500 mA / 20 V, bornier 3,81 mm"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "RS-232 sur bornier 3,81 mm"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Embase DC 2,1 / 5,5 mm, 12 V 2 A, bloc fourni"
+    }
+  ],
+  "powerW": 24
 }

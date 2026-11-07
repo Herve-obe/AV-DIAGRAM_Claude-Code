@@ -10,12 +10,17 @@
     {
       "url": "https://www.blackmagicdesign.com/products/hyperdeckstudio/techspecs/W-HYD-12",
       "document": "Blackmagic Design, fiche technique HyperDeck Studio HD Plus (W-HYD-12)",
-      "accessed": "2026-09-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/produits/video/captation/enregistreur-disque-dur/hyperdeck-studio-hd-plus/",
       "document": "Novelty — HyperDeck Studio HD Plus",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/HyperDeckHDManual.pdf",
+      "document": "Blackmagic Design, HyperDeck Disk Recorders Installation and Operation Manual (février 2026), « Plugging in Power », « Rear Panel » p. 30-31, « RS-422 Control »",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -101,15 +106,16 @@
       "name": "RS-422 In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Télécommande"
+      "connector": "dsub9",
+      "format": "Télécommande, RS-422 sur D-Sub 9 (DE-9), protocole Sony 9 broches"
     },
     {
       "id": "rsout",
       "name": "RS-422 Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "dsub9",
+      "format": "RS-422 sur D-Sub 9 (DE-9), protocole Sony 9 broches"
     },
     {
       "id": "phones",
@@ -141,12 +147,21 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation interne 100-240 V"
+      "connector": "iec-c13",
+      "format": "Embase IEC, alimentation interne 100-240 V"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points, alimentation externe ou batterie"
     }
   ],
   "aliases": [
     "HYPERDSTUDIOHD+",
     "BlackMagicDesign HyperDeck Studio HD Plus"
-  ]
+  ],
+  "powerW": 100
 }

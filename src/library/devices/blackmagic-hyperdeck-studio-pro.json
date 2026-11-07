@@ -11,6 +11,11 @@
     {
       "document": "Blackmagic Design, HyperDeck Studio Pro Spécifications techniques (fiche reproduite par le revendeur Atreid, © 2015)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/HyperDeckStudioManual.pdf",
+      "document": "Blackmagic Design, HyperDeck Disk Recorders Installation and Operation Manual (mars 2020), dessins du panneau arrière HyperDeck Studio Pro, « RS-422 Control »",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -91,7 +96,6 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "channels": 2,
-      "level": "line-10",
       "format": "2 entrées asymétriques RCA"
     },
     {
@@ -123,16 +127,16 @@
       "name": "Référence",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Black burst ou tri-level ; connecteur non précisé"
+      "connector": "bnc",
+      "format": "REF IN, black burst ou tri-level"
     },
     {
       "id": "rs422",
       "name": "RS-422",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Protocole compatible Sony ; connecteur non précisé"
+      "connector": "dsub9",
+      "format": "REMOTE, RS-422 9 broches, protocole compatible Sony"
     },
     {
       "id": "eth",
@@ -164,7 +168,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "Embase IEC C14, 110-240 V, 50-60 Hz"
+      "format": "Câble IEC standard, 110-240 V"
     }
   ]
 }

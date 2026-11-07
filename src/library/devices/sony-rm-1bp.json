@@ -21,9 +21,22 @@
       "url": "https://pro.sony/s3/cms-static-content/operation-manual/2660175031.pdf",
       "document": "Sony — RM-1BP — Operating Instructions 2-660-175-03",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/474695-REG/Sony_RM1BP_RM1BP_Remote_Commander.html",
+      "document": "B&H Photo, fiche RM-1BP (revendeur) : entrée 2,5 mm TRS (LANC), câble 1000 mm",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "lanc",
+      "name": "Câble LANC",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Câble captif d'environ 1 m à fiche jack 2,5 mm TRS (LANC) ; alimentation par la caméra"
+    }
+  ],
   "weightKg": 0.1
 }

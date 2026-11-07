@@ -15,9 +15,75 @@
       "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/portable/thinkpad-e570/",
       "document": "Novelty — Thinkpad E570",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E570/ThinkPad_E570_Spec.PDF",
+      "document": "Lenovo PSREF, ThinkPad E570 Specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "usb3a",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3b",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0 (Always On)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "vga",
+      "name": "VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "DB-15"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "1920x1080 à 60 Hz max."
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "headset",
+      "name": "Casque / micro",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Combo audio / micro"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur 45, 65 ou 90 W selon configuration ; forme de la prise non précisée"
+    }
+  ],
   "weightKg": 2.3
 }

@@ -10,6 +10,11 @@
     {
       "document": "Sony, RCP-1530 Remote Control Panel Maintenance Manual 1st Edition (Revised 1)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/SORCP1501.pdf",
+      "document": "Sony, RCP-1500/1501/1530 Operation Manual, 1st Edition (Revised 6), « Connector Panel » p. 26 et caractéristiques p. 83 (copie hébergée par Adorama)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -27,7 +32,10 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10Base-T / 100Base-TX, système caméra sur réseau"
+      "format": "RJ45 10BASE-T / 100BASE-TX ; alimentation PoE IEEE 802.3af possible",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "extio",
@@ -37,5 +45,6 @@
       "connector": "dsub9",
       "format": "D-Sub 9 femelle : contacts PREVIEW, entrée alimentation +10,5 à +17 V"
     }
-  ]
+  ],
+  "powerW": 4
 }

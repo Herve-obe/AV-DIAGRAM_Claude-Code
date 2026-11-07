@@ -6,7 +6,7 @@
   "manufacturer": "Barco",
   "model": "ImagePRO-II",
   "status": "community",
-  "description": "Solution tout-en-un : convertisseur de résolution vidéo, convertisseur de balayage et commutateur-mélangeur",
+  "description": "Convertisseur de résolution, convertisseur de balayage et commutateur 1U : entrées DVI-I, analogique, HDMI, DisplayPort, SDI ; sorties SDI, composite, DVI-D, analogique, HDMI, DisplayPort.",
   "aliases": [
     "IMAGEPROII",
     "BARCO ImagePRO-II"
@@ -43,6 +43,157 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V CA, 47-63 Hz, embase avec interrupteur, cordon fourni ; type non écrit"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "RJ45 10/100BASE-T compatible câbles etherCON ; interface web, contrôleurs Encore / ScreenPRO-II"
+    },
+    {
+      "id": "dviIn",
+      "name": "Input 1 DVI-I In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I : DVI simple ou double lien, analogique"
+    },
+    {
+      "id": "dviLoop",
+      "name": "Input 1 DVI-I Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Bouclage actif"
+    },
+    {
+      "id": "vgaIn",
+      "name": "Input 2 Universal Analog In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD-15 : RVB, YPbPr, composite, Y/C"
+    },
+    {
+      "id": "vgaLoop",
+      "name": "Input 2 Universal Analog Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Bouclage actif"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "Input 3 HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A"
+    },
+    {
+      "id": "dpIn",
+      "name": "Input 4 DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "sdiIn",
+      "name": "Input 5 SDI-1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "Input 5 SDI-1 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage reclocké"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI-1 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "cvbsOut",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "NTSC/PAL composite"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI-D Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D simple ou double lien"
+    },
+    {
+      "id": "vgaOut",
+      "name": "Universal Analog Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD-15"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4 type A"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst NTSC/PAL ou tri-level HD"
+    },
+    {
+      "id": "genlockLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage passif"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Façade, clé USB : sauvegarde, logos, mise à jour"
+    }
+  ],
+  "powerW": 100
 }

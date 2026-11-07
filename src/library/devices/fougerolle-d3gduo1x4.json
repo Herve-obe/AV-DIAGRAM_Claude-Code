@@ -22,6 +22,86 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Distributeur 1 · SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ou ASI, égaliseur et reclocking"
+    },
+    {
+      "id": "out1_1",
+      "name": "Distributeur 1 · SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1_2",
+      "name": "Distributeur 1 · SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1_3",
+      "name": "Distributeur 1 · SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1_4",
+      "name": "Distributeur 1 · SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "in2",
+      "name": "Distributeur 2 · SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ou ASI, égaliseur et reclocking"
+    },
+    {
+      "id": "out2_1",
+      "name": "Distributeur 2 · SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out2_2",
+      "name": "Distributeur 2 · SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out2_3",
+      "name": "Distributeur 2 · SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out2_4",
+      "name": "Distributeur 2 · SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "100-240 V CA, cordon 1,5 m fiche européenne"
+    }
+  ]
 }

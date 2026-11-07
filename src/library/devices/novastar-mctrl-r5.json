@@ -60,7 +60,7 @@
       "name": "Ethernet 1",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -68,7 +68,7 @@
       "name": "Ethernet 2",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -76,7 +76,7 @@
       "name": "Ethernet 3",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -84,7 +84,7 @@
       "name": "Ethernet 4",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -92,7 +92,7 @@
       "name": "Ethernet 5",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -100,7 +100,7 @@
       "name": "Ethernet 6",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -108,7 +108,7 @@
       "name": "Ethernet 7",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -116,7 +116,7 @@
       "name": "Ethernet 8",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Gigabit, vers les cartes de réception LED"
     },
     {
@@ -124,23 +124,23 @@
       "name": "OPT 1",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "unspecified",
-      "format": "Port optique 10G"
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode) ; recopie des ports 1 à 8"
     },
     {
       "id": "opt2",
       "name": "OPT 2",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "unspecified",
-      "format": "Port optique 10G"
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode) ; recopie de OPT 1"
     },
     {
       "id": "lan",
       "name": "Ethernet (contrôle)",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45",
+      "connector": "ethercon",
       "format": "Ordinateur de contrôle"
     },
     {
@@ -148,24 +148,47 @@
       "name": "USB In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Cascade (jusqu'à 8 appareils)"
+      "connector": "usb-b",
+      "format": "USB 2.0 type B : cascade ou PC"
     },
     {
       "id": "usb-out",
       "name": "USB Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Cascade"
+      "connector": "usb-a",
+      "format": "USB 2.0 type A : cascade (jusqu'à 8 appareils)"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bi-level, tri-level ou black burst"
+    },
+    {
+      "id": "genlockLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB (façade)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clé USB pour mise à jour"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 avec interrupteur"
     }
   ],
   "aliases": [

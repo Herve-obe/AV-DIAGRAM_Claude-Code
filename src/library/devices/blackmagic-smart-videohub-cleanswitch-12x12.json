@@ -4,13 +4,18 @@
   "manufacturer": "Blackmagic Design",
   "model": "Smart Videohub CleanSwitch 12x12",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "rackU": 1,
   "sources": [
     {
       "url": "https://www.blackmagicdesign.com/products/blackmagicvideohub/techspecs/W-VHS-05",
       "document": "Blackmagic Design, fiche technique Smart Videohub CleanSwitch 12x12 (W-VHS-05)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/Videohub12GInstallation.pdf",
+      "document": "Blackmagic Videohub 12G Installation and Operation Manual",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -212,7 +217,7 @@
       "direction": "in",
       "signal": "sync",
       "connector": "bnc",
-      "format": "Tri-level ou black burst"
+      "format": "Tri-sync ou black burst (BNC)"
     },
     {
       "id": "eth",
@@ -221,6 +226,14 @@
       "signal": "network",
       "connector": "rj45",
       "format": "Panneaux de commande"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422 Control In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "RS-422, prise « RJ-6 » selon Blackmagic (6 contacts), commande des points de croisement"
     },
     {
       "id": "usb",
@@ -234,7 +247,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC (cordon IEC requis)"
     }
   ]
 }

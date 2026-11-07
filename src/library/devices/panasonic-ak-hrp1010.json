@@ -4,12 +4,17 @@
   "manufacturer": "Panasonic",
   "model": "AK-HRP1010",
   "pictogram": "control",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://na.panasonic.com/audio-video-solutions/broadcast-cinema-pro-video/camera-controllers/ak-hrp1010-remote-operation-panel-14-rack",
       "document": "Panasonic, page AK-HRP1010",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/en/products/ak-hrp1010gj/",
+      "document": "Panasonic, page produit AK-HRP1010GJ, caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,7 +24,10 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Contrôle IP ; PoE 42-57 V"
+      "format": "RJ45, contrôle IP ; PoE 42-57 V",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "ccu",
@@ -27,7 +35,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "unspecified",
-      "format": "10 points mâle (alimentation par la CCU)"
+      "format": "10 points mâle (Hirose HR10, comme les prises ROP des CCU AK) ; alimentation 10-16 V CC par la CCU"
     },
     {
       "id": "preview",
@@ -38,5 +46,6 @@
       "format": "9 points femelle"
     }
   ],
-  "domain": "image"
+  "domain": "image",
+  "powerW": 10.8
 }

@@ -4,7 +4,7 @@
   "manufacturer": "NovaStar",
   "model": "VX1000",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "domain": "image",
   "powerW": 35,
   "weightKg": 4,
@@ -37,7 +37,14 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G/HD/SD-SDI, désentrelacement ; bouclage 3G-SDI"
+      "format": "3G/HD/SD-SDI, désentrelacement"
+    },
+    {
+      "id": "sdi-loop",
+      "name": "3G-SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
     },
     {
       "id": "hdmi-in1",
@@ -46,6 +53,13 @@
       "signal": "video",
       "connector": "hdmi",
       "format": "HDMI 1.4, HDCP 1.4"
+    },
+    {
+      "id": "hdmi-loop",
+      "name": "HDMI 1.4 1 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
     },
     {
       "id": "hdmi-in2",
@@ -62,6 +76,13 @@
       "signal": "video",
       "connector": "dvi",
       "format": "DVI (HDMI 1.4)"
+    },
+    {
+      "id": "dvi-loop",
+      "name": "DVI 1 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
     },
     {
       "id": "dvi-in2",
@@ -162,18 +183,18 @@
     {
       "id": "opt1",
       "name": "OPT 1",
-      "direction": "out",
+      "direction": "bidir",
       "signal": "videoIp",
-      "connector": "unspecified",
-      "format": "Fibre 10G (OPT2 copie ou secourt les 10 ports Ethernet)"
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode) ; entrée vidéo ou sortie (auto-adaptatif)"
     },
     {
       "id": "opt2",
       "name": "OPT 2",
       "direction": "out",
       "signal": "videoIp",
-      "connector": "unspecified",
-      "format": "Fibre 10G (OPT2 copie ou secourt les 10 ports Ethernet)"
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode) ; sortie, recopie ou secours des 10 ports"
     },
     {
       "id": "lan",
@@ -185,25 +206,34 @@
     },
     {
       "id": "usb1",
-      "name": "USB 1",
+      "name": "USB IN",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-b",
+      "format": "USB 2.0 type B : PC ou cascade"
     },
     {
       "id": "usb2",
-      "name": "USB 2",
+      "name": "USB OUT",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-a",
+      "format": "USB 2.0 type A : cascade"
     },
     {
       "id": "genlock",
-      "name": "Genlock In-Loop",
+      "name": "Genlock In",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Synchro externe"
+      "connector": "bnc",
+      "format": "Bi-level ou tri-level"
+    },
+    {
+      "id": "genlockLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
     },
     {
       "id": "sensor",
@@ -211,15 +241,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "unspecified",
-      "format": "Capteur de luminosité ambiante"
+      "format": "Capteur de luminosité ambiante, prise ronde 4 points (type non écrit)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V, 50/60 Hz ; connecteur non précisé"
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 avec interrupteur"
     }
   ],
   "aliases": [

@@ -10,6 +10,11 @@
       "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-13",
       "document": "Blackmagic Design, fiche technique Mini Converter SDI Distribution (W-CONM-13)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,7 +24,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "SDI (BNC)"
+      "format": "SD, HD ou 3G-SDI (BNC), ASI accepté"
     },
     {
       "id": "out1",
@@ -86,14 +91,6 @@
       "format": "SDI (BNC), recopie de l'entrée"
     },
     {
-      "id": "usb",
-      "name": "USB",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour et configuration"
-    },
-    {
       "id": "dc",
       "name": "Alimentation",
       "direction": "in",
@@ -101,5 +98,7 @@
       "connector": "dc-barrel",
       "format": "12 V universel fourni"
     }
-  ]
+  ],
+  "powerW": 4.8,
+  "description": "Distributeur SDI 1 vers 8 (SD, HD, 3G-SDI) avec resynchronisation (reclocking)."
 }

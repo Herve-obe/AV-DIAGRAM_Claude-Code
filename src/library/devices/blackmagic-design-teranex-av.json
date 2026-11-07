@@ -5,13 +5,208 @@
   "model": "Teranex AV",
   "pictogram": "router",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Convertisseur de standards 12G-SDI et HDMI 2.0 pour événementiel : montée, descente et croisement jusqu'à 2160p60, sorties quad 3G-SDI, générateur de référence.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/teranex/techspecs/W-TER-05",
+      "document": "Blackmagic Design, caractéristiques techniques Teranex AV (W-TER-05)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/TeranexManual.pdf",
+      "document": "Blackmagic Teranex, Installation and Operation Manual, p. 9 (panneau arrière Teranex AV)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdiInA",
+      "name": "SDI In A",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (SD à 12G), simple ou double liaison"
+    },
+    {
+      "id": "sdiInB",
+      "name": "SDI In B",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (SD à 12G), 2e entrée ou double liaison"
+    },
+    {
+      "id": "sdiLoopA",
+      "name": "SDI In A Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif reclocké de In A, 12G-SDI"
+    },
+    {
+      "id": "sdiLoopB",
+      "name": "SDI In B Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif reclocké de In B, 12G-SDI"
+    },
+    {
+      "id": "sdiOutA",
+      "name": "SDI Out A",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, sortie traitée"
+    },
+    {
+      "id": "sdiOutB",
+      "name": "SDI Out B",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, recopie de Out A ou double liaison"
+    },
+    {
+      "id": "quadA",
+      "name": "Quad 3G-SDI Out CH A",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI quad link ou quad split Ultra HD ; sinon recopie"
+    },
+    {
+      "id": "quadB",
+      "name": "Quad 3G-SDI Out CH B",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI quad link ou quad split Ultra HD ; sinon recopie"
+    },
+    {
+      "id": "quadC",
+      "name": "Quad 3G-SDI Out CH C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI quad link ou quad split Ultra HD ; sinon recopie"
+    },
+    {
+      "id": "quadD",
+      "name": "Quad 3G-SDI Out CH D",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI quad link ou quad split Ultra HD ; sinon recopie"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A"
+    },
+    {
+      "id": "hdmiLoop",
+      "name": "HDMI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A, bouclage non traité"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A, sortie traitée"
+    },
+    {
+      "id": "opt",
+      "name": "Optical Out/In",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Cage SFP fibre SMPTE (module 3G, 6G ou 12G en option)"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In CH 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique : voie analogique 1 ou paire AES/EBU 1-2 (au choix)"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In CH 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique : voie analogique 2 ou paire AES/EBU 3-4 (au choix)"
+    },
+    {
+      "id": "rcaL",
+      "name": "Stereo In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique, « line level »"
+    },
+    {
+      "id": "rcaR",
+      "name": "Stereo In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique, « line level »"
+    },
+    {
+      "id": "refIn",
+      "name": "REF In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "refOut",
+      "name": "REF Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Générateur black burst ou tri-level au format de sortie"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB-C : mise à jour du logiciel interne"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit, commande et configuration à distance"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "90-240 V CA, embase IEC C14"
+    }
+  ],
+  "powerW": 42
 }

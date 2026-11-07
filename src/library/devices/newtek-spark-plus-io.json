@@ -6,10 +6,9 @@
   "manufacturer": "NewTek",
   "model": "Spark Plus IO",
   "status": "community",
-  "description": "Convertisseur vidéo I/O 4K",
+  "description": "Convertisseur bidirectionnel HDMI 4K60 vers NDI et NDI vers HDMI, alimenté en PoE ou USB-C.",
   "aliases": [
-    "SPARKPLUSIO4K",
-    "NewTek Spark Plus IO"
+    "Spark Plus IO HDMI"
   ],
   "sources": [
     {
@@ -23,7 +22,50 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "lan",
+      "name": "1GbE (PoE)",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit, NDI, alimentation PoE",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Output",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Sortie de décodage ou bouclage, jusqu'à 4K60"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI Input",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Jusqu'à 4K60"
+    },
+    {
+      "id": "ain",
+      "name": "3.5mm Audio",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Entrée audio stéréo mini-jack 3,5 mm"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Alimentation 5 à 18 V CC par bloc fourni et extension"
+    }
+  ],
   "weightKg": 0.24
 }

@@ -27,7 +27,88 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "vga",
+      "name": "VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "lan",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "modem",
+      "name": "Modem",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj12",
+      "format": "RJ-11, modem 56K optionnel"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb4",
+      "name": "USB 2.0 / eSATA",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Combo eSATA / USB 2.0"
+    },
+    {
+      "id": "fw",
+      "name": "IEEE 1394",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ieee1394"
+    },
+    {
+      "id": "phones",
+      "name": "Casque / HP",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie casque / haut-parleurs"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Entrée de l'adaptateur secteur (puissance non indiquée)"
+    }
+  ],
   "weightKg": 2.69
 }

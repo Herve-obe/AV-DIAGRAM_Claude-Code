@@ -14,6 +14,11 @@
       "url": "https://www.aja.com/assets/support/files/8949/en/AJA_Ki_Pro_Rack_Manual_v6.8r2.pdf",
       "document": "AJA, Ki Pro Rack Manual v6.8r2, Appendix A",
       "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.aja.com/support/item-download/9170/AJA_Ki_Pro_Rack_Manual_v6.9.pdf",
+      "document": "AJA, Ki Pro Rack Manual v6.9, p. 12-13 (Figure 2, panneau arrière) et caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -248,7 +253,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "Protocole Sony 9 broches"
+      "format": "D-Sub 9 points, protocole Sony 9 broches"
     },
     {
       "id": "lan",
@@ -263,16 +268,24 @@
       "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V ; alimentations doubles redondantes"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin du panneau arrière), 100-240 V ; alimentations doubles redondantes"
     },
     {
       "id": "ac2",
       "name": "Secteur 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V (redondance)"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin du panneau arrière), 100-240 V (redondance)"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo en face avant"
     }
   ]
 }

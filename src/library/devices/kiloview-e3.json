@@ -4,7 +4,7 @@
   "manufacturer": "Kiloview",
   "model": "E3",
   "pictogram": "router",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://www.kiloview.com/en/kiloview-e3",
@@ -50,17 +50,51 @@
     {
       "id": "lan",
       "name": "LAN",
-      "direction": "out",
+      "direction": "bidir",
       "signal": "videoIp",
       "connector": "rj45",
-      "format": "NDI HX2 / HX3, SRT, RTMP"
+      "format": "RJ45 10/100/1000, PoE 802.3af classe 3 ; NDI HX2/HX3, SRT, RTMP"
+    },
+    {
+      "id": "ain",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm"
+    },
+    {
+      "id": "usbc1",
+      "name": "USB-C 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usbc2",
+      "name": "USB-C 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usba",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0, enregistrement"
     },
     {
       "id": "dc",
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "12 V CC, 1 A ou PoE"
     }
-  ]
+  ],
+  "powerW": 9
 }

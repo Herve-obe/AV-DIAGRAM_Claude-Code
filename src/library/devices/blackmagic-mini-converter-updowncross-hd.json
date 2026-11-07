@@ -10,6 +10,11 @@
       "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-28",
       "document": "Blackmagic Design, fiche technique Mini Converter UpDownCross HD (W-CONM-28)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -33,8 +38,8 @@
       "name": "Reference In",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Black burst ou tri-level"
+      "connector": "bnc",
+      "format": "Black burst ou tri-level SD/HD (BNC, dessin du panneau)"
     },
     {
       "id": "loop",
@@ -72,8 +77,8 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour et configuration"
+      "connector": "usb-c",
+      "format": "USB-C : configuration et mise à jour"
     },
     {
       "id": "dc",
@@ -81,7 +86,9 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "12 V universel fourni"
+      "format": "6 à 36 V CC, prise à vis de maintien, bloc +12 V fourni"
     }
-  ]
+  ],
+  "powerW": 5,
+  "description": "Convertisseur de standards SD/HD (montée, descente, croisement) avec entrées et sorties SDI et HDMI et entrée de référence."
 }

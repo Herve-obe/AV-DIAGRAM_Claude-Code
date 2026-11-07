@@ -54,7 +54,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle"
+      "format": "Symétrique, XLR femelle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "ain2",
@@ -62,7 +63,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle"
+      "format": "Symétrique, XLR femelle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "ain3",
@@ -70,7 +72,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle"
+      "format": "Symétrique, XLR femelle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "ain4",
@@ -78,7 +81,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle"
+      "format": "Symétrique, XLR femelle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "aout1",
@@ -86,7 +90,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle"
+      "format": "Symétrique, XLR mâle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "aout2",
@@ -94,7 +99,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle"
+      "format": "Symétrique, XLR mâle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "aout3",
@@ -102,7 +108,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle"
+      "format": "Symétrique, XLR mâle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "aout4",
@@ -110,15 +117,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle"
+      "format": "Symétrique, XLR mâle du câble d'éclatement DB-25 ; nominal +4 dBu (Professional High), -2, -8 ou -14 dBu par commutateurs",
+      "level": "line+4"
     },
     {
       "id": "dc",
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "+5 à 18 V CC, bloc secteur fourni ; connecteur non précisé"
+      "connector": "dc-barrel",
+      "format": "+5 à 18 V CC, 5 W ; prise DC ronde à bague de verrouillage (photo du manuel AJA, bloc AJA DWP fourni)"
     }
   ],
   "aliases": [

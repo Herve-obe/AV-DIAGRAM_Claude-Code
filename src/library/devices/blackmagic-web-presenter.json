@@ -10,6 +10,11 @@
       "url": "https://globalproductions.ee/toode/blackmagic-web-presenter/",
       "document": "Global Productions, fiche Web Presenter (loueur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2019/07/Blackmagic-Design-Web-Presenter-Spec-Sheet-from-Rentex.pdf",
+      "document": "Blackmagic Design Web Presenter, fiche technique (via Rentex)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -22,9 +27,30 @@
       "format": "SDI (BNC)"
     },
     {
+      "id": "sdiOut",
+      "name": "SDI Program Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
       "id": "hdmiIn",
       "name": "HDMI In",
       "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiLoop",
+      "name": "HDMI Loop Out",
+      "direction": "out",
       "signal": "video",
       "connector": "hdmi"
     },
@@ -49,7 +75,6 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "line-10",
       "channels": 2
     },
     {
@@ -57,16 +82,26 @@
       "name": "USB (webcam)",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Sortie webcam 720p"
+      "connector": "usb-b",
+      "format": "USB 2.0 type B : webcam UVC / UAC 720p"
+    },
+    {
+      "id": "usbFw",
+      "name": "USB mini (mise à jour)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mise à jour du micrologiciel"
     },
     {
       "id": "ac",
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Alimentation interne 90-240 V CA ; type d'embase non précisé"
     }
   ],
-  "domain": "image"
+  "domain": "image",
+  "powerW": 24
 }

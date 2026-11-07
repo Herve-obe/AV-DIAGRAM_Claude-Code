@@ -5,7 +5,7 @@
   "model": "ADVC G4",
   "pictogram": "clock",
   "status": "community",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Générateur de synchronisation : 9 sorties de référence vidéo SD/HD réparties en 3 lignes, 2 sorties de référence audio (DARS ou word clock).",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -98,12 +98,38 @@
       "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
     },
     {
+      "id": "aref1",
+      "name": "Audio Ref Out 1",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "DARS AES-11 48 kHz ou word clock 75 ohms 5 Vcc"
+    },
+    {
+      "id": "aref2",
+      "name": "Audio Ref Out 2",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "DARS AES-11 48 kHz ou word clock 75 ohms 5 Vcc"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B, USB 2.0"
+    },
+    {
       "id": "dc",
       "name": "Alimentation DC",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "5 à 16,8 V CC (bloc secteur 12 V 3 A fourni) ; type de prise non écrit"
     }
   ],
-  "domain": "image"
+  "domain": "image",
+  "powerW": 4.9
 }

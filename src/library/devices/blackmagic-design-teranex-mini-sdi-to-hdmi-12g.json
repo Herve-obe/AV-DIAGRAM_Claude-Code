@@ -17,9 +17,14 @@
       "accessed": "2026-10-19"
     },
     {
-      "url": "https://www.blackmagicdesign.com/sg/products/teranexmini/techspecs/W-TERAMIN-07",
-      "document": "Blackmagic Teranex Mini, exact HDMI/SDI 12G variant technical specification",
-      "accessed": "2026-10-26"
+      "url": "https://www.blackmagicdesign.com/products/teranexmini/techspecs/W-TERAMIN-01",
+      "document": "Blackmagic Design, caractéristiques techniques Teranex Mini SDI to HDMI 12G (W-TERAMIN-01)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/TeranexMiniManual.pdf",
+      "document": "Blackmagic Teranex Mini, Installation and Operation Manual",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -49,28 +54,27 @@
     },
     {
       "id": "audio1",
-      "name": "Audio 1",
+      "name": "L - Analog / AES-EBU Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Analogique symétrique ou AES/EBU ; XLR droit configurable en LTC",
-      "level": "line+4"
+      "format": "XLR symétrique : voie analogique gauche ou AES/EBU (commutateur 8)"
     },
     {
       "id": "audio2",
-      "name": "Audio 2",
+      "name": "R - Analog / AES-EBU / Timecode Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Analogique symétrique ou AES/EBU ; XLR droit configurable en LTC",
-      "level": "line+4"
+      "format": "XLR symétrique : voie analogique droite, AES/EBU ou timecode (commutateur 7)"
     },
     {
       "id": "usb",
       "name": "USB configuration",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
     },
     {
       "id": "lan",
@@ -80,7 +84,8 @@
       "connector": "rj45",
       "network": {
         "poe": "sink"
-      }
+      },
+      "format": "Ethernet, configuration ; alimentation PoE+"
     },
     {
       "id": "ac",
@@ -88,7 +93,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "100–240 V AC"
+      "format": "100-240 V CA, embase IEC C14 intégrée"
     }
   ],
   "weightKg": 0.58,

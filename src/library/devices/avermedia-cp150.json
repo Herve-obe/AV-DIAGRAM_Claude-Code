@@ -5,7 +5,7 @@
   "pictogram": "recorder",
   "manufacturer": "AverMedia",
   "model": "CP150",
-  "status": "community",
+  "status": "verified",
   "description": "Visualiseur de média intéractif 3,2 MP, livré avec télécommande",
   "aliases": [
     "VISUALISEUR",
@@ -28,7 +28,56 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.43
+  "ports": [
+    {
+      "id": "rgbIn",
+      "name": "RGB INPUT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (VGA), bouclé vers RGB OUTPUT"
+    },
+    {
+      "id": "rgbOut",
+      "name": "RGB OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (VGA), XGA / SVGA / VGA 60 Hz"
+    },
+    {
+      "id": "cvbs",
+      "name": "VIDEO OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composite, RCA"
+    },
+    {
+      "id": "svideo",
+      "name": "S-VIDEO OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "S-Video, mini-DIN"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0 vers PC (caméra USB, transfert d'images) ; embase type B (dessin)"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack d'alimentation, adaptateur secteur 100-240 V fourni"
+    }
+  ],
+  "weightKg": 2.43,
+  "powerW": 20
 }
