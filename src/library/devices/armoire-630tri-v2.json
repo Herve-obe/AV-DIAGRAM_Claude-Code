@@ -4,7 +4,7 @@
   "manufacturer": "Fabricant non indiqué",
   "model": "Armoire 630TRI V2",
   "pictogram": "power",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
@@ -14,6 +14,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
       "document": "Novelty catalogue 2025, page 169 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, page 169 : légende des prises (pictogrammes), photos et protections, relues le 7 novembre 2026",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -47,7 +52,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri"
     },
     {
       "id": "departure2",
@@ -55,7 +60,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri"
     },
     {
       "id": "departure3",
@@ -63,7 +68,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri"
     },
     {
       "id": "departure4",
@@ -71,7 +76,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri"
     },
     {
       "id": "departure5",
@@ -79,7 +84,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri"
     },
     {
       "id": "departure6",
@@ -87,7 +92,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-63-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "63 A tri"
     },
     {
       "id": "departure7",
@@ -95,7 +100,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-63-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "63 A tri"
     },
     {
       "id": "departure8",
@@ -103,7 +108,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-63-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "63 A tri"
     },
     {
       "id": "departure9",
@@ -111,7 +116,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-63-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "63 A tri"
     },
     {
       "id": "departure10",
@@ -119,7 +124,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri"
     },
     {
       "id": "departure11",
@@ -127,7 +132,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri"
     },
     {
       "id": "departure12",
@@ -135,7 +140,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri"
     },
     {
       "id": "departure13",
@@ -143,7 +148,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri"
     },
     {
       "id": "departure14",
@@ -151,7 +156,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-mono",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A mono"
     },
     {
       "id": "departure15",
@@ -159,7 +164,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-mono",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A mono"
     },
     {
       "id": "departure16",
@@ -167,7 +172,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-mono",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A mono"
     },
     {
       "id": "departure17",
@@ -175,7 +180,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-mono",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A mono"
     },
     {
       "id": "departure18",
@@ -183,7 +188,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16)"
     },
     {
       "id": "departure19",
@@ -191,7 +196,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16)"
     },
     {
       "id": "departure20",
@@ -199,7 +204,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16)"
     },
     {
       "id": "departure21",
@@ -207,7 +212,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16)"
     },
     {
       "id": "departure22",
@@ -215,7 +220,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16)"
     },
     {
       "id": "departure23",
@@ -223,7 +228,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16)"
     }
   ],
   "description": "Armoire 630 A triphasée V2 : deux jeux de Powerlock et jeu de barres à cosses en entrée ; 5 P17 125 A tri, 4 P17 63 A tri, 4 P17 32 A tri, 4 P17 32 A mono et 6 PC16."

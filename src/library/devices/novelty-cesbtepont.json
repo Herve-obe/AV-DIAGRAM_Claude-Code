@@ -18,6 +18,63 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Socapex 419",
+      "direction": "in",
+      "signal": "power",
+      "connector": "socapex19",
+      "format": "6 circuits 16 A mono",
+      "channels": 6
+    },
+    {
+      "id": "pc1",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), circuit 1 du Socapex"
+    },
+    {
+      "id": "pc2",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), circuit 2 du Socapex"
+    },
+    {
+      "id": "pc3",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), circuit 3 du Socapex"
+    },
+    {
+      "id": "pc4",
+      "name": "PC16 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), circuit 4 du Socapex"
+    },
+    {
+      "id": "pc5",
+      "name": "PC16 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), circuit 5 du Socapex"
+    },
+    {
+      "id": "pc6",
+      "name": "PC16 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), circuit 6 du Socapex"
+    }
+  ]
 }

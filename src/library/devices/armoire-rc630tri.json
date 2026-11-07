@@ -4,7 +4,7 @@
   "manufacturer": "Fabricant non indiqué",
   "model": "Armoire RC630TRI",
   "pictogram": "power",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
@@ -14,6 +14,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
       "document": "Novelty catalogue 2025, page 166 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, pages 163 et 166 : légende des prises (pictogrammes), photos et protections, relues le 7 novembre 2026",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -39,7 +44,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri, différentiel réglable"
     },
     {
       "id": "departure2",
@@ -47,7 +52,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri, différentiel réglable"
     },
     {
       "id": "departure3",
@@ -55,7 +60,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri, différentiel réglable"
     },
     {
       "id": "departure4",
@@ -63,7 +68,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri, différentiel réglable"
     },
     {
       "id": "departure5",
@@ -71,7 +76,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-125-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "125 A tri, différentiel réglable"
     },
     {
       "id": "departure6",
@@ -79,7 +84,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-63-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "63 A tri, différentiel réglable"
     },
     {
       "id": "departure7",
@@ -87,7 +92,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-63-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "63 A tri, différentiel réglable"
     },
     {
       "id": "departure8",
@@ -95,7 +100,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri, différentiel réglable"
     },
     {
       "id": "departure9",
@@ -103,7 +108,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri, différentiel réglable"
     },
     {
       "id": "departure10",
@@ -111,7 +116,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri, différentiel réglable"
     },
     {
       "id": "departure11",
@@ -119,7 +124,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri, différentiel réglable"
     },
     {
       "id": "departure12",
@@ -127,7 +132,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri, différentiel réglable"
     },
     {
       "id": "departure13",
@@ -135,7 +140,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "32 A tri, différentiel réglable"
     },
     {
       "id": "departure14",
@@ -143,7 +148,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16), différentiel réglable"
     },
     {
       "id": "departure15",
@@ -151,7 +156,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16), différentiel réglable"
     },
     {
       "id": "departure16",
@@ -159,7 +164,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16), différentiel réglable"
     }
   ],
   "description": "Armoire RC630TRI en rack déclassable à 400 A : deux jeux de Powerlock en entrée ; sorties 5 P17 125 A tri, 2 P17 63 A tri, 6 P17 32 A tri et 3 PC16. Différentiels réglables sur les départs indiqués au catalogue."

@@ -6,7 +6,7 @@
   "manufacturer": "Indu-Electric",
   "model": "AP32M-MID",
   "status": "community",
-  "description": "Armoire de comptage, 32M in/out",
+  "description": "Coffret de comptage d'énergie MID 32 A mono, entrée et sortie P17 32 A mono.",
   "aliases": [
     "Indu-Electric AP32M-MID"
   ],
@@ -17,6 +17,22 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Arrivée P17 32 A mono",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "32 A mono"
+    },
+    {
+      "id": "out",
+      "name": "Sortie P17 32 A mono",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "32 A mono, après compteur d'énergie MID"
+    }
+  ]
 }

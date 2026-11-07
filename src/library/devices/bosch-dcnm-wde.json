@@ -4,7 +4,7 @@
   "manufacturer": "Bosch",
   "model": "DICENTIS DCNM-WDE",
   "pictogram": "intercom",
-  "status": "community",
+  "status": "verified",
   "weightKg": 0.67,
   "sources": [
     {
@@ -31,18 +31,14 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1735-4496-bosch-dicentis-manuel-installation.pdf",
       "document": "Novelty — DCNM-WDE : BOSCH_DICENTIS_Manuel_installation",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10890-4496-bosch-dicentis-postes-sans-fil-1.pdf",
+      "document": "Bosch, fiche technique Postes sans fil DICENTIS DCNM-WD / DCNM-WDE (copie du distributeur Novelty) : Interconnexions, Microphones, Composants inclus, Caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
-    {
-      "id": "mic",
-      "name": "Micro",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "mic",
-      "format": "Embase pour micro enfichable DCNM-HDMIC / MICS / MICL"
-    },
     {
       "id": "rf",
       "name": "Wi-Fi",
@@ -67,7 +63,7 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Seconde prise casque mini-jack 3,5 stéréo"
+      "format": "Mini-jack 3,5 stéréo, charge 32 ohms à 1 kohm (côté opposé au casque 1)"
     }
   ],
   "domain": "sound",
@@ -75,5 +71,13 @@
   "aliases": [
     "DCNM-WDE",
     "Bosch DCNM-WDE"
-  ]
+  ],
+  "slots": [
+    {
+      "id": "mic",
+      "name": "Micro enfichable",
+      "type": "bosch-dicentis-mic"
+    }
+  ],
+  "description": "Poste de conférence sans fil DICENTIS étendu (écran tactile 4,3 pouces, lecteur NFC), seul. Liaison Wi-Fi 2,4/5 GHz vers la borne DCNM-WAP, deux prises casque mini-jack 3,5 stéréo, haut-parleur intégré. Le micro enfichable (DCNM-HDMIC, DCNM-MICS ou DCNM-MICL) se commande séparément et s'installe en option. Fonctionne sur batterie DCNM-WLIION (7,5 Vcc), vendue à part et non représentée. Consommation 4 W (fiche Bosch)."
 }

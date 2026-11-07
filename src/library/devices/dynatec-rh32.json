@@ -23,64 +23,89 @@
       "name": "Entrée P17 32A tri",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "32 A tri"
     },
     {
       "id": "out1",
       "name": "Sortie PC16A 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out2",
       "name": "Sortie PC16A 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out3",
       "name": "Sortie PC16A 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out4",
       "name": "Sortie PC16A 4",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out5",
       "name": "Sortie PC16A 5",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out6",
       "name": "Sortie PC16A 6",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out7",
       "name": "Sortie PC16A 7",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
     },
     {
       "id": "out8",
       "name": "Sortie PC16A 8",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "schuko",
+      "format": "PC16 16 A, différentiel 30 mA ; type exact (Schuko ou française) non documenté"
+    },
+    {
+      "id": "harting1",
+      "name": "Harting 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "8 circuits (multipaire Harting)",
+      "channels": 8
+    },
+    {
+      "id": "recopie",
+      "name": "Recopie P17 32 A tri",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Recopie de l'arrivée 32 A tri"
     }
-  ],
-  "portStatus": "pending"
+  ]
 }

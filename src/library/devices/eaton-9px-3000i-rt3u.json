@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "Eaton",
   "model": "9PX 3000i RT3U",
-  "status": "community",
-  "description": "Onduleur 3000W, dédié à la protection des équipements informatiques",
+  "status": "verified",
+  "description": "Onduleur On-Line double conversion 3000 VA / 3000 W, tour/rack 3U : entrée C20, 8 sorties C13 et 2 C19 en trois groupes, RS232, USB, ROO/RPO, relais, emplacement pour carte de communication.",
   "aliases": [
     "Eaton 9PX 3000i RT3U"
   ],
@@ -27,8 +27,127 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 27.41,
-  "powerW": 3000
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c19",
+      "format": "Embase IEC C20, 16 A, 200 à 240 V"
+    },
+    {
+      "id": "c13-1",
+      "name": "Sortie C13 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe primaire"
+    },
+    {
+      "id": "c13-2",
+      "name": "Sortie C13 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe primaire"
+    },
+    {
+      "id": "c13-3",
+      "name": "Sortie C13 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe primaire"
+    },
+    {
+      "id": "c13-4",
+      "name": "Sortie C13 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe primaire"
+    },
+    {
+      "id": "c13-5",
+      "name": "Sortie C13 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe 2 programmable"
+    },
+    {
+      "id": "c13-6",
+      "name": "Sortie C13 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe 2 programmable"
+    },
+    {
+      "id": "c13-7",
+      "name": "Sortie C13 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe 1 programmable"
+    },
+    {
+      "id": "c13-8",
+      "name": "Sortie C13 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13 10 A, groupe 1 programmable"
+    },
+    {
+      "id": "c19-1",
+      "name": "Sortie C19 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c19",
+      "format": "IEC C19 16 A, groupe primaire"
+    },
+    {
+      "id": "c19-2",
+      "name": "Sortie C19 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c19",
+      "format": "IEC C19 16 A, groupe 2 programmable"
+    },
+    {
+      "id": "rs232",
+      "name": "RS232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port série RS232 (Sub-D 9), entrées/sorties de signal programmables"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Port de communication USB"
+    },
+    {
+      "id": "roo-rpo",
+      "name": "ROO / RPO",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Mini-borniers marche/arrêt à distance (ROO) et arrêt à distance (RPO)"
+    },
+    {
+      "id": "relais",
+      "name": "Sortie relais",
+      "direction": "out",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Mini-bornier contact de sortie relais"
+    }
+  ],
+  "weightKg": 27.41
 }

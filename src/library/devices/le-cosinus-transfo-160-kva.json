@@ -28,7 +28,23 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Primaire 400 V tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "400 V triphasé, raccordement sur bornier ou barres"
+    },
+    {
+      "id": "out",
+      "name": "Secondaire 230 V",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "230 V triphasé (« Utilisation 230 V » au certificat), raccordement sur bornier ou barres"
+    }
+  ],
   "weightKg": 570
 }

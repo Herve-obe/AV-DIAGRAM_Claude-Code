@@ -4,7 +4,7 @@
   "manufacturer": "Fabricant non indiqué",
   "model": "Armoire RS32 V3",
   "pictogram": "power",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogue Novelty 2025 (docs/inventaire/novelty-2025.csv), pages 164 à 169",
@@ -14,6 +14,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
       "document": "Novelty catalogue 2025, page 164 : vues entrée, sorties et caractéristiques, contrôlées visuellement",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, pages 162 et 164 : légende des prises (pictogrammes), photos et protections, relues le 7 novembre 2026",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/rs32-v3/",
+      "document": "Novelty RS32-V3 : photo de la face avant (prises numérotées, « 19 Pin Outlet #1 par. to 1-6 », « Looped »)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -23,7 +33,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "p17-32-tri",
-      "format": "Arrivée triphasée"
+      "format": "32 A tri"
     },
     {
       "id": "out",
@@ -31,7 +41,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "socapex19",
-      "format": "6 circuits ; brochage SL419 ; circuits éventuellement partagés avec prises PC16",
+      "format": "6 circuits, en parallèle des PC16 1 à 6",
       "channels": 6
     },
     {
@@ -40,7 +50,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "socapex19",
-      "format": "6 circuits ; brochage SL419 ; circuits éventuellement partagés avec prises PC16",
+      "format": "6 circuits, en parallèle des TRUE1 7 à 12",
       "channels": 6
     },
     {
@@ -49,7 +59,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "16 A mono, circuits 7 à 12 (repris sur le Socapex 2)"
     },
     {
       "id": "departure4",
@@ -57,7 +67,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "16 A mono, circuits 7 à 12 (repris sur le Socapex 2)"
     },
     {
       "id": "departure5",
@@ -65,7 +75,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "16 A mono, circuits 7 à 12 (repris sur le Socapex 2)"
     },
     {
       "id": "departure6",
@@ -73,7 +83,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "16 A mono, circuits 7 à 12 (repris sur le Socapex 2)"
     },
     {
       "id": "departure7",
@@ -81,7 +91,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "16 A mono, circuits 7 à 12 (repris sur le Socapex 2)"
     },
     {
       "id": "departure8",
@@ -89,7 +99,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "Départ de puissance, calibre indiqué par le connecteur"
+      "format": "16 A mono, circuits 7 à 12 (repris sur le Socapex 2)"
     },
     {
       "id": "departure9",
@@ -97,7 +107,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure10",
@@ -105,7 +115,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure11",
@@ -113,7 +123,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure12",
@@ -121,7 +131,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure13",
@@ -129,7 +139,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure14",
@@ -137,7 +147,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure15",
@@ -145,7 +155,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure16",
@@ -153,7 +163,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
     },
     {
       "id": "departure17",
@@ -161,7 +171,15 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "Prise française 16 A, 2P+T"
+      "format": "Prise française 16 A 2P+T (PC16) ; 6 en façade sur les circuits 1 à 6 (repris sur le Socapex 1), 3 à l'arrière"
+    },
+    {
+      "id": "recopie",
+      "name": "Recopie P17 32 A tri",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Recopie (« Looped ») de l'arrivée 32 A tri"
     }
   ],
   "weightKg": 49,

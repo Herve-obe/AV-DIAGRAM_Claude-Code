@@ -1,0 +1,44 @@
+{
+  "id": "avid-hd-io-ad-card",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | HD I/O AD Expansion Card (Analog In)",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-hdio-card",
+  "sources": [
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/avid_hd_io_guide_v81.pdf",
+      "document": "Avid, HD I/O Guide v8.1, Part Number 9320-62016-00 REV B 08/10 (copie en ligne du guide constructeur) : chapitre 2 « HD I/O Back Panel », « Input and Output Cards », annexe A « Adding or Removing I/O Cards », annexe B « Pinout Diagrams for the DB-25 Connectors »",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ain4",
+      "name": "Analog Input +4 dBu (1-8)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "8 entrées symétriques à +4 dBu nominal, DB-25 (brochage en annexe B du guide)"
+    },
+    {
+      "id": "ain10",
+      "name": "Analog Input -10 dBV (1-8)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line-10",
+      "channels": 8,
+      "format": "8 entrées symétriques à -10 dBV nominal, DB-25 ; choix de l'entrée +4 ou -10 par voie dans Pro Tools"
+    }
+  ],
+  "description": "Carte d'entrées analogiques 8 voies du HD I/O : deux DB-25, l'un pour les sources à +4 dBu, l'autre pour les sources à -10 dBV, convertisseurs A/N 24 bits / 192 kHz, réglages Input Trim sous les connecteurs. Alimentée par le châssis ; consommation non publiée.",
+  "aliases": [
+    "HD I/O Analog In card",
+    "HD I/O AD card"
+  ]
+}

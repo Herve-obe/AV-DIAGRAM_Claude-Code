@@ -6,7 +6,7 @@
   "manufacturer": "XANTREX",
   "model": "Prosine 1800i",
   "status": "community",
-  "description": "Convertisseur 12V / 230V 1800W",
+  "description": "Convertisseur 12 V DC vers 230 V AC sinus pur, 1800 W continu.",
   "aliases": [
     "PROSINE1800W",
     "XANTREX Prosine 1800i"
@@ -38,7 +38,23 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dc-in",
+      "name": "Entrée batterie 12 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornes DC à goujon pour câbles batterie, 10 à 16 V DC (modèle 12 V), fusible DC recommandé 300 A"
+    },
+    {
+      "id": "ac-out",
+      "name": "Sortie 230 V",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "230 V 50 Hz sinus pur, 1800 W continu ; prise Schuko sur les versions 806-1070/806-1870 (12 V), les autres versions sont à bornier"
+    }
+  ],
   "weightKg": 7.5
 }

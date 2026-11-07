@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "Indu-Electric",
   "model": "AP600/250",
-  "status": "community",
-  "description": "Armoire de protection 250-400-630 A",
+  "status": "verified",
+  "description": "Armoire de protection 250 à 630 A : entrée par 5 Powerlock 630 A, disjoncteur MCCB 630 A 4P, relais différentiel réglable, arrêt d'urgence, 3 voyants, sortie par 5 Powerlock.",
   "aliases": [
     "Indu-Electric AP600/250"
   ],
@@ -22,6 +22,22 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Arrivée Powerlock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Jeu de 5 Powerlock 630 A (L1, L2, L3, N, PE), 230/400 V"
+    },
+    {
+      "id": "out",
+      "name": "Sortie Powerlock",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Jeu de 5 Powerlock (L1, L2, L3, N, PE) après disjoncteur MCCB 630 A 4P et RCM réglable ; borne de terre M12"
+    }
+  ]
 }

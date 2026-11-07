@@ -2,19 +2,32 @@
   "id": "avid-hd-i-o",
   "family": "recording",
   "manufacturer": "Avid",
-  "model": "HD I O",
-  "pictogram": "recorder",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Interface audio Pro Tools | HD en 2U, quatre baies de cartes d'E/S (8x8x8, 16x16 analogique ou 16x16 numérique), liaison DigiLink Mini vers la carte HD.",
+  "model": "Pro Tools | HD I/O",
+  "pictogram": "stagebox",
+  "status": "verified",
+  "aliases": [
+    "HD I/O",
+    "HD I O",
+    "Pro Tools HD I/O",
+    "HD I/O 8x8x8",
+    "Pro Tools | HD I/O 8x8x8",
+    "HD I/O 16x16 Analog",
+    "HD I/O 16x16 Digital"
+  ],
+  "rackU": 2,
+  "description": "Châssis d'interface Pro Tools | HD 2U, seul. Connecteurs fixes de l'enclosure : AES/EBU 2 canaux (XLR), S/PDIF coaxial, optique ADAT/S/PDIF, Word Clock et Loop Sync (BNC), ports DigiLink Mini Primary et Expansion, embase IEC. Quatre baies acceptant indifféremment les cartes HD I/O AD, DA ou Digital (vendues séparément) : la version 8x8x8 correspond aux baies 1 à 3 équipées d'une carte AD, DA et Digital, la baie 4 restant libre ; les versions 16x16 analogique et 16x16 numérique correspondent à deux cartes AD + deux DA, ou deux Digital. Le port Accessory n'a aucune fonction (guide v8.1) et n'est pas représenté. Consommation non publiée (guide v8.1 : 100-240 V, 50-60 Hz seulement).",
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
-      "accessed": "2026-10-22"
+      "document": "Avid, HD I/O Guide (fichier HD_IO_Guide_v81_67823.pdf), chapitre 2 « HD I/O Back Panel »",
+      "accessed": "2026-09-24"
+    },
+    {
+      "document": "Avid, fiche produit HD I/O (HDIODS0614, © 2014)",
+      "accessed": "2026-09-24"
     },
     {
       "url": "https://www.barryrudolph.com/recall/manuals/avid_hd_io_guide_v81.pdf",
-      "document": "Avid, HD I/O Guide v8.1 (copie en ligne du guide constructeur), chapitre 2 « HD I/O Back Panel »",
+      "document": "Avid, HD I/O Guide v8.1, Part Number 9320-62016-00 REV B 08/10 (copie en ligne du guide constructeur) : chapitre 2 « HD I/O Back Panel », « Input and Output Cards », annexe A « Adding or Removing I/O Cards », annexe B « Pinout Diagrams for the DB-25 Connectors »",
       "accessed": "2026-11-07"
     }
   ],
@@ -25,7 +38,8 @@
       "direction": "in",
       "signal": "audioDigital",
       "connector": "xlr3",
-      "channels": 2
+      "channels": 2,
+      "format": "AES/EBU stéréo 24 bits jusqu'à 192 kHz, XLR 3 points symétrique"
     },
     {
       "id": "aeseout",
@@ -33,7 +47,8 @@
       "direction": "out",
       "signal": "audioDigital",
       "connector": "xlr3",
-      "channels": 2
+      "channels": 2,
+      "format": "AES/EBU stéréo 24 bits jusqu'à 192 kHz, XLR 3 points symétrique"
     },
     {
       "id": "spdifin",
@@ -109,8 +124,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "digilink-mini",
-      "channels": 16,
-      "format": "Vers carte Pro Tools | HD ; 16 entrées et 16 sorties au plus"
+      "channels": 32,
+      "format": "Vers carte Pro Tools | HD (DigiLink Mini, adaptateur DigiLink fourni) ; 32 canaux par sens, les canaux 17 à 32 sont renvoyés vers le port Expansion"
     },
     {
       "id": "expansion",
@@ -119,7 +134,7 @@
       "signal": "audioDigital",
       "connector": "digilink-mini",
       "channels": 16,
-      "format": "Vers une interface Pro Tools | HD supplémentaire"
+      "format": "Vers une interface Pro Tools | HD supplémentaire ; transporte les canaux 17 à 32 du port Primary"
     },
     {
       "id": "ac",
@@ -127,7 +142,29 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "100-240 V, câble IEC standard"
+      "format": "Embase secteur IEC standard, sélection automatique 100-240 V, 50-60 Hz"
+    }
+  ],
+  "slots": [
+    {
+      "id": "bay1",
+      "name": "Baie 1",
+      "type": "avid-hdio-card"
+    },
+    {
+      "id": "bay2",
+      "name": "Baie 2",
+      "type": "avid-hdio-card"
+    },
+    {
+      "id": "bay3",
+      "name": "Baie 3",
+      "type": "avid-hdio-card"
+    },
+    {
+      "id": "bay4",
+      "name": "Baie 4",
+      "type": "avid-hdio-card"
     }
   ]
 }

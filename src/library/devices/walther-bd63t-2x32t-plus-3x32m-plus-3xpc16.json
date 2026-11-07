@@ -5,7 +5,7 @@
   "pictogram": "power",
   "manufacturer": "WALTHER",
   "model": "BD63T/2x32T + 3x32M + 3xPC16",
-  "status": "community",
+  "status": "verified",
   "description": "Sabot de distribution. Entrée : P17 63A tétra. Sorties : 2 x P17 32tétra + 3 x P17 16 mono + 3 x PC16 + recopie 63A tri. Protection différentielle 300mA en entrée, 30mA en sortie. Arrêt d'urgence",
   "aliases": [
     "BD63T/002",
@@ -34,65 +34,81 @@
       "name": "Entrée P17 63A tetra",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-63-tri"
+      "connector": "p17-63-tri",
+      "format": "63 A tri (CEE 3P+N+T), interrupteur 4 x 63 A avec bobine MX et arrêt d'urgence, différentiel 300 mA en amont"
     },
     {
       "id": "out1",
       "name": "Sortie P17 32tetra 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "CEE 3P+N+T 32 A, disjoncteur 3P+N 32 A"
     },
     {
       "id": "out2",
       "name": "Sortie P17 32tetra 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-32-tri"
+      "connector": "p17-32-tri",
+      "format": "CEE 3P+N+T 32 A, disjoncteur 3P+N 32 A"
     },
     {
       "id": "out3",
-      "name": "Sortie P17 16 mono 1",
+      "name": "Sortie P17 32 mono 1",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-16-mono"
+      "connector": "p17-32-mono",
+      "format": "CEE 2P+T 32 A, disjoncteur P+N 32 A 30 mA"
     },
     {
       "id": "out4",
-      "name": "Sortie P17 16 mono 2",
+      "name": "Sortie P17 32 mono 2",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-16-mono"
+      "connector": "p17-32-mono",
+      "format": "CEE 2P+T 32 A, disjoncteur P+N 32 A 30 mA"
     },
     {
       "id": "out5",
-      "name": "Sortie P17 16 mono 3",
+      "name": "Sortie P17 32 mono 3",
       "direction": "out",
       "signal": "power",
-      "connector": "p17-16-mono"
+      "connector": "p17-32-mono",
+      "format": "CEE 2P+T 32 A, disjoncteur P+N 32 A 30 mA"
     },
     {
       "id": "out6",
       "name": "Sortie PC16 1",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
     },
     {
       "id": "out7",
       "name": "Sortie PC16 2",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
     },
     {
       "id": "out8",
       "name": "Sortie PC16 3",
       "direction": "out",
       "signal": "power",
-      "connector": "schuko"
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "recopie",
+      "name": "Recopie P17 63 A tri",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "CEE 3P+N+T 63 A, sans verrouillage électrique, protégée par le différentiel amont"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 17
 }

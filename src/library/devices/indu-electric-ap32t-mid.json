@@ -6,7 +6,7 @@
   "manufacturer": "Indu-Electric",
   "model": "AP32T-MID",
   "status": "community",
-  "description": "Armoire de comptage, 32T in/out",
+  "description": "Coffret de comptage d'énergie MID 32 A tri, entrée et sortie P17 32 A tri.",
   "aliases": [
     "Indu-Electric AP32T-MID"
   ],
@@ -17,6 +17,22 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Arrivée P17 32 A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri"
+    },
+    {
+      "id": "out",
+      "name": "Sortie P17 32 A tri",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri, après compteur d'énergie MID"
+    }
+  ]
 }

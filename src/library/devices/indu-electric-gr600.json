@@ -17,6 +17,22 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Raccordement amont",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Jeu de barres à cosses, 5 barres (L1, L2, L3, N, PE)"
+    },
+    {
+      "id": "out",
+      "name": "Raccordement aval",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Jeu de barres à cosses, 5 barres (L1, L2, L3, N, PE)"
+    }
+  ]
 }
