@@ -4,7 +4,7 @@
   "manufacturer": "Luminex",
   "model": "LumiNode 4",
   "pictogram": "control",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://luminex.be/products/luminode/luminode-4",
@@ -50,7 +50,11 @@
       "name": "Ethernet 1",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "etherCON Neutrik, 10/100/1000 ; PoE 802.3af classe 0 possible",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "eth2",
@@ -64,7 +68,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powercon-true1"
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1, 100-240 V CA ; redondance avec PoE"
     }
-  ]
+  ],
+  "powerW": 13
 }

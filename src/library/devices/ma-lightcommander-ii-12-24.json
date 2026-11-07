@@ -30,8 +30,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "230 V CA50 Hz ;180–240 V"
+      "connector": "iec-c13",
+      "format": "Embase IEC (dessin de la face arrière), 230 V 50 Hz (180-240 V), sélecteur 230/115 V, fusible interne 0,5 A"
     },
     {
       "id": "analog",
@@ -70,14 +70,6 @@
       "signal": "control",
       "connector": "jack-ts",
       "format": "Contact sec, avance chenillard"
-    },
-    {
-      "id": "lamp",
-      "name": "Lampe pupitre",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr3",
-      "format": "12 V CC ;2=masse,3=+12 V,1=non connecté"
     }
   ],
   "description": "Lightcommander12/2 (12/24 circuits), DMX et analogique0–10 V14 canaux D-Sub15. MIDI In/Out, audio RCA, Remote Go jack6,35 mm, lampe pupitre XLR3 12 V. Secteur230 V, plage180–240 V ; fiche à confirmer."

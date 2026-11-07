@@ -35,7 +35,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Avec carte optionnelle BT-YA80G"
+      "format": "HD/SD-SDI, avec carte optionnelle BT-YA80G"
     },
     {
       "id": "video",
@@ -43,7 +43,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Composite"
+      "format": "Composite ou Y (prise VIDEO/Y partagée avec l'entrée composante)"
     },
     {
       "id": "ypbpr",
@@ -51,7 +51,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3 BNC"
+      "format": "Pb et Pr sur 2 BNC ; Y sur la prise VIDEO/Y"
     },
     {
       "id": "vf",
@@ -87,5 +87,6 @@
     "BTLH80W",
     "PANASONIC BT-LH80W"
   ],
-  "powerW": 18
+  "powerW": 18,
+  "notes": "Consommation : DC 12 V, 1,5 A (fiche technique), soit 18 W. Entrée SDI uniquement avec la carte optionnelle BT-YA80G (PRINCIPAL+OPTION possible : carte BT-YA80G en module, emplacement SDI)."
 }

@@ -34,19 +34,21 @@
       "name": "Wi-Fi",
       "direction": "bidir",
       "signal": "rf",
-      "connector": "rf",
-      "format": "DMX Wi-Fi (ColorBatt)"
+      "connector": "sma",
+      "format": "Antenne SMA 50 Ω, 2,4 GHz (2400-2483 MHz), 13 canaux ; DMX Wi-Fi ColorBatt"
     },
     {
       "id": "dc",
-      "name": "Alimentation",
+      "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "100-240 V CA 50 Hz, 2 W max. ; type de prise non indiqué"
     }
   ],
   "aliases": [
     "DMXHF-TW512",
     "OXO TW512"
-  ]
+  ],
+  "powerW": 2
 }

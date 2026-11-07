@@ -37,30 +37,32 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "DMX512, embase XLR 5 mâle (fiche DimKit)"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Recopie DMX, embase XLR 5 femelle (fiche DimKit)"
     },
     {
       "id": "acIn",
       "name": "Arrivée",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "P17 125 A tri"
+      "connector": "p17-125-tri",
+      "format": "P17 125 A tri selon le parc Novelty"
     },
     {
       "id": "acOut",
       "name": "Départs gradués",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "PC16A"
+      "connector": "cee7-e",
+      "format": "Prises doubles NF 10/16 A ; nombre exact (36 voies doublées) non saisi"
     }
   ],
   "aliases": [

@@ -9,6 +9,11 @@
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.fr/manual/109998/Oxo-Simoun-2-W.html",
+      "document": "OXO, mode d'emploi Simoun 2 W V1.3 (copie ManualsLib), présentation et connexions",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -17,30 +22,33 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr3",
+      "format": "XLR 3 points mâle"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr3",
+      "format": "XLR 3 points femelle"
     },
     {
       "id": "acIn",
       "name": "Arrivée",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "PC16A"
+      "connector": "mains-captive",
+      "format": "Cordon secteur, 230 V 50 Hz, 2 300 W max., fusible F10A"
     },
     {
       "id": "acOut",
-      "name": "Départs gradués",
+      "name": "Sortie gradée",
       "direction": "out",
       "signal": "power",
       "connector": "unspecified",
-      "format": "PC16A"
+      "format": "1 voie, 2 300 W max. ; type de prise non indiqué dans la notice"
     }
-  ]
+  ],
+  "description": "Gradateur 1 voie OXO Simoun 2, 2 300 W max., commande DMX (XLR 3 entrée et recopie) et curseur HTP ; 182 × 92 × 65 mm, 1,1 kg."
 }

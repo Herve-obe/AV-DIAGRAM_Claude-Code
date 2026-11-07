@@ -4,7 +4,7 @@
   "manufacturer": "MA Lighting",
   "model": "grandMA3 light",
   "pictogram": "console",
-  "status": "verified",
+  "status": "community",
   "weightKg": 33,
   "sources": [
     {
@@ -46,6 +46,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ma-lighting_grandma3-compact-xt_quick_manual_processing-1583923289.pdf",
       "document": "Novelty — GrandMA3 Light : Processing",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA3/2.3/HTML/do_connector_pin_assignment.html",
+      "document": "MA Lighting, grandMA3 v2.3 : Connector Pin Assignment (S/PDIF sur RCA)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA3/2.3/HTML/fs_connect_audio_in.html",
+      "document": "MA Lighting, grandMA3 v2.3 : Connect Audio In (XLR 3, min. 50 mV)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -165,7 +175,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR3 femelle"
+      "format": "Audio Remote In, XLR 3 points femelle, signal min. 50 mV"
     },
     {
       "id": "gpi",
@@ -180,16 +190,16 @@
       "name": "S/PDIF In",
       "direction": "in",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Connecteur non précisé"
+      "connector": "rca",
+      "format": "S/PDIF, RCA"
     },
     {
       "id": "spdif-out",
       "name": "S/PDIF Out",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Connecteur non précisé"
+      "connector": "rca",
+      "format": "S/PDIF, RCA"
     },
     {
       "id": "dp1",
@@ -254,25 +264,10 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Max. 900 mA"
-    },
-    {
-      "id": "lamp1",
-      "name": "Lampe de pupitre 1",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr4",
-      "format": "XLR4 femelle"
-    },
-    {
-      "id": "lamp2",
-      "name": "Lampe de pupitre 2",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr4",
-      "format": "XLR4 femelle"
     }
   ],
   "aliases": [
     "MA LIGHTING GrandMA3 Light"
-  ]
+  ],
+  "powerW": 300
 }

@@ -5,7 +5,7 @@
   "pictogram": "switch",
   "manufacturer": "RVE",
   "model": "6×2,3kW Stager",
-  "status": "community",
+  "status": "verified",
   "description": "Bloc de puissance 6 x 2,3 kW. Entrée : P17 32tri. Sorties : 6 x PC16A doublées",
   "aliases": [
     "Stager",
@@ -34,7 +34,135 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, embase XLR 5 mâle"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, embase XLR 5 femelle"
+    },
+    {
+      "id": "analog",
+      "name": "Entrée analogique 0/+10 V",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Embase femelle DIN 8 broches verrouillable"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée triphasée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Câble 5 × 2,5 mm² 3P+N+T 230/400 V ; fiche P17 32 A tri au parc (Novelty)"
+    },
+    {
+      "id": "out1a",
+      "name": "Sortie 1 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 2,3 kW"
+    },
+    {
+      "id": "out1b",
+      "name": "Sortie 1 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out2a",
+      "name": "Sortie 2 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 2,3 kW"
+    },
+    {
+      "id": "out2b",
+      "name": "Sortie 2 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out3a",
+      "name": "Sortie 3 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 2,3 kW"
+    },
+    {
+      "id": "out3b",
+      "name": "Sortie 3 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out4a",
+      "name": "Sortie 4 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 2,3 kW"
+    },
+    {
+      "id": "out4b",
+      "name": "Sortie 4 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out5a",
+      "name": "Sortie 5 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 2,3 kW"
+    },
+    {
+      "id": "out5b",
+      "name": "Sortie 5 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out6a",
+      "name": "Sortie 6 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 2,3 kW"
+    },
+    {
+      "id": "out6b",
+      "name": "Sortie 6 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    }
+  ],
   "weightKg": 8
 }

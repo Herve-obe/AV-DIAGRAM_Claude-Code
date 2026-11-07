@@ -17,6 +17,39 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxInx3",
+      "name": "DMX In X3",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOutx3",
+      "name": "DMX Out X3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmxInrj",
+      "name": "DMX In RJ",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rj45",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOutrj",
+      "name": "DMX Out RJ",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "rj45",
+      "format": "Recopie DMX"
+    }
+  ],
   "portStatus": "pending"
 }

@@ -233,7 +233,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
+      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
     },
     {
       "id": "sdiOut2",
@@ -241,7 +241,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
+      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
     },
     {
       "id": "sdiOut3",
@@ -265,7 +265,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
     },
     {
       "id": "sdiOut6",
@@ -273,26 +273,10 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
     },
     {
       "id": "sfpOut1",
-      "name": "SFP+ cage Out 1",
-      "direction": "out",
-      "signal": "video",
-      "connector": "sfp",
-      "format": "Miroir sortie, module optionnel"
-    },
-    {
-      "id": "sfpOut2",
-      "name": "SFP+ cage Out 2",
-      "direction": "out",
-      "signal": "video",
-      "connector": "sfp",
-      "format": "Miroir sortie, module optionnel"
-    },
-    {
-      "id": "sfpOut3",
       "name": "SFP+ cage Out 3",
       "direction": "out",
       "signal": "video",
@@ -300,8 +284,24 @@
       "format": "Miroir sortie, module optionnel"
     },
     {
-      "id": "sfpOut4",
+      "id": "sfpOut2",
       "name": "SFP+ cage Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Miroir sortie, module optionnel"
+    },
+    {
+      "id": "sfpOut3",
+      "name": "SFP+ cage Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Miroir sortie, module optionnel"
+    },
+    {
+      "id": "sfpOut4",
+      "name": "SFP+ cage Out 6",
       "direction": "out",
       "signal": "video",
       "connector": "sfp",

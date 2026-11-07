@@ -2,36 +2,68 @@
   "id": "lumenradio-inrfx1",
   "family": "dmxDistribution",
   "manufacturer": "LumenRadio",
-  "model": "CRMX inRFX1",
+  "model": "CRMX Nova FX RDM (IN-RFX1)",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://lumenradio.com/support-materials/crmx-nova-specifications",
+      "document": "LumenRadio, CRMX Nova specifications (IN-RFX1 800-3001)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "dmx",
-      "name": "DMX",
+      "name": "DMX / RDM",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "1 XLR 5 points femelle (entrée ou sortie selon le mode Flex)"
     },
     {
       "id": "rf",
-      "name": "CRMX",
+      "name": "Antenne CRMX",
       "direction": "bidir",
       "signal": "rf",
-      "connector": "rf"
+      "connector": "rp-tnc",
+      "format": "RP-TNC femelle, antenne 2 dBi fournie ; CRMX, compatible W-DMX en réception"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "poe": "sink"
+      },
+      "format": "Art-Net, sACN, ETCNet ; PoE"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 320 C14 mâle, 100-240 V CA 47-70 Hz, 0,12 A, 10 W"
     },
     {
       "id": "dc",
-      "name": "Alimentation",
+      "name": "Entrée 12 V CC",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "terminal",
+      "format": "Bornier Phoenix MSTB 2.5, 12 V CC ± 20 %, 0,6 A, 7,5 W"
     }
+  ],
+  "powerW": 10,
+  "description": "Émetteur-récepteur CRMX LumenRadio Nova FX RDM (IN-RFX1, 800-3001), un univers DMX/RDM, mode Flex : XLR 5 femelle, Ethernet RJ45 avec PoE, antenne RP-TNC, IEC C14 et entrée 12 V CC.",
+  "aliases": [
+    "LumenRadio CRMX inRFX1"
   ]
 }

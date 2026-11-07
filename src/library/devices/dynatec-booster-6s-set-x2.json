@@ -6,7 +6,7 @@
   "manufacturer": "Dynatec",
   "model": "Booster 6S",
   "status": "community",
-  "description": "Amplificateur/splitter DMX512 Booster 6S, un appareil.",
+  "description": "Booster-splitter DMX512 Dynatec Booster 6S, rack 19 pouces 1 U : 1 entrée et 1 recopie en XLR 5, 6 sorties isolées 10 kV (3 en XLR 5, 3 en XLR 3), 4 alimentations séparées avec filtre secteur.",
   "aliases": [
     "Dynatec Booster 6S"
   ],
@@ -17,6 +17,71 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Entrée isolée des sorties ; XLR 5 points"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie de l'entrée ; XLR 5 points"
+    },
+    {
+      "id": "out1",
+      "name": "DMX Out 1 (XLR 5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie indépendante isolée 10 kV"
+    },
+    {
+      "id": "out2",
+      "name": "DMX Out 2 (XLR 5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie indépendante isolée 10 kV"
+    },
+    {
+      "id": "out3",
+      "name": "DMX Out 3 (XLR 5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie indépendante isolée 10 kV"
+    },
+    {
+      "id": "out4",
+      "name": "DMX Out 4 (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Sortie indépendante isolée 10 kV"
+    },
+    {
+      "id": "out5",
+      "name": "DMX Out 5 (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Sortie indépendante isolée 10 kV"
+    },
+    {
+      "id": "out6",
+      "name": "DMX Out 6 (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Sortie indépendante isolée 10 kV"
+    }
+  ],
   "portStatus": "pending"
 }

@@ -4,7 +4,7 @@
   "manufacturer": "ADB",
   "model": "Mikado",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -61,7 +61,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "Embase IEC, 190–260 V CA, 47–63 Hz"
+      "format": "Embase IEC320 C14, fusible M205 500 mA ; 190-260 V CA, 47-65 Hz (cordon CEE 7/7 fourni)"
     },
     {
       "id": "audio-in",
@@ -69,8 +69,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "1 V RMS, déclenchement des chenillards",
-      "level": "none"
+      "format": "RCA, niveau ligne nominal 1 V RMS ; déclenchement des chenillards",
+      "level": "line+4"
     },
     {
       "id": "trigger",
@@ -85,8 +85,8 @@
       "name": "COMMS PORT",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Module mémoire externe optionnel"
+      "connector": "dsub9",
+      "format": "Connecteur DE09-S : module mémoire externe MEM/EXT/MIK optionnel et mise à jour logicielle"
     }
   ],
   "aliases": [

@@ -4,7 +4,7 @@
   "manufacturer": "MA Lighting",
   "model": "grandMA2 light",
   "pictogram": "console",
-  "status": "verified",
+  "status": "community",
   "weightKg": 37,
   "sources": [
     {
@@ -26,6 +26,21 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/ma-lighting_grandma2_light_certificat.pdf",
       "document": "Novelty — GrandMA2 Light : GrandMA 2 Light",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/key_technical_data.html",
+      "document": "MA Lighting, grandMA2 User Manual v3.9 : Technical Data",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/key_fs_connect_grandma2_fader_wing.html",
+      "document": "MA Lighting, grandMA2 : connexion du fader wing (MA-Link D-Sub 15)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/key_fs_connect_sound.html",
+      "document": "MA Lighting, grandMA2 : connexion Sound/Audio In (XLR 3, min. 20 mV)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -35,7 +50,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "powercon",
-      "format": "powerCON, 350 VA"
+      "format": "powerCON, 120/230 V 50/60 Hz, 350 VA"
     },
     {
       "id": "eth1",
@@ -137,7 +152,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub25",
-      "format": "Télécommande analogique"
+      "format": "Télécommande analogique, D-Sub 25"
     },
     {
       "id": "sound",
@@ -145,15 +160,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Entrée son, XLR 3 points"
+      "format": "Entrée son XLR 3 points symétrique, signal min. 20 mV"
     },
     {
       "id": "malink",
       "name": "MA Link",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Liaison vers grandMA2 fader wing ; connecteur non précisé"
+      "connector": "dsub15",
+      "format": "MA-Link vers jusqu'à 4 grandMA2 fader wings, D-Sub 15"
     },
     {
       "id": "dvi1",
@@ -210,26 +225,11 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "USB, type non précisé sur la page"
-    },
-    {
-      "id": "lamp1",
-      "name": "Lampe de pupitre 1",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr4",
-      "format": "XLR 4 points"
-    },
-    {
-      "id": "lamp2",
-      "name": "Lampe de pupitre 2",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr4",
-      "format": "XLR 4 points"
     }
   ],
   "aliases": [
     "GRANDMA2LIGHT",
     "MA LIGHTING GrandMA2 Light"
-  ]
+  ],
+  "powerW": 350
 }

@@ -41,23 +41,40 @@
   "ports": [
     {
       "id": "dmx",
-      "name": "DMX / RDM",
+      "name": "RDM Out (XLR 5)",
       "direction": "bidir",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "format": "DMX / RDM, XLR 5 points femelle"
+    },
+    {
+      "id": "dmx3",
+      "name": "RDM Out (XLR 3)",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX / RDM, XLR 3 points femelle"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Entrée Ethernet RJ45"
     },
     {
       "id": "dc",
-      "name": "Charge",
+      "name": "Charge batterie",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Batterie"
+      "connector": "dc-barrel",
+      "format": "Chargeur externe 5 V / 1,2 A (6 W max.) ; connecteur rond d'après le dessin"
     }
   ],
   "aliases": [
     "RDMCOM",
     "Robe RDM Communicator"
-  ]
+  ],
+  "powerW": 6
 }

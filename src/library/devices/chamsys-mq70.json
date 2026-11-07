@@ -6,7 +6,7 @@
   "manufacturer": "ChamSys",
   "model": "MQ70",
   "status": "community",
-  "description": "Console lumière complète - 24 univers (extension à 48 univers possible) - Pensée pour les concepteurs lumière itinérants",
+  "description": "Console ChamSys MagicQ MQ70 : 24 univers, 4 sorties DMX XLR 5, 3 Ethernet RJ45, HDMI, 5 USB, MIDI, LTC, entrée remote ; écran tactile 10,1 pouces, onduleur intégré ; 525 × 350 × 60 mm max., 7 kg max.",
   "aliases": [
     "ChamSys MQ70"
   ],
@@ -20,9 +20,145 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6243-4495-mq70-spec.pdf",
       "document": "Novelty — MQ70 : MQ70 Spec",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://goknight.com/content/documentation/MagicQ%20MQ500M%20User%20Manual.pdf",
+      "document": "ChamSys, MagicQ User Manual (copie revendeur Go Knight) : ch. 40 remote input Mini-DIN 4",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1, 110-240 V CA 50/60 Hz ; onduleur interne"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net, sACN, Pathport"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net, sACN, Pathport"
+    },
+    {
+      "id": "eth3",
+      "name": "Ethernet 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net, sACN, Pathport"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Moniteur externe 1920 × 1080"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB face avant",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb1",
+      "name": "USB arrière 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB arrière 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3",
+      "name": "USB arrière 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb4",
+      "name": "USB arrière 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI notes, MIDI timecode"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "remote",
+      "name": "Remote Input",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minidin4",
+      "format": "Mini-DIN 4 broches, entrée optoisolée ou contact sec (alimentation 5 V)"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 7
 }

@@ -46,6 +46,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'lc', label: 'Fibre LC', mate: 'lc' },
   { id: 'mtrj', label: 'Fibre MT-RJ', mate: 'mtrj' },
   { id: 'molex-microfit6', label: 'Molex Micro-Fit 6 broches', mate: 'molex-microfit6' },
+  { id: 'm12', label: 'M12 circulaire (SACC)', mate: 'm12' },
   { id: 'sc', label: 'Fibre SC', mate: 'sc' },
   { id: 'st', label: 'Fibre ST', mate: 'st' },
   { id: 'sfp', label: 'SFP / SFP+', mate: 'sfp' },

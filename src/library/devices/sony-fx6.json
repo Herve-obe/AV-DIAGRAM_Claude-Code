@@ -108,6 +108,38 @@
       "signal": "power",
       "connector": "dc-barrel",
       "format": "Fiche EIAJ, 19,5 V DC (18 à 20,5 V)"
+    },
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR 3 broches femelle, LINE / MIC / MIC+48V commutable, MIC -30 à -80 dBu"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR 3 broches femelle, LINE / MIC / MIC+48V commutable, MIC -30 à -80 dBu"
     }
   ],
   "weightKg": 0.89,

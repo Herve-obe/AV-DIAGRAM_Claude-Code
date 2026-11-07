@@ -17,7 +17,71 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In ",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out ",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON, 100-240 V CA 50/60 Hz, 5 A"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie LED 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "m12",
+      "format": "SACC M12 5 pôles, courant constant 1-42 V, 200 à 1 600 mA"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie LED 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "m12",
+      "format": "SACC M12 5 pôles, courant constant 1-42 V, 200 à 1 600 mA"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie LED 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "m12",
+      "format": "SACC M12 5 pôles, courant constant 1-42 V, 200 à 1 600 mA"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie LED 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "m12",
+      "format": "SACC M12 5 pôles, courant constant 1-42 V, 200 à 1 600 mA"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 2.3
 }

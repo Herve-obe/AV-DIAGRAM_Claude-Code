@@ -5,8 +5,8 @@
   "pictogram": "console",
   "manufacturer": "ETC",
   "model": "Eos Motorized Fader Wing 20",
-  "status": "community",
-  "description": "Extension motorisée Eos MFW 20, 20 faders. Poids net 4.9 kg, distinct du poids transport. Liaison USB et alimentation externe 12 V documentées ; types physiques et affectation des prises à compléter.",
+  "status": "verified",
+  "description": "Extension motorisée Eos MFW 20, 20 faders motorisés 60 mm, reliée à l'hôte en USB : USB-B vers l'hôte, 2 USB-A alimentés, entrée 12 V CC par bloc externe. Poids net 4,9 kg.",
   "sources": [
     {
       "url": "https://www.etcconnect.com/workarea/DownloadAsset.aspx?id=10737485207",
@@ -16,9 +16,47 @@
     {
       "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
       "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.etcconnect.com/WorkArea/DownloadAsset.aspx?id=10737486489",
+      "document": "ETC, Setup Guide Eos Programming, Motorized and Standard Fader Wings 4240M2200 rev E, p. 2-3 : dessins des faces arrière",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 4.9
+  "ports": [
+    {
+      "id": "usbIn",
+      "name": "USB In (hôte)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Vers la console ou l'ordinateur hôte (câble A-B fourni)"
+    },
+    {
+      "id": "usbOut1",
+      "name": "USB Out 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Port USB alimenté"
+    },
+    {
+      "id": "usbOut2",
+      "name": "USB Out 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Port USB alimenté"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, 5 A max. (marquage) ; bloc secteur externe fourni avec cordon IEC"
+    }
+  ],
+  "weightKg": 4.9,
+  "powerW": 60
 }

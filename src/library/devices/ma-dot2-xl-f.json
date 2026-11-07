@@ -4,7 +4,7 @@
   "manufacturer": "MA Lighting",
   "model": "dot2 XL-F",
   "pictogram": "console",
-  "status": "verified",
+  "status": "community",
   "weightKg": 9.1,
   "sources": [
     {
@@ -40,7 +40,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "IEC C13/C14, 100 VA"
+      "format": "Embase IEC C14 avec interrupteur, 120/230 V auto, 100 VA max."
     },
     {
       "id": "eth",
@@ -134,7 +134,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
-      "format": "USB, type non précisé sur la page"
+      "format": "Clavier, souris, clé USB"
     },
     {
       "id": "usb2",
@@ -142,7 +142,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
-      "format": "USB, type non précisé sur la page"
+      "format": "Clavier, souris, clé USB"
     },
     {
       "id": "usb3",
@@ -150,19 +150,12 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
-      "format": "USB, type non précisé sur la page"
-    },
-    {
-      "id": "lamp",
-      "name": "Lampe de pupitre",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr4",
-      "format": "XLR 4 points"
+      "format": "Clavier, souris, clé USB"
     }
   ],
   "aliases": [
     "DOT2XLF",
     "MA LIGHTING Dot2 XL-F"
-  ]
+  ],
+  "powerW": 100
 }

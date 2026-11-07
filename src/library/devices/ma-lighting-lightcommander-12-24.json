@@ -47,8 +47,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "230 V CA50 Hz ;180–240 V"
+      "connector": "iec-c13",
+      "format": "Embase IEC (dessin de la face arrière), 230 V 50 Hz (180-240 V), sélecteur 230/115 V, fusible interne 0,5 A"
     },
     {
       "id": "analog",
@@ -87,14 +87,6 @@
       "signal": "control",
       "connector": "jack-ts",
       "format": "Contact sec, avance chenillard"
-    },
-    {
-      "id": "lamp",
-      "name": "Lampe pupitre",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr3",
-      "format": "12 V CC ;2=masse,3=+12 V,1=non connecté"
     }
   ],
   "weightKg": 5.9

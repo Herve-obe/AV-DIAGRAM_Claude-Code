@@ -87,11 +87,27 @@
     },
     {
       "id": "usb",
-      "name": "USB",
+      "name": "USB 1",
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
-      "format": "3 ports USB 2.0"
+      "format": "USB 2.0 type A"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A"
     },
     {
       "id": "ac",
@@ -101,5 +117,6 @@
       "connector": "powercon-true1",
       "format": "100-240 V, 200 VA"
     }
-  ]
+  ],
+  "powerW": 200
 }

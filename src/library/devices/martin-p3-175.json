@@ -25,18 +25,19 @@
     },
     {
       "id": "net",
-      "name": "EtherDMX / Management",
+      "name": "EtherDMX",
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Art-Net, sACN, gestion"
+      "format": "etherCON 100/1000, Art-Net, sACN, Kinesys K2/Vector"
     },
     {
       "id": "ndi",
       "name": "NDI In",
       "direction": "in",
       "signal": "videoIp",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "Entrée vidéo NDI, etherCON 100/1000"
     },
     {
       "id": "hdmi",
@@ -55,6 +56,42 @@
       "format": "DisplayPort++ (interface utilisateur)"
     },
     {
+      "id": "mgmt",
+      "name": "Management",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 100/1000 : visualiseur tiers, gestion, syslog, serveur web"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 2.0 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3_1",
+      "name": "USB 3.0 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3_2",
+      "name": "USB 3.0 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -62,5 +99,6 @@
       "connector": "iec-c13",
       "format": "Embase IEC avec interrupteur"
     }
-  ]
+  ],
+  "powerW": 65
 }

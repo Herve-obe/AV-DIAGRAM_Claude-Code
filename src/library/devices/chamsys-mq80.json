@@ -35,6 +35,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/MagicQ+Compact+brochure+2015.pdf",
       "document": "Novelty — Magic Q MQ80 : Brochure commerciale",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://goknight.com/content/documentation/MagicQ%20MQ500M%20User%20Manual.pdf",
+      "document": "ChamSys, MagicQ User Manual (copie revendeur Go Knight) : ch. 39 timecode, ch. 40 remote input Mini-DIN 4",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -43,67 +48,142 @@
       "name": "DMX 1",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points Neutrik"
     },
     {
       "id": "dmx2",
       "name": "DMX 2",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points Neutrik"
     },
     {
       "id": "dmx3",
       "name": "DMX 3",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points Neutrik"
     },
     {
       "id": "dmx4",
       "name": "DMX 4",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points Neutrik"
     },
     {
       "id": "eth1",
       "name": "Ethernet 1",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "Switch Ethernet interne 4 ports, etherCON Neutrik, secouru par onduleur"
     },
     {
       "id": "eth2",
       "name": "Ethernet 2",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "Switch Ethernet interne 4 ports, etherCON Neutrik, secouru par onduleur"
     },
     {
       "id": "eth3",
       "name": "Ethernet 3",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "Switch Ethernet interne 4 ports, etherCON Neutrik, secouru par onduleur"
     },
     {
       "id": "eth4",
       "name": "Ethernet 4",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "Switch Ethernet interne 4 ports, etherCON Neutrik, secouru par onduleur"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB face avant",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb1",
+      "name": "USB arrière 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB arrière 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3",
+      "name": "USB arrière 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb4",
+      "name": "USB arrière 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb5",
+      "name": "USB arrière 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI notes, MIDI timecode"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "remote",
+      "name": "Remote Input",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minidin4",
+      "format": "Mini-DIN 4 broches, entrée optoisolée ou contact sec (alimentation 5 V)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powercon"
+      "connector": "powercon",
+      "format": "powerCON verrouillable, 90-240 V ; alimentation interne et onduleur"
     }
   ],
   "aliases": [
     "Magic Q MQ80",
     "ChamSys Magic Q MQ80"
-  ]
+  ],
+  "description": "Console ChamSys MagicQ MQ80 : 24 univers, 4 sorties DMX, switch Ethernet 4 ports etherCON, 6 USB, MIDI, LTC, entrée audio, moniteur externe 1920 × 1200 ; alimentation interne avec onduleur ; 570 × 405 × 110 mm, 8 kg."
 }

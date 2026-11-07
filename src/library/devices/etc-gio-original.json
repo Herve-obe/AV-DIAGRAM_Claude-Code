@@ -16,8 +16,154 @@
     {
       "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
       "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/02_Eos_Family_Product_Overview_and_Setup/Consoles/Gio.htm",
+      "document": "ETC, aide en ligne Eos v3.3.10 : Gio, ports, alimentation et consommation",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.etcconnect.com/Products/Legacy/Console/Eos-Family/Gio/Tech-Specs.aspx",
+      "document": "ETC, Gio Tech Specs (produit archivé)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC verrouillable sous l'interrupteur, fusible en face arrière"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Configurable, PoE 802.3af source ; type d'embase non précisé (RJ45 ou etherCON)"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Configurable, PoE 802.3af source ; type d'embase non précisé (RJ45 ou etherCON)"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB face avant",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Stockage USB"
+    },
+    {
+      "id": "usb1",
+      "name": "USB arrière 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb2",
+      "name": "USB arrière 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb3",
+      "name": "USB arrière 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb4",
+      "name": "USB arrière 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb5",
+      "name": "USB arrière 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb6",
+      "name": "USB arrière 6",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Moniteur externe ; DisplayPort sur la variante 4240A1212 à carte UCB"
+    },
+    {
+      "id": "dvi2",
+      "name": "DVI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Moniteur externe ; DisplayPort sur la variante 4240A1212 à carte UCB"
+    },
+    {
+      "id": "dvi3",
+      "name": "DVI 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Moniteur externe ; DisplayPort sur la variante 4240A1212 à carte UCB"
+    }
+  ],
+  "portStatus": "pending",
+  "powerW": 230
 }

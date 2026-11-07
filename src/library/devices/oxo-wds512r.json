@@ -22,7 +22,25 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Antenne",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "SMA 50 Ω, 2,4 GHz (2400-2483 MHz), 13 canaux, 18 dBm"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Alimentation interne 100-240 V CA 50 Hz sur powerCON, 2 W max."
+    }
+  ],
   "portStatus": "pending",
-  "weightKg": 0.36
+  "weightKg": 0.36,
+  "powerW": 2
 }

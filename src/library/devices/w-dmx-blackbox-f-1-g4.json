@@ -28,7 +28,40 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle, univers 1"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Bypass, XLR 5 points femelle"
+    },
+    {
+      "id": "rf",
+      "name": "W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Liaison radio W-DMX G4, émetteur ou récepteur (Flex)"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Connecteur Phoenix 12 V CC (gauche masse, droite +12 V)"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 0.85
 }

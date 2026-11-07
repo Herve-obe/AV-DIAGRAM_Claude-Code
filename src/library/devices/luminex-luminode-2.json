@@ -10,6 +10,11 @@
       "url": "https://www.fullcompass.com/prod/571139-luminex-luminode-2-ethernet-to-2-port-dmx-node",
       "document": "Full Compass, fiche LumiNode 2 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://luminex.be/products/luminode/luminode-2",
+      "document": "Luminex, page produit LumiNode 2 : connectivité et alimentation",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -18,14 +23,16 @@
       "name": "DMX 1",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX / RDM, entrée ou sortie configurable, isolée ; Neutrik XLR 5 points femelle"
     },
     {
       "id": "dmx2",
       "name": "DMX 2",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX / RDM, entrée ou sortie configurable, isolée ; Neutrik XLR 5 points femelle"
     },
     {
       "id": "eth1",
@@ -33,14 +40,20 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "PoE"
+      "format": "etherCON Neutrik, 10/100/1000 ; alimentation PoE 802.3af classe 0",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "eth2",
       "name": "Ethernet 2",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "etherCON Neutrik, 10/100/1000"
     }
-  ]
+  ],
+  "powerW": 8.5,
+  "description": "Node Ethernet vers DMX/RDM Luminex LumiNode 2 (LU 01 00070) : 2 ports DMX/RDM XLR 5 configurables, 2 etherCON gigabit, alimentation PoE 802.3af ; 8,5 W max. ; 158 × 146 × 50,5 mm, 0,9 kg."
 }

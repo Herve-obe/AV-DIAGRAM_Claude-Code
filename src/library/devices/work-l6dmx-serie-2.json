@@ -18,7 +18,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points femelle, inverseur de polarité DMX"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 0.8
 }

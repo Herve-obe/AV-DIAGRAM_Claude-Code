@@ -10,31 +10,69 @@
       "url": "https://lumenradio.com/support-materials/blackbox-g6-datasheet/",
       "document": "LumenRadio, fiche BlackBox G6",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5908-4378-52001-manual-gb-v1.pdf",
+      "document": "Wireless Solution, W-DMX BlackBox G6 User Manual v1 (via Novelty) : connecteurs",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
-    {
-      "id": "dmx",
-      "name": "DMX",
-      "direction": "bidir",
-      "signal": "dmx",
-      "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
-    },
-    {
-      "id": "rf",
-      "name": "W-DMX",
-      "direction": "bidir",
-      "signal": "rf",
-      "connector": "rf"
-    },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "powercon-true1",
-      "format": "88-264 V ; entrée 12 V de secours"
+      "format": "powerCON TRUE1 TOP, 85-250 V / 47-440 Hz"
+    },
+    {
+      "id": "dmx",
+      "name": "DMX In (XLR 5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle"
+    },
+    {
+      "id": "dmxOut5",
+      "name": "DMX Out (XLR 5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In (XLR 3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points mâle"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Out (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points femelle"
+    },
+    {
+      "id": "rf",
+      "name": "Antenne W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "W-DMX G6 (CRMX sous licence), antenne omnidirectionnelle 3 dBi fournie, 100 mW"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier Phoenix 5,08 mm, 12 V CC ± 20 %, secours"
     }
   ]
 }
