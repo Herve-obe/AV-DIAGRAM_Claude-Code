@@ -50,7 +50,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source"
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source"
+      }
     },
     {
       "id": "eth2",
@@ -58,7 +62,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source"
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source"
+      }
     },
     {
       "id": "eth3",
@@ -66,7 +74,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source"
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source"
+      }
     },
     {
       "id": "eth4",
@@ -74,7 +86,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source"
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source"
+      }
     },
     {
       "id": "sfp1",
@@ -251,5 +267,6 @@
       "name": "I/O Garage baie 4",
       "type": "etc-io-garage"
     }
-  ]
+  ],
+  "notes": "Consommation : la fiche ETC indique « environ 5 A sous 120 V ou 230/240 V » ; 600 W = 5 A × 120 V, valeur approchée. PRINCIPAL+OPTION : l'I/O Garage à 4 baies reçoit les modules Gadget II (2 sorties DMX) et les passerelles Response SMPTE, MIDI et série ; prévoir des slots et des fiches modules."
 }
