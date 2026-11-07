@@ -23,9 +23,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -36,9 +36,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -49,9 +49,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -62,9 +62,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -75,9 +75,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -88,9 +88,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -101,9 +101,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -114,9 +114,9 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
+      "format": "etherCON RJ45 100 Mbit/s selon FACE, PoE/PoE+ 802.3af/at midspan, 30 W par port, activable par micro-interrupteur",
       "network": {
-        "capacityMbps": 1000,
+        "capacityMbps": 100,
         "poe": "source",
         "poeW": 30
       }
@@ -155,5 +155,6 @@
   "powerW": 250,
   "weightKg": 1.2,
   "rackU": 1,
-  "description": "Switch non administrable PoE+ midspan 8 sorties etherCON (30 W par port) et 2 entrées etherCON sans PoE, rack 19 pouces 1U."
+  "description": "Switch non administrable PoE+ midspan 8 sorties etherCON (30 W par port) et 2 entrées etherCON sans PoE, rack 19 pouces 1U.",
+  "notes": "PoE : consommation 250 W (FACE) ; 30 W par port ; budget PoE total non publié (8 × 30 W = 240 W, non retenu sans source). FACE annonce 2 etherCON 1 Gbit/s (entrées sans PoE) et 8 etherCON 100 Mbit/s (sorties PoE) : débit des sorties corrigé à 100 Mbit/s, à reconfirmer (page FACE indisponible le 7 novembre, lue par extrait de recherche)."
 }

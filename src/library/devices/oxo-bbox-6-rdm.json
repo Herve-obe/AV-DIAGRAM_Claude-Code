@@ -6,25 +6,30 @@
   "manufacturer": "OXO",
   "model": "BBox 6 RDM",
   "status": "verified",
-  "description": "Splitter (B)Box 6 RDM : une entrée et un renvoi DMX chacun doublés en XLR3 et XLR5, six lignes isolées chacune doublée en XLR3/XLR5, soit seize prises DMX physiques. Rack 19 pouces 1 U, 482 × 135 × 42 mm, 2,25 kg. Alimentation 230 V sur cordon captif ; fiche locale non détaillée. RDM désactivable.",
+  "description": "Splitter booster DMX/RDM (B)Box 6 RDM (réf. 6753) : une entrée et un renvoi DMX chacun doublés en XLR 3 et XLR 5, six sorties isolées optoélectroniquement chacune doublée en XLR 3 et XLR 5 (seize prises DMX). Interrupteur de terminaison et interrupteur de validation du RDM (RDM désactivable). Rack 19 pouces 1 U, 482 × 135 × 42 mm, 230 V sur cordon captif.",
   "aliases": [
-    "OXO BBox 6 RDM"
+    "OXO BBox 6 RDM",
+    "BBox6",
+    "OXO BBox6",
+    "(B)Box 6 RDM",
+    "B-Box 6 RDM",
+    "BBOX 6 RDM"
   ],
   "sources": [
     {
-      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/bbox-6-rdm/",
-      "document": "Novelty — BBox 6 RDM",
-      "accessed": "2026-10-19"
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_bbox6_rdm_manuel_fr.pdf",
+      "document": "OXO, (B)Box 6 RDM mode d'emploi V1 03/2017, p. 3-4 : 230 V 50 Hz 0,5 A max, XLR 3 et 5 broches, fusible F0,5 A, 482 × 135 × 42 mm, 2,25 kg, interrupteur RDM",
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/oxo_bbox6_rdm_fiche_technique_fr.pdf",
-      "document": "Levenly — fiche BBox6 RDM, p.1–2 : cordon prisonnier et 1 U",
-      "accessed": "2026-10-27"
+      "document": "Levenly (distributeur OXO), fiche BBox 6 RDM réf. 6753 : cordon prisonnier, consommation 0,5 A, 1 U, 2,10 kg",
+      "accessed": "2026-11-07"
     },
     {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_bbox6_rdm_manuel_fr.pdf",
-      "document": "OXO — (B)Box 6 RDM mode d’emploi V1 mars2017, p.3–4 : panneau rendu et seize prises DMX",
-      "accessed": "2026-10-27"
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/bbox-6-rdm/",
+      "document": "Novelty : BBox 6 RDM",
+      "accessed": "2026-10-19"
     }
   ],
   "ports": [
@@ -162,7 +167,8 @@
     }
   ],
   "weightKg": 2.25,
-  "powerW": 10,
+  "powerW": 115,
   "rackU": 1,
-  "depthMm": 135
+  "depthMm": 135,
+  "notes": "powerW = 230 V × 0,5 A : courant maximal indiqué par OXO (égal au calibre du fusible), donc majorant ; aucune puissance en watts publiée. Poids 2,25 kg (manuel OXO), 2,10 kg selon Levenly. Aucune version sans RDM n'est documentée par OXO ou ses distributeurs : la fiche oxo-bbox6 (mêmes sources, même connectique) est un doublon ; l'« option sans RDM » est l'interrupteur RDM de l'appareil."
 }

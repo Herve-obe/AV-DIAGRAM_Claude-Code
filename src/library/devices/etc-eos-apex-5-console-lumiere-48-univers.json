@@ -16,7 +16,7 @@
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/eclairage/accessoires-eclairage/divers-accessoires-eclairage/etc-eos-apex-5-console-lumiere-48-univers/",
-      "document": "Novelty — ETC | EOS APEX 5 CONSOLE LUMIÈRE 48 UNIVERS",
+      "document": "Novelty : ETC | EOS APEX 5 CONSOLE LUMIÈRE 48 UNIVERS",
       "accessed": "2026-10-19"
     },
     {
@@ -50,10 +50,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
       "network": {
         "capacityMbps": 1000,
-        "poe": "source"
+        "poe": "source",
+        "poeW": 100
       }
     },
     {
@@ -62,10 +63,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
       "network": {
         "capacityMbps": 1000,
-        "poe": "source"
+        "poe": "source",
+        "poeW": 100
       }
     },
     {
@@ -74,10 +76,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
       "network": {
         "capacityMbps": 1000,
-        "poe": "source"
+        "poe": "source",
+        "poeW": 100
       }
     },
     {
@@ -86,10 +89,11 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit, etherCON, PoE++ 802.3bt source",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
       "network": {
         "capacityMbps": 1000,
-        "poe": "source"
+        "poe": "source",
+        "poeW": 100
       }
     },
     {
@@ -268,5 +272,6 @@
       "type": "etc-io-garage"
     }
   ],
-  "notes": "Consommation : la fiche ETC indique « environ 5 A sous 120 V ou 230/240 V » ; 600 W = 5 A × 120 V, valeur approchée. PRINCIPAL+OPTION : l'I/O Garage à 4 baies reçoit les modules Gadget II (2 sorties DMX) et les passerelles Response SMPTE, MIDI et série ; prévoir des slots et des fiches modules."
+  "notes": "Consommation : la fiche ETC indique « environ 5 A sous 120 V ou 230/240 V » ; 600 W = 5 A × 120 V, valeur approchée. PRINCIPAL+OPTION : l'I/O Garage à 4 baies reçoit les modules Gadget II (2 sorties DMX) et les passerelles Response SMPTE, MIDI et série ; prévoir des slots et des fiches modules. PoE : 100 W max par port, 120 W au total sur les quatre ports (aide en ligne ETC Eos Apex 5) ; les 5 A de la fiche sont le courant total de la console, PoE compris.",
+  "poeBudgetW": 120
 }

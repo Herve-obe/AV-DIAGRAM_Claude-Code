@@ -4,46 +4,79 @@
   "domain": "light",
   "pictogram": "switch",
   "manufacturer": "W-DMX",
-  "model": "BlackBox F-1 G4",
-  "status": "community",
-  "description": "LiaIson HF DMX512",
+  "model": "BlackBox F-1 G4 MK II",
+  "status": "verified",
+  "description": "Émetteur-récepteur DMX512 sans fil W-DMX G4, version MK II : entrée DMX et renvoi (bypass) chacun en XLR 5 et XLR 3, Ethernet etherCON en option (Art-Net, sACN), antenne type N, alimentation powerCON 90-250 V ou 12-24 V CC sur Phoenix. RDM pris en charge.",
   "aliases": [
     "WDMXG4",
-    "W-DMX BlackBox F-1 G4"
+    "W-DMX BlackBox F-1 G4",
+    "BlackBox F-1 G4",
+    "BlackBox F-1 G4 MKII",
+    "BlackBox F-1 G4S",
+    "Wireless Solution BlackBox F-1"
   ],
   "sources": [
     {
-      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/blackbox-f-1-g4/",
-      "document": "Novelty — BlackBox F-1 G4",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/wireless-solution_blackbox-g4-w-dmw_ft.pdf",
-      "document": "Novelty — BlackBox F-1 G4 : BlackBox F-1 G4",
-      "accessed": "2026-10-19"
+      "document": "Wireless Solution, Product cut sheet BlackBox series G4S (copie Novelty) : F-1 XLR 5 mâle et femelle, XLR 3 mâle et femelle, etherCON, powerCON 90-250 V, Phoenix 12-24 V, antenne N, 1 kg",
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/wireless-solution_blackbox-g4-w-dmw_manuel.pdf",
-      "document": "Novelty — BlackBox F-1 G4 : BlackBox F-1 G4",
+      "document": "Novelty : BlackBox F-1 G4 : manuel",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://techni-lux.com/files/documents/AC-WDMX-G4_Manual.pdf",
+      "document": "Wireless Solution, W-DMX G4 User Manual éd. 1 (2012-02), § 4.2.1 panneau MK I / MK II et § 9 : 450 à 700 mA sous 12 V CC en émission, 200 mA en réception (copie Techni-Lux)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/blackbox-f-1-g4/",
+      "document": "Novelty : BlackBox F-1 G4",
       "accessed": "2026-10-19"
     }
   ],
   "ports": [
     {
       "id": "dmxIn",
-      "name": "DMX In",
+      "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 5 points mâle, univers 1"
+      "format": "XLR 5 mâle, univers 1 ; une seule entrée DMX branchée à la fois"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle (MK II), même univers 1"
     },
     {
       "id": "dmxOut",
-      "name": "DMX Out",
+      "name": "DMX Out 5 points",
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "Bypass, XLR 5 points femelle"
+      "format": "Bypass, XLR 5 femelle"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Out 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Bypass, XLR 3 femelle (MK II)"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 (MK II), Art-Net I/II/III et sACN en option"
     },
     {
       "id": "rf",
@@ -51,7 +84,15 @@
       "direction": "bidir",
       "signal": "rf",
       "connector": "rf",
-      "format": "Liaison radio W-DMX G4, émetteur ou récepteur (Flex)"
+      "format": "Liaison radio W-DMX G4 2,4 / 5,8 GHz, émetteur ou récepteur ; antenne externe sur connecteur type N"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON 90-250 V, 50-440 Hz"
     },
     {
       "id": "dc",
@@ -59,9 +100,10 @@
       "direction": "in",
       "signal": "power",
       "connector": "terminal",
-      "format": "Connecteur Phoenix 12 V CC (gauche masse, droite +12 V)"
+      "format": "Phoenix 12-24 V CC (gauche masse, droite +)"
     }
   ],
-  "portStatus": "pending",
-  "weightKg": 0.85
+  "weightKg": 1.0,
+  "powerW": 8.4,
+  "notes": "powerW = 12 V × 700 mA, maximum en émission donné par le manuel (réception : 200 mA soit 2,4 W) ; pas de consommation secteur publiée. La fiche technique s'intitule G4S ; son panneau (XLR 3 et 5, etherCON, powerCON) correspond au MK II décrit dans le manuel. La prise RJ45 DMX du MK I n'existe pas sur le MK II."
 }
