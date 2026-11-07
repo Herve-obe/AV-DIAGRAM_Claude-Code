@@ -18,6 +18,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "rail",
+      "name": "Adaptateur rail tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Adaptateur pour rail 3 allumages, transformateur 230 V / basse tension intégré ; type d’adaptateur non écrit"
+    }
+  ],
+  "powerW": 50
 }

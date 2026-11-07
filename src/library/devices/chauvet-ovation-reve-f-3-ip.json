@@ -4,7 +4,7 @@
   "manufacturer": "Chauvet Professional",
   "model": "Ovation Rêve F-3 IP",
   "pictogram": "light",
-  "status": "verified",
+  "status": "community",
   "powerW": 532,
   "sources": [
     {
@@ -23,16 +23,16 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified",
-      "format": "DMX / RDM ; connecteur non précisé sur la page"
+      "connector": "xlr5",
+      "format": "DMX / RDM, XLR 5 broches"
     },
     {
       "id": "dmx-out",
       "name": "DMX Out",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified",
-      "format": "Recopie DMX"
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 broches"
     },
     {
       "id": "ac-in",
@@ -41,6 +41,14 @@
       "signal": "power",
       "connector": "powerkon-ip65",
       "format": "Seetronic Powerkon IP65, 100-240 V"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Port USB de mise à jour logicielle, type non écrit"
     }
   ],
   "aliases": [

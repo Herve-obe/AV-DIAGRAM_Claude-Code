@@ -23,8 +23,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Projecteur halogène 1000 W sans électronique ; raccordement non écrit"
+    }
+  ],
   "weightKg": 1.5,
   "powerW": 1000
 }

@@ -6,7 +6,7 @@
   "manufacturer": "Ambiance Lumière",
   "model": "PIKO",
   "status": "community",
-  "description": "Spot unitaire à LED sur tige, gamme \"Muséo\", orientable et réglable de 35 mm à 370 mm, 1,25W",
+  "description": "Spot LED Muséo sur tige réglable 35 à 370 mm, 1 LED 1,25 W 4000 K, angle 15°, alimenté en 350 mA par alimentation externe 12 W et boîte de jonction JBI-4A (4 spots).",
   "aliases": [
     "Ambiance Lumière PIKO"
   ],
@@ -22,6 +22,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dcIn",
+      "name": "Sortie de câble vers boîte de jonction",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble 1,5 m vers la boîte de jonction JBI-4A de l’alimentation 12 W 230 V / 350 mA (courant constant, classe 3) ; type de raccord non écrit"
+    }
+  ],
+  "powerW": 1.25
 }

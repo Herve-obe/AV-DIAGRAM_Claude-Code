@@ -9,15 +9,21 @@
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/innled_t4x_ft.pdf",
+      "document": "Innled, fiche T4X (copie Novelty) : batterie Li-Ion 14,8 V 150 Wh, 4 x 4,5 W, DMX HF intégré",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "rf",
-      "name": "Commande sans fil",
+      "name": "DMX HF intégré",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "rf",
+      "format": "Récepteur DMX sans fil intégré"
     },
     {
       "id": "dc",
@@ -27,5 +33,6 @@
       "connector": "unspecified",
       "format": "Mât LED autonome"
     }
-  ]
+  ],
+  "powerW": 18
 }

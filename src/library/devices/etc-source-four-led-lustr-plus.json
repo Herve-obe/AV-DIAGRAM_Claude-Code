@@ -4,11 +4,16 @@
   "manufacturer": "ETC",
   "model": "Source Four LED Lustr+",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/ET7460A1061A.pdf",
+      "document": "ETC, Source Four LED Profile User Manual v1.7.0 (copie Adorama) : powerCON in/thru, DMX XLR 5 in/thru, consommation typique par modèle",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -17,22 +22,33 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Découpe LED 170 W"
+      "connector": "powercon",
+      "format": "Neutrik powerCON, 100-240 V ; cordon 1,5 m powerCON vers fils nus fourni"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON Thru"
     }
-  ]
+  ],
+  "powerW": 131
 }

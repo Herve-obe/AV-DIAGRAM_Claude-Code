@@ -28,7 +28,40 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2.7
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle verrouillable"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle verrouillable"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon d’alimentation"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Prise de recopie à côté du cordon : Edison sur la version USA, version européenne non décrite"
+    }
+  ],
+  "weightKg": 2.7,
+  "powerW": 24
 }

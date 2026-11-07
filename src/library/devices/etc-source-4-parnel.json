@@ -4,7 +4,7 @@
   "manufacturer": "ETC",
   "model": "Source Four PARNel",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -19,11 +19,12 @@
   "ports": [
     {
       "id": "acIn",
-      "name": "Alimentation",
+      "name": "Alimentation sur câble",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Halogène HPL 575 W, sur gradateur"
+      "connector": "mains-captive",
+      "format": "Câble standard captif sans fiche, 3 conducteurs haute température ; HPL 750 W max, gradateur externe"
     }
-  ]
+  ],
+  "powerW": 750
 }

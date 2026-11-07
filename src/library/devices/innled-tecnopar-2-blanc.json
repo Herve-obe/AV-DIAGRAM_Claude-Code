@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Innled",
   "model": "TecnoPAR 2 Blanc",
-  "status": "community",
+  "status": "verified",
   "description": "Mât d'éclairage autonome LED, 4 x 2,7 W, 30 à 100h en fonction du réglage du potentiomètre, blanc",
   "aliases": [
     "InnLED TecnoPAR 2 Blanc"
@@ -27,6 +27,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dcIn",
+      "name": "Entrée 24 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "ta3",
+      "format": "Mini XLR 3 Neutrik, 24 V CC depuis l’embase batterie ou le transformateur externe 110-230 V"
+    }
+  ],
+  "powerW": 10.8
 }

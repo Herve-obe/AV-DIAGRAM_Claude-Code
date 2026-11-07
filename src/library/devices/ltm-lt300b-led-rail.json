@@ -18,6 +18,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "rail",
+      "name": "Adaptateur rail LITA",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation par adaptateur pour rail LITA 3 allumages, 220/240 V"
+    }
+  ],
+  "powerW": 12
 }

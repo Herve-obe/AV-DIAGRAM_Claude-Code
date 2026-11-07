@@ -17,6 +17,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon avec fiche PC16 (prise 16 A 2P+T, d’après la désignation), 220/240 V"
+    }
+  ],
+  "powerW": 12
 }

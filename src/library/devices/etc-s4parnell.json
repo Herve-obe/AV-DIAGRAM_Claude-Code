@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "ETC",
   "model": "S4PARNELL",
-  "status": "community",
+  "status": "verified",
   "description": "PAR Source 4, lentille Fresnel, livré avec porte-filtre, crochet, élingue de sécurité.",
   "aliases": [
     "S4 PARNEL",
@@ -33,6 +33,15 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble standard captif sans fiche, 3 conducteurs haute température ; HPL 750 W max, gradateur externe"
+    }
+  ],
+  "powerW": 750
 }

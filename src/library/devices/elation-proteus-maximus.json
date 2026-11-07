@@ -50,24 +50,24 @@
       "name": "Ethernet In",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45",
-      "format": "RJ45 IP65 ; Art-Net, sACN"
+      "connector": "ethercon",
+      "format": "etherCON IP65 ; Art-Net, sACN"
     },
     {
       "id": "eth-out",
       "name": "Ethernet Out",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45",
-      "format": "RJ45 IP65"
+      "connector": "ethercon",
+      "format": "etherCON IP65"
     },
     {
       "id": "ac-in",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Connecteur non précisé, 120-240 V"
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 IP65, 120-240 V"
     }
   ],
   "aliases": [

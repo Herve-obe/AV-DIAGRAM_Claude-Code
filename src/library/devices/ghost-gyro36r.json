@@ -17,7 +17,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Gyrophare 2 lampes PAR36 ; raccordement et tension non écrits"
+    }
+  ],
   "weightKg": 3.3
 }

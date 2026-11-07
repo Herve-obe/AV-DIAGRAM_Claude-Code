@@ -5,7 +5,7 @@
   "model": "Proteus Hybrid",
   "pictogram": "light",
   "status": "verified",
-  "powerW": 700,
+  "powerW": 750,
   "weightKg": 38,
   "sources": [
     {
@@ -60,24 +60,24 @@
       "name": "Ethernet In",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45",
-      "format": "RJ45 IP65 ; Art-Net, sACN"
+      "connector": "ethercon",
+      "format": "etherCON IP65 ; Art-Net, sACN"
     },
     {
       "id": "eth-out",
       "name": "Ethernet Out",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45",
-      "format": "RJ45 IP65"
+      "connector": "ethercon",
+      "format": "etherCON IP65"
     },
     {
       "id": "ac-in",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Connecteur non précisé, 100-240 V"
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 IP65, 100-240 V"
     }
   ],
   "aliases": [

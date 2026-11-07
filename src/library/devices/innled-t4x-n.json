@@ -27,6 +27,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "wdmx",
+      "name": "DMX HF intégré",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur DMX sans fil intégré"
+    }
+  ],
+  "powerW": 18
 }

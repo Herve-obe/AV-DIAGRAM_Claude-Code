@@ -4,21 +4,27 @@
   "manufacturer": "ETC",
   "model": "Source Four PAR",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.theatrecrafts.com/archive/documents/7061L1003-GB_S4_CE_PAR_EAMCM_Spec_vCpdf.pdf",
+      "document": "ETC, fiche Source Four CE PAR EA/MCM 7061L1003-GB (archive Theatrecrafts) : câble 3 conducteurs haute température, EA 750 W max, MCM 575 W max",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "acIn",
-      "name": "Alimentation",
+      "name": "Alimentation sur câble",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Halogène HPL 575 W, sur gradateur"
+      "connector": "mains-captive",
+      "format": "Câble captif 3 conducteurs haute température, fiche à monter ; HPL, gradateur externe"
     }
-  ]
+  ],
+  "powerW": 750
 }

@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Briteq",
   "model": "BT-nanobeam-BQ1",
-  "status": "community",
-  "description": "Projecteur type \"Svoboda\" LED, 3000 à 6000° K, RGBW",
+  "status": "verified",
+  "description": "Barre type Svoboda LED Briteq : 9 LED blanches 60 W (3000 K et 6000 K) faisceau 4° et effets RGBW, DMX / RDM, 730 W.",
   "aliases": [
     "Briteq BT-nanobeam-BQ1"
   ],
@@ -57,7 +57,56 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 16
+  "ports": [
+    {
+      "id": "dmxIn3",
+      "name": "DMX In (XLR 3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Out (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmxIn5",
+      "name": "DMX In (XLR 5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOut5",
+      "name": "DMX Out (XLR 5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "acIn",
+      "name": "Entrée secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1, 100-240 V"
+    },
+    {
+      "id": "acOut",
+      "name": "Sortie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie powerCON TRUE1"
+    }
+  ],
+  "weightKg": 16,
+  "powerW": 730
 }

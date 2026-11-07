@@ -43,7 +43,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.4
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble captif 3 conducteurs haute température, fiche à monter ; HPL, gradateur externe"
+    }
+  ],
+  "weightKg": 3.4,
+  "powerW": 575
 }

@@ -37,6 +37,39 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In (IP66)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Connecteur IP66 propriétaire, adaptateur vers XLR 5 mâle fourni"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out (IP66)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified",
+      "format": "Connecteur IP66 propriétaire, adaptateur vers XLR 5 femelle fourni"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Cordon captif terminé par un connecteur IP66 propriétaire, adaptateur IP66 vers fiche locale"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sortie IP66 propriétaire"
+    }
+  ],
+  "powerW": 217
 }

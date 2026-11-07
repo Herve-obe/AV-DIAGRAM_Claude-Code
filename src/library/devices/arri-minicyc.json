@@ -2,16 +2,33 @@
   "id": "arri-minicyc",
   "family": "luminaire",
   "manufacturer": "Arri",
-  "model": "Minicyc",
+  "model": "Minicyc 1000",
   "pictogram": "light",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Projecteur cyclorama asymétrique ARRI Minicyc 1000, lampe linéaire R7s 119 mm jusqu’à 1000 W 230 V, volets 2 pans, 1,6 kg.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.arri.com/resource/blob/163288/4160f4f8dae1873a1bc1927f8c3965d3/arri-cyc-flood-brochure-en-data.pdf",
+      "document": "ARRI, brochure Cyc & Flood (Miniflood et Minicyc 1000 : lampes P2/11 800 W et P2/20 1000 W R7s, 1,6 kg)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Projecteur halogène sans électronique, commande par gradateur externe ; raccordement secteur non décrit"
+    }
+  ],
+  "powerW": 1000,
+  "aliases": [
+    "Arri Minicyc"
+  ]
 }

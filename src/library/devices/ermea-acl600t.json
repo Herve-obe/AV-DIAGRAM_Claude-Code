@@ -17,7 +17,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 11.5
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Projecteur traditionnel, commande par gradateur externe ; type de raccordement non écrit"
+    }
+  ],
+  "weightKg": 11.5,
+  "powerW": 600
 }

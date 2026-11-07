@@ -4,7 +4,7 @@
   "manufacturer": "Claypaky",
   "model": "Sharpy",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "weightKg": 19,
   "sources": [
     {
@@ -54,15 +54,30 @@
       "connector": "xlr5"
     },
     {
+      "id": "dmxIn3",
+      "name": "DMX In (XLR 3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "powercon",
-      "format": "200 W"
+      "format": "powerCON, 100-240 V"
     }
   ],
   "aliases": [
     "CLAY PAKY Sharpy"
-  ]
+  ],
+  "powerW": 350
 }

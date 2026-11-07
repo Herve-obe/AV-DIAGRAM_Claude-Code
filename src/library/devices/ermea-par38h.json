@@ -18,7 +18,23 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Projecteur traditionnel, commande par gradateur externe ; type de raccordement non écrit"
+    },
+    {
+      "id": "acOut",
+      "name": "Reprise secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Reprise secteur citée par Novelty, type non écrit"
+    }
+  ],
   "weightKg": 2.2
 }

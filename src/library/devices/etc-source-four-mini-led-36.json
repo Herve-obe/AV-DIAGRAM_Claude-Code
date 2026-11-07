@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "ETC",
   "model": "Source Four Mini LED 36°",
-  "status": "community",
+  "status": "verified",
   "description": "Mini découpe à LED, 12W, noir, 4000° K, couteaux, porte-gobo rotatif, ouverture 36°",
   "aliases": [
     "S4MINI-LED36",
@@ -53,6 +53,15 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation sur câble",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble captif 1,8 m avec fiche UK ou UE, 190-250 V ; gradable par gradateur (coupure en début ou fin de phase), pas de DMX"
+    }
+  ],
+  "powerW": 14
 }

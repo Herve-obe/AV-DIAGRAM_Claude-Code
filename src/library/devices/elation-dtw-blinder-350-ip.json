@@ -7,8 +7,9 @@
   "status": "community",
   "sources": [
     {
-      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
-      "accessed": "2026-10-08"
+      "url": "https://www.elationlighting.com/products/dtw-blinder-350-ip",
+      "document": "Elation, page produit DTW Blinder 350 IP : DMX 5 broches IP In/Out, câble d’alimentation IP65 verrouillable In/Out, 310 W max",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -17,14 +18,16 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "XLR 5 IP, DMX / RDM"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "XLR 5 IP, recopie"
     },
     {
       "id": "acIn",
@@ -32,7 +35,16 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Blinder LED IP65, 1 800-3 200 K"
+      "format": "Câble d’alimentation verrouillable IP65, type non nommé"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble verrouillable IP65, type non nommé"
     }
-  ]
+  ],
+  "powerW": 310
 }
