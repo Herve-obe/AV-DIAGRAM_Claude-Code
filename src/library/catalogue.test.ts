@@ -251,8 +251,8 @@ describe('appareils unitaires — décision du 26 octobre', () => {
 
   it('respecte les décisions de périmètre sans promouvoir les fiches techniques conservées', () => {
     const removed = new Set(professionalFeedback.records.filter(r => r.decision === 'Retirer').map(r => r.id))
-    for (const row of professionalScope.ambiguous) expect(LIBRARY_INDEX.has(row.id), row.id).toBe(!removed.has(row.id))
-    for (const row of professionalFeedback.records.filter(r => r.decision === 'Valider')) {
+    for (const row of professionalScope.ambiguous) expect(LIBRARY_INDEX.has(row.id), row.id).toBe(!removed.has(row.id) && !deletedDevices.has(row.id))
+    for (const row of professionalFeedback.records.filter(r => r.decision === 'Valider' && !deletedDevices.has(r.id))) {
       const original = Object.values(files).find(t => t.id === row.id)!
       expect(template(row.id)).toEqual(original)
     }

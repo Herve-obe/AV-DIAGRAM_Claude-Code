@@ -1,0 +1,55 @@
+{
+  "id": "sony-fs5-xlr-handle",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Sony",
+  "model": "Poignée XLR PXW-FS5 (fournie)",
+  "pictogram": "camera",
+  "moduleType": "sony-fs5-handle",
+  "status": "community",
+  "description": "Poignée XLR fournie avec la Sony PXW-FS5, montée sur la prise de poignée : 2 entrées XLR line/mic/mic+48 V. Ne fonctionne que montée sur la caméra. Niveau ligne non chiffré par le guide (line+4 retenu par défaut pour une entrée ligne pro) ; consommation incluse dans celle de la caméra.",
+  "sources": [
+    {
+      "url": "https://pro.sony/support/res/manuals/4581/45c09361d5346b078e5d8e7a34719757/45818491M.pdf",
+      "document": "Sony, PXW-FS5/FS5M2/FS5M2K Operating Guide 4-581-849 : XLR handle (attached), INPUT 1/INPUT 2 et sélecteurs LINE/MIC/MIC+48V ; spécifications Audio input XLR-type 3-pin (female) (2)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches femelle, line / mic / mic+48 V"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches femelle, line / mic / mic+48 V"
+    }
+  ],
+  "aliases": [
+    "XLR handle FS5"
+  ]
+}

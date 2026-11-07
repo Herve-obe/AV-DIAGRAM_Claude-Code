@@ -30,14 +30,6 @@
   ],
   "ports": [
     {
-      "id": "sdi",
-      "name": "SDI In",
-      "direction": "in",
-      "signal": "video",
-      "connector": "bnc",
-      "format": "HD/SD-SDI, avec carte optionnelle BT-YA80G"
-    },
-    {
       "id": "video",
       "name": "Video In",
       "direction": "in",
@@ -88,5 +80,12 @@
     "PANASONIC BT-LH80W"
   ],
   "powerW": 18,
+  "slots": [
+    {
+      "id": "sdi-unit",
+      "name": "SDI INPUT UNIT (option)",
+      "type": "panasonic-bt-ya80g"
+    }
+  ],
   "notes": "Consommation : DC 12 V, 1,5 A (fiche technique), soit 18 W. Entrée SDI uniquement avec la carte optionnelle BT-YA80G (PRINCIPAL+OPTION possible : carte BT-YA80G en module, emplacement SDI)."
 }

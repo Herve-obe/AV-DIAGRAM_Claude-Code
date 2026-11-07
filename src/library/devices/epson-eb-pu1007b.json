@@ -26,6 +26,11 @@
       "url": "https://files.support.epson.com/pdf/specs/specifications_ebpu2010series_en_r106.pdf",
       "document": "Epson, Specifications EB-PU2010/PU1008/PU1007/PU1006 series, Rev. 106 : Projector Parts - Interface, General Specifications",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/7175-4716-compatibilites-des-optiques.pdf",
+      "document": "Novelty, Compatibilités des optiques - Haute luminosité : optiques ELPL compatibles",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -119,5 +124,12 @@
     }
   ],
   "weightKg": 16.3,
-  "powerW": 431
+  "powerW": 431,
+  "slots": [
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "epson-elpl"
+    }
+  ]
 }

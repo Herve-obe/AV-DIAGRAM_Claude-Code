@@ -1,0 +1,63 @@
+{
+  "id": "datavideo-se-2800-input-module",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Datavideo",
+  "model": "SE-2800 Video Input Module",
+  "pictogram": "processor",
+  "moduleType": "datavideo-se2800-input",
+  "status": "verified",
+  "description": "Module d'entrées vidéo du mélangeur Datavideo SE-2800 : 4 BNC et 1 HDMI pour 4 voies (2 modules sur la version 8 voies, 3 sur la version 12 voies). Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/23742-DatavideoSE28008SE280012InstructionManual.pdf",
+      "document": "Datavideo, SE-2800-8 / SE-2800-12 Instruction Manual (via Full Compass), Rear Panel Connections, Video Input Modules",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1 (BNC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI ou CVBS (voies 1, 5, 9)"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2 (BNC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI ou CVBS (voies 2, 6, 10)"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3 (BNC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI (voies 3, 7, 11)"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4 (BNC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI (voies 4, 8, 12) ; même voie que l'HDMI"
+    },
+    {
+      "id": "in4hdmi",
+      "name": "Input 4 (HDMI)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Option HDMI de la 4e voie, au choix avec le BNC 4"
+    }
+  ],
+  "aliases": [
+    "Video Input Module SE-2800"
+  ]
+}

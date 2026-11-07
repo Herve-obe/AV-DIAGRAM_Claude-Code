@@ -1,0 +1,61 @@
+{
+  "id": "sony-fx6-handle",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Sony",
+  "model": "Poignée XLR FX6 (fournie avec ILME-FX6V)",
+  "pictogram": "camera",
+  "moduleType": "sony-fx6-handle",
+  "status": "verified",
+  "description": "Poignée fournie avec la Sony FX6, fixée sur la prise de poignée du boîtier : 2 entrées XLR (LINE/MIC/MIC+48V), micro interne de poignée, griffe multi-interface, commandes de zoom et d'enregistrement. Ne fonctionne que montée sur la caméra ; alimentée par elle.",
+  "sources": [
+    {
+      "url": "https://pro.sony/support/res/manuals/5024/c3bfbc891ee0f149e46d142754fd6aa7/50244581M.pdf",
+      "document": "Sony, ILME-FX6 Operating Instructions : Handle, Rear, and Connector Block (n° 16 à 19 INPUT1/INPUT2 et sélecteurs sur la poignée), spécifications INPUT 1/2",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/60546-ILMEFX6VManual.pdf",
+      "document": "Sony, ILME-FX6V Operating Instructions (via Full Compass), même contenu",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches femelle, LINE / MIC / MIC+48V ; MIC référence -30 à -80 dBu ; référence LINE non relue (page de spécifications tronquée), mode line+4 par défaut"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches femelle, LINE / MIC / MIC+48V ; MIC référence -30 à -80 dBu ; référence LINE non relue (page de spécifications tronquée), mode line+4 par défaut"
+    }
+  ],
+  "aliases": [
+    "Poignée FX6",
+    "FX6 handle unit"
+  ]
+}

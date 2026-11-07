@@ -84,6 +84,7 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'dc-barrel', label: 'Jack d\'alimentation DC', mate: 'dc-barrel' },
   { id: 'minidin8', label: 'Mini-DIN 8', mate: 'minidin8' },
   { id: 'minidin4', label: 'Mini-DIN 4 (S-Video)', mate: 'minidin4' },
+  { id: 'minidin3', label: 'Mini-DIN 3 (synchro 3D)', mate: 'minidin3' },
   { id: 'ta4', label: 'Mini XLR 4 (TA4)', mate: 'ta4' },
   { id: 'ta5', label: 'Mini XLR 5 (TA5)', mate: 'ta5' },
   { id: 'smc9', label: 'SMC9 (Sony, émetteurs DWT)', mate: 'smc9' },

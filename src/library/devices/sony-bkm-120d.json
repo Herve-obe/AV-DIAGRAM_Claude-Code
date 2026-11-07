@@ -1,0 +1,56 @@
+{
+  "id": "sony-bkm-120d",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Sony",
+  "model": "BKM-120D",
+  "pictogram": "processor",
+  "moduleType": "sony-bkm-pvm",
+  "status": "community",
+  "description": "Adaptateur décodeur SDI 4:2:2 pour l'emplacement d'option des moniteurs Sony PVM-L4/L3 : 2 entrées SDI et 2 sorties à bouclage actif, 4 W. Connecteur non nommé par la brochure (BNC retenu, imposé par SMPTE 259M) : statut community.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sony_pvm14l4_brochure.pdf",
+      "document": "Sony, brochure PVM-L4/L3 Series (2001) : adaptateurs optionnels pour l'emplacement d'option (Optional accessories)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI 4:2:2 (D-1 SDI, 270 Mb/s)"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif de l'entrée 1"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI 4:2:2 (D-1 SDI, 270 Mb/s)"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif de l'entrée 2"
+    }
+  ],
+  "powerW": 4,
+  "aliases": [
+    "SDI 4:2:2 Decoder Adaptor"
+  ]
+}

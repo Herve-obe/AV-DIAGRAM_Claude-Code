@@ -1,14 +1,16 @@
 {
   "id": "epson-elpu03s",
-  "family": "passive",
-  "domain": "image",
-  "pictogram": "patch",
+  "family": "module",
+  "domain": "misc",
+  "pictogram": "projector",
   "manufacturer": "Epson",
-  "model": "ELPU03S",
+  "model": "ELPLU03S",
   "status": "community",
-  "description": "Optique 0.65-0.85 pour vidéoprojecteur EB-PU",
+  "description": "Optique 0.65-0.85 pour vidéoprojecteur EB-PU. Objectif interchangeable sans prise propre (motorisation par la monture du projecteur), installé dans l'emplacement « Objectif » ; compatible d'après le tableau Novelty : EB-PU1007B, EB-PU1008B, EB-PU2220B.",
   "aliases": [
-    "EPSON ELPU03S"
+    "EPSON ELPU03S",
+    "ELPU03S",
+    "EPSON ELPLU03S"
   ],
   "sources": [
     {
@@ -20,9 +22,15 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/4106-4679-compatibilite-s-des-optiques.pdf",
       "document": "Novelty — ELPU03S : Compatibilites des optiques",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/7175-4716-compatibilites-des-optiques.pdf",
+      "document": "Novelty, Compatibilités des optiques - Haute luminosité (tableau Epson EB-PU) : rapports de projection par projecteur, X = non compatible",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [],
   "portStatus": "none",
-  "powerW": 0
+  "powerW": 0,
+  "moduleType": "epson-elpl"
 }

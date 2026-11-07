@@ -1,0 +1,46 @@
+{
+  "id": "panasonic-ty-sb01ss",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "TY-SB01SS",
+  "pictogram": "processor",
+  "moduleType": "intel-sdm",
+  "status": "verified",
+  "description": "Plaque à bornes 3G-SDI pour l'emplacement de fonction des écrans professionnels Panasonic (accessoire optionnel des EQ2). Une entrée BNC 3G/HD/SD-SDI et une sortie traversée active. Alimentée par l'écran ; consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5700-4697-panasonic-65eq2-manuel-fr-uk.pdf",
+      "document": "Panasonic, TY-SB01SS 3G-SDI Terminal Board, Operating Instructions (DPQX1466ZB/X1), fournies par Novelty avec les moniteurs EQ2 : bornes et caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2024-04/43eq2w_spec_en_0.pdf",
+      "document": "Panasonic, spec sheet TH-43EQ2W : TY-SB01SS listée en accessoire optionnel (3G-SDI Terminal board)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "3G SDI IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI / HD-SDI / SD-SDI, 0,8 V c-c 75 ohms ; audio embarqué 16 voies en 3G (SMPTE ST 299), 8 en HD, 4 en SD"
+    },
+    {
+      "id": "sdiOut",
+      "name": "3G SDI OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie traversée active (recopie de l'entrée SDI)"
+    }
+  ],
+  "aliases": [
+    "Plaque à bornes 3G-SDI Panasonic",
+    "TYSB01SS"
+  ],
+  "weightKg": 0.16
+}

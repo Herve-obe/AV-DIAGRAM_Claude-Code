@@ -265,6 +265,91 @@
       "id": "avid-hd-io-8x8x8",
       "replacedBy": "avid-hd-i-o",
       "reason": "Même châssis Pro Tools | HD I/O et même source (guide v8.1) ; la version 8x8x8 n'est qu'un équipement de cartes (AD, DA, Digital dans les baies 1 à 3), désormais représenté par les modules. Alias « HD I/O 8x8x8 » ajouté au principal ; ses sources documentaires (HDIODS0614) et rackU 2 reprises."
+    },
+    {
+      "id": "blackmagic-atem-2-me-constellation-hd",
+      "replacedBy": "blackmagic-design-atem-constellation-hd-2-me",
+      "reason": "Même modèle Blackmagic ATEM 2 M/E Constellation HD (même page techspecs W-APS-26 et même manuel), ports identiques (mêmes ids) ; la fiche gardée a en plus poids, domain image et aliases Novelty. Aucune référence dans le code. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "ross-carbonite-black-solo-novelty-35405",
+      "replacedBy": "ross-carbonite-black-solo",
+      "reason": "Même Ross Carbonite Black Solo (même manuel 4840DR-110), ports identiques (mêmes ids). Garder la fiche générique (rackU 1) et y ajouter aliases CARBONITEBSOLO, domain image et sources Novelty. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-aw-he130k",
+      "replacedBy": "panasonic-aw-he130",
+      "reason": "AW-HE130K = version noire de l'AW-HE130 (manuel commun AW-HE130WPE_KPE), même connectique ; ids de ports différents (gl/ref, composite/video, rs232). Garder la fiche générique, ajouter les alias AW-HE130K, AW-HE130W, AWHE130K, le poids 2,73 kg et la profondeur. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-aw-ue150k",
+      "replacedBy": "panasonic-aw-ue150",
+      "reason": "AW-UE150K = version noire de l'AW-UE150 (même manuel Novelty panasonic_ue150k_manuel.pdf cité par les deux), même connectique, ids de ports différents. Garder panasonic-aw-ue150, référencée par src/model/model.test.ts. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-dmc-gh5",
+      "replacedBy": "panasonic-dc-gh5",
+      "reason": "La fiche DMC-GH5 indique elle-même « référence exacte DC-GH5 » ; mêmes sources (DVQX1052), ports identiques (mêmes ids). Garder DC-GH5 avec l'alias DMC-GH5 (slot griffe ajouté aux deux dans replace). Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-ag-hpx371ej",
+      "replacedBy": "panasonic-ag-hpx371e",
+      "reason": "Ports identiques (mêmes ids) ; la fiche EJ provient d'un relevé utilisateur sans source constructeur. Suffixe EJ = variante de marché de la même AG-HPX371E (à confirmer par l'utilisateur si une différence de norme compte). Garder AG-HPX371E, référencée par src/ai/generation.test.ts, avec l'alias AG-HPX371EJ. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "decimator-12g-cross-novelty-35472",
+      "replacedBy": "decimator-12g-cross",
+      "reason": "Même Decimator 12G-CROSS (même brochure et même page constructeur), ports identiques (mêmes ids). Reporter powerW 15 et l'alias Decimator 12G-CROSS. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "kramer-vm-4hdcpxl-novelty-23158",
+      "replacedBy": "kramer-vm-4hdcpxl",
+      "reason": "Même Kramer VM-4HDCPxl (même manuel), même connectique (1 entrée, 4 sorties DVI) avec ids différents. Reporter poids, profondeur et aliases. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "kramer-vs-311h-novelty-28015",
+      "replacedBy": "kramer-vs-311h",
+      "reason": "Même Kramer VS-311H (même manuel vs-311h.pdf), même connectique avec ids différents. Reporter profondeur, aliases et sources Novelty (télécommandes RC-IR2/IR3). Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "ross-ultrix-fr2-novelty-35964",
+      "replacedBy": "ross-ultrix-fr2",
+      "reason": "Même Ross Ultrix FR2 ; la fiche Novelty n'a aucun port (portStatus pending). Reporter aliases FR2, Ross ULTRIX FR2, la description et les sources Novelty. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "blackmagic-design-blackmagic-video-assist-7",
+      "replacedBy": "blackmagic-video-assist-7-12g-hdr",
+      "reason": "Même Blackmagic Video Assist 7\" 12G HDR (même techspecs W-VASS-04, document Novelty « video-assist-7-inch-12g-hdr »), ports identiques (mêmes ids). Reporter poids 0,825 kg, domain image, aliases et sources Novelty. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "folsom-imagepro-ii",
+      "replacedBy": "barco-imagepro-ii",
+      "reason": "Même ImagePRO-II (Folsom racheté par Barco, même fiche ImagePRO-II series) ; la fiche Barco est plus complète (USB, 100 W, sources Novelty). Alias et source Folsom déjà reportés dans replace ; ids de ports différents. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-moniteur-eq2-43",
+      "replacedBy": "panasonic-th-43eq2w",
+      "reason": "La fiche Novelty « Moniteur EQ2 43 » décrit le Panasonic TH-43EQ2W (même spec sheet, même consommation, même slot intel-sdm, même connectique) ; ids de ports différents. Reporter l'alias TH-43EQ2 / PANASONIC Moniteur EQ2 43 et les sources Novelty (dont le mode d'emploi TY-SB01SS). Doublon non listé par les agents, relevé pendant ce travail. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-moniteur-eq2-55",
+      "replacedBy": "panasonic-th-55eq2w",
+      "reason": "La fiche Novelty « Moniteur EQ2 55 » décrit le Panasonic TH-55EQ2W (même spec sheet, même consommation, même slot intel-sdm, même connectique) ; ids de ports différents. Reporter l'alias TH-55EQ2 / PANASONIC Moniteur EQ2 55 et les sources Novelty (dont le mode d'emploi TY-SB01SS). Doublon non listé par les agents, relevé pendant ce travail. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-moniteur-eq2-65",
+      "replacedBy": "panasonic-th-65eq2w",
+      "reason": "La fiche Novelty « Moniteur EQ2 65 » décrit le Panasonic TH-65EQ2W (même spec sheet, même consommation, même slot intel-sdm, même connectique) ; ids de ports différents. Reporter l'alias TH-65EQ2 / PANASONIC Moniteur EQ2 65 et les sources Novelty (dont le mode d'emploi TY-SB01SS). Doublon non listé par les agents, relevé pendant ce travail. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-moniteur-eq2-75",
+      "replacedBy": "panasonic-th-75eq2w",
+      "reason": "La fiche Novelty « Moniteur EQ2 75 » décrit le Panasonic TH-75EQ2W (même spec sheet, même consommation, même slot intel-sdm, même connectique) ; ids de ports différents. Reporter l'alias TH-75EQ2 / PANASONIC Moniteur EQ2 75 et les sources Novelty (dont le mode d'emploi TY-SB01SS). Doublon non listé par les agents, relevé pendant ce travail. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
+    },
+    {
+      "id": "panasonic-moniteur-eq2-86",
+      "replacedBy": "panasonic-th-86eq2w",
+      "reason": "La fiche Novelty « Moniteur EQ2 86 » décrit le Panasonic TH-86EQ2W (même spec sheet, même consommation, même slot intel-sdm, même connectique) ; ids de ports différents. Reporter l'alias TH-86EQ2 / PANASONIC Moniteur EQ2 86 et les sources Novelty (dont le mode d'emploi TY-SB01SS). Doublon non listé par les agents, relevé pendant ce travail. Avant suppression : reporter sur la fiche gardée les aliases, sources et champs absents (poids, profondeur, domain, powerW) de la fiche retirée, et prévoir la correspondance des ids de ports pour les projets existants."
     }
   ]
 }

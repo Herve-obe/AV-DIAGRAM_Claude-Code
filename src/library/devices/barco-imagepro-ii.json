@@ -9,7 +9,12 @@
   "description": "Convertisseur de résolution, convertisseur de balayage et commutateur 1U : entrées DVI-I, analogique, HDMI, DisplayPort, SDI ; sorties SDI, composite, DVI-D, analogique, HDMI, DisplayPort.",
   "aliases": [
     "IMAGEPROII",
-    "BARCO ImagePRO-II"
+    "BARCO ImagePRO-II",
+    "R9004677",
+    "R9004683",
+    "R9004666",
+    "R9004668",
+    "Folsom ImagePRO-II"
   ],
   "sources": [
     {
@@ -41,6 +46,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_quick-start.pdf",
       "document": "Novelty — ImagePRO-II : Quick Start Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/44510-ImagePROIISeriesDatasheet.pdf",
+      "document": "Barco, fiche ImagePRO-II series (via Full Compass), reprise de la fiche doublon folsom-imagepro-ii",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -195,5 +205,17 @@
       "format": "Façade, clé USB : sauvegarde, logos, mise à jour"
     }
   ],
-  "powerW": 100
+  "powerW": 100,
+  "slots": [
+    {
+      "id": "mezz3d",
+      "name": "Mezzanine 3D / double canal",
+      "type": "imagepro2-dual"
+    },
+    {
+      "id": "mezzaudio",
+      "name": "Mezzanine audio",
+      "type": "imagepro2-audio"
+    }
+  ]
 }

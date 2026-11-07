@@ -1,12 +1,12 @@
 {
   "id": "epson-elplm15",
-  "family": "passive",
-  "domain": "image",
-  "pictogram": "patch",
+  "family": "module",
+  "domain": "misc",
+  "pictogram": "projector",
   "manufacturer": "Epson",
   "model": "ELPLM15",
   "status": "community",
-  "description": "Optique pour vidéoprojecteur EB-PU",
+  "description": "Optique pour vidéoprojecteur EB-PU. Objectif interchangeable sans prise propre (motorisation par la monture du projecteur), installé dans l'emplacement « Objectif » ; compatible d'après le tableau Novelty : EB-PU1007B, EB-PU1008B, EB-PU2220B.",
   "aliases": [
     "EPSON ELPLM15"
   ],
@@ -25,10 +25,16 @@
       "url": "https://epson.com/Accessories/Projector-Accessories/Middle-Throw-Zoom-Lens-%232-(ELPLM15)/p/V12H004M0F",
       "document": "Epson exact lens product page, technical feature list",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/7175-4716-compatibilites-des-optiques.pdf",
+      "document": "Novelty, Compatibilités des optiques - Haute luminosité (tableau Epson EB-PU) : rapports de projection par projecteur, X = non compatible",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [],
   "portStatus": "none",
   "powerW": 0,
-  "weightKg": 1.9
+  "weightKg": 1.9,
+  "moduleType": "epson-elpl"
 }
