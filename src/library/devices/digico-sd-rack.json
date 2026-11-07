@@ -24,16 +24,16 @@
   "ports": [
     {
       "id": "madi1",
-      "name": "MADI Main",
-      "direction": "bidir",
+      "name": "MADI Main In",
+      "direction": "in",
       "signal": "audioDigital",
       "connector": "bnc",
       "format": "MADI, 56 canaux redondants à 48 kHz"
     },
     {
       "id": "madi2",
-      "name": "MADI Aux",
-      "direction": "bidir",
+      "name": "MADI Aux In",
+      "direction": "in",
       "signal": "audioDigital",
       "connector": "bnc",
       "format": "MADI"
@@ -129,6 +129,22 @@
       "signal": "control",
       "connector": "usb-b",
       "format": "USB type B (panneau de commande)"
+    },
+    {
+      "id": "madi1Out",
+      "name": "MADI Main Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "MADI, 56 canaux à 48 kHz"
+    },
+    {
+      "id": "madi2Out",
+      "name": "MADI Aux Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "MADI"
     }
   ],
   "slots": [
