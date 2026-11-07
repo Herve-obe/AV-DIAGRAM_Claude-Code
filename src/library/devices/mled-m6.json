@@ -24,7 +24,40 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 18
+  "ports": [
+    {
+      "id": "dataIn",
+      "name": "Data In",
+      "direction": "in",
+      "signal": "network",
+      "connector": "unspecified",
+      "format": "Données ; connecteur non nommé"
+    },
+    {
+      "id": "dataOut",
+      "name": "Data Out",
+      "direction": "out",
+      "signal": "network",
+      "connector": "unspecified",
+      "format": "Chaînage vers la dalle suivante"
+    },
+    {
+      "id": "acIn",
+      "name": "Power In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Secteur ; connecteur non nommé"
+    },
+    {
+      "id": "acOut",
+      "name": "Power Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Recopie secteur vers la dalle suivante"
+    }
+  ],
+  "weightKg": 18,
+  "powerW": 390
 }

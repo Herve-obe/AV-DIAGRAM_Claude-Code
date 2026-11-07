@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "UltraScope",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://expandore.com/blackmagic/UltraScope.htm",
@@ -37,7 +37,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "SDI (BNC)"
+      "format": "SDI 3G/HD/SD, sortie de bouclage BNC"
     },
     {
       "id": "optIn",
@@ -54,14 +54,6 @@
       "signal": "video",
       "connector": "lc",
       "format": "SDI optique LC"
-    },
-    {
-      "id": "pcie",
-      "name": "PCI Express",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Carte PCIe pour ordinateur Windows"
     }
   ]
 }

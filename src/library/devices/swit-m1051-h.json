@@ -5,13 +5,198 @@
   "model": "M1051-H",
   "pictogram": "display",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Rack 3U de 3 moniteurs 5 pouces (3G-SDI, HDMI, composite)",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://files.bzbexpress.com/files/attachments/33228/swit-displays-and-monitors-m-1051h-datasheet.pdf",
+      "document": "SWIT, M-1051H datasheet (copie revendeur) : Input and Output, General",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdiA",
+      "name": "Écran A SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "cvbsA",
+      "name": "Écran A Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiA",
+      "name": "Écran A HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audLA",
+      "name": "Écran A Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audRA",
+      "name": "Écran A Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "sdiOutA",
+      "name": "Écran A SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutA",
+      "name": "Écran A Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOutA",
+      "name": "Écran A HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiB",
+      "name": "Écran B SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "cvbsB",
+      "name": "Écran B Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiB",
+      "name": "Écran B HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audLB",
+      "name": "Écran B Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audRB",
+      "name": "Écran B Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "sdiOutB",
+      "name": "Écran B SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutB",
+      "name": "Écran B Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOutB",
+      "name": "Écran B HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiC",
+      "name": "Écran C SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "cvbsC",
+      "name": "Écran C Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiC",
+      "name": "Écran C HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audLC",
+      "name": "Écran C Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "audRC",
+      "name": "Écran C Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "sdiOutC",
+      "name": "Écran C SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutC",
+      "name": "Écran C Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOutC",
+      "name": "Écran C HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "DC 6,5 à 17 V, adaptateur secteur fourni ; connecteur non nommé"
+    }
+  ],
+  "powerW": 24
 }

@@ -45,6 +45,11 @@
       "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
       "document": "Samsung DBE/DME/DHE User Manual, p. 19",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db32e_manuel-uk.pdf",
+      "document": "Samsung, User Manual DB32E/DB40E/DB48E/DB55E/DM32E-DM75E/DH40E-DH55E (copie Novelty) : Reverse Side pp. 19-20, IR Stereo Cable p. 25, PowerSaver (consommation)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -67,8 +72,8 @@
       "name": "AV / Component In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Connecteur pour adaptateur AV/composante"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : vidéo composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
     },
     {
       "id": "ain",
@@ -117,7 +122,8 @@
       "name": "IR / Ambient Sensor In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe (vendu à part) ; reçoit un câble stéréo jack 3,5 mm (manuel p. 25)"
     },
     {
       "id": "ac",
@@ -125,18 +131,11 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100–240 V"
+      "format": "AC 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué"
     },
     {
       "id": "hdmi1",
       "name": "HDMI In 1",
-      "direction": "in",
-      "signal": "video",
-      "connector": "hdmi"
-    },
-    {
-      "id": "hdmi2",
-      "name": "HDMI In 2",
       "direction": "in",
       "signal": "video",
       "connector": "hdmi"
@@ -160,11 +159,12 @@
       "name": "IR Out",
       "direction": "out",
       "signal": "control",
-      "connector": "minijack"
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal de télécommande reçu par le capteur externe (LOOP OUT), mini-jack"
     },
     {
       "id": "usb2",
-      "name": "USB 5 V / 1.5 A",
+      "name": "USB (5 V / 1,5 A)",
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a"

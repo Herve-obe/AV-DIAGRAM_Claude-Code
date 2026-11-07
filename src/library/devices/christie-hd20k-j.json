@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "CHRISTIE",
   "model": "HD20K-J",
-  "status": "community",
+  "status": "verified",
   "description": "Vidéoprojecteur (18 000 lumens, 1920 x 1080)",
   "aliases": [
     "HD20K",
@@ -38,7 +38,85 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 4000
+  "ports": [
+    {
+      "id": "rs232In",
+      "name": "RS-232 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 mâle, chaînage"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, 12 V 400 mA sur broche 9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-T"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 mâle, 7 lignes, 12 V 400 mA"
+    },
+    {
+      "id": "keypad",
+      "name": "Wired Keypad",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "XLR 3 broches, télécommande filaire"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Embase IEC 309 32 A 250 V (lampe 3,0 kW), 200-240 V"
+    }
+  ],
+  "powerW": 4000,
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Option card slot 1",
+      "type": "christie-option-card"
+    },
+    {
+      "id": "slot2",
+      "name": "Option card slot 2",
+      "type": "christie-option-card"
+    },
+    {
+      "id": "slot3",
+      "name": "Option card slot 3",
+      "type": "christie-option-card"
+    },
+    {
+      "id": "slot4",
+      "name": "Option card slot 4",
+      "type": "christie-option-card"
+    }
+  ]
 }

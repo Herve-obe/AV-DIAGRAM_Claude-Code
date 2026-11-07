@@ -89,7 +89,8 @@
       "name": "HDBaseT",
       "direction": "in",
       "signal": "video",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "HDBaseT (la fiche technique annonce une entrée unique ; le dessin du module V&H du manuel en montre deux)"
     },
     {
       "id": "sdi1",
@@ -129,14 +130,15 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "100BASE-T"
+      "format": "10/100BASE-T, commande IP et Art-Net"
     },
     {
       "id": "serial",
       "name": "RS-232",
-      "direction": "bidir",
+      "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "dsub9",
+      "format": "RS232 / RS422, Sub-D 9 broches (brochage au manuel)"
     },
     {
       "id": "remote",
@@ -144,14 +146,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "unspecified",
-      "format": "XLR"
-    },
-    {
-      "id": "dmx",
-      "name": "DMX 512",
-      "direction": "bidir",
-      "signal": "dmx",
-      "connector": "unspecified"
+      "format": "XLR, télécommande filaire ; nombre de broches non indiqué pour l'UDX"
     },
     {
       "id": "ac",
@@ -159,9 +154,64 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX 512, XLR 5 broches"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX 512, XLR 5 broches"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB type A : mises à jour et sauvegarde"
+    },
+    {
+      "id": "dcOut",
+      "name": "12 V Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V, 1 A max ; connecteur non nommé"
+    },
+    {
+      "id": "sync3dOut",
+      "name": "Sync Out 3D",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
+    },
+    {
+      "id": "sync3dIn",
+      "name": "Sync In 3D",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
     }
   ],
   "weightKg": 92,
   "powerW": 3100,
-  "depthMm": 830
+  "depthMm": 830,
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Free input slot",
+      "type": "barco-udx-input"
+    }
+  ]
 }

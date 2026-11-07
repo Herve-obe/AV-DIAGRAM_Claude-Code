@@ -4,12 +4,22 @@
   "manufacturer": "Samsung",
   "model": "DB10 (10,1\")",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.samsung.com/us/business/support/owners/product/db-series-digital-signage-db10d/",
       "document": "Samsung, page support DB10D",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db10d_manuel.pdf",
+      "document": "Samsung, User Manual DB10D (copie Novelty) : composants p. 14, Reverse Side p. 17, PowerSaver",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_db10d_ft.pdf",
+      "document": "Samsung, leaflet DB10D (copie Novelty) : Specifications",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -35,7 +45,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "minijack",
-      "format": "RS232C par jack stéréo"
+      "format": "RS232C IN par câble RS232C-stéréo (jack)"
     },
     {
       "id": "lan",
@@ -47,11 +57,12 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "DC 14 V In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V, 50/60 Hz ; connecteur non précisé. Référence catalogue Novelty « DB10 » ; connectique de la génération Samsung DB10D"
+      "connector": "dc-barrel",
+      "format": "DC 14 V depuis l'adaptateur secteur fourni (AC 100-240 V) ; référence catalogue Novelty « DB10 », connectique DB10D"
     }
-  ]
+  ],
+  "powerW": 18.7
 }

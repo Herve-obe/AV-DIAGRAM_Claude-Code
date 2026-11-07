@@ -5,8 +5,7 @@
   "model": "FWD-S47H1",
   "pictogram": "display",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Écran LCD professionnel 47 pouces Full HD, emplacement d'option",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -18,5 +17,119 @@
       "accessed": "2026-10-26"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "vga",
+      "name": "HD15 (RGB / Component) In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 femelle"
+    },
+    {
+      "id": "vgaOut",
+      "name": "HD15 Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Sortie de bouclage active ; connecteur non nommé"
+    },
+    {
+      "id": "vgaAudio",
+      "name": "HD15 Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D, HDCP"
+    },
+    {
+      "id": "dviAudio",
+      "name": "DVI Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "svideo",
+      "name": "S-Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Mini DIN 4 broches"
+    },
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite BNC"
+    },
+    {
+      "id": "videoOut",
+      "name": "Video Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Sortie de bouclage ; connecteur non nommé"
+    },
+    {
+      "id": "videoAudio",
+      "name": "Video Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "spk",
+      "name": "Speaker Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "7 W + 7 W sous 6 ohms ; bornier non nommé",
+      "level": "speaker"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10BASE-T / 100BASE-TX"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 3,3 A ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 320,
+  "slots": [
+    {
+      "id": "option",
+      "name": "Option adaptor slot",
+      "type": "sony-bkm-fw"
+    }
+  ]
 }

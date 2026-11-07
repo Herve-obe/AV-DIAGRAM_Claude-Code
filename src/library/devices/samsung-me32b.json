@@ -68,8 +68,8 @@
       "name": "AV / Component In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Shared AV/component adapter connector"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
     },
     {
       "id": "usb1",
@@ -84,7 +84,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "minijack",
-      "format": "3.5 mm stereo serial adapter"
+      "format": "RS232C IN : câble stéréo RS232C (adaptateur fourni)"
     },
     {
       "id": "rs232-out",
@@ -92,7 +92,7 @@
       "direction": "out",
       "signal": "control",
       "connector": "minijack",
-      "format": "3.5 mm stereo serial adapter"
+      "format": "RS232C OUT : câble stéréo RS232C (adaptateur fourni)"
     },
     {
       "id": "lan",
@@ -106,14 +106,16 @@
       "name": "IR / ambient sensor In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ; reçoit le câble stéréo jack 3,5 mm (section « IR Stereo Cable » du manuel)"
     },
     {
       "id": "irOut",
       "name": "IR Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
     },
     {
       "id": "ac",
@@ -121,7 +123,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100-240 V AC"
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
     },
     {
       "id": "hdmi1",
@@ -139,5 +141,6 @@
     }
   ],
   "weightKg": 6.5,
-  "depthMm": 29.9
+  "depthMm": 29.9,
+  "powerW": 64
 }

@@ -33,29 +33,32 @@
       "name": "Computer 1 In",
       "direction": "in",
       "signal": "video",
-      "connector": "dsub15"
+      "connector": "vga",
+      "format": "D-Sub HD 15 femelle (RGB, YPbPr, Y/C)"
     },
     {
       "id": "pc2",
-      "name": "Computer 2 In",
-      "direction": "in",
+      "name": "Computer 2 In / Computer 1 Out",
+      "direction": "bidir",
       "signal": "video",
-      "connector": "dsub15"
+      "connector": "vga",
+      "format": "D-Sub HD 15 femelle, entrée ou sortie au choix par menu"
     },
     {
       "id": "video",
       "name": "Video In",
       "direction": "in",
       "signal": "video",
-      "connector": "rca"
+      "connector": "rca",
+      "format": "Pin jack, vidéo composite"
     },
     {
       "id": "audio",
-      "name": "Audio In",
+      "name": "Audio In 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line-10"
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3"
     },
     {
       "id": "lan",
@@ -73,17 +76,60 @@
     },
     {
       "id": "usb",
-      "name": "USB",
+      "name": "USB (A) Viewer / Wireless",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB type A, Memory Viewer, module sans fil"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non nommé"
+    },
+    {
+      "id": "audio2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3"
+    },
+    {
+      "id": "audio3L",
+      "name": "Audio In 3 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Pin jack"
+    },
+    {
+      "id": "audio3R",
+      "name": "Audio In 3 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Pin jack"
+    },
+    {
+      "id": "aout",
+      "name": "Variable Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3"
+    },
+    {
+      "id": "usbB",
+      "name": "USB (B) Display",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B, affichage USB"
     }
-  ]
+  ],
+  "powerW": 320
 }

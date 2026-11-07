@@ -67,8 +67,8 @@
       "name": "Composante / CVBS",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Composante (CVBS commun) ; connecteur non précisé"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
     },
     {
       "id": "dp-out",
@@ -124,7 +124,39 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100-240 V, 50/60 Hz ; connecteur non précisé. Référence catalogue Novelty « ME95 » ; connectique de la génération Samsung ME95C"
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ; reçoit le câble stéréo jack 3,5 mm (section « IR Stereo Cable » du manuel)"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
     }
   ]
 }

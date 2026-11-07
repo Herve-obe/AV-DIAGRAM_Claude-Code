@@ -100,16 +100,8 @@
       "name": "RS-232C In",
       "direction": "in",
       "signal": "control",
-      "connector": "minijack",
-      "format": "Jack 3,5 mm 4 points"
-    },
-    {
-      "id": "rs232-out",
-      "name": "RS-232C Out",
-      "direction": "out",
-      "signal": "control",
-      "connector": "minijack",
-      "format": "Jack 3,5 mm 4 points"
+      "connector": "unspecified",
+      "format": "RS232C IN ; connecteur non nommé sur la page LG"
     },
     {
       "id": "lan",
@@ -124,7 +116,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "unspecified",
-      "format": "Récepteur IR et capteur de lumière (fourni)"
+      "format": "IR in ; connecteur non nommé sur la page LG"
     },
     {
       "id": "ac",
@@ -132,7 +124,16 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V ; connecteur non précisé"
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
+    },
+    {
+      "id": "spk",
+      "name": "External Speaker Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Sortie haut-parleurs externes (SP-2200) ; connecteur non nommé",
+      "level": "speaker"
     }
   ]
 }

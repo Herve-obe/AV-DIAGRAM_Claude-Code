@@ -73,7 +73,7 @@
     {
       "id": "usb",
       "name": "USB 2.0",
-      "direction": "in",
+      "direction": "bidir",
       "signal": "control",
       "connector": "usb-a"
     },
@@ -82,7 +82,48 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0 (2)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "RS232C in ; connecteur non nommé sur la page LG"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "RS232C out ; connecteur non nommé"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé sur la page LG"
     }
-  ]
+  ],
+  "powerW": 185
 }

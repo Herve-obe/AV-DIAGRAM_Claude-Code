@@ -23,8 +23,157 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "lineA",
+      "name": "Line A Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1 Vp-p"
+    },
+    {
+      "id": "lineAOut",
+      "name": "Line A Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage, terminaison automatique"
+    },
+    {
+      "id": "yc",
+      "name": "Line A Y/C In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4"
+    },
+    {
+      "id": "ycOut",
+      "name": "Line A Y/C Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Bouclage"
+    },
+    {
+      "id": "audioA",
+      "name": "Line A Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu, 47 kOhm"
+    },
+    {
+      "id": "lineB",
+      "name": "Line B Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "lineBOut",
+      "name": "Line B Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage"
+    },
+    {
+      "id": "audioB",
+      "name": "Line B Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu"
+    },
+    {
+      "id": "rgb",
+      "name": "RGB / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC (G/Y, B/B-Y, R/R-Y)"
+    },
+    {
+      "id": "rgbOut",
+      "name": "RGB / Component Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC, bouclage"
+    },
+    {
+      "id": "audioRgb",
+      "name": "RGB Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu"
+    },
+    {
+      "id": "sync",
+      "name": "Ext Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sync négatif ou tri-level"
+    },
+    {
+      "id": "syncOut",
+      "name": "Ext Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage"
+    },
+    {
+      "id": "audioOpt1",
+      "name": "Option Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu"
+    },
+    {
+      "id": "audioOpt2",
+      "name": "Option Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu"
+    },
+    {
+      "id": "parallel",
+      "name": "Parallel Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Modulaire 8 broches, assignable"
+    },
+    {
+      "id": "serial",
+      "name": "Serial Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-485, D-Sub 9 (chaînage)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V ; type d'embase non nommé"
+    }
+  ],
   "weightKg": 17,
-  "powerW": 90
+  "powerW": 90,
+  "slots": [
+    {
+      "id": "option",
+      "name": "Option slot",
+      "type": "sony-bkm-pvm"
+    }
+  ]
 }

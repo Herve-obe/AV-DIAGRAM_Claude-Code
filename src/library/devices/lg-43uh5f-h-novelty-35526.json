@@ -98,30 +98,35 @@
       "name": "IR /light sensor In",
       "direction": "in",
       "signal": "control",
-      "connector": "minijack"
+      "connector": "unspecified",
+      "format": "IR IN : entrée du récepteur IR / capteur de lumière fourni ; connecteur non nommé dans la fiche (LG le donne en jack stéréo 3,5 mm sur la 32SM5J, non confirmé pour ce modèle)"
     },
     {
       "id": "rs232In",
       "name": "RS-232C In",
-      "direction": "bidir",
+      "direction": "in",
       "signal": "control",
-      "connector": "minijack"
+      "connector": "minijack",
+      "format": "RS-232C IN : jack 3,5 mm 4 points (adaptateur « phone to RS232C » fourni)"
     },
     {
       "id": "rs232Out",
       "name": "RS-232C Out",
-      "direction": "bidir",
+      "direction": "out",
       "signal": "control",
-      "connector": "minijack"
+      "connector": "minijack",
+      "format": "RS-232C OUT : jack 3,5 mm 4 points"
     },
     {
       "id": "ac",
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
     }
   ],
   "weightKg": 11.2,
-  "depthMm": 39.9
+  "depthMm": 39.9,
+  "powerW": 110
 }

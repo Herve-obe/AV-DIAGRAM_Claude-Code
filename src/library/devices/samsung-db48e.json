@@ -45,6 +45,16 @@
       "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
       "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db32e_manuel-uk.pdf",
+      "document": "Samsung, User Manual DB32E/DB40E/DB48E/DB55E/DM32E-DM75E/DH40E-DH55E (copie Novelty) : Reverse Side pp. 19-20, IR Stereo Cable p. 25, PowerSaver (consommation)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_db32e_ft.pdf",
+      "document": "Samsung, fiche DB-E 32\"/40\"/48\"/55\" (copie Novelty) : Connectivity, Power Consumption (Typical/Max)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -74,15 +84,16 @@
       "name": "AV / Component In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Connecteur pour adaptateur AV/composante"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : vidéo composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
     },
     {
       "id": "ain",
       "name": "Audio In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "format": "RGB / DVI / HDMI / AV / COMPONENT AUDIO IN, mini-jack stéréo"
     },
     {
       "id": "aout",
@@ -124,7 +135,8 @@
       "name": "IR / Ambient Sensor In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe (vendu à part) ; reçoit un câble stéréo jack 3,5 mm (manuel p. 25)"
     },
     {
       "id": "ac",
@@ -132,9 +144,9 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100–240 V"
+      "format": "AC 100-240 V, 50/60 Hz, interrupteur au dos ; cordon secteur fourni, type d'embase non indiqué par Samsung"
     }
   ],
   "weightKg": 11.1,
-  "powerW": 86
+  "powerW": 132
 }

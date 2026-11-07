@@ -5,13 +5,50 @@
   "model": "S-1071H",
   "pictogram": "display",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Moniteur 7 pouces 1024 x 600, entrées SDI, HDMI et composite",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/594474/swit-electronics-s-1071h.html?page=11",
+      "document": "SWIT, S-1071H User Manual p. 11 (copie ManualsDir) : Specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ; nombre de prises et bouclage non confirmés"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "cvbs",
+      "name": "CVBS In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Composite NTSC/PAL ; connecteur non nommé"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "DC 12 V ou batterie 6,5 à 17 V ; connecteur non nommé"
+    }
+  ],
+  "powerW": 8
 }

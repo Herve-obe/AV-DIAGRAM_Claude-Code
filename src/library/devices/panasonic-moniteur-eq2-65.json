@@ -31,6 +31,11 @@
       "url": "https://docs.connect.panasonic.com/prodisplays/products/eq2/spec.html",
       "document": "Panasonic EQ2 Series, Specifications",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2024-04/65eq2w_spec_en_0.pdf",
+      "document": "Panasonic, spec sheet TH-65EQ2W : Connection terminal, Drawing of terminals, Electrical",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -70,22 +75,24 @@
       "name": "Audio In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm, 0,5 V eff. (commune aux entrées vidéo)"
     },
     {
       "id": "audioOut",
       "name": "Audio Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm, 0,5 V eff., niveau variable"
     },
     {
       "id": "serial",
-      "name": "Serial",
-      "direction": "bidir",
+      "name": "Serial In",
+      "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C"
+      "format": "D-Sub 9 points, RS-232C"
     },
     {
       "id": "lan",
@@ -100,14 +107,16 @@
       "name": "USB 3.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB type A, USB 3.0, 5 V / 1 A"
     },
     {
       "id": "usb2",
       "name": "USB 2.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB type A, USB 2.0, 5 V / 2 A"
     },
     {
       "id": "usbC",
@@ -115,7 +124,7 @@
       "direction": "bidir",
       "signal": "video",
       "connector": "usb-c",
-      "format": "DisplayPort Alternate Mode, USB 2.0, PD 60 W"
+      "format": "USB-C : DisplayPort Alt Mode, USB 2.0, Power Delivery jusqu'à 60 W"
     },
     {
       "id": "power",
@@ -123,10 +132,33 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "110–240 V, 50/60 Hz"
+      "format": "AC 110-240 V, 50/60 Hz ; cordon secteur 2 m fourni (amovible), type d'embase non indiqué"
+    },
+    {
+      "id": "irIn",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm"
     }
   ],
   "weightKg": 29.7,
   "powerW": 340,
-  "depthMm": 94
+  "depthMm": 94,
+  "slots": [
+    {
+      "id": "slot",
+      "name": "Function slot",
+      "type": "intel-sdm"
+    }
+  ]
 }

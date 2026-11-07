@@ -62,7 +62,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "unspecified",
-      "format": "Entrée GPI / tally ; connecteur non précisé"
+      "format": "Entrée GPI / tally ; connecteur non nommé dans la fiche"
     },
     {
       "id": "sdi-inB",
@@ -110,7 +110,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "unspecified",
-      "format": "Entrée GPI / tally ; connecteur non précisé"
+      "format": "Entrée GPI / tally ; connecteur non nommé dans la fiche"
     },
     {
       "id": "dc",
@@ -118,7 +118,23 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "6,5 à 36 V CC ; adaptateur secteur fourni"
+      "format": "DC 6,5 à 36 V ; connecteur non nommé"
+    },
+    {
+      "id": "usbA",
+      "name": "Écran A USB",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour firmware et import de LUT 3D ; connecteur non nommé"
+    },
+    {
+      "id": "usbB",
+      "name": "Écran B USB",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour firmware et import de LUT 3D ; connecteur non nommé"
     }
   ]
 }

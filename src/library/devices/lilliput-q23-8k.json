@@ -20,7 +20,7 @@
   "ports": [
     {
       "id": "bnc1",
-      "name": "SDI In 1",
+      "name": "12G-SDI In 1",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
@@ -28,7 +28,7 @@
     },
     {
       "id": "bnc2",
-      "name": "SDI In 2",
+      "name": "12G-SDI In 2",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
@@ -36,7 +36,7 @@
     },
     {
       "id": "bnc3",
-      "name": "SDI In 3",
+      "name": "12G-SDI In 3",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
@@ -44,7 +44,7 @@
     },
     {
       "id": "bnc4",
-      "name": "SDI In 4",
+      "name": "12G-SDI In 4",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
@@ -67,14 +67,94 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "DC In",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Secteur ou batterie V-mount"
+      "format": "DC 12-24 V ou batterie V-Lock / Anton Bauer 14,8 V ; connecteur non nommé"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "12G-SDI Loop Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "12G-SDI Loop Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "12G-SDI Loop Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "12G-SDI Loop Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI 2.0 Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "phones",
+      "name": "Prise d'oreille",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "rs422In",
+      "name": "RS422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
+    },
+    {
+      "id": "rs422Out",
+      "name": "RS422 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "unspecified",
+      "format": "Réseau local ; connecteur non nommé"
     }
   ],
   "aliases": [
     "Lilliput Q23-8K"
-  ]
+  ],
+  "powerW": 60
 }

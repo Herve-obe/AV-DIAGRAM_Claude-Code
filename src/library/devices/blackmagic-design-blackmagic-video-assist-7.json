@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "Blackmagic Design",
   "model": "Blackmagic Video Assist 7",
-  "status": "community",
+  "status": "verified",
   "description": "Moniteur 7'', 12GSDI et HDMI 2.0 avec vecteurscope et enregistrement sur UHS-II ou USB-C",
   "aliases": [
     "VIDEOASSIST7P",
@@ -21,9 +21,99 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9111-4494-blackmagic-video-assist-7-inch-12g-hdr-com-resume.pdf",
       "document": "Novelty — Blackmagic Video Assist 7 : blackmagic-video-assist-7",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/blackmagicvideoassist/techspecs/W-VASS-04",
+      "document": "Blackmagic Design, Video Assist 7\" 12G HDR, Tech Specs : Connections, Power Requirements",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (270 Mb à 12G)"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a"
+    },
+    {
+      "id": "mic1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "format": "Mini XLR symétrique, fantôme 48 V",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "format": "Mini XLR symétrique, fantôme 48 V",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm",
+      "channels": 2
+    },
+    {
+      "id": "lanc",
+      "name": "LANC",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Jack 2,5 mm, départ/arrêt enregistrement"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB-C 3.1 Gen 1 : enregistrement sur disque, webcam, mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc externe 12 V à connecteur verrouillable ; batteries Sony NP-F en option"
+    }
+  ],
   "weightKg": 0.8250000000000001
 }

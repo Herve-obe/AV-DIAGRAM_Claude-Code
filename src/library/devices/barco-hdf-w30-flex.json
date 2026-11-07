@@ -102,32 +102,35 @@
     },
     {
       "id": "remote",
-      "name": "Remote Control",
+      "name": "Remote Ctrl In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "XLR filaire"
+      "connector": "xlr3",
+      "format": "XLR mâle 3 broches (GND, RC5 in, détection), télécommande filaire"
     },
     {
       "id": "serial",
       "name": "RS-232/422",
-      "direction": "bidir",
+      "direction": "in",
       "signal": "control",
-      "connector": "dsub9"
+      "connector": "dsub9",
+      "format": "RS232 / RS422, D-Sub 9"
     },
     {
       "id": "usb",
-      "name": "USB configuration",
+      "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB type A maître : mises à jour et sauvegardes sur clé"
     },
     {
       "id": "dcOut",
       "name": "12 V / 1 A Out",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "12 V, 1 A max, actif hors veille ; connecteur non nommé dans le manuel"
     },
     {
       "id": "ac",
@@ -135,9 +138,29 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "200–240 V AC"
+      "format": "200–240 V AC ; cordon fourni, type d'embase côté projecteur non nommé"
+    },
+    {
+      "id": "usbRs",
+      "name": "RS232/422 In (USB)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B servant d'entrée série depuis un PC"
     }
   ],
   "weightKg": 99,
-  "powerW": 4550
+  "powerW": 4550,
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Free input slot 1",
+      "type": "barco-hd-input"
+    },
+    {
+      "id": "slot2",
+      "name": "Free input slot 2",
+      "type": "barco-hd-input"
+    }
+  ]
 }

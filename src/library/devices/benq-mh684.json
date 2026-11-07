@@ -59,7 +59,8 @@
       "name": "HDMI In 2",
       "direction": "in",
       "signal": "video",
-      "connector": "hdmi"
+      "connector": "hdmi",
+      "format": "HDMI-2 / MHL"
     },
     {
       "id": "video",
@@ -109,21 +110,25 @@
       "name": "Mic In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Entrée microphone (jack), niveau réglable par MIC/VOL"
     },
     {
       "id": "usbA",
       "name": "USB Type A",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB type A, sortie 5 V / 1,5 A"
     },
     {
       "id": "usbMini",
       "name": "USB Mini-B",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-mini"
+      "connector": "usb-mini",
+      "format": "USB mini-B, commandes page haut/bas"
     },
     {
       "id": "serial",
@@ -138,7 +143,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100–240 V AC"
+      "format": "AC 100-240 V, 3,5 A ; embase « AC power cord inlet », type non nommé"
     }
   ],
   "weightKg": 3.3,

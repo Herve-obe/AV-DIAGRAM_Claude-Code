@@ -18,6 +18,39 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dataIn",
+      "name": "Data In",
+      "direction": "in",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Données de la carte de réception (etherCON)"
+    },
+    {
+      "id": "dataOut",
+      "name": "Data Out",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Chaînage vers la dalle suivante"
+    },
+    {
+      "id": "acIn",
+      "name": "Power In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Secteur, Neutrik powerCON TRUE1"
+    },
+    {
+      "id": "acOut",
+      "name": "Power Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur vers la dalle suivante"
+    }
+  ],
+  "powerW": 120
 }

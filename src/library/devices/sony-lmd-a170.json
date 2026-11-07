@@ -35,19 +35,19 @@
   "ports": [
     {
       "id": "sdi1",
-      "name": "SDI In 1",
+      "name": "SDI 1 In",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI, recopie active"
+      "format": "3G / HD / SD-SDI"
     },
     {
       "id": "sdi2",
-      "name": "SDI In 2",
+      "name": "SDI 2 In",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI, recopie active"
+      "format": "3G / HD / SD-SDI"
     },
     {
       "id": "hdmi",
@@ -63,7 +63,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Avec recopie"
+      "format": "BNC, 1 Vp-p"
     },
     {
       "id": "audio",
@@ -71,19 +71,87 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "level": "line-10",
-      "channels": 2
+      "channels": 2,
+      "format": "Mini-jack stéréo, -5 dBu, 47 kOhm ou plus"
     },
     {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Socle AC IN, AC 100-240 V, cordon fourni ; type d'embase non nommé"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI 1 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie SDI active (unité sous tension)"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI 2 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie SDI active"
+    },
+    {
+      "id": "compOut",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage, terminaison 75 ohms automatique"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Monitor Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "channels": 2
+    },
+    {
+      "id": "serial",
+      "name": "Serial Remote",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet 10/100BASE-T vers BKM-15R/16R"
+    },
+    {
+      "id": "parallel",
+      "name": "Parallel Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RJ-45 8 broches, commande par contacts"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches mâle, DC 12 à 17 V"
     }
   ],
   "aliases": [
     "LMDA170",
     "SONY LMD-A170"
-  ]
+  ],
+  "powerW": 49
 }

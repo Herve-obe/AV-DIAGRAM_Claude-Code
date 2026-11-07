@@ -47,8 +47,187 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "monOut",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (DB15)"
+    },
+    {
+      "id": "sync3dOut",
+      "name": "3D-Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "5 V, émetteur IR de lunettes 3D ; connecteur non nommé"
+    },
+    {
+      "id": "vga",
+      "name": "Computer In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (DB15)"
+    },
+    {
+      "id": "hdbt",
+      "name": "HDBaseT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT (vidéo, audio, RS-232, IR, réseau)"
+    },
+    {
+      "id": "sync3dIn",
+      "name": "3D-Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "5 V ; connecteur non nommé"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DB-9"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DB-9, chaînage"
+    },
+    {
+      "id": "trigger",
+      "name": "12V Trigger",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm, commande d'écran"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Wire Remote In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Wire Remote Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm, chaînage"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca"
+    },
+    {
+      "id": "video",
+      "name": "Video",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Vidéo composite ; connecteur non nommé"
+    },
+    {
+      "id": "bnc",
+      "name": "BNC (RGBHV / Component)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande LAN"
+    },
+    {
+      "id": "usbPower",
+      "name": "USB Power",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "USB type A, 5 V / 1,5 A"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non nommé"
+    }
+  ],
   "weightKg": 23,
-  "powerW": 630
+  "powerW": 650
 }

@@ -5,12 +5,17 @@
   "model": "ME32 (32\")",
   "pictogram": "display",
   "status": "community",
-  "powerW": 77,
+  "powerW": 70,
   "sources": [
     {
       "url": "https://www.samsung.com/us/business/support/owners/product/me-c-series-digital-signage-me32c/",
       "document": "Samsung, page support ME32C",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://ret.de/wp-content/uploads/2018/01/Samsung-ME32C-Manual.pdf",
+      "document": "Samsung, User Manual ME32C/ME40C/ME46C/ME55C (copie revendeur RET) : Reverse Side p. 22, PowerSaver",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -59,8 +64,8 @@
       "name": "Composante / CVBS",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Composante (CVBS commun) ; connecteur non précisé"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
     },
     {
       "id": "dp-out",
@@ -69,14 +74,6 @@
       "signal": "video",
       "connector": "displayport",
       "format": "DisplayPort 1.2, chaînage"
-    },
-    {
-      "id": "dvi-out",
-      "name": "DVI-D Out",
-      "direction": "out",
-      "signal": "video",
-      "connector": "dvi",
-      "format": "Chaînage"
     },
     {
       "id": "ain",
@@ -132,7 +129,23 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100-240 V, 50/60 Hz ; connecteur non précisé. Référence catalogue Novelty « ME32 » ; connectique de la génération Samsung ME32C"
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ; reçoit le câble stéréo jack 3,5 mm (section « IR Stereo Cable » du manuel)"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
     }
   ]
 }

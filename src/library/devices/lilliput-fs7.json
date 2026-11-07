@@ -5,13 +5,67 @@
   "model": "FS7",
   "pictogram": "display",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Moniteur de caméra 7 pouces 1920 x 1200, 3G-SDI et HDMI 4K",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.lilliput.com/fs7-product/",
+      "document": "Lilliput, page produit FS7 : Input/Output, Power",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "3G-SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4, jusqu'à 4K 30p"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "phones",
+      "name": "Ear Jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Sortie écouteurs ; connecteur non nommé"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "DC 7-24 V, bloc 12 V fourni ; plaque batterie Sony F ; connecteur non nommé"
+    }
+  ],
+  "powerW": 12
 }

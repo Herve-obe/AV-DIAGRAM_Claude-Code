@@ -88,7 +88,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "dvi",
-      "format": "Analog RGB via DVI adapter, not extra VGA socket"
+      "format": "DVI / PC / MagicInfo : DVI, D-Sub par adaptateur DVI-RGB, MagicInfo par câble DP-DVI"
     },
     {
       "id": "ain",
@@ -123,14 +123,16 @@
       "name": "IR In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR IN : alimente le capteur externe ou reçoit le câble stéréo IR, jack 3,5 mm (manuel p. 21)"
     },
     {
       "id": "irOut",
       "name": "IR Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal de télécommande (LOOP OUT), câble stéréo jack 3,5 mm (manuel p. 21)"
     },
     {
       "id": "lan",
@@ -140,20 +142,14 @@
       "connector": "rj45"
     },
     {
-      "id": "usb",
-      "name": "USB Service",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-a"
-    },
-    {
       "id": "ac",
       "name": "AC In",
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100-240 V AC"
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
     }
   ],
-  "weightKg": 80
+  "weightKg": 80,
+  "powerW": 605
 }

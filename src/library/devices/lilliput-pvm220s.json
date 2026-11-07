@@ -83,13 +83,23 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "DC 12-24 V ; connecteur non nommé"
+    },
+    {
+      "id": "phones",
+      "name": "Earplug Jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Sortie écouteurs ; connecteur non nommé"
     }
   ],
   "aliases": [
     "Lilliput PVM220S"
-  ]
+  ],
+  "powerW": 33
 }

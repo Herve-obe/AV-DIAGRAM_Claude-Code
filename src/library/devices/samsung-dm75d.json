@@ -78,12 +78,12 @@
       "name": "AV / Component In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Shared AV/component adapter connector"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
     },
     {
       "id": "usb1",
-      "name": "USB",
+      "name": "USB (5 V / 1,5 A)",
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a"
@@ -116,14 +116,16 @@
       "name": "IR / ambient sensor In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ; reçoit le câble stéréo jack 3,5 mm (section « IR Stereo Cable » du manuel)"
     },
     {
       "id": "irOut",
       "name": "IR Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
     },
     {
       "id": "ac",
@@ -131,7 +133,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "100-240 V AC"
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
     },
     {
       "id": "hdmi1",
@@ -149,5 +151,6 @@
     }
   ],
   "weightKg": 34.1,
-  "depthMm": 88.4
+  "depthMm": 88.4,
+  "powerW": 308
 }
