@@ -1,0 +1,272 @@
+{
+  "id": "sony-hxcu-fb70",
+  "family": "control",
+  "domain": "image",
+  "manufacturer": "Sony",
+  "model": "HXCU-FB70 (CCU fibre opticalCON DUO)",
+  "pictogram": "control",
+  "status": "verified",
+  "rackU": 1.5,
+  "weightKg": 6.5,
+  "description": "CCU pour HXC-D70 via CA-FB70. Montage standard opticalCON DUO ; le kit HKC-LC02 remplace cette prise par une LEMO. Hauteur physique 1,5 U ; deux U entières réservées dans la vue baies.",
+  "aliases": [
+    "HXCU-FB70",
+    "Sony HXCU-FB70",
+    "FB70 CCU"
+  ],
+  "sources": [
+    {
+      "url": "https://pro.sony/s3/cms-static-content/operation-manual/4445034111.pdf",
+      "document": "Sony, HXCU-FB70 Operating Instructions 4-445-034-11 (1), p. 5, 9–13, 32–34",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://pro.sony/en_PR/pdf/products/camera-control-unit/hxcu-fb70",
+      "document": "Sony, HXCU-FB70 product sheet, Connector options",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "camera",
+      "name": "CAMERA",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "opticalcon",
+      "format": "OpticalCON DUO, liaison hybride vers CA-FB70 ; kit LEMO HKC-LC02 en option."
+    },
+    {
+      "id": "sdi-return1",
+      "name": "SDI RETURN 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "sdi-return2",
+      "name": "SDI RETURN 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "vbs-return1",
+      "name": "VBS RETURN 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "vbs-return2",
+      "name": "VBS RETURN 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "reference-in",
+      "name": "REFERENCE IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst / tri-level."
+    },
+    {
+      "id": "reference-out",
+      "name": "REFERENCE OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage de REFERENCE IN."
+    },
+    {
+      "id": "prompter-in",
+      "name": "PROMPTER IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "prompter-out",
+      "name": "PROMPTER OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage de PROMPTER IN."
+    },
+    {
+      "id": "sdi-out1",
+      "name": "SDI OUTPUT 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "sdi-out2",
+      "name": "SDI OUTPUT 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "sdi-out3",
+      "name": "SDI OUTPUT 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI ; affichage de repères possible."
+    },
+    {
+      "id": "sdi-out4",
+      "name": "SDI OUTPUT 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI ; affichage de repères possible."
+    },
+    {
+      "id": "component1",
+      "name": "Pr/R/R-Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante analogique / RGB selon configuration."
+    },
+    {
+      "id": "component2",
+      "name": "Y/G/Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante analogique / RGB selon configuration."
+    },
+    {
+      "id": "component3",
+      "name": "Pb/B/B-Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante analogique / RGB selon configuration."
+    },
+    {
+      "id": "vbs-out1",
+      "name": "VBS 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite."
+    },
+    {
+      "id": "vbs-out2",
+      "name": "VBS 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite."
+    },
+    {
+      "id": "pix",
+      "name": "PIX",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Moniteur analogique."
+    },
+    {
+      "id": "sync",
+      "name": "SYNC",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchronisation HD / SD."
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "svideo",
+      "name": "S-VIDEO OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "S-Video, 4 broches."
+    },
+    {
+      "id": "audio-out1",
+      "name": "AUDIO OUTPUT CH-1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie audio caméra, 0 dBu ou −20 dBu."
+    },
+    {
+      "id": "audio-out2",
+      "name": "AUDIO OUTPUT CH-2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie audio caméra, 0 dBu ou −20 dBu."
+    },
+    {
+      "id": "headset",
+      "name": "INTERCOM · casque",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5"
+    },
+    {
+      "id": "intercom",
+      "name": "INTERCOM / TALLY / PGM",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub25",
+      "format": "PROD / ENG, tally et un programme audio."
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sony-remote8",
+      "format": "Commande RCP, CCA-5."
+    },
+    {
+      "id": "trunk",
+      "name": "TRUNK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C."
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "capacityMbps": 100
+      },
+      "format": "10BASE-T / 100BASE-TX."
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100–240 V CA, 50/60 Hz ; 2,2 A max. Puissance en watts non déclarée."
+    }
+  ]
+}

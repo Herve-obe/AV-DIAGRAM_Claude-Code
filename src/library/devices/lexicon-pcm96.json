@@ -1,0 +1,134 @@
+{
+  "id": "lexicon-pcm96",
+  "family": "processing",
+  "manufacturer": "Lexicon",
+  "model": "PCM96",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.hhb.co.uk/prod/lexicon/pcm-96/",
+      "document": "HHB, fiche PCM96 (distributeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.prosoundweb.com/lexicon-pcm96-processor/",
+      "document": "ProSoundWeb, annonce PCM96",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Analog In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "inR",
+      "name": "Analog In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outL",
+      "name": "Analog Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "Analog Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "aesIn",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aesOut",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "fw1",
+      "name": "FireWire 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394"
+    },
+    {
+      "id": "fw2",
+      "name": "FireWire 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

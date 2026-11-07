@@ -1,0 +1,174 @@
+{
+  "id": "focusrite-octopre-platinum",
+  "family": "processing",
+  "manufacturer": "Focusrite",
+  "model": "OctoPre Platinum",
+  "pictogram": "processor",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/preampli/octo-pre-platinum/",
+      "document": "Novelty, fiche OctoPre Platinum (loueur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/OctoPre_User_Guide-MultiLanguage.pdf",
+      "document": "Focusrite Platinum OctoPre, manuel : E/S analogiques et cartes numériques optionnelles — pages PDF 2, 3, 5, 6, 7, 9",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/Pin-Belegung_Focusrite_9-pin.pdf",
+      "document": "Novelty — Octo Pre Platinum : Platinum OctoPre and ISA 428 / ISA 430 MK II",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/octopredigoperation.pdf",
+      "document": "Novelty — Octo Pre Platinum : OctoPre Digital Option Operation Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/octoprediginstall.pdf",
+      "document": "Novelty — Octo Pre Platinum : OCTOPRE DIGITAL OPTION INSTALLATION GUIDE",
+      "accessed": "2026-10-19"
+    },
+    {
+      "document": "Retour utilisateur du tableau lot audio 01, 28 octobre 2026 : Configuration 220–240 V / IEC C14 sans carte, dimensions 480 × 44 × 265 mm, poids 3,2 kg ; 30 W déclarés sans document justificatif.",
+      "accessed": "2026-10-28"
+    },
+    {
+      "url": "https://fael-downloads-prod.focusrite.com/customer/prod/s3fs-public/downloads/octopre-user-guide-multilanguage1.pdf",
+      "document": "Focusrite Platinum OctoPre User Guide multilingue, page imprimée 11 / PDF 11 (également FR p. 35) : 480 × 44 × 265 mm et 3,2 kg ; pas de consommation en W sur cette page",
+      "accessed": "2026-10-29"
+    },
+    {
+      "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Conserver 30 W ; dimensions et poids désormais recoupés dans le manuel Focusrite fourni.",
+      "accessed": "2026-10-29"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "Mic In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic3",
+      "name": "Mic In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic4",
+      "name": "Mic In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic5",
+      "name": "Mic In 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic6",
+      "name": "Mic In 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic7",
+      "name": "Mic In 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "mic8",
+      "name": "Mic In 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied"
+    },
+    {
+      "id": "inst1",
+      "name": "Instrument 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "inst2",
+      "name": "Instrument 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14 ; version 220–240 V confirmée par l’utilisateur ; ne pas utiliser la variante 100–120 V"
+    }
+  ],
+  "aliases": [
+    "Octo Pre Platinum",
+    "OCTOPRE",
+    "Focusrite Octo Pre Platinum"
+  ],
+  "description": "Préamplificateur analogique 8 canaux avec compresseur/limiteur. Huit entrées micro XLR P48, entrées/sorties ligne sur DB25, deux entrées instrument alternatives aux canaux 1–2. Configuration confirmée par l’utilisateur : 220–240 V, IEC C14, aucune carte numérique. Manuel Focusrite, p. 11 : 480 × 44 × 265 mm (L × H × P), poids net 3,2 kg. Consommation retenue pour les budgets sur instruction utilisateur : 30 W ; cette valeur n’est pas publiée dans la page de spécifications consultée.",
+  "weightKg": 3.2,
+  "depthMm": 265,
+  "powerW": 30
+}

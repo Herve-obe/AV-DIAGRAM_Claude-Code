@@ -1,0 +1,81 @@
+{
+  "id": "ma-onpc-command-wing",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "grandMA2 onPC command wing",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/grandma2_quick_manual_onpc_solutions/key_grandma2_wing_technical_data.html",
+      "document": "MA Lighting, caractéristiques onPC command wing",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxOut1",
+      "name": "DMX Out 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut2",
+      "name": "DMX Out 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ltc",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Vers ordinateur onPC"
+    },
+    {
+      "id": "remote",
+      "name": "DC Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "pioneerdj-cdj-3000",
+  "family": "recording",
+  "manufacturer": "Pioneer DJ",
+  "model": "CDJ-3000",
+  "pictogram": "recorder",
+  "status": "verified",
+  "weightKg": 5.5,
+  "sources": [
+    {
+      "url": "https://downloads.support.alphatheta.com/manuals/dj-players/CDJ-3000/CDJ-3000_DRI1586A_manual.pdf",
+      "document": "Pioneer DJ, mode d'emploi CDJ-3000 (DRI1586A)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "outL",
+      "name": "Audio Out L/R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA (paire L/R)"
+    },
+    {
+      "id": "dig",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "usbA",
+      "name": "USB (clé, disque)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Support de musique"
+    },
+    {
+      "id": "usbB",
+      "name": "USB (ordinateur)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Contrôleur / interface audio pour logiciel DJ"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PRO DJ LINK, 1000BASE-T"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

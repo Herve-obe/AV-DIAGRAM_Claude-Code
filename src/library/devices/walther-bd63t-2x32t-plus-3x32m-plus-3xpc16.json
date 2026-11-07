@@ -1,0 +1,98 @@
+{
+  "id": "walther-bd63t-2x32t-plus-3x32m-plus-3xpc16",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "WALTHER",
+  "model": "BD63T/2x32T + 3x32M + 3xPC16",
+  "status": "community",
+  "description": "Sabot de distribution. Entrée : P17 63A tétra. Sorties : 2 x P17 32tétra + 3 x P17 16 mono + 3 x PC16 + recopie 63A tri. Protection différentielle 300mA en entrée, 30mA en sortie. Arrêt d'urgence",
+  "aliases": [
+    "BD63T/002",
+    "WALTHER BD63T/2x32T + 3x32M + 3xPC16"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/063a/bd63t-2x32t-3x32m-3xpc16/",
+      "document": "Novelty — BD63T/2x32T + 3x32M + 3xPC16",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/bd63t_certif.pdf",
+      "document": "Novelty — BD63T/2x32T + 3x32M + 3xPC16 : BD63T",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bd63t_schema.pdf",
+      "document": "Novelty — BD63T/2x32T + 3x32M + 3xPC16 : Schéma électrique",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 63A tetra",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-63-tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie P17 32tetra 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie P17 32tetra 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie P17 16 mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-16-mono"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie P17 16 mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-16-mono"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie P17 16 mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-16-mono"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 17
+}

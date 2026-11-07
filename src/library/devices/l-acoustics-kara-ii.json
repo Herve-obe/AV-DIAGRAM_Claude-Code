@@ -1,0 +1,36 @@
+{
+  "id": "l-acoustics-kara-ii",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "Kara II",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 26,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/kara-ii/",
+      "document": "L-Acoustics, page produit Kara II, spécifications",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "speakON A",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Ligne source 2 voies active, LF 8 Ω / HF 8 Ω ; Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    },
+    {
+      "id": "b",
+      "name": "speakON B",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Deux embases en parallèle d'usage (entrée ou recopie) ; la page produit ne précise pas leur câblage"
+    }
+  ]
+}

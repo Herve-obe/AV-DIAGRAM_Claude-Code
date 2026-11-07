@@ -1,0 +1,41 @@
+{
+  "id": "chauvet-colordash-accent-quad",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "COLORdash Accent Quad",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/wp-content/uploads/pdf/en/COLORDASHACCENTQUAD.pdf",
+      "document": "Chauvet Professional, fiche COLORdash Accent Quad",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Queues de câble XLR 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Queues de câble XLR 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur fixe"
+    }
+  ]
+}

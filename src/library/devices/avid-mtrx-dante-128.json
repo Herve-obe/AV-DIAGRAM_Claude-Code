@@ -1,0 +1,48 @@
+{
+  "id": "avid-mtrx-dante-128",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX 128-Channel IP Audio Dante Card",
+  "pictogram": "processor",
+  "status": "community",
+  "domain": "misc",
+  "moduleType": "avid-mtrx-card",
+  "sources": [
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Operation Guide, Part Number 9329-66264-00 REV A 04/21 (chapitre 1, chapitre 5, annexe B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.avid.com/products/pro-tools-mtrx-ii/build-your-own",
+      "document": "Avid, page Pro Tools | MTRX II Build Your Own (cartes communes MTRX et MTRX II)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.musicnetwork.ch/en/brands/avid/avid-pro-tools-mtrx/pro-tools-mtrx-128-channel-ip-audio-dante-card",
+      "document": "Music Network (distributeur Avid en Suisse) : double Ethernet switch ou redondant, câbles et connecteurs Cat5/6",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "pri",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 128,
+      "format": "Dante ou AES67, 128 canaux à 44,1/48 kHz, 32 à 192 kHz ; switch ou redondant ; SRC bidirectionnel"
+    },
+    {
+      "id": "sec",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 128,
+      "format": "Second port : switch ou Dante secondaire"
+    }
+  ],
+  "description": "Carte Dante 128 canaux avec SRC. Deux ports Ethernet confirmés par un distributeur (Cat5/6, donc RJ45) ; type de connecteur non écrit par Avid. Consommation non publiée."
+}

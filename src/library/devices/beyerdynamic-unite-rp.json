@@ -1,0 +1,57 @@
+{
+  "id": "beyerdynamic-unite-rp",
+  "family": "wireless",
+  "manufacturer": "beyerdynamic",
+  "model": "Unite RP",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.105,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/47261-UniteRPSpecSheet.pdf",
+      "document": "beyerdynamic, fiche Unite RP (via Full Compass)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/traduction-simultanee/recepteur/unite-rp/",
+      "document": "Novelty — Unite RP",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10526-4345-unite-rp.pdf",
+      "document": "Novelty — Unite RP : Unite RP",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "DECT",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Antenne : câble du casque"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 (casque ou boucle d'induction)"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Charge"
+    }
+  ],
+  "aliases": [
+    "BEYERDYNAMIC Unite RP"
+  ],
+  "powerW": 2.5
+}

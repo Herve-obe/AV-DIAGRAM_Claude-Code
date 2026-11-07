@@ -1,0 +1,86 @@
+{
+  "id": "elation-proteus-hybrid",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "Proteus Hybrid",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 700,
+  "weightKg": 38,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/proteus-hybrid",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-asservis-eclairage/lyres/proteus-hybrid/",
+      "document": "Novelty — Proteus Hybrid",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/elation_proteus-hybrid_ft.pdf",
+      "document": "Novelty — Proteus Hybrid : Proteus Hybrid",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_proteus-hybrid_manuel.pdf",
+      "document": "Novelty — Proteus Hybrid : Proteus Hybrid",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/elation_proteus-hybrid_gobos.pdf",
+      "document": "Novelty — Proteus Hybrid : Gobos",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_proteus-hybrid_dmx.pdf",
+      "document": "Novelty — Proteus Hybrid : DMX Channels",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM ; émetteur-récepteur sans fil E-FLY intégré ; IP65"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 IP65 ; Art-Net, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 IP65"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé, 100-240 V"
+    }
+  ],
+  "aliases": [
+    "Elation Proteus Hybrid"
+  ]
+}

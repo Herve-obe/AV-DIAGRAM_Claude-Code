@@ -1,0 +1,104 @@
+{
+  "id": "sennheiser-sr-2020-d",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SR 2020-D",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.manualowl.com/m/Sennheiser/SR-2020-D/Manual/718822",
+      "document": "Sennheiser, brochure systèmes de visite 2020-D (archive de manuels)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://duvall.be/product/sennheiser-tourguide-transmitter-sr-2020-d/",
+      "document": "Duvall, fiche SR 2020-D (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/traduction-simultanee/regie-emetteur/sr-2020-d/",
+      "document": "Novelty — SR 2020-D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/2185-4500-eu-doc-tourguide-system-conformite.pdf",
+      "document": "Novelty — SR 2020-D : EU_DOC_Tourguide_System",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3967-4500-sr2020-d-manual-05-2019-fr.pdf",
+      "document": "Novelty — SR 2020-D : SR2020-D_Manual",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/256-4500-sr-2020-d-fiche-technique.pdf",
+      "document": "Novelty — SR 2020-D : SR_2020-D_fiche-technique",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR-3F symétrique, micro/ligne, fantôme 48 V commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 mm (écoute)"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "ant",
+      "name": "Sortie antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Antenne télescopique fournie"
+    },
+    {
+      "id": "ac",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC 300 mA, bloc NT 2-3"
+    },
+    {
+      "id": "data",
+      "name": "Interface de service (DATA)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Interface de service ; connecteur non précisé par le manuel"
+    }
+  ],
+  "aliases": [
+    "SR2020D",
+    "SENNHEISER SR 2020-D"
+  ],
+  "powerW": 3.6
+}

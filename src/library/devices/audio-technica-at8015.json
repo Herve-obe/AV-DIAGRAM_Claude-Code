@@ -1,0 +1,26 @@
+{
+  "id": "audio-technica-at8015",
+  "family": "capture",
+  "manufacturer": "Audio-Technica",
+  "model": "AT8015",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://docs.audio-technica.com/all/0001_0193_03_AT8015_Submittal.pdf",
+      "document": "Audio-Technica, fiche de prescription AT8015",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique canon (line + gradient), fantôme 11 à 52 V ou pile AA 1,5 V, XLRM 3 points intégré"
+    }
+  ]
+}

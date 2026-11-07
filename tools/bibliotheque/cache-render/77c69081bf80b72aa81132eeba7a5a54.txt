@@ -1,0 +1,1577 @@
+Skip to content
+
+🚀Release: We have released version 5.2.2, please check out the release notes (software, firmware) for more details.
+
+Green-GO Intercom System Documentation
+BPX Beltpack X
+ 
+Type to start searching
+Home
+Software Guide
+Device Manuals
+Scripting
+Green-GO Talk
+Community
+Website
+Device Manuals
+Wired User Stations
+MCX Rack Station
+MCXD Desktop Station
+MCXEXT Rack Extension
+MCXDEXT Desktop Extension
+WPX Wall Panel X
+BPX Beltpack X
+BPXSP Beltpack X Sport
+Wireless DECT Devices
+Wireless 5G/4G Device
+Interfaces
+Accessories
+Switches
+Table of contents
+What's in the box?
+Device overview
+Front panel
+Back panel
+The user interface
+Channel display & status
+UI modes
+Encoder assignments
+Status screen
+Extended channel view
+The channel Flexlist
+The setup menu
+User
+Audio
+Device
+Connection
+Config
+Network
+Info
+Reset the memory cache
+Technical specifications
+General
+Audio inputs
+Audio outputs
+Downloads
+Firmware
+Other
+The wired BPX Beltpack X¶
+
+The Green-GO BPX Beltpack X provides direct access to up to 32 high quality, low latency channels via a full-color OLED display; indicating the name, volume level, and status of a channel. With 4 associated push-buttons controlling each channel's screen features; Talk, Listen or Call depending on which function is selected. Two rotary multifunction encoders are located symmetrically on either side of the beltpack, making it suitable for left- and right-handed users. The device's buttons and display functions can be configured and provide direct access to up to four channels, with further channels accessible within an extended menu.
+
+Audio is presented through a XLR4M HEADSET connector (handset not included). Powered exclusively via PoE through a network cable connected to the devices Ethercon port.
+
+Sharing most features with its WBPX Beltpack X siblings, making the switch between wired and wireless devices easy. If you need bigger buttons and a little bit more weather protection, check out the sports version; available as wired and wireless versions.
+
+What's in the box?¶
+
+The Green-GO wired BPX Beltpack X comes with the following package contents:
+
+1 x Green-GO wired BPX Beltpack X
+1 x Printed quickstart guide
+Optional Green-GO accessories
+Device overview¶
+Front panel¶
+
+2 Multifunction Encoders
+The Encoder Left and Encoder Right allow for rotation and clicks. The encoders primary use is adjusting volumes, navigating the setup menu, and more.
+4 Buttons
+The four Buttons are primarily used to operate a channel. The function of buttons can vary, depending on context.
+4 RGB Status LED
+The device or channel status is presented by four powerful RGB LEDs.
+1 OLED Display
+The high contrast, color OLED display presents channel and device information clearly but compactly.
+1 Belt Clip
+A robust spring-steel belt clip secures the beltpack on your belt or clothing.
+Back panel¶
+
+1 PoE Powered 10/100 Mbps Neutrik EtherCON
+The 10/100 Mbps Neutrik EtherCON serves as power input and connection to the local network.
+1 Neutrik XLR4-Male Headset Connector
+It's possible to connect any headset to the XLR4M headset connector. The built-in amplifier supports an impedance range from 32 Ω to 600 Ω.
+1 Internal Piezo Buzzer
+The internal piezo buzzer can transmit incomming alarm signals like the alert call or cue signals.
+The user interface¶
+
+The user interface of the wired BPX Beltpack X is configurable and allows direct access and control over up to four channels.
+
+The four buttons and status LED provide easy access to multiple functions, depending on the device's configuration. Two multifunction encoders on each side of the device allow you to navigate menus and control various functions.
+
+ Tip: Please check our quickstart guide to find a detailed description on how to use or quickly set up this device in a Green-GO system.
+
+Channel display & status¶
+
+The color OLED display shows information about the user's channels and communication states.
+
+Channel Status
+The red X indicates that the Green-GO Engine can't reach any remote device for the configured channel target.
+Channel ID
+This shows the ID of the channel. Usually, a user has access to channels 1 through 32.
+Display Name
+The name or display name of the channel target (user or group).
+Channel Color
+The channel color is defined by the channel target (user or group).
+Channel Volume
+The current channel volume level.
+Channel status colors
+UI modes¶
+
+The user interface of the Green-GO wired BPX Beltpack X is configurable and allows direct access and control over up to four channels.
+
+Depending on the configuration, the display structure and functions of the Buttons and status LED change:
+
+2-Channel UI
+3-Channel UI
+4-Channel UI
+
+The 2-channel mode provides comfortable access to the user's first two channels.
+
+The two buttons next to each channel either enable the  talk or  call function.
+
+The status LED next to each button indicates the respective channel states.
+
+Encoder assignments¶
+
+The Encoder Left and Encoder Right can be rotated and clicked (pulled towards the display). These actions are used to control volumes, and menus, answer voice communications, or switch screens.
+
+The click is always used to either answer an incoming voice communication or to acknowledge a selection or function. The action of both encoder's rotation is configurable in the Device setup menu:
+
+Main Volume: Rotate to control the device's main level.
+Program Audio: Rotate to control the volume of the program audio channel.
+Sidetone: Rotate to control the volume of the side tone.
+
+With the device's default configuration, both Encoder rotations control the device's main level.
+
+Status screen¶
+
+The status screen primarily gives access to the extended channel view and displays the device's user.
+
+The status screen can be called up by clicking either the Encoder Left or Encoder Right (pulled towards the display).
+
+The extended channel view can be accessed by pressing Button 4 while holding the Encoder.
+
+The status information in the middle of the screen shows the user of the device. However, should the user view the status screen while receiving voice communications on any channel (answering voice communications), the status section in the middle of the screen will display the activated channel(s).
+
+Extended channel view¶
+
+The extended channel view gives full control over all 32 channels. It can be accessed either by pressing Button 4 using the 3-channel UI-mode or viewing the status screen.
+
+The four Buttons adjust their functions according to the color indicators:
+
+Button 1 enables the talk function.
+Button 2 allows for channel volume control together with either Encoder.
+Button 3 enables the call function.
+Button 4 exits the extended channel view.
+
+Rotating one of either Encoder will scroll through the channel list. The channel shown in the middle of the display is the current selection. This is indicated by the volume level beneath the channel name and by the colored channel number.
+
+In the extended channel view, only one channel can be controlled at once. It is, however, possible to enable the talk function on multiple channels.
+
+Channel states set in the extended channel view get cleared when exiting.
+
+The channel Flexlist¶
+
+The Flexlist is a new UI concept introduced with Green-GO 5.
+
+The function essentially enables the user to quickly change a channel's communication target to a set of 20 pre-defined destinations (users and groups). This allows comfortable and easy control over more channels on devices with limited user interfaces, like this beltpack.
+
+The Flexlist items can be added and configured either directly in a device's User Settings setup menu or with the help of the software.
+
+The Flexlist is enabled on a per-channel basis by configuring a channel's Channel Mode to Flex. Doing so on multiple channels gives independent access to the same Flexlist.
+
+Setup Menu Guide
+Changing a channel's destination¶
+
+Changing a channel's destination with the Flexlist is done by pressing a one-handed button combination:
+
+Activate the channel's talk function by pressing its Button.
+Click one of either Encoder Left or Encoder Right towards the display.
+
+This brings up the Flexlist selection menu. The list can be scrolled with the encoders. A new channel destination is chosen by either clicking the Encoder or pressing Button 1.
+
+ Warning: Please be aware that muting a channel with Channel Mode: Flex can't be directly muted. Muting these channels can only be done through the extended channel view.
+
+The setup menu¶
+
+The setup menu allows local access to almost all user and device configuration properties. All changes in the setup menu are done and stored locally on the device but can be easily synced back into the configuration file using the Green-GO Control software. These settings are also persistent on the device unless overwritten.
+
+The wired BPX Beltpack X features two methods to access the setup menu:
+
+Method A	Method B
+	
+Pull the Encoder Left+Encoder Right up towards the display.	Press Button 1+Button 3 after pulling and holding either the Encoder Left or Encoder Right up towards the display.
+
+Navigating the setup menu is primarily done by the rotation and click of the Encoder Left or Encoder Right
+
+The Encoder rotation moves a selection or changes a selected value.
+A click of the Encoder or Button 1 enters submenus and allows to change values.
+A submenu can be exited either with the menu entry Exit or Cancel, or alternatively with a click of the Button 2 button.
+
+Access to the setup menu can be restricted by configuring the security options of a configuration file or user with the help of the Green-GO Control software. For example, the user may be asked to enter the Tech Pincode before access is given to submenus depeding on security configurations.
+
+Setup Menu Guide
+User¶
+
+The User submenu holds settings for user-relevant configuration like:
+
+The user that is linked to the device.
+The channel configuration.
+Configuration for the four special channels.
+The user's Flexlist.
+General user settings (color, communication settings, etc.).
+Script management.
+Select User¶
+AVAILABLE USERS¶
+
+This menu lists all available users of the active configuration file.
+
+ Setup menu:
+User ▸ Select User
+
+ Option range:
+Defined by configuration file
+
+ Default:
+Unset
+
+Channels¶
+Channel 1 ‒ 32¶
+
+The following is available for each of the 32 channels.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Assign
+
+ Option range:
+None, Groups, Users
+
+ Default:
+Unset
+
+LISTEN OVERRIDE¶
+
+This option allows defining a separate listen source for the channel. The user talks to the primary target assigned but listens to the group defined here.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Listen Override
+
+ Option range:
+None, Groups
+
+ Default:
+Unset
+
+LISTEN¶
+
+A channel can be enabled or muted independently from the set channel Level. The Listen state of the channel can be easily toggled on or off without losing the set channel level.
+
+This option may be influenced by the Listen Mode.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Listen
+
+ Option range:
+Muted, On
+
+ Default:
+On
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Level
+
+ Option range:
+-40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+TALK MODE¶
+
+The Talk Mode defines how a channel can be  activated for vox communications with the talk button.
+
+Mode	Description
+Disabled	This option disables the talk function on the channel.
+Momentary	This option allows for a push-to-talk style of operation.
+Latch	This option acts as a toggle: The first press enables talk, the second press disables talk.
+Latch/Mom	This option allows for a mixed operation. Short presses act as a latch toggle, and long button presses allow for momentary communication.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Talk Mode
+
+ Option range:
+Disabled, Momentary, Latch, Latch/Mom
+
+ Default:
+Latch/Mom
+
+PRIORITY¶
+
+A channel can be configured with one of three priorities. For example, when a higher priority channel transmits, communication with lower priority can be attenuated (Priority Dim).
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Priority
+
+ Option range:
+Low, Normal, High
+
+ Default:
+Normal
+
+LISTEN MODE¶
+
+The Listen state defines a muted or unmuted channel. The Listen Mode options define if and how the channel's listen state is toggled.
+
+Mode	Description
+Listen On Talk	This mode enables the Listen state of the channel (unmutes), as soon as the  talk is active on the channel. Disabling talk on the channel will disable the Listen state again (mute).
+No Listen On Talk	An active talk doesn't affect the Listen state of the channel, but the channel respects the Isolate function.
+Ignore Isolate	This mode ignores the Isolate function.
+Fixed	This mode doesn't change the Listen state.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Listen Mode
+
+ Option range:
+Listen On Talk, No Listen On Talk, Isolate Ignore, Fixed
+
+ Default:
+Listen On Talk
+
+CALL MODE¶
+
+This option defines if call signals can be sent and/or received on the channel.
+
+Mode	Description
+Disabled	This option disables all call signals on the channel.
+Recv Only	Call signals can be received on the channel.
+Send Only	Call signals can be sent to the channel.
+Send/Recv	This mode enables the sending and receiving of call signals on the channel.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Call Mode
+
+ Option range:
+Disabled, Recv Only, Send Only, Send/Recv
+
+ Default:
+Send/Recv
+
+CUE MODE¶
+
+The Cue Mode defines how an incomming cue signal is handled.
+
+Mode	Description
+Normal	This option allows for a three-staged cue signal with a manual ready reply.
+Auto Answer	This option automatically answers incomming cue signals on this channel, reducing the effective stages to ready and go.
+Ignore	This option ignores incomming cue signals. Cue signals sent may be answered by other devices.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Cue Mode
+
+ Option range:
+Normal, Auto Answer, Ignore
+
+ Default:
+Normal
+
+CHANNEL MODE¶
+
+The Channel Mode allows for simple automation that enables complex channel configurations. Things like automatic replies and GPIO control can be configured here.
+
+Mode	Description
+Normal	This is the default setting. The channel takes no action when voice communication is received.
+No Reply	This option disables the Answer/Reply function on the channel.
+Reply Direct	With this option set, the Answer/Reply function will only reply to the last active member of a group.
+Auto Reply	This option automatically activates the talk function on the channel as soon as voice communication is received.
+Autotalk	This option automatically opens the channel as soon as the enabled input becomes active.
+Solo Talk	This option automatically disables the talk function on any other channel when the talk function of the channel itself is set to active.
+Flex	This option enables the user's Flexlist on the channel and allows for a quick channel destination change.
+
+The Flexlist is called by pressing a channel Button and pulling up either Encoder Left or Encoder Right.
+GPIO Control	This sends a special GPIO control data packet on the channel and disables the talk function for the channel.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Channel Mode
+
+ Option range:
+Normal, No Reply, Reply Direct, Auto Reply, Autotalk, Solo Talk, Flex, GPIO Control
+
+ Default:
+Normal
+
+Special Channels¶
+
+Each user has, in addition to the 32 normal channels, four additional special channels.
+
+The temporary duplex channel for private communications.
+The passive program audio channel.
+The passive annoucements channel.
+The passive emergency channel.
+Direct¶
+
+The direct channel is temporary and functions bi-directional.
+
+The channel gets created as soon as any remote user who isn't configured on any of the 32 channels contacts the user linked to this device (voice communication, call signal, cue signal).
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Direct ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+PRIORITY¶
+
+A channel can be configured with one of three priorities. For example, when a higher priority channel transmits, communication with lower priority can be attenuated (Priority Dim).
+
+ Setup menu:
+User ▸ Special Channels ▸ Direct ▸ Priority
+
+ Option range:
+Low, Normal, High
+
+ Default:
+Normal
+
+CUE MODE¶
+
+The Cue Mode defines how an incomming cue signal is handled.
+
+Mode	Description
+Normal	This option allows for a three-staged cue signal with a manual ready reply.
+Auto Answer	This option automatically answers incomming cue signals on this channel, reducing the effective stages to ready and go.
+Ignore	This option ignores incomming cue signals. Cue signals sent may be answered by other devices.
+
+ Setup menu:
+User ▸ Special Channels ▸ Direct ▸ Cue Mode
+
+ Option range:
+Normal, Auto Answer, Ignore
+
+ Default:
+Normal
+
+Program¶
+
+The channel for program audio is passive (listen-only), meaning the user can only receive audio on this channel. The channel receives audio through a group, has independent volume control, and supports dimming when the user receives an audio signal on any of his 32 regular channels.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Special Channels ▸ Program ▸ Assign
+
+ Option range:
+None, Groups
+
+ Default:
+None
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Program ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+DIM¶
+
+The program audio channel can automatically attenuate as soon as any of the other channels is active.
+
+ Setup menu:
+User ▸ Special Channels ▸ Program ▸ Dim
+
+ Option range:
+Mute, -24 dB ‒ -6 dB, Off (6 dB increments)
+
+ Default:
+Off
+
+Announce¶
+
+The announcement channel is a passive channel (listen-only) that transmits with a higher priority as regular channels. Incoming audio transmissions on this channel can attenuate communication on any of the regular channels, depending on the Priority Dim setting.
+
+The announcement channel receives its audio through a group. To send audio to this channel, the configured group needs to be assigned to one of the 32 regular channels of a user.
+
+ Warning: Please configure talking access to the source group of the announcement channel carefully, as any communication through the group may interrupt ongoing user communication.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Special Channels ▸ Announce ▸ Assign
+
+ Option range:
+None, Groups
+
+ Default:
+None
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Announce ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+Emergency¶
+
+The emergency channel is a passive channel (listen-only) that transmits with the highest priority. Incoming audio transmissions on this channel will mute any communication on any of the 32 regular channels.
+
+The emergency channel receives its audio through a group. To send audio to this channel, the configured group needs to be assigned to one of the 32 regular channels of a user.
+
+ Warning: Please configure talking access to the source group of the emergency channel carefully, as any communication through the group may interrupt ongoing user communication.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Special Channels ▸ Emergency ▸ Assign
+
+ Option range:
+None, Groups
+
+ Default:
+None
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Emergency ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+Flexlist¶
+
+This menu allows customizing the user's Flexlist.
+
+ADD¶
+
+The entry - Add - at the bottom of the menu allows you to add up to 20 users or groups. Selecting an existing assignment enables one to change or remove it.
+
+ Setup menu:
+User ▸ Settings ▸ Flexlist
+
+ Option range:
+Add, Flexlist entries
+
+ Default:
+Unset
+
+Settings¶
+
+The user settings configure global communication functions. These settings affect communication on all channels and are not adjustable on a per-channel basis.
+
+ACTIVE TIME¶
+
+The Active Time defines a delay that keeps the channel  active after the last voice transmission has been received. The main use for this is to give users a chance to identify the transmitting channel before it goes inactive again.
+
+ Warning: This setting directly influences some functions on a Green-GO engine like Answer/Reply by setting the state Answer to active.
+
+ Setup menu:
+User ▸ Settings ▸ Active Time
+
+ Option range:
+0.5 sec, 1 sec, 2 sec, 5 sec, 30 sec, 60 sec, 120 sec
+
+ Default:
+5 seconds
+
+REPLY MODE¶
+
+The Reply Mode defines the behavior of the Answer/Reply function.
+
+Mode	Description
+Disabled	This option disables the Answer/Reply function.
+Active	This option enables the Answer/Reply function to answer all currently ongoing voice communication.
+Last	This option enables the Answer/Reply function to only answer the last incoming transmission.
+
+ Setup menu:
+User ▸ Settings ▸ Reply Mode
+
+ Option range:
+Disabled, Active, Last
+
+ Default:
+Last
+
+ISOLATE¶
+
+This function mutes all channels that do not have an  active talk enabled. Channels will be unmuted as soon as no channel has the talk function enabled.
+
+This function is helpful to control incoming audio in hectic systems. It limits the received audio to active user communications.
+
+ Setup menu:
+User ▸ Settings ▸ Isolate
+
+ Option range:
+Disabled, Enabled
+
+ Default:
+Disabled
+
+TONE LEVEL¶
+
+The Tone Level defines the loudness for all alarm signals like cue signals and the Alert Call.
+
+ Setup menu:
+User ▸ Settings ▸ Tone Level
+
+ Option range:
+Mute, -24 dB ‒ 0 dB (6 dB increments)
+
+ Default:
+-12 dB
+
+ALERT TONE¶
+
+This settings defines the alarm signal type for things like Alert Call or cue signals.
+
+ Setup menu:
+User ▸ Settings ▸ Alert Tone
+
+ Option range:
+Fast, Slow, Pulse
+
+ Default:
+Fast
+
+ROOM¶
+
+This setting assigns a user to a room, available in the configuration file.
+
+ Setup menu:
+User ▸ Settings ▸ Room
+
+ Option range:
+None, Available Rooms
+
+ Default:
+Unset
+
+ROOM DIM¶
+
+The Room Dim option configures if and how the audio signals from the configured room should be attenuated. The output affected by this setting is defined by the option Room Output.
+
+ Setup menu:
+User ▸ Settings ▸ Room Dim
+
+ Option range:
+Mute, -24db ‒ -6 dB (6 dB increments), Off
+
+ Default:
+Off
+
+ROOM OUTPUT¶
+
+The option Room Output defines the hardware output on which audio signals from the configured room will be attenuated. The attenuation itself is configured by the setting Room Dim.
+
+ Setup menu:
+User ▸ Settings ▸ Room Output
+
+ Option range:
+Both, 1, 2
+
+ Default:
+Both
+
+PRIORITY DIM¶
+
+The property Priority Dim defines the amount channels with lower priority that get attenuated as soon as audio is transmitted on higher priority channels. Each of the 32 generic channels can have one of three priorities.
+
+Activating this setting and defining channel priorities will help to manage user stations with high communication traffic.
+
+ Warning: This setting does not affect the behavior of the special channels Emergency or Program Audio.
+
+ Setup menu:
+User ▸ Settings ▸ Priority Dim
+
+ Option range:
+Mute, -24 dB ‒ -6 dB (6 dB increments), Off
+
+ Default:
+Off
+
+POPUP¶
+
+This setting defines if and what popups are shown to the user.
+
+Mode	Description
+System Only	This is the bare minimum. System popups for system events like joining a configuration, etc., will always be shown.
+Cue	This option will show popups for system notifications and incoming cue signals.
+Cue+Direct	This option enables popups for system events, cue signals, and communications on the special channel for temporary direct communication.
+Cue/Direct/Extended	This option enables popups for system events, cue signals, direct channel communications, and communications on channels that are not directly available through the UI (hidden).
+
+ Setup menu:
+User ▸ Settings ▸ Popup
+
+ Option range:
+System Only, Cue, Cue+Direct, Cue/Direct/Extended
+
+ Default:
+Cue/Direct/Extended
+
+CUE TIMEOUT¶
+
+This setting defines the hold-time for an outgoing GO cue signal.
+
+ Setup menu:
+User ▸ Settings ▸ Cue Timeout
+
+ Option range:
+0.5 sec, 1 sec, 2 sec, 5 sec, 30 sec, 60 sec, 120 sec
+
+ Default:
+5 sec
+
+Script¶
+Loaded Script¶
+
+This menu shows the currently loaded script and allows to load any script stored in the configuration.
+
+AVAILABLE SCRIPTS¶
+
+This submenu is available by clicking on the currently loaded script and lists all scripts stored in the configuration file.
+
+ Setup menu:
+User ▸ Scripts ▸ Script Name
+
+ Option range:
+Available scripts
+
+ Default:
+Unset
+
+Status¶
+
+This property shows the current status of the currently loaded script.
+
+Audio¶
+
+The Audio submenu holds all settings relevant for the user's audio input and outputs.
+
+On a Green-GO beltpack, only one audio profile is available. The audio profile stores all settings relevant to the user's audio input and output(s).
+
+SIDETONE¶
+
+The property Sidetone configures the amount of the user's input fed back into its headset output(s). When activated, the sidetone is never routed to a device's front speaker to prevent signal feedback.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Sidetone
+
+ Option range:
+Mute, -40 dB ‒ 0 dB (1 dB increments)
+
+ Default:
+0 dB
+
+GAIN¶
+
+The input Gain configures the amplification of the input signal. The range of this setting depends on the input source chosen.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Gain
+
+ Option range:
+Headset: +30 dB ‒ +60 dB (1 dB increments)
+
+ Default:
+none
+
+COMPRESSOR¶
+
+This is a simple Compressor that can be enabled with this setting. It reduces the dynamic range of the input signal by attenuating the louder parts of the signal, making it less likely to transmit distorted audio. When this setting is enabled, the timings of the compressor can be adjusted.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Compressor
+
+ Option range:
+Off, Fast, Med, Slow
+
+ Default:
+Med
+
+GATE THRESHOLD¶
+
+The option Gate Threshold defines the threshold for the noise-gate to open the microphone. Audio signals below the configured threshold will be cut out and not transmitted.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Gate Threshold
+
+ Option range:
+-50 dB ‒ -25 dB (5 dB increments), Off
+
+ Default:
+-50 dB
+
+GATE HOLD¶
+
+The property Gate Hold defines the hold time after which the noise-gate closes again after being activated once.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Gate Hold
+
+ Option range:
+Short, Medium, Long, Xlong
+
+ Default:
+Medium
+
+SOURCE¶
+
+The menu Source allows selecting one of the device's audio inputs or a test tone as the user's input source.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Source
+
+ Option range:
+Headset, 375Hz, 1kHz, 1.2kHz, 2.5kHz
+
+ Default:
+Headset
+
+HEADSET BIAS¶
+
+The option Headset Bias allows to supply up to 2.5 V of power to an electret or condenser microphone on a headset connected to the XLR4 connector.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Headset Bias
+
+ Option range:
+Off, On
+
+ Default:
+Off
+
+OUTPUT LIMITER¶
+
+The option Output Limiter allows configuring a simple limiter for the user's audio output(s). The limiter attenuates the loudest part of the user's channel mix to prevent potential signal clipping.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Output Limiter
+
+ Option range:
+-24 dB ‒ -6 dB (6 dB increments), Off
+
+ Default:
+-6 dB
+
+MAIN LEVEL¶
+
+The Main Level acts as a master for all device outputs. It allows to quickly lower or raise all the output levels simultaneously.
+
+ Setup menu:
+Audio ▸ Audio Profile ▸ Main Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+Device¶
+
+The Device submenu holds settings for the device-relevant configuration.
+
+UI MODE¶
+
+The setting 'UI Mode' controls the layout of the user interface.
+
+Mode	Description
+2 Channel	This mode gives direct access to  talk and the  call function on the user's first two channels.
+3 Channel	This mode makes the user's first three channels directly available ( talk) and gives direct access to either the extended channel view or to the  call function.
+4 Channel	This mode gives direct access to the  talk function of the user's first four channels.
+
+ Tip: A more detailed description for the available UI-modes and the respective button assignments can be found here.
+
+ Setup menu:
+Device ▸ Device Settings ▸ UI Mode
+
+ Option range:
+2 Channel, 3 Channel, 4 Channel
+
+ Default:
+2 Channel
+
+ENC LEFT¶
+
+This setting allows configuring the action of the rotation for Encoder Left.
+
+Action	Description
+Disabled	The encoder's rotation has no function.
+Main Volume	The encoder's rotation controls the device's main volume.
+Program	The encoder's rotation controls the volume for the program audio channel.
+Sidetone	The encoder's rotation controls the volume for the sidetone.
+Channel 1 ‒ 4	The encoder's rotation controls the volume for a specific channel.
+
+ Setup menu:
+Device ▸ Device Settings ▸ Enc Left
+
+ Option range:
+Disabled, Main Volume, Program, Sidetone, Channel 1, Channel 2, Channel 3, Channel 4
+
+ Default:
+Main Volume
+
+ENC RIGHT¶
+
+This setting allows configuring the action of the rotation for Encoder Right.
+
+Action	Description
+Disabled	The encoder's rotation has no function.
+Main Volume	The encoder's rotation controls the device's main volume.
+Program	The encoder's rotation controls the volume for the program audio channel.
+Sidetone	The encoder's rotation controls the volume for the sidetone.
+Channel 1 ‒ 4	The encoder's rotation controls the volume for a specific channel.
+
+ Setup menu:
+Device ▸ Device Settings ▸ Enc Right
+
+ Option range:
+Disabled, Main Volume, Program, Sidetone, Channel 1, Channel 2, Channel 3, Channel 4
+
+ Default:
+Main Volume
+
+EXTENDED¶
+
+The property Extended defines if the user is able to access the extended channel view or not.
+
+ Setup menu:
+Device ▸ Device Settings ▸ UI Mode
+
+ Option range:
+Disabled, Enabled
+
+ Default:
+Enabled
+
+BUZZER¶
+
+The property Buzzer controls if the built-in piezo speaker transmits alarm tones for an alert call or cue signal.
+
+ Setup menu:
+Device ▸ Device Settings ▸ Buzzer
+
+ Option range:
+Disabled, Enabled
+
+ Default:
+Enabled
+
+FLIP¶
+
+The property Flip defines the orientation of the color OLED display.
+
+Option	Description
+No Flip	The display is oriented normally.
+Main	This option flips the following screens by 180°:
+Main screen showing the channels.
+Status screen.
+Extended channel view.
+
+Menu	This option flips the setup menu by 180°.
+Both	This option flips all screens by 180°.
+
+ Setup menu:
+Device ▸ Device Settings ▸ Flip
+
+ Option range:
+No Flip, Main, Menu, Both
+
+ Default:
+No Flip
+
+LED INTENSITY¶
+
+The option LED Intensity controls the brightness of the status and button backlights.
+
+ Setup menu:
+Device ▸ Device Settings ▸ LED Intensity
+
+ Option range:
+Min, 1 ‒ 6 (1 increments), Max
+
+ Default:
+4
+
+LED TIMEOUT¶
+
+The option LED Timeout defines if the status and button backlights of the device will be controlled by the Screen Timeout.
+
+ Setup menu:
+Device ▸ Device Settings ▸ LED Timeout
+
+ Option range:
+Disabled, Enabled
+
+ Default:
+Disabled
+
+SCREEN TIMEOUT¶
+
+The option Screen Timeout configures a timer that turns off all displays when the device is idle. Any user action or communication received will restart the timer and reactivate the displays.
+
+ Setup menu:
+Device ▸ Device Settings ▸ Screen Timeout
+
+ Option range:
+Always On, 1 Minute, 10 Minutes, 1 Hour, 10 Hours
+
+ Default:
+1 Hour
+
+Connection¶
+
+The connection menu allows changing the connection mode used by the Green-GO Engine. This allows connecting an engine to either a local or a remote network.
+
+Local connection mode
+Direct IP connection mode
+Cloud ID connection mode
+
+ Notice: Selecting one of the above modes will change the menu layout.
+
+Mode¶
+Local¶
+
+This is the default connection mode, allowing for communication with the local network.
+
+This mode doesn't need any configuration. Instead, devices will start to communicate as soon as they are in the same local network and members of the same configuration file.
+
+Direct IP¶
+
+The direct IP connection mode allows connecting the Green-GO Engine to a remote Green-GO BridgeX. This mode will require correct routing and potential port forwarding in case a NAT is used on the receiving end.
+
+This mode is mainly thought out to be used for locally routed connections like a connection via WiFi access points.
+
+ Tip: Please check out the guide on bridging connections to find out more about this connection mode.
+
+IP ADDRESS¶
+
+The IP address defines the external or public IPv4 address of the remote Green-GO BridgeX.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ IP Address
+
+ Option range:
+IPv4 address-space
+
+ Default:
+Unset
+
+UDP PORT¶
+
+The UDP port defines the target bridge port for the remote connection.
+
+ Tip: Keep in mind that each bridge port can accept and serve only one connection.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ UDP Port
+
+ Option range:
+Auto, 00000 - 99999
+
+ Default:
+Auto
+
+PASSWORD¶
+
+This defines the authentication password needed for a connection to a bridge port.
+
+ Notice: The password is always eight characters long!
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Password
+
+ Option range:
+8 characters: A - Z, a - z, 0 - 9, +, -
+
+ Default:
+Unset
+
+SEND BUFFER¶
+
+The send buffer is used to buffer potential jitter on the outgoing connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Send Buffer
+
+ Option range:
+10 ms, 20 ms, 30 ms, 40 ms
+
+ Default:
+10 ms
+
+RECEIVE BUFFER¶
+
+The receive buffer is used to buffer potential jitter on the incoming connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Receive Buffer
+
+ Option range:
+20 ms - 200 ms (10 ms increments)
+
+ Default:
+20 ms
+
+DIAGNOSTICS¶
+
+The diagnostics menu contains a number of useful statistics for the incoming and outgoing connections.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Diagnostics
+
+Cloud ID¶
+
+The cloud ID connection mode provides an easy way to connect your devices over the internet utilizing the hole punching technique to establish a direct connection through firewalls or routers using NAT.
+
+ Warning: This service is not live.
+
+The cloud ID is provided and generated by a hosted service and can be used to connect and dynamically assign multiple clients. This will be available in the future as a service.
+
+ Tip: Check out our guide on bridge connections to find out more about the cloud ID connection mode.
+
+ID¶
+
+The eight-character cloud ID defines the session for the connection and is needed to authenticate with the cloud service.
+
+ Tip: The cloud ID is generated by the public cloud service.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ ID
+
+ Option range:
+8 characters: A - Z, a - z, 0 - 9, +, -
+
+ Default:
+Unset
+
+PASSWORD¶
+
+The eight-character password is needed to authenticate with the cloud service.
+
+ Tip: The cloud ID is generated by the public cloud service.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Password
+
+ Option range:
+8 characters: A - Z, a - z, 0 - 9, +, -
+
+ Default:
+Unset
+
+SEND BUFFER¶
+
+The send buffer is used to buffer potential jitter on the outgoing connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Send Buffer
+
+ Option range:
+10 ms, 20 ms, 30 ms, 40 ms
+
+ Default:
+10 ms
+
+RECEIVE BUFFER¶
+
+The receive buffer is used to buffer potential jitter on the incoming connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Receive Buffer
+
+ Option range:
+20 ms - 200 ms (10 ms increments)
+
+ Default:
+20 ms
+
+DIAGNOSTICS¶
+
+The diagnostics menu contains a number of useful statistics for the incoming and outgoing connections.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Diagnostics
+
+Config¶
+
+The Config submenu allows loading configurations onto the device without the use of the Green-GO Control software.
+
+ Tip: The currently used configuration can be viewed in the Info submenu.
+
+Join Config¶
+
+This submenu lists all active configurations in a local network. However, the device's configuration currently being used will not be shown.
+
+AVAILABLE CONFIGURATIONS¶
+
+Clicking on any entry will bring up a confirmsdfation screen. Pressing the option Join will load the configuration onto the device.
+
+ Setup menu:
+Config ▸ Join Config ▸ Configuration Name
+
+Factory Default¶
+
+This setting allows loading the factory default configuration file.
+
+LOAD¶
+
+By clicking the Load option, the factory default configuration file will be loaded.
+
+ Setup menu:
+Config ▸ Factory Default ▸ Load
+
+Network¶
+
+The Network submenu allows configuring the network interface of the device. The configuration supports two modes (IPv4):
+
+Dynamic: Yes¶
+
+Dynamic: Yes autoconfigures the network interface, either listening to a local DHCP server or autoconfiguring a 169.254.0.0/16 IPv4 address.
+
+Dynamic: No¶
+
+Dynamic: No allows for manual network configuration.
+
+ADDRESS¶
+
+The option Address defines the private IPv4 address of the device.
+
+ Setup menu:
+Network ▸ Dynamic: No ▸ Address
+
+ Option range:
+0.0.0.0 - 255.255.255.255
+
+ Default:
+Unset
+
+NETMASK¶
+
+The option Netmask defines the local subnet of the device.
+
+ Setup menu:
+Network ▸ Dynamic: No ▸ Netmask
+
+ Option range:
+0.0.0.0 - 255.255.255.255
+
+ Default:
+Unset
+
+GATEWAY¶
+
+The option Gateway defines the local network gateway.
+
+ Setup menu:
+Network ▸ Dynamic: No ▸ Gateway
+
+ Option range:
+0.0.0.0 - 255.255.255.255
+
+ Default:
+Unset
+
+Info¶
+
+The Info submenu makes the most important configuration settings available to view in one place. Some of the options available provide tools for debugging the device or system.
+
+Name¶
+
+This option shows the device name.
+
+ Setup menu:
+Info ▸ Name
+
+Config¶
+
+This submenu shows the information regarding the current configuration file used by the device.
+
+The provided information can be helpful when debugging problems regarding devices that are out of sync.
+
+NAME¶
+
+This option shows the name of the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Name
+
+STAMP¶
+
+This option shows the timestamp of the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Stamp
+
+SAMPLE RATE¶
+
+This option shows the sample rate used by the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Sample Rate
+
+MULTICAST IP¶
+
+This option shows the currently set multicast IP of the configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Multicast IP
+
+ID¶
+
+This option shows the unique ID of the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ ID
+
+IP¶
+
+This submenu shows the current IP address of the device and allows to ping a remote IPv4 target to verify the current network connection.
+
+PING¶
+
+This option allows defining an IPv4 target to be pinged.
+
+ Setup menu:
+Info ▸ IP ▸ Ping
+
+PACKETS¶
+
+This option allows initiating the ping script, sending out ten consecutive pings to the defined target. Also, this option acts as a total packets counter, showing how many packets have been sent.
+
+ Tip: Activating this option again will restart the script.
+
+ Setup menu:
+Info ▸ IP ▸ Packets
+
+Packet Statistics¶
+Lost
+Counter showing the numbers of packets lost during the last run of the ping script.
+Avg
+The average response time recorded for the last run of the ping script.
+Min
+The minimum response time recorded for the last run of the ping script.
+Max
+The maximum response time recorded for the last run of the ping script.
+
+ Warning: On a local Green-GO network, the response times shouldn't exceed 1ms!
+
+Firmware¶
+
+This option displays the device's firmware version.
+
+ Setup menu:
+Info ▸ Firmware
+
+Serial¶
+
+This option displays the device's serial number.
+
+ Setup menu:
+Info ▸ Serial
+
+Reset To Defaults¶
+
+This submenu allows resetting the complete device or parts of the configuration back to the factory defaults.
+
+RESET NETWORK¶
+
+This option allows resetting the network configuration back to the factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reset Network
+
+RESET DEVICE¶
+
+This option allows resetting the device configuration back to the factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reset Device
+
+RESET AUDIO¶
+
+This option allows resetting the audio configuration back to the factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reset Audio
+
+RELOAD USER¶
+
+This option allows reloading the current user and all its settings.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reload User
+
+FACTORY RESET¶
+
+This option allows resetting the complete device back to factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Factory Reset
+
+Reset the memory cache¶
+
+Normally, is not necessary to reset a device's memory cache. However, it may help to resolve issues when problems occur after a firmware update or a general device reset is required.
+
+Resetting a device's memory cache is done in the forced Boot Mode:
+
+Power down your device.
+While powering up your device, press and hold Button 4.
+You can release the button after the device booted into the forced Boot Mode.
+Press and hold the button identified in step two again for approximately 30 seconds.
+While resetting, devices with a display will show a countdown.
+Release the button after the countdown has run down.
+Restart your device.
+
+ Attention: Clearing the memory cache of your device will always result in the loss of any local device configuration and return the device to the Factory Default configuration file.
+
+Technical specifications¶
+General¶
+
+Connectors
+ (Neutrik):
+1 x XLR4M
+1 x RJ45 etherCON (10/100 Mbps)
+
+User controls
+:
+4 x Buttons
+1 x Encoder Left
+1 x Encoder Right
+
+Display
+:
+1 x 0,95" OLED screen (color)
+
+Display resolution
+:
+64 x 96 pixel, 15 x 22 mm (H/W)
+
+Power inputs
+:
+Power over Ethernet: IEEE 802.3af 48-56 Vdc
+
+Power usage
+:
+2 Watt typical, 5 Watt max
+
+Dimensions
+ (H/W/D):
+46 x 95 x 119 mm
+
+Weight
+:
+261 g
+
+Environmental
+:
+Ambient temperature: 0° ‒ +55° C
+
+Audio inputs¶
+Headset connector¶
+
+Connector
+ (Neutrik):
+XLR4M (pin 1 & 2)
+
+Type
+:
+Unbalanced
+
+Bias power
+:
+Max. 2.5 V
+
+Amplification range
+:
++30 dB ‒ +60 dB
+
+Noise
+:
+-70 dBu ‒ -55 dBu
+
+Wired Latency
+:
+Headset to headset: ~10 ms
+
+Wireless DECT Latency
+:
+Headset to headset: ~22 ms (one wireless hop)
+
+Audio outputs¶
+Headset connector¶
+
+Connector
+ (Neutrik):
+XLR4M (pin 3 & 4)
+
+Nominal level
+:
+0 dBu
+
+Max output
+:
++20 dBU
+
+Impedance
+:
+120 Ω
+
+Downloads¶
+ Firmware¶
+ Latest firmware (ZIP archive)
+ Firmware archive
+ Other¶
+ Technical drawings (ZIP archive)
+ CE-Certificate (PDF)
+July 3, 2026
+ 
+February 1, 2021
+ 
+Chad Phelps, Henk-Jan Blok, Koen Versantvoort, Timo Toups
+ Back to top
+Copyright © 2018 - 2026 Green-GO by Evenution

@@ -1,0 +1,124 @@
+{
+  "id": "tc-electronic-m6000-mkii",
+  "family": "processing",
+  "domain": "sound",
+  "pictogram": "processor",
+  "manufacturer": "TC Electronic",
+  "model": "M6000 MkII",
+  "status": "community",
+  "description": "Processeur mutli-effets et réverbération, avec licence Mastering Stéréo (MD3, MD4), télécommande Icon, carte analogique et AES",
+  "aliases": [
+    "TC6000",
+    "TC-ELECTRONIC M6000 MkII"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/multi-effets/m6000-mkii/",
+      "document": "Novelty — M6000 MkII",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tc-electronic_m6000mkii_algorithms-manuel.pdf",
+      "document": "Novelty — M6000 MkII : Algorithms manuel",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/tc-electronic_m6000mkii_certificat.pdf",
+      "document": "Novelty — M6000 MkII : M6000 MkII",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tc-electronic_m6000mkii_daw_integration_english.pdf",
+      "document": "Novelty — M6000 MkII : DAW integration",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tc-electronic_m6000mkii_manuel.pdf",
+      "document": "Novelty — M6000 MkII : M6000 MkII",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/tc-electronic_m6000mkii_mastering_preset_specifications.pdf",
+      "document": "Novelty — M6000 MkII : Presets specifications",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/tc-electronic_m6000mkii_presets.pdf",
+      "document": "Novelty — M6000 MkII : Presets list",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes",
+      "name": "AES/EBU E/S (DB-25)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 16,
+      "format": "8 entrées + 8 sorties AES/EBU, câble épanoui 4 XLR mâles + 4 XLR femelles fourni"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "75 Ω ou haute impédance"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "pedal",
+      "name": "Pédale / GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 mm, time code pour cuelist"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mb/s vers TC Icon / Remote CPU"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V auto"
+    }
+  ],
+  "portStatus": "pending",
+  "powerW": 45
+}

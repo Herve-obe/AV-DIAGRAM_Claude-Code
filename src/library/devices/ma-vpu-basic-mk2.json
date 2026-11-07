@@ -1,0 +1,68 @@
+{
+  "id": "ma-vpu-basic-mk2",
+  "family": "videoSwitcher",
+  "manufacturer": "MA Lighting",
+  "model": "VPU basic MK2",
+  "pictogram": "switcher",
+  "status": "community",
+  "weightKg": 15,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/gestion-d-images/regie-complete/vpu-basic-mk2/",
+      "document": "Novelty, fiche VPU basic MK2 (loueur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ma-lighting_vpu-plus-mk2_manuel.pdf",
+      "document": "Novelty — VPU Basic MK2 : VPU Basic MK2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/ma-lighting_vpu-plus-mk2_ft.pdf",
+      "document": "Novelty — VPU Basic MK2 : VPU Basic MK2",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "DVI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dvi2",
+      "name": "DVI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vga",
+      "name": "VGA Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "eth",
+      "name": "Réseau MA",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "300 W"
+    }
+  ],
+  "aliases": [
+    "VPU",
+    "MA LIGHTING VPU Basic MK2"
+  ]
+}

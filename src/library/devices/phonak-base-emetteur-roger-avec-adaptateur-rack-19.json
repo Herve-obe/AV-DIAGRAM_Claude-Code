@@ -1,0 +1,82 @@
+{
+  "id": "phonak-base-emetteur-roger-avec-adaptateur-rack-19",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Phonak",
+  "model": "Base Emetteur Roger avec Adaptateur Rack 19″",
+  "status": "verified",
+  "description": "Emetteur 2,4 GHz avec Adaptateur Rack 19\"",
+  "aliases": [
+    "PHONAK/TX",
+    "Phonak Base Emetteur Roger avec Adaptateur Rack 19″"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/base-emetteur-roger-avec-adaptateur-rack-19/",
+      "document": "Novelty — Base Emetteur Roger avec Adaptateur Rack 19″",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/10370-4476-manuel-fr-roger-phonak-1.pdf",
+      "document": "Novelty — Base Emetteur Roger avec Adaptateur Rack 19″ : Manuel_fr",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.hhb.co.uk/wp-content/uploads/027-3014-02_Datasheet_Roger_BaseStation_VA.pdf",
+      "document": "Phonak, Roger BaseStation Technical Data 027-3014-02 V2.1, copie du distributeur HHB",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.phonak-communications.com/en/wp-content/uploads/sites/31/2022/10/Roger-Earpiece-System-User-Guide.pdf",
+      "document": "Phonak Communications, Roger Earpiece System User Guide",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inBal",
+      "name": "Entrée symétrique XLR / jack 6,35",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Balanced Audio IN, embase combo ; nominal +4 dBu (0 dBu selon le guide Audiopole), max +20 dBu"
+    },
+    {
+      "id": "in35",
+      "name": "Entrée asymétrique 3,5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Mini-jack 3,5, mono ou stéréo ; nominal -27 dBu, max 0 dBu ; prioritaire sur l'entrée symétrique"
+    },
+    {
+      "id": "rf",
+      "name": "Émission Roger 2,4 GHz",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Liaison Roger 2,4 GHz à saut de fréquence, 100 mW, vers les oreillettes Roger ; antenne vissée en face avant"
+    },
+    {
+      "id": "usb",
+      "name": "USB-B (service)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Maintenance uniquement"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 V 0,5 A (marquage face arrière) ; bloc 100-240 V vers 5,3 V DC 4 A fourni"
+    }
+  ],
+  "weightKg": 0.488,
+  "powerW": 0.225
+}

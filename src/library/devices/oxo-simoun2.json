@@ -1,0 +1,46 @@
+{
+  "id": "oxo-simoun2",
+  "family": "dmxDistribution",
+  "manufacturer": "OXO",
+  "model": "Simoun 2",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "PC16A"
+    },
+    {
+      "id": "acOut",
+      "name": "Départs gradués",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "PC16A"
+    }
+  ]
+}

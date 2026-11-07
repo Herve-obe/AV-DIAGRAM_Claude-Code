@@ -1,0 +1,114 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { createProject } from '../model/project'
+import { useSaveFolder } from '../store/saveFolderStore'
+import { useProject } from '../store/projectStore'
+import { backupName, backupsToDelete, startBackups, writeBackup } from './backups'
+
+const fs = vi.hoisted(() => ({ mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn(), writeTextFile: vi.fn() }))
+vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => true }))
+vi.mock('@tauri-apps/plugin-fs', () => fs)
+vi.mock('@tauri-apps/api/path', () => ({
+  join: async (...parts: string[]) => parts.join('/'),
+  dirname: async (p: string) => p.slice(0, p.lastIndexOf('/')),
+}))
+
+describe('sauvegardes tournantes', () => {
+  it('nomme les sauvegardes dans l\'ordre chronologique', () => {
+    expect(backupName('concert', new Date(2026, 9, 10, 14, 5, 3))).toBe('concert_2026-10-10_14-05-03.avd')
+  })
+  it('ne garde que les plus récentes, sans toucher aux autres fichiers', () => {
+    const names = [
+      'concert_2026-10-10_14-00-00.avd', 'concert_2026-10-10_14-10-00.avd', 'concert_2026-10-10_14-05-00.avd',
+      'concert-2_2026-10-10_14-00-00.avd', 'notes.txt', 'concert.avd',
+    ]
+    expect(backupsToDelete(names, 'concert', 2)).toEqual(['concert_2026-10-10_14-00-00.avd'])
+    expect(backupsToDelete(names, 'concert', 10)).toEqual([])
+  })
+})
+
+describe('écriture et reprise des sauvegardes', () => {
+  beforeEach(() => {
+    vi.resetAllMocks()
+    fs.mkdir.mockResolvedValue(undefined)
+    fs.readDir.mockResolvedValue([])
+    fs.remove.mockResolvedValue(undefined)
+    fs.writeTextFile.mockResolvedValue(undefined)
+    useSaveFolder.setState({ dir: '/projets', projectFiles: {}, backups: true, backupEvery: 1, backupCount: 10, lastBackup: null, lastError: null })
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 9, 13, 12, 0, 0))
+    vi.stubGlobal('window', { setInterval, clearInterval })
+  })
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('retente après une erreur de disque, sans nouvelle modification du projet', async () => {
+    const p = createProject('Concert')
+    fs.writeTextFile.mockRejectedValueOnce(new Error('Disque absent'))
+    const stop = startBackups(() => p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    expect(useSaveFolder.getState().lastError).toBe('Disque absent')
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    expect(useSaveFolder.getState().lastBackup).not.toBeNull()
+    expect(useSaveFolder.getState().lastError).toBeNull()
+    await vi.advanceTimersByTimeAsync(60_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    stop()
+  })
+
+  it('respecte l’intervalle après réussite et sauvegarde la version modifiée', async () => {
+    let p = createProject('Concert')
+    const stop = startBackups(() => p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    p = { ...p, name: 'Concert modifié' }
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(2)
+    expect(JSON.parse(fs.writeTextFile.mock.calls[1][1]).name).toBe('Concert modifié')
+    stop()
+  })
+
+  it('ne lance pas deux sauvegardes automatiques pendant une écriture lente', async () => {
+    let finish!: () => void
+    fs.writeTextFile.mockImplementationOnce(() => new Promise<void>((resolve) => { finish = resolve }))
+    const stop = startBackups(() => createProject('Concert'))
+    await vi.advanceTimersByTimeAsync(120_000)
+    expect(fs.writeTextFile).toHaveBeenCalledTimes(1)
+    finish()
+    await vi.advanceTimersByTimeAsync(0)
+    expect(useSaveFolder.getState().lastBackup).not.toBeNull()
+    stop()
+  })
+
+  it('isole deux projets homonymes, y compris si leurs identifiants ne diffèrent que par la casse', async () => {
+    await writeBackup({ ...createProject('Concert'), id: 'a' })
+    await writeBackup({ ...createProject('Concert'), id: 'A' })
+    expect(fs.writeTextFile.mock.calls[0][0]).toContain('/Save Back Up/project-61/')
+    expect(fs.writeTextFile.mock.calls[1][0]).toContain('/Save Back Up/project-41/')
+  })
+
+  it('garde le même dossier et le même préfixe après renommage et ne marque pas le fichier principal comme enregistré', async () => {
+    const p = createProject('Concert')
+    useProject.setState({ project: p, saved: false })
+    await writeBackup(p)
+    await vi.advanceTimersByTimeAsync(60_000)
+    await writeBackup({ ...p, name: 'Nouveau nom' })
+    expect(fs.writeTextFile.mock.calls[0][0].slice(0, -24)).toBe(fs.writeTextFile.mock.calls[1][0].slice(0, -24))
+    expect(useProject.getState().saved).toBe(false)
+  })
+
+  it('la onzième sauvegarde supprime seulement la plus ancienne quand dix sont gardées', async () => {
+    const p = { ...createProject('Concert'), id: 'a' }
+    const base = 'project-61'
+    const old = Array.from({ length: 10 }, (_, n) => backupName(base, new Date(2026, 9, 12, 12, n, 0)))
+    const current = backupName(base, new Date())
+    fs.readDir.mockResolvedValue([...old, current, 'notes.txt'].map((name) => ({ name, isFile: true })))
+    expect(await writeBackup(p)).toBe(true)
+    expect(fs.remove).toHaveBeenCalledExactlyOnceWith(`/projets/Save Back Up/${base}/${old[0]}`)
+  })
+})
+

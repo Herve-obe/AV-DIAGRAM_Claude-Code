@@ -1,0 +1,46 @@
+{
+  "id": "audio-technica-at8615",
+  "family": "passive",
+  "domain": "sound",
+  "pictogram": "patch",
+  "manufacturer": "Audio-Technica",
+  "model": "AT8615",
+  "status": "verified",
+  "description": "Embase de table câblée pour microphone col de cygne : entrée XLR 3 points femelle et sortie XLR 3 points mâle. À distinguer du support mécanique AT8601.",
+  "aliases": [
+    "029681",
+    "Audio Technica AT8615"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/accessoires-sonorisation/microphones-pieds/at8615/",
+      "document": "Novelty — AT8615",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://docs.audio-technica.com/us/at8615_submit.pdf",
+      "document": "Audio-Technica — AT8615 Microphone Desk Stand, entrée XLRF et sortie XLRM",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "xlr-in",
+      "name": "Microphone In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR 3 points femelle",
+      "level": "mic"
+    },
+    {
+      "id": "xlr-out",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR 3 points mâle",
+      "level": "mic"
+    }
+  ]
+}

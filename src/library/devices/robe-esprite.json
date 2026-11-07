@@ -1,0 +1,102 @@
+{
+  "id": "robe-esprite",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "ESPRITE",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 28.2,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_651.pdf",
+      "document": "Robe lighting, fiche produit ESPRITE",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-asservis-eclairage/esprite/",
+      "document": "Novelty — Esprite",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10809-4190-651.pdf",
+      "document": "Novelty — Esprite : 651",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5732-4190-user-manual-reap.pdf",
+      "document": "Novelty — Esprite : User_manual_REAP",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/226-4190-user-manual-robin-t1-esprite-lightmaster.pdf",
+      "document": "Novelty — Esprite : User_manual_Robin_T1_Esprite_LightMaster",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/4469-4190-user-manual-robin-esprite-lightmaster-rear.pdf",
+      "document": "Novelty — Esprite : User_manual_Robin_Esprite_LightMaster_Rear",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in3",
+      "name": "DMX In (XLR3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out (XLR3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "ArtNet, MA Net, MA Net2, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Recopie Ethernet ; switch Epass intégré (en option)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1"
+    }
+  ],
+  "aliases": [
+    "Robe Esprite"
+  ]
+}

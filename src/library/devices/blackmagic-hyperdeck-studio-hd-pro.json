@@ -1,0 +1,151 @@
+{
+  "id": "blackmagic-hyperdeck-studio-hd-pro",
+  "family": "recording",
+  "manufacturer": "Blackmagic Design",
+  "model": "HyperDeck Studio HD Pro",
+  "pictogram": "recorder",
+  "status": "verified",
+  "domain": "image",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/hyperdeckstudio/techspecs/W-HYD-13",
+      "document": "Blackmagic Design, fiche technique HyperDeck Studio HD Pro (W-HYD-13)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI jusqu'à 6G, 16 canaux audio intégrés"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI jusqu'à 6G"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI jusqu'à 6G"
+    },
+    {
+      "id": "mon",
+      "name": "SDI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI monitoring"
+    },
+    {
+      "id": "hdmiin",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 8 canaux audio"
+    },
+    {
+      "id": "hdmiout",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "8 canaux audio intégrés"
+    },
+    {
+      "id": "tcin",
+      "name": "Timecode In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "tcout",
+      "name": "Timecode Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "refin",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level ou black burst"
+    },
+    {
+      "id": "refout",
+      "name": "Reference Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "rsin",
+      "name": "RS-422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande"
+    },
+    {
+      "id": "rsout",
+      "name": "RS-422 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "6,35 mm"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 Gb/s"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.0"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation interne 100-240 V"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points, alimentation externe ou batterie"
+    }
+  ]
+}

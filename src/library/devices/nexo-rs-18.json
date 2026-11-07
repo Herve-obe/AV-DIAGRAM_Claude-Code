@@ -1,0 +1,58 @@
+{
+  "id": "nexo-rs-18",
+  "family": "speaker",
+  "domain": "sound",
+  "pictogram": "speaker",
+  "manufacturer": "NEXO",
+  "model": "RS 18",
+  "status": "verified",
+  "description": "RS18 : subwoofer double 18 pouces ; 105 kg avec poignées. Le manuel Rev01 indique deux NL4, une ancienne brochure quatre NL4 : panneau de la génération du parc à confirmer.",
+  "aliases": [
+    "RS18",
+    "NEXO RS 18"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-grave/rs-18/",
+      "document": "Novelty — RS 18",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nexo_rs18_ft.pdf",
+      "document": "Novelty — RS 18 : RS18",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nexo_rs18_manuel.pdf",
+      "document": "Novelty — RS 18 : RS18",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/RS-System-Manual-Rev01.pdf",
+      "document": "NEXO RS System Manual Rev01, pp. 8 et 59",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 ; 1± HP côté panneau, 2± HP opposé"
+    },
+    {
+      "id": "link",
+      "name": "Recopie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 en parallèle de l'entrée"
+    }
+  ],
+  "weightKg": 105,
+  "depthMm": 732
+}

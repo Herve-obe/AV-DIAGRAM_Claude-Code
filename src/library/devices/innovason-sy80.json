@@ -1,0 +1,48 @@
+{
+  "id": "innovason-sy80",
+  "family": "console",
+  "manufacturer": "Innovason",
+  "model": "SY80",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://en.audiofanzine.com/digital-mixer/innovason/Sy80/user_reviews/r.32907.html",
+      "document": "Audiofanzine, avis SY80",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.10kused.com/used/innovason-sy80/",
+      "document": "10kused, annonce SY80",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mixbox",
+      "name": "Mix-Box",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 104,
+      "format": "Rack audio local, 8 emplacements de cartes (sorties UM-8PO : 8 XLR analogiques ou AES)"
+    },
+    {
+      "id": "stage",
+      "name": "Liaison stagebox",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 64,
+      "format": "Stagebox / DIO, EtherSound 100 Mb/s en option"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation redondante"
+    }
+  ]
+}

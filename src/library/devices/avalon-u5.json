@@ -1,0 +1,110 @@
+{
+  "id": "avalon-u5",
+  "family": "capture",
+  "manufacturer": "Avalon",
+  "model": "U5",
+  "pictogram": "di",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://thomann.ae/avalon_u5_mono_dipreamp.htm",
+      "document": "Thomann, fiche U5 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/accessoires-sonorisation/microphones-di/u5/",
+      "document": "Novelty — U5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/hr_avalonLit_U5.pdf",
+      "document": "Novelty — U5 : U5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/hr_avalonLit_U5.pdf",
+      "document": "Brochure constructeur U5, p.2 (consommation, dimensions, masse emballée).",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/6670a3857677f84c70e9086c/t/68826bd2db25db13162f5d47/1753377747412/U5_Manual.pdf",
+      "document": "Avalon Design, U5 manual (PDF hébergé par Avalon)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://manuals.plus/asin/B0002GL024",
+      "document": "manuals.plus, copie du manuel U5 (face arrière : embase IEC)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inst",
+      "name": "Instrument In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument",
+      "format": "Haute impédance"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "spkIn",
+      "name": "Speaker In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "speaker",
+      "format": "Entrée HP jusqu'à 400 W"
+    },
+    {
+      "id": "outMic",
+      "name": "Output (mic)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "outLine",
+      "name": "Output (ligne)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "level": "none",
+      "format": "Sortie casque 0,5 W sur 600 ohms ; level « none » volontaire, aucune catégorie du schéma ne décrit une sortie casque"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC (selon la copie du manuel sur manuals.plus) ; alimentation toroïdale interne 100-120 V ou 230 V, 40 W max"
+    }
+  ],
+  "aliases": [
+    "AVALON U5"
+  ],
+  "powerW": 40,
+  "depthMm": 305,
+  "description": "DI/préamplificateur mono U5. Alimentation 115/230 V, 40 W max., dimensions 216 × 88 × 305 mm. La masse 5,4 kg de la brochure est emballée, elle ne doit pas être utilisée comme masse nette."
+}

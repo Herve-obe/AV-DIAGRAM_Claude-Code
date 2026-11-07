@@ -1,0 +1,122 @@
+{
+  "id": "barco-udm-4k30",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "UDM-4K30",
+  "status": "community",
+  "description": "Video projecteur 4k 27000 lumens avec berceau motorisé",
+  "aliases": [
+    "BARCO UDM-4K30"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/18-000-a-30-000-lumens/udm-4k30/",
+      "document": "Novelty — UDM-4K30",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1191-4756-barco-udm-4k30-ft-fr.pdf",
+      "document": "Novelty — UDM-4K30 : barco_udm-4k30_ft-fr",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.2"
+    },
+    {
+      "id": "hdbt",
+      "name": "HDBaseT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Quad 3G / 12G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Quad 3G / 12G-SDI"
+    },
+    {
+      "id": "sdi3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Quad 3G / 12G-SDI"
+    },
+    {
+      "id": "sdi4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Quad 3G / 12G-SDI"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "remote",
+      "name": "Wired Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "XLR"
+    },
+    {
+      "id": "dmx",
+      "name": "DMX 512",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "weightKg": 48,
+  "powerW": 2200,
+  "depthMm": 540
+}

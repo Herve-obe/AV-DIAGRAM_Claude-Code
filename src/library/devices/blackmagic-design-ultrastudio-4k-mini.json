@@ -1,0 +1,184 @@
+{
+  "id": "blackmagic-design-ultrastudio-4k-mini",
+  "family": "recording",
+  "domain": "image",
+  "pictogram": "recorder",
+  "manufacturer": "Blackmagic Design",
+  "model": "UltraStudio 4K Mini",
+  "status": "community",
+  "description": "Solution portable d’acquisition et de lecture Thunderbolt 3, acquisition à haute plage dynamique de qualité broadcast en 8 et 10 bits dans tous les formats jusqu’à 4K DCI à 60p, et une acquisition à haute plage dynamique en 12 bits dans tous les formats jusqu’à 4K DCI à 30p",
+  "aliases": [
+    "BlackMagicDesign UltraStudio 4K Mini"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/enregistreur-disque-dur/ultrastudio-4k-mini/",
+      "document": "Novelty — UltraStudio 4K Mini",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/black-magic_ultrastudio4K-mini_ft.pdf",
+      "document": "Novelty — UltraStudio 4K Mini : UltraStudio 4K Mini",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/black-magic_ultrastudio4K-mini_manuel.pdf",
+      "document": "Novelty — UltraStudio 4K Mini : UltraStudio 4K Mini",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOutA",
+      "name": "12G-SDI Out A",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOutB",
+      "name": "12G-SDI Out B",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "12G-SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0b"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0b"
+    },
+    {
+      "id": "analogY",
+      "name": "Analog video Y In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Component Y / composite"
+    },
+    {
+      "id": "analogBY",
+      "name": "Analog video BY In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Component"
+    },
+    {
+      "id": "analogRY",
+      "name": "Analog video RY In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Component"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Balanced audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioOut1",
+      "name": "Balanced audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Balanced audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Balanced audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "mic",
+      "name": "Microphone In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Switchable48V phantom"
+    },
+    {
+      "id": "phones",
+      "name": "Headphones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "remote",
+      "name": "RS-422 remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "usb",
+      "name": "USB data",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB3.1Gen1"
+    },
+    {
+      "id": "thunderbolt",
+      "name": "Thunderbolt3 host",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt3;45W host charging"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
+  "powerW": 75.3,
+  "weightKg": 1.2,
+  "depthMm": 177
+}

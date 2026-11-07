@@ -1,0 +1,98 @@
+{
+  "id": "samsung-db40",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "DB40 (40\")",
+  "pictogram": "display",
+  "status": "community",
+  "powerW": 121,
+  "sources": [
+    {
+      "url": "https://www.samsung.com/us/business/support/owners/product/db-series-digital-signage-db40e/",
+      "document": "Samsung, page support DB40E (connectique supposée identique aux autres DB-E)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "D-Sub",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RGB analogique"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D (commun avec HDMI)"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "component",
+      "name": "Composante / CVBS",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Composante (CVBS commun) ; connecteur non précisé"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle et réseau"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 50/60 Hz ; connecteur non précisé. Référence catalogue Novelty « DB40 » ; connectique de la génération Samsung DB40E (connectique supposée identique aux autres DB-E)"
+    }
+  ]
+}

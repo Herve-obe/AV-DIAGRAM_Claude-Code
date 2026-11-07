@@ -1,0 +1,41 @@
+{
+  "id": "martin-audio-le1200",
+  "family": "speaker",
+  "manufacturer": "Martin Audio",
+  "model": "LE1200",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 20.5,
+  "sources": [
+    {
+      "url": "https://www.pssl.com/products/martin-audio-le1200-2-way-reflex-stage-monitor",
+      "document": "PSSL, fiche LE1200 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/117694/martin-audio-le1200.html",
+      "document": "Martin Audio, mode d'emploi LE1200 (archive)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "spk1",
+      "name": "Speakon 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "12\" + 1,4\" ; actif (contrôleur DX1) ou passif"
+    },
+    {
+      "id": "spk2",
+      "name": "Speakon 2 (link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "En parallèle avec l'entrée (chaînage)"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "rosendahl-mif-4",
+  "family": "sync",
+  "domain": "sound",
+  "pictogram": "clock",
+  "manufacturer": "Rosendahl",
+  "model": "mif 4",
+  "status": "community",
+  "description": "Interface MIDI Timecode, ports XLR / USB / DIN / BNC",
+  "aliases": [
+    "Rosendahl mif 4"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/audio-numerique/interfaces/mif-4/",
+      "document": "Novelty — mif 4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rosendahl_mif4_manuel_en.pdf",
+      "document": "Novelty — mif 4 : mif 4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/rosendahl_mif4_certificat.pdf",
+      "document": "Novelty — mif 4 : mif 4",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ltcIn",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "LTC SMPTE 12M, XLR 3 femelle symétrique, 10 kΩ, -30 à +20 dBu"
+    },
+    {
+      "id": "ltcOut",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "LTC SMPTE 12M, XLR 3 mâle symétrique, 0 à +8 dBu"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MTC, MMC"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MTC"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "MIDI USB class compliant ; alimentation par le bus 5 V < 300 mA"
+    },
+    {
+      "id": "syncIn",
+      "name": "Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence vidéo SD ou tri-level HD, terminée en interne"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc secteur externe pour un usage sans ordinateur"
+    }
+  ],
+  "weightKg": 0.6,
+  "powerW": 1.5
+}

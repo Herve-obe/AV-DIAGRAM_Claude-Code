@@ -1,0 +1,131 @@
+{
+  "id": "shure-p10t",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "P10T",
+  "pictogram": "wireless",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/PSM1000/en-US",
+      "document": "Shure, guide d'utilisation PSM1000 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/PSM1000/en-US.pdf",
+      "document": "Shure, PSM1000 User Guide (PDF), P10T et P10R+",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Audio Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR mâle ou jack TRS 6,35 ; symétrique ou non",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "inR",
+      "name": "Audio Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR mâle ou jack TRS 6,35 ; une seule prise pour le mono",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "loopL",
+      "name": "Loop Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, relié directement à l'entrée (non affecté par le réglage d'entrée)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "loopR",
+      "name": "Loop Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, relié directement à l'entrée (non affecté par le réglage d'entrée)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 mm en façade"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Double port RJ45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Non commutée"
+    }
+  ]
+}

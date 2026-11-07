@@ -1,0 +1,37 @@
+{
+  "id": "oktava-mk-220",
+  "family": "capture",
+  "manufacturer": "Oktava",
+  "model": "MK-220",
+  "pictogram": "mic",
+  "status": "community",
+  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.oktava-shop.com/Large-diaphragm-condenser-mics/Oktava-MK-220.html",
+      "document": "Oktava Shop (revendeur), fiche MK 220",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://micpedia.com/?p=6172",
+      "document": "Micpedia, fiche MK-220 (connecteur XLR-3M)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique double membrane 28 mm, cardioïde, omni ou en 8 ; fantôme 48 V ; sensibilité > 7 mV/Pa, 200 ohms ; atténuateur -10 dB et coupe-bas",
+      "phantom": "required"
+    }
+  ]
+}

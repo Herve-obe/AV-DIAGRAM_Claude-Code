@@ -1,0 +1,53 @@
+{
+  "id": "sennheiser-sk-300-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SK 300 G3",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.huss-licht-ton.de/print_product_info.php/en/products_id/51060",
+      "document": "Huss Licht & Ton, embase jack 3,5 mm des SK G2/G3/G4 (pièce détachée)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-cdc0928f-d76f-4007-ac78-0f350cc9684a/cdc0928f-d76f-4007-ac78-0f350cc9684a.pdf",
+      "document": "Sennheiser, ew 300 G3 series Instruction manual, copie archive.org",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée micro / ligne",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Jack 3,5 mm verrouillable",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "mute",
+      "name": "Coupure externe RMS 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 2,5 mm pour l'interrupteur externe RMS 1 (manuel ew 300 G3, p. 8) ; aucun identifiant 2,5 mm au catalogue"
+    }
+  ]
+}

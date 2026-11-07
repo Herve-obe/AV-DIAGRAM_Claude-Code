@@ -1,0 +1,70 @@
+{
+  "id": "teradek-beam",
+  "family": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Beam (TX / RX)",
+  "pictogram": "wireless",
+  "status": "community",
+  "powerW": 12,
+  "sources": [
+    {
+      "url": "https://www.markertek.com/Attachments/Specifications/TERADEK/10-0571-Specifications.pdf",
+      "document": "Teradek, caractéristiques Beam (via Markertek)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txSdi",
+      "name": "TX SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "txLoop",
+      "name": "TX SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxSdi",
+      "name": "RX SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "LAN sans fil"
+    },
+    {
+      "id": "serial",
+      "name": "Série",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "7 à 17 V, 12 W"
+    }
+  ]
+}

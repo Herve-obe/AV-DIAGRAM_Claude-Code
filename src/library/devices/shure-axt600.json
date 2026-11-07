@@ -1,0 +1,120 @@
+{
+  "id": "shure-axt600",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AXT600",
+  "pictogram": "wireless",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AXT600/en-US",
+      "document": "Shure, guide d'utilisation AXT600 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/axient-axt600/",
+      "document": "Novelty — Axient AXT600",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/shure_axt600_ft.pdf",
+      "document": "Novelty — Axient AXT600 : AXT600",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/shure_axt600_manuel.pdf",
+      "document": "Novelty — Axient AXT600 : AXT600",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/homologation.pdf",
+      "document": "Novelty — Axient AXT600 : AXT600",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AXT600/en-US.pdf",
+      "document": "Shure, AXT600 Spectrum Manager User Guide (PDF)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω, actif ; bias 12 V 150 mA"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω, actif ; bias 12 V 150 mA"
+    },
+    {
+      "id": "casA",
+      "name": "Cascade RF A",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Recopie vers d'autres appareils"
+    },
+    {
+      "id": "casB",
+      "name": "Cascade RF B",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Recopie vers d'autres appareils"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PoE classe 1"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PoE classe 1"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Écoute en façade"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC, 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Cascade secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "aliases": [
+    "Axient AXT600",
+    "SHURE Axient AXT600"
+  ],
+  "powerW": 96
+}

@@ -1,0 +1,58 @@
+{
+  "id": "innovason-sy48",
+  "family": "console",
+  "manufacturer": "Innovason",
+  "model": "SY48",
+  "pictogram": "console",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://fohonline.com/articles/road-tests/innovason-sy48-digital-console",
+      "document": "FOH, test SY48",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://en.audiofanzine.com/digital-mixer/innovason/Sy48/",
+      "document": "Audiofanzine, SY48",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "localIn",
+      "name": "Entrées locales",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "channels": 48,
+      "format": "Cartes 8 E/S en face arrière (6 emplacements) ; configuration variable"
+    },
+    {
+      "id": "localOut",
+      "name": "Sorties locales",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line+4",
+      "channels": 24,
+      "format": "Cartes 8 E/S ; configuration variable"
+    },
+    {
+      "id": "stage",
+      "name": "Liaison stagebox",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 64,
+      "format": "Coaxial ou fibre (500 / 2 000 m), stagebox en option"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

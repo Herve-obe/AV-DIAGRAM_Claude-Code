@@ -1,0 +1,99 @@
+{
+  "id": "zoom-h4n-pro",
+  "family": "recording",
+  "manufacturer": "Zoom",
+  "model": "H4n Pro",
+  "pictogram": "recorder",
+  "status": "community",
+  "portStatus": "pending",
+  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.zoom.co.jp/sites/default/files/products/downloads/pdfs/E_H4nPro_0.pdf",
+      "document": "Zoom, H4n Pro Operation Manual (caractéristiques)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 : XLR symétrique 3 kΩ (-6 dBu max), jack asymétrique 470 kΩ (+2 dBu max) ; fantôme 48 V ou 24 V",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "instrument"
+        },
+        {
+          "connector": "combo",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 : XLR symétrique 3 kΩ (-6 dBu max), jack asymétrique 470 kΩ (+2 dBu max) ; fantôme 48 V ou 24 V",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "instrument"
+        },
+        {
+          "connector": "combo",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "extmic",
+      "name": "Ext Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Mini-jack stéréo, alimentation plug-in power, 2 kΩ",
+      "channels": 2
+    },
+    {
+      "id": "out",
+      "name": "Line / Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Mini-jack stéréo : ligne -10 dBu nominal (charge 10 kΩ) ou casque 20 mW + 20 mW sous 32 Ω",
+      "channels": 2
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "USB 2.0 : stockage de masse ou interface audio, alimentation par le bus possible ; type d'embase non précisé"
+    },
+    {
+      "id": "dc",
+      "name": "DC 5 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 V CC 1 A, centre positif (adaptateur Zoom AD-14) ; ou 2 piles AA"
+    }
+  ]
+}

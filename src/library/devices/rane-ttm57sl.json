@@ -1,0 +1,192 @@
+{
+  "id": "rane-ttm57sl",
+  "family": "console",
+  "manufacturer": "Rane",
+  "model": "TTM 57SL",
+  "pictogram": "console",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.bonedo.de/artikel/rane-ttm57sl/3",
+      "document": "Bonedo, test TTM57SL",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://manuals.plus/ps/asin/B000I2OIDA",
+      "document": "Manuals+, fiche TTM57SL (tiers)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/mixage/dj/ttm57sl/",
+      "document": "Novelty — TTM57SL",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rane_ttm57slquick20.pdf",
+      "document": "Novelty — TTM57SL : TTM57SL (QuickStart)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rane_ttm57slmanual22.pdf",
+      "document": "Rane TTM 57SL, manuel constructeur 2.2 — pages PDF 7, 9, 55",
+      "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/rane_ttm57sldat.pdf",
+      "document": "Rane TTM 57SL, fiche constructeur — pages PDF 2, 4",
+      "accessed": "2026-10-29"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+    },
+    {
+      "id": "aux",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "mic",
+      "name": "Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Jack 6,35 TRS symétrique",
+      "phantom": "none"
+    },
+    {
+      "id": "fxSend",
+      "name": "FX Send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2
+    },
+    {
+      "id": "fxRet",
+      "name": "FX Return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2
+    },
+    {
+      "id": "masterL",
+      "name": "Master Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "masterR",
+      "name": "Master Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3"
+    },
+    {
+      "id": "booth",
+      "name": "Booth Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 TRS symétrique"
+    },
+    {
+      "id": "outRca",
+      "name": "Output RCA",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Une prise casque stéréo 6,35 mm"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 4,
+      "format": "4 canaux vers PC + 4 depuis PC, 16 bits/44,1 kHz (8 canaux cumulés, pas 8 par sens)"
+    },
+    {
+      "id": "fs",
+      "name": "Footswitch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Secteur interne 100–240 V ; cordon IEC"
+    },
+    {
+      "id": "phonesMini",
+      "name": "Casque 3,5 mm",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Même écoute que la prise 6,35 mm ; les deux sont utilisables ensemble",
+      "channels": 2
+    }
+  ],
+  "aliases": [
+    "TTM57SL",
+    "Rane TTM57SL"
+  ],
+  "weightKg": 3.8,
+  "depthMm": 338,
+  "description": "TTM 57SL : quatre paires RCA phono/ligne commutables, sorties Main/Booth/Aux du même mix, boucle FlexFX TS et deux prises casque. USB : 4 canaux par sens, pas 8 par sens. Pas de fantôme sur l’entrée micro."
+}

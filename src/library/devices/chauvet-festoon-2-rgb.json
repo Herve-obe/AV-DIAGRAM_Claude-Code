@@ -1,0 +1,47 @@
+{
+  "id": "chauvet-festoon-2-rgb",
+  "family": "luminaire",
+  "manufacturer": "Chauvet DJ",
+  "model": "Festoon 2 RGB",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/61482-FESTOON2RGBQuickReferenceGuide.pdf",
+      "document": "Chauvet DJ, guide Festoon 2 RGB (via Full Compass)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V ; contrôleur alimentant la guirlande (data over power)"
+    },
+    {
+      "id": "string",
+      "name": "Guirlande",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sortie vers ampoules (puissance et données)"
+    }
+  ]
+}

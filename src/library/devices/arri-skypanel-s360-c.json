@@ -1,0 +1,59 @@
+{
+  "id": "arri-skypanel-s360-c",
+  "family": "luminaire",
+  "manufacturer": "ARRI",
+  "model": "SkyPanel S360-C",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1500,
+  "weightKg": 45,
+  "sources": [
+    {
+      "url": "https://www.arri.com/resource/blob/31148/f71c3385f38ee881c1e523b4b6047ef3/arri-skypanel-s360-c-data-sheet-en-sep2018-data.pdf",
+      "document": "ARRI, SkyPanel S360-C Data Sheet (sept. 2018)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM, XLR 5 points verrouillable"
+    },
+    {
+      "id": "dmx-thru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net"
+    },
+    {
+      "id": "usb",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour par clé USB ; alimente de petits appareils (500 mA / 5 V)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur (bloc d'alimentation)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sur le bloc d'alimentation externe : powerCON 32 A, 100-240 V ; tête alimentée en 54 V CC (connecteur 4 points métallique 30 A)"
+    }
+  ]
+}

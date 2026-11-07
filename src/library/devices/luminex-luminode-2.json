@@ -1,0 +1,46 @@
+{
+  "id": "luminex-luminode-2",
+  "family": "dmxDistribution",
+  "manufacturer": "Luminex",
+  "model": "LumiNode 2",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/571139-luminex-luminode-2-ethernet-to-2-port-dmx-node",
+      "document": "Full Compass, fiche LumiNode 2 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "PoE"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    }
+  ]
+}

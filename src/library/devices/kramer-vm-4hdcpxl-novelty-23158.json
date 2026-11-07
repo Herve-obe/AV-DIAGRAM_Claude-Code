@@ -1,0 +1,87 @@
+{
+  "id": "kramer-vm-4hdcpxl-novelty-23158",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Kramer",
+  "model": "VM-4HDCPxl",
+  "status": "verified",
+  "description": "Distributeur DVI 1x4",
+  "aliases": [
+    "VM4HDCPXL",
+    "KRAMER VM-4HDCPxl"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/distributeur-dvi/vm-4hdcpxl/",
+      "document": "Novelty — VM-4HDCPxl",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_vm-4hdcpxl_ft.pdf",
+      "document": "Novelty — VM-4HDCPxl : VM-4HDCPxl",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/kramer_vm-4hdcpxl_manuel.pdf",
+      "document": "Novelty — VM-4HDCPxl : VM-4HDCPxl",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dviIn",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut1",
+      "name": "DVI-D Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut2",
+      "name": "DVI-D Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut3",
+      "name": "DVI-D Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut4",
+      "name": "DVI-D Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "service",
+      "name": "Programming",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Service only"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
+  "weightKg": 2.5,
+  "depthMm": 177.8,
+  "rackU": 1
+}

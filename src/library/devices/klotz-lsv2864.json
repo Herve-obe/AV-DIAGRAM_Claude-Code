@@ -1,0 +1,108 @@
+{
+  "id": "klotz-lsv2864",
+  "family": "passive",
+  "domain": "sound",
+  "pictogram": "patch",
+  "manufacturer": "Klotz",
+  "model": "LSV2864",
+  "status": "community",
+  "description": "Boîtier de distribution IN Speakon 8 / OUT 4+2 Speakon 4",
+  "aliases": [
+    "CHS8-4/LSV2864",
+    "Klotz LSV2864"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/cablage-hp/speakon/lsv2864/",
+      "document": "Novelty — LSV2864",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/klotz_lsv2864_ft.pdf",
+      "document": "Novelty — LSV2864 : LSV2864",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.ror.ie/klotz-signal-splitter/c-10214.html",
+      "document": "ROR, fiche revendeur Klotz LSV2864",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl8",
+      "level": "speaker",
+      "format": "NL8 : jusqu'à 4 circuits HP",
+      "channels": 4
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl8",
+      "level": "speaker",
+      "format": "NL8 de recopie pour chaîner un autre boîtier",
+      "channels": 4
+    },
+    {
+      "id": "o1",
+      "name": "Out 2 pôles 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 câblé 2 pôles (1+/1-)"
+    },
+    {
+      "id": "o2",
+      "name": "Out 2 pôles 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 câblé 2 pôles (1+/1-)"
+    },
+    {
+      "id": "o3",
+      "name": "Out 2 pôles 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 câblé 2 pôles (1+/1-)"
+    },
+    {
+      "id": "o4",
+      "name": "Out 2 pôles 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 câblé 2 pôles (1+/1-)"
+    },
+    {
+      "id": "o41",
+      "name": "Out 4 pôles 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 câblé 4 pôles (1+/1-, 2+/2-)"
+    },
+    {
+      "id": "o42",
+      "name": "Out 4 pôles 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4 câblé 4 pôles (1+/1-, 2+/2-)"
+    }
+  ],
+  "weightKg": 1.5
+}

@@ -1,0 +1,250 @@
+{
+  "id": "behringer-xr12",
+  "family": "console",
+  "manufacturer": "Behringer",
+  "model": "X AIR XR12",
+  "pictogram": "console",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://drewbrashler.com/2017/behringer-xair-xr18-series-introduction-xr18/",
+      "document": "Drew Brashler, présentation de la gamme X AIR",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.thomannmusic.com/behringer_x_air_xr12.htm",
+      "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/BEXR16.pdf",
+      "document": "Behringer X AIR User Manual (XR18/X18/XR16/XR12), Callouts p. 5-6 et Specifications p. 33-35 (copie revendeur Adorama)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "line5",
+      "name": "Line In 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "line6",
+      "name": "Line In 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "line7",
+      "name": "Line In 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "line8",
+      "name": "Line In 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "line9",
+      "name": "Line In 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "line10",
+      "name": "Line In 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "line11",
+      "name": "Line In 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ],
+      "format": "Jack TRS sym./asym. 20/40 kΩ ; accepte les sources haute impédance (guitare, basse)"
+    },
+    {
+      "id": "line12",
+      "name": "Line In 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ],
+      "format": "Jack TRS sym./asym. 20/40 kΩ ; accepte les sources haute impédance (guitare, basse)"
+    },
+    {
+      "id": "mainL",
+      "name": "Main Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mainR",
+      "name": "Main Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "level": "none",
+      "format": "Jack TRS stéréo, 40 Ω"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande ; routeur Wi-Fi intégré"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-a",
+      "channels": 2,
+      "format": "Enregistrement / lecture stéréo sur clé"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (dessin des Callouts), alimentation à découpage 100-240 V, 30 W"
+    }
+  ],
+  "powerW": 30
+}

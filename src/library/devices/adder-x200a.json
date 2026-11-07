@@ -1,0 +1,100 @@
+{
+  "id": "adder-x200a",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Adder",
+  "model": "X200A",
+  "status": "verified",
+  "description": "USB keyboard, video and mouse extender with 44.1kHz digital stereo audio support and switching for two remote devices",
+  "aliases": [
+    "Adder X200A"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/x200a/",
+      "document": "Novelty — X200A",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/adder_x200_ft.pdf",
+      "document": "Novelty — X200A : X200A",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/adder_x200_mmanuel.pdf",
+      "document": "Novelty — X200A : X200A",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/adder_x200_firmaware_1-18.zip",
+      "document": "Novelty — X200A : Firmware 1.18",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "catx1",
+      "name": "To Local 1",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "Proprietary CATx KVM"
+    },
+    {
+      "id": "catx2",
+      "name": "To Local 2",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "Proprietary CATx KVM"
+    },
+    {
+      "id": "vgaOut",
+      "name": "VGA Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "usb1",
+      "name": "Keyboard USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "Mouse USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "audioOut",
+      "name": "Stereo audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm"
+    },
+    {
+      "id": "service",
+      "name": "Firmware upgrade",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj10",
+      "format": "4-way modular service socket; CAB-9DF-RJ9-2M RS-232 cable"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "2.5 mm DC jack"
+    }
+  ],
+  "weightKg": 0.43,
+  "depthMm": 75
+}

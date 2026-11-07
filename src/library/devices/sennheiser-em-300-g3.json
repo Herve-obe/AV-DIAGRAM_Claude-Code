@@ -1,0 +1,94 @@
+{
+  "id": "sennheiser-em-300-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EM 300 G3",
+  "pictogram": "wireless",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.sonovente.com/sennheiser-ew-335-g3-g-p27507.html",
+      "document": "Sonovente, contenu du kit ew 335 G3 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-078072a2-ec70-4ab5-8faa-79fb54e26244/078072a2-ec70-4ab5-8faa-79fb54e26244.pdf",
+      "document": "Sennheiser, EM 300 G3 Instruction manual, copie archive.org",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec l'émetteur"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "out",
+      "name": "AF OUT BAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3M symétrique, +18 dBu max ; en parallèle avec la sortie jack, réglage AF OUT commun",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "outUnbal",
+      "name": "AF OUT UNBAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Jack 6,35 asymétrique, +12 dBu max"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 en façade"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Wireless Systems Manager"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 350 mA, bloc NT 2-3"
+    }
+  ],
+  "powerW": 4.2
+}

@@ -1,0 +1,74 @@
+{
+  "id": "blackmagic-mini-converter-analog-to-sdi",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter Analog to SDI",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-00",
+      "document": "Blackmagic Design, fiche technique Mini Converter Analog to SDI (W-CONM-00)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vin",
+      "name": "Vidéo analogique In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "NTSC, PAL, S-Vidéo ou composantes ; connecteurs non précisés"
+    },
+    {
+      "id": "ain",
+      "name": "Audio analogique In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "channels": 2,
+      "format": "Symétrique ; connecteurs non précisés"
+    },
+    {
+      "id": "aes",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour et configuration"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ]
+}

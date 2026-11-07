@@ -1,0 +1,89 @@
+{
+  "id": "panasonic-pt-vw360",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "PT-VW360",
+  "pictogram": "projector",
+  "status": "verified",
+  "weightKg": 3.3,
+  "sources": [
+    {
+      "url": "https://na.panasonic.com/ns/300841_PT_VW360_S_4P_ctlg_PC.pdf",
+      "document": "Panasonic, catalogue PT-VW360",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "pc1",
+      "name": "Computer 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15"
+    },
+    {
+      "id": "pc2",
+      "name": "Computer 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15"
+    },
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "line-10"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "id": "analog-way-vio-4k",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Analog Way",
+  "model": "VIO 4K",
+  "status": "community",
+  "description": "Convertisseurs vidéo multi-formats",
+  "aliases": [
+    "VIO4K",
+    "ANALOG WAY VIO 4K"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/vio-4k/",
+      "document": "Novelty — VIO 4K",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/analog-way_vio-4k_ft-uk.pdf",
+      "document": "Novelty — VIO 4K : VIO 4K",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_manuel.pdf",
+      "document": "Novelty — VIO 4K : VIO 4K",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_quick-start-de.pdf",
+      "document": "Novelty — VIO 4K : Quick Start Guide (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_quick-start-fr.pdf",
+      "document": "Novelty — VIO 4K : Quick Start Guide (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_quick-start-guide-uk.pdf",
+      "document": "Novelty — VIO 4K : Quick Start Guide (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_dante-quick-start-uk.pdf",
+      "document": "Novelty — VIO 4K : Dante Quick Star",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/analog-way_vio-4k_basic-list-video-format.pdf",
+      "document": "Novelty — VIO 4K : Video Formats",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_application-note.pdf",
+      "document": "Novelty — VIO 4K : Optimizing Latency",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dpIn",
+      "name": "Input 1 DisplayPort",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "Input 2 HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "vgaIn",
+      "name": "Input 3 Universal Analog",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "sfpIn",
+      "name": "Input 4 SFP cage",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module optionnel"
+    },
+    {
+      "id": "sdiIn",
+      "name": "Input 5 SDI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI"
+    },
+    {
+      "id": "dviIn",
+      "name": "Input 6 Dual-Link DVI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmiFront",
+      "name": "Input 7 HDMI Front",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "vgaOut",
+      "name": "Universal Analog Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "sfpOut",
+      "name": "SFP cage Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module optionnel, non-MSA"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI"
+    },
+    {
+      "id": "dviOut",
+      "name": "Dual-Link DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "line",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "headphones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "usbHost",
+      "name": "USB Host",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbDevice",
+      "name": "USB Device",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "deviceSync",
+      "name": "Device Sync",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "rj45"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "tally",
+      "name": "Tally / GPO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "MCO 5 broches"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100–240 V AC"
+    }
+  ],
+  "weightKg": 6.2,
+  "powerW": 45,
+  "rackU": 2,
+  "depthMm": 381
+}

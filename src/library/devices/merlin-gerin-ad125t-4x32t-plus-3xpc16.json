@@ -1,0 +1,93 @@
+{
+  "id": "merlin-gerin-ad125t-4x32t-plus-3xpc16",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "MERLIN GERIN",
+  "model": "AD125T/4X32T+3XPC16",
+  "status": "verified",
+  "description": "Armoire de distribution sur pied. Entrée : P17 125A tri. Sorties : 4 x P17 32tri + 3 x PC16A. Protection différentielle 30mA Dimensions unitaires documentées : 65,5 × 26,5 × 51 cm (ordre d’axes non précisé par la page).",
+  "aliases": [
+    "AR125T/003",
+    "MERLIN GERIN AD125T/4X32T+3XPC16"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/ad125t-4x32t3xpc16/",
+      "document": "Novelty — AD125T/4X32T+3XPC16",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/125a/ad125t-4x32t3xpc16/",
+      "document": "Novelty : merlin-gerin-ad125t-4x32t-plus-3xpc16, descriptif propre à cette référence et caractéristiques unitaires",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Arrivée p17-125-tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "Calibre indiqué par le connecteur"
+    },
+    {
+      "id": "out1",
+      "name": "p17-32-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "out2",
+      "name": "p17-32-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "out3",
+      "name": "p17-32-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "out4",
+      "name": "p17-32-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "out5",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "out6",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "Sortie de puissance"
+    },
+    {
+      "id": "out7",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "Sortie de puissance"
+    }
+  ],
+  "weightKg": 22
+}

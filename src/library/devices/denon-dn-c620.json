@@ -1,0 +1,106 @@
+{
+  "id": "denon-dn-c620",
+  "family": "recording",
+  "manufacturer": "Denon Professional",
+  "model": "DN-C620",
+  "pictogram": "recorder",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.denonpro.com/products/dn-c620",
+      "document": "Denon Professional, page DN-C620 (produit arrêté)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.prosoundweb.com/denon-professional-now-shipping-new-dn-c620-1u-cd-player/",
+      "document": "ProSoundWeb, annonce DN-C620",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "outL",
+      "name": "Balanced Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Niveau ajustable"
+    },
+    {
+      "id": "outR",
+      "name": "Balanced Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Niveau ajustable"
+    },
+    {
+      "id": "outFix",
+      "name": "Unbalanced Out (fixe)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "outVar",
+      "name": "Unbalanced Out (variable)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "aes",
+      "name": "Digital Out AES/EBU",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU"
+    },
+    {
+      "id": "spdif",
+      "name": "Digital Out S/PDIF",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

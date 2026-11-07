@@ -1,0 +1,143 @@
+{
+  "id": "barco-hdx-w20-flex",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "HDX-W20 Flex",
+  "status": "community",
+  "description": "Vidéoprojecteur Full HD, 20 000 lumens, WUXGA, 1920 x 1200, luminosité Flex (10 000 à 20 000 lumens par incrément de 2 000 lumens)",
+  "aliases": [
+    "HDXW20FLEX",
+    "BARCO HDX-W20 Flex"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/18-000-a-30-000-lumens/hdx-w20-flex/",
+      "document": "Novelty — HDX-W20 Flex",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_manuel.pdf",
+      "document": "Novelty — HDX-W20 Flex : HDX-W20 Flex",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_Manuel-de-securite-HDX.pdf",
+      "document": "Novelty — HDX-W20 Flex : Manuel de sécurité",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_QuickStartGuide.pdf",
+      "document": "Novelty — HDX-W20 Flex : Quick Start Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/barco_hdx-w20-flex_CE-certificate.pdf",
+      "document": "Novelty — HDX-W20 Flex : HDX-W20 Flex",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi",
+      "name": "Dual-Link DVI-I",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Loop Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Loop Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / Dual HD-SDI"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T, Art-Net"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "remote",
+      "name": "Remote Control",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "XLR filaire"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232/422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "dcOut",
+      "name": "12 V / 1 A Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "200–240 V AC"
+    }
+  ],
+  "weightKg": 50,
+  "powerW": 2850
+}

@@ -1,0 +1,79 @@
+{
+  "id": "sennheiser-em-10",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EM 10",
+  "pictogram": "wireless",
+  "status": "verified",
+  "description": "Récepteur fixe XS Wireless true diversity : deux entrées d'antenne BNC, sortie symétrique XLR-3M et sortie jack 6,35 asymétrique, alimentation 12 V par bloc NT 2-3.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/SEEMXSW2A.pdf",
+      "document": "Sennheiser, XS Wireless Instruction manual (EM 10, SK 20), copie du revendeur Adorama",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "True diversity, XS Wireless"
+    },
+    {
+      "id": "antA",
+      "name": "ANT A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "50 Ω"
+    },
+    {
+      "id": "antB",
+      "name": "ANT B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "50 Ω"
+    },
+    {
+      "id": "bal",
+      "name": "Audio out balanced",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ],
+      "format": "XLR-3M symétrique, +14 dBu max ; commutateur LINE/MIC"
+    },
+    {
+      "id": "unbal",
+      "name": "Audio out unbalanced",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Jack 6,35 asymétrique, +8 dBu max"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC 300 mA, bloc NT 2-3"
+    }
+  ],
+  "powerW": 3.6
+}

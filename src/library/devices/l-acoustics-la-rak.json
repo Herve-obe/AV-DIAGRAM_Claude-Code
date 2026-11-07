@@ -1,0 +1,132 @@
+{
+  "id": "l-acoustics-la-rak",
+  "family": "amplification",
+  "manufacturer": "L-Acoustics",
+  "model": "LA-RAK",
+  "pictogram": "amp",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/LA-RAK/documents.zip",
+      "document": "L-Acoustics, archive de documentation : LA-RAK User manual",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sigIn",
+      "name": "Signal Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "pa-com",
+      "channels": 6,
+      "format": "PA-COM 19 points (6 voies analogiques)"
+    },
+    {
+      "id": "sigOut",
+      "name": "Signal Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "pa-com",
+      "channels": 6,
+      "format": "PA-COM 19 points (recopie)"
+    },
+    {
+      "id": "xlr1",
+      "name": "Out XLR 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Distribution vers les LA8"
+    },
+    {
+      "id": "xlr2",
+      "name": "Out XLR 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Distribution vers les LA8"
+    },
+    {
+      "id": "xlr3",
+      "name": "Out XLR 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Distribution vers les LA8"
+    },
+    {
+      "id": "xlr4",
+      "name": "Out XLR 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Distribution vers les LA8"
+    },
+    {
+      "id": "xlr5",
+      "name": "Out XLR 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Distribution vers les LA8"
+    },
+    {
+      "id": "xlr6",
+      "name": "Out XLR 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Distribution vers les LA8"
+    },
+    {
+      "id": "cacom1",
+      "name": "LA8 1 CA-COM",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "level": "speaker",
+      "format": "Sorties HP des 3 LA8 (CA-COM et speakON)"
+    },
+    {
+      "id": "cacom2",
+      "name": "LA8 2 CA-COM",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "level": "speaker",
+      "format": "Sorties HP des 3 LA8 (CA-COM et speakON)"
+    },
+    {
+      "id": "cacom3",
+      "name": "LA8 3 CA-COM",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ca-com",
+      "level": "speaker",
+      "format": "Sorties HP des 3 LA8 (CA-COM et speakON)"
+    },
+    {
+      "id": "acIn",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "32 A triphasé (LA-POWER)"
+    },
+    {
+      "id": "acLink",
+      "name": "AC Link Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimente un second rack"
+    }
+  ]
+}

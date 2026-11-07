@@ -1,0 +1,160 @@
+{
+  "id": "shure-ur4d",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR4D",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.rentex.com/rental-products/shure-ur4d-dual-receiver-h4/",
+      "document": "Rentex, fiche UR4D (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/549621-REG/Shure_UR4D_X1_UR4D_Dual_Diversity.html",
+      "document": "B&H, fiche UR4D (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fisheraudiovisual.com/wp-content/uploads/2018/10/Shure-UHF-R-User-Manual.pdf",
+      "document": "Shure UHF-R User Manual — copie fabricant hébergée par Fisher Audio Visual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://cdn.storm.rent/content/2020/06/Shure_UR4D_Manual.pdf",
+      "document": "Shure UHF-R Plus User Guide, 27NS14492 Rev.2, 2011 — Storm",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "2 canaux, liaisons radio avec émetteurs UHF-R"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω, bias 12 V 150 mA"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω, bias 12 V 150 mA"
+    },
+    {
+      "id": "xlr1",
+      "name": "Sortie XLR 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique électronique, +24 dBu max (-6 dBu en position Mic, -30 dB)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "xlr2",
+      "name": "Sortie XLR 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique électronique, +24 dBu max (-6 dBu en position Mic, -30 dB)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "jack1",
+      "name": "Sortie jack 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 à symétrie d'impédance, 200 Ω, +18 dBu max",
+      "level": "line+4"
+    },
+    {
+      "id": "jack2",
+      "name": "Sortie jack 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 à symétrie d'impédance, 200 Ω, +18 dBu max",
+      "level": "line+4"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Wireless Workbench"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC, 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Non commutée, chaînage de 5 UR4 maximum"
+    },
+    {
+      "id": "rfOutA",
+      "name": "RF A out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Distribution HF vers le récepteur suivant"
+    },
+    {
+      "id": "rfOutB",
+      "name": "RF B out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Distribution HF vers le récepteur suivant"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Interface ordinateur"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 en façade, 1 W sous 63 Ω"
+    }
+  ]
+}

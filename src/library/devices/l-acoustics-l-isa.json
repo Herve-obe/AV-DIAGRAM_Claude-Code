@@ -1,0 +1,102 @@
+{
+  "id": "l-acoustics-l-isa",
+  "family": "processing",
+  "domain": "sound",
+  "pictogram": "processor",
+  "manufacturer": "L-Acoustics",
+  "model": "L-ISA",
+  "status": "community",
+  "description": "Processeur audio-numérique spatial",
+  "aliases": [
+    "L-ACOUSTICS L-ISA"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/filtre-processeur/l-isa/",
+      "document": "Novelty — L-ISA",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/l-acoustics_processeur_l-isa_certificat.pdf",
+      "document": "Novelty — L-ISA : L-ISA",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_processeur_l-isa_ft2.pdf",
+      "document": "Novelty — L-ISA : L-ISA",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "madi1",
+      "name": "MADI 1 E/S optique",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 64,
+      "format": "MADI optique ; entrées 1-64 à 48 kHz ; sorties redondantes 1-64"
+    },
+    {
+      "id": "madi2",
+      "name": "MADI 2 E/S optique",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 64,
+      "format": "MADI optique ; entrées 65-96 à 48 kHz ; sorties redondantes 1-64"
+    },
+    {
+      "id": "madi3",
+      "name": "MADI 3 E/S (BNC)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial ; entrées 65-96 à 96 kHz ; sorties redondantes"
+    },
+    {
+      "id": "wc",
+      "name": "Word Clock E/S",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word Clock i/o (BNC)"
+    },
+    {
+      "id": "aesOut",
+      "name": "Sortie AES/EBU (downmix stéréo)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "Downmix stéréo automatique, XLR sur câble épanoui"
+    },
+    {
+      "id": "phones",
+      "name": "Casque (downmix stéréo)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Jack 6,35 mm TRS, 75 Ω"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 Gb/s, commande par L-ISA Controller"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 8.9
+}

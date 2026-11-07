@@ -1,0 +1,32 @@
+{
+  "id": "chauvet-well-fit",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "WELL Fit",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/product/well-fit/",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "W-DMX ; télécommande infrarouge (IRC)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON ; fonctionnement sur batterie"
+    }
+  ]
+}

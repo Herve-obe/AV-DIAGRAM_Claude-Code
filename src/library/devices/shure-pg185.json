@@ -1,0 +1,28 @@
+{
+  "id": "shure-pg185",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "PG185",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.023,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/PG185/en-US.pdf",
+      "document": "Shure, guide utilisateur PG185",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "Cravate statique cardioïde ; TA4F",
+      "phantom": "required"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "id": "blackmagic-hyperdeck-studio-hd-mini",
+  "family": "recording",
+  "manufacturer": "Blackmagic Design",
+  "model": "HyperDeck Studio HD Mini",
+  "pictogram": "recorder",
+  "status": "verified",
+  "domain": "image",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/hyperdeckstudio/techspecs/W-HYD-11",
+      "document": "Blackmagic Design, fiche technique HyperDeck Studio HD Mini (W-HYD-11)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI 270M / 1,5G / 3G, 16 canaux audio intégrés"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI 270M / 1,5G / 3G"
+    },
+    {
+      "id": "hdmiout",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "8 canaux audio intégrés"
+    },
+    {
+      "id": "tcin",
+      "name": "Timecode In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcout",
+      "name": "Timecode Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "refin",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level ou black burst"
+    },
+    {
+      "id": "refout",
+      "name": "Reference Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "rsin",
+      "name": "RS-422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1 Gb/s"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.0"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation interne 100-240 V"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack 5,5 mm verrouillable"
+    }
+  ]
+}

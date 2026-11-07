@@ -1,0 +1,80 @@
+{
+  "id": "mdg-atme",
+  "family": "luminaire",
+  "manufacturer": "MDG",
+  "model": "ATMe",
+  "pictogram": "light",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/machine-a-brouillard/atme/",
+      "document": "Novelty — ATMe",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/mdg_ATMe_ft.pdf",
+      "document": "Novelty — ATMe : ATMe",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mdg_ATMe_manuel.pdf",
+      "document": "MDG — ATMe operating guide rev.A/a, p.7 vue rendue,8,18,25 : panneau, USB-B, consommation et dimensions",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/mdg_ATMe_MSDS_Neutral_Fluid.pdf",
+      "document": "Novelty — ATMe : Fluide pour ATMe",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mdg_ATMe_Quick_Start.pdf",
+      "document": "Novelty — ATMe : Quick Start Guide",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Panneau illustré, prise femelle de renvoi"
+    },
+    {
+      "id": "usb",
+      "name": "USB service",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Diagnostic / bootloader, câble A–B standard"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble secteur captif 100–250 V 50/60 Hz ; fiche selon destination"
+    }
+  ],
+  "aliases": [
+    "ATME-MDG",
+    "MDG ATMe"
+  ],
+  "powerW": 715,
+  "weightKg": 16.8,
+  "depthMm": 685,
+  "description": "Générateur de brouillard ATMe, 715 W, 16,8 kg, dimensions 685 × 180 × 300 mm. DMX/RDM sur XLR5, USB-B pour diagnostic et mise à jour, câble secteur captif 100–250 V. Arrivée CO₂ ou N₂ séparée sur adaptateur oxygène 9/16-18 R.H., 50–60 psi."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "shure-brh441m",
+  "family": "intercom",
+  "manufacturer": "Shure",
+  "model": "BRH441M",
+  "pictogram": "intercom",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogue Novelty 2025 ; documentation Shure non trouvée en ligne (à compléter)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.shure.com/en-US/docs/guide/BRH44xM",
+      "document": "Shure BRH440M / BRH441M User Guide",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.markertek.com/Attachments/Specifications/Shure/BRH441M-LC-Specifications.pdf",
+      "document": "Shure, BRH441M-LC Specifications (copie revendeur Markertek)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Micro dynamique du casque ; câble non précisé ; câble amovible BCASCA (connecteur 6 points côté casque) vendu à part : NXLR4 XLR 4 mâle, NXLR4-FEM XLR 4 femelle, NXLR3QI XLR 3 mâle + jack 6,35 stéréo"
+    },
+    {
+      "id": "hp",
+      "name": "Écouteur",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Casque une oreille ; câble amovible BCASCA (connecteur 6 points côté casque) vendu à part : NXLR4 XLR 4 mâle, NXLR4-FEM XLR 4 femelle, NXLR3QI XLR 3 mâle + jack 6,35 stéréo"
+    }
+  ]
+}

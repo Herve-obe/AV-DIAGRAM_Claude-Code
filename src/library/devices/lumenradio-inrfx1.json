@@ -1,0 +1,37 @@
+{
+  "id": "lumenradio-inrfx1",
+  "family": "dmxDistribution",
+  "manufacturer": "LumenRadio",
+  "model": "CRMX inRFX1",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "rf",
+      "name": "CRMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

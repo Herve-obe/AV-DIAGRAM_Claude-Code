@@ -1,0 +1,64 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "AV Diagram",
+  "version": "0.5.30",
+  "identifier": "io.github.herveobe.avdiagram",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "AV Diagram",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 640,
+        "resizable": true,
+        "visible": false,
+        "center": true,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost ws:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "Utility",
+    "shortDescription": "Synoptiques d'installations audiovisuelles",
+    "copyright": "Copyright (c) 2026 Hervé Obejero",
+    "licenseFile": "../LICENSE.md",
+    "resources": {
+      "../docs/third-party/import-licenses.txt": "licenses/import-licenses.txt",
+      "../docs/third-party/Qwen3-LICENSE.txt": "licenses/Qwen3-LICENSE.txt",
+      "../resources/local-ai/": "local-ai/"
+    },
+    "macOS": {
+      "minimumSystemVersion": "12.3"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "both",
+        "template": "windows/installer.nsi",
+        "languages": [
+          "English",
+          "French"
+        ]
+      }
+    }
+  }
+}

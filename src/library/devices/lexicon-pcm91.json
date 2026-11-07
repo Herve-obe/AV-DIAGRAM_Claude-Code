@@ -1,0 +1,127 @@
+{
+  "id": "lexicon-pcm91",
+  "family": "processing",
+  "manufacturer": "Lexicon",
+  "model": "PCM91",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.zzounds.com/item--LEXPCM91",
+      "document": "zZounds, fiche PCM91 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.pssl.com/products/lexicon-pcm91-digital-reverb-processor",
+      "document": "PSSL, fiche PCM91 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR / jack 6,35 symétrique"
+    },
+    {
+      "id": "inR",
+      "name": "Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR / jack 6,35 symétrique"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (et jack 6,35)"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (et jack 6,35)"
+    },
+    {
+      "id": "spdifIn",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "aesIn",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aesOut",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "fs",
+      "name": "Footswitch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "2 interrupteurs momentanés"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

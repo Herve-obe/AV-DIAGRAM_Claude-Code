@@ -1,0 +1,148 @@
+{
+  "id": "panasonic-aw-he130k",
+  "family": "camera",
+  "domain": "image",
+  "pictogram": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE130K",
+  "status": "community",
+  "description": "Caméra tourelle robotisée Full HD avec sortie vidéo 3G-SDI ou streaming IP",
+  "aliases": [
+    "AWHE130K",
+    "PANASONIC AW-HE130K"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/aw-he130k/",
+      "document": "Novelty — AW-HE130K",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_aw-he130k_ft-uk.pdf",
+      "document": "Novelty — AW-HE130K : AW-HE130",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_manuel-de.pdf",
+      "document": "Novelty — AW-HE130K : AW-HE130 (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_manuel-fr.pdf",
+      "document": "Novelty — AW-HE130K : AW-HE130 (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_manuel-uk.pdf",
+      "document": "Novelty — AW-HE130K : AW-HE130 (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_manuel-installation-de.pdf",
+      "document": "Novelty — AW-HE130K : Installation guide (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_manuel-installation-fr.pdf",
+      "document": "Novelty — AW-HE130K : Installation guide (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_manuel-installation-uk.pdf",
+      "document": "Novelty — AW-HE130K : Installation guide (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-he130k_poe-manuel.pdf",
+      "document": "Novelty — AW-HE130K : POE",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2020-12/AW-HE130%20Operating%20Manual.pdf",
+      "document": "Panasonic — AW-HE130 — Operating Instructions",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422 Control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "composite",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "PAL/NTSC composite"
+    },
+    {
+      "id": "ref",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst / tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN / PoE+",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "IP control / streaming",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "audio",
+      "name": "Mic / Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo, plug-in 2.5 V commutable"
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "weightKg": 2.73,
+  "depthMm": 234
+}

@@ -1,0 +1,675 @@
+{
+  "schemaVersion": 1,
+  "campaign": "stabilisation-v1-2026-10-31",
+  "updatedAt": "2026-11-06",
+  "status": "completed_with_reservations",
+  "base": {
+    "version": "0.5.29",
+    "commit": "1fad01634173d731af6d09bd7af57997d2afe6af",
+    "tree": "09b10312cfe0b3ec7fc3bba8f8909e909f423bcd",
+    "branch": "codex/ia-locale",
+    "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
+    "draft": true
+  },
+  "limits": {
+    "maxWorkers": 3,
+    "normalWorkers": 2,
+    "maxFixAttempts": 2,
+    "maxCiRetryPerJob": 1,
+    "fullHistoryFork": false
+  },
+  "scope": "Première campagne : deux défauts IA reproduits, contrôle de départ/final et diagnostic puis suivi du banc macOS. Pas de nouveau chantier sans besoin établi.",
+  "runtime": {
+    "repo": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/AV-DIAGRAM-fixes",
+    "handoffs": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs",
+    "automation": {
+      "id": "av-diagram-quipe-de-d-veloppement",
+      "kind": "heartbeat",
+      "cadence": "1 heure",
+      "status": "DELETED",
+      "reason": "Campagne bornée close, réserve macOS consignée ; éviter de répéter un contrôle non actionnable."
+    },
+    "lastCheckedAt": "2026-10-31T16:17:43.217Z"
+  },
+  "catalogue": {
+    "lot": "audio-03",
+    "status": "awaiting_user",
+    "applyWithoutAnswers": false
+  },
+  "cards": [
+    {
+      "id": "TEAM-001",
+      "title": "Organisation, tableau durable et suivi automatique",
+      "owner": "principal",
+      "state": "complete",
+      "model": "agent principal du chat",
+      "files": [
+        "AGENTS.md",
+        "docs/developpement/*"
+      ],
+      "acceptance": [
+        "Rôles et choix des modèles définis",
+        "Écritures exclusives, relances bornées et critères de fin enregistrés",
+        "Suivi périodique activé ou indisponibilité explicitée"
+      ],
+      "handoff": "docs/developpement/equipe-agents.md",
+      "attempts": 1
+    },
+    {
+      "id": "QA-001",
+      "title": "Contrôles du point de départ",
+      "owner": "/root/verification",
+      "state": "complete",
+      "model": "gpt-6-luna",
+      "reasoning": "medium",
+      "files": [],
+      "acceptance": [
+        "Lint, types, tests et build exécutés sans installation",
+        "Essais réels ignorés et limites distingués"
+      ],
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/verification.md",
+      "attempts": 1,
+      "evidence": {
+        "passed": 489,
+        "skipped": 6,
+        "lintErrors": 0,
+        "lintWarnings": 4,
+        "intermediateTree": true
+      }
+    },
+    {
+      "id": "AI-001",
+      "title": "Respecter les explications et négations de réorganisation",
+      "owner": "/root/ia_diagnostic",
+      "state": "complete",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "files": [
+        "src/ai/agent.ts",
+        "src/ai/layout.test.ts",
+        "src/ai/system.test.ts"
+      ],
+      "acceptance": [
+        "Explication et interdiction ne lancent pas la réorganisation locale",
+        "Commandes positives FR/EN conservées",
+        "Régression échoue avant et réussit après correction"
+      ],
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ia-diagnostic.md",
+      "attempts": 1,
+      "evidence": {
+        "redFailed": 9,
+        "targetedPassed": 38,
+        "review": "Diff et appels partagés relus par le principal ; portée conforme, contrôles finaux réussis"
+      }
+    },
+    {
+      "id": "AI-002",
+      "title": "Abandonner explicitement un besoin en cours de clarification",
+      "owner": "/root/ia_diagnostic",
+      "state": "complete",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "files": [
+        "src/ai/agent.ts",
+        "src/ai/layout.test.ts",
+        "src/ai/system.test.ts"
+      ],
+      "sameWriterAs": "AI-001",
+      "acceptance": [
+        "Un abandon explicite ne force plus plan_diagram pour la question suivante",
+        "Les réponses ordinaires reprennent le besoin",
+        "Projet original intact et régression runTurn"
+      ],
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ia-diagnostic.md",
+      "attempts": 1,
+      "evidence": {
+        "redFailed": 9,
+        "targetedPassed": 38,
+        "review": "Diff et appels partagés relus par le principal ; portée conforme, contrôles finaux réussis"
+      }
+    },
+    {
+      "id": "CI-001",
+      "title": "Diagnostiquer le plafond du banc IA macOS",
+      "owner": "/root/ci_macos",
+      "state": "complete",
+      "model": "gpt-6.1-sol",
+      "reasoning": "low",
+      "files": [],
+      "acceptance": [
+        "Cause et hypothèses distinguées depuis le journal",
+        "Aucune augmentation arbitraire du délai",
+        "Prochaine action minimale justifiée"
+      ],
+      "evidence": {
+        "run": 40916611560,
+        "job": 123598408425,
+        "cause": "subprocess.TimeoutExpired après 2700 s, modèle chargé et génération très lente",
+        "retryCount": 0,
+        "nextAction": "Suivre le prochain job macOS du commit corrigé ; pas de relance de l’ancien run."
+      },
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ci-macos.md",
+      "attempts": 1
+    },
+    {
+      "id": "QA-002",
+      "title": "Relire, contrôler et publier le lot intégré",
+      "owner": "principal + verification",
+      "state": "complete",
+      "dependsOn": [
+        "QA-001",
+        "AI-001",
+        "AI-002",
+        "CI-001"
+      ],
+      "files": [
+        "docs/etat-avancement.md",
+        "docs/developpement/*",
+        "package.json",
+        "package-lock.json",
+        "src-tauri/Cargo.toml",
+        "src-tauri/Cargo.lock",
+        "src-tauri/tauri.conf.json"
+      ],
+      "acceptance": [
+        "Diff ciblé revu par le principal",
+        "Contrôles finaux réussis sur les dernières écritures",
+        "Publication exacte sur PR en brouillon, CI du nouveau commit suivie"
+      ],
+      "attempts": 1,
+      "evidence": {
+        "lint": {
+          "exit": 0,
+          "errors": 0,
+          "warnings": 4
+        },
+        "typecheck": {
+          "exit": 0
+        },
+        "tests": {
+          "exit": 0,
+          "passed": 489,
+          "skipped": 6
+        },
+        "build": {
+          "tscExit": 0,
+          "viteExit": 0
+        },
+        "environmentRetry": "Vite relancé seul après argument PowerShell erroné, aucun code modifié",
+        "versions": "0.5.24 synchronisées, dépendances inchangées",
+        "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/verification-finale.md",
+        "publication": "13 fichiers vérifiés, publiés sur codex/ia-locale ; PR4 en brouillon"
+      }
+    },
+    {
+      "id": "CI-002",
+      "title": "Suivre le banc réel et les builds du commit intégré",
+      "owner": "principal",
+      "state": "complete",
+      "dependsOn": [
+        "QA-002"
+      ],
+      "files": [],
+      "acceptance": [
+        "Jobs Windows/macOS et banc réel rattachés au commit exact",
+        "Maximum une relance ciblée seulement si justifiée",
+        "Bilan final sauvegardé, suivi en pause à la fin"
+      ],
+      "attempts": 1,
+      "evidence": {
+        "retryCount": 0,
+        "runs": [
+          {
+            "id": 41210298738,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210298738",
+            "event": "pull_request",
+            "status": "completed",
+            "conclusion": "success",
+            "attempt": 1
+          },
+          {
+            "id": 41210293278,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278",
+            "event": "push",
+            "status": "completed",
+            "conclusion": "failure",
+            "attempt": 1
+          }
+        ],
+        "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+        "jobs": [
+          {
+            "id": 124563685168,
+            "name": "check",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685168"
+          },
+          {
+            "id": 124563685305,
+            "name": "macos",
+            "status": "completed",
+            "conclusion": "failure",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685305"
+          },
+          {
+            "id": 124563685362,
+            "name": "local-ai",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685362"
+          },
+          {
+            "id": 124563685402,
+            "name": "native",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124563685402"
+          },
+          {
+            "id": 124564948791,
+            "name": "windows-installer",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/job/124564948791"
+          }
+        ],
+        "lastCheckedAt": "2026-10-31T16:17:43.217Z",
+        "nextAction": "Campagne close. Avant validation IA macOS : diagnostic ciblé de la lenteur et essai sur Mac physique ; examiner la survie des requêtes après timeout.",
+        "artifacts": [
+          {
+            "id": 13046878106,
+            "name": "AV-Diagram-local-AI-macOS-test-report",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046878106"
+          },
+          {
+            "id": 13046790933,
+            "name": "AV-Diagram-local-AI-test-report",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046790933"
+          },
+          {
+            "id": 13046256492,
+            "name": "AV-Diagram-Manual-test",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046256492"
+          },
+          {
+            "id": 13045339412,
+            "name": "AV-Diagram-macOS-universal-test",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045339412"
+          },
+          {
+            "id": 13045309416,
+            "name": "AV-Diagram-Windows-test",
+            "expired": false,
+            "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045309416"
+          }
+        ],
+        "macOS": {
+          "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+          "run": 41210293278,
+          "job": 124563685305,
+          "total": 6,
+          "passed": 4,
+          "failed": 2,
+          "pending": 0,
+          "cases": [
+            {
+              "title": "réorganise un concert existant sans appel au modèle ni modification du patch",
+              "status": "passed",
+              "durationMs": 16.864000000000487,
+              "failure": []
+            },
+            {
+              "title": "analyse une demande vague puis construit une conférence sans scénario spécialisé",
+              "status": "failed",
+              "durationMs": 600377.178458,
+              "failure": [
+                "Error: Test timed out in 600000ms."
+              ]
+            },
+            {
+              "title": "active le modèle avec le vrai test de configuration en un appel, en français et en anglais",
+              "status": "failed",
+              "durationMs": 300062.927666,
+              "failure": [
+                "Error: Test timed out in 300000ms."
+              ]
+            },
+            {
+              "title": "transforme le cahier des charges interview et duo live en proposition câblée",
+              "status": "passed",
+              "durationMs": 286052.57175,
+              "failure": []
+            },
+            {
+              "title": "vérifie un projet fictif puis prépare un ajout sans modifier la source",
+              "status": "passed",
+              "durationMs": 1064226.9720839998,
+              "failure": []
+            },
+            {
+              "title": "clarifie une demande large avec connectique manquante en un seul appel",
+              "status": "passed",
+              "durationMs": 191468.66575000016,
+              "failure": []
+            }
+          ]
+        },
+        "outcome": "completed_with_macos_reservation",
+        "retryDecision": "Pas de panne transitoire démontrée ; pas de relance aveugle ni de hausse des délais."
+      },
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ci-macos-cloture.md"
+    }
+  ],
+  "publication": {
+    "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+    "tree": "bfd3481c97c153c5e66799fa345a8b7fc2a2a366",
+    "files": 13,
+    "deleted": 0,
+    "checkedHashes": true,
+    "published": true,
+    "runs": [
+      {
+        "id": 41210298738,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210298738",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "attempt": 1
+      },
+      {
+        "id": 41210293278,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "attempt": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 13046878106,
+        "name": "AV-Diagram-local-AI-macOS-test-report",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046878106"
+      },
+      {
+        "id": 13046790933,
+        "name": "AV-Diagram-local-AI-test-report",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046790933"
+      },
+      {
+        "id": 13046256492,
+        "name": "AV-Diagram-Manual-test",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13046256492"
+      },
+      {
+        "id": 13045339412,
+        "name": "AV-Diagram-macOS-universal-test",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045339412"
+      },
+      {
+        "id": 13045309416,
+        "name": "AV-Diagram-Windows-test",
+        "expired": false,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41210293278/artifacts/13045309416"
+      }
+    ]
+  },
+  "reservations": [
+    {
+      "area": "macOS IA réelle",
+      "status": "unresolved",
+      "passed": 4,
+      "failed": 2,
+      "total": 6,
+      "reason": "Délais des essais conférence et configuration dépassés, cause de lenteur non établie",
+      "review": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/equipe-agents-2026-10-31/handoffs/ci-macos-cloture.md"
+    },
+    {
+      "area": "Recette physique",
+      "status": "not_run",
+      "reason": "Mac physique et deux écrans non vérifiés"
+    }
+  ],
+  "currentCampaign": "catalogue-pro-2026-10-31",
+  "catalogueCampaign": {
+    "state": "scope_decisions_published_technical_proposals_pending",
+    "targetVersion": "0.5.26",
+    "statePath": "docs/inventaire/campagne-catalogue-pro-2026-10-31.json",
+    "report": "docs/inventaire/tri-av-professionnel-2026-10-31.md",
+    "removed": 32,
+    "ambiguous": 0,
+    "newResearch": 40,
+    "audioPendingReused": 20,
+    "sourceTemplatesChanged": 0,
+    "testsPassed": 490,
+    "testsSkipped": 6,
+    "publication": {
+      "version": "0.5.26",
+      "commit": "0ecb94af6c9aed8c7d9def4a37d89e27c4b2b697",
+      "tree": "5f5e5a9b8b7ee15fbb02b4f4972be8d2f5bf6988",
+      "files": 16,
+      "deletions": 0,
+      "deviceSourceChanges": 0,
+      "branch": "codex/ia-locale",
+      "draftPullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
+      "filesSnapshot": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/retours-tri-rev21/publication-files.json",
+      "runs": [
+        {
+          "id": 41249051482,
+          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41249051482",
+          "status": "in_progress",
+          "conclusion": null,
+          "event": "pull_request"
+        },
+        {
+          "id": 41249048768,
+          "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41249048768",
+          "status": "in_progress",
+          "conclusion": null,
+          "event": "push"
+        }
+      ]
+    },
+    "userDecisionRevision": 21,
+    "userDecisionStatus": "complete",
+    "userRemoved": 16,
+    "userKept": 5,
+    "finalCounts": {
+      "real": 1646,
+      "verified": 741,
+      "community": 905,
+      "generic": 30
+    },
+    "userDecisionReport": "docs/inventaire/retours-tri-av-professionnel-2026-10-31.md"
+  },
+  "catalogueRetours": {
+    "lot": "av-diagram-audio04-lumiere02-2026-11-04",
+    "version": "0.5.27",
+    "status": "complete_with_technical_limits",
+    "report": "docs/inventaire/retours-audio04-lumiere02-2026-11-04.json",
+    "baseCommit": "0ecb94af6c9aed8c7d9def4a37d89e27c4b2b697",
+    "writingBlockId": "76193",
+    "userResponseHash": "81cc1f1beaa82dbf7aa5b1f7d46d72ead156b1df66965c7d601b055ca399c100",
+    "counts": {
+      "sourceFiles": 2171,
+      "activeReal": 1650,
+      "verified": 741,
+      "community": 909,
+      "created": 15,
+      "updated": 6,
+      "excludedDuplicates": 11,
+      "reusedCanonical": 6
+    },
+    "cards": [
+      {
+        "id": "AUDIO04-IDENTITES",
+        "owner": "/root/recherche_audio04",
+        "state": "complete",
+        "fixAttempts": 2
+      },
+      {
+        "id": "LUMIERE02-IDENTITES",
+        "owner": "/root/variantes_lumiere_retours",
+        "state": "complete",
+        "fixAttempts": 1
+      },
+      {
+        "id": "REVIEW-CHOIX",
+        "owner": "/root/superviseur_catalogue",
+        "state": "complete"
+      },
+      {
+        "id": "QA-CHOIX",
+        "owner": "/root/recherche_audio04",
+        "state": "complete",
+        "fixAttempts": 2
+      }
+    ],
+    "automationCreated": false,
+    "validation": {
+      "targetedPassed": 28,
+      "testsPassed": 498,
+      "testsSkipped": 6,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true
+    }
+  },
+  "collaborationMultiAccess": {
+    "id": "COLLAB-MULTI-001",
+    "status": "complete",
+    "work": "C:\\Users\\herve\\Documents\\Codex\\2026-10-12\\est\\work\\collab-droits-multiples-2026-11-05",
+    "owner": "/root/collab_droits_multiples",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "attempts": 1,
+    "baseCommit": "faab2ae46e6b19e0b71f34ac4fc6dee4eadb887a",
+    "acceptance": [
+      "Plusieurs calques par invité",
+      "Plusieurs invités par calque",
+      "Retrait individuel sans perte des autres droits",
+      "Validation réseau hôte et annulation respectent les droits",
+      "Protocoles précédents refusés"
+    ],
+    "version": "0.5.28",
+    "protocol": 4,
+    "review": "Aucun défaut bloquant après revue indépendante et relecture principale",
+    "validation": {
+      "targetedPassed": 43,
+      "testsPassed": 504,
+      "testsSkipped": 6,
+      "filesPassed": 54,
+      "filesSkipped": 1,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true,
+      "manualGenerated": true,
+      "nativeLocal": false,
+      "physicalLan": false,
+      "aiRealLocal": false,
+      "tempFolder": "C:\\Users\\herve\\Documents\\Codex\\2026-10-12\\est\\work\\collab-droits-multiples-2026-11-05\\tmp"
+    },
+    "nativeCi": "pending_at_publication",
+    "physicalLan": "not_tested"
+  },
+  "collaborationClassroomFix": {
+    "id": "COLLAB-METIERS-001",
+    "status": "complete",
+    "date": "2026-11-05",
+    "work": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/collab-metiers-2026-11-05",
+    "baseCommit": "f543818254b43e8a84cddabd1560687001e1a0cc",
+    "baseVersion": "0.5.28",
+    "version": "0.5.29",
+    "protocol": 5,
+    "owner": "/root/collab_droits_multiples",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "reviewer": "gpt-6-luna",
+    "reviewerReasoning": "medium",
+    "attempts": 2,
+    "acceptance": [
+      "Filtres indépendants des métiers, Général en lecture seule",
+      "Interfaces techniques propres et ports métier d'appareils mixtes",
+      "Prises libres de switches partagés raccordables sans édition de leurs paramètres",
+      "Suppression atomique et refus de réaffectation protégée",
+      "Ajout Expert et undo/redo contrôlés avant émission"
+    ],
+    "review": "Relecture indépendante et principale ; précision du motif de liaison corrigée avec test UI",
+    "validation": {
+      "targetedPassed": 57,
+      "testsPassed": 516,
+      "testsSkipped": 6,
+      "filesPassed": 56,
+      "filesSkipped": 1,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true,
+      "manualGenerated": true,
+      "nativeLocal": false,
+      "physicalLan": false,
+      "aiRealLocal": false,
+      "finalTooltipUi": {
+        "passed": 4,
+        "files": 1,
+        "redConfirmed": true
+      }
+    },
+    "nativeCi": "pending_at_publication",
+    "physicalLan": "not_tested",
+    "report": "docs/developpement/collaboration-metiers-2026-11-05.md"
+  },
+  "collaborationSimpleAccess": {
+    "id": "COLLAB-SIMPLE-001",
+    "status": "complete",
+    "date": "2026-11-06",
+    "baseVersion": "0.5.29",
+    "baseCommit": "1fad01634173d731af6d09bd7af57997d2afe6af",
+    "version": "0.5.30",
+    "protocol": 6,
+    "work": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/collab-access-simple-2026-11-05",
+    "owner": "/root/collab_simple",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "reviewer": "gpt-6-luna",
+    "reviewerReasoning": "medium",
+    "attempts": 1,
+    "acceptance": [
+      "Chaque métier inclut édition du Réseau",
+      "Réseau seul reste limité au domaine Réseau",
+      "Droits complets séparés et révocables ouvrent tout le projet et Général",
+      "Administration session réservée à l'hôte",
+      "Révocation cohérente UI/hôte/historique/fenêtre Infos"
+    ],
+    "validation": {
+      "targetedPassed": 73,
+      "testsPassed": 523,
+      "testsSkipped": 6,
+      "filesPassed": 56,
+      "filesSkipped": 1,
+      "lintErrors": 0,
+      "lintHistoricalWarnings": 4,
+      "typecheck": true,
+      "build": true,
+      "manualGenerated": true,
+      "nativeLocal": false,
+      "physicalLan": false,
+      "aiRealLocal": false,
+      "reviewIssues": 0
+    },
+    "nativeCi": "pending_at_publication",
+    "physicalLan": "not_tested",
+    "report": "docs/developpement/collaboration-droits-simplifies-2026-11-06.md"
+  }
+}

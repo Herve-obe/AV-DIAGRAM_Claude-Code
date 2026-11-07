@@ -1,0 +1,42 @@
+{
+  "id": "altair-eb-200",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "EB-200",
+  "pictogram": "intercom",
+  "status": "community",
+  "weightKg": 0.25,
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line",
+      "name": "Line",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth classe 1, 2,4 GHz"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour"
+    }
+  ]
+}

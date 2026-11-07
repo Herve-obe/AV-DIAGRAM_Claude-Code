@@ -1,0 +1,56 @@
+{
+  "id": "barco-e2",
+  "family": "videoSwitcher",
+  "manufacturer": "Barco",
+  "model": "E2 (Event Master)",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/3b64ca7d2e0027e/original/E2-Gen-2-BTO-en-Spec-sheet.pdf",
+      "document": "Barco, fiche E2 Gen 2",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inputs",
+      "name": "Entrées (cartes)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "8 cartes : HDMI 2.0, DP 1.2, 12G-SDI (jusqu'à 40 entrées)"
+    },
+    {
+      "id": "outputs",
+      "name": "Sorties (cartes)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "4 cartes : SDI, HDMI, DP (jusqu'à 18 sorties), multiview"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Avec recopie"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Event Master Toolset"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

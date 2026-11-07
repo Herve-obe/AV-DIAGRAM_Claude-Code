@@ -1,0 +1,723 @@
+{
+  "lot": "video-pro-01-2026-10-31",
+  "status": "awaiting_user_validation",
+  "records": [
+    {
+      "id": "absen-pl2-5pro",
+      "name": "Absen PL2.5Pro",
+      "confirmed": "PL2.5 Pro : dalle 500×500×87 mm, 200×200 px, 9,6 kg par dalle. Puissance maximale/moyenne 510/170 W/m², soit 127,5/42,5 W par dalle de 0,25 m² (calcul explicite).",
+      "missing": "Confirmer les prises physiques signal et secteur, leur nombre et sens sur la dalle du parc ; valider 9,6 kg et 127,5 W max face aux 9 kg/135 W existants.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/absen_pl2-5_ft.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/mur-d-images-led/plein-jour-led/pl2-5pro/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/X series-CE-certificate -TUV.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/X series-EMC-certificate-TUV.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/absen_pl2-5_ft.pdf",
+          "document": "absen_pl2-5_ft.pdf",
+          "pagesRead": [
+            14
+          ],
+          "facts": [
+            "PL2.5 Pro : dalle 500×500×87 mm, 200×200 px, 9,6 kg par dalle. Puissance maximale/moyenne 510/170 W/m², soit 127,5/42,5 W par dalle de 0,25 m² (calcul explicite)."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer poids 9,6 kg et puissance max 127,5 W avec unité par dalle ; conserver les valeurs source W/m² dans la preuve. Connectique à compléter après photo/document exact.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Recherche constructeur puis recours bornés sans connectique fiable de cette génération ; ne pas transposer PL V2."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "aja-ioxt",
+      "name": "AJA ioXT",
+      "confirmed": "Io XT : 2 Thunderbolt, SDI et HDMI en entrée/sortie, sorties composantes BNC, référence/LTC BNC, RS-422 DE-9 et alimentation XLR 12 V. Page constructeur : 0,8 kg ; 18 W typique, 22 W maximum ; 8 sorties audio symétriques via un DB-25, pas huit prises natives.",
+      "missing": "Aucune inconnue bloquante pour les fonctions principales ; vérifier sur la face arrière la prise casque et le décompte BNC avant saisie exhaustive.",
+      "url": "https://www.aja.com/index.php/products/io-xt",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/ioxt/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/aja_ioXT_ft.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/aja_ioXT_certificat.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/aja_using_AJA_and_Adobe_Mercury_Engine.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/aja_using_Avid_and_AJA.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/aja_ioXT_manuel.pdf",
+          "document": "aja_ioXT_manuel.pdf",
+          "pagesRead": [
+            12
+          ],
+          "facts": [
+            "Manuel Io XT p.12 : Thunderbolt, BNC vidéo/composantes et référence/LTC, HDMI, RS-422 DE-9, alimentation XLR 12 V."
+          ]
+        },
+        {
+          "url": "https://www.aja.com/index.php/products/io-xt",
+          "document": "Page constructeur modèle indiqué",
+          "pagesRead": [],
+          "facts": [
+            "Io XT : 2 Thunderbolt, SDI et HDMI en entrée/sortie, sorties composantes BNC, référence/LTC BNC, RS-422 DE-9 et alimentation XLR 12 V. Page constructeur : 0,8 kg ; 18 W typique, 22 W maximum ; 8 sorties audio symétriques via un DB-25, pas huit prises natives."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer 22 W max (18 W typique) et 0,8 kg ; 2 SDI IN + 2 SDI OUT et 1 HDMI IN + 1 HDMI OUT selon constructeur ; deux Thunderbolt 1. Décrire DB-25 comme un connecteur transportant 8 canaux.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Le dépliant commun Io XT/Io Express contient une légende ambiguë SDI p.6 ; ne pas copier les pages Io Express."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "avermedia-cp150",
+      "name": "AverMedia CP150",
+      "confirmed": "CP150 : VGA D-sub 15 entrée pass-through et sortie ; S-Video mini-DIN et composite RCA en sortie ; USB 2.0 ; entrée DC12 V et sortie DC6 V pour lightbox. 2,4 kg ; 18 W lampe éteinte/20 W lampe allumée.",
+      "missing": "Préciser la forme de la prise USB avec photo si le catalogue exige USB-A/B ; RS-232 annoncé dans la brochure seulement via adaptateur.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/CP150_user_manual.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/sources-video/visualiseur/cp150/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/CP150.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/CP150_user_manual.pdf",
+          "document": "CP150_user_manual.pdf",
+          "pagesRead": [
+            9,
+            10,
+            11
+          ],
+          "facts": [
+            "CP150 : VGA D-sub 15 entrée pass-through et sortie ; S-Video mini-DIN et composite RCA en sortie ; USB 2.0 ; entrée DC12 V et sortie DC6 V pour lightbox. 2,4 kg ; 18 W lampe éteinte/20 W lampe allumée."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Ajouter 20 W (lampe allumée), proposer arrondi constructeur 2,4 kg ; ports vidéo et alimentation décrits ci-dessus. Ne pas créer de prise RS-232 native ni entrée audio.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "La brochure et le manuel donnent des dimensions différentes ; dimensions non proposées."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "barco-e2-novelty-29668",
+      "name": "Barco E2",
+      "confirmed": "E2 configuration documentée : 28 entrées (8 SDI, 8 HDMI, 8 DisplayPort, 4 DVI dual-link) ; 14 sorties (4 SDI, 8 HDMI, 2 HDMI multiviewer). Référence analogique BNC entrée/boucle, Ethernet RJ45. 31 kg ; 700 W ; double alimentation redondante.",
+      "missing": "Confirmer les cartes réellement installées et leurs révisions ; l'E2 est modulaire, le décompte de cette fiche ne garantit pas celui du parc.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-uk.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/gestion-d-images/regie-complete/e2/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-de.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-fr.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_manuel.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_quickstart.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_guide-securite.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-uk.pdf",
+          "document": "barco_e2_ft-uk.pdf",
+          "pagesRead": [
+            3,
+            4
+          ],
+          "facts": [
+            "E2 configuration documentée : 28 entrées (8 SDI, 8 HDMI, 8 DisplayPort, 4 DVI dual-link) ; 14 sorties (4 SDI, 8 HDMI, 2 HDMI multiviewer). Référence analogique BNC entrée/boucle, Ethernet RJ45. 31 kg ; 700 W ; double alimentation redondante."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Conserver 31 kg/700 W. Proposer les ports uniquement sous configuration de cartes confirmée ; distinguer les 14 prises des 8 sorties programme logiques.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Fiche datée 2017, configurations de cartes ultérieures possibles."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "barco-imagepro-ii",
+      "name": "Barco ImagePRO-II",
+      "confirmed": "Série ImagePRO-II : DVI-I et VGA avec boucles, HDMI et DisplayPort entrée/sortie hors Jr, SDI BNC, sortie composite BNC, référence BNC, Ethernet RJ45 et USB. Poids 7,144 kg ; secteur 100–240 V, 2 A maximum (aucune puissance W publiée sur ces pages).",
+      "missing": "Est-ce ImagePRO-II standard, Jr ou Dual Output, avec option audio ? Fournir la consommation W mesurée/documentée et confirmer les prises de la variante.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_image-pro-ii_ft-uk.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/peripherique/convertisseur/imagepro-ii/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_image-pro-ii_ft-de.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_image-pro-ii_ft-fr.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_manuel-uk.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_quick-start.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_image-pro-ii_ft-uk.pdf",
+          "document": "barco_image-pro-ii_ft-uk.pdf",
+          "pagesRead": [
+            3,
+            4
+          ],
+          "facts": [
+            "Série ImagePRO-II : DVI-I et VGA avec boucles, HDMI et DisplayPort entrée/sortie hors Jr, SDI BNC, sortie composite BNC, référence BNC, Ethernet RJ45 et USB. Poids 7,144 kg ; secteur 100–240 V, 2 A maximum (aucune puissance W publiée sur ces pages)."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer poids 7,144 kg ; garder puissance W inconnue. Inventaire exact des SDI et audio conditionné à la variante, pas d'union des options.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Document couvre plusieurs variantes ; 2 A ne doit pas être converti en W."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "blackmagic-design-atem-constellation-hd-2-me",
+      "name": "Blackmagic Design Atem Constellation HD 2 ME",
+      "confirmed": "Page constructeur ATEM 2 M/E Constellation HD : 20 entrées 3G-SDI, 12 sorties 3G-SDI, 2 sorties multiview ; audio 2 jacks symétriques 1/4 et talkback XLR5 ; Ethernet, USB-C ; 52 W, secteur interne 100–240 V.",
+      "missing": "Poids net à confirmer : 3 kg existants non validés par le texte constructeur consulté ; confirmer sur appareil les prises et leur génération avant validation exhaustive.",
+      "url": "https://www.blackmagicdesign.com/products/atemconstellation/techspecs/W-APS-40",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/peripherique/melangeur/atem-constellation-hd-2-me/"
+      ],
+      "evidence": [
+        {
+          "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+          "document": "BlackmagicConvertersManual.pdf",
+          "pagesRead": [
+            1,
+            2,
+            3
+          ],
+          "facts": [
+            "Pages 1–3 : manuel Blackmagic Micro/Mini Converters, hors modèle ATEM ; aucune spécification ATEM retenue de ce cache."
+          ]
+        },
+        {
+          "url": "https://www.blackmagicdesign.com/products/atemconstellation/techspecs/W-APS-40",
+          "document": "Page constructeur modèle indiqué",
+          "pagesRead": [],
+          "facts": [
+            "Page constructeur ATEM 2 M/E Constellation HD : 20 entrées 3G-SDI, 12 sorties 3G-SDI, 2 sorties multiview ; audio 2 jacks symétriques 1/4 et talkback XLR5 ; Ethernet, USB-C ; 52 W, secteur interne 100–240 V."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Conserver 52 W, proposer connectique constructeur du 2 M/E HD ; exclure les variantes 4K et 4 M/E. Remplacer le manuel Converters dans les preuves de cette référence.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Cache Converters ne documente pas cet appareil ; aucune validation par simple lien."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "blackmagic-design-blackmagic-video-assist-7",
+      "name": "Blackmagic Design Blackmagic Video Assist 7",
+      "confirmed": "Fiche exacte 7 pouces 12G HDR : 1 SDI IN/1 OUT jusqu'à 12G ; 1 HDMI 2.0a IN/1 OUT ; 2 mini-XLR audio symétriques phantom, casque 3,5 mm, LANC 2,5 mm, USB-C 3.1 Gen1, 2 logements SD. Alimentation externe 12 V et batteries Sony NP-F.",
+      "missing": "Confirmer libellé exact 7 pouces 12G HDR du parc ; poids net et consommation W non lisibles dans la fiche extraite, à renseigner avec preuve.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9111-4494-blackmagic-video-assist-7-inch-12g-hdr-com-resume.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/ecran-lcd-et-led/moniteur-video/blackmagic-video-assist-7/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9111-4494-blackmagic-video-assist-7-inch-12g-hdr-com-resume.pdf",
+          "document": "9111-4494-blackmagic-video-assist-7-inch-12g-hdr-com-resume.pdf",
+          "pagesRead": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "facts": [
+            "Fiche exacte 7 pouces 12G HDR : 1 SDI IN/1 OUT jusqu'à 12G ; 1 HDMI 2.0a IN/1 OUT ; 2 mini-XLR audio symétriques phantom, casque 3,5 mm, LANC 2,5 mm, USB-C 3.1 Gen1, 2 logements SD. Alimentation externe 12 V et batteries Sony NP-F."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer nom explicite 7 pouces 12G HDR et connectique ci-dessus si variante confirmée. Ne pas reprendre puissance d'un 3G ni poids batteries/kit.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "ID générique Video Assist 7 ; fiche physique dessinée non exploitée visuellement. Recherche constructeur bornée sans puissance récupérée."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "blackmagic-design-teranex-av",
+      "name": "Blackmagic Design Teranex AV",
+      "confirmed": "Teranex AV constructeur : 2 entrées BNC SDI, 2 boucles BNC, 2 sorties BNC SDI + 4 sorties quad BNC ; HDMI entrée, boucle et sortie ; emplacement SFP optionnel ; IEC C14 100–240 V ; consommation typique 42 W.",
+      "missing": "Poids net et inventaire physique complet audio/commande à confirmer sur photo ou manuel exact ; module optique réellement installé ?",
+      "url": "https://www.blackmagicdesign.com/products/teranex/techspecs/",
+      "extraSources": [],
+      "evidence": [
+        {
+          "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+          "document": "BlackmagicConvertersManual.pdf",
+          "pagesRead": [
+            1,
+            2,
+            3
+          ],
+          "facts": [
+            "Pages 1–3 : manuel Blackmagic Micro/Mini Converters, hors modèle Teranex AV ; aucune spécification Teranex AV retenue de ce cache."
+          ]
+        },
+        {
+          "url": "https://www.blackmagicdesign.com/products/teranex/techspecs/",
+          "document": "Page constructeur modèle indiqué",
+          "pagesRead": [],
+          "facts": [
+            "Teranex AV constructeur : 2 entrées BNC SDI, 2 boucles BNC, 2 sorties BNC SDI + 4 sorties quad BNC ; HDMI entrée, boucle et sortie ; emplacement SFP optionnel ; IEC C14 100–240 V ; consommation typique 42 W."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer description convertisseur SD/HD/UHD jusqu'à 2160p60 et 42 W typique. Séparer connecteur SFP et module optionnel ; ne pas compter les canaux audio embarqués comme prises.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Cache Converters ne documente pas Teranex AV ; pas de transposition depuis Teranex Express."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "christie-hd10k-m",
+      "name": "CHRISTIE HD10K-M",
+      "confirmed": "Brochure M Series colonne HD10K-M : 1920×1080, 10 000 lm ANSI ; 1320 W ; 25 kg sans objectif (36 kg emballé). Analogique 5 BNC et DVI dual-link standard ; SDI, décodeur et Twin HDMI selon cartes. RS-232 entrée/sortie, RS-422, Ethernet, GPIO.",
+      "missing": "Lister les cartes et l'objectif réellement installés ; poids complet du parc si nécessaire. Ne pas confondre HD10K-M et Roadster HD10K-M.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/Christie-M-Series-Brochure.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/hd10k-m/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd10k-m_manuel.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd10k-m_guide-de-configuration.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd10k-m_cotes.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/Christie-M-Series-Lens-Throw-Distance-Information.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Christie-PowerTools-User-Manual.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/Christie-M-Series-Brochure.pdf",
+          "document": "Christie-M-Series-Brochure.pdf",
+          "pagesRead": [
+            16
+          ],
+          "facts": [
+            "Brochure M Series colonne HD10K-M : 1920×1080, 10 000 lm ANSI ; 1320 W ; 25 kg sans objectif (36 kg emballé). Analogique 5 BNC et DVI dual-link standard ; SDI, décodeur et Twin HDMI selon cartes. RS-232 entrée/sortie, RS-422, Ethernet, GPIO."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Conserver 1320 W et qualifier les 25 kg « sans objectif ». Connectique de cartes à valider par photo arrière ; ne pas ajouter toutes les options.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Brochure multi-modèles ; les options ne prouvent pas les prises du parc."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "christie-hd14k-m",
+      "name": "CHRISTIE HD14K-M",
+      "confirmed": "Brochure M Series colonne HD14K-M : 12 000 lm ANSI (13 500 centre), 1920×1080 ; 1500 W ; 25 kg sans objectif. Analogique 5 BNC et DVI standard ; autres cartes optionnelles. RS-232 entrée/sortie, RS-422, Ethernet et GPIO.",
+      "missing": "Confirmer les cartes réellement montées et l'absence/présence d'un châssis Roadster ; ne pas traiter l'adaptateur VGA en prise native supplémentaire.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd14k-m_ft-fr-1448538675.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/hd14k-m/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_manuel-uk.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_setup-guide-uk.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_setup-guide-fr.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_setup-guide-de.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_autocal-uk.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd14k-m_ft-uk.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd14k-m_ft-fr-1448538675.pdf",
+          "document": "christie_hd14k-m_ft-fr-1448538675.pdf",
+          "pagesRead": [
+            9
+          ],
+          "facts": [
+            "Brochure M Series colonne HD14K-M : 12 000 lm ANSI (13 500 centre), 1920×1080 ; 1500 W ; 25 kg sans objectif. Analogique 5 BNC et DVI standard ; autres cartes optionnelles. RS-232 entrée/sortie, RS-422, Ethernet et GPIO."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer 1500 W ; qualifier 25 kg sans objectif. Conserver connectique détaillée en attente de carte/variante.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Lecture du tableau multi-colonnes ; modèle standard HD14K-M distingué du Mirage/Roadster."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "christie-hd20k-j",
+      "name": "CHRISTIE HD20K-J",
+      "confirmed": "Brochure J Series : la référence explicitement documentée est Roadster HD20K-J ; 18 000 lm ANSI/20 000 centre ; 4000 W ; 72,5 kg sans objectif (91 kg emballé) pour les Roadster de ce groupe. Entrées sur cartes ; RS-232, RS-422, Ethernet, USB device et GPIO.",
+      "missing": "Le parc est-il bien Roadster HD20K-J ? Fournir photo de plaque et cartes montées avant de transférer les 72,5 kg et la connectique.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/Christie-J-Series-Brochure.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/vp-grande-puissance/18-000-a-30-000-lumens/hd20k-j/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd20k-roadster_manuel.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd20k-roadster_cotes.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd20k-roadster_guide-de-configuration.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/Christie-J-Series-Brochure.pdf",
+          "document": "Christie-J-Series-Brochure.pdf",
+          "pagesRead": [
+            16,
+            17
+          ],
+          "facts": [
+            "Brochure J Series : la référence explicitement documentée est Roadster HD20K-J ; 18 000 lm ANSI/20 000 centre ; 4000 W ; 72,5 kg sans objectif (91 kg emballé) pour les Roadster de ce groupe. Entrées sur cartes ; RS-232, RS-422, Ethernet, USB device et GPIO."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Conserver 4000 W à confirmer avec variante ; proposer 72,5 kg sans objectif uniquement si identification Roadster HD20K-J. Ne pas inventer un HD20K-J standard distinct.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Nom catalogue raccourci HD20K-J ; document exact porte Roadster."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "cyanview-rio-live",
+      "name": "CyanView RIO Live",
+      "confirmed": "Présentation RIO Live : contrôle caméras/objectifs sur LAN/Wi-Fi, protocoles série, USB, LANC et tally selon adaptateurs. Manuel constructeur actuel : RIO LAN anciennement Live, alimentation DC 10–24 V, pas PoE ; limite 12 W par port caméra = capacité, pas consommation du boîtier.",
+      "missing": "Photographier les prises et confirmer la génération RIO Live ; poids net et consommation propre W, quantité/type des prises natives à renseigner.",
+      "url": "https://support.cyanview.com/docs/Manuals/RIOManual",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/captation/accessoires-de-camera/rio-live/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/630-4695-cyanview-presentation-cinematic-live-2022-07.pdf",
+          "document": "630-4695-cyanview-presentation-cinematic-live-2022-07.pdf",
+          "pagesRead": [
+            1,
+            3
+          ],
+          "facts": [
+            "Présentation RIO Live p.1 et 3 : contrôle caméras/objectifs par LAN/Wi-Fi, protocoles série, LANC et USB ; aucune consommation propre ni inventaire de prises natif donné."
+          ]
+        },
+        {
+          "url": "https://support.cyanview.com/docs/Manuals/RIOManual",
+          "document": "Page constructeur modèle indiqué",
+          "pagesRead": [],
+          "facts": [
+            "Présentation RIO Live : contrôle caméras/objectifs sur LAN/Wi-Fi, protocoles série, USB, LANC et tally selon adaptateurs. Manuel constructeur actuel : RIO LAN anciennement Live, alimentation DC 10–24 V, pas PoE ; limite 12 W par port caméra = capacité, pas consommation du boîtier."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer fonctions multiprotocole ; distinguer protocoles/câbles adaptateurs des connecteurs natifs. Ne pas convertir 12 W par port en consommation du RIO.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Manuel actuel RIO couvre LAN/WAN et évolutions ; décompte physique non transféré à une ancienne génération."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "d-san-perfectcue-mini",
+      "name": "D'San PerfectCue Mini",
+      "confirmed": "Page DSan du PerfectCue Mini : 2 ports USB programmables vers 2 ordinateurs, série XLR et RJ45, sortie casque ; bus USB5 V ou bloc externe 12 V ; émetteur à piles. 6 lb avec mallette, pas poids net. PDF cache inspecté visuellement : PC-433SYS grand modèle, donc inadapté au Mini.",
+      "missing": "Confirmer format des USB, nombre/sens des prises XLR-RJ45 et poids du récepteur Mini seul avec photo arrière ou manuel exact Mini. Le PDF fourni est celui du PC-433SYS et ne tranche pas ces points pour le Mini.",
+      "url": "https://www.dsan.com/product/perfectcue-mini/",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/perfectcue-mini/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/UserGuide.pdf",
+          "document": "UserGuide.pdf",
+          "pagesRead": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "facts": [
+            "Inspection visuelle des 4 pages du cache : couverture Model PC-433SYS PerfectCue grand modèle, pas PerfectCue Mini. P.2 comporte notamment EBY, 2 RJ45, XLR mâle/femelle, USB et entrée monitor audio ; p.3 annonce 10,7 oz. Ces prises et ce poids appartiennent au PC-433SYS et ne sont pas transférés au Mini."
+          ],
+          "readingMethod": "Lecture visuelle des rendus locaux, pages PDF 1 à 4"
+        },
+        {
+          "url": "https://www.dsan.com/product/perfectcue-mini/",
+          "document": "Page constructeur modèle indiqué",
+          "pagesRead": [],
+          "facts": [
+            "Page DSan PerfectCue Mini : deux ports USB programmables vers deux ordinateurs, liaisons série XLR et RJ45, sortie casque ; alimentation bus USB5 V ou bloc externe 12 V ; émetteur sur piles. Poids annoncé 6 lb avec mallette, pas poids net."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer 2 USB de commande et liaisons série selon page constructeur Mini ; RJ45 série, pas Ethernet. Exclure le manuel PC-433SYS des preuves de ports Mini. Pas de consommation secteur à réclamer pour émetteur à piles ; ne pas utiliser poids avec mallette comme poids net.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "PDF désormais lu visuellement : mauvais modèle PC-433SYS. Ne pas importer ses 10,7 oz, EBY, RJ11 ou entrée monitor audio dans le Mini."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "dell-e248wfp",
+      "name": "DELL E248WFP",
+      "confirmed": "Le PDF 1598 liste DisplayPort, HDMI, deux DVI, VGA, composite, S-Video, composantes et USB, ainsi que 9,58 kg avec pied. Il ne permet pas d'identifier l'E248WFP et n'est pas accepté comme preuve de ses ports/poids.",
+      "missing": "Fournir manuel exact E248WFP ou photo plaque + arrière ; confirmer poids avec/sans pied et consommation W. La description 1920×1200 correspond mathématiquement à 16:10, pas 16:9.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1598.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/e248wfp/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1598.pdf",
+          "document": "1598.pdf",
+          "pagesRead": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "facts": [
+            "Le PDF 1598 liste DisplayPort, HDMI, deux DVI, VGA, composite, S-Video, composantes et USB, ainsi que 9,58 kg avec pied. Il ne permet pas d'identifier l'E248WFP et n'est pas accepté comme preuve de ses ports/poids."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Mettre de côté la fiche 1598 pour cette référence ; proposer correction rapport 16:10 sous identification exacte. Ne pas importer les nombreuses prises ni les poids du mauvais document.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Recherche constructeur n'a pas livré de preuve exploitable ; recours tiers trouvé mais non retenu comme preuve technique."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "epson-eb-pu1007b",
+      "name": "Epson EB-PU1007B",
+      "confirmed": "EB-PU1007B : WUXGA 16:10, 7000 lm, 16,3 kg ; 431 W/366 W éco et 0,5 W veille. Connexions : USB-A ×2, USB-B service, RS-232C, Ethernet, VGA, DVI, HDBaseT, HDMI, jack sortie et Remote ; Wi-Fi optionnel.",
+      "missing": "Aucune inconnue bloquante sur poids/puissance/vidéo ; confirmer la forme et le nombre des prises Remote/jack avant inventaire exhaustif.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7573-4677-eb-pu1007b-datasheet.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/eb-pu1007b/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7573-4677-eb-pu1007b-datasheet.pdf",
+          "document": "7573-4677-eb-pu1007b-datasheet.pdf",
+          "pagesRead": [
+            2,
+            3
+          ],
+          "facts": [
+            "EB-PU1007B : WUXGA 16:10, 7000 lm, 16,3 kg ; 431 W/366 W éco et 0,5 W veille. Connexions : USB-A ×2, USB-B service, RS-232C, Ethernet, VGA, DVI, HDBaseT, HDMI, jack sortie et Remote ; Wi-Fi optionnel."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Conserver 16,3 kg/431 W avec mode ; corriger description 16:9 en 16:10 ; ports principaux à proposer, Wi-Fi comme option seulement.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Fiche ne détaille pas la mécanique de chaque prise de commande."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "epson-eb-pu1008b",
+      "name": "Epson EB-PU1008B",
+      "confirmed": "EB-PU1008B : 8500 lm, WUXGA 16:10. Connexions fiche : USB-A ×2, USB-B service, RS-232C, Ethernet, VGA, DVI, HDBaseT, HDMI, jack sortie, Remote. Page Epson : 16,3 kg ; 535 W crête normal, 462 W marche normal, 452 W crête éco.",
+      "missing": "Aucune inconnue bloquante sur poids/puissance/vidéo ; confirmer prises Remote/jack pour inventaire exhaustif.",
+      "url": "https://www.epson.fr/fr_FR/produits/projector/gamme-professionnelle/eb-pu1008b-projector/p/32085",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/eb-pu1008b/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6396-4678-eb-pu1008b-datasheet.pdf",
+          "document": "6396-4678-eb-pu1008b-datasheet.pdf",
+          "pagesRead": [
+            2,
+            3
+          ],
+          "facts": [
+            "Fiche EB-PU1008B p.2 : 8500 lm, WUXGA 16:10 ; USB-A ×2, USB-B service, RS-232C, Ethernet, VGA, DVI, HDBaseT, HDMI, jack sortie et Remote. P.3 accessoires/logistique ; pas de poids ni puissance."
+          ]
+        },
+        {
+          "url": "https://www.epson.fr/fr_FR/produits/projector/gamme-professionnelle/eb-pu1008b-projector/p/32085",
+          "document": "Page constructeur modèle indiqué",
+          "pagesRead": [],
+          "facts": [
+            "EB-PU1008B : 8500 lm, WUXGA 16:10. Connexions fiche : USB-A ×2, USB-B service, RS-232C, Ethernet, VGA, DVI, HDBaseT, HDMI, jack sortie, Remote. Page Epson : 16,3 kg ; 535 W crête normal, 462 W marche normal, 452 W crête éco."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer 16,3 kg et 535 W crête normal (462 W marche normal, 452 W crête éco en note). Indiquer 16:10, Wi-Fi optionnel.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Le PDF cache omet la page informations générales ; complété par page constructeur du modèle exact."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "fougerolle-d3gduo1x4",
+      "name": "Fougerolle D3GDUO1X4",
+      "confirmed": "Document fourni : série DHD Miniflex SD/HD 1,485 Gb/s, références DHD-04/08 et combinaisons rack. Il n'identifie pas D3GDUO1X4 3G. Ses BNC et sa consommation <10 W ne sont pas transférables à cette référence.",
+      "missing": "Fournir fiche exacte D3GDUO1X4 ou photo plaque/arrière : confirmer 2 entrées et 8 sorties BNC, prises secteur, poids net et consommation W.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/f_dhd-x.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/peripherique/distributeur-sdi/d3gduo1x4/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/f_dhd-x.pdf",
+          "document": "f_dhd-x.pdf",
+          "pagesRead": [
+            1,
+            2
+          ],
+          "facts": [
+            "Document fourni : série DHD Miniflex SD/HD 1,485 Gb/s, références DHD-04/08 et combinaisons rack. Il n'identifie pas D3GDUO1X4 3G. Ses BNC et sa consommation <10 W ne sont pas transférables à cette référence."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Aucune valeur physique/électrique nouvelle acceptée ; conserver en attente. L'intitulé double 1×4 suggère deux circuits mais ne prouve pas les prises.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Recherche constructeur + recours n'ont donné que la fiche DHD inadaptée et le libellé commercial, pas la preuve du 3G."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "fujinon-rmd-30",
+      "name": "FUJINON RMD-30",
+      "confirmed": "Lecture visuelle PDF p.1 : unité RMD-30 de contrôle zoom ON/OFF, focus ON/OFF, iris Auto ou ON/OFF, et 8 préréglages zoom/focus. Schéma : liaison par câble extension B vers relais CCB-1, puis extension A vers objectif ; longueur totale A+B ≤100 m. CCB-1 reçoit DC12 V du bloc CPS-401A-01A (sortie 12 V/1,3 A).",
+      "missing": "Confirmer connecteur physique/brochage et poids net de la RMD-30 : non spécifiés sur le system chart. Préciser si relais CCB-1 présent dans le parc, comme équipement séparé.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/fujinon_rmd_30_ft.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/captation/accessoires-de-camera/rmd-30/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/fujinon_rmd_30_ft.pdf",
+          "document": "fujinon_rmd_30_ft.pdf",
+          "pagesRead": [
+            1
+          ],
+          "facts": [
+            "Lecture visuelle PDF p.1 : unité RMD-30 de contrôle zoom ON/OFF, focus ON/OFF, iris Auto ou ON/OFF, et 8 préréglages zoom/focus. Schéma : liaison par câble extension B vers relais CCB-1, puis extension A vers objectif ; longueur totale A+B ≤100 m. CCB-1 reçoit DC12 V du bloc CPS-401A-01A (sortie 12 V/1,3 A)."
+          ],
+          "readingMethod": "Lecture visuelle du rendu local, page PDF 1 (E-5 imprimée)"
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer description commande zoom/focus/iris avec 8 préréglages zoom/focus ; aucune consommation secteur à réclamer pour la télécommande seule. CCB-1 et CPS-401A-01A sont des accessoires séparés, leurs données alimentation ne deviennent pas celles de la RMD-30. Connecteur dessiné mais famille/brochage non nommés, pas de port normalisé inventé.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "La page schématique ne nomme ni connecteur, ni poids, ni consommation propre de RMD-30 ; aucune transposition des RMD-10/20."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "fusion-hdmi2-0-fiber-link",
+      "name": "Fusion HDMI2.0 Fiber Link",
+      "confirmed": "Manuel associé modèle UF-HDF460KM-2GE-T/R : TX HDMI IN + boucle OUT, USB-B ; RX HDMI OUT + 2 USB-A ; chaque boîtier 2 EtherCON/RJ45, OpticalCON DUO/LC-PC duplex et PowerCON True1 entrée/renvoi. 10 W et 1,5 kg par boîtier ; rack seul 1,4 kg.",
+      "missing": "Confirmer nom et variante exacts des unités Fusion TX et RX, et leur équivalence à UF-HDF460KM-2GE-T/R pour préparer deux fiches unitaires séparées ; sinon retirer la fiche de kit du lot. Aucun ensemble à valider.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/2508-4705-fusion-tools-hdmi-2-0-fiber-link-manuel-fr.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/hdmi2-0-fiber-link/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5405-4705-fusion-tools-hdmi-2-0-fiber-link-manuel-uk.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/2508-4705-fusion-tools-hdmi-2-0-fiber-link-manuel-fr.pdf",
+          "document": "2508-4705-fusion-tools-hdmi-2-0-fiber-link-manuel-fr.pdf",
+          "pagesRead": [
+            2,
+            3,
+            4,
+            5,
+            7
+          ],
+          "facts": [
+            "Manuel associé modèle UF-HDF460KM-2GE-T/R : TX HDMI IN + boucle OUT, USB-B ; RX HDMI OUT + 2 USB-A ; chaque boîtier 2 EtherCON/RJ45, OpticalCON DUO/LC-PC duplex et PowerCON True1 entrée/renvoi. 10 W et 1,5 kg par boîtier ; rack seul 1,4 kg."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Fiche kit interdite : aucune proposition de fiche ensemble. Si équivalence constructeur certaine, préparer séparément TX (HDMI IN + boucle OUT, USB-B) et RX (HDMI OUT, 2 USB-A), chacun 10 W et 1,5 kg et chacun ses 2 EtherCON, OpticalCON DUO et secteur True1 entrée/renvoi. Sans équivalence certaine, conserver les faits en notes et proposer retrait de la fiche kit ; aucune création de produit ici.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "Nom commercial Fusion et code modèle UF-HDF460KM-2GE-T/R différents ; équivalence non certaine sur seule association catalogue. Deux unités séparées seulement, jamais ensemble."
+      ],
+      "checkedAt": "2026-10-31"
+    },
+    {
+      "id": "id-al-evp380",
+      "name": "ID-AL EVP380",
+      "confirmed": "EVP380 : 480 g ; entrée 12 V DC/2 A sur coaxial 2,1/5,5 mm. HDMI-A 2.0b OUT, 2 USB-A hôtes, microSD, Ethernet RJ45, DMX IN/OUT XLR3, audio stéréo RCA ligne, sorties HP borniers, RS-232 et GPIO sur borniers (9 entrées/8 sorties logiques).",
+      "missing": "Consommation propre W du lecteur à documenter si requise ; 12 V/2 A est une alimentation nominale, pas une consommation secteur mesurée.",
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/id-al_evp380_ft-fr.pdf",
+      "extraSources": [
+        "https://www.novelty.fr/produits/video/sources-video/lecteur-media/evp380/",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/id-al_evp380_ft-uk.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/id-al_evp380_manuel-fr.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/id-al_evp380_manuel-uk.pdf",
+        "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/id-al_evp380_quickstart.pdf"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/id-al_evp380_ft-fr.pdf",
+          "document": "id-al_evp380_ft-fr.pdf",
+          "pagesRead": [
+            1,
+            2
+          ],
+          "facts": [
+            "EVP380 : 480 g ; entrée 12 V DC/2 A sur coaxial 2,1/5,5 mm. HDMI-A 2.0b OUT, 2 USB-A hôtes, microSD, Ethernet RJ45, DMX IN/OUT XLR3, audio stéréo RCA ligne, sorties HP borniers, RS-232 et GPIO sur borniers (9 entrées/8 sorties logiques)."
+          ]
+        }
+      ],
+      "proposedChanges": {
+        "researchNotes": "Proposer poids 0,48 kg et inventaire connecteurs ci-dessus ; décrire les 9/8 GPIO comme canaux sur borniers, sans créer 17 prises. Ne pas entrer puissance HP ni 24 W calculés comme consommation.",
+        "validation": "Proposition seulement ; aucune fusion ni promotion verified."
+      },
+      "uncertainties": [
+        "2×19 W sous 4 ohms décrit la sortie audio et non la consommation électrique."
+      ],
+      "checkedAt": "2026-10-31"
+    }
+  ],
+  "technicalDataApplied": false,
+  "date": "2026-10-31",
+  "proposedChangesAreResearchNotes": true,
+  "principalReview": "Sélection, sources et variantes relues ; aucune fusion automatique ni promotion de statut, les chiffres max/nominal et les identités conditionnelles restent distincts."
+}

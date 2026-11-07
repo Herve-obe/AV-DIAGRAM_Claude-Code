@@ -1,0 +1,94 @@
+{
+  "id": "electro-voice-evolve-50",
+  "family": "speaker",
+  "manufacturer": "Electro-Voice",
+  "model": "EVOLVE 50",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 26.5,
+  "sources": [
+    {
+      "url": "https://www.huss-licht-ton.de/print_product_info.php/en/products_id/24792",
+      "document": "Huss, fiche EVOLVE 50 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bananamusic.it/stampa/prodotto/159814",
+      "document": "Banana Music, fiche EVOLVE 50 (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack ; fantôme 15 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack ; fantôme 15 V",
+      "phantom": "supplied"
+    },
+    {
+      "id": "rca",
+      "name": "Stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "mini",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Lecture audio Bluetooth"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Recopie de l'entrée"
+    },
+    {
+      "id": "mix",
+      "name": "Mix Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Amplification 2 × 500 W"
+    }
+  ]
+}

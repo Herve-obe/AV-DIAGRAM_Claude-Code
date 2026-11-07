@@ -1,0 +1,44 @@
+{
+  "id": "astera-art7",
+  "family": "dmxDistribution",
+  "domain": "light",
+  "pictogram": "patch",
+  "manufacturer": "Astera",
+  "model": "ART7",
+  "status": "verified",
+  "description": "Interface AsteraBox ART7 entre AsteraApp, console et éclairages ; émetteur CRMX intégré. Dimensions 144 × 78 × 30 mm. Batterie interne ; charge 5 V / 1 A par micro-USB. Entrée DMX par mini-jack 3,5 mm avec adaptateur XLR externe.",
+  "aliases": [
+    "Astera ART7"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/art7/",
+      "document": "Novelty — ART7",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/astera_art7_ft.pdf",
+      "document": "Astera — AsteraBox ART7, fiche technique, pages 1–2",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm ; câble adaptateur XLR externe fourni"
+    },
+    {
+      "id": "usb",
+      "name": "Charge micro-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-micro",
+      "format": "Micro-USB de charge,5 V CC/1 A"
+    }
+  ],
+  "weightKg": 0.23
+}

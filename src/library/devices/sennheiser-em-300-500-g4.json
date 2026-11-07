@@ -1,0 +1,108 @@
+{
+  "id": "sennheiser-em-300-500-g4",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EM 300-500 G4",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://soniccircus.com/product/sennheiser-em-300-500-g4-wireless-half-rack-receiver/",
+      "document": "Sonic Circus, fiche EM 300-500 G4 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.bimobject.com/en-us/sennheiser/product/em300-500g4",
+      "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-em300-500g4.html",
+      "document": "Sennheiser ew G4, EM 300-500 G4 specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_asa214-uhf_manual.pdf",
+      "document": "Sennheiser, ew 300-500 G4 Instruction Manual v2.0, copie Novelty",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec l'émetteur"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "WSM, Control Cockpit"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, 350 mA, bloc secteur externe"
+    },
+    {
+      "id": "afBal",
+      "name": "AF OUT BAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3M symétrique, +18 dBu max ; AF OUT réglable sur 48 dB par pas de 3 dB",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "afUnbal",
+      "name": "AF OUT UNBAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "format": "Jack 6,35 asymétrique, +12 dBu max ; AF OUT réglable sur 48 dB",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 stéréo en façade"
+    }
+  ],
+  "powerW": 3.6
+}

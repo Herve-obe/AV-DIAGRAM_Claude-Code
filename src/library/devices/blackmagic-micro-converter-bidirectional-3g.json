@@ -1,0 +1,57 @@
+{
+  "id": "blackmagic-micro-converter-bidirectional-3g",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Micro Converter BiDirectional SDI/HDMI 3G",
+  "pictogram": "router",
+  "status": "verified",
+  "powerW": 2.5,
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/microconverters/techspecs/W-CONU-09",
+      "document": "Blackmagic Design, fiche technique Micro Converter BiDirectional SDI/HDMI 3G (W-CONU-09)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / 3G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Depuis l'entrée HDMI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Depuis l'entrée SDI"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Alimentation et configuration ; 2,5 W"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "id": "pioneerdj-djm-900nxs2",
+  "family": "console",
+  "manufacturer": "Pioneer DJ",
+  "model": "DJM-900NXS2",
+  "pictogram": "console",
+  "status": "verified",
+  "weightKg": 8.0,
+  "sources": [
+    {
+      "url": "https://downloads.support.alphatheta.com/manuals/mixers/DJM-900NXS2/DJM-900NXS2_DRH1330C_quickstart-manual.pdf",
+      "document": "Pioneer DJ, guide de démarrage DJM-900NXS2 (DRH1330C)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "phono1",
+      "name": "Phono 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "phono2",
+      "name": "Phono 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "phono3",
+      "name": "Phono 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "phono4",
+      "name": "Phono 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "phono",
+      "channels": 2,
+      "format": "RCA, niveau phono"
+    },
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "line4",
+      "name": "Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA"
+    },
+    {
+      "id": "digIn1",
+      "name": "Digital In 1",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn2",
+      "name": "Digital In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn3",
+      "name": "Digital In 3",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "digIn4",
+      "name": "Digital In 4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "mic1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR / jack 6,35 TRS"
+    },
+    {
+      "id": "masterL",
+      "name": "Master Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "masterR",
+      "name": "Master Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique"
+    },
+    {
+      "id": "masterRca",
+      "name": "Master Out (RCA)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Asymétrique"
+    },
+    {
+      "id": "booth",
+      "name": "Booth Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack 6,35 TRS (L/R)"
+    },
+    {
+      "id": "rec",
+      "name": "Rec Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "send1",
+      "name": "Send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "return1",
+      "name": "Return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "channels": 2,
+      "format": "Jack 6,35 TS (L/R)"
+    },
+    {
+      "id": "mic2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic"
+    },
+    {
+      "id": "digOut",
+      "name": "Digital Master Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2
+    },
+    {
+      "id": "usbB",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "Interface audio ordinateur"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PRO DJ LINK"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

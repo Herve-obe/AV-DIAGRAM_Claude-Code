@@ -1,0 +1,66 @@
+{
+  "id": "chauvet-vesuvio-ii",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "Vesuvio II",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 12.9,
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/product/vesuvio-ii/",
+      "document": "Chauvet Professional, page Vesuvio II",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/machine-a-fumee/vesuvio-ii/",
+      "document": "Novelty — Vesuvio II",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_vesuvio-ii_manuel-uk.pdf",
+      "document": "Novelty — Vesuvio II : Vesuvio II",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_vesuvio-ii_quick-guide.pdf",
+      "document": "Novelty — Vesuvio II : Quick guide",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 3 et 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerkon-ip65"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powerkon-ip65"
+    }
+  ],
+  "aliases": [
+    "Chauvet Vesuvio II"
+  ]
+}

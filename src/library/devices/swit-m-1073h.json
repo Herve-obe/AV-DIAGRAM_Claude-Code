@@ -1,0 +1,124 @@
+{
+  "id": "swit-m-1073h",
+  "family": "display",
+  "manufacturer": "SWIT",
+  "model": "M-1073H (double moniteur 7\" rack 3U)",
+  "pictogram": "display",
+  "status": "verified",
+  "powerW": 26,
+  "weightKg": 2.4,
+  "rackU": 3,
+  "sources": [
+    {
+      "url": "https://www.swit.cc/uploads/2021/09/280915483767.pdf",
+      "document": "SWIT, M-1073H Dual 7-inch FHD Rack LCD Monitor (fiche)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-inA",
+      "name": "Écran A SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "2K/3G/HD/SD-SDI ; nombre d'entrées SDI par écran non lisible dans la fiche (la page produit en annonce 2)"
+    },
+    {
+      "id": "hdmi-inA",
+      "name": "Écran A HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4K60p"
+    },
+    {
+      "id": "sdi-outA",
+      "name": "Écran A SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage SDI"
+    },
+    {
+      "id": "hdmi-outA",
+      "name": "Écran A HDMI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Bouclage HDMI 2.0"
+    },
+    {
+      "id": "aoutA",
+      "name": "Écran A Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Audio désembeddé SDI / HDMI, 3,5 mm"
+    },
+    {
+      "id": "tallyA",
+      "name": "Écran A GPI (Tally)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Entrée GPI / tally ; connecteur non précisé"
+    },
+    {
+      "id": "sdi-inB",
+      "name": "Écran B SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "2K/3G/HD/SD-SDI ; nombre d'entrées SDI par écran non lisible dans la fiche (la page produit en annonce 2)"
+    },
+    {
+      "id": "hdmi-inB",
+      "name": "Écran B HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4K60p"
+    },
+    {
+      "id": "sdi-outB",
+      "name": "Écran B SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage SDI"
+    },
+    {
+      "id": "hdmi-outB",
+      "name": "Écran B HDMI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Bouclage HDMI 2.0"
+    },
+    {
+      "id": "aoutB",
+      "name": "Écran B Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Audio désembeddé SDI / HDMI, 3,5 mm"
+    },
+    {
+      "id": "tallyB",
+      "name": "Écran B GPI (Tally)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Entrée GPI / tally ; connecteur non précisé"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "6,5 à 36 V CC ; adaptateur secteur fourni"
+    }
+  ]
+}

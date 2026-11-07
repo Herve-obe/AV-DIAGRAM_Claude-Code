@@ -1,0 +1,81 @@
+{
+  "id": "kramer-vs-41h",
+  "family": "videoRouting",
+  "manufacturer": "Kramer",
+  "model": "VS-41H (commutateur HDMI 4x1)",
+  "pictogram": "router",
+  "status": "verified",
+  "weightKg": 2.5,
+  "sources": [
+    {
+      "url": "https://cdn.kramerav.com/web/downloads/manuals/kramer_vs-41h.pdf",
+      "document": "Kramer, User Manual VS-41H",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi-in1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "hdmi-in2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "hdmi-in3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "hdmi-in4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP"
+    },
+    {
+      "id": "hdmi-out",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 points, Protocol 2000"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V, 10 VA"
+    }
+  ]
+}

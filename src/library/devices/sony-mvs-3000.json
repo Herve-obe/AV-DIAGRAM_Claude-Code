@@ -1,0 +1,124 @@
+{
+  "id": "sony-mvs-3000",
+  "family": "videoSwitcher",
+  "manufacturer": "Sony",
+  "model": "MVS-3000 (processeur de mélangeur)",
+  "pictogram": "switcher",
+  "status": "verified",
+  "weightKg": 19,
+  "rackU": 4,
+  "sources": [
+    {
+      "document": "Sony, MVS-6520 / MVS-3000 / MVS-6530 Installation Manual 1st Edition, 4-446-372-01 (2012)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "IN 1-16",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 16,
+      "format": "16 entrées SDI multiformat sur BNC 75 Ω (câble Belden 1694)"
+    },
+    {
+      "id": "in2",
+      "name": "IN 17-32",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 16,
+      "format": "16 entrées SDI sur BNC 75 Ω"
+    },
+    {
+      "id": "out",
+      "name": "OUT 1-16",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "channels": 16,
+      "format": "16 sorties SDI sur BNC 75 Ω (programme, preview, multiviewer…)"
+    },
+    {
+      "id": "ref",
+      "name": "REF IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence vidéo ; terminer par le bouchon 75 Ω fourni"
+    },
+    {
+      "id": "sbus",
+      "name": "S-BUS",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "bnc",
+      "format": "Liaison S-BUS vers une grille de commutation externe"
+    },
+    {
+      "id": "mvsnet",
+      "name": "MVS",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Ethernet vers le panneau ICP-3000 (câble droit)"
+    },
+    {
+      "id": "rem14",
+      "name": "REMOTE 1-4",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422A, D-Sub 9 femelle, vers magnétoscopes et appareils pilotés"
+    },
+    {
+      "id": "remS",
+      "name": "REMOTE S1 / S2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422A, D-Sub 9 femelle, depuis un contrôleur externe"
+    },
+    {
+      "id": "tally",
+      "name": "SERIAL TALLY",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422A vers interface de tally (BKDS-6080…)"
+    },
+    {
+      "id": "gpi",
+      "name": "TALLY / GPI",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 femelle : entrées TTL et sorties collecteur ouvert 30 V ; nombre de connecteurs selon le modèle"
+    },
+    {
+      "id": "usb",
+      "name": "FM DEVICE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A (disque amovible)"
+    },
+    {
+      "id": "acA",
+      "name": "Secteur A",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 VAC, 50/60 Hz ; 4,0 à 1,7 A toutes options ; deux blocs, les deux doivent être allumés"
+    },
+    {
+      "id": "acB",
+      "name": "Secteur B",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

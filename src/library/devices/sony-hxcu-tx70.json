@@ -1,0 +1,253 @@
+{
+  "id": "sony-hxcu-tx70",
+  "family": "control",
+  "domain": "image",
+  "manufacturer": "Sony",
+  "model": "HXCU-TX70 (CCU triax)",
+  "pictogram": "control",
+  "status": "verified",
+  "rackU": 1.5,
+  "weightKg": 7.9,
+  "description": "CCU pour HXC-D70 via CA-TX70. Liaison caméra triax, version Fischer indiquée pour cet usage. Hauteur physique 1,5 U ; deux U entières réservées dans la vue baies.",
+  "aliases": [
+    "HXCU-TX70",
+    "Sony HXCU-TX70",
+    "TX70 CCU",
+    "HXCU-TX70 Fischer"
+  ],
+  "sources": [
+    {
+      "url": "https://pro.sony/s3/2019/01/24043806/4479642111.pdf",
+      "document": "Sony, HXCU-TX70 Operating Instructions 4-479-642-11 (1), p. 3, 6–9, 29–30",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "camera",
+      "name": "CAMERA",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "triax",
+      "format": "Triax vers CA-TX70 ; vidéo, retours, audio, commande et alimentation."
+    },
+    {
+      "id": "sdi-return1",
+      "name": "SDI RETURN 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "sdi-return2",
+      "name": "SDI RETURN 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "vbs-return1",
+      "name": "VBS RETURN 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "vbs-return2",
+      "name": "VBS RETURN 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "reference-in",
+      "name": "REFERENCE IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst / tri-level."
+    },
+    {
+      "id": "reference-out",
+      "name": "REFERENCE OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage de REFERENCE IN."
+    },
+    {
+      "id": "prompter1",
+      "name": "PROMPTER 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "prompter2",
+      "name": "PROMPTER 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS."
+    },
+    {
+      "id": "sdi-out1",
+      "name": "SDI OUTPUT 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "sdi-out2",
+      "name": "SDI OUTPUT 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI."
+    },
+    {
+      "id": "sdi-out3",
+      "name": "SDI OUTPUT 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI ; affichage de repères possible."
+    },
+    {
+      "id": "sdi-out4",
+      "name": "SDI OUTPUT 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI / SD-SDI ; affichage de repères possible."
+    },
+    {
+      "id": "component1",
+      "name": "Pr/R/R-Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante analogique / RGB selon configuration."
+    },
+    {
+      "id": "component2",
+      "name": "Y/G/Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante analogique / RGB selon configuration."
+    },
+    {
+      "id": "component3",
+      "name": "Pb/B/B-Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante analogique / RGB selon configuration."
+    },
+    {
+      "id": "vbs-out1",
+      "name": "VBS 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite."
+    },
+    {
+      "id": "vbs-out2",
+      "name": "VBS 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite."
+    },
+    {
+      "id": "pix",
+      "name": "PIX",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Moniteur analogique."
+    },
+    {
+      "id": "sync",
+      "name": "SYNC / WF",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchronisation HD / SD ou moniteur waveform, selon réglage."
+    },
+    {
+      "id": "audio-out1",
+      "name": "MIC OUT1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie audio caméra, 0 dBu ou −20 dBu."
+    },
+    {
+      "id": "audio-out2",
+      "name": "MIC OUT2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Sortie audio caméra, 0 dBu ou −20 dBu."
+    },
+    {
+      "id": "headset",
+      "name": "INTERCOM · casque",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5"
+    },
+    {
+      "id": "intercom",
+      "name": "INTERCOM / TALLY / PGM",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub25",
+      "format": "PROD / ENG, tally et deux programmes audio."
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sony-remote8",
+      "format": "Commande RCP, CCA-5."
+    },
+    {
+      "id": "trunk",
+      "name": "MIC / WF REMOTE / TRUNK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "Commande micro / waveform et trunk."
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "capacityMbps": 100
+      },
+      "format": "10BASE-T / 100BASE-TX."
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100–240 V CA, 50/60 Hz ; 4,5 A max. Puissance en watts non déclarée."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "klotz-lsv2844",
+  "family": "passive",
+  "domain": "sound",
+  "pictogram": "patch",
+  "manufacturer": "Klotz",
+  "model": "LSV2844",
+  "status": "community",
+  "description": "Boitier de distribution IN Speakon 8 / OUT 4 x Speakon 4",
+  "aliases": [
+    "SPEAKERLINK/N",
+    "Klotz LSV2844"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/cablage-hp/speakon/lsv2844/",
+      "document": "Novelty — LSV2844",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://shop.klotz-ais.com/lsv2844-1.html",
+      "accessed": "2026-11-06"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl8",
+      "level": "speaker"
+    },
+    {
+      "id": "thru",
+      "name": "Recopie speakON 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl8",
+      "level": "speaker",
+      "format": "Seconde embase 8 points (NLT8MP/NLT8FP selon la description Klotz)"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie 1 speakON 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie 2 speakON 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie 3 speakON 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie 4 speakON 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "clear-com-ms702",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "MS702",
+  "status": "verified",
+  "description": "Centrale intercommunication 2 directions",
+  "aliases": [
+    "CLEARCOM MS702"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/ms702/",
+      "document": "Novelty — MS702",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_ms702_manuel.pdf",
+      "document": "Novelty — MS702 : Document",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_ms702_ft.pdf",
+      "document": "Novelty — MS702 : Document",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a1",
+      "name": "Ligne intercom A 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "a2",
+      "name": "Ligne intercom A 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "a3",
+      "name": "Ligne intercom A 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b1",
+      "name": "Ligne intercom B 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b2",
+      "name": "Ligne intercom B 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b3",
+      "name": "Ligne intercom B 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "pgm",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, programme principal niveau ligne"
+    },
+    {
+      "id": "ann",
+      "name": "Announce Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, symétrique par transformateur"
+    },
+    {
+      "id": "relay",
+      "name": "Relay Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 : contact sec 2 A / 24 V CC (pointe commun, bague repos, corps travail)"
+    },
+    {
+      "id": "hotmic",
+      "name": "Hot Mic / IFB",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 : pointe sortie micro asymétrique (180 Ω), bague entrée de commande IFB externe, corps masse"
+    },
+    {
+      "id": "pmic",
+      "name": "Panel Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Embase 6,35 en façade pour micro col de cygne GM-9 / GM-18"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle en façade"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 320, 100 à 240 V CA"
+    }
+  ],
+  "weightKg": 2.75,
+  "powerW": 60,
+  "rackU": 1
+}

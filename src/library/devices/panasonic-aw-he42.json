@@ -1,0 +1,120 @@
+{
+  "id": "panasonic-aw-he42",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE42",
+  "pictogram": "camera",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://nationwidevideo.com/gear/panasonic-aw-he42-full-hd-professional-ptz-camera/",
+      "document": "Nationwide Video, fiche AW-HE42 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://na.panasonic.com/us/news/panasonic-announces-pricingavailability-new-aw-he42-1080p-pantiltzoom-camera-advances",
+      "document": "Panasonic, annonce AW-HE42",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/aw-he42/",
+      "document": "Novelty — AW-HE42",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE42P.PJ.E.EJ_simple%28DVQX1917ZA%29_E.pdf",
+      "document": "Panasonic — AW-HE42/HE68 — Operating Instructions (Basics), DVQX1917ZA",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Contrôle IP et flux vidéo ; IEEE 802.3at PoE+",
+      "network": {
+        "poe": "sink",
+        "capacityMbps": 100
+      }
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "out",
+      "signal": "video",
+      "connector": "usb-mini",
+      "format": "USB 2.0 mini-B, UVC/UAC"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, prise cylindrique avec maintien du câble"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Commande série Panasonic / standard ; tally sur broches1–2"
+    },
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Commande série ; IR Out sur broches7–8"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Chaînage commande série"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Entrée micro/ligne ; diamètre à confirmer"
+    }
+  ],
+  "aliases": [
+    "AWHE42K",
+    "PANASONIC AW-HE42"
+  ],
+  "weightKg": 1.5,
+  "depthMm": 179
+}

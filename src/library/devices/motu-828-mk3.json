@@ -1,0 +1,457 @@
+{
+  "id": "motu-828-mk3",
+  "family": "processing",
+  "domain": "sound",
+  "pictogram": "processor",
+  "manufacturer": "Motu",
+  "model": "828 Mk3",
+  "status": "community",
+  "description": "Interface FireWire, 24 bits / 192 kHz",
+  "aliases": [
+    "828MK3",
+    "Motu 828 Mk3"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/audio-numerique/interfaces/828-mk3/",
+      "document": "Novelty — 828 Mk3",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/828mk3_v106-Win64.zip",
+      "document": "Novelty — 828 Mk3 : 828mk3 Firmware v1.06 Updater for 64-bit Windows",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/828mk3_v106-Win32.zip",
+      "document": "Novelty — 828 Mk3 : 828mk3 Firmware v1.06 Updater for 32-bit Windows",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/motu-828mk3-fx_updater-106-zip",
+      "document": "Novelty — 828 Mk3 : 828mk3 Firmware Update- Mac",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/MOTU_Audio_Installer-Win-100802.zip",
+      "document": "Novelty — 828 Mk3 : MOTU Firewire Audio Install for Windows",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/motu-firewire-audio-software-update-notes-pdf",
+      "document": "Novelty — 828 Mk3 : MOTU FireWire Audio Software Update Notes",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://im.static-thomann.de/pics/atg/atgdata/document/manual/258919_userguidem.pdf",
+      "document": "MOTU 828mk3 User Guide for Mac (copie Thomann)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic1",
+      "name": "Micro/Instrument 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR/TRS face avant, gain 53 dB, pad 20 dB",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "mic2",
+      "name": "Micro/Instrument 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR/TRS face avant, gain 53 dB, pad 20 dB",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "phones1",
+      "name": "Casque (Main)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Recopie des sorties principales XLR"
+    },
+    {
+      "id": "phones2",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Sortie casque indépendante"
+    },
+    {
+      "id": "in1",
+      "name": "Entrée ligne 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Entrée ligne 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Entrée ligne 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in4",
+      "name": "Entrée ligne 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in5",
+      "name": "Entrée ligne 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in6",
+      "name": "Entrée ligne 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in7",
+      "name": "Entrée ligne 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in8",
+      "name": "Entrée ligne 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique, trim 0 à +22 dB",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "out1",
+      "name": "Sortie ligne 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie ligne 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie ligne 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie ligne 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie ligne 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie ligne 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie ligne 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie ligne 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "TRS symétrique +4 dB"
+    },
+    {
+      "id": "mainL",
+      "name": "Sortie principale gauche",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mainR",
+      "name": "Sortie principale droite",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "send1",
+      "name": "Départ préampli 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "send2",
+      "name": "Départ préampli 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "smpteIn",
+      "name": "SMPTE In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "jack-trs",
+      "format": "Time code LTC"
+    },
+    {
+      "id": "smpteOut",
+      "name": "SMPTE Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "jack-trs",
+      "format": "Time code LTC"
+    },
+    {
+      "id": "optAIn",
+      "name": "Optique A In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT, S/MUX ou S/PDIF optique"
+    },
+    {
+      "id": "optAOut",
+      "name": "Optique A Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT, S/MUX ou S/PDIF optique"
+    },
+    {
+      "id": "optBIn",
+      "name": "Optique B In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT, S/MUX ou S/PDIF optique"
+    },
+    {
+      "id": "optBOut",
+      "name": "Optique B Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT, S/MUX ou S/PDIF optique"
+    },
+    {
+      "id": "spdifIn",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "pedal",
+      "name": "Pédale",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "Interrupteur au pied (punch-in)"
+    },
+    {
+      "id": "fw1",
+      "name": "FireWire 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394",
+      "format": "FireWire 400 vers ordinateur"
+    },
+    {
+      "id": "fw2",
+      "name": "FireWire 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394",
+      "format": "Chaînage FireWire"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation interne 100-240 V, 20 W"
+    }
+  ],
+  "portStatus": "pending",
+  "powerW": 20
+}

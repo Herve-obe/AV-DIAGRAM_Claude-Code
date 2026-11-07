@@ -1,0 +1,70 @@
+{
+  "id": "luminex-luminode-4",
+  "family": "dmxDistribution",
+  "manufacturer": "Luminex",
+  "model": "LumiNode 4",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://luminex.be/products/luminode/luminode-4",
+      "document": "Luminex, page LumiNode 4",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM isolé"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM isolé"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM isolé"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM isolé"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    }
+  ]
+}

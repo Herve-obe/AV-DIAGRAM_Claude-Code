@@ -1,0 +1,1129 @@
+import { describe, expect, it } from 'vitest'
+import { GENERIC_LIBRARY, LIBRARY_BY_ID } from '../library/generic'
+import { buildSampleProject } from '../library/sample'
+import { DEFAULT_EXPORT } from '../io/exportOptions'
+import { computeTotals, buildBom } from './bom'
+import { connectorsMate } from './connectors'
+import { formatCableLabel } from './numbering'
+import * as ops from './project'
+import { checkLink, checkProject, mutedIssues } from './rules'
+import { equipmentInView } from './layers'
+import { domainOf } from '../library/domains'
+import { LIBRARY } from '../library'
+import { familiesCompatible } from './signals'
+import type { Project } from './types'
+import { portsToDisplay } from './portDisplay'
+import { videoStudioPlan } from './videoStudio'
+import { audioProductionPlan, checkAudioMixes } from './audioProduction'
+import fr from '../i18n/fr.json'
+import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate } from './catalogueImport'
+import { diagramBlockSize } from './diagramLayout'
+import { proposalLayouts } from './proposalLayout'
+import { sheetLayout, tilesFor, exportSettingsOf } from '../io/exportOptions'
+import { SIGNAL_FAMILIES } from './signals'
+import { createDraft, runTool } from '../ai/tools'
+import { companyAlerts } from './company'
+import { validateTemplate } from './validateTemplate'
+import { connectSystem } from './systemDiagram'
+
+it('ne confond pas deux protocoles numériques sur le même connecteur', () => {
+  const template = GENERIC_LIBRARY.find(t => t.id === 'gen-stagebox-madi')!
+  let project = ops.createProject('Protocoles')
+  const from = ops.addEquipment(project, template, { x: 0, y: 0 }); project = from.project
+  const to = ops.addEquipment(project, { ...template, ports: template.ports.map(p => ({ ...p, format: p.signal === 'audioDigital' ? 'S/PDIF' : p.format })) }, { x: 300, y: 0 }); project = to.project
+  const roles = new Map([['source', [from.id]], ['target', [to.id]]]), links = [{ from: 'source', to: 'target', signal: 'audioDigital' }]
+  expect(connectSystem(project, roles, links)).toHaveProperty('error')
+  expect(Object.keys(project.links)).toHaveLength(0)
+  const compatible = ops.updateEquipment(project, to.id, { ports: template.ports })
+  const result = connectSystem(compatible, roles, links)
+  expect('error' in result).toBe(false)
+  if ('project' in result) expect(Object.keys(result.project.links)).toHaveLength(1)
+})
+
+describe('parc entreprise partagé par les contrôles manuels et IA', () => {
+  const company = { ...GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!, id: 'user-mic', status: 'user' as const, companyQuantity: 1 }
+  it('garde les doublons de modèles distincts et signale dépassement et disponibilité inconnue', () => {
+    let project = ops.createProject('Parc')
+    for (const t of [company, company, GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!]) project = ops.addEquipment(project, t, { x: 0, y: 0 }).project
+    expect(companyAlerts(project, [company]).map(a => [a.code, a.required, a.quantity])).toEqual([['shortage', 2, 1], ['outside', 1, undefined], ['unknown', 2, undefined]])
+    expect(companyAlerts(project, [])).toEqual([])
+    expect(companyAlerts(project, [{ ...company, companyQuantity: undefined }]).map(a => a.code)).toEqual(['outside', 'unknown'])
+    expect(validateTemplate({ ...company, companyQuantity: -1 })).not.toEqual([])
+    expect(validateTemplate({ ...company, companyQuantity: 1.5 })).not.toEqual([])
+    expect(validateTemplate({ ...company, companyQuantity: 0 })).toEqual([])
+    const host = Object.keys(project.equipment)[0]
+    const withCard = ops.updateEquipment(project, host, { modules: [{ id: 'card', slotId: 'slot', templateId: 'external-card', type: 'test', model: 'Carte de test', portIds: [] }] })
+    expect(companyAlerts(withCard, [company]).some(a => a.code === 'outside' && a.name === 'Carte de test')).toBe(true)
+  })
+  it('importe la quantité possédée sans recopier de tarif ni inventer une disponibilité', () => {
+    const table = catalogueCsv('Modèle;Quantité;Tarif\nMicro dynamique;2;500')
+    const result = catalogueEntries(table, catalogueColumns(table.rows[0]), [], 'capture')
+    expect(result.problems).toEqual([])
+    expect(catalogueTemplate(result.entries[0]).companyQuantity).toBe(2)
+    for (const value of ['-1', '1.5', 'inconnu', '1000001']) {
+      const invalid = catalogueCsv('Modèle;Quantité\nMicro;' + value)
+      expect(catalogueEntries(invalid, catalogueColumns(invalid.rows[0]), [], 'capture').problems).toEqual([2])
+    }
+    const duplicate = catalogueCsv('Modèle;Quantité\nMicro;2\nMicro;3')
+    expect(catalogueEntries(duplicate, catalogueColumns(duplicate.rows[0]), [], 'capture').problems).toEqual([3])
+  })
+})
+
+describe('mise en page des propositions IA', () => {
+  const production = (base = ops.createProject('Émission')) => runTool(createDraft(base, ops.DEFAULT_SHEET_ID), {
+    id: 'production', name: 'propose_audio_production', args: { main_console_template_id: 'yamaha-m7cl-48es', live_console_template_id: 'yamaha-01v96' },
+  }, { library: LIBRARY, describe: i => i.code }).draft
+
+  it('range le cahier des charges dans les pages imprimables, notes entières et patch conservé', () => {
+    const draft = production(), original = JSON.stringify(draft.project)
+    const layouts = proposalLayouts(draft.base, draft.project, draft.addedEquipment, draft.sheetId)
+    expect(layouts[0].paper).toBe('A3')
+    expect(layouts.some(c => c.valid && c.pages === 1)).toBe(true)
+    for (const choice of layouts.filter(c => c.valid)) {
+      const p = choice.project, opts = exportSettingsOf(p)
+      const { tileW, tileH } = tilesFor(null, sheetLayout(choice.paper, opts.orientation, SIGNAL_FAMILIES.length).area, 100)
+      const boxes = [...draft.addedEquipment.map(id => ({ ...p.equipment[id].position, ...diagramBlockSize(p, p.equipment[id]) })),
+        ...Object.values(p.annotations ?? {}).map(a => ({ ...a.position, ...a.size }))]
+      for (const b of boxes) {
+        expect(Math.floor(b.x / tileW)).toBe(Math.floor((b.x + b.w - 0.01) / tileW))
+        expect(Math.floor(b.y / tileH)).toBe(Math.floor((b.y + b.h - 0.01) / tileH))
+      }
+      const eq = boxes.slice(0, draft.addedEquipment.length)
+      eq.forEach((a, i) => eq.slice(i + 1).forEach(b => expect(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y).toBe(true)))
+      const text = (project: typeof p) => Object.values(project.annotations ?? {}).filter(a => a.kind === 'note').map(a => a.text).join('').replace(/\s/g, '')
+      expect(text(p)).toBe(text(draft.project))
+      expect(p.links).toBe(draft.project.links)
+      expect(ops.isProject(JSON.parse(JSON.stringify(p)))).toBe(true)
+    }
+    expect(JSON.stringify(draft.project)).toBe(original)
+  })
+
+  it('préserve l’existant et les réglages d’export hors format, y compris les autres feuilles', () => {
+    const old = ops.addEquipment(ops.createProject('Existant'), LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 400, y: 100 })
+    const base = ops.addAnnotation(old.project, { kind: 'frame', sheetId: ops.DEFAULT_SHEET_ID, position: { x: 350, y: 50 }, size: { w: 900, h: 500 }, text: 'À conserver' }).project
+    const draft = production(base)
+    const layouts = proposalLayouts(base, draft.project, draft.addedEquipment, draft.sheetId)
+    for (const choice of layouts) {
+      expect(choice.project.equipment[old.id]).toBe(base.equipment[old.id])
+      for (const a of Object.values(base.annotations!)) expect(choice.project.annotations![a.id]).toBe(a)
+      expect(exportSettingsOf(choice.project)).toEqual({ ...exportSettingsOf(base), paper: choice.paper })
+      expect(draft.addedEquipment.every(id => choice.project.equipment[id].position.x >= 1600)).toBe(true)
+    }
+  })
+
+  it('propose de grands formats pour un bloc trop large, sans le réduire ni supprimer ses ports', () => {
+    const base = ops.createProject('Grand bloc')
+    const added = ops.addEquipment(base, LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 0, y: 0 }, { name: 'Équipement '.repeat(45) })
+    const choices = proposalLayouts(base, added.project, [added.id], ops.DEFAULT_SHEET_ID)
+    expect(choices[0].valid).toBe(false)
+    expect(choices.some(c => c.valid)).toBe(true)
+    expect(choices.every(c => c.project.equipment[added.id].ports === added.project.equipment[added.id].ports)).toBe(true)
+  })
+})
+
+const tpl = (id: string) => {
+  const t = LIBRARY_BY_ID.get(id)
+  if (!t) throw new Error(id)
+  return t
+}
+
+describe('cahier des charges interview et duo live', () => {
+  const args = { main_console_template_id: 'yamaha-m7cl-48es', live_console_template_id: 'yamaha-01v96' }
+  it('prépare toutes les fonctions, six mixages et les exclusions sans boucle', () => {
+    const result = audioProductionPlan(LIBRARY, args, fr.audioProduction)
+    expect(result).not.toHaveProperty('error')
+    if ('error' in result) throw new Error(result.error)
+    expect(result.equipment.filter(e => e.ref.startsWith('interview'))).toHaveLength(3)
+    expect(result.equipment.filter(e => /^di\d/.test(e.ref))).toHaveLength(2)
+    expect(result.equipment.filter(e => /^headphones\d/.test(e.ref))).toHaveLength(2)
+    expect(result.connections.filter(l => l.from === 'machines' && l.to.startsWith('di'))).toHaveLength(2)
+    expect(result.connections.filter(l => l.from === 'main' && l.to === 'live')).toHaveLength(2)
+    expect(result.connections.filter(l => l.from === 'live' && l.to === 'headamp')).toHaveLength(4)
+    expect(result.mixes.find(m => m.id === 'return_live')).toMatchObject({ inputs: ['interview1', 'media'], exclude: ['live_pgm'] })
+    expect(result.mixes.find(m => m.id === 'interview_speakers')).toMatchObject({ inputs: ['live_pgm', 'media'], exclude: ['interview1', 'interview2', 'interview3'] })
+    expect(result.mixes.find(m => m.id === 'live_pgm')?.exclude).toContain('return_live')
+    expect(result.notes.live).toContain('AUX 1/2')
+    expect(result.notes.control).toContain('MATRIX 1/2')
+    expect(result.assumptions.join(' ')).toContain('2 sorties')
+  })
+  it('détecte une exclusion violée indirectement et une boucle entre sous-mixages', () => {
+    expect(checkAudioMixes(['presenter', 'media'], [
+      { id: 'pgm', inputs: ['presenter', 'media'], exclude: [] },
+      { id: 'speakers', inputs: ['pgm'], exclude: ['presenter'] },
+    ]).join(' ')).toContain('speakers contient la source exclue presenter')
+    expect(checkAudioMixes([], [{ id: 'live', inputs: ['main'], exclude: [] }, { id: 'main', inputs: ['live'], exclude: [] }]).join(' ')).toContain('Boucle')
+    expect(checkAudioMixes([], [{ id: 'main', inputs: ['missing'], exclude: [] }]).join(' ')).toContain('inconnue')
+    expect(checkAudioMixes(['same'], [{ id: 'same', inputs: [], exclude: [] }]).join(' ')).toContain('double')
+  })
+  it('adapte le nombre de prises, les stageboxes et refuse une capacité ou une fiche insuffisante', () => {
+    for (const stagebox_count of [0, 1, 2]) {
+      const result = audioProductionPlan(LIBRARY, { ...args, interview_mic_count: 4, loop_channels: 4, stagebox_count }, fr.audioProduction)
+      expect(result).not.toHaveProperty('error')
+      if ('error' in result) throw new Error(result.error)
+      expect(result.equipment.filter(e => e.ref.startsWith('box'))).toHaveLength(stagebox_count)
+      expect(result.equipment.filter(e => /^di\d/.test(e.ref))).toHaveLength(4)
+      expect(result.connections.filter(l => l.from === 'machines')).toHaveLength(4)
+      expect(result.notes.control).toContain(stagebox_count === 2 ? 'CH 17' : 'CH 1')
+    }
+    expect(audioProductionPlan(LIBRARY, { ...args, stagebox_count: 0, interview_mic_count: 5 }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, loop_channels: 1000 }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, main_console_template_id: 'yamaha-cl5' }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY.filter(t => t.id !== 'yamaha-01v96'), args, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, vocal_microphone_template_id: 'absent' }, fr.audioProduction)).toHaveProperty('error')
+    expect(audioProductionPlan(LIBRARY, { ...args, vocal_microphone_template_id: 'shure-sm58' }, fr.audioProduction)).toHaveProperty('error')
+  })
+})
+
+describe('import de catalogue utilisateur', () => {
+  const device = { id: 'test-mic', manufacturer: 'Fabricant fictif', model: 'Micro 1', family: 'capture' as const, pictogram: 'mic' as const, status: 'community' as const,
+    ports: [{ id: 'out', name: 'Sortie', direction: 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3' }] }
+  it('lit les CSV avec BOM, guillemets, point-virgule, retours à la ligne et guillemets doublés', () => {
+    const table = catalogueCsv('\uFEFFModèle;Fabricant\r\n"Micro; ""spécial""\n1";Test\r\n')
+    expect(table.rows).toEqual([['Modèle', 'Fabricant'], ['Micro; "spécial"\n1', 'Test']])
+    expect(catalogueColumns(table.rows[0])).toEqual({ model: 0, manufacturer: 1, quantity: -1 })
+    expect(catalogueCsv('Name,Brand\nMicro,Test').rows[1]).toEqual(['Micro', 'Test'])
+    expect(catalogueCsv('Name\tBrand\nMicro\tTest').rows[1]).toEqual(['Micro', 'Test'])
+  })
+  it('refuse une syntaxe CSV tronquée ou démesurée', () => {
+    expect(() => catalogueCsv('Name\n"Micro')).toThrow('invalid')
+    expect(() => catalogueCsv('Name\n"Micro"suite')).toThrow('invalid')
+    expect(() => catalogueCsv('Name\n' + 'a'.repeat(10_001))).toThrow('large')
+    expect(() => catalogueCsv(Array(102).fill('a').join(','))).toThrow('large')
+  })
+  it('rapproche une désignation exacte et déduplique les exemplaires sans importer les colonnes internes', () => {
+    const table = catalogueCsv('Manufacturer,Model,Price,Serial\nFabricant fictif,Micro 1,90,ABC\nfabricant fictif,micro-1,45,DEF')
+    const result = catalogueEntries(table, catalogueColumns(table.rows[0]), [device], 'passive')
+    expect(result.problems).toEqual([]); expect(result.entries).toHaveLength(1)
+    expect(result.entries[0].template).toBe(device)
+    const copy = catalogueTemplate(result.entries[0]); copy.ports[0].name = 'Autre'
+    expect(device.ports[0].name).toBe('Sortie'); expect(copy.status).toBe('user')
+    expect(JSON.stringify(copy)).not.toMatch(/ABC|DEF|Serial|Price/)
+  })
+  it('ne devine pas une génération ou une variante et laisse les nouvelles prises à documenter', () => {
+    const table = catalogueCsv('Name\nFabricant fictif Micro 1 avec étui\nFabricant fictif Micro 10\nInconnu')
+    const result = catalogueEntries(table, { model: 0, manufacturer: -1 }, [device], 'camera')
+    expect(result.entries[0].template).toBe(device)
+    expect(result.entries[1].template).toBeUndefined()
+    expect(catalogueTemplate(result.entries[2])).toMatchObject({ status: 'user', family: 'camera', portStatus: 'pending', ports: [] })
+    const ambiguous = catalogueEntries(catalogueCsv('Name\nMicro 1'), { model: 0, manufacturer: -1 }, [device, { ...device, id: 'other', manufacturer: 'Autre fabricant' }], 'passive')
+    expect(ambiguous.entries[0].template).toBeUndefined()
+  })
+  it('écarte les formules XLSX et les cellules invalides sans exécuter leur contenu', () => {
+    const result = catalogueEntries({ name: 'Test', rows: [['Name'], [{ kind: 'formula' }], [true], [null], ['Valide']] }, { model: 0, manufacturer: -1 }, [], 'passive')
+    expect(result.problems).toEqual([2, 3]); expect(result.entries.map(e => e.model)).toEqual(['Valide'])
+    const generic = GENERIC_LIBRARY[0]
+    expect(catalogueEntries({ name: 'Test', rows: [['Name'], [generic.model]] }, { model: 0, manufacturer: -1 }, [generic], 'passive').entries[0].template).toBeUndefined()
+  })
+  it('reconnaît les générations par alias avec une colonne fabricant, sans confondre les marques', () => {
+    const fourth = LIBRARY.find(t => t.id === 'focusrite-scarlett-2i2-4g')!
+    const library = [...LIBRARY, { ...fourth, id: 'autre-interface', manufacturer: 'Autre' }]
+    const table = catalogueCsv('Fabricant;Modèle\nFocusrite;Scarlett 2i2 Gen 2\nFocusrite;Scarlett 2i2 Gen 3\nfocusrite;Scarlett 2i2 Gen 4\nFocusrite;Scarlett 2i2\nInconnu;Scarlett 2i2 Gen 4\n;Scarlett 2i2 Gen 4')
+    const entries = catalogueEntries(table, catalogueColumns(table.rows[0]), library, 'recording').entries
+    expect(entries.map(e => e.template?.id)).toEqual([
+      'focusrite-scarlett-2i2-2g', 'focusrite-scarlett-2i2-3g', 'focusrite-scarlett-2i2-4g', undefined, undefined, undefined,
+    ])
+  })
+  it('retrouve un modèle déjà importé malgré sa copie dans la bibliothèque commune', () => {
+    const original = LIBRARY.find(t => t.id === 'focusrite-scarlett-2i2-4g')!
+    const personal = { ...structuredClone(original), id: 'user-interface', status: 'user' as const }
+    const table = catalogueCsv('Fabricant;Modèle\nFocusrite;Scarlett 2i2 Gen 4')
+    const entries = catalogueEntries(table, catalogueColumns(table.rows[0]), [personal, ...LIBRARY], 'recording').entries
+    expect(entries[0].template).toBe(personal)
+    expect(catalogueTemplate(entries[0]).model).toBe(original.model)
+  })
+})
+
+describe('plateau vidéo SDI depuis les fiches réelles', () => {
+  const device = (id: string) => LIBRARY.find(t => t.id === id)!
+  const camera = device('sony-hxc-d70'), video = device('newtek-tricaster-2-elite'), audio = device('yamaha-cl5')
+  it('construit cinq liaisons SDI distinctes et deux lignes audio vers le mélangeur', () => {
+    const plan = videoStudioPlan(camera, 5, video, audio)
+    expect(plan.error).toBeUndefined()
+    expect(plan.connections).toHaveLength(7)
+    expect(new Set(plan.connections!.filter(l => l.from.startsWith('cam')).map(l => l.to_port)).size).toBe(5)
+    expect(plan.connections!.every(l => l.to === 'video')).toBe(true)
+    expect(plan.connections!.filter(l => l.from === 'audio').map(l => l.from_port)).toEqual(['out1', 'out2'])
+    expect(videoStudioPlan(camera, 1, video, audio).connections![0].from).toBe('cam')
+  })
+  it('refuse une capacité insuffisante ou des prises non documentées, sans adaptateur implicite', () => {
+    expect(videoStudioPlan({ ...camera, ports: [] }, 5, video, audio).error).toBeTruthy()
+    expect(videoStudioPlan(camera, 9, video, audio).error).toBeTruthy()
+    expect(videoStudioPlan(camera, 5, video, { ...audio, ports: [] }).error).toBeTruthy()
+    expect(videoStudioPlan({ ...camera, family: 'console' }, 5, video, audio).error).toBeTruthy()
+  })
+  it('permet un plateau vidéo seul sans console implicite', () => {
+    const plan = videoStudioPlan(camera, 5, video)
+    expect(plan.error).toBeUndefined()
+    expect(plan.equipment).toHaveLength(2)
+    expect(plan.connections).toHaveLength(5)
+    expect(plan.connections!.every(l => l.from.startsWith('cam'))).toBe(true)
+    expect(videoStudioPlan(camera, 9, video).error).toBeTruthy()
+  })
+  it('refuse les quantités invalides', () => {
+    for (const count of [0, -1, 1.5, NaN, 49]) expect(videoStudioPlan(camera, count, video, audio).error).toBeTruthy()
+  })
+})
+
+describe('affichage des équipements volumineux', () => {
+  const ports = Array.from({ length: 56 }, (_, i) => ({ id: `p${i + 1}`, name: `Port ${i + 1}`, direction: i < 32 ? 'in' as const : 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3' }))
+  it('replie une stagebox neuve sans supprimer ses ports', () => {
+    expect(portsToDisplay(ports, new Set(), false)).toEqual([])
+    expect(ports).toHaveLength(56)
+  })
+  it('garde les ports reliés et les renvois sans renumérotation', () => {
+    const shown = portsToDisplay(ports, new Set(['p9', 'p1', 'p33']), false)
+    expect(shown.map(p => p.id)).toEqual(['p1', 'p9', 'p33'])
+    expect(shown[1]).toBe(ports[8])
+    expect(portsToDisplay(ports, new Set(), true)).toBe(ports)
+    expect(portsToDisplay(ports.slice(0, 4), new Set())).toHaveLength(4)
+    expect(portsToDisplay(ports.slice(0, 4), new Set(['p1']), false).map(p => p.id)).toEqual(['p1'])
+    expect(portsToDisplay(ports.slice(0, 16), new Set())).toHaveLength(16)
+    expect(portsToDisplay(ports.slice(0, 17), new Set())).toHaveLength(0)
+  })
+})
+
+/** Projet minimal avec deux équipements, renvoie aussi leurs identifiants. */
+function twoBoxes(a: string, b: string): { p: Project; a: string; b: string } {
+  let p = ops.createProject('test')
+  const ra = ops.addEquipment(p, tpl(a), { x: 0, y: 0 }, { zoneId: 'z-scn' })
+  p = ra.project
+  const rb = ops.addEquipment(p, tpl(b), { x: 300, y: 0 })
+  return { p: rb.project, a: ra.id, b: rb.id }
+}
+
+describe('validation du format .avd', () => {
+  const p = buildSampleProject()
+  const [id, eq] = Object.entries(p.equipment)[0]
+  const [linkId, link] = Object.entries(p.links)[0]
+
+  it('accepte un projet complet après un aller-retour JSON', () => {
+    const complete: Project = { ...p,
+      annotations: { note: { id: 'note', kind: 'note', sheetId: p.sheets![0].id, text: 'Régie', position: { x: 0, y: 0 }, size: { w: 100, h: 50 } } },
+      racks: { baie: { id: 'baie', name: 'Baie', heightU: 42 } },
+      multicores: { mp: { id: 'mp', label: 'MP-01', pairs: 16 } },
+      info: { client: 'Essai', revisions: [{ index: 'A', date: '2026-10-13', description: 'Création' }] },
+      settings: { ...p.settings, export: DEFAULT_EXPORT },
+    }
+    expect(ops.isProject(JSON.parse(JSON.stringify(complete)))).toBe(true)
+    expect(ops.isProject(ops.createProject('Projet vide'))).toBe(true)
+  })
+
+  it('accepte les anciens projets et les réglages d’export partiels', () => {
+    const old = { ...p, sheets: undefined, annotations: undefined, multicores: undefined, racks: undefined }
+    expect(ops.isProject(old)).toBe(true)
+    expect(ops.normalizeProject(old).sheets).toHaveLength(1)
+    expect(ops.isProject({ ...old, settings: { ...p.settings, export: { protect: true } } })).toBe(true)
+  })
+
+  it.each([
+    ['un projet null', null],
+    ['un tableau', []],
+    ['un identifiant absent', { ...p, id: undefined }],
+    ['une version inconnue', { ...p, format: 2 }],
+    ['des équipements null', { ...p, equipment: null }],
+    ['des équipements en tableau', { ...p, equipment: [] }],
+    ['un équipement null', { ...p, equipment: { [id]: null } }],
+    ['des ports absents', { ...p, equipment: { [id]: { ...eq, ports: undefined } } }],
+    ['un port null', { ...p, equipment: { [id]: { ...eq, ports: [null] } } }],
+    ['un signal inconnu', { ...p, equipment: { [id]: { ...eq, ports: [{ ...eq.ports[0], signal: 'inconnu' }] } } }],
+    ['une position invalide', { ...p, equipment: { [id]: { ...eq, position: { x: '100', y: 0 } } } }],
+    ['une rotation invalide', { ...p, equipment: { [id]: { ...eq, rotation: 45 } } }],
+    ['un affichage des prises invalide', { ...p, equipment: { [id]: { ...eq, portsExpanded: 'true' } } }],
+    ['une liaison null', { ...p, links: { [linkId]: null } }],
+    ['une extrémité absente', { ...p, links: { [linkId]: { ...link, source: undefined } } }],
+    ['des zones absentes', { ...p, zones: undefined }],
+    ['des réglages absents', { ...p, settings: undefined }],
+    ['une tension non numérique', { ...p, settings: { ...p.settings, mainsVoltage: '230' } }],
+    ['une annotation null', { ...p, annotations: { note: null } }],
+    ['une baie invalide', { ...p, racks: { baie: { id: 'baie', name: 'Baie', heightU: '42' } } }],
+    ['des feuilles null', { ...p, sheets: null }],
+    ['des révisions invalides', { ...p, info: { revisions: [null] } }],
+    ['un format de papier inconnu', { ...p, settings: { ...p.settings, export: { paper: 'inconnu' } } }],
+    ['un filigrane mal formé', { ...p, settings: { ...p.settings, export: { watermark: { text: [] } } } }],
+  ])('refuse %s sans lever d’exception', (_label, value) => {
+    expect(ops.isProject(value)).toBe(false)
+  })
+})
+
+describe('signaux et connecteurs', () => {
+  it('un flux audio sur IP passe sur un port réseau', () => {
+    expect(familiesCompatible('audioIp', 'network')).toBe(true)
+    expect(familiesCompatible('network', 'videoIp')).toBe(true)
+    expect(familiesCompatible('video', 'audioAnalog')).toBe(false)
+    expect(familiesCompatible('audioIp', 'videoIp')).toBe(false)
+  })
+  it('un RJ45 entre dans une embase etherCON, pas un XLR dans un jack', () => {
+    expect(connectorsMate('rj45', 'ethercon')).toBe(true)
+    expect(connectorsMate('xlr3', 'jack-trs')).toBe(false)
+  })
+})
+
+describe('numérotation des câbles', () => {
+  it('applique le format configurable', () => {
+    expect(formatCableLabel('{ZONE}-{TYPE}-{NUM:000}', { zone: 'FOH', signal: 'audioAnalog', num: 12 })).toBe('FOH-AUD-012')
+    expect(formatCableLabel('C{NUM}', { zone: 'X', signal: 'video', num: 7 })).toBe('C7')
+  })
+  it('numérote par série zone + type et renumérote sans trou', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r1 = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(r1.project.links[r1.id!].label).toBe('SCN-AUD-001')
+    const r2 = ops.connect(r1.project, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p2' })
+    expect(r2.project.links[r2.id!].label).toBe('SCN-AUD-002')
+    const removed = ops.removeElements(r2.project, [], [r1.id!])
+    const renum = ops.renumberLinks(removed)
+    expect(renum.links[r2.id!].label).toBe('SCN-AUD-001')
+  })
+})
+
+describe('liaisons', () => {
+  it('rétablit le sens quand on tire depuis une entrée', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: b, portId: 'p1' }, { equipmentId: a, portId: 'p1' })
+    expect(r.project.links[r.id!].source.equipmentId).toBe(a)
+  })
+  it('refuse un doublon exact', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r1 = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const r2 = ops.connect(r1.project, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(r2.id).toBeNull()
+  })
+  it('supprimer un équipement supprime ses liaisons', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(Object.keys(ops.removeElements(r.project, [a], []).links)).toHaveLength(0)
+  })
+})
+
+describe('règles de compatibilité', () => {
+  it('micro vers entrée micro : aucune alerte', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!])).toEqual([])
+  })
+  it('micro vers entrée ligne : avertissement de niveau', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-processor')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const codes = checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)
+    expect(codes).toContain('level-mic-to-line')
+  })
+  it('sortie phono vers entrée ligne, ligne vers entrée phono : avertissements', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-processor')
+    const q = structuredClone(p)
+    q.equipment[a].ports[0].level = 'phono'
+    const r = ops.connect(q, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('level-phono-to-line')
+    q.equipment[a].ports[0].level = 'line+4'
+    q.equipment[b].ports[0].level = 'phono'
+    const s = ops.connect(q, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(s.project, s.project.links[s.id!]).map((i) => i.code)).toContain('level-line-to-phono')
+  })
+  it('SDI vers entrée XLR : erreur de signal', () => {
+    const { p, a, b } = twoBoxes('gen-camera', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const issues = checkLink(r.project, r.project.links[r.id!])
+    expect(issues.find((i) => i.code === 'signal-mismatch')?.severity).toBe('error')
+    expect(issues.map((i) => i.code)).toContain('adapter-needed')
+  })
+  it('sortie HP vers entrée ligne : erreur', () => {
+    const { p, a, b } = twoBoxes('gen-amp4', 'gen-processor')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p5' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('level-speaker-to-line')
+  })
+  it('deux sources sur une entrée : erreur', () => {
+    const boxes = twoBoxes('gen-mic-dyn', 'gen-console')
+    const { a, b } = boxes
+    let p = boxes.p
+    const r0 = ops.addEquipment(p, tpl('gen-mic-dyn'), { x: 0, y: 100 })
+    p = r0.project
+    p = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' }).project
+    const r = ops.connect(p, { equipmentId: r0.id, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('input-busy')
+  })
+  it('une alerte ignorée disparaît', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-processor')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const ignored = ops.updateLink(r.project, r.id!, { ignoredRules: ['level-mic-to-line'] })
+    expect(checkLink(ignored, ignored.links[r.id!])).toEqual([])
+  })
+})
+
+describe('projet d\'exemple et bibliothèque', () => {
+  it('chaque port de la bibliothèque a un identifiant unique dans son modèle', () => {
+    for (const t of GENERIC_LIBRARY) expect(new Set(t.ports.map((p) => p.id)).size).toBe(t.ports.length)
+  })
+  it('l\'exemple est câblé sans alerte volontaire', () => {
+    const p = buildSampleProject()
+    expect(checkProject(p)).toEqual([])
+    expect(Object.keys(p.links)).toHaveLength(15)
+  })
+  it('bibliothèque filtrée sur le calque Audio : consoles gardées, projecteurs sans port audio écartés', () => {
+    const onSound = LIBRARY.filter((tpl) => equipmentInView(tpl, 'sound'))
+    expect(onSound.some((tpl) => tpl.family === 'console')).toBe(true)
+    const lightOnly = LIBRARY.filter((tpl) => domainOf(tpl) === 'light' && !tpl.ports.some((p) => ['audioAnalog', 'audioDigital', 'audioIp', 'intercom', 'rf'].includes(p.signal)))
+    expect(lightOnly.length).toBeGreaterThan(0)
+    for (const tpl of lightOnly) expect(onSound).not.toContain(tpl)
+    expect(LIBRARY.filter((tpl) => equipmentInView(tpl, 'all'))).toHaveLength(LIBRARY.length)
+  })
+})
+
+describe('bilans', () => {
+  it('calcule le courant I = P / U', () => {
+    const boxes = twoBoxes('gen-console', 'gen-amp4')
+    const p = ops.updateEquipment(boxes.p, boxes.a, { powerW: 460 })
+    const tot = computeTotals(p)
+    expect(tot.powerW).toBe(460)
+    expect(tot.currentA).toBeCloseTo(2, 5)
+    expect(tot.missingPower).toBe(1)
+  })
+  it('regroupe la nomenclature par modèle', () => {
+    let { p } = twoBoxes('gen-mic-dyn', 'gen-mic-dyn')
+    p = ops.addEquipment(p, tpl('gen-console'), { x: 0, y: 0 }).project
+    const bom = buildBom(p)
+    expect(bom.find((l) => l.model === 'Micro dynamique')?.quantity).toBe(2)
+  })
+})
+
+describe('fiches constructeur', () => {
+  it('accepte un relevé identifié pour une fiche à documenter, sans lui attribuer de prises ni le statut vérifié', async () => {
+    const { validateTemplate } = await import('./validateTemplate')
+    const template = { id: 'test-catalogue', family: 'camera' as const, manufacturer: 'Test', model: 'X', pictogram: 'camera' as const,
+      ports: [], portStatus: 'pending' as const, status: 'community' as const, sources: [{ document: 'Relevé utilisateur fictif, désignation seulement', accessed: '2026-10-22' }] }
+    expect(validateTemplate(template)).toEqual([])
+    expect(validateTemplate({ ...template, sources: [] }).length).toBeGreaterThan(0)
+    expect(validateTemplate({ ...template, sources: [{ document: ' ', accessed: '2026-10-22' }] }).length).toBeGreaterThan(0)
+    expect(validateTemplate({ ...template, sources: [{ document: 'Relevé', accessed: 'date inconnue' }] }).length).toBeGreaterThan(0)
+    expect(validateTemplate({ ...template, status: 'verified' }).length).toBeGreaterThan(0)
+  })
+  it('toutes les fiches de src/library/devices sont valides', async () => {
+    const { readdirSync, readFileSync } = await import('node:fs')
+    const { validateTemplate } = await import('./validateTemplate')
+    const dir = new URL('../library/devices/', import.meta.url)
+    for (const f of readdirSync(dir).filter((n) => n.endsWith('.json'))) {
+      expect(validateTemplate(JSON.parse(readFileSync(new URL(f, dir), 'utf8'))), f).toEqual([])
+    }
+  })
+  it('refuse une fiche vérifiée sans source', async () => {
+    const { validateTemplate } = await import('./validateTemplate')
+    // Données de test fictives, pas un produit réel
+    const errors = validateTemplate({
+      id: 'test-x', family: 'console', manufacturer: 'Test', model: 'X', pictogram: 'console', status: 'verified',
+      ports: [{ id: 'p1', name: 'In', direction: 'in', signal: 'audioAnalog', connector: 'xlr3' }],
+    })
+    expect(errors.join()).toContain('source')
+  })
+})
+
+describe('éditeur de blocs et zones', () => {
+  it('ajoute un port avec un identifiant libre', () => {
+    const { p, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const n = p.equipment[b].ports.length
+    const r = ops.addPort(p, b, { name: 'Aux', direction: 'in', signal: 'audioAnalog', connector: 'jack-trs', level: 'line+4' })
+    expect(r.project.equipment[b].ports).toHaveLength(n + 1)
+    expect(r.id).toBeTruthy()
+    expect(p.equipment[b].ports.some(port => port.id === r.id)).toBe(false)
+    const other = ops.addPort(p, b, { name: 'Ajout concurrent', direction: 'out', signal: 'video', connector: 'bnc' })
+    expect(other.id).not.toBe(r.id)
+  })
+  it('supprimer un port supprime ses liaisons', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const after = ops.removePort(r.project, b, 'p1')
+    expect(Object.keys(after.links)).toHaveLength(0)
+    expect(after.equipment[b].ports.find((x) => x.id === 'p1')).toBeUndefined()
+  })
+  it('changer le code d\'une zone renomme les câbles', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const after = ops.updateZone(r.project, 'z-scn', { code: 'stage' })
+    expect(after.links[r.id!].label).toBe('STAGE-AUD-001')
+  })
+  it('supprimer une zone renvoie ses câbles sur le code par défaut', () => {
+    const { p, a, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    const after = ops.removeZone(r.project, 'z-scn')
+    expect(after.equipment[a].zoneId).toBeUndefined()
+    expect(after.links[r.id!].label).toBe('GEN-AUD-001')
+  })
+  it('un modèle perso issu d\'un équipement est une fiche valide', async () => {
+    const { validateTemplate } = await import('./validateTemplate')
+    const { p, b } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const tpl = ops.templateFromEquipment(p.equipment[b])
+    expect(tpl.status).toBe('user')
+    expect(validateTemplate(tpl)).toEqual([])
+  })
+})
+
+describe('traductions', () => {
+  it('le français et l\'anglais ont exactement les mêmes clés', async () => {
+    const fr = (await import('../i18n/fr.json')).default
+    const en = (await import('../i18n/en.json')).default
+    const keys = (o: object, p = ''): string[] =>
+      Object.entries(o).flatMap(([k, v]) => (typeof v === 'object' ? keys(v, `${p}${k}.`) : [`${p}${k}`]))
+    expect(keys(en).sort()).toEqual(keys(fr).sort())
+  })
+})
+
+describe('alimentation fantôme', () => {
+  it('micro statique sur entrée console générique (fantôme fourni) : aucune alerte fantôme', () => {
+    const { p, a, b } = twoBoxes('gen-mic-cond', 'gen-console')
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).not.toContain('phantom-missing')
+  })
+  it('micro statique sur une entrée sans fantôme : avertissement', () => {
+    const boxes = twoBoxes('gen-mic-cond', 'gen-console')
+    const { a, b } = boxes
+    const p = ops.updatePort(boxes.p, b, 'p1', { phantom: 'none' })
+    const r = ops.connect(p, { equipmentId: a, portId: 'p1' }, { equipmentId: b, portId: 'p1' })
+    expect(checkLink(r.project, r.project.links[r.id!]).map((i) => i.code)).toContain('phantom-missing')
+  })
+})
+
+describe('feuilles, annotations et modèles de projets', () => {
+  it('un projet ancien sans feuille est complété à l\'ouverture', () => {
+    const { p, a } = twoBoxes('gen-mic-dyn', 'gen-console')
+    const old = { ...p, sheets: undefined, annotations: undefined, equipment: { ...p.equipment, [a]: { ...p.equipment[a], sheetId: undefined } } }
+    const n = ops.normalizeProject(old)
+    expect(n.sheets).toHaveLength(1)
+    expect(n.equipment[a].sheetId).toBe(n.sheets![0].id)
+  })
+  it('supprimer une feuille supprime ses équipements et ses annotations, jamais la dernière', () => {
+    let p = ops.createProject('t')
+    const s2 = ops.addSheet(p, 'Régie')
+    p = s2.project
+    const eq = ops.addEquipment(p, tpl('gen-console'), { x: 0, y: 0 }, { sheetId: s2.id })
+    p = ops.addAnnotation(eq.project, { kind: 'note', sheetId: s2.id, position: { x: 0, y: 0 }, size: { w: 10, h: 10 }, text: 'x' }).project
+    p = ops.removeSheet(p, s2.id)
+    expect(Object.keys(p.equipment)).toHaveLength(0)
+    expect(Object.keys(p.annotations ?? {})).toHaveLength(0)
+    expect(ops.removeSheet(p, p.sheets![0].id).sheets).toHaveLength(1)
+  })
+  it('le concert enregistre le mix de la console et ne branche aucun microphone sur une entrée ligne', () => {
+    const p = buildSampleProject()
+    const rec = Object.values(p.equipment).find(e => e.templateId === 'gen-recorder')!
+    const incoming = Object.values(p.links).filter(l => l.target.equipmentId === rec.id)
+    expect(incoming).toHaveLength(2)
+    for (const l of incoming) {
+      expect(p.equipment[l.source.equipmentId].templateId).toBe('gen-console')
+      expect(p.equipment[l.source.equipmentId].ports.find(port => port.id === l.source.portId)?.level).toBe('line+4')
+    }
+    expect(new Set(incoming.map(l => l.target.portId)).size).toBe(2)
+    expect(checkProject(p)).toEqual([])
+  })
+  it('les modèles de projets se construisent sans erreur de compatibilité', async () => {
+    const { buildTemplate } = await import('../library/templates')
+    for (const id of ['blank', 'concert', 'tvStudio', 'conference'] as const) {
+      const p = buildTemplate(id, 'Nouveau')
+      expect(checkProject(p).filter((i) => i.severity === 'error'), id).toEqual([])
+    }
+    const tv = buildTemplate('tvStudio', 'x')
+    expect(tv.sheets).toHaveLength(2)
+    expect(Object.keys(tv.links).length).toBeGreaterThan(8)
+  })
+})
+
+describe('connecteurs combo', () => {
+  it('une embase combo accepte un XLR et un jack', () => {
+    expect(connectorsMate('xlr3', 'combo')).toBe(true)
+    expect(connectorsMate('combo', 'jack-trs')).toBe(true)
+    expect(connectorsMate('combo', 'bnc')).toBe(false)
+  })
+})
+
+describe('catalogue de câbles', () => {
+  it('le CL 100 relie un jack 3,5 à une XLR, dans les deux sens', async () => {
+    const { cableFits, getCable, cablesFor } = await import('./cables')
+    const cl100 = getCable('cl100')!
+    expect(cableFits(cl100, 'minijack', 'xlr3')).toBe(true)
+    expect(cableFits(cl100, 'xlr3', 'minijack')).toBe(true)
+    expect(cableFits(cl100, 'xlr3', 'xlr3')).toBe(false)
+    expect(cablesFor('xlr3', 'xlr3').map((c) => c.id)).toContain('mod-xlr3')
+  })
+  it('un câble adaptateur choisi lève l’alerte, un câble inadapté en crée une autre', async () => {
+    const { LIBRARY } = await import('../library')
+    const ek = LIBRARY.find((t) => t.id === 'sennheiser-ek-100-g4')!
+    let p = ops.createProject('test')
+    const ra = ops.addEquipment(p, ek, { x: 0, y: 0 })
+    const rb = ops.addEquipment(ra.project, tpl('gen-console'), { x: 300, y: 0 })
+    const r = ops.connect(rb.project, { equipmentId: ra.id, portId: 'out' }, { equipmentId: rb.id, portId: 'p1' })
+    p = r.project
+    const codes = () => checkLink(p, p.links[r.id!]).map((i) => i.code)
+    expect(codes()).toContain('adapter-needed')
+    p = ops.updateLink(p, r.id!, { cableTypeId: 'cl100' })
+    expect(codes()).not.toContain('adapter-needed')
+    p = ops.updateLink(p, r.id!, { cableTypeId: 'hdmi' })
+    expect(codes()).toContain('cable-mismatch')
+  })
+  it('la liste des câbles regroupe par type et par longueur', async () => {
+    const { buildCableBom } = await import('./cables')
+    const p = buildSampleProject()
+    const ids = Object.keys(p.links)
+    let q = p
+    for (const id of ids.slice(0, 2)) q = ops.updateLink(q, id, { cableTypeId: 'mod-xlr3', lengthM: 10 })
+    const bom = buildCableBom(q, () => ['xlr3', 'xlr3'])
+    const line = bom.find((l) => l.cableId === 'mod-xlr3' && l.lengthM === 10)
+    expect(line?.quantity).toBe(2)
+    expect(bom.reduce((s, l) => s + l.quantity, 0)).toBe(ids.length)
+  })
+})
+
+describe('multipaires', () => {
+  const sample = () => {
+    let p = buildSampleProject()
+    const r = ops.addMulticore(p, { pairs: 2 })
+    p = r.project
+    return { p, mc: r.id, links: Object.keys(p.links) }
+  }
+  it('crée MP-01 puis MP-02 et trouve la première paire libre', () => {
+    const s0 = sample()
+    const { mc, links } = s0
+    let p = s0.p
+    expect(p.multicores?.[mc].label).toBe('MP-01')
+    expect(ops.addMulticore(p).project.multicores && Object.values(ops.addMulticore(p).project.multicores!).map((m) => m.label)).toContain('MP-02')
+    p = ops.updateLink(p, links[0], { multicoreId: mc, pair: 1 })
+    expect(ops.firstFreePair(p, mc)).toBe(2)
+    p = ops.updateLink(p, links[1], { multicoreId: mc, pair: 2 })
+    expect(ops.firstFreePair(p, mc)).toBeUndefined()
+  })
+  it('signale une paire occupée deux fois, hors capacité ou manquante', () => {
+    const s0 = sample()
+    const { mc, links } = s0
+    let p = s0.p
+    p = ops.updateLink(p, links[0], { multicoreId: mc, pair: 1 })
+    p = ops.updateLink(p, links[1], { multicoreId: mc, pair: 1 })
+    expect(checkLink(p, p.links[links[1]]).map((i) => i.code)).toContain('pair-busy')
+    p = ops.updateLink(p, links[1], { pair: 5 })
+    expect(checkLink(p, p.links[links[1]]).map((i) => i.code)).toContain('pair-range')
+    p = ops.updateLink(p, links[1], { pair: undefined })
+    expect(checkLink(p, p.links[links[1]]).map((i) => i.code)).toContain('pair-missing')
+  })
+  it('la suppression libère les liaisons et le multipaire compte dans les câbles', async () => {
+    const { buildCableBom } = await import('./cables')
+    const s0 = sample()
+    const { mc, links } = s0
+    let p = s0.p
+    p = ops.updateMulticore(p, mc, { lengthM: 30 })
+    p = ops.updateLink(p, links[0], { multicoreId: mc, pair: 1 })
+    const bom = buildCableBom(p, () => ['xlr3', 'xlr3'])
+    expect(bom.find((l) => l.multicorePairs === 2)?.lengthM).toBe(30)
+    expect(bom.reduce((s, l) => s + l.quantity, 0)).toBe(links.length) // 1 multipaire + (n - 1) câbles
+    p = ops.removeMulticore(p, mc)
+    expect(p.links[links[0]].multicoreId).toBeUndefined()
+    expect(p.links[links[0]].pair).toBeUndefined()
+  })
+})
+
+describe('codes de type personnalisés', () => {
+  it('un code personnalisé remplace AUD et renumérote les étiquettes', () => {
+    expect(formatCableLabel('{TYPE}-{NUM:00}', { zone: 'X', signal: 'audioAnalog', num: 3 }, { audioAnalog: 'MOD' })).toBe('MOD-03')
+    const p = ops.updateSettings(buildSampleProject(), { typeCodes: { audioAnalog: 'MOD' } })
+    const labels = Object.values(p.links).map((l) => l.label)
+    expect(labels.some((l) => l.includes('-MOD-'))).toBe(true)
+    expect(labels.some((l) => l.includes('-AUD-'))).toBe(false)
+  })
+})
+
+describe('flux réseau', () => {
+  it('alerte quand une liaison transporte plus de canaux que la capacité déclarée', () => {
+    let p = buildSampleProject()
+    const l = Object.values(p.links)[0]
+    p = ops.updatePort(p, l.source.equipmentId, l.source.portId, { channels: 64 })
+    p = ops.updateLink(p, l.id, { channels: 64 })
+    expect(checkLink(p, p.links[l.id]).map((i) => i.code)).not.toContain('channels-over')
+    p = ops.updateLink(p, l.id, { channels: 65 })
+    expect(checkLink(p, p.links[l.id]).map((i) => i.code)).toContain('channels-over')
+  })
+})
+
+describe('groupes et sous-schémas', () => {
+  it('grouper crée un sous-schéma, expose ses ports d’interface et se dissout', async () => {
+    const g = await import('./groups')
+    let p = ops.normalizeProject(buildSampleProject())
+    const root = p.sheets![0].id
+    const eqs = Object.values(p.equipment)
+    const inside = eqs.slice(0, 2).map((e) => e.id)
+    const r = g.groupSelection(p, root, inside, 'Régie')
+    expect(r.id).not.toBeNull()
+    p = r.project
+    const gid = r.id!
+    expect(p.equipment[inside[0]].sheetId).toBe(gid)
+    expect(g.placeOnView(p, gid, root)).toEqual({ kind: 'group', groupId: gid })
+    expect(g.placeOnView(p, root, gid)).toBeNull()
+    // Chaque port d'interface correspond à une liaison qui franchit la frontière
+    const crossing = Object.values(p.links).filter((l) => {
+      const a = inside.includes(l.source.equipmentId)
+      const b = inside.includes(l.target.equipmentId)
+      return a !== b
+    })
+    const iface = g.groupInterface(p, gid)
+    expect(iface.length).toBe(new Set(crossing.map((l) => (inside.includes(l.source.equipmentId) ? `${l.source.equipmentId}:${l.source.portId}` : `${l.target.equipmentId}:${l.target.portId}`))).size)
+    // Imbrication : un groupe dans le groupe
+    const r2 = g.groupSelection(p, gid, [inside[0]], 'Sous-groupe')
+    p = r2.project
+    expect(g.ancestors(p, r2.id!)).toEqual([gid, root])
+    expect(g.placeOnView(p, r2.id!, root)).toEqual({ kind: 'group', groupId: gid })
+    expect(g.sheetTree(p).map((s) => s.id)).toEqual([root, gid, r2.id])
+    // Dissolution : le contenu remonte et le sous-groupe est rattaché à la racine
+    p = g.ungroup(p, gid)
+    expect(p.equipment[inside[1]].sheetId).toBe(root)
+    expect(p.sheets!.find((s) => s.id === r2.id)!.parentId).toBe(root)
+  })
+})
+
+describe('fusion de deux versions', () => {
+  it('ajoute, détecte les conflits et renumérote les doublons', async () => {
+    const { mergeProjects } = await import('./merge')
+    const base = ops.normalizeProject(buildSampleProject())
+    // Notre version : on ajoute une liaison depuis un micro vers la console
+    const eqs = Object.values(base.equipment)
+    const moved = eqs[0]
+    // Leur version : un bloc déplacé, un bloc ajouté et relié, une feuille ajoutée
+    let theirs = ops.moveEquipment(base, moved.id, { x: moved.position.x + 100, y: moved.position.y })
+    const added = ops.addEquipment(theirs, tpl('gen-mic-dyn'), { x: 0, y: 900 }, { zoneId: moved.zoneId })
+    theirs = added.project
+    const console_ = eqs.find((e) => e.ports.some((p) => p.direction === 'in' && p.signal === 'audioAnalog' && !Object.values(base.links).some((l) => l.target.equipmentId === e.id && l.target.portId === p.id)))!
+    const freeIn = console_.ports.find((p) => p.direction === 'in' && p.signal === 'audioAnalog' && !Object.values(base.links).some((l) => l.target.equipmentId === console_.id && l.target.portId === p.id))!
+    const c1 = ops.connect(theirs, { equipmentId: added.id, portId: 'p1' }, { equipmentId: console_.id, portId: freeIn.id })
+    theirs = ops.addSheet(c1.project, 'Plateau').project
+    // Notre version ajoute aussi une liaison dans la même série : même numéro de câble
+    const ourMic = ops.addEquipment(base, tpl('gen-mic-dyn'), { x: 0, y: 1200 }, { zoneId: moved.zoneId })
+    const c2 = ops.connect(ourMic.project, { equipmentId: ourMic.id, portId: 'p1' }, { equipmentId: console_.id, portId: freeIn.id })
+    const ours = c2.project
+    expect(ours.links[c2.id!].label).toBe(theirs.links[c1.id!].label)
+
+    const r = mergeProjects(ours, theirs, 'ours')
+    expect(r.report.added.equipment).toBe(1)
+    expect(r.report.added.links).toBe(1)
+    expect(r.report.added.sheets).toBe(1)
+    expect(r.report.conflicts.map((c) => c.id)).toContain(moved.id)
+    expect(r.report.renumbered).toBe(1)
+    expect(r.project.equipment[moved.id].position).toEqual(moved.position)
+    const labels = Object.values(r.project.links).map((l) => l.label)
+    expect(new Set(labels).size).toBe(labels.length)
+
+    const r2 = mergeProjects(ours, theirs, 'theirs')
+    expect(r2.project.equipment[moved.id].position.x).toBe(moved.position.x + 100)
+  })
+})
+
+describe('bibliothèque : menus', () => {
+  it('range chaque modèle dans un menu, sans en perdre', async () => {
+    const { LIBRARY } = await import('../library')
+    const { groupByDomain, domainOf } = await import('../library/domains')
+    const groups = groupByDomain(LIBRARY)
+    const placed = groups.flatMap((g) => g.families.flatMap((f) => f.items))
+    expect(placed).toHaveLength(LIBRARY.length)
+    expect(groups.map((g) => g.domain)).toEqual(['sound', 'image', 'light', 'network', 'distribution', 'misc'])
+    expect(domainOf(tpl('gen-mic-dyn'))).toBe('sound')
+    expect(domainOf(tpl('gen-camera'))).toBe('image')
+    expect(domainOf(tpl('gen-switch8'))).toBe('network')
+    // Enregistreur vidéo de la famille « Enregistrement » : rangé en Image par sa fiche
+    expect(domainOf(LIBRARY.find((t) => t.id === 'blackmagic-hyperdeck-studio-pro')!)).toBe('image')
+  })
+})
+
+describe('routage des liaisons', () => {
+  const crosses = (pts: { x: number; y: number }[], r: { x: number; y: number; w: number; h: number }) =>
+    pts.slice(0, -1).some((a, i) => {
+      const b = pts[i + 1]
+      // Échantillonnage du segment
+      for (let k = 0; k <= 20; k++) {
+        const x = a.x + ((b.x - a.x) * k) / 20
+        const y = a.y + ((b.y - a.y) * k) / 20
+        if (x > r.x && x < r.x + r.w && y > r.y && y < r.y + r.h) return true
+      }
+      return false
+    })
+
+  it('contourne un bloc placé entre deux équipements, avec des segments orthogonaux', async () => {
+    const { routeAll } = await import('./routing')
+    const a = { x: 0, y: 0, w: 100, h: 100 }
+    const mid = { x: 250, y: -20, w: 100, h: 140 }
+    const b = { x: 500, y: 0, w: 100, h: 100 }
+    const r = routeAll([a, mid, b], [{ id: 'l', source: { x: 100, y: 50, side: 'right' }, target: { x: 500, y: 50, side: 'left' } }])
+    const pts = r.get('l')!
+    expect(pts[0]).toEqual({ x: 100, y: 50 })
+    expect(pts[pts.length - 1]).toEqual({ x: 500, y: 50 })
+    expect(crosses(pts, mid)).toBe(false)
+    for (let i = 0; i < pts.length - 1; i++) expect(pts[i].x === pts[i + 1].x || pts[i].y === pts[i + 1].y).toBe(true)
+  })
+
+  it('va droit quand rien ne gêne', async () => {
+    const { routeAll } = await import('./routing')
+    const r = routeAll([{ x: 0, y: 0, w: 100, h: 100 }, { x: 300, y: 0, w: 100, h: 100 }], [
+      { id: 'l', source: { x: 100, y: 40, side: 'right' }, target: { x: 300, y: 40, side: 'left' } },
+    ])
+    expect(r.get('l')).toEqual([{ x: 100, y: 40 }, { x: 300, y: 40 }])
+  })
+
+  it('relie des ports en haut et en bas (bloc pivoté) par des amorces verticales', async () => {
+    const { routeAll } = await import('./routing')
+    const a = { x: 0, y: 0, w: 100, h: 60 }
+    const b = { x: 300, y: 200, w: 100, h: 60 }
+    const r = routeAll([a, b], [{ id: 'v', source: { x: 50, y: 60, side: 'bottom' }, target: { x: 350, y: 200, side: 'top' } }])
+    const pts = r.get('v')!
+    expect(pts[0]).toEqual({ x: 50, y: 60 })
+    expect(pts[pts.length - 1]).toEqual({ x: 350, y: 200 })
+    // Sortie vers le bas, arrivée par le haut
+    expect(pts[1].x).toBe(50)
+    expect(pts[1].y).toBeGreaterThan(60)
+    expect(pts[pts.length - 2].x).toBe(350)
+    expect(pts[pts.length - 2].y).toBeLessThan(200)
+    expect(crosses(pts, a) || crosses(pts, b)).toBe(false)
+    for (let i = 0; i < pts.length - 1; i++) expect(pts[i].x === pts[i + 1].x || pts[i].y === pts[i + 1].y).toBe(true)
+  })
+
+  it('contourne le bloc de départ quand la sortie est du mauvais côté (bloc retourné)', async () => {
+    const { routeAll } = await import('./routing')
+    const a = { x: 0, y: 0, w: 100, h: 60 }
+    const b = { x: 300, y: 0, w: 100, h: 60 }
+    // Sortie à gauche du bloc A alors que la cible est à droite : le tracé doit faire le tour
+    const r = routeAll([a, b], [{ id: 'f', source: { x: 0, y: 30, side: 'left' }, target: { x: 300, y: 30, side: 'left' } }])
+    const pts = r.get('f')!
+    expect(pts[1].x).toBeLessThan(0)
+    expect(crosses(pts, { x: a.x + 1, y: a.y + 1, w: a.w - 2, h: a.h - 2 })).toBe(false)
+  })
+
+  it('place les étiquettes sans chevauchement', async () => {
+    const { placeLabels } = await import('./routing')
+    const routes = new Map([
+      ['a', [{ x: 0, y: 0 }, { x: 300, y: 0 }]],
+      ['b', [{ x: 0, y: 8 }, { x: 300, y: 8 }]],
+    ])
+    const size = { w: 80, h: 16 }
+    const at = placeLabels(routes, new Map([['a', size], ['b', size]]), [])
+    const a = at.get('a')!
+    const b = at.get('b')!
+    const overlap = Math.abs(a.x - b.x) < size.w && Math.abs(a.y - b.y) < size.h
+    expect(overlap).toBe(false)
+  })
+
+  it('écarte deux tronçons verticaux superposés', async () => {
+    const { nudge } = await import('./routing')
+    const routes = [
+      [{ x: 0, y: 0 }, { x: 50, y: 0 }, { x: 50, y: 100 }, { x: 100, y: 100 }],
+      [{ x: 0, y: 20 }, { x: 50, y: 20 }, { x: 50, y: 120 }, { x: 100, y: 120 }],
+    ]
+    const out = nudge(routes, 8, 12)
+    expect(out[0][1].x).not.toBe(out[1][1].x)
+    expect(Math.abs(out[0][1].x - out[1][1].x)).toBe(8)
+    // Les amorces gardent la hauteur des ports
+    expect(out[0][0].y).toBe(0)
+    expect(out[1][3].y).toBe(120)
+  })
+})
+
+describe('calques et orientation', () => {
+  it('range une caméra dans les calques Image et Audio, et rappelle ses entrées audio non reliées', async () => {
+    const { LIBRARY } = await import('../library')
+    const { crossLayerHints, equipmentInView, hintKey, layersOf, portInView } = await import('./layers')
+    const cam = LIBRARY.find((t) => t.id === 'panasonic-aw-ue150')!
+    let p = ops.createProject('t')
+    const r = ops.addEquipment(p, cam, { x: 0, y: 0 })
+    p = r.project
+    const eq = p.equipment[r.id]
+    const layers = layersOf(eq)
+    expect(layers.has('image')).toBe(true)
+    expect(layers.has('sound')).toBe(true)
+    expect(equipmentInView(eq, 'sound')).toBe(true)
+    expect(equipmentInView(eq, 'light')).toBe(false)
+    const mic = eq.ports.find((x) => x.signal === 'audioAnalog')!
+    const hdmi = eq.ports.find((x) => x.id === 'hdmi')!
+    expect(portInView(mic, 'sound')).toBe(true)
+    expect(portInView(hdmi, 'sound')).toBe(false)
+    const hints = crossLayerHints(p)
+    expect(hints).toHaveLength(1)
+    expect(hints[0]).toMatchObject({ equipmentId: r.id, layer: 'sound', home: 'image', dismissed: false })
+    // Ignorer le rappel : il reste listé, marqué ignoré
+    p = ops.setHintDismissed(p, r.id, hintKey('sound'), true)
+    expect(crossLayerHints(p)[0].dismissed).toBe(true)
+    p = ops.setHintDismissed(p, r.id, hintKey('sound'), false)
+    expect(crossLayerHints(p)[0].dismissed).toBe(false)
+  })
+
+  it('le rappel disparaît une fois les ports reliés', async () => {
+    const { LIBRARY } = await import('../library')
+    const { crossLayerHints } = await import('./layers')
+    let p = ops.createProject('t')
+    const cam = ops.addEquipment(p, LIBRARY.find((t) => t.id === 'panasonic-aw-ue150')!, { x: 0, y: 0 })
+    p = cam.project
+    const sm58 = ops.addEquipment(p, LIBRARY.find((t) => t.id === 'shure-sm58')!, { x: -300, y: 0 })
+    p = sm58.project
+    const micPort = p.equipment[cam.id].ports.find((x) => x.signal === 'audioAnalog')!
+    const res = ops.connect(p, { equipmentId: sm58.id, portId: p.equipment[sm58.id].ports[0].id }, { equipmentId: cam.id, portId: micPort.id })
+    expect(crossLayerHints(res.project)).toHaveLength(0)
+  })
+
+  it('pivote par quarts de tour dans les deux sens', () => {
+    let p = ops.createProject('t')
+    const r = ops.addEquipment(p, LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 0, y: 0 })
+    p = ops.rotateEquipment(r.project, [r.id], 1)
+    expect(p.equipment[r.id].rotation).toBe(90)
+    p = ops.rotateEquipment(p, [r.id], -1)
+    p = ops.rotateEquipment(p, [r.id], -1)
+    expect(p.equipment[r.id].rotation).toBe(270)
+  })
+})
+
+describe('zones tracées et regroupement en multipaire', () => {
+  it('un cadre lié donne sa zone aux équipements posés dedans et la reprend en sortant', async () => {
+    const z = await import('./zones')
+    let p = ops.normalizeProject(buildSampleProject())
+    const eq = Object.values(p.equipment)[0]
+    const sheetId = eq.sheetId ?? ops.DEFAULT_SHEET_ID
+    const a = ops.addAnnotation(p, { kind: 'frame', sheetId, position: { x: eq.position.x - 10, y: eq.position.y - 10 }, size: { w: 300, h: 200 }, text: 'Scène' })
+    const r = z.zoneFromFrame(a.project, a.id)
+    p = r.project
+    expect(p.zones.find((x) => x.id === r.id)?.code).toBe('SCE')
+    expect(p.equipment[eq.id].zoneId).toBe(r.id)
+    p = z.applyFrameZones(ops.moveEquipment(p, eq.id, { x: eq.position.x + 2000, y: eq.position.y }))
+    expect(p.equipment[eq.id].zoneId).toBeUndefined()
+    expect(z.applyFrameZones(p)).toBe(p)
+  })
+  it('zone posée depuis la barre : nommée, son code suit le nom, effacée avec son cadre', async () => {
+    const z = await import('./zones')
+    const p0 = ops.normalizeProject(buildSampleProject())
+    const eq = Object.values(p0.equipment)[0]
+    const r = z.addZoneFrame(p0, { sheetId: eq.sheetId ?? ops.DEFAULT_SHEET_ID, position: { x: eq.position.x - 10, y: eq.position.y - 10 }, size: { w: 300, h: 200 } })
+    let p = r.project
+    expect(p.zones.find((x) => x.id === r.zoneId)?.code).toMatch(/^Z\d+$/)
+    expect(p.equipment[eq.id].zoneId).toBe(r.zoneId)
+    p = z.updateFrame(p, r.frameId, { text: 'Régie son' })
+    expect(p.zones.find((x) => x.id === r.zoneId)).toMatchObject({ name: 'Régie son', code: 'REG' })
+    p = z.syncFrameNames(ops.updateZone(p, r.zoneId, { name: 'Régie FOH' }), r.zoneId)
+    expect(p.annotations?.[r.frameId].text).toBe('Régie FOH')
+    const after = z.removeOrphanZones(ops.removeAnnotations(p, [r.frameId]), p)
+    expect(after.zones.some((x) => x.id === r.zoneId)).toBe(false)
+    expect(after.equipment[eq.id].zoneId).toBeUndefined()
+  })
+  it('regroupe des liaisons sur les premières paires libres d\'un nouveau multipaire', () => {
+    const p0 = buildSampleProject()
+    const ids = Object.keys(p0.links).slice(0, 10)
+    const r = ops.assignToMulticore(p0, ids, null)
+    const mc = r.project.multicores![r.id!]
+    expect(mc.pairs).toBe(12)
+    expect(new Set(ids.map((id) => r.project.links[id].pair)).size).toBe(10)
+    const r2 = ops.assignToMulticore(r.project, Object.keys(p0.links).slice(10), r.id)
+    expect(r2.project.multicores![r.id!].pairs).toBeGreaterThanOrEqual(Object.keys(p0.links).length)
+  })
+})
+
+
+describe('voies ordonnées dans les couloirs', () => {
+  /** Croisements entre segments verticaux et horizontaux de tracés différents */
+  const crossings = (routes: { x: number; y: number }[][]) => {
+    let n = 0
+    const segs = routes.map((r) => r.slice(1).map((b, i) => [r[i], b] as const))
+    for (let i = 0; i < segs.length; i++) for (let j = 0; j < segs.length; j++) {
+      if (i === j) continue
+      for (const [a, b] of segs[i]) for (const [c, d] of segs[j]) {
+        if (a.x !== b.x || c.y !== d.y) continue
+        const [y0, y1] = [Math.min(a.y, b.y), Math.max(a.y, b.y)]
+        const [x0, x1] = [Math.min(c.x, d.x), Math.max(c.x, d.x)]
+        if (a.x > x0 && a.x < x1 && c.y > y0 && c.y < y1) n++
+      }
+    }
+    return n
+  }
+  it('sept micros en colonne vers sept entrées : aucune liaison ne se croise, et un coude manuel est respecté', async () => {
+    const { routeAll } = await import('./routing')
+    const obstacles = [...Array.from({ length: 7 }, (_, k) => ({ x: 100 + k * 25, y: k * 70, w: 140, h: 50 })), { x: 700, y: 0, w: 220, h: 420 }]
+    const requests = Array.from({ length: 7 }, (_, k) => ({
+      id: `l${k}`,
+      source: { x: 240 + k * 25, y: k * 70 + 40, side: 'right' as const },
+      target: { x: 700, y: 40 + k * 18, side: 'left' as const },
+    }))
+    const routes = routeAll(obstacles, requests)
+    expect(crossings([...routes.values()])).toBe(0)
+    const bent = routeAll(obstacles, [{ ...requests[3], bendX: 500 }])
+    expect(bent.get('l3')!.some((p) => p.x === 500)).toBe(true)
+  })
+})
+
+describe('liaisons en série', () => {
+  it('relie dix micros dans l\'ordre du schéma aux entrées libres, à partir d\'une entrée choisie, dans un multipaire', async () => {
+    const s = await import('./series')
+    const { LIBRARY } = await import('../library')
+    const mic = LIBRARY.find((t) => t.family === 'capture' && t.ports.filter((p) => p.direction === 'out').length === 1 && t.ports[0].signal === 'audioAnalog')!
+    const desk = LIBRARY.find((t) => t.family === 'console' && t.ports.filter((p) => p.direction === 'in' && p.signal === 'audioAnalog').length >= 16)!
+    let p = ops.createProject('t')
+    const d = ops.addEquipment(p, desk, { x: 800, y: 0 })
+    p = d.project
+    const mics: string[] = []
+    // Ajoutés dans le désordre : l'ordre retenu est celui du schéma (de haut en bas)
+    for (const k of [3, 0, 9, 1, 2, 8, 4, 7, 5, 6]) {
+      const r = ops.addEquipment(p, mic, { x: 0, y: k * 80 })
+      p = r.project
+      mics[k] = r.id
+    }
+    const inputs = s.freeInputs(p, d.id, 'audioAnalog')
+    const plan = s.planSeries(p, [...mics, d.id], d.id, { startPortId: inputs[2].id })
+    expect(plan.pairs).toHaveLength(10)
+    expect(plan.pairs.map((x) => x.source.equipmentId)).toEqual(mics)
+    expect(plan.pairs[0].target.portId).toBe(inputs[2].id)
+    const r = s.applySeries(p, plan, null)
+    expect(r.linkIds).toHaveLength(10)
+    expect(r.project.multicores![r.multicoreId!].pairs).toBe(12)
+    // Une seconde fois : les sorties sont déjà reliées, rien à faire
+    expect(s.planSeries(r.project, mics, d.id).pairs).toHaveLength(0)
+  })
+})
+
+describe('contrôles désactivés pour le schéma', () => {
+  it('une règle désactivée ne signale plus, sur toutes les liaisons, et reste listée pour être réactivée', () => {
+    let p = buildSampleProject()
+    const mic = Object.values(p.equipment).find(e => e.templateId === 'gen-mic-cond')!
+    const rec = Object.values(p.equipment).find(e => e.templateId === 'gen-recorder')!
+    p = ops.connect(p, { equipmentId: mic.id, portId: 'p1' }, { equipmentId: rec.id, portId: 'p1' }).project
+    const before = checkProject(p).filter((i) => i.code === 'level-mic-to-line')
+    expect(before.length).toBeGreaterThan(0)
+    p = ops.updateSettings(p, { mutedRules: ['level-mic-to-line'] })
+    expect(checkProject(p).some((i) => i.code === 'level-mic-to-line')).toBe(false)
+    expect(mutedIssues(p).filter((i) => i.scope === 'project' && i.code === 'level-mic-to-line')).toHaveLength(before.length)
+    p = ops.updateSettings(p, { mutedRules: [] })
+    expect(checkProject(p).filter((i) => i.code === 'level-mic-to-line')).toHaveLength(before.length)
+  })
+})
+
+describe('entrées micro/ligne et éclatés D-Sub 25', () => {
+  const mtrx = LIBRARY.find(t => t.id === 'avid-mtrx-studio')!
+  const mic = GENERIC_LIBRARY.find(t => t.ports.some(p => p.direction === 'out' && p.level === 'mic' && p.connector === 'xlr3'))!
+  const lineOut = (id: string) => ({ id, name: 'Out', direction: 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3', level: 'line+4' as const })
+
+  it("n'alerte pas quand un micro entre dans une entrée ligne qui accepte aussi le micro", async () => {
+    const { levelIssueOf } = await import('./rules')
+    const combo = { id: 'in', name: 'In', direction: 'in' as const, signal: 'audioAnalog' as const, connector: 'combo', level: 'line+4' as const, modes: [{ connector: 'combo', level: 'mic' as const }] }
+    const micOut = { ...lineOut('o'), level: 'mic' as const }
+    expect(levelIssueOf(micOut, combo)).toBeNull()
+    expect(levelIssueOf(lineOut('o'), combo)).toBeNull()
+    expect(levelIssueOf(micOut, { ...combo, modes: undefined })).toBe('level-mic-to-line')
+  })
+
+  it("documente le mode ligne des entrées décrites micro/ligne dans les fiches", () => {
+    const ports = LIBRARY.flatMap(t => t.ports.filter(p => p.direction !== 'out' && p.signal === 'audioAnalog' && p.level === 'mic' && /mic\s*\/\s*line|micro\s*\/\s*ligne/i.test(`${p.name} ${p.format ?? ''}`)))
+    expect(ports.length).toBeGreaterThan(100)
+    for (const p of ports) expect(p.modes?.some(m => m.level === 'line+4' || m.level === 'none'), p.name).toBe(true)
+  })
+
+  it("propose d'office l'éclaté D-Sub 25 et accepte 8 liaisons sur une prise de 8 voies", async () => {
+    const { buildCableBom, suggestCable } = await import('./cables')
+    expect(suggestCable('xlr3', 'dsub25')?.id).toBe('db25-xlrf-8')
+    expect(suggestCable('dsub25', 'xlr3')?.id).toBe('db25-xlrm-8')
+    expect(suggestCable('dsub25', 'jack-trs')?.id).toBe('db25-trs-8')
+    expect(suggestCable('xlr3', 'xlr3')).toBeUndefined()
+    let p = ops.createProject('MTRX')
+    const m = ops.addEquipment(p, mtrx, { x: 0, y: 0 }); p = m.project
+    const sources: string[] = []
+    for (let i = 0; i < 9; i++) { const r = ops.addEquipment(p, mic, { x: 0, y: 100 * i }); p = r.project; sources.push(r.id) }
+    const micPort = mic.ports.find(x => x.direction === 'out' && x.connector === 'xlr3')!.id
+    const links: string[] = []
+    const busy: boolean[] = []
+    for (const s of sources) {
+      const r = ops.connect(p, { equipmentId: s, portId: micPort }, { equipmentId: m.id, portId: 'li1_8' }); p = r.project; links.push(r.id!)
+      busy.push(checkLink(p, p.links[r.id!]).some(i => i.code === 'input-busy'))
+    }
+    expect(p.links[links[0]].cableTypeId).toBe('db25-xlrf-8')
+    expect(busy).toEqual([false, false, false, false, false, false, false, false, true])
+    const bom = buildCableBom(p, () => ['xlr3', 'dsub25'])
+    expect(bom.find(l => l.cableId === 'db25-xlrf-8')?.quantity).toBe(2)
+  })
+})
