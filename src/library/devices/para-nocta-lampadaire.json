@@ -17,6 +17,14 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "usbChg",
+      "name": "Charge micro-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-micro",
+      "format": "Charge de la lampe Bulbee, câble micro-USB 1 m et chargeur 5 V fournis"
+    }
+  ]
 }

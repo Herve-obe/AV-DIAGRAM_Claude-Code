@@ -16,8 +16,38 @@
     {
       "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
       "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_FR/Standard/DSFR104_1159B.pdf",
+      "document": "Robert Juliat : DSFR104 Victor 1159B, fiche standard",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis alimentation électronique",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Embase Harting Han 16 × 16 A + T, cordon détachable 3 m 18G1,5 vers l'alimentation électronique (entrée powerCON)"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR 5 points mâle (obturateur motorisé, amorçage)"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle"
+    }
+  ],
+  "powerW": 2040
 }

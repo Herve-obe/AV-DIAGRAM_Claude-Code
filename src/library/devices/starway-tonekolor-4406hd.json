@@ -32,7 +32,24 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points sur queue de câble"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points sur queue de câble"
+    }
+  ],
   "portStatus": "pending",
   "powerW": 260
 }

@@ -4,7 +4,7 @@
   "manufacturer": "OXO",
   "model": "Sunflood 500",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -27,25 +27,29 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 points"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "24 × 20 W LED blanc 6 000 K"
+      "connector": "powercon",
+      "format": "powerCON, 100–240 V 47–63 Hz"
     }
   ],
   "aliases": [
     "OXO Sunflood 500"
-  ]
+  ],
+  "powerW": 460,
+  "description": "Projecteur LED 24 × 20 W blanc 6 000 K, 12° (filtres 16°, 40° et 10° × 40° fournis), DMX."
 }

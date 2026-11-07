@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Robert Juliat",
   "model": "Super Korrigan 1149",
-  "status": "community",
+  "status": "verified",
   "description": "Poursuite Super Korrigan 1149, lampe HMI 1 200 W, zoom 7–14,5°, ballast magnétique séparé. La puissance de lampe ne renseigne pas la consommation système. Liaison de tête depuis le ballast documentée ; ne pas assimiler aux variantes B/C/CB. Liaison de tête : cordon captif 3 m, Harting Han 16 × 16 A + terre. Connecteur exact à représenter avant câblage.",
   "sources": [
     {
@@ -18,6 +18,15 @@
       "accessed": "2026-11-04"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis ballast",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Câble attenant 3 m 18G1,5 terminé par un connecteur Harting Han 16 × 16 A + T mâle, vers le ballast magnétique"
+    }
+  ],
+  "powerW": 1550
 }

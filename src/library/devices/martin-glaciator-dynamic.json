@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Martin",
   "model": "Glaciator Dynamic",
-  "status": "community",
+  "status": "verified",
   "description": "JEM Glaciator Dynamic, machine à fumée lourde réfrigérée, 3 500 W au maximum typique, 124 kg à sec / 129 kg remplie. Dimensions 785 × 648 × 769 mm avec roulettes. DMX/RDM XLR3 et XLR5 entrée/sortie, télécommande numérique XLR3, prise de programmation AVR et câble secteur captif 208–250 V.",
   "aliases": [
     "MARTIN Glaciator Dynamic"
@@ -73,28 +73,32 @@
       "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "dmxOut5",
       "name": "DMX Thru 5 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "dmxIn3",
       "name": "DMX In 3 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "dmxOut3",
       "name": "DMX Thru 3 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "remote",
@@ -105,20 +109,12 @@
       "format": "Télécommande détachable, câble jusqu’à 25 m"
     },
     {
-      "id": "firmware",
-      "name": "Programmation firmware",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Socket AVR, programmateur Epsilon 5"
-    },
-    {
       "id": "acIn",
       "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "mains-captive",
-      "format": "Câble captif 3,3 m, 3 × 4 mm² ; 208–250 V monophasé"
+      "connector": "bare-wire",
+      "format": "Câble secteur captif 3,3 m, 3 × 4 mm², livré sans fiche (fiche CEI 60309 conseillée) ; 208–250 V"
     }
   ],
   "weightKg": 124,

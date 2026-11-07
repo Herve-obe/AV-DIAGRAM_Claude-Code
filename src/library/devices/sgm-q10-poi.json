@@ -19,24 +19,24 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified",
-      "format": "Câble fixe de 1,5 m (entrée DMX) ; DMX sans fil LumenRadio avec RDM"
+      "connector": "bare-wire",
+      "format": "Câble DMX 1,5 m à demeure, extrémités nues"
     },
     {
       "id": "dmx-out",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified",
-      "format": "Câble fixe de 1,5 m (recopie DMX)"
+      "connector": "bare-wire",
+      "format": "Câble DMX 1,5 m à demeure, extrémités nues ; recopie passive"
     },
     {
       "id": "ac-in",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Câble d'alimentation fixe de 1,5 m, fils nus"
+      "connector": "bare-wire",
+      "format": "Câble secteur 1,5 m à demeure, extrémités nues"
     }
   ]
 }

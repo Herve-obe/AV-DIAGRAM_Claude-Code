@@ -6,7 +6,7 @@
   "manufacturer": "SAF",
   "model": "LiciaLED",
   "status": "community",
-  "description": "Projecteur LED LiciaLED, un appareil.",
+  "description": "Projecteur LED étanche type « boîte ambre », 7 LED 3 W full color, cylindre inox autostable, DMX 1 à 7 canaux ou réglage manuel.",
   "aliases": [
     "SAF LiciaLED"
   ],
@@ -37,6 +37,31 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX, XLR 3 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble rangé dans le logement de l'appareil (« pas de prise visible »), 240 V 50 Hz"
+    }
+  ],
+  "powerW": 24
 }

@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Prolights",
   "model": "MiniEclipse 26°",
-  "status": "community",
+  "status": "verified",
   "description": "Mini découpe noire à LED Cree 28 W, 6 000 K, objectif 26°. Consommation maximale 29 W ; alimentation 100–240 V sur câble avec fiche secteur 16 A moulée. La documentation distingue les versions simples et W-DMX (1,5 kg pour W-DMX) ; aucune prise DMX filaire n'est indiquée.",
   "aliases": [
     "Prolights MiniEclipse 26°"
@@ -43,8 +43,16 @@
       "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Câble avec fiche 16 A moulée ; forme de fiche non précisée sur la fiche produit"
+      "connector": "mains-captive",
+      "format": "Cordon avec fiche secteur 16 A moulée (versions noires) ; 100–240 V 50/60 Hz"
+    },
+    {
+      "id": "wdmx",
+      "name": "W-DMX",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur W-DMX 2,4 GHz (Wireless Solution) intégré, 1, 2 ou 5 canaux"
     }
   ],
   "weightKg": 1.5,

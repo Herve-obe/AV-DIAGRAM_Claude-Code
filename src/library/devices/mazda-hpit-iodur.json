@@ -6,7 +6,7 @@
   "manufacturer": "MAZDA",
   "model": "HPIT/IODUR",
   "status": "community",
-  "description": "Projecteur HPIT 150W, lampe ïodure, étanche",
+  "description": "Projecteur extérieur IP55 de la gamme Mazda Choucas, lampe iodure métallique double culot 150 W avec appareillage intégré.",
   "aliases": [
     "HPIT/150SIN",
     "MAZDA HPIT/IODUR"
@@ -23,7 +23,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 6
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Raccordement sur connecteur interne via presse-étoupe PG13,5 ; 230 V, classe II"
+    }
+  ],
+  "weightKg": 6,
+  "powerW": 150
 }

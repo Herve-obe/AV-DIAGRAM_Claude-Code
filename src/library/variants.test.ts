@@ -50,9 +50,10 @@ describe('variantes choisies dans les lots audio 04 et lumière 02', () => {
       const sx = get(`robert-juliat-${ref}sx`)
       const sx2 = get(`robert-juliat-${ref}sx2`)
       expect(sx.id).not.toBe(sx2.id)
-      expect(sx.ports).toEqual([])
-      expect(sx.portStatus).toBe('pending')
-      expect(sx.powerW).toBeUndefined()
+      // Ancienne génération documentée par la notice 700 SX (cordon secteur seul, sans DMX) :
+      // aucune prise de la SX2 n'est recopiée.
+      expect(sx.ports.every(p => p.signal === 'power')).toBe(true)
+      expect(sx.ports).not.toEqual(sx2.ports)
     }
   })
 

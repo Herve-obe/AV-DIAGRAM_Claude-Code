@@ -20,7 +20,7 @@
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "format": "DMX512, XLR 5 points"
     },
     {
       "id": "dmxOut",
@@ -28,15 +28,32 @@
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 3 et 5 points"
+      "format": "Recopie DMX, XLR 5 points"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX, XLR 3 points"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Câble 1,5 m sans fiche ; 8 A typique, 33 A en crête"
+      "connector": "bare-wire",
+      "format": "Queue de câble captive 1,5 m 14 AWG, livrée sans fiche ; 200–240 V (MAX-15), 8 A typique, 33 A en crête"
     }
-  ]
+  ],
+  "powerW": 1840
 }

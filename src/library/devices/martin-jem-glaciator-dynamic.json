@@ -4,7 +4,7 @@
   "manufacturer": "Martin",
   "model": "JEM Glaciator Dynamic",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogue Novelty 2025 ; fiche constructeur non trouvée sur martin.com",
@@ -14,6 +14,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/martin_jem_glaciator_dynamic_user_manual_en.pdf",
       "document": "Martin/Harman — JEM Glaciator Dynamic user manual 35010046 rev.E, p.9,12,29–30 : panneau, connectique et caractéristiques",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/machine-a-fumee/glaciator-dynamic/",
+      "document": "Novelty : Glaciator Dynamic",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -22,28 +27,32 @@
       "name": "DMX In 5 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "dmxOut5",
       "name": "DMX Thru 5 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "dmxIn3",
       "name": "DMX In 3 points",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "dmxOut3",
       "name": "DMX Thru 3 points",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "format": "DMX512 / RDM, XLR verrouillable"
     },
     {
       "id": "remote",
@@ -54,20 +63,12 @@
       "format": "Télécommande détachable, câble jusqu’à 25 m"
     },
     {
-      "id": "firmware",
-      "name": "Programmation firmware",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Socket AVR, programmateur Epsilon 5"
-    },
-    {
       "id": "ac",
       "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "mains-captive",
-      "format": "Câble captif 3,3 m, 3 × 4 mm² ; 208–250 V monophasé"
+      "connector": "bare-wire",
+      "format": "Câble secteur captif 3,3 m, 3 × 4 mm², livré sans fiche (fiche CEI 60309 conseillée) ; 208–250 V"
     }
   ],
   "powerW": 3500,

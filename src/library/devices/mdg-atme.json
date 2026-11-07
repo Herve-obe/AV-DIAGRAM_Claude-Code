@@ -4,7 +4,7 @@
   "manufacturer": "MDG",
   "model": "ATMe",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -42,7 +42,8 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points mâle"
     },
     {
       "id": "dmxOut",
@@ -50,15 +51,7 @@
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "Panneau illustré, prise femelle de renvoi"
-    },
-    {
-      "id": "usb",
-      "name": "USB service",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-b",
-      "format": "Diagnostic / bootloader, câble A–B standard"
+      "format": "DMX512 / RDM, XLR 5 points, sortie"
     },
     {
       "id": "acIn",

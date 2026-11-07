@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Robert Juliat",
   "model": "Victor 1159",
-  "status": "community",
+  "status": "verified",
   "description": "Poursuite Victor 1159, lampe MSR 1 800 W, zoom 7–14,5°, alimentation électronique séparée. Variante standard 1159, distincte de 1159B DMX. Consommation système et connectique physique à compléter.",
   "sources": [
     {
@@ -16,8 +16,22 @@
     {
       "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
       "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_FR/Standard/DSFR107_1159.pdf",
+      "document": "Robert Juliat : DSFR107 Victor 1159, fiche standard",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis alimentation électronique",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Câble attenant 3 m 18G1,5 avec connecteur Harting Han 16 × 16 A + T, vers l'alimentation électronique séparée (entrée powerCON)"
+    }
+  ],
+  "powerW": 2040
 }

@@ -23,7 +23,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier dans le boîtier de raccordement alu sur la lyre ; appareillage et amorceur intégrés"
+    }
+  ],
   "weightKg": 15
 }

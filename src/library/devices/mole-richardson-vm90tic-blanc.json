@@ -19,7 +19,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.6
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon avec fiche PC16 (2P+T 16 A)"
+    }
+  ],
+  "weightKg": 1.6,
+  "powerW": 90
 }

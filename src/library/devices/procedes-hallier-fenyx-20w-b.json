@@ -43,7 +43,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.4
+  "ports": [
+    {
+      "id": "rail",
+      "name": "Adaptateur de rail",
+      "direction": "in",
+      "signal": "power",
+      "connector": "rail-3c",
+      "format": "Alimentation par adaptateur de rail 3 allumages (rail tri)"
+    }
+  ],
+  "weightKg": 1.4,
+  "powerW": 20
 }

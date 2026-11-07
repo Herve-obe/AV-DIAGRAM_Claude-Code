@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Magic FX",
   "model": "Stadium Shot II",
-  "status": "community",
-  "description": "Machine à confettis / streamers / poudre Holi de longue portée (12 à 40m)",
+  "status": "verified",
+  "description": "Canon à confettis et serpentins à air comprimé (cuve 17,7 l), portée 12 à 40 m ; déclenchement par mise sous tension 100–250 V ou par commande 12–24 V CC.",
   "aliases": [
     "Magic FX Stadium Shot II"
   ],
@@ -27,8 +27,32 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur entrée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, 100–250 V ; la mise sous tension déclenche le tir (gradateur ou bloc DMX)"
+    },
+    {
+      "id": "acOut",
+      "name": "Secteur recopie",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, recopie"
+    },
+    {
+      "id": "dcIn",
+      "name": "Commande 12–24 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "binding-post",
+      "format": "12–24 V CC, fiches banane ou fil (déclenchement basse tension)"
+    }
+  ],
   "weightKg": 71,
   "powerW": 20
 }

@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Mole-Richardson",
   "model": "VM75TEG",
-  "status": "community",
+  "status": "verified",
   "description": "Projecteur mini-découpe 75W, avec 4 couteaux",
   "aliases": [
     "VM75TEG (BLANC)",
@@ -28,7 +28,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.6
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble souple silicone fixé à demeure, raccordement extérieur au produit ; 230 V, convertisseur 75 VA"
+    }
+  ],
+  "weightKg": 1.6,
+  "powerW": 75
 }

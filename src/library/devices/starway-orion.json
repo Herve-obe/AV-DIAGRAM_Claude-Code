@@ -22,7 +22,25 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points, 1/6/7 canaux"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 points"
+    }
+  ],
   "portStatus": "pending",
-  "weightKg": 12.5
+  "weightKg": 12.5,
+  "powerW": 2100
 }

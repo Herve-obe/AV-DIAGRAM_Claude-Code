@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Mole-Richardson",
   "model": "Skylite 5000",
-  "status": "community",
-  "description": "Projecteur type \"SkyPan\", 5000W, 220V",
+  "status": "verified",
+  "description": "Projecteur d'ambiance type Skypan 5 000 W, douille G38 mogul bipost, réflecteur acier blanc, interrupteur intégré.",
   "aliases": [
     "SKYLITE5000",
     "MOLE RICHARDSON Skylite 5000"
@@ -23,7 +23,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 14
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble captif 3 ft type SO #6 AWG, fiche stage pin 3 broches MC257G (60 A) ; 120–240 V, interrupteur 60 A"
+    }
+  ],
+  "weightKg": 14,
+  "powerW": 5000
 }

@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "SGM",
   "model": "G-Spot",
-  "status": "community",
-  "description": "Lyre LED asservie, zoom 9-45°, 850W, IP65",
+  "status": "verified",
+  "description": "Lyre spot LED IP65 à source RGBY, zoom 9–45°, DMX filaire ou LumenRadio avec RDM.",
   "aliases": [
     "GSPOT",
     "SGM G-Spot"
@@ -53,7 +53,32 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 53
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Neutrik HD XLR 5 points IP65 sur queue de câble 0,2 m ; DMX sans fil LumenRadio avec RDM"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Neutrik HD XLR 5 points IP65 sur queue de câble 0,2 m"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik TRUE1, 200–240 V ; cordon 2 m TRUE1 fourni"
+    }
+  ],
+  "weightKg": 53,
+  "powerW": 1100
 }
