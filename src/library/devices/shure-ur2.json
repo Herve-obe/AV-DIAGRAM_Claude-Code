@@ -13,13 +13,46 @@
     },
     {
       "url": "https://www.fisheraudiovisual.com/wp-content/uploads/2018/10/Shure-UHF-R-User-Manual.pdf",
-      "document": "Shure UHF-R User Manual — copie fabricant hébergée par Fisher Audio Visual",
+      "document": "Shure UHF-R User Manual : copie fabricant hébergée par Fisher Audio Visual",
       "accessed": "2026-10-25"
     },
     {
       "url": "https://cdn.storm.rent/content/2020/06/Shure_UR4D_Manual.pdf",
-      "document": "Shure UHF-R Plus User Guide, 27NS14492 Rev.2, 2011 — Storm",
+      "document": "Shure UHF-R Plus User Guide, 27NS14492 Rev.2, 2011 : Storm",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD2/en-US.pdf",
+      "document": "Shure, AD2 Handheld Transmitter User Guide : cartouches au choix et cartouches optionnelles RPW",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/sm58-hf/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/beta58-hf/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/beta87a-hf/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ksm9bk-hf/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/sm58-hf-noir/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/beta58-hf-noir/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ksm8-hf-noir/",
+      "accessed": "2026-10-19"
     }
   ],
   "ports": [
@@ -29,7 +62,40 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rf",
-      "format": "Liaison radio vers le récepteur"
+      "format": "UHF-R ; tête interchangeable Shure"
+    }
+  ],
+  "description": "Émetteur main UHF-R, tête interchangeable Shure (cartouches RPW : SM58, SM86, SM87A, Beta 58A, Beta 87A, Beta 87C, KSM9). Corps seul : la tête est une option.",
+  "aliases": [
+    "UR2/SM58",
+    "UR2/SM86",
+    "UR2/SM87A",
+    "UR2/BETA 58",
+    "UR2/BETA 87A",
+    "UR2/BETA 87C",
+    "UR2/KSM9/BK",
+    "UR2/KSM9/SL",
+    "SM58-HF",
+    "SHURE SM58-HF",
+    "SM58-HF noir",
+    "SHURE SM58-HF noir",
+    "Beta58-HF",
+    "SHURE Beta58-HF",
+    "Beta58-HF noir",
+    "SHURE Beta58-HF noir",
+    "Beta87A-HF",
+    "SHURE Beta87A-HF",
+    "KSM8-HF noir",
+    "UR2/G1E/KSM8",
+    "SHURE KSM8-HF noir",
+    "KSM9BK-HF",
+    "SHURE KSM9BK-HF"
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "shure-capsule-sans-fil"
     }
   ]
 }

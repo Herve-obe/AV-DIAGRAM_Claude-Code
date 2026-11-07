@@ -2,12 +2,14 @@
   "id": "sanken-cos-11",
   "family": "capture",
   "manufacturer": "Sanken",
-  "model": "COS-11",
+  "model": "COS-11D",
   "pictogram": "mic",
-  "status": "community",
-  "description": "Micro cravate électret omnidirectionnel. Terminaison au choix : XLR-3M avec module d'alimentation fantôme, ou prise d'émetteur HF (mini-jack, LEMO 3, Hirose 4, TA3F, TA4F).",
+  "status": "verified",
+  "description": "Micro cravate électret omnidirectionnel COS-11D. Terminaison au choix : XLR-3M avec module d'alimentation fantôme (ou version BP sur pile), ou prise d'émetteur HF (mini-jack 3,5, LEMO 3, Hirose 4, TA3F, TA4F, TA5F, SMC9 Sony) ou fils nus (version PT).",
   "aliases": [
+    "COS-11",
     "COS-11D",
+    "COS11",
     "COS11D"
   ],
   "sources": [
@@ -35,13 +37,8 @@
       "connector": "xlr3",
       "level": "mic",
       "phantom": "required",
-      "format": "Électret omnidirectionnel, version XLR-3M (COS-11D) : module fantôme 48 V ± 4 V (moins de 2,2 mA), 17,8 mV/Pa. Versions émetteur HF : alimentation 3 à 10 V par l'émetteur.",
+      "format": "Électret omnidirectionnel, version XLR-3M (COS-11D) : module fantôme 48 V ± 4 V (moins de 2,2 mA), 17,8 mV/Pa. Versions émetteur HF : alimentation 3 à 10 V par l'émetteur. Version BP : XLR-3M sur pile AA (ou fantôme 12 à 52 V).",
       "modes": [
-        {
-          "connector": "xlr3",
-          "level": "mic",
-          "phantom": "none"
-        },
         {
           "connector": "minijack",
           "level": "mic",
@@ -64,6 +61,21 @@
         },
         {
           "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta5",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "smc9",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "bare-wire",
           "level": "mic",
           "phantom": "none"
         }

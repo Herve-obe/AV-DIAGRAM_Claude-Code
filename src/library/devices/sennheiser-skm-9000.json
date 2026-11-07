@@ -1,0 +1,49 @@
+{
+  "id": "sennheiser-skm-9000",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 9000",
+  "status": "verified",
+  "description": "Émetteur main numérique Digital 9000, compatible avec les têtes evolution wireless et série 2000, Neumann KK 204/205 et les têtes de la série 9000 (MD 9235, ME 9002/9004/9005). Accu BA 60.",
+  "aliases": [
+    "SKM 9000 BK",
+    "SKM 9000 NI",
+    "SKM 9000 COM"
+  ],
+  "sources": [
+    {
+      "url": "https://www.sennheiser.com/en-us/catalog/products/wireless-systems/skm-9000/skm-9000-bk-a1-a4-504718",
+      "document": "Sennheiser, page produit SKM 9000 (504718) : têtes evolution wireless et série 2000, Neumann KK 204/205, MD 9235, ME 9002/9004/9005",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison numérique Digital 9000 ; tête interchangeable"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard"
+    }
+  ]
+}

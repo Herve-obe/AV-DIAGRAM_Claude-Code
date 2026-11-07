@@ -5,12 +5,20 @@
   "model": "AD2",
   "pictogram": "wireless",
   "status": "verified",
-  "weightKg": 0.34,
   "sources": [
     {
       "url": "https://pubs.shure.com/guide/AD2/en-US",
       "document": "Shure, guide d'utilisation AD2 (pubs.shure.com)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD2/en-US.pdf",
+      "document": "Shure, AD2 User Guide (PDF) : cartouches au choix, 340 g sans pile, sans préciser si la tête est comprise : poids retiré du corps",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/a2-ksm8-noir/",
+      "accessed": "2026-10-19"
     }
   ],
   "ports": [
@@ -20,7 +28,24 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rf",
-      "format": "Liaison radio vers le récepteur"
+      "format": "Axient Digital, 2/10/35 mW selon région ; tête interchangeable Shure"
+    }
+  ],
+  "description": "Émetteur main Axient Digital, tête interchangeable Shure (cartouches RPW). IR pour la synchronisation, piles AA ou accu SB900. Corps seul : la tête est une option.",
+  "aliases": [
+    "AD2/SM58",
+    "AD2/B87C",
+    "AD2/KSM8",
+    "AD2/KSM9",
+    "AD2/N8S",
+    "A2-KSM8 noir",
+    "SHURE A2-KSM8 noir"
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "shure-capsule-sans-fil"
     }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "id": "sennheiser-skm-2000",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 2000",
+  "status": "verified",
+  "description": "Émetteur main de la série 2000, compatible avec toutes les têtes ew, puissance HF commutable, contacts de charge externes pour l'accu BA 2015.",
+  "aliases": [
+    "SKM 2000 BK-K+",
+    "SKM 2000 NI-BW",
+    "SKM 2000 XP",
+    "SKM2000XP"
+  ],
+  "sources": [
+    {
+      "url": "https://www.sennheiser.com/en-de/catalog/products/wireless-systems/skm-2000/skm-2000-bk-k-505519",
+      "document": "Sennheiser, page produit SKM 2000 BK-K+ (505519) : compatible avec toutes les têtes ew, puissance HF commutable, contacts de charge",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, puissance HF commutable ; tête interchangeable"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": "sennheiser-ew-dx-skm",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EW-DX SKM",
+  "status": "verified",
+  "description": "Émetteur main numérique EW-DX (version SKM-S avec touche silence), tête interchangeable à filetage standard. 2 piles AA ou accu BA 70.",
+  "aliases": [
+    "EW-DX SKM-S",
+    "EW-DX SKM S"
+  ],
+  "weightKg": 0.195,
+  "sources": [
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-d/ew-d/specifications-ew-dx-skm.html",
+      "document": "Sennheiser EW-DX, caractéristiques EW-DX SKM / SKM-S (195 g sans tête, liaison audio 10 mW PAR, BLE)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison audio numérique 10 mW PAR (12 mW en Y1-3), mode LD ; tête interchangeable"
+    },
+    {
+      "id": "ble",
+      "name": "Bluetooth LE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rf",
+      "format": "Bluetooth Low Energy, max. 10 mW PIRE"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard"
+    }
+  ]
+}

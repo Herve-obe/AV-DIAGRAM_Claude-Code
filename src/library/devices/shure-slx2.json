@@ -5,7 +5,6 @@
   "model": "SLX2 (émetteur main)",
   "pictogram": "wireless",
   "status": "verified",
-  "weightKg": 0.29,
   "sources": [
     {
       "document": "Shure, SLX Wireless Systems User Guide (fichier SLX System.pdf, section française)",
@@ -24,7 +23,22 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rf",
-      "format": "30 mW max ; capsule SM58 (ou autre selon version) ; 2 piles AA"
+      "format": "30 mW max ; tête interchangeable Shure ; 2 piles AA"
+    }
+  ],
+  "description": "Émetteur main SLX analogique, tête interchangeable Shure (cartouches RPW112 SM58, RPW114 SM86, RPW118 Beta 58A, RPW120 Beta 87A, RPW122 Beta 87C), 2 piles AA. Corps seul : la tête est une option.",
+  "aliases": [
+    "SLX2/SM58",
+    "SLX2/SM86",
+    "SLX2/BETA 58",
+    "SLX2/BETA 87A",
+    "SLX2/BETA 87C"
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "shure-capsule-sans-fil"
     }
   ]
 }

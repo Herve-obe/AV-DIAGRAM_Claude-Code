@@ -1,0 +1,44 @@
+{
+  "id": "sennheiser-skm-6000",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 6000",
+  "status": "verified",
+  "description": "Émetteur main numérique Digital 6000, tête interchangeable à filetage standard (têtes evolution, série 9000, Neumann KK 204/205). Accu BA 60.",
+  "sources": [
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/digital-6000/specs-skm6000.html",
+      "document": "Sennheiser Digital 6000, caractéristiques SKM 6000",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison numérique Digital 6000 : 25 mW (mode LR) ou 1 mW (mode LD) ; tête interchangeable"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard"
+    }
+  ]
+}

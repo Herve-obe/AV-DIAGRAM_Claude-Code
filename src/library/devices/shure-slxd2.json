@@ -10,6 +10,11 @@
       "url": "https://pubs.shure.com/guide/SLXD/en-US",
       "document": "Shure, guide d'utilisation SLX-D (pubs.shure.com)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/SLXD/en-US.pdf",
+      "document": "Shure, SLX-D User Guide (PDF) : SLXD2 147 g, 37,1 x 176 mm (longueur qui exclut la tête), variantes par capsule",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,7 +24,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rf",
-      "format": "Liaison radio vers le récepteur"
+      "format": "SLX-D numérique ; tête interchangeable Shure"
     },
     {
       "id": "usb",
@@ -27,6 +32,20 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-c"
+    }
+  ],
+  "description": "Émetteur main SLX-D, tête interchangeable Shure (SM58, Beta 58A, Beta 87A, Beta 87C, SM86, KSM8, VP68, Nexadyne 8/C et 8/S), USB-C pour la charge et le micrologiciel. Corps seul : la tête est une option.",
+  "aliases": [
+    "SLXD2+/58",
+    "SLXD2+/B58",
+    "SLXD2+"
+  ],
+  "weightKg": 0.147,
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "shure-capsule-sans-fil"
     }
   ]
 }
