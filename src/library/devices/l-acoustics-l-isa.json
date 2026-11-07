@@ -5,7 +5,7 @@
   "pictogram": "processor",
   "manufacturer": "L-Acoustics",
   "model": "L-ISA",
-  "status": "community",
+  "status": "verified",
   "description": "Processeur audio-numérique spatial",
   "aliases": [
     "L-ACOUSTICS L-ISA"
@@ -33,44 +33,61 @@
       "name": "MADI 1 E/S optique",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "sc",
       "channels": 64,
-      "format": "MADI optique ; entrées 1-64 à 48 kHz ; sorties redondantes 1-64"
+      "format": "MADI optique, SC duplex (1 OUT / 1 IN, dessin du panneau arrière) ; entrées 1-64 à 48 kHz ; sorties redondantes 1-64"
     },
     {
       "id": "madi2",
       "name": "MADI 2 E/S optique",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "sc",
       "channels": 64,
-      "format": "MADI optique ; entrées 65-96 à 48 kHz ; sorties redondantes 1-64"
+      "format": "MADI optique, SC duplex (2 OUT / 2 IN, dessin du panneau arrière) ; entrées 65-96 à 48 kHz ; sorties redondantes 1-64"
     },
     {
       "id": "madi3",
-      "name": "MADI 3 E/S (BNC)",
-      "direction": "bidir",
+      "name": "MADI 3 In (BNC)",
+      "direction": "in",
       "signal": "audioDigital",
       "connector": "bnc",
       "channels": 64,
-      "format": "MADI coaxial ; entrées 65-96 à 96 kHz ; sorties redondantes"
+      "format": "MADI coaxial, BNC « 3 IN » ; entrées 65-96 à 96 kHz"
+    },
+    {
+      "id": "madi3Out",
+      "name": "MADI 3 Out (BNC)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial, BNC « 3 OUT » ; sorties redondantes"
     },
     {
       "id": "wc",
-      "name": "Word Clock E/S",
-      "direction": "bidir",
+      "name": "Word Clock In",
+      "direction": "in",
       "signal": "sync",
       "connector": "bnc",
-      "format": "Word Clock i/o (BNC)"
+      "format": "BNC « WC IN »"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC « WC OUT »"
     },
     {
       "id": "aesOut",
       "name": "Sortie AES/EBU (downmix stéréo)",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "xlr3",
+      "connector": "vga",
       "channels": 2,
-      "format": "Downmix stéréo automatique, XLR sur câble épanoui"
+      "format": "Downmix stéréo AES/EBU sur embase Sub-D haute densité 15 broches (HD-15, dessin) avec câble épanoui XLR fourni"
     },
     {
       "id": "phones",
@@ -94,9 +111,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "iec-c13"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur secteur, 100-240 V, 4,5 A max (plaque)"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 8.9
 }

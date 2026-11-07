@@ -109,8 +109,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque",
-      "level": "line-10"
+      "format": "Jack 6,35 TS asymétrique (seules entrées asymétriques de l'appareil), uniquement pour le mélange casque ; niveau non publié"
     },
     {
       "id": "playbackR",
@@ -118,8 +117,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque",
-      "level": "line-10"
+      "format": "Jack 6,35 TS asymétrique (seules entrées asymétriques de l'appareil), uniquement pour le mélange casque ; niveau non publié"
     },
     {
       "id": "phones",
@@ -137,7 +135,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "IEC C14 confirmée par l’utilisateur ; tension à sélectionner selon notice"
+      "format": "Embase IEC C14 avec porte-fusible (dessin de la face arrière, manuel p. 7) ; sélecteur 115/230 V"
     }
   ],
   "weightKg": 4.15,

@@ -4,7 +4,7 @@
   "manufacturer": "Taiden",
   "model": "HCS-8600MIO/08A",
   "pictogram": "intercom",
-  "status": "verified",
+  "status": "community",
   "powerW": 65,
   "weightKg": 3.6,
   "rackU": 2,
@@ -236,7 +236,8 @@
       "name": "RS-232",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "« RS232 port for connection to central control system » ; type de prise non nommé (photo : petit bornier vert probable, illisible)"
     },
     {
       "id": "usb",
@@ -251,8 +252,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V, 65 W"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (photo de la fiche Taiden), 100-240 VAC 50/60 Hz, 65 W"
     }
   ],
   "domain": "sound"

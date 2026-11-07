@@ -4,7 +4,7 @@
   "manufacturer": "Midas",
   "model": "DL32",
   "pictogram": "stagebox",
-  "status": "community",
+  "status": "verified",
   "weightKg": 4.9,
   "rackU": 3,
   "sources": [
@@ -525,16 +525,18 @@
       "name": "AES/EBU Out 13-14",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 2
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, XLR 110 ohms"
     },
     {
       "id": "aes2",
       "name": "AES/EBU Out 15-16",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 2
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES3, XLR 110 ohms"
     },
     {
       "id": "ultranet",
@@ -571,7 +573,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (dessin du panneau arrière), 100-240 V"
     }
   ],
   "powerW": 55

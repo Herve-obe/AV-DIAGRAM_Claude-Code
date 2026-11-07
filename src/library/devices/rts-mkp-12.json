@@ -10,6 +10,16 @@
     {
       "document": "RTS/Telex, Zeus Keypanel User Manual 9350-7646-000 Rev L (11/2004)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://products.rtsintercoms.com/download/98402",
+      "document": "RTS, Zeus Keypanels User Manual F.01U.193.252 Rev. 21 (juillet 2019), Figure 8 et Specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://products.rtsintercoms.com/download/98240",
+      "document": "RTS, MKP-12 Technical Data Sheet",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -44,7 +54,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "mic",
-      "format": "Jack 6,35 TRS, électret alimenté en +5 V (MCP5 / MCP6)"
+      "format": "Jack 6,35 3 conducteurs à verrouillage par vis, électret alimenté en +5 V (MCP-90) ; nominal -42 dBu"
     },
     {
       "id": "spk",
@@ -53,7 +63,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "speaker",
-      "format": "4 W sous 8 Ω"
+      "format": "Jack 6,35 3 conducteurs (pointe +, bague -), 4 W sous 8 ohms"
     },
     {
       "id": "ac",

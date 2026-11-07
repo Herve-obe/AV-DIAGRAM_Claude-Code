@@ -4,8 +4,8 @@
   "manufacturer": "Sound Devices",
   "model": "MixPre-D",
   "pictogram": "console",
-  "status": "community",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Mélangeur portable 2 voies à préamplis micro/ligne à transformateur, sorties XLR (droite commutable AES3), sortie micro TA3 pour reflex, Tape Out et Return mini-jack, interface audio USB ; 2 piles AA ou 10-17 V DC sur Hirose 4.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -19,6 +19,16 @@
     {
       "url": "https://www.manualsdir.com/manuals/594214/sound-devices-mixpre-d.html?page=5",
       "document": "Sound Devices MixPre-D User Guide, Side Panels Description et Outputs (copie ManualsDir)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/594214/sound-devices-mixpre-d.html?page=5",
+      "document": "Sound Devices MixPre-D User Guide v1.0 (copie ManualsDir), description des panneaux latéraux et alimentation (p. 5 et 11)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.radioworld.com/?p=57053",
+      "document": "Radio World, présentation du MixPre-D : « A mini USB connector »",
       "accessed": "2026-11-07"
     }
   ],
@@ -130,9 +140,9 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "usb-mini",
       "channels": 2,
-      "format": "Interface audio USB class compliant (USB 1.1/2.0) ; type de prise non précisé"
+      "format": "Mini-USB : interface audio USB class compliant (USB 1.1/2.0), entrées analogiques vers ordinateur et écoute USB au casque ; l'appareil n'est pas alimenté par l'USB"
     },
     {
       "id": "dc",

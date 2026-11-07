@@ -15,33 +15,38 @@
     },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/mixage/numerique/sd10/",
-      "document": "Novelty — SD10",
+      "document": "Novelty : SD10",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/digico_sd-app_manuel.pdf",
-      "document": "Novelty — SD10 : SD App",
+      "document": "Novelty : SD10 : SD App",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/digico_sd10_Software_Reference_V2.pdf",
-      "document": "Novelty — SD10 : SD10",
+      "document": "Novelty : SD10 : SD10",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/digico_sd10_Getting_Started.pdf",
-      "document": "Novelty — SD10 : Quick Start Guide",
+      "document": "Novelty : SD10 : Quick Start Guide",
       "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/DiGiCo_SD10_Brochure.pdf",
-      "document": "Novelty — SD10 : SD10",
+      "document": "Novelty : SD10 : SD10",
       "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/digico_sd10_V726+_Software_Reference_Appendix.pdf",
-      "document": "Novelty — SD10 : SD10 Appendix",
+      "document": "Novelty : SD10 : SD10 Appendix",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://support.digico.biz/hc/en-gb/article_attachments/22507297149969",
+      "document": "DiGiCo, Technical Bulletin 101 (rev. sept. 2019), connecteurs optiques Optocore : HMA en standard, ST ou opticalCON DUO en option",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -383,11 +388,39 @@
     },
     {
       "id": "optics",
-      "name": "Optics (Optocore)",
+      "name": "Optocore A",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Boucle optique Optocore, standard"
+      "connector": "optocore-hma",
+      "format": "Boucle optique Optocore 2G, prise A (« Standard Optics ») : HMA en standard, ST ou opticalCON DUO sur commande spéciale. Aucun identifiant HMA au catalogue",
+      "modes": [
+        {
+          "connector": "opticalcon",
+          "level": "none"
+        },
+        {
+          "connector": "st",
+          "level": "none"
+        }
+      ]
+    },
+    {
+      "id": "optics2",
+      "name": "Optocore B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "optocore-hma",
+      "format": "Boucle optique Optocore 2G, prise B (« Standard Optics ») : HMA en standard, ST ou opticalCON DUO sur commande spéciale. Aucun identifiant HMA au catalogue",
+      "modes": [
+        {
+          "connector": "opticalcon",
+          "level": "none"
+        },
+        {
+          "connector": "st",
+          "level": "none"
+        }
+      ]
     },
     {
       "id": "midiin",
@@ -488,7 +521,7 @@
       "name": "GPIO 1",
       "direction": "bidir",
       "signal": "control",
-      "connector": "multipin",
+      "connector": "multipin-37",
       "format": "D-Sub 37"
     },
     {
@@ -496,7 +529,7 @@
       "name": "GPIO 2",
       "direction": "bidir",
       "signal": "control",
-      "connector": "multipin",
+      "connector": "multipin-37",
       "format": "D-Sub 37"
     },
     {

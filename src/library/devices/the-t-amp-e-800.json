@@ -56,7 +56,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "binding-post",
-      "level": "speaker"
+      "level": "speaker",
+      "format": "Bornier à vis (« screw terminals »), en parallèle avec le speakON"
     },
     {
       "id": "in-b-xlr",
@@ -91,15 +92,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "binding-post",
-      "level": "speaker"
+      "level": "speaker",
+      "format": "Bornier à vis (« screw terminals »), en parallèle avec le speakON"
     },
     {
       "id": "power",
       "name": "Cordon secteur captif",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "230 V AC / 50 Hz ; cordon captif, type de fiche non indiqué"
+      "connector": "mains-captive",
+      "format": "Cordon secteur captif (repère 5 de la face arrière), 230 V / 50 Hz, 1500 W ; le manuel parle seulement d'une fiche « à contact de protection », type exact non nommé"
     }
   ],
   "powerW": 1500,

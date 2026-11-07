@@ -4,7 +4,7 @@
   "pictogram": "control",
   "manufacturer": "Fohhn",
   "model": "NA-11",
-  "status": "community",
+  "status": "verified",
   "description": "Interface USB vers Fohhn-Net, alimentée par USB. Deux raccordements Fohhn-Net physiques XLR3 et RJ-45 verrouillable ; pas de bloc secteur séparé.",
   "aliases": [
     "Fohhn NA-11"
@@ -43,7 +43,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-b",
-      "format": "USB 2.0 Full Speed, alimentation USB"
+      "format": "USB 2.0 Full Speed, embase type B (photo du manuel), alimentation par l'USB"
     },
     {
       "id": "fohhn-xlr",
@@ -51,7 +51,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "xlr3",
-      "format": "1 blindage, 2 DATA+, 3 DATA− ; pas audio analogique"
+      "format": "XLR femelle (photo du manuel) : 1 blindage, 2 DATA+, 3 DATA− ; pas audio analogique"
     },
     {
       "id": "fohhn-rj45",
@@ -59,7 +59,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "ethercon",
-      "format": "Données Fohhn-Net, isolation galvanique ; pas Ethernet IP"
+      "format": "Embase RJ-45 verrouillable type etherCON (photo du manuel), données Fohhn-Net isolées ; pas Ethernet IP"
     }
   ],
   "weightKg": 0.3,

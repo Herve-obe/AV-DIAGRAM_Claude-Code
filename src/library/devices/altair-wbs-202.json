@@ -34,6 +34,22 @@
       "connector": "sma"
     },
     {
+      "id": "ant1r",
+      "name": "Antenne 1 arrière",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "SMA secondaire ANT-1R (diversité)"
+    },
+    {
+      "id": "ant2r",
+      "name": "Antenne 2 arrière",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "SMA secondaire ANT-2R (diversité)"
+    },
+    {
       "id": "lineA",
       "name": "Line A",
       "direction": "bidir",
@@ -56,7 +72,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR-3F symétrique"
+      "format": "XLR-3-31 femelle symétrique 40 kΩ, sélecteur LINE / MIC",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "pa",
@@ -81,30 +103,56 @@
       "name": "Casque",
       "direction": "bidir",
       "signal": "audioAnalog",
-      "connector": "xlr4"
+      "connector": "xlr4",
+      "format": "XLR-4 mâle en façade, en parallèle de la mini XLR-4 Tiny QG"
+    },
+    {
+      "id": "headset-mini",
+      "name": "Casque (mini XLR-4)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "format": "Tiny QG en parallèle de la XLR-4"
     },
     {
       "id": "sync",
-      "name": "Synchro",
-      "direction": "bidir",
+      "name": "Synchro Out",
+      "direction": "out",
       "signal": "control",
       "connector": "rj12",
-      "format": "RJ11, liaison entre bases"
+      "format": "RJ-11 6 broches « OUT », synchronisation de plusieurs bases"
+    },
+    {
+      "id": "syncIn",
+      "name": "Synchro In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "RJ-11 6 broches « IN »"
     },
     {
       "id": "aux",
-      "name": "Audio Link",
+      "name": "Audio Link MIC",
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Liaison audio entre unités"
+      "format": "Mini-jack 3,5 stéréo « MIC » (pointe entrée, bague sortie), liaison préampli micro entre bases"
+    },
+    {
+      "id": "auxEar",
+      "name": "Audio Link EAR",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo « EAR » (pointe entrée, bague sortie), écoute vers enceinte ou repère"
     },
     {
       "id": "relay",
-      "name": "Relais / GPIO",
-      "direction": "bidir",
+      "name": "Relais",
+      "direction": "out",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo, contact inverseur (pointe NO, bague NF, corps commun), activé par SA ou Mic A/B"
     },
     {
       "id": "ac",
@@ -112,8 +160,8 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "90-264 V"
+      "format": "Embase IEC avec porte-fusible T2A, 90-265 V, 30 VA max (plaque)"
     }
   ],
-  "powerW": 50
+  "powerW": 30
 }

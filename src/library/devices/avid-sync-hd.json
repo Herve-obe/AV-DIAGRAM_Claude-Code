@@ -15,7 +15,8 @@
     },
     {
       "url": "https://resources.avid.com/SupportFiles/attach/Pro_Tools/10.0/ENGLISH/SYNC_HD_Guide.pdf",
-      "accessed": "2026-11-06"
+      "accessed": "2026-11-06",
+      "document": "Avid, SYNC HD Guide v9.0, Figure 2 Back Panel et Appendix B"
     }
   ],
   "ports": [
@@ -40,16 +41,16 @@
       "name": "Video In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Vidéo composite SD (NTSC/PAL), 1 V c-c, terminée 75 Ω ; connecteur non précisé dans les spécifications"
+      "connector": "bnc",
+      "format": "Vidéo composite SD (NTSC/PAL), 1 V c-c, terminée 75 Ω ; BNC (dessin du panneau arrière, Figure 2)"
     },
     {
       "id": "vidout",
       "name": "Video Out",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Recopie de Video In, VITC et incrustation possibles ; connecteur non précisé"
+      "connector": "bnc",
+      "format": "Recopie de Video In, VITC et incrustation possibles ; BNC (dessin du panneau arrière, Figure 2)"
     },
     {
       "id": "refin",

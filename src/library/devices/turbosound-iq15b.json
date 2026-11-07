@@ -4,7 +4,7 @@
   "manufacturer": "Turbosound",
   "model": "iQ15B",
   "pictogram": "speaker",
-  "status": "community",
+  "status": "verified",
   "weightKg": 30.6,
   "sources": [
     {
@@ -15,6 +15,11 @@
     {
       "url": "https://www.adorama.com/tbiq15b.html",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://im.static-thomann.de/pics/atg/atgdata/document/gettingstarted/turboiq.pdf",
+      "document": "Turbosound iQ Series Quick Start Guide (copie Thomann) : face arrière pp. 10-11, caractéristiques iQ15B p. 12",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -24,7 +29,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR, recopie non traitée de l'Input A"
     },
     {
       "id": "linkB",
@@ -32,21 +38,24 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR, recopie non traitée de l'Input B"
     },
     {
       "id": "unIn",
       "name": "Ultranet In",
       "direction": "in",
       "signal": "audioDigital",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "ULTRANET In, RJ45 (16 canaux numériques)"
     },
     {
       "id": "unOut",
       "name": "Ultranet Link",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "ULTRANET Thru, RJ45, recopie non traitée de l'entrée ULTRANET"
     },
     {
       "id": "ac",
@@ -54,7 +63,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "powercon",
-      "format": "powerCON entrée (20 A)"
+      "format": "powerCON entrée (AC INPUT, 20 A max)"
     },
     {
       "id": "in1",
@@ -63,13 +72,7 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "line+4",
-      "format": "Combo XLR/jack, sensibilité micro/ligne commutable",
-      "modes": [
-        {
-          "connector": "combo",
-          "level": "mic"
-        }
-      ]
+      "format": "Combo XLR / jack 6,35 (TRS symétrique ou TS asymétrique), sensibilité ligne +4 dBu, 40 kohms symétrique, +21 dBu max"
     },
     {
       "id": "in2",
@@ -78,22 +81,7 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "line+4",
-      "format": "Combo XLR/jack, sensibilité micro/ligne commutable",
-      "modes": [
-        {
-          "connector": "combo",
-          "level": "mic"
-        }
-      ]
-    },
-    {
-      "id": "mixOut",
-      "name": "Mix Out",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "format": "Sortie mixée symétrique XLR",
-      "level": "line+4"
+      "format": "Combo XLR / jack 6,35 (TRS symétrique ou TS asymétrique), sensibilité ligne +4 dBu, 40 kohms symétrique, +21 dBu max"
     },
     {
       "id": "acLink",
@@ -101,7 +89,16 @@
       "direction": "out",
       "signal": "power",
       "connector": "powercon",
-      "format": "powerCON recopie (15 A)"
+      "format": "powerCON recopie (AC LINK OUTPUT, 15 A max)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B : mise à jour du firmware et télécommande DSP depuis un ordinateur"
     }
-  ]
+  ],
+  "powerW": 200
 }

@@ -1,32 +1,45 @@
 {
   "id": "sennheiser-mmd-835-bk",
-  "family": "wireless",
-  "domain": "sound",
-  "pictogram": "wireless",
+  "family": "module",
+  "domain": "misc",
+  "pictogram": "mic",
   "manufacturer": "Sennheiser",
   "model": "MMD 835 BK",
-  "status": "community",
-  "description": "Capsule dynamique pour microphone HF main ew G3/G4, cardioid, 154 db SPL",
+  "moduleType": "sennheiser-capsule-standard",
+  "status": "verified",
+  "description": "Tête de micro dynamique cardioïde (2,1 mV/Pa) pour émetteurs main Sennheiser ew G3, ew G4, D1, AVX, SpeechLine Digital Wireless et série 2000. Sans prise.",
   "aliases": [
-    "SENNHEISER MMD 835 BK"
+    "SENNHEISER MMD 835 BK",
+    "MMD 835-1 BK",
+    "502575"
   ],
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/mmd-835-bk/",
-      "document": "Novelty — MMD 835 BK",
+      "document": "Novelty, MMD 835 BK",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sennheiser_mmd835-1-bk_ft.pdf",
-      "document": "Novelty — MMD 835 BK : MMD 835 BK",
+      "document": "Novelty, MMD 835 BK : fiche technique",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/sennheiser_mmd835-1-bk_manual.pdf",
-      "document": "Novelty — MMD 835 BK : MMD 835 BK",
+      "document": "Novelty, MMD 835 BK : notice",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.sennheiser.com/en-us/catalog/products/microphones/mmd-835/mmd-835-1-bk-502575",
+      "document": "Sennheiser, page produit MMD 835-1 BK (502575) : « Compatible with all handheld transmitters from the ew G3, ew G4, D1, AVX, SpeechLine Digital Wireless and 2000 series »",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/product-accessories-mic-cable.html",
+      "document": "Sennheiser ew G4, accessoires : têtes recommandées pour SKM 100 G4, SKM 300 G4-S et SKM 500 G4",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [],
-  "portStatus": "pending"
+  "portStatus": "none"
 }

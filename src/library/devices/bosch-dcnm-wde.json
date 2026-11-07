@@ -53,19 +53,21 @@
     },
     {
       "id": "phones",
-      "name": "Casque",
+      "name": "Casque 1",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "channels": 2
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, charge 32 ohms à 1 kohm"
     },
     {
-      "id": "dc",
-      "name": "Batterie",
-      "direction": "in",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Batterie 7,5 V"
+      "id": "phones2",
+      "name": "Casque 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Seconde prise casque mini-jack 3,5 stéréo"
     }
   ],
   "domain": "sound",

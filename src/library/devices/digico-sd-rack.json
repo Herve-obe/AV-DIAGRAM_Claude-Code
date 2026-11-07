@@ -14,6 +14,11 @@
     {
       "url": "https://support.digico.biz/hc/en-gb/article_attachments/29324830752401",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://support.digico.biz/hc/en-gb/article_attachments/22507297149969",
+      "document": "DiGiCo, Technical Bulletin 101 (rev. sept. 2019), connecteurs optiques Optocore : HMA en standard, ST ou opticalCON DUO en option",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -35,11 +40,39 @@
     },
     {
       "id": "optics",
-      "name": "Optocore",
+      "name": "Optocore A",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Option : Optocore HMA double, 2 x opticalCON DUO ou 4 x ST selon l'équipement"
+      "connector": "optocore-hma",
+      "format": "Option Optocore, boucle A : HMA (expanded beam, hermaphrodite) en standard ; variantes 2 x opticalCON DUO ou 4 x ST. Aucun identifiant HMA au catalogue",
+      "modes": [
+        {
+          "connector": "opticalcon",
+          "level": "none"
+        },
+        {
+          "connector": "st",
+          "level": "none"
+        }
+      ]
+    },
+    {
+      "id": "optics2",
+      "name": "Optocore B",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "optocore-hma",
+      "format": "Option Optocore, boucle B : HMA (expanded beam, hermaphrodite) en standard ; variantes 2 x opticalCON DUO ou 4 x ST. Aucun identifiant HMA au catalogue",
+      "modes": [
+        {
+          "connector": "opticalcon",
+          "level": "none"
+        },
+        {
+          "connector": "st",
+          "level": "none"
+        }
+      ]
     },
     {
       "id": "ac",

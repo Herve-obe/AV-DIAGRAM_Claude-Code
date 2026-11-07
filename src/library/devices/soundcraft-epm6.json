@@ -16,122 +16,245 @@
       "url": "https://images.static-thomann.de/pics/atg/atgdata/document/manual/195062_soundcraft_epm.pdf",
       "document": "Soundcraft EPM User Guide, Typical Specifications p. 34 (copie revendeur Thomann)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://goknight.com/content/documentation/EFXEPM-UG-20101130%20(1).pdf",
+      "document": "Soundcraft EFX/EPM User Guide Issue 1210 (copie revendeur) : présentation des prises pp. 10-13 et 24-26",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Input 1",
+      "name": "Mic 1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR micro (ligne sur jack)",
       "phantom": "supplied",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line+4"
-        }
-      ]
+      "format": "XLR micro symétrique, 2 kohms, +15 dBu max ; fantôme 48 V global"
+    },
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique « line level », 10 kohms, 20 dB moins sensible que l'entrée micro, +30 dBu max"
+    },
+    {
+      "id": "ins1",
+      "name": "Insert 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique pré-égaliseur : départ sur la pointe, retour sur la bague"
     },
     {
       "id": "in2",
-      "name": "Input 2",
+      "name": "Mic 2",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR micro (ligne sur jack)",
       "phantom": "supplied",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line+4"
-        }
-      ]
+      "format": "XLR micro symétrique, 2 kohms, +15 dBu max ; fantôme 48 V global"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique « line level », 10 kohms, 20 dB moins sensible que l'entrée micro, +30 dBu max"
+    },
+    {
+      "id": "ins2",
+      "name": "Insert 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique pré-égaliseur : départ sur la pointe, retour sur la bague"
     },
     {
       "id": "in3",
-      "name": "Input 3",
+      "name": "Mic 3",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR micro (ligne sur jack)",
       "phantom": "supplied",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line+4"
-        }
-      ]
+      "format": "XLR micro symétrique, 2 kohms, +15 dBu max ; fantôme 48 V global"
+    },
+    {
+      "id": "line3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique « line level », 10 kohms, 20 dB moins sensible que l'entrée micro, +30 dBu max"
+    },
+    {
+      "id": "ins3",
+      "name": "Insert 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique pré-égaliseur : départ sur la pointe, retour sur la bague"
     },
     {
       "id": "in4",
-      "name": "Input 4",
+      "name": "Mic 4",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR micro (ligne sur jack)",
       "phantom": "supplied",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line+4"
-        }
-      ]
+      "format": "XLR micro symétrique, 2 kohms, +15 dBu max ; fantôme 48 V global"
+    },
+    {
+      "id": "line4",
+      "name": "Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique « line level », 10 kohms, 20 dB moins sensible que l'entrée micro, +30 dBu max"
+    },
+    {
+      "id": "ins4",
+      "name": "Insert 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique pré-égaliseur : départ sur la pointe, retour sur la bague"
     },
     {
       "id": "in5",
-      "name": "Input 5",
+      "name": "Mic 5",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR micro (ligne sur jack)",
       "phantom": "supplied",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line+4"
-        }
-      ]
+      "format": "XLR micro symétrique, 2 kohms, +15 dBu max ; fantôme 48 V global"
+    },
+    {
+      "id": "line5",
+      "name": "Line 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique « line level », 10 kohms, 20 dB moins sensible que l'entrée micro, +30 dBu max"
+    },
+    {
+      "id": "ins5",
+      "name": "Insert 5",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique pré-égaliseur : départ sur la pointe, retour sur la bague"
     },
     {
       "id": "in6",
-      "name": "Input 6",
+      "name": "Mic 6",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "XLR micro (ligne sur jack)",
       "phantom": "supplied",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line+4"
-        }
-      ]
+      "format": "XLR micro symétrique, 2 kohms, +15 dBu max ; fantôme 48 V global"
+    },
+    {
+      "id": "line6",
+      "name": "Line 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique « line level », 10 kohms, 20 dB moins sensible que l'entrée micro, +30 dBu max"
+    },
+    {
+      "id": "ins6",
+      "name": "Insert 6",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique pré-égaliseur : départ sur la pointe, retour sur la bague"
     },
     {
       "id": "st1",
-      "name": "Stereo In 1",
+      "name": "Stereo 1 L (mono)",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "channels": 2
+      "format": "Jack TRS symétrique, entrée stéréo « line level » ; seule, alimente les deux voies ; 65 kohms, +30 dBu max"
+    },
+    {
+      "id": "st1r",
+      "name": "Stereo 1 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, entrée stéréo « line level »"
     },
     {
       "id": "st2",
-      "name": "Stereo In 2",
+      "name": "Stereo 2 L (mono)",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4",
-      "channels": 2
+      "format": "Jack TRS symétrique, entrée stéréo « line level » ; seule, alimente les deux voies ; 65 kohms, +30 dBu max"
+    },
+    {
+      "id": "st2r",
+      "name": "Stereo 2 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, entrée stéréo « line level »"
+    },
+    {
+      "id": "2trIn",
+      "name": "2-Track In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "RCA asymétrique « line-level »"
+    },
+    {
+      "id": "2trInR",
+      "name": "2-Track In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "RCA asymétrique « line-level »"
+    },
+    {
+      "id": "rec",
+      "name": "Record Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, copie de Mix L ; niveau non publié"
+    },
+    {
+      "id": "recR",
+      "name": "Record Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, copie de Mix R ; niveau non publié"
     },
     {
       "id": "mainL",
@@ -139,7 +262,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR à symétrie d'impédance, +20 dBu max, 150 ohms"
     },
     {
       "id": "mainR",
@@ -147,23 +271,58 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR à symétrie d'impédance, +20 dBu max, 150 ohms"
+    },
+    {
+      "id": "mixInsL",
+      "name": "Mix Insert L",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique avant fader : départ pointe, retour bague"
+    },
+    {
+      "id": "mixInsR",
+      "name": "Mix Insert R",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert asymétrique avant fader : départ pointe, retour bague"
+    },
+    {
+      "id": "monL",
+      "name": "Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack TRS symétrique ; niveau non publié"
+    },
+    {
+      "id": "monR",
+      "name": "Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack TRS symétrique ; niveau non publié"
     },
     {
       "id": "aux1",
-      "name": "Aux 1",
+      "name": "Aux 1 Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "Jack TRS à symétrie d'impédance"
     },
     {
       "id": "aux2",
-      "name": "Aux 2",
+      "name": "Aux 2 Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "Jack TRS à symétrie d'impédance"
     },
     {
       "id": "phones",
@@ -173,7 +332,7 @@
       "connector": "jack-trs",
       "channels": 2,
       "level": "none",
-      "format": "Jack 6,35 stéréo 3 points, 300 mW ; casque 150 à 200 Ω ou plus recommandé"
+      "format": "Jack 6,35 stéréo 3 points, 300 mW sur 150 ohms ; casque 150 ohms ou plus recommandé"
     },
     {
       "id": "ac",
@@ -181,7 +340,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Cordon secteur amovible (« mains cord set ») ; type d’embase non indiqué dans le guide"
+      "format": "Cordon secteur amovible (« mains cord set ») ; type d'embase non indiqué dans le guide, non visible sur les dessins"
     }
   ],
   "powerW": 13

@@ -6,7 +6,7 @@
   "pictogram": "recorder",
   "status": "community",
   "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Interface audio USB 2 entrées combo micro/ligne/instrument avec +48 V, sorties Main L/R en jack TRS, casque, alimentée par le bus USB.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -95,8 +95,8 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "USB 2.0 audio, alimentation par le bus ; type d'embase non précisé par M-Audio"
+      "connector": "usb-b",
+      "format": "USB 2.0 audio, embase type B (dessin du panneau arrière, guide p. 5), alimentation par le bus"
     }
   ]
 }

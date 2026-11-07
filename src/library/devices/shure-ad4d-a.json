@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "AD4D-A",
-  "status": "community",
+  "status": "verified",
   "description": "Récepteur numérique deux canaux, bande de fréquence A (470-636 MHz)",
   "aliases": [
     "SHURE AD4D-A"
@@ -44,6 +44,11 @@
     {
       "url": "https://pubs.shure.com/view/guide/AD4D/en-US.pdf",
       "document": "Shure, AD4D User Guide (PDF), caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD4D/en-US.pdf",
+      "document": "Shure AD4D User Guide : face arrière (p. 9-10) et caractéristiques (p. 44-46)",
       "accessed": "2026-11-07"
     }
   ],
@@ -95,7 +100,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Symétrique à transformateur ; commutateur Mic/Line (-30 dB)"
+      "format": "Symétrique à transformateur, 100 ohms ; commutateur Mic/Line (-30 dB) : +18 dBV pleine échelle en Line, -12 dBV en Mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "jack1",
@@ -113,7 +124,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "Symétrique à transformateur ; commutateur Mic/Line (-30 dB)"
+      "format": "Symétrique à transformateur, 100 ohms ; commutateur Mic/Line (-30 dB) : +18 dBV pleine échelle en Line, -12 dBV en Mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "jack2",
@@ -129,9 +146,9 @@
       "name": "Sortie AES3",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "channels": 2,
-      "format": "Connecteur AES3 dédié (type non précisé dans le guide)"
+      "format": "AES3 canaux 1 et 2 sur une XLR 3 (dessin de la face arrière, « AES3 1&2 ») ; resynchronisable sur Word Clock In"
     },
     {
       "id": "ctrl1",
@@ -196,7 +213,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "IEC verrouillable, 100-240 V"
+      "format": "Embase IEC C14 verrouillable (AC Power Input), 100-240 V, 0,55 A max"
     },
     {
       "id": "acout",
@@ -204,7 +221,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "Cascade d'alimentation IEC verrouillable"
+      "format": "Embase IEC C13 verrouillable (AC Power Cascade), protégée par fusible"
     }
   ],
   "weightKg": 4.8,

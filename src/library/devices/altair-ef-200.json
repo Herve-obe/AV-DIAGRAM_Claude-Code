@@ -66,15 +66,23 @@
       "direction": "out",
       "signal": "control",
       "connector": "jack-trs",
-      "format": "Jack 6,35, contact de relais"
+      "format": "Jack 6,35 (¼\"), contact de relais PA Output"
     },
     {
       "id": "link",
-      "name": "Multichannel Link",
+      "name": "Multichannel Link MASTER",
       "direction": "bidir",
       "signal": "control",
       "connector": "rj12",
-      "format": "Liaison maître / esclave (FCC-68)"
+      "format": "Liaison maître / esclave, connecteur FCC-68 « MASTER »"
+    },
+    {
+      "id": "linkSlave",
+      "name": "Multichannel Link SLAVE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "Liaison maître / esclave, connecteur FCC-68 « SLAVE » (chaînage jusqu'à 5 stations)"
     },
     {
       "id": "headset",
@@ -89,8 +97,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "90-264 V, 50 VA ; alimente la ligne en 24 V"
+      "connector": "iec-c13",
+      "format": "Embase IEC mâle avec porte-fusible T2A (manuel : « female I.E.C. connector of the tripolar cable into the unit power supply male connector »), 90-264 V, 50 VA ; alimente la ligne en 24 V"
     }
   ],
   "powerW": 50

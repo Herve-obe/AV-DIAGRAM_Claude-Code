@@ -4,13 +4,18 @@
   "manufacturer": "Altair",
   "model": "EB-200",
   "pictogram": "intercom",
-  "status": "community",
+  "status": "verified",
   "weightKg": 0.25,
   "sources": [
     {
       "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
       "document": "Altair, catalogue intercom (via Theatrelight)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://la-bs.com/Objets/EB200_me.pdf",
+      "document": "Altair, mode d'emploi EB-200 (copie distributeur LA-BS), p. 4 et § 3.10",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -20,7 +25,7 @@
       "direction": "bidir",
       "signal": "intercom",
       "connector": "xlr3",
-      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+      "format": "Partyline, XLR-3-31 « LINE » et XLR-3-32 « EXTENSION » câblées en parallèle"
     },
     {
       "id": "bt",
@@ -35,8 +40,8 @@
       "name": "USB",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour"
+      "connector": "usb-b",
+      "format": "Embase USB type B (dessin du panneau arrière) : mise à jour, réglages et code d'appairage depuis un PC"
     }
   ]
 }

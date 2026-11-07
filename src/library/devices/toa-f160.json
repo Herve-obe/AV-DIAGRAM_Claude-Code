@@ -5,7 +5,7 @@
   "pictogram": "speaker",
   "manufacturer": "TOA",
   "model": "F160",
-  "status": "community",
+  "status": "verified",
   "description": "Enceinte 20W / 100V, avec kit d'accroche",
   "aliases": [
     "F160GM",
@@ -21,6 +21,11 @@
       "url": "https://www.manualslib.com/manual/328162/Toa-F-160.html",
       "document": "TOA F-160, Specification Sheet (ManualsLib)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.toa-products.com/international/detail.php?h=F-160GM",
+      "document": "TOA Data Library, F-160GM : fiche de spécifications (Input connector : Push terminal ; prises 100 V / 70 V)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -31,9 +36,8 @@
       "signal": "audioAnalog",
       "connector": "terminal",
       "level": "speaker",
-      "format": "Ligne 100 V, transformateur 4 prises ; bornes sous capot arrière"
+      "format": "Bornier à poussoir (« push terminal ») sous capot arrière ; transformateur de ligne, sélecteur rotatif : 100 V 330 ohms (30 W), 500 ohms (20 W), 1 kohm (10 W), 2 kohms (5 W) ; 70 V 170 ohms à 2 kohms"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 4
 }

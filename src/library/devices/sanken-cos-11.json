@@ -5,13 +5,69 @@
   "model": "COS-11",
   "pictogram": "mic",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Micro cravate électret omnidirectionnel. Terminaison au choix : XLR-3M avec module d'alimentation fantôme, ou prise d'émetteur HF (mini-jack, LEMO 3, Hirose 4, TA3F, TA4F).",
+  "aliases": [
+    "COS-11D",
+    "COS11D"
+  ],
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "document": "Relevé de références utilisateur du 22 octobre 2026, désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://fullcompass.com/common/files/62359-COS11DPTTA4SpecSheet.pdf",
+      "document": "Sanken, fiche technique COS-11D series (copie Full Compass) : COS-11D XLR-3M fantôme 48 V ± 4 V < 2,2 mA ; BP XLR-3M pile AA ou fantôme 12 à 52 V ; PT sans connecteur 3 à 10 V ; R LEMO 3 / Hirose 4 / TA5F",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://everythingaudio.eu/S-SAN-COS-11-PT-BK",
+      "document": "Ambient / Everything Audio (revendeur), terminaisons proposées : 3,5 mm Sennheiser et Sony, XLR3M avec fantôme 48 V, LEMO 3, SMC9 Sony DWT, TA3F Beyer/AKG, TA4F Shure/Mipro, TA5F Lectrosonics",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "Électret omnidirectionnel, version XLR-3M (COS-11D) : module fantôme 48 V ± 4 V (moins de 2,2 mA), 17,8 mV/Pa. Versions émetteur HF : alimentation 3 à 10 V par l'émetteur.",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "minijack",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "lemo3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "hirose4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        }
+      ]
+    }
+  ]
 }

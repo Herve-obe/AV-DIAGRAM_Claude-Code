@@ -4,12 +4,17 @@
   "manufacturer": "beyerdynamic",
   "model": "Unite TH",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.bhphotovideo.com/c/product/1925097-REG/televic_71_98_4014_unite_th_transmitter_handheld.html",
       "document": "B&H, fiche Unite TH (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/47269-UniteTHUserGuide.pdf",
+      "document": "beyerdynamic, Unite TH User Guide (copie revendeur Full Compass), § 3.1 et caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,7 +24,24 @@
       "direction": "bidir",
       "signal": "rf",
       "connector": "rf",
-      "format": "Émetteur main, batterie Li-Ion"
+      "format": "Émetteur main DECT 1880-1930 MHz vers base Unite, capsule électret cardioïde intégrée, batterie Li-Ion interne"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth 4.2 (HFP, A2DP) : casque Bluetooth ou lecture externe"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Charge 5 V par adaptateur USB 2.0/3.0 ou port USB-C d'un chargeur Unite (appairage)"
     }
-  ]
+  ],
+  "description": "Émetteur main DECT du système Unite, capsule électret cardioïde, Bluetooth, batterie interne rechargeable par USB-C ou contacts de charge."
 }

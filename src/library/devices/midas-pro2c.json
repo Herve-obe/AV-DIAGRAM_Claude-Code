@@ -4,7 +4,7 @@
   "manufacturer": "Midas",
   "model": "PRO2C",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://audiomediainternational.com/midas-pro2c/",
@@ -19,6 +19,11 @@
     {
       "url": "https://www.fullcompass.com/common/files/20013-MidasPRO2Brochure.pdf",
       "document": "Midas PRO2 / PRO2C brochure, Connectivity (copie revendeur Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/833352/Midas-Pro2.html?page=49",
+      "document": "Midas PRO2 Owner's Manual (couvre aussi le PRO2C), p. 48-49 « Powering the PRO2 system » (copie ManualsLib)",
       "accessed": "2026-11-07"
     }
   ],
@@ -485,16 +490,16 @@
       "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation amovible 1, détection automatique de tension, connecteur secteur à verrouillage (type non précisé)"
+      "connector": "iec-c13",
+      "format": "Alimentation amovible 1, embase IEC (manuel PRO2 p. 49 : « connect the IEC plug to a mains inlet socket »), 100-240 V à détection automatique, connecteur à verrouillage"
     },
     {
       "id": "ac2",
       "name": "Secteur 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation amovible 2 (redondance, une seule suffit)"
+      "connector": "iec-c13",
+      "format": "Alimentation amovible 2, embase IEC (redondance, à brancher sur une prise distincte)"
     }
   ]
 }

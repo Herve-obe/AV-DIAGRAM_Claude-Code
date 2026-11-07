@@ -53,29 +53,30 @@
       ]
     },
     {
-      "id": "mic",
-      "name": "Micros intégrés",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "mic",
-      "channels": 2,
-      "format": "Paire stéréo intégrée"
-    },
-    {
       "id": "phones",
       "name": "Phones / Line Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "channels": 2
+      "channels": 2,
+      "format": "Mini-jack 3,5 mm stéréo, casque ou sortie ligne : -14 dBV nominal, +2 dBV max sous 10 kohms ; 20 mW + 20 mW sous 32 ohms"
     },
     {
       "id": "usb",
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-mini"
+      "connector": "usb-mini",
+      "format": "USB 2.0 Mini-B, stockage de masse ; alimentation possible par le bus"
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Jack 2,5 mm TRS pour pédale RC-3F ou télécommande filaire RC-10 ; aucun identifiant 2,5 mm au catalogue"
     }
-  ]
+  ],
+  "powerW": 1.7
 }

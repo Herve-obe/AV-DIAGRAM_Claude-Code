@@ -44,7 +44,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR mâle, symétrique"
+      "format": "XLR mâle (XLR3-32), sortie asymétrique : 1 = masse, 2 = masse, 3 = point chaud"
     },
     {
       "id": "in2",
@@ -62,7 +62,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR mâle, symétrique"
+      "format": "XLR mâle (XLR3-32), sortie asymétrique : 1 = masse, 2 = masse, 3 = point chaud"
     },
     {
       "id": "barrier",
@@ -77,11 +77,13 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "mains-captive",
+      "format": "Câble secteur captif (cordon ancré), fiche à monter selon le pays : aucun connecteur du catalogue ne s'applique ; sélecteur 120/240 V, 15 VA (spécifications), plaque du dessin : 30 VA"
     }
   ],
   "aliases": [
     "DPR402",
     "BSS DPR402"
-  ]
+  ],
+  "powerW": 15
 }

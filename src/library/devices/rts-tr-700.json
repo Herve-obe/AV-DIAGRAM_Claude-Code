@@ -10,6 +10,16 @@
     {
       "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions 803290-2",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/6376-DataSheet.pdf",
+      "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/10821-SpecSheet.pdf",
+      "document": "Telex, BTR-700 & TR-700 fiche technique LIT000269000 Rev A (copie Full Compass) : versions A4M, A4F, A5F",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,15 +29,21 @@
       "direction": "bidir",
       "signal": "intercom",
       "connector": "rf",
-      "format": "Antennes quart d'onde vissées ; 6 piles AA"
+      "format": "Antennes quart d'onde vissées, remplaçables ; 6 piles AA, 140 mA en émission"
     },
     {
       "id": "hs",
       "name": "Casque",
       "direction": "bidir",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "XLR femelle sur version RTS, mâle sur version Telex ; nombre de broches non précisé"
+      "connector": "xlr4",
+      "format": "Casque : XLR 4 mâle (version Telex, A4M), XLR 4 femelle (version RTS, A4F) ou XLR 5 femelle (BTR/TR-700-RTS 5-Pin, A5F) ; micro dynamique ou électret à détection automatique",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "none"
+        }
+      ]
     }
   ]
 }

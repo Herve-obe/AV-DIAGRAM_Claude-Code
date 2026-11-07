@@ -10,16 +10,21 @@
       "url": "https://clear-com.atlassian.net/wiki/spaces/SF/pages/158779494",
       "document": "Clear-Com, interfaçage d'un GP340",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://rigreference.com/storage/manuals/motorola/Manual-Motorola_GP-340-DL.pdf--5eb5c17b924eb7.51334306.pdf",
+      "document": "Motorola GP340, guide utilisateur (copie RigReference) : commandes (antenne, prise accessoires), pose de l'antenne",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "rf",
-      "name": "Antenne",
+      "name": "Liaison radio (antenne vissée)",
       "direction": "bidir",
       "signal": "rf",
-      "connector": "unspecified",
-      "format": "Radio professionnelle (PMR)"
+      "connector": "rf",
+      "format": "Radio professionnelle (PMR) ; antenne amovible vissée sur le connecteur d'antenne propriétaire"
     },
     {
       "id": "acc",

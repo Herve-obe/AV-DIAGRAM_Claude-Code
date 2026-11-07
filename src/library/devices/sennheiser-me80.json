@@ -1,11 +1,13 @@
 {
   "id": "sennheiser-me80",
-  "family": "capture",
+  "family": "module",
+  "domain": "misc",
+  "pictogram": "mic",
   "manufacturer": "Sennheiser",
   "model": "ME 80",
-  "pictogram": "mic",
-  "status": "community",
-  "description": "Capsule ME 80 seule. Ne pas inclure ni présumer un module d’alimentation K3.",
+  "moduleType": "sennheiser-k3",
+  "status": "verified",
+  "description": "Tête de micro électret canon court, ancien système modulaire Sennheiser K 3 (modules d'alimentation K 3 N, K 3-U). Sans prise : la sortie est celle du module d'alimentation.",
   "sources": [
     {
       "document": "Catalogue Novelty 2025",
@@ -14,8 +16,18 @@
     {
       "document": "Choix utilisateur reçu le 4 novembre 2026",
       "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://audio.manualsonline.com/manuals/mfg/sennheiser/mke_203.html?p=16",
+      "document": "Sennheiser, notice du système modulaire K 3 / MKE 203 (copie ManualsOnline) : ME 80 + K 3 N, MKE 803 = K 3 + ME 80, câble pour K 3-U à prise Cannon",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/42013-K6PDatasheet.pdf",
+      "document": "Sennheiser, fiche K6P (copie Full Compass) : têtes compatibles ME 62 à ME 67 seulement, ME 80 absente",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [],
-  "portStatus": "pending"
+  "portStatus": "none"
 }

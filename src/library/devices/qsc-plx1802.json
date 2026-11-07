@@ -4,7 +4,7 @@
   "manufacturer": "QSC",
   "model": "PLX1802",
   "pictogram": "amp",
-  "status": "community",
+  "status": "verified",
   "weightKg": 9.5,
   "rackU": 2,
   "sources": [
@@ -22,6 +22,11 @@
       "url": "https://www.la-bs.com/Objets/PLX1802_dt.pdf",
       "document": "QSC, fiche technique PLX2 Series (copie revendeur LA-BS)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-3185723c-9f86-49ec-bfe8-40ac204f64cf/3185723c-9f86-49ec-bfe8-40ac204f64cf.pdf",
+      "document": "QSC PLX Series (PLX 1104 à 3602) User Manual, copie archive.org : face arrière p. 4, entrées p. 7, caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -32,7 +37,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS en parallèle (recopie)"
+      "format": "XLR femelle symétrique, 20 kohms ; jack TRS en parallèle (port trsA) ; sensibilité 1,18 V (+3,7 dBu) pour la puissance nominale"
     },
     {
       "id": "inB",
@@ -41,7 +46,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack TRS en parallèle (recopie)"
+      "format": "XLR femelle symétrique, 20 kohms ; jack TRS en parallèle (port trsB) ; sensibilité 1,18 V (+3,7 dBu) pour la puissance nominale"
     },
     {
       "id": "outA",
@@ -50,7 +55,7 @@
       "signal": "audioAnalog",
       "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "NL4 (1+/1- canal A, 2+/2- canal B) et bornes"
+      "format": "Speakon NL4 canal 1 : 1+/1- canal 1, 2+/2- canal 2 (bi-amplification ou pont)"
     },
     {
       "id": "outB",
@@ -59,14 +64,51 @@
       "signal": "audioAnalog",
       "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "NL4 et bornes ; 2 × 325 W / 8 Ω"
+      "format": "Speakon NL4 canal 2 ; 330 W / 8 ohms, 575 W / 4 ohms, 900 W / 2 ohms"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin de la face arrière, manuel p. 4), cordon IEC amovible fourni"
+    },
+    {
+      "id": "trsA",
+      "name": "Input A (jack)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 TRS symétrique, en parallèle avec l'XLR (recopie)"
+    },
+    {
+      "id": "trsB",
+      "name": "Input B (jack)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 TRS symétrique, en parallèle avec l'XLR (recopie)"
+    },
+    {
+      "id": "bpA",
+      "name": "Output A (bornes)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "level": "speaker",
+      "format": "Bornes de sortie canal 1, en parallèle avec le Speakon"
+    },
+    {
+      "id": "bpB",
+      "name": "Output B (bornes)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "level": "speaker",
+      "format": "Bornes de sortie canal 2, en parallèle avec le Speakon"
     }
   ],
   "powerW": 1044

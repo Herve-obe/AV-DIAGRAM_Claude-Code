@@ -5,7 +5,7 @@
   "pictogram": "processor",
   "manufacturer": "TC Electronic",
   "model": "M6000 MkII",
-  "status": "community",
+  "status": "verified",
   "description": "Processeur mutli-effets et réverbération, avec licence Mastering Stéréo (MD3, MD4), télécommande Icon, carte analogique et AES",
   "aliases": [
     "TC6000",
@@ -92,7 +92,8 @@
       "name": "Pédale / GPI",
       "direction": "in",
       "signal": "control",
-      "connector": "jack-ts"
+      "connector": "jack-ts",
+      "format": "Jack 6,35 TS (GPI, pédale ou TC Master Fader), 0 à 50 kohms"
     },
     {
       "id": "smpte",
@@ -100,7 +101,7 @@
       "direction": "in",
       "signal": "sync",
       "connector": "jack-trs",
-      "format": "Jack 6,35 mm, time code pour cuelist"
+      "format": "Jack 6,35 (« 1/4\" connection »), entrée time code pour la cuelist ; nombre de contacts non précisé"
     },
     {
       "id": "eth",
@@ -115,10 +116,45 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V auto"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin de la face arrière, manuel p. 7), 100-240 V auto, 45 W"
+    },
+    {
+      "id": "adaInL",
+      "name": "ADA 24/96 Input Left",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Carte ADA 24/96 (slot A), XLR femelle symétrique ; niveau nominal réglable de +6 à +30 dBu"
+    },
+    {
+      "id": "adaInR",
+      "name": "ADA 24/96 Input Right",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Carte ADA 24/96 (slot A), XLR femelle symétrique ; niveau nominal réglable de +6 à +30 dBu"
+    },
+    {
+      "id": "adaOutL",
+      "name": "ADA 24/96 Output Left",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Carte ADA 24/96 (slot A), XLR mâle symétrique ou asymétrique ; niveau réglable de +6 à +24 dBu"
+    },
+    {
+      "id": "adaOutR",
+      "name": "ADA 24/96 Output Right",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Carte ADA 24/96 (slot A), XLR mâle symétrique ou asymétrique ; niveau réglable de +6 à +24 dBu"
     }
   ],
-  "portStatus": "pending",
   "powerW": 45
 }

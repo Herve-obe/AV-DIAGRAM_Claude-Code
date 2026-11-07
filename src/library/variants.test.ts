@@ -39,12 +39,10 @@ describe('variantes choisies dans les lots audio 04 et lumière 02', () => {
     }
   })
 
-  it('traite la ME 80 comme une capsule seule sans prise fantôme P48 supposée', () => {
+  it('traite la ME 80 comme une tête de micro en option du module K 3, sans prise fantôme P48 supposée', () => {
     const capsule = get('sennheiser-me80')
-    expect(capsule.description).toMatch(/capsule/i)
+    expect(capsule).toMatchObject({ family: 'module', moduleType: 'sennheiser-k3', portStatus: 'none' })
     expect(capsule.ports).toEqual([])
-    expect(capsule.portStatus).toBe('pending')
-    expect(capsule.status).toBe('community')
   })
 
   it('conserve les générations SX et SX2 séparées sans importer la connectique SX2 dans les anciens SX', () => {

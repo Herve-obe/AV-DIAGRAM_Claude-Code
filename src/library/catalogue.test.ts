@@ -195,7 +195,6 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
   it('range les appareils par fonction réelle', () => {
     expect(template('akai-apc40')).toMatchObject({ family: 'control', domain: 'sound' })
     expect(template('yamaha-d5000').family).toBe('processing')
-    expect(template('toa-pa031').family).toBe('amplification')
     expect(template('taiden-tmx-0808-sdi')).toMatchObject({ family: 'videoRouting', domain: 'image' })
     expect(template('panasonic-aw-rp50')).toMatchObject({ family: 'control', domain: 'image' })
     expect(template('etc-eos-apex-5-console-lumiere-48-univers')).toMatchObject({ family: 'lightingControl', domain: 'light' })

@@ -13,17 +13,17 @@
     },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/audio-numerique/interfaces/madiface-xt/",
-      "document": "Novelty — MADIface XT",
+      "document": "Novelty : MADIface XT",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/rme_madiface-xt_manuel.pdf",
-      "document": "Novelty — MADIface XT : MADIface XT",
+      "document": "RME, MADIface XT User's Guide (copie Novelty), § 5.1 et § 29",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/rme_madiface-xt_ft.pdf",
-      "document": "Novelty — MADIface XT : MADIface XT",
+      "document": "Novelty : MADIface XT : MADIface XT",
       "accessed": "2026-10-19"
     }
   ],
@@ -77,15 +77,25 @@
     },
     {
       "id": "madiCoax",
-      "name": "MADI Coax",
-      "direction": "bidir",
+      "name": "MADI 3 In (coax)",
+      "direction": "in",
       "signal": "audioDigital",
       "connector": "bnc",
-      "channels": 64
+      "channels": 64,
+      "format": "MADI coaxial, BNC IN"
+    },
+    {
+      "id": "madiCoaxOut",
+      "name": "MADI 3 Out (coax)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial, BNC OUT"
     },
     {
       "id": "madiOpt1",
-      "name": "MADI Optical 1",
+      "name": "MADI 1 (optique)",
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "sc",
@@ -93,7 +103,7 @@
     },
     {
       "id": "madiOpt2",
-      "name": "MADI Optical 2",
+      "name": "MADI 2 (optique)",
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "sc",
@@ -104,22 +114,30 @@
       "name": "USB 3.0",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
+      "connector": "usb-b",
       "channels": 196,
-      "format": "USB 3 (USB 2 : 70 canaux)"
+      "format": "USB 3.0 type B (photo du panneau arrière, § 5.1), compatible USB 2 (70 canaux) ; pas d'alimentation par le bus"
     },
     {
       "id": "pcie",
       "name": "PCI Express",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Câble E-PCIe (Molex) ou adaptateur Thunderbolt"
+      "connector": "pcie-ext",
+      "format": "« PCI Exp. » : connecteur PCI Express externe pour câbles Molex E-PCIe standard (carte HDSPe ExpressCard / adaptateur Thunderbolt) ; aucun identifiant au catalogue"
     },
     {
       "id": "wc",
-      "name": "Word Clock",
-      "direction": "bidir",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC, terminaison 75 ohms commutable"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
       "signal": "sync",
       "connector": "bnc"
     },
@@ -143,11 +161,13 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "Jack DC à verrouillage (bloc secteur 100-240 V fourni) ; plaque : 9-15 V DC, 5 W"
     }
   ],
   "aliases": [
     "MADIFACEXT",
     "RME MADIface XT"
-  ]
+  ],
+  "powerW": 5
 }

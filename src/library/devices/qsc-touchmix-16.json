@@ -59,6 +59,11 @@
     {
       "document": "Retour utilisateur lot audio 02, révision 822, 29 octobre 2026 : choix du poids métrique 2,98 kg et déclaration IEC C14 côté secteur du bloc. Manuel complet français proposé (49 Mo), accès refusé par le lecteur ; vue du bloc/prise 6 contacts consultée dans le manuel 2.1 déjà disponible.",
       "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://r2.gear4music.com/media/26/266647/download_266647.pdf",
+      "document": "QSC TouchMix-8/16 User Guide TD-000472-00-A (copie Gear4music) : face arrière TouchMix-16 p. 23 (figure 13)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -470,7 +475,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Bloc constructeur externe ; liaison vers la console sur prise 6 contacts. IEC C14 déclaré par l’utilisateur : affectation côté secteur du bloc par cohérence avec cette liaison, sans embase IEC ajoutée à la console."
+      "format": "Embase rectangulaire 6 contacts (2 × 3) du bloc d'alimentation QSC externe (dessin p. 23 du guide), sortie 5 V / 15 V ; bloc livré avec cordon IEC selon région"
     },
     {
       "id": "usb2",
@@ -479,6 +484,14 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Second port USB-A : stockage, pédalier MIDI ou adaptateur Wi-Fi"
+    },
+    {
+      "id": "acc",
+      "name": "RJ45 Accessory Only",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Réservé aux accessoires QSC (usage futur), ne pas raccorder à un réseau Ethernet"
     }
   ],
   "aliases": [

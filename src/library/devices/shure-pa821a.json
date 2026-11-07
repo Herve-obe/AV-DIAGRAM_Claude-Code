@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "PA821A",
-  "status": "community",
+  "status": "verified",
   "description": "Combineur d'antennes 8 entrées, pour systèmes Ear-Monitor sans fil gamme PSM",
   "aliases": [
     "SHURE PA821A"
@@ -108,7 +108,7 @@
       "direction": "out",
       "signal": "rf",
       "connector": "bnc",
-      "format": "Vers l'antenne"
+      "format": "BNC 50 ohms en façade (MAIN OUT), vers l'antenne"
     },
     {
       "id": "expA",
@@ -139,8 +139,8 @@
       "name": "AC Power",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation universelle intégrée"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin de la face arrière : « INPUT: 70 W MAX, 1.5 A MAX, 100-240 V~ 50/60 Hz ») ; cordon fourni"
     }
   ],
   "weightKg": 4.53,

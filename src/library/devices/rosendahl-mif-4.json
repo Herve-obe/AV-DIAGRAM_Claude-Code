@@ -5,7 +5,7 @@
   "pictogram": "clock",
   "manufacturer": "Rosendahl",
   "model": "mif 4",
-  "status": "community",
+  "status": "verified",
   "description": "Interface MIDI Timecode, ports XLR / USB / DIN / BNC",
   "aliases": [
     "Rosendahl mif 4"
@@ -66,7 +66,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-b",
-      "format": "MIDI USB class compliant ; alimentation par le bus 5 V < 300 mA"
+      "format": "USB 2.0 type B, MIDI class compliant ; alimentation par le bus 5 V < 300 mA (ordinateur ou adaptateur secteur USB fourni)"
     },
     {
       "id": "syncIn",
@@ -75,14 +75,6 @@
       "signal": "sync",
       "connector": "bnc",
       "format": "Référence vidéo SD ou tri-level HD, terminée en interne"
-    },
-    {
-      "id": "dc",
-      "name": "Alimentation externe",
-      "direction": "in",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc secteur externe pour un usage sans ordinateur"
     }
   ],
   "weightKg": 0.6,

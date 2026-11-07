@@ -6,7 +6,7 @@
   "pictogram": "speaker",
   "status": "community",
   "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Moniteur audio stéréo 1U à deux haut-parleurs 5 pouces, entrées symétriques XLR femelles et asymétriques RCA, modes d'écoute L-R, L+R et stéréo inversée (d'après un revendeur d'occasion).",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -18,5 +18,38 @@
       "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Entrée L (XLR)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle symétrique ; niveau non publié"
+    },
+    {
+      "id": "inR",
+      "name": "Entrée R (XLR)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle symétrique ; niveau non publié"
+    },
+    {
+      "id": "inLrca",
+      "name": "Entrée L (RCA)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique ; niveau non publié"
+    },
+    {
+      "id": "inRrca",
+      "name": "Entrée R (RCA)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA asymétrique ; niveau non publié"
+    }
+  ]
 }

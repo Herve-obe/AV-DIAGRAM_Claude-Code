@@ -11,6 +11,16 @@
     {
       "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions 803290-2",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/6376-DataSheet.pdf",
+      "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/10821-SpecSheet.pdf",
+      "document": "Telex, BTR-700 & TR-700 fiche technique LIT000269000 Rev A (copie Full Compass) : versions A4M, A4F, A5F",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -51,7 +61,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3 femelle"
+      "format": "XLR-3 femelle, symétrique ; niveau réglable, 2 Vrms typique (environ +8 dBu)",
+      "level": "line+4"
     },
     {
       "id": "auxout",
@@ -59,15 +70,22 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3 mâle"
+      "format": "XLR-3 mâle, symétrique ; niveau réglable, 2 Vrms typique sous 600 ohms (environ +8 dBu)",
+      "level": "line+4"
     },
     {
       "id": "hs",
       "name": "Casque local",
       "direction": "bidir",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "XLR femelle sur version RTS, mâle sur version Telex ; nombre de broches non précisé"
+      "connector": "xlr4",
+      "format": "Casque : XLR 4 mâle (version Telex, A4M), XLR 4 femelle (version RTS, A4F) ou XLR 5 femelle (BTR/TR-700-RTS 5-Pin, A5F) ; micro dynamique ou électret à détection automatique ; sortie casque 40 mW sous 600 ohms",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "none"
+        }
+      ]
     },
     {
       "id": "ac",

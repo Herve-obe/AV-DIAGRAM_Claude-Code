@@ -17,6 +17,11 @@
       "url": "https://adn.harmanpro.com/product_documents/documents/1542_1352136561/Fcs966ds_original.pdf",
       "document": "BSS, FCS-966 data sheet",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/759216/bss-audio-fcs-966-owners-manual.html?page=7",
+      "document": "BSS, FCS-966 User Manual (copie manualsdir), § 5 Audio connections et cordon IEC",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -27,7 +32,17 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+      "format": "Même entrée/sortie sur trois prises : XLR, jack TRS ou bornier Combicon (un bornier par canal porte entrée et sortie) ; symétrie électronique",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        },
+        {
+          "connector": "terminal",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "inB",
@@ -36,7 +51,17 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+      "format": "Même entrée/sortie sur trois prises : XLR, jack TRS ou bornier Combicon (un bornier par canal porte entrée et sortie) ; symétrie électronique",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        },
+        {
+          "connector": "terminal",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "outA",
@@ -45,7 +70,17 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+      "format": "Même entrée/sortie sur trois prises : XLR, jack TRS ou bornier Combicon (un bornier par canal porte entrée et sortie) ; symétrie électronique",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        },
+        {
+          "connector": "terminal",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "outB",
@@ -54,14 +89,25 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR, jack TRS ou bornier Phoenix, symétrique"
+      "format": "Même entrée/sortie sur trois prises : XLR, jack TRS ou bornier Combicon (un bornier par canal porte entrée et sortie) ; symétrie électronique",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        },
+        {
+          "connector": "terminal",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Cordon secteur IEC amovible (« standard detachable IEC type ») ; 115/230 V commutable, 30 VA"
     }
   ],
   "powerW": 30

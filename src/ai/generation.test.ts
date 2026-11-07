@@ -56,7 +56,9 @@ describe('demandes de génération naturelles et précisions', () => {
   })
   it('conserve la partie microphones/HF de la demande au lieu de la traiter comme un plateau standard', async () => {
     const sent: string[] = []
-    const result = await runTurn({ ...base(), userText: full, transport: transport([{ calls: [{ ...ask, args: { question: 'Combien de micros HF et quelle terminaison pour les COS-11 ? Leur connectique est à documenter.' } }] }], sent) })
+    // Fiche COS-11 en attente de connectique (cas d'une référence non documentée)
+    const pendingCtx = { ...ctx, library: ctx.library.map(t => t.id === 'sanken-cos-11' ? { ...t, ports: [], portStatus: 'pending' as const } : t) }
+    const result = await runTurn({ ...base(), ctx: pendingCtx, userText: full, transport: transport([{ calls: [{ ...ask, args: { question: 'Combien de micros HF et quelle terminaison pour les COS-11 ? Leur connectique est à documenter.' } }] }], sent) })
     const request = JSON.parse(sent[0])
     expect(request.messages[0].content).toContain('sanken-cos-11')
     expect(request.messages[0].content).toContain('pending')
