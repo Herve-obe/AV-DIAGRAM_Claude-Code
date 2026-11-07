@@ -1,0 +1,156 @@
+{
+  "id": "yamaha-spx1000",
+  "family": "processing",
+  "domain": "sound",
+  "manufacturer": "Yamaha",
+  "model": "SPX1000",
+  "pictogram": "processor",
+  "status": "community",
+  "description": "Multi-effet numérique stéréo 1 U : entrées et sorties analogiques sur jacks mono asymétriques (+4/−20 dBm commutable), E/S numériques au format propriétaire Yamaha sur prises 8 broches, MIDI In et Thru/Out, quatre jacks de pédale à l'arrière et deux entrées de pédale d'expression en façade. 22 W ; 480 × 45,2 × 319 mm (L × H × P). Poids non publié dans le manuel constructeur.",
+  "aliases": [
+    "YAMAHA SPX1000",
+    "SPX 1000"
+  ],
+  "rackU": 1,
+  "depthMm": 319,
+  "powerW": 22,
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/3/325543/SPX1000E.pdf",
+      "document": "Yamaha SPX1000 Owner's Manual : face arrière p. 5, façade p. 4, spécifications Add-31",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/multi-effets/spx900-1000/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Input L (Mono)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mm mono asymétrique ; nominal +4/−20 dBm commutable (commutateur commun aux deux entrées) ; 50 kΩ en stéréo, 25 kΩ en mono ; entrée utilisée seule en mono"
+    },
+    {
+      "id": "inR",
+      "name": "Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mm mono asymétrique ; nominal +4/−20 dBm commutable"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mm mono asymétrique ; nominal +4/−20 dBm commutable ; 220 Ω"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mm mono asymétrique ; nominal +4/−20 dBm commutable ; 220 Ω"
+    },
+    {
+      "id": "digIn",
+      "name": "Digital In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "din8",
+      "channels": 2,
+      "format": "Entrée numérique stéréo au format propriétaire Yamaha (ni AES/EBU ni S/PDIF ; compatible DMP7D, DEQ7, convertisseur Yamaha FMC1) ; prise ronde 8 broches (spécification « DIP 8P »), active selon le mode DIGITAL I/O"
+    },
+    {
+      "id": "digOut",
+      "name": "Digital Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "din8",
+      "channels": 2,
+      "format": "Sortie numérique stéréo au format propriétaire Yamaha ; prise ronde 8 broches (spécification « DIP 8P »)"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI (DIN 5 broches)"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Thru/Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI THRU ou OUT selon commutateur (DIN 5 broches)"
+    },
+    {
+      "id": "trig2",
+      "name": "Trigger 2 Analog",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; déclenchement par signal analogique, sensibilité micro/ligne commutable"
+    },
+    {
+      "id": "fsBypass",
+      "name": "Footswitch Bypass",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; interrupteur au pied Yamaha FC5 ou équivalent"
+    },
+    {
+      "id": "fsIncDec",
+      "name": "Footswitch Memory Inc/Dec",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; FC5 ou équivalent, rappel d'une plage de programmes"
+    },
+    {
+      "id": "fsTrig1",
+      "name": "Footswitch Trigger 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; FC5 ou équivalent, même fonction que la touche TRIGGER"
+    },
+    {
+      "id": "extCtrl1",
+      "name": "Ext Ctrl / Foot Vol 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; en façade, pédale d'expression Yamaha FC7"
+    },
+    {
+      "id": "extCtrl2",
+      "name": "Ext Ctrl / Foot Vol 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; en façade, pédale d'expression Yamaha FC7"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "120 V 60 Hz (États-Unis, Canada) ou 220-240 V 50/60 Hz (version générale), 22 W. Le schéma de la face arrière montre une sortie de cordon, sans embase identifiée ; type de fiche non documenté"
+    }
+  ]
+}

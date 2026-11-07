@@ -238,6 +238,8 @@ describe('appareils unitaires — décision du 26 octobre', () => {
     for (const row of [...audit.entries.filter(r => r.decision === 'excluded'), ...feedback.records.filter(r => r.decision === 'Retirer'), ...feedback02.records.filter(r => r.decision === 'Retirer'), ...professionalScope.exclusions, ...professionalFeedback.records.filter(r => r.decision === 'Retirer')]) {
       expect(LIBRARY_INDEX.has(row.id), row.id).toBe(false)
       const original = Object.values(files).find(t => t.id === row.id)!
+      // Fichier supprimé ensuite à la demande de l'utilisateur : les projets gardent leur copie de l'appareil.
+      if (deletedDevices.has(row.id)) { expect(original, row.id).toBeUndefined(); continue }
       expect(original, row.id).toBeDefined()
       const { project, id } = addEquipment(createProject('Projet existant'), original, { x: 0, y: 0 })
       const loaded = JSON.parse(JSON.stringify(project))

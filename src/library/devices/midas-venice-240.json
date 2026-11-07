@@ -935,6 +935,22 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Entrée propriétaire pour EPS1200 optionnelle ; brochage mécanique non validé, pas une prise secteur IEC"
+    },
+    {
+      "id": "lamp1",
+      "name": "Lampe 12 V 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points femelle, 12 V / 5 W max par sortie ; broche 1 châssis, 2 n.c., 3 masse, 4 +12 V (manuel Midas Venice p. 3 et 21, tableau p. 25 : 2 × 12 V/5 W)"
+    },
+    {
+      "id": "lamp2",
+      "name": "Lampe 12 V 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points femelle, 12 V / 5 W max par sortie ; broche 1 châssis, 2 n.c., 3 masse, 4 +12 V (manuel Midas Venice p. 3 et 21, tableau p. 25 : 2 × 12 V/5 W)"
     }
   ],
   "aliases": [
@@ -944,6 +960,5 @@
   "weightKg": 21.1,
   "depthMm": 568,
   "description": "Venice 240 : 16 voies mono et 4 voies stéréo avec 4 préamplis micro supplémentaires, retours et sorties détaillés. Niveau ligne nominal 0 dBu : aucune conversion arbitraire en +4 dBu. Alimentation externe EPS1200 optionnelle pour Venice 240/320 ; l’interne reste en secours. Consommation constructeur : 95 W (manuel p. 25).",
-  "portStatus": "pending",
   "powerW": 95
 }

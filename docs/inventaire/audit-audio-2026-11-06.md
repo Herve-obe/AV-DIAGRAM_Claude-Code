@@ -210,3 +210,21 @@ Bilan : 6 retraits non audio, 17 doublons supprimés, 16 rangements corrigés, 8
 - `dpa-4060-bm-micro-miniature-discret` (Reprendre le port de la fiche dpa-4060/4061) : Terminaison de cette référence (B00/F00) non vérifiée ; aucune correction sourcée proposée.
 - `dpa-4061-fm-micro-miniature-d-screet-beige` (Reprendre le port de la fiche dpa-4060/4061) : Terminaison de cette référence (B00/F00) non vérifiée ; aucune correction sourcée proposée.
 - `allen-heath-sq-5-dante64` (Source sans URL) : Inutile de modifier : l’URL de la fiche technique sera ajoutée par le patch approuvé de cette fiche.
+
+## Décisions de l'utilisateur : 7 novembre 2026
+
+| Point | Décision appliquée |
+|---|---|
+| Pioneer RMX-1000 | Supprimé. |
+| Écouteurs | Tous supprimés : SE112, SE215, SE315, SE425, SE535. |
+| Magma ExpressBox 3T | Supprimé (non audio). |
+| Embase K&M avec interrupteur | Supprimée. |
+| Yamaha DM3 / DM3-D | Gardées toutes les deux ; la DM3 Standard (fiche `yamaha-dm3-standard`) n'a pas de Dante d'origine, la DM3-D oui. |
+| SPX900/1000 | Fiche combinée remplacée par une fiche par modèle : `yamaha-spx900` existante, `yamaha-spx1000` créée d'après le manuel Yamaha SPX1000E (statut Communauté). |
+| SSL T25 | Supprimée, doublon du Tempest Engine T25. |
+| Syva N, Syva Low N, Syva Sub N | Supprimées, doublons des fiches Syva, Syva Low, Syva Sub. |
+| Bose L1 Compact blanche | Supprimée ; seule `bose-l1-compact` est gardée. |
+| Rosendahl mif 4 | Puissance 1,5 W (USB 5 V, moins de 300 mA d'après le manuel). |
+| Avid C\|24 | Aucune fiche constructeur accessible (document Avid introuvable) : poids 20,4 kg et puissance 450 W conservés. |
+| Klark Teknik DN9696 | 8 embases confirmées : 4 liaisons AES50, chacune principale X et redondance Y ; noms des ports corrigés. |
+| Connectique « à documenter » | Mention retirée sur DiGiGrid MGB, Yamaha D5000, Midas Venice 240 et 320, QSC TouchMix-16, Audio-Technica AT8615, après contrôle des manuels ; sorties lampe XLR 4 points ajoutées aux deux Venice. |
