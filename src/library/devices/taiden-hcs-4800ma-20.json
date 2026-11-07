@@ -23,7 +23,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "XLR femelle, micro (fantôme 48 V) ou ligne",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "lineIn",

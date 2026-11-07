@@ -35,7 +35,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Ligne / micro / micro +48 V",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -45,7 +51,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Ligne / micro / micro +48 V",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "ilink",

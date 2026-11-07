@@ -46,7 +46,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "XLR-3F symétrique, micro/ligne, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "phones",

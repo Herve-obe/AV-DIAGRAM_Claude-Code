@@ -63,7 +63,13 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "line+4",
-      "format": "Combo XLR/jack, sensibilité micro/ligne commutable"
+      "format": "Combo XLR/jack, sensibilité micro/ligne commutable",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -72,7 +78,13 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "line+4",
-      "format": "Combo XLR/jack, sensibilité micro/ligne commutable"
+      "format": "Combo XLR/jack, sensibilité micro/ligne commutable",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "mixOut",

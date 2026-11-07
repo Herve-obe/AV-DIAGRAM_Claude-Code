@@ -42,6 +42,22 @@ export function findPort(project: Project, ref: { equipmentId: string; portId: s
   return project.equipment[ref.equipmentId]?.ports.find((p) => p.id === ref.portId)
 }
 
+/** Niveaux acceptés par une prise : niveau principal et modes documentés (ex. entrée micro/ligne). */
+function levelsOf(p: PortDef): (Level | undefined)[] {
+  return [p.level, ...(p.modes ?? []).map((m) => m.level)]
+}
+
+/** Aucune alerte si un des niveaux de la source convient à un des niveaux de la destination. */
+export function levelIssueOf(src: PortDef, dst: PortDef): RuleCode | null {
+  let first: RuleCode | null = null
+  for (const a of levelsOf(src)) for (const b of levelsOf(dst)) {
+    const issue = levelIssue(a, b)
+    if (!issue) return null
+    first ??= issue
+  }
+  return first
+}
+
 function levelIssue(src?: Level, dst?: Level): RuleCode | null {
   if (!src || !dst || src === 'none' || dst === 'none') return null
   const isLine = (l: Level) => l === 'line+4' || l === 'line-10'
@@ -112,7 +128,7 @@ function allIssues(project: Project, link: Link): Issue[] {
   if (!familiesCompatible(src.signal, dst.signal)) {
     codes.push({ code: 'signal-mismatch', params: { from: src.signal, to: dst.signal } })
   } else {
-    const lvl = levelIssue(src.level, dst.level)
+    const lvl = levelIssueOf(src, dst)
     if (lvl) codes.push({ code: lvl })
   }
 
@@ -145,13 +161,15 @@ function allIssues(project: Project, link: Link): Issue[] {
   const sameTarget = all.filter(
     (l) => l.target.equipmentId === link.target.equipmentId && l.target.portId === link.target.portId,
   )
-  if (sameTarget.length > 1) codes.push({ code: 'input-busy' })
+  // Prise multivoie (ex. D-Sub 25 de 8 voies) : une liaison par voie, jusqu'à sa capacité
+  const capacity = (p: PortDef) => (p.signal === 'audioAnalog' && (p.channels ?? 1) > 1 ? p.channels! : 1)
+  if (sameTarget.length > capacity(dst)) codes.push({ code: 'input-busy' })
 
   const sameSource = all.filter(
     (l) => l.source.equipmentId === link.source.equipmentId && l.source.portId === link.source.portId,
   )
   // Une ligne d'intercom partyline est un bus : plusieurs postes sur la même ligne est normal
-  if (sameSource.length > 1 && src.signal !== 'intercom') {
+  if (sameSource.length > capacity(src) && src.signal !== 'intercom') {
     codes.push({ code: POINT_TO_POINT.has(src.signal) ? 'output-busy' : 'output-split' })
   }
 

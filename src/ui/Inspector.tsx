@@ -1,7 +1,7 @@
 // Inspecteur : propriétés de l'équipement ou de la liaison sélectionnés.
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CABLE_CATALOG, cablesFor, getCable, type CableType } from '../model/cables'
+import { LINK_CABLES, cablesFor, getCable, type CableType } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { crossLayerHints, hintKey } from '../model/layers'
 import { findPort } from '../model/rules'
@@ -350,7 +350,7 @@ function MulticorePicker({ link }: { link: Link }) {
 function CablePicker({ link, from, to }: { link: Link; from: string; to: string }) {
   const { t } = useTranslation()
   const fitting = cablesFor(from, to)
-  const others = CABLE_CATALOG.filter((c) => !fitting.includes(c))
+  const others = LINK_CABLES.filter((c) => !fitting.includes(c))
   const label = (c: CableType) => (c.reference ? `${c.label} (${c.reference})` : c.label)
   return (
     <div className="field">

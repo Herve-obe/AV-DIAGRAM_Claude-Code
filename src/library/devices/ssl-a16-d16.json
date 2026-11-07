@@ -38,7 +38,13 @@
       "level": "mic",
       "phantom": "supplied",
       "channels": 8,
-      "format": "9-12 micro/ligne (fantôme 48 V, pad 30 dB), 13-16 ligne ; D-Sub 25 femelle"
+      "format": "9-12 micro/ligne (fantôme 48 V, pad 30 dB), 13-16 ligne ; D-Sub 25 femelle",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "aout1_8",

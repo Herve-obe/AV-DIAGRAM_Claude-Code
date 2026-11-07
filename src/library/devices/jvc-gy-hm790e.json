@@ -76,7 +76,13 @@
       "connector": "xlr3",
       "level": "mic",
       "phantom": "supplied",
-      "format": "XLR 3 broches ; micro, micro +48 V ou ligne"
+      "format": "XLR 3 broches ; micro, micro +48 V ou ligne",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -86,7 +92,13 @@
       "connector": "xlr3",
       "level": "mic",
       "phantom": "supplied",
-      "format": "XLR 3 broches ; micro, micro +48 V ou ligne"
+      "format": "XLR 3 broches ; micro, micro +48 V ou ligne",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "aout",

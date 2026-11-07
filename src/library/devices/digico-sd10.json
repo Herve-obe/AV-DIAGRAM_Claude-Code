@@ -52,7 +52,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -61,7 +67,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -70,7 +82,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -79,7 +97,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -88,7 +112,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in6",
@@ -97,7 +127,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in7",
@@ -106,7 +142,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in8",
@@ -115,7 +157,13 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "level": "mic",
-      "format": "Entrée locale micro/ligne ; connecteur non précisé"
+      "format": "Entrée locale micro/ligne ; connecteur non précisé",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "out1",
@@ -409,22 +457,6 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "USB 2"
-    },
-    {
-      "id": "lamp1",
-      "name": "Lampe 1",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr3",
-      "format": "1,2 à 12 V"
-    },
-    {
-      "id": "lamp2",
-      "name": "Lampe 2",
-      "direction": "out",
-      "signal": "power",
-      "connector": "xlr3",
-      "format": "1,2 à 12 V"
     },
     {
       "id": "sync",

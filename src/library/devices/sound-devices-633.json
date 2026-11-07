@@ -20,7 +20,13 @@
       "connector": "xlr3",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V ; accepte aussi AES3 / AES42"
+      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V ; accepte aussi AES3 / AES42",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -30,7 +36,13 @@
       "connector": "xlr3",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V"
+      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -40,7 +52,13 @@
       "connector": "xlr3",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V"
+      "format": "Micro ou ligne, symétrie active ; fantôme 12 ou 48 V",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",

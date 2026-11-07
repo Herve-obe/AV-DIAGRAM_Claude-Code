@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { buildBom, computeTotals } from '../model/bom'
 import { crossLayerHints } from '../model/layers'
-import { buildCableBom, getCable } from '../model/cables'
+import { buildCableBom, getCable, MULTICORE_CATALOG } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { multicoreUsage } from '../model/project'
 import { findPort, mutedIssues, type MutedIssue } from '../model/rules'
@@ -140,7 +140,7 @@ function MulticoresTable() {
       {list.length > 0 && (
         <table>
           <thead>
-            <tr><th>{t('dock.number')}</th><th className="num">{t('dock.pairs')}</th><th>{t('dock.multicoreConnectors')}</th><th className="num">{t('dock.length')}</th><th>{t('dock.usage')}</th><th>{t('dock.contents')}</th><th /></tr>
+            <tr><th>{t('dock.number')}</th><th>{t('dock.multicoreType')}</th><th className="num">{t('dock.pairs')}</th><th>{t('dock.multicoreConnectors')}</th><th className="num">{t('dock.length')}</th><th>{t('dock.usage')}</th><th>{t('dock.contents')}</th><th /></tr>
           </thead>
           <tbody>
             {list.map((m) => {
@@ -149,8 +149,17 @@ function MulticoresTable() {
               return (
                 <tr key={m.id}>
                   <td><input className="cell-input mono" aria-label={t('dock.number')} defaultValue={m.label} onBlur={(e) => e.target.value.trim() && e.target.value !== m.label && updateMulticore(m.id, { label: e.target.value.trim() })} /></td>
-                  <td className="num"><input className="cell-input num mono" type="number" min={1} aria-label={t('dock.pairs')} defaultValue={m.pairs} onBlur={(e) => { const n = Math.max(1, Math.round(Number(e.target.value) || 1)); if (n !== m.pairs) updateMulticore(m.id, { pairs: n }) }} /></td>
-                  <td><input className="cell-input" aria-label={t('dock.multicoreConnectors')} defaultValue={m.connectors ?? ''} onBlur={(e) => e.target.value !== (m.connectors ?? '') && updateMulticore(m.id, { connectors: e.target.value || undefined })} /></td>
+                  <td>
+                    <select className="cell-input" aria-label={t('dock.multicoreType')} value={m.cableTypeId ?? ''} onChange={(e) => {
+                      const c = getCable(e.target.value)
+                      updateMulticore(m.id, c?.pairs ? { cableTypeId: c.id, pairs: c.pairs, connectors: c.label } : { cableTypeId: undefined })
+                    }}>
+                      <option value="">{t('dock.multicoreCustom')}</option>
+                      {MULTICORE_CATALOG.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
+                    </select>
+                  </td>
+                  <td className="num"><input key={m.pairs} className="cell-input num mono" type="number" min={1} aria-label={t('dock.pairs')} defaultValue={m.pairs} onBlur={(e) => { const n = Math.max(1, Math.round(Number(e.target.value) || 1)); if (n !== m.pairs) updateMulticore(m.id, { pairs: n }) }} /></td>
+                  <td><input key={m.connectors ?? ''} className="cell-input" aria-label={t('dock.multicoreConnectors')} defaultValue={m.connectors ?? ''} onBlur={(e) => e.target.value !== (m.connectors ?? '') && updateMulticore(m.id, { connectors: e.target.value || undefined })} /></td>
                   <td className="num"><input className="cell-input num mono" type="number" min={0} step="any" aria-label={t('dock.length')} defaultValue={m.lengthM ?? ''} onBlur={(e) => { const v = e.target.value.trim() === '' ? undefined : Math.max(0, Number(e.target.value.replace(',', '.')) || 0); if (v !== m.lengthM) updateMulticore(m.id, { lengthM: v }) }} /></td>
                   <td className="mono">{used} / {m.pairs}</td>
                   <td className="mc-pairs">

@@ -20,7 +20,13 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "level": "mic",
-      "format": "Jack 3,5 mm verrouillable ; alimente les micros statiques Sennheiser ; 40 kΩ (mic) / 1 MΩ (ligne), 3 Veff max"
+      "format": "Jack 3,5 mm verrouillable ; alimente les micros statiques Sennheiser ; 40 kΩ (mic) / 1 MΩ (ligne), 3 Veff max",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "rf",

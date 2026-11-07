@@ -26,7 +26,13 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "XLR et jack, sélecteur micro / ligne"
+      "format": "XLR et jack, sélecteur micro / ligne",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "aux",

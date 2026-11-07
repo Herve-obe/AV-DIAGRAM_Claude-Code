@@ -21,7 +21,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "XLR femelle (se monte sur le micro) ; micro ou ligne ; fantôme 12 / 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "rf",

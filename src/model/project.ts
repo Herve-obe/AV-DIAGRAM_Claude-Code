@@ -1,5 +1,6 @@
 // Opérations pures sur un projet : chaque fonction renvoie un NOUVEAU projet (immuable).
 // Le store (src/store) les appelle et gère l'historique d'annulation.
+import { suggestCable } from './cables'
 import { formatCableLabel } from './numbering'
 import { SIGNAL_FAMILIES, type SignalFamily } from './signals'
 import { PAPER_SIZES } from './types'
@@ -184,6 +185,10 @@ export function connect(project: Project, a: PortRef, b: PortRef): { project: Pr
     )
   const id = uid('lk')
   const link: Link = { id, num, label: '', source, target }
+  // Entrée D-Sub 25 et sortie XLR (ou l'inverse) : l'éclaté multipaire adapté est proposé d'office
+  const [ps, pt] = source === a ? [pa, pb] : [pb, pa]
+  const suggested = suggestCable(ps.connector, pt.connector)
+  if (suggested) link.cableTypeId = suggested.id
   link.label = labelOf(project, link)
   return { project: touch({ ...project, links: { ...project.links, [id]: link } }), id }
 }

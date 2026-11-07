@@ -20,7 +20,13 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "level": "mic",
-      "format": "Jack 3,5 mm verrouillable ; 40 kΩ (mic) / 1 MΩ (ligne), 3 Veff max ; câbles CL 2 (XLR-3F) ou Ci 1-N (jack 6,35)"
+      "format": "Jack 3,5 mm verrouillable ; 40 kΩ (mic) / 1 MΩ (ligne), 3 Veff max ; câbles CL 2 (XLR-3F) ou Ci 1-N (jack 6,35)",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "rf",

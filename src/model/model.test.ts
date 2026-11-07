@@ -1083,3 +1083,47 @@ describe('contrôles désactivés pour le schéma', () => {
     expect(checkProject(p).filter((i) => i.code === 'level-mic-to-line')).toHaveLength(before.length)
   })
 })
+
+describe('entrées micro/ligne et éclatés D-Sub 25', () => {
+  const mtrx = LIBRARY.find(t => t.id === 'avid-mtrx-studio')!
+  const mic = GENERIC_LIBRARY.find(t => t.ports.some(p => p.direction === 'out' && p.level === 'mic' && p.connector === 'xlr3'))!
+  const lineOut = (id: string) => ({ id, name: 'Out', direction: 'out' as const, signal: 'audioAnalog' as const, connector: 'xlr3', level: 'line+4' as const })
+
+  it("n'alerte pas quand un micro entre dans une entrée ligne qui accepte aussi le micro", async () => {
+    const { levelIssueOf } = await import('./rules')
+    const combo = { id: 'in', name: 'In', direction: 'in' as const, signal: 'audioAnalog' as const, connector: 'combo', level: 'line+4' as const, modes: [{ connector: 'combo', level: 'mic' as const }] }
+    const micOut = { ...lineOut('o'), level: 'mic' as const }
+    expect(levelIssueOf(micOut, combo)).toBeNull()
+    expect(levelIssueOf(lineOut('o'), combo)).toBeNull()
+    expect(levelIssueOf(micOut, { ...combo, modes: undefined })).toBe('level-mic-to-line')
+  })
+
+  it("documente le mode ligne des entrées décrites micro/ligne dans les fiches", () => {
+    const ports = LIBRARY.flatMap(t => t.ports.filter(p => p.direction !== 'out' && p.signal === 'audioAnalog' && p.level === 'mic' && /mic\s*\/\s*line|micro\s*\/\s*ligne/i.test(`${p.name} ${p.format ?? ''}`)))
+    expect(ports.length).toBeGreaterThan(100)
+    for (const p of ports) expect(p.modes?.some(m => m.level === 'line+4' || m.level === 'none'), p.name).toBe(true)
+  })
+
+  it("propose d'office l'éclaté D-Sub 25 et accepte 8 liaisons sur une prise de 8 voies", async () => {
+    const { buildCableBom, suggestCable } = await import('./cables')
+    expect(suggestCable('xlr3', 'dsub25')?.id).toBe('db25-xlrf-8')
+    expect(suggestCable('dsub25', 'xlr3')?.id).toBe('db25-xlrm-8')
+    expect(suggestCable('dsub25', 'jack-trs')?.id).toBe('db25-trs-8')
+    expect(suggestCable('xlr3', 'xlr3')).toBeUndefined()
+    let p = ops.createProject('MTRX')
+    const m = ops.addEquipment(p, mtrx, { x: 0, y: 0 }); p = m.project
+    const sources: string[] = []
+    for (let i = 0; i < 9; i++) { const r = ops.addEquipment(p, mic, { x: 0, y: 100 * i }); p = r.project; sources.push(r.id) }
+    const micPort = mic.ports.find(x => x.direction === 'out' && x.connector === 'xlr3')!.id
+    const links: string[] = []
+    const busy: boolean[] = []
+    for (const s of sources) {
+      const r = ops.connect(p, { equipmentId: s, portId: micPort }, { equipmentId: m.id, portId: 'li1_8' }); p = r.project; links.push(r.id!)
+      busy.push(checkLink(p, p.links[r.id!]).some(i => i.code === 'input-busy'))
+    }
+    expect(p.links[links[0]].cableTypeId).toBe('db25-xlrf-8')
+    expect(busy).toEqual([false, false, false, false, false, false, false, false, true])
+    const bom = buildCableBom(p, () => ['xlr3', 'dsub25'])
+    expect(bom.find(l => l.cableId === 'db25-xlrf-8')?.quantity).toBe(2)
+  })
+})

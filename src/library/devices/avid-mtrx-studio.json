@@ -40,7 +40,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "XLR et jack 6,35 symétrique d'après le guide ; 2 kΩ, +21 dBu max"
+      "format": "XLR et jack 6,35 symétrique d'après le guide ; 2 kΩ, +21 dBu max",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "mic2",
@@ -50,7 +56,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "XLR et jack 6,35 symétrique d'après le guide ; 2 kΩ, +21 dBu max"
+      "format": "XLR et jack 6,35 symétrique d'après le guide ; 2 kΩ, +21 dBu max",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "li1_8",

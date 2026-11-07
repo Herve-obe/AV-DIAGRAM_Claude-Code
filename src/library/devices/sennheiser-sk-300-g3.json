@@ -20,7 +20,13 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "level": "mic",
-      "format": "Jack 3,5 mm verrouillable"
+      "format": "Jack 3,5 mm verrouillable",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "rf",

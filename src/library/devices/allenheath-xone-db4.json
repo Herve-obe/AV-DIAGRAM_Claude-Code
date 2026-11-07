@@ -100,7 +100,13 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic"
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "mainL",
