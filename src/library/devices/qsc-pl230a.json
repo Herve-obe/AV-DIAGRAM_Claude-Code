@@ -11,9 +11,22 @@
     {
       "document": "QSC, PowerLight 2A User Manual TD-000089-00, © 2000, 2007, chapitre Specifications",
       "accessed": "2026-09-24"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-48464d3c-aab6-4bd8-9270-8c006850f7f6/48464d3c-aab6-4bd8-9270-8c006850f7f6.pdf",
+      "document": "QSC, PL2A User Manual TD-000089-00 Rev. B (copie archive.org)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
+    {
+      "id": "dataport",
+      "name": "DataPort",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "QSC DataPort HD15, contrôle et surveillance"
+    },
     {
       "id": "in1",
       "name": "CH1 In XLR",
@@ -91,8 +104,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Embase IEC (type non précisé) ; le manuel ne donne la consommation qu'en 120 VAC"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin de face arrière du manuel) avec clip de retenue ; 120 V AC 50/60 Hz, cordon 14 AWG"
     }
-  ]
+  ],
+  "powerW": 1080
 }

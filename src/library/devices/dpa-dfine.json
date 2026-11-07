@@ -16,7 +16,17 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "format": "Serre-tête cardioïde statique prépolarisé, 30 à 40 ohms ; sortie MicroDot selon les caractéristiques Novelty (le titre de la page cite aussi un mini-jack)",
+      "phantom": "required"
+    }
+  ],
   "weightKg": 0.0085
 }

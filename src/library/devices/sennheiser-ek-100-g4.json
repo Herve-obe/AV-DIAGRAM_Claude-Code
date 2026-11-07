@@ -10,6 +10,11 @@
     {
       "document": "Sennheiser, evolution wireless G4 100 series Instruction Manual, ew 100 P G4 v2.2 (ew_100P_G4_Manual_v2-2_10_2019_EN.pdf)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-ek100g4.html",
+      "document": "Sennheiser ew G4, EK 100 G4 specifications",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -27,7 +32,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Jack 3,5 mm verrouillable, mono asymétrique, +12 dBu max, réglage AF Out sur 48 dB par pas de 6 dB ; vers XLR-3 par le câble CL 100, vers jack 3,5 mm par le CL 1"
+      "format": "Jack 3,5 mm verrouillable, mono asymétrique, +12 dBu max, réglage AF Out sur 48 dB par pas de 6 dB ; vers XLR-3 par le câble CL 100, vers jack 3,5 mm par le CL 1",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "mic"
+        }
+      ]
     }
   ]
 }

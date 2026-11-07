@@ -14,6 +14,11 @@
     {
       "url": "https://www.fullcompass.com/common/files/39280-MixPre10IISpecificationsSheet.pdf",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/SDMIXPRE6IIA.pdf",
+      "document": "Sound Devices, MixPre Series User Guide v7.10 (copie revendeur Adorama), « Panel Views »",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -25,7 +30,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -35,7 +46,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -45,7 +62,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -55,7 +78,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -65,7 +94,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in6",
@@ -75,7 +110,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in7",
@@ -85,7 +126,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in8",
@@ -95,7 +142,13 @@
       "connector": "combo",
       "level": "mic",
       "phantom": "supplied",
-      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA"
+      "format": "Combo XLR / jack 6,35 TRS, 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "aux",
@@ -104,7 +157,14 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Jack 3,5 TRS asymétrique 2,2 kΩ : ligne, micro Plug-in Power (3 V) ou LTC"
+      "format": "Jack 3,5 TRS asymétrique 2,2 kΩ : ligne, micro Plug-in Power (3 V) ou LTC",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "outL",
@@ -131,7 +191,8 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Jack 3,5 TRS asymétrique, +7,8 dBu max"
+      "format": "Jack 3,5 TRS asymétrique, +7,8 dBu max",
+      "level": "line-10"
     },
     {
       "id": "phones",

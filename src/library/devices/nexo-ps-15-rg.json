@@ -5,7 +5,7 @@
   "pictogram": "speaker",
   "manufacturer": "NEXO",
   "model": "PS 15 RG",
-  "status": "community",
+  "status": "verified",
   "description": "Renfort de grave pour PS 15 1200W 102 dB SPL Nominal / 8 Ohms",
   "aliases": [
     "LS1200",
@@ -23,7 +23,34 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "inPassive",
+      "name": "Entrée passive",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4MP ; 8 Ω, 1200 W"
+    },
+    {
+      "id": "thruPassive",
+      "name": "Recopie passive",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4MP, en parallèle"
+    },
+    {
+      "id": "inActive",
+      "name": "Entrée active",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4MP (câblage bi-amplifié)"
+    }
+  ],
   "weightKg": 26
 }

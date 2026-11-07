@@ -4,7 +4,7 @@
   "manufacturer": "Shure",
   "model": "UR4D",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.rentex.com/rental-products/shure-ur4d-dual-receiver-h4/",
@@ -42,7 +42,7 @@
       "direction": "in",
       "signal": "rf",
       "connector": "bnc",
-      "format": "D'après un revendeur, à vérifier"
+      "format": "BNC 50 Ω, bias 12 V 150 mA"
     },
     {
       "id": "antB",
@@ -50,7 +50,7 @@
       "direction": "in",
       "signal": "rf",
       "connector": "bnc",
-      "format": "D'après un revendeur, à vérifier"
+      "format": "BNC 50 Ω, bias 12 V 150 mA"
     },
     {
       "id": "xlr1",
@@ -58,8 +58,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Symétrique, micro/ligne commutable"
+      "level": "line+4",
+      "format": "Symétrique électronique, +24 dBu max (-6 dBu en position Mic, -30 dB)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "xlr2",
@@ -67,8 +73,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Symétrique, micro/ligne commutable"
+      "level": "line+4",
+      "format": "Symétrique électronique, +24 dBu max (-6 dBu en position Mic, -30 dB)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "jack1",
@@ -76,7 +88,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Symétrique 6,35 mm"
+      "format": "Jack 6,35 à symétrie d'impédance, 200 Ω, +18 dBu max",
+      "level": "line+4"
     },
     {
       "id": "jack2",
@@ -84,7 +97,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Symétrique 6,35 mm"
+      "format": "Jack 6,35 à symétrie d'impédance, 200 Ω, +18 dBu max",
+      "level": "line+4"
     },
     {
       "id": "eth",
@@ -99,7 +113,48 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "IEC, 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Non commutée, chaînage de 5 UR4 maximum"
+    },
+    {
+      "id": "rfOutA",
+      "name": "RF A out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Distribution HF vers le récepteur suivant"
+    },
+    {
+      "id": "rfOutB",
+      "name": "RF B out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Distribution HF vers le récepteur suivant"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Interface ordinateur"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 en façade, 1 W sous 63 Ω"
     }
   ]
 }

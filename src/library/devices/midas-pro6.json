@@ -10,6 +10,11 @@
       "url": "https://www.avlfx.com/category/product/1845-midas-pro-series-pro-6-cc-ip-live-digital-console-control-centre-with-64-input-channels-35-mix-buses-and-96-khz-sample-rate/category_pathway-52",
       "document": "AVL FX, fiche PRO6-CC-IP (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1919930/Midas-Pro6.html?page=270",
+      "document": "Midas PRO6 Owner’s Manual, chapitre 29 Panel Connections p. 270-272 (copie ManualsLib)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -31,10 +36,104 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC à verrouillage sur le module alimentation/ventilation 1 (3 modules identiques, 2 au minimum en service)"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC à verrouillage, module 2"
+    },
+    {
+      "id": "ac3",
+      "name": "Secteur 3",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC à verrouillage, module 3"
+    },
+    {
+      "id": "talkout",
+      "name": "Talk Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; nominal non publié"
+    },
+    {
+      "id": "talkmic",
+      "name": "Talk Mic (arrière)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle, équivalent de la prise talk mic de face avant"
+    },
+    {
+      "id": "talkfront",
+      "name": "Talk Mic (face avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR en face avant"
+    },
+    {
+      "id": "talkback",
+      "name": "Talk Back",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle"
+    },
+    {
+      "id": "midiin",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiout",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midithru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "phonesA",
+      "name": "Casque A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "none",
+      "channels": 2,
+      "format": "Sous l’accoudoir gauche, bus monitor A ; type de prise non précisé"
+    },
+    {
+      "id": "phonesB",
+      "name": "Casque B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "none",
+      "channels": 2,
+      "format": "Sous l’accoudoir droit, bus monitor B ; type de prise non précisé"
     }
   ]
 }

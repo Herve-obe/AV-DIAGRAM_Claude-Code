@@ -18,6 +18,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "format": "Serre-tête cardioïde statique CORE ; MicroDot (référence 4488-DC-R-F00, terminaison 00). Alimentation par l'émetteur HF via adaptateur DPA, ou P48 avec DAD6001-BC",
+      "phantom": "required"
+    }
+  ]
 }

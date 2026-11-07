@@ -18,7 +18,18 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Casque",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "none",
+      "channels": 2,
+      "format": "Fiche 3,5 mm TRS ; 2 × 150 Ω ; ≥ 108 dBA/1 mW"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 0.09
 }

@@ -2,16 +2,164 @@
   "id": "avid-sync-i-o",
   "family": "sync",
   "manufacturer": "Avid",
-  "model": "SYNC I O",
+  "model": "SYNC I/O",
   "pictogram": "clock",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.barryrudolph.com/recall/pdfs/digi/sync_io_guide.pdf",
+      "document": "Digidesign, SYNC I/O Guide v1.0 (copie en ligne), chapitre 3 « SYNC I/O Back Panel » et annexe B",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "ltcin",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "LTC SMPTE/EBU, -24 à +9 dBu, 200 kΩ ; XLR femelle"
+    },
+    {
+      "id": "ltcout",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "LTC, 0 dBu par défaut ; XLR mâle"
+    },
+    {
+      "id": "vidin",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Vidéo composite NTSC ou PAL, 1 V c-c, terminée 75 Ω ; BNC (le guide fait relier Video Ref Out à Video In par un câble BNC)"
+    },
+    {
+      "id": "vidout",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie de Video In, VITC et incrustation possibles ; 75 Ω"
+    },
+    {
+      "id": "refin",
+      "name": "Video Ref In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Vidéo composite NTSC ou PAL (black burst), boucle non terminée (bouchon 75 Ω fourni)"
+    },
+    {
+      "id": "refout",
+      "name": "Video Ref Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage passif de Video Ref In"
+    },
+    {
+      "id": "aesin",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Référence d'horloge seulement (DARS AES-11) ; XLR femelle"
+    },
+    {
+      "id": "aesout",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "AES « digital black » ; XLR mâle"
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "1x ou 256x (Super Clock), TTL 3,3 V"
+    },
+    {
+      "id": "lsin",
+      "name": "Loop Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lsout",
+      "name": "Loop Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Vers l'interface Pro Tools|HD principale"
+    },
+    {
+      "id": "mtc",
+      "name": "MTC Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI Time Code uniquement"
+    },
+    {
+      "id": "host",
+      "name": "Host Serial",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Vers le port DigiSerial de la carte HD Core"
+    },
+    {
+      "id": "p2a",
+      "name": "9-Pin Out 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Sony P-2 (MachineControl), « 9-pin » ; type D-Sub déduit du standard Sony 9 broches"
+    },
+    {
+      "id": "p2b",
+      "name": "9-Pin Out 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Sony P-2 (MachineControl)"
+    },
+    {
+      "id": "gpi",
+      "name": "Bi-Phase/Tach/GPI/Pilot",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "DB25 femelle : bi-phase, tach, pilote, 4 GPI in, 2 GPI TTL, 4 relais"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "85 à 264 V CA, IEC ; 9,5 W typique, 30 W maximum"
+    }
+  ],
+  "powerW": 30
 }

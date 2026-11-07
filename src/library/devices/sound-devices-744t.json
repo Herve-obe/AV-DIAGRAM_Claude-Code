@@ -4,14 +4,190 @@
   "manufacturer": "Sound Devices",
   "model": "744T",
   "pictogram": "recorder",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://media.sweetwater.com/store/media/744t_en.pdf",
+      "document": "Sound Devices, 744T User Guide and Technical Information v2.10 (copie Sweetwater)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1 / AES3 1&2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR, sélecteur Mic/Line/AES3 : micro 7,5 kΩ, ligne 20 kΩ (+26 dBu), ou AES3 deux canaux (1 et 2) symétrique par transformateur ; 48 V par entrée",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2 / AES3 3&4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR, sélecteur Mic/Line/AES3 : micro 7,5 kΩ, ligne 20 kΩ (+26 dBu), ou AES3 deux canaux (3 et 4) symétrique par transformateur ; 48 V par entrée",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Line Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "TA3 mâle, ligne symétrique active 20 kΩ"
+    },
+    {
+      "id": "in4",
+      "name": "Line Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "TA3 mâle, ligne symétrique active 20 kΩ"
+    },
+    {
+      "id": "outL",
+      "name": "Master Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "TA3 mâle, symétrique actif, +20 dBu min. avant écrêtage"
+    },
+    {
+      "id": "outR",
+      "name": "Master Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "line+4",
+      "format": "TA3 mâle, symétrique actif"
+    },
+    {
+      "id": "tape",
+      "name": "Tape Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Jack 3,5 TRS asymétrique -10 dBV, recopie du bus Master",
+      "channels": 2
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRS, 8 à 1000 Ω",
+      "channels": 2
+    },
+    {
+      "id": "tc",
+      "name": "Time Code",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "lemo5",
+      "format": "LEMO 5 broches série B : TC in, TC out, ASCII"
+    },
+    {
+      "id": "aesin12",
+      "name": "AES3id In 1/2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "AES3id / S/PDIF 75 Ω",
+      "channels": 2
+    },
+    {
+      "id": "aesin34",
+      "name": "AES3id In 3/4",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "AES3id / S/PDIF 75 Ω",
+      "channels": 2
+    },
+    {
+      "id": "aesout",
+      "name": "AES3id Master Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "AES3id / S/PDIF 75 Ω, bus Master",
+      "channels": 2
+    },
+    {
+      "id": "aesout2",
+      "name": "AES3id Out Bus 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "format": "AES3id / S/PDIF 75 Ω, bus 2",
+      "channels": 2
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "32 à 192 kHz"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "fw",
+      "name": "FireWire",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ieee1394",
+      "format": "IEEE-1394a 6 broches : stockage de masse, disques externes"
+    },
+    {
+      "id": "clink",
+      "name": "C. Link In/Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "Modulaire 6 broches, RS-232 propriétaire : word clock, transport, timecode entre enregistreurs"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "hirose4",
+      "format": "Hirose 4 broches, 10 à 18 V CC, 1 A min."
+    }
+  ],
+  "powerW": 20
 }

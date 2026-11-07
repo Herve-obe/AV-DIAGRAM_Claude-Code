@@ -40,7 +40,7 @@
       "modes": [
         {
           "connector": "combo",
-          "level": "none",
+          "level": "line+4",
           "phantom": "none"
         }
       ]
@@ -57,7 +57,7 @@
       "modes": [
         {
           "connector": "combo",
-          "level": "none",
+          "level": "line+4",
           "phantom": "none"
         },
         {
@@ -79,7 +79,7 @@
       "modes": [
         {
           "connector": "combo",
-          "level": "none",
+          "level": "line+4",
           "phantom": "none"
         },
         {
@@ -95,7 +95,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; nominal −4 dBu"
     },
     {
@@ -104,7 +104,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; nominal −4 dBu"
     },
     {
@@ -113,7 +113,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "level": "none",
+      "level": "line-10",
       "channels": 2,
       "format": "3,5 mm TRS asymétrique, nominal −4 dBu ; mixé au canal ST"
     },
@@ -132,7 +132,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "none",
+      "level": "line+4",
       "format": "Ligne symétrique +10 dBu"
     },
     {
@@ -141,7 +141,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "none",
+      "level": "line+4",
       "format": "Ligne symétrique +10 dBu ; mix mono ou canal droit selon mode"
     },
     {
@@ -150,7 +150,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "none",
+      "level": "line+4",
       "format": "Mix mono symétrique +10 dBu, volume Monitor indépendant"
     },
     {

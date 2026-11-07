@@ -4,7 +4,7 @@
   "manufacturer": "Sennheiser",
   "model": "EM 300-500 G4",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://soniccircus.com/product/sennheiser-em-300-500-g4-wireless-half-rack-receiver/",
@@ -14,6 +14,16 @@
     {
       "url": "https://www.bimobject.com/en-us/sennheiser/product/em300-500g4",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-em300-500g4.html",
+      "document": "Sennheiser ew G4, EM 300-500 G4 specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_asa214-uhf_manual.pdf",
+      "document": "Sennheiser, ew 300-500 G4 Instruction Manual v2.0, copie Novelty",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -61,7 +71,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3M symétrique, +18 dBu max"
+      "format": "XLR-3M symétrique, +18 dBu max ; AF OUT réglable sur 48 dB par pas de 3 dB",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "afUnbal",
@@ -69,7 +86,23 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique, +12 dBu max"
+      "format": "Jack 6,35 asymétrique, +12 dBu max ; AF OUT réglable sur 48 dB",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 stéréo en façade"
     }
-  ]
+  ],
+  "powerW": 3.6
 }

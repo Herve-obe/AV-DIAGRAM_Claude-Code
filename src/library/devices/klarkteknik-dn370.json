@@ -4,7 +4,7 @@
   "manufacturer": "Klark Teknik",
   "model": "DN370",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "weightKg": 5.8,
   "rackU": 3,
   "sources": [
@@ -56,7 +56,29 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "IEC 3 broches, sélection automatique de tension"
+    },
+    {
+      "id": "inPh",
+      "name": "Entrées A/B (bornier)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Bornier Phoenix 6 points, en parallèle des XLR (brochure DN370) ; répartition à confirmer"
+    },
+    {
+      "id": "outPh",
+      "name": "Sorties A/B (bornier)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Bornier Phoenix 6 points, en parallèle des XLR (brochure DN370) ; répartition à confirmer"
     }
-  ]
+  ],
+  "powerW": 60
 }

@@ -25,6 +25,11 @@
       "url": "https://www.manualslib.com/manual/2726869/Midas-Pro1.html",
       "document": "Midas — PRO1 Quick Start Guide, panneaux arrière pages 36–38",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2805822/Midas-Pro1.html?page=334",
+      "document": "Midas PRO1 Owner’s Manual, General Specifications (copie ManualsLib)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -761,7 +766,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none"
     },
     {
       "id": "midiIn",
@@ -884,7 +890,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Écoute stéréo sous l’accoudoir"
+      "format": "Écoute stéréo sous l’accoudoir",
+      "level": "none"
     },
     {
       "id": "footswitch",

@@ -4,7 +4,7 @@
   "manufacturer": "Shure",
   "model": "SLXD4D",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -51,7 +51,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; une par canal par analogie avec le SLXD4, à vérifier"
+      "format": "Symétrique ; +15 dBV (Line), -15 dBV (Mic, pad 30 dB)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "xlr2",
@@ -59,7 +66,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; une par canal par analogie avec le SLXD4, à vérifier"
+      "format": "Symétrique ; +15 dBV (Line), -15 dBV (Mic, pad 30 dB)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "jack1",
@@ -67,7 +81,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Instrument/auxiliaire, symétrie d'impédance ; une par canal, à vérifier"
+      "format": "Jack 6,35 symétrique, +15 dBV différentiel",
+      "level": "line+4"
     },
     {
       "id": "jack2",
@@ -75,14 +90,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Instrument/auxiliaire, symétrie d'impédance ; une par canal, à vérifier"
+      "format": "Jack 6,35 symétrique, +15 dBV différentiel",
+      "level": "line+4"
     },
     {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "10/100 Mbit/s"
     },
     {
       "id": "dc",
@@ -92,5 +109,6 @@
       "connector": "dc-barrel",
       "format": "15 V CC, 600 mA, bloc externe (pointe positive)"
     }
-  ]
+  ],
+  "powerW": 9
 }

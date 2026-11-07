@@ -4,7 +4,7 @@
   "manufacturer": "Behringer",
   "model": "X AIR XR12",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://drewbrashler.com/2017/behringer-xair-xr18-series-introduction-xr18/",
@@ -14,6 +14,11 @@
     {
       "url": "https://www.thomannmusic.com/behringer_x_air_xr12.htm",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/BEXR16.pdf",
+      "document": "Behringer X AIR User Manual (XR18/X18/XR16/XR12), Callouts p. 5-6 et Specifications p. 33-35 (copie revendeur Adorama)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -24,8 +29,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -34,8 +45,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -44,8 +61,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -54,8 +77,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "line5",
@@ -111,7 +140,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4"
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ],
+      "format": "Jack TRS sym./asym. 20/40 kΩ ; accepte les sources haute impédance (guitare, basse)"
     },
     {
       "id": "line12",
@@ -119,7 +155,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4"
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ],
+      "format": "Jack TRS sym./asym. 20/40 kΩ ; accepte les sources haute impédance (guitare, basse)"
     },
     {
       "id": "mainL",
@@ -159,7 +202,9 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none",
+      "format": "Jack TRS stéréo, 40 Ω"
     },
     {
       "id": "eth",
@@ -197,7 +242,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (dessin des Callouts), alimentation à découpage 100-240 V, 30 W"
     }
-  ]
+  ],
+  "powerW": 30
 }

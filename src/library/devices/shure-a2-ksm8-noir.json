@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "A2-KSM8 noir",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur main, cellule KSM8, bande de fréquence A (470-636 MHz)",
   "aliases": [
     "SHURE A2-KSM8 noir"
@@ -40,9 +40,22 @@
       "url": "https://www.shure.com/en-US/docs/guide/AD2",
       "document": "Shure AD2 Axient Digital User Guide",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD2/en-US.pdf",
+      "document": "Shure, AD2 Handheld Transmitter User Guide (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ],
   "weightKg": 0.34
 }

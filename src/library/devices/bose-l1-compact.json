@@ -63,12 +63,16 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "instrument",
       "modes": [
         {
           "connector": "jack-ts",
           "level": "instrument",
           "phantom": "none"
+        },
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
         }
       ],
       "format": "Ligne symétrique TRS ou guitare piezo asymétrique TS avec ToneMatch"
@@ -79,7 +83,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Entrée ligne G ; sommation mono"
     },
     {
@@ -88,7 +92,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Entrée ligne D ; sommation mono"
     },
     {
@@ -97,7 +101,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "level": "none",
+      "level": "line-10",
       "channels": 2,
       "format": "3,5 mm TRS stéréo ; sommation mono"
     },
@@ -107,7 +111,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Mix mono ; nominal −3,8 dBu"
     },
     {
@@ -116,7 +120,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Mix mono identique ; nominal −3,8 dBu"
     },
     {
@@ -125,7 +129,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Mix mono symétrique TRS / asymétrique TS ; nominal +2,2 dBu"
     },
     {

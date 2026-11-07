@@ -102,7 +102,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; déclenchement par signal analogique, sensibilité micro/ligne commutable"
+      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; déclenchement par signal analogique, sensibilité micro/ligne commutable",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "unspecified",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "fsBypass",

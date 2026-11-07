@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Sennheiser",
   "model": "SKP 500 G4-GW",
-  "status": "community",
+  "status": "verified",
   "description": "Émetteur HF enfichable pour micro filaire main, noir, compatible avec les systèmes de la gamme evolution wireless G4 500P",
   "aliases": [
     "SENNHEISER SKP 500 G4-GW"
@@ -35,9 +35,32 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/sennheiser_skp500g4_gw-range-frequency-sheet.pdf",
       "document": "Novelty — SKP 500 G4-GW : Fréquences",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-skp500g4.html",
+      "document": "Sennheiser ew G4, SKP 500 G4 specifications",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR-3 femelle verrouillable (se monte sur le micro), 68 kΩ, 6 Veff max ; fantôme 48 V commutable"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "10 / 30 / 50 mW commutable, antenne intégrée"
+    }
+  ],
   "weightKg": 0.195
 }

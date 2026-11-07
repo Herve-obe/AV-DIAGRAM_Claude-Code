@@ -22,7 +22,8 @@
     },
     {
       "url": "https://www.allen-heath.com/content/uploads/2023/05/SQ-5-Technical-Datasheet_G.pdf",
-      "accessed": "2026-11-06"
+      "accessed": "2026-11-07",
+      "document": "Allen & Heath, SQ-5 Technical Datasheet issue G (I/O et alimentation)"
     }
   ],
   "ports": [
@@ -290,7 +291,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack 3,5 mm asymétrique, nominal 0 dBu"
+      "format": "Mini-jack 3,5 mm stéréo asymétrique, nominal 0 dBu, +18 dBu max",
+      "level": "line+4"
     },
     {
       "id": "tb",
@@ -428,7 +430,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Sortie casque"
+      "format": "Jack 6,35 TRS, réglage dédié",
+      "level": "none"
     },
     {
       "id": "slink",

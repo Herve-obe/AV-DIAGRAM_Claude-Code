@@ -31,6 +31,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/homologation.pdf",
       "document": "Novelty — Axient AXT600 : AXT600",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AXT600/en-US.pdf",
+      "document": "Shure, AXT600 Spectrum Manager User Guide (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -39,23 +44,23 @@
       "name": "Antenne A",
       "direction": "in",
       "signal": "rf",
-      "connector": "unspecified",
-      "format": "Entrée d'antenne ; connecteur non précisé dans l'extrait du guide"
+      "connector": "bnc",
+      "format": "BNC 50 Ω, actif ; bias 12 V 150 mA"
     },
     {
       "id": "antB",
       "name": "Antenne B",
       "direction": "in",
       "signal": "rf",
-      "connector": "unspecified",
-      "format": "Entrée d'antenne"
+      "connector": "bnc",
+      "format": "BNC 50 Ω, actif ; bias 12 V 150 mA"
     },
     {
       "id": "casA",
       "name": "Cascade RF A",
       "direction": "out",
       "signal": "rf",
-      "connector": "unspecified",
+      "connector": "bnc",
       "format": "Recopie vers d'autres appareils"
     },
     {
@@ -63,7 +68,7 @@
       "name": "Cascade RF B",
       "direction": "out",
       "signal": "rf",
-      "connector": "unspecified",
+      "connector": "bnc",
       "format": "Recopie vers d'autres appareils"
     },
     {
@@ -97,7 +102,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "Embase IEC (type non précisé)"
+      "format": "Embase IEC, 100-240 V"
     },
     {
       "id": "acout",
@@ -110,5 +115,6 @@
   "aliases": [
     "Axient AXT600",
     "SHURE Axient AXT600"
-  ]
+  ],
+  "powerW": 96
 }

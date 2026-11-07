@@ -4,14 +4,56 @@
   "manufacturer": "Datavideo",
   "model": "ITC-100SL",
   "pictogram": "intercom",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.markertek.com/Attachments/Manuals/Datavideo/ITC-100-Manual.pdf",
+      "document": "Datavideo, ITC-100 Instruction Manual (partie ITC-100SL)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://audioeffetti.com/product/documents/DTV/2205-2010-01.pdf",
+      "document": "Datavideo, ITC-100SL Instruction Manual (copie revendeur Audio Effetti)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "line",
+      "name": "Vers la base",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers ITC-100 (câble CB-3) : audio, alimentation 12 V et tally dans le même câble"
+    },
+    {
+      "id": "hs",
+      "name": "Micro-casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 stéréo : pointe micro (dynamique ou électret), bague écouteur 8 à 100 Ω"
+    },
+    {
+      "id": "hs25",
+      "name": "Micro-casque 2,5 mm",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 2,5 mm type Motorola (aucun identifiant 2,5 mm au catalogue : minijack retenu)"
+    },
+    {
+      "id": "tally",
+      "name": "Ext Tally LED",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm vers voyant tally TD-2 / TD-3"
+    }
+  ]
 }

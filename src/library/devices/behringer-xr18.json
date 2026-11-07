@@ -4,13 +4,18 @@
   "manufacturer": "Behringer",
   "model": "X AIR XR18",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "weightKg": 3.2,
   "sources": [
     {
       "url": "https://www.thomann.fr/behringer_x_air_xr18_bag_bundle.htm",
       "document": "Thomann, fiche XR18 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/BEXR16.pdf",
+      "document": "Behringer X AIR User Manual (XR18/X18/XR16/XR12), Callouts p. 5-6 et Specifications p. 33-35 (copie revendeur Adorama)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -21,8 +26,18 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max ; Hi-Z 1 MΩ sur le jack",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        },
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -31,8 +46,18 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max ; Hi-Z 1 MΩ sur le jack",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        },
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -41,8 +66,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -51,8 +82,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -61,8 +98,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in6",
@@ -71,8 +114,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in7",
@@ -81,8 +130,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in8",
@@ -91,8 +146,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in9",
@@ -101,8 +162,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in10",
@@ -111,8 +178,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in11",
@@ -121,8 +194,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in12",
@@ -131,8 +210,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in13",
@@ -141,8 +226,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in14",
@@ -151,8 +242,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in15",
@@ -161,8 +258,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in16",
@@ -171,8 +274,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack, préampli Midas",
-      "phantom": "supplied"
+      "format": "Combo XLR/TRS symétrique, préampli Midas, fantôme 48 V par entrée ; XLR 10 kΩ sym., +23 dBu max",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "line17",
@@ -260,7 +369,9 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none",
+      "format": "Jack TRS stéréo, 40 Ω"
     },
     {
       "id": "ultranet",
@@ -307,7 +418,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (dessin des Callouts), alimentation à découpage 100-240 V, 30 W"
     }
-  ]
+  ],
+  "powerW": 30
 }

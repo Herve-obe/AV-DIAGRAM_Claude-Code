@@ -39,8 +39,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "combo",
-      "level": "none",
-      "format": "Niveau ligne, maximum +24 dBu ; XLR ou TRS"
+      "level": "mic",
+      "format": "Niveau ligne, maximum +24 dBu ; XLR ou TRS",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "input-2",
@@ -48,8 +54,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "combo",
-      "level": "none",
-      "format": "Niveau ligne, maximum +24 dBu ; XLR ou TRS"
+      "level": "mic",
+      "format": "Niveau ligne, maximum +24 dBu ; XLR ou TRS",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "output-1",
@@ -57,7 +69,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "none",
+      "level": "line+4",
       "format": "Reprise directe de CH1"
     },
     {
@@ -66,7 +78,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "none",
+      "level": "line+4",
       "format": "Reprise de CH2 ou sortie après DSP, selon commutateur"
     },
     {

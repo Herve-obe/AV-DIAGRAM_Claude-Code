@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "UA864-LO",
-  "status": "community",
+  "status": "verified",
   "description": "Antenne murale amplifiée, bande de fréquence A (470-636 MHz)",
   "aliases": [
     "SHURE UA864-LO"
@@ -30,8 +30,21 @@
       "url": "https://www.shure.com/en-GB/products/accessories/ua864?variant=UA864LO",
       "document": "Shure UA864LO — fiche constructeur",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/UA864/en-US.pdf",
+      "document": "Shure, UA864 User Guide (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC femelle 50 Ω ; murale active 470-698 MHz, 4 réglages de gain ; bias 10-15 V DC 75 mA fourni par le récepteur ou le répartiteur"
+    }
+  ]
 }

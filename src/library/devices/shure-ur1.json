@@ -4,7 +4,7 @@
   "manufacturer": "Shure",
   "model": "UR1",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.lost-manuals.com/en/manufacturer/shure/ur4d",
@@ -30,15 +30,21 @@
       "signal": "audioAnalog",
       "connector": "ta4",
       "level": "mic",
-      "format": "TA4M comme l'UR1M (même gamme), à vérifier"
+      "format": "TA4M, asymétrique, actif ; micro cravate ou câble instrument",
+      "modes": [
+        {
+          "connector": "ta4",
+          "level": "instrument"
+        }
+      ]
     },
     {
       "id": "ant",
       "name": "Antenne",
       "direction": "out",
       "signal": "rf",
-      "connector": "unspecified",
-      "format": "Antenne fouet"
+      "connector": "sma",
+      "format": "Antenne fouet sur SMA"
     },
     {
       "id": "rf",

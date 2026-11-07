@@ -4,7 +4,7 @@
   "manufacturer": "Midas",
   "model": "Heritage-D HD96-24",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.fullcompass.com/prod/602302-midas-hd96-24-cc-ip-ul-live-digital-console-144-input-ch-21-touch-screen",
@@ -20,6 +20,11 @@
       "url": "https://www.manualslib.com/manual/2419775/Midas-Hd96-24-Cc-Tp.html",
       "document": "Midas — HD96-24-CC-TP Quick Start Guide V2.0, pages imprimées 209–211 (lecteur 105–106) : connecteurs, niveaux et dimensions ; annonce Ultranet à recouper",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manualslib.de/manual/848915/Midas-Hd96-24-Cc-Tp.html?page=106",
+      "document": "Midas HD96-24-CC-TP Quick Start Guide, Specifications (copie ManualsLib)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -318,7 +323,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Écoute stéréo du bus monitor A"
+      "format": "Écoute stéréo du bus monitor A ; 10 Ω, +21 dBu max",
+      "level": "none"
     },
     {
       "id": "ac1",
@@ -379,7 +385,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Écoute stéréo du bus monitor B"
+      "format": "Écoute stéréo du bus monitor B ; 10 Ω, +21 dBu max",
+      "level": "none"
     },
     {
       "id": "ac2",
@@ -554,5 +561,6 @@
   ],
   "weightKg": 43.2,
   "depthMm": 719,
-  "description": "Surface HD96-24 : huit préamplis locaux et huit sorties ligne. Dante/MADI/USB audio dépendent des cartes optionnelles CM-1 installées ; aucune carte supposée montée. Chaque Snake HyperMAC offre une alternative cuivre/fibre, pas deux flux indépendants. Reste Communauté : les deux ports Ultranet annoncés dans le tableau du guide V2 ne sont pas identifiés sur son dessin arrière ; contrôler la version matérielle avant de les représenter."
+  "description": "Surface HD96-24 : huit préamplis locaux et huit sorties ligne. Dante/MADI/USB audio dépendent des cartes optionnelles CM-1 installées ; aucune carte supposée montée. Chaque Snake HyperMAC offre une alternative cuivre/fibre, pas deux flux indépendants. Reste Communauté : les deux ports Ultranet annoncés dans le tableau du guide V2 ne sont pas identifiés sur son dessin arrière ; contrôler la version matérielle avant de les représenter.",
+  "powerW": 650
 }

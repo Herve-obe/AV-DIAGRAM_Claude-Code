@@ -11,7 +11,7 @@
     {
       "url": "https://www.allen-heath.com/content/uploads/2023/05/SQ-5-Technical-Datasheet_G.pdf",
       "document": "Allen & Heath, SQ-5 Technical Datasheet issue G",
-      "accessed": "2026-10-08"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/mixage/numerique/sq-5/",
@@ -477,7 +477,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS"
+      "format": "Jack 6,35 TRS, réglage dédié",
+      "level": "none"
     },
     {
       "id": "slink",
@@ -486,15 +487,6 @@
       "signal": "audioIp",
       "connector": "ethercon",
       "format": "dSnake, DX ou GigaACE : stageboxes et retours ME"
-    },
-    {
-      "id": "ioport",
-      "name": "I/O Port",
-      "direction": "bidir",
-      "signal": "audioIp",
-      "connector": "unspecified",
-      "channels": 64,
-      "format": "Carte optionnelle 64 x 64 (Dante, Waves, SLink…)"
     },
     {
       "id": "lan",
@@ -544,10 +536,18 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Entrée stéréo mini-jack 3,5 mm"
+      "format": "Mini-jack 3,5 mm stéréo asymétrique, nominal 0 dBu, +18 dBu max",
+      "level": "line+4"
     }
   ],
   "aliases": [
     "ALLEN SQ-5"
+  ],
+  "slots": [
+    {
+      "id": "ioport",
+      "name": "I/O Port",
+      "type": "allen-heath-sq-io"
+    }
   ]
 }

@@ -17,7 +17,17 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "format": "Serre-tête omnidirectionnel statique, 6 mV/Pa ; MicroDot selon Novelty. Alimentation 5 à 50 V par adaptateur DPA (émetteur HF) ou P48 avec DAD6001-BC, DAD6024 ou DAD4099. La référence 4066-F/TQG laisse penser à une livraison avec adaptateur TA4F (Shure)",
+      "phantom": "required"
+    }
+  ],
   "weightKg": 0.014
 }

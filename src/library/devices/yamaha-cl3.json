@@ -10,7 +10,7 @@
     {
       "url": "https://usa.yamaha.com/products/proaudio/mixers/cl_series/specs.html",
       "document": "Yamaha USA, page Specs CL3",
-      "accessed": "2026-09-25"
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -255,7 +255,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Jack stéréo"
+      "format": "Stereo Phone Jack (TRS) asymétrique ; 15 Ω, 75 mW sur 8 Ω, 65 mW sur 40 Ω",
+      "level": "none"
     },
     {
       "id": "ac",
@@ -282,5 +283,6 @@
       "name": "Slot MY 3",
       "type": "yamaha-mini-ygdai"
     }
-  ]
+  ],
+  "powerW": 170
 }

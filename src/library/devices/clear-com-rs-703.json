@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Clear-Com",
   "model": "RS-703",
-  "status": "community",
+  "status": "verified",
   "description": "Boîtier ceinture d'intercom 2 canaux. Équipé XLR3F/XLR3M via TWC-701. XLR4M pour combiné micro/casque",
   "aliases": [
     "CLEARCOM RS-703"
@@ -37,7 +37,40 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; broche 2 alimentation +28 V et voie A, broche 3 voie B ; 12 à 30 V CC, 25 à 40 mA"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, en parallèle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle ; micro dynamique ou électret"
+    },
+    {
+      "id": "pgm",
+      "name": "Program Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Jack 3,5 mm TRS"
+    }
+  ],
   "weightKg": 0.31
 }

@@ -17,6 +17,24 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Harting entrée",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "multipin",
+      "format": "Harting 20 paires ; genre non précisé",
+      "channels": 20
+    },
+    {
+      "id": "out",
+      "name": "Harting sortie (isolée)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "multipin",
+      "format": "Harting 20 paires, 20 transformateurs d'isolement 600/600 Ω ; genre non précisé",
+      "channels": 20
+    }
+  ]
 }

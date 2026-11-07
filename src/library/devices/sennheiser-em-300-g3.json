@@ -4,13 +4,18 @@
   "manufacturer": "Sennheiser",
   "model": "EM 300 G3",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
       "url": "https://www.sonovente.com/sennheiser-ew-335-g3-g-p27507.html",
       "document": "Sonovente, contenu du kit ew 335 G3 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-078072a2-ec70-4ab5-8faa-79fb54e26244/078072a2-ec70-4ab5-8faa-79fb54e26244.pdf",
+      "document": "Sennheiser, EM 300 G3 Instruction manual, copie archive.org",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -38,11 +43,35 @@
     },
     {
       "id": "out",
-      "name": "Sortie audio",
+      "name": "AF OUT BAL",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Sorties XLR et jack d'après la gamme ; non confirmé"
+      "connector": "xlr3",
+      "format": "XLR-3M symétrique, +18 dBu max ; en parallèle avec la sortie jack, réglage AF OUT commun",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "outUnbal",
+      "name": "AF OUT UNBAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "format": "Jack 6,35 asymétrique, +12 dBu max"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 en façade"
     },
     {
       "id": "eth",
@@ -58,7 +87,8 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "Bloc secteur fourni"
+      "format": "12 V DC, 350 mA, bloc NT 2-3"
     }
-  ]
+  ],
+  "powerW": 4.2
 }

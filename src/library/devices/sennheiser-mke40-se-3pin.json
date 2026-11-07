@@ -15,8 +15,28 @@
     {
       "document": "Choix utilisateur reçu le 4 novembre 2026",
       "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.sennheiser.com/en-fi/catalog/products/wireless-systems/mke-40/mke-40-black-3-pin-003579",
+      "document": "Sennheiser, page produit MKE 40 (BLACK 3-PIN) 003579",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.thomann.de/dk/sennheiser_mke404.htm",
+      "document": "Thomann (revendeur), MKE 40-4, connecteur Lemo 3 broches",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "lemo3",
+      "level": "mic",
+      "format": "Cravate cardioïde statique MKE 40-4 (réf. 003579, noir), connecteur SE 3 broches pour émetteurs SK 50, SK 250, SK 2000, SK 5212, SK 9000 ; polarisation fournie par l'émetteur",
+      "phantom": "required"
+    }
+  ]
 }

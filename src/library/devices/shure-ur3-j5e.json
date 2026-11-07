@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "UR3-J5E",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur Plug-On UHF-R UR3 (plan J5E 578-638 MHz)",
   "aliases": [
     "UR3/J5E",
@@ -23,6 +23,30 @@
       "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle (se monte sur le micro) ; micro ou ligne ; fantôme 12 / 48 V commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
 }

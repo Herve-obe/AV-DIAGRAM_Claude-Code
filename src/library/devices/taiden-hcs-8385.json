@@ -23,7 +23,57 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro enfichable",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Embase pour micro col de cygne électret enfichable ; type non nommé"
+    },
+    {
+      "id": "hs1",
+      "name": "Casque-micro 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRRS"
+    },
+    {
+      "id": "hs2",
+      "name": "Casque-micro 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRRS"
+    },
+    {
+      "id": "hs3",
+      "name": "Casque-micro 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRRS"
+    },
+    {
+      "id": "trunkIn",
+      "name": "Câble 6P-DIN (fiche)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din6",
+      "format": "Câble 1,5 m vers l'unité centrale ou le pupitre précédent"
+    },
+    {
+      "id": "trunkOut",
+      "name": "Câble 6P-DIN (embase)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din6",
+      "format": "Câble 0,6 m de bouclage"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 1.1,
   "powerW": 4.3

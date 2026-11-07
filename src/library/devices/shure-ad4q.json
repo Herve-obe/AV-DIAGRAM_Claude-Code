@@ -11,6 +11,11 @@
       "url": "https://pubs.shure.com/guide/AD4Q/en-US",
       "document": "Shure, guide d'utilisation AD4Q (pubs.shure.com)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD4Q/en-US.pdf",
+      "document": "Shure, AD4Q User Guide (PDF), caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -69,7 +74,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35, symétrique à transformateur"
+      "format": "Jack 6,35, symétrique à transformateur ; +8 dBV pleine échelle",
+      "level": "line+4"
     },
     {
       "id": "xlr2",
@@ -86,7 +92,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35, symétrique à transformateur"
+      "format": "Jack 6,35, symétrique à transformateur ; +8 dBV pleine échelle",
+      "level": "line+4"
     },
     {
       "id": "xlr3",
@@ -103,7 +110,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35, symétrique à transformateur"
+      "format": "Jack 6,35, symétrique à transformateur ; +8 dBV pleine échelle",
+      "level": "line+4"
     },
     {
       "id": "xlr4",
@@ -120,7 +128,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35, symétrique à transformateur"
+      "format": "Jack 6,35, symétrique à transformateur ; +8 dBV pleine échelle",
+      "level": "line+4"
     },
     {
       "id": "ctrl1",
@@ -195,5 +204,6 @@
       "connector": "iec-c13",
       "format": "Cascade d'alimentation IEC verrouillable"
     }
-  ]
+  ],
+  "powerW": 31
 }

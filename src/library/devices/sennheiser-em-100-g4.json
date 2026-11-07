@@ -10,6 +10,11 @@
     {
       "document": "Sennheiser, evolution wireless G4 100 series Instruction Manual, ew 100 G4 v2.2 (ew_100_G4_Manual_v2-2_10_2019_EN.pdf)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-em100g4.html",
+      "document": "Sennheiser ew G4, EM 100 G4 specifications",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -27,7 +32,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3 mâle symétrique, +18 dBu max ; une seule des deux sorties à la fois"
+      "format": "XLR-3 mâle symétrique, +18 dBu max ; une seule des deux sorties à la fois",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "unbal",
@@ -35,7 +47,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique, +12 dBu max ; réglage AF OUT sur 48 dB par pas de 3 dB"
+      "format": "Jack 6,35 asymétrique, +12 dBu max ; réglage AF OUT sur 48 dB par pas de 3 dB",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "data1",
@@ -61,5 +80,6 @@
       "connector": "dc-barrel",
       "format": "12 V DC, 300 mA, bloc secteur fourni"
     }
-  ]
+  ],
+  "powerW": 3.6
 }

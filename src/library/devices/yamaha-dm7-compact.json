@@ -15,6 +15,16 @@
     {
       "url": "https://manual.yamaha.com/pa/mixers/dm7/rm/en-US/9523967115.html",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/3/2138343/dm7_en_om_a0.pdf",
+      "document": "Yamaha DM7 Console Owner’s Manual, General Specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://download.yamaha.com/files/tcm:39-2148452",
+      "document": "Yamaha DM7 Series Reference Manual (PDF), Analog output standards",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -384,8 +394,10 @@
       "name": "Casque",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 2
+      "connector": "jack-trs",
+      "channels": 2,
+      "level": "none",
+      "format": "Stereo Phone Socket (TRS) asymétrique en face avant, 10 Ω ; 60 mW sur 8 Ω, 100 mW max sur 40 Ω"
     },
     {
       "id": "ac1",
@@ -418,5 +430,6 @@
       "name": "Slot PY",
       "type": "yamaha-py"
     }
-  ]
+  ],
+  "powerW": 240
 }

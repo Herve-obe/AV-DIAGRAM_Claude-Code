@@ -31,9 +31,33 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/genelec_8020b_ft.pdf",
       "document": "Novelty — 8020 CPM : 8020",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/18480-8020COperatingManual.pdf",
+      "document": "Genelec 8020C Operating Manual (copie Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle symétrique 10 kΩ"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100/120/220/230 V selon région ; cordon secteur avec terre fourni"
+    }
+  ],
   "portStatus": "pending",
-  "weightKg": 3.7
+  "weightKg": 3.7,
+  "powerW": 50
 }

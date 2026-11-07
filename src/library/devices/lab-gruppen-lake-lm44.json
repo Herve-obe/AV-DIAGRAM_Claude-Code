@@ -5,7 +5,7 @@
   "pictogram": "processor",
   "manufacturer": "LAB GRUPPEN",
   "model": "Lake LM44",
-  "status": "community",
+  "status": "verified",
   "description": "Processeur numérique 8×8 AES3 digital I/O & 4×8 Dante I/O Lake® LM44",
   "aliases": [
     "PROCESSEUR NUMÉRIQUE 8×8 AES3 DIGITAL I/O",
@@ -17,8 +17,129 @@
       "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/filtre-processeur/processeur-numerique-8x8-aes3-digital-i-o/",
       "document": "Novelty — PROCESSEUR NUMÉRIQUE 8×8 AES3 DIGITAL I/O",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://images.static-thomann.de/pics/atg/atgdata/document/specs/346928.pdf",
+      "document": "Lab.gruppen, Lake LM 44 Technical Data Sheet (copie Thomann)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée analogique 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 20 kΩ, Iso-Float ; max +26 dBu"
+    },
+    {
+      "id": "in2",
+      "name": "Entrée analogique 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 20 kΩ, Iso-Float ; max +26 dBu"
+    },
+    {
+      "id": "in3",
+      "name": "Entrée analogique 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 20 kΩ, Iso-Float ; max +26 dBu"
+    },
+    {
+      "id": "in4",
+      "name": "Entrée analogique 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 20 kΩ, Iso-Float ; max +26 dBu"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie analogique 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "50 Ω ; max +21 dBu"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie analogique 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "50 Ω ; max +21 dBu"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie analogique 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "50 Ω ; max +21 dBu"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie analogique 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "50 Ω ; max +21 dBu"
+    },
+    {
+      "id": "aes",
+      "name": "AES3 E/S (DB-25)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 16,
+      "format": "8 entrées + 8 sorties AES3, terminaison sélectionnable"
+    },
+    {
+      "id": "danteA",
+      "name": "Dante primaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 12,
+      "format": "Dante 4 entrées / 8 sorties, 100/1000 Mb/s ; commande Lake Controller"
+    },
+    {
+      "id": "danteB",
+      "name": "Dante secondaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 12,
+      "format": "Dante redondant"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "2 GPI + 2 GPO"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 3 broches verrouillable, 100-240 V"
+    }
+  ],
+  "powerW": 30
 }

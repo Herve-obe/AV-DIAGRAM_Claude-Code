@@ -15,6 +15,11 @@
       "url": "https://www.bhphotovideo.com/c/product/1032031-REG/midas_pro2c_cc_tp_digital_live_sound.html",
       "document": "B&H, fiche PRO2C (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/20013-MidasPRO2Brochure.pdf",
+      "document": "Midas PRO2 / PRO2C brochure, Connectivity (copie revendeur Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -26,7 +31,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -36,7 +47,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -46,7 +63,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -56,7 +79,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -66,7 +95,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in6",
@@ -76,7 +111,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in7",
@@ -86,7 +127,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in8",
@@ -96,7 +143,13 @@
       "connector": "xlr3",
       "level": "mic",
       "format": "Préampli Midas, fantôme 48 V commutable",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "out1",
@@ -172,67 +225,84 @@
     },
     {
       "id": "mon1",
-      "name": "Master / Talkback / Monitor 1",
+      "name": "Local Monitor A L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon2",
-      "name": "Master / Talkback / Monitor 2",
+      "name": "Local Monitor A R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon3",
-      "name": "Master / Talkback / Monitor 3",
+      "name": "Local Monitor B L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon4",
-      "name": "Master / Talkback / Monitor 4",
+      "name": "Local Monitor B R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon5",
-      "name": "Master / Talkback / Monitor 5",
+      "name": "Master L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon6",
-      "name": "Master / Talkback / Monitor 6",
+      "name": "Master R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon7",
-      "name": "Master / Talkback / Monitor 7",
+      "name": "Master Mono",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
     },
     {
       "id": "mon8",
-      "name": "Master / Talkback / Monitor 8",
+      "name": "Talk Out",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR (brochure : sorties monitor A/B, masters L/R/mono et talk)"
+    },
+    {
+      "id": "talkin",
+      "name": "Talk Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro d’ordre XLR"
     },
     {
       "id": "aes50A",
@@ -290,42 +360,141 @@
     },
     {
       "id": "aes3in",
-      "name": "AES3 In",
+      "name": "AES3 In 1",
       "direction": "in",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 2,
-      "format": "2 entrées AES3"
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aes3in2",
+      "name": "AES3 In 2",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
     },
     {
       "id": "aes3out",
-      "name": "AES3 Out",
+      "name": "AES3 Out 1",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "channels": 2,
-      "format": "3 sorties AES3"
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aes3out2",
+      "name": "AES3 Out 2",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aes3out3",
+      "name": "AES3 Out 3",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
     },
     {
       "id": "wc",
-      "name": "Word Clock",
-      "direction": "bidir",
+      "name": "Word Clock In",
+      "direction": "in",
       "signal": "sync",
-      "connector": "unspecified"
+      "connector": "bnc"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "aesclkin",
+      "name": "AES3 Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "XLR femelle"
+    },
+    {
+      "id": "aesclkout",
+      "name": "AES3 Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "XLR mâle"
+    },
+    {
+      "id": "vsync",
+      "name": "Video Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst"
     },
     {
       "id": "midi",
-      "name": "MIDI",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiout",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midithru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Recopie de l’écran console"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Port de commande etherCON RJ45"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-a"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Alimentation amovible 1, détection automatique de tension, connecteur secteur à verrouillage (type non précisé)"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation amovible 2 (redondance, une seule suffit)"
     }
   ]
 }

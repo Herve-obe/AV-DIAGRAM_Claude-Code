@@ -11,6 +11,11 @@
       "url": "https://fr.audiofanzine.com/effet-studio/avalon/avis/",
       "document": "Audiofanzine, avis Avalon",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://manualmachine.com/avalon/vt747sp/19660899-operation-manual",
+      "document": "Avalon, VT-747SP Operation Manual (ManualMachine)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,34 +24,36 @@
       "name": "Input L",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Stéréo ; connecteur non retrouvé"
+      "format": "XLR-3 femelle, symétrie électronique classe A, 20 kΩ ; broche 2 point chaud"
     },
     {
       "id": "inR",
       "name": "Input R",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "Stéréo ; connecteur non retrouvé"
+      "format": "XLR-3 femelle, symétrie électronique classe A, 20 kΩ"
     },
     {
       "id": "outL",
       "name": "Output L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4"
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3 mâle"
     },
     {
       "id": "outR",
       "name": "Output R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4"
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3 mâle"
     },
     {
       "id": "ac",

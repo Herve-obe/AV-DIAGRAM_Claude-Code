@@ -52,7 +52,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR3 femelle symétrique (4 fils) ; entrée ligne, gain −6 à +24 dB"
+      "format": "XLR3 femelle symétrique (4 fils) ; entrée ligne, gain −6 à +24 dB",
+      "level": "line+4"
     },
     {
       "id": "lineout",
@@ -60,7 +61,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR3 mâle symétrique (4 fils) ; niveau ligne nominal 0 dBu, maximum +12 dBu"
+      "format": "XLR3 mâle symétrique (4 fils) ; niveau ligne nominal 0 dBu, maximum +12 dBu",
+      "level": "line+4"
     },
     {
       "id": "gpio",

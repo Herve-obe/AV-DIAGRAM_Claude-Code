@@ -44,7 +44,9 @@
       "name": "Entrée XLR",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR ligne, prévue pour une sortie +4 dB de console ou d'interface"
     },
     {
       "id": "thru-jack",
@@ -52,7 +54,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Recopie"
+      "format": "Recopie",
+      "level": "instrument"
     },
     {
       "id": "thru-rca",
@@ -60,7 +63,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Recopie"
+      "format": "Recopie",
+      "level": "line-10"
     },
     {
       "id": "out",

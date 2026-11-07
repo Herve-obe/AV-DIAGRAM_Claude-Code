@@ -15,6 +15,11 @@
       "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/ad610/",
       "document": "Novelty — AD610",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD610/en-US.pdf",
+      "document": "Shure, AD610 ShowLink Access Point User Guide (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -31,7 +36,8 @@
       "name": "Alimentation externe",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "Jack DC à bague de verrouillage, bloc PS43 15 V 600 mA"
     },
     {
       "id": "showlink",
@@ -44,5 +50,6 @@
   ],
   "aliases": [
     "SHURE AD610"
-  ]
+  ],
+  "powerW": 3.84
 }

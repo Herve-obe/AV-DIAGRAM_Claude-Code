@@ -58,7 +58,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Entrée ligne symétrique ; même trajet que le jack, niveau ajustable"
+      "format": "Entrée ligne symétrique ; même trajet que le jack, niveau ajustable",
+      "level": "line+4"
     },
     {
       "id": "inTrs",
@@ -66,7 +67,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Entrée ligne symétrique, alternative à la XLR"
+      "format": "Entrée ligne symétrique, alternative à la XLR",
+      "level": "line+4"
     },
     {
       "id": "out",
@@ -74,7 +76,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie ligne symétrique ; en parallèle avec le jack"
+      "format": "Sortie ligne symétrique ; en parallèle avec le jack",
+      "level": "line+4"
     },
     {
       "id": "outTs",
@@ -82,7 +85,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Sortie ligne asymétrique ; pointe reliée à la broche 2 de la XLR, pas une sortie indépendante"
+      "format": "Sortie ligne asymétrique ; pointe reliée à la broche 2 de la XLR, pas une sortie indépendante",
+      "level": "line+4"
     },
     {
       "id": "linkIn",

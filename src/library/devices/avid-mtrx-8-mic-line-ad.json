@@ -1,0 +1,47 @@
+{
+  "id": "avid-mtrx-8-mic-line-ad",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX 8 Mic/Line Pristine AD Card",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-mtrx-card",
+  "sources": [
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Installation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Installation Guide, Part Number 9320-70146-00 REV A 04/21 (chapitre 5, annexes A et B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Operation Guide, Part Number 9329-66264-00 REV A 04/21 (chapitre 1, chapitre 5, annexe B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.hhb.co.uk/wp-content/uploads/PT-MTRX-II-Data-Sheet.pdf",
+      "document": "Avid, fiche technique Pro Tools | MTRX II (hébergée par le distributeur HHB) : cartes analogiques en DB25",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1_8",
+      "name": "Mic/Line In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "mic",
+      "phantom": "supplied",
+      "channels": 8,
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line+4"
+        }
+      ],
+      "format": "Préamplis à gain par relais, gain de -18 à +70 dB par pas de 0,1 dB, fantôme 48 V commutable par voie ; D-Sub 25 femelle, brochage Tascam"
+    }
+  ],
+  "description": "Carte 8 entrées micro/ligne analogiques, préamplis télécommandables depuis DADman ou Pro Tools. Toutes les cartes analogiques MTRX utilisent un D-Sub 25 femelle, brochage Tascam (guide d'installation, chapitre 5). Consommation non publiée."
+}

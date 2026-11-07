@@ -14,12 +14,12 @@
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/3/318553/EMX660E.pdf",
       "document": "Yamaha EMX660 Owner’s Manual",
-      "accessed": "2026-10-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/3/318553/EMX660E.pdf",
       "document": "Owner’s Manual pp.8–10 et18–19.",
-      "accessed": "2026-10-27"
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -107,8 +107,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+      "level": "mic",
+      "format": "Hi-Z TRS symétrique 10 kΩ ; PAD OFF micro (−40 dB nominal), PAD ON ligne (−10 dB nominal) ; alternative au XLR",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "hiz-2",
@@ -116,8 +122,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+      "level": "mic",
+      "format": "Hi-Z TRS symétrique 10 kΩ ; PAD OFF micro (−40 dB nominal), PAD ON ligne (−10 dB nominal) ; alternative au XLR",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "hiz-3",
@@ -125,8 +137,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+      "level": "mic",
+      "format": "Hi-Z TRS symétrique 10 kΩ ; PAD OFF micro (−40 dB nominal), PAD ON ligne (−10 dB nominal) ; alternative au XLR",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "hiz-4",
@@ -134,8 +152,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Symétrique micro/ligne, PAD ; prise distincte du XLR, usage alternatif"
+      "level": "mic",
+      "format": "Hi-Z TRS symétrique 10 kΩ ; PAD OFF micro (−40 dB nominal), PAD ON ligne (−10 dB nominal) ; alternative au XLR",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "line5-1",
@@ -143,8 +167,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique nominal −10 dBu"
+      "level": "line-10",
+      "format": "Jack asymétrique 10 kΩ, nominal −10 dB (0,775 V réf.)"
     },
     {
       "id": "line5-2",
@@ -152,8 +176,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique nominal −10 dBu"
+      "level": "line-10",
+      "format": "Jack asymétrique 10 kΩ, nominal −10 dB (0,775 V réf.)"
     },
     {
       "id": "inst6-1",
@@ -179,8 +203,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Nominal −10 dBu"
+      "level": "line-10",
+      "format": "Jack asymétrique 10 kΩ, nominal −10 dB (0,775 V réf.)"
     },
     {
       "id": "tape-in-1",
@@ -295,7 +319,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "230 V AC /50 Hz version Europe ; raccordement secteur non détaillé sur le schéma"
+      "format": "Cordon secteur fixe (aucune embase sur le dessin de face arrière p. 10) ; fiche selon le pays de vente, non documentée ; version Europe 230 V 50 Hz"
     }
   ],
   "powerW": 250,

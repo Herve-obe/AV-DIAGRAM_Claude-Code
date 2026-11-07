@@ -42,7 +42,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Mono, symétrique en ligne ; instrument commutable. Canal 1 partagé avec Mic 1."
+      "format": "Mono, symétrique en ligne ; instrument commutable. Canal 1 partagé avec Mic 1.",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ]
     },
     {
       "id": "mic2",
@@ -60,7 +67,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Mono, symétrique en ligne ; instrument commutable. Canal 2 partagé avec Mic 2."
+      "format": "Mono, symétrique en ligne ; instrument commutable. Canal 2 partagé avec Mic 2.",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "instrument"
+        }
+      ]
     },
     {
       "id": "outL",
@@ -68,7 +82,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Symétrique ; +16 dBu max."
+      "format": "Symétrique ; +16 dBu max.",
+      "level": "line+4"
     },
     {
       "id": "outR",
@@ -76,7 +91,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Symétrique ; +16 dBu max."
+      "format": "Symétrique ; +16 dBu max.",
+      "level": "line+4"
     },
     {
       "id": "phones",

@@ -4,7 +4,7 @@
   "manufacturer": "Sennheiser",
   "model": "SR 2020-D",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.manualowl.com/m/Sennheiser/SR-2020-D/Manual/718822",
@@ -72,15 +72,25 @@
       "format": "Liaison radio vers le récepteur"
     },
     {
+      "id": "ant",
+      "name": "Sortie antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Antenne télescopique fournie"
+    },
+    {
       "id": "ac",
-      "name": "Alimentation",
+      "name": "DC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "12 V DC 300 mA, bloc NT 2-3"
     }
   ],
   "aliases": [
     "SR2020D",
     "SENNHEISER SR 2020-D"
-  ]
+  ],
+  "powerW": 3.6
 }

@@ -11,6 +11,11 @@
       "url": "https://pubs.shure.com/guide/PSM1000/en-US",
       "document": "Shure, guide d'utilisation PSM1000 (pubs.shure.com)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/PSM1000/en-US.pdf",
+      "document": "Shure, PSM1000 User Guide (PDF), P10T et P10R+",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -21,7 +26,13 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "line+4",
-      "format": "XLR mâle ou jack TRS 6,35 ; symétrique ou non"
+      "format": "XLR mâle ou jack TRS 6,35 ; symétrique ou non",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "inR",
@@ -30,23 +41,43 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "line+4",
-      "format": "XLR mâle ou jack TRS 6,35 ; une seule prise pour le mono"
+      "format": "XLR mâle ou jack TRS 6,35 ; une seule prise pour le mono",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "loopL",
       "name": "Loop Out L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Recopie de l'entrée ; connecteur non précisé dans le guide"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, relié directement à l'entrée (non affecté par le réglage d'entrée)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "loopR",
       "name": "Loop Out R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Recopie de l'entrée ; connecteur non précisé dans le guide"
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, relié directement à l'entrée (non affecté par le réglage d'entrée)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "ant",
@@ -68,9 +99,9 @@
       "name": "Casque",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "jack-trs",
+      "connector": "minijack",
       "channels": 2,
-      "format": "Écoute en façade"
+      "format": "Jack 3,5 mm en façade"
     },
     {
       "id": "eth",

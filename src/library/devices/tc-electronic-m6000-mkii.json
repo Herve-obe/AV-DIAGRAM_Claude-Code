@@ -48,7 +48,77 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "aes",
+      "name": "AES/EBU E/S (DB-25)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 16,
+      "format": "8 entrées + 8 sorties AES/EBU, câble épanoui 4 XLR mâles + 4 XLR femelles fourni"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "75 Ω ou haute impédance"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "pedal",
+      "name": "Pédale / GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 mm, time code pour cuelist"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mb/s vers TC Icon / Remote CPU"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V auto"
+    }
+  ],
   "portStatus": "pending",
-  "powerW": 95
+  "powerW": 45
 }

@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Clear-Com",
   "model": "RS601",
-  "status": "community",
+  "status": "verified",
   "description": "Poste intercom individuel 1 direction",
   "aliases": [
     "02998014",
@@ -28,6 +28,46 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; 12 à 32 V CC, 26 à 50 mA"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, en parallèle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle ; micro 200 Ω, écouteur 50 à 2000 Ω"
+    },
+    {
+      "id": "aux",
+      "name": "Casque auxiliaire",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 2,5 mm type téléphone portable (aucun identifiant 2,5 mm au catalogue : minijack retenu)"
+    },
+    {
+      "id": "data",
+      "name": "Données (V-Pack)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm TRS, câble VPC-1 vers DB-9 (RS-232) pour la configuration"
+    }
+  ]
 }

@@ -4,7 +4,7 @@
   "pictogram": "mic",
   "manufacturer": "DPA",
   "model": "DFine Slim",
-  "status": "community",
+  "status": "verified",
   "description": "Microphone serre-tête cardioïde, couleur chaire",
   "aliases": [
     "DFINE",
@@ -22,7 +22,17 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "format": "Serre-tête cardioïde statique prépolarisé, perche 120 mm, câble amovible ; MicroDot (B+K), adaptateurs DPA pour la plupart des émetteurs HF",
+      "phantom": "required"
+    }
+  ],
   "weightKg": 0.0085
 }

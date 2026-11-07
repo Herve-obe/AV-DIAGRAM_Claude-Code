@@ -39,7 +39,7 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "unspecified",
-      "format": "Liaison fibre optionnelle"
+      "format": "Option : Optocore HMA double, 2 x opticalCON DUO ou 4 x ST selon l'équipement"
     },
     {
       "id": "ac",
@@ -88,6 +88,14 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "IEC, seconde alimentation MOD-SDR-PSU redondante"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B (panneau de commande)"
     }
   ],
   "slots": [
@@ -163,5 +171,6 @@
     }
   ],
   "rackU": 10,
-  "depthMm": 365
+  "depthMm": 365,
+  "powerW": 200
 }

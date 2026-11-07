@@ -25,6 +25,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/hr_avalonLit_U5.pdf",
       "document": "Brochure constructeur U5, p.2 (consommation, dimensions, masse emballée).",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/6670a3857677f84c70e9086c/t/68826bd2db25db13162f5d47/1753377747412/U5_Manual.pdf",
+      "document": "Avalon Design, U5 manual (PDF hébergé par Avalon)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://manuals.plus/asin/B0002GL024",
+      "document": "manuals.plus, copie du manuel U5 (face arrière : embase IEC)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -78,14 +88,17 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none",
+      "format": "Sortie casque 0,5 W sur 600 ohms ; level « none » volontaire, aucune catégorie du schéma ne décrit une sortie casque"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC (selon la copie du manuel sur manuals.plus) ; alimentation toroïdale interne 100-120 V ou 230 V, 40 W max"
     }
   ],
   "aliases": [

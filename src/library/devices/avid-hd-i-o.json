@@ -11,7 +11,123 @@
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/avid_hd_io_guide_v81.pdf",
+      "document": "Avid, HD I/O Guide v8.1 (copie en ligne du guide constructeur), chapitre 2 « HD I/O Back Panel »",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "aesein",
+      "name": "AES/EBU in [Encl]",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aeseout",
+      "name": "AES/EBU out [Encl]",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "spdifin",
+      "name": "S/PDIF in",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial 75 ohms"
+    },
+    {
+      "id": "spdifout",
+      "name": "S/PDIF out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial 75 ohms"
+    },
+    {
+      "id": "optin",
+      "name": "Optical in [Encl]",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT 8 canaux ou S/PDIF optique"
+    },
+    {
+      "id": "optout",
+      "name": "Optical out [Encl]",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT 8 canaux ou S/PDIF optique"
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock in",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word clock"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word clock"
+    },
+    {
+      "id": "lsin",
+      "name": "Loop Sync in",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Loop Sync (word clock 1x)"
+    },
+    {
+      "id": "lsout",
+      "name": "Loop Sync out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Loop Sync (word clock 1x)"
+    },
+    {
+      "id": "primary",
+      "name": "Primary Port",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 16,
+      "format": "Vers carte Pro Tools | HD ; 16 entrées et 16 sorties au plus"
+    },
+    {
+      "id": "expansion",
+      "name": "Expansion Port",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 16,
+      "format": "Vers une interface Pro Tools | HD supplémentaire"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V, câble IEC standard"
+    }
+  ]
 }

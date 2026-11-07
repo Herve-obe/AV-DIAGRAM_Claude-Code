@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "Beta87A-HF",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur microphone main UR2 avec capsule Beta87A. Supercardioïde.",
   "aliases": [
     "SHURE Beta87A-HF"
@@ -27,7 +27,15 @@
       "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ],
   "weightKg": 0.325
 }

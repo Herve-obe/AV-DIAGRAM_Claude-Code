@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Taiden",
   "model": "HCS-5100R/08",
-  "status": "community",
+  "status": "verified",
   "description": "Récepteur numérique Infra-Rouge 8 canaux",
   "aliases": [
     "HCS5100R08",
@@ -23,6 +23,31 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ir",
+      "name": "Réception infrarouge",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Infrarouge numérique IEC 61603-7, DQPSK 2 à 8 MHz ; 8 canaux (version /08) ; liaison sans fil notée « rf » faute de type infrarouge"
+    },
+    {
+      "id": "phones",
+      "name": "Écouteur",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 stéréo, 32 Ω à 2 kΩ",
+      "channels": 2
+    },
+    {
+      "id": "charge",
+      "name": "Contacts de charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Contacts de charge Ni-MH (valise ou chargeur Taiden)"
+    }
+  ]
 }

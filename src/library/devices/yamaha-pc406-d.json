@@ -11,6 +11,11 @@
       "url": "https://usa.yamaha.com/products/proaudio/power_amps/pc-d_di/specs.html",
       "document": "Yamaha USA, page Specs PC406-D",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/84727-UnnamedDocument.pdf",
+      "document": "Yamaha, PC412-D PC412-DI PC406-D PC406-DI Owner's Manual (EN), § 13 Reference (copie Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -125,8 +130,9 @@
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "1050 W au 1/8 de puissance max (2 Ω)"
+      "connector": "powercon",
+      "format": "AC inlet powerCON 20 A ; 100-240 V 50/60 Hz ; 1050 W à 1/8 de puissance max (2 ohms, bruit rose)"
     }
-  ]
+  ],
+  "powerW": 1050
 }

@@ -4,7 +4,7 @@
   "manufacturer": "beyerdynamic",
   "model": "Unite TP",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.fullcompass.com/common/files/47267-UniteTPSpecSheet.pdf",
@@ -20,7 +20,7 @@
       "signal": "audioAnalog",
       "connector": "ta4",
       "level": "mic",
-      "format": "Mini-XLR 4 points (câblage TG) ; micro intégré"
+      "format": "Mini-XLR 4 points mâle (câblage TG), polarisation 4,5 V ; micro intégré en plus"
     },
     {
       "id": "headset",
@@ -38,7 +38,7 @@
       "connector": "minijack",
       "level": "line-10",
       "channels": 2,
-      "format": "Mini-jack 3,5"
+      "format": "Mini-jack 3,5 stéréo, max -6 dBV"
     },
     {
       "id": "rf",
@@ -55,5 +55,6 @@
       "connector": "usb-c",
       "format": "Charge"
     }
-  ]
+  ],
+  "powerW": 2.5
 }

@@ -4,7 +4,7 @@
   "manufacturer": "L-Acoustics",
   "model": "dV-DOSC",
   "pictogram": "speaker",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/dV-DOSC/documents.zip",
@@ -18,17 +18,18 @@
       "name": "Input",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "Raccordement par câbles et adaptateurs CA-COM / speakON selon le manuel"
+      "format": "Speakon 4 points ; grave 8 Ω (2 × 8\" en parallèle) et aigu 8 Ω"
     },
     {
       "id": "link",
       "name": "Link",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "speaker"
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Speakon 4 points en parallèle (câble SP.7)"
     }
   ]
 }

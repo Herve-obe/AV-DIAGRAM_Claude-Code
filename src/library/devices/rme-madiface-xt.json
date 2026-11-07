@@ -72,7 +72,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none"
     },
     {
       "id": "madiCoax",
@@ -127,8 +128,8 @@
       "name": "AES / MIDI",
       "direction": "bidir",
       "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "D-Sub vers AES/EBU XLR et MIDI DIN 5"
+      "connector": "dsub9",
+      "format": "D-sub 9 broches, câble épanoui AES/EBU XLR et MIDI DIN 5"
     },
     {
       "id": "remote",

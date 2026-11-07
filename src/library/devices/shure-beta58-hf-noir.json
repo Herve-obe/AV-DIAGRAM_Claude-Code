@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "Beta58-HF noir",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur microphone main UR2 avec capsule Beta58 noire. Cardioïde.",
   "aliases": [
     "SHURE Beta58-HF noir"
@@ -32,7 +32,15 @@
       "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ],
   "weightKg": 0.356
 }

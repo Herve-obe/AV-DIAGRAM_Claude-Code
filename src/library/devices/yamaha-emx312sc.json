@@ -19,12 +19,12 @@
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/7/335497/emx512sc_en_om_f0.pdf",
       "document": "Yamaha EMX512SC / EMX312SC / EMX212S Owner’s Manual",
-      "accessed": "2026-10-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/7/335497/emx512sc_en_om_f0.pdf",
       "document": "Owner’s Manual pp.20–26 et33 (variante EMX312SC, puissance consommée distincte EMX512SC).",
-      "accessed": "2026-10-27"
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -35,7 +35,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -44,7 +50,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in3",
@@ -53,7 +65,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in4",
@@ -62,7 +80,13 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Micro symétrique ; fantôme +15 V commun, pas P48"
+      "format": "Micro symétrique ; fantôme +15 V commun, pas P48",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in5",
@@ -106,8 +130,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+      "level": "mic",
+      "format": "Jack TRS symétrique 6 kΩ, micro −25 dBu / ligne +5 dBu nominal selon le sélecteur MIC/LINE ; alternative au XLR, ne pas utiliser A et B ensemble",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "line-2",
@@ -115,8 +145,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+      "level": "mic",
+      "format": "Jack TRS symétrique 6 kΩ, micro −25 dBu / ligne +5 dBu nominal selon le sélecteur MIC/LINE ; alternative au XLR, ne pas utiliser A et B ensemble",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "line-3",
@@ -124,8 +160,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+      "level": "mic",
+      "format": "Jack TRS symétrique 6 kΩ, micro −25 dBu / ligne +5 dBu nominal selon le sélecteur MIC/LINE ; alternative au XLR, ne pas utiliser A et B ensemble",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "line-4",
@@ -133,8 +175,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
-      "format": "Micro/ligne par sélecteur, prise distincte du XLR ; ne pas utiliser A et B simultanément"
+      "level": "mic",
+      "format": "Jack TRS symétrique 6 kΩ, micro −25 dBu / ligne +5 dBu nominal selon le sélecteur MIC/LINE ; alternative au XLR, ne pas utiliser A et B ensemble",
+      "modes": [
+        {
+          "connector": "jack-trs",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "st-line-1",
@@ -142,8 +190,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "Jack asymétrique 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "st-line-2",
@@ -151,8 +199,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "Jack asymétrique 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "st-line-3",
@@ -160,8 +208,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "Jack asymétrique 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "st-line-4",
@@ -169,8 +217,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "Jack asymétrique 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "rca-line-1",
@@ -178,8 +226,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "RCA 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "rca-line-2",
@@ -187,8 +235,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "RCA 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "rca-line-3",
@@ -196,8 +244,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "RCA 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "rca-line-4",
@@ -205,8 +253,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
-      "format": "Ligne asymétrique, nominal −10 dBu"
+      "level": "line+4",
+      "format": "RCA 10 kΩ, nominal +5 dBu (sensibilité −20 dBu)"
     },
     {
       "id": "main-L",
@@ -214,8 +262,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique"
+      "level": "line+4",
+      "format": "Jack asymétrique, +4 dBu nominal, +20 dBu max"
     },
     {
       "id": "main-R",
@@ -223,8 +271,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique"
+      "level": "line+4",
+      "format": "Jack asymétrique, +4 dBu nominal, +20 dBu max"
     },
     {
       "id": "rec-L",
@@ -232,8 +280,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
-      "format": "Ligne asymétrique avant MASTER/EQ"
+      "level": "line-10",
+      "format": "RCA, −10 dBV nominal, avant MASTER/EQ"
     },
     {
       "id": "rec-R",
@@ -241,8 +289,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
-      "format": "Ligne asymétrique avant MASTER/EQ"
+      "level": "line-10",
+      "format": "RCA, −10 dBV nominal, avant MASTER/EQ"
     },
     {
       "id": "monitor-out",
@@ -250,8 +298,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique mono"
+      "level": "line+4",
+      "format": "Jack asymétrique, +4 dBu nominal, +20 dBu max"
     },
     {
       "id": "effect-out",
@@ -259,8 +307,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
-      "format": "Ligne asymétrique mono"
+      "level": "line+4",
+      "format": "Jack asymétrique, +4 dBu nominal, +20 dBu max"
     },
     {
       "id": "foot-sw",

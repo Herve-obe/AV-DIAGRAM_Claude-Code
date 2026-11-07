@@ -127,7 +127,7 @@ describe('synoptique IA : plateau TV', () => {
     expect(fiche.ports.every((p: { direction: string }) => p.direction === 'in')).toBe(true)
     expect(fiche.audio_levels).toContainEqual({ direction: 'out', connector: 'xlr3', level: 'line+4', nominal_level: 'ligne +4 dBu', ports: 8 })
     expect(fiche.audio_levels).toContainEqual({ direction: 'in', connector: 'xlr3', level: 'mic', nominal_level: 'micro', ports: 20 })
-    expect(fiche.audio_levels).toContainEqual({ direction: 'out', connector: 'jack-trs', level: 'unspecified', nominal_level: 'non documenté', ports: 1 })
+    expect(fiche.audio_levels).toContainEqual({ direction: 'out', connector: 'jack-trs', level: 'none', nominal_level: 'sans niveau nominal', ports: 1 })
     const added = runTool(draft, { id: '2', name: 'add_equipment', args: { template_id: longConsole.id } }, context)
     expect(JSON.parse(added.content).audio_levels).toEqual(fiche.audio_levels)
     const placed = runTool(added.draft, { id: '3', name: 'get_equipment', args: { equipment_id: added.draft.addedEquipment[0] } }, context)

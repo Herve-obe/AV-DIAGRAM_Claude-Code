@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Clear-Com",
   "model": "CC-300",
-  "status": "community",
+  "status": "verified",
   "description": "Combiné micro/casque 1 oreillette pour système interphonie",
   "aliases": [
     "CLEARCOM CC-300"
@@ -22,7 +22,15 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "hs",
+      "name": "Casque (câble)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "Version X4 : câble 1,55 m, XLR 4 femelle ; micro dynamique hypercardioïde 200 Ω, écouteur une oreille, 400 Ω ; autres câbles : X5 (XLR 5 mâle), Y5 (XLR 5 femelle), X6, X7"
+    }
+  ],
   "weightKg": 0.5
 }

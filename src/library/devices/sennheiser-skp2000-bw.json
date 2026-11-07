@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Sennheiser",
   "model": "SKP2000-BW",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur/Adaptateur HF plan de fréquences BW pour micro fil",
   "aliases": [
     "SENNHEISER SKP2000-BW"
@@ -45,9 +45,32 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/feuille_de_notes/CE_Series2000.pdf",
       "document": "Novelty — SKP2000-BW : Déclaration de conformité",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://sennheiser.com/en-lt/catalog/products/wireless-systems/skp-2000/skp-2000-gw-503804",
+      "document": "Sennheiser, page produit SKP 2000 (variante GW, même appareil)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR-3 femelle (se monte sur le micro) ; fantôme 48 V commutable"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Série 2000, puissance commutable sur 3 niveaux"
+    }
+  ],
   "weightKg": 0.195
 }

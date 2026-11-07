@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "A1",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur ceinture léger et robuste doté d'un connecteur TA4 ou LEMO, avec accu rechargeable, bande de fréquence A (470-636 MHz)",
   "aliases": [
     "SHURE A1"
@@ -40,9 +40,45 @@
       "url": "https://www.shure.com/en-US/docs/guide/AD1",
       "document": "Shure AD1 Axient Digital User Guide",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD1/en-US.pdf",
+      "document": "Shure, AD1 Bodypack Transmitter User Guide (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée TA4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "TA4M, asymétrique, 910 kΩ ; micro ou câble instrument ; variante LEMO 3 (8,2 kΩ) existante",
+      "modes": [
+        {
+          "connector": "ta4",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Antenne quart d'onde sur SMA"
+    }
+  ],
   "weightKg": 0.155
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Yamaha",
   "model": "MG06X",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "weightKg": 0.9,
   "sources": [
     {
@@ -46,6 +46,11 @@
       "url": "https://usa.yamaha.com/files/download/brochure/1/330961/mg_brochure_en_webcatalogue.pdf",
       "document": "Yamaha MG Series brochure LPA631, General Specifications",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/9/330989/VHN6730_MG06X_TS_En_E0_views.pdf",
+      "document": "Yamaha MG06X/MG06 Technical Specifications, Analog Input/Output Characteristics",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -56,8 +61,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR/jack, D-PRE, fantôme 48 V",
-      "phantom": "supplied"
+      "format": "Combo XLR/jack symétrique 3 kΩ, D-PRE, fantôme 48 V ; PAD 26 dB pour niveau ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -66,50 +77,62 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR/jack, D-PRE, fantôme 48 V",
-      "phantom": "supplied"
+      "format": "Combo XLR/jack symétrique 3 kΩ, D-PRE, fantôme 48 V ; PAD 26 dB pour niveau ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "st1",
       "name": "Stereo In 3/4",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
-      "channels": 2
+      "connector": "jack-ts",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Deux jacks asymétriques 10 kΩ, nominal −10 dBu"
     },
     {
       "id": "st2",
       "name": "Stereo In 5/6",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "line+4",
-      "channels": 2
+      "connector": "jack-ts",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Deux jacks asymétriques 10 kΩ, nominal −10 dBu"
     },
     {
       "id": "outL",
       "name": "Stereo Out L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Combo XLR-3-32 / jack TRS symétrique, +4 dBu nominal"
     },
     {
       "id": "outR",
       "name": "Stereo Out R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Combo XLR-3-32 / jack TRS symétrique, +4 dBu nominal"
     },
     {
       "id": "phones",
       "name": "Phones",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 2
+      "connector": "jack-trs",
+      "channels": 2,
+      "level": "none",
+      "format": "Jack stéréo, 33 Ω, 2,4 mW nominal sur 40 Ω"
     },
     {
       "id": "dc",

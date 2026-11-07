@@ -5,7 +5,7 @@
   "pictogram": "mic",
   "manufacturer": "Shure",
   "model": "BETA98AD-C",
-  "status": "community",
+  "status": "verified",
   "description": "Micro statique miniature à capsule électret",
   "aliases": [
     "BETA98",
@@ -21,9 +21,24 @@
       "url": "https://www.shure.com/en-US/docs/guide/BETA98A",
       "document": "Shure BETA98A User Guide — BETA98A/C et BETA98AD/C",
       "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/BETA98A/en-US.pdf",
+      "document": "Shure, guide utilisateur Beta 98A (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique cardioïde miniature, préampli en ligne ; XLR3 mâle symétrique, fantôme 11 à 52 V, 3,6 mA ; sensibilité -48 dBV/Pa (4 mV)",
+      "phantom": "required"
+    }
+  ],
   "weightKg": 0.012
 }

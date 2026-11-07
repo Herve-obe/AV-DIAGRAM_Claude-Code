@@ -4,14 +4,138 @@
   "manufacturer": "Datavideo",
   "model": "ITC-100",
   "pictogram": "intercom",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.markertek.com/Attachments/Manuals/Datavideo/ITC-100-Manual.pdf",
+      "document": "Datavideo, ITC-100 Instruction Manual",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://datavideo.com/product/ITC-100",
+      "document": "Datavideo, page produit ITC-100 (caractéristiques)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "ch1",
+      "name": "Voie 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch2",
+      "name": "Voie 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch3",
+      "name": "Voie 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch4",
+      "name": "Voie 4",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch5",
+      "name": "Voie 5",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch6",
+      "name": "Voie 6",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch7",
+      "name": "Voie 7",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "ch8",
+      "name": "Voie 8",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "XLR 5 vers beltpack ITC-100SL : 1 tally rouge, 2 audio (parole et appel), 3 masse, 4 +12 V CC, 5 tally jaune ; jusqu'à 200 m"
+    },
+    {
+      "id": "tallya",
+      "name": "Tally A",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "D-Sub 15, tally des voies 1 à 4 depuis le mélangeur"
+    },
+    {
+      "id": "tallyb",
+      "name": "Tally B",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "D-Sub 15, tally des voies 5 à 8"
+    },
+    {
+      "id": "mic",
+      "name": "Micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "XLR (micro statique) ou jack 6,35 (dynamique), sélecteur statique/dynamique ; -67 dB"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 stéréo, 8 à 600 Ω"
+    },
+    {
+      "id": "hs",
+      "name": "Micro-casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 stéréo micro et écouteur combinés"
+    },
+    {
+      "id": "dc",
+      "name": "DC In 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, fiche à bague vissée ; bloc 12 V 1 A fourni"
+    }
+  ],
+  "powerW": 8
 }

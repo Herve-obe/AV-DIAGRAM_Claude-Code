@@ -5,7 +5,7 @@
   "pictogram": "processor",
   "manufacturer": "Auvitran",
   "model": "AVBx7",
-  "status": "community",
+  "status": "verified",
   "description": "Plateforme audio modulable de configurations de réseau audio, Dante, MADI, EtherSound, ASIO",
   "aliases": [
     "Auvitran AVBx7"
@@ -37,9 +37,47 @@
       "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 50,
+  "ports": [
+    {
+      "id": "acMain",
+      "name": "Secteur principal",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V, maximum 110 W"
+    },
+    {
+      "id": "acAux",
+      "name": "Secteur auxiliaire",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Alimentation redondante intégrée, 100-240 V, maximum 110 W"
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Euroblock 6 points, 4 GPIO configurables (dont 4 VCA 0-12 V)"
+    }
+  ],
+  "powerW": 110,
   "slots": [
     {
       "id": "slot1",

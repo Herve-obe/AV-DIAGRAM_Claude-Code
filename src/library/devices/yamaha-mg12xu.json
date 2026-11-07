@@ -4,7 +4,7 @@
   "manufacturer": "Yamaha",
   "model": "MG12XU",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.musicorp.com.au/pro-audio/2-yamaha-mg12xu/2489-3441/",
@@ -24,7 +24,7 @@
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/8/1506928/mg16x_en_om_a0.pdf",
       "document": "Yamaha MG20XU / MG16XU / MG12XU Owner’s Manual",
-      "accessed": "2026-10-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://usa.yamaha.com/files/download/brochure/1/330961/mg_brochure_en_webcatalogue.pdf",
@@ -217,7 +217,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none"
     },
     {
       "id": "usb",
@@ -233,7 +234,8 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "[AC IN] : embase IEC (dessin p. 27), alimentation universelle interne 100-240 V"
     }
   ],
   "aliases": [

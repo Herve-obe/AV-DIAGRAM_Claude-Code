@@ -4,14 +4,142 @@
   "manufacturer": "RAMI",
   "model": "EXT208S",
   "pictogram": "processor",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.ramiaudio.com/produit.php?id_prod=44",
+      "document": "Rami, page produit EXT208S (photo face arrière)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.ramiaudio.com/fichiers/notice/EXT208S_notice.pdf",
+      "document": "Rami, EXT208S Manuel utilisateur",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Entrée gauche",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle symétrique 15 kΩ ; électronique ou transformateur selon version"
+    },
+    {
+      "id": "inR",
+      "name": "Entrée droite",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle symétrique 15 kΩ"
+    },
+    {
+      "id": "outL1",
+      "name": "Sortie gauche 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 1 en mono"
+    },
+    {
+      "id": "outL2",
+      "name": "Sortie gauche 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 2 en mono"
+    },
+    {
+      "id": "outL3",
+      "name": "Sortie gauche 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 3 en mono"
+    },
+    {
+      "id": "outL4",
+      "name": "Sortie gauche 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 4 en mono"
+    },
+    {
+      "id": "outR1",
+      "name": "Sortie droite 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 5 en mono"
+    },
+    {
+      "id": "outR2",
+      "name": "Sortie droite 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 6 en mono"
+    },
+    {
+      "id": "outR3",
+      "name": "Sortie droite 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 7 en mono"
+    },
+    {
+      "id": "outR4",
+      "name": "Sortie droite 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle ; sortie 8 en mono"
+    },
+    {
+      "id": "mon",
+      "name": "Sortie monitoring",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub9",
+      "level": "line+4",
+      "channels": 2,
+      "format": "DB-9 femelle, stéréo symétrique"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "format": "Face avant, 25 à 600 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "230 V 50/60 Hz, 14 W, fusible T 250 mA"
+    }
+  ],
+  "powerW": 14
 }

@@ -9,12 +9,12 @@
     {
       "url": "https://usa.yamaha.com/products/proaudio/mixers/m7cl/specs.html",
       "document": "Yamaha USA, page Specs M7CL-48ES",
-      "accessed": "2026-09-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://data.yamaha.com/files/download/other_assets/7/323187/m7clv3_en_om_i0.pdf",
       "document": "Yamaha M7CL V3 Owner’s Manual : modèle ES, prises p. 13 et 29–31, stageboxes et patch p. 43–46",
-      "accessed": "2026-10-23"
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -264,7 +264,9 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none",
+      "format": "PHONES OUT, jack stéréo asymétrique sous l’accoudoir ; 15 Ω, 75 mW sur 8 Ω, 65 mW sur 40 Ω"
     },
     {
       "id": "usb",
@@ -278,8 +280,16 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "150 W"
+      "connector": "iec-c13",
+      "format": "AC IN : embase IEC avec serre-câble (dessin p. 26 du manuel) ; 100-240 V, 150 W"
+    },
+    {
+      "id": "dcin",
+      "name": "DC POWER INPUT",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Entrée d’alimentation de secours pour PW800W (câble PSL360), redondance automatique"
     },
     {
       "id": "esout",
@@ -307,5 +317,6 @@
       "name": "Slot MY 3",
       "type": "yamaha-mini-ygdai"
     }
-  ]
+  ],
+  "powerW": 150
 }

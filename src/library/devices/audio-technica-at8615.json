@@ -5,7 +5,7 @@
   "pictogram": "patch",
   "manufacturer": "Audio-Technica",
   "model": "AT8615",
-  "status": "community",
+  "status": "verified",
   "description": "Embase de table câblée pour microphone col de cygne : entrée XLR 3 points femelle et sortie XLR 3 points mâle. À distinguer du support mécanique AT8601.",
   "aliases": [
     "029681",
@@ -30,7 +30,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR 3 points femelle"
+      "format": "XLR 3 points femelle",
+      "level": "mic"
     },
     {
       "id": "xlr-out",
@@ -38,7 +39,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR 3 points mâle"
+      "format": "XLR 3 points mâle",
+      "level": "mic"
     }
   ]
 }

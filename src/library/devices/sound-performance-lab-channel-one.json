@@ -55,7 +55,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Ligne symétrique, maximum +22 dBu ; désactivée si instrument connecté"
+      "format": "Ligne symétrique, maximum +22 dBu ; désactivée si instrument connecté",
+      "level": "line+4"
     },
     {
       "id": "instrument",
@@ -72,7 +73,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Symétrique, après dé-esseur"
+      "format": "Symétrique, après dé-esseur",
+      "level": "line+4"
     },
     {
       "id": "return",
@@ -80,7 +82,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Symétrique, avant compresseur"
+      "format": "Symétrique, avant compresseur",
+      "level": "line+4"
     },
     {
       "id": "outXlr",
@@ -88,7 +91,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Ligne symétrique, maximum +20 dBu ; même programme que le TRS, usage alternatif recommandé"
+      "format": "Ligne symétrique, maximum +20 dBu ; même programme que le TRS, usage alternatif recommandé",
+      "level": "line+4"
     },
     {
       "id": "outTrs",
@@ -96,7 +100,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Ligne symétrique, en parallèle avec la XLR ; une fiche TS asymétrise aussi la XLR"
+      "format": "Ligne symétrique, en parallèle avec la XLR ; une fiche TS asymétrise aussi la XLR",
+      "level": "line+4"
     },
     {
       "id": "playbackL",
@@ -104,7 +109,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque"
+      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque",
+      "level": "line-10"
     },
     {
       "id": "playbackR",
@@ -112,7 +118,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque"
+      "format": "Jack 6,35 asymétrique, uniquement pour le mélange casque",
+      "level": "line-10"
     },
     {
       "id": "phones",
@@ -121,7 +128,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Casque stéréo TRS 6,35 ; pas une sortie ligne symétrique"
+      "format": "Casque stéréo TRS 6,35 ; pas une sortie ligne symétrique",
+      "level": "none"
     },
     {
       "id": "ac",

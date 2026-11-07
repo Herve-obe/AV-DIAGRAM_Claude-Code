@@ -9,6 +9,11 @@
     {
       "document": "Sound Devices, 633 User Guide (633ug_eng.pdf), révision v4.50 et suivantes",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.sounddevices.com/wp-content/uploads/2019/01/633ug_eng.pdf",
+      "document": "Sound Devices, 633 User Guide Rev 4-C (janvier 2019)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -94,7 +99,17 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR-3M symétrique par transformateur ; ligne, -10 ou micro ; ou AES3 1-2"
+      "format": "XLR-3M symétrique par transformateur ; ligne, -10 ou micro ; ou AES3 1-2",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "outR",
@@ -103,7 +118,17 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR-3M symétrique par transformateur ; ligne, -10 ou micro ; ou AES3 3-4"
+      "format": "XLR-3M symétrique par transformateur ; ligne, -10 ou micro ; ou AES3 3-4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "x1",
@@ -112,7 +137,17 @@
       "signal": "audioAnalog",
       "connector": "ta3",
       "level": "line+4",
-      "format": "Ligne, -10 ou micro"
+      "format": "Ligne, -10 ou micro",
+      "modes": [
+        {
+          "connector": "ta3",
+          "level": "line-10"
+        },
+        {
+          "connector": "ta3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "x2",
@@ -121,7 +156,17 @@
       "signal": "audioAnalog",
       "connector": "ta3",
       "level": "line+4",
-      "format": "Ligne, -10 ou micro"
+      "format": "Ligne, -10 ou micro",
+      "modes": [
+        {
+          "connector": "ta3",
+          "level": "line-10"
+        },
+        {
+          "connector": "ta3",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "x34",
@@ -130,7 +175,14 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Jack 3,5 TRS asymétrique, -30 à 0 dB"
+      "format": "Jack 3,5 TRS asymétrique, -30 à 0 dB",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "mic"
+        }
+      ]
     },
     {
       "id": "rtn",
@@ -139,7 +191,8 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Retour stéréo asymétrique, jack 3,5 mm"
+      "format": "Retour stéréo asymétrique, jack 3,5 mm",
+      "level": "line-10"
     },
     {
       "id": "phones",
@@ -174,5 +227,6 @@
       "connector": "hirose4",
       "format": "10 à 18 V DC (broche 4 = +, broche 1 = -) ; secours 6 piles AA"
     }
-  ]
+  ],
+  "powerW": 5.4
 }

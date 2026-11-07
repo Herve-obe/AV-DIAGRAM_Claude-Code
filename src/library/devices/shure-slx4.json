@@ -10,6 +10,11 @@
     {
       "document": "Shure, SLX Wireless Systems User Guide (fichier SLX System.pdf, section française)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/SLX/en-US.pdf",
+      "document": "Shure, SLX caractéristiques (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -36,7 +41,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 asymétrique haute impédance, 1 kΩ, -2 dBV (charge 3 kΩ)"
+      "format": "Jack 6,35 asymétrique haute impédance, 1 kΩ, -2 dBV (charge 3 kΩ)",
+      "level": "line-10"
     },
     {
       "id": "dc",
@@ -46,5 +52,6 @@
       "connector": "dc-barrel",
       "format": "12 à 18 V DC, 150 mA, bloc externe"
     }
-  ]
+  ],
+  "powerW": 2.7
 }

@@ -4,14 +4,27 @@
   "manufacturer": "RTS",
   "model": "HR-1",
   "pictogram": "intercom",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/16477-HR1Specifications.pdf",
+      "document": "RTS, HR-1 Single-Sided Headset, fiche technique (copie Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "hs",
+      "name": "Casque (câble)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "HR-1 : XLR 4 femelle (variantes HR-1R XLR 4 mâle, HR-1R5 XLR 5 mâle, HR-1PT fils nus) ; une oreille, micro dynamique antibruit, écouteur 300 Ω"
+    }
+  ]
 }

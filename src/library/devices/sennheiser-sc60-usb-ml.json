@@ -37,7 +37,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Câble USB avec boîtier de commande d'appel ; type de fiche non précisé par la fiche Sennheiser"
+    }
+  ],
   "portStatus": "pending",
   "weightKg": 0.106
 }

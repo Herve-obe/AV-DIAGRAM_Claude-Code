@@ -16,6 +16,11 @@
       "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/unitaire/pc412-di/",
       "document": "Novelty — PC412-DI",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/84727-UnnamedDocument.pdf",
+      "document": "Yamaha, PC412-D PC412-DI PC406-D PC406-DI Owner's Manual (EN), § 13 Reference (copie Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -78,11 +83,12 @@
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "1850 W au 1/8 de puissance max (2 Ω)"
+      "connector": "powercon",
+      "format": "AC inlet powerCON 20 A ; 100-240 V 50/60 Hz ; 1850 W à 1/8 de puissance max (2 ohms, bruit rose)"
     }
   ],
   "aliases": [
     "YAMAHA PC412-DI"
-  ]
+  ],
+  "powerW": 1850
 }

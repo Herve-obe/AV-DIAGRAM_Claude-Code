@@ -10,6 +10,11 @@
       "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/LA8/documents.zip",
       "document": "L-Acoustics, archive de documentation : LA8 Owner's manual, spécifications LA4-LA8",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ARCHIVES/LA8/documents.zip",
+      "document": "L-Acoustics, LA8 owner's manual (EN) version 19.0, dans l'archive de documentation LA8",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -19,7 +24,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR3 femelle, entrée analogique"
     },
     {
       "id": "inB",
@@ -27,7 +33,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "level": "line+4",
+      "format": "XLR3 femelle, entrée analogique"
     },
     {
       "id": "linkA",
@@ -109,8 +116,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "230 V"
+      "connector": "schuko",
+      "format": "Cordon secteur captif, fiche CEE 7/7 16 A (modèle CE) ; 120 V à 230 V ±10 %"
     }
-  ]
+  ],
+  "powerW": 1500
 }

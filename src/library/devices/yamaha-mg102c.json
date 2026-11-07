@@ -5,7 +5,7 @@
   "pictogram": "console",
   "manufacturer": "Yamaha",
   "model": "MG102C",
-  "status": "community",
+  "status": "verified",
   "description": "MG102C : 4 entrées micro XLR, prises ligne dédiées, inserts sur canaux 1/2. Une prise par canal à utiliser à la fois ; alimentation externe PA-10.",
   "aliases": [
     "YAMAHA MG102C"
@@ -39,7 +39,7 @@
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/4/334554/mg82cx_en_om.pdf",
       "document": "Yamaha MG82CX / MG102C Owner’s Manual",
-      "accessed": "2026-10-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_mg102c_manuel.pdf",
@@ -148,7 +148,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -157,7 +157,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -166,7 +166,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -175,7 +175,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -184,7 +184,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -193,7 +193,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -202,7 +202,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -211,7 +211,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -220,7 +220,7 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Insert 0 dBu : pointe envoi, anneau retour"
     },
     {
@@ -229,7 +229,7 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Insert 0 dBu : pointe envoi, anneau retour"
     },
     {
@@ -335,8 +335,8 @@
       "name": "AC ADAPTOR IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Adaptateur Yamaha PA-10, AC 38 VCT 0,62 A"
+      "connector": "multipin",
+      "format": "Adaptateur Yamaha PA-10, AC 38 VCT 0,62 A ; prise ronde multibroche à bague de verrouillage (manuel p. 5 : « turn the fastening ring clockwise »), propre à Yamaha"
     }
   ],
   "weightKg": 1.5,

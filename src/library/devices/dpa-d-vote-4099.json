@@ -5,7 +5,7 @@
   "pictogram": "mic",
   "manufacturer": "DPA",
   "model": "d:vote 4099",
-  "status": "community",
+  "status": "verified",
   "description": "Microphone miniature, statique, super-cardioïde, fixations multiples (en sus)",
   "aliases": [
     "4099@SOLO",
@@ -23,6 +23,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "format": "Micro d'instrument supercardioïde statique, 2 mV/Pa ; MicroDot, vers XLR3 P48 avec l'adaptateur DAD6001-BC (48 V ±4 V, 3,5 mA) ou émetteur HF via adaptateur DPA (5 à 50 V)",
+      "phantom": "required"
+    }
+  ]
 }

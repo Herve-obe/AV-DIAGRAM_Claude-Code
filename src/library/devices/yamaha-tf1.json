@@ -10,7 +10,7 @@
     {
       "url": "https://usa.yamaha.com/products/proaudio/mixers/tf/specs.html",
       "document": "Yamaha USA, page Specs TF1",
-      "accessed": "2026-09-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/mixage/numerique/tf1/",
@@ -50,6 +50,11 @@
     {
       "url": "https://www.manualslib.com/manual/1071068/Yamaha-Tf5.html?page=11",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://www.hhb.co.uk/wp-content/uploads/tf5_en_qg_e0.pdf",
+      "document": "Yamaha TF Series Quick Guide (via HHB, distributeur), p. 9 Rear panel",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -383,7 +388,9 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "channels": 2
+      "channels": 2,
+      "level": "none",
+      "format": "Stereo Phone Jack (TRS) asymétrique, 100 Ω ; 3 mW nominal / 75 mW max sur 40 Ω"
     },
     {
       "id": "usb",
@@ -406,8 +413,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100 W"
+      "connector": "iec-c13",
+      "format": "Embase IEC (dessin face arrière du Quick Guide), cordon fourni ; 100-240 V 50/60 Hz, 100 W"
     },
     {
       "id": "network",
@@ -427,5 +434,6 @@
       "name": "Slot d'extension",
       "type": "yamaha-ny"
     }
-  ]
+  ],
+  "powerW": 100
 }

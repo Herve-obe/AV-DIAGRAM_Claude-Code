@@ -54,7 +54,7 @@
     {
       "url": "https://www.qscaudio.com/resource-files/productresources/mix/q_mix_tmix_specs_web.pdf",
       "document": "QSC TouchMix Series Spec Sheet, mars 2024 — page PDF 6 : TouchMix-16, 42 W ; 2,98 kg métriques retenus par l’utilisateur malgré l’incohérence 5,9 lb",
-      "accessed": "2026-10-29"
+      "accessed": "2026-11-07"
     },
     {
       "document": "Retour utilisateur lot audio 02, révision 822, 29 octobre 2026 : choix du poids métrique 2,98 kg et déclaration IEC C14 côté secteur du bloc. Manuel complet français proposé (49 Mo), accès refusé par le lecteur ; vue du bloc/prise 6 contacts consultée dans le manuel 2.1 déjà disponible.",
@@ -350,7 +350,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "mainR",
@@ -358,7 +359,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "aux1",
@@ -366,7 +368,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "aux2",
@@ -374,7 +377,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "aux3",
@@ -382,7 +386,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "aux4",
@@ -390,7 +395,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "aux5",
@@ -398,7 +404,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "aux6",
@@ -406,7 +413,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "XLR niveau ligne (« line-level ») ; +22 dBu max, nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "auxSt1",
@@ -415,7 +423,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Ligne ou ear monitor ; sortie ligne/écoute, nominal exact non publié"
+      "format": "Jack TRS stéréo (ear monitor) ou mono symétrique niveau ligne ; +22 dBu max",
+      "level": "line+4"
     },
     {
       "id": "auxSt2",
@@ -424,7 +433,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Ligne ou ear monitor ; sortie ligne/écoute, nominal exact non publié"
+      "format": "Jack TRS stéréo (ear monitor) ou mono symétrique niveau ligne ; +22 dBu max",
+      "level": "line+4"
     },
     {
       "id": "mon",
@@ -433,7 +443,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "Jack TRS stéréo, ligne ou casque (16 Ω min.) ; +22 dBu max",
+      "level": "line+4"
     },
     {
       "id": "cue",
@@ -442,7 +453,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "sortie ligne/écoute, nominal exact non publié"
+      "format": "Jack TRS stéréo, ligne ou casque (16 Ω min.) ; +22 dBu max",
+      "level": "line+4"
     },
     {
       "id": "usb",

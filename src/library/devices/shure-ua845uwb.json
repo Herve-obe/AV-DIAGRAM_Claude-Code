@@ -11,6 +11,11 @@
       "url": "https://pubs.shure.com/guide/UA845UWB/en-US",
       "document": "Shure, guide d'utilisation UA845UWB (pubs.shure.com)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/UA845UWB/en-US.pdf",
+      "document": "Shure, UA845UWB User Guide (PDF)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -145,15 +150,17 @@
       "name": "AC Power In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase IEC (C14 mâle), 100-240 V"
     },
     {
       "id": "acout",
       "name": "AC Power Out",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Chaînage de 5 récepteurs maximum"
+      "connector": "iec-c13",
+      "format": "Prise IEC (C13 femelle), chaînage de 5 récepteurs maximum"
     }
-  ]
+  ],
+  "powerW": 14.1
 }

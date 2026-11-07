@@ -5,7 +5,7 @@
   "pictogram": "speaker",
   "manufacturer": "Taiden",
   "model": "HCS-5100PA",
-  "status": "community",
+  "status": "verified",
   "description": "Casque stéréo pour récepteur Infra-Rouge",
   "aliases": [
     "HCS5100PA",
@@ -16,9 +16,24 @@
       "url": "https://www.novelty.fr/produits/sonorisation/traduction-simultanee/recepteur/hcs-5100pa/",
       "document": "Novelty — HCS-5100PA",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://itu.int/en/plenipotentiary/2014/Documents/TAIDENSeriesAccessoriesDatasheet_7_7.pdf",
+      "document": "Taiden, Series Accessories Datasheet",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "in",
+      "name": "Casque",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "none",
+      "channels": 2,
+      "format": "Fiche 3,5 mm TRS ; 2 × 32 Ω ; ≥ 108 dBA/1 mW"
+    }
+  ],
   "weightKg": 0.07
 }

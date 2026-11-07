@@ -5,7 +5,7 @@
   "pictogram": "processor",
   "manufacturer": "Attero Tech",
   "model": "unDIO2x2",
-  "status": "community",
+  "status": "verified",
   "description": "Interface unDIO2x2 sans +, deux entrées/sorties analogiques sur Euroblock et Dante. Fantôme +24 V ; consommation <3 W selon sa notice d’origine. Poids retenu : 0,363 kg (0,8 lb arrondies), déclaré par l’utilisateur identique à la version +, sans confirmation constructeur du poids de l’ancienne génération. Dimensions H × L × P : environ 26,9 × 163,8 × 87,6 mm. Aucun gain ni fantôme +48 V du modèle + n’est transposé.",
   "aliases": [
     "unDIOx2x",
@@ -50,7 +50,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "Euroblock débrochable 3 contacts, symétrique ; gain 0/+25/+40 dB ; fantôme +24 V commutable, pas +48 V garanti"
+      "format": "Euroblock débrochable 3 contacts, symétrique ; gain 0/+25/+40 dB ; fantôme +24 V commutable, pas +48 V garanti",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "terminal",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "in2",
@@ -58,7 +66,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "Euroblock débrochable 3 contacts, symétrique ; gain 0/+25/+40 dB ; fantôme +24 V commutable, pas +48 V garanti"
+      "format": "Euroblock débrochable 3 contacts, symétrique ; gain 0/+25/+40 dB ; fantôme +24 V commutable, pas +48 V garanti",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "terminal",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "out1",
@@ -66,7 +82,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "Euroblock 3 contacts, symétrique ; niveau maximal +9 dBu au réglage 0 dB, nominal non précisé"
+      "format": "Euroblock 3 contacts, symétrique ; niveau maximal +9 dBu au réglage 0 dB, nominal non précisé",
+      "level": "line+4"
     },
     {
       "id": "out2",
@@ -74,7 +91,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "Euroblock 3 contacts, symétrique ; niveau maximal +9 dBu au réglage 0 dB, nominal non précisé"
+      "format": "Euroblock 3 contacts, symétrique ; niveau maximal +9 dBu au réglage 0 dB, nominal non précisé",
+      "level": "line+4"
     },
     {
       "id": "dante",

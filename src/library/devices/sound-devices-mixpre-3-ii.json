@@ -4,14 +4,126 @@
   "manufacturer": "Sound Devices",
   "model": "MixPre-3 II",
   "pictogram": "recorder",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/SDMIXPRE6IIA.pdf",
+      "document": "Sound Devices, MixPre Series User Guide v7.10 (copie revendeur Adorama), « Panel Views »",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle symétrique actif 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle symétrique actif 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle symétrique actif 4 kΩ ; micro +14 dBu max, ligne +28 dBu max ; 48 V 10 mA",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "aux",
+      "name": "Aux/Mic/Timecode In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS asymétrique 2,2 kΩ : ligne, micro Plug-in Power (3 V) ou LTC",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "x12",
+      "name": "X1/X2 Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS asymétrique, +7,8 dBu max",
+      "level": "line-10"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 TRS, 300 mW + 300 mW"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI TC In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi-micro",
+      "format": "Micro HDMI : timecode et déclenchement d'enregistrement depuis la caméra"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-c",
+      "format": "Alimentation, interface audio USB, transfert de fichiers"
+    },
+    {
+      "id": "usba",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, clé USB, surface de contrôle"
+    }
+  ]
 }

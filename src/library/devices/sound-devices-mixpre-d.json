@@ -5,13 +5,142 @@
   "model": "MixPre-D",
   "pictogram": "console",
   "status": "community",
-  "portStatus": "pending",
   "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://la-bs.com/Objets/MIXPRE-D_dt.pdf",
+      "document": "Sound Devices MixPre-D datasheet (copie revendeur LA-BS)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/594214/sound-devices-mixpre-d.html?page=5",
+      "document": "Sound Devices MixPre-D User Guide, Side Panels Description et Outputs (copie ManualsDir)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique à transformateur, 2 kΩ micro / 16 kΩ ligne ; fantôme 48 V ou 12 V"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique à transformateur, 2 kΩ micro / 16 kΩ ligne ; fantôme 48 V ou 12 V"
+    },
+    {
+      "id": "outL",
+      "name": "XLR Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ],
+      "format": "XLR symétrique actif, ligne ou micro commutable ; +22 dBu max en ligne"
+    },
+    {
+      "id": "outR",
+      "name": "XLR Out R / AES",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ],
+      "format": "XLR symétrique actif, ligne ou micro ; commutable en AES3 110 Ω deux canaux (44,1/48/96 kHz)"
+    },
+    {
+      "id": "ta3",
+      "name": "Stereo Mic-level Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "ta3",
+      "level": "mic",
+      "channels": 2,
+      "format": "TA3 asymétrique stéréo, niveau micro fixe −36 dBu, pour entrée micro de reflex"
+    },
+    {
+      "id": "tape",
+      "name": "Tape Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Mini-jack 3,5 mm stéréo asymétrique, −10 dBu nominal fixe"
+    },
+    {
+      "id": "rtn",
+      "name": "Return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Mini-jack 3,5 mm stéréo asymétrique : retour d’écoute ou entrées 3/4 (niveau aux)"
+    },
+    {
+      "id": "phones",
+      "name": "Headphones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "none",
+      "channels": 2,
+      "format": "Jack 6,35 mm stéréo en face avant"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "channels": 2,
+      "format": "Interface audio USB class compliant (USB 1.1/2.0) ; type de prise non précisé"
+    },
+    {
+      "id": "dc",
+      "name": "DC Input",
+      "direction": "in",
+      "signal": "power",
+      "connector": "hirose4",
+      "format": "Hirose 4 broches, 10-17 V DC flottant (broche 4 +, broche 1 −) ; ou 2 piles AA"
+    }
+  ]
 }

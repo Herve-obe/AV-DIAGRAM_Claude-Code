@@ -4,7 +4,7 @@
   "manufacturer": "Klark Teknik",
   "model": "DN9680",
   "pictogram": "stagebox",
-  "status": "community",
+  "status": "verified",
   "weightKg": 4.9,
   "rackU": 1,
   "sources": [
@@ -17,6 +17,11 @@
       "url": "https://www.avlfx.com/category/product/1623-klark-teknik-dn9680-8-port-aes50-extender-and-multiplexer-with-up-to-1000-metre-range/category_pathway-13",
       "document": "AVLFX, fiche DN9680 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.allfordj.ru/upload/iblock/cdf/r99jqz63cilgfo1oorr4rzb862newqj9/rukovodstvo_polzovatelya_klark_teknik_dn9680.pdf",
+      "document": "Klark Teknik, DN9680 User Manual Issue B (copie revendeur)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -26,7 +31,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes2",
@@ -34,7 +40,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes3",
@@ -42,7 +49,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes4",
@@ -50,7 +58,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes5",
@@ -58,7 +67,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes6",
@@ -66,7 +76,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes7",
@@ -74,7 +85,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "aes8",
@@ -82,7 +94,8 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ethercon",
-      "format": "AES50"
+      "format": "AES50 etherCON, 24 canaux à 96 kHz plus données de commande",
+      "channels": 24
     },
     {
       "id": "snakeCu",
@@ -105,16 +118,17 @@
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "unspecified",
-      "format": "Configuration par navigateur"
+      "connector": "rj45",
+      "format": "Port Ethernet de configuration (RJ45)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation universelle"
+      "connector": "iec-c13",
+      "format": "IEC 3 broches, 100-240 V, alimentation à découpage"
     }
-  ]
+  ],
+  "powerW": 50
 }

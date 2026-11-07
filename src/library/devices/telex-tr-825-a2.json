@@ -38,7 +38,23 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison HF base",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "UHF, plan A2 (émission 518-536 MHz, réception 632-650 MHz) vers base BTR-800 ; antennes quart d'onde vissées"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle (TR-825 standard, A4M) ; variante 5-Pin en XLR 5 mâle, à vérifier sur l'appareil"
+    }
+  ],
   "weightKg": 0.595
 }

@@ -4,13 +4,23 @@
   "manufacturer": "Sennheiser",
   "model": "ASA 3000",
   "pictogram": "wireless",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
       "url": "https://www.sennheiser.com/globalassets/digizuite/40549-en-asa_3000_quick_guide_12_2020.pdf",
       "document": "Sennheiser, guide rapide ASA 3000 (12/2020)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.sennheiser.com/globalassets/digizuite/41762-en-sp_1288_v1.0_asa_3000_product_specification_en.pdf",
+      "document": "Sennheiser, ASA 3000 Product specification SP 1288 v1.0",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/39491-ASA3000Manual.pdf",
+      "document": "Sennheiser, ASA 3000 Instruction manual, copie Full Compass",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -146,7 +156,9 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Embase secteur IEC, 100-240 V"
     }
-  ]
+  ],
+  "powerW": 15
 }

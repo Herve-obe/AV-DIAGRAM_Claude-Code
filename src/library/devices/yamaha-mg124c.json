@@ -5,7 +5,7 @@
   "pictogram": "console",
   "manufacturer": "Yamaha",
   "model": "MG124C",
-  "status": "community",
+  "status": "verified",
   "description": "MG124C : 6 entrées micro XLR, prises ligne dédiées et inserts sur canaux 1–4 ; sans effet interne. Alimentation externe Yamaha PA-20.",
   "aliases": [
     "YAMAHA MG124C"
@@ -34,7 +34,7 @@
     {
       "url": "https://usa.yamaha.com/files/download/other_assets/7/334547/mg124cx_en_om.pdf",
       "document": "Yamaha MG124CX / MG124C Owner’s Manual",
-      "accessed": "2026-10-25"
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_mg124c_manuel.pdf",
@@ -181,7 +181,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -190,7 +190,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -199,7 +199,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -208,7 +208,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique ; entrée alternative à la prise MIC/RCA du même canal"
     },
     {
@@ -217,7 +217,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -226,7 +226,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -235,7 +235,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -244,7 +244,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "level": "none",
+      "level": "line-10",
       "format": "Ligne asymétrique −10 dBu nominal ; alternative au jack du même canal"
     },
     {
@@ -253,7 +253,7 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Insert 0 dBu : pointe envoi, anneau retour"
     },
     {
@@ -262,7 +262,7 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Insert 0 dBu : pointe envoi, anneau retour"
     },
     {
@@ -271,7 +271,7 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Insert 0 dBu : pointe envoi, anneau retour"
     },
     {
@@ -280,7 +280,7 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "none",
+      "level": "line+4",
       "format": "Insert 0 dBu : pointe envoi, anneau retour"
     },
     {
@@ -426,8 +426,8 @@
       "name": "AC ADAPTOR IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Adaptateur Yamaha PA-20, AC 35 VCT 0,94 A"
+      "connector": "multipin",
+      "format": "Adaptateur Yamaha PA-20, AC 35 VCT 0,94 A ; prise ronde multibroche à bague de verrouillage (manuel p. 5 : « turn the fastening ring clockwise »), propre à Yamaha"
     }
   ],
   "weightKg": 3,

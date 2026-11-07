@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Shure",
   "model": "KSM8-HF noir",
-  "status": "community",
+  "status": "verified",
   "description": "Emetteur microphone main UR2 avec capsule KSM8 noire, cardioïde Dualdyne",
   "aliases": [
     "UR2/G1E/KSM8",
@@ -23,7 +23,15 @@
       "accessed": "2026-10-25"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ],
   "weightKg": 0.33
 }

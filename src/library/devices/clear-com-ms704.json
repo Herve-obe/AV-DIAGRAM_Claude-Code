@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Clear-Com",
   "model": "MS704",
-  "status": "community",
+  "status": "verified",
   "description": "Centrale intercommunication 4 directions",
   "aliases": [
     "CLEARCOM MS704"
@@ -25,8 +25,138 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1253099476.pdf",
       "document": "Novelty — MS704 : CLEARCOM MS702",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/332632/clear-com-ms-704.html",
+      "document": "Clear-Com, MS-704 / RM-704 Four-Channel Main/Remote Stations, manuel (copie manualsdir)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "a1",
+      "name": "Ligne intercom A 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "a2",
+      "name": "Ligne intercom A 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b1",
+      "name": "Ligne intercom B 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b2",
+      "name": "Ligne intercom B 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "c1",
+      "name": "Ligne intercom C 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "c2",
+      "name": "Ligne intercom C 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "d1",
+      "name": "Ligne intercom D 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "d2",
+      "name": "Ligne intercom D 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "pgm",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, programme principal niveau ligne"
+    },
+    {
+      "id": "ann",
+      "name": "Announce Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, symétrique par transformateur"
+    },
+    {
+      "id": "acc",
+      "name": "Accessory",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "D-Sub 15 femelle : contacts du relais Announce (2 A CC) et quatre entrées programme auxiliaires"
+    },
+    {
+      "id": "hotmic",
+      "name": "Hot Mic / IFB",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 : pointe sortie micro, bague commande IFB externe"
+    },
+    {
+      "id": "pmic",
+      "name": "Panel Mic",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Embase 6,35 en façade pour micro col de cygne"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle en façade"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 320, 100 à 240 V CA"
+    }
+  ],
+  "powerW": 60
 }

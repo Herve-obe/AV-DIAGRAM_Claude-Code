@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Clear-Com",
   "model": "KB112",
-  "status": "community",
+  "status": "verified",
   "description": "Haut-parleur & micro déporté pour station intercom",
   "aliases": [
     "CLEARCOM KB112"
@@ -22,6 +22,23 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "line",
+      "name": "Ligne intercom (TB-1)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "terminal",
+      "format": "Bornier TB-1 : 1 masse, 3 audio intercom, 4 +30 V CC, 5 commun ; alimenté par la ligne (12 à 32 V, 17 mA repos, 60 mA en parole)"
+    },
+    {
+      "id": "pgm",
+      "name": "Entrée programme (TB-1)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line-10",
+      "format": "Broche 2 du bornier TB-1 ; ligne asymétrique, 500 kΩ, 0,7 V pour la sortie max"
+    }
+  ]
 }
