@@ -62,7 +62,6 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "level": "line+4",
       "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
     },
     {
@@ -71,7 +70,6 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "level": "line+4",
       "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
     },
     {
@@ -80,7 +78,6 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "level": "line+4",
       "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
     },
     {
@@ -89,7 +86,6 @@
       "direction": "bidir",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "level": "line+4",
       "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
     },
     {
@@ -98,7 +94,15 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr4",
-      "format": "XLR 4 casque en façade (avec jack test), écoute de l'oscillateur de réglage du null"
+      "format": "XLR 4 mâle casque en façade, écoute de l'oscillateur de réglage du null"
+    },
+    {
+      "id": "nullear",
+      "name": "Null Monitor (écouteur TS1)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm en façade pour écouteur TS1, écoute du réglage du null"
     }
   ]
 }

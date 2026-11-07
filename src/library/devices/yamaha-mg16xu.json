@@ -176,7 +176,7 @@
       "name": "Stereo In 9/10",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "jack-trs",
+      "connector": "jack-ts",
       "level": "line+4",
       "channels": 2
     },
@@ -185,7 +185,7 @@
       "name": "Stereo In 11/12",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "jack-trs",
+      "connector": "jack-ts",
       "level": "line+4",
       "channels": 2
     },
@@ -194,7 +194,7 @@
       "name": "Stereo In 13/14",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "jack-trs",
+      "connector": "jack-ts",
       "level": "line+4",
       "channels": 2,
       "format": "Jack ou RCA"
@@ -204,7 +204,7 @@
       "name": "Stereo In 15/16",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "jack-trs",
+      "connector": "jack-ts",
       "level": "line+4",
       "channels": 2,
       "format": "Jack ou RCA"
@@ -214,18 +214,18 @@
       "name": "Stereo Out L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack"
+      "format": "XLR symétrique"
     },
     {
       "id": "outR",
       "name": "Stereo Out R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "combo",
+      "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR et jack"
+      "format": "XLR symétrique"
     },
     {
       "id": "grp1",
@@ -339,6 +339,44 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "[AC IN] : embase IEC (dessin p. 27), alimentation universelle interne 100-240 V"
+    },
+    {
+      "id": "rca13",
+      "name": "Stereo In 13/14 RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA L/R asymétriques ; alternative aux jacks du même canal (le jack est prioritaire)"
+    },
+    {
+      "id": "rca15",
+      "name": "Stereo In 15/16 RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA L/R asymétriques ; alternative aux jacks du même canal (le jack est prioritaire)"
+    },
+    {
+      "id": "outTrsL",
+      "name": "Stereo Out L (jack)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, en plus de la sortie XLR"
+    },
+    {
+      "id": "outTrsR",
+      "name": "Stereo Out R (jack)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, en plus de la sortie XLR"
     }
   ],
   "weightKg": 6.8,

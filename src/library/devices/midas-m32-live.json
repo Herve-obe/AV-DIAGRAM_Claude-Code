@@ -919,6 +919,32 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Import/export audio et données"
+    },
+    {
+      "id": "rcaIn",
+      "name": "RCA In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Entrées RCA (QSG : « RCA Inputs / Outputs 2 »)"
+    },
+    {
+      "id": "rcaOut",
+      "name": "RCA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Sorties RCA (QSG : « RCA Inputs / Outputs 2 »)"
+    },
+    {
+      "id": "usbB",
+      "name": "USB Type B (télécommande)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Face arrière, commande à distance"
     }
   ],
   "powerW": 120

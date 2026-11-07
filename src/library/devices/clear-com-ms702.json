@@ -108,8 +108,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 : pointe sortie micro, bague commande IFB externe"
+      "format": "Jack 6,35 : pointe sortie micro asymétrique (180 Ω), bague entrée de commande IFB externe, corps masse"
     },
     {
       "id": "pmic",
@@ -138,5 +137,6 @@
     }
   ],
   "weightKg": 2.75,
-  "powerW": 60
+  "powerW": 60,
+  "rackU": 1
 }

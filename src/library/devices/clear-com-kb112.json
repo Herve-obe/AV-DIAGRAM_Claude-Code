@@ -37,8 +37,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "level": "line-10",
       "format": "Broche 2 du bornier TB-1 ; ligne asymétrique, 500 kΩ, 0,7 V pour la sortie max"
+    },
+    {
+      "id": "remotePtt",
+      "name": "Parole déportée (S-1)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Bornes commun et N.O. de S-1 sur la carte : bouton de parole déporté à contact momentané"
     }
   ]
 }

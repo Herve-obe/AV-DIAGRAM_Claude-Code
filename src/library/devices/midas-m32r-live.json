@@ -580,6 +580,32 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Import/export audio et données"
+    },
+    {
+      "id": "rcaIn",
+      "name": "RCA In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Entrées RCA (QSG : « RCA Inputs / Outputs 2/2 »)"
+    },
+    {
+      "id": "rcaOut",
+      "name": "RCA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Sorties RCA (QSG : « RCA Inputs / Outputs 2/2 »)"
+    },
+    {
+      "id": "usbB",
+      "name": "USB Type B (télécommande)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Face arrière, commande à distance"
     }
   ],
   "description": "M32R LIVE, à ne pas confondre avec la M32 LIVE : 16 préamplis locaux, huit sorties XLR et DN32-LIVE. Reste Communauté : recouper les sorties monitor XLR annoncées par le tableau avec la face arrière, et le niveau nominal TRS (+4 dBu dans ce guide, −2 dBu dans un guide constructeur ultérieur).",

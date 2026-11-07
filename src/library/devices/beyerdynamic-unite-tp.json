@@ -53,7 +53,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "usb-c",
-      "format": "Charge"
+      "format": "USB-C : entrée audio et charge, 5 V, max 500 mA"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth 4.2 (HFP, A2DP), intégré"
     }
   ],
   "powerW": 2.5
