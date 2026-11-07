@@ -88,7 +88,6 @@ describe('catalogue Novelty hors Structure', () => {
     const displayed = groupByDomain(LIBRARY).flatMap(d => d.families.flatMap(f => f.items.map(t => t.id)))
     expect(new Set(displayed).size).toBe(LIBRARY.length)
     expect(displayed).toHaveLength(LIBRARY.length)
-    expect(template('novelty-rc32').domain).toBe('distribution')
     expect(template('audio-technica-at8615').domain).toBe('sound')
   })
 
@@ -111,11 +110,6 @@ describe('catalogue Novelty hors Structure', () => {
   })
 
   it('utilise les entrées/sorties déclarées, sans confondre ampères et watts ni poids de transport et poids unitaire', () => {
-    const rc32 = template('novelty-rc32')
-    expect(rc32.ports.filter(p => p.direction === 'in' && p.connector === 'p17-32-tri')).toHaveLength(1)
-    expect(rc32.ports.filter(p => p.connector === 'p17-32-mono')).toHaveLength(3)
-    expect(rc32.ports.filter(p => p.connector === 'schuko')).toHaveLength(6)
-    expect(rc32.powerW).toBeUndefined()
     expect(connectorsMate('p17-32-tri', 'p17-32-mono')).toBe(false)
     expect(connectorsMate('p17-125-tri', 'p17-63-tri')).toBe(false)
     const quik = template('astera-quikpunch')
@@ -188,7 +182,7 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
 
   it('écarte les accessoires et les ensembles, et conserve les appareils physiques', () => {
     for (const id of ['adam-hall-slt005', 'compulocks-ipadair-stand', 'luke-asb-i', 'novelty-siege-de-pont-pour-poursuite', 'novelty-cmx', 'novelty-hmi2500the-h', 'apple-logic-pro-x', 'shure-sbrc-e', 'audio-technica-at8601', 'l-acoustics-syva-base']) expect(LIBRARY_INDEX.has(id), id).toBe(false)
-    for (const id of ['l-acoustics-108p', 'motorola-dp1400', 'indu-electric-ap125tdif', 'oray-fly-duo-150-200', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
+    for (const id of ['l-acoustics-108p', 'motorola-dp1400', 'indu-electric-ap125tdif', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
     expect(searchLibrary(LIBRARY, 'SLT005')).toEqual([])
     expect(template('audio-technica-at8615').ports.map(p => p.direction)).toEqual(['in', 'out'])
   })
@@ -259,13 +253,12 @@ describe('appareils unitaires — décision du 26 octobre', () => {
   })
 
   it('présente les lots homogènes comme un seul appareil, sans poids de transport supposé', () => {
-    for (const row of audit.entries.filter(r => r.decision === 'normalized' && !Object.hasOwn(excludedDevices, r.id))) {
+    for (const row of audit.entries.filter(r => r.decision === 'normalized' && !Object.hasOwn(excludedDevices, r.id) && !deletedDevices.has(r.id))) {
       const unit = template(row.id)
       expect([unit.model, ...(unit.aliases ?? [])], row.id).toContain(row.modelAfter)
       expect([unit.model, unit.description, ...(unit.aliases ?? [])].join(' '), row.id).not.toMatch(/(?:kit|set)\s*(?:de\s*)?[x×]?\s*[2-9]|(?:kit|set)\s*x?\s*2[0-9]/i)
     }
     expect(template('l-acoustics-12xt-kit-x2').weightKg).toBe(29) // masse unitaire documentée dans la nouvelle notice
-    expect(template('novelty-matled-cbat-setx4').weightKg).toBeUndefined()
     expect(template('astera-quikpunch').weightKg).toBe(6.567)
   })
 

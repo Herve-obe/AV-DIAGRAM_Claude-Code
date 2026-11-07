@@ -20,7 +20,9 @@ const get = (id: string) => {
 describe('variantes choisies dans les lots audio 04 et lumière 02', () => {
   it('rend les variantes choisies accessibles sans conserver leurs doublons génériques', () => {
     expect(feedback.records).toHaveLength(17)
-    for (const row of feedback.records) for (const id of row.targetIds) get(id)
+    // Fiches supprimées ensuite sur décision de l'utilisateur (ex. MKH 406 : le parc a des MKH 416 P48U)
+    const deleted = new Set((JSON.parse(readFileSync(new URL('../../docs/inventaire/suppressions-audio-2026-11-06.json', import.meta.url), 'utf8')) as { deleted: { id: string }[] }).deleted.map(d => d.id))
+    for (const row of feedback.records) for (const id of row.targetIds) if (!deleted.has(id)) get(id)
     for (const id of feedback.excludedIds) expect(LIBRARY_INDEX.has(id), id).toBe(false)
     for (const id of feedback.canonicalReused) expect(get(id).status, id).toBe('verified')
     expect(searchLibrary(LIBRARY, 'e609')[0].template_id).toBe('sennheiser-e609-silver')
