@@ -3,10 +3,10 @@
   "family": "network",
   "domain": "network",
   "pictogram": "switch",
-  "manufacturer": "Mikrotic",
-  "model": "HAP AX2",
-  "status": "community",
-  "description": "Routeur Wifi 6, 2.4/5Ghz",
+  "manufacturer": "MikroTik",
+  "model": "hAP ax2 (C52iG-5HaxD2HaxD-TC)",
+  "status": "verified",
+  "description": "Routeur Wi-Fi 6 double bande AX1800, 5 ports Gigabit dont un avec PoE passif en sortie.",
   "aliases": [
     "Mikrotic HAP AX2"
   ],
@@ -15,8 +15,87 @@
       "url": "https://www.novelty.fr/produits/video/informatique-video/peripheriques-informatique/routeur-switch-hub/hap-ax2/",
       "document": "Novelty — HAP AX2",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://mikrotik.com/product/hap_ax2",
+      "document": "MikroTik, page produit hAP ax² (spécifications)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "ether1",
+      "name": "Ether1 (PoE out)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s, PoE passif en sortie, 600 mA, 16,8 W max",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 16.8
+      }
+    },
+    {
+      "id": "ether2",
+      "name": "Ether2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ether3",
+      "name": "Ether3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ether4",
+      "name": "Ether4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ether5",
+      "name": "Ether5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 6 AX1800 : 2,4 GHz 802.11b/g/n/ax 574 Mbit/s, 5 GHz 802.11a/n/ac/ax 1200 Mbit/s"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack DC 12-28 V (bloc 24 V 1,2 A fourni) ; PoE passif en entrée 18-28 V également possible"
+    }
+  ],
+  "powerW": 27
 }

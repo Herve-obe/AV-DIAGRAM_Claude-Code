@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "Luminex",
   "model": "Gigacore 10",
-  "status": "community",
-  "description": "Switch 8 ports ethernet + 2 ports fibre optique",
+  "status": "verified",
+  "description": "Switch Gigabit 8 ports etherCON (4 avant, 4 arrière), 2 ports fibre robustes en option (Neutrik ou Fiberfox), PoE en option, alimentation powerCON TRUE1.",
   "aliases": [
     "Luminex Gigacore 10"
   ],
@@ -25,10 +25,118 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/luminex_gigacore10_start_guidepdf.pdf",
       "document": "Novelty — Gigacore 10 : Start Guide",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.tsllighting.com/wp-content/uploads/2023/11/Luminex-GigaCore-10-Spec-Sheet.pdf",
+      "document": "Luminex, Technical specifications GigaCore 10 rev. 1.0.0 (PDF constructeur hébergé par TSL Lighting)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.luminex.be/product/gigacore-10/",
+      "document": "Luminex, page produit GigaCore 10 (LU 01 00058, abandonné)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "front1",
+      "name": "Avant 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front2",
+      "name": "Avant 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front3",
+      "name": "Avant 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front4",
+      "name": "Avant 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "rear1",
+      "name": "Arrière 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "rear2",
+      "name": "Arrière 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "rear3",
+      "name": "Arrière 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "rear4",
+      "name": "Arrière 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, 100-240 V, 50-60 Hz"
+    }
+  ],
   "weightKg": 2.8,
-  "powerW": 20
+  "powerW": 20,
+  "rackU": 1,
+  "depthMm": 330
 }

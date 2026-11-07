@@ -4,15 +4,46 @@
   "manufacturer": "Avid",
   "model": "HDX",
   "pictogram": "processor",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Carte PCIe DSP Pro Tools HDX : 2 ports DigiLink Mini (jusqu'à 64 canaux E/S avec la première carte) et 1 port DigiSerial pour périphérique SYNC.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/AV9900651730.pdf",
+      "document": "Avid, HDX Card Installation Guide (2011), PDF hébergé par Adorama",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
+  "ports": [
+    {
+      "id": "dl1",
+      "name": "DigiLink Mini 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Vers interfaces Avid HD, 32 canaux E/S"
+    },
+    {
+      "id": "dl2",
+      "name": "DigiLink Mini 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Vers interfaces Avid HD, 32 canaux E/S"
+    },
+    {
+      "id": "serial",
+      "name": "DigiSerial",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "minidin8",
+      "format": "Port série vers périphérique SYNC (SYNC HD), sans MachineControl"
+    }
+  ],
   "moduleType": "avid-hdx"
 }

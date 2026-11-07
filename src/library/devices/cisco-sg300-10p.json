@@ -48,7 +48,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge2",
@@ -56,7 +61,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge3",
@@ -64,7 +74,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge4",
@@ -72,7 +87,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge5",
@@ -80,7 +100,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge6",
@@ -88,7 +113,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge7",
@@ -96,7 +126,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "ge8",
@@ -104,33 +139,69 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit PoE"
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
     },
     {
       "id": "combo1",
-      "name": "Combo 1",
+      "name": "Combo 1 (GE 9)",
       "direction": "bidir",
       "signal": "network",
       "connector": "sfp",
-      "format": "Gigabit RJ45 / SFP"
+      "format": "Port combo Gigabit : cage SFP (mini-GBIC) ou RJ45 partagé, pas de PoE",
+      "modes": [
+        {
+          "connector": "rj45",
+          "level": "none"
+        }
+      ],
+      "network": {
+        "capacityMbps": 1000
+      }
     },
     {
       "id": "combo2",
-      "name": "Combo 2",
+      "name": "Combo 2 (GE 10)",
       "direction": "bidir",
       "signal": "network",
       "connector": "sfp",
-      "format": "Gigabit RJ45 / SFP"
+      "format": "Port combo Gigabit : cage SFP (mini-GBIC) ou RJ45 partagé, pas de PoE",
+      "modes": [
+        {
+          "connector": "rj45",
+          "level": "none"
+        }
+      ],
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "console",
+      "name": "Console",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port console série RS-232 (câble série fourni), 115 200 bit/s"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Alimentation (bloc externe)",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Bloc secteur externe 100-240 V, 2 A (fourni) ; connecteur côté switch non documenté par Cisco"
     }
   ],
   "aliases": [
     "Cisco SG300-10P"
-  ]
+  ],
+  "powerW": 81.44,
+  "poeBudgetW": 62,
+  "weightKg": 1.24,
+  "depthMm": 170
 }

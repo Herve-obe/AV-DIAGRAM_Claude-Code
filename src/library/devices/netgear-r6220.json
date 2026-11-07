@@ -4,11 +4,21 @@
   "manufacturer": "Netgear",
   "model": "R6220 (AC1200)",
   "pictogram": "switch",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://cdn.blueally.com/netguardstore/datasheets/wireless-routers/r6220.pdf",
+      "document": "Netgear, AC1200 Smart WiFi Router R6220 data sheet (D-R6220-2, PDF hébergé par BlueAlly)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.downloads.netgear.com/files/GDC/datasheet/de/R6220.pdf",
+      "document": "Netgear, Datenblatt R6220 (DE)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -18,7 +28,10 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit"
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
     },
     {
       "id": "lan2",
@@ -26,7 +39,10 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit"
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
     },
     {
       "id": "lan3",
@@ -34,7 +50,10 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit"
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
     },
     {
       "id": "lan4",
@@ -42,14 +61,21 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Gigabit"
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
     },
     {
       "id": "wan",
-      "name": "WAN",
+      "name": "WAN (Internet)",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
     },
     {
       "id": "wifi",
@@ -57,14 +83,23 @@
       "direction": "bidir",
       "signal": "rf",
       "connector": "rf",
-      "format": "AC1200"
+      "format": "AC1200 double bande simultanée : 2,4 GHz 802.11b/g/n 300 Mbit/s, 5 GHz 802.11a/n/ac 867 Mbit/s"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 ReadySHARE (disque ou imprimante partagés)"
     },
     {
       "id": "dc",
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "dc-barrel"
+      "connector": "dc-barrel",
+      "format": "Jack DC, bloc secteur externe fourni"
     }
   ]
 }

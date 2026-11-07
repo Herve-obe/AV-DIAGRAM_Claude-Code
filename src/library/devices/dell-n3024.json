@@ -5,13 +5,376 @@
   "model": "N3024",
   "pictogram": "switch",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Switch administrable niveau 3, 24 ports Gigabit RJ45, 2 ports combo GbE, 2 ports SFP+ 10GbE, baie d'extension, alimentation 200 W remplaçable à chaud (seconde alimentation en option).",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.netsolutionworks.com/datasheets/Dell_Networking_N3000_Series_SpecSheet.pdf",
+      "document": "Dell Networking N3000 Series spec sheet (PDF Dell hébergé par le revendeur Net Solution Works)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Port 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Port 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p3",
+      "name": "Port 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p4",
+      "name": "Port 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p5",
+      "name": "Port 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p6",
+      "name": "Port 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p7",
+      "name": "Port 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p8",
+      "name": "Port 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p9",
+      "name": "Port 9",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p10",
+      "name": "Port 10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p11",
+      "name": "Port 11",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p12",
+      "name": "Port 12",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p13",
+      "name": "Port 13",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p14",
+      "name": "Port 14",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p15",
+      "name": "Port 15",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p16",
+      "name": "Port 16",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p17",
+      "name": "Port 17",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p18",
+      "name": "Port 18",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p19",
+      "name": "Port 19",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p20",
+      "name": "Port 20",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p21",
+      "name": "Port 21",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p22",
+      "name": "Port 22",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p23",
+      "name": "Port 23",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p24",
+      "name": "Port 24",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "combo1",
+      "name": "Combo 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Port combo GbE : SFP ou RJ45",
+      "modes": [
+        {
+          "connector": "rj45",
+          "level": "none"
+        }
+      ],
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "combo2",
+      "name": "Combo 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Port combo GbE : SFP ou RJ45",
+      "modes": [
+        {
+          "connector": "rj45",
+          "level": "none"
+        }
+      ],
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP+ 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "10GbE SFP+ (face avant)",
+      "network": {
+        "capacityMbps": 10000
+      }
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP+ 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "10GbE SFP+ (face avant)",
+      "network": {
+        "capacityMbps": 10000
+      }
+    },
+    {
+      "id": "oob",
+      "name": "Gestion hors bande",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Port de gestion hors bande 10/100/1000BASE-T",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "console",
+      "name": "Console",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Console RS-232 sur RJ45 (câble RJ45 vers DB-9 femelle fourni)"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur (alimentation 1)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Alimentation 200 W remplaçable à chaud, 100-240 V ; cordon C13 vers C14"
+    }
+  ],
+  "powerW": 52.8,
+  "weightKg": 6,
+  "rackU": 1,
+  "depthMm": 407,
+  "slots": [
+    {
+      "id": "exp",
+      "name": "Baie d'extension arrière",
+      "type": "dell-n3000-uplink"
+    }
+  ]
 }

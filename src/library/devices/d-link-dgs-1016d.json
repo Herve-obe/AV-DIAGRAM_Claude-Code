@@ -5,7 +5,7 @@
   "pictogram": "switch",
   "manufacturer": "D-Link",
   "model": "DGS-1016D",
-  "status": "community",
+  "status": "verified",
   "description": "Switch ethernet 16 voies 10/100/1000 MBits RJ45",
   "aliases": [
     "SWITCH-DGS1016D",
@@ -33,8 +33,192 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 1.8,
-  "powerW": 11.7
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Port 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Port 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p3",
+      "name": "Port 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p4",
+      "name": "Port 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p5",
+      "name": "Port 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p6",
+      "name": "Port 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p7",
+      "name": "Port 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p8",
+      "name": "Port 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p9",
+      "name": "Port 9",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p10",
+      "name": "Port 10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p11",
+      "name": "Port 11",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p12",
+      "name": "Port 12",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p13",
+      "name": "Port 13",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p14",
+      "name": "Port 14",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p15",
+      "name": "Port 15",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "p16",
+      "name": "Port 16",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Alimentation interne universelle 100-240 V, 50/60 Hz"
+    }
+  ],
+  "weightKg": 1.75,
+  "powerW": 27.5
 }

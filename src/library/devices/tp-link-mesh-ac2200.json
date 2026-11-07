@@ -3,10 +3,10 @@
   "family": "network",
   "domain": "network",
   "pictogram": "switch",
-  "manufacturer": "Tp-Link",
-  "model": "Mesh AC2200",
-  "status": "community",
-  "description": "Borne wifi Mesh AC2200 avec 2 prises réseau gigabit",
+  "manufacturer": "TP-Link",
+  "model": "Deco M9 Plus (AC2200)",
+  "status": "verified",
+  "description": "Borne Wi-Fi mesh tri-bande AC2200 avec 2 ports Gigabit, Bluetooth et ZigBee.",
   "aliases": [
     "SWITCH-M9PLUS",
     "Tp-Link Mesh AC2200"
@@ -16,8 +16,64 @@
       "url": "https://www.novelty.fr/produits/video/informatique-video/peripheriques-informatique/routeur-switch-hub/mesh-ac2200/",
       "document": "Novelty — Mesh AC2200",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.tp-link.com/fr/home-networking/deco/deco-m9-plus/",
+      "document": "TP-Link, page produit Deco M9 Plus (spécifications)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://community.tp-link.com/en/home/forum/topic/171172",
+      "document": "Communauté TP-Link, réponse du support : fiche d'alimentation 5,3 x 2,1 mm",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s, WAN/LAN automatique",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000 Mbit/s, WAN/LAN automatique",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Tri-bande AC2200 : 2,4 GHz 400 Mbit/s + 2 x 5 GHz 867 Mbit/s, 802.11ac/n/a/b/g"
+    },
+    {
+      "id": "iot",
+      "name": "Bluetooth / ZigBee",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth 4.2 et ZigBee HA 1.2 (hub domotique)"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack DC (fiche 5,3 x 2,1 mm), bloc secteur fourni"
+    }
+  ]
 }

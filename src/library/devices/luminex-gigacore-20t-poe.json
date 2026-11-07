@@ -11,6 +11,11 @@
       "url": "https://www.luminex.be/wp-content/uploads/doccenter/Product-specification-sheet-GigaCore-20t-v1.0.1.pdf",
       "document": "Luminex, Product specification sheet GigaCore 20t v1.0.1",
       "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.luminex.be/products/gigacore/gigacore-20t/",
+      "document": "Luminex, page produit GigaCore 20t (consommation, poids)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -20,7 +25,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "front2",
@@ -28,7 +38,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "front3",
@@ -36,7 +51,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "front4",
@@ -44,7 +64,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rear1",
@@ -52,7 +77,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rear2",
@@ -60,7 +90,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rear3",
@@ -68,7 +103,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rear4",
@@ -76,7 +116,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj1",
@@ -84,7 +129,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj2",
@@ -92,7 +142,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj3",
@@ -100,7 +155,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj4",
@@ -108,7 +168,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj5",
@@ -116,7 +181,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj6",
@@ -124,7 +194,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj7",
@@ -132,7 +207,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "rj8",
@@ -140,7 +220,12 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)"
+      "format": "10/100/1000BASE-T, PoE++ (90 W par port, budget total jusqu'à 500 W)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 90
+      }
     },
     {
       "id": "sfp1",
@@ -190,5 +275,8 @@
       "connector": "powercon-true1",
       "format": "powerCON TRUE1 sortie"
     }
-  ]
+  ],
+  "powerW": 510,
+  "poeBudgetW": 500,
+  "weightKg": 4
 }

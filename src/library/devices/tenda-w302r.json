@@ -5,7 +5,7 @@
   "pictogram": "switch",
   "manufacturer": "Tenda",
   "model": "W302R",
-  "status": "community",
+  "status": "verified",
   "description": "Routeur WiFi + Ethernet (802.11n/g/b, 802.3, 802.3u), 5 ports RJ45",
   "aliases": [
     "Tenda W302R"
@@ -37,6 +37,77 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "wan",
+      "name": "WAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mbit/s, auto MDI/MDIX",
+      "network": {
+        "capacityMbps": 100
+      }
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mbit/s, auto MDI/MDIX",
+      "network": {
+        "capacityMbps": 100
+      }
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mbit/s, auto MDI/MDIX",
+      "network": {
+        "capacityMbps": 100
+      }
+    },
+    {
+      "id": "lan3",
+      "name": "LAN 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mbit/s, auto MDI/MDIX",
+      "network": {
+        "capacityMbps": 100
+      }
+    },
+    {
+      "id": "lan4",
+      "name": "LAN 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Mbit/s, auto MDI/MDIX",
+      "network": {
+        "capacityMbps": 100
+      }
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "802.11b/g/n 2,4 GHz, jusqu'à 300 Mbit/s, 3 antennes fixes 2,5 dBi"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc secteur externe fourni, sortie 9 V DC 1 A"
+    }
+  ]
 }
