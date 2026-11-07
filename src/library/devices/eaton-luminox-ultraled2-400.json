@@ -4,19 +4,36 @@
   "domain": "light",
   "pictogram": "light",
   "manufacturer": "EATON LUMINOX",
-  "model": "ULTRALED2-400",
+  "model": "Ultraled 2-400",
   "status": "community",
-  "description": "Bloc anti-panique, 400 Lumens, C13 & XLR in/out",
+  "description": "Bloc autonome anti-panique Ultraled 2-400 (LUM16143), 400 lm, autonomie 1 h, test automatique SATI, batterie LiFePO4 3,2 V / 3 Ah. Raccordement sur bornes sans vis 220-240 V ; 0,4 kg. Les embases C13 et XLR citées par le loueur ne figurent pas sur la fiche constructeur. Bornes de télécommande (accessoire TLU 2) non détaillées.",
   "aliases": [
-    "EATON LUMINOX ULTRALED2-400"
+    "ULTRALED2-400",
+    "EATON LUMINOX ULTRALED2-400",
+    "LUM16143"
   ],
   "sources": [
     {
+      "url": "https://res.cloudinary.com/sonepar-fr/raw/upload/s--3m9L2EJf--/v1/documents/6226/eaton-eclairage-securite-baes-ultraled-2-400-fiche-produit.pdf",
+      "document": "Eaton Luminox : fiche produit Ultraled 2-400 (LUM16143) : bornes, tension, consommation 0,6 W, 400 lm (fichier diffusé par le distributeur Sonepar)",
+      "accessed": "2026-11-07"
+    },
+    {
       "url": "https://www.novelty.fr/produits/eclairage/securite/signalisation/ultraled2-400/",
-      "document": "Novelty — ULTRALED2-400",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "bare-wire",
+      "format": "Bornes sans vis pour fils souples ou rigides 0,5 à 2,5 mm², 220-240 V CA 50/60 Hz"
+    }
+  ],
+  "powerW": 0.6,
+  "weightKg": 0.4
 }

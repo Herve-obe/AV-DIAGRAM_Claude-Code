@@ -7,17 +7,13 @@
   "status": "verified",
   "sources": [
     {
-      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
-      "accessed": "2026-10-08"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1231150125.pdf",
-      "document": "RVE, fiche technique Stager 6 × 2,3 kW (via Novelty)",
+      "document": "RVE : fiche technique Stager 6 × 2,3 kW : alimentation sur câble 5 × 2,5 mm², options de prises (hébergée par Novelty)",
       "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1231150149.pdf",
-      "document": "RVE, mode d'emploi Stager 6 × 2,3 kW (via Novelty)",
+      "document": "RVE : mode d'emploi Stager 6 × 2,3 kW, chapitre III : câble d'alimentation 5 fils, DIN 8, XLR 5 (hébergé par Novelty)",
       "accessed": "2026-11-07"
     }
   ],
@@ -51,8 +47,8 @@
       "name": "Arrivée triphasée",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri",
-      "format": "Câble 5 × 2,5 mm² 3P+N+T 230/400 V ; fiche P17 32 A tri au parc (Novelty)"
+      "connector": "bare-wire",
+      "format": "Câble d'origine 5 × 2,5 mm² 3P+N+T 230/400 V à 5 fils repérés (phases noir, noir, brun ; N bleu ; T vert/jaune), sans fiche décrite par RVE ; 20 A par phase"
     },
     {
       "id": "acOut",
@@ -150,5 +146,6 @@
       "connector": "cee7-e",
       "format": "Prise double NF 10/16 A, même voie"
     }
-  ]
+  ],
+  "description": "Bloc de gradation RVE Stager 6 × 2,3 kW, 3 U. Alimentation tri 230/400 V par câble 5 × 2,5 mm² ; 6 voies sur prises doubles NF 10/16 A ; DMX 512 XLR 5 entrée et recopie, entrée analogique 0/+10 V DIN 8."
 }

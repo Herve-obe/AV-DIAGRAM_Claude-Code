@@ -7,17 +7,13 @@
   "status": "verified",
   "sources": [
     {
-      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
-      "accessed": "2026-10-08"
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/rve_live-12x3_ft.pdf",
+      "document": "RVE : fiche technique LIVE 6 et 12 × 3 kW, 3 et 6 × 5 kW : connectique, sorties, DMX (hébergée par Novelty)",
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/3kw/live-12x3/",
-      "document": "Novelty — Live 12×3",
-      "accessed": "2026-10-19"
-    },
-    {
-      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/rve_live-12x3_ft.pdf",
-      "document": "Novelty — Live 12×3 : Live 12x3",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
       "accessed": "2026-10-19"
     }
   ],
@@ -43,8 +39,8 @@
       "name": "Arrivée triphasée",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-63-tri",
-      "format": "Câble 1,5 m 3P+N+T 230/400 V livré sans fiche ; fiche P17 63 A tri au parc"
+      "connector": "bare-wire",
+      "format": "Câble 1,5 m 3P+N+T 230/400 V 50/60 Hz livré sans fiche (fiche technique RVE LIVE : « cable lenght 1m50 without sockets »)"
     },
     {
       "id": "acOut",
@@ -243,5 +239,6 @@
     "Live 12×3",
     "12X3LIVE",
     "RVE Live 12×3"
-  ]
+  ],
+  "description": "Bloc de gradation RVE LIVE 12 × 3 kW. Alimentation tri 230/400 V sur câble 1,5 m sans fiche ; 12 prises doubles NF 10/16 A ; DMX 512 XLR 5 entrée et recopie."
 }

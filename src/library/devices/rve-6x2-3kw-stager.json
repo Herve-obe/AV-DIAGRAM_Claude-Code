@@ -6,7 +6,7 @@
   "manufacturer": "RVE",
   "model": "6×2,3kW Stager",
   "status": "verified",
-  "description": "Bloc de puissance 6 x 2,3 kW. Entrée : P17 32tri. Sorties : 6 x PC16A doublées",
+  "description": "Bloc de gradation RVE Stager 6 × 2,3 kW, 3 U. Alimentation tri 230/400 V par câble 5 × 2,5 mm² ; 6 voies sur prises doubles NF 10/16 A ; DMX 512 XLR 5 entrée et recopie, entrée analogique 0/+10 V DIN 8.",
   "aliases": [
     "Stager",
     "6X2,3",
@@ -14,23 +14,23 @@
   ],
   "sources": [
     {
-      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/2kw/6x23kw-stager/",
-      "document": "Novelty — 6×2,3kW Stager",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1231150125.pdf",
-      "document": "Novelty — 6×2,3kW Stager : Stager 6x2,3 kW",
-      "accessed": "2026-10-19"
+      "document": "RVE : fiche technique Stager 6 × 2,3 kW : alimentation sur câble 5 × 2,5 mm², options de prises (hébergée par Novelty)",
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1231150149.pdf",
-      "document": "Novelty — 6×2,3kW Stager : Stager 6x2,3 kW",
-      "accessed": "2026-10-19"
+      "document": "RVE : mode d'emploi Stager 6 × 2,3 kW, chapitre III : câble d'alimentation 5 fils, DIN 8, XLR 5 (hébergé par Novelty)",
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/RVE_Stager.pdf",
-      "document": "Novelty — 6×2,3kW Stager : Stager",
+      "document": "RVE : abaque Stager (hébergé par Novelty)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/2kw/6x23kw-stager/",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
       "accessed": "2026-10-19"
     }
   ],
@@ -64,8 +64,8 @@
       "name": "Arrivée triphasée",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-32-tri",
-      "format": "Câble 5 × 2,5 mm² 3P+N+T 230/400 V ; fiche P17 32 A tri au parc (Novelty)"
+      "connector": "bare-wire",
+      "format": "Câble d'origine 5 × 2,5 mm² 3P+N+T 230/400 V à 5 fils repérés (phases noir, noir, brun ; N bleu ; T vert/jaune), sans fiche décrite par RVE ; 20 A par phase"
     },
     {
       "id": "out1a",

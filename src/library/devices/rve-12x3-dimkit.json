@@ -6,7 +6,7 @@
   "manufacturer": "RVE",
   "model": "12×3 DimKit",
   "status": "community",
-  "description": "Bloc de puissance 12 x 3kW. Entrée : P17 63tri. Sorties : 12 x 2 PC16A",
+  "description": "Bloc de gradation RVE DimKit 12-3D, 12 × 3 kW. Alimentation tri 230/400 V sur câble 1,5 m sans fiche ; 12 prises doubles NF 10/16 A ; DMX 512 XLR 5 entrée et recopie.",
   "aliases": [
     "Dimkit 12-3D",
     "BP3K/12X3",
@@ -14,18 +14,18 @@
   ],
   "sources": [
     {
-      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/3kw/12x3-dimkit/",
-      "document": "Novelty — 12×3 DimKit",
-      "accessed": "2026-10-19"
-    },
-    {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186134874.pdf",
-      "document": "Novelty — 12×3 DimKit : Dimkit",
-      "accessed": "2026-10-19"
+      "document": "RVE : fiche technique blocs DimKit 12 × 3, 6 × 3, 6 × 5 et 3 × 5 kW : alimentation sur câble 1,5 m sans fiche (hébergée par Novelty)",
+      "accessed": "2026-11-07"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/rve_dimkit6x25A_certificat-1349337198.pdf",
-      "document": "Novelty — 12×3 DimKit : DimKit",
+      "document": "RVE : certificat de conformité DimKit (hébergé par Novelty)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/3kw/12x3-dimkit/",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
       "accessed": "2026-10-19"
     }
   ],
@@ -51,8 +51,8 @@
       "name": "Arrivée triphasée",
       "direction": "in",
       "signal": "power",
-      "connector": "p17-63-tri",
-      "format": "Câble captif 1,5 m 3P+N+T 230/400 V livré sans fiche ; fiche P17 63 A tri au parc (Novelty)"
+      "connector": "bare-wire",
+      "format": "Câble 1,5 m 3P+N+T 230/400 V 50/60 Hz livré sans fiche (fiche technique RVE DimKit)"
     },
     {
       "id": "out1a",
