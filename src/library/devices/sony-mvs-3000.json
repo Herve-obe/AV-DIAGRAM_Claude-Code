@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "MVS-3000 (processeur de mélangeur)",
   "pictogram": "switcher",
-  "status": "verified",
+  "status": "community",
   "weightKg": 19,
   "rackU": 4,
   "sources": [
@@ -16,30 +16,387 @@
   "ports": [
     {
       "id": "in1",
-      "name": "IN 1-16",
+      "name": "IN 1",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "channels": 16,
-      "format": "16 entrées SDI multiformat sur BNC 75 Ω (câble Belden 1694)"
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i2",
+      "name": "IN 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i3",
+      "name": "IN 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i4",
+      "name": "IN 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i5",
+      "name": "IN 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i6",
+      "name": "IN 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i7",
+      "name": "IN 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i8",
+      "name": "IN 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i9",
+      "name": "IN 9",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i10",
+      "name": "IN 10",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i11",
+      "name": "IN 11",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i12",
+      "name": "IN 12",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i13",
+      "name": "IN 13",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i14",
+      "name": "IN 14",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i15",
+      "name": "IN 15",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i16",
+      "name": "IN 16",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
     },
     {
       "id": "in2",
-      "name": "IN 17-32",
+      "name": "IN 17",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "channels": 16,
-      "format": "16 entrées SDI sur BNC 75 Ω"
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i18",
+      "name": "IN 18",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i19",
+      "name": "IN 19",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i20",
+      "name": "IN 20",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i21",
+      "name": "IN 21",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i22",
+      "name": "IN 22",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i23",
+      "name": "IN 23",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i24",
+      "name": "IN 24",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i25",
+      "name": "IN 25",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i26",
+      "name": "IN 26",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i27",
+      "name": "IN 27",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i28",
+      "name": "IN 28",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i29",
+      "name": "IN 29",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i30",
+      "name": "IN 30",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i31",
+      "name": "IN 31",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
+    },
+    {
+      "id": "i32",
+      "name": "IN 32",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI multiformat, BNC 75 ohms"
     },
     {
       "id": "out",
-      "name": "OUT 1-16",
+      "name": "OUT 1",
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "channels": 16,
-      "format": "16 sorties SDI sur BNC 75 Ω (programme, preview, multiviewer…)"
+      "format": "SDI, sortie affectable (programme, preview, multiviewer...)"
+    },
+    {
+      "id": "o2",
+      "name": "OUT 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o3",
+      "name": "OUT 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o4",
+      "name": "OUT 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o5",
+      "name": "OUT 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o6",
+      "name": "OUT 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o7",
+      "name": "OUT 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o8",
+      "name": "OUT 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o9",
+      "name": "OUT 9",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o10",
+      "name": "OUT 10",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o11",
+      "name": "OUT 11",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o12",
+      "name": "OUT 12",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o13",
+      "name": "OUT 13",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o14",
+      "name": "OUT 14",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o15",
+      "name": "OUT 15",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
+    },
+    {
+      "id": "o16",
+      "name": "OUT 16",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI, sortie affectable"
     },
     {
       "id": "ref",

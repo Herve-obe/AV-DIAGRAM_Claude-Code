@@ -100,7 +100,8 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Mini-jack 3,5 stéréo, alimentation plug-in"
+      "format": "Mini-jack 3,5 stéréo asymétrique, alimentation plug-in, +6 dBV max, 1,8 kohms",
+      "level": "mic"
     },
     {
       "id": "mic2",
@@ -109,11 +110,12 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Mini-jack 3,5 stéréo, alimentation plug-in"
+      "format": "Mini-jack 3,5 stéréo asymétrique, alimentation plug-in, +6 dBV max, 1,8 kohms",
+      "level": "mic"
     },
     {
       "id": "phones",
-      "name": "Sortie audio",
+      "name": "Casque",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
@@ -152,5 +154,6 @@
       "connector": "dc-barrel",
       "format": "Bloc externe 12 V fourni"
     }
-  ]
+  ],
+  "powerW": 36
 }

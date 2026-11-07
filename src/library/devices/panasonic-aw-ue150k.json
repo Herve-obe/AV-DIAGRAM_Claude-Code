@@ -102,16 +102,27 @@
       "name": "Mic / Line In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, MIC -40 dBV (plug-in 2,5 V) ou LINE -10 dBV ; flux IP uniquement"
     },
     {
       "id": "dc",
       "name": "12 V DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "xlr4"
+      "connector": "xlr4",
+      "format": "XLR 4 broches, 12 V DC (10,8 à 13,2 V), 4,0 A"
     }
   ],
   "weightKg": 4.2,
-  "depthMm": 219
+  "depthMm": 219,
+  "powerW": 48
 }

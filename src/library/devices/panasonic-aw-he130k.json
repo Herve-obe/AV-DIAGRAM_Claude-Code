@@ -5,7 +5,7 @@
   "pictogram": "camera",
   "manufacturer": "Panasonic",
   "model": "AW-HE130K",
-  "status": "community",
+  "status": "verified",
   "description": "Caméra tourelle robotisée Full HD avec sortie vidéo 3G-SDI ou streaming IP",
   "aliases": [
     "AWHE130K",
@@ -61,6 +61,11 @@
       "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2020-12/AW-HE130%20Operating%20Manual.pdf",
       "document": "Panasonic — AW-HE130 — Operating Instructions",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE130WPE_KPE_OPERATION(VQT5L27A-2)_E.pdf",
+      "document": "Panasonic AW-HE130 Operating Instructions VQT5L27A-2",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -133,16 +138,26 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Stéréo, plug-in 2.5 V commutable"
+      "format": "Mini-jack 3,5 stéréo, MIC -40 dBV (alimentation plug-in 2,5 V) ou LINE -10 dBV",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2
     },
     {
       "id": "dc",
       "name": "12 V DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "12 V DC, 1,8 A (adaptateur secteur fourni), avec serre-câble"
     }
   ],
   "weightKg": 2.73,
-  "depthMm": 234
+  "depthMm": 234,
+  "powerW": 21.6
 }

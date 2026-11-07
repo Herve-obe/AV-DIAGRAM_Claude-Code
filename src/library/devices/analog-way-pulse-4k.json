@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "Analog Way",
   "model": "Pulse 4K",
-  "status": "community",
+  "status": "verified",
   "description": "Mélangeur 4k60, 10 entrées, 2 sorties PGM, 1 sortie MV, 4 PIP maximum",
   "aliases": [
     "ANALOG WAY Pulse 4K"
@@ -113,7 +113,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Alternative à HDMI 1.4 de la même entrée"
+      "format": "3G-SDI, alternative à la HDMI 1.4 de la même entrée (entrées 1 et 2)"
     },
     {
       "id": "sdi3In2",
@@ -121,7 +121,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Alternative à HDMI 1.4 de la même entrée"
+      "format": "3G-SDI, alternative à la HDMI 1.4 de la même entrée (entrées 1 et 2)"
     },
     {
       "id": "hdmiLoop1",
@@ -129,7 +129,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "hdmi",
-      "format": "Boucles des entrées 5 et 8"
+      "format": "Boucle de l'entrée 5"
     },
     {
       "id": "hdmiLoop2",
@@ -137,7 +137,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "hdmi",
-      "format": "Boucles des entrées 5 et 8"
+      "format": "Boucle de l'entrée 8"
     },
     {
       "id": "hdmiOut1",
@@ -191,7 +191,8 @@
       "name": "Genlock In",
       "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Tri-level ou Black Burst"
     },
     {
       "id": "refOut",
@@ -201,27 +202,20 @@
       "connector": "bnc"
     },
     {
-      "id": "usb",
-      "name": "USB Host",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-a"
-    },
-    {
       "id": "lan",
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit"
+      "format": "Gigabit, Neutrik RJ45 (commande Web RCS/API)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100–240 V AC"
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz"
     }
   ],
   "weightKg": 7.6,

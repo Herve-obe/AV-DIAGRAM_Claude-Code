@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "Analog Way",
   "model": "Zenith 200",
-  "status": "community",
+  "status": "verified",
   "description": "Mélangeur 4k60 16 entrées, 6 sorties PGM, 1 sorties MV, 4 mixer layer",
   "aliases": [
     "ZEN200",
@@ -21,6 +21,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8480-4689-analog-way-zenith-200-ft-fr.pdf",
       "document": "Novelty — Zenith 200 : analog-way_zenith-200_ft-fr",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Alta+4k/Products/Zenith+200/Quick+Start+Guide/zenith-200-quick-start-guide.pdf",
+      "document": "Analog Way Zenith 200 Quick Start Guide (ZEN200)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -148,7 +153,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Shared logical input with HDMI 1.4"
+      "format": "3G-SDI, connecteur sélectionnable avec la HDMI 1.4 de la même entrée"
     },
     {
       "id": "sdi3In2",
@@ -156,7 +161,23 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "Shared logical input with HDMI 1.4"
+      "format": "3G-SDI, connecteur sélectionnable avec la HDMI 1.4 de la même entrée"
+    },
+    {
+      "id": "hdmiLoop1",
+      "name": "HDMI Loop Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Boucle de l'entrée 5"
+    },
+    {
+      "id": "hdmiLoop2",
+      "name": "HDMI Loop Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Boucle de l'entrée 8"
     },
     {
       "id": "hdmiOut1",
@@ -212,7 +233,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, miroir HDMI"
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
     },
     {
       "id": "sdiOut2",
@@ -220,7 +241,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, miroir HDMI"
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
     },
     {
       "id": "sdiOut3",
@@ -228,7 +249,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, miroir HDMI"
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
     },
     {
       "id": "sdiOut4",
@@ -236,7 +257,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, miroir HDMI"
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
     },
     {
       "id": "sdiOut5",
@@ -244,7 +265,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, miroir HDMI"
+      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
     },
     {
       "id": "sdiOut6",
@@ -252,7 +273,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI, miroir HDMI"
+      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
     },
     {
       "id": "sfpOut1",
@@ -305,7 +326,8 @@
       "name": "Genlock In",
       "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Tri-level (HD) ou Black Burst (SD)"
     },
     {
       "id": "refOut",
@@ -320,22 +342,15 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Gigabit"
-    },
-    {
-      "id": "usb",
-      "name": "USB Host",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-a"
+      "format": "Gigabit, Neutrik RJ45 (commande Web RCS/API)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100–240 V AC"
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz"
     }
   ],
   "weightKg": 12.8,

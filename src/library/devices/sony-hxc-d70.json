@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "HXC-D70 (caméra HD)",
   "pictogram": "camera",
-  "status": "verified",
+  "status": "community",
   "weightKg": 3.4,
   "sources": [
     {
@@ -109,8 +109,8 @@
       "name": "REMOTE",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur 8 broches pour télécommande RM-B150 / RM-B750"
+      "connector": "sony-remote8",
+      "format": "Télécommande Sony 8 broches (RM-B150 / RM-B750)"
     },
     {
       "id": "dcin",
@@ -128,5 +128,6 @@
       "connector": "unspecified",
       "format": "4 broches femelle, 10,5 à 17 V DC, 1,5 A max (torche)"
     }
-  ]
+  ],
+  "powerW": 23
 }

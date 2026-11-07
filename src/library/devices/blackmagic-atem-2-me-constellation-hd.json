@@ -4,12 +4,17 @@
   "manufacturer": "Blackmagic Design",
   "model": "ATEM 2 M/E Constellation HD",
   "pictogram": "switcher",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://www.blackmagicdesign.com/products/atemconstellation/techspecs/W-APS-26",
       "document": "Blackmagic Design, fiche technique ATEM 2 M/E Constellation HD (W-APS-26)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/ATEM_Constellation_HD_Switchers_Manual.pdf",
+      "document": "ATEM Constellation Switchers Manual",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -290,8 +295,8 @@
       "name": "Reference In",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Tri-level ou black burst ; connecteur non précisé"
+      "connector": "bnc",
+      "format": "Tri-level ou black burst"
     },
     {
       "id": "jin1",
@@ -299,8 +304,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
+      "format": "Jack 6,35 TRS symétrique"
     },
     {
       "id": "jin2",
@@ -308,22 +312,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
+      "format": "Jack 6,35 TRS symétrique"
     },
     {
       "id": "tbin",
-      "name": "Talkback In",
-      "direction": "in",
+      "name": "Talkback casque (face avant)",
+      "direction": "bidir",
       "signal": "intercom",
-      "connector": "xlr5"
-    },
-    {
-      "id": "tbout",
-      "name": "Talkback Out",
-      "direction": "out",
-      "signal": "intercom",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "XLR 5 broches, micro et écouteurs du casque d'intercom"
     },
     {
       "id": "tbrj",
@@ -346,15 +343,16 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-c",
-      "format": "Webcam et contrôle"
+      "format": "USB-C : sortie webcam, interface audio USB, mises à jour"
     },
     {
       "id": "ac1",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
+      "connector": "iec-c13",
       "format": "Alimentation interne 100-240 V ; 52 W"
     }
-  ]
+  ],
+  "powerW": 52
 }

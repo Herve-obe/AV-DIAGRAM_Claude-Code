@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "ATEM Television Studio HD",
   "pictogram": "switcher",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://www.fullcompass.com/common/files/37402-ATEMTelevisionStudioHDTechnicalSpecifications.pdf",
@@ -79,11 +79,43 @@
     },
     {
       "id": "pgm",
-      "name": "SDI Program Out",
+      "name": "SDI Program Out 1",
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "SD / HD-SDI (plusieurs sorties)"
+      "format": "SD/HD-SDI 10 bits"
+    },
+    {
+      "id": "pgm2",
+      "name": "SDI Program Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI 10 bits"
+    },
+    {
+      "id": "pgm3",
+      "name": "SDI Program Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI 10 bits"
+    },
+    {
+      "id": "pgm4",
+      "name": "SDI Program Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI 10 bits"
+    },
+    {
+      "id": "pgm5",
+      "name": "SDI Program Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI 10 bits"
     },
     {
       "id": "aux",
@@ -114,7 +146,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "format": "XLR (niveau non précisé)"
     },
     {
       "id": "xlr2",
@@ -122,7 +154,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "format": "XLR (niveau non précisé)"
     },
     {
       "id": "tb",
@@ -163,5 +195,6 @@
       "signal": "power",
       "connector": "unspecified"
     }
-  ]
+  ],
+  "powerW": 40
 }

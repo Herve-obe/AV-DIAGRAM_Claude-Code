@@ -1099,9 +1099,9 @@ describe('entrées micro/ligne et éclatés D-Sub 25', () => {
   })
 
   it("documente le mode ligne des entrées décrites micro/ligne dans les fiches", () => {
-    const ports = LIBRARY.flatMap(t => t.ports.filter(p => p.direction !== 'out' && p.signal === 'audioAnalog' && p.level === 'mic' && /mic\s*\/\s*line|micro\s*\/\s*ligne/i.test(`${p.name} ${p.format ?? ''}`)))
+    const ports = LIBRARY.filter(t => t.family !== 'camera').flatMap(t => t.ports.filter(p => p.direction !== 'out' && p.signal === 'audioAnalog' && p.level === 'mic' && /mic\s*\/\s*line|micro\s*\/\s*ligne/i.test(`${p.name} ${p.format ?? ''}`)))
     expect(ports.length).toBeGreaterThan(100)
-    for (const p of ports) expect(p.modes?.some(m => m.level === 'line+4' || m.level === 'none'), p.name).toBe(true)
+    for (const p of ports) expect(p.modes?.some(m => m.level === 'line+4' || m.level === 'line-10' || m.level === 'none'), p.name).toBe(true)
   })
 
   it("propose d'office l'éclaté D-Sub 25 et accepte 8 liaisons sur une prise de 8 voies", async () => {

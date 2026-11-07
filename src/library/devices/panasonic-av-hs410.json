@@ -133,7 +133,15 @@
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
-      "format": "HD/SD-SDI"
+      "format": "HD/SD-SDI, 2 BNC distribués (a)"
+    },
+    {
+      "id": "sdi-out1b",
+      "name": "SDI Out 1 (2e BNC)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI, distribution de SDI Out 1"
     },
     {
       "id": "sdi-out2",
@@ -177,19 +185,19 @@
     },
     {
       "id": "ref-in",
-      "name": "REF IN/OUT",
+      "name": "REF 1",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Référence (bouclée) ; connecteur non précisé dans la brochure"
+      "connector": "bnc",
+      "format": "Black burst ou tri-level en genlock (bouclé) ; sortie BB en synchro interne"
     },
     {
       "id": "ref-out",
-      "name": "REF OUT",
-      "direction": "out",
+      "name": "REF 2",
+      "direction": "bidir",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "2 sorties référence"
+      "connector": "bnc",
+      "format": "Recopie de la référence en genlock ; sortie BB en synchro interne"
     },
     {
       "id": "tally1",
@@ -233,7 +241,7 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
+      "connector": "iec-c13",
       "format": "100-240 V, 50/60 Hz"
     }
   ],
@@ -243,14 +251,14 @@
   ],
   "slots": [
     {
-      "id": "slot1",
-      "name": "Slot 1",
-      "type": "panasonic-av-hs410-option"
+      "id": "slotA",
+      "name": "Slot A (IN/OUT A1, A2)",
+      "type": "av-hs410-option"
     },
     {
-      "id": "slot2",
-      "name": "Slot 2",
-      "type": "panasonic-av-hs410-option"
+      "id": "slotB",
+      "name": "Slot B (IN/OUT B1, B2)",
+      "type": "av-hs410-option"
     }
   ]
 }

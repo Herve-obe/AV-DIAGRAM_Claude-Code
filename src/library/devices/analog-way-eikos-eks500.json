@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "Analog Way",
   "model": "EIKOS EKS500",
-  "status": "community",
+  "status": "verified",
   "description": "Mélangeur Multi-Couches Haute Résolution et Switcher à commutation propre pourvu de 4 scalers. L'Eikos est dédié aux présentations audiovisuelles Haut de Gamme.",
   "aliases": [
     "EKS500",
@@ -178,7 +178,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn2",
@@ -186,7 +187,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn3",
@@ -194,7 +196,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn4",
@@ -202,7 +205,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn5",
@@ -210,7 +214,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn6",
@@ -218,7 +223,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn7",
@@ -226,7 +232,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn8",
@@ -234,15 +241,17 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioIn9",
-      "name": "Audio In 9",
+      "name": "Audio In auxiliaire",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
     },
     {
       "id": "audioOut1",
@@ -250,7 +259,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +21 dBu max sur 600 ohms",
+      "level": "line+4"
     },
     {
       "id": "audioOut2",
@@ -258,11 +268,12 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "terminal",
-      "format": "MCO 5 broches, stéréo"
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +21 dBu max sur 600 ohms",
+      "level": "line+4"
     },
     {
       "id": "serial",
-      "name": "RS-232",
+      "name": "RS-232 double (commande)",
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9"
@@ -279,8 +290,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100–240 V AC"
+      "connector": "iec-c13",
+      "format": "100-250 V AC, 50/60 Hz, interrupteur"
     }
   ],
   "weightKg": 5.4,

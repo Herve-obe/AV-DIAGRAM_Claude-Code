@@ -23,6 +23,30 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "Micro HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi-micro",
+      "format": "Sortie lecture TV/HDTV (câble non fourni)"
+    },
+    {
+      "id": "usb",
+      "name": "Mini-USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Charge, transfert ; avec adaptateurs : sortie A/V composite ou entrée micro stéréo 3,5 mm"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi intégré : Wi-Fi Remote, appli GoPro"
+    }
+  ]
 }

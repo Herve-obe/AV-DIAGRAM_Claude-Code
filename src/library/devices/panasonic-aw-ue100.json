@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AW-UE100",
   "pictogram": "camera",
-  "status": "verified",
+  "status": "community",
   "weightKg": 2.2,
   "sources": [
     {
@@ -67,7 +67,10 @@
       "direction": "bidir",
       "signal": "videoIp",
       "connector": "rj45",
-      "format": "100BASE-TX / 1000BASE-T ; contrôle IP et vidéo ; alimentation PoE++"
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP et vidéo ; alimentation PoE++",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "rs422",
@@ -83,7 +86,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack stéréo 3,5 mm (SDI, HDMI, IP)"
+      "format": "Mini-jack 3,5 stéréo, MIC -40 dBV (plug-in 2,5 V) ou LINE -10 dBV ; SDI, HDMI et IP",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2
     },
     {
       "id": "dc",
@@ -97,5 +108,6 @@
   "aliases": [
     "AWUE100KEJ",
     "PANASONIC AW-UE100"
-  ]
+  ],
+  "powerW": 36
 }

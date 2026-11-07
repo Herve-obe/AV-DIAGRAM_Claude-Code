@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "URSA Broadcast G2",
   "pictogram": "camera",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://www.blackmagicdesign.com/products/blackmagicursabroadcast/techspecs/W-URSA-38",
@@ -96,8 +96,8 @@
       "name": "Objectif",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Hirose 12 points broadcast"
+      "connector": "hirose12",
+      "format": "Hirose 12 points broadcast (connecteur absent de la liste)"
     },
     {
       "id": "lanc",
@@ -116,14 +116,6 @@
       "format": "Enregistrement sur disque, Zoom / Focus Demand"
     },
     {
-      "id": "usb2",
-      "name": "USB-C 2",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-c",
-      "format": "Mise à jour"
-    },
-    {
       "id": "dcOut",
       "name": "12 V Out",
       "direction": "out",
@@ -137,7 +129,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "xlr4",
-      "format": "12 V DC 100 W ; batterie V-mount ou Gold mount"
+      "format": "XLR 4 broches 12 V ; bloc secteur externe 12 V 100 W fourni"
+    },
+    {
+      "id": "dcMolex",
+      "name": "Entrée 12 V (plaque batterie)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Molex 12 broches sous la plaque batterie arrière (V-mount ou Gold mount)"
     }
   ],
   "aliases": [

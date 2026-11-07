@@ -4,7 +4,7 @@
   "manufacturer": "Canon",
   "model": "XF605",
   "pictogram": "camera",
-  "status": "verified",
+  "status": "community",
   "weightKg": 2.01,
   "sources": [
     {
@@ -21,6 +21,11 @@
       "url": "https://www.novelty.fr/produits/video/captation/camescope/xf605/",
       "document": "Novelty — XF605",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/CAXF605R.pdf",
+      "document": "Canon XF605 Instruction Manual (via Adorama)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -29,7 +34,8 @@
       "name": "12G-SDI Out",
       "direction": "out",
       "signal": "video",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "12G-SDI, audio intégré et timecode"
     },
     {
       "id": "hdmi",
@@ -45,7 +51,14 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, MIC -60 dBu ou LINE +4 dBu, fantôme"
     },
     {
       "id": "in2",
@@ -54,21 +67,30 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "phantom": "supplied"
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, MIC -60 dBu ou LINE +4 dBu, fantôme"
     },
     {
       "id": "tc",
       "name": "Timecode",
       "direction": "bidir",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "BNC entrée ou sortie"
     },
     {
       "id": "gl",
-      "name": "Genlock",
-      "direction": "in",
+      "name": "G-Lock/Sync",
+      "direction": "bidir",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "BNC, entrée genlock ou sortie synchro tri-level selon réglage"
     },
     {
       "id": "remote",
@@ -76,7 +98,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "unspecified",
-      "format": "8 points RS-422"
+      "format": "Remote B, circulaire 8 broches RS-422 (télécommande RC-V100)"
     },
     {
       "id": "eth",
@@ -99,10 +121,45 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "24 V DC (adaptateur secteur), prise non nommée"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, MIC -72 dBV (alimentation plug-in 2,5 V) ou LINE -12 dBV"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
+    },
+    {
+      "id": "remoteA",
+      "name": "Remote A",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Mini-jack 2,5 mm stéréo"
     }
   ],
   "aliases": [
     "CANON XF605"
-  ]
+  ],
+  "powerW": 14.3
 }

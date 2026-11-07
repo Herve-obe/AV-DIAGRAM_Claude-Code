@@ -4,12 +4,17 @@
   "manufacturer": "Blackmagic Design",
   "model": "ATEM 4 M/E Constellation 4K",
   "pictogram": "switcher",
-  "status": "verified",
+  "status": "community",
   "sources": [
     {
       "url": "https://www.blackmagicdesign.com/products/atemconstellation/techspecs/W-APS-42",
       "document": "Blackmagic Design, fiche technique ATEM 4 M/E Constellation 4K (W-APS-42)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/ATEM_Constellation_HD_Switchers_Manual.pdf",
+      "document": "ATEM Constellation Switchers Manual",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -526,38 +531,6 @@
       "format": "SDI jusqu'à 12G ; affectable (programme, preview, auxiliaire)"
     },
     {
-      "id": "out25",
-      "name": "SDI Out 25",
-      "direction": "out",
-      "signal": "video",
-      "connector": "bnc",
-      "format": "SDI jusqu'à 12G ; affectable (programme, preview, auxiliaire)"
-    },
-    {
-      "id": "out26",
-      "name": "SDI Out 26",
-      "direction": "out",
-      "signal": "video",
-      "connector": "bnc",
-      "format": "SDI jusqu'à 12G ; affectable (programme, preview, auxiliaire)"
-    },
-    {
-      "id": "out27",
-      "name": "SDI Out 27",
-      "direction": "out",
-      "signal": "video",
-      "connector": "bnc",
-      "format": "SDI jusqu'à 12G ; affectable (programme, preview, auxiliaire)"
-    },
-    {
-      "id": "out28",
-      "name": "SDI Out 28",
-      "direction": "out",
-      "signal": "video",
-      "connector": "bnc",
-      "format": "SDI jusqu'à 12G ; affectable (programme, preview, auxiliaire)"
-    },
-    {
       "id": "mv1",
       "name": "Multiview 1",
       "direction": "out",
@@ -594,8 +567,8 @@
       "name": "Reference In",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Tri-level ou black burst ; connecteur non précisé"
+      "connector": "bnc",
+      "format": "Tri-level ou black burst"
     },
     {
       "id": "jin1",
@@ -603,8 +576,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
+      "format": "Jack 6,35 TRS symétrique"
     },
     {
       "id": "jin2",
@@ -612,22 +584,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
+      "format": "Jack 6,35 TRS symétrique"
     },
     {
       "id": "tbin",
-      "name": "Talkback In",
-      "direction": "in",
+      "name": "Talkback casque (face avant)",
+      "direction": "bidir",
       "signal": "intercom",
-      "connector": "xlr5"
-    },
-    {
-      "id": "tbout",
-      "name": "Talkback Out",
-      "direction": "out",
-      "signal": "intercom",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "XLR 5 broches, micro et écouteurs du casque d'intercom"
     },
     {
       "id": "tbrj",
@@ -650,7 +615,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-c",
-      "format": "Webcam et contrôle"
+      "format": "USB-C : sortie webcam, interface audio USB, mises à jour"
     },
     {
       "id": "jout1",
@@ -658,7 +623,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4"
+      "format": "Jack 6,35 TRS symétrique"
     },
     {
       "id": "jout2",
@@ -666,7 +631,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4"
+      "format": "Jack 6,35 TRS symétrique"
     },
     {
       "id": "madiin",
@@ -675,7 +640,7 @@
       "signal": "audioDigital",
       "connector": "bnc",
       "channels": 64,
-      "format": "32 canaux stéréo"
+      "format": "MADI BNC, 32 canaux stéréo"
     },
     {
       "id": "madiout1",
@@ -684,7 +649,7 @@
       "signal": "audioDigital",
       "connector": "bnc",
       "channels": 64,
-      "format": "32 canaux stéréo"
+      "format": "MADI BNC, 32 canaux stéréo"
     },
     {
       "id": "madiout2",
@@ -693,7 +658,7 @@
       "signal": "audioDigital",
       "connector": "bnc",
       "channels": 64,
-      "format": "32 canaux stéréo"
+      "format": "MADI BNC, 32 canaux stéréo"
     },
     {
       "id": "rs422",
@@ -707,7 +672,7 @@
       "name": "Secteur 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
+      "connector": "iec-c13",
       "format": "Alimentation interne 100-240 V ; 255 W"
     },
     {
@@ -715,8 +680,9 @@
       "name": "Secteur 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
+      "connector": "iec-c13",
       "format": "Alimentation interne 100-240 V ; 255 W"
     }
-  ]
+  ],
+  "powerW": 255
 }

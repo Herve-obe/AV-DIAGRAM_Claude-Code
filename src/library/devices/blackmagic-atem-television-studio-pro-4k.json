@@ -84,7 +84,71 @@
     },
     {
       "id": "pgm",
-      "name": "SDI Program Out",
+      "name": "SDI Program Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm2",
+      "name": "SDI Program Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm3",
+      "name": "SDI Program Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm4",
+      "name": "SDI Program Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm5",
+      "name": "SDI Program Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm6",
+      "name": "SDI Program Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm7",
+      "name": "SDI Program Out 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm8",
+      "name": "SDI Program Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "pgm9",
+      "name": "SDI Program Out 9",
       "direction": "out",
       "signal": "video",
       "connector": "bnc",
@@ -119,7 +183,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "format": "XLR (niveau non précisé)"
     },
     {
       "id": "xlr2",
@@ -127,7 +191,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4"
+      "format": "XLR (niveau non précisé)"
     },
     {
       "id": "tb",
@@ -135,7 +199,7 @@
       "direction": "bidir",
       "signal": "intercom",
       "connector": "unspecified",
-      "format": "Micro-casque type aviation"
+      "format": "Casque type aviation (micro + écouteurs), prises non décrites"
     },
     {
       "id": "ref",
@@ -171,5 +235,6 @@
   "aliases": [
     "ATEMTVSTUDPRO4K",
     "BlackMagicDesign ATEM Television Studio Pro 4K"
-  ]
+  ],
+  "powerW": 70
 }

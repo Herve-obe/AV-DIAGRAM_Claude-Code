@@ -4,13 +4,18 @@
   "manufacturer": "Ross Video",
   "model": "Carbonite Black Solo",
   "pictogram": "switcher",
-  "status": "verified",
+  "status": "community",
   "rackU": 1,
   "sources": [
     {
       "url": "https://rossvideo.com/live-production/production-switchers/carbonite-black-solo/specifications",
       "document": "Ross Video, caractéristiques Carbonite Black Solo",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/760-4615-carbonite-black-solo-operation-4840dr-110.pdf",
+      "document": "Ross Video Carbonite Black Solo Operation Manual 4840DR-110, via Novelty",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -135,14 +140,16 @@
       "name": "AES Out",
       "direction": "out",
       "signal": "audioDigital",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Sortie audio AES des canaux Media-Store et MediaWipe (type de prise non nommé)"
     },
     {
       "id": "ref",
       "name": "Reference In",
       "direction": "in",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "Tri-level ou black burst"
     },
     {
       "id": "eth",
@@ -153,10 +160,43 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Alimentation PS1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Bloc d'alimentation primaire externe, prise multibroche non nommée"
+    },
+    {
+      "id": "ac2",
+      "name": "Alimentation PS2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc d'alimentation secondaire (redondance), prise multibroche non nommée"
+    },
+    {
+      "id": "serial",
+      "name": "Serial",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422, commande de périphériques externes"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "16 relais de tally assignables"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "24 GPI entrées ou sorties"
     }
   ]
 }

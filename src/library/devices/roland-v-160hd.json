@@ -4,7 +4,7 @@
   "manufacturer": "Roland",
   "model": "V-160HD",
   "pictogram": "switcher",
-  "status": "verified",
+  "status": "community",
   "powerW": 55,
   "weightKg": 3.9,
   "sources": [
@@ -216,8 +216,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack TRS, -60 à +4 dBu, fantôme 48 V",
-      "phantom": "supplied"
+      "format": "Combo XLR/jack TRS, -60 à +4 dBu (max +24 dBu), fantôme 48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "ain2",
@@ -226,8 +232,14 @@
       "signal": "audioAnalog",
       "connector": "combo",
       "level": "mic",
-      "format": "Combo XLR / jack TRS, -60 à +4 dBu, fantôme 48 V",
-      "phantom": "supplied"
+      "format": "Combo XLR/jack TRS, -60 à +4 dBu (max +24 dBu), fantôme 48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
     },
     {
       "id": "ain-rca",
@@ -237,7 +249,7 @@
       "connector": "rca",
       "level": "line-10",
       "channels": 2,
-      "format": "RCA, -10 dBu"
+      "format": "RCA stéréo (IN 3/L, 4/R), -10 dBu (max +10 dBu)"
     },
     {
       "id": "aout-xlr",
@@ -246,7 +258,8 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "channels": 2,
-      "format": "XLR (nombre de prises non précisé, stéréo)"
+      "format": "XLR, +4 dBu (max +24 dBu), 600 ohms",
+      "level": "line+4"
     },
     {
       "id": "aout-rca",
@@ -254,7 +267,9 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "channels": 2
+      "channels": 2,
+      "level": "line-10",
+      "format": "RCA, -10 dBu (max +10 dBu)"
     },
     {
       "id": "phones",
@@ -326,6 +341,14 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Adaptateur secteur fourni, 2,5 A"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth 4.2, audio A2DP et MIDI BLE"
     }
   ],
   "aliases": [

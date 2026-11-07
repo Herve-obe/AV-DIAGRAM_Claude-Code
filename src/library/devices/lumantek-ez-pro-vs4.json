@@ -85,9 +85,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "level": "line+4",
-      "channels": 2,
-      "format": "6.35 mm balanced mono"
+      "format": "Jack 6,35 symétrique (L)"
     },
     {
       "id": "audioOut",
@@ -95,15 +93,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "channels": 2
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
     },
     {
       "id": "dc",
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "7 à 14 V, 20 W"
+      "connector": "dc-barrel",
+      "format": "DC 7 à 14 V, 20 W max"
     },
     {
       "id": "hdmiIn4",
@@ -119,15 +118,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "6.35 mm balanced mono"
+      "format": "Jack 6,35 symétrique (R)"
     },
     {
       "id": "usb",
       "name": "USB management",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "USB 2.0"
+      "connector": "usb-micro",
+      "format": "USB 2.0 : logiciel de commande, logos, mise à jour"
     }
   ],
   "aliases": [

@@ -66,6 +66,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/analog-way_livecore-brochure-2015-bd.pdf",
       "document": "Novelty — Ascender 32 (LiveCore) 4k – ASC3204 : Brochure LiveCore",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_ascender16_livecore-unit-user-manual-uk.pdf",
+      "document": "Analog Way LiveCore Unit User Manual (Ascender 16/32/48), via Novelty",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -485,11 +490,35 @@
     },
     {
       "id": "monitorAnalog",
-      "name": "Monitoring analogique",
+      "name": "Monitoring analogique SD R/Pr",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "RGB / YPbPr / YC / composite"
+      "connector": "bnc",
+      "format": "Analogique SD : RGBS, YPbPr, Y/C, composite (BNC R/Pr, Luma)"
+    },
+    {
+      "id": "monitorAnalog2",
+      "name": "Monitoring analogique SD G/Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD (BNC G/Y, CVBS)"
+    },
+    {
+      "id": "monitorAnalog3",
+      "name": "Monitoring analogique SD B/Pb",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD (BNC B/Pb, Chroma)"
+    },
+    {
+      "id": "monitorAnalog4",
+      "name": "Monitoring analogique SD S",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD (BNC S, synchro)"
     },
     {
       "id": "lan",
@@ -522,81 +551,58 @@
     },
     {
       "id": "deviceSync",
-      "name": "Device Sync",
-      "direction": "bidir",
+      "name": "Devices Sync In",
+      "direction": "in",
       "signal": "sync",
-      "connector": "unspecified"
+      "connector": "rj45",
+      "format": "Synchronisation multi-machines"
+    },
+    {
+      "id": "deviceSyncOut",
+      "name": "Devices Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Synchronisation multi-machines"
     },
     {
       "id": "serial",
-      "name": "RS-232 maintenance",
+      "name": "RS-232 (maintenance et SPU001)",
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9"
-    },
-    {
-      "id": "usb1",
-      "name": "USB 1",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
-      "id": "usb2",
-      "name": "USB 2",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
-      "id": "usb3",
-      "name": "USB 3",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
-      "id": "usb4",
-      "name": "USB 4",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
-      "id": "usb5",
-      "name": "USB 5",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
     },
     {
       "id": "link1",
       "name": "LiveCore Link 1",
       "direction": "bidir",
       "signal": "video",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Câble LiveCore Link (modularité additive), connecteur non nommé par le constructeur"
     },
     {
       "id": "link2",
       "name": "LiveCore Link 2",
       "direction": "bidir",
       "signal": "video",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Câble LiveCore Link (modularité additive), connecteur non nommé par le constructeur"
     },
     {
       "id": "link3",
       "name": "LiveCore Link 3",
       "direction": "bidir",
       "signal": "video",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "Câble LiveCore Link (modularité additive), connecteur non nommé par le constructeur"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100–240 V AC"
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz"
     }
   ],
   "weightKg": 19,

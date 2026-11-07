@@ -44,7 +44,10 @@
       "direction": "bidir",
       "signal": "videoIp",
       "connector": "rj45",
-      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux ; PoE++"
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux ; PoE++",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "rs422",
@@ -60,7 +63,15 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack stéréo 3,5 ; flux IP uniquement"
+      "format": "Mini-jack 3,5 stéréo asymétrique, MIC -40 dBV (plug-in 2,5 V) ou LINE -10 dBV ; flux IP uniquement",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2
     },
     {
       "id": "dc",
@@ -70,5 +81,6 @@
       "connector": "xlr4",
       "format": "12 V CC, 4,0 A (ou PoE++)"
     }
-  ]
+  ],
+  "powerW": 48
 }

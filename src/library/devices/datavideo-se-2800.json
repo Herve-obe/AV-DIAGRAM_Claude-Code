@@ -5,13 +5,205 @@
   "model": "SE-2800",
   "pictogram": "switcher",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Mélangeur vidéo HD/SD 8 ou 12 entrées (modules de 4 entrées), 3 sorties SDI, 2 multiviews HDMI, pupitre séparé.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/23742-DatavideoSE28008SE280012InstructionManual.pdf",
+      "document": "Datavideo SE-2800-8 / SE-2800-12 Instruction Manual (via Full Compass)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI, programme, preview, propre ou aux"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI, programme, preview, propre ou aux (option programme SD)"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI, programme, preview, propre ou aux (option programme SD)"
+    },
+    {
+      "id": "mv1",
+      "name": "HDMI Multiview 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "mv2",
+      "name": "HDMI Multiview 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "syncIn",
+      "name": "Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level"
+    },
+    {
+      "id": "syncOut",
+      "name": "Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Recopie de la synchro"
+    },
+    {
+      "id": "console",
+      "name": "Console",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Liaison pupitre / clavier de commande"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande PC, configuration"
+    },
+    {
+      "id": "tally",
+      "name": "Tally Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "12 voies collecteur ouvert"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm, contact sec"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V 5 A, bloc secteur fourni (48 W)"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, mode MIC ou LINE"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, mode MIC ou LINE"
+    },
+    {
+      "id": "audioIn3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, mode MIC ou LINE"
+    },
+    {
+      "id": "audioIn4",
+      "name": "Audio In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, mode MIC ou LINE"
+    },
+    {
+      "id": "audioOut1",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique (niveau non précisé)"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique (niveau non précisé)"
+    }
+  ],
+  "slots": [
+    {
+      "id": "in1",
+      "name": "Module d'entrées vidéo 1",
+      "type": "datavideo-se2800-input"
+    },
+    {
+      "id": "in2",
+      "name": "Module d'entrées vidéo 2",
+      "type": "datavideo-se2800-input"
+    },
+    {
+      "id": "in3",
+      "name": "Module d'entrées vidéo 3",
+      "type": "datavideo-se2800-input"
+    }
+  ]
 }

@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "Barco",
   "model": "E2",
-  "status": "community",
+  "status": "verified",
   "description": "Systèmes de gestion d’écrans 4K",
   "aliases": [
     "E2-4K",
@@ -48,8 +48,120 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "glIn",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence analogique bi-level/black burst SD, tri-level HD"
+    },
+    {
+      "id": "glLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Boucle"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mb/s, logiciel Event Master"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur alimentation 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, alimentation redondante échangeable à chaud"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur alimentation 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, alimentation redondante échangeable à chaud"
+    }
+  ],
   "weightKg": 31,
-  "powerW": 700
+  "powerW": 700,
+  "slots": [
+    {
+      "id": "exp1",
+      "name": "Carte d'expansion 1",
+      "type": "barco-em-expansion"
+    },
+    {
+      "id": "exp2",
+      "name": "Carte d'expansion 2",
+      "type": "barco-em-expansion"
+    },
+    {
+      "id": "in1",
+      "name": "Carte d'entrée 1",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in2",
+      "name": "Carte d'entrée 2",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in3",
+      "name": "Carte d'entrée 3",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in4",
+      "name": "Carte d'entrée 4",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in5",
+      "name": "Carte d'entrée 5",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in6",
+      "name": "Carte d'entrée 6",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in7",
+      "name": "Carte d'entrée 7",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "in8",
+      "name": "Carte d'entrée 8",
+      "type": "barco-em-input"
+    },
+    {
+      "id": "out1",
+      "name": "Carte de sortie 1",
+      "type": "barco-em-output"
+    },
+    {
+      "id": "out2",
+      "name": "Carte de sortie 2",
+      "type": "barco-em-output"
+    },
+    {
+      "id": "out3",
+      "name": "Carte de sortie 3",
+      "type": "barco-em-output"
+    },
+    {
+      "id": "mvr",
+      "name": "Carte multiviewer",
+      "type": "barco-em-output"
+    }
+  ]
 }

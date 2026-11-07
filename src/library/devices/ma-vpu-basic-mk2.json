@@ -29,40 +29,93 @@
       "name": "DVI Out 1",
       "direction": "out",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-D dual link"
     },
     {
       "id": "dvi2",
       "name": "DVI Out 2",
       "direction": "out",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-D dual link"
     },
     {
-      "id": "vga",
-      "name": "VGA Out",
+      "id": "dvi3",
+      "name": "DVI Out 3",
       "direction": "out",
       "signal": "video",
-      "connector": "vga"
+      "connector": "dvi",
+      "format": "DVI-I dual link"
+    },
+    {
+      "id": "audioL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique (niveau non précisé)"
+    },
+    {
+      "id": "audioR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique (niveau non précisé)"
     },
     {
       "id": "eth",
-      "name": "Réseau MA",
+      "name": "Ethernet 1",
       "direction": "bidir",
       "signal": "network",
-      "connector": "unspecified"
+      "connector": "ethercon",
+      "format": "Réseau MA (consoles grandMA, onPC)"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Réseau MA"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris, clavier, stockage"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris, clavier, stockage"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Mains In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "300 W"
+      "connector": "powercon",
+      "format": "powerCON bleu, 120/230 V, 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Mains Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON gris, recopie secteur"
     }
   ],
   "aliases": [
     "VPU",
     "MA LIGHTING VPU Basic MK2"
-  ]
+  ],
+  "powerW": 300
 }

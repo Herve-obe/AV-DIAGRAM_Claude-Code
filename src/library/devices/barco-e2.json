@@ -14,28 +14,20 @@
   ],
   "ports": [
     {
-      "id": "inputs",
-      "name": "Entrées (cartes)",
-      "direction": "in",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "8 cartes : HDMI 2.0, DP 1.2, 12G-SDI (jusqu'à 40 entrées)"
-    },
-    {
-      "id": "outputs",
-      "name": "Sorties (cartes)",
-      "direction": "out",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "4 cartes : SDI, HDMI, DP (jusqu'à 18 sorties), multiview"
-    },
-    {
       "id": "gl",
-      "name": "Genlock",
+      "name": "Genlock In",
       "direction": "in",
       "signal": "sync",
       "connector": "bnc",
-      "format": "Avec recopie"
+      "format": "Référence analogique tri-level et black burst"
+    },
+    {
+      "id": "glLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Boucle"
     },
     {
       "id": "eth",
@@ -43,14 +35,24 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Event Master Toolset"
+      "format": "RJ-45 10/100/1000 Mb/s, Event Master Toolset, WebUI, API"
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Secteur alimentation 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "100-240 V AC, 50/60 Hz, 12-5 A"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur alimentation 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC, 50/60 Hz, 12-5 A (redondante)"
     }
-  ]
+  ],
+  "powerW": 1100
 }

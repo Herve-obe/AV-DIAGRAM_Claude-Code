@@ -4,98 +4,115 @@
   "manufacturer": "Analog Way",
   "model": "NeXtage 16 - 4K",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://expandore.com/Analog-way/nextage-16-4k-switcher.htm",
       "document": "Expandore, fiche NeXtage 16 - 4K",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_ascender16_livecore-unit-user-manual-uk.pdf",
+      "document": "Analog Way LiveCore Unit User Manual, section 5.1.4 NeXtage 16 4K, via Novelty",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
     {
       "id": "hdmi1",
-      "name": "HDMI In 1",
+      "name": "HDMI 4K In 1",
       "direction": "in",
       "signal": "video",
-      "connector": "hdmi"
+      "connector": "hdmi",
+      "format": "HDMI 4K (entrée 1)"
     },
     {
       "id": "hdmi2",
-      "name": "HDMI In 2",
-      "direction": "in",
-      "signal": "video",
-      "connector": "hdmi"
-    },
-    {
-      "id": "hdmi3",
       "name": "HDMI In 3",
       "direction": "in",
       "signal": "video",
-      "connector": "hdmi"
+      "connector": "hdmi",
+      "format": "HDMI (entrée 3)"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI 4K In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 4K (entrée 5)"
     },
     {
       "id": "hdmi4",
-      "name": "HDMI In 4",
+      "name": "HDMI In 7",
       "direction": "in",
       "signal": "video",
-      "connector": "hdmi"
+      "connector": "hdmi",
+      "format": "HDMI (entrée 7)"
     },
     {
       "id": "dp1",
-      "name": "DP In 1",
+      "name": "DisplayPort In 4",
       "direction": "in",
       "signal": "video",
-      "connector": "displayport"
+      "connector": "displayport",
+      "format": "DisplayPort 1.1a 4 voies"
     },
     {
       "id": "dp2",
-      "name": "DP In 2",
+      "name": "DisplayPort In 8",
       "direction": "in",
       "signal": "video",
-      "connector": "displayport"
+      "connector": "displayport",
+      "format": "DisplayPort 1.1a 4 voies"
     },
     {
       "id": "dvi1",
       "name": "DVI-I In 1",
       "direction": "in",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-I (numérique ou analogique DVI-A)"
     },
     {
       "id": "dvi2",
-      "name": "DVI-I In 2",
+      "name": "Dual DVI-D In 2",
       "direction": "in",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "Dual-Link DVI-D"
     },
     {
       "id": "dvi3",
       "name": "DVI-I In 3",
       "direction": "in",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-I (numérique ou analogique DVI-A)"
     },
     {
       "id": "dvi4",
-      "name": "DVI-I In 4",
-      "direction": "in",
-      "signal": "video",
-      "connector": "dvi"
-    },
-    {
-      "id": "dvi5",
       "name": "DVI-I In 5",
       "direction": "in",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-I (numérique ou analogique DVI-A)"
+    },
+    {
+      "id": "dvi5",
+      "name": "Dual DVI-D In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Dual-Link DVI-D"
     },
     {
       "id": "dvi6",
-      "name": "DVI-I In 6",
+      "name": "DVI-I In 7",
       "direction": "in",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-I (numérique ou analogique DVI-A)"
     },
     {
       "id": "sdi1",
@@ -103,7 +120,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi2",
@@ -111,7 +128,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi3",
@@ -119,7 +136,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi4",
@@ -127,7 +144,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi5",
@@ -135,7 +152,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi6",
@@ -143,7 +160,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi7",
@@ -151,7 +168,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "sdi8",
@@ -159,173 +176,235 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G / HD / SD-SDI"
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "ana1",
-      "name": "Analog In 1",
+      "name": "Universal Analog In 1",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
+      "connector": "vga",
+      "format": "HD15, analogique ordinateur/vidéo"
     },
     {
       "id": "ana2",
-      "name": "Analog In 2",
+      "name": "Universal Analog In 3",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
+      "connector": "vga",
+      "format": "HD15, analogique ordinateur/vidéo"
     },
     {
       "id": "ana3",
-      "name": "Analog In 3",
+      "name": "Universal Analog In 5",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
+      "connector": "vga",
+      "format": "HD15, analogique ordinateur/vidéo"
     },
     {
       "id": "ana4",
-      "name": "Analog In 4",
+      "name": "Universal Analog In 7",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
-    },
-    {
-      "id": "ana5",
-      "name": "Analog In 5",
-      "direction": "in",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
-    },
-    {
-      "id": "ana6",
-      "name": "Analog In 6",
-      "direction": "in",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
-    },
-    {
-      "id": "ana7",
-      "name": "Analog In 7",
-      "direction": "in",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
-    },
-    {
-      "id": "ana8",
-      "name": "Analog In 8",
-      "direction": "in",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 ou DVI-A"
+      "connector": "vga",
+      "format": "HD15, analogique ordinateur/vidéo"
     },
     {
       "id": "o1sdi1",
-      "name": "Out 1 SDI 1",
+      "name": "Program/Out 1 SDI",
       "direction": "out",
       "signal": "video",
-      "connector": "bnc"
-    },
-    {
-      "id": "o1sdi2",
-      "name": "Out 1 SDI 2",
-      "direction": "out",
-      "signal": "video",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "o1dvi",
-      "name": "Out 1 DVI-I",
+      "name": "Program/Out 1 Dual DVI-I",
       "direction": "out",
       "signal": "video",
-      "connector": "dvi"
-    },
-    {
-      "id": "o1hdmi",
-      "name": "Out 1 DVI/HDMI 4K",
-      "direction": "out",
-      "signal": "video",
-      "connector": "hdmi"
+      "connector": "dvi",
+      "format": "Dual-Link DVI-I"
     },
     {
       "id": "o1ana",
-      "name": "Out 1 Analog",
+      "name": "Program/Out 1 Universal Analog",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 et DVI-A"
+      "connector": "vga",
+      "format": "HD15"
     },
     {
       "id": "o1sfp",
-      "name": "Out 1 SFP",
+      "name": "Program/Out 1 SFP",
       "direction": "out",
       "signal": "video",
       "connector": "sfp",
-      "format": "SDI optique"
+      "format": "Cage SFP vidéo optique 3G/HD-SDI (module optionnel)"
     },
     {
       "id": "o2sdi1",
-      "name": "Out 2 SDI 1",
+      "name": "Preview/Out 2 SDI",
       "direction": "out",
       "signal": "video",
-      "connector": "bnc"
-    },
-    {
-      "id": "o2sdi2",
-      "name": "Out 2 SDI 2",
-      "direction": "out",
-      "signal": "video",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "o2dvi",
-      "name": "Out 2 DVI-I",
+      "name": "Preview/Out 2 DVI-I/HDMI 4K",
       "direction": "out",
       "signal": "video",
-      "connector": "dvi"
-    },
-    {
-      "id": "o2hdmi",
-      "name": "Out 2 DVI/HDMI 4K",
-      "direction": "out",
-      "signal": "video",
-      "connector": "hdmi"
+      "connector": "dvi",
+      "format": "DVI-I ou HDMI 4K (même prise)"
     },
     {
       "id": "o2ana",
-      "name": "Out 2 Analog",
+      "name": "Preview/Out 2 Universal Analog",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "HD15 et DVI-A"
+      "connector": "vga",
+      "format": "HD15"
     },
     {
       "id": "o2sfp",
-      "name": "Out 2 SFP",
+      "name": "Preview/Out 2 SFP",
       "direction": "out",
       "signal": "video",
       "connector": "sfp",
-      "format": "SDI optique"
+      "format": "Cage SFP vidéo optique 3G/HD-SDI (module optionnel)"
+    },
+    {
+      "id": "monAna",
+      "name": "Monitoring Universal Analog",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD15"
+    },
+    {
+      "id": "monDvi",
+      "name": "Monitoring Dual DVI-I",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Dual-Link DVI-I"
+    },
+    {
+      "id": "monSdi1",
+      "name": "Monitoring SDI 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "monSdi2",
+      "name": "Monitoring SDI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "monA1",
+      "name": "Monitoring analogique SD R/Pr",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD : RGBS, YPbPr, Y/C, composite (BNC R/Pr, Luma)"
+    },
+    {
+      "id": "monA2",
+      "name": "Monitoring analogique SD G/Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD (BNC G/Y, CVBS)"
+    },
+    {
+      "id": "monA3",
+      "name": "Monitoring analogique SD B/Pb",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD (BNC B/Pb, Chroma)"
+    },
+    {
+      "id": "monA4",
+      "name": "Monitoring analogique SD S",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Analogique SD (BNC S, synchro)"
     },
     {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "10/100/1000 Mb/s, commande Web RCS"
+    },
+    {
+      "id": "tally",
+      "name": "Tally/GPI-O",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Bornier débrochable 10 points"
+    },
+    {
+      "id": "refIn",
+      "name": "Frame Lock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence analogique"
+    },
+    {
+      "id": "refOut",
+      "name": "Frame Lock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Boucle"
+    },
+    {
+      "id": "syncIn",
+      "name": "Devices Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Synchronisation multi-machines"
+    },
+    {
+      "id": "syncOut",
+      "name": "Devices Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Synchronisation multi-machines"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232 (maintenance et SPU001)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz, interrupteur"
     }
-  ]
+  ],
+  "powerW": 225,
+  "aliases": [
+    "NXT1604"
+  ],
+  "description": "Mélangeur seamless LiveCore 8 entrées, sortie Program et Preview, option 4K (HDMI 4K sur entrées 1 et 5, DVI/HDMI 4K sur sortie 2)."
 }

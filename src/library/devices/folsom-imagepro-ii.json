@@ -18,8 +18,16 @@
       "name": "Analog In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Universelle, recopie"
+      "connector": "vga",
+      "format": "HD-15 universel"
+    },
+    {
+      "id": "analogLoop",
+      "name": "Analog Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Recopie HD-15"
     },
     {
       "id": "dvi",
@@ -27,21 +35,31 @@
       "direction": "in",
       "signal": "video",
       "connector": "dvi",
-      "format": "Dual link, HDCP, recopie"
+      "format": "DVI-I dual link, HDCP, jusqu'à 4K30"
+    },
+    {
+      "id": "dviLoop",
+      "name": "DVI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Recopie"
     },
     {
       "id": "hdmi",
       "name": "HDMI In",
       "direction": "in",
       "signal": "video",
-      "connector": "hdmi"
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
     },
     {
       "id": "dp",
       "name": "DP In",
       "direction": "in",
       "signal": "video",
-      "connector": "displayport"
+      "connector": "displayport",
+      "format": "DisplayPort 1.1, jusqu'à 4K30"
     },
     {
       "id": "sdi",
@@ -49,30 +67,95 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "3G-SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
       "format": "Recopie"
     },
     {
       "id": "out",
-      "name": "Sorties",
+      "name": "Composite Out",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "DVI, SDI, composite ; nombre selon carte de sortie"
+      "connector": "bnc",
+      "format": "Composite NTSC/PAL"
+    },
+    {
+      "id": "outDvi",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I dual link, jusqu'à 4K30"
+    },
+    {
+      "id": "outVga",
+      "name": "HD-15 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Analogique"
+    },
+    {
+      "id": "outHdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "outDp",
+      "name": "DP Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.1"
+    },
+    {
+      "id": "outSdi",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
     },
     {
       "id": "gl",
-      "name": "Genlock",
+      "name": "Genlock In",
       "direction": "in",
       "signal": "sync",
       "connector": "bnc",
-      "format": "Avec recopie"
+      "format": "Bi-level/black burst SD, tri-level HD"
+    },
+    {
+      "id": "glLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Recopie"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100 Mb/s, commande navigateur"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "unspecified",
+      "format": "100-240 V AC, 50/60 Hz, 2 A max"
     }
   ]
 }

@@ -11,6 +11,11 @@
       "url": "https://pro-av.panasonic.net/en/products/aw-ue150/spec.html",
       "document": "Panasonic, AW-UE150 Specifications",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_ue150k_manuel.pdf",
+      "document": "Panasonic AW-UE150 Operating Instructions, via Novelty",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -68,7 +73,10 @@
       "direction": "bidir",
       "signal": "videoIp",
       "connector": "rj45",
-      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux H.264/H.265, NDI HX2, SRT ; alimentation PoE++"
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP, flux H.264/H.265, NDI HX2, SRT ; alimentation PoE++",
+      "network": {
+        "poe": "sink"
+      }
     },
     {
       "id": "rs422",
@@ -84,15 +92,24 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack stéréo 3,5 mm ; micro (alimentation plug-in) ou ligne -10 dBV ; flux IP uniquement"
+      "format": "Mini-jack 3,5 stéréo, MIC -40 dBV (plug-in 2,5 V) ou LINE -10 dBV ; flux IP uniquement",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2
     },
     {
       "id": "dc",
       "name": "DC 12 V In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 V CC (10,8 à 13,2 V), 4,0 A, prise de type XLR (nombre de points non précisé)"
+      "connector": "xlr4",
+      "format": "XLR 4 broches, 12 V DC (10,8 à 13,2 V), 4,0 A"
     }
-  ]
+  ],
+  "powerW": 48
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AK-UC4000",
   "pictogram": "camera",
-  "status": "verified",
+  "status": "community",
   "weightKg": 4.5,
   "sources": [
     {
@@ -53,7 +53,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Ligne / micro / +48 V",
+      "format": "XLR femelle, LINE (0 ou +4 dBu) / MIC (-60, -40, -20 dBu) / +48 V",
       "phantom": "supplied",
       "modes": [
         {
@@ -69,7 +69,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic",
-      "format": "Ligne / micro / +48 V",
+      "format": "XLR femelle, LINE (0 ou +4 dBu) / MIC (-60, -40, -20 dBu) / +48 V",
       "phantom": "supplied",
       "modes": [
         {
@@ -77,6 +77,16 @@
           "level": "line+4"
         }
       ]
+    },
+    {
+      "id": "micFront",
+      "name": "Mic (avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR femelle en façade, commutable avec Mic 1"
     },
     {
       "id": "ic1",
@@ -113,7 +123,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "unspecified",
-      "format": "12 points"
+      "format": "12 broches (connecteur objectif broadcast, absent de la liste)"
     },
     {
       "id": "remote",
@@ -121,7 +131,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "unspecified",
-      "format": "10 points (ROP)"
+      "format": "10 broches (ROP), absent de la liste"
     },
     {
       "id": "lan",
@@ -135,7 +145,8 @@
       "name": "USB 2.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "USB 2.0 hôte type A, 5 V 0,5 A"
     },
     {
       "id": "dc",
@@ -143,7 +154,8 @@
       "direction": "in",
       "signal": "power",
       "connector": "xlr4",
-      "format": "12 V (ou alimentation par la CCU)"
+      "format": "XLR 4 broches, 12 V (ou alimentation par la CCU)"
     }
-  ]
+  ],
+  "powerW": 119
 }

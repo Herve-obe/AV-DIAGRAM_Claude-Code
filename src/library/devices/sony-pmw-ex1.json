@@ -72,6 +72,23 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "USB mini-B"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack stéréo"
     }
   ]
 }

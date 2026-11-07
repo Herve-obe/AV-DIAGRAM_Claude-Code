@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "PXW-X160",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 2.7,
   "sources": [
     {
@@ -59,77 +59,120 @@
       "name": "3G HD-SDI Out",
       "direction": "out",
       "signal": "video",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
     },
     {
       "id": "hdmi",
       "name": "HDMI Out",
       "direction": "out",
       "signal": "video",
-      "connector": "hdmi"
-    },
-    {
-      "id": "comp",
-      "name": "Composite Out",
-      "direction": "out",
-      "signal": "video",
-      "connector": "unspecified"
-    },
-    {
-      "id": "tcIn",
-      "name": "TC In",
-      "direction": "in",
-      "signal": "sync",
-      "connector": "bnc"
-    },
-    {
-      "id": "tcOut",
-      "name": "TC Out",
-      "direction": "out",
-      "signal": "sync",
-      "connector": "bnc"
+      "connector": "hdmi",
+      "format": "HDMI Type A"
     },
     {
       "id": "gl",
-      "name": "Genlock In",
-      "direction": "in",
+      "name": "Genlock In / Video Out",
+      "direction": "bidir",
       "signal": "sync",
-      "connector": "bnc"
+      "connector": "bnc",
+      "format": "BNC commutable : entrée genlock ou sortie vidéo (HD-Y, HD-SYNC, composite)"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In / Out",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC commutable : entrée ou sortie timecode SMPTE 12M"
     },
     {
       "id": "audio",
-      "name": "Audio In",
+      "name": "Audio In 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "xlr3",
       "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR femelle, LINE +4 dBu / MIC -50 dBu / MIC+48V"
+    },
+    {
+      "id": "audio2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR femelle, LINE +4 dBu / MIC -50 dBu / MIC+48V"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
       "channels": 2,
-      "format": "Entrées audio (type non confirmé) ; MI Shoe pour HF"
+      "format": "Mini-jack 3,5 stéréo, -10 dBu"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
     },
     {
       "id": "lanc",
-      "name": "LANC",
+      "name": "Remote",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "jack25",
+      "format": "Mini-jack 2,5 mm"
     },
     {
       "id": "usb",
-      "name": "USB",
+      "name": "USB (stockage)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-mini",
+      "format": "Mini-B, stockage de masse"
+    },
+    {
+      "id": "usbHost",
+      "name": "USB (hôte)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Type A hôte"
     },
     {
       "id": "dc",
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "Jack DC, adaptateur 19,5 V"
     }
   ],
   "aliases": [
     "PXWX160",
     "SONY PXW-X160"
-  ]
+  ],
+  "powerW": 20.8
 }

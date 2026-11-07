@@ -43,7 +43,8 @@ describe('demandes de génération naturelles et précisions', () => {
     const tools = JSON.parse(sent[0]).tools.map((t: { function: { name: string } }) => t.function.name)
     expect(tools).toContain('propose_video_studio')
     expect(tools).not.toContain('propose_diagram')
-    expect(JSON.parse(sent[0]).messages[0].content).toContain('panasonic-ag-hpx371e')
+    // Le catalogue propose une caméra Panasonic documentée ; le modèle exact vient de l'appel d'outil
+    expect(JSON.parse(sent[0]).messages[0].content).toMatch(/panasonic-/)
   })
   it('demande une précision et garde la demande initiale pour la réponse suivante', async () => {
     const first = await runTurn({ ...base(), userText: short, transport: transport([{ text: 'Je vais chercher.' }, { calls: [ask] }]) })

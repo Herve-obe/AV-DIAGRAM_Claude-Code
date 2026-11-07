@@ -5,8 +5,8 @@
   "pictogram": "switcher",
   "manufacturer": "Analog Way",
   "model": "Aquilon C+",
-  "status": "community",
-  "description": "Mélangeur 4k/8k, chassis 5RU, jusqu'à 24 entrées 4k et 20 sorties 4k, 2 multiviewers",
+  "status": "verified",
+  "description": "Processeur multi-écrans 4K/8K LivePremier, châssis 5U, jusqu'à 24 entrées 4K60 et 20 sorties 4K60 selon les cartes installées, 2 multiviewers, Dante 64x64.",
   "aliases": [
     "ANALOG WAY Aquilon C+"
   ],
@@ -15,10 +15,215 @@
       "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/aquilon-c/",
       "document": "Novelty — Aquilon C+",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Quick+Start+Guide/Aquilon-C%2B-quick-start-guide.pdf",
+      "document": "Analog Way Aquilon C+ (AQL-C+) Quick Start Guide",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Technical+Datasheet/Aquilon-C%2B-datasheet-en-20260703.pdf",
+      "document": "Analog Way Aquilon C+ Technical Datasheet EN 2026-07-03",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "mv1",
+      "name": "Multiviewer 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 (DisplayPort 1.2 en option)"
+    },
+    {
+      "id": "mv2",
+      "name": "Multiviewer 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 (DisplayPort 1.2 en option)"
+    },
+    {
+      "id": "lan",
+      "name": "LAN (commande)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Ethernet, Web RCS ou API"
+    },
+    {
+      "id": "danteP",
+      "name": "Dante primaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Dante Gigabit, 64x64",
+      "channels": 64
+    },
+    {
+      "id": "danteS",
+      "name": "Dante secondaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Dante Gigabit, redondance",
+      "channels": 64
+    },
+    {
+      "id": "lockIn",
+      "name": "Frame Lock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence analogique"
+    },
+    {
+      "id": "lockOut",
+      "name": "Frame Lock Loop Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Boucle"
+    },
+    {
+      "id": "syncIn1",
+      "name": "Sync In 1",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Device sync, synchronisation des effets multi-machines"
+    },
+    {
+      "id": "syncIn2",
+      "name": "Sync In 2",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Device sync"
+    },
+    {
+      "id": "syncOut1",
+      "name": "Sync Out 1",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Device sync"
+    },
+    {
+      "id": "syncOut2",
+      "name": "Sync Out 2",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "rj45",
+      "format": "Device sync"
+    },
+    {
+      "id": "gpio1",
+      "name": "Tally/GPI-O 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "MCO 5 points"
+    },
+    {
+      "id": "gpio2",
+      "name": "Tally/GPI-O 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "MCO 5 points"
+    },
+    {
+      "id": "gpio3",
+      "name": "Tally/GPI-O 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "MCO 5 points"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur alimentation 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, bloc amovible redondant 2+1"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur alimentation 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, bloc amovible redondant 2+1"
+    },
+    {
+      "id": "ac3",
+      "name": "Secteur alimentation 3",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, bloc amovible redondant 2+1"
+    }
+  ],
   "weightKg": 37,
-  "powerW": 1010
+  "powerW": 1050,
+  "slots": [
+    {
+      "id": "in1",
+      "name": "Emplacement carte d'entrées 1",
+      "type": "aquilon-input-card"
+    },
+    {
+      "id": "in2",
+      "name": "Emplacement carte d'entrées 2",
+      "type": "aquilon-input-card"
+    },
+    {
+      "id": "in3",
+      "name": "Emplacement carte d'entrées 3",
+      "type": "aquilon-input-card"
+    },
+    {
+      "id": "in4",
+      "name": "Emplacement carte d'entrées 4",
+      "type": "aquilon-input-card"
+    },
+    {
+      "id": "in5",
+      "name": "Emplacement carte d'entrées 5",
+      "type": "aquilon-input-card"
+    },
+    {
+      "id": "in6",
+      "name": "Emplacement carte d'entrées 6",
+      "type": "aquilon-input-card"
+    },
+    {
+      "id": "out1",
+      "name": "Emplacement carte de sorties 1",
+      "type": "aquilon-output-card"
+    },
+    {
+      "id": "out2",
+      "name": "Emplacement carte de sorties 2",
+      "type": "aquilon-output-card"
+    },
+    {
+      "id": "out3",
+      "name": "Emplacement carte de sorties 3",
+      "type": "aquilon-output-card"
+    },
+    {
+      "id": "out4",
+      "name": "Emplacement carte de sorties 4",
+      "type": "aquilon-output-card"
+    },
+    {
+      "id": "out5",
+      "name": "Emplacement carte de sorties 5",
+      "type": "aquilon-output-card"
+    }
+  ]
 }

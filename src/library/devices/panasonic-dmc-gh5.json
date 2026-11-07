@@ -4,14 +4,63 @@
   "manufacturer": "Panasonic",
   "model": "DMC-GH5",
   "pictogram": "camera",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Hybride Lumix GH5 (référence exacte DC-GH5), vidéo 4K, sortie HDMI Type A.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/1750/3243/files/GH5.pdf",
+      "document": "Panasonic DC-GH5 Operating Instructions DVQX1052 (copie revendeur)",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI Type A, sortie écran ou enregistreur externe"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "channels": 2,
+      "format": "Jack 3,5 mm (micro stéréo externe)"
+    },
+    {
+      "id": "hp",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 Gen 1 Type-C"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Jack 2,5 mm (télécommande DMW-RSL1)"
+    }
+  ],
+  "powerW": 4.1
 }
