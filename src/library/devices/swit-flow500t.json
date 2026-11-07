@@ -1,0 +1,64 @@
+{
+  "id": "swit-flow500t",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "SWIT",
+  "model": "FLOW500T",
+  "status": "verified",
+  "description": "Émetteur vidéo sans fil FLOW500 (5,2 et 5,8 GHz, 150 m en vue directe) : entrées SDI et HDMI, bouclage SDI. Alimentation DC 7 à 34 V ou batterie sur plaque D, F ou U. USB micro réservé aux mises à jour.",
+  "aliases": [
+    "FLOW500 TX",
+    "FLOW500 (TX / RX) émetteur"
+  ],
+  "powerW": 8,
+  "weightKg": 0.24,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1715-4473-flow500-user-manual.pdf",
+      "document": "SWIT, FLOW500 User Manual (copie Novelty), § 3 (faces émetteur et récepteur) et § 10 (caractéristiques : ≤ 8 W, 240 g / 230 g)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txSdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "txHdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A"
+    },
+    {
+      "id": "txLoop",
+      "name": "SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "5,17-5,23 GHz et 5,75-5,83 GHz, 25 mW (CE)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "7 à 34 V DC, 5,5/2,1 mm, centre positif"
+    }
+  ]
+}

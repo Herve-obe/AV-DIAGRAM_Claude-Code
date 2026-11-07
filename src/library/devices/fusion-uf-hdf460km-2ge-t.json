@@ -1,0 +1,93 @@
+{
+  "id": "fusion-uf-hdf460km-2ge-t",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Fusion",
+  "model": "UF-HDF460KM-2GE-T",
+  "status": "verified",
+  "description": "Émetteur HDMI 2.0 4K60 et KVM USB sur fibre monomode (300 m), commutateur Gigabit intégré, alimentation powerCON TRUE1 avec recopie. Associé au récepteur UF-HDF460KM-2GE-R.",
+  "aliases": [
+    "HDMI2.0 Fiber Link TX",
+    "UF-HDF460KM-2GE-T/R (émetteur)"
+  ],
+  "powerW": 10,
+  "weightKg": 1.5,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5405-4705-fusion-tools-hdmi-2-0-fiber-link-manuel-uk.pdf",
+      "document": "Fusion Tools, HDMI 2.0 KVM Optical Fiber Extender UF-HDF460KM-2GE-T/R, manuel (copie Novelty) : connectique, consommation 10 W par boîtier, 1,5 kg par boîtier",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/hdmi2-0-fiber-link/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txHdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A à verrouillage"
+    },
+    {
+      "id": "txHdmiLoop",
+      "name": "HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A à verrouillage"
+    },
+    {
+      "id": "txLan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, commutateur intégré"
+    },
+    {
+      "id": "txLan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, commutateur intégré"
+    },
+    {
+      "id": "txUsb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB B vers ordinateur (clavier, souris, écran tactile)"
+    },
+    {
+      "id": "txFiber",
+      "name": "Fiber",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "opticalcon",
+      "format": "opticalCON DUO / LC duplex, monomode 9/125, 300 m"
+    },
+    {
+      "id": "txPowerIn",
+      "name": "Power In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100-240 V CA"
+    },
+    {
+      "id": "txPowerOut",
+      "name": "Power Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    }
+  ]
+}

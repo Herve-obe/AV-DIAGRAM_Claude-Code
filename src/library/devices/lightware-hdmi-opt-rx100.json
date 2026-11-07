@@ -1,0 +1,53 @@
+{
+  "id": "lightware-hdmi-opt-rx100",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Lightware",
+  "model": "HDMI-OPT-RX100",
+  "status": "verified",
+  "description": "Récepteur HDMI 1.3 sur une fibre multimode SC (jusqu'à 2600 m). Version 100 sans RS-232, une sortie HDMI. Bloc secteur 5 V DC fourni.",
+  "aliases": [
+    "HDMI-OPT-RX100 (OPT100-RXTX)"
+  ],
+  "powerW": 4,
+  "weightKg": 0.4,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lightware_HDMI-OPT-TX-RX100_ft-1422440883.pdf",
+      "document": "Lightware, fiche HDMI-OPT-TX100/RX100 series (copie Novelty) : connecteurs SC, HDMI, DC verrouillable 2,5/5,5 mm, 400 g",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_HDMI-OPT-TX-RX100_manuel.pdf",
+      "document": "Lightware, HDMI-OPT-TX and RX family User's Manual (copie Novelty), § 3.9 à 3.12 (faces avant et arrière TX100/RX100) et caractéristiques : 4 W typ.",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "fiberIn",
+      "name": "SC Fiber Input",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sc",
+      "format": "Fibre multimode simple, Single Fiber Technology"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3 / DVI, HDCP"
+    },
+    {
+      "id": "dc",
+      "name": "DC +5V in",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 V DC, prise verrouillable 2,5/5,5 mm"
+    }
+  ]
+}

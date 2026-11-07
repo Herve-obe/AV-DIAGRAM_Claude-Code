@@ -1,0 +1,69 @@
+{
+  "id": "kramer-tp-580r",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Kramer",
+  "model": "TP-580R",
+  "status": "verified",
+  "description": "Récepteur HDBaseT pour HDMI, RS-232 bidirectionnel et IR, depuis un émetteur TP-580T. Alimentation 12 V DC externe.",
+  "aliases": [
+    "TP580R",
+    "TP-580R (TP580-SET)"
+  ],
+  "powerW": 5.2,
+  "weightKg": 0.6,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580r_ft.pdf",
+      "document": "Kramer, fiche technique TP-580R (copie Novelty) : entrées, sorties, ports, consommation 12 V DC 430 mA, 0,6 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580_manuel.pdf",
+      "document": "Kramer, TP-580T/TP-580R User Manual (copie Novelty), chap. 4 et 5 : description des panneaux",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdbtIn",
+      "name": "HDBT In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT depuis TP-580T (pas Ethernet)"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP, 10,2 Gbit/s"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "ir",
+      "name": "IR",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Émetteur ou capteur IR externe"
+    },
+    {
+      "id": "dc",
+      "name": "12V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 430 mA"
+    }
+  ]
+}

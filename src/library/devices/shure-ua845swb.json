@@ -1,0 +1,134 @@
+{
+  "id": "shure-ua845swb",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Shure",
+  "model": "UA845SWB",
+  "status": "community",
+  "description": "Distributeur d'antennes actif large bande 470-952 MHz (version SWB), 1 U, 5 récepteurs. Connectique reprise de la notice commune UA845 / UA845-SWB ; présence et type des quatre sorties 12 V DC à confirmer.",
+  "aliases": [
+    "UA845-SWB",
+    "UA845SWB-E",
+    "UA845SBWE-SET (distributeur)",
+    "UA845/SPLIT"
+  ],
+  "powerW": 15,
+  "weightKg": 3.32,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/U845/en-US.pdf",
+      "document": "Shure, UA845 Antenna Distribution System user guide (pubs.shure.com) : panneau arrière, 15 W, 3,32 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/ua845sbwe-set/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "AC Power Input",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V CA"
+    },
+    {
+      "id": "acout",
+      "name": "AC Power Output",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Recopie non commutée, 5 récepteurs UR4 max"
+    },
+    {
+      "id": "inA",
+      "name": "Antenna In A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "inB",
+      "name": "Antenna In B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outA1",
+      "name": "RF Out A1",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outA2",
+      "name": "RF Out A2",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outA3",
+      "name": "RF Out A3",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outA4",
+      "name": "RF Out A4",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outB1",
+      "name": "RF Out B1",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outB2",
+      "name": "RF Out B2",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outB3",
+      "name": "RF Out B3",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "outB4",
+      "name": "RF Out B4",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc"
+    },
+    {
+      "id": "casA",
+      "name": "Cascade A",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Cinquième récepteur ou second UA845"
+    },
+    {
+      "id": "casB",
+      "name": "Cascade B",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Cinquième récepteur ou second UA845"
+    }
+  ]
+}

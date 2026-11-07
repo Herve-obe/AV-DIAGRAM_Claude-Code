@@ -1,0 +1,82 @@
+{
+  "id": "soundtube-sa502",
+  "family": "amplification",
+  "domain": "sound",
+  "pictogram": "amp",
+  "manufacturer": "SoundTube",
+  "model": "SA502",
+  "status": "community",
+  "description": "Mini-amplificateur classe D 2 x 50 W / 8 ohms (stéréo, double mono ou ponté 90 W / 4 ohms), entrées Euroblock symétrique, mini-jack et haut niveau, alimentation 32 V DC externe. Niveaux nominaux des entrées ligne non publiés (0,5 V de sensibilité).",
+  "aliases": [
+    "SA502 Mini Amplifier"
+  ],
+  "weightKg": 0.26,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/soundtube_sa502_ft.pdf",
+      "document": "SoundTube, SA502 Mini Amplifier Preliminary Technical Information REV 03.08.12 (copie Novelty)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/soundtube_sa502_manuel.pdf",
+      "document": "SoundTube, SA502 notice (copie Novelty) : Euroblock 3 et 4 broches, alimentation Euroblock ou prise jack DC, déclenchement 12-32 V",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inBal",
+      "name": "Entrée symétrique",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "channels": 2,
+      "format": "Euroblock, stéréo symétrique 600 ohms"
+    },
+    {
+      "id": "inMini",
+      "name": "Entrée mini-jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Stéréo asymétrique, 47 kohms, sensibilité 0,5 V"
+    },
+    {
+      "id": "inHigh",
+      "name": "Entrée haut niveau",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Euroblock, signal HP amplifié"
+    },
+    {
+      "id": "spk",
+      "name": "Sortie HP",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Euroblock 4 broches ; ponté : bornes centrales"
+    },
+    {
+      "id": "trigger",
+      "name": "Trigger",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Euroblock 3 broches, 12 à 32 V DC"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "32 V DC, 3,75 A (bloc fourni) ; alternative par Euroblock"
+    }
+  ]
+}

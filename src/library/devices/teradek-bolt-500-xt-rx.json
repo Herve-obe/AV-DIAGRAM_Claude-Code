@@ -1,0 +1,51 @@
+{
+  "id": "teradek-bolt-500-xt-rx",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Bolt 500 XT RX",
+  "status": "community",
+  "description": "Récepteur vidéo sans fil Bolt 500 XT : sorties SDI et HDMI. Ports repris de l'ancienne fiche couple TX/RX (source revendeur) ; connecteur d'alimentation et consommation à compléter.",
+  "aliases": [
+    "Bolt 500 XT (TX / RX) récepteur"
+  ],
+  "sources": [
+    {
+      "url": "https://www.adorama.com/tebolt500xtt.html",
+      "document": "Adorama, fiche Bolt 500 XT (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rxSdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxHdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "150 m"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "teradek-bolt-500-xt-tx",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Bolt 500 XT TX",
+  "status": "community",
+  "description": "Émetteur vidéo sans fil Bolt 500 XT (150 m) : entrées SDI et HDMI, bouclage SDI. Ports repris de l'ancienne fiche couple TX/RX (source revendeur) ; connecteur d'alimentation et consommation à compléter d'après la documentation Teradek.",
+  "aliases": [
+    "Bolt 500 XT (TX / RX) émetteur"
+  ],
+  "sources": [
+    {
+      "url": "https://www.adorama.com/tebolt500xtt.html",
+      "document": "Adorama, fiche Bolt 500 XT (revendeur)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txSdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "txHdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "txLoop",
+      "name": "SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "150 m"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ]
+}

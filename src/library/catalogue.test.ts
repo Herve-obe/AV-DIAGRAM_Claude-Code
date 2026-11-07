@@ -93,7 +93,8 @@ describe('catalogue Novelty hors Structure', () => {
 
   it('conserve la traçabilité des variantes et des ensembles désormais exclus', () => {
     const linked = (id: number) => coverage.products.find(p => p.noveltyId === id)!.templateId
-    expect(linked(14310)).not.toBe('l-acoustics-112p') // kit de deux enceintes
+    // Le kit de deux 112P (14310) est ramené à l'enceinte unitaire (règle : kits scindés, 7 novembre 2026)
+    expect(linked(14310)).toBe('l-acoustics-112p')
     expect(linked(35417)).not.toBe('blackmagic-web-presenter') // version 4K
     expect(linked(36086)).not.toBe('yamaha-dm3-d') // variante non précisée
     expect(linked(26303)).toBe('rane-sl4') // désignation commerciale de SL4

@@ -1,0 +1,62 @@
+{
+  "id": "clear-com-hbp-2x",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "HBP-2X",
+  "status": "verified",
+  "description": "Boîtier ceinture numérique HelixNet 2 canaux, alimenté par la ligne Powerline (audio, données et alimentation sur un seul câble micro).",
+  "aliases": [
+    "HelixNet HBP-2X"
+  ],
+  "weightKg": 0.454,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_hbp-2x_.pdf",
+      "document": "Clear-Com, fiche HBP-2X HelixNet Beltpack (copie Novelty) : connecteurs, 0,454 kg",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3, Powerline HelixNet"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3, en parallèle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle"
+    },
+    {
+      "id": "hs25",
+      "name": "Casque 2,5 mm",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack25",
+      "format": "Jack 2,5 mm TRS"
+    },
+    {
+      "id": "usb",
+      "name": "USB Micro-AB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro"
+    }
+  ]
+}

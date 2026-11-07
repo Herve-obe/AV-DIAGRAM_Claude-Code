@@ -1,0 +1,39 @@
+{
+  "id": "kino-flo-bal-415-230",
+  "family": "power",
+  "domain": "light",
+  "pictogram": "power",
+  "manufacturer": "Kino Flo",
+  "model": "BAL-415-230 (Select 4Bank)",
+  "status": "community",
+  "description": "Ballast électronique Select 4Bank 230 V (25 kHz, non corrigé en facteur de puissance), un interrupteur par tube, commutateur 4ft/2ft. Prise secteur et consommation non précisées.",
+  "aliases": [
+    "Select 4Bank 230VAC",
+    "Kino Flo ballast 4Bank"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/kino_flo_4bank_manuel.pdf",
+      "document": "Kino Flo, Operation Manual 4Bank, Double & Single Select Systems, 3100052 Rev A (31 mars 2011, copie Novelty)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "head",
+      "name": "Sortie tubes",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Réceptacle circulaire à détrompeur pour câble X16 / harnais 4Bank"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "220-240 V CA, circuit relié à la terre"
+    }
+  ]
+}

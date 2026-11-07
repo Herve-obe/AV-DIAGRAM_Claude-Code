@@ -1,0 +1,147 @@
+{
+  "id": "clear-com-hms-4x",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "HMS-4X",
+  "status": "community",
+  "description": "Station principale HelixNet 1 U, 4 canaux numériques sur deux lignes Powerline (jusqu'à 20 boîtiers ceinture), trois emplacements pour modules (Ethernet HLI-ET2, fibre HLI-FBS, 4 fils HLI-4W2, 2 fils HLI-2W2). Niveau de la sortie Hot Mic/IFB non publié (seul manque).",
+  "aliases": [
+    "HelixNet HMS-4X",
+    "HMS-4X Main Station"
+  ],
+  "rackU": 1,
+  "weightKg": 2.65,
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Option Slot 1",
+      "type": "clear-com-helixnet-module"
+    },
+    {
+      "id": "slot2",
+      "name": "Option Slot 2",
+      "type": "clear-com-helixnet-module"
+    },
+    {
+      "id": "slot3",
+      "name": "Option Slot 3",
+      "type": "clear-com-helixnet-module"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_hms-4x_ft.pdf",
+      "document": "Clear-Com, fiche HMS-4X HelixNet Main Station (copie Novelty) : connecteurs, 2,65 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_HelixNet_Partyline_manuel.pdf",
+      "document": "Clear-Com, HelixNet Partyline User Guide (copie Novelty) : baie d'extension à trois emplacements",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/helixnet-kitx20/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 60320 C14, 100-240 V CA"
+    },
+    {
+      "id": "line1a",
+      "name": "Line 1 (Powerline)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle et femelle en parallèle ; audio, données et alimentation"
+    },
+    {
+      "id": "line1b",
+      "name": "Line 1 (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3, en parallèle"
+    },
+    {
+      "id": "line2a",
+      "name": "Line 2 (Powerline)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle et femelle en parallèle"
+    },
+    {
+      "id": "line2b",
+      "name": "Line 2 (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3, en parallèle"
+    },
+    {
+      "id": "prog",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "0 dBu nominal (réglable), 18 dBu max"
+    },
+    {
+      "id": "sa",
+      "name": "Stage Announce Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "0 dBu nominal (réglable), 18 dBu max"
+    },
+    {
+      "id": "hotmic",
+      "name": "Hot Mic / IFB",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "4 relais et 4 entrées opto, relais Announce"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle"
+    },
+    {
+      "id": "usbA",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbMicro",
+      "name": "USB Micro-AB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro"
+    }
+  ]
+}

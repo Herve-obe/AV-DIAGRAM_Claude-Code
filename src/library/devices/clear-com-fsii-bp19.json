@@ -1,0 +1,62 @@
+{
+  "id": "clear-com-fsii-bp19",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "FSII-BP19",
+  "status": "community",
+  "description": "Boîtier ceinture sans fil FreeSpeak II 1,9 GHz, 5 canaux, batterie Li-Ion ou 3 piles AA. Version X4 : casque XLR 4 mâle (X5 : XLR 5 femelle, X7 : XLR 7 mâle). Niveau nominal de l'entrée ligne 3,5 mm non publié (seul manque).",
+  "aliases": [
+    "FSII-BP19-X4",
+    "FSII-BP19-X4-EU",
+    "FreeSpeak II beltpack 1,9 GHz"
+  ],
+  "weightKg": 0.4,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_1-9beltpack_ft.pdf",
+      "document": "Clear-Com, fiche FreeSpeak II-19 Beltpack (copie Novelty) : connecteurs casque, USB, 0,4 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_beltpack_quickstartguide.pdf",
+      "document": "Clear-Com, FreeSpeak II wireless beltpack Quick Start Guide 399G107 Rev C (copie Novelty) : jack 3,5 mm entrée ligne, micro USB",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "DECT 1,9 GHz vers antenne FSII-TCVR-19"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle (version X4)"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo, entrée ligne"
+    },
+    {
+      "id": "usb",
+      "name": "Micro USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-micro",
+      "format": "Charge et enregistrement auprès de la base"
+    }
+  ]
+}

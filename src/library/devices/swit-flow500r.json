@@ -1,0 +1,67 @@
+{
+  "id": "swit-flow500r",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "SWIT",
+  "model": "FLOW500R",
+  "status": "verified",
+  "description": "Récepteur vidéo sans fil FLOW500 : une sortie HDMI et deux sorties SDI. Alimentation DC 7 à 34 V ou batterie sur plaque D, F ou U. USB micro réservé aux mises à jour.",
+  "aliases": [
+    "FLOW500 RX",
+    "FLOW500 (TX / RX) récepteur"
+  ],
+  "powerW": 8,
+  "weightKg": 0.23,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1715-4473-flow500-user-manual.pdf",
+      "document": "SWIT, FLOW500 User Manual (copie Novelty), § 3 (faces émetteur et récepteur) et § 10 (caractéristiques : ≤ 8 W, 240 g / 230 g)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/distributeur-sdi/flow-500/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "5,17-5,23 GHz et 5,75-5,83 GHz"
+    },
+    {
+      "id": "rxHdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A"
+    },
+    {
+      "id": "rxSdi",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxSdi2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "7 à 34 V DC, 5,5/2,1 mm, centre positif"
+    }
+  ]
+}

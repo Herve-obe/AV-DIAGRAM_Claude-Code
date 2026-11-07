@@ -1,0 +1,73 @@
+{
+  "id": "kramer-tp-580t",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Kramer",
+  "model": "TP-580T",
+  "status": "verified",
+  "description": "Émetteur HDBaseT pour HDMI, RS-232 bidirectionnel et IR, portée 70 m, vers un récepteur TP-580R. Alimentation 12 V DC externe.",
+  "aliases": [
+    "TP580T",
+    "TP-580T (TP580-SET)"
+  ],
+  "powerW": 3.3,
+  "weightKg": 0.6,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580t_ft.pdf",
+      "document": "Kramer, fiche technique TP-580T (copie Novelty) : entrées, sorties, ports, consommation 12 V DC 275 mA, 0,6 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/kramer_tp580_manuel.pdf",
+      "document": "Kramer, TP-580T/TP-580R User Manual (copie Novelty), chap. 4 et 5 : description des panneaux",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/tp580-set/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI, HDCP, 10,2 Gbit/s"
+    },
+    {
+      "id": "hdbtOut",
+      "name": "HDBT Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT vers TP-580R (pas Ethernet)"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "ir",
+      "name": "IR",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Émetteur ou capteur IR externe"
+    },
+    {
+      "id": "dc",
+      "name": "12V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 275 mA"
+    }
+  ]
+}
