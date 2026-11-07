@@ -1,0 +1,165 @@
+{
+  "id": "barco-slm-r12-plus",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "SLM R12+ Performer",
+  "status": "community",
+  "description": "Vidéoprojecteur DLP trois puces SXGA+ 1400 x 1050, 12 000 lumens ANSI, lampe xénon 2,2 kW. Emplacements 1 et 2 fixes (5 BNC, DVI entrée, DVI sortie), emplacements 3 et 4 pour modules SDI, HD-SDI ou décodeur vidéo ; objectif TLD / TLD HB interchangeable.",
+  "aliases": [
+    "SLM R12+",
+    "SLM R12 Plus",
+    "SLMR12+",
+    "BARCO SLM R12+"
+  ],
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/3740efb489e5ddd6/original/SLM-R12-Performer-fr-Spec-sheet.pdf",
+      "document": "Barco, SLM R12+ Performer fiche technique (FR), créée le 09 Jul 2024",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/452220/Barco-Slm-R12.html",
+      "document": "Barco, SLM R12+ Owner's Manual R5976654 (27/01/2005), hébergé par ManualsLib : Lenses p. 27, Connections p. 37 à 50",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "r",
+      "name": "5-Cable R",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Slots 1 et 2 fixes : 5 bornes BNC (RGBHV, RGBS, RGsB, composite, S-Vidéo, composante)"
+    },
+    {
+      "id": "g",
+      "name": "5-Cable G",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "b",
+      "name": "5-Cable B",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "h",
+      "name": "5-Cable H/C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "v",
+      "name": "5-Cable V",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "dviIn",
+      "name": "DVI Input",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Embase DVI 24 broches (brochage du manuel)"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Output",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Slot 1 : sortie DVI de recopie vers un second projecteur ; type d'embase déduit, non nommé"
+    },
+    {
+      "id": "rsIn",
+      "name": "RS232/422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "RS232 / RS422 ; type d'embase non nommé dans les pages lues"
+    },
+    {
+      "id": "rsOut",
+      "name": "RS232/422 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Recopie série ; type d'embase non nommé"
+    },
+    {
+      "id": "ctrl1",
+      "name": "CTRL 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Entrée de commande du panneau (manuel : Hardwired remote, CTRL 1 à 3) ; fonction et embase non détaillées"
+    },
+    {
+      "id": "ctrl2",
+      "name": "CTRL 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Entrée de commande ; fonction et embase non détaillées"
+    },
+    {
+      "id": "ctrl3",
+      "name": "CTRL 3",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande robuste filaire (R9840170) ; embase non nommée"
+    },
+    {
+      "id": "trig1",
+      "name": "12 V Trigger Out 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Déclencheur 12 V (fiche technique : 2x 12 V triggers) ; embase non nommée"
+    },
+    {
+      "id": "trig2",
+      "name": "12 V Trigger Out 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Déclencheur 12 V ; embase non nommée"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "220-240 V AC 50/60 Hz, disjoncteur 15 A intégré à l'interrupteur ; embase mâle, cordon fourni"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot3",
+      "name": "Input slot 3",
+      "type": "barco-slm-input"
+    },
+    {
+      "id": "slot4",
+      "name": "Input slot 4",
+      "type": "barco-slm-input"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "barco-tld"
+    }
+  ],
+  "powerW": 2750,
+  "weightKg": 56
+}

@@ -1,0 +1,192 @@
+{
+  "id": "barco-flm-r22-plus",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "FLM R22+",
+  "status": "community",
+  "description": "Vidéoprojecteur DLP trois puces SXGA+ 1400 x 1050, 22 000 lumens (centre), lampe xénon 3 kW. Même unité d'entrées que le FLM HD20 : de série 5 Cable Input, HDSDI - SDI et DVI, slot 4 libre ; objectif TLD / TLD HB / TLD+ interchangeable.",
+  "aliases": [
+    "FLM R22",
+    "FLMR22+",
+    "BARCO FLM R22+"
+  ],
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/2d44e57754f95595/original/FLM-R22-fr-Spec-sheet.pdf",
+      "document": "Barco, FLM R22+ fiche technique (FR), créée le 09 Jul 2024",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/537370/Barco-Flm-R22Plus.html",
+      "document": "Barco, FLM R22+ User Manual R59770179/04 (15/03/2010), hébergé par ManualsLib : Lenses p. 27, Connections p. 39 à 45",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/627381/Barco-Flm-Hd20.html",
+      "document": "Barco, FLM HD20 User Manual R59770180 (11/07/2008), hébergé par ManualsLib : 3.x Lenses, 5 Connections, 21 Specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "r",
+      "name": "Slot 1 · 5-Cable R/PR",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Module 5 Cable Input (Multi purpose) R9854430 installé de série : R ou Pr"
+    },
+    {
+      "id": "g",
+      "name": "Slot 1 · 5-Cable G/Y/VIDEO",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "G, G avec synchro, Y, Ys ou vidéo composite"
+    },
+    {
+      "id": "b",
+      "name": "Slot 1 · 5-Cable B/PB",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "B ou Pb"
+    },
+    {
+      "id": "h",
+      "name": "Slot 1 · 5-Cable H/S",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Synchro H ou synchro composite"
+    },
+    {
+      "id": "v",
+      "name": "Slot 1 · 5-Cable V/C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Synchro V ou chrominance S-Vidéo"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "Slot 2 · SDI Input 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Module HDSDI - SDI Input R9854450 de série : SD-SDI SMPTE 259M-C / HD-SDI SMPTE 292M, coaxial 75 ohms"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "Slot 2 · SDI Input 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD-SDI / HD-SDI, sélection automatique de l'entrée active"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "Slot 2 · SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie de l'entrée SDI sélectionnée"
+    },
+    {
+      "id": "dvi",
+      "name": "Slot 3 · DVI Input",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Module DVI Input R9854460 de série : DVI-I câblé en numérique seul, simple lien, jusqu'à UXGA 60 Hz (165 MHz)"
+    },
+    {
+      "id": "rsIn",
+      "name": "RS232/422 Input",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS232 / RS422, 115200 bauds par défaut ; brochage 9 points (1 à 9) dans le manuel"
+    },
+    {
+      "id": "rsOut",
+      "name": "RS232/422 Loop Through Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Recopie active vers le projecteur suivant ; brochage 9 points"
+    },
+    {
+      "id": "lan1",
+      "name": "Ethernet Port 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100BASE-T, Neutrik EtherCON RJ45, commutateur intégré"
+    },
+    {
+      "id": "lan2",
+      "name": "Ethernet Port 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100BASE-T, Neutrik EtherCON RJ45, chaînage vers le projecteur suivant"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB maître type A, clé FAT16"
+    },
+    {
+      "id": "remoteJack",
+      "name": "Remote Control Input (mini-jack)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire, jack 3,5 mm (pointe RC5)"
+    },
+    {
+      "id": "remoteXlrIn",
+      "name": "Remote Control XLR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "XLR mâle 3 broches (GND, RC5 in, détection)"
+    },
+    {
+      "id": "remoteXlrOut",
+      "name": "Remote Control XLR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "XLR femelle 3 broches, RC5 bufferisé vers le projecteur suivant, actif hors tension"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "200-240 V AC 50/60 Hz, 20 A à 230 V ; cordon fourni avec bride de verrouillage, type d'embase non nommé"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot4",
+      "name": "Input slot 4",
+      "type": "barco-flm-input"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "barco-tld"
+    }
+  ],
+  "powerW": 3500,
+  "weightKg": 99
+}

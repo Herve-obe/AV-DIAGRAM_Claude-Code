@@ -1,0 +1,158 @@
+{
+  "id": "barco-xlm-hd30",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "XLM HD30",
+  "status": "community",
+  "description": "Vidéoprojecteur DLP trois puces 2048 x 1080, 30 000 lumens ANSI, lampe xénon 6,3 kW. Quatre emplacements d'entrée équipés de série des modules RGB, DVI-D, SDI et HD-SDI (échangeables) ; objectif XLD interchangeable.",
+  "aliases": [
+    "XLM-HD30",
+    "R9004460",
+    "BARCO XLM HD30"
+  ],
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/497e7d6462e5d1b3/original/XLM-HD30-en-Spec-sheet.pdf",
+      "document": "Barco, XLM HD30 Spec sheet (EN), last updated 09 Jul 2024 : Lens type XLD, 1:1, 1.45-1.8, 1.8-2.4, 2.2-3.0, 2.8-5.5, 5.5-8.5",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/717176/Barco-R9004460.html",
+      "document": "Barco, XLM HD30 (R9004460) Owner's Manual R59770014, hébergé par ManualsLib : 3 Connections (power, input modules, communication)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rgb",
+      "name": "RGB analog In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "Module RGB analogique de série, Sub-D 15 (RGB-HV VGA)"
+    },
+    {
+      "id": "dviIn",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Module DVI R9850960 de série : DVI data in, VGA à UXGA 60 Hz, 162 MHz"
+    },
+    {
+      "id": "dviLoop",
+      "name": "DVI Loop Through",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Recopie de l'entrée DVI"
+    },
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Module SDI de série (SD-SDI) ; coaxial 75 ohms"
+    },
+    {
+      "id": "hdsdiIn",
+      "name": "HDSDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Module HDSDI R9850970 de série : SMPTE 292M, coaxial 75 ohms"
+    },
+    {
+      "id": "hdsdiLoop",
+      "name": "HDSDI Loop Through",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie HDSDI SMPTE 292M"
+    },
+    {
+      "id": "rsIn",
+      "name": "RS232/422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Serial network RS232 / RS422 ; embase non nommée dans les pages lues"
+    },
+    {
+      "id": "rsOut",
+      "name": "RS232/422 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Serial network, recopie ; embase non nommée"
+    },
+    {
+      "id": "lan1",
+      "name": "Ethernet Port 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-T, RJ-45 (fiche technique)"
+    },
+    {
+      "id": "lan2",
+      "name": "Ethernet Port 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-T, ports reliés par le hub interne"
+    },
+    {
+      "id": "ctrl1",
+      "name": "CTRL 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande robuste filaire ; embase non nommée"
+    },
+    {
+      "id": "ctrl2",
+      "name": "CTRL 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Port de commande unidirectionnel ; embase non nommée"
+    },
+    {
+      "id": "ctrl3",
+      "name": "CTRL 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Port de communication bidirectionnel ; embase non nommée"
+    },
+    {
+      "id": "monitor",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Prévisualisation de l'image projetée ; embase non nommée"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Triphasé 3 x 208 V ou 3 x 400 V (sélecteur de tension) ; fiche technique : 220-240 V ou 380-400 V 50-60 Hz ; conducteurs 4 mm² minimum, embase non nommée"
+    }
+  ],
+  "slots": [
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "barco-xld"
+    }
+  ],
+  "powerW": 8000,
+  "weightKg": 180
+}
