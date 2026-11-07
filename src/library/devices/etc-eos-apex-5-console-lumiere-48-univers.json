@@ -6,7 +6,7 @@
   "manufacturer": "ETC",
   "model": "Eos Apex 5",
   "status": "verified",
-  "description": "Console ETC Eos Apex 5 (4450A1401), 24 576 sorties : 4 etherCON gigabit PoE++, 2 SFP+ 10 Gbit/s, 3 DisplayPort, USB-A et USB-C, I/O Garage à 4 baies pour modules DMX et show control, entrée IEC 100-240 V ; 864 × 648 × 447 mm.",
+  "description": "Console ETC Eos Apex 5 (4450A1401), 24 576 sorties : 4 etherCON gigabit PoE++, 2 SFP+ 10 Gbit/s, 3 DisplayPort, USB-A et USB-C, I/O Garage à 4 baies (emplacements bay1 à bay4) pour modules Gadget II et passerelles Response, reliés en USB interne, entrée IEC 100-240 V ; 864 × 648 × 447 mm.",
   "aliases": [
     "ETC | EOS APEX 5 CONSOLE LUMIÈRE 48 UNIVERS",
     "4450A1401-EU",
@@ -27,6 +27,11 @@
     {
       "url": "https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/02_Eos_Family_Product_Overview_and_Setup/Consoles/Eos_Apex_5.htm",
       "document": "ETC, aide en ligne Eos : Eos Apex 5, ports",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.etcconnect.com/Products/Consoles/Eos-Consoles/Apex/IO-Garage.aspx",
+      "document": "ETC, page I/O Garage : passerelles Response MIDI, SMPTE, Serial et Gadget II",
       "accessed": "2026-11-07"
     }
   ],
@@ -224,5 +229,27 @@
       "format": "USB 3.1 (arrière et tiroir clavier)"
     }
   ],
-  "powerW": 600
+  "powerW": 600,
+  "slots": [
+    {
+      "id": "bay1",
+      "name": "I/O Garage baie 1",
+      "type": "etc-io-garage"
+    },
+    {
+      "id": "bay2",
+      "name": "I/O Garage baie 2",
+      "type": "etc-io-garage"
+    },
+    {
+      "id": "bay3",
+      "name": "I/O Garage baie 3",
+      "type": "etc-io-garage"
+    },
+    {
+      "id": "bay4",
+      "name": "I/O Garage baie 4",
+      "type": "etc-io-garage"
+    }
+  ]
 }

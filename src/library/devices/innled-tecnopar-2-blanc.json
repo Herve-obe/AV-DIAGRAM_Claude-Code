@@ -29,12 +29,28 @@
   ],
   "ports": [
     {
-      "id": "dcIn",
-      "name": "Entrée 24 V CC",
+      "id": "acIn",
+      "name": "Charge secteur",
       "direction": "in",
       "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON sur l'embase batterie, chargeur intégré 90-240 V CA"
+    },
+    {
+      "id": "dcOut1",
+      "name": "Sortie 12 V CC 1",
+      "direction": "out",
+      "signal": "power",
       "connector": "ta3",
-      "format": "Mini XLR 3 Neutrik, 24 V CC depuis l’embase batterie ou le transformateur externe 110-230 V"
+      "format": "Mini XLR 3 Rean-Neutrik, broche 1 masse, broche 3 +12 V, pour un TecnoPAR supplémentaire"
+    },
+    {
+      "id": "dcOut2",
+      "name": "Sortie 12 V CC 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "ta3",
+      "format": "Mini XLR 3 Rean-Neutrik, broche 1 masse, broche 3 +12 V, pour un TecnoPAR supplémentaire"
     }
   ],
   "powerW": 10.8

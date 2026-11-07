@@ -1,0 +1,41 @@
+{
+  "id": "robert-juliat-alimentation-a2-2500",
+  "family": "power",
+  "domain": "light",
+  "pictogram": "power",
+  "manufacturer": "Robert Juliat",
+  "model": "Alimentation A2 2500 (poursuites 1039 / 1439)",
+  "status": "community",
+  "description": "Ballast séparé pour lampe à décharge 2 500 W des poursuites Héloïse (1039) et Ivanhoé (1439), versions standard ; 30 kg ; plaque : P = 2 880 W, 12 A. Relié à la tête par le cordon de montée de lampe Harting 16 × 16 A (3 m). Non saisie : entrée de commande externe par contact sec (1 A, 250 V), connecteur non décrit. powerW non mis : les fiches de tête portent la puissance (ne pas additionner) ; 2 880 W est la puissance maximale de plaque.",
+  "aliases": [
+    "A2 2500",
+    "Ballast Héloïse",
+    "Ballast Ivanhoé"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203953552.pdf",
+      "document": "Robert Juliat, 1039/1439 /B/C/CB dossier technique (13 février 2008, hébergé par Novelty) : plaque « MODELE A2 2500, A2 2500 = 1039 & 1439, P = 2880 W, A = 12 A, 30 kg » ; boîtier d'alimentation : 7 EF Harting 16 × 16 A 2 verrous, 8 cordon secteur 3 × 4 mm² 3 m + prise P17 32 A + T (version standard), 12 commande externe par contact sec ; cordon C Harting 16 × 16 A M/F 3 m",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Cordon secteur attenant 3 × 4 mm², 3 m, prise P17 32 A + T (version standard ; version C nord-américaine sans prise)"
+    },
+    {
+      "id": "head",
+      "name": "Sortie tête (Harting)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Embase femelle Harting 16 × 16 A, 2 verrous, vers la tête (cordon H07RN-F 19G1,5 3 m Harting M/F)"
+    }
+  ],
+  "weightKg": 30
+}

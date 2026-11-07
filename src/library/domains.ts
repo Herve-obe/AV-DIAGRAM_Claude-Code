@@ -7,7 +7,7 @@ import type { EquipmentFamily, EquipmentTemplate, LibraryDomain } from '../model
 export const DOMAIN_FAMILIES: Record<LibraryDomain, EquipmentFamily[]> = {
   sound: ['capture', 'wireless', 'console', 'stagebox', 'processing', 'amplification', 'speaker', 'recording', 'intercom', 'sync', 'control', 'passive'],
   image: ['camera', 'videoSwitcher', 'videoRouting', 'display', 'recording', 'control', 'sync', 'network', 'passive'],
-  light: ['luminaire', 'lightingControl', 'dmxDistribution', 'passive'],
+  light: ['luminaire', 'lightingControl', 'dmxDistribution', 'power', 'passive'],
   network: ['network', 'passive'],
   distribution: ['power', 'passive'],
   misc: ['passive', 'module'],
