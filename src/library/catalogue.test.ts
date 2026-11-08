@@ -174,7 +174,8 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
       if (row.decision === 'excluded') expect(Object.hasOwn(excludedDevices, row.id), row.id).toBe(true)
       expect(LIBRARY_INDEX.has(row.id), row.id).toBe(!Object.hasOwn(excludedDevices, row.id))
     }
-    const support = raw.find(t => t.id === 'adam-hall-slt005')!
+    // Ancien appareil écarté puis supprimé : un projet qui le contient garde sa copie et se recharge
+    const support: EquipmentTemplate = { id: 'adam-hall-slt005', family: 'console', manufacturer: 'Adam Hall', model: 'SLT005', pictogram: 'console', status: 'community', ports: [], portStatus: 'pending' }
     const { project, id } = addEquipment(createProject('Ancien projet'), support, { x: 0, y: 0 })
     const loaded = JSON.parse(JSON.stringify(project))
     expect(isProject(loaded)).toBe(true)

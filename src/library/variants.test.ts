@@ -18,10 +18,10 @@ const get = (id: string) => {
 }
 
 describe('variantes choisies dans les lots audio 04 et lumière 02', () => {
+  // Fiches supprimées ensuite sur décision de l'utilisateur (ex. MKH 406 : le parc a des MKH 416 P48U)
+  const deleted = new Set((JSON.parse(readFileSync(new URL('../../docs/inventaire/suppressions-audio-2026-11-06.json', import.meta.url), 'utf8')) as { deleted: { id: string }[] }).deleted.map(d => d.id))
   it('rend les variantes choisies accessibles sans conserver leurs doublons génériques', () => {
     expect(feedback.records).toHaveLength(17)
-    // Fiches supprimées ensuite sur décision de l'utilisateur (ex. MKH 406 : le parc a des MKH 416 P48U)
-    const deleted = new Set((JSON.parse(readFileSync(new URL('../../docs/inventaire/suppressions-audio-2026-11-06.json', import.meta.url), 'utf8')) as { deleted: { id: string }[] }).deleted.map(d => d.id))
     for (const row of feedback.records) for (const id of row.targetIds) if (!deleted.has(id)) get(id)
     for (const id of feedback.excludedIds) expect(LIBRARY_INDEX.has(id), id).toBe(false)
     for (const id of feedback.canonicalReused) expect(get(id).status, id).toBe('verified')
@@ -32,6 +32,8 @@ describe('variantes choisies dans les lots audio 04 et lumière 02', () => {
   it('recharge les anciens appareils et leurs ports même lorsque leur fiche a été dédoublonnée', () => {
     for (const id of feedback.excludedIds) {
       const original = Object.values(files).find(t => t.id === id)!
+      // Fichier supprimé ensuite à la demande de l'utilisateur : les projets gardent leur copie de l'appareil.
+      if (deleted.has(id)) { expect(original, id).toBeUndefined(); continue }
       expect(original, id).toBeDefined()
       const added = addEquipment(createProject('Ancienne référence'), original, { x: 0, y: 0 })
       const loaded = JSON.parse(JSON.stringify(added.project))
