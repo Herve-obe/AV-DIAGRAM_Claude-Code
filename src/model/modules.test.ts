@@ -126,3 +126,16 @@ describe('options validées par le constructeur', () => {
     expect(moduleFits({ ...slot, accepts: undefined }, { id: 'neumann-kk204', family: 'module', moduleType: 'sennheiser-capsule-standard' })).toBe(true)
   })
 })
+
+describe('compatibilités constructeur de la bibliothèque', () => {
+  it("ne propose pas sur un SKM 100 G4 une tête que Sennheiser n'y valide pas", async () => {
+    const { LIBRARY_INDEX } = await import('../library')
+    const { moduleFits } = await import('./modules')
+    const body = LIBRARY_INDEX.get('sennheiser-skm-100-g4')!
+    const slot = body.slots!.find(s => s.type === 'sennheiser-capsule-standard')!
+    expect(slot.accepts?.length).toBeGreaterThan(0)
+    expect(moduleFits(slot, LIBRARY_INDEX.get('sennheiser-mmd-835-bk')!)).toBe(true)
+    const me9002 = [...LIBRARY_INDEX.values()].find(t => t.family === 'module' && /ME 9002/.test(t.model))
+    if (me9002) expect(moduleFits(slot, me9002)).toBe(false)
+  })
+})

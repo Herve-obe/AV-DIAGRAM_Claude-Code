@@ -254,22 +254,46 @@
     {
       "id": "bay1",
       "name": "I/O Garage baie 1",
-      "type": "etc-io-garage"
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
     },
     {
       "id": "bay2",
       "name": "I/O Garage baie 2",
-      "type": "etc-io-garage"
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
     },
     {
       "id": "bay3",
       "name": "I/O Garage baie 3",
-      "type": "etc-io-garage"
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
     },
     {
       "id": "bay4",
       "name": "I/O Garage baie 4",
-      "type": "etc-io-garage"
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
     }
   ],
   "notes": "Consommation : la fiche ETC indique « environ 5 A sous 120 V ou 230/240 V » ; 600 W = 5 A × 120 V, valeur approchée. PRINCIPAL+OPTION : l'I/O Garage à 4 baies reçoit les modules Gadget II (2 sorties DMX) et les passerelles Response SMPTE, MIDI et série ; prévoir des slots et des fiches modules. PoE : 100 W max par port, 120 W au total sur les quatre ports (aide en ligne ETC Eos Apex 5) ; les 5 A de la fiche sont le courant total de la console, PoE compris.",

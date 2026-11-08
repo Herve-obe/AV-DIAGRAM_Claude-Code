@@ -30,6 +30,10 @@
       "url": "https://download.yamaha.com/files/tcm:39-2148452",
       "document": "Yamaha DM7 Series Reference Manual (PDF), Analog output standards",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://my.yamaha.com/en/business/audio/news/2023/0607-50-dm7.html",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -670,7 +674,10 @@
     {
       "id": "py",
       "name": "Slot PY",
-      "type": "yamaha-py"
+      "type": "yamaha-py",
+      "accepts": [
+        "yamaha-py8-ae"
+      ]
     }
   ],
   "powerW": 260

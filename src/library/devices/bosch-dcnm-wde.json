@@ -36,6 +36,10 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10890-4496-bosch-dicentis-postes-sans-fil-1.pdf",
       "document": "Bosch, fiche technique Postes sans fil DICENTIS DCNM-WD / DCNM-WDE (copie du distributeur Novelty) : Interconnexions, Microphones, Composants inclus, Caractéristiques",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.pacificav.co.nz/wp-content/uploads/2017/07/8.-DICENTIS-Multimedia-Stem-Mic-Data-Sheet.pdf",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -76,7 +80,12 @@
     {
       "id": "mic",
       "name": "Micro enfichable",
-      "type": "bosch-dicentis-mic"
+      "type": "bosch-dicentis-mic",
+      "accepts": [
+        "bosch-dcnm-hdmic",
+        "bosch-dcnm-micl",
+        "bosch-dcnm-mics"
+      ]
     }
   ],
   "description": "Poste de conférence sans fil DICENTIS étendu (écran tactile 4,3 pouces, lecteur NFC), seul. Liaison Wi-Fi 2,4/5 GHz vers la borne DCNM-WAP, deux prises casque mini-jack 3,5 stéréo, haut-parleur intégré. Le micro enfichable (DCNM-HDMIC, DCNM-MICS ou DCNM-MICL) se commande séparément et s'installe en option. Fonctionne sur batterie DCNM-WLIION (7,5 Vcc), vendue à part et non représentée. Consommation 4 W (fiche Bosch)."

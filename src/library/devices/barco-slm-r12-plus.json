@@ -23,6 +23,10 @@
       "url": "https://www.manualslib.com/manual/452220/Barco-Slm-R12.html",
       "document": "Barco, SLM R12+ Owner's Manual R5976654 (27/01/2005), hébergé par ManualsLib : Lenses p. 27, Connections p. 37 à 50",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/452220/Barco-Slm-R12.html?page=27",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -157,7 +161,15 @@
     {
       "id": "lens",
       "name": "Objectif",
-      "type": "barco-tld"
+      "type": "barco-tld",
+      "accepts": [
+        "barco-tld-1-2",
+        "barco-tld-hb-0-8",
+        "barco-tld-hb-1-6-2",
+        "barco-tld-hb-2-2-8",
+        "barco-tld-hb-2-8-5",
+        "barco-tld-hb-5-8"
+      ]
     }
   ],
   "powerW": 2750,

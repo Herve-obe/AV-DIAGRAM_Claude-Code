@@ -11,6 +11,10 @@
       "url": "https://usa.yamaha.com/products/proaudio/mixers/cl_series/specs.html",
       "document": "Yamaha USA, page Specs CL3",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://my.yamaha.com/en/business/audio/resources/ygdaicards-matching",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -271,17 +275,38 @@
     {
       "id": "my1",
       "name": "Slot MY 1",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     },
     {
       "id": "my2",
       "name": "Slot MY 2",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     },
     {
       "id": "my3",
       "name": "Slot MY 3",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     }
   ],
   "powerW": 170

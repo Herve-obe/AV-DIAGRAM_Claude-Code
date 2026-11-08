@@ -22,6 +22,10 @@
       "url": "https://www.manualslib.com/manual/627381/Barco-Flm-Hd20.html",
       "document": "Barco, FLM HD20 User Manual R59770180 (11/07/2008), hébergé par ManualsLib : 3.x Lenses, 5 Connections, 21 Specifications",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/627381/Barco-Flm-Hd20.html?page=27",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -179,7 +183,15 @@
     {
       "id": "lens",
       "name": "Objectif",
-      "type": "barco-tld"
+      "type": "barco-tld",
+      "accepts": [
+        "barco-tld-1-2",
+        "barco-tld-hb-0-8",
+        "barco-tld-hb-1-6-2",
+        "barco-tld-hb-2-2-8",
+        "barco-tld-hb-2-8-5",
+        "barco-tld-hb-5-8"
+      ]
     }
   ],
   "powerW": 3700,

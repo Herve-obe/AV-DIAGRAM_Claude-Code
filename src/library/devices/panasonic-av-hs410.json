@@ -253,12 +253,24 @@
     {
       "id": "slotA",
       "name": "Slot A (IN/OUT A1, A2)",
-      "type": "av-hs410-option"
+      "type": "av-hs410-option",
+      "accepts": [
+        "panasonic-av-hs04m1",
+        "panasonic-av-hs04m3",
+        "panasonic-av-hs04m7",
+        "panasonic-av-hs04m8"
+      ]
     },
     {
       "id": "slotB",
       "name": "Slot B (IN/OUT B1, B2)",
-      "type": "av-hs410-option"
+      "type": "av-hs410-option",
+      "accepts": [
+        "panasonic-av-hs04m1",
+        "panasonic-av-hs04m3",
+        "panasonic-av-hs04m7",
+        "panasonic-av-hs04m8"
+      ]
     }
   ]
 }

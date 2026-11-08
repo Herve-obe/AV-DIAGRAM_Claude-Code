@@ -154,7 +154,11 @@
     {
       "id": "comm",
       "name": "Emplacement carte de communication",
-      "type": "eaton-ms"
+      "type": "eaton-ms",
+      "accepts": [
+        "eaton-network-ms",
+        "eaton-relay-ms"
+      ]
     }
   ]
 }

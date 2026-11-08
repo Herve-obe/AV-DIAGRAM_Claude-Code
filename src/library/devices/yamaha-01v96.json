@@ -15,6 +15,10 @@
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://my.yamaha.com/en/business/audio/resources/ygdaicards-matching",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -621,7 +625,14 @@
     {
       "id": "slot",
       "name": "Slot MY",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     }
   ],
   "powerW": 90

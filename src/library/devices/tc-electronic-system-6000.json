@@ -103,17 +103,26 @@
     {
       "id": "slotA",
       "name": "I/O Slot A",
-      "type": "tc-s6000-io"
+      "type": "tc-s6000-io",
+      "accepts": [
+        "tc-electronic-ada-24-96"
+      ]
     },
     {
       "id": "slotB",
       "name": "I/O Slot B (AES-8)",
-      "type": "tc-s6000-io"
+      "type": "tc-s6000-io",
+      "accepts": [
+        "tc-electronic-ada-24-96"
+      ]
     },
     {
       "id": "slotC",
       "name": "I/O Slot C",
-      "type": "tc-s6000-io"
+      "type": "tc-s6000-io",
+      "accepts": [
+        "tc-electronic-ada-24-96"
+      ]
     }
   ],
   "rackU": 2,

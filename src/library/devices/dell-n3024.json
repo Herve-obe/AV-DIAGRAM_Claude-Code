@@ -374,7 +374,11 @@
     {
       "id": "exp",
       "name": "Baie d'extension arrière",
-      "type": "dell-n3000-uplink"
+      "type": "dell-n3000-uplink",
+      "accepts": [
+        "dell-n3000-module-2x10gbase-t",
+        "dell-n3000-module-2xsfpplus"
+      ]
     }
   ]
 }

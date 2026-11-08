@@ -56,6 +56,10 @@
       "url": "https://usa.yamaha.com/products/proaudio/mixers/ls9/specs.html",
       "document": "Yamaha USA, LS9 Specs",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://my.yamaha.com/en/business/audio/resources/ygdaicards-matching",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -475,7 +479,14 @@
     {
       "id": "slot1",
       "name": "Slot 1",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     }
   ]
 }

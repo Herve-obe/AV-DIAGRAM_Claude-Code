@@ -46,6 +46,10 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/yamaha_ql1_stagemix.pdf",
       "document": "Novelty — QL1 : StageMix",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://my.yamaha.com/en/business/audio/resources/ygdaicards-matching",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -380,12 +384,26 @@
     {
       "id": "my1",
       "name": "Slot MY 1",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     },
     {
       "id": "my2",
       "name": "Slot MY 2",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     }
   ],
   "powerW": 135

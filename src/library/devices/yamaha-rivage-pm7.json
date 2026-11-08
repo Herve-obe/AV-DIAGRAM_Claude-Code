@@ -31,6 +31,10 @@
       "url": "https://data.yamaha.com/files/download/other_assets/0/2153560/rivage_pm_om_en_i1.pdf",
       "document": "Yamaha RIVAGE PM Series Operation Manual, CSD-R7 Jack list p. 34-35 et Rear panel p. 72-76",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://my.yamaha.com/en/business/audio/resources/ygdaicards-matching",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -465,12 +469,26 @@
     {
       "id": "my1",
       "name": "MY slot 1",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     },
     {
       "id": "my2",
       "name": "MY slot 2",
-      "type": "yamaha-mini-ygdai"
+      "type": "yamaha-mini-ygdai",
+      "accepts": [
+        "yamaha-my16-at",
+        "yamaha-my16-es64",
+        "yamaha-my16-md64",
+        "yamaha-my4-da",
+        "yamaha-my8-adda96"
+      ]
     },
     {
       "id": "hy1",
