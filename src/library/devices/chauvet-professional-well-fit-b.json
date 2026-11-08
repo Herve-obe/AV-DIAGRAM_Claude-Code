@@ -35,6 +35,14 @@
   ],
   "ports": [
     {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "W-DMX intégré ; télécommande infrarouge (IRC)"
+    },
+    {
       "id": "charge",
       "name": "Charge depuis flight-case",
       "direction": "in",

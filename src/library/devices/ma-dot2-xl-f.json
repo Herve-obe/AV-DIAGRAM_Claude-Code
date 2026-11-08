@@ -48,7 +48,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "dot2-Net, sACN, Art-Net"
+      "format": "etherCON (10/100 Base-TX) ; dot2-Net, sACN, Art-Net"
     },
     {
       "id": "dmx1",
@@ -83,12 +83,20 @@
       "format": "XLR 5 points"
     },
     {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Entrée audio mono symétrique (son vers lumière), XLR 3 femelle, sensibilité min. 20 mV"
+    },
+    {
       "id": "dmx-in",
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "XLR 5 points"
+      "format": "XLR 5 points mâle, télécommande DMX"
     },
     {
       "id": "smpte",
@@ -96,7 +104,7 @@
       "direction": "in",
       "signal": "sync",
       "connector": "xlr3",
-      "format": "Timecode, XLR 3 points"
+      "format": "LTC timecode, XLR 3 points femelle, min. 200 mV"
     },
     {
       "id": "midi-in",
@@ -114,11 +122,11 @@
     },
     {
       "id": "remote",
-      "name": "Analogue Remote",
+      "name": "DC Remote Control",
       "direction": "in",
       "signal": "control",
       "connector": "dsub15",
-      "format": "Télécommande analogique"
+      "format": "D-Sub 15, télécommande analogique par contacts (entrées broches 1, 6, 9, 14 ; +3,3 V broche 7 ; commun broche 8)"
     },
     {
       "id": "dvi",

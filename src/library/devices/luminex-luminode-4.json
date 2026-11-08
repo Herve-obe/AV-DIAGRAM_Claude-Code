@@ -4,12 +4,22 @@
   "manufacturer": "Luminex",
   "model": "LumiNode 4",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://luminex.be/products/luminode/luminode-4",
       "document": "Luminex, page LumiNode 4",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/User-Manual_LumiNode-4_rev-2.4.1.pdf",
+      "document": "Luminex, LumiNode 4 User Manual rev. 2.4.1 : installation et spécifications",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/Product-specification-sheet-LumiNode-4-v1.0.6.pdf",
+      "document": "Luminex, LumiNode 4 product specification sheet v1.0.6",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -51,17 +61,26 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "etherCON Neutrik, 10/100/1000 ; PoE 802.3af classe 0 possible",
-      "network": {
-        "poe": "sink"
-      }
+      "format": "etherCON Neutrik, 10/100/1000"
     },
     {
       "id": "eth2",
       "name": "Ethernet 2",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "Ethernet 10/100/1000, face arrière ; seul port d'alimentation PoE 802.3af classe 0 (redondance avec le secteur)",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "cc",
+      "name": "Contact Closure",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec, bornier enfichable 2 points"
     },
     {
       "id": "ac",

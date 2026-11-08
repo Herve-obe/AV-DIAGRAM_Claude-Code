@@ -4,7 +4,7 @@
   "manufacturer": "ARRI",
   "model": "SkyPanel S360-C",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "powerW": 1500,
   "weightKg": 45,
   "sources": [
@@ -37,7 +37,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "Art-Net"
+      "format": "Art-Net, sACN ; réglages, état et mise à jour"
     },
     {
       "id": "usb",
@@ -46,6 +46,14 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Mise à jour par clé USB ; alimente de petits appareils (500 mA / 5 V)"
+    },
+    {
+      "id": "crmx",
+      "name": "CRMX (DMX sans fil)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "LumenRadio CRMX intégré, DMX et RDM"
     },
     {
       "id": "ac",

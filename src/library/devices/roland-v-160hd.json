@@ -4,7 +4,7 @@
   "manufacturer": "Roland",
   "model": "V-160HD",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "powerW": 55,
   "weightKg": 3.9,
   "sources": [
@@ -15,13 +15,18 @@
     },
     {
       "url": "https://www.novelty.fr/produits/video/captation/streaming-live/v-160hd/",
-      "document": "Novelty — V-160HD",
+      "document": "Novelty : V-160HD",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5803-4474-v-160hd-startup-fra02-w.pdf",
-      "document": "Novelty — V-160HD : V-160HD_Startup",
+      "document": "Novelty : V-160HD : V-160HD_Startup",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://shop.ccisolutions.com/StoreFront/jsp/pdf/RND-V-160HD_quickStart.pdf",
+      "document": "Roland, V-160HD Startup Guide : panneau arrière (copie distributeur CCI Solutions)",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -289,11 +294,19 @@
     },
     {
       "id": "ctl",
-      "name": "CTL/EXP",
+      "name": "CTL/EXP 1",
       "direction": "in",
       "signal": "control",
       "connector": "jack-trs",
       "format": "Pédale ou interrupteur au pied"
+    },
+    {
+      "id": "ctl2",
+      "name": "CTL/EXP 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Pédale ou interrupteur au pied (BOSS FS-6, EV-5)"
     },
     {
       "id": "tally",
@@ -339,8 +352,8 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Adaptateur secteur fourni, 2,5 A"
+      "connector": "dc-barrel",
+      "format": "Prise DC IN pour l'adaptateur secteur fourni (2,5 A), avec accroche-câble"
     },
     {
       "id": "bt",

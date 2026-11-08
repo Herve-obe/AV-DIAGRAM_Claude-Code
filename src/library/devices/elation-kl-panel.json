@@ -16,6 +16,11 @@
       "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/tv-photo/kl-panel/",
       "document": "Novelty — KL Panel",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/58992-KLPanelUserManual.pdf",
+      "document": "Elation, KL Panel User Manual (copie Full Compass) : vue d'ensemble p. 9, caractéristiques",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -50,6 +55,30 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Chaînage secteur"
+    },
+    {
+      "id": "net-in",
+      "name": "Net In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
+    },
+    {
+      "id": "net-out",
+      "name": "Net Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
+    },
+    {
+      "id": "usb",
+      "name": "Service Port (USB)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour logicielle, alimentation 5 V d'accessoires ; type d'embase non nommé"
     },
     {
       "id": "batt",

@@ -4,42 +4,67 @@
   "manufacturer": "Wireless Solution",
   "model": "BlackBox F-2 G5",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.procom-me.com/wp-content/uploads/2018/12/BLACKBOX-F-2-G5.pdf",
       "document": "Wireless Solution, fiche BlackBox G5 (via Procom)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://lumenradio.com/support-materials/whitebox-g5-manual/",
+      "document": "Wireless Solution, W-DMX G5 User Manual (BlackBox, WhiteBox, Micro, ProBox), 2e édition 2019-01, §7 Hardware (hébergé par LumenRadio)",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
     {
       "id": "dmx1",
-      "name": "DMX 1",
+      "name": "DMX 1 (XLR 5 femelle)",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle : univers 1, ou univers 2 en mode Double-Up"
     },
     {
       "id": "dmx2",
-      "name": "DMX 2",
+      "name": "DMX 2 (XLR 5 mâle)",
       "direction": "bidir",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle : univers 1"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3 (XLR 3 femelle)",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points femelle : univers 2 en mode Double-Up"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4 (XLR 3 mâle)",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points mâle : univers 1"
     },
     {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "ethercon"
+      "connector": "ethercon",
+      "format": "etherCON RJ45 ; Ethernet et alimentation PoE en option (à commander séparément)"
     },
     {
       "id": "rf",
       "name": "W-DMX",
       "direction": "bidir",
       "signal": "rf",
-      "connector": "rf"
+      "connector": "rf",
+      "format": "W-DMX G5 2,4 GHz, antenne 3 dBi fournie avec adaptateur coudé"
     },
     {
       "id": "ac",
@@ -47,7 +72,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "powercon",
-      "format": "90-250 V ; 12 V Phoenix en secours"
+      "format": "powerCON 20 A, 110-240 V CA 50-60 Hz"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5,08 mm, 12 V CC ±20 %, 1,25 A max., protégé contre l'inversion de polarité"
     }
   ]
 }

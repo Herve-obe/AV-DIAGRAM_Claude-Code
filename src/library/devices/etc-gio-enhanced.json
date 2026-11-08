@@ -26,6 +26,11 @@
       "url": "https://www.etcconnect.com/Products/Legacy/Console/Eos-Family/Gio/Tech-Specs.aspx",
       "document": "ETC, Gio Tech Specs (produit archivé)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://support.etcconnect.com/ETC/Consoles/Eos_Family/Software_and_Programming/Eos_Family_Local_Relay_Out_and_Contact_Closure_Inputs",
+      "document": "ETC, article d'assistance : Local Relay Out and Contact Closure Inputs (Gio : port local DB15, 4 contacts, 1 relais)",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -164,6 +169,14 @@
       "signal": "video",
       "connector": "displayport",
       "format": "Moniteur externe, adaptateurs DisplayPort vers DVI fournis"
+    },
+    {
+      "id": "io",
+      "name": "Local I/O (contacts)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "DB15 : 4 entrées contact sec (12 V CC fournis par la console), 1 sortie relais"
     }
   ],
   "portStatus": "pending",

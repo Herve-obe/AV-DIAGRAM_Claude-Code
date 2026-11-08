@@ -4,7 +4,7 @@
   "manufacturer": "Luminex",
   "model": "LumiNode 2",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.fullcompass.com/prod/571139-luminex-luminode-2-ethernet-to-2-port-dmx-node",
@@ -15,6 +15,16 @@
       "url": "https://luminex.be/products/luminode/luminode-2",
       "document": "Luminex, page produit LumiNode 2 : connectivité et alimentation",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/User-Manual_LumiNode-2_rev-2.4.1-1.pdf",
+      "document": "Luminex, LumiNode 2 User Manual rev. 2.4.1 : installation et spécifications",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/Product-specification-sheet-LumiNode-2-v1.0.6.pdf",
+      "document": "Luminex, LumiNode 2 product specification sheet v1.0.6",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -40,10 +50,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "etherCON Neutrik, 10/100/1000 ; alimentation PoE 802.3af classe 0",
-      "network": {
-        "poe": "sink"
-      }
+      "format": "etherCON Neutrik, 10/100/1000"
     },
     {
       "id": "eth2",
@@ -51,7 +58,18 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "ethercon",
-      "format": "etherCON Neutrik, 10/100/1000"
+      "format": "etherCON Neutrik, 10/100/1000, face arrière ; seul port d'alimentation PoE 802.3af classe 0",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "cc",
+      "name": "Contact Closure",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec, bornier enfichable 2 points"
     }
   ],
   "powerW": 8.5,

@@ -5,13 +5,177 @@
   "model": "VM-5S",
   "pictogram": "router",
   "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Distributeur Kramer VM-5S 1:5 vidéo composite ou SDI (BNC) et audio stéréo asymétrique (RCA), demi-largeur 19 pouces ; 230 V, 3,5 VA, 1,4 kg.",
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://files.avprosupply.com/files/attachments/849/kramer-vm-2n-manual.pdf",
+      "document": "Kramer, User Manual VM-2N, VM-5S, VM-50HN, VM-50V, VM-50YC : §4.2 (figure 2, tableau 2) et tableau 8 (copie revendeur AV Pro Supply)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/2028-VM5SDataSheet.pdf",
+      "document": "Kramer, fiche VM-5S (copie revendeur Full Compass)",
+      "accessed": "2026-11-08"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "vin",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite ou SDI, 1 Vcc / 75 Ω, terminaison commutable (TERM)"
+    },
+    {
+      "id": "vout1",
+      "name": "Video Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1 Vcc / 75 Ω"
+    },
+    {
+      "id": "vout2",
+      "name": "Video Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1 Vcc / 75 Ω"
+    },
+    {
+      "id": "vout3",
+      "name": "Video Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1 Vcc / 75 Ω"
+    },
+    {
+      "id": "vout4",
+      "name": "Video Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1 Vcc / 75 Ω"
+    },
+    {
+      "id": "vout5",
+      "name": "Video Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1 Vcc / 75 Ω"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique (ou mono symétrique), jusqu'à 21 V / 50 kΩ"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Stéréo asymétrique (ou mono symétrique), jusqu'à 21 V / 50 kΩ"
+    },
+    {
+      "id": "aout1L",
+      "name": "Audio Out 1 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout1R",
+      "name": "Audio Out 1 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout2L",
+      "name": "Audio Out 2 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout2R",
+      "name": "Audio Out 2 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout3L",
+      "name": "Audio Out 3 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout3R",
+      "name": "Audio Out 3 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout4L",
+      "name": "Audio Out 4 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout4R",
+      "name": "Audio Out 4 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout5L",
+      "name": "Audio Out 5 L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "aout5R",
+      "name": "Audio Out 5 R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Jusqu'à 21 V / 220 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase secteur avec fusible (dessin : embase IEC), 230 V CA 50/60 Hz, 3,5 VA"
+    }
+  ],
+  "powerW": 3.5,
+  "weightKg": 1.4
 }
