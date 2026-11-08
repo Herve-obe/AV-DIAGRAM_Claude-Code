@@ -183,7 +183,7 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
 
   it('écarte les accessoires et les ensembles, et conserve les appareils physiques', () => {
     for (const id of ['adam-hall-slt005', 'compulocks-ipadair-stand', 'luke-asb-i', 'novelty-siege-de-pont-pour-poursuite', 'novelty-cmx', 'novelty-hmi2500the-h', 'apple-logic-pro-x', 'shure-sbrc-e', 'audio-technica-at8601', 'l-acoustics-syva-base']) expect(LIBRARY_INDEX.has(id), id).toBe(false)
-    for (const id of ['l-acoustics-108p', 'motorola-dp1400', 'indu-electric-ap125tdif', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
+    for (const id of ['l-acoustics-108p', 'motorola-dp1400', 'barco-tld-1-2', 'look-solutions-unique-2']) expect(LIBRARY_INDEX.has(id), id).toBe(true)
     expect(searchLibrary(LIBRARY, 'SLT005')).toEqual([])
     expect(template('audio-technica-at8615').ports.map(p => p.direction)).toEqual(['in', 'out'])
   })

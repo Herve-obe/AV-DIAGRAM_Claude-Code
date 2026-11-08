@@ -1,0 +1,86 @@
+{
+  "id": "modulo-pi-mp-std-2",
+  "family": "recording",
+  "domain": "image",
+  "manufacturer": "Modulo Pi",
+  "model": "Modulo Player Standard MP-STD-2",
+  "pictogram": "recorder",
+  "status": "community",
+  "description": "2 sortie(s) active(s) jusqu'à 2560x1600 ; 4 connecteurs physiques mini DP 1.4 (lesquels sont actifs : non précisé). 1 adaptateur DP actif vers HDMI fourni par sortie. Pas d'entrée de capture (options timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R uniquement). Rack 19\" 4U, 435x175x470 mm sans poignées. Consommation moyenne en forte charge 300 W (alimentation 750 W). Intel Core 7, 2x8 Go DDR4, carte AMD Radeon Pro.",
+  "sources": [
+    {
+      "url": "https://www.modulo-pi.com/media-servers/modulo-player/",
+      "document": "Modulo Pi, page produit Modulo Player (tableaux des versions et liens vers les fiches techniques)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Standard-SpecSheet-20231011.pdf",
+      "document": "Modulo Player Standard SpecSheet (révision matérielle 2024-1, pied de page 23072024)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "Sortie vidéo 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie vidéo 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie vidéo 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie vidéo 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "lan1",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 1000 Mbps"
+    },
+    {
+      "id": "audio1",
+      "name": "Sorties audio 8 canaux",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "8 canaux sur mini-jack 3,5 mm asymétriques ; nombre de prises physiques non précisé",
+      "level": "line+4"
+    },
+    {
+      "id": "power1",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 VAC 50-60 Hz, alimentation 750 W, cordon EU fourni ; type d'embase non précisé"
+    }
+  ],
+  "aliases": [
+    "MP-STD-2"
+  ],
+  "weightKg": 17,
+  "powerW": 300
+}

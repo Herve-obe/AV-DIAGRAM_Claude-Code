@@ -1,0 +1,103 @@
+{
+  "id": "modulo-pi-rmp-ux-2",
+  "family": "recording",
+  "domain": "image",
+  "manufacturer": "Modulo Pi",
+  "model": "Modulo Player Ultra (châssis durci) RMP-UX-2",
+  "pictogram": "recorder",
+  "status": "community",
+  "description": "2 sorties actives jusqu'à 2560x1600 ; 4 connecteurs DP 1.4. Châssis durci suspendu. Données : SSD NVMe PCIe 2 To. Options de capture (non montées d'origine) : DELTA-2x3G (2x 3G-SDI), DELTA-1x12G (4x 3G-SDI ou 1x 12G + 2x 3G), DELTA-2x12G (8x 3G ou 2x 12G + 4x 3G), DELTA-6x12G (12x 3G ou 6x 12G), DELTA-2xHDMI (2x HDMI 2.0 4K), DELTA-MIXED (4x 3G-SDI + 1x HDMI 2.0) ; cartes timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R. Rugged : en plus DELTA-HOST (Flex Host Card) et modules Flex MOD-HDMI (1x HDMI 2.0), MOD-DP (1x DP 1.2), MOD-1x12G. Dimensions 482x176,8x690 mm avec poignées. Consommation moyenne en ",
+  "sources": [
+    {
+      "url": "https://www.modulo-pi.com/media-servers/modulo-player/",
+      "document": "Modulo Pi, page produit Modulo Player (tableaux des versions et liens vers les fiches techniques)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Ultra-Rugg-SpecSheet-20231011.pdf",
+      "document": "Modulo Player Ultra ruggedized chassis SpecSheet (révision matérielle 2024-1, pied de page 23072024)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "Sortie vidéo 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie vidéo 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie vidéo 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie vidéo 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "lan1",
+      "name": "Réseau 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "RJ45 10GbE etherCON"
+    },
+    {
+      "id": "lan2",
+      "name": "Réseau 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "RJ45 10GbE etherCON"
+    },
+    {
+      "id": "audio1",
+      "name": "Sortie audio 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "XLR symétrique (nombre de broches non précisé)",
+      "level": "line+4"
+    },
+    {
+      "id": "audio2",
+      "name": "Sortie audio 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "XLR symétrique (nombre de broches non précisé)",
+      "level": "line+4"
+    },
+    {
+      "id": "power1",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1, 100-240 VAC 50-60 Hz, alimentation 850 W ; câble TRUE1 et cordon EU fournis"
+    }
+  ],
+  "aliases": [
+    "RMP-UX-2"
+  ],
+  "weightKg": 29,
+  "powerW": 450
+}

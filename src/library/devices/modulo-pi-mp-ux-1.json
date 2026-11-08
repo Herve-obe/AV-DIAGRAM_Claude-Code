@@ -1,0 +1,93 @@
+{
+  "id": "modulo-pi-mp-ux-1",
+  "family": "recording",
+  "domain": "image",
+  "manufacturer": "Modulo Pi",
+  "model": "Modulo Player Ultra MP-UX-1",
+  "pictogram": "recorder",
+  "status": "community",
+  "description": "1 sortie active jusqu'à 2560x1600 ; 4 connecteurs physiques DP 1.4. Données : SSD NVMe PCIe 2 To. Lecture de séquences TGA/DPX non compressées, 3D stéréo active. Pas d'entrée de capture d'origine. Options de capture (non montées d'origine) : DELTA-2x3G (2x 3G-SDI), DELTA-1x12G (4x 3G-SDI ou 1x 12G + 2x 3G), DELTA-2x12G (8x 3G ou 2x 12G + 4x 3G), DELTA-6x12G (12x 3G ou 6x 12G), DELTA-2xHDMI (2x HDMI 2.0 4K), DELTA-MIXED (4x 3G-SDI + 1x HDMI 2.0) ; cartes timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R. Rack 19\", 482x175x515 mm avec poignées. Consommation moyenne en forte charge 450 W (alimentation 850",
+  "sources": [
+    {
+      "url": "https://www.modulo-pi.com/media-servers/modulo-player/",
+      "document": "Modulo Pi, page produit Modulo Player (tableaux des versions et liens vers les fiches techniques)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Ultra-SpecSheet-20231011.pdf",
+      "document": "Modulo Player Ultra SpecSheet (révision matérielle 2024-1, pied de page 23072024)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "Sortie vidéo 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie vidéo 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie vidéo 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie vidéo 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "lan1",
+      "name": "Réseau 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 10GbE"
+    },
+    {
+      "id": "lan2",
+      "name": "Réseau 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 10GbE"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.2 Gen 2 type C"
+    },
+    {
+      "id": "power1",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 VAC 50-60 Hz, alimentation 850 W, cordon EU fourni ; type d'embase non précisé"
+    }
+  ],
+  "aliases": [
+    "MP-UX-1"
+  ],
+  "weightKg": 17,
+  "powerW": 450
+}
