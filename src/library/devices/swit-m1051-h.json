@@ -4,7 +4,7 @@
   "manufacturer": "Swit",
   "model": "M1051-H",
   "pictogram": "display",
-  "status": "verified",
+  "status": "community",
   "description": "Rack 3U de 3 moniteurs 5 pouces (3G-SDI, HDMI, composite)",
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Écran A Phone",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack",
+      "connector": "unspecified",
       "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
     },
     {
@@ -130,7 +130,7 @@
       "name": "Écran B Phone",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack",
+      "connector": "unspecified",
       "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
     },
     {
@@ -189,7 +189,7 @@
       "name": "Écran C Phone",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack",
+      "connector": "unspecified",
       "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
     },
     {
@@ -209,5 +209,6 @@
       "format": "DC 12 V, jack d'alimentation (centre positif au dessin), adaptateur secteur fourni"
     }
   ],
-  "powerW": 24
+  "powerW": 24,
+  "notes": "Prise casque (PHONE) en façade de chaque écran, type non précisé par SWIT. La fiche technique cite 2 RCA d'entrée audio stéréo par écran, absents de la vue arrière du manuel et de la photo : non saisis."
 }

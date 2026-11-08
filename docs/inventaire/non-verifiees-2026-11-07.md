@@ -1,13 +1,13 @@
-# Fiches non vérifiées (7 novembre 2026)
+# Fiches non vérifiées (8 novembre 2026)
 
-573 fiches restent en Communauté. Motif principal de chacune :
+509 fiches restent en Communauté. Motif principal :
 
-- **connecteur non précisé** : une prise réelle existe mais aucun document ne nomme son type (souvent l'embase secteur) ;
-- **source à confirmer** : connectique complète, mais la seule source est un revendeur, le loueur ou une copie tierce ;
+- **connecteur non précisé** : une prise réelle existe mais aucun document constructeur ne nomme son type (souvent l'embase secteur) ;
+- **source à confirmer** : connectique complète, mais aucun document constructeur lisible ne la confirme ;
 - **sans prise** : aucune documentation exploitable de la connectique ;
-- **niveau audio inconnu** : une prise audio analogique dont le niveau nominal n'est publié nulle part.
+- **niveau audio inconnu** : niveau nominal non publié par le constructeur.
 
-## Audio : 94 fiches (47 connecteur non précisé, 33 source à confirmer, 10 niveau audio inconnu, 4 sans prise)
+## Audio : 83 fiches (49 connecteur non précisé, 24 source à confirmer, 10 niveau audio inconnu)
 
 | Fiche | Modèle | Famille | Motif |
 |---|---|---|---|
@@ -22,8 +22,6 @@
 | `beyerdynamic-dt-108` | Beyerdynamic DT 108 | intercom | connecteur non précisé |
 | `clear-com-fsii-base-ii` | Clear-Com FSII-BASE-II | intercom | connecteur non précisé |
 | `clear-com-fsii-tcvr-19` | Clear-Com FSII-TCVR-19 | intercom | connecteur non précisé |
-| `shure-brh440m` | Shure BRH440M | intercom | connecteur non précisé |
-| `shure-brh441m` | Shure BRH441M | intercom | connecteur non précisé |
 | `taiden-hcs-4100mb-50` | Taiden HCS-4100MB-50 | intercom | connecteur non précisé |
 | `taiden-hcs-4800ma` | Taiden HCS-4800MA | intercom | connecteur non précisé |
 | `taiden-hcs-4800ma-20` | Taiden HCS-4800MA/20 | intercom | connecteur non précisé |
@@ -48,6 +46,10 @@
 | `electro-voice-dml-1122` | Electro-Voice DeltaMax DML-1122 | speaker | connecteur non précisé |
 | `genelec-8020-cpm` | GENELEC 8020 CPM | speaker | connecteur non précisé |
 | `innovason-stagebox` | Innovason Stagebox 64 entrées | stagebox | connecteur non précisé |
+| `networksound-mamba-digital-snake-16` | Networksound Mamba Digital Snake 16x16 | stagebox | connecteur non précisé |
+| `motorola-dp1400` | Motorola DP1400 | wireless | connecteur non précisé |
+| `neutrik-nxp2rx-e` | Neutrik NXP2RX-E | wireless | connecteur non précisé |
+| `neutrik-nxp2tx-e` | Neutrik NXP2TX-E | wireless | connecteur non précisé |
 | `taiden-hcs-5100t-35b` | Taiden HCS-5100T/35B | wireless | connecteur non précisé |
 | `soundcraft-efx8` | Soundcraft EFX8 | console | connecteur non précisé, niveau audio inconnu |
 | `soundcraft-epm6` | Soundcraft EPM6 | console | connecteur non précisé, niveau audio inconnu |
@@ -68,22 +70,12 @@
 | `electro-voice-evolve-50` | Electro-Voice EVOLVE 50 | speaker | niveau audio inconnu |
 | `videotek-apm200` | Videotek APM200 | speaker | niveau audio inconnu |
 | `sennheiser-ek-100-g3` | Sennheiser EK 100 G3 (récepteur caméra) | wireless | niveau audio inconnu |
-| `networksound-mamba-digital-snake-16` | Networksound Mamba Digital Snake 16x16 | stagebox | sans prise |
-| `neutrik-nxp2rx-e` | Neutrik NXP2RX-E | wireless | sans prise |
-| `neutrik-nxp2tx-e` | Neutrik NXP2TX-E | wireless | sans prise |
-| `rts-kp-12-cld` | RTS KP-12-CLD | intercom | sans prise, sans source URL |
 | `fischer-amps-shaker-amp-400` | Fischer Amps Shaker Amp 400 | amplification | source à confirmer |
 | `audio-technica-es925` | Audio-Technica ES925 | capture | source à confirmer |
 | `electro-voice-nd308` | Electro-Voice N/D308 | capture | source à confirmer |
 | `midas-heritage-1000` | Midas Heritage 1000 | console | source à confirmer |
-| `qsc-touchmix-16` | QSC TouchMix-16 | console | source à confirmer |
 | `altair-ef-200` | Altair EF-200 | intercom | source à confirmer |
 | `altair-wbs-202` | Altair WBS-202 | intercom | source à confirmer |
-| `taiden-hcs-4838cs-80` | Taiden HCS-4838CS/80 | intercom | source à confirmer |
-| `taiden-hcs-4838ds-80` | Taiden HCS-4838DS/80 | intercom | source à confirmer |
-| `taiden-hcs-8685st` | Taiden HCS-8685ST | intercom | source à confirmer |
-| `klotz-lsv2844` | Klotz LSV2844 | passive | source à confirmer |
-| `klotz-lsv2864` | Klotz LSV2864 | passive | source à confirmer |
 | `avalon-vt-747sp` | Avalon VT-747SP | processing | source à confirmer |
 | `drawmer-ds201` | DRAWMER DS201 | processing | source à confirmer |
 | `empirical-labs-distressor-el8x` | Empirical Labs Distressor EL8-X | processing | source à confirmer |
@@ -102,11 +94,8 @@
 | `fischer-amps-bass-pump-iii` | Fischer Amps Bass Pump III | speaker | source à confirmer |
 | `l-acoustics-mtd112b` | L-Acoustics MTD112b | speaker | source à confirmer |
 | `icom-ic-f22` | Icom IC-F22 | wireless | source à confirmer |
-| `motorola-dp1400` | Motorola DP1400 | wireless | source à confirmer |
-| `motorola-gp340` | Motorola GP340 | wireless | source à confirmer |
-| `shure-ua845swb` | Shure UA845SWB | wireless | source à confirmer |
 
-## Image : 235 fiches (164 connecteur non précisé, 28 niveau audio inconnu, 27 sans prise, 16 source à confirmer)
+## Image : 217 fiches (153 connecteur non précisé, 34 niveau audio inconnu, 21 sans prise, 9 source à confirmer)
 
 | Fiche | Modèle | Famille | Motif |
 |---|---|---|---|
@@ -120,7 +109,6 @@
 | `analog-way-rc400t` | Analog Way RC400T | control | connecteur non précisé |
 | `d-san-perfectcue-mini` | D'San PerfectCue Mini | control | connecteur non précisé |
 | `interspace-industries-microcue3` | Interspace industries MicroCue3 | control | connecteur non précisé |
-| `panasonic-ag-ec4` | Panasonic AG-EC4 | control | connecteur non précisé |
 | `panasonic-ak-ucu600` | Panasonic AK-UCU600 | control | connecteur non précisé |
 | `sierra-video-aspen-rcp-3232` | Sierra Video Aspen RCP-3232 | control | connecteur non précisé |
 | `absen-pl2-5` | Absen PL2.5 | display | connecteur non précisé |
@@ -140,7 +128,6 @@
 | `infiled-x3-9-curve` | Infiled X3.9 Curve | display | connecteur non précisé |
 | `infiled-x3-9-edge` | Infiled X3.9 Edge | display | connecteur non précisé |
 | `infiled-x3-9-flat` | Infiled X3.9 Flat | display | connecteur non précisé |
-| `lilliput-fs7` | Lilliput FS7 | display | connecteur non précisé |
 | `lilliput-pvm220s` | Lilliput PVM220S | display | connecteur non précisé |
 | `marshall-electronics-v-r44p-hdsdi` | MARSHALL ELECTRONICS V R44P HDSDI | display | connecteur non précisé |
 | `mled-m6` | MLed M6 | display | connecteur non précisé |
@@ -154,13 +141,10 @@
 | `panasonic-pt-rz670be` | Panasonic PT-RZ670BE | display | connecteur non précisé |
 | `panasonic-pt-rz970be` | Panasonic PT-RZ970BE | display | connecteur non précisé |
 | `samsung-u28e850r` | Samsung U28E850R | display | connecteur non précisé |
-| `swit-s-1071h` | Swit S-1071H | display | connecteur non précisé |
+| `swit-m1051-h` | Swit M1051-H | display | connecteur non précisé |
 | `canon-hj11x4-7-ias-e` | Canon HJ11x4.7 IAS E | passive | connecteur non précisé |
 | `canon-hj40x-ias-d` | Canon HJ40x IAS D | passive | connecteur non précisé |
-| `atomos-shogun-connect` | Atomos Shogun Connect | recording | connecteur non précisé |
 | `newtek-3play-4800` | NewTek 3Play 4800 | recording | connecteur non précisé |
-| `theatrixx-xpresscue` | Theatrixx xPressCue | recording | connecteur non précisé |
-| `video-devices-pix-270i` | Video Devices Pix 270i | recording | connecteur non précisé |
 | `grass-valley-advc-g4` | Grass Valley ADVC G4 | sync | connecteur non précisé |
 | `barco-imagepro-ii` | Barco ImagePRO-II | videoRouting | connecteur non précisé |
 | `blackmagic-smart-videohub-cleanswitch-12x12` | Blackmagic Design Smart Videohub CleanSwitch 12x12 | videoRouting | connecteur non précisé |
@@ -184,11 +168,9 @@
 | `analog-way-ascender-32-livecore-4k-asc3204` | Analog Way Ascender 32 (LiveCore) 4k – ASC3204 | videoSwitcher | connecteur non précisé |
 | `barco-e2` | Barco E2 (Event Master) | videoSwitcher | connecteur non précisé |
 | `panasonic-av-hs60u2` | Panasonic AV-HS60U2 (unité principale AV-HS6000) | videoSwitcher | connecteur non précisé |
-| `roland-v-160hd` | Roland V-160HD | videoSwitcher | connecteur non précisé |
 | `ross-carbonite-black-solo` | Ross Video Carbonite Black Solo | videoSwitcher | connecteur non précisé |
 | `sony-mvs-3000a` | Sony MVS-3000A | videoSwitcher | connecteur non précisé |
 | `jvc-gy-hm790e` | JVC GY-HM790E | camera | connecteur non précisé, niveau audio inconnu |
-| `panasonic-ak-uc4000` | Panasonic AK-UC4000 | camera | connecteur non précisé, niveau audio inconnu |
 | `panasonic-aw-he42` | Panasonic AW-HE42 | camera | connecteur non précisé, niveau audio inconnu |
 | `panasonic-dmc-gh4` | Panasonic Lumix DMC-GH4 | camera | connecteur non précisé, niveau audio inconnu |
 | `sony-pmw-350` | Sony PMW-350 | camera | connecteur non précisé, niveau audio inconnu |
@@ -216,7 +198,7 @@
 | `lg-98uh5e` | LG 98UH5E (98") | display | connecteur non précisé, niveau audio inconnu |
 | `lg-lg-32sm5j-b` | LG LG 32SM5J-B | display | connecteur non précisé, niveau audio inconnu |
 | `lg-uh5f-h` | LG UH5F-H | display | connecteur non précisé, niveau audio inconnu |
-| `lilliput-q23-8k` | Lilliput Q23-8K | display | connecteur non précisé, niveau audio inconnu |
+| `lilliput-fs7` | Lilliput FS7 | display | connecteur non précisé, niveau audio inconnu |
 | `nec-lcd4020` | NEC LCD4020 | display | connecteur non précisé, niveau audio inconnu |
 | `nec-multeos-m461-dst-touch` | NEC Multeos M461 DST Touch | display | connecteur non précisé, niveau audio inconnu |
 | `pioneer-pdp-503mxe` | Pioneer PDP-503MXE | display | connecteur non précisé, niveau audio inconnu |
@@ -255,11 +237,7 @@
 | `sony-fwd-s47h1` | Sony FWD-S47H1 | display | connecteur non précisé, niveau audio inconnu |
 | `sony-lmd-2451w` | Sony LMD-2451W | display | connecteur non précisé, niveau audio inconnu |
 | `sony-pvm-14l4` | Sony PVM-14L4 | display | connecteur non précisé, niveau audio inconnu |
-| `swit-m1051-h` | Swit M1051-H | display | connecteur non précisé, niveau audio inconnu |
-| `vivitek-du7098z-b` | Vivitek DU7098Z-B | display | connecteur non précisé, niveau audio inconnu |
-| `vivitek-du7098z-n` | Vivitek DU7098Z-N | display | connecteur non précisé, niveau audio inconnu |
 | `blackmagic-hyperdeck-studio-pro` | Blackmagic Design HyperDeck Studio Pro | recording | connecteur non précisé, niveau audio inconnu |
-| `blackmagic-web-presenter` | Blackmagic Design Web Presenter | recording | connecteur non précisé, niveau audio inconnu |
 | `analog-way-smart-matrix-smx200` | Analog Way Smart Matrix SMX200 | videoRouting | connecteur non précisé, niveau audio inconnu |
 | `analog-way-vio-4k` | Analog Way VIO 4K | videoRouting | connecteur non précisé, niveau audio inconnu |
 | `digital-forecast-bridge-m-hh` | Digital Forecast Bridge-M-HH | videoRouting | connecteur non précisé, niveau audio inconnu |
@@ -274,13 +252,18 @@
 | `panasonic-ag-hpx371e` | Panasonic AG-HPX371E | camera | connecteur non précisé, niveau audio inconnu, sans source URL |
 | `sony-hxc-d70` | Sony HXC-D70 (caméra HD) | camera | connecteur non précisé, niveau audio inconnu, sans source URL |
 | `sony-mvs-3000` | Sony MVS-3000 (processeur de mélangeur) | videoSwitcher | connecteur non précisé, sans source URL |
+| `panasonic-ak-uc4000` | Panasonic AK-UC4000 | camera | niveau audio inconnu |
+| `lilliput-q23-8k` | Lilliput Q23-8K | display | niveau audio inconnu |
 | `swit-m-1070h` | SWIT M-1070H | display | niveau audio inconnu |
+| `swit-s-1071h` | Swit S-1071H | display | niveau audio inconnu |
+| `vivitek-du7098z-b` | Vivitek DU7098Z-B | display | niveau audio inconnu |
+| `vivitek-du7098z-n` | Vivitek DU7098Z-N | display | niveau audio inconnu |
 | `blackmagic-design-ultrastudio-4k` | Blackmagic Design UltraStudio 4K | recording | niveau audio inconnu |
 | `blackmagic-design-ultrastudio-4k-mini` | Blackmagic Design UltraStudio 4K Mini | recording | niveau audio inconnu |
+| `blackmagic-web-presenter` | Blackmagic Design Web Presenter | recording | niveau audio inconnu |
 | `pioneer-dj-v6000` | Pioneer DJ V6000 | recording | niveau audio inconnu |
 | `pioneer-dj-v8000` | Pioneer DJ V8000 | recording | niveau audio inconnu |
 | `adder-x200a` | Adder X200A | videoRouting | niveau audio inconnu |
-| `aja-3g-ama` | AJA 3G-AMA | videoRouting | niveau audio inconnu |
 | `aja-ioxt` | AJA ioXT | videoRouting | niveau audio inconnu |
 | `blackmagic-design-miniconverter-sdi-to-hdmi` | Blackmagic Design MiniConverter SDI To HDMI | videoRouting | niveau audio inconnu |
 | `blackmagic-design-teranex-av` | Blackmagic Design Teranex AV | videoRouting | niveau audio inconnu |
@@ -293,6 +276,7 @@
 | `blackmagic-mini-converter-sdi-to-hdmi-6g` | Blackmagic Design Mini Converter SDI to HDMI 6G | videoRouting | niveau audio inconnu |
 | `canopus-advc-700` | Canopus ADVC-700 | videoRouting | niveau audio inconnu |
 | `kramer-vm-10xl` | Kramer VM-10XL | videoRouting | niveau audio inconnu |
+| `kramer-vm-5s` | Kramer VM-5S | videoRouting | niveau audio inconnu |
 | `kramer-vs-311h` | Kramer VS-311H (commutateur automatique HDMI 3x1) | videoRouting | niveau audio inconnu |
 | `newtek-spark-plus-io` | NewTek Spark Plus IO | videoRouting | niveau audio inconnu |
 | `novastar-mctrl660` | NovaStar MCTRL660 | videoRouting | niveau audio inconnu |
@@ -303,9 +287,6 @@
 | `lumantek-ez-pro-vs4` | Lumantek ez-Pro VS4 | videoSwitcher | niveau audio inconnu |
 | `ma-vpu-basic-mk2` | MA Lighting VPU basic MK2 | videoSwitcher | niveau audio inconnu |
 | `sony-dsr-400p` | Sony DSR-400P | camera | sans prise |
-| `d-san-pro-2000bt` | D'San PRO-2000BT | control | sans prise |
-| `d-san-psl-20v` | D'San PSL-20V | control | sans prise |
-| `d-san-tr-2000bt` | D'San TR-2000BT | control | sans prise |
 | `fujinon-rmd-30` | FUJINON RMD-30 | control | sans prise |
 | `sony-icp-3016` | Sony ICP-3016 | control | sans prise |
 | `sony-ac500` | Sony AC500 | passive | sans prise |
@@ -318,27 +299,17 @@
 | `lansee-extender-12g-sdi` | LanSee Extender 12G SDI | videoRouting | sans prise |
 | `lightware-modex-opts-rx` | Lightware MODEX-OPTS-RX | videoRouting | sans prise |
 | `lightware-modex-opts-tx` | Lightware MODEX-OPTS-TX | videoRouting | sans prise |
-| `theatrixx-hdmi-da-1-4` | Theatrixx HDMI DA 1:4 | videoRouting | sans prise |
-| `theatrixx-xvvdp2qsdi` | Theatrixx XVVDP2QSDI | videoRouting | sans prise |
 | `newtek-tricaster-450cs` | NewTek TriCaster 450CS | control | sans prise, sans source URL |
 | `iiyama-prolite-t1531sr-b1` | iiyama ProLite T1531SR-B1 | display | sans prise, sans source URL |
 | `konvision-kvm-2250w` | Konvision KVM-2250W | display | sans prise, sans source URL |
 | `avid-nitris-dx` | Avid Nitris DX | videoRouting | sans prise, sans source URL |
-| `kramer-vm-5s` | Kramer VM-5S | videoRouting | sans prise, sans source URL |
 | `sierra-video-aspen-1616hd` | Sierra Video Aspen 1616HD | videoRouting | sans prise, sans source URL |
 | `sierra-video-aspen-3232hd` | Sierra Video Aspen 3232HD | videoRouting | sans prise, sans source URL |
 | `swit-s-4600` | Swit S-4600 | videoRouting | sans prise, sans source URL |
 | `newtek-tricaster-455` | NewTek TriCaster 455 | videoSwitcher | sans prise, sans source URL |
-| `blackmagic-ursa-broadcast-g2` | Blackmagic Design URSA Broadcast G2 | camera | source à confirmer |
 | `gopro-hero-3-black-edition-surf` | GoPro Hero 3 Black Edition Surf | camera | source à confirmer |
-| `sony-pxw-fs5` | Sony PXW-FS5 | camera | source à confirmer |
-| `apple-ipad-air-2` | APPLE iPad Air 2 | control | source à confirmer |
-| `d-san-pc-as4-grn` | D'San PC-AS4-Grn | control | source à confirmer |
-| `dell-m4400` | DELL M4400 | control | source à confirmer |
-| `lenovo-thinkpad-e15-gen-2` | Lenovo ThinkPad E15 Gen 2 | control | source à confirmer |
-| `lenovo-thinkpad-e570` | Lenovo Thinkpad E570 | control | source à confirmer |
-| `lenovo-thinkpad-e580-20ks001-jfr` | Lenovo ThinkPad E580 (20KS001-JFR) | control | source à confirmer |
-| `panasonic-ak-hrp1010` | Panasonic AK-HRP1010 | control | source à confirmer |
+| `d-san-pro-2000bt` | D'San PRO-2000BT | control | source à confirmer |
+| `panasonic-ag-ec4` | Panasonic AG-EC4 | control | source à confirmer |
 | `sony-rm-1bp` | Sony RM-1BP | control | source à confirmer |
 | `absen-pl-3-9-pro-v2` | Absen PL 3.9 pro V2 | display | source à confirmer |
 | `absen-pl3-9-pro-v2` | Absen Polaris PL3.9 Pro V2 | display | source à confirmer |
@@ -346,7 +317,7 @@
 | `fougerolle-d3gduo1x4` | Fougerolle D3GDUO1X4 | videoRouting | source à confirmer |
 | `novastar-v1-video-processor` | NovaStar V1 Video Processor | videoRouting | source à confirmer |
 
-## Lumière : 178 fiches (62 connecteur non précisé, 55 source à confirmer, 52 sans prise, 9 niveau audio inconnu)
+## Lumière : 165 fiches (57 connecteur non précisé, 51 sans prise, 47 source à confirmer, 10 niveau audio inconnu)
 
 | Fiche | Modèle | Famille | Motif |
 |---|---|---|---|
@@ -358,13 +329,11 @@
 | `martin-maxedia-compact` | Martin Maxedia Compact | lightingControl | connecteur non précisé |
 | `oxo-lips-6` | OXO Lips 6 | lightingControl | connecteur non précisé |
 | `ambiance-lumiere-piko` | Ambiance Lumière PIKO | luminaire | connecteur non précisé |
-| `aric-rail-dichro` | ARIC RAIL/DICHRO | luminaire | connecteur non précisé |
 | `arri-compact-2500` | ARRI Compact 2500 | luminaire | connecteur non précisé |
 | `arri-compact-4000` | ARRI Compact 4000 | luminaire | connecteur non précisé |
 | `arri-minicyc` | Arri Minicyc 1000 | luminaire | connecteur non précisé |
 | `bron-kobold-dw400` | Bron Kobold DW400 | luminaire | connecteur non précisé |
 | `chauvet-festoon-2-rgb` | Chauvet DJ Festoon 2 RGB | luminaire | connecteur non précisé |
-| `chauvet-ovation-reve-f-3-ip` | Chauvet Professional Ovation Rêve F-3 IP | luminaire | connecteur non précisé |
 | `chauvet-professional-colorado-2-quad-zoom-ip-mkii` | Chauvet Professional COLORado 2 Quad Zoom IP MKII | luminaire | connecteur non précisé |
 | `chauvet-professional-double-derby` | Chauvet Professional Double Derby | luminaire | connecteur non précisé |
 | `chauvet-professional-swarm-4` | Chauvet Professional Swarm 4 | luminaire | connecteur non précisé |
@@ -373,7 +342,6 @@
 | `chauvet-professional-well-fit-n` | Chauvet Professional Well Fit N | luminaire | connecteur non précisé |
 | `chauvet-well-fit` | Chauvet Professional WELL Fit | luminaire | connecteur non précisé |
 | `chauvet-well-stx-360` | Chauvet Professional WELL STX 360 | luminaire | connecteur non précisé |
-| `cls-jade-zoom` | CLS JADE ZOOM | luminaire | connecteur non précisé |
 | `desisti-piccoletto-led` | DeSisti Piccoletto LED | luminaire | connecteur non précisé |
 | `elation-dtw-blinder-350-ip` | Elation DTW Blinder 350 IP | luminaire | connecteur non précisé |
 | `elation-kl-fresnel-6-cw` | Elation KL Fresnel 6 CW | luminaire | connecteur non précisé |
@@ -388,7 +356,6 @@
 | `innled-t4x` | Innled T4X | luminaire | connecteur non précisé |
 | `keylite-boule-chinoise` | KEYLITE Boule Chinoise | luminaire | connecteur non précisé |
 | `kino-flo-cfx-4804` | Kino Flo CFX-4804 (4ft 4Bank) | luminaire | connecteur non précisé |
-| `ltm-lt300b-led-rail` | LTM LT300B-LED-RAIL | luminaire | connecteur non précisé |
 | `mole-richardson-mickey` | Mole-Richardson Mickey | luminaire | connecteur non précisé |
 | `prolights-gallery-eclipse` | Prolights Gallery Eclipse | luminaire | connecteur non précisé |
 | `robe-patt-2013` | Robe PATT 2013 | luminaire | connecteur non précisé |
@@ -406,12 +373,12 @@
 | `ma-lighting-lightcommander-24-48` | MA Lighting Lightcommander 24/48 | lightingControl | connecteur non précisé, niveau audio inconnu |
 | `ma-lighting-lightcommander-48-96` | MA Lighting Lightcommander 48/96 | lightingControl | connecteur non précisé, niveau audio inconnu |
 | `swisson-xsr-r5-5r` | Swisson XSR-R5-5R | dmxDistribution | connecteur non précisé, sans source URL |
-| `wireless-solution-microbox-f-1-g5` | Wireless Solution MicroBox F-1 G5 | dmxDistribution | connecteur non précisé, sans source URL |
 | `mole-richardson-vm70` | Mole-Richardson VM70 | luminaire | connecteur non précisé, sans source URL |
 | `oxo-funstrip` | OXO Funstrip | luminaire | connecteur non précisé, sans source URL |
 | `oxo-uv-beam` | OXO UV Beam | luminaire | connecteur non précisé, sans source URL |
 | `prolights-eclipse-zoom` | Prolights Eclipse Zoom | luminaire | connecteur non précisé, sans source URL |
 | `scenilux-bt1000` | Scenilux BT1000 | luminaire | connecteur non précisé, sans source URL |
+| `ma-dot2-xl-f` | MA Lighting dot2 XL-F | lightingControl | niveau audio inconnu |
 | `ma-grandma2-full-size` | MA Lighting grandMA2 full-size | lightingControl | niveau audio inconnu |
 | `ma-grandma2-light` | MA Lighting grandMA2 light | lightingControl | niveau audio inconnu |
 | `ma-grandma2-ultra-light` | MA Lighting grandMA2 ultra-light | lightingControl | niveau audio inconnu |
@@ -464,7 +431,6 @@
 | `thomas-par56` | THOMAS PAR56 | luminaire | sans prise |
 | `thomas-par64` | THOMAS PAR64 | luminaire | sans prise |
 | `thomas-par64-barre-x6` | THOMAS PAR64 BARRE X6 | luminaire | sans prise |
-| `ura-baes-baeh-117748` | URA BAES/BAEH 117748 | luminaire | sans prise |
 | `compulite-corona-m` | COMPULITE Corona M | passive | sans prise |
 | `de-sisti-de-lux-2-4650` | De Sisti De Lux 2 4650 | luminaire | sans prise, sans source URL |
 | `griven-arco-650` | Griven Arco 650 | luminaire | sans prise, sans source URL |
@@ -475,31 +441,27 @@
 | `swit-s-2120c` | Swit S-2120C | luminaire | sans prise, sans source URL |
 | `dynatec-booster-6s-set-x2` | Dynatec Booster 6S | dmxDistribution | source à confirmer |
 | `galatec-6x3` | GALATEC 6×3 | dmxDistribution | source à confirmer |
-| `luminex-luminode-2` | Luminex LumiNode 2 | dmxDistribution | source à confirmer |
-| `luminex-luminode-4` | Luminex LumiNode 4 | dmxDistribution | source à confirmer |
 | `oxo-wds512r` | OXO WDS512R | dmxDistribution | source à confirmer |
 | `oxo-wds512t` | OXO WDS512T | dmxDistribution | source à confirmer |
 | `rve-12x3-dimkit` | RVE 12×3 DimKit | dmxDistribution | source à confirmer |
 | `rve-6x5` | RVE 6×5 | dmxDistribution | source à confirmer |
-| `wireless-solution-blackbox-f-2-g5` | Wireless Solution BlackBox F-2 G5 | dmxDistribution | source à confirmer |
 | `avab-congo-kid-pupitre-manuel-40-circuits` | AVAB Congo Kid | lightingControl | source à confirmer |
 | `chamsys-mq70` | ChamSys MQ70 | lightingControl | source à confirmer |
 | `chamsys-mq80` | ChamSys MagicQ MQ80 | lightingControl | source à confirmer |
 | `etc-gio-enhanced` | ETC Gio Enhanced | lightingControl | source à confirmer |
 | `etc-gio-original` | ETC Gio original | lightingControl | source à confirmer |
-| `ma-dot2-xl-f` | MA Lighting dot2 XL-F | lightingControl | source à confirmer |
-| `ma-lighting-npu` | MA Lighting NPU | lightingControl | source à confirmer |
 | `work-l6dmx-serie-2` | WORK L6DMX Série 2 | lightingControl | source à confirmer |
-| `arri-360-c` | ARRI 360-C | luminaire | source à confirmer |
-| `arri-skypanel-s360-c` | ARRI SkyPanel S360-C | luminaire | source à confirmer |
-| `astera-nyx-bulb` | Astera NYX Bulb | luminaire | source à confirmer |
+| `aric-rail-dichro` | ARIC RAIL/DICHRO | luminaire | source à confirmer |
+| `cls-jade-zoom` | CLS JADE ZOOM | luminaire | source à confirmer |
+| `eaton-luminox-ultraled2-400` | Eaton ULTRALED 2-400 (LUM16143) | luminaire | source à confirmer |
 | `etc-source-four-led-zoom` | ETC Source Four LED Zoom | luminaire | source à confirmer |
-| `eurolite-s4par-blanc` | Eurolite S4PAR Blanc | luminaire | source à confirmer |
+| `eurolite-s4par-blanc` | ETC S4PAR Blanc | luminaire | source à confirmer |
 | `huali-quartz-led-480w` | HUALI QUARTZ LED 480W | luminaire | source à confirmer |
 | `innled-t4x-b` | Innled T4X-B | luminaire | source à confirmer |
 | `innled-t4x-n` | Innled T4X-N | luminaire | source à confirmer |
 | `ledpro-x6` | Ledpro X6 | luminaire | source à confirmer |
 | `ltm-lt300b-led-pc16` | LTM LT300B-LED-PC16 | luminaire | source à confirmer |
+| `ltm-lt300b-led-rail` | LTM LT300B-LED-RAIL | luminaire | source à confirmer |
 | `ltm-lt300n-led-pc16` | LTM LT300N-LED-PC16 | luminaire | source à confirmer |
 | `ltm-lt300n-led-rail` | LTM LT300N-LED-RAIL | luminaire | source à confirmer |
 | `ltm-railfres300` | LTM RAILFRES300 | luminaire | source à confirmer |
@@ -516,9 +478,6 @@
 | `procedes-hallier-fenyx-20w-n` | Procedes Hallier Fenyx 20W N | luminaire | source à confirmer |
 | `procedes-hallier-leo-10w-tie-g` | Procedes Hallier LEO 10W TIE-G | luminaire | source à confirmer |
 | `procedes-hallier-leo-10w-tie-n` | Procedes Hallier LEO 10W TIE-N | luminaire | source à confirmer |
-| `robert-juliat-930snx` | Robert Juliat d'Artagnan 930 SNX | luminaire | source à confirmer |
-| `robert-juliat-933snx` | Robert Juliat 933 SNX | luminaire | source à confirmer |
-| `robert-juliat-934snx` | Robert Juliat 934 SNX | luminaire | source à confirmer |
 | `robert-juliat-aramis` | Robert Juliat Aramis HMI 2500 W | luminaire | source à confirmer |
 | `robert-juliat-victor-1159b` | Robert Juliat Victor 1159B | luminaire | source à confirmer |
 | `saf-licialed-kit-x6` | SAF LiciaLED | luminaire | source à confirmer |
@@ -526,10 +485,9 @@
 | `starway-orion` | STARWAY Orion | luminaire | source à confirmer |
 | `starway-tonekolor-4406hd` | STARWAY ToneKolor 4406HD | luminaire | source à confirmer |
 | `thomas-railpar56` | THOMAS RAILPAR56 | luminaire | source à confirmer |
-| `robert-juliat-alimentation-900snx` | Robert Juliat Alimentation magnétique 900 SNX 2 500 W (DMX, CAD 900) | power | source à confirmer |
 | `robert-juliat-alimentation-a2-2500` | Robert Juliat Alimentation A2 2500 (poursuites 1039 / 1439) | power | source à confirmer |
 
-## Distribution : 31 fiches (18 source à confirmer, 8 connecteur non précisé, 5 sans prise)
+## Distribution : 29 fiches (16 source à confirmer, 8 connecteur non précisé, 5 sans prise)
 
 | Fiche | Modèle | Famille | Motif |
 |---|---|---|---|
@@ -562,50 +520,28 @@
 | `merlin-gerin-bd32m-4xpc16` | MERLIN GERIN BD32M/4XPC16 | power | source à confirmer |
 | `merlin-gerin-bd32m-6xpc16` | MERLIN GERIN BD32M/6XPC16 | power | source à confirmer |
 | `merlin-gerin-bd32t-3x2pc` | MERLIN GERIN BD32T/3X2PC | power | source à confirmer |
-| `xantrex-prosine-1000i` | XANTREX Prosine 1000i | power | source à confirmer |
-| `xantrex-prosine-1800i` | XANTREX Prosine 1800i | power | source à confirmer |
 
-## Réseau : 8 fiches (4 source à confirmer, 3 connecteur non précisé, 1 sans prise)
+## Réseau : 6 fiches (4 source à confirmer, 2 connecteur non précisé)
 
 | Fiche | Modèle | Famille | Motif |
 |---|---|---|---|
 | `cisco-sg300-10p` | Cisco SG300-10P | network | connecteur non précisé |
-| `netgear-jgs516pe` | Netgear JGS516PE | network | connecteur non précisé |
 | `tenda-teg1016g` | Tenda TEG1016G | network | connecteur non précisé |
-| `cisco-catalyst-2950sx` | Cisco Catalyst 2950SX | network | sans prise |
+| `cisco-catalyst-2950sx` | Cisco Catalyst 2950SX | network | source à confirmer |
 | `dell-n3024` | Dell N3024 | network | source à confirmer |
-| `luminex-gigacore-14` | Luminex GigaCore 14R | network | source à confirmer |
-| `netgear-gs724t` | Netgear GS724T | network | source à confirmer |
+| `netgear-jgs516pe` | Netgear JGS516PE | network | source à confirmer |
 | `oxo-core8pro` | OXO CORE8PRO | network | source à confirmer |
 
-## Divers (options) : 27 fiches (26 source à confirmer, 1 sans prise)
+## Divers (options) : 9 fiches (8 source à confirmer, 1 sans prise)
 
 | Fiche | Modèle | Famille | Motif |
 |---|---|---|---|
 | `avid-mtrx-dual-sdi` | Avid Pro Tools | MTRX Dual SDI/HD/3G Card | module | sans prise |
-| `analog-way-aql-in-8sdi` | Analog Way Aquilon 8x SDI (4x 12G-SDI + 4x 3G-SDI) input card | module | source à confirmer |
-| `analog-way-aql-out-4sdi12g` | Analog Way Aquilon 4x 12G-SDI output card | module | source à confirmer |
 | `avid-mtrx-dante-128` | Avid Pro Tools | MTRX 128-Channel IP Audio Dante Card | module | source à confirmer |
-| `avid-mtrx-spq` | Avid Pro Tools | MTRX SPQ Speaker Processor Card | module | source à confirmer |
 | `barco-xld-hb-1-0` | Barco XLD HB 1.0 | module | source à confirmer |
 | `barco-xld-hb-1-45-1-8` | Barco XLD HB 1.45 – 1.8 | module | source à confirmer |
 | `barco-xld-hb-1-8-2-4` | Barco XLD HB 1.8 – 2.4 | module | source à confirmer |
 | `barco-xld-hb-2-2-3` | Barco XLD HB 2.2 – 3 | module | source à confirmer |
 | `barco-xld-hb-2-8-5-5` | Barco XLD HB 2.8 – 5.5 | module | source à confirmer |
 | `barco-xld-hb-5-5-8-5` | Barco XLD HB 5.5 – 8.5 | module | source à confirmer |
-| `christie-108-313101` | Christie Dual 3G/HD/SD-SDI Input Card (108-313101-XX) | module | source à confirmer |
-| `epson-elpll08` | Epson ELPLL08 | module | source à confirmer |
-| `epson-elplm10` | Epson ELPLM10 | module | source à confirmer |
-| `epson-elplm11` | Epson ELPLM11 | module | source à confirmer |
-| `epson-elplm15` | Epson ELPLM15 | module | source à confirmer |
-| `epson-elplu04` | Epson ELPLU04 | module | source à confirmer |
-| `epson-elplw06` | Epson ELPLW06 | module | source à confirmer |
-| `epson-elplw08` | Epson ELPLW08 | module | source à confirmer |
-| `epson-elpu03s` | Epson ELPLU03S | module | source à confirmer |
-| `epson-elpx01s` | Epson ELPLX01S | module | source à confirmer |
 | `gopro-media-mod-adfmd-001` | GoPro Media Mod (ADFMD-001) | module | source à confirmer |
-| `panasonic-av-hs04m1` | Panasonic AV-HS04M1 | module | source à confirmer |
-| `panasonic-av-hs04m7` | Panasonic AV-HS04M7 | module | source à confirmer |
-| `sony-bkm-120d` | Sony BKM-120D | module | source à confirmer |
-| `sony-bkm-129x` | Sony BKM-129X | module | source à confirmer |
-| `sony-fs5-xlr-handle` | Sony Poignée XLR PXW-FS5 (fournie) | module | source à confirmer |

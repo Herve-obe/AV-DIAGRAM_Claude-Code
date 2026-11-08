@@ -85,7 +85,7 @@
       "direction": "in",
       "signal": "sync",
       "connector": "bnc",
-      "format": "Tri-level ; bouclage en option"
+      "format": "Tri-level (option)"
     },
     {
       "id": "dmxIn",
@@ -148,6 +148,14 @@
       "signal": "power",
       "connector": "powercon-true1",
       "format": "Recopie secteur"
+    },
+    {
+      "id": "syncThru",
+      "name": "Sync Thru",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage tri-level (option)"
     }
   ],
   "weightKg": 3.75,
