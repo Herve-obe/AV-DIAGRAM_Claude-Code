@@ -39,6 +39,7 @@ export function validateTemplate(t: EquipmentTemplate): string[] {
   const slots = new Set<string>()
   for (const s of t.slots ?? []) {
     if (!s.id || !s.name?.trim() || !s.type?.trim() || slots.has(s.id)) errors.push(`${where} : slot invalide ou en double`)
+    if (s.accepts !== undefined && (!Array.isArray(s.accepts) || !s.accepts.every(a => typeof a === 'string' && a))) errors.push(`${where} : liste d'options compatibles invalide`)
     slots.add(s.id)
   }
   const ids = new Set<string>()

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LIBRARY } from '../library'
-import { moduleLinks } from '../model/modules'
+import { moduleFits, moduleLinks } from '../model/modules'
 import { uid } from '../model/project'
 import type { Equipment } from '../model/types'
 import { useLibrary } from '../store/libraryStore'
@@ -30,7 +30,7 @@ export function ModuleEditor({ eq }: { eq: Equipment }) {
       {(eq.slots ?? []).map(slot => {
         const module = eq.modules?.find(m => m.slotId === slot.id)
         const links = module ? moduleLinks(project, eq.id, module.id).length : 0
-        const available = templates.filter(tpl => tpl.moduleType === slot.type)
+        const available = templates.filter(tpl => moduleFits(slot, tpl))
         return (
           <div key={slot.id} className="module-slot field">
             <strong>{slot.name}</strong> <span className="dim">{slot.type}</span>

@@ -194,6 +194,8 @@ export interface ModuleSlot {
   id: string
   name: string
   type: string
+  /** Options validées par le constructeur pour cet emplacement (identifiants de fiches module). */
+  accepts?: string[]
 }
 
 /** Les ports d'une carte sont conservés sur son hôte, avec leurs identifiants stables. */

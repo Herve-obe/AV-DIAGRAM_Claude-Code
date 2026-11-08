@@ -116,3 +116,13 @@ describe('cartes et slots', () => {
     undo.destroy(); a.destroy(); b.destroy()
   })
 })
+
+describe('options validées par le constructeur', () => {
+  it("refuse une option du même type que le constructeur ne valide pas sur cet emplacement", async () => {
+    const { moduleFits } = await import('./modules')
+    const slot = { id: 'capsule', name: 'Tête de micro', type: 'sennheiser-capsule-standard', accepts: ['sennheiser-mmd-835-bk'] }
+    expect(moduleFits(slot, { id: 'sennheiser-mmd-835-bk', family: 'module', moduleType: 'sennheiser-capsule-standard' })).toBe(true)
+    expect(moduleFits(slot, { id: 'neumann-kk204', family: 'module', moduleType: 'sennheiser-capsule-standard' })).toBe(false)
+    expect(moduleFits({ ...slot, accepts: undefined }, { id: 'neumann-kk204', family: 'module', moduleType: 'sennheiser-capsule-standard' })).toBe(true)
+  })
+})

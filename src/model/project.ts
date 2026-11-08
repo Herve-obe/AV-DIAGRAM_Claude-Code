@@ -300,7 +300,7 @@ export function isProject(value: unknown): value is Project {
     && point(e.position) && (e.plan === undefined || isPlanPlacement(e.plan)) && numbers(e, [], ['powerW', 'weightKg', 'rackU', 'depthMm'])
     && ['powerW', 'weightKg', 'rackU', 'depthMm'].every(k => e[k] === undefined || (e[k] as number) >= 0)
     && (e.moduleType === undefined || typeof e.moduleType === 'string')
-    && (e.slots === undefined || (Array.isArray(e.slots) && e.slots.every(s => strings(s, ['id', 'name', 'type']) && s.id && s.type) && new Set(e.slots.map(s => s.id)).size === e.slots.length))
+    && (e.slots === undefined || (Array.isArray(e.slots) && e.slots.every(s => strings(s, ['id', 'name', 'type']) && s.id && s.type && (s.accepts === undefined || (Array.isArray(s.accepts) && s.accepts.every((a: unknown) => typeof a === 'string')))) && new Set(e.slots.map(s => s.id)).size === e.slots.length))
     && (e.modules === undefined || (Array.isArray(e.modules) && e.modules.every(m => strings(m, ['id', 'slotId', 'templateId', 'model', 'type'], ['manufacturer']) && m.id && numbers(m, [], ['powerW', 'weightKg'])
       && Array.isArray(e.slots) && e.slots.some(s => object(s) && s.id === m.slotId)
       && ['powerW', 'weightKg'].every(k => m[k] === undefined || (m[k] as number) >= 0)

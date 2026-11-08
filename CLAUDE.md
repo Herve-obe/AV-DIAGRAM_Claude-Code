@@ -10,6 +10,7 @@
   - Équipement principal + option : un équipement qui ne fonctionne pas seul (tête de micro, carte, objectif, module) est une fiche « module » installée dans un emplacement (`slots`) de l'équipement principal. Un principal vendu avec son option est ramené au principal seul (ancienne référence en alias). Valable dans tous les menus.
   - Version constructeur uniquement : une fiche décrit l'appareil tel que livré par le constructeur. Pas de fiche de marque « Novelty » (fabrication sur mesure du loueur) ni de connectique ajoutée ou modifiée par un loueur.
   - Un kit ou un ensemble de plusieurs appareils autonomes est scindé en fiches séparées.
+  - Options : un montage n'est proposé que s'il est validé par le constructeur. Chaque emplacement déclare la liste des options compatibles (`accepts`) ; le logiciel ne propose que celles qui fonctionnent réellement.
 - Plateforme : application de bureau Tauri 2 (`src-tauri/`). Pas de version web. Les accès fichiers passent par `src/io/files.ts`, qui utilise les plugins dialog et fs.
 - Données : rien ne quitte l'ordinateur de l'utilisateur. Aucun service en ligne, aucun CDN. Exceptions : téléchargement explicite d’un modèle local (catalogue figé, aucune donnée du projet, `src-tauri/src/local_models.rs`) ; option « mon compte IA », après accord explicite. Ses requêtes passent uniquement par `src-tauri/src/ai.rs` (liste stricte d'adresses, clé dans le trousseau).
 - Avant chaque commit : `npm run lint && npm run typecheck && npm test && npm run build`.
