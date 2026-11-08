@@ -8,13 +8,18 @@
   "description": "Moniteur de caméra 7 pouces 1920 x 1200, 3G-SDI et HDMI 4K",
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
     },
     {
       "url": "https://www.lilliput.com/fs7-product/",
       "document": "Lilliput, page produit FS7 : Input/Output, Power",
-      "accessed": "2026-11-07"
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/84d362a8.pdf",
+      "document": "Lilliput, manuel FS7 : Top & rear panel features",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -55,8 +60,8 @@
       "name": "Ear Jack",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Sortie écouteurs ; connecteur non nommé"
+      "connector": "minijack",
+      "format": "Ear Jack 3,5 mm stéréo (audio SDI/HDMI désembarqué)"
     },
     {
       "id": "dc",

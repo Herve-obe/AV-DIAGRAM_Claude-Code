@@ -6,8 +6,8 @@
   "model": "Aquilon 8x SDI (4x 12G-SDI + 4x 3G-SDI) input card",
   "pictogram": "processor",
   "moduleType": "aquilon-input-card",
-  "status": "community",
-  "description": "Carte 8 entrées SDI (4 en 12G, 4 en 3G). Connecteur non montré : BNC retenu (norme SDI), statut community. Carte remplaçable sur site, vendue séparément ; référence de commande et consommation non publiées dans les documents lus.",
+  "status": "verified",
+  "description": "Carte d'entrée ACC-AQL-IN-SDI-3G pour Aquilon : 8 ports SDI sur BNC, configurables en 8 × 3G-SDI, 4 × 12G-SDI ou un mélange ; jusqu'à 8 canaux audio intégrés par entrée. Carte remplaçable sur site (non à chaud), alimentée par le mélangeur.",
   "sources": [
     {
       "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Quick+Start+Guide/Aquilon-C%2B-quick-start-guide.pdf",
@@ -18,6 +18,16 @@
       "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Technical+Datasheet/Aquilon-C%2B-datasheet-en-20260703.pdf",
       "document": "Analog Way, Aquilon C+ Technical Datasheet EN : Comprehensive set of input and output cards",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.analogway.com/products/eight-3g-sdi-four-12g-sdi-input-card-for-livepremier-series",
+      "document": "Analog Way, page produit Eight 3G-SDI / Four 12G-SDI input card for Aquilon series (ACC-AQL-IN-SDI-3G)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2026/05/acc-aql-in-sdi-3g-datasheet-en-20260401.pdf",
+      "document": "Analog Way, datasheet ACC-AQL-IN-SDI-3G-EN-20260401 (copie du document constructeur hébergée par le loueur Rentex) : photo 8 BNC, 8 × 3G ou 4 × 12G, alimentée par le mélangeur",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -27,7 +37,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in2",
@@ -35,7 +45,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in3",
@@ -43,7 +53,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in4",
@@ -51,7 +61,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "12G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in5",
@@ -59,7 +69,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in6",
@@ -67,7 +77,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in7",
@@ -75,7 +85,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     },
     {
       "id": "in8",
@@ -83,7 +93,10 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G-SDI"
+      "format": "SDI jusqu'à 3G-SDI ; 12G-SDI possible sur 4 ports au maximum (configuration logicielle)"
     }
+  ],
+  "aliases": [
+    "ACC-AQL-IN-SDI-3G"
   ]
 }

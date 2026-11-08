@@ -13,8 +13,18 @@
     },
     {
       "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/moniteur-video/q23-8k/",
-      "document": "Novelty — Q23-8K",
+      "document": "Novelty : Q23-8K",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/8K-Production-Monitors-User-Manual.pdf",
+      "document": "Lilliput, manuel 8K Production Monitor : 2.1 Front Panel, 2.2 Rear Panel, Specifications",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/q23-8k-product/",
+      "document": "Lilliput, page produit Q23-8K : Specifications",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -70,8 +80,8 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "DC 12-24 V ou batterie V-Lock / Anton Bauer 14,8 V ; connecteur non nommé"
+      "connector": "xlr4",
+      "format": "Power IN XLR 4 broches, DC 12-24 V (bloc 15 V / 4 A fourni) ; plaque batterie V-Lock ou Anton Bauer 14,8 V en option"
     },
     {
       "id": "sdiOut1",
@@ -125,32 +135,40 @@
       "name": "RS422 In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "rj45",
+      "format": "RS422 In, RJ45 8 broches, protocoles Lilliput et TSL V3.1"
     },
     {
       "id": "rs422Out",
       "name": "RS422 Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "rj45",
+      "format": "RS422 Out, RJ45 8 broches (chaînage)"
     },
     {
       "id": "gpi",
       "name": "GPI",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "rj45",
+      "format": "GPI In, RJ45 8 broches (GPI 1 à 8, contact à la masse)"
     },
     {
       "id": "lan",
       "name": "LAN",
       "direction": "bidir",
       "signal": "network",
-      "connector": "unspecified",
-      "format": "Réseau local ; connecteur non nommé"
+      "connector": "rj45",
+      "format": "LAN 10/100, RJ45, commande du moniteur"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Face avant : chargement 3D LUT et mise à jour logicielle"
     }
   ],
   "aliases": [

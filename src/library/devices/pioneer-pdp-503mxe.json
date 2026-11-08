@@ -48,7 +48,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack stéréo, 500 mV eff., pour Input 1/2"
+      "format": "Mini-jack stéréo, 500 mVrms, plus de 10 kohms, pour Input 1/2"
     },
     {
       "id": "aout",
@@ -56,7 +56,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack stéréo, 500 mV eff."
+      "format": "Mini-jack stéréo, 500 mVrms max, moins de 5 kohms"
     },
     {
       "id": "spk",
@@ -74,6 +74,46 @@
       "signal": "power",
       "connector": "unspecified",
       "format": "Type d'embase non nommé"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 broches (pin connector)"
+    },
+    {
+      "id": "combIn",
+      "name": "Combination In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-DIN 6 broches (connecteur absent du catalogue)"
+    },
+    {
+      "id": "combOut",
+      "name": "Combination Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-DIN 6 broches (connecteur absent du catalogue)"
+    },
+    {
+      "id": "ctrlIn",
+      "name": "Control In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack mono"
+    },
+    {
+      "id": "ctrlOut",
+      "name": "Control Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack mono"
     }
   ]
 }

@@ -4,17 +4,17 @@
   "manufacturer": "Atomos",
   "model": "Shogun Connect",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "description": "Moniteur-enregistreur 7 pouces 12G-SDI / HDMI connecté au réseau (Wi-Fi 6, Ethernet)",
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
     },
     {
       "url": "https://www.lensrentals.com/product-assets/7974bd1c-49ad-41b4-a2c8-60c629f83747/SHOGUN-CONNECT-USER-MANUAL-160922.pdf",
       "document": "Atomos, Shogun Connect User Manual (16/09/2022), « SHOGUN CONNECT Connections » et caractéristiques (copie Lensrentals)",
-      "accessed": "2026-11-07"
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -91,10 +91,10 @@
       "modes": [
         {
           "connector": "minijack",
-          "level": "line+4"
+          "level": "line-10"
         }
       ],
-      "format": "Mini-jack 3,5 mm, source micro ou ligne"
+      "format": "Mini-jack 3,5 mm, Mic Level -40 dBu ou Line Level -10 dBu (menu Audio In) ; micros dynamiques ou alimentés seulement"
     },
     {
       "id": "phones",
@@ -109,8 +109,8 @@
       "name": "Remote/LANC",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "LANC (client, formats Sony et Canon), commande série et calibrage par câbles optionnels ; type de prise non nommé"
+      "connector": "minijack",
+      "format": "Remote Control/LANC et calibration, jack 3,5 mm (LANC client Sony et Canon, câbles ATOMCAB018 / ATOMCAB004 en option)"
     },
     {
       "id": "dc",

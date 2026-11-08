@@ -152,7 +152,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Jack 3,5 mm"
+      "format": "Sortie audio 0,5 Vrms ; manuel NEC : RCA (L/R), fiche commerciale : jack 3,5 mm (conflit)"
     },
     {
       "id": "rs232In",
@@ -182,16 +182,16 @@
       "name": "Remote In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Télécommande filaire optionnelle ; connecteur non nommé"
+      "connector": "minijack",
+      "format": "Remote IN, mini-jack stéréo 3,5 mm (télécommande filaire optionnelle)"
     },
     {
       "id": "remoteOut",
       "name": "Remote Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "minijack",
+      "format": "Remote OUT, mini-jack stéréo 3,5 mm"
     },
     {
       "id": "spk",

@@ -5,7 +5,7 @@
   "pictogram": "recorder",
   "manufacturer": "Theatrixx",
   "model": "xPressCue",
-  "status": "community",
+  "status": "verified",
   "description": "Lecteur multimédia 4K",
   "aliases": [
     "XPRESSCUE/G",
@@ -14,13 +14,18 @@
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/video/sources-video/lecteur-media/xpresscue/",
-      "document": "Novelty — xPressCue",
+      "document": "Novelty : xPressCue",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.theatrixx.com/products/xpresscue",
       "document": "Theatrixx, page produit xPressCue, Specifications",
-      "accessed": "2026-11-07"
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://theatrixx.com/wp-content/uploads/2022/01/XVVR-XPRESSCUE-EN-2.pdf",
+      "document": "Theatrixx, fiche technique xPressCue : Overview (dessins), Inputs/Outputs",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -117,16 +122,16 @@
       "name": "USB 3.0 (avant)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Copie de fichiers ; forme non précisée"
+      "connector": "usb-a",
+      "format": "USB 3.0 type A en face avant, copie de fichiers"
     },
     {
       "id": "usbRear",
       "name": "USB 2.0 (arrière)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Forme non précisée"
+      "connector": "usb-a",
+      "format": "USB 2.0 type A en face arrière"
     },
     {
       "id": "acIn",

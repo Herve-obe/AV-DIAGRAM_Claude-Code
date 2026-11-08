@@ -8,13 +8,23 @@
   "description": "Moniteur LCD 17 pouces HD multi-format, alimentation AC/DC",
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
     },
     {
       "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=18",
       "document": "JVC, DT-V17L2D Instructions p. 18 (copie ManualsDir) : Specifications, Input/output terminals",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=15",
+      "document": "JVC, DT-V17L2D Instructions p. 14 (copie ManualsDir) : External Control",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=9",
+      "document": "JVC, DT-V17L2D Instructions p. 8 (copie ManualsDir) : Rear panel",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -119,24 +129,24 @@
       "name": "Remote (Make / Trigger)",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé sur la page lue"
+      "connector": "rj45",
+      "format": "Terminal MAKE/TRIGGER RJ-45, contacts 1 à 8 (manuel p. 14)"
     },
     {
       "id": "rs485",
       "name": "Remote (RS-485)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "rj45",
+      "format": "RS-485, RJ-45 (manuel p. 14)"
     },
     {
       "id": "rs232",
       "name": "Remote (RS-232C)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "dsub9",
+      "format": "RS-232C, D-Sub 9 broches (manuel p. 14)"
     },
     {
       "id": "dc",

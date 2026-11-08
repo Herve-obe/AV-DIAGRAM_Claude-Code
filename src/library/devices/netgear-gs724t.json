@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "Netgear",
   "model": "GS724T",
-  "status": "community",
-  "description": "Switch Gigabit administrable (Smart) 24 ports RJ45 et 2 emplacements SFP, alimentation interne 100-240 V. Selon la révision, les SFP sont partagés (combo) ou dédiés ; consommation de 13,5 W (v6) à 29 W (anciennes versions) : révision du parc à préciser.",
+  "status": "verified",
+  "description": "Switch Gigabit Smart Netgear GS724T (v6) : 24 ports RJ45 10/100/1000 et 2 ports SFP dédiés, alimentation interne 100-240 V sur embase IEC C14, sans ventilateur, 13,5 W maximum. Les révisions antérieures (v4 et avant) avaient des SFP partagés et une consommation différente.",
   "aliases": [
     "Netgear GS724T (NPU Kit)"
   ],
@@ -20,6 +20,16 @@
     {
       "url": "https://www.wifi-france.com/datasheets/Netgear/GS724T-600EUS%20datasheet.pdf",
       "document": "Netgear, fiche GS724T (ancienne révision, copie revendeur) : 29 W max",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.downloads.netgear.com/files/GDC/GS748Tv6/GS724Tv6_GS748Tv6_HIG_EN.pdf",
+      "document": "Netgear, GS724Tv6/GS748Tv6 Hardware Installation Guide (EN), Figure 3 Back panel model GS724Tv6 : embase secteur IEC, alimentation interne",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.netgear.com/m/46159fc014c9585f/original/GS724Tv6_DS_28Aug25.pdf",
+      "document": "Netgear, GS724Tv6 datasheet (28 août 2025) : 24 RJ45, 2 SFP dédiés, alimentation interne, 13,5 W pire cas",
       "accessed": "2026-11-07"
     }
   ],
@@ -238,5 +248,6 @@
       "connector": "iec-c13",
       "format": "100-240 V CA"
     }
-  ]
+  ],
+  "powerW": 13.5
 }

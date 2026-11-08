@@ -4,17 +4,22 @@
   "manufacturer": "Swit",
   "model": "M1051-H",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "description": "Rack 3U de 3 moniteurs 5 pouces (3G-SDI, HDMI, composite)",
   "sources": [
     {
-      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
     },
     {
       "url": "https://files.bzbexpress.com/files/attachments/33228/swit-displays-and-monitors-m-1051h-datasheet.pdf",
       "document": "SWIT, M-1051H datasheet (copie revendeur) : Input and Output, General",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/594485/swit-electronics-m-1051h.html?page=6",
+      "document": "SWIT, M-1051H User Manual (copie ManualsDir) : Front view p. 5, Rear view p. 6, Specifications p. 10",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -41,20 +46,6 @@
       "connector": "hdmi"
     },
     {
-      "id": "audLA",
-      "name": "Écran A Audio In L",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "rca"
-    },
-    {
-      "id": "audRA",
-      "name": "Écran A Audio In R",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "rca"
-    },
-    {
       "id": "sdiOutA",
       "name": "Écran A SDI Loop Out",
       "direction": "out",
@@ -74,6 +65,22 @@
       "direction": "out",
       "signal": "video",
       "connector": "hdmi"
+    },
+    {
+      "id": "phonesA",
+      "name": "Écran A Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
+    },
+    {
+      "id": "tallyA",
+      "name": "Écran A Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS232), D-Sub 9 au dessin"
     },
     {
       "id": "sdiB",
@@ -98,20 +105,6 @@
       "connector": "hdmi"
     },
     {
-      "id": "audLB",
-      "name": "Écran B Audio In L",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "rca"
-    },
-    {
-      "id": "audRB",
-      "name": "Écran B Audio In R",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "rca"
-    },
-    {
       "id": "sdiOutB",
       "name": "Écran B SDI Loop Out",
       "direction": "out",
@@ -131,6 +124,22 @@
       "direction": "out",
       "signal": "video",
       "connector": "hdmi"
+    },
+    {
+      "id": "phonesB",
+      "name": "Écran B Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
+    },
+    {
+      "id": "tallyB",
+      "name": "Écran B Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS232), D-Sub 9 au dessin"
     },
     {
       "id": "sdiC",
@@ -155,20 +164,6 @@
       "connector": "hdmi"
     },
     {
-      "id": "audLC",
-      "name": "Écran C Audio In L",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "rca"
-    },
-    {
-      "id": "audRC",
-      "name": "Écran C Audio In R",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "rca"
-    },
-    {
       "id": "sdiOutC",
       "name": "Écran C SDI Loop Out",
       "direction": "out",
@@ -190,12 +185,28 @@
       "connector": "hdmi"
     },
     {
+      "id": "phonesC",
+      "name": "Écran C Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
+    },
+    {
+      "id": "tallyC",
+      "name": "Écran C Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS232), D-Sub 9 au dessin"
+    },
+    {
       "id": "dc",
       "name": "DC 12 V In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "DC 6,5 à 17 V, adaptateur secteur fourni ; connecteur non nommé"
+      "connector": "dc-barrel",
+      "format": "DC 12 V, jack d'alimentation (centre positif au dessin), adaptateur secteur fourni"
     }
   ],
   "powerW": 24

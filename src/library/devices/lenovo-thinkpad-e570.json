@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "Lenovo",
   "model": "Thinkpad E570",
-  "status": "community",
+  "status": "verified",
   "description": "Ordinateur portable 15,6\", Intel Core i5-7200U-2.5 GHz, RAM 8 Go, SSD 256 Go, Full HD dalle mate, Intel HD Graphics 620, wifi 802.11a/b/g/n/ac",
   "aliases": [
     "Lenovo Thinkpad E570"
@@ -20,6 +20,11 @@
       "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E570/ThinkPad_E570_Spec.PDF",
       "document": "Lenovo PSREF, ThinkPad E570 Specifications",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/e570_e570c_e575_ug_en.pdf",
+      "document": "Lenovo, ThinkPad E570, E570c and E575 User Guide (vues latérales)",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -28,21 +33,32 @@
       "name": "USB 3.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "Type A (dessin du guide)"
     },
     {
       "id": "usb3b",
       "name": "USB 3.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "Type A (dessin du guide)"
     },
     {
       "id": "usb2",
       "name": "USB 2.0 (Always On)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "Always On ; type A (dessin du guide)"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C 3.1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Optionnel, de série sur les modèles i5 et i7 EMEA (PSREF) ; données, vidéo et alimentation par adaptateur USB-C 65 W"
     },
     {
       "id": "vga",
@@ -82,7 +98,15 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "Adaptateur 45, 65 ou 90 W selon configuration ; forme de la prise non précisée"
+      "format": "Connecteur d'alimentation rectangulaire Lenovo (dessin du guide) ; adaptateur 45, 65 ou 90 W selon configuration"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 802.11ac + Bluetooth (carte combo M.2)"
     }
   ],
   "weightKg": 2.3

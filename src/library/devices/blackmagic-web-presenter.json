@@ -15,6 +15,11 @@
       "url": "https://www.rentex.com/wp-content/uploads/2019/07/Blackmagic-Design-Web-Presenter-Spec-Sheet-from-Rentex.pdf",
       "document": "Blackmagic Design Web Presenter, fiche technique (via Rentex)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.rule.com/wp-content/uploads/2023/04/BlackmagicWebPresenterManual.pdf",
+      "document": "Blackmagic Design, Web Presenter Installation and Operation Manual (avril 2017, copie rule.com) : Getting Started",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -75,7 +80,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "channels": 2
+      "channels": 2,
+      "format": "Entrée stéréo RCA « HiFi » ; niveau non précisé"
     },
     {
       "id": "usb",
@@ -98,8 +104,8 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation interne 90-240 V CA ; type d'embase non précisé"
+      "connector": "iec-c13",
+      "format": "Câble IEC standard, alimentation interne 90-240 V CA"
     }
   ],
   "domain": "image",

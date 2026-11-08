@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "APPLE",
   "model": "iPad Air 2",
-  "status": "community",
+  "status": "verified",
   "description": "Tablette tactile 9,7\", écran Retina 2048 x 1536 pixels, puce A8X, 16Go, WiFi",
   "aliases": [
     "IPADAIR2",
@@ -20,7 +20,7 @@
     {
       "url": "https://support.apple.com/kb/SP708",
       "document": "Apple, iPad Air 2 - Technical Specifications",
-      "accessed": "2026-11-07"
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -30,7 +30,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "lightning",
-      "format": "Connecteur Lightning (absent du catalogue) : charge, données ; sortie vidéo jusqu'à 1080p par adaptateur Lightning AV numérique ou VGA"
+      "format": "Connecteur Lightning : charge, données ; sortie vidéo jusqu'à 1080p par adaptateur Lightning AV numérique ou VGA (vendus séparément)"
     },
     {
       "id": "phones",
@@ -39,6 +39,14 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 802.11a/b/g/n/ac double bande, Bluetooth 4.2"
     }
   ],
   "weightKg": 0.437

@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "URA",
   "model": "BAES/BAEH 117748",
-  "status": "community",
-  "description": "Bloc Evacuation + Habitation à LED, autonome, inox, signalisation sortie de secours.",
+  "status": "verified",
+  "description": "Bloc autonome d'éclairage de sécurité URA BAES + BAEH IP 67 réf. 117 748 (SATI) : raccordement sur bornier 1,5 mm² (secteur et ligne de télécommande polarisée), télécommande réf. 140 012 obligatoire ; 0,7 W.",
   "aliases": [
     "BAES-LEDEVAC",
     "URA BAES/BAEH 117748"
@@ -38,8 +38,24 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier débrochable 1,5 mm² max, câble 5G 1,5 mm², 230 V ± 10 % 50 Hz ; fil de terre non connecté (classe II)"
+    },
+    {
+      "id": "remote",
+      "name": "Ligne de télécommande",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Bornes du même bornier, ligne polarisée ; raccordement obligatoire à une télécommande URA réf. 140 012"
+    }
+  ],
   "weightKg": 2.3,
   "powerW": 0.7
 }

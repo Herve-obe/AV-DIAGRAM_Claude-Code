@@ -15,6 +15,11 @@
       "url": "https://www.iiyama-monitors.co.uk/uploads/downloads/prolite-xb2481hs-b1--en.pdf",
       "document": "iiyama, fiche ProLite XB2481HS-B1 : Interfaces, Power management",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.iiyama-monitors.co.uk/uploads/downloads/xb_x2481hs-usermanual-e-revf.pdf",
+      "document": "iiyama, manuel ProLite XB2481HS / X2481HS rév. F : Controls and connectors, Specifications",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -41,12 +46,12 @@
     },
     {
       "id": "audio",
-      "name": "Audio Out",
-      "direction": "out",
+      "name": "Audio In (LINE IN)",
+      "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Prise audio mini-jack indiquée par le test Expert Reviews ; la fiche iiyama liste seulement un câble audio fourni (sens non confirmé)"
+      "format": "Mini-jack 3,5 mm stéréo, 1,0 Vrms maximum ; niveau nominal non précisé"
     },
     {
       "id": "ac",
@@ -54,7 +59,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "Alimentation interne 100-240 V ; type d'embase non nommé"
+      "format": "AC IN, 100-240 V 50/60 Hz 1,5 A, alimentation interne ; type d'embase non nommé"
     }
   ],
   "powerW": 25

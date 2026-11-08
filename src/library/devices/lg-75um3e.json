@@ -11,6 +11,11 @@
       "url": "https://www.lg.com/hk_en/business/digital-signage/lg-75UM3E-B",
       "document": "LG, page 75UM3E",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.laptopsdirect.ie/PDFs/75UM3E_ProductDataSheetBrochure1.PDF",
+      "document": "LG, brochure UM3E Series (copie revendeur) : Connectivity, Specifications",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -98,16 +103,16 @@
       "name": "RS232C In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "RS232C in ; connecteur non nommé sur la page LG"
+      "connector": "minijack",
+      "format": "RS232C IN, jack 3,5 mm (adaptateur Phone to RS232C fourni)"
     },
     {
       "id": "rs232-out",
       "name": "RS232C Out",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "RS232C out ; connecteur non nommé"
+      "connector": "minijack",
+      "format": "RS232C OUT, jack 3,5 mm"
     },
     {
       "id": "lan",
@@ -121,8 +126,8 @@
       "name": "IR In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé sur la page LG"
+      "connector": "minijack",
+      "format": "IR & Light Sensor : jack 3,5 mm d'après le dessin Connectivity de la fiche LG (même embase ronde que les prises audio et RS-232C 3,5 mm) ; récepteur IR fourni"
     }
   ],
   "powerW": 185

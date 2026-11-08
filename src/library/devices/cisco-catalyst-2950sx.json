@@ -6,7 +6,7 @@
   "pictogram": "switch",
   "status": "community",
   "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "description": "Switch Cisco Catalyst 2950SX-24 (WS-C2950SX-24) : 24 ports 10/100 RJ45, 2 ports 1000BASE-SX sur MT-RJ, console RJ45, alimentation secteur interne (embase IEC), connecteur RPS pour alimentation redondante Cisco RPS 300/675 ; 30 W maximum.",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -16,7 +16,238 @@
       "url": "https://www3-realm.cisco.com/en/US/products/hw/switches/ps628/products_data_sheet09186a00801cfb71.html",
       "document": "Cisco, Catalyst 2950 Series data sheet (miroir Cisco, consulté via moteur de recherche)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.cisco.com/en/US/docs/switches/lan/catalyst2950/hardware/installation/legacy/hig2950_3.pdf",
+      "document": "Cisco, Catalyst 2950 Desktop Switch Hardware Installation Guide 78-11157-05 : 2950SX-24 = 24 × 10/100 + 2 × 1000BASE-SX (MT-RJ), Figure 2-23 panneau arrière (embase secteur, RPS, console RJ45), Table A-1 30 W max",
+      "accessed": "2026-11-07"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "fa1",
+      "name": "Fa0/1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa2",
+      "name": "Fa0/2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa3",
+      "name": "Fa0/3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa4",
+      "name": "Fa0/4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa5",
+      "name": "Fa0/5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa6",
+      "name": "Fa0/6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa7",
+      "name": "Fa0/7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa8",
+      "name": "Fa0/8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa9",
+      "name": "Fa0/9",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa10",
+      "name": "Fa0/10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa11",
+      "name": "Fa0/11",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa12",
+      "name": "Fa0/12",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa13",
+      "name": "Fa0/13",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa14",
+      "name": "Fa0/14",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa15",
+      "name": "Fa0/15",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa16",
+      "name": "Fa0/16",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa17",
+      "name": "Fa0/17",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa18",
+      "name": "Fa0/18",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa19",
+      "name": "Fa0/19",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa20",
+      "name": "Fa0/20",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa21",
+      "name": "Fa0/21",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa22",
+      "name": "Fa0/22",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa23",
+      "name": "Fa0/23",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "fa24",
+      "name": "Fa0/24",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "gi1",
+      "name": "Gi0/1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "mtrj",
+      "format": "1000BASE-SX, fibre multimode 50/125 ou 62,5/125, 550 m max"
+    },
+    {
+      "id": "gi2",
+      "name": "Gi0/2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "mtrj",
+      "format": "1000BASE-SX, fibre multimode 50/125 ou 62,5/125, 550 m max"
+    },
+    {
+      "id": "console",
+      "name": "Console",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Port console RJ45 (câble adaptateur RJ45 vers DB-9 fourni)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C14, 100-127 / 200-240 V CA autocommutée, 50-60 Hz"
+    }
+  ],
+  "powerW": 30
 }

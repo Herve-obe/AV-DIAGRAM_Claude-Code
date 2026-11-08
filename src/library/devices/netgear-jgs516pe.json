@@ -15,6 +15,11 @@
       "url": "https://www.downloads.netgear.com/files/GDC/JGS516PE/JGS516PE_JGS524PE_IG_EN.pdf",
       "document": "Netgear, JGS516PE/JGS524PE Installation Guide (mai 2018)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.downloads.netgear.com/files/GDC/JGS516PE/JGS516PE_JGS524PE_IG_3July2013.pdf",
+      "document": "Netgear, ProSAFE Plus JGS516PE/JGS524PE Installation Guide (juillet 2013), Step 2 Connect power : dessin du panneau arrière avec embase IEC C14",
+      "accessed": "2026-11-07"
     }
   ],
   "ports": [
@@ -215,8 +220,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation interne 100-240 V 50-60 Hz 1,5 A, cordon secteur amovible fourni (type d'embase non documenté)"
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (cordon C13 amovible fourni), alimentation interne 100-240 V 50-60 Hz 1,5 A"
     }
   ],
   "powerW": 110,

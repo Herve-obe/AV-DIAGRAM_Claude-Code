@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "Lenovo",
   "model": "ThinkPad E15 Gen 2",
-  "status": "community",
+  "status": "verified",
   "description": "Ordinateur portable 15,6\", Intel Core i7 11 e génération, SSD 512 Go, Full HD, Windows 10 Professionnel, wifi 802.11ac",
   "aliases": [
     "E15",
@@ -21,6 +21,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7268-4488-thinkpad-e15-gen-2-intel-spec.pdf",
       "document": "Novelty — ThinkPad E15 Gen 2 : ThinkPad_E15_Gen_2_Intel_Spec",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_2_Intel/ThinkPad_E15_Gen_2_Intel_Spec.PDF",
+      "document": "Lenovo PSREF, ThinkPad E15 Gen 2 (Intel), mars 2023 (vues latérales et ports)",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -38,14 +43,15 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
-      "format": "Always On"
+      "format": "Always On ; type A (dessin PSREF)"
     },
     {
       "id": "usb2",
       "name": "USB 2.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-a"
+      "connector": "usb-a",
+      "format": "Type A (dessin PSREF)"
     },
     {
       "id": "hdmi",
@@ -70,6 +76,14 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "format": "Combo 3,5 mm"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 5 ou Wi-Fi 6 2x2 + Bluetooth 5.1 selon configuration"
     }
   ],
   "weightKg": 1.7

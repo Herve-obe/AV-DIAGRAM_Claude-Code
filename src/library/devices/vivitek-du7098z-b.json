@@ -13,37 +13,37 @@
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/du7098z-b/",
-      "document": "Novelty — DU7098Z-B",
+      "document": "Novelty : DU7098Z-B",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/vivitek_du7098z_fiche_technique.pdf",
-      "document": "Novelty — DU7098Z-B : DU7098Z",
+      "document": "Novelty : DU7098Z-B : DU7098Z",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/vivitek_du7098z_manuel_de.pdf",
-      "document": "Novelty — DU7098Z-B : DU7098Z (DE)",
+      "document": "Novelty : DU7098Z-B : DU7098Z (DE)",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/vivitek_du7098z_manuel_fr.pdf",
-      "document": "Novelty — DU7098Z-B : DU7098Z (FR)",
+      "document": "Novelty : DU7098Z-B : DU7098Z (FR)",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/vivitek_du7098z_manuel_uk.pdf",
-      "document": "Novelty — DU7098Z-B : DU7098Z (UK)",
-      "accessed": "2026-10-19"
+      "document": "Novelty : DU7098Z-B : DU7098Z (UK)",
+      "accessed": "2026-11-08"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/vivitek_du7098z_led_error_messages.pdf",
-      "document": "Novelty — DU7098Z-B : LED message error",
+      "document": "Novelty : DU7098Z-B : LED message error",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/vivitek_du7098z_datas.pdf",
-      "document": "Novelty — DU7098Z-B : RS232",
+      "document": "Novelty : DU7098Z-B : RS232",
       "accessed": "2026-10-19"
     }
   ],
@@ -61,8 +61,8 @@
       "name": "3D-Sync Out",
       "direction": "out",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "5 V, émetteur IR de lunettes 3D ; connecteur non nommé"
+      "connector": "minidin3",
+      "format": "3D-Sync Out 5 V, mini-DIN 3 broches (dessin du panneau), émetteur IR de lunettes 3D"
     },
     {
       "id": "vga",
@@ -85,8 +85,8 @@
       "name": "3D-Sync In",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "5 V ; connecteur non nommé"
+      "connector": "minidin3",
+      "format": "3D-Sync In 5 V, mini-DIN 3 broches (dessin du panneau)"
     },
     {
       "id": "dvi",
@@ -192,8 +192,8 @@
       "name": "Video",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Vidéo composite ; connecteur non nommé"
+      "connector": "rca",
+      "format": "Vidéo composite, RCA (dessin du panneau)"
     },
     {
       "id": "bnc",
@@ -224,8 +224,8 @@
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non nommé"
+      "connector": "iec-c19",
+      "format": "AC IN 100-240 V, 50/60 Hz ; embase IEC C20 d'après le dessin du manuel (cordon C19)"
     }
   ],
   "weightKg": 23,

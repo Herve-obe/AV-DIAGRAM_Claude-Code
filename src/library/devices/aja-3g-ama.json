@@ -4,23 +4,23 @@
   "manufacturer": "AJA",
   "model": "3G-AMA",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "powerW": 5,
   "sources": [
     {
       "url": "https://www.aja.com/products/3g-ama/spec-sheet.pdf",
       "document": "AJA, spec sheet 3G-AMA",
-      "accessed": "2026-09-26"
+      "accessed": "2026-11-08"
     },
     {
       "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/3g-ama/",
-      "document": "Novelty — 3G-AMA",
+      "document": "Novelty : 3G-AMA",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/aja_3g-ama_manuel.pdf",
-      "document": "Novelty — 3G-AMA : 3G-AMA",
-      "accessed": "2026-10-19"
+      "document": "Novelty : 3G-AMA : 3G-AMA",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -54,7 +54,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR femelle par câble d'éclatement DB-25 ; réglage Pro (0 dBFS = +24, +18 ou +15 dBu, référence +4 dBu) ou Consumer (0 dBFS = +12 dBu, référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "ain2",
@@ -62,7 +69,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR femelle par câble d'éclatement DB-25 ; réglage Pro (0 dBFS = +24, +18 ou +15 dBu, référence +4 dBu) ou Consumer (0 dBFS = +12 dBu, référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "ain3",
@@ -70,7 +84,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR femelle par câble d'éclatement DB-25 ; réglage Pro (0 dBFS = +24, +18 ou +15 dBu, référence +4 dBu) ou Consumer (0 dBFS = +12 dBu, référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "ain4",
@@ -78,7 +99,14 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR femelle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR femelle par câble d'éclatement DB-25 ; réglage Pro (0 dBFS = +24, +18 ou +15 dBu, référence +4 dBu) ou Consumer (0 dBFS = +12 dBu, référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "aout1",
@@ -86,7 +114,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR mâle par câble d'éclatement DB-25 ; réglage Pro (référence +4 dBu) ou Consumer (référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "aout2",
@@ -94,7 +129,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR mâle par câble d'éclatement DB-25 ; réglage Pro (référence +4 dBu) ou Consumer (référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "aout3",
@@ -102,7 +144,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR mâle par câble d'éclatement DB-25 ; réglage Pro (référence +4 dBu) ou Consumer (référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "aout4",
@@ -110,7 +159,14 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Symétrique ; XLR mâle, par câble d'éclatement DB-25"
+      "format": "Symétrique ; XLR mâle par câble d'éclatement DB-25 ; réglage Pro (référence +4 dBu) ou Consumer (référence -10 dBV)",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
     },
     {
       "id": "dc",

@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "Luminex",
   "model": "GigaCore 14R",
-  "status": "community",
-  "description": "Switch Gigabit 12 ports etherCON (10 avant, 2 arrière), 2 cages SFP, console série RJ45, entrée IEC ; PoE 802.3af en option (150 W sur les 10 ports avant).",
+  "status": "verified",
+  "description": "Switch Gigabit Luminex GigaCore 14R : 12 ports etherCON (10 avant, 2 arrière), 2 cages SFP, console série RJ45, embase IEC avec fusible, entrées de secours 15 V DC et PoE 48 V DC sur Molex Micro-Fit 6 broches ; 30 W max (180 W avec bloc PoE optionnel).",
   "aliases": [
     "Luminex Gigacore 14",
     "Gigacore 14"
@@ -198,6 +198,22 @@
       "signal": "power",
       "connector": "iec-c13",
       "format": "Embase IEC avec porte-fusible, 100-240 V 50-60 Hz"
+    },
+    {
+      "id": "dcBackup",
+      "name": "Alimentation de secours 15 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "molex-microfit6",
+      "format": "Molex Micro-Fit 6 broches, 15 V DC / 2 A (broches 3 et 6 +15 V)"
+    },
+    {
+      "id": "poeBackup",
+      "name": "Entrée PoE de secours 48 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "molex-microfit6",
+      "format": "Molex Micro-Fit 6 broches, 48 V DC / 2,1 A (broches 2 et 5 +48 V)"
     }
   ],
   "weightKg": 2.5,

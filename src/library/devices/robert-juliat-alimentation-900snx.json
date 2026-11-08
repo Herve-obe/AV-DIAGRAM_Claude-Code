@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "Robert Juliat",
   "model": "Alimentation magnétique 900 SNX 2 500 W (DMX, CAD 900)",
-  "status": "community",
-  "description": "Ballast magnétique séparé des découpes D'Artagnan 930, 933 et 934 SNX (2 500 W HID, réamorçage à chaud, gradation DMX), 34 kg. Relié à la tête par le cordon de montée de lampe Harting 16 × 16 A + T (3 m, 25 m max) et, sur les versions à obturateur motorisé, par le cordon XLR 7. Non saisis : entrée de commande analogique 0/+10 V (XLR 4 ou XLR 5 selon les pages du dossier) et sortie secteur optionnelle. Consommation : les 3 100 W de l'ensemble tête + ballast sont portés par les fiches de tête ; ne pas les additionner.",
+  "status": "verified",
+  "description": "Ballast magnétique séparé des découpes D'Artagnan 930, 933 et 934 SNX (2 500 W HID, réamorçage à chaud, gradation DMX), 34 kg. Relié à la tête par le cordon de montée de lampe Harting 16 × 16 A + T (3 m, 25 m max) et, sur les versions à obturateur motorisé, par le cordon XLR 7. Entrée de commande analogique 0/+10 V en XLR 4 mâle (le tableau de câblage du dossier donne un cordon XLR 4 ; une page française indique XLR 5 par erreur). Consommation : les 3 100 W de l'ensemble tête + ballast sont portés par les fiches de tête ; ne pas les additionner.",
   "aliases": [
     "PSU 900 SNX",
     "Ballast 930SNX",
@@ -75,6 +75,14 @@
       "signal": "dmx",
       "connector": "xlr5",
       "format": "Recopie DMX512-A, XLR 5 femelle"
+    },
+    {
+      "id": "analogIn",
+      "name": "Entrée commande 0/+10 V",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle, commande analogique 0/+10 V (module CAD 900)"
     }
   ],
   "weightKg": 34

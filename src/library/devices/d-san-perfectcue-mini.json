@@ -26,6 +26,16 @@
       "url": "https://www.dsan.com/perfectcue-mini",
       "document": "D'San, page produit PerfectCue Mini",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.dsan.com/product/perfectcue-mini/",
+      "document": "D'San, page produit PerfectCue Mini (PC-MINI)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dsan.com/wp-content/uploads/2025/04/PerfectCueMiniUserGuideOL-2.pdf",
+      "document": "D'San, PerfectCue Mini User Guide",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -35,7 +45,7 @@
       "direction": "in",
       "signal": "rf",
       "connector": "rf",
-      "format": "Depuis la télécommande fournie"
+      "format": "433,92 MHz, 256 canaux (micro-interrupteurs), portée 300 ft (100 m), depuis la télécommande fournie"
     },
     {
       "id": "usb1",
@@ -58,8 +68,8 @@
       "name": "Série XLR",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Liaison série sur XLR vers autres PerfectCue / voyants (nombre de points non précisé)"
+      "connector": "xlr3",
+      "format": "Liaison série et alimentation vers d'autres PerfectCue ou voyants, « pour câble micro standard » (XLR 3) ; ne pas relier à un appareil audio"
     },
     {
       "id": "serRj",
@@ -67,23 +77,23 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "rj45",
-      "format": "Liaison série sur câble Cat5 vers autres PerfectCue / voyants"
+      "format": "Liaison série et alimentation sur câble Cat 5 vers d'autres PerfectCue ou voyants ; ne pas relier à un appareil réseau"
     },
     {
       "id": "phono",
-      "name": "Phono Jack",
-      "direction": "bidir",
-      "signal": "control",
+      "name": "Phono Jack (casque)",
+      "direction": "out",
+      "signal": "audioAnalog",
       "connector": "unspecified",
-      "format": "Prise « phono jack » (contact filaire), diamètre non précisé"
+      "format": "Sortie audio pour casque ou oreillette de top (volume haut, bas, arrêt) ; diamètre du jack non précisé"
     },
     {
       "id": "dc",
       "name": "Alimentation externe",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc 12 V ou 110-220 V externe ; type de prise non précisé"
+      "connector": "dc-barrel",
+      "format": "Bloc secteur D'San 12 V (PC-PW), broche centrale positive, embase en retrait ; ou alimentation 5 V par le bus USB"
     }
   ]
 }

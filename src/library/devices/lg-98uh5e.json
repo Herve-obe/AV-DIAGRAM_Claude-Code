@@ -12,6 +12,11 @@
       "url": "https://www.lg.com/uk/business/digital-signage/standard/98uh5e-b/",
       "document": "LG, page 98UH5E-B (lue via l'index de recherche)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.lg.com/us/support/products/documents/LG_SPEC-SHEET_UH5E_121825_PR.pdf",
+      "document": "LG, fiche 98/86/75UH5E : Connectivity, Specifications",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -100,8 +105,8 @@
       "name": "RS-232C In",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "RS232C IN ; connecteur non nommé sur la page LG"
+      "connector": "minijack",
+      "format": "RS232C IN, jack 3,5 mm 4 points (« 4 Pin Phone-Jack », adaptateur Phone to RS232C fourni)"
     },
     {
       "id": "lan",
@@ -115,8 +120,8 @@
       "name": "IR / capteur",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "IR in ; connecteur non nommé sur la page LG"
+      "connector": "minijack",
+      "format": "IR & Light Sensor : jack 3,5 mm d'après le dessin Connectivity de la fiche LG (même embase ronde que les prises audio et RS-232C 3,5 mm) ; récepteur IR fourni"
     },
     {
       "id": "ac",
@@ -132,8 +137,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "unspecified",
-      "format": "Sortie haut-parleurs externes (SP-2200) ; connecteur non nommé",
+      "format": "Sortie haut-parleurs externes (98\" seulement, haut-parleur SP-2200 en option) ; deux embases rondes au dessin LG, type non nommé",
       "level": "speaker"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C OUT, jack 3,5 mm 4 points"
     }
   ]
 }

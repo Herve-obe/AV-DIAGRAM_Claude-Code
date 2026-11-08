@@ -122,16 +122,16 @@
       "name": "Objectif",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "12 broches (connecteur objectif broadcast, absent de la liste)"
+      "connector": "hirose12",
+      "format": "Objectif broadcast 12 broches (Hirose 12 points)"
     },
     {
       "id": "remote",
       "name": "Remote",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "10 broches (ROP), absent de la liste"
+      "connector": "hirose10",
+      "format": "REMOTE 10 broches (ROP Panasonic, Hirose HR10 comme la prise CCU du AK-HRP1010)"
     },
     {
       "id": "lan",

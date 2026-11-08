@@ -5,9 +5,8 @@
   "pictogram": "control",
   "manufacturer": "D'San",
   "model": "TR-2000BT",
-  "status": "community",
-  "description": "Récepteur Bluetooth Limitimer avec son alimentation, pour voyants sans Bluetooth intégré. Connectique détaillée à relever sur la notice.",
-  "portStatus": "pending",
+  "status": "verified",
+  "description": "Émetteur-récepteur Bluetooth Limitimer, pour voyants sans Bluetooth intégré : deux RJ45, jack 12 V, sélecteur de canal.",
   "sources": [
     {
       "url": "https://www.adorama.com/col/productManuals/DSAPRO2000T.pdf",
@@ -18,7 +17,50 @@
       "url": "https://www.fullcompass.com/common/files/34491-DSanASL2ND3SeriesUserManual.pdf",
       "document": "D'San, ASL2-ND3 Series User Manual (copie Full Compass)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.dsan.com/product/bluetooth-wireless-kit/",
+      "document": "D'San, page produit Bluetooth Wireless Kit TR-2000BT-KIT",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dsan.com/product/limitimer-system-wireless/",
+      "document": "D'San, page produit Limitimer System Wireless PRO-2000BT",
+      "accessed": "2026-11-08"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth classe II, sélecteur rotatif de canal, depuis un PRO-2000BT"
+    },
+    {
+      "id": "rj1",
+      "name": "RJ45 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison Limitimer vers voyants"
+    },
+    {
+      "id": "rj2",
+      "name": "RJ45 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison Limitimer vers voyants"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack 12 V, bloc fourni (en émetteur, alimenté par la liaison Cat 5 du chronomètre)"
+    }
+  ]
 }
