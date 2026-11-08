@@ -139,3 +139,10 @@ Décision d'Hervé : une entrée ligne d'un équipement professionnel vaut +4 dB
 - 23 coffrets retirés (16 Merlin Gerin, 7 Indu-Electric). Aucun document constructeur : Merlin Gerin (Schneider) ne catalogue pas ces coffrets, et les références AD/BD/AP sont le codage interne de Novelty. Indu-Electric fabrique sur mesure et ne publie aucune de ces références. Le PDF « AP600/250 » a été produit par Novelty, et le PDF « AD630 outdoor » est la notice du disjoncteur Legrand DPX³ 630. Il n'y avait donc aucune version PC16 française ou Schuko à créer.
 - Les 2 stations « Modulo Player » montées par Novelty sont remplacées par les 29 références vendues par Modulo Pi : Nano, Standard, Pro, Ultra, Pro et Ultra en châssis durci. Source : fiches techniques modulo-pi.com, révision matérielle 2024-1. Les cartes de capture DELTA sont des options et figurent en description.
 - Les fiches Modulo restent en « community », pour deux raisons : l'embase secteur n'est pas nommée (même cas que les écrans du tableau Excel), et sur les versions durcies, le nombre de broches des XLR audio n'est pas publié.
+
+## 8 novembre 2026 : SkyPanel S360-C, Midas, Innovason
+
+- ARRI SkyPanel S360-C : le bloc S360 PSU est dédié à cette tête. Le manuel ARRI L5.0016393 dit « intended to power an ARRI SkyPanel soft light S360-C », avec une sortie 54 V sur 4 points 30 A, incompatible avec les blocs S30/S60/S120. La tête et son bloc restent donc sur une seule fiche, dont l'entrée secteur powerCON 32 A est celle du bloc. Les accessoires d'accroche du bloc (pages Novelty seules, pièces mécaniques) sont retirés.
+- Midas Heritage 3000 : la connectique est reprise du manuel Midas Issue 1.4 pour le châssis 48 voies (371 prises : XLR, inserts jack, MIDI). La fiche reste en « community » : les comptes sont à confirmer sur les dessins de face arrière, et le bloc d'alimentation, le RS-232 et le CAN n'ont pas de connecteur publié.
+- Midas XL3 : le seul manuel trouvé est scanné en images, illisible par les outils. La connectique reste non vérifiée (pages 4, 38 et 110 à 119 à lire à l'œil).
+- Innovason : 3 fiches retirées.

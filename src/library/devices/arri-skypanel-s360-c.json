@@ -10,8 +10,23 @@
   "sources": [
     {
       "url": "https://www.arri.com/resource/blob/31148/f71c3385f38ee881c1e523b4b6047ef3/arri-skypanel-s360-c-data-sheet-en-sep2018-data.pdf",
-      "document": "ARRI, SkyPanel S360-C Data Sheet (sept. 2018)",
-      "accessed": "2026-09-26"
+      "document": "ARRI, S360-C Product Information (Ident 80.0016300), août 2022 : l'URL « sep2018 » sert la version d'août 2022",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.arri.com/resource/blob/31216/1149e4333315b987add33a8571bc7e41/arri-skypanel-psu-s360-user-manual-de-en-fr-jp-aug2022-l03880-data.pdf",
+      "document": "ARRI, S360 PSU User Manual 08/2022 (L5.0016393 / L03880)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.arri.com/resource/blob/31220/90976c11b021b037db25b53f50186d57/arri-skypanel-s360-c-safety-install-manual-en-aug22-data.pdf",
+      "document": "ARRI, SkyPanel S360-C Safety and Installation Manual 08/2022 (L5.0016680 / L03880)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.arri.com/resource/blob/31270/ad2a6df2e001175c1cffac5f117793d0/80-0008406-l03976-arri-skypanel-accessories-guide-en-data.pdf",
+      "document": "ARRI, SkyPanel Accessories Guide, octobre 2022",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -57,12 +72,12 @@
     },
     {
       "id": "ac",
-      "name": "Secteur (bloc d'alimentation)",
+      "name": "Secteur (bloc S360 PSU)",
       "direction": "in",
       "signal": "power",
       "connector": "powercon-32",
       "format": "Sur le bloc d'alimentation externe : powerCON 32 A, 100-240 V ; tête alimentée en 54 V CC (connecteur 4 points métallique 30 A)"
     }
   ],
-  "notes": "KIT À SCINDER : la tête S360-C reçoit du 54 V CC par un connecteur mâle 4 points métallique verrouillable 30 A ; le powerCON 32 A (100-240 V) est sur le bloc S360 PSU séparé, qui sort sur un 4 points femelle 30 A (fiche technique ARRI sept. 2018). Proposition : fiche tête avec entrée 54 V et fiche bloc S360 PSU."
+  "description": "Tête SkyPanel S360-C livrée avec son bloc S360 PSU dédié (manuel ARRI L5.0016393 : « intended to power an ARRI SkyPanel soft light S360-C » ; sortie 54 V CC sur 4 points 30 A, incompatible avec les blocs S30/S60/S120). Fiche unique : l'entrée secteur powerCON 32 A est celle du bloc ; liaison bloc-tête par câble DC 4 points ARRI L2.0016030 (5 m) ou L2.0016031 (10 m), 10 m au plus. Poids 45 kg tête avec lyre, bloc 11 à 11,4 kg selon les documents ARRI."
 }
