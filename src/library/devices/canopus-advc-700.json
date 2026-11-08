@@ -4,7 +4,7 @@
   "manufacturer": "Canopus",
   "model": "ADVC-700",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur bidirectionnel analogique (composante, S-Vidéo, composite, audio XLR et RCA) et DV/IEEE 1394, avec LTC, référence et RS-422.",
   "sources": [
     {
@@ -40,7 +40,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3-31, symétrique"
+      "format": "XLR-3-31, symétrique",
+      "level": "line+4"
     },
     {
       "id": "ainR",
@@ -48,7 +49,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3-31, symétrique"
+      "format": "XLR-3-31, symétrique",
+      "level": "line+4"
     },
     {
       "id": "aoutL",
@@ -56,7 +58,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3-32, symétrique"
+      "format": "XLR-3-32, symétrique",
+      "level": "line+4"
     },
     {
       "id": "aoutR",
@@ -64,7 +67,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR-3-32, symétrique"
+      "format": "XLR-3-32, symétrique",
+      "level": "line+4"
     },
     {
       "id": "uinL",
@@ -72,7 +76,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA, ligne asymétrique"
+      "format": "RCA, ligne asymétrique",
+      "level": "line+4"
     },
     {
       "id": "uinR",
@@ -80,7 +85,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA, ligne asymétrique"
+      "format": "RCA, ligne asymétrique",
+      "level": "line+4"
     },
     {
       "id": "uoutL",
@@ -88,7 +94,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA, ligne asymétrique"
+      "format": "RCA, ligne asymétrique",
+      "level": "line+4"
     },
     {
       "id": "uoutR",
@@ -96,7 +103,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA, ligne asymétrique"
+      "format": "RCA, ligne asymétrique",
+      "level": "line+4"
     },
     {
       "id": "compInY",

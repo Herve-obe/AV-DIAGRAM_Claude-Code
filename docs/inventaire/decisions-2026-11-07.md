@@ -124,3 +124,12 @@ Bilan : 1 066 fiches Vérifié, 639 Communauté. Restent 118 fiches sans prise e
 | `wireless-solution-blackbox-f-1-g6` | Doublon probable de w-dmx-blackbox-f-1-g6 |
 | `luminex-gigacore-20t-novelty-36137` | Doublon de luminex-gigacore-20t (LU 01 00080-10G, non PoE d'après la description Novelty) : proposer de fusionner en ajoutant « GIGACORE20T  |
 | `taiden-hcs-4800ma-20` | Doublon taiden-hcs-4800ma / -20 à fusionner |
+
+## 8 novembre 2026 : règle du niveau ligne
+
+Décision d'Hervé : une entrée ligne d'un équipement professionnel vaut +4 dBu sauf indication explicite du constructeur, -10 dBV pour le matériel grand public. Appliquée aussi aux sorties ligne, par la même convention.
+
+- 592 prises renseignées sur 196 fiches : 561 en `line+4`, 31 en `line-10`.
+- Matériel classé grand public : téléviseurs Samsung UE46 et UE55, moniteurs de bureau iiyama ProLite et EIZO FlexScan, vidéoprojecteurs BenQ MH680 et MH684, tuner Pro-Ject Tuner Box S, lecteur Numark MP103USB.
+- Hors règle, donc laissées sans niveau : casques, prises micro, sorties haut-parleur, liaisons HF, prises DIN 6 de pupitre d'interprète (Taiden).
+- 34 fiches passées en « verified », pour lesquelles le niveau était le seul blocage et la source constructeur était déjà acquise : Blackmagic (mini-convertisseurs, Teranex, ATEM, UltraStudio, Web Presenter), Kramer VM-10XL et VS-311H, MA Lighting grandMA2 et grandMA3, Midas DM12, M32 LIVE et M32R LIVE, Avid Mbox 3, Canopus ADVC-700, Electro-Voice EVOLVE 50, Lilliput Q23-8K, Lumantek ez-Pro VS4, NovaStar MCTRL660, Sennheiser EK 100 G3, Swit S-1071H et Videotek APM200.

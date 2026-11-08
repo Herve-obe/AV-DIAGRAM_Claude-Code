@@ -55,14 +55,16 @@
       "name": "Audio In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "line+4"
     },
     {
       "id": "aout",
       "name": "Audio Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "line+4"
     },
     {
       "id": "usb1",

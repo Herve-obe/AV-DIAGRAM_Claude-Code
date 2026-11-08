@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Blackmagic Design",
   "model": "MiniConverter SDI To HDMI",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur 3G SDI vers HDMI (avec audio intégré), plus AES/EBU symétrique ou audio analogique",
   "aliases": [
     "3GSHDI2HDMI",
@@ -64,14 +64,16 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Balanced analog left or AES/EBU pair; exclusive modes"
+      "format": "Balanced analog left or AES/EBU pair; exclusive modes",
+      "level": "line+4"
     },
     {
       "id": "audioR",
       "name": "Analog R Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "jack-trs"
+      "connector": "jack-trs",
+      "level": "line+4"
     },
     {
       "id": "usb",

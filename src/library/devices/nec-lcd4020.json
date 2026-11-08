@@ -110,7 +110,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Mini-jack stéréo 3,5 mm, 0,5 Vrms"
+      "format": "Mini-jack stéréo 3,5 mm, 0,5 Vrms",
+      "level": "line+4"
     },
     {
       "id": "ain2",
@@ -119,7 +120,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "RCA L/R, 0,5 Vrms ; répartition exacte des entrées audio 1 à 3 non précisée",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "ain3",
@@ -128,7 +130,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "RCA L/R, 0,5 Vrms",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "aout",
@@ -137,7 +140,8 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "format": "AUDIO OUT, mini-jack stéréo, 0,5 Vrms (manuel NEC ; la fiche commerciale indique Cinch)",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "rs232In",

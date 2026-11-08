@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "Mini Converter Audio to SDI",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-04",
@@ -48,7 +48,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS symétrique : voie analogique 1 ou AES/EBU canaux 1 et 2"
+      "format": "Jack 6,35 TRS symétrique : voie analogique 1 ou AES/EBU canaux 1 et 2",
+      "level": "line+4"
     },
     {
       "id": "ain2",
@@ -56,7 +57,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS symétrique : voie analogique 2 ou AES/EBU canaux 3 et 4"
+      "format": "Jack 6,35 TRS symétrique : voie analogique 2 ou AES/EBU canaux 3 et 4",
+      "level": "line+4"
     },
     {
       "id": "ain3",
@@ -64,7 +66,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS symétrique : voie analogique 3 ou AES/EBU canaux 5 et 6"
+      "format": "Jack 6,35 TRS symétrique : voie analogique 3 ou AES/EBU canaux 5 et 6",
+      "level": "line+4"
     },
     {
       "id": "ain4",
@@ -72,7 +75,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS symétrique : voie analogique 4 ou AES/EBU canaux 7 et 8"
+      "format": "Jack 6,35 TRS symétrique : voie analogique 4 ou AES/EBU canaux 7 et 8",
+      "level": "line+4"
     },
     {
       "id": "usb",

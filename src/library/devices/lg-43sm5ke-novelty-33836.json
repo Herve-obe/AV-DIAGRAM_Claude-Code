@@ -71,14 +71,16 @@
       "name": "Audio In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "line+4"
     },
     {
       "id": "audioOut",
       "name": "Audio Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "line+4"
     },
     {
       "id": "rsIn",

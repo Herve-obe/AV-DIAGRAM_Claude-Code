@@ -4,7 +4,7 @@
   "manufacturer": "Lumantek",
   "model": "ez-Pro VS4",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "powerW": 20,
   "sources": [
     {
@@ -85,7 +85,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 symétrique (L)"
+      "format": "Jack 6,35 symétrique (L)",
+      "level": "line+4"
     },
     {
       "id": "audioOut",
@@ -94,7 +95,8 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "Mini-jack 3,5 stéréo"
+      "format": "Mini-jack 3,5 stéréo",
+      "level": "line+4"
     },
     {
       "id": "dc",
@@ -118,7 +120,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 symétrique (R)"
+      "format": "Jack 6,35 symétrique (R)",
+      "level": "line+4"
     },
     {
       "id": "usb",

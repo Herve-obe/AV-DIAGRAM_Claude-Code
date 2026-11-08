@@ -4,7 +4,7 @@
   "manufacturer": "Electro-Voice",
   "model": "EVOLVE 50",
   "pictogram": "speaker",
-  "status": "community",
+  "status": "verified",
   "weightKg": 26.5,
   "sources": [
     {
@@ -63,7 +63,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "channels": 2,
-      "format": "INPUT 3, RCA stéréo asymétrique (lecteur CD / MP3) ; niveau nominal non publié"
+      "format": "INPUT 3, RCA stéréo asymétrique (lecteur CD / MP3) ; niveau nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "mini",
@@ -72,7 +73,8 @@
       "signal": "audioAnalog",
       "connector": "minijack",
       "channels": 2,
-      "format": "INPUT 3, mini-jack 3,5 : mono symétrique ou stéréo asymétrique ; niveau nominal non publié"
+      "format": "INPUT 3, mini-jack 3,5 : mono symétrique ou stéréo asymétrique ; niveau nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "bt",
@@ -88,7 +90,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR, recopie passive en parallèle de INPUT 1 (avant fader) ; même signal que l'entrée"
+      "format": "XLR, recopie passive en parallèle de INPUT 1 (avant fader) ; même signal que l'entrée",
+      "level": "line+4"
     },
     {
       "id": "mix",
@@ -96,7 +99,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR, mélange après fader des entrées 1 à 3, câblage GND-sensing ; niveau nominal non publié"
+      "format": "XLR, mélange après fader des entrées 1 à 3, câblage GND-sensing ; niveau nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "ac",

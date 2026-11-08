@@ -37,7 +37,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Entrée stéréo ligne ; source alternative de la voie 1",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "digital1",
@@ -65,7 +66,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Entrée stéréo ligne ; source alternative de la voie 2",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "digital2",
@@ -83,7 +85,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Entrée ligne supplémentaire de la même voie 2",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "line3",
@@ -92,7 +95,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Entrée stéréo ligne ; source alternative de la voie 3",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "digital3",
@@ -110,7 +114,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Entrée ligne supplémentaire de la même voie 3",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "line4",
@@ -119,7 +124,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Entrée stéréo ligne ; source alternative de la voie 4",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "digital4",
@@ -164,7 +170,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie ligne symétrique ; nominal +8 dBu, pas niveau micro"
+      "format": "Sortie ligne symétrique ; nominal +8 dBu, pas niveau micro",
+      "level": "line+4"
     },
     {
       "id": "masterR",
@@ -172,7 +179,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie ligne symétrique ; nominal +8 dBu, pas niveau micro"
+      "format": "Sortie ligne symétrique ; nominal +8 dBu, pas niveau micro",
+      "level": "line+4"
     },
     {
       "id": "master2",
@@ -181,7 +189,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Sortie ligne asymétrique ; nominal +2 dBu, même mix master",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "booth",
@@ -190,7 +199,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "format": "Deux jacks TRS symétriques ; nominal +8 dBu",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "rec",
@@ -199,7 +209,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "format": "Ligne, nominal −8 dBu",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "send",
@@ -208,7 +219,8 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "format": "Départ effets sur jack 6,35 mm ; nominal −12 dBu ; nombre de contacts TS/TRS non établi par les pages lues",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "return",
@@ -217,7 +229,8 @@
       "signal": "audioAnalog",
       "connector": "unspecified",
       "format": "Retour effets sur jack 6,35 mm ; nominal −12 dBu ; nombre de contacts TS/TRS non établi par les pages lues",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "digitalOut",

@@ -83,14 +83,16 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "RGB / DVI / HDMI / AV / COMPONENT AUDIO IN, mini-jack stéréo"
+      "format": "RGB / DVI / HDMI / AV / COMPONENT AUDIO IN, mini-jack stéréo",
+      "level": "line+4"
     },
     {
       "id": "aout",
       "name": "Audio Out",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "minijack"
+      "connector": "minijack",
+      "level": "line+4"
     },
     {
       "id": "usb1",

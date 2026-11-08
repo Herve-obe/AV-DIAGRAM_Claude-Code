@@ -4,7 +4,7 @@
   "manufacturer": "Kramer",
   "model": "VM-10XL",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "description": "Distributeur vidéo composite et audio stéréo 1:10 sur BNC et RCA, avec bouclages.",
   "sources": [
     {
@@ -119,28 +119,32 @@
       "name": "Audio In L",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "rca"
+      "connector": "rca",
+      "level": "line+4"
     },
     {
       "id": "ainR",
       "name": "Audio In R",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "rca"
+      "connector": "rca",
+      "level": "line+4"
     },
     {
       "id": "aloopL",
       "name": "Audio Loop L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "rca"
+      "connector": "rca",
+      "level": "line+4"
     },
     {
       "id": "aloopR",
       "name": "Audio Loop R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "rca"
+      "connector": "rca",
+      "level": "line+4"
     },
     {
       "id": "aout1L",
@@ -148,7 +152,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout1R",
@@ -156,7 +161,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout2L",
@@ -164,7 +170,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout2R",
@@ -172,7 +179,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout3L",
@@ -180,7 +188,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout3R",
@@ -188,7 +197,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout4L",
@@ -196,7 +206,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout4R",
@@ -204,7 +215,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout5L",
@@ -212,7 +224,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout5R",
@@ -220,7 +233,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout6L",
@@ -228,7 +242,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout6R",
@@ -236,7 +251,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout7L",
@@ -244,7 +260,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout7R",
@@ -252,7 +269,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout8L",
@@ -260,7 +278,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout8R",
@@ -268,7 +287,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout9L",
@@ -276,7 +296,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout9R",
@@ -284,7 +305,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout10L",
@@ -292,7 +314,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "aout10R",
@@ -300,7 +323,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)"
+      "format": "Stéréo asymétrique ou mono symétrique (sélecteur BAL/ST)",
+      "level": "line+4"
     },
     {
       "id": "ac",

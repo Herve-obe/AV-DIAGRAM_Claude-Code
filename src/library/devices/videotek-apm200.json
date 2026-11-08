@@ -4,8 +4,7 @@
   "manufacturer": "Videotek",
   "model": "APM200",
   "pictogram": "speaker",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Moniteur audio stéréo 1U à deux haut-parleurs 5 pouces, entrées symétriques XLR femelles et asymétriques RCA, modes d'écoute L-R, L+R et stéréo inversée (d'après un revendeur d'occasion).",
   "sources": [
     {
@@ -25,7 +24,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR 3 femelle symétrique ; niveau non publié"
+      "format": "XLR 3 femelle symétrique ; niveau non publié",
+      "level": "line+4"
     },
     {
       "id": "inR",
@@ -33,7 +33,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR 3 femelle symétrique ; niveau non publié"
+      "format": "XLR 3 femelle symétrique ; niveau non publié",
+      "level": "line+4"
     },
     {
       "id": "inLrca",
@@ -41,7 +42,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA asymétrique ; niveau non publié"
+      "format": "RCA asymétrique ; niveau non publié",
+      "level": "line+4"
     },
     {
       "id": "inRrca",
@@ -49,7 +51,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA asymétrique ; niveau non publié"
+      "format": "RCA asymétrique ; niveau non publié",
+      "level": "line+4"
     }
   ]
 }

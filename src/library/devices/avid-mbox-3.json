@@ -4,7 +4,7 @@
   "manufacturer": "Avid",
   "model": "Mbox 3",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "description": "Interface audio et MIDI USB 2.0 (Mbox 3e génération, 2010) : 2 combos micro/ligne avec fantôme 48 V, 2 entrées instrument en façade, 2 sorties moniteur TRS, casque, S/PDIF coaxial, MIDI In/Out ; alimentée par le bus USB.",
   "sources": [
     {
@@ -74,7 +74,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS symétrique (ou TS asymétrique) ; niveau nominal non publié"
+      "format": "Jack 6,35 TRS symétrique (ou TS asymétrique) ; niveau nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "mon2",
@@ -82,7 +83,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Jack 6,35 TRS symétrique (ou TS asymétrique) ; niveau nominal non publié"
+      "format": "Jack 6,35 TRS symétrique (ou TS asymétrique) ; niveau nominal non publié",
+      "level": "line+4"
     },
     {
       "id": "phones",

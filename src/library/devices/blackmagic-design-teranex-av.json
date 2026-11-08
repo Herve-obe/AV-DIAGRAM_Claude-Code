@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "Teranex AV",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur de standards 12G-SDI et HDMI 2.0 pour événementiel : montée, descente et croisement jusqu'à 2160p60, sorties quad 3G-SDI, générateur de référence.",
   "sources": [
     {
@@ -141,7 +141,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR symétrique : voie analogique 1 ou paire AES/EBU 1-2 (au choix)"
+      "format": "XLR symétrique : voie analogique 1 ou paire AES/EBU 1-2 (au choix)",
+      "level": "line+4"
     },
     {
       "id": "audioIn2",
@@ -149,7 +150,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR symétrique : voie analogique 2 ou paire AES/EBU 3-4 (au choix)"
+      "format": "XLR symétrique : voie analogique 2 ou paire AES/EBU 3-4 (au choix)",
+      "level": "line+4"
     },
     {
       "id": "rcaL",
@@ -157,7 +159,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA asymétrique, « line level »"
+      "format": "RCA asymétrique, « line level »",
+      "level": "line+4"
     },
     {
       "id": "rcaR",
@@ -165,7 +168,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "RCA asymétrique, « line level »"
+      "format": "RCA asymétrique, « line level »",
+      "level": "line+4"
     },
     {
       "id": "refIn",

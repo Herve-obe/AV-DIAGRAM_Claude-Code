@@ -4,7 +4,7 @@
   "manufacturer": "Swit",
   "model": "S-1071H",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "description": "Moniteur 7 pouces 1024 x 600, entrées SDI, HDMI et composite",
   "sources": [
     {
@@ -76,7 +76,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Entrée audio stéréo gauche ; niveau non précisé"
+      "format": "Entrée audio stéréo gauche ; niveau non précisé",
+      "level": "line+4"
     },
     {
       "id": "audR",
@@ -84,7 +85,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "format": "Entrée audio stéréo droite ; niveau non précisé"
+      "format": "Entrée audio stéréo droite ; niveau non précisé",
+      "level": "line+4"
     },
     {
       "id": "phones",

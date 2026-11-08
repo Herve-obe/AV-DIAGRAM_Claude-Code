@@ -45,7 +45,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "channels": 2,
-      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé",
+      "level": "line+4"
     },
     {
       "id": "in2",
@@ -54,7 +55,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "channels": 2,
-      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé",
+      "level": "line+4"
     },
     {
       "id": "in3",
@@ -63,7 +65,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "channels": 2,
-      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé",
+      "level": "line+4"
     },
     {
       "id": "in4",
@@ -72,7 +75,8 @@
       "signal": "audioAnalog",
       "connector": "rca",
       "channels": 2,
-      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé"
+      "format": "Paire RCA commutable phono/ligne ; régler suivant la source, jamais +4 dBu supposé",
+      "level": "line+4"
     },
     {
       "id": "aux",
@@ -80,7 +84,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "rca",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "mic",
@@ -98,7 +103,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "fxRet",
@@ -106,21 +112,24 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "masterL",
       "name": "Master Out L",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "level": "line+4"
     },
     {
       "id": "masterR",
       "name": "Master Out R",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "xlr3"
+      "connector": "xlr3",
+      "level": "line+4"
     },
     {
       "id": "booth",
@@ -129,7 +138,8 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Jack 6,35 TRS symétrique"
+      "format": "Jack 6,35 TRS symétrique",
+      "level": "line+4"
     },
     {
       "id": "outRca",
@@ -137,7 +147,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "rca",
-      "channels": 2
+      "channels": 2,
+      "level": "line+4"
     },
     {
       "id": "phones",

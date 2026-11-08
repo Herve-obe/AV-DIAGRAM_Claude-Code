@@ -35,7 +35,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Entrée ligne symétrique ; alternative au jack arrière"
+      "format": "Entrée ligne symétrique ; alternative au jack arrière",
+      "level": "line+4"
     },
     {
       "id": "lineTrs",
@@ -43,7 +44,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
-      "format": "Entrée ligne symétrique ; même voie que la XLR"
+      "format": "Entrée ligne symétrique ; même voie que la XLR",
+      "level": "line+4"
     },
     {
       "id": "instrument",
@@ -60,7 +62,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie ligne active symétrique ; même programme que les deux autres sorties"
+      "format": "Sortie ligne active symétrique ; même programme que les deux autres sorties",
+      "level": "line+4"
     },
     {
       "id": "outTs",
@@ -68,7 +71,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Sortie asymétrique en parallèle avec broche 2 de Active Out XLR"
+      "format": "Sortie asymétrique en parallèle avec broche 2 de Active Out XLR",
+      "level": "line+4"
     },
     {
       "id": "transformer",
@@ -76,7 +80,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie symétrique à transformateur du même programme ; les trois sorties peuvent être utilisées simultanément"
+      "format": "Sortie symétrique à transformateur du même programme ; les trois sorties peuvent être utilisées simultanément",
+      "level": "line+4"
     },
     {
       "id": "ac",

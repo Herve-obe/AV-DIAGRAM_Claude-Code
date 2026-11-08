@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "Teranex Mini HDMI to SDI 12G",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur HDMI 2.0 vers 12G-SDI avec intégration audio analogique ou AES/EBU sur XLR et entrée timecode.",
   "sources": [
     {
@@ -53,7 +53,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR symétrique : voie analogique gauche ou AES/EBU (commutateur 8)"
+      "format": "XLR symétrique : voie analogique gauche ou AES/EBU (commutateur 8)",
+      "level": "line+4"
     },
     {
       "id": "audio2",
@@ -61,7 +62,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "XLR symétrique : voie analogique droite, AES/EBU ou timecode (commutateur 6)"
+      "format": "XLR symétrique : voie analogique droite, AES/EBU ou timecode (commutateur 6)",
+      "level": "line+4"
     },
     {
       "id": "usb",
