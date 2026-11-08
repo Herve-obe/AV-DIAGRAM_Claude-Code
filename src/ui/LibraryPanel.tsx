@@ -17,6 +17,7 @@ import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
 import { Pictogram } from './Pictogram'
 import { startCatalogueImport } from './CatalogueImportDialog'
+import { GenericEquipmentDialog } from './GenericEquipmentDialog'
 
 const OPEN_KEY = 'avd.libraryOpen'
 /** Événement : remplir la recherche de la bibliothèque (detail = texte) */
@@ -36,6 +37,7 @@ export function LibraryPanel() {
   const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [quantityError, setQuantityError] = useState(false)
+  const [genericOpen, setGenericOpen] = useState(false)
   const [tab, setTab] = useState<'company' | 'general'>(() => {
     try { return localStorage.getItem('avd.libraryTab') === 'company' ? 'company' : 'general' } catch { return 'general' }
   })
@@ -249,8 +251,9 @@ export function LibraryPanel() {
       </div>
       <div className="library-foot">
         <button className="btn" onClick={() => void startCatalogueImport(t)}>{t('catalogue.title')}</button>
-        <button className="btn" onClick={newBlock}><Icon name="plus" size={14} />{t('library.newBlock')}</button>
+        <button className="btn" onClick={() => setGenericOpen(true)}><Icon name="plus" size={14} />{t('library.newBlock')}</button>
       </div>
+      {genericOpen && <GenericEquipmentDialog onClose={() => setGenericOpen(false)} onCreate={addAtCenter} onBlank={newBlock} />}
     </aside>
   )
 }

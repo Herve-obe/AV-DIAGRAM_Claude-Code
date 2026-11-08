@@ -1776,5 +1776,36 @@
     "onlyAi": "My company only",
     "importHint": "Quantity is the total owned, not availability on a date. One row per model; consolidate quantities before import. Previously imported models are preserved; edit their quantities in My company.",
     "quantitySaveError": "The quantity could not be saved on this computer. It remains displayed for this session; retry the change before quitting."
+  },
+  "generic": {
+    "title": "New generic equipment",
+    "hint": "For a model missing from the library: describe its connectors in groups. The entry is saved in “My models” with the “user” status.",
+    "name": "Name",
+    "namePlaceholder": "e.g. In-house DI box",
+    "domain": "Menu",
+    "family": "Family",
+    "direction": "Direction",
+    "signal": "Signal",
+    "connector": "Connector",
+    "level": "Level",
+    "count": "Count",
+    "label": "Label",
+    "removeGroup": "Remove this group",
+    "addGroup": "Add a connector group",
+    "total": "{{count}} connector(s), {{max}} at most",
+    "weight": "Weight (kg)",
+    "power": "Power draw (W)",
+    "optional": "Optional",
+    "blank": "Blank block (Expert mode)",
+    "cancel": "Cancel",
+    "create": "Create and place",
+    "error": {
+      "name": "Give the equipment a name.",
+      "family": "Pick a family from this menu.",
+      "ports": "At least one connector and at most 256 are required.",
+      "group": "A connector group is incomplete (whole number of at least 1, valid signal and connector).",
+      "weight": "Weight must be a positive number.",
+      "power": "Power draw must be a positive number."
+    }
   }
 }

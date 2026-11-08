@@ -1776,5 +1776,36 @@
     "onlyAi": "Mon entreprise uniquement",
     "importHint": "La quantité est le total possédé, pas le matériel disponible à une date. Une seule ligne par modèle ; regrouper les quantités avant l’import. Les anciennes fiches déjà importées sont conservées ; leurs quantités se modifient dans Mon entreprise.",
     "quantitySaveError": "La quantité n’a pas pu être enregistrée sur ce poste. Elle reste affichée pour cette session ; réessaie la modification avant de quitter."
+  },
+  "generic": {
+    "title": "Nouvel équipement générique",
+    "hint": "Pour un modèle absent de la bibliothèque : décris ses prises par groupes. La fiche est rangée dans « Mes modèles » avec le statut « utilisateur ».",
+    "name": "Nom",
+    "namePlaceholder": "ex. Boîtier DI maison",
+    "domain": "Menu",
+    "family": "Famille",
+    "direction": "Sens",
+    "signal": "Signal",
+    "connector": "Connecteur",
+    "level": "Niveau",
+    "count": "Nombre",
+    "label": "Libellé",
+    "removeGroup": "Retirer ce groupe",
+    "addGroup": "Ajouter un groupe de prises",
+    "total": "{{count}} prise(s) sur {{max}} au plus",
+    "weight": "Poids (kg)",
+    "power": "Consommation (W)",
+    "optional": "Facultatif",
+    "blank": "Bloc vide (mode Expert)",
+    "cancel": "Annuler",
+    "create": "Créer et poser",
+    "error": {
+      "name": "Donne un nom à l'équipement.",
+      "family": "Choisis une famille de ce menu.",
+      "ports": "Il faut au moins une prise et au plus 256.",
+      "group": "Un groupe de prises est incomplet (nombre entier d'au moins 1, signal et connecteur valables).",
+      "weight": "Le poids doit être un nombre positif.",
+      "power": "La consommation doit être un nombre positif."
+    }
   }
 }

@@ -1127,3 +1127,27 @@ describe('entrées micro/ligne et éclatés D-Sub 25', () => {
     expect(bom.find(l => l.cableId === 'db25-xlrf-8')?.quantity).toBe(2)
   })
 })
+
+describe('équipement générique créé par l’utilisateur', () => {
+  it('construit une fiche valide avec les prises demandées, le poids et la consommation facultatifs', async () => {
+    const { buildGenericTemplate, genericErrors, connectorsFor, familiesFor } = await import('./genericEquipment')
+    const spec = { name: 'Boîtier de scène maison', domain: 'sound' as const, family: 'stagebox' as const, powerW: 12,
+      groups: [
+        { direction: 'in' as const, signal: 'audioAnalog' as const, connector: 'xlr3', count: 8, label: 'Entrée', level: 'mic' as const },
+        { direction: 'out' as const, signal: 'audioAnalog' as const, connector: 'multipin', count: 1, label: 'Multipaire' },
+      ] }
+    expect(genericErrors(spec)).toEqual([])
+    const t = buildGenericTemplate(spec, () => 'abc')
+    expect(validateTemplate(t)).toEqual([])
+    expect(t).toMatchObject({ id: 'user-generic-boitier-de-scene-maison-abc', status: 'user', domain: 'sound', family: 'stagebox', powerW: 12 })
+    expect(t.weightKg).toBeUndefined()
+    expect(t.ports.map(p => p.name).slice(0, 2)).toEqual(['Entrée 1', 'Entrée 2'])
+    expect(t.ports).toHaveLength(9)
+    expect(new Set(t.ports.map(p => p.id)).size).toBe(9)
+    // Connecteurs limités à la catégorie : pas de XLR micro sur un réseau, pas de SDI dans la lumière
+    expect(connectorsFor('network')).not.toContain('xlr3')
+    expect(familiesFor('light')).not.toContain('module')
+    expect(genericErrors({ ...spec, domain: 'light', family: 'luminaire' })).toContain('group')
+    expect(genericErrors({ ...spec, name: ' ', groups: [] })).toEqual(expect.arrayContaining(['name', 'ports']))
+  })
+})
