@@ -5,7 +5,7 @@
   "pictogram": "patch",
   "manufacturer": "Klotz",
   "model": "LSV2844",
-  "status": "community",
+  "status": "verified",
   "description": "Boitier de distribution IN Speakon 8 / OUT 4 x Speakon 4",
   "aliases": [
     "SPEAKERLINK/N",
@@ -20,6 +20,11 @@
     {
       "url": "https://shop.klotz-ais.com/lsv2844-1.html",
       "accessed": "2026-11-06"
+    },
+    {
+      "url": "https://shop.klotz-ais.com/lsv2844-1.html",
+      "document": "Klotz AIS, page constructeur LSV2844 SpeakerLink : 2 speakON 8 points mâles latérales, 4 speakON 4 points mâles en façade, schéma de câblage lsv2844 (A/B, B/A, C/D, D/C)",
+      "accessed": "2026-11-08"
     }
   ],
   "ports": [
@@ -29,7 +34,8 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "speakon-nl8",
-      "level": "speaker"
+      "level": "speaker",
+      "format": "NL8 mâle latéral : 4 voies HP A à D sur 1± à 4± ; câblé en parallèle avec la seconde NL8"
     },
     {
       "id": "thru",
@@ -38,43 +44,43 @@
       "signal": "audioAnalog",
       "connector": "speakon-nl8",
       "level": "speaker",
-      "format": "Seconde embase 8 points (NLT8MP/NLT8FP selon la description Klotz)"
+      "format": "Seconde NL8 mâle latérale, en parallèle (recopie pour chaîner)"
     },
     {
       "id": "out1",
-      "name": "Sortie 1 speakON 4",
+      "name": "Sortie A/B",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+      "format": "NL4 mâle : 1+/1- = voie A, 2+/2- = voie B"
     },
     {
       "id": "out2",
-      "name": "Sortie 2 speakON 4",
+      "name": "Sortie B/A",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+      "format": "NL4 mâle : 1+/1- = voie B, 2+/2- = voie A"
     },
     {
       "id": "out3",
-      "name": "Sortie 3 speakON 4",
+      "name": "Sortie C/D",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+      "format": "NL4 mâle : 1+/1- = voie C, 2+/2- = voie D"
     },
     {
       "id": "out4",
-      "name": "Sortie 4 speakON 4",
+      "name": "Sortie D/C",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "speakon-nl4",
       "level": "speaker",
-      "format": "Affectation des paires selon schéma Klotz (non publié en texte)"
+      "format": "NL4 mâle : 1+/1- = voie D, 2+/2- = voie C"
     }
   ]
 }

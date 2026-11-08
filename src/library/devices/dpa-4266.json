@@ -1,0 +1,81 @@
+{
+  "id": "dpa-4266",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "4266 Flex omnidirectionnel",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.01,
+  "sources": [
+    {
+      "url": "https://www.dpamicrophones.com/microphones/headset-and-earset/4266/",
+      "document": "DPA, page produit 4266 : références 4266-OC-F (CORE : MicroDot 00, LEMO 3 broches 03, TA4F 10, mini-jack 34) et CORE+ (MicroLock 90, 03, 10, 34) ; Earset E ou Headset H",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/api/v1/product/variant-group/specification?variantGroupId=21&culture=en-US",
+      "document": "DPA, caractéristiques 4266 CORE : omnidirectionnel, 6 mV/Pa, MicroDot, 30 à 40 ohms, 5 à 10 V par adaptateur DPA, P48 avec DAD6001-BC, 1,5 mA, simple oreille 10 g, câble 1,25 m",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/api/v1/product/variant-group/specification?variantGroupId=98&culture=en-US",
+      "document": "DPA, caractéristiques 4266 CORE+ : MicroLock, TA4F, LEMO 3 broches, mini-jack",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://dpa.cloud14.structpim.com/media/1gek042d/4166-4266.pdf",
+      "document": "DPA, manuel 4166 & 4266 (document portal, PDF image)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Omnidirectionnel (pression), 6 mV/Pa, impédance 30 à 40 ohms (MicroDot / MicroLock), 100 ohms par l'adaptateur XLR. Versions émetteur HF : alimentation par l'émetteur via adaptateur DPA, 5 à 10 V. Terminaisons constructeur (modes) : MicroDot (CORE, réf. 00), MicroLock (CORE+, réf. 90), TA4F mini-XLR (10), LEMO 3 broches (03), mini-jack (34). XLR 3 : adaptateur DAD6001-BC (CORE) ou DAD9001 (CORE+), fantôme P48 requis (fonctionne dès 12 V), 3,5 mA.",
+      "modes": [
+        {
+          "connector": "microlock",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "lemo3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "minijack",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "required"
+        }
+      ]
+    }
+  ],
+  "description": "Micro serre-tête ou tour d'oreille omnidirectionnel DPA d:fine 4266 Flex (versions CORE et CORE+), capsule du 4066 sur perche interchangeable, statique prépolarisé, 6 mV/Pa, grilles soft boost ou high boost. Accroches (ce ne sont pas des prises) : version Earset simple oreille (suffixe E) ou Headset double oreille (suffixe H) ; port à gauche ou à droite par rotation de la perche et du crochet ; perche interchangeable, 120 mm (L) ou 100 mm (M) ; câble amovible par connecteur de service ; noir, beige ou brun. Poids version simple oreille : 10 g, câble 1,25 m.",
+  "aliases": [
+    "DPA 4266",
+    "d:fine 4266",
+    "d:fine 4266 Flex",
+    "4266 CORE",
+    "4266 CORE+",
+    "4266-OC-F",
+    "4266 Flex Omni"
+  ],
+  "notes": "Poids DPA donné pour la version simple oreille ; double oreille non chiffrée. DPA ne dit pas sur son site quel modèle d:fine d'avant 2016 le 4266 remplace."
+}

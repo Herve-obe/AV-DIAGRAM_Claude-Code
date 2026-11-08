@@ -10,7 +10,6 @@
   "aliases": [
     "XIRIUM PRO TX"
   ],
-  "portStatus": "pending",
   "sources": [
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/neutrik_xirium-pro-nxp2tx-e_ft.pdf",
@@ -30,7 +29,37 @@
     {
       "url": "https://www.novelty.fr/produits/sonorisation/cablage-modulation/divers-cablage-modulation/xirium/",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2tx-e_user-manual_en.pdf",
+      "document": "Neutrik XIRIUM PRO User Manual BDA 494E-V7 2019/12, § 4.1 base station (antenne 5 GHz, antenne 2,4 GHz RP-SMA, interrupteur, D-Sub vers le module, port USB) et § 4.2 modules (entrées ou sorties audio, batterie intégrée, embase powerCON TRUE1, 100-240 V 0,5 A)",
+      "accessed": "2026-11-08"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "link",
+      "name": "Liaison 5 GHz",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Liaison audio numérique 5 GHz XIRIUM PRO vers les récepteurs ; antenne 5 GHz NXPA-6-360-25 fournie"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi 2,4 GHz (app)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rf",
+      "format": "Commande par l'application XIRIUM PRO, antenne 2,4 GHz NXPA-WIFI sur embase RP-SMA"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour du firmware par le câble NKXPRO-DATA fourni (pont USB-UART) ; type de prise USB non écrit dans le manuel"
+    }
+  ]
 }

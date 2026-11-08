@@ -1,0 +1,41 @@
+{
+  "id": "dpa-dfine-66",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "d:fine 66",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dpa_d-fine-slim-fidf00-2_manuel.pdf",
+      "document": "DPA, Headset Microphones Manual d:fine (2014, copie fidèle hébergée par Novelty) : d:fine Omnidirectional, Directional, 4065, 4066, 4067, 4088, 66 et 88 ; MicroDot en standard sur tous les serre-tête DPA, adaptateurs en option pour la plupart des émetteurs HF ; 6 mV/Pa ; 1,5 mA (3,5 mA avec DAD6001-BC) ; 5 à 50 V par adaptateur DPA, fantôme 48 V ± 4 V avec DAD6001-BC",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Omnidirectionnel (pression), 6 mV/Pa. Émetteur HF : MicroDot avec adaptateur DPA en option, alimentation 5 à 50 V par l'émetteur. XLR 3 : adaptateur DAD6001-BC, fantôme 48 V ± 4 V requis, 3,5 mA.",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "required"
+        }
+      ]
+    }
+  ],
+  "description": "Micro serre-tête omnidirectionnel DPA d:fine 66 (ancienne gamme d:fine), 6 mV/Pa, MicroDot, deux grilles fournies (soft boost montée, high boost). Accroches (ce ne sont pas des prises) : simple oreille ou double oreille, port à gauche ou à droite, connecteur de service pour changer câble ou perche, clip vêtement, câble 1,3 m.",
+  "aliases": [
+    "d:fine 66",
+    "DPA d:fine 66",
+    "FIO66"
+  ],
+  "notes": "Modèle de l'ancienne gamme d:fine (manuel 2014), arrêté chez DPA : plus de page produit. Poids et références de terminaison non publiés dans ce manuel ; seule la terminaison MicroDot standard et l'adaptateur XLR DAD6001-BC sont documentés."
+}

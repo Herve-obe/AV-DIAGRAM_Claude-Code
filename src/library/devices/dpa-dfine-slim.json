@@ -1,25 +1,16 @@
 {
   "id": "dpa-dfine-slim",
   "family": "capture",
-  "pictogram": "mic",
   "manufacturer": "DPA",
-  "model": "d:fine Slim directionnel double oreille (FIDF00-2)",
+  "model": "d:fine Directional double oreille (FIDF00-2)",
+  "pictogram": "mic",
   "status": "verified",
-  "description": "Micro serre-tête cardioïde DPA d:fine Directional à capsule plate « Slim » (9,5 × 5,3 × 2,9 mm), monture double oreille, perche 120 mm, câble amovible 1,3 m par connecteur de service, sortie MicroDot. Accroches (ce ne sont pas des prises) : la gamme d:fine existe en simple oreille ou double oreille ; port à gauche ou à droite par rotation de la perche et des crochets ; serre-câble fourni pour la double oreille, clip vêtement, bonnettes et capuchon de protection maquillage fournis.",
-  "aliases": [
-    "DFINE",
-    "DFine",
-    "DPA DFine",
-    "DPA DFine Slim",
-    "FIDF00-2",
-    "d:fine Directional",
-    "d:fine Slim"
-  ],
+  "weightKg": 0.0085,
   "sources": [
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dpa_d-fine-slim-fidf00-2_manuel.pdf",
-      "document": "DPA, Headset Microphones Manual d:fine (2014, copie Novelty) : d:fine Directional cardioïde, MicroDot, 6 mV/Pa, 1,5 mA (3,5 mA avec DAD6001-BC), 5 à 50 V par adaptateur DPA, fantôme 48 V ± 4 V avec DAD6001-BC, simple ou double oreille",
-      "accessed": "2026-11-07"
+      "document": "DPA, Headset Microphones Manual d:fine (2014, copie fidèle hébergée par Novelty) : d:fine Omnidirectional, Directional, 4065, 4066, 4067, 4088, 66 et 88 ; MicroDot en standard sur tous les serre-tête DPA, adaptateurs en option pour la plupart des émetteurs HF ; 6 mV/Pa ; 1,5 mA (3,5 mA avec DAD6001-BC) ; 5 à 50 V par adaptateur DPA, fantôme 48 V ± 4 V avec DAD6001-BC",
+      "accessed": "2026-11-08"
     },
     {
       "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/dfine-slim/",
@@ -46,7 +37,7 @@
       "connector": "microdot",
       "level": "mic",
       "phantom": "none",
-      "format": "Cardioïde (gradient de pression), 6 mV/Pa, 30 à 40 ohms. Émetteur HF : MicroDot avec adaptateur DPA, alimentation 5 à 50 V par l'émetteur ; mini-jack selon Novelty. XLR : adaptateur DAD6001-BC, fantôme 48 V ± 4 V requis.",
+      "format": "Cardioïde (gradient de pression), 6 mV/Pa. Émetteur HF : MicroDot avec adaptateur DPA en option, alimentation 5 à 50 V par l'émetteur ; mini-jack par adaptateur selon Novelty. XLR 3 : adaptateur DAD6001-BC, fantôme 48 V ± 4 V requis, 3,5 mA.",
       "modes": [
         {
           "connector": "minijack",
@@ -61,6 +52,16 @@
       ]
     }
   ],
-  "weightKg": 0.0085,
-  "notes": "Les deux fiches du parc « DFine » et « DFine Slim » portent le même codart Novelty DFINE et décrivent le même micro réel : DPA d:fine Directional double oreille FIDF00-2 (capsule Slim). d:fine est un nom de gamme, pas un micro : chaque micro réel (d:fine Omni, Directional, 4065, 4066, 4067, 4088, 66, 88, puis CORE 4066, 4088, 4188 Slim, 4288, 4466, 6066…) mérite sa propre fiche si le parc en possède. Mini-jack : seule la page Novelty le cite ; DPA documente MicroDot en standard et un large choix d'adaptateurs sans les détailler dans ce manuel. Modèle arrêté chez DPA (revendeurs)."
+  "description": "Micro serre-tête cardioïde DPA d:fine Directional (ancienne gamme d:fine, vendu aussi sous le nom d:fine Slim), monture double oreille, perche 120 mm, beige, 6 mV/Pa, sortie MicroDot. Accroches (ce ne sont pas des prises) : la gamme existait en simple ou double oreille ; port à gauche ou à droite par rotation de la perche et des crochets ; connecteur de service pour changer câble ou perche ; serre-câble prémonté sur la double oreille, clip vêtement, capuchon rouge de protection maquillage, clips de repérage de couleur, grille de protection remplaçable ; câble 1,3 m.",
+  "aliases": [
+    "DFINE",
+    "DFine",
+    "DPA DFine",
+    "DPA DFine Slim",
+    "FIDF00-2",
+    "d:fine Directional",
+    "d:fine Slim",
+    "d:fine Slim Directional"
+  ],
+  "notes": "Modèle réel : DPA d:fine Directional double oreille, référence FIDF00-2 (FI = d:fine, D = directionnel, F = beige, 00 = MicroDot, -2 = double oreille ; lecture de la référence par analogie avec les références DPA actuelles, non publiée par DPA). Les fiches du parc « DFine » et « DFine Slim » (même codart Novelty DFINE) sont ce même micro. Des revendeurs présentent ensuite ce modèle comme « d:fine 4188 Slim » d'avant CORE ; DPA ne le confirme pas sur son site : le 4188 CORE / CORE+ actuel a sa propre fiche dpa-4188. Poids 8,5 g selon Novelty (non publié dans le manuel DPA). Mini-jack : seule la page Novelty le cite."
 }
