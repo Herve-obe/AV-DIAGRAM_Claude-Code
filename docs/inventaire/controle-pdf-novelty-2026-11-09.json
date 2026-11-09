@@ -22,7 +22,9 @@
   "soundtube-sa502",
   "vivitek-du7098z-b",
   "vivitek-du7098z-n",
-  "zero-88-jester-24-48"
+  "zero-88-jester-24-48",
+  "procedes-hallier-leo-10w-tie-g",
+  "procedes-hallier-leo-10w-tie-n"
  ],
  "gardes": {
   "eurolite-s4par-blanc": "fabricant douteux (documents ETC)",
@@ -37,7 +39,7 @@
  "fiches": [
   {
    "id": "absen-pl2-5pro",
-   "class": "image seule",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/X series-CE-certificate -TUV.pdf",
@@ -63,7 +65,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/absen_pl2-5_ft.pdf",
+    "preuve": "Présentation PowerPoint au logo Absen « Indoor Products of POLARIS », tableau de paramètres « PL2.5 Pro / PL2.9 / PL3.9 ». Les deux certificats TÜV joints sont au nom de Shenzhen INFiLED, modèles X2/X3/X4/X6 : sans rapport.",
+    "ecart": "Gamme Polaris qui inclut explicitement le PL2.5 Pro. Les certificats CE/CEM concernent d'autres produits (INFiLED série X)."
+   }
   },
   {
    "id": "adder-x200a",
@@ -1177,7 +1185,7 @@
   },
   {
    "id": "datapath-x4",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/datapath_x4_ft2.pdf",
@@ -1203,7 +1211,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/datapath_x4_ft2.pdf",
+    "preuve": "Fiche, manuel et guide de configuration au logo DATAPATH, « x4 Stand Alone Display Wall Controller ».",
+    "ecart": ""
+   }
   },
   {
    "id": "desisti-piccoletto-led",
@@ -1293,7 +1307,7 @@
   },
   {
    "id": "eaton-baes-sati-d-ambiance-lum10208-lum10208",
-   "class": "image seule",
+   "class": "illisible",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/4330-4383-eaton-eclairage-securite-baes-anti-panique-ultraled-2000-certification-nf-t11025-s.pdf",
@@ -1319,7 +1333,13 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "illisible",
+    "pdfRetenu": null,
+    "preuve": "Les trois PDF téléchargés (certificat NF, fiche technique, notice) font 0 octet : contenu impossible à vérifier.",
+    "ecart": "Les noms de fichiers évoquent « ultraled 2000 anti-panique », pas l'ambiance LUM10208 : à revérifier."
+   }
   },
   {
    "id": "eurolite-s4par-blanc",
@@ -1435,7 +1455,7 @@
   },
   {
    "id": "fougerolle-d3gduo1x4",
-   "class": "non attribuable",
+   "class": "sans rapport",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/f_dhd-x.pdf",
@@ -1445,11 +1465,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "sans rapport",
+    "pdfRetenu": null,
+    "preuve": "Fiche au logo Fougerolle « MiniFlex DHD Distributeurs HD-SDI 4 et 8 sorties », références DHD-04 et DHD-08.",
+    "ecart": "Document constructeur, mais pour la gamme DHD HD-SDI (1,485 Gb/s). Le D3GDUO1X4 (double 1x4 3G-SDI) n'y figure pas, et la 3G n'est pas mentionnée."
+   }
   },
   {
    "id": "fujinon-rmd-30",
-   "class": "non attribuable",
+   "class": "illisible",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/fujinon_rmd_30_ft.pdf",
@@ -1459,7 +1485,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "illisible",
+    "pdfRetenu": null,
+    "preuve": "Page de catalogue « FUJINON CCTV LENS – Video Conferencing lens » (Illustrator 2007). Le texte du tableau de spécifications n'est pas rendu (polices japonaises absentes).",
+    "ecart": "Le modèle RMD-30 n'est lisible nulle part. Le document est bien Fujinon, mais rien ne prouve qu'il couvre le RMD-30."
+   }
   },
   {
    "id": "genelec-8020-cpm",
@@ -1529,7 +1561,7 @@
   },
   {
    "id": "infiled-x3-9-curve",
-   "class": "image seule",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1528184456-infiled_x3_ft.pdf",
@@ -1563,11 +1595,17 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1528184456-infiled_x3_ft.pdf",
+    "preuve": "Fiche au logo INFiLED, « X Series Wave Screen », tableau IL-RSS-X3 (pas de 3,9 mm) / IL-RSS-X6. Brochure INFiLED « X Series » (images). Certificats TÜV INFiLED X2/X3/X4/X6.",
+    "ecart": "Couvre le X3 (3,9 mm) avec courbure de -20° à +20°. La variante « Curve » n'est pas nommée."
+   }
   },
   {
    "id": "infiled-x3-9-edge",
-   "class": "image seule",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1528184743-dupli-1528184456-infiled_x3_ft.pdf",
@@ -1601,11 +1639,17 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1528184743-dupli-1528184456-infiled_x3_ft.pdf",
+    "preuve": "Même fiche INFiLED IL-RSS-X3 / X6 (copie), brochure et certificats TÜV INFiLED série X.",
+    "ecart": "La variante « Edge » n'est pas nommée dans le document : seule la gamme X3 3,9 mm y figure."
+   }
   },
   {
    "id": "infiled-x3-9-flat",
-   "class": "image seule",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/infiled_x3_ft.pdf",
@@ -1623,7 +1667,13 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/infiled_x3_ft.pdf",
+    "preuve": "Même fiche INFiLED IL-RSS-X3 / X6 et brochure INFiLED « X Series ».",
+    "ecart": "La variante « Flat » n'est pas nommée dans le document : seule la gamme X3 3,9 mm y figure."
+   }
   },
   {
    "id": "innled-t4x-b",
@@ -1671,7 +1721,7 @@
   },
   {
    "id": "innled-t4x",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/innled_t4x_ft.pdf",
@@ -1681,7 +1731,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/innled_t4x_ft.pdf",
+    "preuve": "« T4x FICHE TECHNIQUE » avec le logo INNLED en pied de page.",
+    "ecart": ""
+   }
   },
   {
    "id": "interspace-industries-microcue3",
@@ -1771,7 +1827,7 @@
   },
   {
    "id": "ledpro-x6",
-   "class": "non attribuable",
+   "class": "illisible",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/ledpro_X6_ft.pdf",
@@ -1781,11 +1837,17 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "illisible",
+    "pdfRetenu": null,
+    "preuve": "Document Word (auteur « David DAUPHIN », 2013) qui reproduit une capture de page web « LEDPRO lights - X6 » et le dépliant LEDPRO X6. Aucune mise en page Novelty, mais pas un fichier du constructeur.",
+    "ecart": "Le contenu vient du constructeur, mais le document est une compilation par un tiers dont on ignore l'origine. Ce n'est pas une source constructeur directe."
+   }
   },
   {
    "id": "lg-43uh5f-h-novelty-35526",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6327-4643-65-55-49-43uh5f-h-series-datasheet-low-lg-uhd-signage-200603.pdf",
@@ -1795,11 +1857,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6327-4643-65-55-49-43uh5f-h-series-datasheet-low-lg-uhd-signage-200603.pdf",
+    "preuve": "Fiche au logo LG Business Solutions, « UHD Signage 65/55/49/43\" UH5F-H ».",
+    "ecart": "Fiche de série qui inclut le 43\"."
+   }
   },
   {
    "id": "lg-55uh5f-h-novelty-35100",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1865-4487-fre.pdf",
@@ -1825,7 +1893,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6327-4643-65-55-49-43uh5f-h-series-datasheet-low-lg-uhd-signage-200603.pdf",
+    "preuve": "Fiche LG « UHD Signage 65/55/49/43\" UH5F-H ». Les deux manuels LG (FR et EN, webOS 4.1) sont génériques pour l'affichage dynamique.",
+    "ecart": "La fiche de série inclut le 55\". Les manuels ne citent pas UH5F-H."
+   }
   },
   {
    "id": "lightware-edid-manager-v4",
@@ -1911,7 +1985,7 @@
   },
   {
    "id": "lumila-rotatubled-1500n",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lumila_pipeline-1500n_ft2-fr.pdf",
@@ -1929,11 +2003,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lumila_pipeline-1500n_ft2-fr.pdf",
+    "preuve": "Fiche Lumila « PIPELINE® Tube LED rotatif aimanté » (version FR et UK), www.lumila.fr, révision V5 de 2015.",
+    "ecart": "Gamme Pipeline en cinq longueurs, dont 150 cm. Le nom « RotaTubLED 1500N » n'apparaît pas."
+   }
   },
   {
    "id": "ma-lightcommander-ii-12-24",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144481.pdf",
@@ -1943,11 +2023,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144481.pdf",
+    "preuve": "Page de titre au logo MA Lighting « Lightcommander 12/2 User's Manual, Version 1.32, June 15 1995 ».",
+    "ecart": "Le manuel porte le nom Lightcommander 12/2. « II 12/24 » est la désignation du parc : il n'existe pas de Lightcommander II 12/x dans les documents MA."
+   }
   },
   {
    "id": "ma-lighting-lightcommander-12-24",
-   "class": "image seule",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133998.pdf",
@@ -1973,11 +2059,17 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144481.pdf",
+    "preuve": "Manuel MA Lighting « Lightcommander 12/2 » v1.32. Déclaration de conformité MA « Lightcommander 12/2 » (télécopie). La page « Consoles pour traditionnels » p.137 (QuarkXPress, « LUMIERE 2007 », tarif HT, « notre catalogue ») est un catalogue de distributeur, pas un document MA.",
+    "ecart": "Le modèle s'appelle 12/2 chez MA. 12/24 est la désignation du parc."
+   }
   },
   {
    "id": "ma-lighting-lightcommander-24-48",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186134016.pdf",
@@ -2003,11 +2095,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144442.pdf",
+    "preuve": "« LIGHTCOMMANDER II 24/6 / 48/6 User's Manual, Version 2.59, July 1996 » au logo MA. Le manuel FR v2.X porte aussi le logo MA. La page p.137 vient d'un catalogue de distributeur avec tarif.",
+    "ecart": "Le modèle s'appelle II 24/6 chez MA. 24/48 est la désignation du parc."
+   }
   },
   {
    "id": "ma-lighting-lightcommander-48-96",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133958.pdf",
@@ -2025,11 +2123,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144442.pdf",
+    "preuve": "Manuel MA « LIGHTCOMMANDER II 24/6 / 48/6 » v2.59. La page p.137 vient d'un catalogue de distributeur.",
+    "ecart": "Le modèle s'appelle II 48/6 chez MA. 48/96 est la désignation du parc."
+   }
   },
   {
    "id": "ma-vpu-basic-mk2",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ma-lighting_vpu-plus-mk2_manuel.pdf",
@@ -2047,7 +2151,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ma-lighting_vpu-plus-mk2_manuel.pdf",
+    "preuve": "« VPU QuickMAnual deutsch/english, Version XVI.05 » de MA Lighting, qui cite « MA VPU plus and MA VPU basic ». La fiche MA porte le titre « MA VPU plus MK2 » (adresse MA Lighting International GmbH, Paderborn).",
+    "ecart": "La fiche technique décrit le VPU plus MK2. Le basic MK2 n'y est cité qu'en passant. Le QuickManual couvre VPU plus et basic sans mentionner MK2 : aucun document propre au basic MK2."
+   }
   },
   {
    "id": "marshall-electronics-v-r44p-hdsdi",
@@ -2101,7 +2211,7 @@
   },
   {
    "id": "mled-m6-ech",
-   "class": "Novelty",
+   "class": "novelty",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/desay_mled-m6_ft.pdf",
@@ -2111,11 +2221,17 @@
      "novelty": true,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "novelty",
+    "pdfRetenu": null,
+    "preuve": "Mise en page Novelty : bandeau latéral avec les agences Novelty Paris, Toulouse, Azur, Benelux et UK, et la mention « © Groupe Novelty 2015 ». Logo « MLed M6 » inclus.",
+    "ecart": "L'échelle de maintien n'apparaît que comme accessoire (« ECHELLE maintien AR »)."
+   }
   },
   {
    "id": "mled-m6",
-   "class": "Novelty",
+   "class": "novelty",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/desay_mled-m6_ft-1446798507.pdf",
@@ -2125,7 +2241,13 @@
      "novelty": true,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "novelty",
+    "pdfRetenu": null,
+    "preuve": "Même document mis en page par Novelty : agences Novelty et « © Groupe Novelty 2015 ».",
+    "ecart": ""
+   }
   },
   {
    "id": "mrc-audio-eqlimit",
@@ -2195,7 +2317,7 @@
   },
   {
    "id": "neovo-x-20",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1601.pdf",
@@ -2205,7 +2327,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1601.pdf",
+    "preuve": "Mode d'emploi au logo AG Neovo « X-Series Affichage LCD 20\"/19\"/17\"/15\" ». Le texte cite X-20.",
+    "ecart": "Manuel de gamme qui inclut le X-20."
+   }
   },
   {
    "id": "networksound-mamba-digital-snake-16",
@@ -2335,7 +2463,7 @@
   },
   {
    "id": "oxo-lips-6",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1393841153OXOLIPS6MANUEL_FR.pdf",
@@ -2345,11 +2473,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1393841153OXOLIPS6MANUEL_FR.pdf",
+    "preuve": "Logo OXO, « LIPS 6 INSTRUCTION MANUAL Rev 1.0 ».",
+    "ecart": ""
+   }
   },
   {
    "id": "oxo-tw512",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_tw512_manuel.pdf",
@@ -2359,11 +2493,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_tw512_manuel.pdf",
+    "preuve": "Logo OXO, « USER MANUAL TW 512 », avec les caractéristiques techniques.",
+    "ecart": ""
+   }
   },
   {
    "id": "oxo-wds512r",
-   "class": "image seule",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_WD512T_WD512R_manuel.pdf",
@@ -2373,11 +2513,17 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_WD512T_WD512R_manuel.pdf",
+    "preuve": "Scan d'un manuel au logo OXO « USER MANUAL WD512T & WD512R ».",
+    "ecart": "Le manuel écrit WD512R, sans S. Probablement le même produit."
+   }
   },
   {
    "id": "oxo-wds512t",
-   "class": "image seule",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_WD512T_WD512R_manuel.pdf",
@@ -2387,7 +2533,13 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_WD512T_WD512R_manuel.pdf",
+    "preuve": "Scan d'un manuel au logo OXO « USER MANUAL WD512T & WD512R ».",
+    "ecart": "Le manuel écrit WD512T, sans S. Probablement le même produit."
+   }
   },
   {
    "id": "panasonic-pt-dz10ke",
@@ -2505,7 +2657,7 @@
   },
   {
    "id": "panasonic-pt-rz120be",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-rz120be_manuel-fr.pdf",
@@ -2523,11 +2675,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz120be_ft-fr.pdf",
+    "preuve": "Fiche Panasonic Business « Projecteur laser Solid Shine… PT-RZ120 ». Manuel d'utilisation Panasonic « N° de modèle PT-RZ120 ».",
+    "ecart": ""
+   }
   },
   {
    "id": "panasonic-pt-rz660we",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
@@ -2537,11 +2695,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
+    "preuve": "Brochure Panasonic Business « RZ970 Series », qui couvre les séries PT-RZ970/RW930/RX110, RZ770/RW730 et RZ660/RW620. Elle cite PT-RZ660W.",
+    "ecart": "Brochure de gamme qui inclut le RZ660 (B, W, LB, LW)."
+   }
   },
   {
    "id": "panasonic-pt-rz670be",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/panasonic_pt-rz670_commandes.pdf",
@@ -2591,11 +2755,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz670_ft.pdf",
+    "preuve": "Spec File Panasonic « PT-RZ670B/RZ670W/RZ670LB/RZ670LW ». Manuels Panasonic PT-RZ670/RW630 en FR, EN et DE. Liste de commandes de contrôle et schéma coté Panasonic.",
+    "ecart": ""
+   }
   },
   {
    "id": "panasonic-pt-rz970be",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
@@ -2605,7 +2775,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
+    "preuve": "Brochure Panasonic Business « RZ970 Series », qui cite PT-RZ970B/W/LB/LW.",
+    "ecart": ""
+   }
   },
   {
    "id": "philips-arena-vision",
@@ -2673,7 +2849,7 @@
   },
   {
    "id": "procedes-hallier-fenyx-20w-b",
-   "class": "non attribuable",
+   "class": "sans rapport",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/procedes-hallier_fenyx_certificat-1406282675.pdf",
@@ -2699,11 +2875,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "sans rapport",
+    "pdfRetenu": null,
+    "preuve": "Seulement une « Déclaration de conformité du constructeur » Procédés Hallier (25/07/2014) qui liste « FENYX 20W TIE – Cadreur à LED 20W ».",
+    "ecart": "Certificat seul, sans fiche technique. Il désigne le FENYX 20W TIE sans la variante B."
+   }
   },
   {
    "id": "procedes-hallier-fenyx-20w-n",
-   "class": "non attribuable",
+   "class": "sans rapport",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/dupli-procedes-hallier_fenyx_certificat-1406282655.pdf",
@@ -2713,11 +2895,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "sans rapport",
+    "pdfRetenu": null,
+    "preuve": "Même déclaration de conformité Procédés Hallier (copie), seul document joint.",
+    "ecart": "Certificat seul. La variante N n'est pas désignée."
+   }
   },
   {
    "id": "procedes-hallier-leo-10w-tie-g",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-dupli-dupli-procedeshallier_cadreur_leo_10w_lita_ft.pdf",
@@ -2759,11 +2947,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-dupli-dupli-dupli-procedeshallier_cadreur_leo_10w_lita_ft.pdf",
+    "preuve": "Capture Web2PDF du site Procédés Hallier « éclairage concepteur-fabricant », page « LEO 10W TIE » : caractéristiques, plan et photométrie. Les déclarations de conformité Hallier citent aussi LEO 10W TIE.",
+    "ecart": "La fiche indique « Noir ou Gris aluminium ». La variante G n'est pas une référence distincte."
+   }
   },
   {
    "id": "procedes-hallier-leo-10w-tie-n",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/procedeshallier_cadreur_leo_10w_lita_ft.pdf",
@@ -2813,11 +3007,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/procedeshallier_cadreur_leo_10w_lita_ft.pdf",
+    "preuve": "Même capture du site Procédés Hallier « LEO 10W TIE », et les déclarations de conformité Hallier.",
+    "ecart": "La variante N (noir) n'est pas une référence distincte dans le document."
+   }
   },
   {
    "id": "reel-efx-df-50",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/reel-efx_df-50-dmx_ft.pdf",
@@ -2835,7 +3035,13 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/reel-efx_df-50-dmx_ft.pdf",
+    "preuve": "Fiche au logo Reel EFX « DF-50 Diffusion Hazer », www.reelefx.com. La déclaration CE Reel EFX porte le modèle DF-50.",
+    "ecart": ""
+   }
   },
   {
    "id": "robert-juliat-alimentation-a2-2500",
@@ -2875,7 +3081,7 @@
   },
   {
    "id": "robert-juliat-heloise",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1202220566.pdf",
@@ -2917,7 +3123,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1202220680.pdf",
+    "preuve": "Dossier technique Robert Juliat « 1439… \"HELOISE\" projecteurs de poursuite MSR 2500W » et brochure Robert Juliat « HELOISE 1439 ». Les autres dossiers sont des mises à jour ou concernent le pied GT 4000.",
+    "ecart": "Les dossiers sont communs à Ivanhoé et Héloïse. d00e785ea49e concerne le trépied GT 4000."
+   }
   },
   {
    "id": "robert-juliat-ivanhoe",
@@ -2951,7 +3163,7 @@
   },
   {
    "id": "robert-juliat-pixie",
-   "class": "non attribuable",
+   "class": "sans rapport",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203954507.pdf",
@@ -2961,7 +3173,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "sans rapport",
+    "pdfRetenu": null,
+    "preuve": "Seul document : dossier technique Robert Juliat du « TREPIED GT 4000 / 4000 S / 4000 R ».",
+    "ecart": "Le Pixie n'est jamais cité : le document décrit un pied de projecteur."
+   }
   },
   {
    "id": "rve-12x3-dimkit",
@@ -2987,7 +3205,7 @@
   },
   {
    "id": "rve-6x5",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/LIVE.pdf",
@@ -3005,11 +3223,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186134874.pdf",
+    "preuve": "Fiches RVE Technologie : « Blocs de gradation Dimkit 12x3 kW & 6x5 kW & 3x5 kW » et « Dimmerpack LIVE 6 & 12x3 kW, LIVE 3 & 6x5 kW » (logo RVE, adresse Villemomble).",
+    "ecart": "Les deux gammes ont un 6x5 kW. On ne sait pas laquelle correspond à la fiche."
+   }
   },
   {
    "id": "saf-licialed-kit-x6",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/Licialed_A4.pdf",
@@ -3043,7 +3267,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/Licialed_A4.pdf",
+    "preuve": "Fiche « LiciaLED, la première boîte ambre à leds » (www.licialed.com), manuel et accessoires LiciaLED. La déclaration CE est signée par EXPELEC (Charvonnex).",
+    "ecart": "Documents de marque LiciaLED, avec le fabricant Expelec sur la déclaration CE : « SAF » n'apparaît pas. Le kit x6 n'est pas décrit en tant que tel (flight-case 6 LiciaLED en accessoire)."
+   }
   },
   {
    "id": "samsung-dm75d",
@@ -3257,7 +3487,7 @@
   },
   {
    "id": "samsung-ue46c",
-   "class": "non attribuable",
+   "class": "sans rapport",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-samsung_ue46a_manuel.pdf",
@@ -3275,7 +3505,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "sans rapport",
+    "pdfRetenu": null,
+    "preuve": "Documents Samsung (manuel « ME32B ME40B ME46B ME55B UE46A UE55A » et Quick Setup Guide).",
+    "ecart": "Les documents décrivent l'UE46A, pas l'UE46C : autre modèle."
+   }
   },
   {
    "id": "samsung-ue55a",
@@ -3301,7 +3537,7 @@
   },
   {
    "id": "schneider-baes-1500-ova58924",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/schneider_baes-ova58924_ft.pdf",
@@ -3319,11 +3555,17 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/schneider_baes-ova58924_ft.pdf",
+    "preuve": "« Fiche technique du produit OVA58924 » au logo Schneider Electric. Une lettre RoHS Schneider est jointe.",
+    "ecart": ""
+   }
   },
   {
    "id": "sgm-i-2-wash",
-   "class": "image seule",
+   "class": "illisible",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5413-4652-sgm-i2-user-manual.pdf",
@@ -3341,11 +3583,17 @@
      "novelty": false,
      "image": true
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "illisible",
+    "pdfRetenu": null,
+    "preuve": "Le manuel (5413-4652-sgm-i2-user-manual.pdf) est endommagé (table xref invalide, aucune page lisible). Seule la déclaration UE de conformité SGM Light A/S est lisible : « i-2 RGBW, i-2 RED, i-2 GREEN, i-2 WHITE – LED wash light ».",
+    "ecart": "Pas de fiche technique lisible, seulement un certificat."
+   }
   },
   {
    "id": "sgm-q-8",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3032-4653-sgm-q-8-user-manual.pdf",
@@ -3363,7 +3611,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3032-4653-sgm-q-8-user-manual.pdf",
+    "preuve": "Logo SGM, « USER MANUAL Q-8, Product Version 1.0, Document Revision E, 2023-01-31 ». La fiche au logo SGM « Q-8 DualSource Strobe/Flood/Pixel/Blinder » a été générée par EO.Pdf.",
+    "ecart": ""
+   }
   },
   {
    "id": "soka-disderot-eta-gz10-n",
@@ -3561,7 +3815,7 @@
   },
   {
    "id": "taiden-hcs-5100ma-08n",
-   "class": "non attribuable",
+   "class": "constructeur, modèle non confirmé",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/taiden_HCS-5100M_F_Series_Digital_IR_Transmitter-ft.pdf",
@@ -3571,7 +3825,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/taiden_HCS-5100M_F_Series_Digital_IR_Transmitter-ft.pdf",
+    "preuve": "Pages de catalogue au logo TAIDEN « HCS-5100Plus Series New Generation Digital Infrared Language Distribution System » (HCS-5100MA/FS/04F…).",
+    "ecart": "Le document liste les HCS-5100MA/04F, 08F et 16F et les FS/xxF, mais aucune variante « 08N » : correspondance non établie."
+   }
   },
   {
    "id": "taiden-hcs-8300me",
@@ -3603,7 +3863,7 @@
   },
   {
    "id": "taiden-hcs-8685",
-   "class": "non attribuable",
+   "class": "constructeur",
    "pdfs": [
     {
      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3855-4748-taiden-hcs-8685-ft.pdf",
@@ -3613,7 +3873,13 @@
      "novelty": false,
      "image": false
     }
-   ]
+   ],
+   "revue": {
+    "verdict": "constructeur",
+    "pdfRetenu": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3855-4748-taiden-hcs-8685-ft.pdf",
+    "preuve": "Page de catalogue au logo TAIDEN « HCS-8685 64-Channel Simultaneous Interpreter Unit ».",
+    "ecart": ""
+   }
   },
   {
    "id": "taiden-tmx-0808-sdi",
