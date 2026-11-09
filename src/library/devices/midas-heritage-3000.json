@@ -2,2715 +2,2387 @@
   "id": "midas-heritage-3000",
   "family": "console",
   "manufacturer": "Midas",
-  "model": "Heritage 3000",
+  "model": "Heritage 3000 48 voies",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
+  "weightKg": 215,
+  "description": "Châssis 48 voies : 44 voies mono et 4 stéréo, soit 52 entrées micro. 24 groupes configurables, matrice 27 x 8, 10 VCA, 10 groupes d'automute. Niveau ligne nominal publié 0 dBu, noté +4 dBu faute de valeur 0 dBu. Alimentation par bloc externe Heritage Series (fiche séparée), livré en double pour la redondance. Existe aussi en version bob-tail (sans poignées, 205 kg).",
   "sources": [
     {
       "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html",
-      "document": "Midas, Heritage 3000 Operator's Manual, Issue 1.4, juillet 2002 (DOC02-H3000), miroir manualslib",
+      "document": "Midas, Heritage 3000 Operator's Manual, Issue 1.4 (DOC02-H3000), copie manualslib",
       "accessed": "2026-11-08"
     },
     {
       "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=71",
-      "document": "Idem, « Heritage Overview and Statistics » (p. 59 imprimée) : comptes XLR et inserts",
-      "accessed": "2026-11-08"
-    },
-    {
-      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=63",
-      "document": "Idem, « Frame Dimensions » : tailles de châssis et poids",
-      "accessed": "2026-11-08"
-    },
-    {
-      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=9",
-      "document": "Idem, brochages XLR, jack, MIDI, RS-232, CAN",
-      "accessed": "2026-11-08"
-    },
-    {
-      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=73",
-      "document": "Idem, « Heritage Technical Specifications » (p. 73-74)",
-      "accessed": "2026-11-08"
-    },
-    {
-      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=39",
-      "document": "Idem, module Monitor HS0031 : talk mic, sorties locales",
-      "accessed": "2026-11-08"
-    },
-    {
-      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=7",
-      "document": "Idem, alimentation : bloc séparé, relié par câble",
-      "accessed": "2026-11-08"
-    },
-    {
-      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=59",
-      "document": "Idem, liaison CAN bus (jusqu'à 6 consoles)",
-      "accessed": "2026-11-08"
+      "document": "Midas, catalogue produits : Heritage 3000 p. 12-19 (châssis, Overview and Statistics, poids, spécifications) et p. 46-47 (CAN bus XLR, MIDI, RS-232 D-Sub 9, bloc Heritage Series 10 voies) ; pages transmises par Hervé Obejero",
+      "accessed": "2026-11-09"
     }
   ],
   "ports": [
     {
       "id": "in1",
-      "name": "Input 1",
+      "name": "Voie 1 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in2",
-      "name": "Input 2",
+      "name": "Voie 2 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in3",
-      "name": "Input 3",
+      "name": "Voie 3 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in4",
-      "name": "Input 4",
+      "name": "Voie 4 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in5",
-      "name": "Input 5",
+      "name": "Voie 5 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in6",
-      "name": "Input 6",
+      "name": "Voie 6 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in7",
-      "name": "Input 7",
+      "name": "Voie 7 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in8",
-      "name": "Input 8",
+      "name": "Voie 8 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in9",
-      "name": "Input 9",
+      "name": "Voie 9 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in10",
-      "name": "Input 10",
+      "name": "Voie 10 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in11",
-      "name": "Input 11",
+      "name": "Voie 11 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in12",
-      "name": "Input 12",
+      "name": "Voie 12 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in13",
-      "name": "Input 13",
+      "name": "Voie 13 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in14",
-      "name": "Input 14",
+      "name": "Voie 14 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in15",
-      "name": "Input 15",
+      "name": "Voie 15 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in16",
-      "name": "Input 16",
+      "name": "Voie 16 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in17",
-      "name": "Input 17",
+      "name": "Voie 17 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in18",
-      "name": "Input 18",
+      "name": "Voie 18 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in19",
-      "name": "Input 19",
+      "name": "Voie 19 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in20",
-      "name": "Input 20",
+      "name": "Voie 20 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in21",
-      "name": "Input 21",
+      "name": "Voie 21 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in22",
-      "name": "Input 22",
+      "name": "Voie 22 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in23",
-      "name": "Input 23",
+      "name": "Voie 23 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in24",
-      "name": "Input 24",
+      "name": "Voie 24 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in25",
-      "name": "Input 25",
+      "name": "Voie 25 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in26",
-      "name": "Input 26",
+      "name": "Voie 26 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in27",
-      "name": "Input 27",
+      "name": "Voie 27 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in28",
-      "name": "Input 28",
+      "name": "Voie 28 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in29",
-      "name": "Input 29",
+      "name": "Voie 29 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in30",
-      "name": "Input 30",
+      "name": "Voie 30 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in31",
-      "name": "Input 31",
+      "name": "Voie 31 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in32",
-      "name": "Input 32",
+      "name": "Voie 32 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in33",
-      "name": "Input 33",
+      "name": "Voie 33 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in34",
-      "name": "Input 34",
+      "name": "Voie 34 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in35",
-      "name": "Input 35",
+      "name": "Voie 35 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in36",
-      "name": "Input 36",
+      "name": "Voie 36 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in37",
-      "name": "Input 37",
+      "name": "Voie 37 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in38",
-      "name": "Input 38",
+      "name": "Voie 38 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in39",
-      "name": "Input 39",
+      "name": "Voie 39 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in40",
-      "name": "Input 40",
+      "name": "Voie 40 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in41",
-      "name": "Input 41",
+      "name": "Voie 41 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in42",
-      "name": "Input 42",
+      "name": "Voie 42 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in43",
-      "name": "Input 43",
+      "name": "Voie 43 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
       "id": "in44",
-      "name": "Input 44",
+      "name": "Voie 44 entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module mono (HS0001) ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in45",
-      "name": "Input 45",
+      "id": "in45L",
+      "name": "Voie stéréo 45 L entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), G ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in46",
-      "name": "Input 46",
+      "id": "in45R",
+      "name": "Voie stéréo 45 R entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), D ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in47",
-      "name": "Input 47",
+      "id": "in46L",
+      "name": "Voie stéréo 46 L entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), G ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in48",
-      "name": "Input 48",
+      "id": "in46R",
+      "name": "Voie stéréo 46 R entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), D ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in49",
-      "name": "Input 49",
+      "id": "in47L",
+      "name": "Voie stéréo 47 L entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), G ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in50",
-      "name": "Input 50",
+      "id": "in47R",
+      "name": "Voie stéréo 47 R entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), D ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in51",
-      "name": "Input 51",
+      "id": "in48L",
+      "name": "Voie stéréo 48 L entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), G ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "in52",
-      "name": "Input 52",
+      "id": "in48R",
+      "name": "Voie stéréo 48 R entrée",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "mic",
-      "format": "Entrée micro XLR, module stéréo (HS0004), D ; 48 V commutable (sérigraphie 48V), PAD ; gain micro +15 à +60 dB",
-      "phantom": "supplied"
+      "level": "mic"
     },
     {
-      "id": "ins-send1",
-      "name": "Insert send 1",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret1",
-      "name": "Insert return 1",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send2",
-      "name": "Insert send 2",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret2",
-      "name": "Insert return 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send3",
-      "name": "Insert send 3",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret3",
-      "name": "Insert return 3",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send4",
-      "name": "Insert send 4",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret4",
-      "name": "Insert return 4",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send5",
-      "name": "Insert send 5",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret5",
-      "name": "Insert return 5",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send6",
-      "name": "Insert send 6",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret6",
-      "name": "Insert return 6",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send7",
-      "name": "Insert send 7",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret7",
-      "name": "Insert return 7",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send8",
-      "name": "Insert send 8",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret8",
-      "name": "Insert return 8",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send9",
-      "name": "Insert send 9",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret9",
-      "name": "Insert return 9",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send10",
-      "name": "Insert send 10",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret10",
-      "name": "Insert return 10",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send11",
-      "name": "Insert send 11",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret11",
-      "name": "Insert return 11",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send12",
-      "name": "Insert send 12",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret12",
-      "name": "Insert return 12",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send13",
-      "name": "Insert send 13",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret13",
-      "name": "Insert return 13",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send14",
-      "name": "Insert send 14",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret14",
-      "name": "Insert return 14",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send15",
-      "name": "Insert send 15",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret15",
-      "name": "Insert return 15",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send16",
-      "name": "Insert send 16",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret16",
-      "name": "Insert return 16",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send17",
-      "name": "Insert send 17",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret17",
-      "name": "Insert return 17",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send18",
-      "name": "Insert send 18",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret18",
-      "name": "Insert return 18",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send19",
-      "name": "Insert send 19",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret19",
-      "name": "Insert return 19",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send20",
-      "name": "Insert send 20",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret20",
-      "name": "Insert return 20",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send21",
-      "name": "Insert send 21",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret21",
-      "name": "Insert return 21",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send22",
-      "name": "Insert send 22",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret22",
-      "name": "Insert return 22",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send23",
-      "name": "Insert send 23",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret23",
-      "name": "Insert return 23",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send24",
-      "name": "Insert send 24",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret24",
-      "name": "Insert return 24",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send25",
-      "name": "Insert send 25",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret25",
-      "name": "Insert return 25",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send26",
-      "name": "Insert send 26",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret26",
-      "name": "Insert return 26",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send27",
-      "name": "Insert send 27",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret27",
-      "name": "Insert return 27",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send28",
-      "name": "Insert send 28",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret28",
-      "name": "Insert return 28",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send29",
-      "name": "Insert send 29",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret29",
-      "name": "Insert return 29",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send30",
-      "name": "Insert send 30",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret30",
-      "name": "Insert return 30",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send31",
-      "name": "Insert send 31",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret31",
-      "name": "Insert return 31",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send32",
-      "name": "Insert send 32",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret32",
-      "name": "Insert return 32",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send33",
-      "name": "Insert send 33",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret33",
-      "name": "Insert return 33",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send34",
-      "name": "Insert send 34",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret34",
-      "name": "Insert return 34",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send35",
-      "name": "Insert send 35",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret35",
-      "name": "Insert return 35",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send36",
-      "name": "Insert send 36",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret36",
-      "name": "Insert return 36",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send37",
-      "name": "Insert send 37",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret37",
-      "name": "Insert return 37",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send38",
-      "name": "Insert send 38",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret38",
-      "name": "Insert return 38",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send39",
-      "name": "Insert send 39",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret39",
-      "name": "Insert return 39",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send40",
-      "name": "Insert send 40",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret40",
-      "name": "Insert return 40",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send41",
-      "name": "Insert send 41",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret41",
-      "name": "Insert return 41",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send42",
-      "name": "Insert send 42",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret42",
-      "name": "Insert return 42",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send43",
-      "name": "Insert send 43",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret43",
-      "name": "Insert return 43",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send44",
-      "name": "Insert send 44",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret44",
-      "name": "Insert return 44",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send45",
-      "name": "Insert send 45",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret45",
-      "name": "Insert return 45",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send46",
-      "name": "Insert send 46",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret46",
-      "name": "Insert return 46",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send47",
-      "name": "Insert send 47",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret47",
-      "name": "Insert return 47",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send48",
-      "name": "Insert send 48",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret48",
-      "name": "Insert return 48",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send49",
-      "name": "Insert send 49",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret49",
-      "name": "Insert return 49",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send50",
-      "name": "Insert send 50",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret50",
-      "name": "Insert return 50",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send51",
-      "name": "Insert send 51",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret51",
-      "name": "Insert return 51",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "ins-send52",
-      "name": "Insert send 52",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique (pointe point chaud, bague point froid)"
-    },
-    {
-      "id": "ins-ret52",
-      "name": "Insert return 52",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4",
-      "format": "Jack 6,35 symétrique"
-    },
-    {
-      "id": "dout1",
-      "name": "Direct out 1",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout2",
-      "name": "Direct out 2",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout3",
-      "name": "Direct out 3",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout4",
-      "name": "Direct out 4",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout5",
-      "name": "Direct out 5",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout6",
-      "name": "Direct out 6",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout7",
-      "name": "Direct out 7",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout8",
-      "name": "Direct out 8",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout9",
-      "name": "Direct out 9",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout10",
-      "name": "Direct out 10",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout11",
-      "name": "Direct out 11",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout12",
-      "name": "Direct out 12",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout13",
-      "name": "Direct out 13",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout14",
-      "name": "Direct out 14",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout15",
-      "name": "Direct out 15",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout16",
-      "name": "Direct out 16",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout17",
-      "name": "Direct out 17",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout18",
-      "name": "Direct out 18",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout19",
-      "name": "Direct out 19",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout20",
-      "name": "Direct out 20",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout21",
-      "name": "Direct out 21",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout22",
-      "name": "Direct out 22",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout23",
-      "name": "Direct out 23",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout24",
-      "name": "Direct out 24",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout25",
-      "name": "Direct out 25",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout26",
-      "name": "Direct out 26",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout27",
-      "name": "Direct out 27",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout28",
-      "name": "Direct out 28",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout29",
-      "name": "Direct out 29",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout30",
-      "name": "Direct out 30",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout31",
-      "name": "Direct out 31",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout32",
-      "name": "Direct out 32",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout33",
-      "name": "Direct out 33",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout34",
-      "name": "Direct out 34",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout35",
-      "name": "Direct out 35",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout36",
-      "name": "Direct out 36",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout37",
-      "name": "Direct out 37",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout38",
-      "name": "Direct out 38",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout39",
-      "name": "Direct out 39",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout40",
-      "name": "Direct out 40",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout41",
-      "name": "Direct out 41",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout42",
-      "name": "Direct out 42",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout43",
-      "name": "Direct out 43",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "dout44",
-      "name": "Direct out 44",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie directe XLR (voies mono 1-44 uniquement)"
-    },
-    {
-      "id": "grp1",
-      "name": "Group 1",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din1",
-      "name": "Group direct in 1",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send1",
-      "name": "Group insert send 1",
+      "id": "ins1",
+      "name": "Voie 1 insert send",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4"
     },
     {
-      "id": "grp-ins-ret1",
-      "name": "Group insert return 1",
+      "id": "ret1",
+      "name": "Voie 1 insert return",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins2",
+      "name": "Voie 2 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret2",
+      "name": "Voie 2 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins3",
+      "name": "Voie 3 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret3",
+      "name": "Voie 3 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins4",
+      "name": "Voie 4 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret4",
+      "name": "Voie 4 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins5",
+      "name": "Voie 5 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret5",
+      "name": "Voie 5 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins6",
+      "name": "Voie 6 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret6",
+      "name": "Voie 6 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins7",
+      "name": "Voie 7 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret7",
+      "name": "Voie 7 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins8",
+      "name": "Voie 8 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret8",
+      "name": "Voie 8 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins9",
+      "name": "Voie 9 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret9",
+      "name": "Voie 9 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins10",
+      "name": "Voie 10 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret10",
+      "name": "Voie 10 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins11",
+      "name": "Voie 11 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret11",
+      "name": "Voie 11 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins12",
+      "name": "Voie 12 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret12",
+      "name": "Voie 12 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins13",
+      "name": "Voie 13 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret13",
+      "name": "Voie 13 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins14",
+      "name": "Voie 14 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret14",
+      "name": "Voie 14 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins15",
+      "name": "Voie 15 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret15",
+      "name": "Voie 15 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins16",
+      "name": "Voie 16 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret16",
+      "name": "Voie 16 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins17",
+      "name": "Voie 17 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret17",
+      "name": "Voie 17 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins18",
+      "name": "Voie 18 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret18",
+      "name": "Voie 18 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins19",
+      "name": "Voie 19 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret19",
+      "name": "Voie 19 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins20",
+      "name": "Voie 20 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret20",
+      "name": "Voie 20 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins21",
+      "name": "Voie 21 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret21",
+      "name": "Voie 21 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins22",
+      "name": "Voie 22 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret22",
+      "name": "Voie 22 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins23",
+      "name": "Voie 23 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret23",
+      "name": "Voie 23 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins24",
+      "name": "Voie 24 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret24",
+      "name": "Voie 24 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins25",
+      "name": "Voie 25 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret25",
+      "name": "Voie 25 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins26",
+      "name": "Voie 26 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret26",
+      "name": "Voie 26 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins27",
+      "name": "Voie 27 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret27",
+      "name": "Voie 27 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins28",
+      "name": "Voie 28 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret28",
+      "name": "Voie 28 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins29",
+      "name": "Voie 29 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret29",
+      "name": "Voie 29 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins30",
+      "name": "Voie 30 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret30",
+      "name": "Voie 30 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins31",
+      "name": "Voie 31 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret31",
+      "name": "Voie 31 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins32",
+      "name": "Voie 32 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret32",
+      "name": "Voie 32 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins33",
+      "name": "Voie 33 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret33",
+      "name": "Voie 33 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins34",
+      "name": "Voie 34 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret34",
+      "name": "Voie 34 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins35",
+      "name": "Voie 35 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret35",
+      "name": "Voie 35 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins36",
+      "name": "Voie 36 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret36",
+      "name": "Voie 36 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins37",
+      "name": "Voie 37 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret37",
+      "name": "Voie 37 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins38",
+      "name": "Voie 38 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret38",
+      "name": "Voie 38 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins39",
+      "name": "Voie 39 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret39",
+      "name": "Voie 39 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins40",
+      "name": "Voie 40 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret40",
+      "name": "Voie 40 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins41",
+      "name": "Voie 41 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret41",
+      "name": "Voie 41 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins42",
+      "name": "Voie 42 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret42",
+      "name": "Voie 42 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins43",
+      "name": "Voie 43 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret43",
+      "name": "Voie 43 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins44",
+      "name": "Voie 44 insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret44",
+      "name": "Voie 44 insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins45L",
+      "name": "Voie stéréo 45 L insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret45L",
+      "name": "Voie stéréo 45 L insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins45R",
+      "name": "Voie stéréo 45 R insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret45R",
+      "name": "Voie stéréo 45 R insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins46L",
+      "name": "Voie stéréo 46 L insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret46L",
+      "name": "Voie stéréo 46 L insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins46R",
+      "name": "Voie stéréo 46 R insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret46R",
+      "name": "Voie stéréo 46 R insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins47L",
+      "name": "Voie stéréo 47 L insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret47L",
+      "name": "Voie stéréo 47 L insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins47R",
+      "name": "Voie stéréo 47 R insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret47R",
+      "name": "Voie stéréo 47 R insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins48L",
+      "name": "Voie stéréo 48 L insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret48L",
+      "name": "Voie stéréo 48 L insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ins48R",
+      "name": "Voie stéréo 48 R insert send",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "ret48R",
+      "name": "Voie stéréo 48 R insert return",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "dir1",
+      "name": "Sortie directe 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir2",
+      "name": "Sortie directe 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir3",
+      "name": "Sortie directe 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir4",
+      "name": "Sortie directe 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir5",
+      "name": "Sortie directe 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir6",
+      "name": "Sortie directe 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir7",
+      "name": "Sortie directe 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir8",
+      "name": "Sortie directe 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir9",
+      "name": "Sortie directe 9",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir10",
+      "name": "Sortie directe 10",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir11",
+      "name": "Sortie directe 11",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir12",
+      "name": "Sortie directe 12",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir13",
+      "name": "Sortie directe 13",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir14",
+      "name": "Sortie directe 14",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir15",
+      "name": "Sortie directe 15",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir16",
+      "name": "Sortie directe 16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir17",
+      "name": "Sortie directe 17",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir18",
+      "name": "Sortie directe 18",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir19",
+      "name": "Sortie directe 19",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir20",
+      "name": "Sortie directe 20",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir21",
+      "name": "Sortie directe 21",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir22",
+      "name": "Sortie directe 22",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir23",
+      "name": "Sortie directe 23",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir24",
+      "name": "Sortie directe 24",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir25",
+      "name": "Sortie directe 25",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir26",
+      "name": "Sortie directe 26",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir27",
+      "name": "Sortie directe 27",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir28",
+      "name": "Sortie directe 28",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir29",
+      "name": "Sortie directe 29",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir30",
+      "name": "Sortie directe 30",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir31",
+      "name": "Sortie directe 31",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir32",
+      "name": "Sortie directe 32",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir33",
+      "name": "Sortie directe 33",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir34",
+      "name": "Sortie directe 34",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir35",
+      "name": "Sortie directe 35",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir36",
+      "name": "Sortie directe 36",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir37",
+      "name": "Sortie directe 37",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir38",
+      "name": "Sortie directe 38",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir39",
+      "name": "Sortie directe 39",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir40",
+      "name": "Sortie directe 40",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir41",
+      "name": "Sortie directe 41",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir42",
+      "name": "Sortie directe 42",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir43",
+      "name": "Sortie directe 43",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "dir44",
+      "name": "Sortie directe 44",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grp1",
+      "name": "Groupe 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
       "level": "line+4"
     },
     {
       "id": "grp2",
-      "name": "Group 2",
+      "name": "Groupe 2",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din2",
-      "name": "Group direct in 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send2",
-      "name": "Group insert send 2",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret2",
-      "name": "Group insert return 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp3",
-      "name": "Group 3",
+      "name": "Groupe 3",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din3",
-      "name": "Group direct in 3",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send3",
-      "name": "Group insert send 3",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret3",
-      "name": "Group insert return 3",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp4",
-      "name": "Group 4",
+      "name": "Groupe 4",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din4",
-      "name": "Group direct in 4",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send4",
-      "name": "Group insert send 4",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret4",
-      "name": "Group insert return 4",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp5",
-      "name": "Group 5",
+      "name": "Groupe 5",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din5",
-      "name": "Group direct in 5",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send5",
-      "name": "Group insert send 5",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret5",
-      "name": "Group insert return 5",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp6",
-      "name": "Group 6",
+      "name": "Groupe 6",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din6",
-      "name": "Group direct in 6",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send6",
-      "name": "Group insert send 6",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret6",
-      "name": "Group insert return 6",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp7",
-      "name": "Group 7",
+      "name": "Groupe 7",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din7",
-      "name": "Group direct in 7",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send7",
-      "name": "Group insert send 7",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret7",
-      "name": "Group insert return 7",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp8",
-      "name": "Group 8",
+      "name": "Groupe 8",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din8",
-      "name": "Group direct in 8",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send8",
-      "name": "Group insert send 8",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret8",
-      "name": "Group insert return 8",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp9",
-      "name": "Group 9",
+      "name": "Groupe 9",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din9",
-      "name": "Group direct in 9",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send9",
-      "name": "Group insert send 9",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret9",
-      "name": "Group insert return 9",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp10",
-      "name": "Group 10",
+      "name": "Groupe 10",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din10",
-      "name": "Group direct in 10",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send10",
-      "name": "Group insert send 10",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret10",
-      "name": "Group insert return 10",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp11",
-      "name": "Group 11",
+      "name": "Groupe 11",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din11",
-      "name": "Group direct in 11",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send11",
-      "name": "Group insert send 11",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret11",
-      "name": "Group insert return 11",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp12",
-      "name": "Group 12",
+      "name": "Groupe 12",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din12",
-      "name": "Group direct in 12",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send12",
-      "name": "Group insert send 12",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret12",
-      "name": "Group insert return 12",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp13",
-      "name": "Group 13",
+      "name": "Groupe 13",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din13",
-      "name": "Group direct in 13",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send13",
-      "name": "Group insert send 13",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret13",
-      "name": "Group insert return 13",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp14",
-      "name": "Group 14",
+      "name": "Groupe 14",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din14",
-      "name": "Group direct in 14",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send14",
-      "name": "Group insert send 14",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret14",
-      "name": "Group insert return 14",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp15",
-      "name": "Group 15",
+      "name": "Groupe 15",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din15",
-      "name": "Group direct in 15",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send15",
-      "name": "Group insert send 15",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret15",
-      "name": "Group insert return 15",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp16",
-      "name": "Group 16",
+      "name": "Groupe 16",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din16",
-      "name": "Group direct in 16",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send16",
-      "name": "Group insert send 16",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret16",
-      "name": "Group insert return 16",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp17",
-      "name": "Group 17",
+      "name": "Groupe 17",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din17",
-      "name": "Group direct in 17",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send17",
-      "name": "Group insert send 17",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret17",
-      "name": "Group insert return 17",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp18",
-      "name": "Group 18",
+      "name": "Groupe 18",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din18",
-      "name": "Group direct in 18",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send18",
-      "name": "Group insert send 18",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret18",
-      "name": "Group insert return 18",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp19",
-      "name": "Group 19",
+      "name": "Groupe 19",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din19",
-      "name": "Group direct in 19",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send19",
-      "name": "Group insert send 19",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret19",
-      "name": "Group insert return 19",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp20",
-      "name": "Group 20",
+      "name": "Groupe 20",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din20",
-      "name": "Group direct in 20",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send20",
-      "name": "Group insert send 20",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret20",
-      "name": "Group insert return 20",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp21",
-      "name": "Group 21",
+      "name": "Groupe 21",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din21",
-      "name": "Group direct in 21",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send21",
-      "name": "Group insert send 21",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret21",
-      "name": "Group insert return 21",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp22",
-      "name": "Group 22",
+      "name": "Groupe 22",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din22",
-      "name": "Group direct in 22",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send22",
-      "name": "Group insert send 22",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret22",
-      "name": "Group insert return 22",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp23",
-      "name": "Group 23",
+      "name": "Groupe 23",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
-    },
-    {
-      "id": "grp-din23",
-      "name": "Group direct in 23",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
-    },
-    {
-      "id": "grp-ins-send23",
-      "name": "Group insert send 23",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "grp-ins-ret23",
-      "name": "Group insert return 23",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "grp24",
-      "name": "Group 24",
+      "name": "Groupe 24",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie groupe XLR (24 groupes mono/stéréo configurables)"
+      "level": "line+4"
     },
     {
-      "id": "grp-din24",
-      "name": "Group direct in 24",
+      "id": "grpin1",
+      "name": "Groupe entrée directe 1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Entrée directe groupe XLR"
+      "level": "line+4"
     },
     {
-      "id": "grp-ins-send24",
-      "name": "Group insert send 24",
+      "id": "grpin2",
+      "name": "Groupe entrée directe 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin3",
+      "name": "Groupe entrée directe 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin4",
+      "name": "Groupe entrée directe 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin5",
+      "name": "Groupe entrée directe 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin6",
+      "name": "Groupe entrée directe 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin7",
+      "name": "Groupe entrée directe 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin8",
+      "name": "Groupe entrée directe 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin9",
+      "name": "Groupe entrée directe 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin10",
+      "name": "Groupe entrée directe 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin11",
+      "name": "Groupe entrée directe 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin12",
+      "name": "Groupe entrée directe 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin13",
+      "name": "Groupe entrée directe 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin14",
+      "name": "Groupe entrée directe 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin15",
+      "name": "Groupe entrée directe 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin16",
+      "name": "Groupe entrée directe 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin17",
+      "name": "Groupe entrée directe 17",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin18",
+      "name": "Groupe entrée directe 18",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin19",
+      "name": "Groupe entrée directe 19",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin20",
+      "name": "Groupe entrée directe 20",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin21",
+      "name": "Groupe entrée directe 21",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin22",
+      "name": "Groupe entrée directe 22",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin23",
+      "name": "Groupe entrée directe 23",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpin24",
+      "name": "Groupe entrée directe 24",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins1",
+      "name": "Groupe insert send 1",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4"
     },
     {
-      "id": "grp-ins-ret24",
-      "name": "Group insert return 24",
+      "id": "grpins2",
+      "name": "Groupe insert send 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins3",
+      "name": "Groupe insert send 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins4",
+      "name": "Groupe insert send 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins5",
+      "name": "Groupe insert send 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins6",
+      "name": "Groupe insert send 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins7",
+      "name": "Groupe insert send 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins8",
+      "name": "Groupe insert send 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins9",
+      "name": "Groupe insert send 9",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins10",
+      "name": "Groupe insert send 10",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins11",
+      "name": "Groupe insert send 11",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins12",
+      "name": "Groupe insert send 12",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins13",
+      "name": "Groupe insert send 13",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins14",
+      "name": "Groupe insert send 14",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins15",
+      "name": "Groupe insert send 15",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins16",
+      "name": "Groupe insert send 16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins17",
+      "name": "Groupe insert send 17",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins18",
+      "name": "Groupe insert send 18",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins19",
+      "name": "Groupe insert send 19",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins20",
+      "name": "Groupe insert send 20",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins21",
+      "name": "Groupe insert send 21",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins22",
+      "name": "Groupe insert send 22",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins23",
+      "name": "Groupe insert send 23",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpins24",
+      "name": "Groupe insert send 24",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret1",
+      "name": "Groupe insert return 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret2",
+      "name": "Groupe insert return 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret3",
+      "name": "Groupe insert return 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret4",
+      "name": "Groupe insert return 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret5",
+      "name": "Groupe insert return 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret6",
+      "name": "Groupe insert return 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret7",
+      "name": "Groupe insert return 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret8",
+      "name": "Groupe insert return 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret9",
+      "name": "Groupe insert return 9",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret10",
+      "name": "Groupe insert return 10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret11",
+      "name": "Groupe insert return 11",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret12",
+      "name": "Groupe insert return 12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret13",
+      "name": "Groupe insert return 13",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret14",
+      "name": "Groupe insert return 14",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret15",
+      "name": "Groupe insert return 15",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret16",
+      "name": "Groupe insert return 16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret17",
+      "name": "Groupe insert return 17",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret18",
+      "name": "Groupe insert return 18",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret19",
+      "name": "Groupe insert return 19",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret20",
+      "name": "Groupe insert return 20",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret21",
+      "name": "Groupe insert return 21",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret22",
+      "name": "Groupe insert return 22",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret23",
+      "name": "Groupe insert return 23",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grpret24",
+      "name": "Groupe insert return 24",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
@@ -2718,279 +2390,270 @@
     },
     {
       "id": "mtx1",
-      "name": "Matrix 1",
+      "name": "Matrice 1",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj1",
-      "name": "Matrix bus inject 1",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send1",
-      "name": "Matrix insert send 1",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret1",
-      "name": "Matrix insert return 1",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx2",
-      "name": "Matrix 2",
+      "name": "Matrice 2",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj2",
-      "name": "Matrix bus inject 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send2",
-      "name": "Matrix insert send 2",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret2",
-      "name": "Matrix insert return 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx3",
-      "name": "Matrix 3",
+      "name": "Matrice 3",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj3",
-      "name": "Matrix bus inject 3",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send3",
-      "name": "Matrix insert send 3",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret3",
-      "name": "Matrix insert return 3",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx4",
-      "name": "Matrix 4",
+      "name": "Matrice 4",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj4",
-      "name": "Matrix bus inject 4",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send4",
-      "name": "Matrix insert send 4",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret4",
-      "name": "Matrix insert return 4",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx5",
-      "name": "Matrix 5",
+      "name": "Matrice 5",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj5",
-      "name": "Matrix bus inject 5",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send5",
-      "name": "Matrix insert send 5",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret5",
-      "name": "Matrix insert return 5",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx6",
-      "name": "Matrix 6",
+      "name": "Matrice 6",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj6",
-      "name": "Matrix bus inject 6",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send6",
-      "name": "Matrix insert send 6",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret6",
-      "name": "Matrix insert return 6",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx7",
-      "name": "Matrix 7",
+      "name": "Matrice 7",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
-    },
-    {
-      "id": "mtx-inj7",
-      "name": "Matrix bus inject 7",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-send7",
-      "name": "Matrix insert send 7",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "mtx-ins-ret7",
-      "name": "Matrix insert return 7",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
       "level": "line+4"
     },
     {
       "id": "mtx8",
-      "name": "Matrix 8",
+      "name": "Matrice 8",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie matrice XLR (matrice 27 x 8)"
+      "level": "line+4"
     },
     {
-      "id": "mtx-inj8",
-      "name": "Matrix bus inject 8",
+      "id": "mtxinj1",
+      "name": "Matrice injection bus 1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
-      "id": "mtx-ins-send8",
-      "name": "Matrix insert send 8",
+      "id": "mtxinj2",
+      "name": "Matrice injection bus 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxinj3",
+      "name": "Matrice injection bus 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxinj4",
+      "name": "Matrice injection bus 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxinj5",
+      "name": "Matrice injection bus 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxinj6",
+      "name": "Matrice injection bus 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxinj7",
+      "name": "Matrice injection bus 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxinj8",
+      "name": "Matrice injection bus 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins1",
+      "name": "Matrice insert send 1",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4"
     },
     {
-      "id": "mtx-ins-ret8",
-      "name": "Matrix insert return 8",
+      "id": "mtxins2",
+      "name": "Matrice insert send 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins3",
+      "name": "Matrice insert send 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins4",
+      "name": "Matrice insert send 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins5",
+      "name": "Matrice insert send 5",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins6",
+      "name": "Matrice insert send 6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins7",
+      "name": "Matrice insert send 7",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxins8",
+      "name": "Matrice insert send 8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret1",
+      "name": "Matrice insert return 1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4"
     },
     {
-      "id": "l",
+      "id": "mtxret2",
+      "name": "Matrice insert return 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret3",
+      "name": "Matrice insert return 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret4",
+      "name": "Matrice insert return 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret5",
+      "name": "Matrice insert return 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret6",
+      "name": "Matrice insert return 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret7",
+      "name": "Matrice insert return 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mtxret8",
+      "name": "Matrice insert return 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mstl",
       "name": "Master L",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie master XLR (3 sorties master)"
+      "level": "line+4"
     },
     {
-      "id": "l-ins-send",
+      "id": "mstinsl",
       "name": "Master L insert send",
       "direction": "out",
       "signal": "audioAnalog",
@@ -2998,7 +2661,7 @@
       "level": "line+4"
     },
     {
-      "id": "l-ins-ret",
+      "id": "mstretl",
       "name": "Master L insert return",
       "direction": "in",
       "signal": "audioAnalog",
@@ -3006,16 +2669,15 @@
       "level": "line+4"
     },
     {
-      "id": "r",
+      "id": "mstr",
       "name": "Master R",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie master XLR (3 sorties master)"
+      "level": "line+4"
     },
     {
-      "id": "r-ins-send",
+      "id": "mstinsr",
       "name": "Master R insert send",
       "direction": "out",
       "signal": "audioAnalog",
@@ -3023,7 +2685,7 @@
       "level": "line+4"
     },
     {
-      "id": "r-ins-ret",
+      "id": "mstretr",
       "name": "Master R insert return",
       "direction": "in",
       "signal": "audioAnalog",
@@ -3031,49 +2693,64 @@
       "level": "line+4"
     },
     {
-      "id": "c",
-      "name": "Master mono (centre)",
+      "id": "mstm",
+      "name": "Master mono",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Sortie master XLR (3 sorties master)"
+      "level": "line+4"
     },
     {
-      "id": "c-ins-send",
-      "name": "Master mono (centre) insert send",
+      "id": "mstinsm",
+      "name": "Master mono insert send",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4"
     },
     {
-      "id": "c-ins-ret",
-      "name": "Master mono (centre) insert return",
+      "id": "mstretm",
+      "name": "Master mono insert return",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "level": "line+4"
     },
     {
-      "id": "mst-din1",
-      "name": "Master direct in 1",
+      "id": "mstdir1",
+      "name": "Master entrée directe 1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
-      "id": "mst-din2",
-      "name": "Master direct in 2",
+      "id": "mstdir2",
+      "name": "Master entrée directe 2",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
-      "id": "mst-inj",
-      "name": "Master bus inject",
+      "id": "mstinj",
+      "name": "Master injection bus",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "extl",
+      "name": "Retour 2 pistes L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "extr",
+      "name": "Retour 2 pistes R",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
@@ -3081,111 +2758,102 @@
     },
     {
       "id": "solo1",
-      "name": "Solo out 1",
+      "name": "Sortie solo 1",
       "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "3 sorties solo XLR (affectation exacte non transcrite)"
-    },
-    {
-      "id": "solo-inj1",
-      "name": "Solo bus inject 1",
-      "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
       "id": "solo2",
-      "name": "Solo out 2",
+      "name": "Sortie solo 2",
       "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4",
-      "format": "3 sorties solo XLR (affectation exacte non transcrite)"
-    },
-    {
-      "id": "solo-inj2",
-      "name": "Solo bus inject 2",
-      "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
       "id": "solo3",
-      "name": "Solo out 3",
+      "name": "Sortie solo 3",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "3 sorties solo XLR (affectation exacte non transcrite)"
+      "level": "line+4"
     },
     {
-      "id": "solo-inj3",
-      "name": "Solo bus inject 3",
+      "id": "soloinj1",
+      "name": "Solo injection bus 1",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
-      "id": "loc-st-a-l",
-      "name": "Local stereo out a L",
+      "id": "soloinj2",
+      "name": "Solo injection bus 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "soloinj3",
+      "name": "Solo injection bus 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "loc1",
+      "name": "Sortie locale 1",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "6 sorties locales XLR ; répartition stéréo/mono a/b déduite des sérigraphies du module HS0031 (sorties « a » et « b »)"
+      "level": "line+4"
     },
     {
-      "id": "loc-st-a-r",
-      "name": "Local stereo out a R",
+      "id": "loc2",
+      "name": "Sortie locale 2",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "6 sorties locales XLR ; répartition stéréo/mono a/b déduite des sérigraphies du module HS0031 (sorties « a » et « b »)"
+      "level": "line+4"
     },
     {
-      "id": "loc-st-b-l",
-      "name": "Local stereo out b L",
+      "id": "loc3",
+      "name": "Sortie locale 3",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "6 sorties locales XLR ; répartition stéréo/mono a/b déduite des sérigraphies du module HS0031 (sorties « a » et « b »)"
+      "level": "line+4"
     },
     {
-      "id": "loc-st-b-r",
-      "name": "Local stereo out b R",
+      "id": "loc4",
+      "name": "Sortie locale 4",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "6 sorties locales XLR ; répartition stéréo/mono a/b déduite des sérigraphies du module HS0031 (sorties « a » et « b »)"
+      "level": "line+4"
     },
     {
-      "id": "loc-mono-a",
-      "name": "Local mono out a",
+      "id": "loc5",
+      "name": "Sortie locale 5",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "6 sorties locales XLR ; répartition stéréo/mono a/b déduite des sérigraphies du module HS0031 (sorties « a » et « b »)"
+      "level": "line+4"
     },
     {
-      "id": "loc-mono-b",
-      "name": "Local mono out b",
+      "id": "loc6",
+      "name": "Sortie locale 6",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "6 sorties locales XLR ; répartition stéréo/mono a/b déduite des sérigraphies du module HS0031 (sorties « a » et « b »)"
+      "level": "line+4"
     },
     {
-      "id": "loc-ins-send1",
+      "id": "locins1",
       "name": "Local insert send 1",
       "direction": "out",
       "signal": "audioAnalog",
@@ -3193,15 +2861,7 @@
       "level": "line+4"
     },
     {
-      "id": "loc-ins-ret1",
-      "name": "Local insert return 1",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "loc-ins-send2",
+      "id": "locins2",
       "name": "Local insert send 2",
       "direction": "out",
       "signal": "audioAnalog",
@@ -3209,15 +2869,7 @@
       "level": "line+4"
     },
     {
-      "id": "loc-ins-ret2",
-      "name": "Local insert return 2",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "jack-trs",
-      "level": "line+4"
-    },
-    {
-      "id": "loc-ins-send3",
+      "id": "locins3",
       "name": "Local insert send 3",
       "direction": "out",
       "signal": "audioAnalog",
@@ -3225,7 +2877,23 @@
       "level": "line+4"
     },
     {
-      "id": "loc-ins-ret3",
+      "id": "locret1",
+      "name": "Local insert return 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "locret2",
+      "name": "Local insert return 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "locret3",
       "name": "Local insert return 3",
       "direction": "in",
       "signal": "audioAnalog",
@@ -3233,80 +2901,60 @@
       "level": "line+4"
     },
     {
-      "id": "ext-l",
-      "name": "External in L (2-track return)",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "ext-r",
-      "name": "External in R (2-track return)",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "line+4"
-    },
-    {
-      "id": "talk-mic1",
-      "name": "Talk mic in 1",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "level": "mic",
-      "format": "XLR symétrique ; gain +20 à +60 dB, limiteur réglé à +10 dBu ; le manuel compte 2 entrées talk mic"
-    },
-    {
-      "id": "talk-mic2",
-      "name": "Talk mic in 2",
+      "id": "talkmic",
+      "name": "Micro d’ordre",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "mic"
     },
     {
-      "id": "talk-ext-in",
-      "name": "Talk external in",
+      "id": "talkin",
+      "name": "Talk entrée externe",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
-      "id": "talk-int-line",
-      "name": "Talk int line",
+      "id": "testin",
+      "name": "Entrée bus de test",
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "level": "line+4",
-      "format": "Libellé du manuel « talk int line », compté parmi les entrées XLR"
+      "level": "line+4"
     },
     {
-      "id": "talk-ext-out",
-      "name": "Talk external out",
+      "id": "talkout",
+      "name": "Talk sortie externe",
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4"
     },
     {
-      "id": "midi-in",
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs"
+    },
+    {
+      "id": "midiin",
       "name": "MIDI In",
       "direction": "in",
       "signal": "control",
-      "connector": "din5",
-      "format": "Brochage 2/4/5 (norme MIDI DIN 5)"
+      "connector": "din5"
     },
     {
-      "id": "midi-out",
+      "id": "midiout",
       "name": "MIDI Out",
       "direction": "out",
       "signal": "control",
       "connector": "din5"
     },
     {
-      "id": "midi-thru",
+      "id": "midithru",
       "name": "MIDI Thru",
       "direction": "out",
       "signal": "control",
@@ -3317,29 +2965,28 @@
       "name": "RS-232",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Broches 2 RxD, 3 TxD, 5 masse ; type de connecteur non écrit (non trouvé)"
+      "connector": "dsub9"
     },
     {
       "id": "can",
       "name": "Midas CAN Bus",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "5 broches : 1 +18 V (100 mA max), 2 CAN low, 3 0 V CAN, 4 CAN high, 5 -18 V (100 mA max) ; liaison jusqu'à 6 consoles Heritage ; type de connecteur non trouvé"
+      "connector": "xlr5",
+      "format": "Liaison entre consoles Heritage/Legend"
     },
     {
-      "id": "psu",
-      "name": "Alimentation (bloc externe)",
+      "id": "power",
+      "name": "Alimentation (bloc Heritage Series)",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc d'alimentation externe séparé, câble de liaison ; référence et connecteur non trouvés"
+      "connector": "multipin",
+      "format": "Liaison 10 voies vers le bloc Heritage Series (+18 V, -18 V, +48 V)"
     }
   ],
   "aliases": [
-    "Heritage 3000 48 voies",
-    "H3000"
-  ],
-  "description": "Connectique du châssis 48 voies (44 mono + 4 stéréo, 52 entrées micro) d'après le manuel Midas Issue 1.4 (2002). Autres châssis : 24, 32, 40, 56, 64 voies, extender 16 voies, version bob-tail. Niveau nominal publié 0 dBu, noté +4 dBu faute de valeur 0 dBu. Bloc d'alimentation séparé, référence et connecteurs non publiés ; connecteurs RS-232 et CAN non publiés. Poids environ 215 kg (48 voies), appariement à confirmer. Comptes à confirmer sur les dessins de face arrière (p. 61-62)."
+    "Heritage 3000",
+    "H3000",
+    "H3000 48"
+  ]
 }

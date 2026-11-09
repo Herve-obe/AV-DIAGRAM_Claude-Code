@@ -146,3 +146,16 @@ Décision d'Hervé : une entrée ligne d'un équipement professionnel vaut +4 dB
 - Midas Heritage 3000 : la connectique est reprise du manuel Midas Issue 1.4 pour le châssis 48 voies (371 prises : XLR, inserts jack, MIDI). La fiche reste en « community » : les comptes sont à confirmer sur les dessins de face arrière, et le bloc d'alimentation, le RS-232 et le CAN n'ont pas de connecteur publié.
 - Midas XL3 : le seul manuel trouvé est scanné en images, illisible par les outils. La connectique reste non vérifiée (pages 4, 38 et 110 à 119 à lire à l'œil).
 - Innovason : 3 fiches retirées.
+
+## 9 novembre 2026 : Midas Heritage 3000 et XL3 (documents transmis par Hervé)
+
+- Heritage 3000 : une fiche par châssis, soit 24, 32, 40, 48, 56 et 64 voies. L'extender 16 voies est abandonné. Le 48 voies garde l'identifiant `midas-heritage-3000`.
+  - Source : catalogue Midas, p. 12-19 et 46-47.
+  - Comptes du 48 voies conformes au catalogue : 95 XLR en entrée, 89 XLR en sortie, 180 jacks d'insert, plus MIDI (DIN 5), RS-232 (D-Sub 9), CAN bus (XLR) et alimentation 10 voies.
+  - Autres châssis : comptes de voie déduits de la composition des modules (N-4 voies mono, 4 stéréo).
+  - Poids : catalogue Midas.
+  - Les 6 fiches passent en « verified ».
+- Nouvelle fiche « Heritage Series PSU » : bloc commun à toute la gamme Heritage, donc fiche séparée (règle du bloc dédié). Elle reste en « community », l'embase secteur n'étant pas nommée.
+- XL3 : une fiche par châssis (24, 32 et 40 entrées), avec poids et sorties d'après la brochure. Les fiches restent en « community » : les pages disponibles ne représentent pas la face arrière, donc les connecteurs audio sont à compléter.
+- Nouvelle fiche « XL390 » : bloc d'alimentation de la XL3 (sortie circulaire 19 broches, 10 kg), en « community » faute d'embase secteur nommée.
+- Le menu Audio affiche désormais la famille Alimentation, pour ces blocs de console.
