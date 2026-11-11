@@ -81,6 +81,18 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(second.draft.addedLinks).toHaveLength(5)
   })
 
+  it('une prise sans mode citée dans port_modes renvoie une erreur précise, que le modèle peut corriger', async () => {
+    const draft = base(), sent: string[] = []
+    const wrong = { ...audio, equipment: audio.equipment.map(e => e.ref === 'desk' ? { ...e, port_modes: [{ port_id: 'inconnue', mode: 1 }] } : e) }
+    const result = await runTurn({ draft, ctx, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Conférence : trois micros dynamiques, une console numérique, deux enceintes amplifiées.',
+      transport: replies([call('plan_diagram', plan), call('propose_system', wrong), call('propose_system', audio)], sent) })
+    const error = JSON.parse(sent[2]).messages.at(-1).content
+    expect(error).toContain('la prise inconnue n\'a pas de mode à choisir')
+    expect(error).toContain('Retirer port_modes')
+    expect(result.draft.addedLinks).toHaveLength(5)
+  })
+
   it('au second tour, un rôle sans fiche ne redemande pas : le plan est renvoyé au modèle, puis le système est construit', async () => {
     const draft = base(), options = { draft, ctx, connection: { provider: 'builtin' as const, model: 'test' }, system: '', history: [] }
     const first = await runTurn({ ...options, userText: 'Je veux sonoriser une conférence.', transport: replies([call('ask_user', { question: 'Combien de micros ?' })]) })

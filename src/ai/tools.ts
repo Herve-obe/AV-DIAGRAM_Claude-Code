@@ -501,7 +501,13 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
             for (const selection of entry.port_modes) {
               if (!selection || typeof selection !== 'object' || !Number.isInteger(selection.mode) || selection.mode < 0) return fail('Mode de prise invalide. Aucun élément de cet appel ajouté.')
               const port = eq.ports.find(p => p.id === selection.port_id), mode = port?.modes?.[selection.mode]
-              if (!mode || modes.has(selection.port_id)) return fail('Mode non documenté ou prise en double. Aucun élément de cet appel ajouté.')
+              // Erreur précise : un petit modèle doit pouvoir corriger l'appel sans demander à l'utilisateur
+              if (!port?.modes?.length) {
+                const modal = eq.ports.filter(p => p.modes?.length).map(p => p.id)
+                return fail(`${ref} : la prise ${String(selection.port_id)} n'a pas de mode à choisir. ${modal.length ? `Prises à mode : ${modal.join(', ')}.` : 'Cet appareil n’a aucune prise à mode.'} Retirer port_modes sauf besoin précis : le logiciel choisit seul les prises. Aucun élément de cet appel ajouté.`)
+              }
+              if (!mode) return fail(`${ref} : mode ${selection.mode} absent pour ${port.id}. Modes documentés : ${port.modes.map((m, i) => `${i} = ${m.connector} ${m.level}`).join(' ; ')}. Aucun élément de cet appel ajouté.`)
+              if (modes.has(port.id)) return fail(`${ref} : prise ${port.id} citée deux fois dans port_modes. Aucun élément de cet appel ajouté.`)
               modes.set(selection.port_id, mode)
             }
             next = { ...next, project: updateEquipment(next.project, eq.id, { ports: eq.ports.map(p => modes.has(p.id) ? { ...p, ...modes.get(p.id)! } : p) }) }

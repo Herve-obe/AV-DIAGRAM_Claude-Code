@@ -112,7 +112,7 @@ describe('synoptique IA : fiches et propose_diagram', () => {
     expect(ok.draft.project.equipment[ok.draft.addedEquipment[0]].ports.find(p => p.id === port.id)).toMatchObject(port.modes![0])
     const base = createDraft(createProject('t'), DEFAULT_SHEET_ID)
     const mode = propose({ equipment: [{ ref: 'rec', template_id: recorder.id, port_modes: [{ port_id: port.id, mode: 50 }] }], connections: [] }, base)
-    expect(JSON.parse(mode.content).error).toContain('non documenté')
+    expect(JSON.parse(mode.content).error).toContain('Modes documentés : 0 = jack-trs line+4')
     expect(mode.draft).toBe(base)
     const cable = propose({ equipment: [{ ref: 'mic', template_id: 'shure-sm58' }, { ref: 'desk', template_id: 'yamaha-01v96' }],
       connections: [{ from: 'mic', from_port: 'out', to: 'desk', to_port: 'in1', cable_type_id: 'câble-inventé' }] }, base)
