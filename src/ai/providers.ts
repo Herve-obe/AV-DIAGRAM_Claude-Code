@@ -80,17 +80,21 @@ export interface ModelReply {
 }
 
 const MAX_TOKENS = 2048
+/** Plancher pour Claude : réflexion adaptative comprise dans la limite de sortie */
+const ANTHROPIC_MIN_TOKENS = 16000
 
 export function buildChatRequest(api: ApiFormat, model: string, system: string, messages: ChatMessage[], tools: ToolSpec[], provider?: ProviderId, options: { requiredTool?: string; maxTokens?: number } = {}): ApiRequest {
   if (options.requiredTool && !tools.some(t => t.name === options.requiredTool)) throw new Error('Outil requis indisponible')
   const availableTools = options.requiredTool ? tools.filter(t => t.name === options.requiredTool) : tools
   const maxTokens = options.maxTokens ?? MAX_TOKENS
   if (api === 'anthropic') {
+    // Les modèles Claude actuels (Opus 5.5, Sonnet 5.5, Fable 5.1 et suivants) refusent l'outil forcé
+    // (tool_choice « tool » ou « any » : erreur 400). L'outil requis reste le seul proposé et la consigne le nomme.
+    // Leur réflexion est toujours active et compte dans max_tokens : une limite basse tronquerait la réponse.
     const body = {
       model,
-      max_tokens: maxTokens,
-      ...(options.requiredTool ? { tool_choice: { type: 'tool', name: options.requiredTool } } : {}),
-      system,
+      max_tokens: Math.max(maxTokens, ANTHROPIC_MIN_TOKENS),
+      system: options.requiredTool ? `${system}\n\nRéponds uniquement en appelant l'outil ${options.requiredTool}.` : system,
       ...(availableTools.length ? { tools: availableTools.map((t) => ({ name: t.name, description: t.description, input_schema: t.parameters })) } : {}),
       messages: messages.map((m) => {
         if (m.role === 'user') return { role: 'user', content: m.text }
@@ -171,10 +175,11 @@ export function parseModelList(body: string): string[] {
   return list.map((m) => (m.id ?? '').replace(/^models\//, '')).filter(Boolean).sort()
 }
 
-/** Modèle présélectionné : celui qui contient le mot recommandé, sinon le premier. */
+/** Modèle présélectionné : la version la plus récente parmi ceux qui contiennent le mot recommandé, sinon le premier. */
 export function pickRecommended(id: ProviderId, models: string[]): string | undefined {
   const word = providerInfo(id).recommend
-  return (word && models.find((m) => m.includes(word))) || models[0]
+  // Ordre alphabétique : claude-sonnet-4-6 < claude-sonnet-5 < claude-sonnet-5-5, la dernière est la plus récente
+  return (word && [...models].sort().filter((m) => m.includes(word)).at(-1)) || models[0]
 }
 
 export type ApiErrorKind = 'auth' | 'billing' | 'quota' | 'rate' | 'model' | 'server' | 'other'

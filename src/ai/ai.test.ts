@@ -34,8 +34,11 @@ describe('assistant : formats des fournisseurs', () => {
     expect(openai.tool_choice).toBe('required')
     expect(openai.tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['ask_user'])
     const anthropic = JSON.parse(buildChatRequest('anthropic', 'test', '', [], TOOL_SPECS, 'anthropic', options).body!)
-    expect(anthropic.max_tokens).toBe(512)
-    expect(anthropic.tool_choice).toEqual({ type: 'tool', name: 'ask_user' })
+    // Claude actuel refuse l'outil forcé : seul l'outil requis est proposé, et la consigne le nomme
+    expect(anthropic.max_tokens).toBe(16000)
+    expect(anthropic.tool_choice).toBeUndefined()
+    expect(anthropic.tools.map((t: { name: string }) => t.name)).toEqual(['ask_user'])
+    expect(anthropic.system).toContain("l'outil ask_user")
     expect(() => buildChatRequest('openai', 'test', '', [], [], 'builtin', options)).toThrow('Outil requis indisponible')
   })
   it('utilise la limite de sortie actuelle chez OpenAI sans changer les API compatibles', () => {
@@ -77,6 +80,7 @@ describe('assistant : formats des fournisseurs', () => {
   it('liste les modèles et présélectionne le modèle recommandé', () => {
     expect(parseModelList(JSON.stringify({ data: [{ id: 'b' }, { id: 'models/a' }] }))).toEqual(['a', 'b'])
     expect(pickRecommended('anthropic', ['x-haiku', 'x-sonnet'])).toBe('x-sonnet')
+    expect(pickRecommended('anthropic', ['claude-3-7-sonnet-20250219', 'claude-haiku-5-5', 'claude-sonnet-4-6', 'claude-sonnet-5', 'claude-sonnet-5-5'])).toBe('claude-sonnet-5-5')
     expect(pickRecommended('ollama', ['m1', 'm2'])).toBe('m1')
   })
 
