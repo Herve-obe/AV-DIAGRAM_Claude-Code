@@ -95,7 +95,7 @@ export function buildSystemPrompt(c: PromptContext): string {
     'Analyse du besoin (plan_diagram) :',
     '- Reste fidèle au message : n’ajoute ni contrainte, ni participant, ni fonction implicite (vidéo, streaming, retours). Les rôles décrivent uniquement le matériel à ajouter ; réutilise les appareils déjà posés, lus avec get_project.',
     '- query = type d’appareil ou référence citée, jamais le nom de la prestation. required_model = true uniquement pour une référence constructeur imposée (ex. Yamaha CL5) ; pour « console numérique », « micro dynamique », « de ton choix » ou « générique », required_model = false.',
-    '- Ne demande que ce qui change le système : sources et quantités, destinations, flux indépendants, interfaces imposées, matériel disponible. Trois questions groupées au plus, jamais sur une information déjà fournie ; si sources, destinations et quantités sont données, questions = [].',
+    '- Ne demande que ce qui change le système : sources et quantités, destinations, flux indépendants, interfaces imposées, matériel disponible. Trois questions groupées au plus, jamais sur une information déjà fournie ; si sources, destinations et quantités sont données, questions = []. Un seul tour de questions par demande. Si le plan contient des rôles, la construction continue et les questions restent des points à confirmer après l’aperçu.',
     '- Pour un choix laissé libre, propose une hypothèse réversible et visible (assumptions) au lieu de bloquer. constraints = exigences explicites, y compris exclusions (« pas de micros dans les enceintes »), retours distincts, synchronisation, redondance, protocoles et budget.',
     '- Exemple vague : « Je veux un podcast » → roles=[], questions=[« Combien de personnes et de sources faut-il capter ? », « Souhaites-tu enregistrer, diffuser en direct, ou les deux ? », « Quel matériel possèdes-tu ou imposes-tu déjà ? »].',
     '- Exemple : « Trois micros dynamiques, une console numérique, deux enceintes actives ; références libres » → roles=[{"ref":"mic","query":"micro dynamique","family":"capture","count":3,"required_model":false},{"ref":"desk","query":"console numérique","family":"console","count":1,"required_model":false},{"ref":"speaker","query":"enceinte active","family":"speaker","count":2,"required_model":false}], assumptions=["Références génériques proposées à confirmer"], questions=[].',
@@ -216,6 +216,7 @@ const MAX_STEPS = 12
 const MAX_CALLS_PER_REPLY = 8
 /** Relances quand le modèle conclut par du texte alors que son plan n'est pas construit */
 const MAX_REMINDERS = 2
+const ONE_ROUND = 'Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.'
 const PLAN_NOT_BUILT = 'Le plan est prêt mais aucun matériel n’est proposé. Appelle propose_system avec les refs, quantités et candidats du plan, ou ask_user si une précision manque. Une annonce ne réalise rien.'
 
 function parseReply(api: ApiFormat, body: string): ModelReply {
@@ -227,11 +228,12 @@ function parseReply(api: ApiFormat, body: string): ModelReply {
 }
 
 /** Réponse finale d'une construction : résumé, hypothèses, réglages restant à faire et alertes du moteur de règles. */
-function proposalReply(draft: Draft, result: { equipment_added: number; links_added: number; assumptions?: string[]; routing_note?: string }, ctx: ToolContext): string {
+function proposalReply(draft: Draft, result: { equipment_added: number; links_added: number; assumptions?: string[]; to_confirm?: string[]; routing_note?: string }, ctx: ToolContext): string {
   const check = JSON.parse(runTool(draft, { id: 'check', name: 'check_project', args: {} }, ctx).content)
-  const summary = (ctx.lang === 'en' ? en : fr).ai.preview
-    .replace('{{equipment}}', String(result.equipment_added)).replace('{{links}}', String(result.links_added))
-  return [summary, result.assumptions?.join('\n'), result.routing_note, check.issues.map((i: { message: string }) => i.message).join('\n')]
+  const labels = (ctx.lang === 'en' ? en : fr).ai
+  const summary = labels.preview.replace('{{equipment}}', String(result.equipment_added)).replace('{{links}}', String(result.links_added))
+  const toConfirm = result.to_confirm?.length ? [labels.brief.toConfirm, ...result.to_confirm.map((q, i) => `${i + 1}. ${q}`)].join('\n') : ''
+  return [summary, result.assumptions?.join('\n'), toConfirm, result.routing_note, check.issues.map((i: { message: string }) => i.message).join('\n')]
     .filter(Boolean).join('\n\n')
 }
 
@@ -282,6 +284,7 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
     record(call.name)
     const reject = (error: string) => ({ id: call.id, name: call.name, content: JSON.stringify({ error }) })
     if (!tools.some(t => t.name === call.name)) return reject(`Outil indisponible pour cette demande : ${call.name}.`)
+    if (call.name === 'ask_user' && pending) return reject(ONE_ROUND)
     const key = call.name + JSON.stringify(call.args)
     if (executed.get(key) === draft.project) return reject('Appel identique déjà effectué sur ce brouillon. Corriger les paramètres d’après le résultat précédent ou poser la question avec ask_user.')
     executed.set(key, draft.project)
@@ -310,7 +313,8 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
 
     const ask = reply.toolCalls.find(call => call.name === 'ask_user')
     const question = ask && JSON.parse(runTool(opts.draft, ask, ctx).content).question
-    if (ask && typeof question === 'string') {
+    // Un seul tour de questions par demande : après la réponse de l'utilisateur, ask_user est refusé dans execute.
+    if (ask && typeof question === 'string' && !pending) {
       record('ask_user')
       return clarify(ask, question, { question })
     }

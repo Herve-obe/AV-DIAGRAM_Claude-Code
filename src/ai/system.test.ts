@@ -59,6 +59,28 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(second.draft.addedLinks).toHaveLength(5)
   })
 
+  it('construit un plan défini malgré les questions du modèle et les liste comme points à confirmer', async () => {
+    const draft = base(), sent: string[] = []
+    const result = await runTurn({ draft, ctx, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Conférence : trois micros dynamiques, une console numérique, deux enceintes amplifiées.',
+      transport: replies([call('plan_diagram', { ...plan, questions: ['Faut-il un enregistrement ?'] }), call('propose_system', audio)], sent) })
+    expect(JSON.parse(sent[1]).messages.at(-1).content).toContain('to_confirm')
+    expect(result.draft.addedLinks).toHaveLength(5)
+    expect(result.reply).toContain('POINTS À CONFIRMER')
+    expect(result.reply).toContain('1. Faut-il un enregistrement ?')
+  })
+
+  it('ne pose qu’un tour de questions : après la réponse, ask_user est refusé et le système est construit', async () => {
+    const draft = base(), options = { draft, ctx, connection: { provider: 'builtin' as const, model: 'test' }, system: '', history: [] }
+    const first = await runTurn({ ...options, userText: 'Je veux sonoriser une conférence.', transport: replies([call('ask_user', { question: 'Combien de micros ?' })]) })
+    expect(first.reply).toBe('Combien de micros ?')
+    const sent: string[] = []
+    const second = await runTurn({ ...options, history: first.history, userText: 'Trois micros et deux enceintes.',
+      transport: replies([call('ask_user', { question: 'Quel modèle de micro ?' }), call('plan_diagram', plan), call('propose_system', audio)], sent) })
+    expect(JSON.parse(sent[1]).messages.at(-1).content).toContain('Une précision a déjà été demandée')
+    expect(second.draft.addedLinks).toHaveLength(5)
+  })
+
   it.each([
     ['plan_diagram', 'Annule cette demande. Quelle différence entre un câble XLR et un jack ?'],
     ['ask_user', 'Cancel that request. What is the difference between XLR and jack?'],

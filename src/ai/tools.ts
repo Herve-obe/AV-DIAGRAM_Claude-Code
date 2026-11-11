@@ -35,6 +35,8 @@ export interface Draft {
     roles: { ref: string; count: number; candidates: string[] }[]
     constraints: string[]
     assumptions: string[]
+    /** Questions du modèle sur un plan déjà défini : la construction continue, l'utilisateur confirme ensuite. */
+    toConfirm: string[]
   }
 }
 
@@ -74,7 +76,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   },
   {
     name: 'plan_diagram',
-    description: 'Première étape de toute construction, d’une demande simple à un cahier des charges vague : but, rôles matériels, quantités, contraintes et hypothèses. Le logiciel recherche en un appel les fiches candidates de chaque rôle et renvoie leurs prises regroupées. Ne pas inventer de template_id. Si une précision conditionne le résultat, poser au maximum 3 questions groupées dans questions ; ne pas créer de schéma partiel. Pour un choix libre, proposer une hypothèse explicite. required_model=true seulement si un modèle exact est imposé. Les rôles décrivent uniquement les ajouts ; réutiliser les equipment_id du projet pour les appareils déjà présents.',
+    description: 'Première étape de toute construction, d’une demande simple à un cahier des charges vague : but, rôles matériels, quantités, contraintes et hypothèses. Le logiciel recherche en un appel les fiches candidates de chaque rôle et renvoie leurs prises regroupées. Ne pas inventer de template_id. Au maximum 3 questions groupées dans questions : sans rôle, elles sont posées à l’utilisateur ; avec des rôles, la construction continue et elles restent à confirmer. Pour un choix libre, proposer une hypothèse explicite. required_model=true seulement si un modèle exact est imposé. Les rôles décrivent uniquement les ajouts ; réutiliser les equipment_id du projet pour les appareils déjà présents.',
     parameters: { type: 'object', properties: {
       goal: { ...str, maxLength: 500 },
       roles: { type: 'array', maxItems: 20, items: { type: 'object', properties: { ref: roleRef, query: { ...str, maxLength: 120, description: 'Type d’appareil à rechercher (ex. micro dynamique), ou référence précise. Pas le nom de la prestation ni le nombre de participants.' }, family: { ...str, description: 'Famille si connue : capture, console, speaker, camera, videoSwitcher, recording, luminaire, lightingControl, network, intercom, sync… Même si absente du catalogue autorisé, pour signaler le besoin manquant.' }, count: { type: 'integer', minimum: 1, maximum: 50 }, required_model: { type: 'boolean' } }, required: ['ref', 'query', 'count', 'required_model'] } },
@@ -294,8 +296,9 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       const list = (value: unknown, max: number): value is string[] => Array.isArray(value) && value.length <= max && value.every(s => typeof s === 'string' && s.length > 0 && s.length <= 500)
       if (!text(a.goal) || text(a.goal).length > 500 || !Array.isArray(a.roles) || a.roles.length > 20
         || !list(a.constraints, 30) || !list(a.assumptions, 30) || !list(a.questions, 3)) return fail('Plan invalide : goal, roles (20 maximum), constraints, assumptions et questions (3 maximum) sont requis.')
-      const roles: NonNullable<Draft['brief']>['roles'] = [], questions = [...a.questions]
-      if (questions.length) return out({ questions })
+      // Sans rôle, les questions du modèle conditionnent le système ; avec des rôles, elles deviennent des points à confirmer.
+      if (a.questions.length && !a.roles.length) return out({ questions: a.questions })
+      const roles: NonNullable<Draft['brief']>['roles'] = [], questions: string[] = []
       for (const role of a.roles) {
         const ref = norm(text(role?.ref)).replace(/[^a-z0-9_-]+/g, '-').replace(/^-|-$/g, '')
         if (!role || typeof role !== 'object' || !/^[a-zA-Z0-9_-]{1,40}$/.test(ref) || roles.some(r => r.ref === ref)
@@ -311,7 +314,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if (roles.reduce((n, r) => n + r.count, 0) + draft.addedEquipment.length > 50) return fail('Limite de 50 équipements : découper le système en sous-ensembles.')
       if (!roles.length && !questions.length && !Object.keys(p.equipment).length) return fail('Aucun rôle matériel. Poser les questions nécessaires pour définir le système.')
       if (questions.length) return out({ questions: questions.slice(0, 3) })
-      const brief = { goal: text(a.goal), roles, constraints: a.constraints, assumptions: a.assumptions }
+      const brief = { goal: text(a.goal), roles, constraints: a.constraints, assumptions: a.assumptions, toConfirm: a.questions }
       // Résultat compact : il doit tenir entier dans l'historique borné, même pour vingt rôles.
       return out({
         next: 'Appeler propose_system avec ces refs, ces quantités et un template_id parmi les candidats de chaque rôle. Décrire les flux ; le logiciel choisit les prises. Si la capacité ne suffit pas, choisir l’autre candidat ou poser une question ; conserver toutes les contraintes.',
@@ -324,6 +327,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
             ports: portGroups(t.ports) }
         }) })),
         constraints: brief.constraints, assumptions: brief.assumptions,
+        ...(brief.toConfirm.length ? { to_confirm: brief.toConfirm, note: 'Construire maintenant avec des hypothèses visibles : ces points seront confirmés par l’utilisateur après l’aperçu.' } : {}),
       }, { ...draft, brief })
     }
     case 'ask_user': {
@@ -452,7 +456,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       const labels = (ctx.lang === 'en' ? en : fr).ai.brief
       let project = result.project
       if (draft.brief) {
-        const note = [...(draft.brief.request ? [labels.request, draft.brief.request] : []), draft.brief.goal, labels.constraints, ...draft.brief.constraints, labels.assumptions, ...draft.brief.assumptions, labels.routing].join('\n')
+        const note = [...(draft.brief.request ? [labels.request, draft.brief.request] : []), draft.brief.goal, labels.constraints, ...draft.brief.constraints, labels.assumptions, ...draft.brief.assumptions,
+          ...(draft.brief.toConfirm.length ? [labels.toConfirm, ...draft.brief.toConfirm] : []), labels.routing].join('\n')
         const first = ids.values().next().value
         if (first) project = updateEquipment(project, first, { notes: [project.equipment[first].notes, note].filter(Boolean).join('\n') })
         const annotated = addAnnotation(project, { kind: 'note', sheetId: draft.sheetId, position: { x: 40, y: 40 }, size: { w: 900, h: 300 }, text: note }).project
@@ -460,7 +465,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         if (!ctx.allowed || ctx.allowed(draft.base, annotated)) project = annotated
       }
       if (ctx.allowed && !ctx.allowed(draft.base, project)) return fail('Proposition refusée par les droits du projet ou du calque.')
-      return out({ ...value, links_added: result.addedLinks.length, assumptions: draft.brief?.assumptions ?? [], routing_note: labels.routing }, {
+      return out({ ...value, links_added: result.addedLinks.length, assumptions: draft.brief?.assumptions ?? [], to_confirm: draft.brief?.toConfirm ?? [], routing_note: labels.routing }, {
         ...initial.draft, project, addedLinks: [...draft.addedLinks, ...result.addedLinks],
       })
     }
