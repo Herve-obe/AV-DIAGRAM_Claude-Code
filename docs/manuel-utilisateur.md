@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.30 · Édition du 6 novembre 2026 · Windows et macOS
+Version 0.5.31 · Édition du 11 novembre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -130,7 +130,9 @@ Pour héberger une session, ouvrir le projet puis Session Collaborative. Renseig
 
 Côté invité, lancer Session Collaborative, renseigner son nom, sélectionner le projet de l'hôte trouvé sur le réseau et saisir son code. Si la recherche automatique échoue, les options avancées permettent de saisir l'adresse IP de l'hôte. Une connexion manuelle réussie avec une découverte absente peut indiquer un filtrage réseau des annonces.
 
-L’hôte coche les métiers autorisés pour chaque invité, puis utilise Commencer la session. Plusieurs invités peuvent partager un métier et un invité peut cumuler plusieurs métiers. Chaque métier inclut le calque et le matériel Réseau : sa case est cochée automatiquement. Réseau seul reste limité au domaine Réseau. Les changements de droits prennent effet pendant la session. Utiliser la version 0.5.30 ou une version compatible avec le protocole 6 sur tous les postes.
+Les échanges de la session sont chiffrés. Le code ne circule jamais sur le réseau : il sert à établir une clé propre à chaque connexion, puis le projet, le tchat et la présence sont chiffrés et authentifiés. Un poste qui ne connaît pas le code ne peut ni lire les échanges ni se faire passer pour l'hôte : une fausse session annoncée sur le réseau est refusée avec le message de code incorrect. Le code reste à communiquer de vive voix ou par un canal de confiance. Hors du lieu, utiliser un VPN pour joindre le réseau local.
+
+L’hôte coche les métiers autorisés pour chaque invité, puis utilise Commencer la session. Plusieurs invités peuvent partager un métier et un invité peut cumuler plusieurs métiers. Chaque métier inclut le calque et le matériel Réseau : sa case est cochée automatiquement. Réseau seul reste limité au domaine Réseau. Les changements de droits prennent effet pendant la session. Utiliser la version 0.5.31 ou une version compatible avec le protocole 7 sur tous les postes.
 
 Le métier Audio permet de travailler sur les appareils audio et leurs interfaces techniques, ainsi que sur les équipements réseau : renseigner l’IP d’une console, ajouter ou configurer un switch, puis raccorder son port Dante. Choisir le filtre Réseau ne retire pas les droits sur les interfaces de ses propres appareils. Les mêmes principes s’appliquent aux métiers Image, Lumière et Électrique. Sur une caméra, les ports audio relèvent de l’Audio et les ports vidéo de l’Image ; Réseau seul n'accorde pas ces ports.
 

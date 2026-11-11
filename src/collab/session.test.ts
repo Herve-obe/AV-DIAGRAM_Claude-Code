@@ -1,6 +1,8 @@
-// Deux instances isolées du logiciel, avec un relais simulant le routage authentifié du module Rust.
+// Deux instances isolées du logiciel, avec un relais simulant le routage authentifié et le chiffrement du module Rust.
 import { createHash } from 'node:crypto'
 import { afterEach, expect, it, vi } from 'vitest'
+import { bytesToHex, hexToBytes } from '@noble/hashes/utils.js'
+import { Cipher, deriveKeys, KIND_TEXT, share } from './secure'
 
 const native = vi.hoisted(() => ({ invoke: vi.fn() }))
 vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => true, invoke: native.invoke }))
@@ -10,7 +12,7 @@ class RelaySocket {
   static OPEN = 1
   static peers = new Map<number, RelaySocket>()
   static next = 1
-  static protocol: number | undefined = 6
+  static protocol: number | undefined = 7
   static held = false
   static queued: (() => void)[] = []
   static flush() {
@@ -24,16 +26,32 @@ class RelaySocket {
   host = false
   id = 0
   userId = ''
+  private inn: Cipher | null = null
+  private out: Cipher | null = null
   constructor() { setTimeout(() => { this.readyState = 1; this.onopen?.() }, 0) }
+  /** Message du relais, chiffré pour ce participant au moment de l'envoi (ordre des compteurs conservé) */
   deliver(data: string | ArrayBuffer) {
+    this.raw(this.out!.seal(typeof data === 'string' ? KIND_TEXT : 1, typeof data === 'string' ? new TextEncoder().encode(data) : new Uint8Array(data)).slice().buffer)
+  }
+  raw(data: string | ArrayBuffer) {
     const deliver = () => { if (this.readyState === 1) this.onmessage?.({ data }) }
     if (RelaySocket.held) RelaySocket.queued.push(deliver)
     else queueMicrotask(deliver)
   }
   send(value: string | Uint8Array) {
     if (typeof value === 'string') {
-      const h = JSON.parse(value)
-      expect(h.protocol).toBe(6)
+      const pake = JSON.parse(value)
+      expect(pake).toMatchObject({ type: 'pake', protocol: 7 })
+      const client = hexToBytes(pake.share), mine = share('123456')
+      const keys = deriveKeys(mine.scalar, client, client, mine.share)
+      this.inn = new Cipher(keys.send); this.out = new Cipher(keys.receive)
+      return this.raw(JSON.stringify({ type: 'pake', share: bytesToHex(mine.share), confirm: bytesToHex(keys.confirm) }))
+    }
+    const frame = this.inn!.open(new Uint8Array(value))
+    if (frame.kind === KIND_TEXT) {
+      const h = JSON.parse(new TextDecoder().decode(frame.payload))
+      expect(h.type).toBe('hello')
+      expect(h.code).toBeUndefined()
       this.id = RelaySocket.next++; this.host = h.hostToken === 'private-host'
       this.userId = createHash('sha256').update(h.clientToken ?? 'probe').digest('hex')
       const peers = [...RelaySocket.peers.values()].map(p => ({ id: p.id, userId: p.userId, name: 'Poste', address: '127.0.0.1' }))
@@ -42,7 +60,7 @@ class RelaySocket {
       for (const p of RelaySocket.peers.values()) if (p !== this) p.deliver(JSON.stringify({ type: 'peer-joined', peerId: this.id, userId: this.userId }))
       return
     }
-    const bytes = new Uint8Array(value)
+    const bytes = frame.payload
     if (this.host) {
       if (bytes[0] === 254) RelaySocket.peers.get(new DataView(bytes.buffer, bytes.byteOffset).getUint32(1))?.deliver(bytes.slice(5).buffer)
       else for (const p of RelaySocket.peers.values()) if (p !== this) p.deliver(bytes.slice().buffer)
@@ -76,7 +94,7 @@ afterEach(() => {
   RelaySocket.held = false; RelaySocket.queued = []
   videoGuest?.session.leave(); videoGuest = undefined
   guest?.session.leave(); host?.session.leave()
-  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 6; vi.unstubAllGlobals()
+  RelaySocket.peers.clear(); RelaySocket.next = 1; RelaySocket.protocol = 7; vi.unstubAllGlobals()
 })
 
 it.each([undefined, 1, 2, 3, 4, 5])('refuse un ancien hôte de protocole %s sans remplacer le projet local', async protocol => {

@@ -1,6 +1,6 @@
 [package]
 name = "av-diagram"
-version = "0.5.30"
+version = "0.5.31"
 description = "AV Diagram : synoptiques d'installations audiovisuelles"
 authors = ["Hervé Obejero"]
 license-file = "../LICENSE.md"
@@ -33,6 +33,9 @@ if-addrs = "0.15"
 rand = "0.9"
 # Déjà utilisé par les dépendances : identité publique dérivée du secret de chaque poste.
 sha2 = "0.10"
+# Chiffrement de la collaboration LAN : échange de clé CPace (ristretto255) et ChaCha20-Poly1305
+curve25519-dalek = "4"
+chacha20poly1305 = "0.10"
 # Export PDF protégé : chiffrement AES-256 (PDF 2.0, révision 6)
 lopdf = { version = "0.45", default-features = false }
 tauri-plugin-persisted-scope = "2"

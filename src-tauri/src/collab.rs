@@ -2,8 +2,10 @@
 // Le relais authentifie le poste hôte avec un secret local. Les propositions invitées vont uniquement
 // à cet hôte, qui vérifie les droits avant de diffuser le document accepté.
 //
-// Sécurité : le port n'est ouvert que pendant la session ; un code à 6 chiffres est exigé avant tout
-// échange ; chaque tentative compte avant la poignée de main (5 par minute et par adresse, des connexions
+// Sécurité : le port n'est ouvert que pendant la session ; tout échange est chiffré (src/secure.rs) :
+// un échange de clé CPace protégé par le code à 6 chiffres, sans jamais l'envoyer, puis ChaCha20-Poly1305 ;
+// le relais prouve qu'il connaît le code, ce qui démasque une fausse session annoncée sur le réseau ;
+// chaque tentative compte avant la poignée de main (5 par minute et par adresse, des connexions
 // ouvertes en parallèle ne les multiplient pas), au plus 8 poignées de main en cours ; une page web autre
 // que l'application est refusée (en-tête Origin) ; nombre de participants et taille des messages limités ;
 // l'hôte peut exclure un participant.
@@ -11,6 +13,7 @@
 // Fin de session : « terminée » (l'hôte clique Terminer : les participants sont prévenus et gardent le
 // projet) ou « interrompue » (fermeture de l'application, passage de relais : les participants se
 // reconnectent ou un poste de secours prend le relais, voir src/collab/session.ts).
+use crate::secure::{self, Cipher, KIND_BINARY, KIND_TEXT};
 use futures_util::{SinkExt, StreamExt};
 use serde::Serialize;
 use sha2::{Digest, Sha256};
@@ -28,13 +31,15 @@ use tokio_tungstenite::tungstenite::Message;
 
 const MAX_PEERS: usize = 16;
 const MAX_MESSAGE: usize = 16 * 1024 * 1024;
+/// Octets ajoutés par le chiffrement : type de trame et étiquette d'authentification
+const FRAME_OVERHEAD: usize = 1 + 16;
 const HELLO_TIMEOUT: Duration = Duration::from_secs(10);
 const MAX_FAILURES: u32 = 5;
 const LOCKOUT: Duration = Duration::from_secs(60);
 /// Poignées de main simultanées, toutes adresses confondues
 const MAX_HANDSHAKES: usize = 8;
 // À conserver identique à src/collab/ydoc.ts (cartes et slots partagés).
-const COLLAB_PROTOCOL: u64 = 6;
+const COLLAB_PROTOCOL: u64 = 7;
 
 /// État du canal d'arrêt : en cours, terminée par l'hôte, interrompue
 const RUNNING: u8 = 0;
@@ -178,6 +183,25 @@ fn json(v: serde_json::Value) -> Message {
     Message::text(v.to_string())
 }
 
+/// Message du relais chiffré pour un participant (texte de contrôle ou message y-protocols)
+fn seal(cipher: &mut Cipher, m: Message) -> Message {
+    match m {
+        Message::Text(t) => Message::binary(cipher.seal(KIND_TEXT, t.as_bytes())),
+        Message::Binary(b) => Message::binary(cipher.seal(KIND_BINARY, &b)),
+        other => other,
+    }
+}
+
+fn to_hex(bytes: &[u8]) -> String {
+    bytes.iter().map(|b| format!("{b:02x}")).collect()
+}
+
+/// Part d'échange de clé : exactement 32 octets en hexadécimal
+fn from_hex(text: &str) -> Option<Vec<u8>> {
+    if text.len() != 64 || !text.bytes().all(|b| b.is_ascii_hexdigit()) { return None; }
+    (0..64).step_by(2).map(|i| u8::from_str_radix(&text[i..i + 2], 16).ok()).collect()
+}
+
 /// Boucle d'acceptation, jusqu'à la fermeture de la session.
 pub async fn serve(listener: TcpListener, hub: Arc<Hub>, mut shutdown: watch::Receiver<u8>) {
     loop {
@@ -207,8 +231,8 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     // La tentative compte dès maintenant : attendre avant d'envoyer le code ne permet plus d'en essayer davantage
     hub.record_failure(addr.ip());
     let mut config = WebSocketConfig::default();
-    config.max_message_size = Some(MAX_MESSAGE);
-    config.max_frame_size = Some(MAX_MESSAGE);
+    config.max_message_size = Some(MAX_MESSAGE + FRAME_OVERHEAD);
+    config.max_frame_size = Some(MAX_MESSAGE + FRAME_OVERHEAD);
     // Le type d'erreur est imposé par la signature de rappel de tungstenite
     #[allow(clippy::result_large_err)]
     let check_origin = |request: &Request, response: Response| {
@@ -222,28 +246,44 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     let Ok(ws) = tokio_tungstenite::accept_hdr_async_with_config(stream, check_origin, Some(config)).await else { return };
     let (mut sink, mut source) = ws.split();
 
-    // 1. Présentation : {"type":"hello","code":"123456","name":"…"}
-    let hello = match tokio::time::timeout(HELLO_TIMEOUT, source.next()).await {
+    let refuse = |reason: &str| json(serde_json::json!({ "type": "refused", "reason": reason }));
+
+    // 1. Échange de clé : {"type":"pake","protocol":7,"share":"<hex>"} ; le code n'est jamais transmis
+    let pake = match tokio::time::timeout(HELLO_TIMEOUT, source.next()).await {
         Ok(Some(Ok(Message::Text(t)))) => serde_json::from_str::<serde_json::Value>(&t).ok(),
         _ => None,
     };
-    let code_ok = hello
-        .as_ref()
-        .and_then(|h| h.get("code").and_then(|c| c.as_str()))
-        .map(|c| same_code(c, &hub.code))
-        .unwrap_or(false);
-    if !code_ok {
-        let _ = sink.send(json(serde_json::json!({ "type": "refused", "reason": "code" }))).await;
+    if pake.as_ref().and_then(|h| h.get("protocol").and_then(|v| v.as_u64())) != Some(COLLAB_PROTOCOL) {
+        let _ = sink.send(refuse("version")).await;
+        let _ = sink.close().await;
+        return;
+    }
+    let client_share = pake.as_ref().and_then(|h| h.get("share").and_then(|v| v.as_str())).and_then(from_hex);
+    let Some((server_share, keys)) = client_share.and_then(|c| secure::respond(&hub.code, &c, &rand::random::<[u8; 64]>())) else {
+        let _ = sink.send(refuse("code")).await;
+        let _ = sink.close().await;
+        return;
+    };
+    if sink.send(json(serde_json::json!({ "type": "pake", "share": to_hex(&server_share), "confirm": to_hex(&keys.confirm) }))).await.is_err() { return; }
+    let mut incoming = Cipher::new(&keys.client_to_server);
+    let mut outgoing = Cipher::new(&keys.server_to_client);
+
+    // 2. Présentation chiffrée : {"type":"hello","name","clientToken","hostToken"}. Un mauvais code
+    // donne d'autres clés : la trame ne se déchiffre pas.
+    let hello = match tokio::time::timeout(HELLO_TIMEOUT, source.next()).await {
+        Ok(Some(Ok(Message::Binary(b)))) => match incoming.open(&b) {
+            Some((KIND_TEXT, text)) => serde_json::from_slice::<serde_json::Value>(&text).ok(),
+            _ => None,
+        },
+        _ => None,
+    };
+    if hello.as_ref().and_then(|h| h.get("type").and_then(|t| t.as_str())) != Some("hello") {
+        let _ = sink.send(refuse("code")).await;
         let _ = sink.close().await;
         return;
     }
     hub.forgive(addr.ip());
     drop(handshake);
-    if hello.as_ref().and_then(|h| h.get("protocol").and_then(|v| v.as_u64())) != Some(COLLAB_PROTOCOL) {
-        let _ = sink.send(json(serde_json::json!({ "type": "refused", "reason": "version" }))).await;
-        let _ = sink.close().await;
-        return;
-    }
     let host = addr.ip().is_loopback() && hello.as_ref()
         .and_then(|h| h.get("hostToken").and_then(|t| t.as_str()))
         .map(|t| same_code(t, &hub.host_token)).unwrap_or(false);
@@ -271,22 +311,27 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
         if peers.len() >= MAX_PEERS || (host && peers.values().any(|p| p.host)) { return; }
         peers.insert(id, Peer { host, user_id: user_id.clone(), name: name.clone(), addr, tx });
     }
-    if sink.send(json(serde_json::json!({ "type": "welcome", "protocol": COLLAB_PROTOCOL, "peerId": id, "userId": user_id, "peers": others }))).await.is_err() {
+    let welcome = json(serde_json::json!({ "type": "welcome", "protocol": COLLAB_PROTOCOL, "peerId": id, "userId": user_id, "peers": others }));
+    if sink.send(seal(&mut outgoing, welcome)).await.is_err() {
         hub.peers.lock().unwrap().remove(&id);
         return;
     }
     hub.broadcast(id, json(serde_json::json!({ "type": "peer-joined", "peerId": id, "userId": user_id, "name": name })));
 
-    // 3. Relais : binaire reçu -> autres participants ; messages des autres -> ce participant
+    // 3. Relais : binaire reçu -> autres participants ; messages des autres -> ce participant.
+    // Chaque connexion a ses propres clés : le relais déchiffre puis rechiffre pour chaque destinataire.
     loop {
         tokio::select! {
             _ = shutdown.changed() => break,
             out = rx.recv() => match out {
-                Some(m) => if sink.send(m).await.is_err() { break },
+                Some(m) => if sink.send(seal(&mut outgoing, m)).await.is_err() { break },
                 None => break, // exclu par l'hôte
             },
-            incoming = source.next() => match incoming {
-                Some(Ok(Message::Binary(b))) => hub.route(id, &b),
+            received = source.next() => match received {
+                Some(Ok(Message::Binary(b))) => match incoming.open(&b) {
+                    Some((KIND_BINARY, data)) => hub.route(id, &data),
+                    _ => break, // trame altérée, rejouée ou inattendue
+                },
                 Some(Ok(Message::Ping(p))) => { let _ = sink.send(Message::Pong(p)).await; }
                 Some(Ok(Message::Close(_))) | None | Some(Err(_)) => break,
                 Some(Ok(_)) => {}
@@ -295,7 +340,7 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     }
     // Le relais peut fermer rx avant que cette connexion ne lise l'arrêt.
     if *shutdown.borrow() == ENDED {
-        let _ = sink.send(json(serde_json::json!({ "type": "ended" }))).await;
+        let _ = sink.send(seal(&mut outgoing, json(serde_json::json!({ "type": "ended" })))).await;
     }
     let _ = sink.close().await;
     hub.peers.lock().unwrap().remove(&id);
@@ -444,27 +489,64 @@ mod tests {
         }
     }
 
-    async fn join_with_token(port: u16, code: &str, token: Option<&str>) -> (tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>, serde_json::Value) {
-        let (mut ws, _) = connect_async(format!("ws://127.0.0.1:{port}")).await.unwrap();
-        ws.send(json(serde_json::json!({ "type": "hello", "protocol": COLLAB_PROTOCOL, "code": code, "name": "Régie\u{7}", "hostToken": token }))).await.unwrap();
-        let reply = match ws.next().await {
-            Some(Ok(Message::Text(t))) => serde_json::from_str(&t).unwrap(),
-            other => panic!("réponse inattendue : {other:?}"),
-        };
-        (ws, reply)
+    type Ws = tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>;
+
+    /// Participant de test : même échange de clé et même chiffrement que src/collab/secure.ts.
+    struct Client { ws: Ws, out: Option<Cipher>, inn: Option<Cipher> }
+
+    impl Client {
+        async fn send_binary(&mut self, data: &[u8]) {
+            let frame = self.out.as_mut().unwrap().seal(KIND_BINARY, data);
+            self.ws.send(Message::binary(frame)).await.unwrap();
+        }
+
+        /// Trame suivante déchiffrée, None à la fermeture
+        async fn recv(&mut self) -> Option<(u8, Vec<u8>)> {
+            loop {
+                match tokio::time::timeout(Duration::from_secs(5), self.ws.next()).await.expect("message de session attendu") {
+                    Some(Ok(Message::Binary(b))) => return Some(self.inn.as_mut().unwrap().open(&b).expect("trame authentique")),
+                    Some(Ok(Message::Ping(_) | Message::Pong(_))) => {}
+                    Some(Ok(Message::Close(_))) | None | Some(Err(_)) => return None,
+                    other => panic!("message en clair inattendu : {other:?}"),
+                }
+            }
+        }
     }
 
-    async fn join(port: u16, code: &str) -> (tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>, serde_json::Value) {
+    async fn plain_json(ws: &mut Ws) -> serde_json::Value {
+        match tokio::time::timeout(Duration::from_secs(5), ws.next()).await.expect("réponse attendue") {
+            Some(Ok(Message::Text(t))) => serde_json::from_str(&t).unwrap(),
+            other => panic!("réponse inattendue : {other:?}"),
+        }
+    }
+
+    async fn join_with_token(port: u16, code: &str, token: Option<&str>) -> (Client, serde_json::Value) {
+        let (mut ws, _) = connect_async(format!("ws://127.0.0.1:{port}")).await.unwrap();
+        let (scalar, share) = secure::start(code, &rand::random::<[u8; 64]>()).unwrap();
+        ws.send(json(serde_json::json!({ "type": "pake", "protocol": COLLAB_PROTOCOL, "share": to_hex(&share) }))).await.unwrap();
+        let reply = plain_json(&mut ws).await;
+        let server = reply["share"].as_str().and_then(from_hex);
+        let keys = server.and_then(|s| secure::keys(&scalar, &s, &share, &s.as_slice().try_into().unwrap()));
+        // Le relais doit prouver qu'il connaît le code, sinon l'invité s'arrête là
+        let Some(keys) = keys.filter(|k| reply["confirm"] == to_hex(&k.confirm)) else {
+            return (Client { ws, out: None, inn: None }, serde_json::json!({ "type": "refused", "reason": reply["reason"].as_str().unwrap_or("code") }));
+        };
+        let mut client = Client { ws, out: Some(Cipher::new(&keys.client_to_server)), inn: Some(Cipher::new(&keys.server_to_client)) };
+        let hello = serde_json::json!({ "type": "hello", "name": "Régie\u{7}", "hostToken": token }).to_string();
+        let frame = client.out.as_mut().unwrap().seal(KIND_TEXT, hello.as_bytes());
+        client.ws.send(Message::binary(frame)).await.unwrap();
+        let welcome = next_json(&mut client).await;
+        (client, welcome)
+    }
+
+    async fn join(port: u16, code: &str) -> (Client, serde_json::Value) {
         join_with_token(port, code, None).await
     }
 
-    async fn next_json(ws: &mut tokio_tungstenite::WebSocketStream<tokio_tungstenite::MaybeTlsStream<TcpStream>>) -> serde_json::Value {
-        loop {
-            match tokio::time::timeout(Duration::from_secs(5), ws.next()).await.expect("message de session attendu") {
-                Some(Ok(Message::Text(t))) => return serde_json::from_str(&t).unwrap(),
-                Some(Ok(Message::Ping(_) | Message::Pong(_))) => {},
-                other => panic!("message de session inattendu : {other:?}"),
-            }
+    async fn next_json(client: &mut Client) -> serde_json::Value {
+        match client.recv().await {
+            Some((KIND_TEXT, text)) => serde_json::from_slice(&text).unwrap(),
+            other => panic!("message de session inattendu : {other:?}"),
         }
     }
 
@@ -484,7 +566,7 @@ mod tests {
         let (port, hub, _stop) = start().await;
         let (mut ws, _) = connect_async(format!("ws://127.0.0.1:{port}")).await.unwrap();
         ws.send(json(serde_json::json!({ "type": "hello", "code": "123456", "name": "Ancienne version" }))).await.unwrap();
-        let reply = next_json(&mut ws).await;
+        let reply = plain_json(&mut ws).await;
         assert_eq!(reply["type"], "refused");
         assert_eq!(reply["reason"], "version");
         assert!(hub.peers.lock().unwrap().is_empty());
@@ -500,13 +582,8 @@ mod tests {
         assert_eq!(wb["peers"][0]["name"], "Régie", "caractères de contrôle retirés du nom");
         let joined = next_json(&mut a).await;
         assert_eq!(joined["type"], "peer-joined");
-        a.send(Message::binary(vec![0u8, 1, 2])).await.unwrap();
-        let got = loop {
-            if let Some(Ok(Message::Binary(d))) = b.next().await {
-                break d;
-            }
-        };
-        assert_eq!(&got[..], &[0, 1, 2]);
+        a.send_binary(&[0u8, 1, 2]).await;
+        assert_eq!(b.recv().await, Some((KIND_BINARY, vec![0, 1, 2])));
         // Exclusion par l'hôte : B est prévenu puis déconnecté, A est prévenu
         let b_id = wb["peerId"].as_u64().unwrap() as u32;
         assert!(hub.kick(b_id));
@@ -538,12 +615,8 @@ mod tests {
         let (mut a, _) = join(port, "123456").await;
         let _ = stop.send(INTERRUPTED);
         // La connexion se ferme sans « ended » : le participant tentera de se reconnecter
-        loop {
-            match a.next().await {
-                Some(Ok(Message::Text(t))) => assert!(!t.contains("ended"), "pas de fin annoncée"),
-                Some(Ok(Message::Close(_))) | None | Some(Err(_)) => break,
-                Some(Ok(_)) => {}
-            }
+        while let Some((_, data)) = a.recv().await {
+            assert!(!String::from_utf8_lossy(&data).contains("ended"), "pas de fin annoncée");
         }
     }
 

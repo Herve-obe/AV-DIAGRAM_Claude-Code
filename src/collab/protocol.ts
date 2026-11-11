@@ -14,6 +14,7 @@ import { notify, useCollab, type HostInfo } from './collabStore'
 import { refreshHost } from './failover'
 import { HostValidation } from './hostValidation'
 import { finish, kick } from './session'
+import type { SecureSocket } from './secure'
 import { COLLAB_PROTOCOL } from './ydoc'
 
 export const MSG_SYNC = 0
@@ -36,7 +37,7 @@ export interface Live {
   /** Rang du relais que ce poste fait tourner, null s'il n'en fait pas tourner */
   rank: number | null
   attempt: number
-  ws: WebSocket | null
+  ws: SecureSocket | null
   peerId: number | null
   hostToken?: string
   validation?: HostValidation
@@ -60,7 +61,7 @@ export function setLive(next: Live | null) {
 }
 
 export const send = (data: Uint8Array) => {
-  if (live?.ws?.readyState === WebSocket.OPEN) live.ws.send(data as Uint8Array<ArrayBuffer>)
+  live?.ws?.send(data)
 }
 
 export function sendSyncStep1(peerId?: number) {

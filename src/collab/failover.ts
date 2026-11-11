@@ -5,6 +5,7 @@ import { invoke, isTauri } from '@tauri-apps/api/core'
 import { useProject } from '../store/projectStore'
 import { canHost, notify, prefs, useCollab, type HostInfo } from './collabStore'
 import { live, onBinary, onText, type Live } from './protocol'
+import { SecureSocket } from './secure'
 import { finish } from './session'
 import { COLLAB_PROTOCOL } from './ydoc'
 
@@ -35,23 +36,19 @@ export function connect() {
   current.retry = null
   const addr = target(current)
   if (!addr) return
-  let ws: WebSocket
+  const hello = { name: useCollab.getState().name, clientToken: prefs.clientToken, hostToken: current.rank !== null ? current.hostToken : undefined }
+  let ws: SecureSocket
   try {
-    ws = new WebSocket(`ws://${addr}`)
+    // Le code ne circule jamais : il protège l'échange de clé, puis tout est chiffré (secure.ts)
+    ws = new SecureSocket(`ws://${addr}`, current.code, COLLAB_PROTOCOL, hello, { onText, onBinary, onClose: () => closed() })
   } catch {
     current.retry = setTimeout(connect, RETRY_MS)
     return
   }
-  ws.binaryType = 'arraybuffer'
   current.ws = ws
   // Une adresse injoignable peut mettre longtemps à échouer : on passe à la suivante
-  const timer = setTimeout(() => ws.readyState !== WebSocket.OPEN && ws.close(), CONNECT_TIMEOUT_MS)
-  ws.onopen = () => {
-    clearTimeout(timer)
-    ws.send(JSON.stringify({ type: 'hello', protocol: COLLAB_PROTOCOL, code: current.code, name: useCollab.getState().name, clientToken: prefs.clientToken, hostToken: current.rank !== null ? current.hostToken : undefined }))
-  }
-  ws.onmessage = (e) => (typeof e.data === 'string' ? onText(e.data) : onBinary(e.data as ArrayBuffer))
-  ws.onclose = () => {
+  const timer = setTimeout(() => ws.connecting && ws.close(), CONNECT_TIMEOUT_MS)
+  const closed = () => {
     clearTimeout(timer)
     if (live !== current || current.closing || current.ws !== ws) return
     current.ws = null
@@ -97,31 +94,29 @@ async function takeOver(cur: Live, rank: number) {
 /** Essaie une adresse : vrai si un relais de la session y répond. */
 export function probe(addr: string, code: string): Promise<boolean> {
   return new Promise((resolve) => {
-    let ws: WebSocket
-    try {
-      ws = new WebSocket(`ws://${addr}`)
-    } catch {
-      return resolve(false)
-    }
+    let socket: SecureSocket | null = null
+    let settled = false
     const done = (ok: boolean) => {
+      if (settled) return
+      settled = true
       clearTimeout(timer)
-      ws.onclose = null
-      ws.onmessage = null
-      try {
-        ws.close()
-      } catch {
-        // déjà fermée
-      }
+      socket?.close()
       resolve(ok)
     }
     const timer = setTimeout(() => done(false), CONNECT_TIMEOUT_MS)
-    ws.onopen = () => ws.send(JSON.stringify({ type: 'hello', protocol: COLLAB_PROTOCOL, code, name: '' }))
-    ws.onmessage = (e) => {
-      if (typeof e.data !== 'string') return
-      try { const reply = JSON.parse(e.data); done(reply.type === 'welcome' && reply.protocol === COLLAB_PROTOCOL) }
-      catch { done(false) }
+    try {
+      // Seul un relais qui connaît le code termine l'échange de clé, puis envoie l'accueil chiffré
+      socket = new SecureSocket(`ws://${addr}`, code, COLLAB_PROTOCOL, { name: '' }, {
+        onText: (text) => {
+          try { const reply = JSON.parse(text); done(reply.type === 'welcome' && reply.protocol === COLLAB_PROTOCOL) }
+          catch { done(false) }
+        },
+        onBinary: () => {},
+        onClose: () => done(false),
+      })
+    } catch {
+      done(false)
     }
-    ws.onclose = () => done(false)
   })
 }
 

@@ -4,6 +4,7 @@
 // le réseau local.
 mod ai;
 mod collab;
+mod secure;
 mod discovery;
 mod pdfsec;
 mod local;

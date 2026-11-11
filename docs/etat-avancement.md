@@ -1,6 +1,10 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.30
+## Situation actuelle — 0.5.31
+
+Collaboration LAN chiffrée (protocole 7, 11 novembre 2026) : échange de clé protégé par le code, qui ne circule plus, puis chiffrement authentifié de chaque message. **Installer la 0.5.31 sur tous les postes** ; les versions précédentes sont refusées avant tout échange. Détails dans [collaboration.md](collaboration.md).
+
+## Version 0.5.30
 
 Chaque métier inclut automatiquement l'édition du calque et du matériel Réseau, y compris la configuration des switches. Réseau seul ne donne pas accès aux métiers Audio, Image, Lumière ou Électrique. L'hôte peut cocher **Droits complets** par invité : celui-ci peut modifier tout le projet, y compris depuis Général, les feuilles, les baies et les paramètres communs. Le retrait rétablit ses métiers précédents. Seul l'hôte administre la session et les attributions ; avant son démarrage, tous les invités restent en lecture seule.
 

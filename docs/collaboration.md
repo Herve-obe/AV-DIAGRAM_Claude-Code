@@ -36,6 +36,11 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
    seulement pendant la session et sur un port choisi.
 3. **Accès** : code de session à 6 chiffres affiché chez l'hôte, demandé pour rejoindre. L'hôte voit
    la liste des participants et peut en exclure un. Pas d'accès sans code.
+   **Chiffrement (protocole 7)** : le code n'est jamais transmis. Il protège un échange de clé CPace
+   sur ristretto255 (`src/collab/secure.ts`, `src-tauri/src/secure.rs`) ; le relais prouve qu'il
+   connaît le code, puis chaque message est chiffré et authentifié (ChaCha20-Poly1305, une clé par
+   sens, compteur implicite contre le rejeu). Un espion n'apprend rien ; un faux hôte ou un poste qui
+   devine le code n'a qu'un essai par connexion, limité à 5 par minute et par adresse.
 4. **Découverte** : recherche automatique sur le même sous-réseau IPv4 (UDP 4456), sans service externe ni diffusion du code d’accès. Seuls le nom du projet, le nom de l’hôte et son adresse de session sont annoncés. La saisie d’adresse reste dans les options avancées pour les réseaux filtrés et les VPN.
 5. **Présence** : nom et couleur de chaque participant, calque qu'il affiche, sélection en cours
    (contour de couleur sur les blocs qu'il manipule).
@@ -170,7 +175,9 @@ Limites connues : l'enregistrement local de la session (reprise) est limité par
 (environ 5 Mo) ; au-delà, la reprise se fait depuis les autres participants. Deux postes isolés l'un
 de l'autre peuvent chacun faire tourner un relais pendant une coupure : il faut choisir la session
 à poursuivre et conserver les fichiers avant une fusion manuelle. La fusion de deux hôtes concurrents
-n'est pas automatique. Pas de chiffrement sur le réseau local : utiliser un VPN hors du lieu.
+n'est pas automatique. Hors du lieu, utiliser un VPN pour joindre le réseau local. Les annonces de
+découverte (UDP) ne sont pas signées : une fausse annonce reste visible dans la liste, mais la
+connexion échoue sans le code.
 
 ## Étapes proposées
 

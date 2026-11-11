@@ -2,8 +2,8 @@
 // WebSocket sur le réseau local (src-tauri/src/collab.rs). L'hôte ouvre la session depuis l'application
 // de bureau ; les autres la rejoignent avec l'adresse de l'hôte et le code à 6 chiffres.
 //
-// Protocole sur le relais :
-// - texte : {"type":"hello","code","name"} -> {"type":"welcome","peerId","peers"} ou {"type":"refused"} ;
+// Protocole sur le relais, entièrement chiffré après l'échange de clé protégé par le code (secure.ts) :
+// - contrôle : {"type":"hello","name"} -> {"type":"welcome","peerId","peers"} ou {"type":"refused"} ;
 //   {"type":"peer-joined"|"peer-left","peerId"}, {"type":"ended"} (fin voulue par l'hôte),
 //   {"type":"kicked"} (exclusion) annoncés par le relais ;
 // - binaire : messages y-protocols (0 : synchronisation du document, 1 : présence).
