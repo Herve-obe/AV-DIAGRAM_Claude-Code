@@ -81,6 +81,19 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(second.draft.addedLinks).toHaveLength(5)
   })
 
+  it('au second tour, un rôle sans fiche ne redemande pas : le plan est renvoyé au modèle, puis le système est construit', async () => {
+    const draft = base(), options = { draft, ctx, connection: { provider: 'builtin' as const, model: 'test' }, system: '', history: [] }
+    const first = await runTurn({ ...options, userText: 'Je veux sonoriser une conférence.', transport: replies([call('ask_user', { question: 'Combien de micros ?' })]) })
+    const sent: string[] = []
+    const unknown = { ...plan, roles: [...plan.roles, { ref: 'cajon', query: 'Cajon', family: 'instrument', count: 1, required_model: false }] }
+    const second = await runTurn({ ...options, history: first.history, userText: 'Trois micros et deux enceintes, un cajon.',
+      transport: replies([call('plan_diagram', unknown), call('plan_diagram', plan), call('propose_system', audio)], sent) })
+    const rejected = JSON.parse(sent[1]).messages.at(-1).content
+    expect(rejected).toContain('Une précision a déjà été demandée')
+    expect(rejected).toContain('Cajon')
+    expect(second.draft.addedLinks).toHaveLength(5)
+  })
+
   it.each([
     ['plan_diagram', 'Annule cette demande. Quelle différence entre un câble XLR et un jack ?'],
     ['ask_user', 'Cancel that request. What is the difference between XLR and jack?'],

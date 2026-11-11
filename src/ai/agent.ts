@@ -291,6 +291,8 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
     const result = runTool(draft, call, ctx)
     let value = JSON.parse(result.content)
     if (value.error) return { id: call.id, name: call.name, content: result.content }
+    // Second tour : un plan qui redemande (rôle sans fiche, besoin flou) est renvoyé au modèle au lieu de reposer une question
+    if (call.name === 'plan_diagram' && pending && value.questions?.length) return reject(`${ONE_ROUND} Points encore ouverts : ${value.questions.join(' ')} Pour un rôle sans fiche, choisir une famille et une recherche plus générales du catalogue, ou retirer ce rôle en le notant dans assumptions.`)
     if (call.name === 'plan_diagram' && result.draft.brief) {
       const constraints = [...new Set([...result.draft.brief.constraints, ...exclusions(request)])]
       result.draft = { ...result.draft, brief: { ...result.draft.brief, request, constraints } }

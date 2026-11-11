@@ -13,7 +13,7 @@ import { describe, expect, it } from 'vitest'
 import { LIBRARY } from '../library'
 import { createProject, DEFAULT_SHEET_ID } from '../model/project'
 import { checkProject } from '../model/rules'
-import { buildSystemPrompt, runTurn, type Transport } from './agent'
+import { AiError, buildSystemPrompt, runTurn, type Transport } from './agent'
 import { gradeCase, overallScore, type CaseGrade, type EvalCase } from './evaluation'
 import { providerInfo, type ProviderId } from './providers'
 import { createDraft } from './tools'
@@ -82,7 +82,7 @@ describe.skipIf(!enabled)(`batterie d'évaluation : ${provider} ${model}`, () =>
         results.push({ id: c.id, difficulte: c.difficulte, run, grade: gradeCase(c, produced), questions, reply: res.reply,
           ruleErrors: checkProject(produced).filter(i => i.severity === 'error').length })
       } catch (e) {
-        results.push({ id: c.id, difficulte: c.difficulte, run, grade: { id: c.id, automatic: [], forJudge: c.exigences, score: 0 }, questions, reply: '', ruleErrors: 0, error: String(e) })
+        results.push({ id: c.id, difficulte: c.difficulte, run, grade: { id: c.id, automatic: [], forJudge: c.exigences, score: 0 }, questions, reply: '', ruleErrors: 0, error: e instanceof AiError ? `${e.kind}${e.message ? ' : ' + e.message : ''}` : String(e) })
       }
       save()
     }
