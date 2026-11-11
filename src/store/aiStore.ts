@@ -4,6 +4,7 @@
 import { create } from 'zustand'
 import i18n from '../i18n'
 import { AiError, buildSystemPrompt, localLayoutRequest, runTurn } from '../ai/agent'
+import { isComplexForLocal } from '../ai/limits'
 import { providerInfo, type ChatMessage, type ProviderId } from '../ai/providers'
 import { ensureServer, stopServer, type ManagedServer } from '../ai/local'
 import { createDraft, hasChanges, type Draft } from '../ai/tools'
@@ -67,6 +68,8 @@ interface AiState {
   panelOpen: boolean
   setupOpen: boolean
   installerDirectory: string | null
+  /** Modèle choisi dans l'installeur Windows (Qwen3 4B, 8B ou 14B) */
+  installerModel?: string | null
   bubbles: Bubble[]
   history: ChatMessage[]
   busy: boolean
@@ -112,7 +115,7 @@ export const useAi = create<AiState>((set, get) => ({
   setPanelOpen: (panelOpen) => panelOpen && !isReady(get().settings) ? set({ setupOpen: true }) : set({ panelOpen }),
   setSetupOpen: (setupOpen) => {
     if (!setupOpen && get().installerDirectory) useUi.getState().setStartOpen(true)
-    set({ setupOpen, ...(!setupOpen ? { installerDirectory: null } : {}) })
+    set({ setupOpen, ...(!setupOpen ? { installerDirectory: null, installerModel: null } : {}) })
   },
 
   send: async (text) => {
@@ -146,7 +149,10 @@ export const useAi = create<AiState>((set, get) => ({
       draft = null
     }
     draft ??= createDraft(project, ui.currentSheetId)
-    set({ busy: true, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question }] })
+    // IA locale : prévenir avant de commencer qu'une demande longue ou très contrainte dépasse ses capacités
+    const complex = providerInfo(settings.provider).kind === 'local' && isComplexForLocal(question)
+    set({ busy: true, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question },
+      ...(complex ? [{ kind: 'note' as const, text: i18n.t('ai.limits.complex') }] : [])] })
     try {
       if (!localLayoutRequest(question) && (settings.provider === 'builtin' || settings.provider === 'llamacpp') && settings.managed) {
         set({ activeTool: 'start_local' })

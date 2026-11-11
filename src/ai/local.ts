@@ -82,7 +82,9 @@ export const downloadModel = (id: string) => invoke<string>('local_model_downloa
 export const cancelDownload = () => invoke<void>('local_model_cancel')
 export const downloadProgress = () => invoke<DownloadProgress>('local_model_progress')
 export const setModelDirectory = (directory: string) => invoke<void>('local_model_directory_set', { directory })
-export const installerSetupRequest = () => isTauri() ? invoke<string | null>('local_ai_setup_request') : Promise.resolve(null)
+/** Demande de l'installeur Windows : dossier des modèles et modèle choisi. */
+export interface InstallerRequest { directory: string; model: string }
+export const installerSetupRequest = () => isTauri() ? invoke<InstallerRequest | null>('local_ai_setup_request') : Promise.resolve(null)
 
 /** Mémoire inconnue : choisir le modèle le plus léger. */
 export function recommendedModel(models: LocalModel[], memory: number): LocalModel | undefined {

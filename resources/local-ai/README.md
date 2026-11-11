@@ -1,7 +1,8 @@
 # Ressources de l'assistant local
 
 Les modèles ne sont pas inclus dans l'installeur. `models.json` fixe leurs versions, tailles,
-licences et SHA-256 officiels, vérifiés le 21 octobre 2026 auprès des dépôts Qwen sur Hugging Face.
+licences et SHA-256 officiels, vérifiés le 21 octobre 2026 (Qwen3 4B et 8B) et le 11 novembre 2026
+(Qwen3 14B, avec nouvelle vérification du 4B) auprès des dépôts Qwen sur Hugging Face.
 Les minima de mémoire sont des repères conservateurs pour AV Diagram, pas des garanties de vitesse.
 
 `python scripts/prepare-local-ai.py` prépare le moteur llama.cpp pour la plateforme courante

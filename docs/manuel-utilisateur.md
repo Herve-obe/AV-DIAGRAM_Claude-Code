@@ -323,11 +323,24 @@ Avant un chantier, vérifier au minimum : variantes et cartes des appareils ; no
 
 Le bouton Assistant IA de la barre supérieure ouvre le chat. Il reste grisé tant que l’assistant n’est pas activé. Pour l’installer ou le configurer, ouvre Paramètres → Assistant IA → Installer / configurer l’IA. Tu peux choisir l’IA locale ou une IA externe via API. Ces réglages concernent ce poste, pas le projet ; AV Diagram reste utilisable sans assistant.
 
-Sous Windows, l’installeur propose une case facultative Installer l’IA locale et le dossier des modèles. Si tu la coches, le logiciel s’ouvre après l’installation et télécharge Qwen3 4B avec progression et annulation. Après le téléchargement, lance le test et active l’assistant. Si tu passes cette étape, retrouve-la dans les paramètres. Sur Mac, utilise directement les paramètres après installation.
+Choisir son IA. AV Diagram n’impose aucune IA en ligne. Deux options sont proposées, et l’assistant reste facultatif.
+
+| Critère | IA locale (gratuite) | IA personnelle (Claude, Gemini, ChatGPT, Mistral) |
+|---|---|---|
+| Coût | Gratuite | Facturée par le fournisseur à chaque demande ; un schéma complet peut demander plusieurs dizaines d’échanges |
+| Données | Rien ne quitte l’ordinateur | Messages et parties utiles du schéma envoyés au fournisseur, après accord |
+| Installation | Case de l’installeur Windows ou Paramètres → Assistant IA ; 2,5 à 9 Go à télécharger | Clé API du fournisseur, enregistrée dans le trousseau du système |
+| Aide à l’utilisation du logiciel | Oui, d’après ce manuel | Oui, d’après ce manuel |
+| Vérification et modification simple d’un schéma | Oui | Oui |
+| Cahier des charges long, vague ou très contraint | Limitée : propositions parfois incomplètes, à vérifier de près | Meilleurs résultats, à vérifier aussi |
+
+Limites de l’IA locale. Le modèle local est plus petit que les IA en ligne. Il convient aux explications, aux vérifications et aux schémas simples. Pour une demande de plus de 1 500 caractères ou de plus de cinq contraintes (exclusions, retours séparés, redondance, matériel imposé…), le chat affiche avant de commencer : « Cette demande est complexe pour l’IA locale ; le résultat sera à vérifier de près. » La demande est traitée quand même. Découpe-la en étapes ou passe à une IA personnelle si le résultat ne convient pas. Un rappel de ces limites reste affiché en haut du chat ; pour une IA personnelle, ce rappel indique que chaque demande est facturée par le fournisseur.
+
+Sous Windows, l’installeur propose une case facultative Installer l’IA locale, décochée par défaut, le choix du modèle (Qwen3 4B, 8B ou 14B) et le dossier des modèles. Si tu la coches, le logiciel s’ouvre après l’installation et télécharge le modèle choisi avec progression et annulation. Après le téléchargement, lance le test et active l’assistant. Si tu passes cette étape, retrouve-la dans les paramètres. Sur Mac, utilise directement les paramètres après installation.
 
 Pour l’IA locale, le moteur est inclus dans les builds Windows et macOS. Le moteur Mac exige macOS 13.3 ou plus ; le logiciel reste utilisable sur macOS 12.3 sans ce moteur. Aucun compte ni clé API n’est nécessaire. Choisis le dossier des modèles dans la configuration. Changer de dossier ne déplace ni ne supprime ceux déjà téléchargés : sélectionne à nouveau leur dossier pour les retrouver.
 
-Choisis Qwen3 4B (environ 2,50 Go, au moins 8 Go de mémoire conseillés) ou Qwen3 8B (environ 5,03 Go, au moins 16 Go conseillés). Ces repères ne garantissent pas la vitesse ; garde de la mémoire libre pour le système et les autres logiciels. Les modèles officiels sont sous licence Apache-2.0, consultable dans l’écran de configuration.
+Choisis Qwen3 4B (environ 2,50 Go, au moins 8 Go de mémoire conseillés), Qwen3 8B (environ 5,03 Go, au moins 16 Go conseillés) ou Qwen3 14B (environ 9,00 Go, au moins 32 Go conseillés). Plus le modèle est gros, meilleures sont ses propositions, mais plus il est lent et gourmand en mémoire. Ces repères ne garantissent pas la vitesse ; garde de la mémoire libre pour le système et les autres logiciels. Les modèles officiels sont sous licence Apache-2.0, consultable dans l’écran de configuration.
 
 Clique sur Télécharger le modèle. Seul ce téléchargement utilise Internet (Hugging Face) ; aucun nom de projet, schéma ou conversation n’est envoyé. Tu peux annuler puis reprendre. AV Diagram vérifie la taille et l’empreinte du fichier avant de l’utiliser. En cas d’erreur d’espace disque ou de réseau, corrige la cause puis reprends. Le modèle reste sur ce poste, hors du dossier du projet et des Save Back Up.
 

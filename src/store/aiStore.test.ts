@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { beforeEach, expect, it, vi } from 'vitest'
-import '../i18n'
+import i18n from '../i18n'
 import { GENERIC_LIBRARY } from '../library/generic'
 import { createProject, DEFAULT_SHEET_ID } from '../model/project'
 import { createDraft, layoutDraft, runTool } from '../ai/tools'
@@ -160,4 +160,17 @@ it('réorganise sans lancer le modèle, puis applique et annule dans une étape'
   expect(Object.keys(useProject.getState().project.links)).toHaveLength(15)
   useProject.getState().undo()
   expect(useProject.getState().project).toBe(before)
+})
+
+it('prévient avant de traiter une demande complexe pour l’IA locale, mais pas pour une IA personnelle', async () => {
+  const brief = 'Concert : il faut 8 micros HF. ' + 'Les retours doivent être séparés pour chaque musicien. '.repeat(30)
+  await useAi.getState().send(brief)
+  const notes = () => useAi.getState().bubbles.filter(b => b.kind === 'note').map(b => b.text)
+  expect(notes()).toContain(i18n.t('ai.limits.complex'))
+  expect(useAi.getState().bubbles.findIndex(b => b.kind === 'note')).toBe(useAi.getState().bubbles.findIndex(b => b.kind === 'user') + 1)
+  useAi.getState().clear()
+  useAi.setState({ settings: { enabled: true, consent: true, provider: 'anthropic', model: 'claude-sonnet-5-5' } })
+  native.request.mockResolvedValue({ status: 200, body: JSON.stringify({ content: [{ type: 'text', text: 'OK' }] }) })
+  await useAi.getState().send(brief)
+  expect(notes()).not.toContain(i18n.t('ai.limits.complex'))
 })

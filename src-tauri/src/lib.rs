@@ -20,7 +20,7 @@ pub fn run() {
         .plugin(tauri_plugin_opener::init())
         .manage(local::LocalServer::default())
         .manage(local_models::Downloads::default())
-        .manage(local_models::InstallerSetup(std::sync::Mutex::new(local_models::installer_directory(std::env::args_os().skip(1)))))
+        .manage(local_models::InstallerSetup(std::sync::Mutex::new(local_models::installer_request(std::env::args_os().skip(1)))))
         .manage(collab::CollabServer::default())
         .manage(dwg::DwgConverter::default())
         .invoke_handler(tauri::generate_handler![

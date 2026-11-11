@@ -22,6 +22,7 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
   const saved = useRef(false)
   const autoStarted = useRef(false)
   const installerDirectory = useAi((s) => s.installerDirectory)
+  const installerModel = useAi((s) => s.installerModel) ?? 'qwen3-4b'
   const selected = catalog?.models.find((m) => m.id === id)
   const downloading = !!progress?.running
   const locked = busy || downloading
@@ -45,12 +46,12 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
       setId((current) => c.models.some((m) => m.id === current) ? current : recommendedModel(c.models, c.memory_bytes)?.id ?? '')
       if (installerDirectory && !autoStarted.current && c.runtime_available) {
         autoStarted.current = true
-        setBusy(true); setError(false); setMessage(t('ai.local.downloading')); setId('qwen3-4b')
+        setBusy(true); setError(false); setMessage(t('ai.local.downloading')); setId(installerModel)
         try {
           await setModelDirectory(installerDirectory)
           if (useAi.getState().settings.provider === 'builtin') useAi.getState().saveSettings({ ...useAi.getState().settings, enabled: false })
           setCatalog(await localCatalog())
-          await downloadModel('qwen3-4b')
+          await downloadModel(installerModel)
           if (!disposed) { setCatalog(await localCatalog()); setMessage(t('ai.local.downloaded')) }
         } catch (e) { if (!disposed) displayError(e) }
         finally { if (!disposed) setBusy(false) }
@@ -60,7 +61,7 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
     poll()
     const timer = window.setInterval(poll, 500)
     return () => { disposed = true; window.clearInterval(timer) }
-  }, [native, t, installerDirectory, displayError])
+  }, [native, t, installerDirectory, installerModel, displayError])
 
   useEffect(() => () => { if (!saved.current && native) void stopServer().catch(() => undefined) }, [native])
 

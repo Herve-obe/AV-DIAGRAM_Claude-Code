@@ -645,9 +645,9 @@
       "title": "AI assistant: setup",
       "chooseHint": "Two options, same assistant. You can switch at any time.",
       "local": "Local AI",
-      "localDesc": "Free, offline, no data leaves the computer. Decent quality, limited by the model size. Needs a fairly recent computer.",
+      "localDesc": "Free, offline, no data leaves the computer. Suitable for explanations, checks and simple diagrams; for a complex specification its proposals may be incomplete. Requires a fairly recent computer.",
       "account": "External AI via API",
-      "accountDesc": "Use your API key with an external provider. Internet and provider billing according to your plan.",
+      "accountDesc": "Uses your API key with Claude, Gemini, ChatGPT or Mistral. Better results on complex requests, but each request is billed by the provider: a complete diagram may take several dozen exchanges. Internet connection required.",
       "disable": "Turn the assistant off",
       "progress": "Steps",
       "step": {
@@ -761,7 +761,13 @@
     "installHint": "Install or configure AI in Settings > AI Assistant.",
     "settingsHint": "Choose local AI on this computer or an external AI API. These settings belong to this workstation, not the project.",
     "configured": "Assistant enabled",
-    "notConfigured": "Assistant not enabled"
+    "notConfigured": "Assistant not enabled",
+    "limits": {
+      "banner": "Free local AI: suitable for explanations, checks and simple diagrams. For a complex specification, its proposals may be incomplete: check them.",
+      "billing": "Personal AI {{provider}}: each request is billed by the provider. A complete diagram may take several dozen exchanges.",
+      "more": "Learn more",
+      "complex": "This request is complex for the local AI; check the result closely."
+    }
   },
   "routing": {
     "label": "Auto routing",

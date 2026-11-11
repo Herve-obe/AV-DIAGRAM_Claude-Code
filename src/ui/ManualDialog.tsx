@@ -4,7 +4,8 @@ import { notifyError, saveContent } from '../io/files'
 import { Icon } from './Icon'
 import { version } from '../../package.json'
 
-export function ManualDialog({ onClose }: { onClose: () => void }) {
+/** anchor : chapitre à afficher à l'ouverture (ex. « chapitre-21 ») */
+export function ManualDialog({ onClose, anchor }: { onClose: () => void; anchor?: string }) {
   const { t } = useTranslation(), previous = useRef(document.activeElement as HTMLElement | null)
   useEffect(() => {
     const restore = previous.current
@@ -18,7 +19,7 @@ export function ManualDialog({ onClose }: { onClose: () => void }) {
   }
   return <div className="overlay" onMouseDown={e=>{if(e.target===e.currentTarget)onClose()}}><section className="dialog manual-dialog" role="dialog" aria-modal="true" aria-labelledby="manual-title" onKeyDown={e=>e.stopPropagation()}>
     <header className="dialog-head"><h2 id="manual-title">{t('manual.title')}</h2><button className="icon-btn" autoFocus onClick={onClose} aria-label={t('settings.close')}><Icon name="close" /></button></header>
-    <iframe title={t('manual.title')} src="manuel.html" onLoad={e=>e.currentTarget.contentWindow?.addEventListener('keydown',key=>{if(key.key==='Escape'){key.preventDefault();onClose()}})} />
+    <iframe title={t('manual.title')} src={anchor ? `manuel.html#${anchor}` : 'manuel.html'} onLoad={e=>e.currentTarget.contentWindow?.addEventListener('keydown',key=>{if(key.key==='Escape'){key.preventDefault();onClose()}})} />
     <footer className="dialog-foot"><span className="dialog-hint">{t('manual.offline')}</span><button className="btn" onClick={download}>{t('manual.download')}</button><button className="btn" onClick={onClose}>{t('settings.close')}</button></footer>
   </section></div>
 }

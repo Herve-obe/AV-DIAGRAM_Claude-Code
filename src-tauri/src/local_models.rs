@@ -68,18 +68,29 @@ pub fn local_model_directory_set(app: tauri::AppHandle, state: tauri::State<Down
     Ok(())
 }
 
-pub struct InstallerSetup(pub Mutex<Option<String>>);
+/// Demande de l'installeur Windows : dossier des modèles et modèle choisi (Qwen3 4B par défaut).
+#[derive(Clone, Debug, PartialEq, Serialize)]
+pub struct InstallerRequest { pub directory: String, pub model: String }
 
-pub fn installer_directory(args: impl IntoIterator<Item = std::ffi::OsString>) -> Option<String> {
+pub struct InstallerSetup(pub Mutex<Option<InstallerRequest>>);
+
+/// `--install-local-ai <dossier absolu> [--model <identifiant du catalogue>]` ; tout autre argument est refusé.
+pub fn installer_request(args: impl IntoIterator<Item = std::ffi::OsString>) -> Option<InstallerRequest> {
     let mut args = args.into_iter();
     if args.next()?.to_str()? != "--install-local-ai" { return None; }
     let directory = args.next()?.into_string().ok()?;
-    if args.next().is_some() || !Path::new(&directory).is_absolute() { return None; }
-    Some(directory)
+    if !Path::new(&directory).is_absolute() { return None; }
+    let model = match args.next() {
+        None => "qwen3-4b".to_string(),
+        Some(flag) if flag.to_str() == Some("--model") => args.next()?.into_string().ok()?,
+        Some(_) => return None,
+    };
+    if args.next().is_some() || self::model(&model).is_err() { return None; }
+    Some(InstallerRequest { directory, model })
 }
 
 #[tauri::command]
-pub fn local_ai_setup_request(state: tauri::State<InstallerSetup>) -> Option<String> {
+pub fn local_ai_setup_request(state: tauri::State<InstallerSetup>) -> Option<InstallerRequest> {
     state.0.lock().ok()?.take()
 }
 
@@ -296,10 +307,15 @@ mod tests {
     fn demande_installeur_limitee_au_dossier_explicitement_choisi() {
         let directory = std::env::temp_dir().join("IA locale é test").to_string_lossy().into_owned();
         let args = |values: &[&str]| values.iter().map(std::ffi::OsString::from).collect::<Vec<_>>();
-        assert_eq!(installer_directory(args(&["--install-local-ai", &directory])), Some(directory));
-        assert!(installer_directory(args(&["--install-local-ai", "relative"])).is_none());
-        assert!(installer_directory(args(&["--other", "x"])).is_none());
-        assert!(installer_directory(args(&["--install-local-ai", "x", "extra"])).is_none());
+        let request = |model: &str| Some(InstallerRequest { directory: directory.clone(), model: model.into() });
+        assert_eq!(installer_request(args(&["--install-local-ai", &directory])), request("qwen3-4b"));
+        assert_eq!(installer_request(args(&["--install-local-ai", &directory, "--model", "qwen3-14b"])), request("qwen3-14b"));
+        assert!(installer_request(args(&["--install-local-ai", &directory, "--model", "../../x"])).is_none());
+        assert!(installer_request(args(&["--install-local-ai", &directory, "--model"])).is_none());
+        assert!(installer_request(args(&["--install-local-ai", &directory, "--model", "qwen3-8b", "extra"])).is_none());
+        assert!(installer_request(args(&["--install-local-ai", "relative"])).is_none());
+        assert!(installer_request(args(&["--other", "x"])).is_none());
+        assert!(installer_request(args(&["--install-local-ai", "x", "extra"])).is_none());
     }
     #[test]
     fn catalogue_et_frontieres() {

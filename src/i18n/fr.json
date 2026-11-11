@@ -645,9 +645,9 @@
       "title": "Assistant IA : configuration",
       "chooseHint": "Deux options, même assistant. Tu peux changer à tout moment.",
       "local": "IA locale",
-      "localDesc": "Gratuit, hors ligne, aucune donnée ne sort de l'ordinateur. Qualité correcte, limitée par la taille du modèle. Demande un ordinateur assez récent.",
+      "localDesc": "Gratuite, hors ligne, aucune donnée ne sort de l'ordinateur. Elle convient aux explications, aux vérifications et aux schémas simples ; pour un cahier des charges complexe, ses propositions peuvent être incomplètes. Demande un ordinateur assez récent.",
       "account": "IA externe via API",
-      "accountDesc": "Utilise ta clé API chez un fournisseur externe. Connexion Internet et facturation du fournisseur selon son offre.",
+      "accountDesc": "Utilise ta clé API chez Claude, Gemini, ChatGPT ou Mistral. Meilleurs résultats sur les demandes complexes, mais chaque demande est facturée par le fournisseur : un schéma complet peut demander plusieurs dizaines d'échanges. Connexion Internet nécessaire.",
       "disable": "Désactiver l'assistant",
       "progress": "Étapes",
       "step": {
@@ -761,7 +761,13 @@
     "installHint": "Installe ou configure l’IA dans Paramètres > Assistant IA.",
     "settingsHint": "Choisis l’IA locale sur cet ordinateur ou une IA externe via API. Ces réglages concernent ce poste, pas le projet.",
     "configured": "Assistant activé",
-    "notConfigured": "Assistant non activé"
+    "notConfigured": "Assistant non activé",
+    "limits": {
+      "banner": "IA locale gratuite : elle convient aux explications, aux vérifications et aux schémas simples. Pour un cahier des charges complexe, ses propositions peuvent être incomplètes : vérifie-les.",
+      "billing": "IA personnelle {{provider}} : chaque demande est facturée par le fournisseur. Un schéma complet peut demander plusieurs dizaines d'échanges.",
+      "more": "En savoir plus",
+      "complex": "Cette demande est complexe pour l'IA locale ; le résultat sera à vérifier de près."
+    }
   },
   "routing": {
     "label": "Tracé auto",

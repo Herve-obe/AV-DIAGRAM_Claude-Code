@@ -408,6 +408,11 @@ Var AiCheckbox
 Var AiDirectory
 Var AiDirectoryEdit
 Var AiBrowse
+; Modèle choisi : qwen3-4b (défaut), qwen3-8b ou qwen3-14b, transmis au premier lancement.
+Var AiModel
+Var AiRadio4b
+Var AiRadio8b
+Var AiRadio14b
 Page custom PageLocalAi PageLeaveLocalAi
 Function PageLocalAi
   Call SkipIfPassive
@@ -417,20 +422,34 @@ Function PageLocalAi
   ${If} $0 == error
     Abort
   ${EndIf}
-  ${NSD_CreateCheckbox} 0 0 100% 24u "$(aiInstall)"
+  ${NSD_CreateCheckbox} 0 0 100% 12u "$(aiInstall)"
   Pop $AiCheckbox
   ${NSD_SetState} $AiCheckbox $AiInstall
   ${NSD_OnClick} $AiCheckbox LocalAiToggle
-  ${NSD_CreateLabel} 0 30u 100% 43u "$(aiDownloadHint)"
+  ${NSD_CreateRadioButton} 12u 14u -12u 11u "$(aiModel4b)"
+  Pop $AiRadio4b
+  ${NSD_AddStyle} $AiRadio4b ${WS_GROUP}
+  ${NSD_CreateRadioButton} 12u 26u -12u 11u "$(aiModel8b)"
+  Pop $AiRadio8b
+  ${NSD_CreateRadioButton} 12u 38u -12u 11u "$(aiModel14b)"
+  Pop $AiRadio14b
+  ${If} $AiModel == "qwen3-14b"
+    ${NSD_Check} $AiRadio14b
+  ${ElseIf} $AiModel == "qwen3-8b"
+    ${NSD_Check} $AiRadio8b
+  ${Else}
+    ${NSD_Check} $AiRadio4b
+  ${EndIf}
+  ${NSD_CreateLabel} 0 52u 100% 34u "$(aiDownloadHint)"
   Pop $0
-  ${NSD_CreateLabel} 0 79u 100% 12u "$(aiDirectory)"
+  ${NSD_CreateLabel} 0 88u 100% 10u "$(aiDirectory)"
   Pop $0
-  ${NSD_CreateDirRequest} 0 94u 76% 14u "$AiDirectory"
+  ${NSD_CreateDirRequest} 0 99u 76% 13u "$AiDirectory"
   Pop $AiDirectoryEdit
-  ${NSD_CreateBrowseButton} 79% 94u 21% 14u "$(aiBrowse)"
+  ${NSD_CreateBrowseButton} 79% 99u 21% 13u "$(aiBrowse)"
   Pop $AiBrowse
   ${NSD_OnClick} $AiBrowse LocalAiBrowse
-  ${NSD_CreateLabel} 0 118u 100% 28u "$(aiLaterHint)"
+  ${NSD_CreateLabel} 0 116u 100% 24u "$(aiLaterHint)"
   Pop $0
   Push $AiCheckbox
   Call LocalAiToggle
@@ -442,6 +461,9 @@ Function LocalAiToggle
   ${NSD_GetState} $AiCheckbox $AiInstall
   EnableWindow $AiDirectoryEdit $AiInstall
   EnableWindow $AiBrowse $AiInstall
+  EnableWindow $AiRadio4b $AiInstall
+  EnableWindow $AiRadio8b $AiInstall
+  EnableWindow $AiRadio14b $AiInstall
 FunctionEnd
 
 Function LocalAiBrowse
@@ -456,6 +478,15 @@ FunctionEnd
 
 Function PageLeaveLocalAi
   ${NSD_GetText} $AiDirectoryEdit $AiDirectory
+  StrCpy $AiModel "qwen3-4b"
+  ${NSD_GetState} $AiRadio8b $0
+  ${If} $0 = ${BST_CHECKED}
+    StrCpy $AiModel "qwen3-8b"
+  ${EndIf}
+  ${NSD_GetState} $AiRadio14b $0
+  ${If} $0 = ${BST_CHECKED}
+    StrCpy $AiModel "qwen3-14b"
+  ${EndIf}
   ${If} $AiInstall = ${BST_CHECKED}
     System::Call 'shlwapi::PathIsRelativeW(w "$AiDirectory") i .r0'
     ${StrLoc} $1 $AiDirectory '$\"' '>'
@@ -508,7 +539,7 @@ FunctionEnd
 Function RunMainBinary
   ${If} $AiInstall = ${BST_CHECKED}
     ; Le point final évite qu'un antislash de dossier échappe le guillemet de fin.
-    nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" '--install-local-ai "$AiDirectory\."'
+    nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" '--install-local-ai "$AiDirectory\." --model $AiModel'
   ${Else}
     nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" ""
   ${EndIf}
@@ -568,10 +599,16 @@ LangString aiTitle 1033 "Assistant AI (optional)"
 LangString aiTitle 1036 "Assistant IA (facultatif)"
 LangString aiSubtitle 1033 "Install local AI now or configure it later in Settings."
 LangString aiSubtitle 1036 "Installez l'IA locale maintenant ou depuis les Paramètres."
-LangString aiInstall 1033 "Install local AI - Qwen3 4B (2.5 GB)"
-LangString aiInstall 1036 "Installer l'IA locale - Qwen3 4B (2,5 Go)"
-LangString aiDownloadHint 1033 "After installation, AV Diagram will download the model in a progress window. Internet and 2.5 GB of free disk space are required. License: Apache-2.0. 8 GB RAM recommended."
-LangString aiDownloadHint 1036 "Après l'installation, AV Diagram téléchargera le modèle avec une progression. Internet et 2,5 Go d'espace libre sont nécessaires. Licence : Apache-2.0. Mémoire conseillée : 8 Go."
+LangString aiInstall 1033 "Install local AI (free, offline) - choose a model:"
+LangString aiInstall 1036 "Installer l'IA locale (gratuite, hors ligne) - choisir un modèle :"
+LangString aiModel4b 1033 "Qwen3 4B - 2.5 GB, 8 GB RAM minimum (light computers)"
+LangString aiModel4b 1036 "Qwen3 4B - 2,5 Go, 8 Go de mémoire minimum (ordinateurs légers)"
+LangString aiModel8b 1033 "Qwen3 8B - 5.0 GB, 16 GB RAM minimum (recommended balance)"
+LangString aiModel8b 1036 "Qwen3 8B - 5,0 Go, 16 Go de mémoire minimum (bon compromis)"
+LangString aiModel14b 1033 "Qwen3 14B - 9.0 GB, 32 GB RAM minimum (best local results)"
+LangString aiModel14b 1036 "Qwen3 14B - 9,0 Go, 32 Go de mémoire minimum (meilleurs résultats en local)"
+LangString aiDownloadHint 1033 "AV Diagram downloads the model at first launch, with a progress window (Internet required). License: Apache-2.0. Local AI suits explanations, checks and simple diagrams; complex specifications may need careful review."
+LangString aiDownloadHint 1036 "AV Diagram télécharge le modèle au premier lancement, avec une progression (Internet nécessaire). Licence : Apache-2.0. L'IA locale convient aux explications, aux vérifications et aux schémas simples ; un cahier des charges complexe demandera une vérification attentive."
 LangString aiDirectory 1033 "Model installation folder"
 LangString aiDirectory 1036 "Dossier d'installation des modèles"
 LangString aiBrowse 1033 "Browse..."
@@ -592,6 +629,7 @@ Function .onInit
     StrCpy $InstallDirectoryOverride $INSTDIR
   ${EndIf}
   StrCpy $AiInstall 0
+  StrCpy $AiModel "qwen3-4b"
   StrCpy $AiDirectory "$LOCALAPPDATA\${BUNDLEID}\local-ai\models"
   ${GetOptions} $CMDLINE "/P" $PassiveMode
   ${IfNot} ${Errors}

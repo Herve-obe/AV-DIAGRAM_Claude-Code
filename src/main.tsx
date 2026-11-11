@@ -27,10 +27,10 @@ Promise.all([main ? restoreProject() : Promise.resolve(), restoreUserLibrary()])
     startAutosave()
     // Sauvegardes de sécurité tournantes dans le dossier choisi (Paramètres > Enregistrement)
     startBackups(() => useProject.getState().project)
-    const directory = await installerSetupRequest().catch(() => null)
-    if (directory) {
+    const request = await installerSetupRequest().catch(() => null)
+    if (request) {
       useUi.getState().setStartOpen(false)
-      useAi.setState({ setupOpen: true, installerDirectory: directory })
+      useAi.setState({ setupOpen: true, installerDirectory: request.directory, installerModel: request.model })
     }
   }
   void startWindowSync()

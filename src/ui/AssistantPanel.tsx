@@ -9,6 +9,7 @@ import type { PaperSize } from '../model/types'
 import { isReady, useAi } from '../store/aiStore'
 import { Icon } from './Icon'
 import { CompanyAlerts } from './CompanyAlerts'
+import { ManualDialog } from './ManualDialog'
 
 const SUGGESTIONS = ['ai.suggest.review', 'ai.suggest.concert', 'ai.suggest.di'] as const
 
@@ -78,6 +79,7 @@ export function AssistantPanel() {
   const { t } = useTranslation()
   const { settings, bubbles, busy, activeTool } = useAi()
   const [text, setText] = useState('')
+  const [manualOpen, setManualOpen] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
   const ready = isReady(settings)
   const native = nativeAvailable()
@@ -105,6 +107,16 @@ export function AssistantPanel() {
         </span>
       </div>
 
+      {/* Rappel permanent : limites de l'IA locale, ou facturation par le fournisseur */}
+      {ready && settings.provider && (
+        <p className={`ai-banner ${providerInfo(settings.provider).kind === 'local' ? 'is-local' : 'is-account'}`}>
+          {providerInfo(settings.provider).kind === 'local'
+            ? t('ai.limits.banner')
+            : t('ai.limits.billing', { provider: providerInfo(settings.provider).label })}
+          {' '}<button type="button" className="link-btn" onClick={() => setManualOpen(true)}>{t('ai.limits.more')}</button>
+        </p>
+      )}
+      {manualOpen && <ManualDialog anchor="chapitre-21" onClose={() => setManualOpen(false)} />}
       <label className="ai-scope">{t('company.aiScope')}<select value={settings.libraryScope ?? 'all'} disabled={busy} onChange={e => useAi.getState().saveSettings({ ...settings, libraryScope: e.target.value as 'company' | 'all' })}>
         <option value="all">{t('company.allAi')}</option><option value="company">{t('company.onlyAi')}</option>
       </select></label>

@@ -184,3 +184,18 @@ describe('assistant : serveur local géré', () => {
     expect(portOf(undefined)).toBe(8080)
   })
 })
+
+describe('assistant : limites de l’IA locale', () => {
+  it('juge complexe une demande de plus de 1 500 caractères ou de plus de 5 contraintes', async () => {
+    const { countConstraints, isComplexForLocal } = await import('./limits')
+    expect(isComplexForLocal('Ajoute une DI sur la console.')).toBe(false)
+    expect(isComplexForLocal('Sonorisation de salle. '.repeat(70))).toBe(true)
+    const brief = [
+      'Il faut 8 micros HF.', 'Les retours doivent être séparés pour chaque musicien.', 'Pas de micros dans les enceintes de façade.',
+      'Le réseau Dante doit être redondant.', 'Uniquement du matériel Yamaha pour les consoles.', 'Au moins deux enregistreurs.',
+    ].join('\n')
+    expect(countConstraints(brief)).toBe(6)
+    expect(isComplexForLocal(brief)).toBe(true)
+    expect(isComplexForLocal(brief.split('\n').slice(0, 5).join('\n'))).toBe(false)
+  })
+})
