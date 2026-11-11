@@ -209,6 +209,8 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     let mut config = WebSocketConfig::default();
     config.max_message_size = Some(MAX_MESSAGE);
     config.max_frame_size = Some(MAX_MESSAGE);
+    // Le type d'erreur est imposé par la signature de rappel de tungstenite
+    #[allow(clippy::result_large_err)]
     let check_origin = |request: &Request, response: Response| {
         let origin = request.headers().get("origin").and_then(|o| o.to_str().ok());
         if allowed_origin(origin) { Ok(response) } else {

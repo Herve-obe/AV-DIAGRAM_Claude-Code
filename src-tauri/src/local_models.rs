@@ -210,9 +210,9 @@ async fn transfer(state: &Downloads, m: &Model, target: &Path, partial: &Path, m
         return Err("network".into());
     }
     if let Some(n) = response.content_length() { if n != m.size - start { return Err("integrity".into()); } }
-    let mut file = OpenOptions::new().create(true).write(true).truncate(start == 0).append(start > 0).open(&partial).map_err(|_| "storage")?;
+    let mut file = OpenOptions::new().create(true).write(true).truncate(start == 0).append(start > 0).open(partial).map_err(|_| "storage")?;
     let mut received = start;
-    state.progress(&m, received, true);
+    state.progress(m, received, true);
     loop {
         if cancelled() { return Err("cancelled".into()); }
         let chunk = tokio::select! {
@@ -221,19 +221,19 @@ async fn transfer(state: &Downloads, m: &Model, target: &Path, partial: &Path, m
         };
         let Some(chunk) = chunk else { break; };
         received += chunk.len() as u64;
-        if received > m.size { drop(file); let _ = fs::remove_file(&partial); return Err("integrity".into()); }
+        if received > m.size { drop(file); let _ = fs::remove_file(partial); return Err("integrity".into()); }
         file.write_all(&chunk).map_err(|_| "storage")?;
-        state.progress(&m, received, true);
+        state.progress(m, received, true);
     }
     file.sync_all().map_err(|_| "storage")?;
     drop(file);
     let p = partial.to_path_buf(); let spec = m.clone();
     let verified = tauri::async_runtime::spawn_blocking(move || verify_file(&p, &spec)).await.map_err(|_| "storage")?;
-    if let Err(e) = verified { let _ = fs::remove_file(&partial); return Err(e); }
+    if let Err(e) = verified { let _ = fs::remove_file(partial); return Err(e); }
     if cancelled() { return Err("cancelled".into()); }
     if target.exists() { fs::remove_file(target).map_err(|_| "storage")?; }
     fs::rename(partial, target).map_err(|_| "storage")?;
-    state.progress(&m, m.size, false);
+    state.progress(m, m.size, false);
     Ok(target.to_string_lossy().into_owned())
 }
 
