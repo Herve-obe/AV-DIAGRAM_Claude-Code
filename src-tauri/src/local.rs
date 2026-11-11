@@ -109,6 +109,9 @@ fn spawn_with_key(server: &Path, model: &Path, port: u16, context: u32, key: Opt
         .arg("--jinja")
         .args(["-c", &context.to_string()])
         .args(["--offline", "--no-webui", "--no-agent", "--parallel", "1"])
+        // Cache des invites limité à 1 Gio : la valeur par défaut (8 Gio) s'ajoute au modèle et
+        // dépasse la mémoire d'un poste de 8 Go (arrêt du serveur constaté pendant l'évaluation).
+        .args(["--cache-ram", "1024"])
         .stdin(Stdio::null())
         .stdout(Stdio::null())
         .stderr(Stdio::null());
@@ -228,6 +231,7 @@ mod tests {
         std::thread::sleep(std::time::Duration::from_millis(300));
         let args = std::fs::read_to_string(dir.join("args")).unwrap();
         assert!(args.contains("--host 127.0.0.1 --port 8089 --jinja -c 4096"));
+        assert!(args.contains("--cache-ram 1024"));
         state.stop();
         assert!(state.0.lock().unwrap().is_none());
         std::fs::remove_dir_all(&dir).ok();

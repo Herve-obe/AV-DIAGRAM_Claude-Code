@@ -24,11 +24,11 @@ Objectif : un assistant capable de générer, vérifier et modifier un schéma a
 | 3 | Installeur Windows : case « IA locale » décochée par défaut, choix entre Qwen3 4B, 8B et 14B, téléchargement au premier lancement ; même choix dans les paramètres sous macOS | Fait le 11 novembre 2026 (essai sur Windows à faire) |
 | 4 | **Aide à l'utilisation du logiciel** (voir ci-dessous) | Fait le 11 novembre 2026 : 38 fiches, 40 questions de test |
 | 5 | Base de connaissance métier (`docs/ia/metier.md`) : niveaux, signaux, fantôme, liaisons point à point, Dante, horloge, DMX, intercom, règles de la bibliothèque | Rédigé le 11 novembre 2026, relecture par Hervé en attente |
-| 6 | Batterie d'évaluation : cahiers des charges notés automatiquement pour l'IA locale et pour l'IA personnelle | 16 cas tirés des exercices de BTS d'Hervé, correcteur et lanceur prêts ; premières mesures à lancer |
+| 6 | Batterie d'évaluation : cahiers des charges notés automatiquement pour l'IA locale et pour l'IA personnelle | 16 cas tirés des exercices de BTS d'Hervé, correcteur et lanceur prêts. Premier échantillon le 11 novembre 2026 (Qwen3 4B, processeur 4 cœurs sans carte graphique) : 2 cas notés 0/100, questions répétées au lieu du schéma ; 2 cas interrompus par l’arrêt du serveur, mémoire saturée par le cache des invites, corrigé ; voir `evaluation/resultats/` |
 | 7 | Nettoyage de l'agent : suppression de l'analyse par mots-clés et des scénarios codés en dur (`propose_audio_production`, `propose_video_studio`), boucle simple | Fait le 11 novembre 2026 : scénarios codés en dur et analyse par mots-clés retirés, boucle simple, liste d'outils stable |
 | 8 | Outils de modification : supprimer, débrancher, remplacer en reprenant les liaisons, renommer, déplacer de feuille, créer un multipaire, choix automatique des prises compatibles | À faire |
 | 9 | Interface : plan affiché avant construction, aperçu des différences, import d'un cahier des charges en PDF (texte extrait sur l'ordinateur) | À faire |
-| 10 | Passes de réglage sur la batterie de tests, puis publication des limites mesurées dans le manuel | À faire |
+| 10 | Passes de réglage sur la batterie de tests, puis publication des limites mesurées dans le manuel. Premier point relevé : Qwen3 4B repose une question au lieu de construire, même après « Fais des hypothèses raisonnables » | À faire |
 | 11 | **Lien avec le logiciel de gestion de matériel de l'entreprise** (voir ci-dessous) | Version future |
 
 ## Étape 4 : aide à l'utilisation du logiciel

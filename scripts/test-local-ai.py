@@ -82,7 +82,7 @@ def main():
     trace.write_text('', encoding='utf-8')
     env = {**os.environ, 'LLAMA_API_KEY': token, 'AVD_LOCAL_AI_TEST_URL': f'http://127.0.0.1:{port}/v1', 'AVD_LOCAL_AI_TEST_TOKEN': token, 'AVD_LOCAL_AI_TEST_DIAGRAM': str(folder / 'diagram-tv.avd'), 'AVD_LOCAL_AI_TEST_TRACE': str(trace)}
     flags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' else 0
-    command = [str(engine), '-m', str(model), '--host', '127.0.0.1', '--port', str(port), '--jinja', '-c', '16384', '--parallel', '1', '--offline', '--no-webui', '--no-agent', '--alias', spec['id']]
+    command = [str(engine), '-m', str(model), '--host', '127.0.0.1', '--port', str(port), '--jinja', '-c', '16384', '--parallel', '1', '--cache-ram', '1024', '--offline', '--no-webui', '--no-agent', '--alias', spec['id']]
     with (folder / 'engine.log').open('wb') as log:
         process = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=log, stderr=log, env=env, creationflags=flags)
         try:
