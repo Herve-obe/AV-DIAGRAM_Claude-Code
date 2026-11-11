@@ -162,7 +162,8 @@ export const useAi = create<AiState>((set, get) => ({
       const res = await runTurn({
         transport: nativeTransport,
         connection: { provider: settings.provider, baseUrl: settings.baseUrl, model: settings.model },
-        system: buildSystemPrompt({ lang: ui.lang, mode: ui.mode, projectName: project.name, sheetName: sheetName(project, ui.currentSheetId) }),
+        system: buildSystemPrompt({ lang: ui.lang, mode: ui.mode, projectName: project.name, sheetName: sheetName(project, ui.currentSheetId),
+          knowledge: providerInfo(settings.provider).kind === 'local' ? 'essential' : 'full' }),
         history,
         userText: note ? `[${note}]\n${question}` : question,
         draft,

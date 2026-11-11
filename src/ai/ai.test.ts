@@ -199,3 +199,20 @@ describe('assistant : limites de l’IA locale', () => {
     expect(isComplexForLocal(brief.split('\n').slice(0, 5).join('\n'))).toBe(false)
   })
 })
+
+describe('assistant : connaissance métier', () => {
+  it('envoie l’essentiel à l’IA locale et le document complet à l’IA personnelle', async () => {
+    const { buildSystemPrompt, metierEssential } = await import('./agent')
+    const base = { lang: 'fr' as const, mode: 'expert' as const, projectName: 'P', sheetName: 'F' }
+    const essential = metierEssential()
+    expect(essential).toContain('+4 dBu')
+    expect(essential).toContain('mix-minus')
+    expect(essential.length).toBeLessThan(2500)
+    const local = buildSystemPrompt({ ...base, knowledge: 'essential' })
+    const full = buildSystemPrompt({ ...base, knowledge: 'full' })
+    expect(local).toContain(essential)
+    expect(local).not.toContain('## 12. Lumière')
+    expect(full).toContain('## 12. Lumière (DMX et réseau)')
+    expect(full.length).toBeGreaterThan(local.length + 5000)
+  })
+})
