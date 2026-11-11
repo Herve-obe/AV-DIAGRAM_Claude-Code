@@ -5,7 +5,7 @@ import { useSaveFolder } from '../store/saveFolderStore'
 import { createProjectFile, openProjectFile, projectFolderName, saveContent, saveMany, saveProjectFile } from './files'
 import { writeBackup } from './backups'
 
-const fs = vi.hoisted(() => ({ writeTextFile: vi.fn(), writeFile: vi.fn(), readTextFile: vi.fn(), exists: vi.fn(), mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn() }))
+const fs = vi.hoisted(() => ({ writeTextFile: vi.fn(), writeFile: vi.fn(), readTextFile: vi.fn(), stat: vi.fn(), exists: vi.fn(), mkdir: vi.fn(), readDir: vi.fn(), remove: vi.fn() }))
 const dialog = vi.hoisted(() => ({ save: vi.fn(), open: vi.fn(), message: vi.fn() }))
 vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => true }))
 vi.mock('@tauri-apps/plugin-fs', () => fs)
@@ -19,6 +19,7 @@ beforeEach(() => {
   fs.mkdir.mockResolvedValue(undefined)
   fs.exists.mockResolvedValue(false)
   fs.readDir.mockResolvedValue([])
+  fs.stat.mockResolvedValue({ size: 1000 })
   useSaveFolder.setState({ dir: '/p', projectFiles: {}, savedToFile: [], backups: true })
 })
 afterEach(() => vi.restoreAllMocks())

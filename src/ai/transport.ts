@@ -20,6 +20,8 @@ export const keyStore = {
 
 /** Ouvre une page (console du fournisseur) dans le navigateur du système. */
 export async function openExternal(url: string): Promise<void> {
+  // Seules les pages HTTPS (consoles des fournisseurs, licences) ; la portée native les restreint aussi par hôte
+  if (!url.startsWith('https://')) return
   if (isTauri()) {
     const { openUrl } = await import('@tauri-apps/plugin-opener')
     await openUrl(url)

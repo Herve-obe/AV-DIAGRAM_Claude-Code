@@ -84,6 +84,7 @@ fn check_model(path: &Path) -> Result<(), String> {
     Ok(())
 }
 
+#[cfg(test)]
 fn spawn(server: &Path, model: &Path, port: u16, context: u32) -> Result<Child, String> {
     spawn_with_key(server, model, port, context, None, None)
 }
@@ -148,7 +149,10 @@ pub fn local_start(
     context: Option<u32>,
 ) -> Result<(), String> {
     let epoch = state.stop();
-    state.launch(epoch, || spawn(Path::new(&server_path), Path::new(&model_path), port, context.unwrap_or(8192)), None)
+    // Clé éphémère : une page web ouverte sur le poste ne peut pas interroger ce serveur
+    let key = format!("{:032x}{:032x}", rand::random::<u128>(), rand::random::<u128>());
+    let connection = (format!("http://127.0.0.1:{port}/v1"), key.clone(), String::new());
+    state.launch(epoch, || spawn_with_key(Path::new(&server_path), Path::new(&model_path), port, context.unwrap_or(8192), Some(&key), None), Some(connection))
 }
 
 #[tauri::command]

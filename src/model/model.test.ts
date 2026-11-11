@@ -1151,3 +1151,12 @@ describe('équipement générique créé par l’utilisateur', () => {
     expect(genericErrors({ ...spec, name: ' ', groups: [] })).toEqual(expect.arrayContaining(['name', 'ports']))
   })
 })
+
+it('refuse un projet dont un identifiant vise le prototype', async () => {
+  const { createProject, isProject } = await import('./project')
+  const p = JSON.parse(JSON.stringify(createProject('t')))
+  expect(isProject(p)).toBe(true)
+  const piege = JSON.parse(JSON.stringify(p).replace('"equipment":{}', '"equipment":{"__proto__":{"id":"__proto__"}}'))
+  expect(Object.keys(piege.equipment)).toEqual(['__proto__'])
+  expect(isProject(piege)).toBe(false)
+})

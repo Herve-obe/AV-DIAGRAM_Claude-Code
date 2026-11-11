@@ -20,7 +20,26 @@
     "fs:allow-remove",
     "fs:allow-read-dir",
     "fs:allow-mkdir",
-    "opener:allow-open-url",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        {
+          "url": "https://platform.claude.com/*"
+        },
+        {
+          "url": "https://platform.openai.com/*"
+        },
+        {
+          "url": "https://aistudio.google.com/*"
+        },
+        {
+          "url": "https://console.mistral.ai/*"
+        },
+        {
+          "url": "https://huggingface.co/*"
+        }
+      ]
+    },
     "core:webview:allow-create-webview-window",
     "core:window:allow-maximize",
     "core:window:allow-set-focus",

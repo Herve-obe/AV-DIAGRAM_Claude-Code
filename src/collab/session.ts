@@ -34,6 +34,7 @@ import { setHistoryDriver, setProjectGuard, useProject } from '../store/projectS
 import { useUi } from '../store/uiStore'
 import { claimMembers, type Claims } from './protection'
 import { HostValidation } from './hostValidation'
+import { relayAddresses } from './relayAddress'
 import { guestChangeReason, guestLayers, hasFullAccess, type AccessReason } from './access'
 import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
 import { COLLAB_PROTOCOL, createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
@@ -603,8 +604,12 @@ function refreshParticipants() {
   const backups = new Map<string, string[]>()
   for (const [clientId, s] of cur.awareness.getStates()) {
     if (!s.name && clientId !== me) continue
-    const backup = Array.isArray(s.backup) && s.backup.length > 0
-    if (backup && typeof s.userId === 'string') backups.set(s.userId, s.backup)
+    // Relais de secours : adresses privées valides, et seulement pour un participant qui a le plein droit
+    // (ou soi-même) : un invité limité ne peut pas devenir le relais de tous et contourner ses droits.
+    const addresses = relayAddresses(s.backup)
+    const trusted = typeof s.userId === 'string' && (clientId === me || hasFullAccess(useCollab.getState().claims, s.userId))
+    const backup = addresses.length > 0 && trusted
+    if (backup) backups.set(s.userId, addresses)
     list.push({
       clientId,
       peerId: s.peerId,

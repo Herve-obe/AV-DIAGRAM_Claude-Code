@@ -184,10 +184,10 @@ export function drawioXml(p: Project): string {
     const ports=new Map<string,string>(),positions=new Map<string,Point>(),key=(eq:string,port:string)=>JSON.stringify([eq,port])
     for(const [ei,e] of eqs.entries()){
       const id=`eq${ei}`,shown=portsToDisplay(e.ports,used.get(e.id)??new Set(),e.portsExpanded),ins=shown.filter(q=>q.direction==='in'),outs=shown.filter(q=>q.direction!=='in'),h=60+Math.max(ins.length,outs.length)*22
-      cells.push(`<mxCell id="${x(id)}" value="${x(`${e.name}\n${e.manufacturer??''} ${e.model}`.trim())}" avdRole="equipment" avdFamily="${e.family}" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;verticalAlign=top;spacingTop=8;"><mxGeometry x="${e.position.x}" y="${e.position.y}" width="260" height="${h}" as="geometry"/></mxCell>`)
+      cells.push(`<mxCell id="${x(id)}" value="${x(`${e.name}\n${e.manufacturer??''} ${e.model}`.trim())}" avdRole="equipment" avdFamily="${x(e.family)}" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;verticalAlign=top;spacingTop=8;"><mxGeometry x="${e.position.x}" y="${e.position.y}" width="260" height="${h}" as="geometry"/></mxCell>`)
       for(const [side,list] of [ins,outs].entries())for(const [i,q] of list.entries()){
         const pid=`p${ports.size}`;ports.set(key(e.id,q.id),pid);positions.set(pid,{x:e.position.x+(side?260:0),y:e.position.y+50+i*22})
-        cells.push(`<mxCell id="${x(pid)}" value="${x(q.name)}" avdRole="port" avdSignal="${q.signal}" avdDirection="${q.direction}" avdConnector="${x(q.connector)}" vertex="1" parent="${x(id)}" style="ellipse;html=0;fillColor=${SIGNAL_STYLE[q.signal].color};labelPosition=${side?'left':'right'};align=${side?'right':'left'};"><mxGeometry x="${side}" y="${(50+i*22)/h}" width="8" height="8" relative="1" as="geometry"><mxPoint x="-4" y="-4" as="offset"/></mxGeometry></mxCell>`)
+        cells.push(`<mxCell id="${x(pid)}" value="${x(q.name)}" avdRole="port" avdSignal="${x(q.signal)}" avdDirection="${x(q.direction)}" avdConnector="${x(q.connector)}" vertex="1" parent="${x(id)}" style="ellipse;html=0;fillColor=${SIGNAL_STYLE[q.signal].color};labelPosition=${side?'left':'right'};align=${side?'right':'left'};"><mxGeometry x="${side}" y="${(50+i*22)/h}" width="8" height="8" relative="1" as="geometry"><mxPoint x="-4" y="-4" as="offset"/></mxGeometry></mxCell>`)
       }
     }
     for(const [li,l] of Object.values(p.links).entries()){

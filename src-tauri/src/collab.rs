@@ -3,8 +3,10 @@
 // à cet hôte, qui vérifie les droits avant de diffuser le document accepté.
 //
 // Sécurité : le port n'est ouvert que pendant la session ; un code à 6 chiffres est exigé avant tout
-// échange ; après 5 codes faux en une minute, l'adresse est refusée pendant une minute ; nombre de
-// participants et taille des messages limités ; l'hôte peut exclure un participant.
+// échange ; chaque tentative compte avant la poignée de main (5 par minute et par adresse, des connexions
+// ouvertes en parallèle ne les multiplient pas), au plus 8 poignées de main en cours ; une page web autre
+// que l'application est refusée (en-tête Origin) ; nombre de participants et taille des messages limités ;
+// l'hôte peut exclure un participant.
 //
 // Fin de session : « terminée » (l'hôte clique Terminer : les participants sont prévenus et gardent le
 // projet) ou « interrompue » (fermeture de l'application, passage de relais : les participants se
@@ -14,11 +16,13 @@ use serde::Serialize;
 use sha2::{Digest, Sha256};
 use std::collections::HashMap;
 use std::net::{IpAddr, SocketAddr};
-use std::sync::atomic::{AtomicU32, Ordering};
+use std::sync::atomic::{AtomicU32, AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 use tokio::net::{TcpListener, TcpStream};
 use tokio::sync::{mpsc, watch};
+use tokio_tungstenite::tungstenite::handshake::server::{ErrorResponse, Request, Response};
+use tokio_tungstenite::tungstenite::http::StatusCode;
 use tokio_tungstenite::tungstenite::protocol::WebSocketConfig;
 use tokio_tungstenite::tungstenite::Message;
 
@@ -27,6 +31,8 @@ const MAX_MESSAGE: usize = 16 * 1024 * 1024;
 const HELLO_TIMEOUT: Duration = Duration::from_secs(10);
 const MAX_FAILURES: u32 = 5;
 const LOCKOUT: Duration = Duration::from_secs(60);
+/// Poignées de main simultanées, toutes adresses confondues
+const MAX_HANDSHAKES: usize = 8;
 // À conserver identique à src/collab/ydoc.ts (cartes et slots partagés).
 const COLLAB_PROTOCOL: u64 = 6;
 
@@ -50,11 +56,12 @@ pub struct Hub {
     peers: Mutex<HashMap<u32, Peer>>,
     next_id: AtomicU32,
     failures: Mutex<HashMap<IpAddr, (u32, Instant)>>,
+    handshakes: AtomicUsize,
 }
 
 impl Hub {
     pub fn new(code: String) -> Arc<Self> {
-        Arc::new(Hub { code, host_token: rand::random::<[u8; 32]>().iter().map(|b| format!("{b:02x}")).collect(), peers: Mutex::new(HashMap::new()), next_id: AtomicU32::new(1), failures: Mutex::new(HashMap::new()) })
+        Arc::new(Hub { code, host_token: rand::random::<[u8; 32]>().iter().map(|b| format!("{b:02x}")).collect(), peers: Mutex::new(HashMap::new()), next_id: AtomicU32::new(1), failures: Mutex::new(HashMap::new()), handshakes: AtomicUsize::new(0) })
     }
 
     fn locked_out(&self, ip: IpAddr) -> bool {
@@ -76,6 +83,11 @@ impl Hub {
             *e = (0, Instant::now());
         }
         e.0 += 1;
+    }
+
+    /// Code juste : la tentative comptée avant la poignée de main est annulée.
+    fn forgive(&self, ip: IpAddr) {
+        if let Some(e) = self.failures.lock().unwrap().get_mut(&ip) { e.0 = e.0.saturating_sub(1); }
     }
 
     /// Envoie un message à tous les participants sauf l'expéditeur.
@@ -141,6 +153,22 @@ pub struct PeerInfo {
     address: String,
 }
 
+/// Poignée de main en cours : libère sa place à la fin, quelle qu'en soit l'issue.
+struct Handshake<'a>(&'a Hub);
+impl Drop for Handshake<'_> {
+    fn drop(&mut self) { self.0.handshakes.fetch_sub(1, Ordering::SeqCst); }
+}
+
+/// Origines admises : la fenêtre de l'application (Windows, macOS, Linux) et le serveur de développement.
+/// Un client sans en-tête Origin n'est pas un navigateur ; il doit quand même donner le code.
+fn allowed_origin(origin: Option<&str>) -> bool {
+    match origin {
+        None => true,
+        Some("tauri://localhost" | "http://tauri.localhost" | "https://tauri.localhost") => true,
+        Some(o) => cfg!(debug_assertions) && o == "http://localhost:5173",
+    }
+}
+
 /// Comparaison en temps constant : la durée ne révèle pas combien de chiffres sont justes.
 fn same_code(a: &str, b: &str) -> bool {
     a.len() == b.len() && a.bytes().zip(b.bytes()).fold(0u8, |acc, (x, y)| acc | (x ^ y)) == 0
@@ -171,10 +199,25 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     if hub.locked_out(addr.ip()) || hub.peers.lock().unwrap().len() >= MAX_PEERS {
         return;
     }
+    if hub.handshakes.fetch_add(1, Ordering::SeqCst) >= MAX_HANDSHAKES {
+        hub.handshakes.fetch_sub(1, Ordering::SeqCst);
+        return;
+    }
+    let handshake = Handshake(&hub);
+    // La tentative compte dès maintenant : attendre avant d'envoyer le code ne permet plus d'en essayer davantage
+    hub.record_failure(addr.ip());
     let mut config = WebSocketConfig::default();
     config.max_message_size = Some(MAX_MESSAGE);
     config.max_frame_size = Some(MAX_MESSAGE);
-    let Ok(ws) = tokio_tungstenite::accept_async_with_config(stream, Some(config)).await else { return };
+    let check_origin = |request: &Request, response: Response| {
+        let origin = request.headers().get("origin").and_then(|o| o.to_str().ok());
+        if allowed_origin(origin) { Ok(response) } else {
+            let mut refused = ErrorResponse::new(Some("origine refusée".into()));
+            *refused.status_mut() = StatusCode::FORBIDDEN;
+            Err(refused)
+        }
+    };
+    let Ok(ws) = tokio_tungstenite::accept_hdr_async_with_config(stream, check_origin, Some(config)).await else { return };
     let (mut sink, mut source) = ws.split();
 
     // 1. Présentation : {"type":"hello","code":"123456","name":"…"}
@@ -188,11 +231,12 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
         .map(|c| same_code(c, &hub.code))
         .unwrap_or(false);
     if !code_ok {
-        hub.record_failure(addr.ip());
         let _ = sink.send(json(serde_json::json!({ "type": "refused", "reason": "code" }))).await;
         let _ = sink.close().await;
         return;
     }
+    hub.forgive(addr.ip());
+    drop(handshake);
     if hello.as_ref().and_then(|h| h.get("protocol").and_then(|v| v.as_u64())) != Some(COLLAB_PROTOCOL) {
         let _ = sink.send(json(serde_json::json!({ "type": "refused", "reason": "version" }))).await;
         let _ = sink.close().await;
@@ -364,6 +408,12 @@ pub fn collab_kick(state: tauri::State<CollabServer>, peer_id: u32) -> bool {
 mod tests {
     use super::*;
     use tokio_tungstenite::connect_async;
+
+    #[test]
+    fn origines_admises() {
+        for ok in [None, Some("tauri://localhost"), Some("http://tauri.localhost"), Some("https://tauri.localhost")] { assert!(allowed_origin(ok)); }
+        for ko in ["https://evil.example", "http://localhost:8080", "null"] { assert!(!allowed_origin(Some(ko))); }
+    }
 
     async fn start() -> (u16, Arc<Hub>, watch::Sender<u8>) {
         let listener = TcpListener::bind(("127.0.0.1", 0)).await.unwrap();

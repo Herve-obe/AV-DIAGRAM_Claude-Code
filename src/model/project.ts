@@ -273,6 +273,8 @@ export function assignFreshNum(project: Project, linkId: string): Project {
 }
 
 /** Contrôle de la structure chargée depuis un fichier .avd ou le stockage local. */
+const RESERVED_IDS = new Set(['__proto__', 'constructor', 'prototype'])
+
 export function isProject(value: unknown): value is Project {
   const object = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x)
   const strings = (x: unknown, required: string[], optional: string[] = []) => object(x)
@@ -283,8 +285,9 @@ export function isProject(value: unknown): value is Project {
     && optional.every((k) => x[k] === undefined || (typeof x[k] === 'number' && Number.isFinite(x[k])))
   const stringList = (x: unknown) => x === undefined || (Array.isArray(x) && x.every((s) => typeof s === 'string'))
   const point = (x: unknown) => numbers(x, ['x', 'y'])
+  // Identifiants réservés refusés : un fichier piégé ne peut pas viser le prototype lors d'une fusion
   const entries = (x: unknown, check: (item: Record<string, unknown>) => boolean) => object(x)
-    && Object.entries(x).every(([id, item]) => object(item) && item.id === id && id.length > 0 && check(item))
+    && Object.entries(x).every(([id, item]) => object(item) && item.id === id && id.length > 0 && !RESERVED_IDS.has(id) && check(item))
 
   if (!object(value)) return false
   const v = value as unknown as Project

@@ -34,6 +34,12 @@ fn is_loopback(u: &Url) -> bool {
     matches!(u.host_str(), Some("localhost") | Some("127.0.0.1") | Some("[::1]") | Some("::1"))
 }
 
+/// Même serveur local : adresse de boucle locale et même port que le moteur lancé par le logiciel.
+fn same_local_server(managed: &str, requested: Option<&str>) -> bool {
+    let (Ok(a), Some(Ok(b))) = (Url::parse(managed), requested.map(Url::parse)) else { return false };
+    is_loopback(&b) && a.port_or_known_default() == b.port_or_known_default()
+}
+
 fn user_url(base_url: Option<String>, https_allowed: bool) -> Result<Url, String> {
     let raw = base_url.ok_or("adresse du serveur manquante")?;
     let u = Url::parse(raw.trim()).map_err(|_| "adresse du serveur invalide".to_string())?;
@@ -143,7 +149,13 @@ pub async fn ai_request(
     path: String,
     body: Option<String>,
 ) -> Result<AiResponse, String> {
-    let builtin = if provider == "builtin" { Some(state.connection()?) } else { None };
+    // Moteur géré par AV Diagram (modèle intégré, ou llama-server choisi par l'utilisateur et lancé par le
+    // logiciel) : adresse et clé éphémère connues de la partie native seulement.
+    let builtin = match provider.as_str() {
+        "builtin" => Some(state.connection()?),
+        "llamacpp" => state.connection().ok().filter(|(url, _)| same_local_server(url, base_url.as_deref())),
+        _ => None,
+    };
     let ep = if let Some((ref url, _)) = builtin {
         Endpoint { base: url.clone(), auth: Auth::None, key_required: false, local: true }
     } else { endpoint(&provider, base_url)? };
@@ -200,6 +212,13 @@ pub async fn ai_request(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn serveur_local_gere_reconnu_par_son_port() {
+        assert!(same_local_server("http://127.0.0.1:8080/v1", Some("http://localhost:8080/v1")));
+        assert!(!same_local_server("http://127.0.0.1:8080/v1", Some("http://localhost:8081/v1")));
+        assert!(!same_local_server("http://127.0.0.1:8080/v1", Some("http://192.168.1.2:8080/v1")));
+        assert!(!same_local_server("http://127.0.0.1:8080/v1", None));
+    }
 
     #[test]
     fn adresses_autorisees() {

@@ -277,8 +277,13 @@ const cableName = (id?: string) => {
   return c ? (c.reference ? `${c.label} (${c.reference})` : c.label) : ''
 }
 
-/** Échappe une valeur CSV (séparateur point-virgule, lisible par Excel en français). */
-const csvCell = (v: string | number | undefined) => `"${String(v ?? '').replace(/"/g, '""')}"`
+/** Échappe une valeur CSV (séparateur point-virgule, lisible par Excel en français). Une valeur qui commence
+ *  par =, +, -, @ ou une tabulation est préfixée d'une apostrophe : le tableur ne l'exécute pas comme une formule. */
+const csvCell = (v: string | number | undefined) => {
+  const text = typeof v === 'number' ? String(v) : String(v ?? '')
+  const safe = typeof v === 'string' && /^[=+\-@\t\r]/.test(text) ? `'${text}` : text
+  return `"${safe.replace(/"/g, '""')}"`
+}
 
 export function cableListCsv(project: Project, headers: string[]): string {
   const rows = Object.values(project.links)
@@ -347,8 +352,12 @@ export async function exportCanvasImage(project: Project, format: 'png' | 'svg')
   return saveContent(name, mark ? svgWatermark(svg, mark, ex.watermark, el.clientWidth, el.clientHeight) : svg, 'image/svg+xml')
 }
 
+/** Taille maximale d'un projet .avd : un fichier piégé ou corrompu ne doit pas saturer la mémoire. */
+const MAX_PROJECT_BYTES = 200_000_000
+
 /** Lit le fichier principal d'un raccourci récent, sans le remplacer par la récupération locale. */
 export async function readProjectFile(path: string): Promise<Project> {
-  const { readTextFile } = await import('@tauri-apps/plugin-fs')
+  const { readTextFile, stat } = await import('@tauri-apps/plugin-fs')
+  if ((await stat(path)).size > MAX_PROJECT_BYTES) throw new Error('large')
   return parseProject(await readTextFile(path))
 }
