@@ -216,3 +216,19 @@ describe('assistant : connaissance métier', () => {
     expect(full.length).toBeGreaterThan(local.length + 5000)
   })
 })
+
+describe('assistant : questions d’usage du logiciel', () => {
+  it('répond à « comment ajouter une zone » avec la fiche de procédure, sans outil de construction ni ajout', async () => {
+    const t = fakeTransport([{ body: openaiText('1. Clique sur « Zone »…') }])
+    const res = await runTurn({
+      transport: t, connection: { provider: 'builtin', model: 'qwen3-4b' }, system: 's', history: [],
+      userText: 'Comment je fais pour ajouter une zone ?', draft: createDraft(createProject('t'), DEFAULT_SHEET_ID), ctx,
+    })
+    const body = JSON.parse(t.sent[0].body!)
+    expect(body.tools.map((x: { function: { name: string } }) => x.function.name)).toEqual(['search_documentation'])
+    expect(body.messages[0].content).toContain('Procédure AV Diagram, Créer une zone')
+    expect(body.messages[0].content).toContain('Question d’usage du logiciel')
+    expect(res.draft.addedEquipment).toEqual([])
+    expect(res.reply).toContain('Zone')
+  })
+})

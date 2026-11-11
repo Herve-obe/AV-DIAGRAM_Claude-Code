@@ -16,7 +16,9 @@ describe('assistant local : sources et limites', () => {
     expect(hits.length).toBeGreaterThan(0)
     expect(hits.length).toBeLessThanOrEqual(3)
     expect(hits.some((h) => h.excerpt.includes('Save Back Up'))).toBe(true)
-    expect(hits.every((h) => h.source.startsWith('Manuel AV Diagram, '))).toBe(true)
+    // Fiches de procédure d'abord, puis le manuel ; chaque extrait porte sa source
+    expect(hits.every((h) => /^(?:Procédure|Manuel) AV Diagram, /.test(h.source))).toBe(true)
+    expect(hits.some((h) => h.source.startsWith('Manuel AV Diagram, '))).toBe(true)
     expect(searchDocumentation('!!!')).toEqual([])
     expect(searchDocumentation('zzzzinconnu')).toEqual([])
   })

@@ -22,9 +22,9 @@ Objectif : un assistant capable de générer, vérifier et modifier un schéma a
 | 1 | Compatibilité Claude Opus 5.5 et Sonnet 5.5 : plus d'outil forcé (erreur 400), limite de sortie relevée, modèle recommandé le plus récent | Fait le 11 novembre 2026 |
 | 2 | Avertissements : configuration, bandeau du chat, chapitre 21 du manuel, avertissement de demande complexe | Fait le 11 novembre 2026 |
 | 3 | Installeur Windows : case « IA locale » décochée par défaut, choix entre Qwen3 4B, 8B et 14B, téléchargement au premier lancement ; même choix dans les paramètres sous macOS | Fait le 11 novembre 2026 (essai sur Windows à faire) |
-| 4 | **Aide à l'utilisation du logiciel** (voir ci-dessous) | À faire |
-| 5 | Base de connaissance métier (`docs/ia/metier.md`), relue par Hervé : niveaux, signaux, fantôme, liaisons point à point, Dante, horloge, DMX, intercom, règles de la bibliothèque | À faire |
-| 6 | Batterie d'évaluation : 30 à 50 cahiers des charges, notés automatiquement pour l'IA locale et pour l'IA personnelle | À faire, avec des cahiers des charges réels anonymisés |
+| 4 | **Aide à l'utilisation du logiciel** (voir ci-dessous) | Fait le 11 novembre 2026 : 38 fiches, 40 questions de test |
+| 5 | Base de connaissance métier (`docs/ia/metier.md`) : niveaux, signaux, fantôme, liaisons point à point, Dante, horloge, DMX, intercom, règles de la bibliothèque | Rédigé le 11 novembre 2026, relecture par Hervé en attente |
+| 6 | Batterie d'évaluation : cahiers des charges notés automatiquement pour l'IA locale et pour l'IA personnelle | 16 cas tirés des exercices de BTS d'Hervé, correcteur et lanceur prêts ; premières mesures à lancer |
 | 7 | Nettoyage de l'agent : suppression de l'analyse par mots-clés et des scénarios codés en dur (`propose_audio_production`, `propose_video_studio`), boucle simple | À faire |
 | 8 | Outils de modification : supprimer, débrancher, remplacer en reprenant les liaisons, renommer, déplacer de feuille, créer un multipaire, choix automatique des prises compatibles | À faire |
 | 9 | Interface : plan affiché avant construction, aperçu des différences, import d'un cahier des charges en PDF (texte extrait sur l'ordinateur) | À faire |

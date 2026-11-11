@@ -12,7 +12,7 @@ const STOP = new Set(['avec', 'dans', 'pour', 'comment', 'est', 'les', 'des', 'u
 
 /** Mots de la question utiles à la recherche ; « ajoute une zone » et « ajouter des zones » donnent la même racine. */
 function terms(query: string) {
-  return [...new Set(normalize(query).split(/[^a-z0-9]+/).filter((s) => s.length > 2 && !STOP.has(s)).map((s) => s.replace(/(?:s|x)$/, '')))].slice(0, 20)
+  return [...new Set(normalize(query).split(/[^a-z0-9]+/).filter((s) => s.length > 2 && !STOP.has(s)).map((s) => (s.length > 4 ? s.replace(/(?:s|x)$/, '') : s)))].slice(0, 20)
 }
 
 /** Une question d'usage du logiciel (« comment… », « où se trouve… », « how do I… ») plutôt qu'une demande de schéma. */

@@ -1,0 +1,52 @@
+{
+  "id": "radio-avenir-cinema",
+  "titre": "Émission webradio en public avec duplex, insert téléphonique et live (L'avenir du cinéma)",
+  "source": {"fichier": "BTS BLANC AV 2 - Radio + concert v2.pdf", "driveId": "1EiiY5lbMhYTpe0DKdCuvL69eDZ9ZEH0F", "auteur": "Hervé Obejero", "pages": "1, 3-4"},
+  "domaine": ["son", "reseau"],
+  "difficulte": "complexe",
+  "demande": "Je prépare la régie d'une émission webradio en direct, en extérieur, à l'« Auditorium de Saint Genès », devant un public pour lequel il faut un petit système de sonorisation. Sur le plateau : un présentateur et 3 invités ; un reporter en duplex devant une salle de cinéma ; un responsable de Gaumont interviewé par téléphone en direct. En fin d'émission, un chanteur-guitariste (guitare électro-acoustique) accompagné d'un guitariste acoustique et d'une violoncelliste interprète un titre en direct.\n\nDeux consoles Yamaha en réseau Dante : une QL1 en façade (dans l'auditorium) et une QL5 en broadcast (dans le couloir, « régie Broadcast »), plus un boîtier Rio1608-D2 sur scène. La liaison Façade–Broadcast se fait par fibre.\n\nConsole Façade, mixage pour le public : la partie émission (présentateur, 3 invités, reporter en duplex, intervenant au téléphone), la partie live de fin d'émission, et un mix stéréo de type N-1 venant de la Broadcast (médias, duplex, insert téléphonique). Elle fournit : un retour de type N-1 pour la partie interview ; un retour classique pour le live (un retour chant + un même retour pour les 2 autres musiciens) ; la diffusion public (système passif NEXO) ; un envoi divergé des sources vers la Broadcast.\n\nConsole Broadcast, mixage antenne webradio : le duplex via un codec AETA Scoop5 S-IP ; l'insert téléphonique RAmi TEL300 ; un lecteur média (ordinateur + carte son : jingles, pubs) ; les sources divergées de la Façade. Elle fournit : un retour N-1 pour le duplex (Scoop5 S-IP) ; une sortie PGM pour la webradio sur IP en direct, sur un autre codec Scoop5 S-IP, conforme à la CST-RT-017-TV v3.0 (2011) ; un retour N-1 pour l'insert téléphonique ; un enregistrement du PGM sur un Sound Devices 744T, conforme à la même recommandation.\n\nMatériel : diffusion NEXO (2 PS15 R2 sur pieds, 1 LS18, 1 NXAMP4x4) ; retours NEXO (4 PS8 réglées en MONITOR, 1 NXAMP4x1 MK2) ; micros (2 exemplaires de chaque modèle documenté) ; codecs et insert téléphonique déjà paramétrés ; logiciel Flux pour la mesure des niveaux ; kit de câblage complet.\n\nJe veux tous les schémas, synoptiques et grilles d'affectation utiles à l'installation, les plus détaillés et clairs possible (routing console, bus, réseau AoIP, réglage ampli/contrôleur).",
+  "materielImpose": [
+    {"designation": "Console façade", "quantite": 1, "reference": "Yamaha QL1"},
+    {"designation": "Console broadcast", "quantite": 1, "reference": "Yamaha QL5"},
+    {"designation": "Boîtier de scène Dante", "quantite": 1, "reference": "Yamaha Rio1608-D2"},
+    {"designation": "Codec IP (duplex et diffusion webradio)", "quantite": 2, "reference": "AETA Scoop5 S-IP"},
+    {"designation": "Insert téléphonique", "quantite": 1, "reference": "RAmi TEL300"},
+    {"designation": "Enregistreur PGM", "quantite": 1, "reference": "Sound Devices 744T"},
+    {"designation": "Lecteur média (ordinateur + carte son)", "quantite": 1, "reference": null},
+    {"designation": "Enceinte de diffusion", "quantite": 2, "reference": "NEXO PS15 R2"},
+    {"designation": "Caisson de graves", "quantite": 1, "reference": "NEXO LS18"},
+    {"designation": "Amplificateur contrôleur diffusion", "quantite": 1, "reference": "NEXO NXAMP4x4"},
+    {"designation": "Enceinte de retour (mode MONITOR)", "quantite": 4, "reference": "NEXO PS8"},
+    {"designation": "Amplificateur contrôleur retours", "quantite": 1, "reference": "NEXO NXAMP4x1 MK2"},
+    {"designation": "Logiciel de mesure de niveau", "quantite": 1, "reference": "Flux"}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Deux consoles : QL1 façade et QL5 broadcast", "type": "quantite", "verif": {"famille": "console", "min": 2, "max": 2, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Un Rio1608-D2 sur scène, relié en Dante", "type": "liaison", "verif": {"famille": "stagebox", "min": 1, "max": null, "signal": "audioIp", "de": "stagebox", "vers": "console-foh"}},
+    {"id": "e3", "texte": "Au moins 8 sources plateau : présentateur, 3 invités, chant, guitare électro-acoustique, guitare acoustique, violoncelle", "type": "quantite", "verif": {"famille": "capture", "min": 8, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e4", "texte": "Liaison Dante par fibre entre Façade et Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "audioIp", "de": "console-foh", "vers": "console-broadcast"}},
+    {"id": "e5", "texte": "Mix stéréo N-1 de la Broadcast vers la Façade (médias, duplex, téléphone)", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "console-foh"}},
+    {"id": "e6", "texte": "Duplex reçu par un Scoop5 S-IP sur la Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "codec-duplex", "vers": "console-broadcast"}},
+    {"id": "e7", "texte": "Retour N-1 du duplex vers le Scoop5 S-IP", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "codec-duplex"}},
+    {"id": "e8", "texte": "Insert téléphonique TEL300 : entrée vers la Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "insert-telephone", "vers": "console-broadcast"}},
+    {"id": "e9", "texte": "Insert téléphonique TEL300 : retour N-1 depuis la Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "insert-telephone"}},
+    {"id": "e10", "texte": "Lecteur média (ordinateur + carte son) vers la Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "lecteur-media", "vers": "console-broadcast"}},
+    {"id": "e11", "texte": "PGM webradio vers un second Scoop5 S-IP", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "codec-diffusion"}},
+    {"id": "e12", "texte": "Enregistrement du PGM sur le 744T", "type": "sortie", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": "console-broadcast", "vers": "enregistreur-pgm"}},
+    {"id": "e13", "texte": "Diffusion public : QL1 → NXAMP4x4 → 2 PS15 R2 + 1 LS18", "type": "sortie", "verif": {"famille": "speaker", "min": 3, "max": null, "signal": null, "de": "amplification", "vers": "diffusion-public"}},
+    {"id": "e14", "texte": "Retours : QL1 → NXAMP4x1 MK2 → 4 PS8 (N-1 interview, retour chant, retour commun musiciens)", "type": "sortie", "verif": {"famille": "speaker", "min": 4, "max": null, "signal": null, "de": "amplification", "vers": "retour-plateau"}},
+    {"id": "e15", "texte": "Deux amplificateurs contrôleurs NEXO", "type": "quantite", "verif": {"famille": "amplification", "min": 2, "max": null, "signal": null, "de": "console-foh", "vers": "amplification"}},
+    {"id": "e16", "texte": "Mesure de niveau (Flux) sur le PGM", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "mesure-niveau"}},
+    {"id": "e17", "texte": "Retours live : un retour chant et un même retour pour les deux autres musiciens", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e18", "texte": "PGM et enregistrement conformes CST-RT-017-TV v3.0", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Trois N-1 distincts : interview (façade), duplex et téléphone (broadcast), chacun sans la voix du destinataire",
+    "Le mix N-1 renvoyé à la façade ne doit pas contenir les sources divergées venant de la façade (boucle)",
+    "Deux codecs Scoop5 S-IP distincts : un pour le duplex, un pour la diffusion webradio",
+    "Liaison fibre : les QL ont des ports Dante en cuivre, il faut un switch ou un convertisseur fibre",
+    "Une seule horloge maître sur le réseau Dante",
+    "Réglage des NXAMP : presets PS15/LS18 en diffusion, PS8 en mode MONITOR"
+  ],
+  "corrigeDisponible": false
+}
