@@ -16,7 +16,7 @@ function contains(a: Annotation, eq: Equipment): boolean {
 }
 
 /** Zone que donne la géométrie : le plus petit cadre lié qui contient l'équipement (cadres imbriqués). */
-export function frameZoneOf(project: Project, eq: Equipment): string | undefined {
+function frameZoneOf(project: Project, eq: Equipment): string | undefined {
   let best: Annotation | undefined
   for (const a of Object.values(project.annotations ?? {})) {
     if (a.kind !== 'frame' || !a.zoneId || sheetOf(a) !== sheetOf(eq) || !contains(a, eq)) continue

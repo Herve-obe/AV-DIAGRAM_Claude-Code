@@ -7,7 +7,7 @@ import excluded from './excluded.json'
 
 const files = import.meta.glob<EquipmentTemplate>('./devices/*.json', { eager: true, import: 'default' })
 
-export const DEVICE_LIBRARY: EquipmentTemplate[] = Object.entries(files).flatMap(([path, tpl]) => {
+const DEVICE_LIBRARY: EquipmentTemplate[] = Object.entries(files).flatMap(([path, tpl]) => {
   if (Object.hasOwn(excluded, tpl.id)) return []
   const errors = validateTemplate(tpl)
   if (errors.length) {

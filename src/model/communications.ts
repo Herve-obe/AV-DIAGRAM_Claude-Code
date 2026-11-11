@@ -1,8 +1,8 @@
 import { isNetworkPort, type DeploymentIssue, portName } from './network'
 import type { PortDef, Project } from './types'
 
-export const isIntercomPort = (p: PortDef) => p.signal === 'intercom' || !!p.intercom
-export const isClockPort = (p: PortDef) => p.signal === 'sync' || !!p.clock || isNetworkPort(p)
+const isIntercomPort = (p: PortDef) => p.signal === 'intercom' || !!p.intercom
+const isClockPort = (p: PortDef) => p.signal === 'sync' || !!p.clock || isNetworkPort(p)
 export const communicationPorts = (p: Project, sync: boolean) => Object.values(p.equipment).flatMap(e => e.ports.filter(sync ? isClockPort : isIntercomPort).map(port => ({ e, port })))
 export function clockIssues(p: Project): DeploymentIssue[] {
   const domains = new Map<string, ReturnType<typeof communicationPorts>>()

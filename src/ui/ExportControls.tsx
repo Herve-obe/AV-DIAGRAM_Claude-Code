@@ -16,7 +16,7 @@ import { Icon } from './Icon'
 // ---------- Format ----------
 
 /** Effet d'un format sur les feuilles du projet : réduction pour tenir sur une page, ou nombre de pages. */
-export function formatImpact(project: Project, opts: ExportSettings) {
+function formatImpact(project: Project, opts: ExportSettings) {
   const { area } = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, project.info?.revisions?.length ?? 0)
   const sheets = sheetsToExport(project, DEFAULT_SHEET_ID)
   let minFit = Infinity

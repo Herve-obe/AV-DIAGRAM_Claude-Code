@@ -618,5 +618,3 @@ function touches(g: SVGGElement, box: { x1: number; x2: number; y1: number; y2: 
   return false
 }
 
-/** Couleur CSS d'une famille de signal (utilisée par les listes et les filtres). */
-export const signalColor = (s: keyof typeof SIGNAL_STYLE) => SIGNAL_STYLE[s].color

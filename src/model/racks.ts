@@ -10,7 +10,7 @@ export const U_MM = 44.45
 /** Hauteurs de baie proposées dans l'interface */
 export const RACK_HEIGHTS = [4, 6, 8, 10, 12, 16, 20, 24, 32, 42, 45, 47] as const
 /** 1 W dissipé = 3,412 BTU/h */
-export const BTU_PER_W = 3.412
+const BTU_PER_W = 3.412
 
 const touch = (p: Project): Project => ({ ...p, updatedAt: new Date().toISOString() })
 

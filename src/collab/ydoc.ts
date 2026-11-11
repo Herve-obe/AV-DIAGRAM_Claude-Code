@@ -9,7 +9,7 @@ import * as Y from 'yjs'
 import type { Project } from '../model/types'
 import { sameData as same } from './compare'
 
-export const COLLECTIONS = ['equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets'] as const
+const COLLECTIONS = ['equipment', 'links', 'annotations', 'multicores', 'racks', 'sheets'] as const
 export type Collection = (typeof COLLECTIONS)[number]
 /** Format des listes de cartes et slots ; même valeur dans le relais natif collab.rs. */
 export const COLLAB_PROTOCOL = 6

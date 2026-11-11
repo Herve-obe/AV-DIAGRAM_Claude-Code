@@ -5,7 +5,7 @@ import { DEFAULT_SHEET_ID, uid } from './project'
 import type { SignalFamily } from './signals'
 import type { Equipment, Project, Sheet } from './types'
 
-export const GROUP_NODE_PREFIX = 'grp:'
+const GROUP_NODE_PREFIX = 'grp:'
 export const groupNodeId = (sheetId: string) => `${GROUP_NODE_PREFIX}${sheetId}`
 export const isGroupNodeId = (id: string) => id.startsWith(GROUP_NODE_PREFIX)
 export const sheetIdOfGroupNode = (id: string) => id.slice(GROUP_NODE_PREFIX.length)

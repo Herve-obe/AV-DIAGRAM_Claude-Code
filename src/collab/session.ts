@@ -197,7 +197,7 @@ function randomId(): string {
 }
 
 /** Couleur stable d'une personne (même couleur à chaque session) */
-export function colorOf(userId: string): string {
+function colorOf(userId: string): string {
   let h = 0
   for (const c of userId) h = (h * 31 + c.charCodeAt(0)) >>> 0
   return COLORS[h % COLORS.length]

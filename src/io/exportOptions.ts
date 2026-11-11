@@ -5,7 +5,6 @@ import { groupInterface, groupNodeId } from '../model/groups'
 import { DEFAULT_SHEET_ID } from '../model/project'
 import type { ExportSettings, PaperSize, Project, WatermarkSettings } from '../model/types'
 import { estimateBlock } from '../model/portDisplay'
-export { estimateBlock } from '../model/portDisplay'
 
 /** Dimensions ISO 216 en mm, côté court x côté long */
 const ISO_A: Record<PaperSize, [number, number]> = {
@@ -85,7 +84,7 @@ export function watermarkText(template: string, project: Project, date = new Dat
 // ---------- Planche ----------
 
 /** Cartouche : 180 mm de large au plus (tient sur la largeur d'un A4) */
-export const TITLE_BLOCK = { w: 180, h: 48 }
+const TITLE_BLOCK = { w: 180, h: 48 }
 /** Historique des indices au-dessus du cartouche : en-tête + 4 lignes au plus */
 const REV_ROW = 5
 export const MAX_REVISIONS = 4

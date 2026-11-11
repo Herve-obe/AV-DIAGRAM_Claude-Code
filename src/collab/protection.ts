@@ -33,7 +33,7 @@ export function lockedLayers(claims: Claims, me: string): Set<Layer> {
 }
 
 /** Calque d'une liaison : celui du signal de ses ports (synchro et contrôle : aucun). */
-export function linkLayer(p: Project, l: Pick<Link, 'source' | 'target'>): Layer | null {
+function linkLayer(p: Project, l: Pick<Link, 'source' | 'target'>): Layer | null {
   for (const end of [l.source, l.target]) {
     const port = p.equipment[end.equipmentId]?.ports.find((x) => x.id === end.portId)
     if (port) return layerOfSignal(port.signal)

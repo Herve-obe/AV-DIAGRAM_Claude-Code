@@ -75,7 +75,7 @@ function closedBox(points: [number, number][]): { x: number; y: number; w: numbe
   return onEdge ? { x, y, w, h } : null
 }
 
-export async function extractPage(pdfjs: typeof PdfJs, page: PdfJs.PDFPageProxy, index: number): Promise<PdfPage> {
+async function extractPage(pdfjs: typeof PdfJs, page: PdfJs.PDFPageProxy, index: number): Promise<PdfPage> {
   const vp = page.getViewport({ scale: 1 })
   const base = vp.transform as Matrix
   const OPS = pdfjs.OPS

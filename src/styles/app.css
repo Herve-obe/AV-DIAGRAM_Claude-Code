@@ -86,7 +86,6 @@ button:disabled { cursor: default; opacity: 0.35; }
 .catalogue-accept { display: flex; align-items: flex-start; gap: 8px; margin: 12px 14px; }
 .library-foot { display: grid; gap: 6px; }
 .assistant-btn { flex-shrink: 0; white-space: nowrap; }
-.sep { width: 1px; height: 18px; background: var(--border); margin: 0 6px; }
 .icon-btn {
   width: 30px; height: 30px;
   display: inline-grid; place-items: center;
@@ -94,7 +93,6 @@ button:disabled { cursor: default; opacity: 0.35; }
   color: var(--text-2);
 }
 .icon-btn:hover:not(:disabled) { background: var(--bg-3); color: var(--text); }
-.lang-code { font: 600 12px var(--font-label); letter-spacing: 0.8px; }
 .cmd-btn {
   display: flex; align-items: center; gap: 8px;
   padding: 5px 8px 5px 10px;
@@ -854,7 +852,6 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .collab-layer-access legend { max-width: 100%; padding: 0 4px; overflow-wrap: anywhere; font-size: 13px; color: var(--text-2); }
 .collab-layer-check { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
 .collab-layer-check:has(input:disabled) { opacity: .55; cursor: default; }
-.collab-layer, .collab-ip { font-size: 11.5px; color: var(--text-3); }
 .eq-presence {
   position: absolute; left: -2px; bottom: 100%; margin-bottom: 3px; max-width: 220px;
   padding: 1px 6px; border-radius: 4px 4px 4px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -864,7 +861,6 @@ tfoot td { background: var(--bg-2); border-bottom: 0; }
 .collab-check input { margin-top: 2px; }
 .collab-row { display: flex; gap: 8px; margin: 4px 14px 10px; }
 .collab-resume { border-bottom: 1px solid var(--border); padding-bottom: 4px; margin-bottom: 4px; }
-.collab-claim { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
 .collab-banner {
   position: fixed; top: 54px; left: 50%; transform: translateX(-50%); z-index: 60;
   display: flex; align-items: center; gap: 8px; max-width: min(720px, calc(100vw - 32px));

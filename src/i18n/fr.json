@@ -136,7 +136,6 @@
     "link": "Liaison",
     "name": "Nom",
     "model": "Modèle",
-    "manufacturer": "Fabricant",
     "zone": "Zone",
     "noZone": "Aucune zone",
     "power": "Puissance (W)",
@@ -335,8 +334,7 @@
     "equipment": "{{count}} équipements",
     "links": "{{count}} liaisons",
     "saved": "Fichier principal enregistré",
-    "unsaved": "Modifications non enregistrées",
-    "offline": "Utilisable hors ligne"
+    "unsaved": "Modifications non enregistrées"
   },
   "palette": {
     "placeholder": "Tape une commande ou un équipement",
@@ -398,12 +396,7 @@
     "title": "Paramètres",
     "close": "Fermer",
     "info": "Cartouche",
-    "infoHint": "Ces informations apparaissent dans le cartouche des planches PDF.",
     "projectName": "Nom du projet",
-    "client": "Client",
-    "venue": "Lieu",
-    "author": "Auteur",
-    "revision": "Révision",
     "zones": "Zones",
     "zonesHint": "Le code de zone sert de préfixe aux numéros de câbles (2 à 6 lettres ou chiffres).",
     "zoneName": "Nom",
@@ -431,9 +424,6 @@
     "titleBlockHint": "Cartouche du projet. Les champs vides sont complétés par le modèle de ce poste."
   },
   "pdf": {
-    "title": "Projet",
-    "date": "Date",
-    "sheet": "Planche",
     "legend": "Légende",
     "error": "L'export PDF a échoué. Réessaie après avoir ajusté la vue (touche F)."
   },
@@ -500,7 +490,6 @@
     "filePreview": "Un dossier « {{folder}} » contiendra {{file}} et « Save Back Up ». Un numéro est ajouté si le dossier existe déjà. Ctrl+S enregistre le fichier principal.",
     "browserSave": "Version navigateur : enregistrement par Ctrl+S (téléchargement).",
     "format": "Format de la feuille",
-    "showPage": "Afficher la feuille sur le schéma (bords, cartouche, légende) pour dessiner directement au format",
     "start": "Point de départ",
     "create": "Créer le projet",
     "fileError": "Le fichier du projet n'a pas pu être créé : {{error}}",
@@ -669,7 +658,6 @@
       "model": "Modèle",
       "localModelHint": "Préfère un modèle multilingue qui sait appeler des fonctions (outils).",
       "testHint": "Vérifie que le modèle répond et sait utiliser les outils d’AV Diagram.",
-      "testQuestion": "Quel est le niveau nominal d'une ligne audio professionnelle symétrique ?",
       "runTest": "Lancer le test",
       "providerHint": "Choisis le fournisseur de ton compte IA.",
       "compatible": "Autre (compatible OpenAI)",
@@ -791,7 +779,6 @@
   },
   "collab": {
     "title": "Session Collaborative",
-    "hint": "Plusieurs postes travaillent en même temps sur le même projet, sur le réseau local (réseau de la presta, bureau, VPN). Aucune donnée ne sort du réseau, pas de compte.",
     "name": "Ton nom (vu par les autres)",
     "namePlaceholder": "ex. Régie son",
     "host": "Héberger",
@@ -810,9 +797,7 @@
       "host": "Sélectionne une session dans la liste ou saisis une adresse dans les options avancées.",
       "code": "Saisis les 6 chiffres du code communiqué par l’hôte."
     },
-    "addresses": "Adresses de ce poste",
     "firewall": "Autorise AV Diagram sur le réseau privé. La session utilise le port TCP {{port}} ; la recherche des hôtes utilise le port UDP 4456.",
-    "joined": "Connecté à {{address}}.",
     "participants": "Participants",
     "you": "toi",
     "kick": "Exclure",
@@ -843,13 +828,6 @@
     "layers": {
       "title": "Droits par métier",
       "hint": "Chaque métier inclut ses appareils et le Réseau. Réseau seul reste limité au domaine Réseau. La vue générale est en lecture seule, sauf avec Droits complets.",
-      "free": "Hôte uniquement",
-      "mine": "réservé par toi",
-      "by": "réservé par {{name}}",
-      "claim": "Réserver",
-      "release": "Libérer",
-      "unassigned": "Hôte uniquement",
-      "assign": "Attribuer le calque {{layer}}",
       "offline": "{{name}} (déconnecté)",
       "hostHint": "Coche les métiers autorisés : chaque métier inclut le calque et le matériel Réseau. Réseau seul n’ouvre pas les autres métiers. Droits complets autorise toutes les modifications du projet, y compris depuis Général.",
       "userAccess": "Accès de {{name}}",
@@ -881,11 +859,9 @@
       "reconnected": "Reconnecté : les modifications faites pendant la coupure sont fusionnées.",
       "relayActive": "Relais de secours actif : les autres participants se reconnectent à ce poste.",
       "tookOver": "L'hôte ne répond plus : ce poste a pris le relais ({{address}}). Les autres s'y reconnectent automatiquement.",
-      "handedBack": "L'hôte d'origine est de retour : la session repasse chez lui.",
       "ended": "L'hôte a terminé la session. Le projet reste ouvert sur ce poste.",
       "kicked": "L'hôte t'a retiré de la session. Le projet reste ouvert sur ce poste.",
       "locked": "Modification refusée : le calque {{layer}} est réservé par {{name}}.",
-      "accessDenied": "Modification refusée : utilise un calque attribué par l’hôte. Les éléments communs et le calque général sont réservés à l’hôte.",
       "returnDeferred": "L’hôte initial est de nouveau disponible. Cette session reste hébergée ici pour conserver toutes les modifications.",
       "joinedRelay": "La session continue sur le poste de secours. Tu l’as rejoint avec son document à jour ; ce poste reste l’hôte."
     },
@@ -968,12 +944,6 @@
     "landscape": "Paysage",
     "portrait": "Portrait",
     "size": "{{w}} x {{h}} mm (ISO 216).",
-    "changeTitle": "Format modifié : {{from}} vers {{to}}. Que faire du synoptique ?",
-    "choiceFit": "Mettre à l'échelle",
-    "choiceFitHint": "Chaque feuille tient sur une page ; le schéma le plus grand est imprimé à environ {{scale}} % de sa taille d'impression.",
-    "choiceTile": "Garder la taille",
-    "choiceTileHint_one": "Le schéma reste à {{scale}} % : {{count}} page {{paper}} au total.",
-    "choiceTileHint_other": "Le schéma reste à {{scale}} % et peut déborder : {{count}} pages {{paper}} au total, à assembler (repères A1, B1...).",
     "scaleMode": "Échelle",
     "mode": {
       "fit": "Mettre à l’échelle sur une page",
@@ -1043,7 +1013,6 @@
       "deterrent": "le PDF s'ouvre partout ; copie et modification bloquées par les lecteurs courants, mais un outil spécialisé peut lever ces restrictions.",
       "strong": "contenu chiffré (AES-256), illisible sans le mot de passe d'ouverture. Le transmettre par un autre canal que le PDF."
     },
-    "pageHint": "Les bords de la feuille sont affichés en pointillés derrière le schéma, cartouche et légende compris. La feuille suit le schéma : à 100 % tant qu'il tient, agrandie (échelle réduite) au-delà. Touche F : voir toute la feuille.",
     "canvasHint": "Le canevas garde des pages à 100 %. Les pointillés délimitent la zone de dessin, hors marges, légende et cartouche. Dépasser ajoute des pages ; le choix d’export ne déplace aucun équipement."
   },
   "titleBlock": {
@@ -1192,8 +1161,6 @@
     "none": "Aucun : le système propose son dossier habituel",
     "choose": "Choisir…",
     "reset": "Ne plus utiliser de dossier",
-    "autoCopy": "Copie automatique du projet ouvert dans ce dossier (fichier .avd mis à jour à chaque modification)",
-    "lastCopy": "Dernière copie : {{path}} à {{date}}.",
     "error": "Copie impossible : {{error}}",
     "internal": "Enregistrement interne",
     "internalHint": "Une copie interne aide à récupérer le travail après un plantage. Les projets récents sont des raccourcis : les retirer ne supprime aucun fichier ni ancien projet local.",
@@ -1323,12 +1290,6 @@
     "hint": "pince, fais défiler, clique : tout ce qui arrive au logiciel s'affiche (Ctrl+Alt+D pour fermer)",
     "pageZoom": "Zoom de page du moteur d'affichage",
     "empty": "Rien reçu pour l'instant."
-  },
-  "pageFrame": {
-    "label": "{{paper}} {{orientation}}",
-    "titleBlock": "Cartouche",
-    "legend": "Légende",
-    "labelFitted": "{{paper}} {{orientation}} · ajusté à {{scale}} %"
   },
   "portDisplay": {
     "title": "Prises visibles sur le schéma",
@@ -1607,7 +1568,6 @@
   },
   "diagramExchange": {
     "menu": "Importer draw.io / Visio",
-    "reading": "Lecture du synoptique…",
     "title": "Importer le synoptique : {{name}}",
     "export": "Exporter en draw.io",
     "exportError": "Impossible d’exporter ce synoptique. Le projet reste ouvert.",

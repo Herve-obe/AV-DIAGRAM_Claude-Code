@@ -11,7 +11,7 @@ import { rememberWindowPlace, restoreWindowPlace, shouldRestorePanels } from './
 
 export type WindowRole = 'main' | 'panels'
 export const WINDOW_ROLE: WindowRole = new URLSearchParams(window.location.search).get('window') === 'panels' ? 'panels' : 'main'
-export const PANELS_LABEL = 'panels'
+const PANELS_LABEL = 'panels'
 
 const CHANNEL = 'avd-window-sync'
 const me = Math.random().toString(36).slice(2)

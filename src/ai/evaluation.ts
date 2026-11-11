@@ -44,7 +44,7 @@ const ROLE_FAMILIES: Record<string, EquipmentFamily[]> = {
 }
 
 /** Un équipement tient un rôle si son nom contient tous les mots du rôle, ou, pour un rôle d'un seul mot, si sa famille correspond. */
-export function matchesRole(project: Project, equipmentId: string, role: string): boolean {
+function matchesRole(project: Project, equipmentId: string, role: string): boolean {
   const e = project.equipment[equipmentId]
   if (!e) return false
   const words = norm(role).split('-').filter(Boolean)

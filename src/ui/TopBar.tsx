@@ -30,7 +30,7 @@ import { fitToPage } from '../editor/PageGrid'
 
 const THEME_NEXT: Record<ThemePref, ThemePref> = { system: 'dark', dark: 'light', light: 'system' }
 
-export function csvHeaders(t: (k: string) => string) {
+function csvHeaders(t: (k: string) => string) {
   return ['number', 'signal', 'from', 'to', 'connectors', 'cable', 'length'].map((k) => t(`dock.${k}`))
 }
 

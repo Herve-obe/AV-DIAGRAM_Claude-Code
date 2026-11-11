@@ -52,13 +52,13 @@ export function endOf(node: InternalNode<Node> | undefined, handleId: string | n
  * Au-delà de ce nombre de liaisons visibles, un glisser ne recalcule que les liaisons des blocs déplacés
  * (les autres sont recalculées au lâcher) ; en dessous, tout le schéma reste propre pendant le geste.
  */
-export const LIVE_FULL_ROUTING_MAX = 150
+const LIVE_FULL_ROUTING_MAX = 150
 
 /**
  * Tracés des liaisons. Pendant un glisser (moved non vide) d'un grand schéma, seules les liaisons des
  * blocs déplacés sont recalculées ; les autres gardent leur tracé jusqu'au lâcher.
  */
-export function computeRoutes(
+function computeRoutes(
   nodeLookup: Map<string, InternalNode<Node>>,
   edges: Edge[],
   moved?: Set<string>,

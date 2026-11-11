@@ -470,14 +470,3 @@ export async function runTurn(opts: {
   }
   throw new AiError('steps', '')
 }
-
-/** Dernière étape de la configuration : une question simple, sans outils, pour vérifier que le modèle répond. */
-export async function testChat(transport: Transport, connection: Connection, question: string): Promise<string> {
-  const api = providerInfo(connection.provider).api
-  const body = await send(transport, connection.provider, connection.baseUrl, buildChatRequest(api, connection.model, 'Réponds en une phrase.', [{ role: 'user', text: question }], [], connection.provider))
-  try {
-    return parseChatResponse(api, body).text
-  } catch {
-    throw new AiError('format', body.slice(0, 200))
-  }
-}

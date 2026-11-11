@@ -136,7 +136,6 @@
     "link": "Link",
     "name": "Name",
     "model": "Model",
-    "manufacturer": "Manufacturer",
     "zone": "Zone",
     "noZone": "No zone",
     "power": "Power (W)",
@@ -335,8 +334,7 @@
     "equipment": "{{count}} items",
     "links": "{{count}} links",
     "saved": "Main file saved",
-    "unsaved": "Unsaved changes",
-    "offline": "Works offline"
+    "unsaved": "Unsaved changes"
   },
   "palette": {
     "placeholder": "Type a command or equipment",
@@ -398,12 +396,7 @@
     "title": "Settings",
     "close": "Close",
     "info": "Title block",
-    "infoHint": "These details appear in the title block of PDF sheets.",
     "projectName": "Project name",
-    "client": "Client",
-    "venue": "Venue",
-    "author": "Author",
-    "revision": "Revision",
     "zones": "Zones",
     "zonesHint": "The zone code prefixes cable numbers (2 to 6 letters or digits).",
     "zoneName": "Name",
@@ -431,9 +424,6 @@
     "titleBlockHint": "Project title block. Empty fields are completed from this computer's template."
   },
   "pdf": {
-    "title": "Project",
-    "date": "Date",
-    "sheet": "Sheet",
     "legend": "Legend",
     "error": "PDF export failed. Try again after fitting the view (F key)."
   },
@@ -500,7 +490,6 @@
     "filePreview": "A folder named “{{folder}}” will contain {{file}} and “Save Back Up”. A number is added if the folder already exists. Ctrl+S saves the main file.",
     "browserSave": "Browser version: save with Ctrl+S (download).",
     "format": "Sheet format",
-    "showPage": "Show the sheet on the diagram (edges, title block, legend) to draw directly at size",
     "start": "Starting point",
     "create": "Create project",
     "fileError": "The project file could not be created: {{error}}",
@@ -669,7 +658,6 @@
       "model": "Model",
       "localModelHint": "Prefer a multilingual model that can call functions (tools).",
       "testHint": "Check that the model responds and can use AV Diagram tools.",
-      "testQuestion": "What is the nominal level of a professional balanced audio line?",
       "runTest": "Run the test",
       "providerHint": "Pick the provider of your AI account.",
       "compatible": "Other (OpenAI compatible)",
@@ -791,7 +779,6 @@
   },
   "collab": {
     "title": "Collaborative Session",
-    "hint": "Several computers work on the same project at the same time over the local network (venue network, office, VPN). No data leaves the network, no account.",
     "name": "Your name (seen by others)",
     "namePlaceholder": "e.g. FOH audio",
     "host": "Host",
@@ -810,9 +797,7 @@
       "host": "Select a session from the list or enter an address in the advanced options.",
       "code": "Enter the 6-digit code provided by the host."
     },
-    "addresses": "Addresses of this computer",
     "firewall": "Allow AV Diagram on the private network. Sessions use TCP port {{port}}; host discovery uses UDP port 4456.",
-    "joined": "Connected to {{address}}.",
     "participants": "Participants",
     "you": "you",
     "kick": "Remove",
@@ -843,13 +828,6 @@
     "layers": {
       "title": "Editing roles",
       "hint": "Each role includes its equipment and Network. Network alone remains limited to Network. The general view is read-only unless Full access is granted.",
-      "free": "Host only",
-      "mine": "reserved by you",
-      "by": "reserved by {{name}}",
-      "claim": "Reserve",
-      "release": "Release",
-      "unassigned": "Host only",
-      "assign": "Assign {{layer}} layer",
       "offline": "{{name}} (disconnected)",
       "hostHint": "Check the permitted roles: each includes the Network layer and equipment. Network alone does not grant other roles. Full access allows all project edits, including from General.",
       "userAccess": "Access for {{name}}",
@@ -881,11 +859,9 @@
       "reconnected": "Reconnected: changes made during the outage are merged.",
       "relayActive": "Backup relay active: the other participants reconnect to this computer.",
       "tookOver": "The host is not answering: this computer took over ({{address}}). The others reconnect automatically.",
-      "handedBack": "The original host is back: the session moves back to it.",
       "ended": "The host ended the session. The project stays open on this computer.",
       "kicked": "The host removed you from the session. The project stays open on this computer.",
       "locked": "Change refused: the {{layer}} layer is reserved by {{name}}.",
-      "accessDenied": "Change refused: use a layer assigned by the host. Shared settings and the general view are reserved for the host.",
       "returnDeferred": "The original host is available again. This session stays hosted here to preserve all changes.",
       "joinedRelay": "The session continues on the backup computer. You joined its current document; that computer remains the host."
     },
@@ -968,12 +944,6 @@
     "landscape": "Landscape",
     "portrait": "Portrait",
     "size": "{{w}} x {{h}} mm (ISO 216).",
-    "changeTitle": "Size changed: {{from}} to {{to}}. What should happen to the diagram?",
-    "choiceFit": "Scale to fit",
-    "choiceFitHint": "Each sheet fits on one page; the largest diagram is printed at about {{scale}} % of its print size.",
-    "choiceTile": "Keep the size",
-    "choiceTileHint_one": "The diagram stays at {{scale}} %: {{count}} {{paper}} page in total.",
-    "choiceTileHint_other": "The diagram stays at {{scale}} % and may overflow: {{count}} {{paper}} pages in total, to assemble (marks A1, B1...).",
     "scaleMode": "Scale",
     "mode": {
       "fit": "Scale to one page",
@@ -1043,7 +1013,6 @@
       "deterrent": "the PDF opens everywhere; copy and editing are blocked by common readers, but a specialised tool can lift these restrictions.",
       "strong": "content encrypted (AES-256), unreadable without the open password. Send it through another channel than the PDF."
     },
-    "pageHint": "The sheet edges are shown as dashed lines behind the diagram, title block and legend included. The sheet follows the diagram: 100% while it fits, enlarged (smaller scale) beyond. F key: show the whole sheet.",
     "canvasHint": "The canvas keeps fixed pages at 100%. Dashed lines mark the drawing area, excluding margins, legend and title block. Overflow adds pages; the export choice never moves equipment."
   },
   "titleBlock": {
@@ -1192,8 +1161,6 @@
     "none": "None: the system suggests its usual folder",
     "choose": "Choose…",
     "reset": "Stop using a folder",
-    "autoCopy": "Automatically copy the open project to this folder (.avd file updated on every change)",
-    "lastCopy": "Last copy: {{path}} at {{date}}.",
     "error": "Copy failed: {{error}}",
     "internal": "Internal storage",
     "internalHint": "An internal copy helps recover work after a crash. Recent projects are shortcuts: removing them never deletes files or older local projects.",
@@ -1323,12 +1290,6 @@
     "hint": "pinch, scroll, click: everything reaching the app is listed (Ctrl+Alt+D to close)",
     "pageZoom": "Rendering engine page zoom",
     "empty": "Nothing received yet."
-  },
-  "pageFrame": {
-    "label": "{{paper}} {{orientation}}",
-    "titleBlock": "Title block",
-    "legend": "Legend",
-    "labelFitted": "{{paper}} {{orientation}} · fitted at {{scale}}%"
   },
   "portDisplay": {
     "title": "Visible ports on the diagram",
@@ -1607,7 +1568,6 @@
   },
   "diagramExchange": {
     "menu": "Import draw.io / Visio",
-    "reading": "Reading diagram…",
     "title": "Import diagram: {{name}}",
     "export": "Export as draw.io",
     "exportError": "Could not export this diagram. The project stays open.",

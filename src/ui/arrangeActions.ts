@@ -6,7 +6,7 @@ import { useUi } from '../store/uiStore'
 import { sendCommand, WINDOW_ROLE } from '../store/windowSync'
 
 /** Blocs sélectionnés mesurés par React Flow (les cadres de zone ne bougent pas avec eux). */
-export function selectedBoxes(rf: Pick<ReactFlowInstance, 'getNodes'>): Box[] {
+function selectedBoxes(rf: Pick<ReactFlowInstance, 'getNodes'>): Box[] {
   const sel = new Set(useUi.getState().selectedEquipment)
   return rf.getNodes()
     .filter((n) => sel.has(n.id) && !n.hidden && n.measured?.width && n.measured.height && !n.className?.includes('is-frame'))

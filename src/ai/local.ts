@@ -23,11 +23,6 @@ export function portOf(baseUrl: string | undefined): number {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
-export async function serverRunning(): Promise<boolean> {
-  const s = await invoke<{ running: boolean }>('local_status')
-  return s.running
-}
-
 export const stopServer = () => invoke<void>('local_stop')
 
 /**

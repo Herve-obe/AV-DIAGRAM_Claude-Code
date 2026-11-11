@@ -21,7 +21,7 @@ export interface TitleBlockTemplate {
 
 const KEY = 'avd.titleblock'
 
-export const EMPTY_TEMPLATE: TitleBlockTemplate = {
+const EMPTY_TEMPLATE: TitleBlockTemplate = {
   owner: '',
   ownerDetail: '',
   logo: null,

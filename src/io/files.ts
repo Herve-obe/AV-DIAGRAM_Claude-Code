@@ -285,7 +285,7 @@ const csvCell = (v: string | number | undefined) => {
   return `"${safe.replace(/"/g, '""')}"`
 }
 
-export function cableListCsv(project: Project, headers: string[]): string {
+function cableListCsv(project: Project, headers: string[]): string {
   const rows = Object.values(project.links)
     .sort((a, b) => a.label.localeCompare(b.label))
     .map((l) => {

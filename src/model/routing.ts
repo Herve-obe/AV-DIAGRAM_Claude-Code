@@ -43,7 +43,7 @@ export interface RoutingOptions {
   spacing: number
 }
 
-export const DEFAULT_ROUTING: RoutingOptions = { margin: 14, stub: 22, bendCost: 60, spacing: 7 }
+const DEFAULT_ROUTING: RoutingOptions = { margin: 14, stub: 22, bendCost: 60, spacing: 7 }
 
 /** Vecteur de sortie d'un port selon le bord du bloc où il se trouve. */
 const OUT: Record<Side, Point> = { right: { x: 1, y: 0 }, left: { x: -1, y: 0 }, bottom: { x: 0, y: 1 }, top: { x: 0, y: -1 } }
@@ -53,7 +53,7 @@ const LEAVE: Record<Side, number> = { right: 0, left: 1, bottom: 2, top: 3 }
 const ENTER: Record<Side, number> = { right: 1, left: 0, bottom: 3, top: 2 }
 
 /** Supprime les points alignés inutiles et les doublons. */
-export function simplify(points: Point[]): Point[] {
+function simplify(points: Point[]): Point[] {
   const out: Point[] = []
   for (const p of points) {
     const last = out[out.length - 1]
