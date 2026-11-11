@@ -1,4 +1,4 @@
-// Modèles perso de l'utilisateur ("Mes modèles"), enregistrés sur l'ordinateur (IndexedDB).
+// Modèles perso de l'utilisateur (« Mon entreprise »), enregistrés sur l'ordinateur (IndexedDB).
 import { get, update } from 'idb-keyval'
 import { create } from 'zustand'
 import { LIBRARY } from '../library'

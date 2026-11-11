@@ -12,7 +12,7 @@ Sous Windows, l’installeur propose une installation pour le compte courant ou 
 
 Au lancement, choisir Nouveau projet, Reprendre le dernier projet ou ouvrir un fichier .avd. Les projets récents permettent de retrouver un travail déjà ouvert sur ce poste. Retirer un raccourci de cette liste ne supprime pas le fichier correspondant.
 
-La barre supérieure rassemble les menus Fichier, Édition, Affichage, Outils et Aide. Fichier contient les imports, les enregistrements et les exports ; Outils contient la collaboration, la configuration IA et les paramètres. Aide > Manuel ouvre ce document sans connexion Internet et permet d'enregistrer son PDF. Les menus s'utilisent aussi au clavier : flèches pour se déplacer, Entrée pour choisir et Échap pour revenir.
+La barre supérieure rassemble les menus Fichier, Édition, Affichage, Outils et Aide. Fichier contient les imports, les enregistrements et les exports ; Outils contient la collaboration, la configuration IA et les paramètres. Aide > Manuel utilisateur ouvre ce document sans connexion Internet et permet d'enregistrer son PDF. Les menus s'utilisent aussi au clavier : flèches pour se déplacer, Entrée pour choisir et Échap pour revenir.
 
 Les cinq raccourcis initiaux sont Ouvrir, Enregistrer, Annuler, Rétablir et Exporter en PDF. Outils > Personnaliser les raccourcis ouvre les préférences de l'interface : cocher les commandes à garder, utiliser les flèches pour les ordonner ou rétablir le choix initial. Les menus restent complets lorsque leurs raccourcis sont masqués. Ces préférences sont conservées sur ce poste. Le bouton Assistant IA reste visible, grisé tant que l'assistant n'est pas configuré.
 
@@ -44,7 +44,7 @@ Une zone associe un nom et un code à une partie du projet. Un cadre de zone pla
 
 Ctrl+S sous Windows ou Cmd+S sur Mac enregistre la version courante en remplaçant le fichier principal .avd. Le bouton Enregistrer effectue la même opération. Les modifications courantes ne remplacent pas ce fichier en continu. Ctrl+Maj+S ou Cmd+Maj+S propose Enregistrer sous.
 
-Dans Paramètres > Enregistrement, définir l'intervalle des copies de sécurité et le nombre de copies à conserver. Ces copies sont automatiques et distinctes du fichier principal. Avec dix copies conservées, la onzième supprime la plus ancienne copie de ce projet. Les copies sont rangées dans Save Back Up, avec un sous-dossier stable par projet ; deux projets de même nom restent indépendants.
+Dans Paramètres > Enregistrement (ce poste), définir l'intervalle des copies de sécurité et le nombre de copies à conserver. Ces copies sont automatiques et distinctes du fichier principal. Avec dix copies conservées, la onzième supprime la plus ancienne copie de ce projet. Les copies sont rangées dans Save Back Up, avec un sous-dossier stable par projet ; deux projets de même nom restent indépendants.
 
 Une copie automatique ne fait pas passer l'indicateur du fichier principal à « enregistré ». Enregistrer sous ne déplace pas les anciennes sauvegardes. Les copies suivantes suivent le nouvel emplacement ; un dossier de secours peut être utilisé si l'emplacement principal devient inaccessible. Les paramètres indiquent le chemin réellement utilisé.
 
@@ -90,7 +90,7 @@ R fait pivoter la sélection d'un quart de tour ; Maj+R tourne dans l'autre sens
 
 Les outils d'alignement et de répartition servent à organiser plusieurs équipements. Dupliquer crée d'autres instances ; les prises reçoivent leurs propres identifiants. Une adresse IP est effacée lors d'une duplication et un rôle d'horloge maître forcé redevient automatique afin d'éviter une affectation involontaire en double.
 
-Les notes et cadres complètent la présentation. Grouper la sélection crée un sous-schéma ; ouvrir son bloc permet de travailler à l'intérieur. Dégrouper replace le contenu sur la feuille parente. Conserver le .avd pour garder cette organisation lors d'un échange avec un autre logiciel.
+Les notes et cadres complètent la présentation. Grouper la sélection crée un sous-schéma ; ouvrir son bloc permet de travailler à l'intérieur. Dissoudre le groupe replace le contenu sur la feuille parente. Conserver le .avd pour garder cette organisation lors d'un échange avec un autre logiciel.
 
 ## 6. Replier les prises d'un appareil
 
@@ -124,7 +124,7 @@ Le sélecteur Câbles / Multi porte l’infobulle « Mode d'affichage des liaiso
 
 ## 8. Calques et travail collaboratif en LAN
 
-En travail individuel, les calques Audio, Image, Lumière, Réseau et Électrique aident à lire le même projet. Ils ne constituent pas des copies indépendantes des appareils : une caméra peut porter de l'image, de l'audio, du contrôle et de l'alimentation.
+En travail individuel, les calques Audio, Image, Lumière, Réseau et Distribution aident à lire le même projet. Ils ne constituent pas des copies indépendantes des appareils : une caméra peut porter de l'image, de l'audio, du contrôle et de l'alimentation.
 
 Pour héberger une session, ouvrir le projet puis Session Collaborative. Renseigner son nom, ouvrir la salle d'attente et communiquer le code aux invités. Les postes doivent utiliser la même version récente du logiciel et pouvoir se joindre sur le réseau local.
 
@@ -192,7 +192,7 @@ Repères : 1. Adresse IPv4 de l'interface, avec son préfixe dans la colonne sui
 
 ## 12. Préparer les bilans électriques
 
-Créer les circuits depuis la vue Électrique. Définir leur nom, le caractère monophasé ou triphasé, la tension phase-neutre et le calibre par phase lorsqu'il est connu. L'hôte et les invités avec Droits complets gèrent ces éléments communs en collaboration.
+Créer les circuits depuis la vue Électricité. Définir leur nom, le caractère monophasé ou triphasé, la tension phase-neutre et le calibre par phase lorsqu'il est connu. L'hôte et les invités avec Droits complets gèrent ces éléments communs en collaboration.
 
 Affecter chaque équipement à son circuit et à une phase. L1, L2 et L3 représentent les charges monophasées. ABC indique explicitement une charge triphasée déclarée équilibrée ; aucune répartition n'est déduite pour une charge non affectée.
 

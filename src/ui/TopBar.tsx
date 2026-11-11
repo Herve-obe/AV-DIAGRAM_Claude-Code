@@ -102,7 +102,7 @@ export function TopBar() {
     ungroup: view !== 'diagram' || !selectedEquipment.some(isGroupNodeId), chat: collabStatus === 'off',
   }
   const commands: MenuCommand[] = TOP_ACTIONS.map(a => ({ ...a,
-    label: a.id === 'dual' ? t(detached ? 'dual.close' : 'dual.open') : a.id === 'mode' ? t(a.label) + ' · ' + t('mode.' + mode) : a.id === 'theme' ? t('theme.' + theme) : (a.id.startsWith('export') ? t('menu.export') + ' · ' : '') + t(a.label),
+    label: a.id === 'dual' ? t(detached ? 'dual.close' : 'dual.open') : a.id === 'mode' ? t(a.label) + ' · ' + t('mode.' + mode) : a.id === 'theme' ? t('theme.' + theme) : exportLabel(t('menu.export'), t(a.label), a.id.startsWith('export')),
     disabled: disabled[a.id], run: () => { if (!disabled[a.id]) void runs[a.id]() },
   }))
   const menus = (['file', 'edit', 'view', 'tools', 'help'] as const).map(id => ({ id, label: t('toolbar.menus.' + id), commands: commands.filter(c => TOP_ACTIONS.find(a => a.id === c.id)?.menu === id) }))
@@ -160,3 +160,7 @@ export function TopBar() {
   )
 }
 
+/** « Exporter · PDF » ; un libellé qui commence déjà par « Exporter » n'est pas préfixé une seconde fois. */
+function exportLabel(prefix: string, label: string, isExport: boolean): string {
+  return isExport && !label.toLowerCase().startsWith(prefix.toLowerCase()) ? `${prefix} · ${label}` : label
+}

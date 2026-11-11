@@ -136,6 +136,8 @@ export function boundedHistory(messages: ChatMessage[]): ChatMessage[] {
 
 /** shortcut: commandes de mise en page explicites traitées localement ; les autres formulations passent par l’outil du modèle. */
 export function localLayoutRequest(text: string): Record<string, string> | undefined {
+  // Une commande de mise en page tient en une phrase : un cahier des charges n'en est jamais une
+  if (text.length > 240 || text.split('\n').length > 3) return
   const value = text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
   if (/^(?:comment|pourquoi|what|why|how)\b/.test(value)
     || /\b(?:expliqu\w*|explain\w*|dire|tell)\b.{0,40}\b(?:comment|how)\b/.test(value)

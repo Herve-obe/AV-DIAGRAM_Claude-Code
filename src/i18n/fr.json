@@ -193,7 +193,7 @@
     "zoneNoneYet": "Pas encore de zone : clique sur Zone (au-dessus du schéma) et pose les blocs dedans, ou crée-les dans Paramètres > Projet.",
     "groupInMulticore": "Faire passer les {{count}} liaisons dans un multipaire",
     "groupChoose": "Choisir…",
-    "groupHint": "Les liaisons prennent les premières paires libres. La vue Câbles les dessine alors en un seul trait.",
+    "groupHint": "Les liaisons prennent les premières paires libres. La vue Multi les dessine alors en un seul trait.",
     "documentation": "Documentation ({{count}})",
     "completePorts": "Compléter les connexions"
   },
@@ -318,11 +318,11 @@
     "multicoreConnectors": "Connecteurs",
     "multicoreType": "Modèle",
     "multicoreCustom": "Personnalisé",
-    "noMulticore": "Aucun multipaire. Un multipaire n'est pas un bloc : c'est un câble qui regroupe plusieurs liaisons. Sélectionne les liaisons concernées sur le schéma (Maj+clic), puis « Faire passer dans un multipaire » dans l'inspecteur. Les stageboxes, elles, sont dans la bibliothèque (Audio > Stageboxes).",
+    "noMulticore": "Aucun multipaire. Un multipaire n'est pas un bloc : c'est un câble qui regroupe plusieurs liaisons. Sélectionne les liaisons concernées sur le schéma (Maj+clic), puis « Faire passer les liaisons dans un multipaire » dans l'inspecteur. Les stageboxes, elles, sont dans la bibliothèque (Audio > Stageboxes).",
     "delete": "Supprimer",
     "multicoreLine": "Multipaire {{n}} paires",
     "free": "libre",
-    "multicoreHelp": "Pour remplir un multipaire : sélectionne des liaisons (Maj+clic) puis choisis-le dans l'inspecteur. Vue Câbles (au-dessus du schéma) : un seul trait par multipaire.",
+    "multicoreHelp": "Pour remplir un multipaire : sélectionne des liaisons (Maj+clic) puis choisis-le dans l'inspecteur. Vue Multi (au-dessus du schéma) : un seul trait par multipaire.",
     "mutedTitle": "Contrôles désactivés",
     "mutedHint": "clic droit pour réactiver",
     "mutedProject": "Schéma",
@@ -1183,7 +1183,7 @@
     "recentMeta_other": "{{count}} équipements · {{date}}",
     "recentMissing": "Ce projet n'est plus disponible sur cet appareil.",
     "forget": "Retirer de la liste",
-    "storageHint": "Les projets sont enregistrés automatiquement sur cet appareil (8 derniers). Pour les avoir dans un dossier de ton choix : Paramètres > Enregistrement, ou Ctrl+S."
+    "storageHint": "Les projets sont enregistrés automatiquement sur cet appareil (8 derniers). Pour les avoir dans un dossier de ton choix : Paramètres > Enregistrement (ce poste), ou Ctrl+S."
   },
   "storage": {
     "folder": "Dossier des projets",
@@ -1354,7 +1354,7 @@
     "addSlot": "Ajouter un slot",
     "removeSlot": "Supprimer ce slot vide",
     "choose": "Insérer une carte dans {{slot}}",
-    "noCompatible": "Aucune carte de ce type. En mode Expert, crée une carte personnalisée, indique le même type puis enregistre-la dans Mes modèles.",
+    "noCompatible": "Aucune carte de ce type. En mode Expert, crée une carte personnalisée, indique le même type puis enregistre-la dans « Mon entreprise ».",
     "remove": "Retirer la carte",
     "disconnect": "Retirer et supprimer {{count}} liaison(s)",
     "cancel": "Annuler",
@@ -1785,7 +1785,7 @@
   },
   "generic": {
     "title": "Nouvel équipement générique",
-    "hint": "Pour un modèle absent de la bibliothèque : décris ses prises par groupes. La fiche est rangée dans « Mes modèles » avec le statut « utilisateur ».",
+    "hint": "Pour un modèle absent de la bibliothèque : décris ses prises par groupes. La fiche est rangée dans « Mon entreprise » avec le statut « Perso ».",
     "name": "Nom",
     "namePlaceholder": "ex. Boîtier DI maison",
     "domain": "Menu",
@@ -1813,5 +1813,11 @@
       "weight": "Le poids doit être un nombre positif.",
       "power": "La consommation doit être un nombre positif."
     }
+  },
+  "deploy": {
+    "exportPdf": "PDF",
+    "exportExcel": "Excel",
+    "exportPdfTitle": "Exporter cette vue en PDF",
+    "exportExcelTitle": "Exporter les listes Excel"
   }
 }

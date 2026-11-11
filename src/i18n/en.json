@@ -193,7 +193,7 @@
     "zoneNoneYet": "No zone yet: click Zone (above the diagram) and place blocks inside, or create zones in Settings > Project.",
     "groupInMulticore": "Route the {{count}} links through a multicore",
     "groupChoose": "Choose…",
-    "groupHint": "Links take the first free pairs. The Cables view then draws them as a single line.",
+    "groupHint": "Links take the first free pairs. The Multi view then draws them as a single line.",
     "documentation": "Documentation ({{count}})",
     "completePorts": "Complete connections"
   },
@@ -318,11 +318,11 @@
     "multicoreConnectors": "Connectors",
     "multicoreType": "Model",
     "multicoreCustom": "Custom",
-    "noMulticore": "No multicore. A multicore is not a block: it is a cable carrying several links. Select those links on the diagram (Shift+click), then “Route through a multicore” in the inspector. Stageboxes are in the library (Audio > Stageboxes).",
+    "noMulticore": "No multicore. A multicore is not a block: it is a cable carrying several links. Select those links on the diagram (Shift+click), then “Route the links through a multicore” in the inspector. Stageboxes are in the library (Audio > Stageboxes).",
     "delete": "Delete",
     "multicoreLine": "Multicore, {{n}} pairs",
     "free": "free",
-    "multicoreHelp": "To fill a multicore: select links (Shift+click) and pick it in the inspector. Cables view (above the diagram): one line per multicore.",
+    "multicoreHelp": "To fill a multicore: select links (Shift+click) and pick it in the inspector. Multi view (above the diagram): one line per multicore.",
     "mutedTitle": "Disabled checks",
     "mutedHint": "right-click to re-enable",
     "mutedProject": "Diagram",
@@ -1183,7 +1183,7 @@
     "recentMeta_other": "{{count}} items · {{date}}",
     "recentMissing": "This project is no longer available on this device.",
     "forget": "Remove from list",
-    "storageHint": "Projects are saved automatically on this device (last 8). To keep them in a folder of your choice: Settings > Saving, or Ctrl+S."
+    "storageHint": "Projects are saved automatically on this device (last 8). To keep them in a folder of your choice: Settings > Saving (this workstation), or Ctrl+S."
   },
   "storage": {
     "folder": "Projects folder",
@@ -1354,7 +1354,7 @@
     "addSlot": "Add a slot",
     "removeSlot": "Delete this empty slot",
     "choose": "Insert a card into {{slot}}",
-    "noCompatible": "No card of this type. In Expert mode, create a custom card, enter the same type and save it in My templates.",
+    "noCompatible": "No card of this type. In Expert mode, create a custom card, enter the same type and save it in “My company”.",
     "remove": "Remove card",
     "disconnect": "Remove card and delete {{count}} link(s)",
     "cancel": "Cancel",
@@ -1785,7 +1785,7 @@
   },
   "generic": {
     "title": "New generic equipment",
-    "hint": "For a model missing from the library: describe its connectors in groups. The entry is saved in “My models” with the “user” status.",
+    "hint": "For a model missing from the library: describe its connectors in groups. The entry is saved in “My company” with the “Custom” status.",
     "name": "Name",
     "namePlaceholder": "e.g. In-house DI box",
     "domain": "Menu",
@@ -1813,5 +1813,11 @@
       "weight": "Weight must be a positive number.",
       "power": "Power draw must be a positive number."
     }
+  },
+  "deploy": {
+    "exportPdf": "PDF",
+    "exportExcel": "Excel",
+    "exportPdfTitle": "Export this view to PDF",
+    "exportExcelTitle": "Export the Excel lists"
   }
 }

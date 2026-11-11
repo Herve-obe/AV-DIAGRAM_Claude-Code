@@ -1,6 +1,6 @@
 // Création d'un équipement générique (modèle absent de la bibliothèque) : nom, menu, famille,
 // groupes de prises (sens, signal, connecteur, niveau, nombre), poids et consommation facultatifs.
-// La fiche est rangée dans « Mes modèles » puis posée sur le schéma.
+// La fiche est rangée dans « Mon entreprise » puis posée sur le schéma.
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { connectorLabel } from '../model/connectors'

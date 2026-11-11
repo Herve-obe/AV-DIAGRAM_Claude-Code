@@ -85,7 +85,7 @@ export function genericErrors(spec: GenericSpec): string[] {
   return [...new Set(errors)]
 }
 
-/** Construit la fiche « Mes modèles » de l'équipement générique ; identifiants de prises stables et uniques. */
+/** Construit la fiche « Mon entreprise » de l'équipement générique ; identifiants de prises stables et uniques. */
 export function buildGenericTemplate(spec: GenericSpec, unique = () => Math.random().toString(36).slice(2, 8)): EquipmentTemplate {
   const slug = spec.name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'equipement'
   const ports: PortDef[] = []

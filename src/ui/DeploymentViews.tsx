@@ -34,7 +34,7 @@ function Issues({ items }: { items: DeploymentIssue[] }) {
 }
 function Header({ name, hint }: { name: string; hint: string }) {
   const { t } = useTranslation()
-  return <header className="deploy-header"><div><h2>{t(name)}</h2><p>{t(hint)}</p><LayerPicker /></div><div className="deploy-actions"><button className="btn" onClick={() => useExportPdf.getState().setOpen(true)}>PDF</button><button className="btn" onClick={() => void exportWorkbook(useProject.getState().project, t).catch(() => notifyError(t('xlsx.exportError')))}>Excel</button></div></header>
+  return <header className="deploy-header"><div><h2>{t(name)}</h2><p>{t(hint)}</p><LayerPicker /></div><div className="deploy-actions"><button className="btn" title={t('deploy.exportPdfTitle')} onClick={() => useExportPdf.getState().setOpen(true)}>{t('deploy.exportPdf')}</button><button className="btn" onClick={() => void exportWorkbook(useProject.getState().project, t).catch(() => notifyError(t('xlsx.exportError')))} title={t('deploy.exportExcelTitle')}>{t('deploy.exportExcel')}</button></div></header>
 }
 function Pager({ page, total, size, set }: { page: number; total: number; size: number; set: (n: number) => void }) {
   const { t } = useTranslation(), last = Math.max(0, Math.ceil(total / size) - 1)

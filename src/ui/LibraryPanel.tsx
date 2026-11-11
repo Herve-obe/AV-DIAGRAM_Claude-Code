@@ -1,4 +1,4 @@
-// Bibliothèque : recherche, "Mes modèles", menus dépliables (Audio, Image, Lumière, Réseau, Distribution, Divers)
+// Bibliothèque : recherche, « Mon entreprise », menus dépliables (Audio, Image, Lumière, Réseau, Distribution, Divers)
 // puis sous-menus par famille ; glisser-déposer vers le canevas (ou double-clic). Sur un calque, la
 // liste se limite aux équipements de ce calque, pour ne pas en poser un d'un autre domaine par erreur.
 import { freeSpot, NEW_BLOCK_SIZE } from '../editor/placement'
@@ -80,7 +80,7 @@ export function LibraryPanel() {
     const match = (tpl: EquipmentTemplate) =>
       !q || `${tpl.model} ${tpl.manufacturer ?? ''} ${(tpl.aliases ?? []).join(' ')} ${t(`family.${tpl.family}`)}`.toLowerCase().includes(q)
     const matching = LIBRARY.filter(match)
-    // Mes modèles restent tous visibles : ce sont des blocs choisis à la main
+    // Les modèles de « Mon entreprise » restent tous visibles : ce sont des blocs choisis à la main
     const found = filtered ? matching.filter((tpl) => equipmentInView(tpl, layer)) : matching
     return { mine: userTemplates.filter(match), domains: groupByDomain(found), total: found.length, hidden: matching.length - found.length }
   }, [q, t, userTemplates, filtered, layer])
