@@ -1,7 +1,7 @@
 // Bibliothèque : recherche, « Mon entreprise », menus dépliables (Audio, Image, Lumière, Réseau, Distribution, Divers)
 // puis sous-menus par famille ; glisser-déposer vers le canevas (ou double-clic). Sur un calque, la
 // liste se limite aux équipements de ce calque, pour ne pas en poser un d'un autre domaine par erreur.
-import { freeSpot, NEW_BLOCK_SIZE } from '../editor/placement'
+import { freeSpot, NEW_BLOCK_SIZE } from '../model/placement'
 import { useEffect, useMemo, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'

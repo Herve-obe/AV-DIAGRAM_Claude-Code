@@ -16,6 +16,7 @@ import type { PdfPage } from '../io/pdfImport/extract'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { useEditing } from '../collab/useEditing'
 
 const FAMILIES: EquipmentFamily[] = [
@@ -141,7 +142,7 @@ function Preview({ data, page, r, choices, hover, cad }: { data: Uint8Array; pag
   const cadMargin = cad ? (r.width / cadK - cad.width) / 2 : 0
   return (
     <div className="pdf-preview" style={{ width, height: h }}>
-      {cad ? <svg className="cad-preview" width={width} height={h} viewBox={`${-cadMargin} ${-cadMargin} ${cad.width + cadMargin * 2} ${cad.height + cadMargin * 2}`}><g fill="none" stroke="#666" strokeWidth={0.01}>{cad.paths.map((p, i) => <path key={i} d={`${p.points.map((pt, n) => `${n ? 'L' : 'M'}${pt.x},${pt.y}`).join(' ')}${p.closed ? 'Z' : ''}`} />)}</g>{cad.texts.map((p, i) => <text key={i} x={p.x} y={p.y} fontSize={p.height} fill="#333" transform={`rotate(${p.angle},${p.x},${p.y})`}>{p.text}</text>)}</svg> : <canvas ref={canvas} style={{ width, height: h }} />}
+      {cad ? <svg className="cad-preview" width={width} height={h} viewBox={`${-cadMargin} ${-cadMargin} ${cad.width + cadMargin * 2} ${cad.height + cadMargin * 2}`}><g fill="none" style={{ stroke: 'var(--paper-line)' }} strokeWidth={0.01}>{cad.paths.map((p, i) => <path key={i} d={`${p.points.map((pt, n) => `${n ? 'L' : 'M'}${pt.x},${pt.y}`).join(' ')}${p.closed ? 'Z' : ''}`} />)}</g>{cad.texts.map((p, i) => <text key={i} x={p.x} y={p.y} fontSize={p.height} style={{ fill: 'var(--paper-text)' }} transform={`rotate(${p.angle},${p.x},${p.y})`}>{p.text}</text>)}</svg> : <canvas ref={canvas} style={{ width, height: h }} />}
       <svg width={width} height={h} viewBox={`0 0 ${r.width} ${r.height}`}>
         {r.links.map((l) => {
           const on = choices.links[l.key]?.include
@@ -176,12 +177,7 @@ export function PdfImportDialog() {
   const c = choices[page]
   useEffect(() => { if (data && projectId !== currentProjectId) close() }, [data, projectId, currentProjectId, close])
 
-  useEffect(() => {
-    if (!data) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [data, close])
+  const dialogRef = useDialog(!!data, close)
 
   const eqName = useMemo(() => new Map(r?.equipment.map((e) => [e.key, e]) ?? []), [r])
   if (!data || !r || !c) return null
@@ -213,7 +209,7 @@ export function PdfImportDialog() {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
-      <div className="dialog pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
+      <div className="dialog pdf-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="pdf-title">
         <header className="dialog-head">
           <h2 id="pdf-title">{t(diagramPages ? 'diagramExchange.title' : cad ? 'cad.synopticTitle' : 'pdfImport.title', { name })}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

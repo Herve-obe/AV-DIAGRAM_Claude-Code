@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { create } from 'zustand'
 import { useEditing } from '../collab/useEditing'
-import { CAD_UNITS, cadPage, type CadImport } from '../io/cad'
+import type { CadImport } from '../io/cad'
+import { CAD_UNITS } from '../model/floorPlan'
 import { readCad } from '../io/cadRead'
 import { notifyError } from '../io/files'
 import { cadText, pickFile } from '../io/pickFile'
@@ -12,6 +13,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { openCadSynoptic } from './PdfImportDialog'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { cancelDwg, convertDwg } from '../io/dwg'
 
 interface State { file: { name: string; text: string } | null; dwg: Uint8Array | null; converting: boolean; projectId: string; sheetId: string; unit: string; result: CadImport | null; busy: boolean; error: string; mode: 'background' | 'synoptic' }
@@ -52,12 +54,8 @@ export function CadImportDialog() {
   const project = useProject(p => p.project)
   const [target, setTarget] = useState('new')
   useEffect(() => { if (s.file && project.id !== s.projectId) close() }, [project.id, s.file, s.projectId])
-  useEffect(() => {
-    if (!s.file) return
-    setTarget('new')
-    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
-    window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key)
-  }, [s.file])
+  useEffect(() => { if (s.file) setTarget('new') }, [s.file])
+  const dialogRef = useDialog<HTMLElement>(!!s.file, close)
   if (!s.file) return null
   const d = s.result?.drawing
   const convert = async () => {
@@ -73,16 +71,19 @@ export function CadImportDialog() {
       if (unit) void analyse(unit)
     } catch (e) { if (generation === token) state.setState({ converting: false, error: `dwg:${typeof e === 'string' ? e : e instanceof Error ? e.message : 'conversion'}` }) }
   }
-  const apply = () => {
+  const apply = async () => {
     if (!s.result || !editing.common || useProject.getState().project.id !== s.projectId) return
-    if (s.mode === 'synoptic') { openCadSynoptic(s.file!.name, s.result.drawing, cadPage(s.result)); close(); return }
+    if (s.mode === 'synoptic') {
+      const { cadPage } = await import('../io/cad')
+      openCadSynoptic(s.file!.name, s.result.drawing, cadPage(s.result)); close(); return
+    }
     let p = useProject.getState().project, id = s.sheetId
     if (target === 'new') { const added = addSheet(p, s.file!.name.replace(/\.(dxf|dwg)$/i, '').slice(0, 80)); p = added.project; id = added.id }
     if (!p.sheets?.some(sh => sh.id === id)) return
     p = updateFloorPlan(p, id, { width: s.result.drawing.width, height: s.result.drawing.height, background: s.result.drawing, hiddenLayers: s.result.hiddenLayers })
     useProject.getState().replaceProject(p); useUi.getState().setSheet(id); useUi.getState().setView('plan'); close()
   }
-  return <div className="overlay" onMouseDown={e => { if (e.target === e.currentTarget) close() }}><section className="dialog cad-dialog" role="dialog" aria-modal="true" aria-labelledby="cad-title">
+  return <div className="overlay" onMouseDown={e => { if (e.target === e.currentTarget) close() }}><section className="dialog cad-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="cad-title">
     <header className="dialog-head"><h2 id="cad-title">{t('cad.title', { name: s.file.name })}</h2><button className="icon-btn" aria-label={t('settings.close')} onClick={close}><Icon name="close" /></button></header>
     <div className="dialog-body">
       <div className="segmented"><button aria-pressed={s.mode === 'background'} onClick={() => state.setState({ mode: 'background' })}>{t('cad.background')}</button><button aria-pressed={s.mode === 'synoptic'} onClick={() => state.setState({ mode: 'synoptic' })}>{t('cad.synoptic')}</button></div>

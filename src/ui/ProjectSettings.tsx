@@ -1,7 +1,7 @@
 // Paramètres : projet (nom, zones, numérotation, tension secteur), cartouche du projet, mise en page et
 // export (format, filigrane, protection), modèle de cartouche et dossier d'enregistrement du poste.
-import { useEffect, useRef, useState } from 'react'
-import { exportSettingsOf } from '../io/exportOptions'
+import { useRef, useState } from 'react'
+import { exportSettingsOf } from '../model/exportOptions'
 import type { ExportSettings, ProjectInfo } from '../model/types'
 import { useTitleBlock } from '../store/titleBlockStore'
 import { FormatPicker, ProtectionEditor, TemplateEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
@@ -12,6 +12,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Field, toNumber } from './Field'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { SaveFolderSettings } from './SaveFolderSettings'
 import { isReady, useAi } from '../store/aiStore'
 import { providerInfo } from '../ai/providers'
@@ -29,7 +30,6 @@ export function ProjectSettings() {
   // quand on change d'onglet ou qu'on ferme
   const [infoDraft, setInfoDraft] = useState<ProjectInfo | null>(null)
   const [exportDraft, setExportDraft] = useState<ExportSettings | null>(null)
-  const dialogRef = useRef<HTMLDivElement>(null)
   // Références : la touche Échap (écouteur posé à l'ouverture) doit voir les derniers brouillons
   const drafts = useRef({ info: infoDraft, export: exportDraft })
   drafts.current = { info: infoDraft, export: exportDraft }
@@ -50,23 +50,7 @@ export function ProjectSettings() {
     useUi.getState().setSettingsOpen(true, next)
   }
 
-  const closeRef = useRef(close)
-  closeRef.current = close
-  useEffect(() => {
-    if (!open) return
-    const previous = document.activeElement as HTMLElement | null
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeRef.current()
-      if (e.key !== 'Tab') return
-      const controls = Array.from(dialogRef.current?.querySelectorAll<HTMLElement>('button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), a[href]') ?? [])
-      const first = controls[0], last = controls.at(-1)
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus() }
-      if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus() }
-    }
-    window.addEventListener('keydown', onKey)
-    dialogRef.current?.querySelector<HTMLElement>('input, select, button')?.focus()
-    return () => { window.removeEventListener('keydown', onKey); previous?.focus() }
-  }, [open])
+  const dialogRef = useDialog(open, close)
 
   if (!open) return null
   const infoValue = infoDraft ?? infoWithTemplate(project.info, useTitleBlock.getState().template)

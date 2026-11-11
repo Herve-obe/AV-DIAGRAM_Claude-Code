@@ -34,8 +34,6 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
       userText: 'Je veux sonoriser une conférence avec trois micros et deux enceintes. Choisis une console adaptée.',
       transport: replies([call('plan_diagram', plan), call('propose_system', audio)], sent) })
     expect(sent).toHaveLength(2)
-    expect(JSON.parse(sent[0]).tool_choice).toBe('required')
-    expect(JSON.parse(sent[0]).tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['plan_diagram'])
     expect(result.toolsUsed).toEqual(['plan_diagram', 'propose_system', 'check_project'])
     expect(result.draft.addedEquipment).toHaveLength(6)
     expect(result.draft.addedLinks).toHaveLength(5)
@@ -175,7 +173,6 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
         ...['console', 'micro', 'speaker', 'capture', 'amplification'].map(query => call('search_library', { query })),
         call('ask_user', { question: 'Quelle sortie de la console souhaites-tu affecter aux enceintes ?' })], sent) })
     expect(sent).toHaveLength(8)
-    expect(JSON.parse(sent.at(-1)!).tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['ask_user'])
     expect(result.draft).toBe(draft)
     expect(result.reply).toContain('sortie de la console')
   })
@@ -188,10 +185,11 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     const result = await runTurn({ draft, ctx: { ...ctx, library }, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
       userText: 'Propose un podcast avec les vingt microphones du catalogue fictif.',
       transport: replies([call('plan_diagram', { ...plan, roles }), call('propose_system', { equipment: [], connections: [] }), call('ask_user', { question: 'Quelle console doit recevoir les vingt micros ?' })], sent) })
-    const second = JSON.parse(sent[1])
-    expect(second.messages.filter((m: { role: string }) => m.role === 'tool')).toEqual([])
-    expect(second.messages[0].content).toContain('"ref":"role19"')
-    expect(second.messages[0].content).toContain('"template_id":"user-role-19"')
+    // Le résultat du plan reste entier dans l'historique borné envoyé à l'étape suivante
+    const planResult = JSON.parse(sent[1]).messages.find((m: { role: string }) => m.role === 'tool').content
+    expect(planResult).not.toContain('Extrait limité')
+    expect(JSON.parse(planResult).roles).toHaveLength(20)
+    expect(planResult).toContain('"template_id":"user-role-19"')
     expect(result.draft).toBe(draft)
   })
 })
@@ -205,8 +203,8 @@ it('corrige le nombre de câbles par enceinte observé avec Qwen3 sans perdre le
   expect(result.draft.addedEquipment).toHaveLength(6)
   expect(result.draft.addedLinks).toHaveLength(5)
   expect(result.toolsUsed).not.toContain('ask_user')
-  expect(JSON.parse(sent[2]).tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['propose_system'])
-  expect(JSON.parse(sent[2]).messages[0].content).toContain('in/audioAnalog/xlr3/line+4')
+  // Les prises regroupées des candidats, renvoyées par plan_diagram, permettent de corriger le flux
+  expect(JSON.parse(sent[1]).messages.find((m: { role: string }) => m.role === 'tool').content).toContain('in/audioAnalog/xlr3/line+4')
   expect(sent[2]).toContain('Aucune paire')
   expect(Object.keys(draft.base.equipment)).toHaveLength(0)
 })

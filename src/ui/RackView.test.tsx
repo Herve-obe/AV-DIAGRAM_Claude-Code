@@ -13,7 +13,7 @@ import { RackView } from './RackView'
 import { ModuleEditor } from './ModuleEditor'
 
 const exportOpen = vi.hoisted(() => vi.fn())
-vi.mock('./ExportPdfDialog', () => ({ useExportPdf: { getState: () => ({ setOpen: exportOpen }) } }))
+vi.mock('../store/exportPdfStore', () => ({ useExportPdf: { getState: () => ({ setOpen: exportOpen }) } }))
 
 describe('vue Baies : commandes et cartes', () => {
   let element: HTMLDivElement, root: Root, id: string, rackId: string

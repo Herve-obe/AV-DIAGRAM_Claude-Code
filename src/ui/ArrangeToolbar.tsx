@@ -1,7 +1,7 @@
 // Barre d'alignement et de répartition (menu clic droit et inspecteur, sélection de 2 blocs ou plus).
 import { useReactFlow } from '@xyflow/react'
 import { useTranslation } from 'react-i18next'
-import type { ArrangeAction } from '../editor/arrange'
+import type { ArrangeAction } from '../model/arrange'
 import { ALIGN_ACTIONS, arrangeSelection, SPREAD_ACTIONS } from './arrangeActions'
 
 /** Pictogrammes 16 x 16 : trait de référence et blocs */

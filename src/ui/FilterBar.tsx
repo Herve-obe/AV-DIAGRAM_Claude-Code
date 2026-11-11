@@ -1,5 +1,6 @@
 // Filtres d'affichage par famille de signal (au-dessus du canevas).
 import { useTranslation } from 'react-i18next'
+import { useShallow } from 'zustand/react/shallow'
 import { LAYERS } from '../model/layers'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import { useUi } from '../store/uiStore'
@@ -11,7 +12,7 @@ export function LayerPicker() {
 
 export function FilterBar() {
   const { t } = useTranslation()
-  const { hiddenSignals, toggleSignal, mode, linkView, autoRoute, setPref } = useUi()
+  const { hiddenSignals, toggleSignal, mode, linkView, autoRoute, setPref } = useUi(useShallow((s) => ({ hiddenSignals: s.hiddenSignals, toggleSignal: s.toggleSignal, mode: s.mode, linkView: s.linkView, autoRoute: s.autoRoute, setPref: s.setPref })))
   // En mode débutant, seules les familles les plus courantes sont proposées
   const families = mode === 'beginner'
     ? SIGNAL_FAMILIES.filter((f) => ['audioAnalog', 'audioDigital', 'audioIp', 'video', 'network'].includes(f))

@@ -54,6 +54,6 @@ Exemple calculé avec le code actuel : huit blocs de stagebox rangés côte à c
 
 Les 26 tests existants ciblant les formats, les cadres de page, le placement et les sauvegardes passent. Neuf assertions supplémentaires ont été exécutées directement sur les fonctions actuelles : dimensions A3, encombrement 32/24, échelle, découpage, placement horizontal et absence de bornes pour une vue générale contenant seulement un groupe. Les interactions de la maquette sont vérifiées séparément ; elles ne constituent pas une fonctionnalité déjà intégrée.
 
-Les références principales sont [EquipmentNode.tsx](../src/editor/EquipmentNode.tsx), [exportOptions.ts](../src/io/exportOptions.ts), [exportPdfUi.ts](../src/io/exportPdfUi.ts), [ExportControls.tsx](../src/ui/ExportControls.tsx) et [LibraryPanel.tsx](../src/ui/LibraryPanel.tsx).
+Les références principales sont [EquipmentNode.tsx](../src/editor/EquipmentNode.tsx), [exportOptions.ts](../src/model/exportOptions.ts), [exportPdfUi.ts](../src/io/exportPdfUi.ts), [ExportControls.tsx](../src/ui/ExportControls.tsx) et [LibraryPanel.tsx](../src/ui/LibraryPanel.tsx).
 
 Restent à vérifier sur l’application : le PDF avec groupes repliés, les câbles et étiquettes en bord de page, la netteté après export et une impression A3 à taille réelle. Aucun changement n’a été publié dans la PR pour cette étude.

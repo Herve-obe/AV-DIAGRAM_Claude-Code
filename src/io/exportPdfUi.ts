@@ -5,18 +5,17 @@ import type { ReactFlowInstance } from '@xyflow/react'
 import type { TFunction } from 'i18next'
 import { drawingBounds } from '../editor/EdgeRouter'
 import { SIGNAL_FAMILIES } from '../model/signals'
+import { pause } from '../model/pause'
 import { DOCUMENT_STATUSES, type ExportSettings, type ProjectInfo } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useTitleBlock } from '../store/titleBlockStore'
 import { useUi } from '../store/uiStore'
-import { exportSettingsOf, MM_PER_UNIT, sheetsToExport, sheetLayout, tileRef, tilesFor } from './exportOptions'
+import { exportSettingsOf, MM_PER_UNIT, sheetsToExport, sheetLayout, tileRef, tilesFor } from '../model/exportOptions'
 import { notifyError } from './files'
 import { captureCanvasLight, exportPdf, type ExportPasswords, type PdfLabels, type SheetShot } from './pdf'
 import { rackSheets } from './rackPdf'
 import { planSheets } from './planExport'
 import { deploymentSheets } from './deploymentExport'
-
-const wait = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 export function pdfLabels(t: TFunction): PdfLabels {
   return {
@@ -91,7 +90,7 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
   try {
     for (const sheet of sheets) {
       useUi.getState().setSheet(sheet.id)
-      await wait(250) // rendu et mesure des blocs de la feuille
+      await pause(250) // rendu et mesure des blocs de la feuille
       const name = sheets.length > 1 ? sheet.name : ''
       const bounds = drawingBounds(rf.getNodes(), rf.getEdges())
       if (opts.scaleMode !== 'tile') {
@@ -100,7 +99,7 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
         const zoom = bounds ? Math.min(MM_PER_UNIT * capW / area.w, capW / (bounds.w + 80), capH / (bounds.h + 80)) : 1
         await rf.setViewport({ x: bounds ? (capW - bounds.w * zoom) / 2 - bounds.x * zoom : 0,
           y: bounds ? (capH - bounds.h * zoom) / 2 - bounds.y * zoom : 0, zoom })
-        await wait(250)
+        await pause(250)
         const shot = await captureCanvasLight()
         if (shot) shots.push({ ...shot, name })
         continue
@@ -111,7 +110,7 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
       for (let r = 0; r < tiles.rows; r++) {
         for (let c = 0; c < tiles.cols; c++) {
           await rf.setViewport({ x: -(tiles.x + c * tiles.tileW) * zoom, y: -(tiles.y + r * tiles.tileH) * zoom, zoom })
-          await wait(200)
+          await pause(200)
           const shot = await captureCanvasLight()
           if (shot) shots.push({ ...shot, name, tile: tiles.cols * tiles.rows > 1 ? tileRef(c, r) : undefined })
         }
@@ -126,7 +125,7 @@ export async function exportPdfWithLabels(rf: ReactFlowInstance, t: TFunction, i
     restore()
     useUi.getState().setSheet(initial)
     useUi.getState().select(selectedEquipment, selectedLinks)
-    await wait(120)
+    await pause(120)
     await rf.setViewport(initialViewport)
   }
 }

@@ -5,14 +5,13 @@
 import { addAnnotation, addEquipment, connect, DEFAULT_SHEET_ID, sheetName, updateEquipment, updateLink } from '../model/project'
 import { cableFits, getCable } from '../model/cables'
 import { checkLink, checkProject, type Issue } from '../model/rules'
-import { exportSettingsOf } from '../io/exportOptions'
+import { exportSettingsOf } from '../model/exportOptions'
+import { fold } from '../model/text'
 import { PAPER_SIZES } from '../model/types'
 import type { EquipmentTemplate, PortDef, Project } from '../model/types'
 import type { ToolCall, ToolSpec } from './providers'
 import { searchDocumentation } from './knowledge'
 import { diagramBlockSize, layoutDiagram } from '../model/diagramLayout'
-import { videoStudioPlan } from '../model/videoStudio'
-import { audioProductionPlan, presentAudioProduction } from '../model/audioProduction'
 import { proposalLayouts, type ProposalLayout } from '../model/proposalLayout'
 import { connectSystem } from '../model/systemDiagram'
 import { SIGNAL_FAMILIES } from '../model/signals'
@@ -28,8 +27,6 @@ export interface Draft {
   addedEquipment: string[]
   addedLinks: string[]
   rearrangedEquipment?: string[]
-  /** Un plan complet reste indivisible jusqu'à son application ou son refus. */
-  audioProduction?: true
   /** Variantes locales de mise en page, sans nouvel appel au modèle. */
   layout?: { choices: ProposalLayout[]; selected: number }
   brief?: {
@@ -77,7 +74,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   },
   {
     name: 'plan_diagram',
-    description: 'Analyse un cahier des charges quelconque, même vague, avant de construire : but, rôles matériels, quantités, contraintes et hypothèses. Le logiciel recherche toutes les fiches en un appel. Ne pas inventer de template_id. Si une précision conditionne le résultat, poser au maximum 3 questions groupées dans questions ; ne pas créer de schéma partiel. Pour un choix libre, proposer une hypothèse explicite. required_model=true seulement si un modèle exact est imposé. Les rôles décrivent uniquement les ajouts ; réutiliser les equipment_id du projet pour les appareils déjà présents.',
+    description: 'Première étape de toute construction, d’une demande simple à un cahier des charges vague : but, rôles matériels, quantités, contraintes et hypothèses. Le logiciel recherche en un appel les fiches candidates de chaque rôle et renvoie leurs prises regroupées. Ne pas inventer de template_id. Si une précision conditionne le résultat, poser au maximum 3 questions groupées dans questions ; ne pas créer de schéma partiel. Pour un choix libre, proposer une hypothèse explicite. required_model=true seulement si un modèle exact est imposé. Les rôles décrivent uniquement les ajouts ; réutiliser les equipment_id du projet pour les appareils déjà présents.',
     parameters: { type: 'object', properties: {
       goal: { ...str, maxLength: 500 },
       roles: { type: 'array', maxItems: 20, items: { type: 'object', properties: { ref: roleRef, query: { ...str, maxLength: 120, description: 'Type d’appareil à rechercher (ex. micro dynamique), ou référence précise. Pas le nom de la prestation ni le nombre de participants.' }, family: { ...str, description: 'Famille si connue : capture, console, speaker, camera, videoSwitcher, recording, luminaire, lightingControl, network, intercom, sync… Même si absente du catalogue autorisé, pour signaler le besoin manquant.' }, count: { type: 'integer', minimum: 1, maximum: 50 }, required_model: { type: 'boolean' } }, required: ['ref', 'query', 'count', 'required_model'] } },
@@ -92,7 +89,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   },
   {
     name: 'search_documentation',
-    description: 'Recherche dans le manuel local AV Diagram. Citer le champ source dans la réponse ; ne pas inventer de documentation constructeur.',
+    description: 'Recherche dans les fiches de procédure et le manuel locaux d’AV Diagram. Citer le champ source dans la réponse ; ne pas inventer de documentation constructeur.',
     parameters: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'] },
   },
   {
@@ -140,23 +137,6 @@ export const TOOL_SPECS: ToolSpec[] = [
     },
   },
   {
-    name: 'propose_video_studio',
-    description: 'Construit un plateau vidéo : N caméras SDI identiques vers N entrées distinctes du mélangeur vidéo. Ajouter audio_console_template_id seulement si une console audio est demandée, pour relier son programme stéréo XLR au mélangeur. Le logiciel choisit et valide les vrais ports ; aucun identifiant de prise à deviner. Ne traite pas les microphones/HF : utiliser propose_diagram pour ces demandes supplémentaires. Refuse une connectique ou capacité insuffisante.',
-    parameters: { type: 'object', properties: { camera_template_id: str, camera_count: { type: 'integer', minimum: 1, maximum: 48 }, video_switcher_template_id: str, audio_console_template_id: str },
-      required: ['camera_template_id', 'camera_count', 'video_switcher_template_id'] },
-  },
-  {
-    name: 'propose_audio_production',
-    description: 'Construit et câble un plateau interview avec duo live dans un autre studio : M7CL-48ES principale et 01V96 live. Micros interview, chant statique, guitare/ampli repris au micro, machines via DI, médias PC, deux casques stéréo indépendants via HA8000, enceintes interview sans micros, retour présentatrice/médias sans rebouclage, vidéo et enregistrement stéréo. Conserve le patch et les mixages dans les notes des trois zones. Les références libres ont des choix par défaut documentés ; blocs fonctionnels génériques signalés. Hypothèses par défaut explicites : 3 micros interview, 2 sorties machines, 1 SB168-ES, deux casques stéréo. Ne convient pas à une autre architecture ou à des sources supplémentaires non représentées.',
-    parameters: { type: 'object', properties: {
-      main_console_template_id: { ...str, enum: ['yamaha-m7cl-48es'] }, live_console_template_id: { ...str, enum: ['yamaha-01v96'] },
-      interview_mic_count: { type: 'integer', minimum: 1, maximum: 10 }, loop_channels: { type: 'integer', minimum: 1, maximum: 8 },
-      stagebox_count: { type: 'integer', minimum: 0, maximum: 2 },
-      interview_microphone_template_id: str, vocal_microphone_template_id: str, guitar_microphone_template_id: str,
-      audio_interface_template_id: str, video_switcher_template_id: str, recorder_template_id: str, monitor_template_id: str,
-    }, required: ['main_console_template_id', 'live_console_template_id'] },
-  },
-  {
     name: 'propose_system',
     description: 'Prépare un système de n’importe quelle famille à partir de rôles matériels et de leurs flux : audio, vidéo, lumière, réseau, intercom, synchronisation. Les template_id viennent du catalogue ou de plan_diagram. Dans connections, from/to désignent une ref de rôle (tous ses exemplaires), une ref individuelle comme cam1, ou un equipment_id existant. N→1 et 1→N sont développés ; N→N apparie les numéros. links_per_pair est un nombre de câbles physiques, 2 uniquement entre deux appareils disposant chacun de deux prises pour ce flux. Une paire d’enceintes mono est count=2 avec links_per_pair=1 : chaque enceinte reçoit un câble. Ce n’est pas un nombre de canaux Dante/SDI. Le logiciel choisit des prises libres documentées et compatibles. Préciser purpose pour les affectations de mixage ou de routage à réaliser sur les appareils. Aucune conversion de signal ni capacité non documentée n’est inventée. Lire get_template pour imposer un mode de prise documenté. Tout est refusé si un raccordement est impossible.',
     parameters: { type: 'object', properties: {
@@ -183,7 +163,7 @@ export const TOOL_SPECS: ToolSpec[] = [
   },
 ]
 
-const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+const norm = fold
 
 function portSummary(p: PortDef) {
   return {
@@ -213,6 +193,19 @@ function audioLevels(ports: PortDef[]) {
   }
   return [...groups.values()]
 }
+
+/** Prises regroupées par sens, signal, connecteur et niveau : de quoi décrire les flux sans lire chaque prise. */
+function portGroups(ports: PortDef[]): Record<string, number> {
+  const groups: Record<string, number> = {}
+  for (const p of ports) {
+    const key = [p.direction, p.signal, p.connector, p.level ?? 'unknown'].join('/')
+    groups[key] = (groups[key] ?? 0) + 1
+  }
+  return groups
+}
+
+/** Fiches retenues par rôle de plan_diagram : toutes montrées au modèle, seules acceptées ensuite. */
+const CANDIDATES_PER_ROLE = 2
 
 const referenceWords = (s: string) => norm(s).replace(/([a-z])(\d)/g, '$1 $2').replace(/(\d)([a-z])/g, '$1 $2').replace(/[^a-z0-9]+/g, ' ').trim()
 
@@ -268,9 +261,6 @@ const text = (v: unknown) => (typeof v === 'string' ? v.trim() : '')
 export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft: Draft; content: string } {
   const out = (v: unknown, d: Draft = draft) => ({ draft: d.project === draft.project ? d : { ...d, layout: undefined }, content: JSON.stringify(v) })
   const fail = (error: string) => out({ error })
-  if (draft.audioProduction && (call.name.startsWith('propose_') || ['add_equipment', 'connect_ports'].includes(call.name))) {
-    return fail((ctx.lang === 'en' ? en : fr).audioProduction.pending)
-  }
   const p = draft.project
   const a = call.args
   const offset = typeof a.offset === 'number' && Number.isFinite(a.offset) ? Math.max(0, Math.floor(a.offset)) : 0
@@ -314,7 +304,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         const library = ctx.library.filter(t => !role.family || t.family === role.family)
         const found = searchLibrary(library, role.required_model ? role.query : role.query + ' ' + text(role.ref), 12)
           .map(row => ctx.library.find(t => t.id === row.template_id)!)
-          .filter(t => t.portStatus !== 'pending' && t.ports.length && (!role.required_model || referenceScore(t, role.query) > 0)).slice(0, 3)
+          .filter(t => t.portStatus !== 'pending' && t.ports.length && (!role.required_model || referenceScore(t, role.query) > 0)).slice(0, CANDIDATES_PER_ROLE)
         if (!found.length) questions.push(labels.missing.replace('{{query}}', role.query))
         roles.push({ ref, count: role.count, candidates: found.map(t => t.id) })
       }
@@ -322,11 +312,19 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if (!roles.length && !questions.length && !Object.keys(p.equipment).length) return fail('Aucun rôle matériel. Poser les questions nécessaires pour définir le système.')
       if (questions.length) return out({ questions: questions.slice(0, 3) })
       const brief = { goal: text(a.goal), roles, constraints: a.constraints, assumptions: a.assumptions }
-      return out({ goal: brief.goal, roles: roles.map(r => ({ ref: r.ref, count: r.count, candidates: r.candidates.slice(0, 2).map(id => {
-        const t = ctx.library.find(t => t.id === id)!
-        return { template_id: id, model: t.model, status: t.status, company_quantity: t.companyQuantity, company_model: ctx.company?.some(row => row.id === id) ?? false, signals: [...new Set(t.ports.map(p => p.signal))] }
-      }) })), constraints: brief.constraints, assumptions: brief.assumptions,
-      next: 'Utiliser propose_system avec les refs et quantités de ce plan. Les ports sont sélectionnés par le logiciel. Si la capacité ne suffit pas, rechercher une autre fiche ou demander une précision ; conserver toutes les contraintes.' }, { ...draft, brief })
+      // Résultat compact : il doit tenir entier dans l'historique borné, même pour vingt rôles.
+      return out({
+        next: 'Appeler propose_system avec ces refs, ces quantités et un template_id parmi les candidats de chaque rôle. Décrire les flux ; le logiciel choisit les prises. Si la capacité ne suffit pas, choisir l’autre candidat ou poser une question ; conserver toutes les contraintes.',
+        goal: brief.goal,
+        roles: roles.map(r => ({ ref: r.ref, count: r.count, candidates: r.candidates.map(id => {
+          const t = ctx.library.find(t => t.id === id)!
+          return { template_id: id, model: t.model.slice(0, 80), status: t.status,
+            ...(t.companyQuantity !== undefined ? { company_quantity: t.companyQuantity } : {}),
+            ...(ctx.company?.some(row => row.id === id) ? { company_model: true } : {}),
+            ports: portGroups(t.ports) }
+        }) })),
+        constraints: brief.constraints, assumptions: brief.assumptions,
+      }, { ...draft, brief })
     }
     case 'ask_user': {
       const question = text(a.question)
@@ -406,8 +404,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if (draft.addedEquipment.length >= 50) return fail('Limite de 50 équipements par proposition : appliquer ou découper la demande.')
       const t = ctx.library.find((x) => x.id === text(a.template_id))
       if (!t) return fail(`Modèle inconnu : ${text(a.template_id)}. Utiliser search_library.`)
-      const res = addEquipment(p, t, nextPosition(draft), { sheetId: draft.sheetId, ...(text(a.name) ? { name: text(a.name).slice(0, 120) } : {}) })
-      res.project.equipment[res.id].portsExpanded = false
+      const res = addEquipment(p, t, nextPosition(draft), { sheetId: draft.sheetId, portsExpanded: false, ...(text(a.name) ? { name: text(a.name).slice(0, 120) } : {}) })
       if (ctx.allowed && !ctx.allowed(draft.base, res.project)) return fail('Ajout refusé par les droits du projet ou du calque.')
       const next = { ...draft, project: res.project, addedEquipment: [...draft.addedEquipment, res.id] }
       const e = res.project.equipment[res.id]
@@ -437,27 +434,6 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       const issues = checkLink(res.project, link).map((i) => ({ severity: i.severity, code: i.code, message: ctx.describe(i) }))
       const next = { ...draft, project: res.project, addedLinks: [...draft.addedLinks, res.id] }
       return out({ link_id: res.id, label: link.label, issues }, next)
-    }
-    case 'propose_video_studio': {
-      const find = (id: unknown) => ctx.library.find(t => t.id === text(id))
-      const camera = find(a.camera_template_id), video = find(a.video_switcher_template_id), audio = find(a.audio_console_template_id)
-      if (!camera || !video || (a.audio_console_template_id !== undefined && !audio)) return fail('Référence inconnue : utiliser les template_id du catalogue ou search_library.')
-      const plan = videoStudioPlan(camera, a.camera_count as number, video, audio)
-      if ('error' in plan) return fail(plan.error!)
-      const result = runTool(draft, { ...call, name: 'propose_diagram', args: plan }, ctx)
-      return { ...result, content: JSON.stringify({ ...JSON.parse(result.content), routing_note: (audio ? 'Configurer les deux sorties de la console pour le programme gauche/droite et les entrées du mélangeur en niveau ligne. ' : '') + 'Vérifier le format vidéo commun sur les appareils ; ces réglages internes ne sont pas effectués par le schéma.' }) }
-    }
-    case 'propose_audio_production': {
-      const labels = (ctx.lang === 'en' ? en : fr).audioProduction
-      const plan = audioProductionPlan(ctx.library, a, labels)
-      if ('error' in plan) return fail(plan.error)
-      const result = runTool(draft, { ...call, name: 'propose_diagram', args: { equipment: plan.equipment, connections: plan.connections } }, ctx)
-      const value = JSON.parse(result.content)
-      if (value.error) return result
-      const refs = new Map<string, string>(value.equipment.map((e: { ref: string; equipment_id: string }) => [e.ref, e.equipment_id]))
-      const project = presentAudioProduction(result.draft.project, plan, refs, draft.sheetId, labels)
-      if (ctx.allowed && !ctx.allowed(draft.base, project)) return fail('Proposition refusée par les droits du projet ou du calque.')
-      return out({ ...value, assumptions: plan.assumptions, mixes: plan.mixes, routing_note: labels.manualSettings }, { ...result.draft, project, audioProduction: true })
     }
     case 'propose_system': {
       if (!Array.isArray(a.equipment)) return fail('equipment doit être une liste.')
@@ -492,7 +468,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       if (!Array.isArray(a.equipment) || !Array.isArray(a.connections) || a.equipment.length + draft.addedEquipment.length > 50 || a.connections.length + draft.addedLinks.length > 100) return fail('equipment et connections doivent être des listes, au maximum 50 équipements et 100 liaisons par proposition.')
       if (draft.brief) for (const role of draft.brief.roles) {
         const entry = a.equipment.find((e: { ref?: string } | null) => e?.ref === role.ref)
-        if (!entry || (entry.count ?? 1) !== role.count || !role.candidates.includes(entry.template_id)) return fail(`Rôle ${role.ref} : conserver les ${role.count} exemplaires et une référence proposée par plan_diagram. Aucun ajout conservé.`)
+        if (!entry || (entry.count ?? 1) !== role.count || !role.candidates.includes(entry.template_id)) return fail(`Rôle ${role.ref} : conserver les ${role.count} exemplaires et une référence proposée par plan_diagram (${role.candidates.join(', ')}). Aucun ajout conservé.`)
       }
       let next = draft
       const refs = new Map<string, string>()

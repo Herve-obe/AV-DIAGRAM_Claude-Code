@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next'
+import { useShallow } from 'zustand/react/shallow'
 import { useUi, type ThemePref, type UiMode } from '../store/uiStore'
 import { TOP_ACTIONS, DEFAULT_TOOLBAR } from './topBarActions'
 import { Icon } from './Icon'
 
 export function InterfaceSettings() {
   const { t } = useTranslation()
-  const { toolbar, theme, mode, lang, setPref } = useUi()
+  const { toolbar, theme, mode, lang, setPref } = useUi(useShallow((s) => ({ toolbar: s.toolbar, theme: s.theme, mode: s.mode, lang: s.lang, setPref: s.setPref })))
   const ordered = [...toolbar, ...TOP_ACTIONS.map(a => a.id).filter(id => !toolbar.includes(id))]
   const move = (i: number, delta: number) => {
     const next = [...toolbar]

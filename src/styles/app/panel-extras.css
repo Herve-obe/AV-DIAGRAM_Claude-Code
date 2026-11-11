@@ -1,0 +1,13 @@
+/* Onglets et quantité de la bibliothèque, périmètre de l'assistant, alertes de l'entreprise. */
+
+.lib-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 8px; }
+.lib-tabs .seg-btn { white-space: normal; font-size: 12px; padding: 6px; }
+.lib-tabs [aria-selected="true"] { color: var(--accent); background: var(--bg-3); }
+.lib-tabs .count-chip { margin-left: 4px; }
+.lib-quantity { display: flex; gap: 8px; align-items: center; padding: 0 10px 8px 32px; color: var(--text-2); font-size: 11px; }
+.lib-quantity input { width: 82px; min-width: 0; }
+.ai-scope { display: grid; gap: 4px; padding: 8px 12px; font-size: 12px; border-bottom: 1px solid var(--border); }
+.ai-scope select { min-width: 0; width: 100%; }
+.company-alerts { padding: 8px 12px; border-left: 2px solid var(--accent); }
+.company-alerts ul { padding-left: 18px; margin: 6px 0; }
+.company-alerts li { margin: 8px 0; font-size: 12px; }

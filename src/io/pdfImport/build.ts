@@ -1,9 +1,11 @@
 // Construction des équipements et liaisons à partir d'un synoptique PDF interprété, selon les choix
 // faits dans la fenêtre d'import (éléments retenus, noms, familles, fiches, signaux). Tout arrive sur
 // une nouvelle feuille : le schéma existant n'est pas modifié, Annuler revient à l'état d'avant.
+import i18n from '../../i18n'
 import * as ops from '../../model/project'
 import type { SignalFamily } from '../../model/signals'
 import type { EquipmentFamily, EquipmentTemplate, PortDef, Project } from '../../model/types'
+import { fold } from '../../model/text'
 import { PICTOGRAM_OF, type ImportedEquipment, type ImportedPort, type PageInterpretation } from './interpret'
 
 /** Encombrement approximatif d'un bloc sur le schéma (en-tête, rangée de ports), pour éviter les chevauchements */
@@ -50,7 +52,7 @@ export function defaultChoices(r: PageInterpretation, source: string): ImportCho
 
 /** Nom de port comparable : « IN 1 », « Input 1 » et « Entrée 1 » donnent « in1 » */
 const norm = (s: string) =>
-  s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  fold(s)
     .replace(/\b(inputs?|entrees?|in)\b/g, 'in')
     .replace(/\b(outputs?|sorties?|out)\b/g, 'out')
     .replace(/[^a-z0-9]/g, '')
@@ -158,7 +160,7 @@ export function buildImport(
       name: c.name.trim() || e.name, sheetId: sheet.id,
     })
     p = added.project
-    const notes = [...e.notes, `Importé de ${choices.source}, page ${r.page}`].join('\n')
+    const notes = [...e.notes, i18n.t('pdfImport.notes.importedFrom', { source: choices.source, page: r.page })].join('\n')
     p = ops.updateEquipment(p, added.id, { notes })
     ids.set(e.key, { id: added.id, map })
   }
@@ -174,7 +176,7 @@ export function buildImport(
     const res = ops.connect(p, { equipmentId: a.id, portId: pa }, { equipmentId: b.id, portId: pb })
     if (!res.id) continue
     p = res.project
-    const notes = [l.ref ? `Repère d'origine : ${l.ref}` : '', l.note ?? ''].filter(Boolean).join(' ; ')
+    const notes = [l.ref ? i18n.t('pdfImport.notes.originRef', { ref: l.ref }) : '', l.note ?? ''].filter(Boolean).join(' ; ')
     p = ops.updateLink(p, res.id, { ...(l.lengthM ? { lengthM: l.lengthM } : {}), ...(notes ? { notes } : {}) })
     links++
   }

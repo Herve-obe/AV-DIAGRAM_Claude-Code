@@ -3,6 +3,7 @@
 import { invoke, isTauri } from '@tauri-apps/api/core'
 import { AiError, listModels } from './agent'
 import { nativeTransport } from './transport'
+import { pause } from '../model/pause'
 
 export interface ManagedFiles {
   /** Chemin du programme llama-server */
@@ -21,7 +22,6 @@ export function portOf(baseUrl: string | undefined): number {
   }
 }
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 export const stopServer = () => invoke<void>('local_stop')
 
@@ -43,7 +43,7 @@ export async function startServer(m: ManagedServer, baseUrl: string | undefined,
     } catch {
       // modèle en cours de chargement
     }
-    await sleep(1000)
+    await pause(1000)
   }
   await stopServer()
   throw new AiError('network', 'délai de chargement du modèle dépassé')

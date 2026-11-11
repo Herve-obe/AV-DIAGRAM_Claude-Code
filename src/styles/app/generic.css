@@ -1,0 +1,10 @@
+/* ---------- Équipement générique ---------- */
+.generic-dialog { width: min(820px, 100%); }
+.generic-dialog .dialog-body { padding: 12px 14px; display: grid; gap: 10px; }
+.generic-groups { width: 100%; border-collapse: collapse; }
+.generic-groups th { text-align: left; font-size: 11.5px; font-weight: 500; color: var(--text-2); padding: 2px 4px; }
+.generic-groups td { padding: 2px 4px; }
+.generic-groups select, .generic-groups input { width: 100%; padding: 4px 6px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); }
+.generic-groups input[type="number"] { width: 64px; }
+.generic-add { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.generic-errors { margin: 0; padding-left: 18px; color: var(--err); font-size: 12.5px; }

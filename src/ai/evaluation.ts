@@ -3,6 +3,7 @@
 // (quantités, liaisons, sorties) et liste celles qui demandent un juge (contraintes, questions attendues).
 import type { EquipmentFamily, Project } from '../model/types'
 import type { SignalFamily } from '../model/signals'
+import { fold } from '../model/text'
 
 export interface EvalRequirement {
   id: string
@@ -32,7 +33,7 @@ export interface CaseGrade {
   score: number
 }
 
-const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+const norm = fold
 
 // Premier mot d'un rôle → familles d'équipement qui peuvent le tenir (rôles définis dans docs/ia/evaluation/README.md)
 const ROLE_FAMILIES: Record<string, EquipmentFamily[]> = {

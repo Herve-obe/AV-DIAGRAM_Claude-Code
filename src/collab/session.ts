@@ -21,579 +21,42 @@
 //   s'y reconnectent automatiquement ;
 // - le secours garde la session quand l’hôte initial revient ; celui-ci rejoint le secours. Un
 //   transfert de l’hébergement nécessite une action volontaire pour conserver tout le document.
+//
+// Découpage : collabStore.ts (état affiché, préférences, reprise), protocol.ts (messages du relais et
+// session en cours), failover.ts (connexion, reconnexion, poste de secours) ; ce fichier relie le document
+// au projet et expose les actions de l'interface (ouvrir, rejoindre, reprendre, quitter, exclure…).
 import { invoke, isTauri } from '@tauri-apps/api/core'
-import * as decoding from 'lib0/decoding'
 import * as encoding from 'lib0/encoding'
 import * as awarenessProtocol from 'y-protocols/awareness'
 import * as syncProtocol from 'y-protocols/sync'
 import * as Y from 'yjs'
-import { create } from 'zustand'
 import { normalizeProject } from '../model/project'
-import type { Layer, LayerView } from '../model/layers'
-import { setHistoryDriver, setProjectGuard, useProject } from '../store/projectStore'
+import type { Layer } from '../model/layers'
+import { setHistoryDriver, useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { claimMembers, type Claims } from './protection'
-import { HostValidation } from './hostValidation'
 import { relayAddresses } from './relayAddress'
 import { guestChangeReason, guestLayers, hasFullAccess, type AccessReason } from './access'
 import { prepareToLeave, setDocumentSessionActive } from '../io/documentLifecycle'
-import { COLLAB_PROTOCOL, createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
+import { createUndoManager, hasProject, observeChanges, readProject, writeProject } from './ydoc'
+import {
+  canHost, clearResume, colorOf, COLORS, DEFAULT_PORT, fromBase64, notify, notifyAccess, randomId, readResume, RESUME_KEY, toBase64, useCollab,
+  type ChatMessage, type HostInfo, type Participant, type ResumeRecord,
+} from './collabStore'
+import { connect, probe, refreshHost } from './failover'
+import { live, MSG_SYNC, send, sendAwareness, setLive, type Live } from './protocol'
 
-const MSG_SYNC = 0
-const MSG_AWARENESS = 1
-export const DEFAULT_PORT = 4455
-const PREFS_KEY = 'avd.collab'
-const RESUME_KEY = 'avd.collab.resume'
+export {
+  canHost, DEFAULT_PORT, useCollab,
+  type ChatMessage, type CollabStatus, type HostInfo, type Notice, type Participant, type ResumeRecord,
+} from './collabStore'
+
 const SYNC_TIMEOUT_MS = 10000
-const RETRY_MS = 2000
-const CONNECT_TIMEOUT_MS = 3000
-/** Délai avant qu'un poste de secours prenne le relais (multiplié par son rang) */
-const TAKEOVER_MS = 8000
-/** Fréquence à laquelle un relais de secours cherche l'hôte d'origine */
-const PROBE_MS = 5000
 const SAVE_DELAY_MS = 1500
-const NOTICE_MS = 7000
 const CHAT_MAX = 500
-
-/** Couleurs de présence, distinctes des couleurs de signaux */
-const COLORS = ['#e8590c', '#7048e8', '#0ca678', '#d6336c', '#1c7ed6', '#f59f00', '#5c940d', '#ae3ec9']
-
-export interface Participant {
-  clientId: number
-  peerId?: number
-  userId?: string
-  name: string
-  color: string
-  layer?: LayerView
-  selection: string[]
-  self: boolean
-  /** Poste de bureau prêt à prendre le relais */
-  backup: boolean
-}
-
-export interface HostInfo {
-  port: number
-  code: string
-  hostToken: string
-  addresses: string[]
-  peers: { id: number; userId: string; name: string; address: string }[]
-  discoveryAvailable?: boolean
-}
-
-export interface ChatMessage {
-  id: string
-  userId: string
-  name: string
-  color: string
-  text: string
-  at: number
-}
-
-/** Message affiché dans le bandeau (clé de traduction collab.notice.*) */
-export interface Notice {
-  key: string
-  params?: Record<string, string | number>
-  tone: 'info' | 'warn' | 'error'
-}
-
-/** Session interrompue, enregistrée sur ce poste pour la reprendre */
-export interface ResumeRecord {
-  code: string
-  origin: 'host' | 'guest'
-  port: number
-  ranks: string[][]
-  backupIds: string[]
-  state: string
-  savedAt: number
-  projectName: string
-}
-
-export type CollabStatus = 'off' | 'connecting' | 'connected' | 'reconnecting'
-
-interface CollabState {
-  status: CollabStatus
-  started: boolean
-  /** Rôle actuel : host quand ce poste fait tourner le relais (hôte d'origine ou poste de secours) */
-  role: 'host' | 'guest' | null
-  /** Rôle de ce poste à l'ouverture de la session */
-  origin: 'host' | 'guest' | null
-  /** Rang du relais que ce poste fait tourner : 0 hôte d'origine, 1 et plus : secours */
-  relayRank: number | null
-  address: string | null
-  host: HostInfo | null
-  participants: Participant[]
-  error: string | null
-  name: string
-  userId: string
-  /** Ce poste accepte de prendre le relais si l'hôte disparaît (application de bureau) */
-  backup: boolean
-  dialogOpen: boolean
-  canUndo: boolean
-  canRedo: boolean
-  claims: Claims
-  chat: ChatMessage[]
-  chatOpen: boolean
-  unread: number
-  notice: Notice | null
-  /** Hôte injoignable depuis (horodatage) */
-  lostSince: number | null
-  resumable: ResumeRecord | null
-  setName: (name: string) => void
-  setBackup: (backup: boolean) => void
-  setDialogOpen: (open: boolean) => void
-  setChatOpen: (open: boolean) => void
-  dismissNotice: () => void
-}
-
-interface Prefs {
-  clientToken: string
-  name: string
-  userId: string
-  backup: boolean
-}
-
-function readPrefs(): Prefs {
-  let p: Partial<Prefs> = {}
-  try {
-    p = JSON.parse(localStorage.getItem(PREFS_KEY) ?? '{}')
-  } catch {
-    // préférences illisibles : valeurs par défaut
-  }
-  const prefs = { clientToken: p.clientToken || randomId() + randomId() + randomId() + randomId(), name: p.name ?? '', userId: p.userId || randomId(), backup: p.backup ?? true }
-  if (!p.clientToken) writePrefs(prefs)
-  return prefs
-}
-
-function writePrefs(p: Prefs) {
-  try {
-    localStorage.setItem(PREFS_KEY, JSON.stringify(p))
-  } catch {
-    // stockage indisponible : préférences gardées pour la session
-  }
-}
-
-function readResume(): ResumeRecord | null {
-  try {
-    const r = JSON.parse(localStorage.getItem(RESUME_KEY) ?? 'null') as ResumeRecord | null
-    return r && typeof r.code === 'string' && typeof r.state === 'string' ? r : null
-  } catch {
-    return null
-  }
-}
-
-function clearResume() {
-  try {
-    localStorage.removeItem(RESUME_KEY)
-  } catch {
-    // rien à effacer
-  }
-  useCollab.setState({ resumable: null })
-}
-
-function randomId(): string {
-  const b = new Uint8Array(8)
-  crypto.getRandomValues(b)
-  return [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
-}
-
-/** Couleur stable d'une personne (même couleur à chaque session) */
-function colorOf(userId: string): string {
-  let h = 0
-  for (const c of userId) h = (h * 31 + c.charCodeAt(0)) >>> 0
-  return COLORS[h % COLORS.length]
-}
-
-const toBase64 = (u: Uint8Array) => {
-  let s = ''
-  for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000))
-  return btoa(s)
-}
-const fromBase64 = (s: string) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0))
-
-const prefs = readPrefs()
-let noticeTimer: ReturnType<typeof setTimeout> | null = null
-
-export const useCollab = create<CollabState>((set, get) => ({
-  status: 'off',
-  started: false,
-  role: null,
-  origin: null,
-  relayRank: null,
-  address: null,
-  host: null,
-  participants: [],
-  error: null,
-  name: prefs.name,
-  userId: prefs.userId,
-  backup: prefs.backup,
-  dialogOpen: false,
-  canUndo: false,
-  canRedo: false,
-  claims: {},
-  chat: [],
-  chatOpen: false,
-  unread: 0,
-  notice: null,
-  lostSince: null,
-  resumable: readResume(),
-  setName: (name) => {
-    set({ name })
-    writePrefs({ clientToken: prefs.clientToken, name, userId: get().userId, backup: get().backup })
-  },
-  setBackup: (backup) => {
-    set({ backup })
-    writePrefs({ clientToken: prefs.clientToken, name: get().name, userId: get().userId, backup })
-  },
-  setDialogOpen: (dialogOpen) => set({ dialogOpen }),
-  setChatOpen: (chatOpen) => set(chatOpen ? { chatOpen, unread: 0 } : { chatOpen }),
-  dismissNotice: () => set({ notice: null }),
-}))
-
-setProjectGuard((prev, next) => {
-  const st = useCollab.getState()
-  if (st.status === 'off') return true
-  if (st.role === 'host') return prev.id === next.id
-  const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(prev, next, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
-  if (reason) notifyAccess(reason)
-  return reason === null
-})
-
-function notifyAccess(reason: AccessReason) {
-  notify({ key: `access.${reason.code}`, params: reason.params, tone: 'warn' })
-}
-function notify(notice: Notice) {
-  if (noticeTimer) clearTimeout(noticeTimer)
-  noticeTimer = null
-  useCollab.setState({ notice })
-  // Les informations s'effacent seules ; les alertes restent jusqu'à ce que la situation change
-  if (notice.tone !== 'warn') noticeTimer = setTimeout(() => {
-    noticeTimer = null
-    useCollab.setState({ notice: null })
-  }, NOTICE_MS)
-}
-
-export const canHost = () => isTauri()
 
 /** Origine des modifications faites sur ce poste (suivie par l'annulation) */
 const LOCAL = { local: true }
-
-interface Live {
-  doc: Y.Doc
-  awareness: awarenessProtocol.Awareness
-  undo: Y.UndoManager
-  code: string
-  origin: 'host' | 'guest'
-  /** Port du relais de ce poste (hôte, ou poste de secours) */
-  port: number
-  /** Relais connus par priorité : [0] hôte d'origine, puis postes de secours (ordre des identifiants) */
-  ranks: string[][]
-  backupIds: string[]
-  /** Adresses de ce poste (exclues des tentatives de connexion) */
-  own: string[]
-  /** Rang du relais que ce poste fait tourner, null s'il n'en fait pas tourner */
-  rank: number | null
-  attempt: number
-  ws: WebSocket | null
-  peerId: number | null
-  hostToken?: string
-  validation?: HostValidation
-  peerUsers: Map<number, string>
-  peerClients: Map<number, number>
-  everConnected: boolean
-  closing: boolean
-  end: 'ended' | 'kicked' | null
-  lostAt: number | null
-  retry: ReturnType<typeof setTimeout> | null
-  probe: ReturnType<typeof setInterval> | null
-  saveTimer: ReturnType<typeof setTimeout> | null
-  /** Projet tel qu'il est dans le document (évite de renvoyer ce qu'on vient de recevoir) */
-  synced: ReturnType<typeof useProject.getState>['project'] | null
-  cleanups: (() => void)[]
-}
-let live: Live | null = null
-
-const send = (data: Uint8Array) => {
-  if (live?.ws?.readyState === WebSocket.OPEN) live.ws.send(data as Uint8Array<ArrayBuffer>)
-}
-
-function sendSyncStep1(peerId?: number) {
-  if (!live) return
-  const enc = encoding.createEncoder()
-  encoding.writeVarUint(enc, MSG_SYNC)
-  syncProtocol.writeSyncStep1(enc, live.doc)
-  if (peerId !== undefined) directed(peerId, encoding.toUint8Array(enc))
-  else send(encoding.toUint8Array(enc))
-}
-
-function sendFullState(peerId?: number) {
-  if (!live) return
-  const enc = encoding.createEncoder()
-  encoding.writeVarUint(enc, MSG_SYNC)
-  syncProtocol.writeSyncStep2(enc, live.doc)
-  const packet = encoding.toUint8Array(enc)
-  if (peerId !== undefined) directed(peerId, packet)
-  else send(packet)
-}
-
-function sendAwareness(clients: number[]) {
-  if (!live) return
-  const enc = encoding.createEncoder()
-  encoding.writeVarUint(enc, MSG_AWARENESS)
-  encoding.writeVarUint8Array(enc, awarenessProtocol.encodeAwarenessUpdate(live.awareness, clients))
-  send(encoding.toUint8Array(enc))
-}
-
-function directed(peerId: number, packet: Uint8Array) {
-  const data = new Uint8Array(5 + packet.length)
-  data[0] = 254
-  new DataView(data.buffer).setUint32(1, peerId)
-  data.set(packet, 5)
-  send(data)
-}
-
-function onBinary(data: ArrayBuffer) {
-  if (!live) return
-  const cur = live
-  let peer: number | null = null
-  try {
-    let packet = new Uint8Array(data)
-    if (packet[0] === 255) {
-      if (cur.rank === null || packet.length < 6) return
-      peer = new DataView(data).getUint32(1)
-      packet = packet.subarray(5)
-    } else if (cur.rank !== null) return
-    const dec = decoding.createDecoder(packet)
-    const type = decoding.readVarUint(dec)
-    if (type === MSG_SYNC) {
-      const enc = encoding.createEncoder()
-      encoding.writeVarUint(enc, MSG_SYNC)
-      if (peer !== null) {
-        const subtype = decoding.readVarUint(dec)
-        if (subtype === syncProtocol.messageYjsSyncStep1) {
-          syncProtocol.writeSyncStep2(enc, cur.doc, decoding.readVarUint8Array(dec))
-        } else if (subtype === syncProtocol.messageYjsSyncStep2 || subtype === syncProtocol.messageYjsUpdate) {
-          cur.validation ??= new HostValidation(cur.doc)
-          const client = cur.peerClients.get(peer)
-          const view = client === undefined ? undefined : cur.awareness.getStates().get(client)?.layer as LayerView | undefined
-          if (!cur.validation.apply(decoding.readVarUint8Array(dec), cur.peerUsers.get(peer) ?? '', view)) {
-            // La copie locale du client reste disponible ; une reconnexion repart du document accepté.
-            void kick(peer)
-            return
-          }
-        } else throw new Error('sync')
-      } else syncProtocol.readSyncMessage(dec, enc, cur.doc, 'network')
-      if (encoding.length(enc) > 1) {
-        if (peer !== null) directed(peer, encoding.toUint8Array(enc))
-        else send(encoding.toUint8Array(enc))
-      }
-    } else if (type === MSG_AWARENESS) {
-      const bytes = decoding.readVarUint8Array(dec)
-      if (peer !== null) {
-        const presence = decoding.createDecoder(bytes)
-        if (decoding.readVarUint(presence) !== 1) throw new Error('presence')
-        const client = decoding.readVarUint(presence)
-        const clock = decoding.readVarUint(presence)
-        const state = JSON.parse(decoding.readVarString(presence))
-        const owned = cur.peerClients.get(peer)
-        if (owned !== undefined && owned !== client) throw new Error('identity')
-        if (client === cur.doc.clientID || [...cur.peerClients].some(([p, c]) => p !== peer && c === client)) throw new Error('identity')
-        cur.peerClients.set(peer, client)
-        if (state !== null) {
-          if (typeof state !== 'object' || Array.isArray(state)) throw new Error('presence')
-          state.peerId = peer
-          state.userId = cur.peerUsers.get(peer) ?? ''
-          // L'identité réseau est fournie par le relais, jamais par le nom ou l'identifiant annoncé.
-          const enc = encoding.createEncoder()
-          encoding.writeVarUint(enc, 1); encoding.writeVarUint(enc, client); encoding.writeVarUint(enc, clock)
-          encoding.writeVarString(enc, JSON.stringify(state))
-          awarenessProtocol.applyAwarenessUpdate(cur.awareness, encoding.toUint8Array(enc), 'network')
-        } else awarenessProtocol.applyAwarenessUpdate(cur.awareness, bytes, 'network')
-        sendAwareness([client])
-      } else awarenessProtocol.applyAwarenessUpdate(cur.awareness, bytes, 'network')
-    } else throw new Error('message')
-  } catch { if (peer !== null) void kick(peer) }
-}
-
-function onText(text: string) {
-  if (!live) return
-  const current = live
-  let msg: { type?: string; protocol?: number; reason?: string; peerId?: number; userId?: string; peers?: HostInfo['peers'] }
-  try {
-    msg = JSON.parse(text)
-  } catch {
-    return
-  }
-  if (msg.type === 'welcome') {
-    if (msg.protocol !== COLLAB_PROTOCOL) {
-      useCollab.setState({ error: 'version' })
-      finish(null)
-      return
-    }
-    current.peerId = msg.peerId ?? null
-    current.peerUsers = new Map((msg.peers ?? []).map(p => [p.id, p.userId]))
-    if (msg.userId) {
-      useCollab.setState({ userId: msg.userId })
-      current.awareness.setLocalStateField('userId', msg.userId)
-    }
-    current.awareness.setLocalStateField('peerId', current.peerId)
-    // La présence précède les propositions du document (calque et identité authentifiée).
-    sendAwareness([current.doc.clientID])
-    const wasLost = current.lostAt !== null
-    current.lostAt = null
-    current.attempt = 0
-    current.everConnected = true
-    useCollab.setState({ status: 'connected', error: null, lostSince: null })
-    if (wasLost) notify({ key: current.rank === null ? 'reconnected' : 'relayActive', tone: 'info' })
-    sendSyncStep1()
-    if (current.rank !== null) sendFullState()
-    sendAwareness([current.doc.clientID])
-  } else if (msg.type === 'refused') {
-    useCollab.setState({ error: msg.reason === 'version' ? 'version' : 'code' })
-    finish(null)
-  } else if (msg.type === 'ended' || msg.type === 'kicked') {
-    current.end = msg.type
-  } else if (msg.type === 'peer-joined') {
-    if (msg.peerId !== undefined && msg.userId) current.peerUsers.set(msg.peerId, msg.userId)
-    // Seul l'hôte propose le document initial. Les invités ne se synchronisent pas entre eux.
-    if (current.rank !== null && msg.peerId !== undefined) {
-      sendFullState(msg.peerId)
-      sendSyncStep1(msg.peerId)
-    }
-    sendAwareness(current.rank !== null ? [...current.awareness.getStates().keys()] : [current.doc.clientID])
-    void refreshHost()
-  } else if (msg.type === 'peer-left') {
-    if (msg.peerId !== undefined) { current.peerClients.delete(msg.peerId); current.peerUsers.delete(msg.peerId) }
-    const gone = [...current.awareness.getStates()].filter(([, s]) => s.peerId === msg.peerId).map(([id]) => id)
-    if (gone.length) {
-      awarenessProtocol.removeAwarenessStates(current.awareness, gone, 'network')
-      if (current.rank !== null) sendAwareness(gone)
-    }
-    void refreshHost()
-  }
-}
-
-/** Relais de ce poste : liste des postes connectés (adresse IP, pour pouvoir exclure). */
-async function refreshHost() {
-  if (useCollab.getState().role !== 'host' || !isTauri()) return
-  const info = await invoke<HostInfo | null>('collab_host_status')
-  if (info) useCollab.setState({ host: info })
-}
-
-/** Adresse à essayer : son propre relais, sinon chacun des relais connus à tour de rôle. */
-function target(cur: Live): string | null {
-  if (cur.rank !== null) return `127.0.0.1:${cur.port}`
-  const all = cur.ranks.flat().filter((a) => !cur.own.includes(a))
-  return all.length ? all[cur.attempt % all.length] : null
-}
-
-function connect() {
-  if (!live) return
-  const current = live
-  current.retry = null
-  const addr = target(current)
-  if (!addr) return
-  let ws: WebSocket
-  try {
-    ws = new WebSocket(`ws://${addr}`)
-  } catch {
-    current.retry = setTimeout(connect, RETRY_MS)
-    return
-  }
-  ws.binaryType = 'arraybuffer'
-  current.ws = ws
-  // Une adresse injoignable peut mettre longtemps à échouer : on passe à la suivante
-  const timer = setTimeout(() => ws.readyState !== WebSocket.OPEN && ws.close(), CONNECT_TIMEOUT_MS)
-  ws.onopen = () => {
-    clearTimeout(timer)
-    ws.send(JSON.stringify({ type: 'hello', protocol: COLLAB_PROTOCOL, code: current.code, name: useCollab.getState().name, clientToken: prefs.clientToken, hostToken: current.rank !== null ? current.hostToken : undefined }))
-  }
-  ws.onmessage = (e) => (typeof e.data === 'string' ? onText(e.data) : onBinary(e.data as ArrayBuffer))
-  ws.onclose = () => {
-    clearTimeout(timer)
-    if (live !== current || current.closing || current.ws !== ws) return
-    current.ws = null
-    if (current.end) return finish(current.end)
-    if (current.everConnected && current.lostAt === null) {
-      // Coupure : on continue à travailler, reconnexion automatique, fusion au retour
-      current.lostAt = Date.now()
-      notify({ key: current.rank === null ? 'hostLost' : 'relayLost', tone: 'warn' })
-    }
-    if (current.everConnected) useCollab.setState({ status: 'reconnecting', lostSince: current.lostAt })
-    current.attempt++
-    // Tour rapide des adresses connues, puis une pause
-    const all = Math.max(1, current.ranks.flat().length)
-    if (!maybeTakeOver(current)) current.retry = setTimeout(connect, current.attempt % all === 0 ? RETRY_MS : 200)
-  }
-}
-
-/** Poste de secours : prend le relais si l'hôte reste injoignable assez longtemps. */
-function maybeTakeOver(cur: Live): boolean {
-  if (cur.rank !== null || cur.lostAt === null || !canHost() || !useCollab.getState().backup) return false
-  const index = cur.backupIds.indexOf(useCollab.getState().userId)
-  if (index < 0 || Date.now() - cur.lostAt < TAKEOVER_MS * (index + 1)) return false
-  void takeOver(cur, index + 1)
-  return true
-}
-
-async function takeOver(cur: Live, rank: number) {
-  try {
-    const info = await invoke<HostInfo>('collab_host_start', { port: cur.port, code: cur.code, sessionName: useProject.getState().project.name, hostName: useCollab.getState().name })
-    if (live !== cur) return void invoke('collab_host_stop', { ended: false })
-    cur.port = info.port
-    cur.rank = rank
-    cur.hostToken = info.hostToken
-    useCollab.setState({ role: 'host', relayRank: rank, host: info })
-    notify({ key: 'tookOver', params: { address: info.addresses[0] ?? `127.0.0.1:${cur.port}` }, tone: 'info' })
-    cur.probe = setInterval(() => void probeOrigin(cur), PROBE_MS)
-  } catch {
-    // Port indisponible : on continue à chercher un relais
-  }
-  if (live === cur) connect()
-}
-
-/** Essaie une adresse : vrai si un relais de la session y répond. */
-function probe(addr: string, code: string): Promise<boolean> {
-  return new Promise((resolve) => {
-    let ws: WebSocket
-    try {
-      ws = new WebSocket(`ws://${addr}`)
-    } catch {
-      return resolve(false)
-    }
-    const done = (ok: boolean) => {
-      clearTimeout(timer)
-      ws.onclose = null
-      ws.onmessage = null
-      try {
-        ws.close()
-      } catch {
-        // déjà fermée
-      }
-      resolve(ok)
-    }
-    const timer = setTimeout(() => done(false), CONNECT_TIMEOUT_MS)
-    ws.onopen = () => ws.send(JSON.stringify({ type: 'hello', protocol: COLLAB_PROTOCOL, code, name: '' }))
-    ws.onmessage = (e) => {
-      if (typeof e.data !== 'string') return
-      try { const reply = JSON.parse(e.data); done(reply.type === 'welcome' && reply.protocol === COLLAB_PROTOCOL) }
-      catch { done(false) }
-    }
-    ws.onclose = () => done(false)
-  })
-}
-
-/** Un secours conserve le document accepté : aucun retour automatique vers un état potentiellement ancien. */
-async function probeOrigin(cur: Live) {
-  if (live !== cur || cur.rank === null) return
-  for (const addr of cur.ranks.slice(0, cur.rank).flat()) {
-    if (cur.own.includes(addr) || !(await probe(addr, cur.code))) continue
-    if (live !== cur || cur.rank === null) return
-    if (cur.probe) clearInterval(cur.probe)
-    cur.probe = null
-    notify({ key: 'returnDeferred', tone: 'warn' })
-    return
-  }
-}
 
 /** Participants d'après la présence (nom, couleur, calque affiché, sélection). */
 function refreshParticipants() {
@@ -676,16 +139,48 @@ interface StartOptions {
 /** Démarre le lien document <-> store, puis la connexion au relais. */
 async function start(o: StartOptions): Promise<void> {
   setDocumentSessionActive(true)
+  const current = openLive(o)
+  const { backup } = useCollab.getState()
+  // Poste de bureau volontaire : il annonce ses adresses pour pouvoir prendre le relais
+  if (canHost() && (backup || o.origin === 'host')) {
+    try {
+      current.own = await invoke<string[]>('collab_local_addresses', { port: o.port })
+      if (o.origin === 'guest' && backup) current.awareness.setLocalStateField('backup', current.own)
+    } catch {
+      // adresses inconnues : ce poste ne sera pas poste de secours
+    }
+  }
+  seedDocument(current, o)
+  relayDocument(current)
+  observeSessionData(current)
+
+  if (o.seed === 'project') {
+    bindStore(current)
+    connect()
+    return
+  }
+  if (o.seed === 'state') {
+    // Reprise : le document enregistré sur ce poste devient le projet ouvert
+    adoptDocument(current)
+    bindStore(current)
+    connect()
+    return
+  }
+  await waitForProject(current)
+}
+
+/** Nouveau document, présence de ce poste et état « connexion en cours ». */
+function openLive(o: StartOptions): Live {
   const doc = new Y.Doc()
   const awareness = new awarenessProtocol.Awareness(doc)
   const undo = createUndoManager(doc, LOCAL)
-  live = {
+  const current: Live = {
     doc, awareness, undo, code: o.code, hostToken: o.hostToken, origin: o.origin, port: o.port, ranks: o.ranks, backupIds: o.backupIds ?? [],
     own: [], rank: o.rank, attempt: 0, ws: null, peerId: null, everConnected: false, closing: false,
     peerUsers: new Map(), peerClients: new Map(), end: null, lostAt: null, retry: null, probe: null, saveTimer: null, synced: null, cleanups: [],
   }
-  const current = live
-  const { name, userId, backup } = useCollab.getState()
+  setLive(current)
+  const { name, userId } = useCollab.getState()
   awareness.setLocalState({
     name,
     userId,
@@ -697,16 +192,12 @@ async function start(o: StartOptions): Promise<void> {
     status: 'connecting', role: o.rank !== null ? 'host' : 'guest', origin: o.origin, relayRank: o.rank, error: null,
     claims: {}, chat: [], unread: 0, notice: null, lostSince: null, started: false,
   })
-  // Poste de bureau volontaire : il annonce ses adresses pour pouvoir prendre le relais
-  if (canHost() && (backup || o.origin === 'host')) {
-    try {
-      current.own = await invoke<string[]>('collab_local_addresses', { port: o.port })
-      if (o.origin === 'guest' && backup) awareness.setLocalStateField('backup', current.own)
-    } catch {
-      // adresses inconnues : ce poste ne sera pas poste de secours
-    }
-  }
+  return current
+}
 
+/** Contenu initial : projet ouvert (hôte) ou document enregistré (reprise) ; un invité attend la session. */
+function seedDocument(current: Live, o: StartOptions) {
+  const doc = current.doc
   if (o.seed === 'project') {
     const p = useProject.getState().project
     writeProject(doc, null, p, 'seed')
@@ -717,8 +208,11 @@ async function start(o: StartOptions): Promise<void> {
     // L'hôte migre les anciennes listes de ports avant de publier son document aux invités.
     if (o.rank !== null) writeProject(doc, null, readProject(doc), 'migration')
   }
+}
 
-  // Document -> envoi sur le réseau (sauf ce qui vient du réseau) et enregistrement local
+/** Document -> envoi sur le réseau (sauf ce qui vient du réseau) et enregistrement local ; présence. */
+function relayDocument(current: Live) {
+  const { doc, awareness } = current
   const onUpdate = (update: Uint8Array, origin: unknown) => {
     saveSoon(current)
     if (origin === 'network') return
@@ -736,8 +230,11 @@ async function start(o: StartOptions): Promise<void> {
   }
   awareness.on('update', onAwareness)
   current.cleanups.push(() => awareness.off('update', onAwareness))
+}
 
-  // Calques réservés et tchat
+/** Calques réservés, départ de la session et tchat, lus dans le document. */
+function observeSessionData(current: Live) {
+  const doc = current.doc
   const claims = claimsMap(doc)
   const onClaims = () => useCollab.setState({ claims: claims.toJSON() as Claims })
   claims.observe(onClaims)
@@ -758,95 +255,96 @@ async function start(o: StartOptions): Promise<void> {
   chat.observe(onChat)
   current.cleanups.push(() => chat.unobserve(onChat))
   useCollab.setState({ chat: chat.toArray() })
+}
 
-  const bind = () => {
-    // Document -> store : relecture des seuls éléments modifiés par les autres (ou par l'annulation)
-    current.cleanups.push(observeChanges(doc, (changes, origin) => {
-      if (origin === LOCAL) return
-      if (origin !== 'network' && current.synced && useCollab.getState().role === 'guest') {
-        const next = readProject(doc)
-        const st = useCollab.getState()
-        const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, next, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
-        if (reason) {
-          // Les droits ont pu changer depuis la création du pas d'annulation.
-          writeProject(doc, next, current.synced, LOCAL)
-          notifyAccess(reason)
-          return
-        }
-      }
-      const next = readProject(doc, current.synced ?? undefined, current.synced ? changes : undefined)
-      current.synced = next
-      useProject.setState({ project: next, saved: false })
-    }))
-    // Store -> document : chaque modification locale (y compris pendant un glisser), sauf sur un
-    // calque réservé par quelqu'un d'autre : elle est annulée et signalée
-    current.cleanups.push(useProject.subscribe((s) => {
-      if (s.project === current.synced) return
+/** Le projet du document devient le projet ouvert (reprise, arrivée dans une session). */
+function adoptDocument(current: Live) {
+  useProject.setState({ project: normalizeProject(readProject(current.doc)), past: [], future: [], saved: false })
+  current.synced = useProject.getState().project
+}
+
+/** Lien dans les deux sens entre le document partagé et le projet ouvert, annulation comprise. */
+function bindStore(current: Live) {
+  const { doc, awareness, undo } = current
+  // Document -> store : relecture des seuls éléments modifiés par les autres (ou par l'annulation)
+  current.cleanups.push(observeChanges(doc, (changes, origin) => {
+    if (origin === LOCAL) return
+    if (origin !== 'network' && current.synced && useCollab.getState().role === 'guest') {
+      const next = readProject(doc)
       const st = useCollab.getState()
-      const reason: AccessReason | null = current.synced && st.role !== 'host' ? !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId)) : null
-      if (reason && current.synced) {
-        useProject.setState({ project: current.synced })
+      const reason: AccessReason | null = !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, next, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
+      if (reason) {
+        // Les droits ont pu changer depuis la création du pas d'annulation.
+        writeProject(doc, next, current.synced, LOCAL)
         notifyAccess(reason)
         return
       }
-      writeProject(doc, current.synced, s.project, LOCAL)
-      current.synced = s.project
-    }))
-    // Présence : calque affiché et sélection
-    current.cleanups.push(useUi.subscribe((s, prev) => {
-      if (s.layer !== prev.layer) { undo.stopCapturing(); awareness.setLocalStateField('layer', s.layer) }
-      if (s.selectedEquipment !== prev.selectedEquipment) awareness.setLocalStateField('selection', s.selectedEquipment)
-    }))
-    const onStack = () => useCollab.setState({ canUndo: undo.canUndo(), canRedo: undo.canRedo() })
-    for (const ev of ['stack-item-added', 'stack-item-popped', 'stack-cleared'] as const) {
-      undo.on(ev, onStack)
-      current.cleanups.push(() => undo.off(ev, onStack))
     }
-    const historyAllowed = (redo: boolean) => {
-      const st = useCollab.getState()
-      if (st.role === 'host') return true
-      let reason: AccessReason | null = !st.started ? { code: 'waiting' } : useUi.getState().layer === 'all' && !hasFullAccess(st.claims, st.userId) ? { code: 'general' } : null
-      const stack = redo ? undo.redoStack : undo.undoStack
-      if (!reason && stack.length) {
-        // Essayer l'annulation hors réseau avant de toucher au document partagé et à sa pile.
-        const preview = new Y.Doc({ gc: false })
-        readProject(preview)
-        Y.applyUpdate(preview, Y.encodeStateAsUpdate(doc))
-        const trial = createUndoManager(preview, LOCAL)
-        const copy = stack.map(item => ({ ...item, meta: new Map(item.meta) }))
-        if (redo) trial.redoStack = copy
-        else trial.undoStack = copy
-        try {
-          if (redo) trial.redo(); else trial.undo()
-          reason = guestChangeReason(readProject(doc), readProject(preview), guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
-        } finally { trial.destroy(); preview.destroy() }
-      }
-      if (reason) notifyAccess(reason)
-      return !reason
+    const next = readProject(doc, current.synced ?? undefined, current.synced ? changes : undefined)
+    current.synced = next
+    useProject.setState({ project: next, saved: false })
+  }))
+  // Store -> document : chaque modification locale (y compris pendant un glisser), sauf sur un
+  // calque réservé par quelqu'un d'autre : elle est annulée et signalée
+  current.cleanups.push(useProject.subscribe((s) => {
+    if (s.project === current.synced) return
+    const st = useCollab.getState()
+    const reason: AccessReason | null = current.synced && st.role !== 'host' ? !st.started ? { code: 'waiting' } : guestChangeReason(current.synced, s.project, guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId)) : null
+    if (reason && current.synced) {
+      useProject.setState({ project: current.synced })
+      notifyAccess(reason)
+      return
     }
-    setHistoryDriver({
-      undo: () => { if (historyAllowed(false)) undo.undo() },
-      redo: () => { if (historyAllowed(true)) undo.redo() },
-      gesture: () => undo.stopCapturing(),
-    })
-    refreshParticipants()
+    writeProject(doc, current.synced, s.project, LOCAL)
+    current.synced = s.project
+  }))
+  // Présence : calque affiché et sélection
+  current.cleanups.push(useUi.subscribe((s, prev) => {
+    if (s.layer !== prev.layer) { undo.stopCapturing(); awareness.setLocalStateField('layer', s.layer) }
+    if (s.selectedEquipment !== prev.selectedEquipment) awareness.setLocalStateField('selection', s.selectedEquipment)
+  }))
+  const onStack = () => useCollab.setState({ canUndo: undo.canUndo(), canRedo: undo.canRedo() })
+  for (const ev of ['stack-item-added', 'stack-item-popped', 'stack-cleared'] as const) {
+    undo.on(ev, onStack)
+    current.cleanups.push(() => undo.off(ev, onStack))
   }
+  setHistoryDriver({
+    undo: () => { if (historyAllowed(current, false)) undo.undo() },
+    redo: () => { if (historyAllowed(current, true)) undo.redo() },
+    gesture: () => undo.stopCapturing(),
+  })
+  refreshParticipants()
+}
 
-  if (o.seed === 'project') {
-    bind()
-    connect()
-    return
+/** Invité : une annulation ou un rétablissement ne doit pas toucher à ce que ses droits interdisent. */
+function historyAllowed(current: Live, redo: boolean): boolean {
+  const { doc, undo } = current
+  const st = useCollab.getState()
+  if (st.role === 'host') return true
+  let reason: AccessReason | null = !st.started ? { code: 'waiting' } : useUi.getState().layer === 'all' && !hasFullAccess(st.claims, st.userId) ? { code: 'general' } : null
+  const stack = redo ? undo.redoStack : undo.undoStack
+  if (!reason && stack.length) {
+    // Essayer l'annulation hors réseau avant de toucher au document partagé et à sa pile.
+    const preview = new Y.Doc({ gc: false })
+    readProject(preview)
+    Y.applyUpdate(preview, Y.encodeStateAsUpdate(doc))
+    const trial = createUndoManager(preview, LOCAL)
+    const copy = stack.map(item => ({ ...item, meta: new Map(item.meta) }))
+    if (redo) trial.redoStack = copy
+    else trial.undoStack = copy
+    try {
+      if (redo) trial.redo(); else trial.undo()
+      reason = guestChangeReason(readProject(doc), readProject(preview), guestLayers(st.claims, st.userId), useUi.getState().layer, hasFullAccess(st.claims, st.userId))
+    } finally { trial.destroy(); preview.destroy() }
   }
-  if (o.seed === 'state') {
-    // Reprise : le document enregistré sur ce poste devient le projet ouvert
-    useProject.setState({ project: normalizeProject(readProject(doc)), past: [], future: [], saved: false })
-    current.synced = useProject.getState().project
-    bind()
-    connect()
-    return
-  }
-  // Invité : on attend le projet de la session avant de remplacer le projet local
-  await new Promise<void>((resolve, reject) => {
+  if (reason) notifyAccess(reason)
+  return !reason
+}
+
+/** Invité : on attend le projet de la session avant de remplacer le projet local. */
+function waitForProject(current: Live): Promise<void> {
+  const doc = current.doc
+  return new Promise<void>((resolve, reject) => {
     let ready = false
     const timer = setTimeout(() => {
       if (ready) return
@@ -859,9 +357,8 @@ async function start(o: StartOptions): Promise<void> {
       ready = true
       clearTimeout(timer)
       doc.off('update', onFirst)
-      useProject.setState({ project: normalizeProject(readProject(doc)), past: [], future: [], saved: false })
-      current.synced = useProject.getState().project
-      bind()
+      adoptDocument(current)
+      bindStore(current)
       resolve()
     }
     doc.on('update', onFirst)
@@ -945,7 +442,8 @@ export function leave() {
   finish(null)
 }
 
-function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
+/** Ferme la session en cours (aussi appelé par protocol.ts et failover.ts). */
+export function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
   const current = live
   if (!current) return
   current.validation?.destroy()
@@ -962,7 +460,7 @@ function finish(reason: 'ended' | 'kicked' | null, keepResume = false) {
   current.awareness.destroy()
   current.undo.destroy()
   current.doc.destroy()
-  live = null
+  setLive(null)
   setHistoryDriver(null)
   setDocumentSessionActive(false)
   if (!keepResume) clearResume()

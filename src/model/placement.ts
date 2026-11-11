@@ -2,7 +2,7 @@
 // centre de la vue, le bloc est décalé vers la droite tant qu'il chevauche un bloc existant, pour que
 // les ajouts successifs se rangent côte à côte au lieu de s'empiler.
 
-export interface Rect { x: number; y: number; w: number; h: number }
+import type { Rect } from './geometry'
 
 /** Taille supposée d'un bloc pas encore dessiné (sa taille réelle dépend de ses ports) */
 export const NEW_BLOCK_SIZE = { w: 220, h: 140 }

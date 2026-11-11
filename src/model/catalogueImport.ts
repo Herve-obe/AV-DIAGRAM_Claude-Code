@@ -1,8 +1,8 @@
-import type { EquipmentFamily, EquipmentTemplate } from './types'
-import type { TableCell, WorkbookTable } from '../io/xlsx'
+import type { EquipmentFamily, EquipmentTemplate, TableCell, WorkbookTable } from './types'
+import { fold } from './text'
 
 const text = (v: TableCell | undefined) => typeof v === 'string' || typeof v === 'number' ? String(v).trim() : ''
-const normal = (v: string) => v.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/ø/g, 'o').replace(/[^a-z0-9]+/g, ' ').trim()
+const normal = (v: string) => fold(v).replace(/ø/g, 'o').replace(/[^a-z0-9]+/g, ' ').trim()
 export const catalogueIdentity = (t: Pick<EquipmentTemplate, 'manufacturer' | 'model'>) => normal((t.manufacturer ?? '') + ' ' + t.model)
 
 /** CSV RFC 4180, séparateur virgule/point-virgule/tabulation détecté hors guillemets. */

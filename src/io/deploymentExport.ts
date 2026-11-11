@@ -3,7 +3,7 @@ import { networkPorts, portName, isNetworkPort, networkIssues, poeLoads } from '
 import { communicationPorts, clockIssues } from '../model/communications'
 import { circuitLoad, equipmentPower } from '../model/power'
 import type { ExportSettings, Project, ProjectInfo } from '../model/types'
-import { sheetLayout } from './exportOptions'
+import { sheetLayout } from '../model/exportOptions'
 import type { SheetShot } from './pdf'
 
 export interface ReportTable { name: string; keys: string[]; rows: (string | number | null)[][] }

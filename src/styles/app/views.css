@@ -1,0 +1,74 @@
+/* Mode présentation, cartes de modèles, multipaires, sous-schémas, vue flux et fusion. */
+
+/* ---------- Mode présentation ---------- */
+.app.is-presenting .workspace { grid-template-columns: minmax(0, 1fr); }
+.app.is-presenting { grid-template-rows: auto 1fr; }
+.presentation-bar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 8px 14px;
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--border);
+}
+.brand-mini { font: 600 11px var(--font-label); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+.presentation-title { flex: 1; font-size: 15px; font-weight: 600; }
+
+/* ---------- Nouveau projet : cartes de modèles ---------- */
+.template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding: 6px 14px 4px; }
+.template-card {
+  display: grid; gap: 6px; align-content: start; justify-items: start;
+  padding: 14px;
+  text-align: left;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.template-card:hover { border-color: var(--accent); background: var(--bg-3); }
+.template-icon { color: var(--accent); }
+.template-name { font-weight: 600; font-size: 14px; }
+.template-desc { font-size: 12.5px; color: var(--text-2); }
+
+/* ---------- Multipaires (dock) ---------- */
+.mc-toolbar { display: flex; gap: 8px; padding: 8px 14px; }
+.cell-input {
+  width: 100%; min-width: 0;
+  padding: 3px 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--text);
+  font: inherit;
+}
+.cell-input:hover { border-color: var(--border); }
+.cell-input:focus { border-color: var(--accent); outline: none; background: var(--bg-2); }
+.cell-input.num { text-align: right; max-width: 90px; }
+.mc-pairs { display: flex; flex-wrap: wrap; gap: 3px; }
+.mc-pair {
+  width: 22px; height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font: 500 10px var(--font-mono);
+  color: var(--text-3);
+}
+.mc-pair.is-used { background: var(--accent); border-color: var(--accent); color: var(--on-accent); cursor: pointer; }
+.mc-pair.is-conflict { background: var(--err); border-color: var(--err); color: var(--on-err); cursor: pointer; }
+.subgroup-title { margin: 10px 14px 2px; font: 600 11px var(--font-label); letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-3); }
+.code-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.field-hint { margin: -2px 14px 4px; font-size: 11px; color: var(--text-3); }
+
+/* ---------- Sous-schémas ---------- */
+.group-node { border-style: dashed; border-color: var(--accent); }
+.group-node .eq-head { background: color-mix(in srgb, var(--accent) 12%, var(--bg-2)); }
+.sheet-depth { color: var(--accent); margin-right: 2px; }
+
+/* ---------- Vue flux / câbles ---------- */
+.seg { display: inline-flex; margin-left: auto; border: 1px solid var(--border-strong); border-radius: 99px; overflow: hidden; }
+.seg-btn { padding: 3px 12px; font-size: 12px; color: var(--text-3); }
+.seg-btn[aria-pressed='true'] { background: var(--accent); color: var(--on-accent); }
+.edge-label.is-bundle { font-weight: 600; border-color: var(--text-2); }
+
+/* ---------- Fusion ---------- */
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+.btn-primary:hover { background: var(--accent); filter: brightness(1.08); }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; padding: 10px 14px 0; }
+.merge-list { margin: 4px 14px 8px; padding-left: 18px; font-size: 13px; line-height: 1.6; }
+.merge-policy { margin: 4px 14px 6px; }

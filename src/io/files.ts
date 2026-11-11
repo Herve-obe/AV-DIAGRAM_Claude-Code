@@ -8,7 +8,8 @@ import { getCable } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
 import { findPort } from '../model/rules'
 import { isProject } from '../model/project'
-import { exportSettingsOf, watermarkLayout, watermarkText } from './exportOptions'
+import { exportSettingsOf, watermarkLayout, watermarkText } from '../model/exportOptions'
+import { slug, xmlEscape } from '../model/text'
 import { BACKUP_DIR } from './backups'
 import type { Project, WatermarkSettings } from '../model/types'
 import { useProject } from '../store/projectStore'
@@ -128,10 +129,8 @@ function dataUrlToBytes(dataUrl: string): Uint8Array {
   return Uint8Array.from(bin, (c) => c.charCodeAt(0))
 }
 
-/** Nom de fichier sûr à partir du nom de projet. */
-export function slug(name: string): string {
-  return name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projet'
-}
+/** Nom de fichier sûr à partir du nom de projet (défini dans model/text, réexporté pour les exports). */
+export { slug }
 
 /** Garde un nom lisible, utilisable comme dossier sous Windows et macOS. */
 export function projectFolderName(name: string): string {
@@ -226,8 +225,6 @@ function parseProject(text: string): Project {
   return data
 }
 
-const xmlEscape = (s: string) => s.replace(/[<>&"']/g, (c) => `&#${c.charCodeAt(0)};`)
-
 /** Ajoute au SVG le filigrane (mêmes réglages que le PDF), au-dessus du schéma. */
 export function svgWatermark(svg: string, text: string, ws: WatermarkSettings, width: number, height: number): string {
   const anchor = { center: 'middle', left: 'start', right: 'end' } as const
@@ -315,7 +312,6 @@ export function exportCableCsv(project: Project, headers: string[]) {
 export async function exportCanvasImage(project: Project, format: 'png' | 'svg') {
   if (useUi.getState().view === 'plan') {
     const { planSvg } = await import('./planExport')
-    const { default: i18n } = await import('../i18n')
     let svg = planSvg(project, useUi.getState().currentSheetId, i18n.t('plan.unknownSize'))
     const ex = exportSettingsOf(project)
     const width = Number(/width="([\d.]+)"/.exec(svg)?.[1])

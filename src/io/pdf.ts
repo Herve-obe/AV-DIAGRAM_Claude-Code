@@ -10,8 +10,9 @@ import { toJpeg } from 'html-to-image'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { ExportSettings, Project, ProjectInfo, WatermarkSettings } from '../model/types'
 import type { TitleBlockTemplate } from '../store/titleBlockStore'
-import { MAX_REVISIONS, recipientsOf, sheetLayout, watermarkLayout, watermarkText, type SheetLayout } from './exportOptions'
+import { MAX_REVISIONS, recipientsOf, sheetLayout, watermarkLayout, watermarkText, type SheetLayout } from '../model/exportOptions'
 import { saveContent, saveMany, slug } from './files'
+import { PRINT_COLORS } from '../model/printColors'
 
 /** Nombre maximal de pixels d'une capture : limite des canevas de WebKit (macOS), avec une marge */
 const MAX_PIXELS = 15_000_000
@@ -29,7 +30,7 @@ export async function captureCanvasLight(pixelRatio = 2.5): Promise<{ dataUrl: s
       !['react-flow__minimap', 'react-flow__controls', 'react-flow__attribution', 'react-flow__background', 'page-grid', 'eq-port-tools'].some((c) => node.classList?.contains(c))
     const ratio = Math.min(pixelRatio, Math.sqrt(MAX_PIXELS / Math.max(1, el.clientWidth * el.clientHeight)))
     // JPEG haute qualité : fichier léger, traits nets sur fond blanc
-    const dataUrl = await toJpeg(el, { backgroundColor: '#ffffff', filter, pixelRatio: ratio, quality: 0.92 })
+    const dataUrl = await toJpeg(el, { backgroundColor: PRINT_COLORS.paper, filter, pixelRatio: ratio, quality: 0.92 })
     return { dataUrl, width: el.clientWidth, height: el.clientHeight }
   } finally {
     if (previous) root.dataset.theme = previous
@@ -50,7 +51,7 @@ function cssColor(varExpr: string): [number, number, number] {
 
 const hexRgb = (hex: string): [number, number, number] => {
   const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex)
-  return m ? [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)] : [40, 40, 40]
+  return m ? [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)] : [PRINT_COLORS.gray.line, PRINT_COLORS.gray.line, PRINT_COLORS.gray.line]
 }
 
 /** Libellés traduits du cartouche et de la légende */
@@ -241,7 +242,7 @@ function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number
   const { labels } = ctx
 
   // Cadre de la planche
-  doc.setDrawColor(40)
+  doc.setDrawColor(PRINT_COLORS.gray.line)
   doc.setLineWidth(0.5)
   doc.rect(margin / 2, margin / 2, w - margin, h - margin)
 
@@ -255,7 +256,7 @@ function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number
     // Repère d'assemblage dans le coin de la zone
     doc.setFont('helvetica', 'bold')
     doc.setFontSize(9)
-    doc.setTextColor(90)
+    doc.setTextColor(PRINT_COLORS.gray.tile)
     doc.text(shot.tile, area.x + 2, area.y + 5)
     doc.setFont('helvetica', 'normal')
   }
@@ -263,7 +264,7 @@ function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number
   // Légende des signaux
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(8)
-  doc.setTextColor(40)
+  doc.setTextColor(PRINT_COLORS.gray.line)
   if (!shot.draw) doc.text(labels.legend.toUpperCase(), legend.x, legend.y + 4)
   doc.setFont('helvetica', 'normal')
   ;(shot.draw ? [] : SIGNAL_FAMILIES).forEach((s, i) => {
@@ -286,15 +287,15 @@ function drawSheet(doc: jsPDF, ctx: ExportContext, shot: SheetShot, page: number
 
 /** Cellule du cartouche : libellé en petit, valeur dessous (tronquée à la largeur). */
 function cell(doc: jsPDF, label: string, value: string, x: number, y: number, w: number, h: number) {
-  doc.setDrawColor(40)
+  doc.setDrawColor(PRINT_COLORS.gray.line)
   doc.setLineWidth(0.25)
   doc.rect(x, y, w, h)
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(5)
-  doc.setTextColor(110)
+  doc.setTextColor(PRINT_COLORS.gray.label)
   doc.text(label.toUpperCase(), x + 1.2, y + 2.6)
   doc.setFontSize(8)
-  doc.setTextColor(20)
+  doc.setTextColor(PRINT_COLORS.gray.ink)
   doc.text(doc.splitTextToSize(value || '-', w - 2.4)[0] ?? '', x + 1.2, y + h - 2)
 }
 
@@ -307,7 +308,7 @@ function drawTitleBlock(doc: jsPDF, ctx: ExportContext, layout: SheetLayout, sho
 
   // Colonne gauche : logo et propriétaire légal
   const logoH = 32
-  doc.setDrawColor(40)
+  doc.setDrawColor(PRINT_COLORS.gray.line)
   doc.setLineWidth(0.25)
   doc.rect(x, y, L, logoH)
   if (template.logo) {
@@ -321,15 +322,15 @@ function drawTitleBlock(doc: jsPDF, ctx: ExportContext, layout: SheetLayout, sho
   }
   doc.rect(x, y + logoH, L, h - logoH)
   doc.setFontSize(5)
-  doc.setTextColor(110)
+  doc.setTextColor(PRINT_COLORS.gray.label)
   doc.text(labels.owner.toUpperCase(), x + 1.2, y + logoH + 2.6)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(8)
-  doc.setTextColor(20)
+  doc.setTextColor(PRINT_COLORS.gray.ink)
   doc.text(doc.splitTextToSize(info.owner || template.owner || '-', L - 2.4)[0] ?? '', x + 1.2, y + logoH + 7)
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(5.5)
-  doc.setTextColor(70)
+  doc.setTextColor(PRINT_COLORS.gray.detail)
   if (template.ownerDetail) doc.text(doc.splitTextToSize(template.ownerDetail, L - 2.4).slice(0, 2), x + 1.2, y + logoH + 10.5)
 
   // Titre et titre complémentaire
@@ -338,15 +339,15 @@ function drawTitleBlock(doc: jsPDF, ctx: ExportContext, layout: SheetLayout, sho
   const subtitle = [info.subtitle, shot.name].filter(Boolean).join(' · ')
   doc.rect(rx, y, R, rowT)
   doc.setFontSize(5)
-  doc.setTextColor(110)
+  doc.setTextColor(PRINT_COLORS.gray.label)
   doc.text(labels.title.toUpperCase(), rx + 1.2, y + 2.6)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(12)
-  doc.setTextColor(20)
+  doc.setTextColor(PRINT_COLORS.gray.ink)
   doc.text(doc.splitTextToSize(ctx.project.name, R - 2.4)[0] ?? '', rx + 1.2, y + 8)
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(8)
-  doc.setTextColor(60)
+  doc.setTextColor(PRINT_COLORS.gray.subtitle)
   if (subtitle) doc.text(doc.splitTextToSize(subtitle, R - 2.4)[0] ?? '', rx + 1.2, y + 12.2)
 
   const y2 = y + rowT
@@ -372,11 +373,11 @@ function drawTitleBlock(doc: jsPDF, ctx: ExportContext, layout: SheetLayout, sho
   cell(doc, labels.techRef, info.techRef ?? '', rx + 70, y5, R - 70, row)
 
   // Contour renforcé, par-dessus les cellules
-  doc.setDrawColor(20)
+  doc.setDrawColor(PRINT_COLORS.gray.ink)
   doc.setLineWidth(0.6)
   doc.rect(x, y, w, h)
   doc.setFontSize(5)
-  doc.setTextColor(140)
+  doc.setTextColor(PRINT_COLORS.gray.signature)
   doc.text('AV Diagram', x + w, y + h + 3, { align: 'right' })
 }
 
@@ -390,13 +391,13 @@ function drawRevisions(doc: jsPDF, ctx: ExportContext, layout: SheetLayout) {
   const cols = [15, 24, box.w - 15 - 24 - 32, 32]
   const heads = [labels.revisions.index, labels.revisions.date, labels.revisions.description, labels.revisions.by]
   doc.setLineWidth(0.25)
-  doc.setDrawColor(40)
+  doc.setDrawColor(PRINT_COLORS.gray.line)
   const drawRow = (values: string[], y: number, head: boolean) => {
     let cx = box.x
     values.forEach((v, i) => {
       doc.rect(cx, y, cols[i], rowH)
       doc.setFontSize(head ? 5 : 7)
-      doc.setTextColor(head ? 110 : 20)
+      doc.setTextColor(head ? PRINT_COLORS.gray.label : PRINT_COLORS.gray.ink)
       doc.text(doc.splitTextToSize(head ? v.toUpperCase() : v || '-', cols[i] - 2)[0] ?? '', cx + 1, y + rowH - 1.5)
       cx += cols[i]
     })

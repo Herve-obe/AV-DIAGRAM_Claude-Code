@@ -4,6 +4,7 @@ import { DOMAIN_FAMILIES } from '../library/domains'
 import { CONNECTORS } from './connectors'
 import type { SignalFamily } from './signals'
 import type { EquipmentFamily, EquipmentTemplate, Level, LibraryDomain, PictogramId, PortDef, PortDirection } from './types'
+import { slug } from './text'
 
 /** Signaux proposés dans chaque menu. */
 export const DOMAIN_SIGNALS: Record<LibraryDomain, SignalFamily[]> = {
@@ -87,7 +88,7 @@ export function genericErrors(spec: GenericSpec): string[] {
 
 /** Construit la fiche « Mon entreprise » de l'équipement générique ; identifiants de prises stables et uniques. */
 export function buildGenericTemplate(spec: GenericSpec, unique = () => Math.random().toString(36).slice(2, 8)): EquipmentTemplate {
-  const slug = spec.name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'equipement'
+  const idBase = slug(spec.name, '').slice(0, 40) || 'equipement'
   const ports: PortDef[] = []
   spec.groups.forEach((g, gi) => {
     for (let i = 1; i <= g.count; i++) {
@@ -103,7 +104,7 @@ export function buildGenericTemplate(spec: GenericSpec, unique = () => Math.rand
     }
   })
   return {
-    id: `user-generic-${slug}-${unique()}`,
+    id: `user-generic-${idBase}-${unique()}`,
     model: spec.name.trim(),
     family: spec.family,
     domain: spec.domain,

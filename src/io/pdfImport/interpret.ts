@@ -9,10 +9,12 @@
 import { domainOf } from '../../library/domains'
 import type { SignalFamily } from '../../model/signals'
 import type { EquipmentFamily, EquipmentTemplate, PictogramId, PortDirection } from '../../model/types'
+import { fold } from '../../model/text'
+import type { Rect } from '../../model/geometry'
 import type { PdfPage, PdfRect, PdfSegment, PdfText } from './extract'
 
 export type Side = 'left' | 'right' | 'top' | 'bottom'
-type Box = { x: number; y: number; w: number; h: number }
+type Box = Rect
 
 /** Origine d'une information : lue dans le document, déduite (mot-clé, couleur, côté), ou par défaut */
 export type Evidence = 'document' | 'keyword' | 'color' | 'side' | 'default'
@@ -167,7 +169,7 @@ const DOMAIN_SIGNAL: Record<string, SignalFamily> = {
   sound: 'audioAnalog', image: 'video', light: 'dmx', network: 'network', distribution: 'power',
 }
 
-const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '')
+const norm = (s: string) => fold(s).replace(/[^a-z0-9]/g, '')
 
 /** Fiche de la bibliothèque dont le fabricant et le modèle figurent dans le cadre. */
 export function matchTemplate(text: string, library: EquipmentTemplate[]): EquipmentTemplate | null {

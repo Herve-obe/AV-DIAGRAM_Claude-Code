@@ -1,23 +1,24 @@
 import type { TFunction } from 'i18next'
 import { footprint, onPlan, planBounds, planOf } from '../model/floorPlan'
 import type { ExportSettings, Project, ProjectInfo } from '../model/types'
-import { sheetLayout, tileRef } from './exportOptions'
+import { sheetLayout, tileRef } from '../model/exportOptions'
+import { xmlEscape } from '../model/text'
 import type { SheetShot } from './pdf'
+import { PRINT_COLORS } from '../model/printColors'
 
-const escapeXml = (v: string) => v.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]!)
 export function planSvg(p: Project, sheetId: string, unknownLabel: string): string {
   const plan = planOf(p, sheetId), b = planBounds(p, sheetId)
   const x = b.x - 1, y = b.y - 1, w = b.w + 2, h = b.h + 3
   const px = Math.min(2400, Math.sqrt(12_000_000 * w / h))
   const hidden = new Set(plan.hiddenLayers)
   const paths = plan.background?.paths.filter(q => !hidden.has(q.layer)).map(q => `<path d="${q.points.map((pt, i) => `${i ? 'L' : 'M'}${pt.x},${pt.y}`).join(' ')}${q.closed ? 'Z' : ''}"/>`).join('') ?? ''
-  const texts = plan.background?.texts.filter(q => !hidden.has(q.layer)).map(q => `<text x="${q.x}" y="${q.y}" font-size="${q.height}" transform="rotate(${q.angle},${q.x},${q.y})">${escapeXml(q.text)}</text>`).join('') ?? ''
+  const texts = plan.background?.texts.filter(q => !hidden.has(q.layer)).map(q => `<text x="${q.x}" y="${q.y}" font-size="${q.height}" transform="rotate(${q.angle},${q.x},${q.y})">${xmlEscape(q.text)}</text>`).join('') ?? ''
   const eqs = onPlan(p, sheetId).map(eq => {
     const pts = footprint(eq), pl = eq.plan!
     const shape = pts.length === 1 ? `<circle cx="${pl.x}" cy="${pl.y}" r="0.2" stroke-dasharray="0.06 0.04"/>` : `<polygon points="${pts.map(pt => `${pt.x},${pt.y}`).join(' ')}"/>`
-    return `<g fill="#fff" stroke="#24364b" stroke-width="0.03">${shape}</g><text x="${pl.x}" y="${pl.y + (pl.depth ?? 0.4) / 2 + 0.3}" text-anchor="middle" font-size="0.22">${escapeXml(eq.name)}</text>`
+    return `<g fill="${PRINT_COLORS.paper}" stroke="${PRINT_COLORS.plan.equipmentStroke}" stroke-width="0.03">${shape}</g><text x="${pl.x}" y="${pl.y + (pl.depth ?? 0.4) / 2 + 0.3}" text-anchor="middle" font-size="0.22">${xmlEscape(eq.name)}</text>`
   }).join('')
-  const body = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#fff"/><g fill="none" stroke="#89909a" stroke-width="0.02"><rect width="${plan.width}" height="${plan.height}"/>${paths}</g><g fill="#41464d" font-family="Arial">${texts}${eqs}<text x="${x + 0.3}" y="${y + h - 0.3}" font-size="0.22">${escapeXml(unknownLabel)}</text></g>`
+  const body = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${PRINT_COLORS.paper}"/><g fill="none" stroke="${PRINT_COLORS.plan.background}" stroke-width="0.02"><rect width="${plan.width}" height="${plan.height}"/>${paths}</g><g fill="${PRINT_COLORS.plan.text}" font-family="Arial">${texts}${eqs}<text x="${x + 0.3}" y="${y + h - 0.3}" font-size="0.22">${xmlEscape(unknownLabel)}</text></g>`
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.round(px)}" height="${Math.round(px * h / w)}" viewBox="0 0 ${px} ${px * h / w}"><g transform="scale(${px / w}) translate(${-x},${-y})">${body}</g></svg>`
 }
 
@@ -37,7 +38,7 @@ export function planSheets(p: Project, opts: ExportSettings, info: ProjectInfo, 
       const ox = b.x + col * tw, oy = b.y + row * th
       out.push({ name: `${sheet.name} · ${t('plan.title')}`, dataUrl: '', width: area.w, height: area.h,
         tile: cols * rows > 1 ? tileRef(col, row) : undefined, draw: (doc, a) => {
-          doc.setTextColor(30); doc.setFont('helvetica', 'normal'); doc.setFontSize(8)
+          doc.setTextColor(PRINT_COLORS.gray.text); doc.setFont('helvetica', 'normal'); doc.setFontSize(8)
           doc.text(t('plan.pdfScale', { scale: `${fixed ? '' : '~ '}1:${Number((1000 / k).toFixed(2))}` }), a.x, a.y + 4)
           doc.text(t('plan.unknownSize'), a.x, a.y + a.h - 1)
           doc.saveGraphicsState()
@@ -47,7 +48,7 @@ export function planSheets(p: Project, opts: ExportSettings, info: ProjectInfo, 
             const list = closed ? [...points, points[0]] : points
             for (let i = 1; i < list.length; i++) { const a = pt(list[i - 1]), b = pt(list[i]); doc.line(a.x, a.y, b.x, b.y) }
           }
-          doc.setDrawColor(160); doc.setLineWidth(0.15)
+          doc.setDrawColor(PRINT_COLORS.gray.grid); doc.setLineWidth(0.15)
           path([{ x: 0, y: 0 }, { x: plan.width, y: 0 }, { x: plan.width, y: plan.height }, { x: 0, y: plan.height }], true)
           const hidden = new Set(plan.hiddenLayers)
           for (const q of plan.background?.paths ?? []) if (!hidden.has(q.layer)) path(q.points, q.closed)
@@ -55,7 +56,7 @@ export function planSheets(p: Project, opts: ExportSettings, info: ProjectInfo, 
             const pos = pt(q); doc.setFontSize(Math.min(120, Math.max(2, q.height * k * 72 / 25.4)))
             doc.text(q.text, pos.x, pos.y, { angle: -q.angle })
           }
-          doc.setDrawColor(40); doc.setLineWidth(0.25); doc.setFontSize(7)
+          doc.setDrawColor(PRINT_COLORS.gray.line); doc.setLineWidth(0.25); doc.setFontSize(7)
           for (const eq of onPlan(p, sheet.id)) {
             const points = footprint(eq), c = pt(eq.plan!)
             if (points.length > 1) path(points, true)

@@ -66,7 +66,7 @@ export function addEquipment(
   project: Project,
   template: EquipmentTemplate,
   position: { x: number; y: number },
-  extra: Partial<Pick<Equipment, 'name' | 'zoneId' | 'sheetId'>> = {},
+  extra: Partial<Pick<Equipment, 'name' | 'zoneId' | 'sheetId' | 'portsExpanded'>> = {},
 ): { project: Project; id: string } {
   const id = uid('eq')
   const eq: Equipment = {
@@ -89,6 +89,7 @@ export function addEquipment(
     zoneId: extra.zoneId,
     sheetId: extra.sheetId ?? project.sheets?.[0]?.id ?? DEFAULT_SHEET_ID,
     position,
+    ...(extra.portsExpanded !== undefined ? { portsExpanded: extra.portsExpanded } : {}),
   }
   return { project: touch({ ...project, equipment: { ...project.equipment, [id]: eq } }), id }
 }

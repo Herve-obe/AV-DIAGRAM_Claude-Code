@@ -10,7 +10,10 @@ vi.mock('../io/pickFile', () => ({ pickFile: actions.pick }))
 vi.mock('../io/xlsxRead', () => ({ readXlsx: actions.read }))
 vi.mock('../io/files', () => ({ notifyError: actions.error }))
 vi.mock('idb-keyval', () => ({ update: actions.update, get: vi.fn() }))
-vi.mock('../library', () => ({ LIBRARY: [{ id: 'fictitious', manufacturer: 'Test', model: 'Micro 1', family: 'capture', pictogram: 'mic', status: 'verified', sources: [{ document: 'Notice de test fictive', accessed: '2026-10-22' }], ports: [{ id: 'out', name: 'Out', direction: 'out', signal: 'audioAnalog', connector: 'xlr3' }] }] }))
+vi.mock('../library', () => {
+  const LIBRARY = [{ id: 'fictitious', manufacturer: 'Test', model: 'Micro 1', family: 'capture', pictogram: 'mic', status: 'verified', sources: [{ document: 'Notice de test fictive', accessed: '2026-10-22' }], ports: [{ id: 'out', name: 'Out', direction: 'out', signal: 'audioAnalog', connector: 'xlr3' }] }]
+  return { LIBRARY, LIBRARY_INDEX: new Map(LIBRARY.map((t) => [t.id, t])) }
+})
 let element: HTMLDivElement, root: Root, stored: unknown
 const button = (text: string) => [...element.querySelectorAll('button')].find(b => b.textContent === text)!
 const click = (el: HTMLElement) => act(async () => el.click())

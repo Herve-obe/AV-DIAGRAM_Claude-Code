@@ -2,7 +2,7 @@
 // hors marges et cartouche ; le débordement ajoute des pages voisines.
 import { ViewportPortal, useEdges, useNodes, useStore, useViewport, type ReactFlowInstance } from '@xyflow/react'
 import { useTranslation } from 'react-i18next'
-import { exportSettingsOf, sheetLayout, tileRef, tilesFor } from '../io/exportOptions'
+import { exportSettingsOf, sheetLayout, tileRef, tilesFor } from '../model/exportOptions'
 import { drawingBounds, useRoutes } from './EdgeRouter'
 import type { Project } from '../model/types'
 import { SIGNAL_FAMILIES } from '../model/signals'
@@ -11,13 +11,14 @@ export function PageGrid({ project }: { project: Project }) {
   const { t } = useTranslation()
   const nodes = useNodes()
   const edges = useEdges()
-  const routing = useRoutes()
+  const routes = useRoutes(s => s.routes)
+  const labels = useRoutes(s => s.labels)
   const viewport = useViewport()
   const width = useStore(s => s.width)
   const height = useStore(s => s.height)
   const opts = exportSettingsOf(project)
   const { area } = sheetLayout(opts.paper, opts.orientation, SIGNAL_FAMILIES.length, project.info?.revisions?.length ?? 0)
-  const grid = tilesFor(drawingBounds(nodes, edges, routing), area, 100)
+  const grid = tilesFor(drawingBounds(nodes, edges, { routes, labels }), area, 100)
   // Ne dessiner que les pages à l'écran évite de créer des milliers d'éléments sur un grand plan.
   const firstCol = Math.max(0, Math.floor((-viewport.x / viewport.zoom - grid.x) / grid.tileW))
   const firstRow = Math.max(0, Math.floor((-viewport.y / viewport.zoom - grid.y) / grid.tileH))

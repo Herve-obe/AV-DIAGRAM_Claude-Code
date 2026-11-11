@@ -10,6 +10,7 @@ import { startServer, stopServer } from '../ai/local'
 import { keyStore, nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { LocalAiSetup } from './LocalAiSetup'
 
 type Path = 'choose' | 'local' | 'account' | 'builtin'
@@ -75,12 +76,7 @@ export function AiSetupDialog() {
     setModelPath(settings.managed && 'modelPath' in settings.managed ? settings.managed.modelPath : '')
   }, [open, installerDirectory])
 
-  useEffect(() => {
-    if (!open || path === 'builtin') return
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && status.state !== 'running') useAi.getState().setSetupOpen(false) }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, path, status.state])
+  const dialogRef = useDialog(open && path !== 'builtin', close)
 
   useEffect(() => {
     if (!open || !native || path !== 'account') return
@@ -245,7 +241,7 @@ export function AiSetupDialog() {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
-      <div className="dialog ai-setup" role="dialog" aria-modal="true" aria-labelledby="ai-setup-title">
+      <div className="dialog ai-setup" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="ai-setup-title">
         <header className="dialog-head">
           <h2 id="ai-setup-title">{t('ai.setup.title')}</h2>
           <button className="icon-btn" disabled={status.state === 'running'} onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

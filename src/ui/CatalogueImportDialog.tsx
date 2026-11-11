@@ -1,16 +1,17 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { create } from 'zustand'
 import { LIBRARY } from '../library'
 import { DOMAIN_FAMILIES } from '../library/domains'
 import { pickFile } from '../io/pickFile'
 import { readXlsx } from '../io/xlsxRead'
-import type { WorkbookRead } from '../io/xlsx'
+import type { WorkbookRead } from '../model/types'
 import { notifyError } from '../io/files'
 import { catalogueColumns, catalogueCsv, catalogueEntries, catalogueTemplate, type CatalogueColumns } from '../model/catalogueImport'
 import type { EquipmentFamily } from '../model/types'
 import { useLibrary } from '../store/libraryStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 
 const state = create<{ file: string; data: WorkbookRead | null; busy: boolean }>(() => ({ file: '', data: null, busy: false }))
 let serial = 0
@@ -55,26 +56,12 @@ export function CatalogueImportDialog() {
   const [done, setDone] = useState<number | null>(null)
   const [error, setError] = useState('')
   const [page, setPage] = useState(0)
-  const ref = useRef<HTMLElement>(null)
   const open = busy || !!data
   const table = data?.sheets[sheet]
   const clear = () => { setExcluded([]); setOverrides({}); setAck(false); setDone(null); setError(''); setPage(0) }
   useEffect(() => { if (data) { setSheet(0); setColumns(catalogueColumns(data.sheets[0].rows[0] ?? [])); clear() } }, [data])
-  useEffect(() => {
-    if (!open) return
-    const previous = document.activeElement as HTMLElement | null
-    ref.current?.querySelector<HTMLButtonElement>('button')?.focus()
-    const key = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && !ref.current?.getAttribute('aria-busy')) close()
-      if (e.key !== 'Tab') return
-      const controls = Array.from(ref.current?.querySelectorAll<HTMLElement>('button:not(:disabled), select:not(:disabled), input:not(:disabled)') ?? [])
-      const first = controls[0], last = controls.at(-1)
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus() }
-      if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus() }
-    }
-    window.addEventListener('keydown', key)
-    return () => { window.removeEventListener('keydown', key); previous?.focus() }
-  }, [open])
+  // Pas de fermeture par Échap pendant l'enregistrement des fiches
+  const ref = useDialog<HTMLElement>(open, () => { if (!ref.current?.getAttribute('aria-busy')) close() })
   const parsed = useMemo(() => table ? catalogueEntries(table, columns, [...userTemplates, ...LIBRARY], family) : { entries: [], problems: [] }, [table, columns, userTemplates, family])
   const selected = parsed.entries.filter(e => !excluded.includes(e.row))
   const pending = selected.filter(e => !e.template || e.template.portStatus === 'pending').length

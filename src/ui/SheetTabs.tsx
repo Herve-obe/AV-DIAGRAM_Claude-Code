@@ -1,5 +1,6 @@
 // Onglets des feuilles du projet (au-dessus du canevas) et outils d'annotation.
 import { useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { depthOf, sheetTree } from '../model/groups'
@@ -12,7 +13,7 @@ export function SheetTabs() {
   const { t } = useTranslation()
   const project = useProject((s) => s.project)
   const sheets = sheetTree(project)
-  const { currentSheetId, setSheet, presenting } = useUi()
+  const { currentSheetId, setSheet, presenting } = useUi(useShallow((s) => ({ currentSheetId: s.currentSheetId, setSheet: s.setSheet, presenting: s.presenting })))
   const current = sheets.find((s) => s.id === currentSheetId)
   const [renaming, setRenaming] = useState<string | null>(null)
   const rf = useReactFlow()

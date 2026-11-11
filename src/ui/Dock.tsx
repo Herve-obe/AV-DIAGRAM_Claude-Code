@@ -1,5 +1,6 @@
 // Dock inférieur : listes générées automatiquement depuis le schéma.
 import { useEffect, useMemo, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { buildBom, computeTotals } from '../model/bom'
 import { crossLayerHints } from '../model/layers'
@@ -326,7 +327,7 @@ function IssuesTable() {
 
 export function Dock() {
   const { t } = useTranslation()
-  const { dockTab, dockOpen, mode, setDockTab, setPref } = useUi()
+  const { dockTab, dockOpen, mode, setDockTab, setPref } = useUi(useShallow((s) => ({ dockTab: s.dockTab, dockOpen: s.dockOpen, mode: s.mode, setDockTab: s.setDockTab, setPref: s.setPref })))
   const issues = useIssues()
   const project = useProject((s) => s.project)
   const company = useLibrary(s => s.userTemplates)

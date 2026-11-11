@@ -1,7 +1,7 @@
 // Modèles perso de l'utilisateur (« Mon entreprise »), enregistrés sur l'ordinateur (IndexedDB).
 import { get, update } from 'idb-keyval'
 import { create } from 'zustand'
-import { LIBRARY } from '../library'
+import { LIBRARY, LIBRARY_INDEX } from '../library'
 import type { EquipmentTemplate } from '../model/types'
 import { validateTemplate } from '../model/validateTemplate'
 import { catalogueIdentity } from '../model/catalogueImport'
@@ -72,7 +72,7 @@ export async function restoreUserLibrary(): Promise<void> {
 
 /** Retrouve un modèle par son identifiant : modèles perso, fiches constructeur puis génériques. */
 export function getTemplate(id: string): EquipmentTemplate | undefined {
-  return useLibrary.getState().userTemplates.find((t) => t.id === id) ?? LIBRARY.find((t) => t.id === id)
+  return useLibrary.getState().userTemplates.find((t) => t.id === id) ?? LIBRARY_INDEX.get(id)
 }
 
 /** Bloc vide, point de départ d'un équipement personnalisé. */

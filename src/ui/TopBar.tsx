@@ -1,21 +1,22 @@
 // Barre supérieure : menus complets, raccourcis personnalisables et accès à l'assistant.
 import { useCallback, useEffect, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { startMerge } from './MergeDialog'
 import { startPdfImport } from './PdfImportDialog'
 import { startCadImport } from './CadImportDialog'
-import { startDiagramImport } from './diagramImport'
+import { startDiagramImport } from './diagramImportActions'
 import { ManualDialog } from './ManualDialog'
-import { exportCad, type CadDiagramGeometry } from '../io/cadExport'
+import type { CadDiagramGeometry } from '../io/cadExport'
 import { useReactFlow } from '@xyflow/react'
 import { endOf, useRoutes } from '../editor/EdgeRouter'
 import type { RouteEnd } from '../model/routing'
 import { exportWorkbook } from '../io/xlsx'
 import { startPatchImport } from './PatchImportDialog'
 import { startCatalogueImport } from './CatalogueImportDialog'
-import { useExportPdf } from './ExportPdfDialog'
+import { useExportPdf } from '../store/exportPdfStore'
 import { closePanelsWindow, openPanelsWindow } from '../store/windowSync'
-import { exportCableCsv, exportCanvasImage, notifyError } from '../io/files'
+import { exportCableCsv, exportCanvasImage, notifyError, saveContent, slug } from '../io/files'
 import { closeDocument, openDocument, saveCurrentProject } from '../io/documentLifecycle'
 import { useCollab } from '../collab/session'
 import { isReady, useAi } from '../store/aiStore'
@@ -49,7 +50,7 @@ export function TopBar() {
   const canUndo = useProject((s) => s.past.length > 0) || collabUndo
   const canRedo = useProject((s) => s.future.length > 0) || collabRedo
   const { undo, redo, rename } = useProject.getState()
-  const { mode, theme, lang, view, toolbar, selectedEquipment, setPref, setPaletteOpen } = useUi()
+  const { mode, theme, lang, view, toolbar, selectedEquipment, setPref, setPaletteOpen } = useUi(useShallow((s) => ({ mode: s.mode, theme: s.theme, lang: s.lang, view: s.view, toolbar: s.toolbar, selectedEquipment: s.selectedEquipment, setPref: s.setPref, setPaletteOpen: s.setPaletteOpen })))
   const [readingDiagram, setReadingDiagram] = useState(false)
   const [manualOpen, setManualOpen] = useState(false)
   const closeManual = useCallback(() => setManualOpen(false), [])
@@ -70,6 +71,8 @@ export function TopBar() {
       for (const port of e.ports) { const end = endOf(node,port.id); if (end) ports.set(port.id,end) }
       geometry.boxes.set(e.id,{x:node.internals.positionAbsolute.x,y:node.internals.positionAbsolute.y,w:node.measured.width,h:node.measured.height,ports})
     }
+    // Lecteur et écrivain DXF chargés à la demande : ils ne pèsent pas sur le démarrage
+    const { exportCad } = await import('../io/cadExport')
     return exportCad(project,useUi.getState().currentSheetId,useUi.getState().view === 'plan',geometry)
   }
 
@@ -85,7 +88,6 @@ export function TopBar() {
     exportCad: () => dxf().catch(() => notifyError(t('cad.exportError'))),
     exportXlsx: () => exportWorkbook(project, t).catch(() => notifyError(t('xlsx.exportError'))),
     exportDiagram: () => import('../io/diagramExchange').then(async ({ drawioXml }) => {
-      const { saveContent, slug } = await import('../io/files')
       await saveContent(slug(project.name) + '.drawio', drawioXml(project), 'application/xml')
     }).catch(() => notifyError(t('diagramExchange.exportError'))),
     undo, redo, group: groupSelected, ungroup: ungroupSelected,

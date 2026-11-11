@@ -3,6 +3,7 @@
 // zone, l'équipement la perd ; une zone choisie à la main hors de tout cadre reste inchangée.
 import { addAnnotation, addZone, DEFAULT_SHEET_ID, normalizeZoneCode, removeZone, updateAnnotation, updateEquipment, updateZone } from './project'
 import type { Annotation, Equipment, Project } from './types'
+import { fold } from './text'
 
 /** Point de référence d'un bloc : un peu sous son coin haut gauche (la taille du bloc n'est pas dans le modèle). */
 const ANCHOR = { x: 20, y: 20 }
@@ -43,7 +44,7 @@ export function applyFrameZones(project: Project): Project {
 
 /** Code proposé pour une nouvelle zone : 3 premières lettres du nom, rendu unique (SCE, SCE2…). */
 export function suggestZoneCode(project: Project, name: string, exceptZoneId?: string): string {
-  const base = (normalizeZoneCode(name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')).slice(0, 3) || 'Z').padEnd(2, 'Z')
+  const base = (normalizeZoneCode(fold(name)).slice(0, 3) || 'Z').padEnd(2, 'Z')
   const used = new Set(project.zones.filter((z) => z.id !== exceptZoneId).map((z) => z.code))
   if (!used.has(base)) return base
   for (let n = 2; ; n++) if (!used.has(`${base}${n}`)) return `${base}${n}`

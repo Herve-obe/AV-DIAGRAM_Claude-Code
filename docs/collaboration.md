@@ -75,7 +75,10 @@ Restent aussi les essais à trois postes réels, les règles du pare-feu et la c
 | Relais WebSocket (code, blocage après 5 codes faux pendant 60 s, 16 participants max, exclusion, fin annoncée) | `src-tauri/src/collab.rs` |
 | Découverte réseau bornée, avec nonce par recherche et limitation des réponses ; arrêt avec le relais | `src-tauri/src/discovery.rs` |
 | Correspondance projet <-> document Yjs, annulation par personne | `src/collab/ydoc.ts` |
-| Session : connexion, synchronisation, présence, tchat, réservations, reprise, relais de secours | `src/collab/session.ts` |
+| Session : lien document <-> projet, tchat, réservations, reprise, actions (héberger, rejoindre, quitter, exclure) | `src/collab/session.ts` |
+| État affiché (participants, alertes), préférences du poste, session à reprendre | `src/collab/collabStore.ts` |
+| Messages du relais : synchronisation du document et présence | `src/collab/protocol.ts` |
+| Connexion, reconnexion, relais de secours | `src/collab/failover.ts` |
 | Règles des calques réservés | `src/collab/protection.ts` |
 | Droits des invités et validation des propositions reçues chez l'hôte | `src/collab/access.ts`, `src/collab/hostValidation.ts` |
 | Fenêtre Héberger / Rejoindre / Reprendre, participants, calques réservés | `src/ui/CollabDialog.tsx` |

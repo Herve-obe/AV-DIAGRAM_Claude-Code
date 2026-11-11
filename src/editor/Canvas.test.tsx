@@ -50,3 +50,26 @@ it('affiche le switch partagé et ses ports raccordables avec sa configuration i
     expect(flow.props!.nodes!.find(n => n.id === sw.id)!.connectable).toBe(false)
   } finally { act(() => root.unmount()); element.remove(); useCollab.setState({ status: 'off' }) }
 })
+
+it('déplacer un bloc ne renouvelle que ses propres données : les autres blocs et les liaisons restent mémorisés', () => {
+  Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
+  const desk = addEquipment(createProject('Scène'), LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 0 })
+  const sw = addEquipment(desk.project, LIBRARY_BY_ID.get('gen-switch8')!, { x: 400, y: 0 })
+  const third = addEquipment(sw.project, LIBRARY_BY_ID.get('gen-console')!, { x: 0, y: 400 })
+  useProject.setState({ project: third.project })
+  useUi.setState({ layer: 'all', currentSheetId: 'sh-1', mode: 'expert', selectedEquipment: [], selectedLinks: [], hiddenSignals: [] })
+  const element = document.createElement('div'); document.body.append(element); const root = createRoot(element)
+  try {
+    act(() => root.render(<Canvas />))
+    const a = third.project.equipment[desk.id].ports.find(p => p.signal === 'audioIp')!, b = third.project.equipment[sw.id].ports[0]
+    let id: string | null = null
+    act(() => { id = useProject.getState().connect({ equipmentId: desk.id, portId: a.id }, { equipmentId: sw.id, portId: b.id }) })
+    const dataOf = (eqId: string) => flow.props!.nodes!.find(n => n.id === eqId)!.data
+    const before = { desk: dataOf(desk.id), sw: dataOf(sw.id), third: dataOf(third.id), edge: flow.props!.edges!.find(l => l.id === id)!.data }
+    act(() => useProject.getState().moveEquipment(third.id, { x: 50, y: 450 }))
+    expect(dataOf(third.id)).not.toBe(before.third)
+    expect(dataOf(desk.id)).toBe(before.desk)
+    expect(dataOf(sw.id)).toBe(before.sw)
+    expect(flow.props!.edges!.find(l => l.id === id)!.data).toBe(before.edge)
+  } finally { act(() => root.unmount()); element.remove() }
+})

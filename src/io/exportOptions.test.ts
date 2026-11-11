@@ -3,7 +3,7 @@ import { GState, jsPDF } from 'jspdf'
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs'
 import * as ops from '../model/project'
 import { PAPER_SIZES } from '../model/types'
-import { DEFAULT_EXPORT, approxWidth, exportSettingsOf, fitScale, pageSize, protectionLevel, recipientsOf, sheetLayout, tileRef, tilesFor, watermarkLayout, watermarkText } from './exportOptions'
+import { DEFAULT_EXPORT, approxWidth, exportSettingsOf, fitScale, pageSize, protectionLevel, recipientsOf, sheetLayout, tileRef, tilesFor, watermarkLayout, watermarkText } from '../model/exportOptions'
 import { svgWatermark } from './files'
 
 describe('export : formats et filigrane', () => {
@@ -43,7 +43,7 @@ describe('export : formats et filigrane', () => {
     const out = svgWatermark('<svg width="800" height="600"><rect/></svg>', 'A & B <C>', ws, 800, 600)
     expect(out.endsWith('</svg>')).toBe(true)
     expect(out).toContain('fill-opacity="0.2"')
-    expect(out).toContain('A &#38; B &#60;C&#62;')
+    expect(out).toContain('A &amp; B &lt;C&gt;')
     expect(out).not.toContain('<C>')
   })
 

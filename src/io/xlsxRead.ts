@@ -1,4 +1,4 @@
-import type { WorkbookRead } from './xlsx'
+import type { WorkbookRead } from '../model/types'
 export function readXlsx(bytes: Uint8Array): Promise<WorkbookRead> {
   return new Promise((resolve, reject) => {
     const worker = new Worker(new URL('./xlsx.worker.ts', import.meta.url), { type: 'module' })

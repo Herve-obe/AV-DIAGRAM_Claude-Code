@@ -1,5 +1,6 @@
 // Changer de document ou fermer : choix explicite de l'utilisateur, sans écrasement automatique.
 import { isTauri } from '@tauri-apps/api/core'
+import { getCurrentWindow } from '@tauri-apps/api/window'
 import i18n from '../i18n'
 import { discardRecovery, flushRecovery, setRecoveryIdleProject } from '../store/persistence'
 import { createProject } from '../model/project'
@@ -65,7 +66,6 @@ export async function closeDocument(): Promise<boolean> {
 }
 export async function guardWindowClose() {
   if (isTauri()) {
-    const { getCurrentWindow } = await import('@tauri-apps/api/window')
     const w = getCurrentWindow()
     let closing = false
     await w.onCloseRequested(async e => {

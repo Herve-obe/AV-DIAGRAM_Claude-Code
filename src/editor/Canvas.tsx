@@ -2,6 +2,7 @@
 // React Flow garde seulement les mesures des blocs et l'état de glissement.
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useShallow } from 'zustand/react/shallow'
 import { useEditing } from '../collab/useEditing'
 import { useCollab } from '../collab/session'
 import { fitToPage, PageGrid } from './PageGrid'
@@ -9,7 +10,7 @@ import { CanvasMenu, type MenuAt } from './CanvasMenu'
 import { EmptyCanvasHint } from '../ui/BeginnerGuide'
 import { arrangeSelection } from '../ui/arrangeActions'
 import { onCommand } from '../store/windowSync'
-import type { ArrangeAction } from './arrange'
+import type { ArrangeAction } from '../model/arrange'
 import {
   Background,
   BackgroundVariant,
@@ -29,32 +30,33 @@ import { groupInterface, groupNodeId, isGroupNodeId, isInside, placeOnView, shee
 import { DEFAULT_SHEET_ID, sheetName } from '../model/project'
 import { familiesCompatible, SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
 import type { Equipment, Link, Project } from '../model/types'
-import { checkLink, checkProject } from '../model/rules'
+import { checkLink } from '../model/rules'
 import { crossLayerHints, primaryLayer, layerOfSignal } from '../model/layers'
 import { useAi } from '../store/aiStore'
 import { useProject } from '../store/projectStore'
-import { worstByLink } from '../store/useIssues'
+import { useIssues, worstByLink } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
 import { canvasViewport, rememberCanvasViewport } from '../store/canvasViewport'
 import { AnnotationNode, type AnnotationFlowNode } from './AnnotationNode'
 import { GroupNode, type GroupFlowNode } from './GroupNode'
 import { EquipmentNode, type EquipmentFlowNode } from './EquipmentNode'
 import { EdgeRouter } from './EdgeRouter'
-import { SignalEdge, type SignalFlowEdge } from './SignalEdge'
+import { SignalEdge, type SignalEdgeData, type SignalFlowEdge } from './SignalEdge'
 
 /** Bandeau d'aperçu : la proposition de l'assistant s'applique ou se refuse aussi depuis le canevas. */
 function ProposalBanner({ equipment, links, sheetId }: { equipment: number; links: number; sheetId: string }) {
   const { t } = useTranslation()
   const currentSheetId = useUi((s) => s.currentSheetId)
-  const ai = useAi()
-  const layout = ai.proposal?.layout
+  const proposal = useAi((s) => s.proposal)
+  const busy = useAi((s) => s.busy)
+  const layout = proposal?.layout
   return (
     <div className="proposal-banner" role="status">
       <span className="proposal-dot" />
-      <span>{t(ai.proposal?.rearrangedEquipment?.length ? 'ai.layout.preview' : 'ai.preview', { equipment: ai.proposal?.rearrangedEquipment?.length ?? equipment, links })}</span>
+      <span>{t(proposal?.rearrangedEquipment?.length ? 'ai.layout.preview' : 'ai.preview', { equipment: proposal?.rearrangedEquipment?.length ?? equipment, links })}</span>
       {sheetId !== currentSheetId && <button className="btn btn-ghost" onClick={() => useUi.getState().setSheet(sheetId)}>{t('ai.showSheet')}</button>}
-      <button className="btn btn-ghost" onClick={() => ai.discardProposal()}>{t('ai.discard')}</button>
-      <button className="btn btn-primary" disabled={ai.busy || (layout && !layout.choices[layout.selected].valid)} onClick={() => ai.applyProposal()}>{t('ai.apply')}</button>
+      <button className="btn btn-ghost" onClick={() => useAi.getState().discardProposal()}>{t('ai.discard')}</button>
+      <button className="btn btn-primary" disabled={busy || (layout && !layout.choices[layout.selected].valid)} onClick={() => useAi.getState().applyProposal()}>{t('ai.apply')}</button>
     </div>
   )
 }
@@ -78,6 +80,25 @@ function endpointOnView(project: Project, ref: PortRef, viewId: string): { node:
   return { node: groupNodeId(place.groupId), handle: `${eq.id}:${ref.portId}` }
 }
 
+/**
+ * Égalité limitée à quelques niveaux, suffisante pour les données des blocs et des traits (tableaux de
+ * ports, renvois, présence, extrémités d'un multipaire). Au-delà, les valeurs sont comparées par identité.
+ */
+function sameValue(a: unknown, b: unknown, depth: number): boolean {
+  if (Object.is(a, b)) return true
+  if (depth <= 0 || typeof a !== 'object' || typeof b !== 'object' || !a || !b || Array.isArray(a) !== Array.isArray(b)) return false
+  const ka = Object.keys(a), kb = Object.keys(b)
+  return ka.length === kb.length && ka.every((k) => Object.prototype.hasOwnProperty.call(b, k) && sameValue((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[k], depth - 1))
+}
+
+/**
+ * Reprend les données précédentes d'un bloc ou d'un trait quand elles n'ont pas changé : les composants
+ * mémorisés (EquipmentNode, SignalEdge) ne se redessinent alors que pour les éléments réellement touchés.
+ */
+function keepData<T>(previous: unknown, next: T): T {
+  return previous !== undefined && sameValue(previous, next, 3) ? (previous as T) : next
+}
+
 export function Canvas() {
   const stored = useProject((s) => s.project)
   // Proposition de l'assistant en attente : le canevas montre le brouillon, ajouts en pointillés
@@ -87,9 +108,13 @@ export function Canvas() {
   const proposedEq = useMemo(() => new Set([...(preview?.addedEquipment ?? []), ...(preview?.rearrangedEquipment ?? [])]), [preview])
   const proposedLinks = useMemo(() => new Set(preview?.addedLinks ?? []), [preview])
   const { moveEquipment, moveAnnotation, moveGroup, beginGesture, connect, remove, addEquipment } = useProject.getState()
-  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute, layer } = useUi()
+  const { selectedEquipment, selectedLinks, hiddenSignals, mode, focusRequest, select, currentSheetId, presenting, linkView, autoRoute, layer } = useUi(useShallow((s) => ({
+    selectedEquipment: s.selectedEquipment, selectedLinks: s.selectedLinks, hiddenSignals: s.hiddenSignals, mode: s.mode, focusRequest: s.focusRequest,
+    select: s.select, currentSheetId: s.currentSheetId, presenting: s.presenting, linkView: s.linkView, autoRoute: s.autoRoute, layer: s.layer,
+  })))
   const { t } = useTranslation()
-  const issues = useMemo(() => checkProject(project), [project])
+  // Alertes du projet affiché (brouillon de l'assistant compris), calculées une fois par version
+  const issues = useIssues(project)
   // Rappels inter-calques en attente, par équipement (ports d'un autre domaine non reliés)
   // Session de collaboration : blocs sélectionnés par les autres participants
   const participants = useCollab((s) => s.participants)
@@ -148,6 +173,7 @@ export function Canvas() {
       }))
     setNodes((prev) => {
       const measured = new Map(prev.map((n) => [n.id, n.measured]))
+      const previous = new Map(prev.map((n) => [n.id, n.data]))
       const frames: AnnotationFlowNode[] = []
       const notes: AnnotationFlowNode[] = []
       for (const a of Object.values(project.annotations ?? {})) {
@@ -156,7 +182,7 @@ export function Canvas() {
           id: a.id,
           type: 'annotation',
           position: a.position,
-          data: { annotation: a, readOnly: presenting || !!preview },
+          data: keepData(previous.get(a.id), { annotation: a, readOnly: presenting || !!preview }),
           draggable: !presenting && !preview,
           deletable: !preview,
           measured: measured.get(a.id),
@@ -174,7 +200,7 @@ export function Canvas() {
           id: eq.id,
           type: 'equipment',
           position: eq.position,
-          data: {
+          data: keepData(previous.get(eq.id), {
             equipment: eq,
             connectedPorts: connected.get(eq.id) ?? [],
             compact: mode === 'beginner',
@@ -184,7 +210,7 @@ export function Canvas() {
             hintTitle: hintsByEq.get(eq.id)?.join('\n'),
             presence: presenceByEq.get(eq.id),
             lockedBy: lockOf(eq),
-          },
+          }),
           // Calque actif : seuls les équipements de ce domaine (ou qui en ont des ports) restent visibles
           hidden: !editing.visible(eq, layer),
           measured: measured.get(eq.id),
@@ -197,7 +223,7 @@ export function Canvas() {
             ? { className: 'is-proposed', draggable: false, selectable: false, deletable: false, connectable: false }
             : {}),
         }))
-      const groupsWithSize = groupNodes.map((g) => ({ ...g, measured: measured.get(g.id) }))
+      const groupsWithSize = groupNodes.map((g) => ({ ...g, data: keepData(previous.get(g.id), g.data), measured: measured.get(g.id) }))
       // Les cadres d'abord (dessous), puis les équipements et les groupes, puis les notes
       return [...frames, ...equipment, ...groupsWithSize, ...notes]
     })
@@ -211,6 +237,7 @@ export function Canvas() {
   }, [nodes, selectedEquipment])
 
   const edgeLinkIds = useRef(new Map<string, string[]>())
+  const edgeData = useRef(new Map<string, SignalEdgeData>())
   const edges = useMemo<SignalFlowEdge[]>(() => {
     const worst = worstByLink(issues)
     // Calque actif : liaisons de ce domaine (synchro et contrôle : si leurs deux équipements sont visibles)
@@ -283,7 +310,9 @@ export function Canvas() {
       e.selected = ids.some((id) => selectedLinks.includes(id))
     }
     edgeLinkIds.current = new Map([...bundles.values()].map((e) => [e.id, e.data!.linkIds!]))
-    return [...flows, ...bundles.values()]
+    const all = [...flows, ...bundles.values()].map((e) => ({ ...e, data: keepData(edgeData.current.get(e.id), e.data) }))
+    edgeData.current = new Map(all.map((e) => [e.id, e.data!]))
+    return all
   }, [project, issues, selectedLinks, hiddenSignals, mode, currentSheetId, presenting, linkView, proposedLinks, layer, editing])
 
   // La sélection ne revient au store que par les changements « select » que React Flow émet sur un geste
@@ -580,7 +609,7 @@ export function Canvas() {
           pannable
           zoomable
           nodeColor="var(--bg-4)"
-          maskColor="rgba(0,0,0,0.35)"
+          maskColor="var(--minimap-mask)"
           style={{ background: 'var(--bg-1)' }}
         />
       </ReactFlow>

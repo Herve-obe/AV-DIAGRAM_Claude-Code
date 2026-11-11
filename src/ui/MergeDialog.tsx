@@ -1,12 +1,13 @@
 // Fusion d'une autre version du projet : bilan (ajouts, conflits, renumérotations) avant d'appliquer.
 // La fusion passe par replaceProject : Annuler (Ctrl+Z) revient à la version d'avant.
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { notifyError, openProjectFile } from '../io/files'
 import { mergeProjects, type MergeKind, type MergePolicy } from '../model/merge'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 
 const KINDS: MergeKind[] = ['equipment', 'links', 'multicores', 'racks', 'sheets', 'zones', 'annotations']
 
@@ -28,12 +29,7 @@ export function MergeDialog() {
   const close = () => useUi.getState().setMergeCandidate(null)
   const result = useMemo(() => (theirs ? mergeProjects(ours, theirs, policy) : null), [ours, theirs, policy])
 
-  useEffect(() => {
-    if (!theirs) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [theirs])
+  const dialogRef = useDialog(!!theirs, close)
 
   if (!theirs || !result) return null
   const { report } = result
@@ -45,7 +41,7 @@ export function MergeDialog() {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
-      <div className="dialog" role="dialog" aria-modal="true" aria-labelledby="merge-title">
+      <div className="dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="merge-title">
         <header className="dialog-head">
           <h2 id="merge-title">{t('merge.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

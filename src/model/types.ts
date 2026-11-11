@@ -460,3 +460,12 @@ export interface ExportSettings {
   watermark: WatermarkSettings
   protection: ProtectionSettings
 }
+
+/** Cellule lue dans un classeur importé (XLSX) : les formules et types inconnus ne sont pas interprétés. */
+export type TableCell = string | number | boolean | null | { kind: 'formula' | 'unsupported' }
+/** Feuille d'un classeur importé */
+export interface WorkbookTable { name: string; rows: TableCell[][] }
+export interface WorkbookRead { sheets: WorkbookTable[] }
+/** Colonnes de la feuille « Patch » exportée puis réimportée */
+export const PATCH_KEYS = ['sourceEquipment', 'sourcePort', 'targetEquipment', 'targetPort', 'lengthM', 'channels', 'notes', 'sourceEquipmentId', 'sourcePortId', 'targetEquipmentId', 'targetPortId', 'linkId'] as const
+export type PatchKey = typeof PATCH_KEYS[number]

@@ -1,6 +1,7 @@
 // Panneau de l'assistant IA (lot 6) : conversation, activité des outils, proposition à appliquer ou refuser.
 // Il remplace l'inspecteur tant qu'il est ouvert.
 import { useEffect, useRef, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { providerInfo } from '../ai/providers'
 import { nativeAvailable } from '../ai/transport'
@@ -77,7 +78,7 @@ function Proposal() {
 
 export function AssistantPanel() {
   const { t } = useTranslation()
-  const { settings, bubbles, busy, activeTool } = useAi()
+  const { settings, bubbles, busy, activeTool } = useAi(useShallow((s) => ({ settings: s.settings, bubbles: s.bubbles, busy: s.busy, activeTool: s.activeTool })))
   const [text, setText] = useState('')
   const [manualOpen, setManualOpen] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)

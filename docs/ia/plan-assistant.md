@@ -25,7 +25,7 @@ Objectif : un assistant capable de générer, vérifier et modifier un schéma a
 | 4 | **Aide à l'utilisation du logiciel** (voir ci-dessous) | Fait le 11 novembre 2026 : 38 fiches, 40 questions de test |
 | 5 | Base de connaissance métier (`docs/ia/metier.md`) : niveaux, signaux, fantôme, liaisons point à point, Dante, horloge, DMX, intercom, règles de la bibliothèque | Rédigé le 11 novembre 2026, relecture par Hervé en attente |
 | 6 | Batterie d'évaluation : cahiers des charges notés automatiquement pour l'IA locale et pour l'IA personnelle | 16 cas tirés des exercices de BTS d'Hervé, correcteur et lanceur prêts ; premières mesures à lancer |
-| 7 | Nettoyage de l'agent : suppression de l'analyse par mots-clés et des scénarios codés en dur (`propose_audio_production`, `propose_video_studio`), boucle simple | À faire |
+| 7 | Nettoyage de l'agent : suppression de l'analyse par mots-clés et des scénarios codés en dur (`propose_audio_production`, `propose_video_studio`), boucle simple | Fait le 11 novembre 2026 : scénarios codés en dur et analyse par mots-clés retirés, boucle simple, liste d'outils stable |
 | 8 | Outils de modification : supprimer, débrancher, remplacer en reprenant les liaisons, renommer, déplacer de feuille, créer un multipaire, choix automatique des prises compatibles | À faire |
 | 9 | Interface : plan affiché avant construction, aperçu des différences, import d'un cahier des charges en PDF (texte extrait sur l'ordinateur) | À faire |
 | 10 | Passes de réglage sur la batterie de tests, puis publication des limites mesurées dans le manuel | À faire |

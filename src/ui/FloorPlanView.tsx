@@ -10,7 +10,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Field } from './Field'
 import { Pictogram } from './Pictogram'
-import { useExportPdf } from './ExportPdfDialog'
+import { useExportPdf } from '../store/exportPdfStore'
 import { startCadImport } from './CadImportDialog'
 
 type Point = { x: number; y: number }

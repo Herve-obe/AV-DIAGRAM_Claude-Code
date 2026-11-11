@@ -4,15 +4,11 @@ import { buildBom } from '../model/bom'
 import { connectorLabel } from '../model/connectors'
 import { getCable } from '../model/cables'
 import { findPort } from '../model/rules'
-import type { Project } from '../model/types'
-import { saveContent, slug } from './files'
+import { PATCH_KEYS, type PatchKey, type Project, type TableCell, type WorkbookRead, type WorkbookTable } from '../model/types'
+import { saveContent } from './files'
+import { slug } from '../model/text'
 import { deploymentTables } from './deploymentExport'
 
-export type TableCell = string | number | boolean | null | { kind: 'formula' | 'unsupported' }
-export interface WorkbookTable { name: string; rows: TableCell[][] }
-export interface WorkbookRead { sheets: WorkbookTable[] }
-export const PATCH_KEYS = ['sourceEquipment', 'sourcePort', 'targetEquipment', 'targetPort', 'lengthM', 'channels', 'notes', 'sourceEquipmentId', 'sourcePortId', 'targetEquipmentId', 'targetPortId', 'linkId'] as const
-export type PatchKey = typeof PATCH_KEYS[number]
 
 /** Taille décompressée contrôlée avant de laisser ExcelJS lire une archive XLSX. */
 export function checkXlsxArchive(bytes: Uint8Array): void {

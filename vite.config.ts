@@ -10,6 +10,8 @@ export default defineConfig({
   clearScreen: false,
   server: { port: 5173, strictPort: true },
   envPrefix: ['VITE_', 'TAURI_ENV_'],
+  // Fiches JSON émises comme JSON.parse(...) : analyse plus rapide qu'un littéral JavaScript de plusieurs Mo
+  json: { stringify: true },
   build: {
     // Webviews des systèmes : WebView2 (Windows), WebKit (macOS, Linux). macOS 12.3 minimum
     // (WebKit de Safari 15.4), Mac Intel compris : voir docs/compatibilite.md

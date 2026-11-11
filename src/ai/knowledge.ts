@@ -1,12 +1,13 @@
 // Recherche locale dans les fiches de procédure et le manuel embarqués ; aucun appel d'embedding ni document envoyé à un service.
 import manual from '../../docs/manuel-utilisateur.md?raw'
+import { fold } from '../model/text'
 
 // Fiches « comment faire » (docs/ia/procedures.md) : gestes exacts, libellés de l'interface, chapitre du manuel.
 // Chargement tolérant : sans le fichier, la recherche porte sur le manuel seul.
 const procedureFiles = import.meta.glob<string>('../../docs/ia/procedures.md', { query: '?raw', import: 'default', eager: true })
 const PROCEDURES = Object.values(procedureFiles)[0] ?? ''
 
-const normalize = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+const normalize = fold
 const STOP = new Set(['avec', 'dans', 'pour', 'comment', 'est', 'les', 'des', 'une', 'sur', 'que', 'qui', 'mon', 'mes', 'the', 'and', 'how', 'can',
   'fait', 'faire', 'fais', 'peux', 'peut', 'veux', 'faut', 'ajouter', 'cree', 'creer', 'mettre', 'utiliser'])
 

@@ -1,11 +1,11 @@
 // Liaison qui vient d'être tirée et pose problème (deux sorties reliées, signal ou niveau
 // incompatible…) : on explique pourquoi et on laisse annuler ou garder la liaison.
-import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { checkLink } from '../model/rules'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { translateParams } from './Inspector'
 
 export function LinkCheckDialog() {
@@ -19,14 +19,7 @@ export function LinkCheckDialog() {
     close()
   }
 
-  useEffect(() => {
-    if (!id) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { e.preventDefault(); cancel() }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  })
+  const dialogRef = useDialog(!!id, cancel)
 
   if (!id) return null
   // Liaison supprimée entre-temps (annulation, autre participant) : plus rien à confirmer
@@ -46,7 +39,7 @@ export function LinkCheckDialog() {
 
   return (
     <div className="overlay">
-      <div className="dialog link-check" role="alertdialog" aria-modal="true" aria-labelledby="lc-title" aria-describedby="lc-body">
+      <div className="dialog link-check" ref={dialogRef} role="alertdialog" aria-modal="true" aria-labelledby="lc-title" aria-describedby="lc-body">
         <header className="dialog-head">
           <h2 id="lc-title"><Icon name="alert" size={16} /> {t('linkCheck.title')}</h2>
         </header>

@@ -18,7 +18,6 @@ describe('configuration IA', () => {
     expect(body.tool_choice).toBe('required')
     expect(body.tools.map((t: { function: { name: string } }) => t.function.name)).toEqual(['check_project'])
     expect(body.max_tokens).toBe(128)
-    expect(JSON.stringify(body)).not.toContain('propose_audio_production')
   })
   it('vérifie aussi le format Anthropic et la consigne anglaise', async () => {
     const request = vi.spyOn(nativeTransport, 'request').mockResolvedValue({ status: 200, body: JSON.stringify({ content: [{ type: 'tool_use', id: 'check', name: 'check_project', input: {} }] }) })

@@ -1,10 +1,11 @@
 // Palette de commandes (Ctrl+K) : commandes et ajout rapide d'équipements.
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { LIBRARY } from '../library'
 import { planOf } from '../model/floorPlan'
-import { useExportPdf } from './ExportPdfDialog'
+import { useExportPdf } from '../store/exportPdfStore'
 import { groupSelected, ungroupSelected } from './groupActions'
 import { useAi } from '../store/aiStore'
 import { startMerge } from './MergeDialog'
@@ -23,7 +24,7 @@ interface Command {
 
 export function CommandPalette() {
   const { t } = useTranslation()
-  const { paletteOpen, setPaletteOpen } = useUi()
+  const { paletteOpen, setPaletteOpen } = useUi(useShallow((s) => ({ paletteOpen: s.paletteOpen, setPaletteOpen: s.setPaletteOpen })))
   const rf = useReactFlow()
   const userTemplates = useLibrary(s => s.userTemplates)
   const [query, setQuery] = useState('')
@@ -60,7 +61,7 @@ export function CommandPalette() {
       { id: 'present', label: t('presentation.enter'), hint: 'F5', run: () => ui.setPresenting(true) },
       { id: 'pdf', label: t('palette.exportPdf'), run: () => useExportPdf.getState().setOpen(true) },
       { id: 'group', label: t('groups.group'), hint: 'Ctrl G', run: () => groupSelected() },
-      { id: 'ungroup', label: t('groups.ungroup'), hint: 'Ctrl Maj G', run: () => ungroupSelected() },
+      { id: 'ungroup', label: t('groups.ungroup'), hint: t('keys.ungroup'), run: () => ungroupSelected() },
       { id: 'renumber', label: t('palette.renumber'), run: () => useProject.getState().renumber() },
       { id: 'fit', label: t('palette.fit'), hint: 'F', run: () => rf.fitView({ duration: 300, padding: 0.15 }) },
       { id: 'mode', label: t('palette.toggleMode'), run: () => ui.setPref('mode', ui.mode === 'expert' ? 'beginner' : 'expert') },

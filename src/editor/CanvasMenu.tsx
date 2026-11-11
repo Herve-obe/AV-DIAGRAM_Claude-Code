@@ -1,6 +1,7 @@
 // Menu clic droit du synoptique : actions sur la sélection (liaisons dans un multipaire, dupliquer,
 // pivoter, grouper, supprimer). Le menu agit toujours sur la sélection courante.
 import { useEffect, useRef } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { ArrangeToolbar } from '../ui/ArrangeToolbar'
 import { groupSelected } from '../ui/groupActions'
@@ -16,7 +17,7 @@ export function CanvasMenu({ at, onClose, onSelectAll }: { at: MenuAt; onClose: 
   const { t } = useTranslation()
   const ref = useRef<HTMLDivElement>(null)
   const project = useProject((s) => s.project)
-  const { selectedEquipment, selectedLinks } = useUi()
+  const { selectedEquipment, selectedLinks } = useUi(useShallow((s) => ({ selectedEquipment: s.selectedEquipment, selectedLinks: s.selectedLinks })))
   const store = useProject.getState()
   const links = selectedLinks.filter((id) => project.links[id])
   const equipment = selectedEquipment.filter((id) => project.equipment[id])
@@ -88,7 +89,7 @@ export function CanvasMenu({ at, onClose, onSelectAll }: { at: MenuAt; onClose: 
       <button role="menuitem" onClick={run(onSelectAll)}>{t('canvasMenu.selectAll')} <kbd>Ctrl+A</kbd></button>
       {(selectedEquipment.length > 0 || links.length > 0) && (
         <button role="menuitem" className="danger" onClick={run(() => { store.remove(selectedEquipment, links); useUi.getState().select([], []) })}>
-          {t('canvasMenu.delete')} <kbd>Suppr</kbd>
+          {t('canvasMenu.delete')} <kbd>{t('keys.delete')}</kbd>
         </button>
       )}
     </div>

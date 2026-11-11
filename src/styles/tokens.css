@@ -23,6 +23,7 @@
   --paper: #ffffff;
   --paper-line: #566274;
   --paper-text: #333333;
+  --paper-muted: #868e96;
   --grid-dot: #26292d;
   --border: #2a2d31;
   --border-strong: #3a3e44;
@@ -38,6 +39,11 @@
   --ok: #3fc98f;
   --warn: #f2b54a;
   --err: #f0594f;
+  --err-soft: rgba(240, 89, 79, 0.14);
+  /* Texte sur un fond d'état ou de participant : mêmes valeurs dans les trois thèmes */
+  --on-warn: #1b1305;
+  --on-err: #ffffff;
+  --on-peer: #ffffff;
   /* Signaux (code couleur du projet, cahier des charges 5.1) */
   --sig-audio-analog: #5b9df2;
   --sig-audio-digital: #a88cf7;
@@ -56,6 +62,10 @@
   --node-border: #34373c;
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.45);
   --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* Voile de la mini-carte hors de la zone affichée, identique dans les trois thèmes */
+  --minimap-mask: rgba(0, 0, 0, 0.35);
+  /* Voile derrière les fenêtres de dialogue, identique dans les trois thèmes */
+  --overlay: rgba(0, 0, 0, 0.45);
   /* Typographie */
   --font-ui: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-label: 'Barlow Condensed', 'Arial Narrow', sans-serif;
@@ -84,6 +94,7 @@
     --ok: #1e9e6b;
     --warn: #b7800d;
     --err: #d23c33;
+    --err-soft: rgba(210, 60, 51, 0.12);
     --sig-audio-analog: #2c78dc;
     --sig-audio-digital: #7f57e0;
     --sig-audio-ip: #15986c;
@@ -100,6 +111,7 @@
     --node-border: #c9ced4;
     --shadow-1: 0 1px 2px rgba(20, 24, 30, 0.1);
     --shadow-2: 0 10px 30px rgba(20, 24, 30, 0.16);
+    --minimap-mask: rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -123,6 +135,7 @@
   --ok: #1e9e6b;
   --warn: #b7800d;
   --err: #d23c33;
+  --err-soft: rgba(210, 60, 51, 0.12);
   --sig-audio-analog: #2c78dc;
   --sig-audio-digital: #7f57e0;
   --sig-audio-ip: #15986c;
@@ -139,4 +152,5 @@
   --node-border: #c9ced4;
   --shadow-1: 0 1px 2px rgba(20, 24, 30, 0.1);
   --shadow-2: 0 10px 30px rgba(20, 24, 30, 0.16);
+  --minimap-mask: rgba(0, 0, 0, 0.35);
 }

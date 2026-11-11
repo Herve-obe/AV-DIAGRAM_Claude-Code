@@ -1,7 +1,7 @@
 // Création d'un équipement générique (modèle absent de la bibliothèque) : nom, menu, famille,
 // groupes de prises (sens, signal, connecteur, niveau, nombre), poids et consommation facultatifs.
 // La fiche est rangée dans « Mon entreprise » puis posée sur le schéma.
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { connectorLabel } from '../model/connectors'
 import { buildGenericTemplate, connectorsFor, DOMAIN_SIGNALS, familiesFor, genericErrors, MAX_GENERIC_PORTS, type GenericSpec, type PortGroup } from '../model/genericEquipment'
@@ -9,6 +9,7 @@ import type { EquipmentTemplate, Level, LibraryDomain, PortDirection } from '../
 import type { SignalFamily } from '../model/signals'
 import { useLibrary } from '../store/libraryStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 
 const DOMAINS: LibraryDomain[] = ['sound', 'image', 'light', 'network', 'distribution', 'misc']
 const LEVELS: Level[] = ['mic', 'line+4', 'line-10', 'instrument', 'phono', 'speaker']
@@ -37,11 +38,7 @@ export function GenericEquipmentDialog({ onClose, onCreate, onBlank }: {
   const [power, setPower] = useState('')
   const [tried, setTried] = useState(false)
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  const dialogRef = useDialog(true, onClose)
 
   // Changer de menu remet la famille et les signaux sur des valeurs valables pour ce menu
   const changeDomain = (d: LibraryDomain) => {
@@ -75,7 +72,7 @@ export function GenericEquipmentDialog({ onClose, onCreate, onBlank }: {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="dialog generic-dialog" role="dialog" aria-modal="true" aria-labelledby="generic-title">
+      <div className="dialog generic-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="generic-title">
         <header className="dialog-head">
           <h2 id="generic-title">{t('generic.title')}</h2>
           <button className="icon-btn" onClick={onClose} aria-label={t('settings.close')}><Icon name="close" /></button>

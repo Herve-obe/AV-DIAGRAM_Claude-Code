@@ -10,7 +10,10 @@ import { setProjectGuard, useProject } from '../store/projectStore'
 import { useAi } from '../store/aiStore'
 import { AssistantPanel } from './AssistantPanel'
 
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 vi.mock('../ai/transport', () => ({ nativeAvailable: () => true, nativeTransport: { request: vi.fn() } }))
 
 it('propose les formats avec leur nombre de pages et réserve leur application au projet', async () => {

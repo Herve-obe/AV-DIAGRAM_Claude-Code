@@ -1,6 +1,6 @@
 // Alignement et répartition de la sélection, partagés par le menu clic droit et l'inspecteur.
 import type { ReactFlowInstance } from '@xyflow/react'
-import { arrange, type ArrangeAction, type Box } from '../editor/arrange'
+import { arrange, type ArrangeAction, type Box } from '../model/arrange'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { sendCommand, WINDOW_ROLE } from '../store/windowSync'

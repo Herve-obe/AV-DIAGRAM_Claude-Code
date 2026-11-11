@@ -3,10 +3,11 @@ import { buildTemplate } from '../library/templates'
 import { GENERIC_LIBRARY } from '../library/generic'
 import { addAnnotation, addEquipment, addSheet, DEFAULT_SHEET_ID, isProject } from '../model/project'
 import { diagramBlockSize } from '../model/diagramLayout'
-import { exportSettingsOf, sheetLayout, tilesFor } from '../io/exportOptions'
+import { exportSettingsOf, sheetLayout, tilesFor } from '../model/exportOptions'
 import { SIGNAL_FAMILIES } from '../model/signals'
 import { createDraft, hasChanges, runTool } from './tools'
-import { localLayoutRequest, runTurn, type Transport } from './agent'
+import { runTurn, type Transport } from './agent'
+import { localLayoutRequest } from './layoutCommand'
 
 const ctx = { library: GENERIC_LIBRARY, describe: (i: { code: string }) => i.code }
 const request = { id: 'layout', name: 'rearrange_diagram', args: { scope: 'current_sheet', target: 'single_page' } }

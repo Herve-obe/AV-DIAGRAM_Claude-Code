@@ -51,11 +51,11 @@ export async function restoreProject(): Promise<void> {
       catch {
         // Disque retiré ou fichier déplacé : la copie interne reste récupérable.
         useProject.getState().load(p)
-        useProject.setState({ saved: false })
+        useProject.getState().markUnsaved()
       }
     } else {
       useProject.getState().load(p)
-      useProject.setState({ saved: false })
+      useProject.getState().markUnsaved()
     }
     // Une récupération après plantage n'est jamais présentée comme un fichier principal enregistré.
     restored = entryOf(p)

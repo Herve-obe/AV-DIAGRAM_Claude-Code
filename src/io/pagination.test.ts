@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { exportSettingsOf, renderedBounds, sheetBounds, sheetsToExport, sheetLayout, tileRef, tilesFor } from './exportOptions'
+import { exportSettingsOf, renderedBounds, sheetBounds, sheetsToExport, sheetLayout, tileRef, tilesFor } from '../model/exportOptions'
 import { createProject } from '../model/project'
 import { buildTemplate } from '../library/templates'
 

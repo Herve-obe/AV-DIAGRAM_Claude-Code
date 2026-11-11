@@ -2,15 +2,17 @@
 // l'échelle et taille fixe quand il change), filigrane, protection, champs du cartouche, modèle de
 // cartouche du poste. Composants contrôlés : la valeur et sa modification viennent du parent.
 import { useMemo, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
-import { fitScale, pageSize, protectionLevel, recipientsOf, sheetBounds, sheetsToExport, sheetLayout, tilesFor, watermarkLayout, watermarkText, type ProtectionLevel } from '../io/exportOptions'
+import { fitScale, pageSize, protectionLevel, recipientsOf, sheetBounds, sheetsToExport, sheetLayout, tilesFor, watermarkLayout, watermarkText, type ProtectionLevel } from '../model/exportOptions'
 import { DEFAULT_SHEET_ID } from '../model/project'
 import { SIGNAL_FAMILIES } from '../model/signals'
 import {
   DOCUMENT_STATUSES, PAPER_SIZES, type DocumentStatus, type ExportSettings, type PaperSize, type Project, type ProjectInfo,
   type RevisionEntry, type WatermarkSettings,
 } from '../model/types'
-import { logoFromFile, useTitleBlock, type TitleBlockTemplate } from '../store/titleBlockStore'
+import { useTitleBlock, type TitleBlockTemplate } from '../store/titleBlockStore'
+import { logoFromFile } from '../io/logo'
 import { Icon } from './Icon'
 
 // ---------- Format ----------
@@ -174,9 +176,9 @@ function WatermarkPreview({ text, value }: { text: string; value: WatermarkSetti
   const anchor = { center: 'middle', left: 'start', right: 'end' } as const
   return (
     <svg className="wm-preview" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={t('exportPdf.preview')}>
-      <rect x="5" y="5" width={W - 10} height={H - 10} fill="#fff" stroke="#999" />
-      <rect x="10" y="10" width="400" height="220" fill="#f1f3f5" />
-      <rect x={W - 190} y={H - 58} width="180" height="48" fill="none" stroke="#666" />
+      <rect x="5" y="5" width={W - 10} height={H - 10} fill="var(--paper)" stroke="var(--paper-muted)" />
+      <rect x="10" y="10" width="400" height="220" style={{ fill: 'color-mix(in srgb, var(--paper-muted) 12%, var(--paper))' }} />
+      <rect x={W - 190} y={H - 58} width="180" height="48" fill="none" stroke="var(--paper-line)" />
       <defs><clipPath id="wm-clip"><rect x={zoneArea.x} y={zoneArea.y} width={zoneArea.w} height={zoneArea.h} /></clipPath></defs>
       <g clipPath="url(#wm-clip)" transform={`translate(${zoneArea.x} ${zoneArea.y})`} fill={value.color} fillOpacity={value.opacity} fontFamily="Helvetica, Arial, sans-serif" fontWeight={600}>
         {items.map((it, i) => (
@@ -319,7 +321,7 @@ export function TitleBlockFields({ value, onChange }: { value: ProjectInfo; onCh
 
 export function TemplateEditor() {
   const { t } = useTranslation()
-  const { template, update } = useTitleBlock()
+  const { template, update } = useTitleBlock(useShallow((s) => ({ template: s.template, update: s.update })))
   const [error, setError] = useState<string | null>(null)
   const fields: (keyof TitleBlockTemplate)[] = ['owner', 'ownerDetail', 'author', 'approver', 'docType', 'classification', 'language', 'numberPrefix']
   const pickLogo = () => {

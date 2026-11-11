@@ -1,7 +1,8 @@
 import { footprint, onPlan, planOf } from '../model/floorPlan'
 import type { CadDrawing, Project } from '../model/types'
 import { drawingDxf } from './cad'
-import { saveContent, slug } from './files'
+import { saveContent } from './files'
+import { slug } from '../model/text'
 import { labelPoint, routeAll, type Point, type Rect, type RouteEnd } from '../model/routing'
 import { portsToDisplay } from '../model/portDisplay'
 

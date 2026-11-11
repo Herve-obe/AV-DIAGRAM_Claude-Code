@@ -9,6 +9,7 @@ import { claimMembers, type Claim } from '../collab/protection'
 import { guestLayers, hasFullAccess } from '../collab/access'
 import { LAYERS } from '../model/layers'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 
 export function CollabDialog() {
   const { t, i18n } = useTranslation()
@@ -38,12 +39,7 @@ export function CollabDialog() {
   const joinAddress = manualAddress.trim() ? manualAddress : selectedSession?.address ?? ''
   const close = () => setDialogOpen(false)
 
-  useEffect(() => {
-    if (!dialogOpen) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setDialogOpen(false)
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [dialogOpen, setDialogOpen])
+  const dialogRef = useDialog(dialogOpen, close)
 
   useEffect(() => {
     if (!previousStarted.current && started && role === 'guest') setDialogOpen(false)
@@ -86,7 +82,7 @@ export function CollabDialog() {
   const joinRequirement = !nameOk ? 'name' : !joinAddress.trim() ? 'host' : code.length !== 6 ? 'code' : null
 
   return <div className="overlay" onMouseDown={e => e.target === e.currentTarget && close()}>
-    <div className="dialog collab-dialog" role="dialog" aria-modal="true" aria-labelledby="collab-title">
+    <div className="dialog collab-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="collab-title">
       <header className="dialog-head">
         <h2 id="collab-title">{t('collab.title')}</h2>
         <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

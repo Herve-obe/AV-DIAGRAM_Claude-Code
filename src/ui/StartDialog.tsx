@@ -11,6 +11,7 @@ import { forgetRecent, listRecent, loadRecent, restoredProject, type RecentProje
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon, type IconName } from './Icon'
+import { useDialog } from './useDialog'
 
 const when = (iso: string) => {
   const d = new Date(iso)
@@ -34,13 +35,8 @@ export function StartDialog() {
   const last = restored?.id === projectId ? restored : recent[0] ?? null
   const close = () => useUi.getState().setStartOpen(false)
 
-  useEffect(() => {
-    if (!open) return
-    listRecent().then(setRecent)
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+  useEffect(() => { if (open) listRecent().then(setRecent) }, [open])
+  const dialogRef = useDialog(open, close)
 
   if (!open) return null
   const others = recent.filter((r) => r.id !== last?.id)
@@ -58,13 +54,13 @@ export function StartDialog() {
     const p = await loadRecent(id)
     if (!p) { notifyError(t('start.recentMissing')); return }
     useProject.getState().load(p)
-    if (!useSaveFolder.getState().projectFiles[id]) useProject.setState({ saved: false })
+    if (!useSaveFolder.getState().projectFiles[id]) useProject.getState().markUnsaved()
     afterLoad()
   }
 
   return (
     <div className="overlay">
-      <div className="dialog start-dialog" role="dialog" aria-modal="true" aria-labelledby="start-title">
+      <div className="dialog start-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="start-title">
         <header className="dialog-head">
           <h2 id="start-title">{t('start.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

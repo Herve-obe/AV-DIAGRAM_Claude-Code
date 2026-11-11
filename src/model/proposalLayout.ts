@@ -1,5 +1,5 @@
 // Disposition des propositions : blocs et notes lisibles, contenus dans les zones imprimables.
-import { exportSettingsOf, sheetBounds, sheetLayout, tilesFor } from '../io/exportOptions'
+import { exportSettingsOf, sheetBounds, sheetLayout, tilesFor } from './exportOptions'
 import { diagramBlockSize, layoutDiagram } from './diagramLayout'
 import { DEFAULT_SHEET_ID, uid } from './project'
 import { SIGNAL_FAMILIES } from './signals'

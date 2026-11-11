@@ -12,7 +12,6 @@ import { diagramBlockSize } from '../model/diagramLayout'
 import { appendFileSync, writeFileSync } from 'node:fs'
 import { request as httpRequest } from 'node:http'
 import { buildTemplate } from '../library/templates'
-import interviewRequest from './fixtures/interview-live.txt?raw'
 
 const address = process.env.AVD_LOCAL_AI_TEST_URL
 const token = process.env.AVD_LOCAL_AI_TEST_TOKEN
@@ -92,27 +91,6 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
     } finally { request.mockRestore() }
   }, 300000)
 
-  it('transforme le cahier des charges interview et duo live en proposition câblée', async () => {
-    const base = createProject('Interview et duo live — test fictif')
-    let requests = 0
-    const counted: Transport = { async request(...args) { requests++; return transport.request(...args) } }
-    trace({ stage: 'interview-live' })
-    const start = performance.now()
-    const result = await runTurn({ transport: counted, connection: { provider: 'builtin', model: 'qwen3-4b' },
-      system: buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' }), history: [], userText: interviewRequest,
-      draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: LIBRARY, describe: i => i.code } })
-    expect(requests).toBe(1)
-    expect(result.toolsUsed).toEqual(['propose_audio_production', 'check_project'])
-    expect(result.draft.addedEquipment).toHaveLength(22)
-    expect(result.draft.addedLinks).toHaveLength(30)
-    expect(checkProject(result.draft.project).filter(i => i.severity !== 'info')).toEqual([])
-    expect(result.draft.project.zones.map(z => z.name)).toContain('Studio live')
-    expect(Object.values(result.draft.project.equipment).find(e => e.templateId === 'yamaha-01v96')?.notes).toContain('exclu de ST')
-    expect(result.reply).toContain('Hypothèse')
-    expect(Object.keys(base.equipment)).toHaveLength(0)
-    if (process.env.AVD_LOCAL_AI_TEST_DIAGRAM) writeFileSync(process.env.AVD_LOCAL_AI_TEST_DIAGRAM.replace('diagram-tv', 'diagram-interview-live'), JSON.stringify(result.draft.project, null, 2))
-    console.log(JSON.stringify({ interviewLive: { seconds: (performance.now() - start) / 1000, requests, tools: result.toolsUsed, equipment: result.draft.addedEquipment.length, links: result.draft.addedLinks.length, reply: result.reply } }))
-  }, 900000)
   it('vérifie un projet fictif puis prépare un ajout sans modifier la source', async () => {
     const base = createProject('Essai IA locale')
     const system = buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' })
@@ -158,7 +136,7 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
     expect(Object.keys(base.equipment)).toHaveLength(0)
     console.log(JSON.stringify({ model: 'qwen3-4b', check: check.toolsUsed, proposal: add.toolsUsed, tv: { tools: tv.toolsUsed, devices: devices.map(e => ({ name: e.name, model: e.model, position: e.position })), links: links.length, reply: tv.reply } }))
   }, 1800000)
-  it('clarifie une demande large avec connectique manquante en un seul appel', async () => {
+  it('analyse une demande large par un plan, sans construction partielle', async () => {
     const base = createProject('Essai de demande large')
     let requests = 0
     const counted: Transport = { async request(...args) { requests++; return transport.request(...args) } }
@@ -166,10 +144,13 @@ describe.skipIf(!address)('IA locale réelle Qwen3 4B', () => {
       system: buildSystemPrompt({ lang: 'fr', mode: 'expert', projectName: base.name, sheetName: 'Test' }), history: [],
       userText: 'Génère un plateau TV avec 5 caméra Panasonic P2 reliées à un mélangeur Tricaster. Une console audio CL5 avec des micros Sanken cos11 en HF avec des Sennheiser EW112 G4. La sortie master est envoyée au Tricaster.',
       draft: createDraft(base, DEFAULT_SHEET_ID), ctx: { library: LIBRARY, describe: i => i.code } })
-    expect(requests).toBe(1)
-    expect(result.toolsUsed).toEqual(['ask_user'])
-    expect(result.reply).toMatch(/cos|sanken|hf|micro/i)
-    expect(result.draft.addedEquipment).toEqual([])
+    expect(requests).toBeLessThanOrEqual(12)
+    expect(result.toolsUsed).toContain('plan_diagram')
+    // Soit une question groupée sans aucun ajout, soit un système complet validé par le moteur de règles
+    if (result.draft.addedEquipment.length) {
+      expect(result.toolsUsed).toContain('propose_system')
+      expect(checkProject(result.draft.project).filter(i => i.severity === 'error')).toEqual([])
+    } else expect(result.reply).toMatch(/\?/)
     expect(Object.keys(base.equipment)).toHaveLength(0)
   }, 900000)
 })

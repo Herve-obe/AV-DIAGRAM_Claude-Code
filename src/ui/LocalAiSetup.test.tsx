@@ -12,7 +12,10 @@ vi.mock('../ai/local', async original => ({ ...await original<typeof import('../
   downloadProgress: actions.progress, cancelDownload: actions.cancel, startServer: actions.start, stopServer: actions.stop, setModelDirectory: actions.directory }))
 vi.mock('@tauri-apps/plugin-dialog', () => ({ open: actions.pick }))
 vi.mock('../ai/transport', () => ({ nativeAvailable: () => true, nativeTransport: { request: actions.request }, openExternal: vi.fn() }))
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 const model = { id: 'qwen3-4b', label: 'Qwen3 4B', size: 2497280256, minimum_ram_gb: 8, license: 'Apache-2.0', installed: false, partial: 0 }
 let element: HTMLDivElement, root: Root
 const button = (text: string) => [...element.querySelectorAll('button')].find(b => b.textContent === text)!

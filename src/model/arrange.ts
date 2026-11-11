@@ -1,12 +1,10 @@
 // Alignement et répartition des blocs sélectionnés (comme dans les logiciels de dessin).
 // Module pur : rectangles en entrée, nouvelles positions (coin haut gauche) en sortie.
 
-export interface Box {
+import type { Rect } from './geometry'
+
+export interface Box extends Rect {
   id: string
-  x: number
-  y: number
-  w: number
-  h: number
 }
 
 export type ArrangeAction =

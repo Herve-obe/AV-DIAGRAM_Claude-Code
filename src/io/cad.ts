@@ -1,12 +1,13 @@
 import DxfParser, { type IEntity, type IInsertEntity, type ILineEntity, type ILwpolylineEntity, type IPolylineEntity, type ICircleEntity, type IArcEntity, type IEllipseEntity, type ITextEntity, type IMtextEntity } from 'dxf-parser'
-import { isCadDrawing } from '../model/floorPlan'
+import { CAD_UNITS, isCadDrawing } from '../model/floorPlan'
+export { CAD_UNITS }
 import type { CadDrawing } from '../model/types'
 import type { PdfPage } from './pdfImport/extract'
+import { PRINT_COLORS } from '../model/printColors'
 
 type Point = { x: number; y: number }
 type Matrix = [number, number, number, number, number, number]
 export interface CadImport { drawing: CadDrawing; factor: number; declaredUnit: number; skipped: Record<string, number>; curves: number; inserts: { name: string; x: number; y: number; w: number; h: number }[]; hiddenLayers: string[] }
-export const CAD_UNITS = [{ code: 4, name: 'mm', factor: 0.001 }, { code: 5, name: 'cm', factor: 0.01 }, { code: 6, name: 'm', factor: 1 }, { code: 1, name: 'in', factor: 0.0254 }, { code: 2, name: 'ft', factor: 0.3048 }] as const
 const mul = (m: Matrix, n: Matrix): Matrix => [m[0] * n[0] + m[2] * n[1], m[1] * n[0] + m[3] * n[1], m[0] * n[2] + m[2] * n[3], m[1] * n[2] + m[3] * n[3], m[0] * n[4] + m[2] * n[5] + m[4], m[1] * n[4] + m[3] * n[5] + m[5]]
 const apply = (m: Matrix, p: Point): Point => ({ x: m[0] * p.x + m[2] * p.y + m[4], y: m[1] * p.x + m[3] * p.y + m[5] })
 const identity: Matrix = [1, 0, 0, 1, 0, 0]
@@ -151,13 +152,13 @@ export function cadPage(input: CadImport): PdfPage {
   for (const p of d.paths.filter(p => !hidden.has(p.layer))) {
     const b = bounds(p.points)
     const rectangle = p.closed && p.points.length <= 6 && b.w > 0 && b.h > 0 && p.points.every(q => (Math.abs(q.x - b.x) < 1e-6 || Math.abs(q.x - b.x - b.w) < 1e-6) && (Math.abs(q.y - b.y) < 1e-6 || Math.abs(q.y - b.y - b.h) < 1e-6))
-    if (rectangle) page.rects.push({ x: b.x * k, y: b.y * k, w: b.w * k, h: b.h * k, stroke: '#000000', fill: null })
-    else { const pts = p.closed ? [...p.points, p.points[0]] : p.points; for (let i = 1; i < pts.length; i++) page.segments.push({ x1: pts[i - 1].x * k, y1: pts[i - 1].y * k, x2: pts[i].x * k, y2: pts[i].y * k, color: '#000000', width: 1 }) }
+    if (rectangle) page.rects.push({ x: b.x * k, y: b.y * k, w: b.w * k, h: b.h * k, stroke: PRINT_COLORS.cadStroke, fill: null })
+    else { const pts = p.closed ? [...p.points, p.points[0]] : p.points; for (let i = 1; i < pts.length; i++) page.segments.push({ x1: pts[i - 1].x * k, y1: pts[i - 1].y * k, x2: pts[i].x * k, y2: pts[i].y * k, color: PRINT_COLORS.cadStroke, width: 1 }) }
   }
   for (const t of d.texts.filter(t => !hidden.has(t.layer))) for (const [i, str] of t.text.split('\n').entries()) page.texts.push({ str, x: t.x * k, y: (t.y + (i - 1) * t.height) * k, w: Math.max(t.height, t.height * str.length * 0.55) * k, h: t.height * k })
   for (const q of input.inserts) {
     if (q.w * k < 5 || q.h * k < 5) continue
-    const b = { x: q.x * k, y: q.y * k, w: q.w * k, h: q.h * k, stroke: '#000000', fill: null }
+    const b = { x: q.x * k, y: q.y * k, w: q.w * k, h: q.h * k, stroke: PRINT_COLORS.cadStroke, fill: null }
     if (!page.rects.some(r => Math.abs(r.x - b.x) < 2 && Math.abs(r.y - b.y) < 2 && Math.abs(r.w - b.w) < 2 && Math.abs(r.h - b.h) < 2)) page.rects.push(b)
     if (!page.texts.some(t => t.x >= b.x && t.x <= b.x + b.w && t.y >= b.y && t.y <= b.y + b.h)) page.texts.push({ str: q.name, x: b.x + b.w * 0.1, y: b.y + b.h * 0.4, w: b.w * 0.8, h: Math.min(14, b.h * 0.15) })
   }

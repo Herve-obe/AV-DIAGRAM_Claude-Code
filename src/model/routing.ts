@@ -1,5 +1,5 @@
 // Routage automatique des liaisons : tracés orthogonaux qui contournent les blocs, puis écartement
-// des tronçons superposés en voies parallèles. Module pur (sans React), testé dans model.test.ts.
+// des tronçons superposés en voies parallèles. Module pur (sans React), testé dans routing.test.ts.
 //
 // Méthode :
 // 1. Chaque liaison sort de son port par un court segment perpendiculaire au bord du bloc (« amorce ») :
@@ -9,16 +9,8 @@
 //    ce qui donne des tracés simples. Les blocs, gonflés de la marge, sont infranchissables.
 // 3. Les tronçons de liaisons différentes qui se superposent sont écartés les uns des autres.
 
-export interface Point {
-  x: number
-  y: number
-}
-export interface Rect {
-  x: number
-  y: number
-  w: number
-  h: number
-}
+import type { Point, Rect } from './geometry'
+export type { Point, Rect }
 export type Side = 'left' | 'right' | 'top' | 'bottom'
 export interface RouteEnd extends Point {
   side: Side

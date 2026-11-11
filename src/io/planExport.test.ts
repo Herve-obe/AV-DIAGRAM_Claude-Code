@@ -3,7 +3,7 @@ import { jsPDF } from 'jspdf'
 import { addEquipment, createProject } from '../model/project'
 import { placeOnPlan, updateFloorPlan } from '../model/floorPlan'
 import { GENERIC_LIBRARY } from '../library/generic'
-import { exportSettingsOf, sheetLayout } from './exportOptions'
+import { exportSettingsOf, sheetLayout } from '../model/exportOptions'
 import { planSheets, planSvg } from './planExport'
 import i18n from '../i18n'
 

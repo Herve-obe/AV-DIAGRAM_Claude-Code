@@ -5,11 +5,12 @@ import { useEditing } from '../collab/useEditing'
 import { pickFile } from '../io/pickFile'
 import { notifyError } from '../io/files'
 import { readXlsx } from '../io/xlsxRead'
-import type { WorkbookRead } from '../io/xlsx'
+import type { WorkbookRead } from '../model/types'
 import { buildPatch, patchRows } from '../model/patchImport'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { translateParams } from './Inspector'
 
 const state = create<{ file: string; data: WorkbookRead | null; projectId: string; busy: boolean }>(() => ({ file: '', data: null, projectId: '', busy: false }))
@@ -35,10 +36,7 @@ export function PatchImportDialog() {
   const [acknowledged, setAcknowledged] = useState(false)
   useEffect(() => { if (file && project.id !== projectId) close() }, [file, project.id, projectId])
   useEffect(() => { if (data) { const found = data.sheets.findIndex(s => s.name.toLowerCase() === 'patch'); setIndex(found >= 0 ? found : 0) } setAcknowledged(false) }, [data])
-  useEffect(() => {
-    if (!file) return
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }; window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey)
-  }, [file])
+  const dialogRef = useDialog<HTMLElement>(!!file, close)
   const table = data?.sheets[index]
   const parsed = useMemo(() => table ? patchRows(table) : { rows: [], problems: [] }, [table])
   const candidate = useMemo(() => buildPatch(project, parsed.rows), [project, parsed])
@@ -54,7 +52,7 @@ export function PatchImportDialog() {
     if (useProject.getState().project === current) return
     useUi.getState().select([], latest.links.map(l => l.id)); close()
   }
-  return <div className="overlay" onMouseDown={e => { if (e.target === e.currentTarget) close() }}><section className="dialog patch-dialog" role="dialog" aria-modal="true" aria-labelledby="patch-title">
+  return <div className="overlay" onMouseDown={e => { if (e.target === e.currentTarget) close() }}><section className="dialog patch-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="patch-title">
     <header className="dialog-head"><h2 id="patch-title">{t('xlsx.importTitle', { name: file })}</h2><button className="icon-btn" aria-label={t('settings.close')} onClick={close}><Icon name="close" /></button></header>
     <div className="dialog-body">
       <p>{t('xlsx.importHint')}</p>

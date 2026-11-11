@@ -3,11 +3,14 @@
 // sélection : chaque modification est envoyée à l'autre. Dans l'application de bureau, le transport
 // passe par les événements Tauri ; dans un navigateur (développement), par BroadcastChannel.
 import { isTauri } from '@tauri-apps/api/core'
+import { PhysicalPosition, PhysicalSize } from '@tauri-apps/api/dpi'
+import { emit, listen } from '@tauri-apps/api/event'
+import { availableMonitors, getCurrentWindow } from '@tauri-apps/api/window'
 import type { Project } from '../model/types'
 import { useCollab } from '../collab/session'
 import { useProject, projectChangeAllowed } from './projectStore'
 import { useUi } from './uiStore'
-import { rememberWindowPlace, restoreWindowPlace, shouldRestorePanels } from './windowLayout'
+import { contains, rememberWindowPlace, restoreWindowPlace, shouldRestorePanels } from './windowLayout'
 
 export type WindowRole = 'main' | 'panels'
 export const WINDOW_ROLE: WindowRole = new URLSearchParams(window.location.search).get('window') === 'panels' ? 'panels' : 'main'
@@ -51,7 +54,6 @@ const pickUi = (): SharedUi => {
 
 async function transport(onMessage: (m: Envelope) => void): Promise<(m: Envelope) => void> {
   if (isTauri()) {
-    const { emit, listen } = await import('@tauri-apps/api/event')
     await listen<Envelope>(CHANNEL, (e) => onMessage(e.payload))
     return (m) => { void emit(CHANNEL, m) }
   }
@@ -102,10 +104,7 @@ export async function startWindowSync() {
         }
         pending = null; base = null
         // Modification faite dans l'autre fenêtre : annulable ici aussi
-        apply(() => {
-          const s = useProject.getState()
-          useProject.setState({ project: m.project, past: [...s.past, s.project].slice(-200), future: [], saved: false })
-        })
+        apply(() => useProject.getState().applyExternal(m.project))
         break
       case 'ui':
         apply(() => useUi.setState(m.ui))
@@ -161,18 +160,14 @@ export async function openPanelsWindow() {
   const { WebviewWindow } = await import('@tauri-apps/api/webviewWindow')
   const existing = await WebviewWindow.getByLabel(PANELS_LABEL)
   if (existing) { await existing.setFocus(); return }
-  const { availableMonitors, getCurrentWindow } = await import('@tauri-apps/api/window')
-  const { PhysicalPosition, PhysicalSize } = await import('@tauri-apps/api/dpi')
   const monitors = await availableMonitors()
-  const inside = (m: (typeof monitors)[number], x: number, y: number) =>
-    x >= m.position.x && x < m.position.x + m.size.width && y >= m.position.y && y < m.position.y + m.size.height
   // Écran de la fenêtre principale : celui qui contient son centre
   const main = getCurrentWindow()
   const pos = await main.outerPosition()
   const size = await main.outerSize()
   const cx = pos.x + size.width / 2
   const cy = pos.y + size.height / 2
-  const home = monitors.find((m) => inside(m, cx, cy))
+  const home = monitors.find((m) => contains(m, cx, cy))
   const other = monitors.find((m) => m !== home && !(home && m.position.x === home.position.x && m.position.y === home.position.y))
   const target = other ?? home ?? monitors[0]
 

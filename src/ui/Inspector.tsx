@@ -1,5 +1,6 @@
 // Inspecteur : propriétés de l'équipement ou de la liaison sélectionnés.
 import { useMemo, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import { LINK_CABLES, cablesFor, getCable, type CableType } from '../model/cables'
 import { connectorLabel } from '../model/connectors'
@@ -497,7 +498,7 @@ function GroupInspector({ sheetId }: { sheetId: string }) {
       <div className="field"><label>{t('groups.contents')}</label><div className="readonly">{t('groups.summary', { count })} · {t('groups.interface', { count: ports.length })}</div></div>
       <div className="insp-actions">
         <button className="btn" onClick={() => useUi.getState().setSheet(sheetId)}><Icon name="select" size={14} />{t('groups.open')}</button>
-        <button className="btn" onClick={ungroupSelected} title="Ctrl+Maj+G"><Icon name="close" size={14} />{t('groups.ungroup')}</button>
+        <button className="btn" onClick={ungroupSelected} title={t('keys.ungroup')}><Icon name="close" size={14} />{t('groups.ungroup')}</button>
       </div>
     </>
   )
@@ -505,7 +506,7 @@ function GroupInspector({ sheetId }: { sheetId: string }) {
 
 export function Inspector() {
   const { t } = useTranslation()
-  const { selectedEquipment, selectedLinks } = useUi()
+  const { selectedEquipment, selectedLinks } = useUi(useShallow((s) => ({ selectedEquipment: s.selectedEquipment, selectedLinks: s.selectedLinks })))
   const project = useProject((s) => s.project)
   const count = selectedEquipment.length + selectedLinks.length
   const eq = selectedEquipment.length === 1 && selectedLinks.length === 0 ? project.equipment[selectedEquipment[0]] : undefined

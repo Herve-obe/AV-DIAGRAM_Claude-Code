@@ -57,3 +57,6 @@ export function planBounds(p: Project, sheetId: string) {
   }
   return { x, y, w: right - x, h: bottom - y }
 }
+
+/** Unités de dessin DXF ($INSUNITS) reconnues à l'import, avec leur facteur vers le mètre. */
+export const CAD_UNITS = [{ code: 4, name: 'mm', factor: 0.001 }, { code: 5, name: 'cm', factor: 0.01 }, { code: 6, name: 'm', factor: 1 }, { code: 1, name: 'in', factor: 0.0254 }, { code: 2, name: 'ft', factor: 0.3048 }] as const

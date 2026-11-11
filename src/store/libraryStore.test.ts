@@ -2,7 +2,10 @@
 import { beforeEach, expect, it, vi } from 'vitest'
 const db = vi.hoisted(() => ({ get: vi.fn(), update: vi.fn() }))
 vi.mock('idb-keyval', () => db)
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 import { useLibrary } from './libraryStore'
 import type { EquipmentTemplate } from '../model/types'
 const fixture = (id = 'user-test'): EquipmentTemplate => ({ id, manufacturer: 'Test', model: 'Modèle fictif', family: 'camera', pictogram: 'camera', status: 'user', ports: [], portStatus: 'pending' })

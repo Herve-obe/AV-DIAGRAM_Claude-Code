@@ -1,5 +1,6 @@
 // Paramètres > Enregistrement (ce poste) : dossier par défaut des projets et copies de sécurité.
 import { isTauri } from '@tauri-apps/api/core'
+import { useShallow } from 'zustand/react/shallow'
 import { useTranslation } from 'react-i18next'
 import i18n from '../i18n'
 import { BACKUP_COUNTS, BACKUP_DIR, BACKUP_INTERVALS, writeBackup } from '../io/backups'
@@ -10,7 +11,7 @@ import { Icon } from './Icon'
 
 export function SaveFolderSettings() {
   const { t } = useTranslation()
-  const { dir, lastError, projectFiles, backups, backupEvery, backupCount, lastBackup } = useSaveFolder()
+  const { dir, lastError, projectFiles, backups, backupEvery, backupCount, lastBackup } = useSaveFolder(useShallow((s) => ({ dir: s.dir, lastError: s.lastError, projectFiles: s.projectFiles, backups: s.backups, backupEvery: s.backupEvery, backupCount: s.backupCount, lastBackup: s.lastBackup })))
   const desktop = isTauri()
   const projectId = useProject(s => s.project.id)
   const hasFolder = !!dir || !!projectFiles[projectId]

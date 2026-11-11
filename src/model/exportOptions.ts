@@ -1,10 +1,12 @@
 // Options d'export : formats de papier (ISO 216), disposition de la planche (cartouche, historique des
 // indices, légende), échelle d'impression et découpage en pages, placement du filigrane. Fonctions
 // pures : le dessin (PDF, image, SVG) est fait ailleurs à partir de ces calculs.
-import { groupInterface, groupNodeId } from '../model/groups'
-import { DEFAULT_SHEET_ID } from '../model/project'
-import type { ExportSettings, PaperSize, Project, WatermarkSettings } from '../model/types'
-import { estimateBlock } from '../model/portDisplay'
+import { groupInterface, groupNodeId } from './groups'
+import { DEFAULT_SHEET_ID } from './project'
+import type { ExportSettings, PaperSize, Project, WatermarkSettings } from './types'
+import { estimateBlock } from './portDisplay'
+import type { Rect } from './geometry'
+import { PRINT_COLORS } from './printColors'
 
 /** Dimensions ISO 216 en mm, côté court x côté long */
 const ISO_A: Record<PaperSize, [number, number]> = {
@@ -29,7 +31,7 @@ export const DEFAULT_EXPORT: ExportSettings = {
     placement: 'tiled',
     zone: 'diagram',
     size: 'medium',
-    color: '#282828',
+    color: PRINT_COLORS.watermark,
     opacity: 0.12,
     images: true,
   },
@@ -140,12 +142,7 @@ export function sheetLayout(paper: PaperSize, orientation: ExportSettings['orien
 
 // ---------- Échelle et pages ----------
 
-export interface Bounds {
-  x: number
-  y: number
-  w: number
-  h: number
-}
+export type Bounds = Rect
 
 /** Encombrement estimé d'une feuille, groupes repliés compris ; null si elle est vide. */
 export function sheetBounds(project: Project, sheetId: string, defaultSheetId: string, measured?: Map<string, { w: number; h: number }>): Bounds | null {

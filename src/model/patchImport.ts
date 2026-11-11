@@ -1,11 +1,11 @@
 import { assignFreshNum, connect, relabelAll } from './project'
 import { checkLink, type Issue } from './rules'
-import type { Equipment, Link, PortDef, Project } from './types'
-import type { PatchKey, TableCell, WorkbookTable } from '../io/xlsx'
+import type { Equipment, Link, PatchKey, PortDef, Project, TableCell, WorkbookTable } from './types'
+import { fold } from './text'
 
 export interface PatchProblem { row: number; code: string; value?: string; params?: Record<string, string> }
 export interface PatchRow { row: number; values: Partial<Record<PatchKey, TableCell>> }
-const norm = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '')
+const norm = (s: string) => fold(s).replace(/[^a-z0-9]/g, '')
 const names: Record<PatchKey, string[]> = {
   sourceEquipment: ['equipementsource', 'sourceequipment', 'fromequipment'], sourcePort: ['portsource', 'sourceport', 'fromport'], targetEquipment: ['equipementdestination', 'targetequipment', 'destinationequipment', 'toequipment'], targetPort: ['portdestination', 'targetport', 'destinationport', 'toport'],
   sourceEquipmentId: ['sourceequipmentid', 'idequipementsource'], sourcePortId: ['sourceportid', 'idportsource'], targetEquipmentId: ['targetequipmentid', 'idequipementdestination'], targetPortId: ['targetportid', 'idportdestination'],

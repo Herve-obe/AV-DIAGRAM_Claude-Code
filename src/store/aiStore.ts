@@ -3,7 +3,8 @@
 // ce qui en fait une seule étape d'annulation.
 import { create } from 'zustand'
 import i18n from '../i18n'
-import { AiError, buildSystemPrompt, localLayoutRequest, runTurn } from '../ai/agent'
+import { AiError, buildSystemPrompt, runTurn } from '../ai/agent'
+import { localLayoutRequest } from '../ai/layoutCommand'
 import { isComplexForLocal } from '../ai/limits'
 import { providerInfo, type ChatMessage, type ProviderId } from '../ai/providers'
 import { ensureServer, stopServer, type ManagedServer } from '../ai/local'

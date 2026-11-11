@@ -19,7 +19,8 @@ function readPlace(label: string): Place | null {
   } catch { return null }
 }
 
-const contains = (m: Screen, x: number, y: number) => x >= m.position.x && x < m.position.x + m.size.width && y >= m.position.y && y < m.position.y + m.size.height
+/** Le point (coordonnées physiques) est-il sur cet écran ? */
+export const contains = (m: Screen, x: number, y: number) => x >= m.position.x && x < m.position.x + m.size.width && y >= m.position.y && y < m.position.y + m.size.height
 
 /** Coordonnées physiques ; une fenêtre normale doit rester dans la zone de travail disponible. */
 export function fitWindowPlace(p: Place, monitors: Screen[]): Place {

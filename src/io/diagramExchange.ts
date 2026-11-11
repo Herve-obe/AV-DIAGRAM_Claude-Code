@@ -2,6 +2,7 @@ import { child, children, descendants, inflatedPage, parseXml, plainText, textOf
 import type { PortDef, Project } from '../model/types'
 import { portsToDisplay } from '../model/portDisplay'
 import { SIGNAL_FAMILIES, SIGNAL_STYLE } from '../model/signals'
+import { PRINT_COLORS } from '../model/printColors'
 
 type Point = { x: number; y: number }
 export interface DiagramShape { id: string; label: string; x: number; y: number; w: number; h: number; family?: string }
@@ -10,7 +11,7 @@ export interface DiagramEdge { id: string; label: string; source?: DiagramEnd; t
 export interface DiagramPage { name: string; width: number; height: number; shapes: DiagramShape[]; edges: DiagramEdge[]; warnings: string[]; notes: string[] }
 const num = (s: string | undefined, fallback = 0) => { const v = s === undefined ? fallback : Number(s); if (!Number.isFinite(v) || Math.abs(v) > 1_000_000) throw new Error('invalid'); return v }
 const styleOf = (s = '') => new Map(s.split(';').map(x => { const i = x.indexOf('='); return i < 0 ? [x, '1'] : [x.slice(0, i), x.slice(i + 1)] }))
-const color = (s = '') => /^#[0-9a-f]{6}$/i.test(s) ? s : '#666666'
+const color = (s = '') => /^#[0-9a-f]{6}$/i.test(s) ? s : PRINT_COLORS.neutralEdge
 function finish(page: DiagramPage): DiagramPage {
   const ids = new Set<string>()
   for (const s of [...page.shapes, ...page.edges]) { if (!s.id || s.id.length > 200 || ids.has(s.id)) throw new Error('invalid'); ids.add(s.id) }
@@ -158,7 +159,7 @@ export function readVisio(bytes: Uint8Array): DiagramPage[] {
       const a=point(line.matrix,cell(line.effective,'BeginX'),cell(line.effective,'BeginY')),b=point(line.matrix,cell(line.effective,'EndX'),cell(line.effective,'EndY'))
       const reverse=cell(line.effective,'BeginArrow')>0 && cell(line.effective,'EndArrow')===0
       const source=endpoint(line.id,reverse?'EndX':'BeginX'),target=endpoint(line.id,reverse?'BeginX':'EndX')
-      page.edges.push({id:line.id,label:plainText(textOf(child(line.effective,'Text'))),source,target,points:(reverse?[b,a]:[a,b]).map(p=>({x:p.x*72,y:(height-p.y)*72})),directed:cell(line.effective,'BeginArrow')>0||cell(line.effective,'EndArrow')>0,color:'#666666'})
+      page.edges.push({id:line.id,label:plainText(textOf(child(line.effective,'Text'))),source,target,points:(reverse?[b,a]:[a,b]).map(p=>({x:p.x*72,y:(height-p.y)*72})),directed:cell(line.effective,'BeginArrow')>0||cell(line.effective,'EndArrow')>0,color:PRINT_COLORS.neutralEdge})
       if(!source||!target)page.warnings.push('dangling')
     }
     if(parents.size)page.warnings.push('groups')
@@ -200,7 +201,7 @@ export function drawioXml(p: Project): string {
         if(!a)a=ref;else b=ref
       }
       const signal=p.equipment[l.source.equipmentId]?.ports.find(q=>q.id===l.source.portId)?.signal??p.equipment[l.target.equipmentId]?.ports.find(q=>q.id===l.target.portId)?.signal
-      cells.push(`<mxCell id="l${li}" value="${x(l.label)}" edge="1" source="${x(a!)}" target="${x(b!)}" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=none;strokeColor=${signal?SIGNAL_STYLE[signal].color:'#666666'};"><mxGeometry relative="1" as="geometry"/></mxCell>`)
+      cells.push(`<mxCell id="l${li}" value="${x(l.label)}" edge="1" source="${x(a!)}" target="${x(b!)}" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=none;strokeColor=${signal?SIGNAL_STYLE[signal].color:PRINT_COLORS.neutralEdge};"><mxGeometry relative="1" as="geometry"/></mxCell>`)
     }
     for(const [ni,n] of notes.entries())cells.push(`<mxCell id="note${ni}" value="${x(n.text)}" avdRole="annotation" vertex="1" parent="1" style="${n.kind==='frame'?'fillColor=none;':'text;'}html=0;whiteSpace=wrap;"><mxGeometry x="${n.position.x}" y="${n.position.y}" width="${n.size.w}" height="${n.size.h}" as="geometry"/></mxCell>`)
     pages.push(`<diagram id="${x(sheet.id)}" name="${x(sheet.name)}"><mxGraphModel page="1" pageWidth="1123" pageHeight="794"><root>${cells.join('')}</root></mxGraphModel></diagram>`)

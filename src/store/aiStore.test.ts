@@ -12,7 +12,10 @@ import { useUi } from './uiStore'
 const native = vi.hoisted(() => ({ request: vi.fn(), stop: vi.fn(), ensure: vi.fn() }))
 vi.mock('../ai/transport', () => ({ nativeTransport: { request: native.request } }))
 vi.mock('../ai/local', () => ({ ensureServer: native.ensure, stopServer: native.stop }))
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 const settings = { enabled: true, consent: false, provider: 'builtin' as const, model: 'qwen3-4b', managed: { catalogId: 'qwen3-4b' } }
 const answer = (text: string) => ({ status: 200, body: JSON.stringify({ choices: [{ message: { content: text } }] }) })
 const proposal = () => {

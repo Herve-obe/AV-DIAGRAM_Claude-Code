@@ -7,7 +7,7 @@ import { addRack } from '../model/racks'
 import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { drawingBounds, useRoutes } from '../editor/EdgeRouter'
-import { exportSettingsOf } from './exportOptions'
+import { exportSettingsOf } from '../model/exportOptions'
 import { exportPdfWithLabels } from './exportPdfUi'
 import { captureCanvasLight, exportPdf } from './pdf'
 

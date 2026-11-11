@@ -5,7 +5,7 @@ import { addEquipment, createProject } from '../model/project'
 import { GENERIC_LIBRARY } from '../library/generic'
 import { deploymentSheets, deploymentTables } from './deploymentExport'
 import { diagramDrawing, type CadDiagramGeometry } from './cadExport'
-import { exportSettingsOf, sheetLayout } from './exportOptions'
+import { exportSettingsOf, sheetLayout } from '../model/exportOptions'
 
 it('pagine les tableaux vectoriels avec leurs entêtes sans modifier le projet', () => {
   let p = createProject('Reports')

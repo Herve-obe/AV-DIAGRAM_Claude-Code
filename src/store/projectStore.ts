@@ -69,6 +69,13 @@ interface ProjectState {
   duplicate: (ids: string[]) => string[]
   renumber: () => void
   markSaved: (snapshot: Project) => void
+  /** Le projet doit être enregistré de nouveau (nouveau fichier, copie de secours restaurée…) */
+  markUnsaved: () => void
+  /**
+   * Modification reçue d'une autre fenêtre de l'application : annulable ici aussi, sans repasser par le
+   * garde-fou (l'autre fenêtre l'a déjà vérifiée).
+   */
+  applyExternal: (next: Project) => void
 
   addPort: (equipmentId: string, port: Omit<PortDef, 'id'>) => string | null
   updatePort: (equipmentId: string, portId: string, patch: Partial<Omit<PortDef, 'id'>>) => void
@@ -204,6 +211,11 @@ export const useProject = create<ProjectState>((rawSet, get) => {
     },
     renumber: () => commit(ops.renumberLinks(get().project)),
     markSaved: (snapshot) => { if (get().project === snapshot) set({ saved: true }) },
+    markUnsaved: () => set({ saved: false }),
+    applyExternal: (next) => {
+      const { project, past } = get()
+      rawSet({ project: next, past: [...past, project].slice(-HISTORY_LIMIT), future: [], saved: false })
+    },
 
     addPort: (eqId, port) => {
       const r = ops.addPort(get().project, eqId, port)

@@ -5,20 +5,15 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactFlow } from '@xyflow/react'
 import { isTauri } from '@tauri-apps/api/core'
-import { create } from 'zustand'
-import { exportPdfWithLabels } from '../io/exportPdfUi'
-import { exportSettingsOf, protectionLevel, recipientsOf, watermarkText } from '../io/exportOptions'
+import { exportSettingsOf, protectionLevel, recipientsOf, watermarkText } from '../model/exportOptions'
 import { PAPER_SIZES, type ExportSettings, type ProjectInfo } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useTitleBlock } from '../store/titleBlockStore'
 import { FormatPicker, ProtectionBadge, ProtectionEditor, TitleBlockFields, WatermarkEditor, infoWithTemplate } from './ExportControls'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 import { useUi } from '../store/uiStore'
-
-export const useExportPdf = create<{ open: boolean; setOpen: (open: boolean) => void }>((set) => ({
-  open: false,
-  setOpen: (open) => set({ open }),
-}))
+import { useExportPdf } from '../store/exportPdfStore'
 
 type Tab = 'titleBlock' | 'layout' | 'watermark' | 'protection'
 const TABS: Tab[] = ['titleBlock', 'layout', 'watermark', 'protection']
@@ -48,12 +43,7 @@ export function ExportPdfDialog() {
     setPasswords({ open: '', owner: '' })
     setTab('titleBlock')
   }, [open])
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && useExportPdf.getState().setOpen(false)
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+  const dialogRef = useDialog(open, close)
 
   if (!open) return null
   const mark = watermarkText(opts.watermark.text, { ...project, info })
@@ -67,6 +57,8 @@ export function ExportPdfDialog() {
     if (JSON.stringify(store.project.info ?? {}) !== JSON.stringify(info)) store.updateInfo(info)
     close()
     try {
+      // jsPDF chargé à la demande : il ne pèse pas sur le démarrage
+      const { exportPdfWithLabels } = await import('../io/exportPdfUi')
       await exportPdfWithLabels(rf, t, info, opts.protection.enabled ? passwords : undefined, opts)
     } finally {
       setBusy(false)
@@ -75,7 +67,7 @@ export function ExportPdfDialog() {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
-      <div className="dialog export-dialog" role="dialog" aria-modal="true" aria-labelledby="export-title">
+      <div className="dialog export-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="export-title">
         <header className="dialog-head">
           <h2 id="export-title">{t(plan ? 'plan.export' : racks ? 'racks.export' : 'exportPdf.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

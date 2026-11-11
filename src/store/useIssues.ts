@@ -1,11 +1,28 @@
 // Alertes de compatibilité du projet courant, recalculées seulement quand le projet change.
-import { useMemo } from 'react'
 import { checkProject, type Issue, type Severity } from '../model/rules'
+import type { Project } from '../model/types'
 import { useProject } from './projectStore'
 
-export function useIssues(): Issue[] {
-  const project = useProject((s) => s.project)
-  return useMemo(() => checkProject(project), [project])
+/**
+ * Un seul calcul par version du projet, partagé par tous les composants (canevas, inspecteur, panneau
+ * du bas, guide). Le projet est immuable : chaque modification crée un nouvel objet, et les anciennes
+ * versions sortent du cache avec lui.
+ */
+const cache = new WeakMap<Project, Issue[]>()
+
+export function issuesOf(project: Project): Issue[] {
+  let issues = cache.get(project)
+  if (!issues) {
+    issues = checkProject(project)
+    cache.set(project, issues)
+  }
+  return issues
+}
+
+/** Alertes du projet courant, ou du projet donné (aperçu d'une proposition de l'assistant). */
+export function useIssues(project?: Project): Issue[] {
+  const stored = useProject((s) => s.project)
+  return issuesOf(project ?? stored)
 }
 
 /** Gravité la plus haute par liaison (pour colorer les étiquettes de câble). */

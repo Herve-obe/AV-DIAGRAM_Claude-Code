@@ -4,7 +4,7 @@
 import { useEffect, useRef } from 'react'
 import { useStore, type Edge, type InternalNode, type Node } from '@xyflow/react'
 import { create } from 'zustand'
-import { boundsOf, renderedBounds, type Bounds } from '../io/exportOptions'
+import { boundsOf, renderedBounds, type Bounds } from '../model/exportOptions'
 import { placeLabels, routeAll, type Point, type Rect, type RouteEnd, type RouteRequest } from '../model/routing'
 
 export const useRoutes = create<{ routes: Map<string, Point[]>; labels: Map<string, Point> }>(() => ({ routes: new Map(), labels: new Map() }))

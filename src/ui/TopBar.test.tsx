@@ -14,7 +14,10 @@ import { DEFAULT_TOOLBAR, toolbarPreference } from './topBarActions'
 const actions = vi.hoisted(() => ({ save: vi.fn(), open: vi.fn(), fit: vi.fn() }))
 vi.mock('../io/documentLifecycle', () => ({ saveCurrentProject: actions.save, openDocument: actions.open }))
 vi.mock('@xyflow/react', async original => ({ ...await original<typeof import('@xyflow/react')>(), useReactFlow: () => ({ fitView: actions.fit, getNodes: () => [], getInternalNode: () => undefined }) }))
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 
 let element: HTMLDivElement, root: Root
 const click = (el: Element) => act(async () => (el as HTMLElement).click())

@@ -9,7 +9,10 @@ import { createDraft, runTool } from '../ai/tools'
 import { useLibrary } from '../store/libraryStore'
 import { CompanyAlerts } from './CompanyAlerts'
 
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 it('affiche les mêmes alertes pour des ajouts manuels et une proposition IA', async () => {
   Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
   const own = { ...GENERIC_LIBRARY.find(t => t.id === 'gen-mic-dyn')!, id: 'user-mic', status: 'user' as const, companyQuantity: 1 }

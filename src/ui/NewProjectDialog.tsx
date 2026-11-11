@@ -1,17 +1,19 @@
 // Création d'un projet : nom, emplacement du fichier .avd (créé tout de suite), format de la feuille
 // (dessinée sur le schéma pendant le travail) et point de départ (projet vide ou modèle).
 import { isTauri } from '@tauri-apps/api/core'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { DEFAULT_EXPORT, pageSize } from '../io/exportOptions'
+import { DEFAULT_EXPORT, pageSize } from '../model/exportOptions'
 import { prepareToLeave } from '../io/documentLifecycle'
-import { createProjectFile, notifyError, pickSaveFolder, projectFolderName, slug } from '../io/files'
+import { createProjectFile, notifyError, pickSaveFolder, projectFolderName } from '../io/files'
+import { slug } from '../model/text'
 import { buildTemplate, type TemplateId } from '../library/templates'
 import { PAPER_SIZES, type ExportSettings, type PaperSize } from '../model/types'
 import { useProject } from '../store/projectStore'
 import { useSaveFolder } from '../store/saveFolderStore'
 import { useUi } from '../store/uiStore'
 import { Icon, type IconName } from './Icon'
+import { useDialog } from './useDialog'
 
 const CHOICES: { id: TemplateId; icon: IconName }[] = [
   { id: 'blank', icon: 'file' },
@@ -39,11 +41,7 @@ function NewProjectForm() {
   const size = pageSize(paper, orientation)
   const projectName = projectFolderName(name.trim() || t('menu.newProjectName'))
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  const dialogRef = useDialog(true, close)
 
   const create = async () => {
     if (busy || (desktop && !folder) || !(await prepareToLeave())) return
@@ -59,7 +57,7 @@ function NewProjectForm() {
       const project = { ...named, settings: { ...named.settings, export: exportSettings } }
       if (desktop && folder) await createProjectFile(project, folder)
       useProject.getState().load(project)
-      if (!desktop) useProject.setState({ saved: false })
+      if (!desktop) useProject.getState().markUnsaved()
       const ui = useUi.getState()
       ui.select([], [])
       ui.setSheet(useProject.getState().project.sheets?.[0]?.id ?? '')
@@ -73,7 +71,7 @@ function NewProjectForm() {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
-      <div className="dialog new-project" role="dialog" aria-modal="true" aria-labelledby="new-title">
+      <div className="dialog new-project" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="new-title">
         <header className="dialog-head">
           <h2 id="new-title">{t('newProject.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

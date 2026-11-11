@@ -1,6 +1,6 @@
 // « Relier en série » : les sorties des équipements sélectionnés (ordre du schéma, de haut en bas) vers
 // les entrées libres d'un autre équipement, dans l'ordre, avec aperçu et multipaire proposé.
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { applySeries, freeInputs, planSeries, schemaOrder, sourceFamilies } from '../model/series'
 import type { SignalFamily } from '../model/signals'
@@ -8,6 +8,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { useEditing } from '../collab/useEditing'
 import { Icon } from './Icon'
+import { useDialog } from './useDialog'
 
 export function SeriesDialog() {
   const from = useUi((s) => s.seriesFrom)
@@ -45,11 +46,7 @@ function SeriesForm({ from }: { from: string[] }) {
     .filter((e) => !(selected.length === 1 && e.id === selected[0]))
     .sort((a, b) => Number(selected.includes(b.id)) - Number(selected.includes(a.id)) || schemaOrder(a, b))
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  const dialogRef = useDialog(true, close)
 
   const portName = (eqId: string, portId: string) => project.equipment[eqId]?.ports.find((p) => p.id === portId)?.name ?? portId
   const count = plan?.pairs.length ?? 0
@@ -66,7 +63,7 @@ function SeriesForm({ from }: { from: string[] }) {
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && close()}>
-      <div className="dialog series-dialog" role="dialog" aria-modal="true" aria-labelledby="series-title">
+      <div className="dialog series-dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="series-title">
         <header className="dialog-head">
           <h2 id="series-title">{t('series.title')}</h2>
           <button className="icon-btn" onClick={close} aria-label={t('settings.close')}><Icon name="close" /></button>

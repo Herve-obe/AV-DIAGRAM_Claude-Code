@@ -6,7 +6,7 @@ export const child = (n: XmlNode, name: string) => n.children.find(x => x.name =
 export const children = (n: XmlNode, name: string) => n.children.filter(x => x.name === name)
 export const descendants = (n: XmlNode, name: string): XmlNode[] => n.children.flatMap(c => [...(c.name === name ? [c] : []), ...descendants(c, name)])
 export const textOf = (n: XmlNode | undefined): string => n ? n.text + n.children.map(textOf).join('') : ''
-export const xmlEscape = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]!)
+export { xmlEscape } from '../model/text'
 export const plainText = (s: string) => s.replace(/<(?:br\s*\/?|\/div|\/p)>/gi, '\n').replace(/<[^>]*>/g, '').replace(/&(?:nbsp|amp|lt|gt|quot|apos);/g, c => ({ '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'" })[c]!).trim().slice(0, 2000)
 
 /** XML de données uniquement : aucune DTD, entité externe, image ou URL n'est résolue. */

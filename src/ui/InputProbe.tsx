@@ -23,10 +23,11 @@ export function InputProbe() {
   useEffect(() => {
     if (!on) return
     const push = (text: string) => setLog((l) => [{ at: Date.now(), text }, ...l].slice(0, 12))
-    const wheel = (e: WheelEvent) => push(`molette  Ctrl=${e.ctrlKey ? 'oui' : 'non'}  Maj=${e.shiftKey ? 'oui' : 'non'}  dx=${e.deltaX.toFixed(1)}  dy=${e.deltaY.toFixed(1)}  mode=${e.deltaMode}`)
-    const gesture = (e: Event) => push(`${e.type}  échelle=${((e as Event & { scale?: number }).scale ?? 0).toFixed(3)}`)
-    const touch = (e: TouchEvent) => push(`${e.type}  contacts=${e.touches.length}`)
-    const pointer = (e: PointerEvent) => push(`${e.type}  type=${e.pointerType}`)
+    const yesNo = (v: boolean) => t(v ? 'probe.yes' : 'probe.no')
+    const wheel = (e: WheelEvent) => push(t('probe.wheel', { ctrl: yesNo(e.ctrlKey), shift: yesNo(e.shiftKey), dx: e.deltaX.toFixed(1), dy: e.deltaY.toFixed(1), mode: e.deltaMode }))
+    const gesture = (e: Event) => push(t('probe.gesture', { type: e.type, scale: ((e as Event & { scale?: number }).scale ?? 0).toFixed(3) }))
+    const touch = (e: TouchEvent) => push(t('probe.touch', { type: e.type, count: e.touches.length }))
+    const pointer = (e: PointerEvent) => push(t('probe.pointer', { type: e.type, pointer: e.pointerType }))
     const viewport = () => setZoom(window.visualViewport?.scale ?? 1)
     const opts = { capture: true, passive: true }
     window.addEventListener('wheel', wheel, opts)
@@ -41,7 +42,7 @@ export function InputProbe() {
       window.removeEventListener('pointerdown', pointer, opts)
       window.visualViewport?.removeEventListener('resize', viewport)
     }
-  }, [on])
+  }, [on, t])
 
   if (!on) return null
   return (

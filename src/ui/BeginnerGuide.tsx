@@ -10,7 +10,7 @@ import { useProject } from '../store/projectStore'
 import { useSaveFolder } from '../store/saveFolderStore'
 import { useIssues } from '../store/useIssues'
 import { useUi } from '../store/uiStore'
-import { useExportPdf } from './ExportPdfDialog'
+import { useExportPdf } from '../store/exportPdfStore'
 import { Icon } from './Icon'
 import { LIBRARY_SEARCH } from './LibraryPanel'
 

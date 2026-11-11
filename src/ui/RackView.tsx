@@ -9,7 +9,7 @@ import { useProject } from '../store/projectStore'
 import { useUi } from '../store/uiStore'
 import { Icon } from './Icon'
 import { Field, toNumber } from './Field'
-import { useExportPdf } from './ExportPdfDialog'
+import { useExportPdf } from '../store/exportPdfStore'
 import { useEditing } from '../collab/useEditing'
 
 /** Hauteur d'une unité à l'écran, en px */

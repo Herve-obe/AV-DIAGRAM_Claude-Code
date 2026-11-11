@@ -11,7 +11,10 @@ const api = vi.hoisted(() => ({ present: vi.fn(), set: vi.fn(), remove: vi.fn(),
 vi.mock('../ai/transport', () => ({ nativeAvailable: () => true, nativeTransport: { request: api.request }, openExternal: vi.fn(), keyStore: { present: api.present, set: api.set, remove: api.remove } }))
 vi.mock('../ai/agent', async original => ({ ...await original<typeof import('../ai/agent')>(), listModels: api.models }))
 vi.mock('../ai/local', async original => ({ ...await original<typeof import('../ai/local')>(), stopServer: vi.fn().mockResolvedValue(undefined) }))
-vi.mock('../library', async () => ({ LIBRARY: (await import('../library/generic')).GENERIC_LIBRARY }))
+vi.mock('../library', async () => {
+  const { GENERIC_LIBRARY } = await import('../library/generic')
+  return { LIBRARY: GENERIC_LIBRARY, LIBRARY_INDEX: new Map(GENERIC_LIBRARY.map((t) => [t.id, t])) }
+})
 
 let element: HTMLDivElement, root: Root
 const button = (text: string) => [...element.querySelectorAll('button')].find(b => b.textContent?.startsWith(text))!
