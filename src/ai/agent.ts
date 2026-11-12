@@ -287,7 +287,7 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
     if (call.name === 'ask_user' && pending) return reject(ONE_ROUND)
     const key = call.name + JSON.stringify(call.args), previous = executed.get(key)
     // Un appel identique donnerait le même résultat : l'erreur est rappelée, et la question n'est proposée que si elle reste permise
-    if (previous?.project === draft.project) return reject(`Appel identique déjà effectué sur ce brouillon${previous.error ? `, refusé ainsi : ${previous.error}` : ''}. Modifier les paramètres en conséquence${pending ? '' : ' ou poser la question avec ask_user'}.`)
+    if (previous?.project === draft.project) return reject(`Appel identique déjà effectué sur ce brouillon${previous.error ? `, refusé ainsi : ${previous.error.replace(/[.\s]+$/, '')}` : ''}. Modifier les paramètres en conséquence${pending ? '' : ' ou poser la question avec ask_user'}.`)
     const result = runTool(draft, call, ctx)
     let value = JSON.parse(result.content)
     executed.set(key, { project: draft.project, ...(typeof value.error === 'string' ? { error: value.error } : {}) })

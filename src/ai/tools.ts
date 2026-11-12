@@ -4,7 +4,7 @@
 // montré en aperçu : l'utilisateur l'applique (une seule étape d'annulation) ou le refuse.
 import { addAnnotation, addEquipment, connect, DEFAULT_SHEET_ID, sheetName, updateEquipment, updateLink } from '../model/project'
 import { cableFits, getCable } from '../model/cables'
-import { checkLink, checkProject, type Issue } from '../model/rules'
+import { checkLink, checkProject, levelIssueOf, type Issue } from '../model/rules'
 import { exportSettingsOf } from '../model/exportOptions'
 import { fold } from '../model/text'
 import { PAPER_SIZES } from '../model/types'
@@ -229,22 +229,32 @@ export function referenceScore(t: EquipmentTemplate, query: string): number {
 /** Mots vides : ils se retrouvent dans presque toutes les descriptions et faussaient le classement. */
 const STOPWORDS = new Set(['avec', 'sans', 'pour', 'sur', 'sous', 'dans', 'par', 'les', 'des', 'une', 'aux', 'and', 'the', 'with', 'for', 'from'])
 
-/** Fiches du même type que la source dont une sortie se branche sur l'appareil cible (ex. Beta 98 à sortie XLR plutôt que TA4 pour émetteur). */
-function compatibleVariants(library: EquipmentTemplate[], project: Project, pair: SystemError['pair'], candidates: string[] = []): string {
+/** Ce qui débloque une liaison impossible : une autre fiche pour l'une des deux extrémités, ou un appareil à insérer entre elles
+ * (amplificateur pour une enceinte passive, convertisseur…). Les candidats du plan passent avant le reste du catalogue. */
+function connectionFixes(library: EquipmentTemplate[], project: Project, pair: SystemError['pair'], candidatesOf: (equipmentId: string) => string[]): string {
   const source = pair && project.equipment[pair.sourceId], target = pair && project.equipment[pair.targetId]
-  const template = source && library.find(t => t.id === source.templateId)
-  if (!pair || !target || !template) return ''
-  const inputs = target.ports.filter(p => usablePort(p, pair.signal, true))
-  const fits = (t: EquipmentTemplate) => t.id !== template.id && t.ports.some(o => usablePort(o, pair.signal, false) && inputs.some(i => connectorsJoin(o.connector, i.connector)))
-  const planned = candidates.map(id => library.find(t => t.id === id)).filter((t): t is EquipmentTemplate => !!t && fits(t)).map(t => t.id)
-  if (planned.length) return ` Candidats du plan compatibles avec ${target.name} : ${planned.join(', ')}.`
-  const found = searchLibrary(library, `${template.manufacturer ?? ''} ${template.model}`, 40)
-    .map(r => library.find(t => t.id === r.template_id)!)
-    .filter(t => t.family === template.family && fits(t))
-    .slice(0, 3).map(t => t.id)
-  return found.length ? ` Fiches du même type compatibles avec ${target.name} : ${found.join(', ')}${candidates.length ? ' (hors plan : reprendre plan_diagram avec cette recherche)' : ''}.` : ''
+  const sourceT = source && library.find(t => t.id === source.templateId), targetT = target && library.find(t => t.id === target.templateId)
+  if (!pair || !source || !target || !sourceT || !targetT) return ''
+  // Une sortie alimente une entrée : connecteurs reliables (direct ou adaptateur) et niveaux compatibles
+  const feeds = (from: PortDef[], to: PortDef[]) => from.some(o => usablePort(o, pair.signal, false)
+    && to.some(i => usablePort(i, pair.signal, true) && connectorsJoin(o.connector, i.connector) && !levelIssueOf(o, i)))
+  const fitsSource = (t: EquipmentTemplate) => t.id !== sourceT.id && feeds(t.ports, target.ports)
+  const fitsTarget = (t: EquipmentTemplate) => t.id !== targetT.id && feeds(source.ports, t.ports)
+  const byId = (ids: string[]) => ids.map(id => library.find(t => t.id === id)).filter((t): t is EquipmentTemplate => !!t)
+  const planned = [...byId(candidatesOf(source.id)).filter(fitsSource).map(t => `${t.id} pour ${source.name}`),
+    ...byId(candidatesOf(target.id)).filter(fitsTarget).map(t => `${t.id} pour ${target.name}`)]
+  const near = (t: EquipmentTemplate, fits: (c: EquipmentTemplate) => boolean) => searchLibrary(library, `${t.manufacturer ?? ''} ${t.model}`, 40)
+    .map(r => library.find(c => c.id === r.template_id)!).filter(c => c.family === t.family && fits(c)).slice(0, 2)
+  const variants = planned.length ? [] : [...near(sourceT, fitsSource).map(t => `${t.id} pour ${source.name}`), ...near(targetT, fitsTarget).map(t => `${t.id} pour ${target.name}`)]
+  // Appareil intermédiaire : alimenté par la source, il alimente la cible. Les fiches génériques d'abord.
+  const between = library.filter(t => t.id !== sourceT.id && t.id !== targetT.id && feeds(source.ports, t.ports) && feeds(t.ports, target.ports))
+    .sort((a, b) => Number(b.id.startsWith('gen-')) - Number(a.id.startsWith('gen-'))).slice(0, 3).map(t => t.id)
+  return [
+    planned.length ? ` Candidats du plan qui se branchent : ${planned.join(', ')}.` : '',
+    variants.length ? ` Fiches du même type qui se branchent : ${variants.join(', ')}${candidatesOf(source.id).length || candidatesOf(target.id).length ? ' (hors plan : reprendre plan_diagram avec cette recherche)' : ''}.` : '',
+    between.length ? ` Ou insérer entre les deux, avec sa propre ref et deux flux : ${between.join(', ')}.` : '',
+  ].join('')
 }
-
 export function searchLibrary(library: EquipmentTemplate[], query: string, limit = 12) {
   const tokens = norm(query).split(/[^a-z0-9]+/).filter(k => k && !STOPWORDS.has(k) && (k.length > 2 || /\d/.test(k)))
   // Le nom, la famille et les alias pèsent double ; chaque mot pèse selon sa rareté dans la liste cherchée :
@@ -496,10 +506,12 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       for (const row of a.equipment) if ((row.count ?? 1) > 1) roles.set(row.ref, Array.from({ length: row.count }, (_, i) => ids.get(row.ref + (i + 1))!))
       const result = connectSystem(initial.draft.project, roles, a.connections)
       if ('error' in result) {
-        // Rôle du plan qui contient la source : ses candidats compatibles passent avant le reste du catalogue
-        const ref = result.pair && [...roles].find(([, list]) => list.includes(result.pair!.sourceId))?.[0]
-        const role = draft.brief?.roles.find(r => r.ref === ref || (ref && ref.startsWith(r.ref) && /^\d+$/.test(ref.slice(r.ref.length))))
-        return fail(result.error + compatibleVariants(ctx.library, initial.draft.project, result.pair, role?.candidates) + ' Aucun élément de cet appel ajouté.')
+        // Candidats du rôle de plan qui contient un équipement de la paire en cause
+        const candidatesOf = (equipmentId: string) => {
+          const ref = [...roles].find(([, list]) => list.includes(equipmentId))?.[0]
+          return draft.brief?.roles.find(r => r.ref === ref || (!!ref && ref.startsWith(r.ref) && /^\d+$/.test(ref.slice(r.ref.length))))?.candidates ?? []
+        }
+        return fail(result.error + connectionFixes(ctx.library, initial.draft.project, result.pair, candidatesOf) + ' Aucun élément de cet appel ajouté.')
       }
       if (result.addedLinks.length + draft.addedLinks.length > 100) return fail('Limite de 100 liaisons par proposition.')
       const connected = new Set(Object.values(result.project.links).flatMap(l => [l.source.equipmentId, l.target.equipmentId]))

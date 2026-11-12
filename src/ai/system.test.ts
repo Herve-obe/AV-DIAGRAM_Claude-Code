@@ -125,8 +125,16 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     const hf = { equipment: [{ ref: 'perc', template_id: 'shure-beta98-hf' }, { ref: 'desk', template_id: 'gen-console' }], connections: [{ from: 'perc', to: 'desk', signal: 'audioAnalog' }] }
     const error = JSON.parse(runTool(base(), call('propose_system', hf), { ...ctx, library }).content).error
     expect(error).toContain('sorties libres : ta4 mic ; entrées libres : xlr3 mic')
-    expect(error).toContain('shure-beta-98h-c')
-    expect(error).not.toContain('shure-beta98-hf,')
+    expect(error).toMatch(/shure-beta-?98[a-z-]* pour BETA98-HF/)
+    expect(error).not.toContain('shure-beta98-hf pour')
+  })
+
+  it('une enceinte passive reliée à une console propose une enceinte amplifiée ou un amplificateur à insérer', () => {
+    const passive = { equipment: [{ ref: 'desk', template_id: 'gen-console' }, { ref: 'pa', template_id: 'gen-speaker-passive' }], connections: [{ from: 'desk', to: 'pa', signal: 'audioAnalog' }] }
+    const error = JSON.parse(runTool(base(), call('propose_system', passive), ctx).content).error
+    expect(error).toContain('entrées libres : speakon-nl4 speaker')
+    expect(error).toContain('gen-speaker-active pour Enceinte passive')
+    expect(error).toContain('Ou insérer entre les deux, avec sa propre ref et deux flux : gen-amp4')
   })
 
   it('un plan avec une ref en double nomme le rôle fautif', () => {
