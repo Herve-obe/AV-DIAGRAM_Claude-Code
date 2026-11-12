@@ -1,0 +1,144 @@
+{
+  "id": "samsung-db40e",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Samsung",
+  "model": "DB40E",
+  "status": "community",
+  "description": "Ecran LED 40\", Full HD (1920x1080 - 16/9), 350 cd/m2, contraste 5000/1",
+  "aliases": [
+    "SAMSUNG DB40E"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/db40e/",
+      "document": "Novelty — DB40E",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db40e_quick-start-guide.pdf",
+      "document": "Novelty — DB40E : Quick Start",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db40e_manuel-fr.pdf",
+      "document": "Novelty — DB40E : DB40E (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db40e_manuel-uk.pdf",
+      "document": "Novelty — DB40E : DB40E (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://kulturbuero.ch/files-zh/1.2_Manuals/WebManual_Eng_for_Europe.pdf",
+      "document": "Samsung DB32E/DB40E/DB48E/DB55E/DM32E User Manual, p. 18",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db32e_manuel-uk.pdf",
+      "document": "Samsung, User Manual DB32E/DB40E/DB48E/DB55E/DM32E-DM75E/DH40E-DH55E (copie Novelty) : Reverse Side pp. 19-20, IR Stereo Cable p. 25, PowerSaver (consommation)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_db32e_ft.pdf",
+      "document": "Samsung, fiche DB-E 32\"/40\"/48\"/55\" (copie Novelty) : Connectivity, Power Consumption (Typical/Max)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "RGB In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "component",
+      "name": "AV / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : vidéo composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "RGB / DVI / HDMI / AV / COMPONENT AUDIO IN, mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line+4"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe (vendu à part) ; reçoit un câble stéréo jack 3,5 mm (manuel p. 25)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz, interrupteur au dos ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    }
+  ],
+  "weightKg": 7.5,
+  "powerW": 121
+}

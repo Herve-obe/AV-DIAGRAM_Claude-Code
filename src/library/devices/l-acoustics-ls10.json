@@ -1,0 +1,145 @@
+{
+  "id": "l-acoustics-ls10",
+  "family": "network",
+  "manufacturer": "L-Acoustics",
+  "model": "LS10",
+  "pictogram": "switch",
+  "status": "verified",
+  "weightKg": 1.5,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/ls10/",
+      "document": "L-Acoustics, page produit LS10, spécifications",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/ELECTRONICS/LS10/EN/Owner's%20Manual/LS10_OM_EN.pdf",
+      "document": "L-Acoustics, LS10 owner's manual (EN) version 6.0",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "eth1",
+      "name": "etherCON 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth2",
+      "name": "etherCON 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth3",
+      "name": "etherCON 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth4",
+      "name": "etherCON 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth5",
+      "name": "etherCON 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face avant, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth6",
+      "name": "etherCON 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face arrière, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth7",
+      "name": "etherCON 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face arrière, AVB 1 Gb/s"
+    },
+    {
+      "id": "eth8",
+      "name": "etherCON 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Face arrière, AVB 1 Gb/s"
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP 1 Gb/s (arrière)"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP 1 Gb/s (arrière)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C13 compatible V-Lock, 100-240 V ; 10 W (20 W en alimentant un autre LS10)"
+    },
+    {
+      "id": "dcin",
+      "name": "Secours 24 V DC (entrée)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 6 points (Phoenix MSTB 2,5/6-ST, pas 5 mm) : entrée de secours 24 V DC"
+    },
+    {
+      "id": "dcout",
+      "name": "Secours 24 V DC (sortie)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Même bornier 6 points : sortie 24 V DC pour alimenter un autre LS10"
+    },
+    {
+      "id": "gpo",
+      "name": "GPO défaut",
+      "direction": "out",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Même bornier 6 points : relais NO de signalisation de défaut, 30 V DC 1 A max"
+    },
+    {
+      "id": "usb",
+      "name": "USB (configuration)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "Micro-USB femelle arrière, logiciel USB Terminal (adresse IP, réinitialisation)"
+    }
+  ],
+  "powerW": 10
+}

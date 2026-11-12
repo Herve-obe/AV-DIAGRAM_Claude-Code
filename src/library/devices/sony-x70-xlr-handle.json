@@ -1,0 +1,55 @@
+{
+  "id": "sony-x70-xlr-handle",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Sony",
+  "model": "Poignée XLR PXW-X70 (fournie)",
+  "pictogram": "camera",
+  "moduleType": "sony-x70-handle",
+  "status": "verified",
+  "description": "Poignée XLR fournie avec la Sony PXW-X70, fixée sur la griffe multi-interface : 2 entrées XLR LINE/MIC/MIC+48V, sélecteurs ATT et LOW CUT. Ne fonctionne que montée sur la caméra.",
+  "sources": [
+    {
+      "url": "https://pro.sony/s3/cms-static-content/uploadfile/99/1237493098399.pdf",
+      "document": "Sony, PXW-X70 Operating Guide 4-544-242-11 : XLR handle unit (fixation sur la griffe multi-interface), INPUT1/INPUT2, niveau LINE fixé à +4 dBu",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches, LINE / MIC / MIC+48V ; MIC -60/-50/-40 dBu selon ATT ; LINE fixé à +4 dBu"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches, LINE / MIC / MIC+48V ; LINE fixé à +4 dBu"
+    }
+  ],
+  "aliases": [
+    "XLR handle unit X70"
+  ]
+}

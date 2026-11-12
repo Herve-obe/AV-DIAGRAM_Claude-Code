@@ -1,0 +1,63 @@
+{
+  "id": "oxo-pixyline",
+  "family": "luminaire",
+  "manufacturer": "OXO",
+  "model": "Pixyline 150",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/rampe/pixyline-150/",
+      "document": "Novelty — Pixyline 150",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_pixyline150_manuel.pdf",
+      "document": "Novelty — Pixyline 150 : Pixyline 150",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 étanche, 100–240 V"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1"
+    }
+  ],
+  "aliases": [
+    "OXO Pixyline 150"
+  ],
+  "powerW": 120,
+  "description": "Barre LED IP65 14 × 10 W RGBW (blanc chaud 3 000 K), 20° × 50°, DMX 5 à 62 canaux, télécommande IR."
+}

@@ -1,0 +1,123 @@
+{
+  "id": "ma-vpu-basic-mk2",
+  "family": "videoSwitcher",
+  "manufacturer": "MA Lighting",
+  "model": "VPU basic MK2",
+  "pictogram": "switcher",
+  "status": "community",
+  "weightKg": 15,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/gestion-d-images/regie-complete/vpu-basic-mk2/",
+      "document": "Novelty, fiche VPU basic MK2 (loueur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ma-lighting_vpu-plus-mk2_manuel.pdf",
+      "document": "Novelty — VPU Basic MK2 : VPU Basic MK2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/ma-lighting_vpu-plus-mk2_ft.pdf",
+      "document": "Novelty — VPU Basic MK2 : VPU Basic MK2",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "DVI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D dual link"
+    },
+    {
+      "id": "dvi2",
+      "name": "DVI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D dual link"
+    },
+    {
+      "id": "dvi3",
+      "name": "DVI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I dual link"
+    },
+    {
+      "id": "audioL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique (niveau non précisé)",
+      "level": "line+4"
+    },
+    {
+      "id": "audioR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique (niveau non précisé)",
+      "level": "line+4"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Réseau MA (consoles grandMA, onPC)"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Réseau MA"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris, clavier, stockage"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris, clavier, stockage"
+    },
+    {
+      "id": "ac",
+      "name": "Mains In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON bleu, 120/230 V, 50/60 Hz"
+    },
+    {
+      "id": "acOut",
+      "name": "Mains Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON gris, recopie secteur"
+    }
+  ],
+  "aliases": [
+    "VPU",
+    "MA LIGHTING VPU Basic MK2"
+  ],
+  "powerW": 300
+}

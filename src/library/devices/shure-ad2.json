@@ -1,0 +1,66 @@
+{
+  "id": "shure-ad2",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD2",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD2/en-US",
+      "document": "Shure, guide d'utilisation AD2 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD2/en-US.pdf",
+      "document": "Shure, AD2 User Guide (PDF) : cartouches au choix, 340 g sans pile, sans préciser si la tête est comprise : poids retiré du corps",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/a2-ksm8-noir/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Axient Digital, 2/10/35 mW selon région ; tête interchangeable Shure"
+    }
+  ],
+  "description": "Émetteur main Axient Digital, tête interchangeable Shure (cartouches RPW). IR pour la synchronisation, piles AA ou accu SB900. Corps seul : la tête est une option.",
+  "aliases": [
+    "AD2/SM58",
+    "AD2/B87C",
+    "AD2/KSM8",
+    "AD2/KSM9",
+    "AD2/N8S",
+    "A2-KSM8 noir",
+    "SHURE A2-KSM8 noir"
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "shure-capsule-sans-fil",
+      "accepts": [
+        "shure-rpw112-sm58",
+        "shure-rpw114-sm86",
+        "shure-rpw116-sm87a",
+        "shure-rpw118-beta58a",
+        "shure-rpw120-beta87a",
+        "shure-rpw122-beta87c",
+        "shure-rpw124-vp68",
+        "shure-rpw174-ksm8",
+        "shure-rpw184-ksm9",
+        "shure-rpw186-ksm9hs",
+        "shure-rpw192-ksm11",
+        "shure-rpw200-nxn8c",
+        "shure-rpw204-nxn8s"
+      ]
+    }
+  ]
+}

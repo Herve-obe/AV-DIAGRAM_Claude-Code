@@ -1,0 +1,77 @@
+{
+  "id": "lilliput-fs7",
+  "family": "display",
+  "manufacturer": "Lilliput",
+  "model": "FS7",
+  "pictogram": "display",
+  "status": "community",
+  "description": "Moniteur de caméra 7 pouces 1920 x 1200, 3G-SDI et HDMI 4K",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.lilliput.com/fs7-product/",
+      "document": "Lilliput, page produit FS7 : Input/Output, Power",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/84d362a8.pdf",
+      "document": "Lilliput, manuel FS7 : Top & rear panel features",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "3G-SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4, jusqu'à 4K 30p"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "phones",
+      "name": "Ear Jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Ear Jack 3,5 mm stéréo (audio SDI/HDMI désembarqué)",
+      "level": "line+4"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "DC 7-24 V, bloc 12 V fourni ; plaque batterie Sony F ; connecteur non nommé"
+    }
+  ],
+  "powerW": 12
+}

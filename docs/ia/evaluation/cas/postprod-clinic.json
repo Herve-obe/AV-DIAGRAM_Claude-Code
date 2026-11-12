@@ -1,0 +1,30 @@
+{
+  "id": "postprod-clinic",
+  "titre": "Régie de post-production d'un magazine TV avec enregistrement de voix off (Clinic)",
+  "source": {"fichier": "Sujet TMO 3.pdf", "driveId": "1fqaMSvxKntfKtjlCnRd7WHGO4HjsD5GU", "auteur": "Hervé Obejero", "pages": "1-2"},
+  "domaine": ["son"],
+  "difficulte": "simple",
+  "demande": "Je suis chargé de la post-production audio (montage son et mixage) d'un magazine TV d'environ 5 minutes. Je dois enregistrer une voix off, monter certains éléments (la voix off, deux musiques, des bruitages additionnels) et réaliser le mixage, puis créer un fichier vidéo et audio mixé conforme à la recommandation CST - RT 017 - TV - Rec Tech PAD Éditeurs v3.0.\n\nDocuments fournis : une session Pro Tools avec un fichier QuickTime à timecode incrusté, un guide de montage/mixage avec timecode indicatif, une banque de sons thématique.\n\nMatériel : une régie équipée d'une station audionumérique Pro Tools (ou autre compatible OMF) ; un lieu de prise de son peu réverbérant ; un parc de microphones ; des périphériques ou plug-ins de correction de timbre et de dynamique ; des périphériques ou plug-ins de réverbération ou d'écho ; une console de mixage ou une surface de contrôle ; un loudness meter conforme EBU R128.\n\nJe veux le synoptique de la régie de post-production, avec la chaîne d'enregistrement de la voix off.",
+  "materielImpose": [
+    {"designation": "Station audionumérique", "quantite": 1, "reference": "Avid Pro Tools (ou compatible OMF)"},
+    {"designation": "Console de mixage ou surface de contrôle", "quantite": 1, "reference": null},
+    {"designation": "Microphones", "quantite": null, "reference": null},
+    {"designation": "Loudness meter EBU R128", "quantite": 1, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Un micro pour la voix off, dans le lieu de prise de son peu réverbérant", "type": "quantite", "verif": {"famille": "capture", "min": 1, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Le micro voix off arrive à la station (via préampli, console ou interface)", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "micro-voix-off", "vers": "station-daw"}},
+    {"id": "e3", "texte": "Station audionumérique Pro Tools", "type": "quantite", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e4", "texte": "Console ou surface de contrôle reliée à la station", "type": "liaison", "verif": {"famille": "console", "min": 1, "max": null, "signal": null, "de": "console", "vers": "station-daw"}},
+    {"id": "e5", "texte": "Écoutes de la régie alimentées par la sortie de la station ou de la console", "type": "sortie", "verif": {"famille": "speaker", "min": 2, "max": null, "signal": null, "de": "station-daw", "vers": "ecoute-regie"}},
+    {"id": "e6", "texte": "Loudness meter sur le bus de mixage", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-daw", "vers": "mesure-niveau"}},
+    {"id": "e7", "texte": "Retour casque pour le comédien de la voix off", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-daw", "vers": "retour-casques"}},
+    {"id": "e8", "texte": "Export d'un fichier vidéo et audio mixé conforme CST RT 017 v3.0", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Sujet surtout de post-production : la partie système se limite à la chaîne voix off, à l'écoute et à la mesure",
+    "Retour casque du lecteur de voix off sans repasser par les écoutes (pas de repisse dans le micro)",
+    "Mesure de loudness placée sur le mix final, pas sur une piste"
+  ],
+  "corrigeDisponible": false
+}

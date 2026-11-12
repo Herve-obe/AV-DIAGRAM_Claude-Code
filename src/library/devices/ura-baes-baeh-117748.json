@@ -1,0 +1,61 @@
+{
+  "id": "ura-baes-baeh-117748",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "URA",
+  "model": "BAES/BAEH 117748",
+  "status": "verified",
+  "description": "Bloc autonome d'éclairage de sécurité URA BAES + BAEH IP 67 réf. 117 748 (SATI) : raccordement sur bornier 1,5 mm² (secteur et ligne de télécommande), télécommande réf. 140 012 obligatoire ; 0,7 W.",
+  "aliases": [
+    "BAES-LEDEVAC",
+    "URA BAES/BAEH 117748"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/securite/signalisation/baes-baeh-117748/",
+      "document": "Novelty — BAES/BAEH 117748",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/ura_baes117748_ft2.pdf",
+      "document": "Novelty — BAES/BAEH 117748 : BAES 117748",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ura_baes117748_manuel.pdf",
+      "document": "Novelty — BAES/BAEH 117748 : BAES 117748",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/ura_baes117748_certificat.pdf",
+      "document": "Novelty — BAES/BAEH 117748 : BAES 117748",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/ura_baes117748_ft.pdf",
+      "document": "Novelty — BAES/BAEH 117748 : PEP (Profil Environnemental Produit)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier débrochable 1,5 mm² max, câble 5G 1,5 mm², 230 V ± 10 % 50 Hz ; fil de terre non connecté (classe II)"
+    },
+    {
+      "id": "remote",
+      "name": "Ligne de télécommande",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Bornes du même bornier ; raccordement obligatoire à une télécommande URA réf. 140 012 (polarité indifférente avec cette télécommande)"
+    }
+  ],
+  "weightKg": 2.3,
+  "powerW": 0.7
+}

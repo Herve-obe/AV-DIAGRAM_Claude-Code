@@ -1,0 +1,101 @@
+{
+  "id": "kiloview-e3",
+  "family": "videoRouting",
+  "manufacturer": "Kiloview",
+  "model": "E3",
+  "pictogram": "router",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.kiloview.com/en/kiloview-e3",
+      "document": "Kiloview, page E3",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.kiloview.com/en/wp-content/uploads/2025/01/E3_Datesheet_En_LG.pdf",
+      "document": "Kiloview, fiche E3",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Jusqu'à 4K30"
+    },
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiLoop",
+      "name": "HDMI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "3G-SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "RJ45 10/100/1000, PoE 802.3af classe 3 ; NDI HX2/HX3, SRT, RTMP"
+    },
+    {
+      "id": "ain",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "usbc1",
+      "name": "USB-C 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usbc2",
+      "name": "USB-C 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usba",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0, enregistrement"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC, 1 A ou PoE"
+    }
+  ],
+  "powerW": 9
+}

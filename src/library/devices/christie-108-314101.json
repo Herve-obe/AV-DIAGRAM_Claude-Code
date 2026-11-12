@@ -1,0 +1,50 @@
+{
+  "id": "christie-108-314101",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Christie",
+  "model": "DMX512 Interface Card (108-314101-XX)",
+  "pictogram": "processor",
+  "moduleType": "christie-option-card",
+  "status": "verified",
+  "description": "Carte d'interface DMX512 (commande du projecteur), une seule active par projecteur. Carte d'option pour les emplacements des projecteurs Christie M Series et J Series (utilisable dans n'importe quel emplacement). Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_manuel-uk.pdf",
+      "document": "Christie, M Series User Manual 020-100009-08 Rev. 1 (05-2013), 2.1.3 et 2.11.7 DMXC Interface Card",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd20k-roadster_manuel.pdf",
+      "document": "Christie, J Series (Roadster HD20K-J) User Manual : mêmes cartes d'option",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd14k-m_ft-uk.pdf",
+      "document": "Christie, fiche M Series : références des cartes d'entrée 108-3xxxxx-XX",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 broches mâle, DMX512-A"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 broches femelle, bouclage"
+    }
+  ],
+  "aliases": [
+    "108-314101-XX",
+    "DMXC Interface Card"
+  ]
+}

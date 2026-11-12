@@ -1,0 +1,41 @@
+{
+  "id": "ermea-par56",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "ERMEA",
+  "model": "PAR56",
+  "status": "community",
+  "description": "Projecteur PAR56 noir hexagonal, 300W/220V, reprise secteur",
+  "aliases": [
+    "PAR56 OCTO N",
+    "ERMEA PAR56"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/par-projecteurs-traditionnels/par56/",
+      "document": "Novelty — PAR56",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Projecteur traditionnel, commande par gradateur externe ; type de raccordement non écrit"
+    },
+    {
+      "id": "acOut",
+      "name": "Reprise secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Reprise secteur citée par Novelty, type non écrit"
+    }
+  ],
+  "weightKg": 3.1,
+  "powerW": 300
+}

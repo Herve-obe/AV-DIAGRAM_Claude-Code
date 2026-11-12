@@ -1,0 +1,80 @@
+{
+  "id": "samsung-db22",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "DB22 (22\")",
+  "pictogram": "display",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.samsung.com/us/business/support/owners/product/db-series-digital-signage-db22d/",
+      "document": "Samsung, page support DB22D",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/samsung_db10d_brochure.pdf",
+      "document": "Samsung, brochure DB22D-P / DB22D-T / DB10D (copie Novelty) : spécifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "D-Sub",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RGB analogique"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 (2 prises sur DB22D-P, 3 sur DB22D-T selon la brochure ; une seule saisie)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz, alimentation interne ; type d'embase non indiqué. Référence catalogue Novelty « DB22 » ; connectique de la génération DB22D"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C (in) par jack stéréo"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande MDC et réseau"
+    }
+  ],
+  "powerW": 44
+}

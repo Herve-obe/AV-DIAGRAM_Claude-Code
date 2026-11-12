@@ -1,0 +1,57 @@
+{
+  "id": "analog-way-aql-in-4hdmi20",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Analog Way",
+  "model": "Aquilon 4x HDMI 2.0 input card",
+  "pictogram": "processor",
+  "moduleType": "aquilon-input-card",
+  "status": "verified",
+  "description": "Carte 4 entrées HDMI 2.0 pour Aquilon. Carte remplaçable sur site, vendue séparément ; référence de commande et consommation non publiées dans les documents lus.",
+  "sources": [
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Quick+Start+Guide/Aquilon-C%2B-quick-start-guide.pdf",
+      "document": "Analog Way, Aquilon C+ (AQL-C+) Quick Start Guide : panneau arrière, modèles de cartes d'entrée et de sortie",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Technical+Datasheet/Aquilon-C%2B-datasheet-en-20260703.pdf",
+      "document": "Analog Way, Aquilon C+ Technical Datasheet EN : Comprehensive set of input and output cards",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, jusqu'à 4K60 8 bits 4:4:4"
+    },
+    {
+      "id": "in2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, jusqu'à 4K60 8 bits 4:4:4"
+    },
+    {
+      "id": "in3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, jusqu'à 4K60 8 bits 4:4:4"
+    },
+    {
+      "id": "in4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, jusqu'à 4K60 8 bits 4:4:4"
+    }
+  ]
+}

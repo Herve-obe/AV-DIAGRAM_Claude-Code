@@ -1,0 +1,51 @@
+{
+  "id": "astera-nyx-bulb",
+  "family": "luminaire",
+  "manufacturer": "Astera",
+  "model": "NYX Bulb",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 10,
+  "weightKg": 0.24,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_NYX-Bulb_V3.pdf",
+      "document": "Astera, Datasheet NYX Bulb V3",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/nyx-bulb/",
+      "document": "Novelty — NYX BULB",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur CRMX intégré et BluetoothBridge ; protocoles sans fil : CRMX, UHF, Bluetooth ; portée CRMX/UHF jusqu'à 100 m, Bluetooth 3 m ; pas de DMX filaire"
+    },
+    {
+      "id": "socket",
+      "name": "Culot",
+      "direction": "in",
+      "signal": "power",
+      "connector": "e27",
+      "format": "Culot E27 (UE, 100-240 V) ou E26 (US, 100-120 V) ; B22 sur commande"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5 à 18 V CC 2,1 A (batterie externe ou PowerStation), jack 3,5 x 1,35 mm"
+    }
+  ],
+  "aliases": [
+    "Astera NYX BULB"
+  ]
+}

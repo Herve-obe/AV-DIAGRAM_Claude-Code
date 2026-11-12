@@ -1,0 +1,48 @@
+{
+  "id": "etc-gadget-ii-io-garage",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "ETC",
+  "model": "Gadget II (4267A1004)",
+  "pictogram": "control",
+  "moduleType": "etc-io-garage",
+  "status": "verified",
+  "description": "Interface USB vers deux sorties DMX/RDM, montée dans une baie de l'I/O Garage des consoles Apex (liaison USB interne, alimentation 5 V par l'USB, consommation non publiée). La prise USB B n'est pas saisie : elle sert à la liaison interne. Aussi utilisable seule avec un ordinateur ETCnomad.",
+  "aliases": [
+    "GADGET2",
+    "4267A1004",
+    "4267A1104",
+    "ETC Gadget II"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/28168-ETCGadgetIIDatasheet.pdf",
+      "document": "ETC, Gadget II datasheet 4267L1200 Rev. A 08/16 (copie Full Compass) : deux XLR 5 femelles DMX/RDM, USB B, 5 V USB, 0,22 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/63015-Apex5Datasheet.pdf",
+      "document": "ETC, Eos Apex 5 datasheet (copie Full Compass) : I/O Garage à quatre baies, accessoires GADGET2 4267A1004, RSN-SMPTE-P 4267A1007, RSN-MIDI-P 4267A1009, RSN-SERIAL-P 4267A1011 « for use in I/O Garage », kits 4450K1020 et 4450K1030",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM, XLR 5 femelle"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A / RDM, XLR 5 femelle"
+    }
+  ],
+  "weightKg": 0.22
+}

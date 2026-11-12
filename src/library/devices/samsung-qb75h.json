@@ -1,0 +1,123 @@
+{
+  "id": "samsung-qb75h",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "QB75H (75\")",
+  "pictogram": "display",
+  "status": "community",
+  "powerW": 407,
+  "sources": [
+    {
+      "url": "https://www.samsung.com/us/business/support/owners/product/qb-h-series-digital-signage-qb75h/",
+      "document": "Samsung, page support QB75H",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_qb75h_ft.pdf",
+      "document": "Samsung QBH series manufacturer datasheet p.1; QB75H quick guide",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP1.2"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI1 / ARC",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI2.0"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line+4"
+    },
+    {
+      "id": "usb1",
+      "name": "USB1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Capteur IR externe (External sensor : IR) ; connecteur non nommé dans la fiche et le guide rapide"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    }
+  ],
+  "weightKg": 34.8,
+  "depthMm": 66
+}

@@ -1,0 +1,69 @@
+{
+  "id": "modulo-pi-nano-1",
+  "family": "recording",
+  "domain": "image",
+  "manufacturer": "Modulo Pi",
+  "model": "Modulo Player Nano NANO-1",
+  "pictogram": "recorder",
+  "status": "community",
+  "description": "1 sortie active au maximum (2560x1600@60p) bien que 2 connecteurs physiques (HDMI 2.0a + mini DP). Pas d'entrée de capture. Option : TC-USB-R (lecteur timecode USB). Poids ~0,6 kg (expédition ~1,2 kg). Dimensions 117 x 112 x 37 mm. Bloc d'alimentation externe 90 W (puissance du bloc, pas une consommation mesurée). Processeur Intel Core i5, 2x4 Go DDR4, SSD 500 Go, Windows 11, dongle USB de protection, fixation VESA fournie.",
+  "sources": [
+    {
+      "url": "https://www.modulo-pi.com/media-servers/modulo-player/",
+      "document": "Modulo Pi, page produit Modulo Player (tableaux des versions et liens vers les fiches techniques)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.modulo-pi.com/wp-content/uploads/2022/01/Modulo-Player-Nano-SpecSheet-LD.pdf",
+      "document": "Modulo Player Nano SpecSheet (révision matérielle 2024-1, pied de page 16102024)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "Sortie HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0a"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie mini DisplayPort",
+      "direction": "out",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "mini DisplayPort"
+    },
+    {
+      "id": "lan1",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45 1000 Mbps"
+    },
+    {
+      "id": "audio1",
+      "name": "Sortie audio stéréo",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "1 x mini-jack stéréo 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "power1",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12-19 V DC, bloc secteur externe 90 W avec cordon EU ; type de fiche DC non précisé"
+    }
+  ],
+  "aliases": [
+    "NANO-1"
+  ],
+  "weightKg": 0.6
+}

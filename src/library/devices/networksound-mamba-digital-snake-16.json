@@ -1,0 +1,123 @@
+{
+  "id": "networksound-mamba-digital-snake-16",
+  "family": "stagebox",
+  "domain": "sound",
+  "pictogram": "stagebox",
+  "manufacturer": "Networksound",
+  "model": "Mamba Digital Snake 16x16",
+  "status": "community",
+  "description": "Boîtier de multipaire numérique Mamba Line Level 16 x 16 (LLP, point à point) : 16 entrées et 16 sorties ligne symétriques sur 4 DB25 Tascam, liaison Medianet sur CAT-5/6 (etherCON, 140 m, redondante), RS-232, deux Aux à paires libres. Utilisé par paire (scène et régie) ; 2 U.",
+  "aliases": [
+    "Mamba 16LLP",
+    "DIGSNAKE16 (un boîtier)"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/networksound_mamba-digital-snake-16llp_ft.pdf",
+      "document": "Networksound, Mamba Digital Snake Technical Specification (copie Novelty) : DB25 Tascam, etherCON Link 1/2, RS-232 DB9, Aux, IEC, 30 W (32x32)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/networksound_mamba-digital-snake-16llp_manuel.pdf",
+      "document": "Networksound, Mamba Digital Snake 16LLP manuel (copie Novelty)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/cablage-multipaire-sonorisation/numerique-cablage-multipaire-sonorisation/mamba-digital-snake/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Analog In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB25 brochage Tascam (8 voies entrées), ligne symétrique « line level », gain unité, +22 dBu max. ; nominal non chiffré"
+    },
+    {
+      "id": "in2",
+      "name": "Analog In 9-16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB25 brochage Tascam (8 voies entrées), ligne symétrique « line level », gain unité, +22 dBu max. ; nominal non chiffré"
+    },
+    {
+      "id": "out1",
+      "name": "Analog Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB25 brochage Tascam (8 voies sorties), ligne symétrique « line level », gain unité, +22 dBu max. ; nominal non chiffré"
+    },
+    {
+      "id": "out2",
+      "name": "Analog Out 9-16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB25 brochage Tascam (8 voies sorties), ligne symétrique « line level », gain unité, +22 dBu max. ; nominal non chiffré"
+    },
+    {
+      "id": "link1",
+      "name": "Link 1 / FoH",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 16,
+      "format": "Medianet sur CAT-5/6, 100 Mbit/s full duplex, 140 m ; liaison principale (point à point) ou vers la régie façade (split) ; porte aussi Aux 1"
+    },
+    {
+      "id": "link2",
+      "name": "Link 2 / Mon",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 16,
+      "format": "Medianet ; liaison redondante (point à point) ou vers la régie retours (split) ; porte aussi Aux 2"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DB9 femelle, transfert RS-232 entre boîtiers, 19 200 bit/s"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "2 paires libres passées dans le câble Link 1 (intercom, analogique ou LAN) ; embase en option : etherCON, combo XLR F / TRS ou XLR M selon commande"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "2 paires libres passées dans le câble Link 2 ; embase en option : etherCON, combo XLR F / TRS ou XLR M selon commande"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec fusible externe, 110-240 V, 50-60 Hz"
+    }
+  ],
+  "powerW": 20
+}

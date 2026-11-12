@@ -1,0 +1,53 @@
+{
+  "id": "clear-com-fsii-tcvr-19",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "FSII-TCVR-19",
+  "status": "community",
+  "description": "Antenne émetteur-récepteur active FreeSpeak II 1,9 GHz, IP65, reliée à la base ou au splitter en etherCON, alimentée localement ou par la base (une antenne, 300 m). Connecteur DC non précisé (XLR d'après la notice, nombre de broches non indiqué).",
+  "aliases": [
+    "FSII-TCVR-19-EU",
+    "FreeSpeak II antenne 1,9 GHz"
+  ],
+  "weightKg": 0.19,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_1-9antenna_ft.pdf",
+      "document": "Clear-Com, fiche FreeSpeak II-19 Antenna v.1 7/15 (copie Novelty) : etherCON, DC In, USB usine, 0,19 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_base-ii_manuel.pdf",
+      "document": "Clear-Com, FreeSpeak II User Guide 399G169 Rev B (27 avril 2016, copie Novelty) : § 2.4 connecteurs arrière de la base, § 5.3 connecteurs du splitter, § 15 caractéristiques",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "DECT 1,88-1,93 GHz"
+    },
+    {
+      "id": "net",
+      "name": "Base/Matrix",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Vers base FSII ou splitter, Cat 5/6 blindé"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation locale ; fiche XLR mâle côté alimentation selon la notice"
+    }
+  ]
+}

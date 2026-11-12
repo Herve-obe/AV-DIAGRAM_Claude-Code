@@ -1,0 +1,83 @@
+{
+  "id": "avermedia-cp150",
+  "family": "recording",
+  "domain": "image",
+  "pictogram": "recorder",
+  "manufacturer": "AverMedia",
+  "model": "CP150",
+  "status": "verified",
+  "description": "Visualiseur de média intéractif 3,2 MP, livré avec télécommande",
+  "aliases": [
+    "VISUALISEUR",
+    "AverMedia CP150"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/sources-video/visualiseur/cp150/",
+      "document": "Novelty — CP150",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/CP150.pdf",
+      "document": "Novelty — CP150 : CP150",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/CP150_user_manual.pdf",
+      "document": "Novelty — CP150 : CP150",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rgbIn",
+      "name": "RGB INPUT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (VGA), bouclé vers RGB OUTPUT"
+    },
+    {
+      "id": "rgbOut",
+      "name": "RGB OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (VGA), XGA / SVGA / VGA 60 Hz"
+    },
+    {
+      "id": "cvbs",
+      "name": "VIDEO OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composite, RCA"
+    },
+    {
+      "id": "svideo",
+      "name": "S-VIDEO OUTPUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "S-Video, mini-DIN"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0 vers PC (caméra USB, transfert d'images) ; embase type B (dessin)"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack d'alimentation, adaptateur secteur 100-240 V fourni"
+    }
+  ],
+  "weightKg": 2.43,
+  "powerW": 20
+}

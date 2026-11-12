@@ -1,0 +1,51 @@
+{
+  "id": "dynaudio-bm5a",
+  "family": "speaker",
+  "manufacturer": "Dynaudio",
+  "model": "BM5A",
+  "pictogram": "speaker",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://zzounds.com/item--DYNBM5A",
+      "document": "zZounds, fiche BM5A (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-edf8c4f2-407e-4208-aa01-6cc6274ffa3d/edf8c4f2-407e-4208-aa01-6cc6274ffa3d.pdf",
+      "document": "Dynaudio Acoustics, BM 5A User Manual, Overview - Rear panel p. 5, Setting up p. 6 et Technical specifications p. 9 (copie archive.org)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/77276/dynaudio-bm-5a.html?page=11",
+      "document": "Dynaudio BM 5A User Manual, Technical specifications (copie ManualsDir)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "xlr",
+      "name": "Input (XLR)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique (1 masse, 2 +, 3 -) ; sensibilité commutable +4 / 0 / -10 ; -16 dBu pour 85 dB SPL à 1 m",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "ac",
+      "name": "AC in",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec porte-fusible (dessin du panneau arrière) ; tension réglée en usine ; repos 10 W, max 90 W"
+    }
+  ],
+  "powerW": 90
+}

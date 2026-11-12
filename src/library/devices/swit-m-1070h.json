@@ -1,0 +1,154 @@
+{
+  "id": "swit-m-1070h",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "SWIT",
+  "model": "M-1070H",
+  "status": "community",
+  "description": "Bandeau 3U de 2 moniteurs 7\", 16/9 800x450, 350 cd/m 2 , 400:1",
+  "aliases": [
+    "SWIT M-1070H"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/moniteur-video/m-1070h/",
+      "document": "Novelty — M-1070H",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1A",
+      "name": "Écran A SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi2A",
+      "name": "Écran A SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "yuvA",
+      "name": "Écran A YUV In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante, 3 BNC"
+    },
+    {
+      "id": "cvbsA",
+      "name": "Écran A Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "audLA",
+      "name": "Écran A Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "audRA",
+      "name": "Écran A Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "sdiOutA",
+      "name": "Écran A SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutA",
+      "name": "Écran A Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdi1B",
+      "name": "Écran B SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "sdi2B",
+      "name": "Écran B SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "yuvB",
+      "name": "Écran B YUV In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante, 3 BNC"
+    },
+    {
+      "id": "cvbsB",
+      "name": "Écran B Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "audLB",
+      "name": "Écran B Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "audRB",
+      "name": "Écran B Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "sdiOutB",
+      "name": "Écran B SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutB",
+      "name": "Écran B Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches, commun aux deux écrans"
+    }
+  ],
+  "weightKg": 2.5,
+  "powerW": 28
+}

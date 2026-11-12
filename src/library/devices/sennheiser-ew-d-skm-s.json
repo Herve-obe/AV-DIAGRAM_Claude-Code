@@ -1,0 +1,78 @@
+{
+  "id": "sennheiser-ew-d-skm-s",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EW-D SKM-S",
+  "status": "verified",
+  "description": "Émetteur main numérique Evolution Wireless Digital avec touche silence, tête interchangeable à filetage standard. 2 piles AA ou accu BA 70.",
+  "aliases": [
+    "EW-D SKM",
+    "EW-D SKM S"
+  ],
+  "weightKg": 0.195,
+  "sources": [
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-d/ew-d/specifications-ew-d-skm-s.html",
+      "document": "Sennheiser EW-D, caractéristiques EW-D SKM-S (195 g sans tête, liaison audio 10 mW PAR, BLE)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf/9da0cf3e0b7411f192c65e789cf0ae6f",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison audio numérique 10 mW PAR (12 mW en Y1-3) ; tête interchangeable"
+    },
+    {
+      "id": "ble",
+      "name": "Bluetooth LE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rf",
+      "format": "Bluetooth Low Energy, max. 10 mW PIRE"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard",
+      "accepts": [
+        "sennheiser-mmd-835-bk",
+        "sennheiser-mmd-845",
+        "sennheiser-mme-865",
+        "sennheiser-mmd-935",
+        "sennheiser-mmd-945",
+        "sennheiser-mmk-965",
+        "sennheiser-mmd-42",
+        "sennheiser-mm-435",
+        "sennheiser-mm-445",
+        "sennheiser-me-9002",
+        "sennheiser-me-9004",
+        "sennheiser-me-9005",
+        "sennheiser-md-9235",
+        "neumann-kk-204",
+        "neumann-kk-205"
+      ]
+    }
+  ]
+}

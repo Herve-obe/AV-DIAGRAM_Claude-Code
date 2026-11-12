@@ -1,0 +1,40 @@
+{
+  "id": "robert-juliat-alimentation-super-korrigan",
+  "family": "power",
+  "domain": "light",
+  "pictogram": "power",
+  "manufacturer": "Robert Juliat",
+  "model": "Alimentation magnétique Super Korrigan 1149 (1 200 W HMI)",
+  "status": "verified",
+  "description": "Ballast magnétique séparé de la poursuite Super Korrigan 1149 (réamorçage à chaud, refroidissement par convection), 24 kg. Reçoit le cordon de 3 m attenant à la tête (Harting 16 × 16 A + T, 25 m max entre tête et ballast). Consommation : les 1 550 W de l'ensemble sont portés par la fiche de tête ; ne pas les additionner.",
+  "aliases": [
+    "PSU 1149",
+    "Ballast Super Korrigan"
+  ],
+  "sources": [
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN103_1149.pdf",
+      "document": "Robert Juliat, DSEN103_1149 (23 mars 2022) : Power input câble H07RNF 3G1.5, fiche CEE 7/7 ; PSU séparée magnétique 24 kg ; câble tête / PSU attenant à la tête, 3 m, 18G1,5 avec connecteur Harting Han 16 × 16 A + E",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon H07RN-F 3G1,5, fiche CEE 7/7 (Schuko / française)"
+    },
+    {
+      "id": "head",
+      "name": "Entrée cordon tête (Harting)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Harting Han 16 × 16 A + T, reçoit le cordon de 3 m attenant à la tête"
+    }
+  ],
+  "weightKg": 24
+}

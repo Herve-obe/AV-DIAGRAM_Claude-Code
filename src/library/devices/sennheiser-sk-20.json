@@ -1,0 +1,45 @@
+{
+  "id": "sennheiser-sk-20",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SK 20",
+  "pictogram": "wireless",
+  "status": "verified",
+  "description": "Émetteur de poche XS Wireless, 10 mW, entrée jack 3,5 mm micro ou ligne/instrument, deux piles AA.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/SEEMXSW2A.pdf",
+      "document": "Sennheiser, XS Wireless Instruction manual (EM 10, SK 20), copie du revendeur Adorama",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée micro / instrument",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ],
+      "format": "Jack 3,5 mm ; 0,5 Veff (mic) / 1,8 Veff (ligne) nominal ; commutateur de sensibilité"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "10 mW, antenne fixe"
+    }
+  ]
+}

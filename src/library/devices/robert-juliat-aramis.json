@@ -1,0 +1,41 @@
+{
+  "id": "robert-juliat-aramis",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Robert Juliat",
+  "model": "Aramis HMI 2500 W",
+  "status": "community",
+  "description": "Poursuite Aramis 1013+ à lampe HMI 2 500 W, zoom 4,5–8°, ballast magnétique séparé relié par câble Harting 16 × 16 A.",
+  "sources": [
+    {
+      "document": "Réponses utilisateur du 4 novembre 2026, lot lumière 02 : identité des variantes uniquement",
+      "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/poursuite/aramis/",
+      "document": "Novelty — Aramis",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1203954324.pdf",
+      "document": "Robert Juliat : brochure Aramis 1013+ : cordons Harting et P17",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203954397.pdf",
+      "document": "Robert Juliat : dossier technique DN30750100 Aramis+ 1013+/B/BS/M/BSM : raccordement tête / ballast",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis ballast",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Embase Harting 16 × 16 A + T, câble de lampe 3 m depuis le ballast magnétique (cordon secteur P17 32 A sur le ballast)"
+    }
+  ]
+}

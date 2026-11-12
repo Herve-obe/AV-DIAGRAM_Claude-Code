@@ -1,0 +1,206 @@
+{
+  "id": "ross-carbonite-black-solo",
+  "family": "videoSwitcher",
+  "manufacturer": "Ross Video",
+  "model": "Carbonite Black Solo",
+  "pictogram": "switcher",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://rossvideo.com/live-production/production-switchers/carbonite-black-solo/specifications",
+      "document": "Ross Video, caractéristiques Carbonite Black Solo",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/760-4615-carbonite-black-solo-operation-4840dr-110.pdf",
+      "document": "Ross Video Carbonite Black Solo Operation Manual 4840DR-110, via Novelty",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/carbonite-black-solo/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiIn5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiIn6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "sdiOut5",
+      "name": "SDI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "aes",
+      "name": "AES Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "unspecified",
+      "format": "Sortie audio AES des canaux Media-Store et MediaWipe (type de prise non nommé)"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level ou black burst"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation PS1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc d'alimentation primaire externe, prise multibroche non nommée"
+    },
+    {
+      "id": "ac2",
+      "name": "Alimentation PS2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc d'alimentation secondaire (redondance), prise multibroche non nommée"
+    },
+    {
+      "id": "serial",
+      "name": "Serial",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422, commande de périphériques externes"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "16 relais de tally assignables"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "24 GPI entrées ou sorties"
+    }
+  ]
+}

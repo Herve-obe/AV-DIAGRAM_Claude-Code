@@ -1,0 +1,68 @@
+{
+  "id": "altair-em-202",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "EM-202",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 0.27,
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair (Equipos Europeos Electronicos), catalogue intercom SI_EN2018, p. 15 EM-202 : 12-32 V nom. 24 V / 50 mA, ligne XLR3 ou XLR5 selon modèle, casque XLR-4M, 270 g (copie Theatrelight, distributeur)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/869227/Altair-Em-202.html",
+      "document": "Altair, EM-202 Owner's Manual (copie Manualslib) : version 3 broches ligne A XLR-3 femelle, ligne B XLR-3 mâle ; version 5 broches XLR-5 mâle et femelle en parallèle (1 : 0 V, 2 : +V ligne A, 3 : signal A, 4 : +V ligne B, 5 : signal B)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lineA",
+      "name": "Ligne A (ou A+B en 5P)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "EM-202-3P : XLR-3 femelle, voie A. EM-202-5P : XLR-5 portant les voies A et B (broche 2 +V A, 3 signal A, 4 +V B, 5 signal B)",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "none"
+        }
+      ]
+    },
+    {
+      "id": "lineB",
+      "name": "Ligne B (ou recopie A+B en 5P)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "EM-202-3P : XLR-3 mâle, voie B. EM-202-5P : seconde XLR-5 câblée en parallèle, pour chaîner un autre poste",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "none"
+        }
+      ]
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4M, micro dynamique ou électret (réglage interne)"
+    }
+  ],
+  "description": "Poste ceinture intercom filaire 2 voies (A et B) Altair série E-200, alimenté par la ligne (12 à 32 V, nominal 24 V, 50 mA). Deux versions de connectique : EM-202-3P (une XLR 3 par voie, en bout de ligne) ou EM-202-5P (XLR 5 portant les deux voies, deux prises en parallèle pour le chaînage). Casque sur XLR-4M.",
+  "aliases": [
+    "EM-202",
+    "EM-202-3P",
+    "EM-202-5P",
+    "Altair EM-202"
+  ],
+  "powerW": 1.2,
+  "notes": "Version 3 broches (EM-202-3P) par défaut ; choisir le mode XLR 5 sur les deux prises pour l'EM-202-5P. powerW = 24 V × 50 mA (nominal catalogue), prélevés sur la ligne intercom, pas de prise secteur. Genres des XLR lus dans un extrait du manuel (page Manualslib partiellement lisible)."
+}

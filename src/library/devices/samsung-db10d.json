@@ -1,0 +1,82 @@
+{
+  "id": "samsung-db10d",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Samsung",
+  "model": "DB10D",
+  "status": "verified",
+  "description": "Moniteur LED 10\", 1280x800, HDMI",
+  "aliases": [
+    "SAMSUNG DB10D"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/db10d/",
+      "document": "Novelty — DB10D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_db10d_ft.pdf",
+      "document": "Novelty — DB10D : DB10D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db10d_manuel.pdf",
+      "document": "Novelty — DB10D : DB10D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db10d_quickguide.pdf",
+      "document": "Novelty — DB10D : Quick Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/samsung_db10d_brochure.pdf",
+      "document": "Novelty — DB10D : Brochure commerciale",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "3.5 mm stereo serial adapter"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "DC 14 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "DC 14 V depuis l'adaptateur secteur fourni (AC 100-240 V)"
+    }
+  ],
+  "weightKg": 0.6,
+  "depthMm": 24.9,
+  "powerW": 18.7
+}

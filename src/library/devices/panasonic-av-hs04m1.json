@@ -1,0 +1,58 @@
+{
+  "id": "panasonic-av-hs04m1",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "AV-HS04M1",
+  "pictogram": "processor",
+  "moduleType": "av-hs410-option",
+  "status": "verified",
+  "description": "Carte d'entrée SDI Panasonic AV-HS04M1 : 2 entrées HD/SD-SDI sur BNC, chacune avec sortie « active through » (moniteur) ; alimentée en 12 V par le mélangeur (7 W). Emplacements A et B de l'AV-HS410.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_AV-HS410_manuel_base.pdf",
+      "document": "Panasonic, AV-HS410 Operating Instructions <Basics>, p. 9 Option boards (sold separately) : cartes, fonctions, emplacements A et B",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://manualslib.mx/manual/905803/Panasonic-Av-Hs04M1.html",
+      "document": "Panasonic, AV-HS04M1 Operating Instructions (copie ManualsLib) : p. 8 IN / OUT active through output connector ×2, p. 15 BNC 2 lines (with active through), 12 V depuis le mélangeur, 7 W",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1 (active through)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif de l'entrée 1, sortie moniteur"
+    },
+    {
+      "id": "in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2 (active through)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif de l'entrée 2, sortie moniteur"
+    }
+  ],
+  "powerW": 7
+}

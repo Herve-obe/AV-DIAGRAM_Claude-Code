@@ -1,0 +1,61 @@
+{
+  "id": "iiyama-prolite-b2780hsu-b1",
+  "family": "display",
+  "manufacturer": "iiyama",
+  "model": "ProLite B2780HSU-B1",
+  "pictogram": "display",
+  "status": "community",
+  "description": "Écran LED 27 pouces Full HD, entrées VGA, DVI et HDMI, hub USB",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://iiyama.com/pdf/Product/254/de_de.pdf",
+      "document": "iiyama, fiche ProLite B2780HSU-B1 (DE) : Schnittstellen, Leistungsaufnahme",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usbUp",
+      "name": "USB upstream",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Hub USB 4 ports annoncé ; forme non nommée"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation interne ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 37
+}

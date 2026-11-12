@@ -1,0 +1,135 @@
+{
+  "id": "grass-valley-advc-g4",
+  "family": "sync",
+  "manufacturer": "Grass Valley",
+  "model": "ADVC G4",
+  "pictogram": "clock",
+  "status": "community",
+  "description": "Générateur de synchronisation : 9 sorties de référence vidéo SD/HD réparties en 3 lignes, 2 sorties de référence audio (DARS ou word clock).",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/795772/grass-valley-advc-g4.html?page=20",
+      "accessed": "2026-11-06"
+    }
+  ],
+  "ports": [
+    {
+      "id": "refIn",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence SD ou HD"
+    },
+    {
+      "id": "out1",
+      "name": "Out 1 (Line A)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne A (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out2",
+      "name": "Out 2 (Line A)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne A (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out3",
+      "name": "Out 3 (Line A)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne A (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out4",
+      "name": "Out 4 (Line B)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne B (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out5",
+      "name": "Out 5 (Line B)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne B (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out6",
+      "name": "Out 6 (Line B)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne B (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out7",
+      "name": "Out 7 (Line C)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out8",
+      "name": "Out 8 (Line C)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "out9",
+      "name": "Out 9 (Line C)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie de référence, ligne C (SD/HD réglable par ligne)"
+    },
+    {
+      "id": "aref1",
+      "name": "Audio Ref Out 1",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "DARS AES-11 48 kHz ou word clock 75 ohms 5 Vcc"
+    },
+    {
+      "id": "aref2",
+      "name": "Audio Ref Out 2",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "DARS AES-11 48 kHz ou word clock 75 ohms 5 Vcc"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B, USB 2.0"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "5 à 16,8 V CC (bloc secteur 12 V 3 A fourni) ; type de prise non écrit"
+    }
+  ],
+  "domain": "image",
+  "powerW": 4.9
+}

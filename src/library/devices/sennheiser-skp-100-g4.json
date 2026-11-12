@@ -1,0 +1,44 @@
+{
+  "id": "sennheiser-skp-100-g4",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKP 100 G4",
+  "status": "verified",
+  "description": "Émetteur enfichable (plug-on) ew 100 G4 pour micro filaire, embase XLR-3 femelle, sans alimentation fantôme (micros dynamiques). 30 mW, deux piles AA ou accu BA 2015.",
+  "aliases": [
+    "SKP 100 G4 (émetteur plug-on)",
+    "SKP 100 G4-A",
+    "SKP 100 G4-G",
+    "SKP 100 G4-B"
+  ],
+  "weightKg": 0.195,
+  "sources": [
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SP_1144_v2.0_ew_100_ENG_G4_Product_Specification_EN.pdf/d8e013d6e7b911f088db768ee8e97aea?attachment=true",
+      "document": "Sennheiser, ew 100 ENG G4 Product Specification SP 1144 v2.0 : contenu du kit et caractéristiques SKP 100 G4 (XLR 3, 68 kOhm, 30 mW, 195 g)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Asymétrique 68 kOhm, 3,3 V eff max, sensibilité réglable 48 dB"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF FM large bande, 30 mW max"
+    }
+  ]
+}

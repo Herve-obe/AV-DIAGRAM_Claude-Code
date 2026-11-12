@@ -1,0 +1,133 @@
+{
+  "id": "swisson-xpd-28",
+  "family": "dmxDistribution",
+  "manufacturer": "Swisson",
+  "model": "XPD-28",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.swisson.com/site/assets/files/1261/um_xpd-28-d0-len-v01-05.pdf",
+      "document": "Swisson, XPD-28 User Manual v01-05",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/xpd-28/",
+      "document": "Novelty — XPD-28",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/swisson_xpd-28-5r_ft.pdf",
+      "document": "Novelty — XPD-28 : XPD-28",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/swisson_xpd-28-5r_manuel-uk.pdf",
+      "document": "Novelty — XPD-28 : XPD-28",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in-a",
+      "name": "Entrée A",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX/RDM, isolée, terminaison intégrée ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "in-b",
+      "name": "Entrée B",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX/RDM, isolée, terminaison intégrée ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie 5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie 6",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie 7",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie 8",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Affectable à l'univers A ou B, isolation optique ; XLR 5 points (version XPD-28-5R)"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON bleu (NAC3FCA)"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON gris (NAC3FCB)"
+    }
+  ],
+  "aliases": [
+    "DMXSPLITXPD285R",
+    "Swisson XPD-28"
+  ],
+  "powerW": 9
+}

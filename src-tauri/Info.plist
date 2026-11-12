@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Complété par Tauri à la construction de l'application macOS.
+     Depuis macOS 15, l'accès aux autres appareils du réseau local demande l'accord de l'utilisateur :
+     ce texte est affiché dans la demande (travail à plusieurs sur le réseau local). -->
+<plist version="1.0">
+<dict>
+  <key>NSLocalNetworkUsageDescription</key>
+  <string>AV Diagram se connecte aux autres postes du réseau local pour travailler à plusieurs sur un même projet. Aucune donnée ne sort du réseau.</string>
+</dict>
+</plist>

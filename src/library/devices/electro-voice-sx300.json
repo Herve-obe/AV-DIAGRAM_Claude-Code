@@ -1,0 +1,46 @@
+{
+  "id": "electro-voice-sx300",
+  "family": "speaker",
+  "manufacturer": "Electro-Voice",
+  "model": "SX300E",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 17.7,
+  "sources": [
+    {
+      "url": "https://www.boullard.ch/en/product/sono-studio/speakers/passive-speakers/100458-ev-electro-voice-sx300e/",
+      "document": "Boullard, fiche SX300E (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/EVSX300WE.html",
+      "document": "Adorama, fiche Electro-Voice Sx300E (revendeur) : « Input connections : 2 four-pin Speakon », 8 ohms, 300/1200 W",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://products.electrovoice.com/na/en/sx300e",
+      "document": "Electro-Voice, page produit Sx300E (« dual Neutrik Speakon high-current connectors » ; site en 503 lors de la consultation, lu par extrait de recherche)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "spk1",
+      "name": "Speakon 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Speakon 4 points ; 12\" + 1,25\", 8 Ω (5 Ω min.), 300 W continu / 1 200 W crête"
+    },
+    {
+      "id": "spk2",
+      "name": "Speakon 2 (link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Second Speakon 4 points, en parallèle avec l'entrée (chaînage) selon le revendeur Guitar Center"
+    }
+  ]
+}

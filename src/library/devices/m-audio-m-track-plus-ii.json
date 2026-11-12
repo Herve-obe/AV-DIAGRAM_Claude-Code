@@ -1,0 +1,102 @@
+{
+  "id": "m-audio-m-track-plus-ii",
+  "family": "recording",
+  "manufacturer": "M-Audio",
+  "model": "M-Track Plus II",
+  "pictogram": "recorder",
+  "status": "community",
+  "portStatus": "pending",
+  "description": "Interface audio USB 2 entrées combo micro/ligne/instrument avec +48 V, sorties Main L/R en jack TRS, casque, alimentée par le bus USB.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.allfordj.ru/upload/iblock/832/rukovodstvo_polzovatelya_m_audio_mtrack_plus_ii.pdf",
+      "document": "M-Audio, M-Track Plus (MKII) User Guide v1.1 (copie revendeur)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.m-audio.com/legacy/m-track-plus-mkii.html",
+      "document": "M-Audio, page produit M-Track Plus II (archives)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 en façade ; micro XLR symétrique, ligne TRS symétrique, instrument TS 1 MΩ (sélecteur Line/Inst) ; +48 V commun aux deux entrées",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        },
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "Combo XLR / jack 6,35 en façade ; micro XLR symétrique, ligne TRS symétrique, instrument TS 1 MΩ (sélecteur Line/Inst) ; +48 V commun aux deux entrées",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        },
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "hp",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS en façade, mélange Direct/USB"
+    },
+    {
+      "id": "outl",
+      "name": "Main Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line-10",
+      "format": "Jack 6,35 TRS symétrique, +2,86 dBu max"
+    },
+    {
+      "id": "outr",
+      "name": "Main Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line-10",
+      "format": "Jack 6,35 TRS symétrique, +2,86 dBu max"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "format": "USB 2.0 audio, embase type B (dessin du panneau arrière, guide p. 5), alimentation par le bus"
+    }
+  ]
+}

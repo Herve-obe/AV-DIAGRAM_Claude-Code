@@ -1,0 +1,52 @@
+{
+  "id": "plateau-radio-tv-intercom",
+  "titre": "Plateau radio/TV multi-espaces avec duplex, micro-trottoir et matrice de communication",
+  "source": {"fichier": "Cahier des charges Exercice plateau Radio TV.pdf", "driveId": "19jXXq_z16t0tTdAUel5P6w9zvDRppzmn", "auteur": "Hervé Obejero", "pages": "1"},
+  "domaine": ["son", "video", "intercom", "sync"],
+  "difficulte": "complexe",
+  "demande": "Je prépare un plateau radio/TV réparti sur plusieurs espaces, autour d'une régie principale équipée d'une console SSL. Voici le cahier des charges par espace.\n\nPlateau : 5 micros-cravates HF ; 2 micros main HF ; 1 retour plateau (N-1) ; 1 enregistrement mono témoin sur caméra.\n\nRégie vidéo : 1 stream stéréo ; 1 écoute régie ; 1 duplex (A) en visio (N-1) ; 1 enregistrement de secours stéréo ; 1 micro pour la scripte, pour communiquer hors antenne avec le duplex A.\n\nNodal : 1 timecode ; 1 micro talkback pour la régie SSL ; le monitoring de la régie SSL ; 1 appel plateau ; 1 enregistrement HyperDeck du PGM avec retour de l'enregistrement.\n\nSalle A15 (plateau du duplex B) : 1 console Yamaha M7CL ; 2 micros de plateau (type radio) ; 1 lecteur média stéréo ; 1 enregistrement audio du PGM (Sound Devices 744) ; 2 retours plateau distincts.\n\nStudio : enregistrement multipiste de toutes les sources de tous les espaces ; diffusion d'un multipiste vers la SSL au bout d'1 h d'émission.\n\nMicro-trottoir : 1 kit reportage avec Sound Devices 633, perche et micro main ; enregistrement local en divergé ; envoi du signal vers la régie SSL en HF.\n\nCommunication hors antenne :\n- les techniciens du studio, de la régie SSL et de la M7CL doivent pouvoir communiquer entre eux ;\n- les animateurs de la salle A15 et les techniciens de la M7CL doivent pouvoir communiquer ;\n- les techniciens du micro-trottoir doivent pouvoir communiquer avec la régie SSL ;\n- le plateau doit pouvoir communiquer avec le duplex A, à la demande ;\n- la scripte doit pouvoir communiquer avec le duplex A, de façon autonome ;\n- le plateau doit pouvoir communiquer avec la régie.\n\nJe veux le synoptique audio, intercom et synchro de l'ensemble.",
+  "materielImpose": [
+    {"designation": "Console de la régie principale", "quantite": 1, "reference": "SSL (modèle non précisé)"},
+    {"designation": "Console de la salle A15", "quantite": 1, "reference": "Yamaha M7CL"},
+    {"designation": "Micros-cravates HF", "quantite": 5, "reference": null},
+    {"designation": "Micros main HF", "quantite": 2, "reference": null},
+    {"designation": "Micros de plateau type radio (salle A15)", "quantite": 2, "reference": null},
+    {"designation": "Lecteur média stéréo (salle A15)", "quantite": 1, "reference": null},
+    {"designation": "Enregistreur PGM salle A15", "quantite": 1, "reference": "Sound Devices 744"},
+    {"designation": "Enregistreur PGM nodal", "quantite": 1, "reference": "Blackmagic HyperDeck"},
+    {"designation": "Kit reportage micro-trottoir", "quantite": 1, "reference": "Sound Devices 633 + perche + micro main"}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Deux consoles : SSL et M7CL", "type": "quantite", "verif": {"famille": "console", "min": 2, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Au moins 7 liaisons HF au plateau (5 cravates, 2 main), plus la liaison HF du micro-trottoir", "type": "quantite", "verif": {"famille": "wireless", "min": 8, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "Retour plateau N-1", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-ssl", "vers": "retour-plateau"}},
+    {"id": "e4", "texte": "Son témoin mono vers la caméra", "type": "sortie", "verif": {"famille": "camera", "min": 1, "max": null, "signal": null, "de": "console-ssl", "vers": "camera"}},
+    {"id": "e5", "texte": "Stream stéréo vers la régie vidéo", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-ssl", "vers": "poste-streaming"}},
+    {"id": "e6", "texte": "Écoute régie vidéo", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-ssl", "vers": "regie-video"}},
+    {"id": "e7", "texte": "Duplex A en visio : réception et N-1", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-ssl", "vers": "codec-duplex"}},
+    {"id": "e8", "texte": "Enregistrement de secours stéréo en régie vidéo", "type": "sortie", "verif": {"famille": "recording", "min": null, "max": null, "signal": null, "de": "console-ssl", "vers": "enregistreur-secours"}},
+    {"id": "e9", "texte": "Enregistrement HyperDeck du PGM avec retour de l'enregistrement vers la SSL", "type": "liaison", "verif": {"famille": "recording", "min": null, "max": null, "signal": null, "de": "enregistreur-hyperdeck", "vers": "console-ssl"}},
+    {"id": "e10", "texte": "Timecode distribué depuis le nodal", "type": "liaison", "verif": {"famille": "sync", "min": 1, "max": null, "signal": "sync", "de": "generateur-tc", "vers": null}},
+    {"id": "e11", "texte": "Salle A15 : 2 micros, lecteur média et 2 retours distincts sur la M7CL ; PGM enregistré sur le 744", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-live", "vers": "enregistreur-744"}},
+    {"id": "e12", "texte": "Échange entre la M7CL (duplex B) et la SSL dans les deux sens", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-live", "vers": "console-ssl"}},
+    {"id": "e13", "texte": "Studio : enregistrement multipiste de toutes les sources de tous les espaces", "type": "sortie", "verif": {"famille": "recording", "min": null, "max": null, "signal": null, "de": null, "vers": "enregistreur-multipiste"}},
+    {"id": "e14", "texte": "Studio : diffusion d'un multipiste vers la SSL", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-studio", "vers": "console-ssl"}},
+    {"id": "e15", "texte": "Micro-trottoir : enregistrement local divergé sur le 633 et envoi HF vers la SSL", "type": "liaison", "verif": {"famille": "wireless", "min": null, "max": null, "signal": null, "de": "kit-reportage", "vers": "console-ssl"}},
+    {"id": "e16", "texte": "Au moins 5 enregistreurs : secours stéréo, HyperDeck, 744, multipiste studio, 633", "type": "quantite", "verif": {"famille": "recording", "min": 5, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e17", "texte": "Intercom studio ↔ régie SSL ↔ M7CL", "type": "liaison", "verif": {"famille": "intercom", "min": null, "max": null, "signal": "intercom", "de": "regie-ssl", "vers": "studio"}},
+    {"id": "e18", "texte": "Intercom animateurs A15 ↔ techniciens M7CL", "type": "liaison", "verif": {"famille": "intercom", "min": null, "max": null, "signal": "intercom", "de": "animateurs-a15", "vers": "console-live"}},
+    {"id": "e19", "texte": "Intercom micro-trottoir ↔ régie SSL (sans fil)", "type": "liaison", "verif": {"famille": "intercom", "min": null, "max": null, "signal": "intercom", "de": "micro-trottoir", "vers": "regie-ssl"}},
+    {"id": "e20", "texte": "Plateau ↔ duplex A hors antenne à la demande, scripte ↔ duplex A en autonome, plateau ↔ régie", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e21", "texte": "Talkback de la régie SSL et appel plateau", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "talkback-ssl", "vers": "retour-plateau"}},
+    {"id": "e22", "texte": "Préciser ou poser en hypothèse le modèle de la console SSL, le moyen de liaison entre espaces et le type de liaison HF du micro-trottoir (non précisés)", "type": "question_attendue", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "N-1 du duplex A sans la voix du duplex",
+    "Micro scripte : liaison hors antenne autonome vers le duplex A, sans passer par le PGM",
+    "Retour de l'HyperDeck vers la régie pour contrôler l'enregistrement",
+    "Multipiste studio : il faut acheminer toutes les sources de tous les espaces (réseau ou divergé)",
+    "Timecode commun pour que le multipiste et le playback du studio restent synchronisés",
+    "Matrice de communication : six liaisons hors antenne différentes, à ne pas réduire à un seul canal"
+  ],
+  "corrigeDisponible": false
+}

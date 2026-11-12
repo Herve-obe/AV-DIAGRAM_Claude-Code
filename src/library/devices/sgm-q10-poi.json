@@ -1,0 +1,42 @@
+{
+  "id": "sgm-q10-poi",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "Q-10 POI",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1250,
+  "weightKg": 19.8,
+  "sources": [
+    {
+      "url": "https://www.sgmlighting.com/products/q%C2%B710-poi",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "bare-wire",
+      "format": "Câble DMX 1,5 m à demeure, extrémités nues"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "bare-wire",
+      "format": "Câble DMX 1,5 m à demeure, extrémités nues ; recopie passive"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "bare-wire",
+      "format": "Câble secteur 1,5 m à demeure, extrémités nues"
+    }
+  ]
+}

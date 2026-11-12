@@ -1,0 +1,69 @@
+{
+  "id": "bose-showmatch-deltaq-sm5",
+  "family": "speaker",
+  "domain": "sound",
+  "pictogram": "speaker",
+  "manufacturer": "Bose",
+  "model": "ShowMatch DeltaQ SM5",
+  "status": "verified",
+  "description": "ShowMatch SM5 bi-amplifiée : LF1+/1−, HF2+/2− ; deux NL4 en parallèle. DSP et amplification adaptés requis.",
+  "aliases": [
+    "BOSE® ShowMatch DeltaQ SM5"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/showmatch-deltaq-sm5/",
+      "document": "Novelty — ShowMatch DeltaQ SM5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_ShowMatch-loudspeakers_manuel.pdf",
+      "document": "Novelty — ShowMatch DeltaQ SM5 : ShowMatch DeltaQ Array",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_ShowMatch-rigging_manuel.pdf",
+      "document": "Novelty — ShowMatch DeltaQ SM5 : Rigging",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_ShowMatch-sm5-deltaqarray_ft.pdf",
+      "document": "Novelty — ShowMatch DeltaQ SM5 : ShowMatch DeltaQ SM5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_ShowMatch-sm5-deltaqarray_ft.pdf",
+      "document": "Bose ShowMatch Technical Data p.1 ; Installation and Safety Guidelines, p.11",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_ShowMatch-loudspeakers_manuel.pdf",
+      "document": "Bose ShowMatch Technical Data p.1 ; Installation and Safety Guidelines, p.11",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "SM5 bi-amplifiée : LF1+/1−, HF2+/2−"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 2,
+      "format": "Reprise parallèle ; SM5 bi-amplifiée : LF1+/1−, HF2+/2−"
+    }
+  ],
+  "weightKg": 30.6,
+  "depthMm": 467
+}

@@ -1,0 +1,58 @@
+{
+  "id": "canon-hj40x-ias-d",
+  "family": "passive",
+  "domain": "image",
+  "pictogram": "patch",
+  "manufacturer": "Canon",
+  "model": "HJ40x IAS D",
+  "status": "community",
+  "description": "Objectif caméra 40x, 10-400mm 1:2.0, avec doubleur, livré avec kit de report full servo \"digi\"",
+  "aliases": [
+    "HJ40X10B",
+    "CANON HJ40x IAS D"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/accessoires-de-camera/hj40x-ias-d/",
+      "document": "Novelty — HJ40x IAS D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/canon_HJ40x10B_ft.pdf",
+      "document": "Novelty — HJ40x IAS D : canon_HJ40x10B_ft",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/HJ40x-Op-manual.pdf",
+      "document": "Novelty — HJ40x IAS D : HJ40x",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lens",
+      "name": "Câble d'objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose12",
+      "format": "Câble captif 12 points (Hirose) vers la caméra : commande et alimentation par la caméra"
+    },
+    {
+      "id": "remote20",
+      "name": "Remote 20 points",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommandes zoom / mise au point (kit full servo « digi »), unité virtuelle"
+    },
+    {
+      "id": "zoom8",
+      "name": "Remote zoom 8 points",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Télécommande de zoom"
+    }
+  ],
+  "weightKg": 5.4
+}

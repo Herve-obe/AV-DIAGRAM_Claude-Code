@@ -1,0 +1,163 @@
+{
+  "id": "theatrixx-xpresscue",
+  "family": "recording",
+  "domain": "image",
+  "pictogram": "recorder",
+  "manufacturer": "Theatrixx",
+  "model": "xPressCue",
+  "status": "verified",
+  "description": "Lecteur multimédia 4K",
+  "aliases": [
+    "XPRESSCUE/G",
+    "Theatrixx xPressCue"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/sources-video/lecteur-media/xpresscue/",
+      "document": "Novelty : xPressCue",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.theatrixx.com/products/xpresscue",
+      "document": "Theatrixx, page produit xPressCue, Specifications",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://theatrixx.com/wp-content/uploads/2022/01/XVVR-XPRESSCUE-EN-2.pdf",
+      "document": "Theatrixx, fiche technique xPressCue : Overview (dessins), Inputs/Outputs",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A à verrouillage"
+    },
+    {
+      "id": "dp",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.4"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "+4 dBu, indicateur LED"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "+4 dBu"
+    },
+    {
+      "id": "sync",
+      "name": "Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level (option)"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, sACN / Art-Net / web / API REST"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB 3.0 (avant)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.0 type A en face avant, copie de fichiers"
+    },
+    {
+      "id": "usbRear",
+      "name": "USB 2.0 (arrière)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A en face arrière"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100-240 V, 80 W max."
+    },
+    {
+      "id": "acThru",
+      "name": "Secteur (bouclage)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    },
+    {
+      "id": "syncThru",
+      "name": "Sync Thru",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage tri-level (option)"
+    }
+  ],
+  "weightKg": 3.75,
+  "powerW": 80
+}

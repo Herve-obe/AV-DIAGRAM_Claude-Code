@@ -1,0 +1,40 @@
+{
+  "id": "emission-concert-youtube",
+  "titre": "Émission radio/podcast avec concert live, diffusée sur YouTube",
+  "source": {"fichier": "Sujet - Emission Concert.docx.pdf", "driveId": "19pJOIlxT7EQjUmr0FziUY0OqkiKV_Zsu", "auteur": "Hervé Obejero", "pages": null},
+  "domaine": ["son"],
+  "difficulte": "complexe",
+  "demande": "Je dois gérer la sonorisation d'une émission de radio diffusée en direct sur une chaîne YouTube, réalisée en extérieur, pendant laquelle a lieu une prestation live : 1 guitare électrique, 1 basse électrique, 1 clavier, 1 DJ, 1 batteur et 3 chants (1 chant lead, plus les chœurs du guitariste et du bassiste). Il y a aussi un plateau d'interview (ITW) avec ses micros et ses retours, et une diffusion pour le public.\n\nOn réalise un enregistrement de l'émission et un enregistrement séparé du live. La prise de son se fait en multi-micro. Le mix est envoyé en stéréo vers le nodal pour le streaming, et vers un enregistreur audio stéréo en sortie de chaque console.\n\nOrganisation en trois consoles : la console « Live » gère les retours des artistes ; la console « ITW » gère les retours de l'émission ; la console « Broadcast » gère l'ensemble.\n\nJe dois pouvoir contrôler à tout moment la qualité du signal diffusé et celle du signal enregistré. L'enregistrement doit être dans un format audio professionnel, pour remise aux musiciens.\n\nMatériel à disposition : une console Yamaha M7CL-48ES avec 2 boîtiers SB168-ES ; un poste informatique avec carte son pour le streaming ; un enregistreur audio stéréo ; des micros statiques et dynamiques avec pieds ; des retours sur enceintes passives avec ampli.\n\nJe veux un synoptique des connexions pour la prise de son multi-micro (le sujet écrit « guitare, cajon et voix »), les retours artistes, les micros du plateau ITW et leurs retours, avec le routing de la diffusion et des enregistrements.",
+  "materielImpose": [
+    {"designation": "Console numérique", "quantite": 1, "reference": "Yamaha M7CL-48ES"},
+    {"designation": "Boîtier de scène", "quantite": 2, "reference": "Yamaha SB168-ES"},
+    {"designation": "Poste informatique avec carte son pour le streaming", "quantite": 1, "reference": null},
+    {"designation": "Enregistreur audio stéréo", "quantite": 1, "reference": null},
+    {"designation": "Microphones statiques et dynamiques avec pieds", "quantite": null, "reference": null},
+    {"designation": "Retours sur enceintes passives", "quantite": null, "reference": null},
+    {"designation": "Amplificateur pour les retours", "quantite": null, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Signaler l'écart entre les trois consoles demandées (Live, ITW, Broadcast) et la seule M7CL fournie, ou proposer comment répartir les trois rôles", "type": "question_attendue", "verif": {"famille": "console", "min": 1, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Signaler l'incohérence entre l'effectif annoncé (batterie, basse, clavier, DJ…) et la mention « guitare, cajon et voix » du travail demandé", "type": "question_attendue", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "Deux boîtiers de scène SB168-ES reliés à la M7CL", "type": "quantite", "verif": {"famille": "stagebox", "min": 2, "max": null, "signal": "audioIp", "de": "stagebox", "vers": "console-live"}},
+    {"id": "e4", "texte": "Au moins 5 micros pour le live (3 chants, guitare, batterie en multi-micro)", "type": "quantite", "verif": {"famille": "capture", "min": 5, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e5", "texte": "Retours artistes depuis la console Live, via ampli et enceintes passives", "type": "liaison", "verif": {"famille": "amplification", "min": 1, "max": null, "signal": null, "de": "console-live", "vers": "retour-artistes"}},
+    {"id": "e6", "texte": "Retours du plateau ITW depuis la console ITW", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-itw", "vers": "retour-itw"}},
+    {"id": "e7", "texte": "Les consoles Live et ITW alimentent la console Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-live", "vers": "console-broadcast"}},
+    {"id": "e8", "texte": "Le plateau ITW alimente la console Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-itw", "vers": "console-broadcast"}},
+    {"id": "e9", "texte": "Mix stéréo envoyé vers le nodal / poste de streaming", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "poste-streaming"}},
+    {"id": "e10", "texte": "Deux enregistrements distincts : l'émission et le live seul", "type": "sortie", "verif": {"famille": "recording", "min": 2, "max": null, "signal": null, "de": null, "vers": "enregistreur"}},
+    {"id": "e11", "texte": "Diffusion pour le public", "type": "sortie", "verif": {"famille": "speaker", "min": 2, "max": null, "signal": null, "de": null, "vers": "diffusion-public"}},
+    {"id": "e12", "texte": "Contrôle (écoute ou mesure) du signal diffusé et du signal enregistré, à tout moment", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e13", "texte": "Enregistrement dans un format professionnel (PCM non compressé)", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Ne pas confondre les retours artistes (console Live) et les retours de l'émission (console ITW)",
+    "Un enregistrement par console : celui du live ne doit pas contenir le plateau ITW",
+    "Prévoir les retours d'écoute du stream et de l'enregistreur pour le contrôle",
+    "Le sujet contient deux incohérences (trois consoles pour une M7CL, mention du cajon) : l'assistant doit les relever plutôt que de les ignorer",
+    "Basse, clavier et DJ en sources ligne (boîte de direct), pas seulement en micros"
+  ],
+  "corrigeDisponible": false
+}

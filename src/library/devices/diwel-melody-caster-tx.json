@@ -1,0 +1,108 @@
+{
+  "id": "diwel-melody-caster-tx",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Diwel",
+  "model": "MELODYcaster TX",
+  "status": "community",
+  "description": "Émetteur audio sans fil MELODYcaster 5 GHz, deux canaux, versions rack 1 U ou boîtier. Niveaux nominaux non publiés (maxima seulement), connecteur d'alimentation et d'antenne non nommés.",
+  "aliases": [
+    "Melody Caster TX"
+  ],
+  "powerW": 20,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/diwel_melody-caster_ft.pdf",
+      "document": "Diwel, fiche MELODYcaster (copie Novelty) : interfaces TX/RX, 20 W, versions rack et boîtier",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/diwel_melody-caster_manuel.pdf",
+      "document": "Diwel, MELODYcaster manuel (copie Novelty)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/cablage-modulation/divers-cablage-modulation/melody-caster-kit/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "5,15-5,825 GHz, 24 bits 48 kHz non compressé, latence < 30 ms"
+    },
+    {
+      "id": "inXlrL",
+      "name": "XLR In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique, +22 dBu max",
+      "level": "line+4"
+    },
+    {
+      "id": "inXlrR",
+      "name": "XLR In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique, +22 dBu max",
+      "level": "line+4"
+    },
+    {
+      "id": "inRcaL",
+      "name": "RCA In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Asymétrique, 2 V eff max",
+      "level": "line+4"
+    },
+    {
+      "id": "inRcaR",
+      "name": "RCA In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Asymétrique, 2 V eff max",
+      "level": "line+4"
+    },
+    {
+      "id": "inAes",
+      "name": "AES In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "format": "AES3 stéréo"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 mm"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet 10/100, supervision"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V CA (version rack) ou 15-20 V CA (version boîtier) ; connecteur non nommé"
+    }
+  ]
+}

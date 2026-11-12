@@ -1,0 +1,301 @@
+{
+  "id": "analog-way-eikos-eks500",
+  "family": "videoSwitcher",
+  "domain": "image",
+  "pictogram": "switcher",
+  "manufacturer": "Analog Way",
+  "model": "EIKOS EKS500",
+  "status": "verified",
+  "description": "Mélangeur Multi-Couches Haute Résolution et Switcher à commutation propre pourvu de 4 scalers. L'Eikos est dédié aux présentations audiovisuelles Haut de Gamme.",
+  "aliases": [
+    "EKS500",
+    "ANALOG WAY EIKOS EKS500"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/eikos-eks500/",
+      "document": "Novelty — EIKOS EKS500",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/EKS500_231210_VF_LR.pdf",
+      "document": "Novelty — EIKOS EKS500 : Eikos",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vgaIn1",
+      "name": "Analog In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaIn2",
+      "name": "Analog In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaIn3",
+      "name": "Analog In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaIn4",
+      "name": "Analog In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dviIn1",
+      "name": "DVI-I In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Analogique / numérique, entrée commune"
+    },
+    {
+      "id": "dviIn2",
+      "name": "DVI-I In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Analogique / numérique, entrée commune"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "dviOut1",
+      "name": "DVI-I Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dviOut2",
+      "name": "DVI-I Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "vgaOut1",
+      "name": "Analog Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "vgaOut2",
+      "name": "Analog Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "sdiOut",
+      "name": "Video SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "analogY",
+      "name": "Y Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogCb",
+      "name": "Cb Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogCr",
+      "name": "Cr Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "analogComposite",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sVideo",
+      "name": "S-Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Mini-DIN 4"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn4",
+      "name": "Audio In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn5",
+      "name": "Audio In 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn6",
+      "name": "Audio In 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn7",
+      "name": "Audio In 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn8",
+      "name": "Audio In 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn9",
+      "name": "Audio In auxiliaire",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +15 dBu max, 40 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioOut1",
+      "name": "Audio Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +21 dBu max sur 600 ohms",
+      "level": "line+4"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Audio Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 5 broches, stéréo symétrique/asymétrique, +21 dBu max sur 600 ohms",
+      "level": "line+4"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232 double (commande)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-250 V AC, 50/60 Hz, interrupteur"
+    }
+  ],
+  "weightKg": 5.4,
+  "powerW": 140,
+  "rackU": 2,
+  "depthMm": 330
+}

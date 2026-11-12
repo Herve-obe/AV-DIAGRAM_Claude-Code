@@ -1,0 +1,78 @@
+{
+  "id": "d-san-pro-2000bt",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "D'San",
+  "model": "PRO-2000BT",
+  "status": "community",
+  "description": "Console chronomètre de temps de parole Limitimer avec émetteur Bluetooth intégré : deux prises Cat 5 et une XLR de données vers les voyants, bloc 12 V externe.",
+  "sources": [
+    {
+      "url": "https://www.adorama.com/col/productManuals/DSAPRO2000T.pdf",
+      "document": "D'San, Speaker Timer PRO-2000 / PRO-2000BT User Manual (copie Adorama) : liaison Cat 5 vers voyant, bloc 12 V",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/34491-DSanASL2ND3SeriesUserManual.pdf",
+      "document": "D'San, ASL2-ND3 Series User Manual (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/limitimer-pro2000/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.dsan.com/product/limitimer-speaker-timer-wireless/",
+      "document": "D'San, page produit Limitimer Speaker Timer Wireless PRO-2000BT-T",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dsan.com/product/audience-signal-light/",
+      "document": "D'San, page produit Audience Signal Light (XLR 3 broches côté voyant)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "cat5a",
+      "name": "Cat 5 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison Limitimer vers voyants (données et 12 V) ; ne pas relier à un réseau ou un appareil audio"
+    },
+    {
+      "id": "cat5b",
+      "name": "Cat 5 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison Limitimer vers voyants (données et 12 V)"
+    },
+    {
+      "id": "xlr",
+      "name": "XLR données",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "Liaison Limitimer sur câble XLR (voyants à XLR 3 broches reliés par câble XLR droit) ; transporte 12 V"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Bluetooth classe II intégré, 4 canaux, jusqu'à 6 récepteurs TR-2000BT, portée annoncée 300 ft (60 ft dans le guide)"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc secteur externe 12 V fourni"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": "arri-360-c",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "ARRI",
+  "model": "360-C",
+  "status": "verified",
+  "description": "Panneau LED RGBW SkyPanel S360-C, 105°, 2800 à 10 000 K, 1500 W nominal, 1600 W maximum ; bloc d’alimentation externe fixé à l’appareil.",
+  "aliases": [
+    "ARRI 360-C"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/tv-photo/360-c/",
+      "document": "Novelty — 360-C",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/arri_s360-c_brochure.pdf",
+      "document": "Novelty — 360-C : Brochure commerciale",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/arri_s360-c_dmx-protocol.pdf",
+      "document": "Novelty — 360-C : DMX Protocol",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/arri_s360-c_ENEC-Certificate.pdf",
+      "document": "Novelty — 360-C : ENEC certificate",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/arri_s360-c_ft-de.pdf",
+      "document": "Novelty — 360-C : S360-C (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/arri_s360-c_ft-uk.pdf",
+      "document": "Novelty — 360-C : S360-C (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_s360-c_manuel-de.pdf",
+      "document": "Novelty — 360-C : S360-C (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_s360-c_manuel-fr.pdf",
+      "document": "Novelty — 360-C : S360-C (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_s360-c_manuel-uk.pdf",
+      "document": "Novelty — 360-C : S360-C (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/arri_s360-c_PSE-Certificate.pdf",
+      "document": "Novelty — 360-C : PSE Certificate",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/arri_s360-c_PSU_C-US-Certificate.pdf",
+      "document": "Novelty — 360-C : Alimentation certificate",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/arri_s360-c_PSU_CE-Certificate.pdf",
+      "document": "Novelty — 360-C : Alimentation PSU CE",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/arri_s360-c_PSU_ENEC-Certificate.pdf",
+      "document": "Novelty — 360-C : Alimentation PSU ENEC",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_s360-c_psu_manuel.pdf",
+      "document": "Novelty — 360-C : Alimentation",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/arri_s360-c_quickstart.pdf",
+      "document": "Novelty — 360-C : Quickstart",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/arri_s360-c_US-Certificate.pdf",
+      "document": "Novelty — 360-C : US Certificate",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.arri.com/resource/blob/31148/f71c3385f38ee881c1e523b4b6047ef3/arri-skypanel-s360-c-data-sheet-en-sep2018-data.pdf",
+      "document": "ARRI, SkyPanel S360-C Data Sheet (sept. 2018)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "lan",
+      "name": "LAN (Art-Net / sACN)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net et sACN, configuration et mise à jour"
+    },
+    {
+      "id": "usb",
+      "name": "USB-A",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour par clé USB, télécommande SkyPanel Remote"
+    },
+    {
+      "id": "crmx",
+      "name": "CRMX (DMX sans fil)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "LumenRadio CRMX, DMX et RDM"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur (bloc d’alimentation)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-32",
+      "format": "Sur le bloc d’alimentation fixé à l’appareil : powerCON 32 A, 100-240 V ; tête en 54 V CC par connecteur 4 points métallique 30 A"
+    }
+  ],
+  "weightKg": 43,
+  "powerW": 1600
+}

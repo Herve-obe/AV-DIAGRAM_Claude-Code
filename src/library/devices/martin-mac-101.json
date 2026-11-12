@@ -1,0 +1,47 @@
+{
+  "id": "martin-mac-101",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "MAC 101",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 123,
+  "weightKg": 3.7,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/mac-101",
+      "document": "Martin, page produit MAC 101",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon"
+    }
+  ]
+}

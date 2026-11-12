@@ -1,0 +1,105 @@
+{
+  "id": "galatec-6x3",
+  "family": "dmxDistribution",
+  "domain": "light",
+  "pictogram": "switch",
+  "manufacturer": "GALATEC",
+  "model": "6×3",
+  "status": "community",
+  "description": "Bloc de puissance Galatec 6 × 3 kW, rack 19 pouces 3 U : commande DMX512 (XLR 5 entrée et recopie) et analogique 0-10 V (DIN 8), 6 voies 16 A sur PC 16 A, arrivée P17 32 A triphasée.",
+  "aliases": [
+    "Compact Control 4",
+    "BP3K/6X3",
+    "GALATEC 6×3"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/3kw/6x3/",
+      "document": "Novelty — 6×3",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "USITT DMX512/1990, XLR 5 points mâle"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 points femelle"
+    },
+    {
+      "id": "analog",
+      "name": "Entrée analogique 0-10 V",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din8",
+      "format": "DIN 8 broches verrouillable"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée triphasée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Embase mâle CEE 17 32 A triphasée"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie gradateur 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie gradateur 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie gradateur 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie gradateur 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie gradateur 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie gradateur 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+    }
+  ],
+  "portStatus": "pending"
+}

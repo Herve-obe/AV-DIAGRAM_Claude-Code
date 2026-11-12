@@ -1,0 +1,32 @@
+{
+  "id": "shure-beta-52a",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "Beta 52A",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.605,
+  "sources": [
+    {
+      "document": "Shure Beta 52A Product Specifications, © 2015 Shure Incorporated",
+      "accessed": "2026-09-24"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/Beta52A/en-US.pdf",
+      "document": "Shure, guide utilisateur Beta 52A (PDF)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Dynamique supercardioïde, -64 dBV/Pa, SPL max 174 dB, XLR mâle",
+      "phantom": "none"
+    }
+  ]
+}

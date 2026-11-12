@@ -1,0 +1,166 @@
+{
+  "id": "universal-audio-apollo-16",
+  "family": "processing",
+  "domain": "sound",
+  "pictogram": "processor",
+  "manufacturer": "Universal Audio",
+  "model": "Apollo 16",
+  "status": "verified",
+  "description": "Interface audio Thunderbolt 18 x 20 pour Mac et Windows, avec puissant logiciel de contrôle Console 2.0",
+  "aliases": [
+    "Universal Audio Apollo 16"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/audio-numerique/interfaces/apollo-16/",
+      "document": "Novelty — Apollo 16",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5248-4344-apollo-16-mkii-hardware-manual.pdf",
+      "document": "Novelty — Apollo 16 : Apollo 16 mkII Hardware Manual",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1_8",
+      "name": "Entrées ligne 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle Tascam, 10 kΩ",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "in9_16",
+      "name": "Entrées ligne 9-16",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle Tascam, 10 kΩ",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "out1_8",
+      "name": "Sorties ligne 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle Tascam, 100 Ω",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "out9_16",
+      "name": "Sorties ligne 9-16",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "DB-25 femelle Tascam, 100 Ω",
+      "modes": [
+        {
+          "connector": "dsub25",
+          "level": "line-10"
+        }
+      ]
+    },
+    {
+      "id": "monL",
+      "name": "Sortie moniteur gauche",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, 100 Ω"
+    },
+    {
+      "id": "monR",
+      "name": "Sortie moniteur droite",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, 100 Ω"
+    },
+    {
+      "id": "aesIn",
+      "name": "AES/EBU In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "aesOut",
+      "name": "AES/EBU Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2
+    },
+    {
+      "id": "wcIn",
+      "name": "Word Clock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Terminaison 75 Ω commutable"
+    },
+    {
+      "id": "wcOut",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tb1",
+      "name": "Thunderbolt 2 (1)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "mini-displayport",
+      "format": "Thunderbolt 2 vers ordinateur"
+    },
+    {
+      "id": "tb2",
+      "name": "Thunderbolt 2 (2)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "mini-displayport",
+      "format": "Chaînage Thunderbolt"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches verrouillable (Neutrik NC4MDM3-H), bloc externe 100-240 V IEC fourni"
+    }
+  ],
+  "weightKg": 4,
+  "powerW": 50
+}

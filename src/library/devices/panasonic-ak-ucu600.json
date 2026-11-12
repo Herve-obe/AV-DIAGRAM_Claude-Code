@@ -1,0 +1,334 @@
+{
+  "id": "panasonic-ak-ucu600",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AK-UCU600",
+  "pictogram": "control",
+  "status": "community",
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/prod/649871-panasonic-ak-ucu600psj-camera-control-unit",
+      "document": "Full Compass, fiche AK-UCU600PSJ (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/html/AK-UCU600P_PS_E_ES%28DVQP1734XA%29_E/chapter01_01.htm",
+      "document": "Panasonic — AK-UCU600P/PS/E/ES — Operating Instructions, DVQP1734XA",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/html/AK-UCU600P_PS_E_ES%28DVQP1734XA%29_E/chapter03_04.htm",
+      "document": "Panasonic AK-UCU600 Operating Instructions DVQP1734XA : Rear panel 1, Rear panel 2, Front panel 3, Connector pin assignment table, Specifications (chapter09)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/html/AK-UCU600P_PS_E_ES%28DVQP1734XA%29_E/chapter03_06.htm",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "fiber",
+      "name": "CAMERA",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "smpte-fiber",
+      "format": "Fibre hybride vers caméra : LEMO FXW.3K.93C sur AK-UCU600PS/ES ; Tajimi OPS2404 sur AK-UCU600P/E (connecteur absent du catalogue)"
+    },
+    {
+      "id": "sdiOut",
+      "name": "UHD/HS/HD SDI OUT 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI selon le menu (UHD en 12G-SDI ou quad link 3G)"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "UHD/HS/HD SDI OUT 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI selon le menu (UHD en 12G-SDI ou quad link 3G)"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "UHD/HS/HD SDI OUT 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI selon le menu (UHD en 12G-SDI ou quad link 3G)"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "UHD/HS/HD SDI OUT 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G / 6G / 3G / HD-SDI selon le menu (UHD en 12G-SDI ou quad link 3G)"
+    },
+    {
+      "id": "sdiOut5",
+      "name": "HD SDI OUT 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-HD / HD-SDI"
+    },
+    {
+      "id": "sdiOut6",
+      "name": "HD SDI OUT 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-HD / HD-SDI"
+    },
+    {
+      "id": "sdiOut7",
+      "name": "HD SDI OUT 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-HD / HD-SDI"
+    },
+    {
+      "id": "sdiOut8",
+      "name": "HD SDI OUT 8/PM",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI, sortie principale ou moniteur image"
+    },
+    {
+      "id": "vbsOut",
+      "name": "VBS OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite SD"
+    },
+    {
+      "id": "vbsPm",
+      "name": "VBS PM OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite SD, sortie unité ou moniteur image"
+    },
+    {
+      "id": "vbsRet",
+      "name": "VBS RET IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retour composite SD"
+    },
+    {
+      "id": "ret",
+      "name": "RET1 IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retour 3G / HD / SD-SDI, détection automatique"
+    },
+    {
+      "id": "ret2",
+      "name": "RET2 IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retour 3G / HD / SD-SDI"
+    },
+    {
+      "id": "ret3",
+      "name": "RET3 IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retour 3G / HD / SD-SDI"
+    },
+    {
+      "id": "ret4",
+      "name": "RET4 IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Retour 3G / HD / SD-SDI"
+    },
+    {
+      "id": "retOut",
+      "name": "RET1 OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif de RET1 IN"
+    },
+    {
+      "id": "promptIn",
+      "name": "HD SDI PROMPT IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prompteur HD-SDI"
+    },
+    {
+      "id": "promptOut",
+      "name": "HD SDI PROMPT OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage actif du prompteur HD-SDI"
+    },
+    {
+      "id": "hdTrunk",
+      "name": "HD TRUNK/TICO OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Trunk HD-SDI ou TICO vers la caméra"
+    },
+    {
+      "id": "aPrompt1",
+      "name": "ANALOG PROMPT1 IN",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prompteur composite SD"
+    },
+    {
+      "id": "aPrompt2",
+      "name": "ANALOG PROMPT2 IN/OUT",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage de PROMPT1 ou entrée PROMPT2 selon le menu"
+    },
+    {
+      "id": "refIn",
+      "name": "REF",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level, détection automatique"
+    },
+    {
+      "id": "refLoop",
+      "name": "REF (bouclage)",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage, terminaison 75 ohms automatique"
+    },
+    {
+      "id": "lanTrunk",
+      "name": "LAN TRUNK",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "LAN vers la caméra par la fibre, 100BASE-TX / 1000BASE-T"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10BASE-T / 100BASE-TX : ROP en IP, réglages web"
+    },
+    {
+      "id": "aux",
+      "name": "AUX",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "D-Sub 15 points (JST JAY-15S) : commande waveform, gain micro, tally, alarme"
+    },
+    {
+      "id": "trunk",
+      "name": "TRUNK",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 points (JST JEY-9S) : données trunk RS-422 et RS-232C"
+    },
+    {
+      "id": "comm",
+      "name": "COMMUNICATION",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub25",
+      "format": "D-Sub 25 points (JST JBY-25S) : intercom ENG / PROD, PGM 0 dBm, tally"
+    },
+    {
+      "id": "rop",
+      "name": "ROP (arrière)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "Hirose HR10G 10 points : RS-422 et 16 V CC vers ROP AK-HRP"
+    },
+    {
+      "id": "ropFront",
+      "name": "ROP (avant)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "Hirose HR10G 10 points, en alternative à la prise arrière"
+    },
+    {
+      "id": "msu",
+      "name": "MSU",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "Hirose HR10G 10 points : RS-422 et GPI vers MSU"
+    },
+    {
+      "id": "mic1",
+      "name": "MIC1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Micro 1 de la caméra, 0 dBm / 600 ohms, XLR 3 mâle"
+    },
+    {
+      "id": "mic2",
+      "name": "MIC2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Micro 2 de la caméra, 0 dBm / 600 ohms, XLR 3 mâle"
+    },
+    {
+      "id": "intercom",
+      "name": "INTERCOM (casque)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr5",
+      "format": "Face avant, Hirose HA16PRH-5S (XLR 5 femelle)"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Prise secteur, cordon fourni (type d'embase non écrit) ; P/PS 100-120 V, E/ES 100-240 V"
+    }
+  ],
+  "domain": "image",
+  "powerW": 90,
+  "slots": [
+    {
+      "id": "np600",
+      "name": "Option AK-NP600",
+      "type": "panasonic-ak-np600",
+      "accepts": [
+        "panasonic-ak-np600"
+      ]
+    }
+  ]
+}

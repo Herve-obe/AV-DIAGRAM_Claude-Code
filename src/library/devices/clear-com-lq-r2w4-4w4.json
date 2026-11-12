@@ -1,0 +1,144 @@
+{
+  "id": "clear-com-lq-r2w4-4w4",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "LQ-R2W4-4W4",
+  "status": "verified",
+  "description": "Interface audio sur IP rackable pour système partyline 2 fils et système 4 fils, permettant de véhiculer de l'audio dans un réseau TCP/IP",
+  "aliases": [
+    "CLEARCOM LQ-R2W4-4W4"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/lq-r2w4-4w4/",
+      "document": "Novelty — LQ-R2W4-4W4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clear-com_lq-r2w4-4w4_ft.pdf",
+      "document": "Novelty — LQ-R2W4-4W4 : LQ-R2W4-4W4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clear-com_lq-r2w4-4w4_manual.pdf",
+      "document": "Novelty — LQ-R2W4-4W4 : LQ-R2W4-4W4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/clear-com_lq-r2w4-4w4_quick-start-guide.pdf",
+      "document": "Novelty — LQ-R2W4-4W4 : Quickstart guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/clear-com_lq-r2w4-4w4_brochure.pdf",
+      "document": "Novelty — LQ-R2W4-4W4 : Gamme produit",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.clearcom.com/DownloadCenter/manuals/LQSeries_Online_Manual/Content/Project/Technical%20Specifications/Power%20supply.htm",
+      "document": "Clear-Com, LQ Series online manual, Technical Specifications > Power supply",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "pl1",
+      "name": "Partyline 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; 2 fils Clear-Com ou RTS TW, alimentation et terminaison commutables"
+    },
+    {
+      "id": "pl2",
+      "name": "Partyline 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; 2 fils Clear-Com ou RTS TW, alimentation et terminaison commutables"
+    },
+    {
+      "id": "pl3",
+      "name": "Partyline 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; 2 fils Clear-Com ou RTS TW, alimentation et terminaison commutables"
+    },
+    {
+      "id": "pl4",
+      "name": "Partyline 4",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; 2 fils Clear-Com ou RTS TW, alimentation et terminaison commutables"
+    },
+    {
+      "id": "fw1",
+      "name": "4 fils 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 femelle ; 4 fils audio, niveau ligne 0 dB"
+    },
+    {
+      "id": "fw2",
+      "name": "4 fils 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 femelle ; 4 fils audio, niveau ligne 0 dB"
+    },
+    {
+      "id": "fw3",
+      "name": "4 fils 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 femelle ; 4 fils audio, niveau ligne 0 dB"
+    },
+    {
+      "id": "fw4",
+      "name": "4 fils 4",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 femelle ; 4 fils audio, niveau ligne 0 dB"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 femelle ; audio sur IP LQ, SIP"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON RJ45 femelle ; audio sur IP LQ, SIP"
+    },
+    {
+      "id": "dc1",
+      "name": "Alimentation DC 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, embase à verrouillage ; deux blocs redondants 60 W fournis"
+    },
+    {
+      "id": "dc2",
+      "name": "Alimentation DC 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, embase à verrouillage ; deux blocs redondants 60 W fournis"
+    }
+  ],
+  "weightKg": 1.95
+}

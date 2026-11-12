@@ -1,0 +1,168 @@
+{
+  "id": "samsung-ue46c",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Samsung",
+  "model": "UE46C",
+  "status": "community",
+  "description": "Ecran LED 46\", bord ultra fin (5,2mm), Full HD (1920x1080 - 16/9)",
+  "aliases": [
+    "UE46C@SOLO",
+    "SAMSUNG UE46C"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/ue46c/",
+      "document": "Novelty — UE46C",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-samsung_ue46a_manuel.pdf",
+      "document": "Novelty — UE46C : UE46C",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-dupli-samsung_ue46a_quickguide.pdf",
+      "document": "Novelty — UE46C : UE46C QuickStart Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/19508-SamsungUECSeriesSpecSheet.pdf",
+      "document": "Samsung, UE-C Series spec sheet UE46C/UE55C (copie revendeur Full Compass) : Connectivity, Power Consumption (Typical/Max)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Capteur IR / luminosité externe ; connecteur non nommé dans la fiche UE-C"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line-10"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line-10"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D"
+    },
+    {
+      "id": "dp-out",
+      "name": "DisplayPort Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, chaînage (loop-out)"
+    },
+    {
+      "id": "vga",
+      "name": "RGB In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 points"
+    },
+    {
+      "id": "component",
+      "name": "AV In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Composante (CVBS commun) ; connecteur non nommé dans la fiche UE-C"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé dans la fiche UE-C"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande MDC et réseau"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non indiqué"
+    }
+  ],
+  "weightKg": 12,
+  "powerW": 132
+}

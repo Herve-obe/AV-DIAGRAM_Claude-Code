@@ -1,0 +1,57 @@
+{
+  "id": "barco-em-dp-hdmi-input-card",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "Event Master DisplayPort/HDMI Combo Input Card",
+  "pictogram": "processor",
+  "moduleType": "barco-em-input",
+  "status": "verified",
+  "description": "Carte combo 2 DisplayPort et 2 HDMI. Carte Event Master (non échangeable à chaud) ; référence de commande et consommation non indiquées dans les documents lus.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_quickstart.pdf",
+      "document": "Barco, E2 Quick Start Guide 26-1205004-00 Rev 00 : SDI Input & Output Cards, DVI Input Cards, DisplayPort/HDMI Combo Input Cards, HDMI Output cards (including MVR)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-uk.pdf",
+      "document": "Barco, fiche E2 : 28 entrées via 8 cartes, 14 sorties via 4 cartes (Event Master series cards)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dp1",
+      "name": "DP In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.1a, HDCP 1.4"
+    },
+    {
+      "id": "dp2",
+      "name": "DP In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.1a, HDCP 1.4"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a à verrouillage, HDCP 1.4"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a à verrouillage, HDCP 1.4"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "yamaha-spx900",
+  "family": "processing",
+  "manufacturer": "Yamaha",
+  "model": "SPX900",
+  "pictogram": "processor",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Catalogue Novelty 2025 ; documentation Yamaha non trouvée",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/7/333327/SPX900E.pdf",
+      "document": "Yamaha SPX900 Owner’s Manual",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input (mono)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mono asymétrique (« standard 1/4\" monaural phono ») ; nominal +4/-20 dBm commutable"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mono asymétrique ; nominal +4/-20 dBm commutable ; 220 Ω"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "format": "Jack 6,35 mono asymétrique ; nominal +4/-20 dBm commutable ; 220 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon secteur fixe (dessin de la face arrière p. 5) ; 220-240 V 50/60 Hz (version générale) ou 120 V 60 Hz, 20 W"
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Thru/Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "THRU ou OUT selon commutateur"
+    },
+    {
+      "id": "fsBypass",
+      "name": "Footswitch Bypass",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "« Phone jack » 6,35 pour pédale FC5 ; nombre de contacts non écrit"
+    },
+    {
+      "id": "fsIncDec",
+      "name": "Footswitch Inc/Dec",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "« Phone jack » 6,35 pour pédale FC5 ; nombre de contacts non écrit"
+    },
+    {
+      "id": "fsTrig",
+      "name": "Footswitch Trigger",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "« Phone jack » 6,35 pour pédale FC5 ; nombre de contacts non écrit"
+    },
+    {
+      "id": "extCtrl1",
+      "name": "Ext Ctrl / Foot Vol 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack en façade pour pédale d’expression ; nombre de contacts non écrit"
+    },
+    {
+      "id": "extCtrl2",
+      "name": "Ext Ctrl / Foot Vol 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Jack en façade pour pédale d’expression ; nombre de contacts non écrit"
+    }
+  ],
+  "powerW": 20,
+  "description": "Multi-effet numérique 1 U : entrée mono et deux sorties sur jacks asymétriques (+4/-20 dBm commutable), MIDI In et Thru/Out, trois jacks de pédale à l'arrière, deux entrées de pédale d'expression en façade, cordon secteur fixe, 20 W."
+}

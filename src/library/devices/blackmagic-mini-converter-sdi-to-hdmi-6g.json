@@ -1,0 +1,90 @@
+{
+  "id": "blackmagic-mini-converter-sdi-to-hdmi-6g",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter SDI to HDMI 6G",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-26",
+      "document": "Blackmagic Design, fiche technique Mini Converter SDI to HDMI 6G (W-CONM-26)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 6G"
+    },
+    {
+      "id": "alt",
+      "name": "SDI In ALT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Secours automatique"
+    },
+    {
+      "id": "loop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A"
+    },
+    {
+      "id": "aout",
+      "name": "L - Analog / AES-EBU Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique gauche ou paire AES/EBU (commutateur 8)",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutR",
+      "name": "R - Analog Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, voie analogique droite",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ],
+  "powerW": 5.2,
+  "description": "Convertisseur SDI (jusqu'au 6G-SDI) vers HDMI avec désintégration audio vers HDMI, AES/EBU ou analogique, LUT 3D."
+}

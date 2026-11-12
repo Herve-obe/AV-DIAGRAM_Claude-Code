@@ -1,0 +1,95 @@
+{
+  "id": "panasonic-aw-he40ske",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE40SKE",
+  "pictogram": "camera",
+  "status": "community",
+  "description": "Caméra tourelle PTZ Full HD, zoom 30x, sortie HD-SDI (modèle S), IP et USB, PoE+.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE40P.E_full%28SQW0456-1%29_E.pdf",
+      "document": "Panasonic — AW-HE40 — Operating Instructions, SQW0456-1",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/it/it/broadcast-proav/aw-he40s",
+      "document": "Panasonic AW-HE40S full specifications, exact S variant",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minidin8"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422 Control",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "sdi",
+      "name": "HD-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI (modèle S, pas de HDMI)"
+    },
+    {
+      "id": "lan",
+      "name": "LAN / PoE+",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "IP video/control",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "usb",
+      "name": "USB Mini-B",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "usb-mini",
+      "format": "USB 2.0 mini-B, UVC/UAC (webcam)"
+    },
+    {
+      "id": "audio",
+      "name": "Mic / Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo, réglage Mic High/Middle/Low ou Line High/Middle/Low, alimentation plug-in commutable",
+      "level": "mic",
+      "channels": 2
+    },
+    {
+      "id": "dc",
+      "name": "12 V DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    }
+  ],
+  "weightKg": 1.5,
+  "depthMm": 166,
+  "powerW": 14.4
+}

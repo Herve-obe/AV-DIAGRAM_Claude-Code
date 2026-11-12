@@ -1,0 +1,103 @@
+{
+  "id": "kiloview-n60-novelty-36147",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Kiloview",
+  "model": "N60",
+  "status": "verified",
+  "description": "Encodeur décodeur HDMI 2.0 NDI Full / NDI HX2/3",
+  "aliases": [
+    "Kiloview N60"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/n60/",
+      "document": "Novelty — N60",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1200-4805-kiloview-n60-manual-uk.pdf",
+      "document": "Novelty — N60 : kiloview_n60-manual-uk",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "videoIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "videoOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "audioIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "audioOut",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "3.5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "lan1",
+      "name": "Ethernet 1 / PoE+",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit Ethernet, NDI / NDI|HX; IEEE802.3at PoE+ input"
+    },
+    {
+      "id": "lan2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Gigabit Ethernet, NDI / NDI|HX"
+    },
+    {
+      "id": "usbA",
+      "name": "USB expansion",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.0"
+    },
+    {
+      "id": "usbC",
+      "name": "USB expansion",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.0"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 5.5/2.5 mm"
+    }
+  ],
+  "powerW": 16,
+  "weightKg": 0.545
+}

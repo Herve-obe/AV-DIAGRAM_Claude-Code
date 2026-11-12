@@ -1,0 +1,99 @@
+{
+  "id": "rts-btr-700",
+  "family": "intercom",
+  "manufacturer": "RTS / Telex",
+  "model": "BTR-700 (base HF)",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 3.24,
+  "rackU": 1,
+  "sources": [
+    {
+      "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions 803290-2",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/6376-DataSheet.pdf",
+      "document": "Telex, RadioCom BTR-700 / TR-700 Operating Instructions (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/10821-SpecSheet.pdf",
+      "document": "Telex, BTR-700 & TR-700 fiche technique LIT000269000 Rev A (copie Full Compass) : versions A4M, A4F, A5F",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison HF beltpacks",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "UHF 518-608, 614-740 ou 796-868 MHz selon la bande ; antennes TX et RX sur TNC femelle"
+    },
+    {
+      "id": "twm",
+      "name": "2 fils (XLR mâle)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "En parallèle avec l'XLR femelle ; Telex, RTS TW ou Clear-Com (commutateur I/C)"
+    },
+    {
+      "id": "twf",
+      "name": "2 fils (XLR femelle)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3"
+    },
+    {
+      "id": "4w",
+      "name": "4 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "Prise type RJ-11 pour matrice"
+    },
+    {
+      "id": "auxin",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3 femelle, symétrique ; niveau réglable, 2 Vrms typique (environ +8 dBu)",
+      "level": "line+4"
+    },
+    {
+      "id": "auxout",
+      "name": "Aux Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR-3 mâle, symétrique ; niveau réglable, 2 Vrms typique sous 600 ohms (environ +8 dBu)",
+      "level": "line+4"
+    },
+    {
+      "id": "hs",
+      "name": "Casque local",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "Casque : XLR 4 mâle (version Telex, A4M), XLR 4 femelle (version RTS, A4F) ou XLR 5 femelle (BTR/TR-700-RTS 5-Pin, A5F) ; micro dynamique ou électret à détection automatique ; sortie casque 40 mW sous 600 ohms",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "none"
+        }
+      ]
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 VAC, embase IEC 60320 C14"
+    }
+  ]
+}

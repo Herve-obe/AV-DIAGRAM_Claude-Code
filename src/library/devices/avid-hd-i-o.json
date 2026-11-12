@@ -1,0 +1,190 @@
+{
+  "id": "avid-hd-i-o",
+  "family": "recording",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | HD I/O",
+  "pictogram": "stagebox",
+  "status": "verified",
+  "aliases": [
+    "HD I/O",
+    "HD I O",
+    "Pro Tools HD I/O",
+    "HD I/O 8x8x8",
+    "Pro Tools | HD I/O 8x8x8",
+    "HD I/O 16x16 Analog",
+    "HD I/O 16x16 Digital"
+  ],
+  "rackU": 2,
+  "description": "Châssis d'interface Pro Tools | HD 2U, seul. Connecteurs fixes de l'enclosure : AES/EBU 2 canaux (XLR), S/PDIF coaxial, optique ADAT/S/PDIF, Word Clock et Loop Sync (BNC), ports DigiLink Mini Primary et Expansion, embase IEC. Quatre baies acceptant indifféremment les cartes HD I/O AD, DA ou Digital (vendues séparément) : la version 8x8x8 correspond aux baies 1 à 3 équipées d'une carte AD, DA et Digital, la baie 4 restant libre ; les versions 16x16 analogique et 16x16 numérique correspondent à deux cartes AD + deux DA, ou deux Digital. Le port Accessory n'a aucune fonction (guide v8.1) et n'est pas représenté. Consommation non publiée (guide v8.1 : 100-240 V, 50-60 Hz seulement).",
+  "sources": [
+    {
+      "document": "Avid, HD I/O Guide (fichier HD_IO_Guide_v81_67823.pdf), chapitre 2 « HD I/O Back Panel »",
+      "accessed": "2026-09-24"
+    },
+    {
+      "document": "Avid, fiche produit HD I/O (HDIODS0614, © 2014)",
+      "accessed": "2026-09-24"
+    },
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/avid_hd_io_guide_v81.pdf",
+      "document": "Avid, HD I/O Guide v8.1, Part Number 9320-62016-00 REV B 08/10 (copie en ligne du guide constructeur) : chapitre 2 « HD I/O Back Panel », « Input and Output Cards », annexe A « Adding or Removing I/O Cards », annexe B « Pinout Diagrams for the DB-25 Connectors »",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aesein",
+      "name": "AES/EBU in [Encl]",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU stéréo 24 bits jusqu'à 192 kHz, XLR 3 points symétrique"
+    },
+    {
+      "id": "aeseout",
+      "name": "AES/EBU out [Encl]",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "xlr3",
+      "channels": 2,
+      "format": "AES/EBU stéréo 24 bits jusqu'à 192 kHz, XLR 3 points symétrique"
+    },
+    {
+      "id": "spdifin",
+      "name": "S/PDIF in",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial 75 ohms"
+    },
+    {
+      "id": "spdifout",
+      "name": "S/PDIF out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2,
+      "format": "S/PDIF coaxial 75 ohms"
+    },
+    {
+      "id": "optin",
+      "name": "Optical in [Encl]",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT 8 canaux ou S/PDIF optique"
+    },
+    {
+      "id": "optout",
+      "name": "Optical out [Encl]",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT 8 canaux ou S/PDIF optique"
+    },
+    {
+      "id": "wcin",
+      "name": "Word Clock in",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word clock"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word clock"
+    },
+    {
+      "id": "lsin",
+      "name": "Loop Sync in",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Loop Sync (word clock 1x)"
+    },
+    {
+      "id": "lsout",
+      "name": "Loop Sync out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Loop Sync (word clock 1x)"
+    },
+    {
+      "id": "primary",
+      "name": "Primary Port",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Vers carte Pro Tools | HD (DigiLink Mini, adaptateur DigiLink fourni) ; 32 canaux par sens, les canaux 17 à 32 sont renvoyés vers le port Expansion"
+    },
+    {
+      "id": "expansion",
+      "name": "Expansion Port",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 16,
+      "format": "Vers une interface Pro Tools | HD supplémentaire ; transporte les canaux 17 à 32 du port Primary"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase secteur IEC standard, sélection automatique 100-240 V, 50-60 Hz"
+    }
+  ],
+  "slots": [
+    {
+      "id": "bay1",
+      "name": "Baie 1",
+      "type": "avid-hdio-card",
+      "accepts": [
+        "avid-hd-io-ad-card",
+        "avid-hd-io-da-card",
+        "avid-hd-io-digital-card"
+      ]
+    },
+    {
+      "id": "bay2",
+      "name": "Baie 2",
+      "type": "avid-hdio-card",
+      "accepts": [
+        "avid-hd-io-ad-card",
+        "avid-hd-io-da-card",
+        "avid-hd-io-digital-card"
+      ]
+    },
+    {
+      "id": "bay3",
+      "name": "Baie 3",
+      "type": "avid-hdio-card",
+      "accepts": [
+        "avid-hd-io-ad-card",
+        "avid-hd-io-da-card",
+        "avid-hd-io-digital-card"
+      ]
+    },
+    {
+      "id": "bay4",
+      "name": "Baie 4",
+      "type": "avid-hdio-card",
+      "accepts": [
+        "avid-hd-io-ad-card",
+        "avid-hd-io-da-card",
+        "avid-hd-io-digital-card"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "analog-way-alta4k-audio-card",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Analog Way",
+  "model": "Analog & Dante audio card (Alta 4K)",
+  "pictogram": "processor",
+  "moduleType": "analog-way-audio-card",
+  "status": "verified",
+  "description": "Carte optionnelle audio analogique et Dante des mélangeurs Analog Way Alta 4K (Zenith 200, Pulse 4K) : 2 entrées et 2 sorties ligne stéréo mini-jack, Dante 32x32 redondant. Niveau ligne non chiffré par la documentation. Référence de commande et consommation non publiées.",
+  "sources": [
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Alta+4k/Products/Zenith+200/Quick+Start+Guide/zenith-200-quick-start-guide.pdf",
+      "document": "Analog Way, Zenith 200 (ZEN200) Quick Start Guide : Analog & Dante audio card (optional), 2x analog stereo mini jack line in and line out, Dante primary and secondary RJ45 ; dessin du panneau LINE IN #1 #2, LINE OUT #1 #2",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8480-4689-analog-way-zenith-200-ft-fr.pdf",
+      "document": "Analog Way, fiche Zenith 200 : carte optionnelle audio analogique et Dante (32x32 canaux)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8261-4642-pulse-4k-datasheet-en.pdf",
+      "document": "Analog Way, fiche Pulse 4K : Optional Analog and Dante audio networking card (32x32 Dante channels @48 kHz)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lineIn1",
+      "name": "Line In #1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Entrée ligne stéréo mini-jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "lineIn2",
+      "name": "Line In #2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Entrée ligne stéréo mini-jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "lineOut1",
+      "name": "Line Out #1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie ligne stéréo mini-jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "lineOut2",
+      "name": "Line Out #2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie ligne stéréo mini-jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "danteP",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 32,
+      "format": "Dante 32x32 voies à 48 kHz, Gigabit, primaire"
+    },
+    {
+      "id": "danteS",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "channels": 32,
+      "format": "Dante, Gigabit, secondaire (redondance)"
+    }
+  ],
+  "aliases": [
+    "Analog and Dante audio networking card",
+    "Carte audio Dante Analog Way"
+  ]
+}

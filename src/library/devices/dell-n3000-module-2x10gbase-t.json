@@ -1,0 +1,36 @@
+{
+  "id": "dell-n3000-module-2x10gbase-t",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Dell",
+  "model": "N3000 2-port 10GBASE-T uplink module",
+  "pictogram": "switch",
+  "moduleType": "dell-n3000-uplink",
+  "status": "verified",
+  "description": "Module d'uplink remplaçable à chaud pour la baie d'extension arrière des switchs Dell N3000 : 2 ports 10GBASE-T RJ45. Référence commerciale et consommation non publiées dans la spec sheet.",
+  "sources": [
+    {
+      "url": "https://www.netsolutionworks.com/datasheets/Dell_Networking_N3000_Series_SpecSheet.pdf",
+      "document": "Dell Networking N3000 Series spec sheet (PDF Dell hébergé par le revendeur Net Solution Works) : modules optionnels « 2-port 10 Gigabit BASE-T RJ-45 hot swappable uplink module » et « 2-port 10 Gigabit SFP+ hot swappable uplink module »",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "x1",
+      "name": "10GBASE-T 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10GBASE-T, RJ45"
+    },
+    {
+      "id": "x2",
+      "name": "10GBASE-T 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10GBASE-T, RJ45"
+    }
+  ]
+}

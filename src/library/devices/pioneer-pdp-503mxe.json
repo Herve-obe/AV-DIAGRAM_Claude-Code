@@ -1,0 +1,121 @@
+{
+  "id": "pioneer-pdp-503mxe",
+  "family": "display",
+  "manufacturer": "Pioneer",
+  "model": "PDP-503MXE",
+  "pictogram": "display",
+  "status": "community",
+  "description": "Écran plasma 50 pouces professionnel Pioneer",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/178673/pioneer-pdp-503cmx.html?page=40",
+      "document": "Pioneer, PDP-503CMX/PDP-503MXE Operating Instructions, Specifications (copie ManualsDir, version 503CMX)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15 femelle, RGB"
+    },
+    {
+      "id": "in1Out",
+      "name": "Input 1 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15, avec buffer"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC (RGB, HD/CS, VD)"
+    },
+    {
+      "id": "ain",
+      "name": "Audio Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo, 500 mVrms, plus de 10 kohms, pour Input 1/2",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo, 500 mVrms max, moins de 5 kohms",
+      "level": "line+4"
+    },
+    {
+      "id": "spk",
+      "name": "Speaker",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "L/R 8-16 ohms, 2 W + 2 W ; bornier non nommé",
+      "level": "speaker"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Type d'embase non nommé"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 broches (pin connector)"
+    },
+    {
+      "id": "combIn",
+      "name": "Combination In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-DIN 6 broches (connecteur absent du catalogue)"
+    },
+    {
+      "id": "combOut",
+      "name": "Combination Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mini-DIN 6 broches (connecteur absent du catalogue)"
+    },
+    {
+      "id": "ctrlIn",
+      "name": "Control In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack mono"
+    },
+    {
+      "id": "ctrlOut",
+      "name": "Control Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack mono"
+    }
+  ]
+}

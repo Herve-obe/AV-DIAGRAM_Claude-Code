@@ -1,0 +1,103 @@
+{
+  "id": "sony-pxw-fs5",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PXW-FS5",
+  "pictogram": "camera",
+  "status": "verified",
+  "description": "Caméscope Super 35 4K Sony à monture E, sorties SDI 3G et HDMI, LAN et Wi-Fi ; entrées XLR sur la poignée fournie.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://pro.sony/support/res/manuals/4581/45c09361d5346b078e5d8e7a34719757/45818491M.pdf",
+      "document": "Sony — PXW-FS5/FS5M2/FS5M2K — Operating Guide 4-581-849-14",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/ad646725-bb54-49bc-acc1-c1486f25e3bc/PXW-FS5_FS5M2_FS5M2K.pdf",
+      "document": "Sony PXW-FS5/FS5M2/FS5M2K Operating Guide 4-581-849 (via Lensrentals)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI (niveau B)"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI Type A"
+    },
+    {
+      "id": "usb",
+      "name": "Multi/Micro USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "Micro USB multi : USB, sortie composite et audio"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Mini-mini jack 2,5 mm"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX/10BASE-T"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "IEEE 802.11 b/g/n 2,4 GHz, NFC"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Jack DC, 12 V (adaptateur secteur)"
+    }
+  ],
+  "powerW": 16.8,
+  "slots": [
+    {
+      "id": "handle",
+      "name": "Poignée XLR",
+      "type": "sony-fs5-handle",
+      "accepts": [
+        "sony-fs5-xlr-handle"
+      ]
+    }
+  ]
+}

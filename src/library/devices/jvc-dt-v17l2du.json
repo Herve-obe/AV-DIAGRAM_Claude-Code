@@ -1,0 +1,173 @@
+{
+  "id": "jvc-dt-v17l2du",
+  "family": "display",
+  "manufacturer": "JVC",
+  "model": "DT-V17L2DU",
+  "pictogram": "display",
+  "status": "community",
+  "description": "Moniteur LCD 17 pouces HD multi-format, alimentation AC/DC",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=18",
+      "document": "JVC, DT-V17L2D Instructions p. 18 (copie ManualsDir) : Specifications, Input/output terminals",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=15",
+      "document": "JVC, DT-V17L2D Instructions p. 14 (copie ManualsDir) : External Control",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=9",
+      "document": "JVC, DT-V17L2D Instructions p. 8 (copie ManualsDir) : Rear panel",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite"
+    },
+    {
+      "id": "videoOut",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage pontée"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "HDCP"
+    },
+    {
+      "id": "comp",
+      "name": "Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC (Y, Pb, Pr)"
+    },
+    {
+      "id": "compOut",
+      "name": "Component Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC, bouclage pontée"
+    },
+    {
+      "id": "sdi1",
+      "name": "HD/SD SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Audio embarqué"
+    },
+    {
+      "id": "sdi2",
+      "name": "HD/SD SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Audio embarqué"
+    },
+    {
+      "id": "sdiOut",
+      "name": "HD/SD SDI Switched Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie de l'entrée SDI choisie"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "make",
+      "name": "Remote (Make / Trigger)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Terminal MAKE/TRIGGER RJ-45, contacts 1 à 8 (manuel p. 14)"
+    },
+    {
+      "id": "rs485",
+      "name": "Remote (RS-485)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-485, RJ-45 (manuel p. 14)"
+    },
+    {
+      "id": "rs232",
+      "name": "Remote (RS-232C)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, D-Sub 9 broches (manuel p. 14)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "DC 12-17 V, 3,0 A ; batterie Anton Bauer possible ; connecteur non nommé"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 120 V / 220-240 V ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 36
+}

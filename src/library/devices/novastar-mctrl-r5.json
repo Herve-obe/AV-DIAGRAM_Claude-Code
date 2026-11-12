@@ -1,0 +1,197 @@
+{
+  "id": "novastar-mctrl-r5",
+  "family": "videoRouting",
+  "manufacturer": "NovaStar",
+  "model": "MCTRL R5",
+  "pictogram": "router",
+  "status": "verified",
+  "domain": "image",
+  "powerW": 25,
+  "weightKg": 4.3,
+  "sources": [
+    {
+      "url": "https://oss.novastar.tech/uploads/2024/11/MCTRL-R5-LED-Display-Controller-Specifications-V1.0.5.pdf",
+      "document": "NovaStar, MCTRL R5 Specifications V1.0.5",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/mur-d-images-led/peripherique-mur-d-images-led/mctrl-r5/",
+      "document": "Novelty — MCTRL R5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/novastar_mctrl-r5_ft.pdf",
+      "document": "Novelty — MCTRL R5 : MCTRL R5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/novastar_mctrl-r5_manuel.pdf",
+      "document": "Novelty — MCTRL R5 : MCTRL R5",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi-in",
+      "name": "6G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "6G-SDI"
+    },
+    {
+      "id": "hdmi-in",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "dvi-in",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Dual-link DVI"
+    },
+    {
+      "id": "out1",
+      "name": "Ethernet 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out2",
+      "name": "Ethernet 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out3",
+      "name": "Ethernet 3",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out4",
+      "name": "Ethernet 4",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out5",
+      "name": "Ethernet 5",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out6",
+      "name": "Ethernet 6",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out7",
+      "name": "Ethernet 7",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "out8",
+      "name": "Ethernet 8",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Gigabit, vers les cartes de réception LED"
+    },
+    {
+      "id": "opt1",
+      "name": "OPT 1",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode) ; recopie des ports 1 à 8"
+    },
+    {
+      "id": "opt2",
+      "name": "OPT 2",
+      "direction": "out",
+      "signal": "videoIp",
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode) ; recopie de OPT 1"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet (contrôle)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Ordinateur de contrôle"
+    },
+    {
+      "id": "usb-in",
+      "name": "USB In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0 type B : cascade ou PC"
+    },
+    {
+      "id": "usb-out",
+      "name": "USB Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 type A : cascade (jusqu'à 8 appareils)"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bi-level, tri-level ou black burst"
+    },
+    {
+      "id": "genlockLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB (façade)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clé USB pour mise à jour"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 avec interrupteur"
+    }
+  ],
+  "aliases": [
+    "Novastar MCTRL R5"
+  ]
+}

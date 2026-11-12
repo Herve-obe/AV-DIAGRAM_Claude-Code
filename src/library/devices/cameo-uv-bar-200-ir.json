@@ -1,0 +1,45 @@
+{
+  "id": "cameo-uv-bar-200-ir",
+  "family": "luminaire",
+  "manufacturer": "Cameo",
+  "model": "UV Bar 200 IR",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.adamhall.com/shop/us-en/lighting/led-bars/2407/uv-bar-200-ir",
+      "document": "Adam Hall, page UV Bar 200 IR",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "analog-way-rc400t",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "Analog Way",
+  "model": "RC400T",
+  "status": "community",
+  "description": "Console de gestion pour gamme LivePremier, Alta 4K et Midra 4K",
+  "aliases": [
+    "ANALOG WAY RC400T"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/rc400t/",
+      "document": "Novelty — RC400T",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Consoles+%26+Controllers/RC400T/Technical+Datasheet/rc400t-datasheet-en.pdf",
+      "document": "Analog Way, RC400T Technical Datasheet (04/2021)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Consoles+%26+Controllers/RC400T/Quick+Start+Guide/RC400T-quick-start-guide.pdf",
+      "document": "Analog Way, RC400T Quick Start Guide",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "unspecified",
+      "format": "Interface réseau Ethernet (contrôle LivePremier / Midra 4K) ; type de prise non nommé"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB (face avant)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clé USB pour mise à jour du micrologiciel"
+    },
+    {
+      "id": "usbRear",
+      "name": "USB (arrière)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB arrière, type non précisé"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V CA 2,2 A, cordon fourni, fusible T2,5 A 5x20 ; type d'embase non nommé"
+    }
+  ],
+  "weightKg": 8,
+  "powerW": 25
+}

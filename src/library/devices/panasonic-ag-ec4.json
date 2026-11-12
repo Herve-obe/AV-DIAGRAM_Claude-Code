@@ -1,0 +1,45 @@
+{
+  "id": "panasonic-ag-ec4",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AG-EC4",
+  "pictogram": "control",
+  "status": "community",
+  "description": "Boîtier de commande déporté pour caméscopes P2 / 300Studio, câble 10 points",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2018-12/AG-EC4G%28VQT2H46-2%29_EGFISJ.pdf",
+      "document": "Panasonic, AG-EC4G Operating Instructions VQT2H46-2, « Connector area » et caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2018-12/AG-EC4G%28VQT2H46-2%29_EGFISJ.pdf",
+      "document": "Panasonic, AG-EC4G Operating Instructions VQT2H46-2",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "cam",
+      "name": "CAM/BS",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "Rond 10 points vers la prise REMOTE de la caméra ou de la station de base (câble 10 points fourni, 10 m) ; données, vidéo retour et +12 V fournis par la caméra"
+    },
+    {
+      "id": "vout",
+      "name": "VIDEO OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS 1 Vcc 75 ohms, image de contrôle"
+    }
+  ],
+  "domain": "image",
+  "powerW": 2.5
+}

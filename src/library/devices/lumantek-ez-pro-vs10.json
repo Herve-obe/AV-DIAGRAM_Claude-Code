@@ -1,0 +1,238 @@
+{
+  "id": "lumantek-ez-pro-vs10",
+  "family": "videoSwitcher",
+  "manufacturer": "Lumantek",
+  "model": "ez-Pro VS10",
+  "pictogram": "switcher",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.markertek.com/Attachments/Manuals/Lumantek/vs10-manual.pdf",
+      "document": "Lumantek, mode d'emploi VS10 (via Markertek)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/ez-pro-vs10/",
+      "document": "Novelty — ez-Pro VS10",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/7406-4507-vs10-manual-eng-211228.pdf",
+      "document": "Novelty — ez-Pro VS10 : VS10_MANUAL",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn7",
+      "name": "SDI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "sdiIn8",
+      "name": "SDI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "outs",
+      "name": "SDI PGM 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In CH1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "channels": 1
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out CH1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "channels": 1
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "rs",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In CH2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "audioOut2",
+      "name": "Audio Out CH2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "pgmSdi2",
+      "name": "SDI PGM 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux1",
+      "name": "SDI AUX 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux2",
+      "name": "SDI AUX 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux3",
+      "name": "SDI AUX 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "aux4",
+      "name": "SDI AUX 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "pgmHdmi",
+      "name": "HDMI PGM",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "mvHdmi",
+      "name": "HDMI Multiview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    }
+  ],
+  "aliases": [
+    "EZPROVS10",
+    "Lumantek ez-Pro VS10"
+  ],
+  "powerW": 40,
+  "weightKg": 3.7,
+  "depthMm": 294
+}

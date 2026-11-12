@@ -1,0 +1,112 @@
+{
+  "id": "dynatec-rh32",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "Dynatec",
+  "model": "RH32",
+  "status": "community",
+  "description": "Armoire de distribution. Entrée P17 32A tri. Sortie : 8 x PC16A + 1 Harting 8 circuits + 1 recopie 32A tri. Protection différentielle 30mA",
+  "aliases": [
+    "Dynatec RH32",
+    "Dynatec Smart Power KH32"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/rh32/",
+      "document": "Novelty — RH32",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie PC16A 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie PC16A 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16A 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie PC16A 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie PC16A 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "PC16 16 A 230 V (embase PCE 1040 IP54 à clapet), disjoncteur C16 par prise, différentiel 30 mA ; variante Schuko ou française non lisible sur les photos (clapets fermés)"
+    },
+    {
+      "id": "harting1",
+      "name": "Harting 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Harting 16 broches (« Multi 16A 16P »), 8 circuits 16 A A à H",
+      "channels": 8
+    },
+    {
+      "id": "recopie",
+      "name": "Recopie P17 32 A tri",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "Recopie de l'arrivée 32 A tri"
+    }
+  ]
+}

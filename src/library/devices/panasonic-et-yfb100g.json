@@ -1,0 +1,136 @@
+{
+  "id": "panasonic-et-yfb100g",
+  "family": "videoRouting",
+  "manufacturer": "Panasonic",
+  "model": "ET-YFB100G",
+  "pictogram": "router",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://docs.connect.panasonic.com/prodisplays/products/et-yfb100g/",
+      "document": "Panasonic, page ET-YFB100G Digital Interface Box",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/18159-ETYFB100GSpecsSheet.pdf",
+      "document": "Panasonic ET-YFB100G Spec Sheet, septembre 2012 (copie revendeur Full Compass)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP, Deep Color"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP, Deep Color"
+    },
+    {
+      "id": "pc1",
+      "name": "Computer 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "D-sub HD 15 femelle : RGB ou YPbPr"
+    },
+    {
+      "id": "pc2",
+      "name": "Computer 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "D-sub HD 15 femelle"
+    },
+    {
+      "id": "pcOut",
+      "name": "Computer 1 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "D-sub HD 15 femelle, recopie"
+    },
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "RCA, 1 Vcc 75 ohms"
+    },
+    {
+      "id": "svideo",
+      "name": "S-Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm stéréo (M3), 0,5 Vrms",
+      "level": "line+4"
+    },
+    {
+      "id": "dl",
+      "name": "DIGITAL LINK Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT jusqu'à 100 m : vidéo, audio, Ethernet, RS-232C"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm stéréo (M3), sortie moniteur 0 à 2 Vrms variable",
+      "level": "line+4"
+    },
+    {
+      "id": "serial",
+      "name": "Serial In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, RS-232C"
+    },
+    {
+      "id": "remote",
+      "name": "Remote In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, commande parallèle"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX"
+    },
+    {
+      "id": "ac",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "16 V CC, bloc secteur fourni (100-240 V) ; type de prise non écrit"
+    }
+  ],
+  "powerW": 16
+}

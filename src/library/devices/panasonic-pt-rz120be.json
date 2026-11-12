@@ -1,0 +1,168 @@
+{
+  "id": "panasonic-pt-rz120be",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Panasonic",
+  "model": "PT-RZ120BE",
+  "status": "community",
+  "description": "Vidéoprojecteur 4K laser DLP à 1 puce, 12 000 lumens, WUXGA, Full HD 1920 x 1200",
+  "aliases": [
+    "PANASONIC PT-RZ120BE"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/pt-rz120be/",
+      "document": "Novelty — PT-RZ120BE",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-rz120be_manuel-fr.pdf",
+      "document": "Novelty — PT-RZ120BE : PT-RZ120BE",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz120be_ft-fr.pdf",
+      "document": "Novelty — PT-RZ120BE : PT-RZ120BE",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "rgb1-1",
+      "name": "RGB 1 R / Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-2",
+      "name": "RGB 1 G / Y / Video",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-3",
+      "name": "RGB 1 B / Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-4",
+      "name": "RGB 1 H / Sync",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-5",
+      "name": "RGB 1 V / C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb2",
+      "name": "RGB 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "serialIn",
+      "name": "Serial In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C"
+    },
+    {
+      "id": "serialOut",
+      "name": "Serial Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C link"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Remote 1 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3 (jack M3 = mini-jack 3,5 mm)"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Remote 1 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3 (jack M3 = mini-jack 3,5 mm)"
+    },
+    {
+      "id": "remote2",
+      "name": "Remote 2 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Commande parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-TX, PJLink"
+    },
+    {
+      "id": "digitalLink",
+      "name": "DIGITAL LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT, réseau/commande"
+    }
+  ],
+  "weightKg": 25.2,
+  "powerW": 1275,
+  "depthMm": 581
+}

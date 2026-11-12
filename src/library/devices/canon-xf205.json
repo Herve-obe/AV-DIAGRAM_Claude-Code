@@ -1,0 +1,154 @@
+{
+  "id": "canon-xf205",
+  "family": "camera",
+  "manufacturer": "Canon",
+  "model": "XF205",
+  "pictogram": "camera",
+  "status": "verified",
+  "description": "Caméscope de poing HD Canon (capteur 1/2,84 pouce), XLR, sorties 3G-SDI et HDMI, genlock, timecode et réseau.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://gdlp01.c-wss.com/gds/3/0300019353/05/xf200-xf205-im8-n-en.pdf",
+      "document": "Canon XF200 / XF205 Instruction Manual (DIM-1104-001C), chapitre Specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "3G/HD-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD-SDI, audio intégré et timecode"
+    },
+    {
+      "id": "mon",
+      "name": "MON. Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI moniteur, audio intégré et timecode"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Jusqu'à 1080/59.94P"
+    },
+    {
+      "id": "avout",
+      "name": "AV Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 : vidéo composite SD + audio stéréo -10 dBV"
+    },
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR, MIC -60 dBu ou LINE +4 dBu, fantôme +48 V (MIC+48V)"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR, MIC -60 dBu ou LINE +4 dBu, fantôme +48 V (MIC+48V)"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, -72 dBV"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock/Sync Out",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Entrée genlock ou sortie synchro selon réglage"
+    },
+    {
+      "id": "tc",
+      "name": "Time Code",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC entrée ou sortie"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ethernet 1000BASE-T"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "out",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B Hi-Speed, sortie uniquement"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Mini-jack 2,5 mm stéréo"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "8,4 V DC, adaptateur secteur CA-935"
+    }
+  ],
+  "powerW": 8.4
+}

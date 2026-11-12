@@ -1,0 +1,220 @@
+{
+  "id": "barco-udx-4k32",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "UDX-4K32",
+  "status": "community",
+  "description": "Projecteur pour grands espaces au phosphore laser DLP 3 puces 4K UHD 31 000 lumens",
+  "aliases": [
+    "BARCO UDX-4K32"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/18-000-a-30-000-lumens/udx-4k32/",
+      "document": "Novelty — UDX-4K32",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_udx-4k32_ft.pdf",
+      "document": "Novelty — UDX-4K32 : UDX-4K32",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_manuel-fr.pdf",
+      "document": "Novelty — UDX-4K32 : UDX-4K32 (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_manuel-uk.pdf",
+      "document": "Novelty — UDX-4K32 : UDX-4K32 (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_manuel-de.pdf",
+      "document": "Novelty — UDX-4K32 : UDX-4K32 (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_installation-fr.pdf",
+      "document": "Novelty — UDX-4K32 : Installation (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_Installation-manuel-uk.pdf",
+      "document": "Novelty — UDX-4K32 : Installation (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_Safety-DE.pdf",
+      "document": "Novelty — UDX-4K32 : Safety (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_Safety-FR.pdf",
+      "document": "Novelty — UDX-4K32 : Safety (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_Safety-uk.pdf",
+      "document": "Novelty — UDX-4K32 : Safety (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_quickstart.pdf",
+      "document": "Novelty — UDX-4K32 : Quick Start Guide",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.2"
+    },
+    {
+      "id": "hdbt",
+      "name": "HDBaseT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT (la fiche technique annonce une entrée unique ; le dessin du module V&H du manuel en montre deux)"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "sdi3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "sdi4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD / Dual HD / 6G-SDI"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-T, commande IP et Art-Net"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS232 / RS422, Sub-D 9 broches (brochage au manuel)"
+    },
+    {
+      "id": "remote",
+      "name": "Wired Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "XLR, télécommande filaire ; nombre de broches non indiqué pour l'UDX"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX 512, XLR 5 broches"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX 512, XLR 5 broches"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB type A : mises à jour et sauvegarde"
+    },
+    {
+      "id": "dcOut",
+      "name": "12 V Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V, 1 A max ; connecteur non nommé"
+    },
+    {
+      "id": "sync3dOut",
+      "name": "Sync Out 3D",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
+    },
+    {
+      "id": "sync3dIn",
+      "name": "Sync In 3D",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "unspecified",
+      "format": "Connecteur non nommé"
+    }
+  ],
+  "weightKg": 92,
+  "powerW": 3100,
+  "depthMm": 830,
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Free input slot",
+      "type": "barco-udx-input",
+      "accepts": [
+        "barco-udx-var-input"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "id": "blackmagic-design-teranex-mini-hdmi-to-sdi-12g",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Teranex Mini HDMI to SDI 12G",
+  "pictogram": "router",
+  "status": "verified",
+  "description": "Convertisseur HDMI 2.0 vers 12G-SDI avec intégration audio analogique ou AES/EBU sur XLR et entrée timecode.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/teranexmini/techspecs/W-TERAMIN-02",
+      "document": "Blackmagic Design, caractéristiques techniques Teranex Mini HDMI to SDI 12G (W-TERAMIN-02)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/TeranexMiniManual.pdf",
+      "document": "Blackmagic Teranex Mini, Installation and Operation Manual",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "audio1",
+      "name": "L - Analog / AES-EBU In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique : voie analogique gauche ou AES/EBU (commutateur 8)",
+      "level": "line+4"
+    },
+    {
+      "id": "audio2",
+      "name": "R - Analog / AES-EBU / Timecode In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique : voie analogique droite, AES/EBU ou timecode (commutateur 6)",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet PoE+",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "poe": "sink"
+      },
+      "format": "Ethernet, configuration ; alimentation PoE+"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 intégrée"
+    }
+  ],
+  "powerW": 16
+}

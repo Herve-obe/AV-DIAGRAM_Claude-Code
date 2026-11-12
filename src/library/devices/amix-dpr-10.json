@@ -1,0 +1,66 @@
+{
+  "id": "amix-dpr-10",
+  "family": "recording",
+  "domain": "sound",
+  "pictogram": "recorder",
+  "manufacturer": "Amix",
+  "model": "DPR 10",
+  "status": "community",
+  "description": "Lecteur de message audio numérique 16 bits/32 kHz, stocké dans une mémoire non-volatile de type EPROM",
+  "aliases": [
+    "DPR10",
+    "Amix DPR 10"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/sources/disque-dur/dpr-10/",
+      "document": "Novelty — DPR 10",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sub",
+      "name": "Sortie symétrique et alarmes",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub15",
+      "format": "SUB-D 15 femelle : sortie audio symétrique et deux contacts d'alarme inverseurs (recopie du déclenchement) ; niveau réglable par potentiomètre multitour, valeur nominale non publiée",
+      "level": "line+4"
+    },
+    {
+      "id": "rca",
+      "name": "Sortie asymétrique",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA, niveau non publié",
+      "level": "line+4"
+    },
+    {
+      "id": "trig",
+      "name": "Déclenchement",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Contact sec ou tension (commutateur DIP), logique NO/NF ; prise non précisée"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "220 à 240 V, 50-60 Hz ; embase non précisée"
+    },
+    {
+      "id": "dc",
+      "name": "Secours 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "+12 V CC de secours ; prise non précisée"
+    }
+  ],
+  "portStatus": "pending"
+}

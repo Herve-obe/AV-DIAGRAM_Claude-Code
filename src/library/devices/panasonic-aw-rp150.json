@@ -1,0 +1,137 @@
+{
+  "id": "panasonic-aw-rp150",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AW-RP150",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2019/05/Panasonic-AW-RP150-Spec-Sheet-from-Rentex.pdf",
+      "document": "Panasonic, fiche AW-RP150 (via Rentex)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/aw-rp150/",
+      "document": "Novelty — AW-RP150",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_aw-rp150gj_manuel.PDF",
+      "document": "Novelty — AW-RP150 : AW-RP150G",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_aw-rp150gj_ft-fr.pdf",
+      "document": "Novelty — AW-RP150 : AW-RP150G",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/panasonic_aw-rp150gj_brochure.pdf",
+      "document": "Novelty — AW-RP150 : Brochure commerciale",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-RP150G.GJ_full%28DVQP1819WA%29_E.pdf",
+      "document": "Panasonic — AW-RP150 — Operating Instructions, DVQP1819WA",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rs422_1",
+      "name": "RS-422 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
+    },
+    {
+      "id": "rs422_2",
+      "name": "RS-422 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
+    },
+    {
+      "id": "rs422_3",
+      "name": "RS-422 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
+    },
+    {
+      "id": "rs422_4",
+      "name": "RS-422 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
+    },
+    {
+      "id": "rs422_5",
+      "name": "RS-422 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "SERIAL CONT, RJ45, RS-422 (protocole AW), câble droit jusqu'à 1000 m ; tally sur la même prise"
+    },
+    {
+      "id": "lan",
+      "name": "IP CONT",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10BASE-T/100BASE-TX, caméras IP ; entrée PoE+",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiThru",
+      "name": "Active Thru Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 292"
+    },
+    {
+      "id": "gpio1",
+      "name": "TALLY/GPIO 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 points femelle : 10 entrées tally, 6 GPI, 5 GPIO"
+    },
+    {
+      "id": "gpio2",
+      "name": "GPIO 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 points femelle : 10 GPI, 10 GPIO"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC (10,8 à 13,2 V), XLR 4 points ; alimentation PoE+ possible par IP CONT"
+    }
+  ],
+  "aliases": [
+    "PANASONIC AW-RP150"
+  ],
+  "domain": "image",
+  "powerW": 12
+}

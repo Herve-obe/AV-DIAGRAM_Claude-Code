@@ -1,0 +1,189 @@
+{
+  "id": "panasonic-pt-mz770",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "PT-MZ770",
+  "pictogram": "projector",
+  "status": "verified",
+  "weightKg": 16.2,
+  "sources": [
+    {
+      "url": "https://na.panasonic.com/us/pt-mz770u-3lcd-solid-shine-laser-projector",
+      "document": "Panasonic, page PT-MZ770U (produit arrêté)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/35987-PTMZ770SeriesLeaflet.pdf",
+      "document": "Panasonic, leaflet PT-MZ770 series (copie revendeur Full Compass) : Specifications, Terminals, Power consumption",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 19 broches, HDCP 2.2, Deep Color"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 19 broches, HDCP 2.2, Deep Color"
+    },
+    {
+      "id": "rgb1",
+      "name": "RGB 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC, RGB ou YPbPr"
+    },
+    {
+      "id": "rgb2",
+      "name": "RGB 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub HD 15 femelle, RGB ou YPbPr"
+    },
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Prise RCA (pin jack), vidéo composite"
+    },
+    {
+      "id": "dl",
+      "name": "DIGITAL LINK / LAN",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT : vidéo, réseau, commande"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+    },
+    {
+      "id": "monOut",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub HD 15 femelle, RGB ou YPbPr"
+    },
+    {
+      "id": "ain1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3",
+      "level": "line+4"
+    },
+    {
+      "id": "ain2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3",
+      "level": "line+4"
+    },
+    {
+      "id": "ain3L",
+      "name": "Audio In 3 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Pin jack",
+      "level": "line+4"
+    },
+    {
+      "id": "ain3R",
+      "name": "Audio In 3 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Pin jack",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Variable Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3, 0 à 2,0 V eff. variable",
+      "level": "line+4"
+    },
+    {
+      "id": "serial",
+      "name": "Serial In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, RS-232C"
+    },
+    {
+      "id": "remote1",
+      "name": "Remote 1 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, commande par contacts"
+    },
+    {
+      "id": "remote2",
+      "name": "Remote 2 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3, télécommande filaire"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10BASE-T / 100BASE-TX, PJLink class 2"
+    },
+    {
+      "id": "usb",
+      "name": "Memory Viewer / Pairing",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB type A"
+    },
+    {
+      "id": "dcOut",
+      "name": "DC Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "USB type A, 5 V / 2 A max"
+    },
+    {
+      "id": "wm",
+      "name": "Wireless Module",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Pour module sans fil ET-WM300 uniquement ; forme USB non précisée, type A supposé dans la fiche"
+    }
+  ],
+  "powerW": 570
+}

@@ -1,0 +1,87 @@
+{
+  "id": "fusion-uf-hdf460km-2ge-r",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Fusion",
+  "model": "UF-HDF460KM-2GE-R",
+  "status": "verified",
+  "description": "Récepteur HDMI 2.0 4K60 et KVM USB sur fibre monomode, commutateur Gigabit intégré, alimentation powerCON TRUE1 avec recopie. Associé à l'émetteur UF-HDF460KM-2GE-T.",
+  "aliases": [
+    "HDMI2.0 Fiber Link RX",
+    "UF-HDF460KM-2GE-T/R (récepteur)"
+  ],
+  "powerW": 10,
+  "weightKg": 1.5,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5405-4705-fusion-tools-hdmi-2-0-fiber-link-manuel-uk.pdf",
+      "document": "Fusion Tools, HDMI 2.0 KVM Optical Fiber Extender UF-HDF460KM-2GE-T/R, manuel (copie Novelty) : connectique, consommation 10 W par boîtier, 1,5 kg par boîtier",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rxFiber",
+      "name": "Fiber",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "opticalcon",
+      "format": "opticalCON DUO / LC duplex"
+    },
+    {
+      "id": "rxHdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 type A à verrouillage"
+    },
+    {
+      "id": "rxLan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "rxLan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "rxUsb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, souris ou écran tactile"
+    },
+    {
+      "id": "rxUsb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, souris ou écran tactile"
+    },
+    {
+      "id": "rxPowerIn",
+      "name": "Power In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "100-240 V CA"
+    },
+    {
+      "id": "rxPowerOut",
+      "name": "Power Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    }
+  ]
+}

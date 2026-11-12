@@ -1,0 +1,101 @@
+{
+  "id": "theatrixx-xvvdp2qsdi",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Theatrixx",
+  "model": "XVVDP2QSDI",
+  "status": "verified",
+  "description": "Convertisseur Theatrixx xVision DisplayPort 1.2 vers quad-link 3G-SDI (4 BNC), genlock tri-level avec recopie, alimentation interne sur powerCON TRUE1 avec prise de recopie ; 45 W max., 2 kg.",
+  "aliases": [
+    "Theatrixx XVVDP2QSDI"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/xvvdp2qsdi/",
+      "document": "Novelty : XVVDP2QSDI",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://theatrixx.com/wp-content/uploads/2020/07/XVVDP2QSDI.pdf",
+      "document": "Theatrixx, xVision Converter DisplayPort to Quad-SDI XVVDP2QSDI datasheet (2021)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2 / HDMI 2.0, jusqu'à 4096 × 2160p60 4:4:4"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI, quad-link (4 × 1080p 4:2:2 en sortie 4K)"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI, quad-link (4 × 1080p 4:2:2 en sortie 4K)"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI, quad-link (4 × 1080p 4:2:2 en sortie 4K)"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI, quad-link (4 × 1080p 4:2:2 en sortie 4K)"
+    },
+    {
+      "id": "syncIn",
+      "name": "Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Genlock tri-level"
+    },
+    {
+      "id": "syncLoop",
+      "name": "Sync Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Recopie de la synchro tri-level"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, alimentation interne 100-240 V 50-60 Hz, 45 W max."
+    },
+    {
+      "id": "acOut",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Prise de courtoisie powerCON TRUE1 (recopie), 10 A max., même tension que l'entrée"
+    }
+  ],
+  "weightKg": 2,
+  "powerW": 45
+}

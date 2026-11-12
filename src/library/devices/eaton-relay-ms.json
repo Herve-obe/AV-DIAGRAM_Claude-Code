@@ -1,0 +1,37 @@
+{
+  "id": "eaton-relay-ms",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Eaton",
+  "model": "Relay-MS",
+  "pictogram": "power",
+  "moduleType": "eaton-ms",
+  "status": "verified",
+  "description": "Carte relais Mini-Slot pour onduleurs Eaton : contacts secs d'état (défaut secteur, batterie faible, alarme onduleur / OK, bypass) ou RS-232, sur Sub-D 9. Genre du Sub-D, nombre de relais et consommation non publiés dans les documents lus.",
+  "aliases": [
+    "RELAY-MS",
+    "Relay Card-MS"
+  ],
+  "sources": [
+    {
+      "url": "https://www.eaton.com/us/en-us/skuPage.RELAY-MS.pdf",
+      "document": "Eaton, Product specifications RELAY-MS (2023, copie Bechtle) : relay card, Mini-Slot, serial interface DB-9",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/eaton_onduleur9px3000irt3u_manuel.pdf",
+      "document": "Eaton 9PX, manuel (hébergé par Novelty), § 2.3 accessoires et § cartes de communication : Network-MS, Modbus-MS, Relay-MS, faces avant dessinées",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "db9",
+      "name": "Relais / RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Contacts secs d'état de l'onduleur ou liaison RS-232, Sub-D 9"
+    }
+  ]
+}

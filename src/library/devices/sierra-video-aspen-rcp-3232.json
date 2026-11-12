@@ -1,0 +1,40 @@
+{
+  "id": "sierra-video-aspen-rcp-3232",
+  "family": "control",
+  "manufacturer": "Sierra Video",
+  "model": "Aspen RCP-3232",
+  "pictogram": "control",
+  "status": "community",
+  "description": "Panneau de commande déporté 32x32 pour grille Aspen 3232HD-3G, 2U, liaison Ethernet",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://files.hdtvsupply.com/kramer-rcp-3232-ds.pdf",
+      "document": "Kramer (Sierra Video), RCP-3232 fiche technique (copie HDTV Supply)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100 Base-T, vers la grille Aspen 3232HD-3G en direct ou par réseau"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "12 V CC par bloc secteur 100-240 V ; type de prise non précisé"
+    }
+  ],
+  "domain": "image",
+  "powerW": 4.8
+}

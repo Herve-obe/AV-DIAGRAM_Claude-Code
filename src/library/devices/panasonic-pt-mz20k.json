@@ -1,0 +1,123 @@
+{
+  "id": "panasonic-pt-mz20k",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "PT-MZ20K",
+  "pictogram": "projector",
+  "status": "verified",
+  "weightKg": 22.3,
+  "sources": [
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2022-07/pt-mz20kl_spec_en.pdf",
+      "document": "Panasonic, spécifications PT-MZ20KL",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.3, 4K/60p"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDCP 2.3, 4K/60p"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD-SDI"
+    },
+    {
+      "id": "dl",
+      "name": "DIGITAL LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT : vidéo, réseau, commande série ; PJLink class 2, Art-Net, HDCP 2.3, 4K/60p"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+    },
+    {
+      "id": "serialIn",
+      "name": "Serial / Multi Sync In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, RS-232C, commande externe"
+    },
+    {
+      "id": "serialOut",
+      "name": "Serial / Multi Sync Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 mâle, chaînage RS-232C"
+    },
+    {
+      "id": "remote1",
+      "name": "Remote 1 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, commande parallèle"
+    },
+    {
+      "id": "remote2In",
+      "name": "Remote 2 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack M3, télécommande filaire"
+    },
+    {
+      "id": "remote2Out",
+      "name": "Remote 2 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack M3, chaînage télécommande filaire"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10BASE-T / 100BASE-TX, PJLink class 2, Art-Net"
+    },
+    {
+      "id": "dcOut",
+      "name": "DC Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "USB type A, alimentation 5 V / 2 A max"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clé USB, module sans fil AJ-WM50"
+    }
+  ],
+  "powerW": 1100
+}

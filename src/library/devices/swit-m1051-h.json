@@ -1,0 +1,214 @@
+{
+  "id": "swit-m1051-h",
+  "family": "display",
+  "manufacturer": "Swit",
+  "model": "M1051-H",
+  "pictogram": "display",
+  "status": "community",
+  "description": "Rack 3U de 3 moniteurs 5 pouces (3G-SDI, HDMI, composite)",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://files.bzbexpress.com/files/attachments/33228/swit-displays-and-monitors-m-1051h-datasheet.pdf",
+      "document": "SWIT, M-1051H datasheet (copie revendeur) : Input and Output, General",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/594485/swit-electronics-m-1051h.html?page=6",
+      "document": "SWIT, M-1051H User Manual (copie ManualsDir) : Front view p. 5, Rear view p. 6, Specifications p. 10",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiA",
+      "name": "Écran A SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "cvbsA",
+      "name": "Écran A Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiA",
+      "name": "Écran A HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOutA",
+      "name": "Écran A SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutA",
+      "name": "Écran A Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOutA",
+      "name": "Écran A HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "phonesA",
+      "name": "Écran A Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
+    },
+    {
+      "id": "tallyA",
+      "name": "Écran A Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS232), D-Sub 9 au dessin"
+    },
+    {
+      "id": "sdiB",
+      "name": "Écran B SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "cvbsB",
+      "name": "Écran B Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiB",
+      "name": "Écran B HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOutB",
+      "name": "Écran B SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutB",
+      "name": "Écran B Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOutB",
+      "name": "Écran B HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "phonesB",
+      "name": "Écran B Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
+    },
+    {
+      "id": "tallyB",
+      "name": "Écran B Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS232), D-Sub 9 au dessin"
+    },
+    {
+      "id": "sdiC",
+      "name": "Écran C SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "cvbsC",
+      "name": "Écran C Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiC",
+      "name": "Écran C HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOutC",
+      "name": "Écran C SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOutC",
+      "name": "Écran C Composite Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiOutC",
+      "name": "Écran C HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "phonesC",
+      "name": "Écran C Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Prise écouteurs 3,5 mm en face avant (audio SDI ou HDMI désembarqué)"
+    },
+    {
+      "id": "tallyC",
+      "name": "Écran C Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS232), D-Sub 9 au dessin"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "DC 12 V, jack d'alimentation (centre positif au dessin), adaptateur secteur fourni"
+    }
+  ],
+  "powerW": 24,
+  "notes": "Prise casque (PHONE) en façade de chaque écran, type non précisé par SWIT. La fiche technique cite 2 RCA d'entrée audio stéréo par écran, absents de la vue arrière du manuel et de la photo : non saisis."
+}

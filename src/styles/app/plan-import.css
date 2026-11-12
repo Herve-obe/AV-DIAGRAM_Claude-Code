@@ -1,0 +1,22 @@
+/* Plan d'implantation, import DXF et import de liste de patch. */
+
+.plan-view { display:flex; flex-direction:column; flex:1; min-height:0; overflow:hidden; }
+.plan-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:8px 12px; border-bottom:1px solid var(--border); }
+.plan-settings { display:flex; flex-wrap:wrap; gap:8px; border:0; padding:0; margin:0; }
+.plan-settings .field { width:110px; margin:0; }
+.plan-toolbar select { max-width:260px; }
+.plan-stage { flex:1; width:100%; min-height:180px; touch-action:none; outline-offset:-3px; }
+.plan-equipment { cursor:grab; outline:none; }
+.plan-equipment:focus { filter:drop-shadow(0 0 0.05px var(--accent)); }
+.plan-fields { margin:12px 0; border:1px solid var(--border); padding:10px; }
+.plan-legend { margin:0; padding:6px 12px; color:var(--text-2); font-size:11px; }
+.plan-layers { padding:5px 12px; max-height:140px; overflow:auto; }
+.plan-layers label { display:inline-flex; gap:6px; margin:4px 12px 4px 0; }
+.cad-dialog { width:min(920px, 94vw); }
+.cad-background-preview { display:block; width:100%; height:340px; margin:12px 0; background:var(--paper); border:1px solid var(--border); }
+.cad-preview { background:var(--paper); }
+.patch-dialog { width:min(1100px, 94vw); }
+.patch-problems { max-height:180px; overflow:auto; color:var(--err); }
+.patch-preview { overflow:auto; max-height:360px; }
+.patch-preview table { width:100%; border-collapse:collapse; }
+.patch-preview th, .patch-preview td { padding:7px 10px; border-bottom:1px solid var(--border); text-align:left; }

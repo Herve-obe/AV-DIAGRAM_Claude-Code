@@ -1,0 +1,113 @@
+{
+  "id": "samsung-ed75e",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "ED75E (75\")",
+  "pictogram": "display",
+  "status": "community",
+  "powerW": 275,
+  "sources": [
+    {
+      "url": "https://www.samsung.com/us/business/support/owners/product/ed-e-series-digital-signage-ed75e/",
+      "document": "Samsung, page support ED75E",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://fullcompass.com/common/files/30533-SamsungEDESeriesCommericalLEDLCDDisplaysCutSheet.pdf",
+      "document": "Samsung, ED-E Series cut sheet ED65E/ED75E (copie revendeur Full Compass) : Connectivity, liste des prises, Power Consumption",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "D-Sub",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RGB analogique"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "component",
+      "name": "AV In / Video / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "unspecified",
+      "format": "Composite ou composante (adaptateur requis) ; connecteur non nommé dans la fiche"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "usb1",
+      "name": "USB (5 V / 1,5 A)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Lecteur USB"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Capteur externe ; connecteur non nommé dans la fiche"
+    }
+  ]
+}

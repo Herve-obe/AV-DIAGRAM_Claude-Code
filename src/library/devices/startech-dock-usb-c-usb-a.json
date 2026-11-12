@@ -1,0 +1,149 @@
+{
+  "id": "startech-dock-usb-c-usb-a",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Startech",
+  "model": "Dock USB-C & USB-A",
+  "status": "community",
+  "description": "Station d'Accueil Universelle à Triple Écran DisplayPort & HDMI 4K 60Hz - 85W",
+  "aliases": [
+    "Startech Dock USB-C & USB-A"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/informatique-video/peripheriques-informatique/divers-peripheriques-informatique/dock-usb-c-usb-a/",
+      "document": "Novelty — Dock USB-C & USB-A",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/384-4659-mmo-86227172-1607954933-8531-1067.pdf",
+      "document": "Novelty — Dock USB-C & USB-A : Dock USB-C & USB-A",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "host",
+      "name": "Hôte USB-C (10 Gbit/s)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.2 Gen 2 à verrouillage par vis, câble 2-en-1 USB-C/USB-A ; Power Delivery 85 W vers l'ordinateur"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.4 ; 3 écrans au plus sur les 6 sorties"
+    },
+    {
+      "id": "dp2",
+      "name": "DisplayPort 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.4 ; 3 écrans au plus sur les 6 sorties"
+    },
+    {
+      "id": "dp3",
+      "name": "DisplayPort 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DP 1.4 ; 3 écrans au plus sur les 6 sorties"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 HDR"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 HDR"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0 HDR"
+    },
+    {
+      "id": "usbc1",
+      "name": "USB-C 10 Gbit/s",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    },
+    {
+      "id": "usba1",
+      "name": "USB-A 10 Gbit/s",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usbc2",
+      "name": "USB-C 5 Gbit/s",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    },
+    {
+      "id": "usba2",
+      "name": "USB-A 5 Gbit/s 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usba3",
+      "name": "USB-A 5 Gbit/s 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usba4",
+      "name": "USB-A 5 Gbit/s 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "lan",
+      "name": "Gigabit Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "headset",
+      "name": "Micro / casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm 4 points (casque-micro)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "20 V CC 7,5 A, adaptateur secteur fourni ; type de prise non précisé (« M »)"
+    }
+  ],
+  "weightKg": 0.365
+}

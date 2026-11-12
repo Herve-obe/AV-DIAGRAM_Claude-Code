@@ -1,0 +1,69 @@
+{
+  "id": "xantrex-prosine-1000i",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "XANTREX",
+  "model": "Prosine 1000i",
+  "status": "verified",
+  "description": "Convertisseur 12 V DC vers 230 V AC sinus pur, 1000 W continu.",
+  "aliases": [
+    "XANTREX Prosine 1000i"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/accessoires/divers/prosine-1000i/",
+      "document": "Novelty — Prosine 1000i",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1228212116.pdf",
+      "document": "Novelty — Prosine 1000i : Prosine 1000i",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1228212157.pdf",
+      "document": "Novelty — Prosine 1000i : Mounting Instructions",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1228212176.pdf",
+      "document": "Novelty — Prosine 1000i : Power Factor Correction White Paper",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1228212266.pdf",
+      "document": "Novelty — Prosine 1000i : Prosine 1000i",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1228212116.pdf",
+      "document": "Xantrex, Prosine Sine Wave Inverters 1000/1800 W 230 V, fiche technique réf. 970-0100-01-01 rév. A (copie du document constructeur hébergée par Novelty)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1228212266.pdf",
+      "document": "Xantrex, Sine Wave Inverter 1000/1800, manuel d'utilisation (copie du document constructeur hébergée par Novelty)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dc-in",
+      "name": "Entrée batterie 12 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornes DC à goujon pour câbles batterie, 10 à 16 V DC (modèle 12 V), fusible DC recommandé 175 A"
+    },
+    {
+      "id": "ac-out",
+      "name": "Sortie 230 V",
+      "direction": "out",
+      "signal": "power",
+      "connector": "schuko",
+      "format": "230 V 50 Hz sinus pur, 1000 W continu ; prise Schuko en façade (version 806-1070, 12 V/230 V Schuko, visible sur la photo du parc)"
+    }
+  ],
+  "weightKg": 7
+}

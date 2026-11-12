@@ -1,0 +1,75 @@
+{
+  "id": "panasonic-dc-gh5",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "Lumix DC-GH5",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Panasonic, DC-GH5 Manuel d'utilisation Fonctions avancées",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/1750/3243/files/GH5.pdf",
+      "document": "Panasonic DC-GH5 Operating Instructions DVQX1052 (copie revendeur)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI Type A, sortie écran ou enregistreur externe"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "channels": 2,
+      "format": "Jack 3,5 mm (micro stéréo externe)"
+    },
+    {
+      "id": "hp",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 Gen 1 Type-C"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Jack 2,5 mm (télécommande DMW-RSL1)"
+    }
+  ],
+  "powerW": 4.1,
+  "slots": [
+    {
+      "id": "shoe",
+      "name": "Griffe audio",
+      "type": "lumix-hotshoe-xlr",
+      "accepts": [
+        "panasonic-dmw-xlr1"
+      ]
+    }
+  ]
+}

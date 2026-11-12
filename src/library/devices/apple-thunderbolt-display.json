@@ -1,0 +1,94 @@
+{
+  "id": "apple-thunderbolt-display",
+  "family": "display",
+  "manufacturer": "Apple",
+  "model": "Thunderbolt Display",
+  "pictogram": "display",
+  "status": "community",
+  "description": "Écran 27 pouces 2560 x 1440 IPS avec dock Thunderbolt",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://support.apple.com/en-gb/112597",
+      "document": "Apple, Thunderbolt Display - Technical Specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "tb",
+      "name": "Câble Thunderbolt intégré",
+      "direction": "in",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "Câble captif Thunderbolt (forme Mini DisplayPort) vers le Mac"
+    },
+    {
+      "id": "magsafe",
+      "name": "Câble MagSafe intégré",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Câble captif MagSafe universel, jusqu'à 85 W pour le portable"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 2.0 (1)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB 2.0 alimenté ; forme non nommée"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0 (2)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB 2.0 alimenté"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 2.0 (3)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB 2.0 alimenté"
+    },
+    {
+      "id": "fw",
+      "name": "FireWire 800",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ieee1394",
+      "format": "FireWire 800"
+    },
+    {
+      "id": "lan",
+      "name": "Gigabit Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "tbOut",
+      "name": "Thunderbolt",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "mini-displayport",
+      "format": "Port Thunderbolt de chaînage"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Cordon secteur fourni ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 250
+}

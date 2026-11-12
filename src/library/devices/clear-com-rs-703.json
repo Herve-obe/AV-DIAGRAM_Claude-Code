@@ -1,0 +1,76 @@
+{
+  "id": "clear-com-rs-703",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "RS-703",
+  "status": "verified",
+  "description": "Boîtier ceinture d'intercom 2 canaux. Équipé XLR3F/XLR3M via TWC-701. XLR4M pour combiné micro/casque",
+  "aliases": [
+    "CLEARCOM RS-703"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/rs-703/",
+      "document": "Novelty — RS-703",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clear-com_rs703_data-sheet.pdf",
+      "document": "Novelty — RS-703 : RS-703",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clear-com_rs703_encore-partyline-installation-manual.pdf",
+      "document": "Novelty — RS-703 : RS-703",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clear-com_rs703_quick-start-guide.pdf",
+      "document": "Novelty — RS-703 : Quick Start",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clear-com_rs703_brochure.pdf",
+      "document": "Novelty — RS-703 : Brochure commercial",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; broche 2 alimentation +28 V et voie A, broche 3 voie B ; 12 à 30 V CC, 25 à 40 mA"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, en parallèle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle ; micro dynamique ou électret"
+    },
+    {
+      "id": "pgm",
+      "name": "Program Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "format": "Jack 3,5 mm TRS"
+    }
+  ],
+  "weightKg": 0.31
+}

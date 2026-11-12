@@ -1,0 +1,80 @@
+{
+  "id": "teradek-beam-rx",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Beam RX",
+  "status": "community",
+  "description": "Décodeur H.264 Wi-Fi 5 GHz Beam : sortie SDI, sortie audio analogique, retour d'ordre (IFB), Ethernet, RS-422. Connecteurs série et d'alimentation non nommés dans la fiche (à compléter).",
+  "aliases": [
+    "Beam (TX / RX) récepteur"
+  ],
+  "powerW": 12,
+  "weightKg": 0.61,
+  "sources": [
+    {
+      "url": "https://www.markertek.com/Attachments/Specifications/TERADEK/10-0571-Specifications.pdf",
+      "document": "Teradek, Beam TX and RX Product Specification Sheet 2017 (copie Markertek) : interfaces, 12 W, 990 g (TX) / 610 g (RX)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rxSdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo, 48 kHz",
+      "level": "line+4"
+    },
+    {
+      "id": "ifb",
+      "name": "Talkback (IFB)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo entrée/sortie, 8 kHz"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "serial",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "RS-422 full duplex"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 802.11a/n 5 GHz, 3x3 MIMO"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "7 à 17 V DC, 12 W"
+    }
+  ]
+}

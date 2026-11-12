@@ -1,0 +1,57 @@
+{
+  "id": "huali-quartz-led-480w",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "HUALI",
+  "model": "QUARTZ LED 480W",
+  "status": "community",
+  "description": "Projecteur Led forte puissance 480W | DMX | 5100°K |",
+  "aliases": [
+    "QuartzLed480W",
+    "HUALI QUARTZ LED 480W"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/quartz-led-480w/",
+      "document": "Novelty — QUARTZ LED 480W",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In (queue de câble)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Queue de câble 20 cm XLR 5 ; adressage DMX par boîtier dédié"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out (queue de câble)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Queue de câble 20 cm XLR 5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur (queue de câble)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Queue de câble 20 cm powerCON TRUE1"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur (queue de câble)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Queue de câble 20 cm powerCON TRUE1"
+    }
+  ],
+  "weightKg": 10.5,
+  "powerW": 480
+}

@@ -1,0 +1,112 @@
+{
+  "id": "qsc-pl230a",
+  "family": "amplification",
+  "manufacturer": "QSC",
+  "model": "PowerLight PL230A",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 9.5,
+  "rackU": 2,
+  "sources": [
+    {
+      "document": "QSC, PowerLight 2A User Manual TD-000089-00, © 2000, 2007, chapitre Specifications",
+      "accessed": "2026-09-24"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-48464d3c-aab6-4bd8-9270-8c006850f7f6/48464d3c-aab6-4bd8-9270-8c006850f7f6.pdf",
+      "document": "QSC, PL2A User Manual TD-000089-00 Rev. B (copie archive.org)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dataport",
+      "name": "DataPort",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "QSC DataPort HD15, contrôle et surveillance"
+    },
+    {
+      "id": "in1",
+      "name": "CH1 In XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 12 kΩ, en parallèle avec le bornier ; écrêtage +22 dBu"
+    },
+    {
+      "id": "in1t",
+      "name": "CH1 In bornier",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier 3 points débrochable, en parallèle avec l'XLR"
+    },
+    {
+      "id": "in2",
+      "name": "CH2 In XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique 12 kΩ, en parallèle avec le bornier ; écrêtage +22 dBu"
+    },
+    {
+      "id": "in2t",
+      "name": "CH2 In bornier",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "Bornier 3 points débrochable, en parallèle avec l'XLR"
+    },
+    {
+      "id": "out1",
+      "name": "CH1 Speakon",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4MD ; porte CH1 et CH2 (bi-amp, ponté) ; 575 W / 8 Ω, 900 W / 4 Ω"
+    },
+    {
+      "id": "out2",
+      "name": "CH2 Speakon",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "NL4MD ; CH2 seul ; 575 W / 8 Ω, 900 W / 4 Ω"
+    },
+    {
+      "id": "bp1",
+      "name": "CH1 bornes",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "level": "speaker",
+      "format": "Bornes « touch-proof »"
+    },
+    {
+      "id": "bp2",
+      "name": "CH2 bornes",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "level": "speaker",
+      "format": "Bornes « touch-proof »"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC C14 (dessin de face arrière du manuel) avec clip de retenue ; 120 V AC 50/60 Hz, cordon 14 AWG"
+    }
+  ],
+  "powerW": 1080
+}

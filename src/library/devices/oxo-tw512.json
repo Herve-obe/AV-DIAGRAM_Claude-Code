@@ -1,0 +1,54 @@
+{
+  "id": "oxo-tw512",
+  "family": "dmxDistribution",
+  "manufacturer": "OXO",
+  "model": "TW512",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/tw512/",
+      "document": "Novelty — TW512",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_tw512_manuel.pdf",
+      "document": "Novelty — TW512 : TW512",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Antenne SMA 50 Ω, 2,4 GHz (2400-2483 MHz), 13 canaux ; DMX Wi-Fi ColorBatt"
+    },
+    {
+      "id": "dc",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V CA 50 Hz, 2 W max. ; type de prise non indiqué"
+    }
+  ],
+  "aliases": [
+    "DMXHF-TW512",
+    "OXO TW512"
+  ],
+  "powerW": 2
+}

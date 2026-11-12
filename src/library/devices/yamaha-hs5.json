@@ -1,0 +1,60 @@
+{
+  "id": "yamaha-hs5",
+  "family": "speaker",
+  "manufacturer": "Yamaha",
+  "model": "HS5",
+  "pictogram": "speaker",
+  "status": "verified",
+  "description": "Enceinte de monitoring active. XLR et jack sont deux accès à la même entrée : ne pas les utiliser simultanément.",
+  "sources": [
+    {
+      "url": "https://usa.yamaha.com/products/proaudio/speakers/hs_series/specs.html",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://es.yamaha.com/files/download/other_assets/4/329474/HS8_en_om_a0.pdf",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://data.yamaha.com/files/download/other_assets/4/329474/HS8_en_om_a0.pdf",
+      "document": "Yamaha, HS8/HS7/HS5/HS8S Owner's Manual EN, Rear Panel (même fichier que l'ancien lien es.yamaha.com, désormais servi par data.yamaha.com)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://images.static-thomann.de/pics/atg/atgdata/document/manual/yamaha_hs5_hs8_de.pdf",
+      "document": "Yamaha, HS8/HS7/HS5/HS8S Owner's Manual multilingue (copie du revendeur Thomann), Rückseite",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "xlr",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ; alternative à l’entrée jack"
+    },
+    {
+      "id": "jack",
+      "name": "Entrée jack",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 6,35 TRS symétrique ; alternative à l’entrée XLR"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Alimentation secteur ; consommation 45 W ; embase IEC 3 broches « AC IN » (dessin du panneau arrière), cordon fourni"
+    }
+  ],
+  "powerW": 45,
+  "weightKg": 5.3,
+  "depthMm": 222
+}

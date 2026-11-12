@@ -1,0 +1,154 @@
+{
+  "id": "samsung-ue46d",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Samsung",
+  "model": "UE46D",
+  "status": "community",
+  "description": "Ecran LED 46\", bord ultra fin (6,4mm), Full HD (1920x1080 - 16/9)",
+  "aliases": [
+    "UE46D@SOLO",
+    "SAMSUNG UE46D"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/ue46d/",
+      "document": "Novelty — UE46D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_ue46d_manuel.pdf",
+      "document": "Novelty — UE46D : UE46D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_ue46d_quickstart.pdf",
+      "document": "Novelty — UE46D : UE46D QuickStart",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://static.rt-events.fr/document/-ued46-55-eu-webmanual_eng_for_europe-01_20140414_2.pdf",
+      "document": "Samsung UE46D/UE55D — LFD Display User Manual, avril 2014, copie RT Events",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "RGB In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10"
+    },
+    {
+      "id": "component",
+      "name": "AV / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "3.5 mm stereo serial adapter"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "3.5 mm stereo serial adapter"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR / ambient sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ; reçoit le câble stéréo jack 3,5 mm (section « IR Stereo Cable » du manuel)"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp-out",
+      "name": "DisplayPort Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    }
+  ],
+  "weightKg": 10,
+  "depthMm": 31.3,
+  "powerW": 132
+}

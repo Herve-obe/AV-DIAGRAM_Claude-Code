@@ -1,0 +1,108 @@
+{
+  "id": "clear-com-if4w4",
+  "family": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "IF4W4",
+  "pictogram": "intercom",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://expandore.com/Clear-Com/Party-Line/IF4W4_Interfaces.htm",
+      "document": "Expandore, fiche IF4W4",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://clear-com.atlassian.net/wiki/spaces/SF/pages/158715614",
+      "document": "Clear-Com, base de connaissances : IF4W4",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/332650/clear-com-if4w4.html",
+      "document": "Clear-Com, IF4W4 Four-Channel Four-Wire Interface, manuel (copie manualsdir)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line1",
+      "name": "Ligne 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle, partyline Clear-Com (alimentation 20-30 V CC par la ligne)"
+    },
+    {
+      "id": "line2",
+      "name": "Ligne 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle, partyline Clear-Com (alimentation 20-30 V CC par la ligne)"
+    },
+    {
+      "id": "line3",
+      "name": "Ligne 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle, partyline Clear-Com (alimentation 20-30 V CC par la ligne)"
+    },
+    {
+      "id": "line4",
+      "name": "Ligne 4",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle, partyline Clear-Com (alimentation 20-30 V CC par la ligne)"
+    },
+    {
+      "id": "fw1",
+      "name": "4 fils 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
+    },
+    {
+      "id": "fw2",
+      "name": "4 fils 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
+    },
+    {
+      "id": "fw3",
+      "name": "4 fils 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
+    },
+    {
+      "id": "fw4",
+      "name": "4 fils 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Bornier : broches 1-2 entrée (réception), 4-5 sortie (émission) ; commutateur de niveau d'émission"
+    },
+    {
+      "id": "nullmon",
+      "name": "Null Monitor",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle casque en façade, écoute de l'oscillateur de réglage du null"
+    },
+    {
+      "id": "nullear",
+      "name": "Null Monitor (écouteur TS1)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm en façade pour écouteur TS1, écoute du réglage du null"
+    }
+  ]
+}

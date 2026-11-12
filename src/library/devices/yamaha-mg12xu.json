@@ -1,0 +1,301 @@
+{
+  "id": "yamaha-mg12xu",
+  "family": "console",
+  "manufacturer": "Yamaha",
+  "model": "MG12XU",
+  "pictogram": "console",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.musicorp.com.au/pro-audio/2-yamaha-mg12xu/2489-3441/",
+      "document": "Musicorp, fiche MG12XU (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/mixage/analogique-12-voies/mg12xu/",
+      "document": "Novelty — MG12XU",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3443-4747-yamaha-mg12xu-ft-uk.pdf",
+      "document": "Novelty — MG12XU : yamaha_mg12xu_ft-uk",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/other_assets/8/1506928/mg16x_en_om_a0.pdf",
+      "document": "Yamaha MG20XU / MG16XU / MG12XU Owner’s Manual",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://usa.yamaha.com/files/download/brochure/1/330961/mg_brochure_en_webcatalogue.pdf",
+      "document": "Yamaha MG Series brochure LPA631, General Specifications",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Micro/ligne, fantôme 48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Micro/ligne, fantôme 48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Micro/ligne, fantôme 48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Micro/ligne, fantôme 48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in5",
+      "name": "Input 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Voie stéréo utilisable en micro (XLR)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in7",
+      "name": "Input 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Voie stéréo utilisable en micro (XLR)",
+      "phantom": "supplied"
+    },
+    {
+      "id": "st5",
+      "name": "Stereo In 5/6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "st7",
+      "name": "Stereo In 7/8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "channels": 2
+    },
+    {
+      "id": "st9",
+      "name": "Stereo In 9/10",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack ou RCA"
+    },
+    {
+      "id": "st11",
+      "name": "Stereo In 11/12",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line+4",
+      "channels": 2,
+      "format": "Jack ou RCA"
+    },
+    {
+      "id": "outL",
+      "name": "Stereo Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "Stereo Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux Send 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux Send 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grp1",
+      "name": "Group Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "grp2",
+      "name": "Group Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "mon",
+      "name": "Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "level": "none"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-b",
+      "channels": 2,
+      "format": "2 entrées / 2 sorties, 24 bits 192 kHz"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "[AC IN] : embase IEC (dessin p. 27), alimentation universelle interne 100-240 V"
+    },
+    {
+      "id": "rca9",
+      "name": "Stereo In 9/10 RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA L/R asymétriques ; alternative aux jacks du même canal (le jack est prioritaire)"
+    },
+    {
+      "id": "rca11",
+      "name": "Stereo In 11/12 RCA",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "RCA L/R asymétriques ; alternative aux jacks du même canal (le jack est prioritaire)"
+    },
+    {
+      "id": "outTrsL",
+      "name": "Stereo Out L (jack)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, en plus de la sortie XLR"
+    },
+    {
+      "id": "outTrsR",
+      "name": "Stereo Out R (jack)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS symétrique, en plus de la sortie XLR"
+    },
+    {
+      "id": "monR",
+      "name": "Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "fs",
+      "name": "Foot Switch",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack-ts",
+      "format": "FC5 : marche/arrêt des effets (FX RTN)"
+    }
+  ],
+  "aliases": [
+    "YAMAHA MG12XU"
+  ],
+  "weightKg": 4.2,
+  "depthMm": 422,
+  "powerW": 22
+}

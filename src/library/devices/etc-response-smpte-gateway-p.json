@@ -1,0 +1,39 @@
+{
+  "id": "etc-response-smpte-gateway-p",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "ETC",
+  "model": "Response SMPTE Gateway, backpack (RSN-SMPTE-P)",
+  "pictogram": "control",
+  "moduleType": "etc-io-garage",
+  "status": "verified",
+  "description": "Passerelle SMPTE LTC vers console Eos, version backpack montée dans une baie de l'I/O Garage (liaison USB interne). Adaptateur mini-jack 3,5 mm vers XLR fourni. Le port RJ45 (Net3/ACN, PoE) et la prise USB B ne sont pas saisis : la documentation Apex ne dit pas s'ils restent accessibles dans la baie. Consommation non publiée (alimentation 5 V USB ou PoE).",
+  "aliases": [
+    "RSN-SMPTE-P",
+    "4267A1007",
+    "ETC Response SMPTE Gateway"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/46266-ResponseShowControlGatewayDataSheet.pdf",
+      "document": "ETC, Response Show Control Gateways datasheet (copie Full Compass) : références, connecteurs (SMPTE XLR 3 femelle, MIDI In/Out/Thru, Serial Sub-D 9, RJ45, USB B), 0,22 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/63015-Apex5Datasheet.pdf",
+      "document": "ETC, Eos Apex 5 datasheet (copie Full Compass) : I/O Garage à quatre baies, accessoires GADGET2 4267A1004, RSN-SMPTE-P 4267A1007, RSN-MIDI-P 4267A1009, RSN-SERIAL-P 4267A1011 « for use in I/O Garage », kits 4450K1020 et 4450K1030",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ltcIn",
+      "name": "SMPTE In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode SMPTE LTC, XLR 3 femelle"
+    }
+  ],
+  "weightKg": 0.22
+}

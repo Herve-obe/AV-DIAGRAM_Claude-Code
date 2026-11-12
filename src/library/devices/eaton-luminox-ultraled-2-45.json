@@ -1,0 +1,64 @@
+{
+  "id": "eaton-luminox-ultraled-2-45",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Eaton",
+  "model": "ULTRALED 2-45 (LUM16125)",
+  "status": "verified",
+  "description": "Bloc autonome d'éclairage de sécurité d'évacuation (BAES) Luminox, 45 lm avec fonction VISIBILITE+, SATI, système DUAL de pose murale ou plafond, batterie lithium 3,2 V / 0,6 Ah, 220-240 V 50/60 Hz, 0,5 kg. Bornes sans vis 0,5 à 2,5 mm² : secteur et télécommande (TLU/TLU 2, TL500).",
+  "aliases": [
+    "ULTRALED2-45",
+    "EATON LUMINOX ULTRALED 2-45",
+    "EATON LUMINOX ULTRALED2-45",
+    "LUM16125"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3886-4382-lum16125-fiche-1.pdf",
+      "document": "Eaton Luminox, fiche Ultraled 2-45 (copie Novelty) : 45 lm, SATI, bornes 0,5 à 2,5 mm², 220-240 V, consommation 0,6 W, 0,5 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/8409-4382-lum16125-notice-1-pdf.pdf",
+      "document": "Eaton, manuel ULTRALED 2-45/2-8 ZNO2048600 A 11/2019 (copie Novelty) : raccordement L / N 230 V et télécommande TLU/TLU2 (LUM10312), TL500 (LUM10313)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/4961-4382-lum16125-notice-2.pdf",
+      "document": "Eaton, fiche de démantèlement LUM16125 (copie Novelty)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/securite/signalisation/ultraled-2-45/",
+      "document": "Novelty : ULTRALED 2-45",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/securite/signalisation/ultraled2-45/",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornes sans vis L / N, 220-240 V 50/60 Hz, 0,5 à 2,5 mm², câble traversant possible"
+    },
+    {
+      "id": "remote",
+      "name": "Télécommande",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Bornes de télécommande pour TLU/TLU 2 ou TL500"
+    }
+  ],
+  "powerW": 0.6,
+  "weightKg": 0.5,
+  "notes": "Version constructeur."
+}

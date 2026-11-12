@@ -1,0 +1,103 @@
+{
+  "id": "behringer-ms16",
+  "family": "speaker",
+  "manufacturer": "Behringer",
+  "model": "MS16",
+  "pictogram": "speaker",
+  "status": "community",
+  "weightKg": 3.5,
+  "sources": [
+    {
+      "url": "https://thomann.ae/behringer_ms16.htm",
+      "document": "Thomann, fiche MS16 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://galaxus.fr/en/s1/product/behringer-ms16-active-pair-1x-16-w-monitor-speakers-287539",
+      "document": "Galaxus, fiche MS16 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/51742/behringer-ms16.html?page=3",
+      "document": "Behringer MS16 User Manual, p. 3 Specifications (copie ManualsDir)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://r2.gear4music.com/media/21/219923/download_219923.pdf",
+      "document": "Behringer MS16 Technical Specifications (copie revendeur Gear4music), ancienne révision à bloc externe",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://r2.gear4music.com/media/21/219922/download_219922.pdf",
+      "document": "Behringer MS16 User Manual, § 2 Control Elements and Connections (copie revendeur Gear4music)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line1",
+      "name": "Input 2 L (RCA)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Entrée 2, RCA gauche ; -10 dBm, 10 kΩ"
+    },
+    {
+      "id": "line2",
+      "name": "Input 2 R (RCA)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "format": "Entrée 2, RCA droite ; -10 dBm, 10 kΩ"
+    },
+    {
+      "id": "aux",
+      "name": "Input 1 (mini-jack stéréo)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Mini-jack 3,5 TRS stéréo ; -10 dBm, 10 kΩ"
+    },
+    {
+      "id": "mic",
+      "name": "Mic / Guitar",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Jack 6,35 TRS façade ; -50 dBm, 50 Ω"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "level": "none",
+      "format": "Mini-jack 3,5 TRS, coupe les haut-parleurs"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "« AC POWER input » (n° 13) : le dessin du manuel montre un passage rond sans embase identifiable (cordon probablement captif, non écrit) ; 0,14 A / 230 V"
+    },
+    {
+      "id": "spkOut",
+      "name": "Speaker to Left",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "speaker",
+      "format": "Prise SPEAKER TO LEFT vers l'enceinte passive gauche, câble fourni ; type de prise non nommé"
+    }
+  ],
+  "powerW": 32
+}

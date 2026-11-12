@@ -1,0 +1,122 @@
+{
+  "id": "walther-bd32t-3x32m-plus-6xpc16-plus-recopie",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "WALTHER",
+  "model": "BD32T/3x32M+6xPC16+recopie",
+  "status": "verified",
+  "description": "Boitier de distribution. Entrée P17 32A tri. Sortie : 3 x 32A mono + 6 x PC16A + 1 recopie 32A tri. Protection différentielle 30mA",
+  "aliases": [
+    "BD32T/3X32M6XPC",
+    "WALTHER BD32T/3x32M+6xPC16+recopie"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/032a/bd32t-3x32m6xpc16recopie/",
+      "document": "Novelty — BD32T/3x32M+6xPC16+recopie",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/5461-3118-walther-ad32t-3x32m-6xpc16-09-attestation.pdf",
+      "document": "Novelty — BD32T/3x32M+6xPC16+recopie : BD32T/3x32M+6xPC16",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/2952-3118-walther-ad32t-3x32m-6xpc16-09-schema.pdf",
+      "document": "Novelty — BD32T/3x32M+6xPC16+recopie : BD32T/3x32M+6xPC16",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée P17 32A tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri (CEE 3P+N+T), interrupteur général 4 x 32 A avec bobine MX et arrêt d'urgence"
+    },
+    {
+      "id": "m32-1",
+      "name": "P17 32 A mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "CEE 2P+T 32 A, disjoncteur P+N 32 A 30 mA"
+    },
+    {
+      "id": "m32-2",
+      "name": "P17 32 A mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "CEE 2P+T 32 A, disjoncteur P+N 32 A 30 mA"
+    },
+    {
+      "id": "m32-3",
+      "name": "P17 32 A mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "CEE 2P+T 32 A, disjoncteur P+N 32 A 30 mA"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie PC16A 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie PC16A 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie PC16A 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie PC16A 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie PC16A 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie PC16A 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise NF 2P+T 10/16 A, disjoncteur P+N 16 A 30 mA"
+    },
+    {
+      "id": "recopie",
+      "name": "Recopie P17 32 A tri",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "CEE 3P+N+T 32 A, recopie de l'alimentation protégée en amont"
+    }
+  ],
+  "weightKg": 14.5
+}

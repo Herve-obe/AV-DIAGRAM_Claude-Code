@@ -1,0 +1,100 @@
+{
+  "id": "blackmagic-design-smartview-duo",
+  "family": "display",
+  "manufacturer": "Blackmagic Design",
+  "model": "SmartView Duo",
+  "pictogram": "display",
+  "status": "verified",
+  "description": "Double moniteur 8 pouces en rack 3U, entrées 3G-SDI avec bouclage, réglage par Ethernet",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/sg/products/smartview/techspecs/W-HDL-05",
+      "document": "Blackmagic SmartView Duo Technical Specifications",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/SmartViewManual.pdf",
+      "document": "Blackmagic Design, SmartView and SmartScope Manual : Plugging in your Computer p. 7 (dessin du panneau arrière SmartView Duo)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "Monitor 1 SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "Monitor 1 SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "Monitor 2 SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "Monitor 2 SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "tally",
+      "name": "Tally",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T"
+    },
+    {
+      "id": "lanLoop",
+      "name": "Ethernet Loop",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "100BASE-T"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0 type B (dessin du panneau arrière, manuel p. 7), configuration et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Power 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Embase jack DC ronde (dessin du manuel), bloc 12 V universel fourni"
+    }
+  ],
+  "powerW": 20,
+  "rackU": 3
+}

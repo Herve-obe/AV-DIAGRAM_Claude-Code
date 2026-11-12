@@ -1,0 +1,165 @@
+{
+  "id": "canon-xf605",
+  "family": "camera",
+  "manufacturer": "Canon",
+  "model": "XF605",
+  "pictogram": "camera",
+  "status": "community",
+  "weightKg": 2.01,
+  "sources": [
+    {
+      "url": "https://asia.canon/en/pro-imaging/xf605/main/product",
+      "document": "Canon, page XF605",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/23270b5c-771c-4e83-8060-abd29aec7b88/XF605_Data_Sheet_081321_trim.pdf",
+      "document": "Canon, fiche XF605 (via Lensrentals)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camescope/xf605/",
+      "document": "Novelty — XF605",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/CAXF605R.pdf",
+      "document": "Canon XF605 Instruction Manual (via Adorama)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, audio intégré et timecode"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, MIC -60 dBu ou LINE +4 dBu, fantôme"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, MIC -60 dBu ou LINE +4 dBu, fantôme"
+    },
+    {
+      "id": "tc",
+      "name": "Timecode",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC entrée ou sortie"
+    },
+    {
+      "id": "gl",
+      "name": "G-Lock/Sync",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC, entrée genlock ou sortie synchro tri-level selon réglage"
+    },
+    {
+      "id": "remote",
+      "name": "Remote B",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Remote B, circulaire 8 broches RS-422 (télécommande RC-V100)"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T, SRT"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "Streaming UVC"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "24 V DC (adaptateur secteur), prise non nommée"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, MIC -72 dBV (alimentation plug-in 2,5 V) ou LINE -12 dBV"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
+    },
+    {
+      "id": "remoteA",
+      "name": "Remote A",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Mini-jack 2,5 mm stéréo"
+    }
+  ],
+  "aliases": [
+    "CANON XF605"
+  ],
+  "powerW": 14.3
+}

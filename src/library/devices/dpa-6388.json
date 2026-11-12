@@ -1,0 +1,67 @@
+{
+  "id": "dpa-6388",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "6388 CORE+ directionnel",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.015,
+  "sources": [
+    {
+      "url": "https://www.dpamicrophones.com/microphones/headset-and-earset/6388/",
+      "document": "DPA, page produit 6388 : références 6388-DP-A (MicroLock 90, LEMO 3 broches 03, TA4F 10, mini-jack 34), taille standard ou S",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/api/v1/product/GetProductSpecifications?productId=258&culture=en-US",
+      "document": "DPA, caractéristiques 6388 : supercardioïde, 8 mV/Pa, MicroLock, 60 à 80 ohms, 1,0 mA (3,5 mA avec DAD9001), 15 g, câble 1,3 m",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://dpa.cloud14.structpim.com/media/qzbltmsw/6388-coreplus-product-manual-1.pdf",
+      "document": "DPA, manuel produit 6388 CORE+",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microlock",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Supercardioïde (gradient de pression), 8 mV/Pa, impédance 60 à 80 ohms (MicroLock), 100 ohms par DAD9001 ; 1,0 mA (3,5 mA avec DAD9001). Terminaisons constructeur (modes) : MicroLock (90), TA4F mini-XLR (10), LEMO 3 broches (03), mini-jack (34). XLR 3 : adaptateur DAD9001, fantôme requis. Tension d'alimentation HF non publiée dans les caractéristiques.",
+      "modes": [
+        {
+          "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "lemo3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "minijack",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "required"
+        }
+      ]
+    }
+  ],
+  "description": "Micro serre-tête supercardioïde DPA 6388 CORE+, statique prépolarisé, 8 mV/Pa, monture Act taille unique. Accroches (ce ne sont pas des prises) : perche réglable passant de gauche à droite, crochets d'oreille à ressort, taille standard ou petite (suffixe S), noir, beige ou brun. 15 g avec câble et connecteur, câble 1,3 m.",
+  "aliases": [
+    "DPA 6388",
+    "6388 CORE+",
+    "6388-DP-A"
+  ],
+  "notes": "Serre-tête récent, CORE+ uniquement (pas de version MicroDot) ; DPA ne l'appelle pas d:fine sur son site, ajouté pour couvrir toute la gamme serre-tête DPA actuelle."
+}

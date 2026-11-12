@@ -1,0 +1,30 @@
+/* Point d'entrée des styles de l'application : mise en page et composants, découpés par zone.
+   Toutes les couleurs viennent de tokens.css (importé avant ce fichier dans main.tsx).
+   L'ordre des imports reproduit l'ordre d'origine des règles : ne pas le changer sans vérifier la cascade. */
+
+@import './app/base.css';
+@import './app/structure.css';
+@import './app/topbar.css';
+@import './app/panels.css';
+@import './app/canvas.css';
+@import './app/dock.css';
+@import './app/palette.css';
+@import './app/responsive.css';
+@import './app/port-editor.css';
+@import './app/dialogs.css';
+@import './app/sheets.css';
+@import './app/views.css';
+@import './app/ai.css';
+@import './app/library.css';
+@import './app/layers.css';
+@import './app/collab.css';
+@import './app/pdf-import.css';
+@import './app/export.css';
+@import './app/racks.css';
+@import './app/tools.css';
+@import './app/new-project.css';
+@import './app/plan-import.css';
+@import './app/deployment.css';
+@import './app/panel-extras.css';
+@import './app/generic.css';
+@import './app/ai-banner.css';

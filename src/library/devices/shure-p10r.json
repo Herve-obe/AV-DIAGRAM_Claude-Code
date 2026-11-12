@@ -1,0 +1,59 @@
+{
+  "id": "shure-p10r",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Shure",
+  "model": "P10R",
+  "status": "verified",
+  "description": "Récepteur de poche diversity PSM 1000 (première version, avant P10R+) : sortie écouteurs mini-jack 3,5 mm, antennes détachables sur connecteur SMA, deux piles AA ou accu SB900.",
+  "aliases": [
+    "P10R PSM1000"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/pdf_fr_psm1000_ug.pdf",
+      "document": "Shure, PSM 1000 guide utilisateur (FR, copie Novelty) : récepteur P10R, antennes et caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/p10r.pdf",
+      "document": "Shure Americas, page P10R Wireless Bodypack Receiver (impression 2013, copie Novelty)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec l'émetteur"
+    },
+    {
+      "id": "ear",
+      "name": "Écouteurs",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "ant",
+      "name": "Antenne 1",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "sma"
+    },
+    {
+      "id": "ant2",
+      "name": "Antenne 2",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Seconde antenne détachable (diversity)"
+    }
+  ]
+}

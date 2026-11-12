@@ -1,0 +1,56 @@
+{
+  "id": "hollyland-solidcom-m1-beltpack",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Hollyland",
+  "model": "Solidcom M1 (beltpack)",
+  "status": "verified",
+  "description": "Boîtier ceinture sans fil Solidcom M1, batterie lithium 1500 mAh, casque sur LEMO 8 broches ou jack 3,5 mm.",
+  "aliases": [
+    "Solidcom M1 Beltpack"
+  ],
+  "powerW": 0.6,
+  "weightKg": 0.2,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/9174-4683-solidcom-m1-user-manual.pdf",
+      "document": "Hollyland, Solidcom M1 User Manual (copie Novelty) : interfaces de la station et du boîtier ceinture, caractéristiques (< 3 W / < 0,6 W, 1560 g / 200 g)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "1,9 GHz vers la station Solidcom M1"
+    },
+    {
+      "id": "hsLemo",
+      "name": "Casque LEMO",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "multipin",
+      "format": "LEMO 8 broches"
+    },
+    {
+      "id": "hs35",
+      "name": "Casque 3,5 mm",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm M G R L, micro 600 Ohm, écouteur 32 Ohm"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-c",
+      "format": "Charge"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "sennheiser-asa-1",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "ASA 1",
+  "status": "verified",
+  "description": "Splitter d'antennes actif pour 4 récepteurs série EM100/300/500",
+  "aliases": [
+    "ASA1",
+    "SENNHEISER ASA 1"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/asa-1/",
+      "document": "Novelty — ASA 1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/sennheiser_asa1_manuel-uk.pdf",
+      "document": "Novelty — ASA 1 : ASA 1",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "antA",
+      "name": "ANT RF IN A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Entrée d'antenne, voie diversity A ; téléalimentation des boosters 12 V 130 mA"
+    },
+    {
+      "id": "antB",
+      "name": "ANT RF IN B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Entrée d'antenne, voie diversity B ; téléalimentation des boosters 12 V 130 mA"
+    },
+    {
+      "id": "outA1",
+      "name": "A1",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outA2",
+      "name": "A2",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outA3",
+      "name": "A3",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outA4",
+      "name": "A4",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outB1",
+      "name": "B1",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "outB2",
+      "name": "B2",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "outB3",
+      "name": "B3",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "outB4",
+      "name": "B4",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "rfOutA",
+      "name": "RF OUT A",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Cascade vers un second ASA 1 (système 8 voies)"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc secteur NT 1-1, 13,8 V DC"
+    }
+  ],
+  "weightKg": 0.7000000000000001
+}

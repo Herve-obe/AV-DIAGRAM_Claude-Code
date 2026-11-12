@@ -1,0 +1,217 @@
+{
+  "id": "clear-com-fsii-base-ii",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "FSII-BASE-II",
+  "status": "community",
+  "description": "Base FreeSpeak II 1 U pour 25 boîtiers ceinture 1,9/2,4 GHz et 10 antennes via splitters : 4 partylines 2 fils, 4 ports 4 fils, programme, annonce, 2 LAN. Connecteur de l'entrée 12 V DC non nommé (statut community).",
+  "aliases": [
+    "FreeSpeak II Base",
+    "FSII-BASE-II-X4",
+    "FREESPEAK2-SET"
+  ],
+  "rackU": 1,
+  "weightKg": 2.3,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_base-ii_manuel.pdf",
+      "document": "Clear-Com, FreeSpeak II User Guide 399G169 Rev B (27 avril 2016, copie Novelty) : § 2.4 connecteurs arrière de la base, § 5.3 connecteurs du splitter, § 15 caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_base-ii_ft.pdf",
+      "document": "Clear-Com, fiche FreeSpeak II Base Station v.1 5/16 (copie Novelty)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/freespeak-ii/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14, 100-240 V CA"
+    },
+    {
+      "id": "dc",
+      "name": "12V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Secours 12 V DC (bloc 453G032, 60 W) ; prise ronde 4 broches sur le dessin, type non nommé"
+    },
+    {
+      "id": "fiber1",
+      "name": "Fiber 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "sfp",
+      "format": "Liaison fibre vers splitter FSII-SPL (module HCI-SMFO/MMFO)"
+    },
+    {
+      "id": "fiber2",
+      "name": "Fiber 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "sfp",
+      "format": "Liaison fibre vers splitter FSII-SPL (module HCI-SMFO/MMFO)"
+    },
+    {
+      "id": "ant1",
+      "name": "ANT 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "Antenne FSII-TCVR ou splitter, alimentation possible"
+    },
+    {
+      "id": "ant2",
+      "name": "ANT 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "Antenne FSII-TCVR ou splitter"
+    },
+    {
+      "id": "syncIn",
+      "name": "DECT Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "rj45"
+    },
+    {
+      "id": "syncOut",
+      "name": "DECT Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "rj45"
+    },
+    {
+      "id": "plA",
+      "name": "Partyline A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "2 fils Clear-Com ou RTS, terminaison commutable, alimentation par paire A/B, C/D"
+    },
+    {
+      "id": "plB",
+      "name": "Partyline B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "2 fils Clear-Com ou RTS, terminaison commutable, alimentation par paire A/B, C/D"
+    },
+    {
+      "id": "plC",
+      "name": "Partyline C",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "2 fils Clear-Com ou RTS, terminaison commutable, alimentation par paire A/B, C/D"
+    },
+    {
+      "id": "plD",
+      "name": "Partyline D",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "2 fils Clear-Com ou RTS, terminaison commutable, alimentation par paire A/B, C/D"
+    },
+    {
+      "id": "fwA",
+      "name": "4-Wire A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "4 fils (matrice)"
+    },
+    {
+      "id": "fwB",
+      "name": "4-Wire B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "4 fils (matrice)"
+    },
+    {
+      "id": "fwC",
+      "name": "4-Wire C",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "4 fils (matrice)"
+    },
+    {
+      "id": "fwD",
+      "name": "4-Wire D",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "4 fils (matrice)"
+    },
+    {
+      "id": "prog",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne, isolée par transformateur"
+    },
+    {
+      "id": "sa",
+      "name": "Stage Announce Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne, isolée par transformateur"
+    },
+    {
+      "id": "lan1",
+      "name": "LAN 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "4 relais et 2 GPI"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 (version X5 : XLR 5 femelle)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Enregistrement des boîtiers ceinture (type A d'après le câble USB A vers micro B)"
+    }
+  ]
+}

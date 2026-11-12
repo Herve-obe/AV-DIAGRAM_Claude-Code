@@ -1,0 +1,137 @@
+{
+  "id": "sennheiser-em-300-g4",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "EM 300 G4",
+  "status": "verified",
+  "description": "Récepteur True Diversity, écran OLED , 32 canaux compatibles?, bande de fréquence jusqu'à 88 MHz avec 3520 fréquences",
+  "aliases": [
+    "SENNHEISER EM 300 G4"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/em-300-g4/",
+      "document": "Novelty — EM 300 G4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_em300g4-gw_manual.pdf",
+      "document": "Novelty — EM 300 G4 : EM300 G4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/seinnheiser_em300g4-gw_certif.pdf",
+      "document": "Novelty — EM 300 G4 : EM300 G4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/seinnheiser_em300g4-gw_product-specification.pdf",
+      "document": "Novelty — EM 300 G4 : EM300 G4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_em300g4-gw_quick-guide.pdf",
+      "document": "Novelty — EM 300 G4 : Quick guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_em300g4-gw_media-protocol.pdf",
+      "document": "Novelty — EM 300 G4 : Media protocol",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/seinnheiser_em300g4-gw_brochure.pdf",
+      "document": "Novelty — EM 300 G4 : Brochure commerciale",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-em300-500g4.html",
+      "document": "Sennheiser ew G4, EM 300-500 G4 specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "True diversity, jusqu'à 88 MHz de bande"
+    },
+    {
+      "id": "antA",
+      "name": "ANT I",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Avec téléalimentation des boosters"
+    },
+    {
+      "id": "antB",
+      "name": "ANT II",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Avec téléalimentation des boosters"
+    },
+    {
+      "id": "afBal",
+      "name": "AF OUT BAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ],
+      "format": "XLR-3M symétrique, +18 dBu max ; AF OUT réglable sur 48 dB par pas de 3 dB ; une seule des deux sorties à la fois"
+    },
+    {
+      "id": "afUnbal",
+      "name": "AF OUT UNBAL",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "line-10",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "mic"
+        }
+      ],
+      "format": "Jack 6,35 asymétrique, +12 dBu max ; AF OUT réglable sur 48 dB"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 stéréo en façade"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "WSM, Control Cockpit"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 300 mA, bloc secteur externe (fiche creuse)"
+    }
+  ],
+  "weightKg": 0.98,
+  "powerW": 3.6
+}

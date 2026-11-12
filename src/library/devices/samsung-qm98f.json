@@ -1,0 +1,150 @@
+{
+  "id": "samsung-qm98f",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "QM98F (98\")",
+  "pictogram": "display",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://images.samsung.com/is/content/samsung/p5/de/display/pdf/Datenblatt_SMART_Signage_LH98QMFPBGCEN.pdf",
+      "document": "Samsung, Datenblatt SMART Signage QM98F (Stand Mai 2018)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_qm98f_manuel-uk.pdf",
+      "document": "Samsung, User Manual QM98F (copie Novelty) : Reverse Side p. 17, IR Stereo Cable p. 21",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_qm98f_ft.pdf",
+      "document": "Samsung, brochure QMF Series (copie Novelty) : spécifications QM98F",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi1",
+      "name": "DVI / PC / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI ; D-Sub par adaptateur DVI-RGB ; MagicInfo par câble DP-DVI"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dp2",
+      "name": "DisplayPort In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi3",
+      "name": "HDMI 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi4",
+      "name": "HDMI 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle et réseau"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "ir",
+      "name": "IR In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR IN : alimente le capteur externe ou reçoit le câble stéréo IR, jack 3,5 mm (manuel p. 21)"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal de télécommande (LOOP OUT), câble stéréo jack 3,5 mm (manuel p. 21)"
+    }
+  ],
+  "powerW": 605
+}

@@ -1,0 +1,129 @@
+{
+  "id": "turbosound-iq10",
+  "family": "speaker",
+  "manufacturer": "Turbosound",
+  "model": "iQ10",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 17.2,
+  "sources": [
+    {
+      "url": "https://thomann.ae/turbosound_iq10.htm",
+      "document": "Thomann, fiche iQ10 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/44913-IQ10Datasheet.pdf",
+      "document": "Turbosound iQ10, fiche technique constructeur (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://im.static-thomann.de/pics/atg/atgdata/document/gettingstarted/turboiq.pdf",
+      "document": "Turbosound iQ Series Quick Start Guide, dessin de la face arrière pp. 9-11 (copie Thomann)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ],
+      "format": "Combo XLR / jack 6,35 (TRS symétrique ou TS asymétrique) ; sélecteur LINE/MIC : ligne +4 dBu, micro -22 dBu ; +21 dBu max ; 40 kΩ sym."
+    },
+    {
+      "id": "in2",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "line+4"
+        }
+      ],
+      "format": "Combo XLR / jack 6,35 (TRS symétrique ou TS asymétrique) ; sélecteur LINE/MIC : ligne +4 dBu, micro -22 dBu ; +21 dBu max ; 40 kΩ sym."
+    },
+    {
+      "id": "linkA",
+      "name": "Output A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, copie non traitée de l’entrée A"
+    },
+    {
+      "id": "linkB",
+      "name": "Output B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, copie non traitée de l’entrée B"
+    },
+    {
+      "id": "mix",
+      "name": "Mix Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique, somme post-gain des entrées A et B"
+    },
+    {
+      "id": "unIn",
+      "name": "Ultranet In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 16,
+      "format": "ULTRANET, 16 canaux 24 bits, RJ45"
+    },
+    {
+      "id": "unOut",
+      "name": "Ultranet Thru",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rj45",
+      "channels": 16,
+      "format": "ULTRANET Thru, recopie non traitée de l’entrée ULTRANET, RJ45"
+    },
+    {
+      "id": "ac",
+      "name": "AC Input",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON, entrée 20 A ; 220-240 V 50/60 Hz (Europe) ou 120 V 60 Hz (USA)"
+    },
+    {
+      "id": "acLink",
+      "name": "AC Link Output",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON, recopie secteur 15 A max"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Mise à jour du DSP et télécommande par logiciel iQ (embase USB type B sur le dessin du guide)"
+    }
+  ],
+  "powerW": 150,
+  "description": "Enceinte active 2 voies 10 pouces, 2500 W crête, DSP Klark Teknik, 2 entrées combo micro/ligne, recopies XLR, Mix Out, ULTRANET in/thru, USB, entrée et recopie secteur powerCON."
+}

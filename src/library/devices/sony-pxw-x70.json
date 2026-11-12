@@ -1,0 +1,96 @@
+{
+  "id": "sony-pxw-x70",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PXW-X70",
+  "pictogram": "camera",
+  "status": "community",
+  "description": "Caméscope de poing Sony capteur 1 pouce, sorties SDI et HDMI, Wi-Fi ; entrées XLR sur la poignée fournie.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://pro.sony/s3/cms-static-content/uploadfile/99/1237493098399.pdf",
+      "document": "Sony — PXW-X70 — Operating Guide 4-544-242-11",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.csbsju.edu/documents/media%20services/equipment%20manuals/sony%20pxw-x70%20manual.pdf",
+      "document": "Sony PXW-X70 Operating Guide 4-544-242-11 (copie universitaire)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI Type A"
+    },
+    {
+      "id": "usb",
+      "name": "Multi/Micro USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "Micro USB multi : USB, sortie composite et audio"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack stéréo"
+    },
+    {
+      "id": "mic",
+      "name": "MIC (plug-in power)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "channels": 2,
+      "format": "Mini-jack, alimentation plug-in"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "IEEE 802.11 b/g/n 2,4 GHz, NFC"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "8,4 V DC (adaptateur AC-L200D)"
+    }
+  ],
+  "powerW": 5.8,
+  "slots": [
+    {
+      "id": "handle",
+      "name": "Poignée XLR",
+      "type": "sony-x70-handle",
+      "accepts": [
+        "sony-x70-xlr-handle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "prolights-gallery-eclipse",
+  "family": "luminaire",
+  "manufacturer": "Prolights",
+  "model": "Gallery Eclipse",
+  "pictogram": "light",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://amlux.it/upload/prodotti/blocchi/X141781allegatoPDF_TECHNICAL_DATA_ENG1-1X_Galleryeclbtu_A4_DATASHEET_EN.pdf",
+      "document": "Prolights EclGalleryProfile datasheet (diffusé par Amlux, distributeur Prolights)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "wdmx",
+      "name": "W-DMX",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur Wireless Solution intégré, 1 ou 3 canaux"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "« Moulded IP power IN connector », 100–240 V ; modèle de connecteur non nommé ; adaptateur rail TRACKADA en option"
+    }
+  ],
+  "powerW": 42,
+  "description": "Découpe LED 35 W à zoom 16–36°, couteaux et porte-gobo, alimentation intégrée, commande DMX sans fil (EclGalleryProfile)."
+}

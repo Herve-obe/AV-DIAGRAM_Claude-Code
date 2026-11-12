@@ -1,0 +1,92 @@
+{
+  "id": "oxo-solano2",
+  "family": "dmxDistribution",
+  "manufacturer": "OXO",
+  "model": "Solano 2",
+  "pictogram": "control",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://azur.novelty-group.com/download/materiel_fiches_techniques/oxo_solano2_ft2.pdf",
+      "document": "OXO, fiche Solano 2 (via Novelty)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/solano-2/",
+      "document": "Novelty — Solano 2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/oxo_solano2_ft2.pdf",
+      "document": "OXO — Solano2 FI420180,2007,p.1 : connectique et dimensions",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxIn5",
+      "name": "DMX In 5 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut5",
+      "name": "DMX Out 5 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "smpteOut",
+      "name": "SMPTE Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "xlr3"
+    },
+    {
+      "id": "contacts",
+      "name": "Contacts externes",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Bornier amovible"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "9–12 VDC, bloc secteur fourni"
+    }
+  ],
+  "aliases": [
+    "OXO Solano 2"
+  ],
+  "weightKg": 1.6,
+  "depthMm": 120,
+  "description": "Enregistreur/restitueur DMX Solano2, rack19 pouces 1 U, 1,6 kg ; 482 × 120 × 44 mm. DMX entrée/sortie sur XLR3 et XLR5, SMPTE entrée/sortie sur XLR3, bornier de contacts externes, carte CompactFlash. Alimentation externe 9–12 VDC, type d’embase non précisé par la fiche."
+}

@@ -1,0 +1,106 @@
+{
+  "id": "dell-u2415",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "DELL",
+  "model": "U2415",
+  "status": "community",
+  "description": "Ecran LED 24\", 16:10 1920x1200, 300 cd/m2, 2xHDMI, DisplayPort, Mini DisplayPort, concentrateur USB 3.0",
+  "aliases": [
+    "DELL U2415"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/u2415/",
+      "document": "Novelty — U2415",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dl.dell.com/manuals/all-products/esuprt_display_projector/esuprt_display/dell-u2415_User's-Guide_en-us.pdf",
+      "document": "Dell, UltraSharp U2415 User's Guide : Bottom View, Power Management Modes",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI (MHL) 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI / MHL"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI (MHL) 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI / MHL"
+    },
+    {
+      "id": "dpIn",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "mdpIn",
+      "name": "Mini DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "mini-displayport"
+    },
+    {
+      "id": "dpOut",
+      "name": "DisplayPort Out (MST)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Chaînage MST"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie ligne pour enceintes, casque non pris en charge ; forme jack 3,5 mm non écrite"
+    },
+    {
+      "id": "usbUp",
+      "name": "USB upstream",
+      "direction": "in",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB 3.0 vers l'ordinateur ; forme non nommée"
+    },
+    {
+      "id": "usbDown1",
+      "name": "USB downstream 9a",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.0"
+    },
+    {
+      "id": "usbDown2",
+      "name": "USB downstream 9b",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.0, recommandé pour un périphérique sans fil"
+    },
+    {
+      "id": "ac",
+      "name": "AC power cord connector",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation intégrée ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 75
+}

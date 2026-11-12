@@ -1,0 +1,124 @@
+{
+  "id": "acclaim-lighting-al-driver-8rgbw-24v",
+  "family": "dmxDistribution",
+  "domain": "light",
+  "pictogram": "patch",
+  "manufacturer": "Acclaim Lighting",
+  "model": "AL-Driver-8RGBW 24V",
+  "status": "verified",
+  "description": "Driver LED DMX AL-Driver-8RGBW, version 24 V CC : entrée et recopie DMX XLR 3 points, 8 sorties sur bornier 5 points (RGBW), 150 W de sortie au total ; 286 × 191 × 74 mm, 3 kg.",
+  "aliases": [
+    "Acclaim Lighting AL-Driver-8RGBW 24V"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/al-driver-8rgbw-24v/",
+      "document": "Novelty — AL-Driver-8RGBW 24V",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/acclaim-lighting_al-driver-8rgbw_ft.pdf",
+      "document": "Acclaim Lighting — AL Driver 8 RGBW, fiche technique, page 1",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/acclaim-lighting_al-driver-8rgbw_manuel.pdf",
+      "document": "Acclaim Lighting — AL-Driver-8RGBW Instruction Manual rev3, caractéristiques page imprimée 14",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points mâle"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX, XLR 3 points femelle"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie LED 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie LED 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie LED 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie LED 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie LED 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie LED 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out7",
+      "name": "Sortie LED 7",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "out8",
+      "name": "Sortie LED 8",
+      "direction": "out",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier 5 points V+, R, G, B, W ; 24 V CC, 6 A par voie, 150 W au total"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "110-120 V CA 3,2 A / 220-240 V CA 1,6 A, sélecteur de tension ; cordon captif via presse-étoupe (dessin du manuel)"
+    }
+  ],
+  "weightKg": 3,
+  "depthMm": 191,
+  "powerW": 368,
+  "notes": "Consommation : 368 W calculés à partir du courant d'entrée indiqué au manuel (220-240 V CA 1,6 A ; 110-120 V CA 3,2 A), soit des VA ; la sortie LED est limitée à 150 W. La fiche technique annonce des borniers 3 points pour le DMX, le manuel des XLR 3 : le manuel est retenu."
+}

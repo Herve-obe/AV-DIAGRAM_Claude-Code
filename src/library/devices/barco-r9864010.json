@@ -1,0 +1,74 @@
+{
+  "id": "barco-r9864010",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "5-Cable Input (R9864010)",
+  "pictogram": "processor",
+  "moduleType": "barco-hd-input",
+  "status": "verified",
+  "description": "Module d'entrée optionnel 5 BNC (RGBHV, RGBS, RGsB, composante, composite, S-Vidéo) pour les emplacements libres des projecteurs Barco HDX et HDF. Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_manuel.pdf",
+      "document": "Barco, HDX series User Manual R5905032 (05/12/2014), chapitre 4.2 Input source connections",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdf-w30-flex_manuel.pdf",
+      "document": "Barco, HDF series User Manual (hébergé par Novelty) : mêmes modules d'entrée R9864010 et R9864140 pour les emplacements libres",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_QuickStartGuide.pdf",
+      "document": "Barco, HDX Quick Start Guide : Optional input 5-CABLE INPUT R9864010, Optional 3D input R9864140",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "r",
+      "name": "R/PR",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "RGB 0,7 V c-c ou Pr, 75 ohms"
+    },
+    {
+      "id": "g",
+      "name": "G/Y/VIDEO",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "G, G avec synchro, Y, Ys ou vidéo composite"
+    },
+    {
+      "id": "b",
+      "name": "B/PB",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "B ou Pb, 75 ohms"
+    },
+    {
+      "id": "h",
+      "name": "H/S",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Synchro H, synchro composite ou CV ; terminaison 75 ohms débrayable"
+    },
+    {
+      "id": "v",
+      "name": "V/CR",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Synchro V ou chrominance S-Vidéo"
+    }
+  ],
+  "aliases": [
+    "R9864010",
+    "Barco 5-cable input"
+  ]
+}

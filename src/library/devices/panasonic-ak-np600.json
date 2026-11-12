@@ -1,0 +1,47 @@
+{
+  "id": "panasonic-ak-np600",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "AK-NP600",
+  "pictogram": "processor",
+  "moduleType": "panasonic-ak-np600",
+  "status": "verified",
+  "description": "Carte optionnelle IP (MoIP) de l'unité de contrôle caméra Panasonic AK-UCU600 : 2 cages SFP+ 10GBASE-LR et un port LAN2 pour PTP. Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/manual/html/AK-UCU600P_PS_E_ES%28DVQP1734XA%29_E/chapter03_06.htm",
+      "document": "Panasonic, AK-UCU600 Operating Instructions DVQP1734XA, Rear panel 3 (with AK-NP600 option)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sfp1",
+      "name": "SFP+1",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10GBASE-LR, entrée/sortie MoIP"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP+2",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10GBASE-LR, entrée/sortie MoIP"
+    },
+    {
+      "id": "lan2",
+      "name": "LAN2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "PTP (Precision Time Protocol)"
+    }
+  ],
+  "aliases": [
+    "AKNP600"
+  ]
+}

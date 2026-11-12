@@ -1,0 +1,73 @@
+{
+  "id": "clear-com-rs601",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "RS601",
+  "status": "verified",
+  "description": "Poste intercom individuel 1 direction",
+  "aliases": [
+    "02998014",
+    "CLEARCOM RS601"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/rs601/",
+      "document": "Novelty — RS601",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_rs601_ft.pdf",
+      "document": "Novelty — RS601 : Document",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_rs601_manuel.pdf",
+      "document": "Novelty — RS601 : Document",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; 12 à 32 V CC, 26 à 50 mA"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, en parallèle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle ; micro 200 Ω, écouteur 50 à 2000 Ω"
+    },
+    {
+      "id": "aux",
+      "name": "Casque auxiliaire",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack25",
+      "format": "Jack 2,5 mm type téléphone portable (aucun identifiant 2,5 mm au catalogue : minijack retenu)"
+    },
+    {
+      "id": "data",
+      "name": "Données (V-Pack)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm TRS, câble VPC-1 vers DB-9 (RS-232) pour la configuration"
+    }
+  ]
+}

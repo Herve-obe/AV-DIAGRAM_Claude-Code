@@ -1,0 +1,140 @@
+// Catalogue des connecteurs. "mate" regroupe les connecteurs qui s'enfichent l'un dans l'autre
+// sans adaptateur (ex. un RJ45 entre dans une embase etherCON).
+
+export interface ConnectorDef {
+  id: string
+  label: string
+  mate: string
+  /** Familles supplémentaires acceptées (ex. embase combo : XLR et jack) */
+  alsoMates?: string[]
+}
+
+export const CONNECTORS: ConnectorDef[] = [
+  { id: 'xlr3', label: 'XLR 3', mate: 'xlr3' },
+  { id: 'xlr4', label: 'XLR 4', mate: 'xlr4' },
+  { id: 'xlr5', label: 'XLR 5', mate: 'xlr5' },
+  { id: 'xlr6', label: 'XLR 6', mate: 'xlr6' },
+  { id: 'xlr7', label: 'XLR 7', mate: 'xlr7' },
+  { id: 'jack-ts', label: 'Jack 6,35 TS', mate: 'jack635' },
+  { id: 'jack-trs', label: 'Jack 6,35 TRS', mate: 'jack635' },
+  { id: 'minijack', label: 'Mini-jack 3,5', mate: 'minijack' },
+  { id: 'jack25', label: 'Jack 2,5 mm', mate: 'jack25' },
+  { id: 'rca', label: 'RCA', mate: 'rca' },
+  { id: 'combo', label: 'Combo XLR / jack 6,35', mate: 'combo', alsoMates: ['xlr3', 'jack635'] },
+  { id: 'toslink', label: 'Optique TOSLINK (ADAT / S/PDIF)', mate: 'toslink' },
+  { id: 'digilink-mini', label: 'DigiLink Mini (Avid)', mate: 'digilink' },
+  { id: 'speakon-nl2', label: 'Speakon NL2', mate: 'speakon' },
+  { id: 'speakon-nl4', label: 'Speakon NL4', mate: 'speakon' },
+  { id: 'speakon-nl8', label: 'Speakon NL8', mate: 'speakon8' },
+  { id: 'bnc', label: 'BNC 75 Ω', mate: 'bnc' },
+  { id: 'din3', label: 'DIN 3 (DIN 41524)', mate: 'din3' },
+  { id: 'motorola-acc', label: 'Prise accessoires Motorola (propriétaire)', mate: 'motorola-acc' },
+  { id: 'qsc-touchmix-dc', label: 'Alimentation QSC TouchMix (rectangulaire 6 contacts)', mate: 'qsc-touchmix-dc' },
+  { id: 'shure-bcasca', label: 'Câble casque Shure BCASCA (6 points)', mate: 'shure-bcasca' },
+  { id: 'taiden-mic5', label: 'Embase micro Taiden 5 broches (col de cygne)', mate: 'taiden-mic5' },
+  { id: 'din5', label: 'DIN 5 (MIDI)', mate: 'din5' },
+  { id: 'din6', label: 'DIN 6', mate: 'din6' },
+  { id: 'din8', label: 'DIN 8 (ligne de conférence)', mate: 'din8' },
+  { id: 'dsub9', label: 'D-Sub 9', mate: 'dsub9' },
+  { id: 'dsub25', label: 'D-Sub 25', mate: 'dsub25' },
+  { id: 'dsub15', label: 'D-Sub 15', mate: 'dsub15' },
+  { id: 'rj45', label: 'RJ45', mate: 'rj45' },
+  { id: 'ethercon', label: 'etherCON', mate: 'rj45' },
+  { id: 'opticalcon', label: 'opticalCON', mate: 'opticalcon' },
+  { id: 'optocore-hma', label: 'Fibre HMA (Optocore, expanded beam)', mate: 'optocore-hma' },
+  { id: 'pcie-ext', label: 'PCI Express externe (Molex E-PCIe)', mate: 'pcie-ext' },
+  { id: 'lc', label: 'Fibre LC', mate: 'lc' },
+  { id: 'mtrj', label: 'Fibre MT-RJ', mate: 'mtrj' },
+  { id: 'molex-microfit6', label: 'Molex Micro-Fit 6 broches', mate: 'molex-microfit6' },
+  { id: 'm12', label: 'M12 circulaire (SACC)', mate: 'm12' },
+  { id: 'sc', label: 'Fibre SC', mate: 'sc' },
+  { id: 'st', label: 'Fibre ST', mate: 'st' },
+  { id: 'sfp', label: 'SFP / SFP+', mate: 'sfp' },
+  { id: 'hdmi', label: 'HDMI', mate: 'hdmi' },
+  { id: 'displayport', label: 'DisplayPort', mate: 'displayport' },
+  { id: 'mini-displayport', label: 'Mini DisplayPort', mate: 'mini-displayport' },
+  { id: 'usb-a', label: 'USB-A', mate: 'usb' },
+  { id: 'usb-b', label: 'USB-B', mate: 'usb' },
+  { id: 'usb-c', label: 'USB-C', mate: 'usb' },
+  { id: 'usb-mini', label: 'Mini-USB', mate: 'usb' },
+  { id: 'usb-micro', label: 'Micro-USB', mate: 'usb' },
+  { id: 'multipin', label: 'Multipaire (Harting, Socapex, CPC)', mate: 'multipin' },
+  { id: 'socapex19', label: 'Socapex 19 (SL 419)', mate: 'socapex19' },
+  { id: 'powercon', label: 'powerCON', mate: 'powercon' },
+  { id: 'powercon-true1', label: 'powerCON TRUE1', mate: 'powercon-true1' },
+  { id: 'powercon-32', label: 'powerCON 32 A', mate: 'powercon-32' },
+  { id: 'e27', label: 'Culot E27 (ampoule)', mate: 'e27' },
+  { id: 'rail-3c', label: 'Adaptateur de rail 3 allumages (Global/Eutrac)', mate: 'rail-3c' },
+  { id: 'powerkon-ip65', label: 'Seetronic Powerkon IP65', mate: 'powerkon-ip65' },
+  { id: 'iec-c13', label: 'IEC C13/C14', mate: 'iec-c13' },
+  { id: 'iec-c7', label: 'IEC C7/C8', mate: 'iec-c7' },
+  { id: 'mains-captive', label: 'Cordon secteur captif (fiche du pays)', mate: 'mains-captive', alsoMates: ['schuko', 'cee7-e'] },
+  { id: 'iec-c19', label: 'IEC C19/C20', mate: 'iec-c19' },
+  { id: 'schuko', label: 'Schuko CEE 7/4', mate: 'schuko' },
+  { id: 'cee7-e', label: 'Prise française CEE 7/5 (type E)', mate: 'cee7-e' },
+  { id: 'p17-16-mono', label: 'P17 16 A mono', mate: 'p17-16-mono' },
+  { id: 'p17-32-tri', label: 'P17 32 A tri', mate: 'p17-32-tri' },
+  { id: 'p17-32-mono', label: 'P17 32 A mono', mate: 'p17-32-mono' },
+  { id: 'p17-63-mono', label: 'P17 63 A mono', mate: 'p17-63-mono' },
+  { id: 'p17-63-tri', label: 'P17 63 A tri', mate: 'p17-63-tri' },
+  { id: 'stage-pin-60', label: 'Stage pin 60 A (3 broches)', mate: 'stage-pin-60' },
+  { id: 'p17-125-tri', label: 'P17 125 A tri', mate: 'p17-125-tri' },
+  { id: 'powerlock', label: 'Powerlock', mate: 'powerlock' },
+  { id: 'camlock', label: 'Camlock', mate: 'camlock' },
+  { id: 'terminal', label: 'Bornier Phoenix', mate: 'terminal' },
+  { id: 'binding-post', label: 'Bornes haut-parleur (binding posts)', mate: 'binding-post' },
+  { id: 'dc-barrel', label: 'Jack d\'alimentation DC', mate: 'dc-barrel' },
+  { id: 'minidin8', label: 'Mini-DIN 8', mate: 'minidin8' },
+  { id: 'minidin4', label: 'Mini-DIN 4 (S-Video)', mate: 'minidin4' },
+  { id: 'minidin3', label: 'Mini-DIN 3 (synchro 3D)', mate: 'minidin3' },
+  { id: 'ta4', label: 'Mini XLR 4 (TA4)', mate: 'ta4' },
+  { id: 'ta5', label: 'Mini XLR 5 (TA5)', mate: 'ta5' },
+  { id: 'smc9', label: 'SMC9 (Sony, émetteurs DWT)', mate: 'smc9' },
+  { id: 'bare-wire', label: 'Fils nus (sans connecteur, à câbler)', mate: 'bare-wire' },
+  { id: 'lemo3', label: 'LEMO 3 points', mate: 'lemo3' },
+  { id: 'sma', label: 'SMA', mate: 'sma' },
+  { id: 'microdot', label: 'MicroDot (DPA)', mate: 'microdot' },
+  // DPA : MicroLock reste compatible avec les accessoires MicroDot (documentation DPA 4099 CORE+)
+  { id: 'microlock', label: 'MicroLock (DPA)', mate: 'microlock', alsoMates: ['microdot'] },
+  { id: 'ta3', label: 'TA3 (mini-XLR 3)', mate: 'ta3' },
+  { id: 'hirose4', label: 'Hirose 4 broches', mate: 'hirose4' },
+  { id: 'hirose10', label: 'Hirose HR10 10 broches', mate: 'hirose10' },
+  { id: 'hirose12', label: 'Hirose 12 broches (objectif broadcast)', mate: 'hirose12' },
+  { id: 'lightning', label: 'Lightning (Apple)', mate: 'lightning' },
+  { id: 'lemo5', label: 'LEMO 5 broches', mate: 'lemo5' },
+  { id: 'rj12', label: 'RJ-12 / RJ-11', mate: 'rj12' },
+  { id: 'tnc', label: 'TNC (antenne)', mate: 'tnc' },
+  { id: 'rp-tnc', label: 'RP-TNC (antenne)', mate: 'rp-tnc' },
+  { id: 'sony-ccz', label: 'Sony CCZ (multiconducteur caméra)', mate: 'sony-ccz' },
+  { id: 'sony-remote8', label: 'Sony 8 broches (CCA-5)', mate: 'sony-remote8' },
+  { id: 'ieee1394', label: 'IEEE 1394 (FireWire, DV)', mate: 'ieee1394' },
+  { id: 'triax', label: 'Triax (Fischer ou LEMO)', mate: 'triax' },
+  { id: 'smpte-fiber', label: 'Fibre hybride SMPTE 311M (LEMO 3K.93C)', mate: 'smpte-fiber' },
+  { id: 'hdmi-micro', label: 'Micro HDMI (type D)', mate: 'hdmi-micro' },
+  { id: 'hdmi-mini', label: 'Mini HDMI (type C)', mate: 'hdmi-mini' },
+  { id: 'dvi', label: 'DVI', mate: 'dvi' },
+  { id: 'vga', label: 'VGA (HD-15)', mate: 'vga' },
+  { id: 'rj10', label: 'RJ-10', mate: 'rj10' },
+  { id: 'rf', label: 'Liaison radio (HF)', mate: 'rf' },
+  { id: 'ca-com', label: 'CA-COM 8 points (L-Acoustics)', mate: 'ca-com' },
+  { id: 'pa-com', label: 'PA-COM 8 points (L-Acoustics)', mate: 'pa-com' },
+  { id: 'sc32', label: 'SC32 (L-Acoustics, 32 points)', mate: 'sc32' },
+  { id: 'martin-bbd6', label: 'Martin BBD 6 (alimentation et données)', mate: 'martin-bbd6' },
+  { id: 'syva-autoconnect', label: 'AutoConnect (L-Acoustics Syva)', mate: 'syva-autoconnect' },
+  { id: 'multipin-37', label: 'Multipoint 37 points', mate: 'multipin-37' },
+  { id: 'unspecified', label: 'Non précisé par le constructeur', mate: 'unspecified' },
+]
+
+const BY_ID = new Map(CONNECTORS.map((c) => [c.id, c]))
+
+export function connectorLabel(id: string): string {
+  return BY_ID.get(id)?.label ?? id
+}
+
+/** Vrai si les deux connecteurs s'accouplent sans adaptateur (un câble droit suffit). */
+export function connectorsMate(a: string, b: string): boolean {
+  const ca = BY_ID.get(a)
+  const cb = BY_ID.get(b)
+  if (!ca || !cb) return a === b
+  return ca.mate === cb.mate || !!ca.alsoMates?.includes(cb.mate) || !!cb.alsoMates?.includes(ca.mate)
+}

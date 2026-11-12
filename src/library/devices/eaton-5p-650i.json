@@ -1,0 +1,87 @@
+{
+  "id": "eaton-5p-650i",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "Eaton",
+  "model": "5P 650i",
+  "status": "community",
+  "description": "Onduleur line-interactive 650 VA / 420 W en tour : entrée IEC C14, quatre prises IEC C13, USB (HID) et RS-232, bornier de marche/arrêt à distance. Type de prise USB non précisé par la page (à relever) ; le kit loueur peut contenir la version rack 5P 650iR, distincte.",
+  "aliases": [
+    "Eaton 5P 650",
+    "5P650I"
+  ],
+  "weightKg": 7.84,
+  "sources": [
+    {
+      "url": "https://www.eaton.com/dk/da-dk/skuPage.5P650I.html",
+      "document": "Eaton, page produit 5P650I : 650 VA, 420 W, entrée C14, sorties (4) C13, USB et RS-232, 7,84 kg",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Entrée secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C14"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13, secourue"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13, secourue"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13, secourue"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC C13, secourue"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "HID ; type de prise non précisé"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "rpo",
+      "name": "Remote ON/OFF / RPO",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Mini-bornier"
+    }
+  ]
+}

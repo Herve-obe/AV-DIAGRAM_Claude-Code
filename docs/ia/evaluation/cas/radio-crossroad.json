@@ -1,0 +1,31 @@
+{
+  "id": "radio-crossroad",
+  "titre": "Émission de radio musicale en direct avec duplex (Festival Crossroad)",
+  "source": {"fichier": "PLAT3-crossroad.pdf", "driveId": "18JU08B6xp4zVDEy-pbWxgweDBS-jM0Rh", "auteur": "Hervé Obejero", "pages": null},
+  "domaine": ["son", "intercom"],
+  "difficulte": "simple",
+  "demande": "Une radio diffuse en direct une émission depuis un festival de découvertes musicales. Je dois installer et régler la régie du plateau.\n\nL'interview se fait assis : le présentateur et l'invité sont face à face, chacun avec un micro relié à la régie. L'émission est enregistrée sur la station audionumérique (ou un autre enregistreur disponible). Les jingles, le duplex et le tapis sonore sont diffusés via un logiciel ou un matériel tiers.\n\nUn journaliste intervient en duplex depuis un lieu annexe, censé être sur le lieu du festival ; il dispose d'un retour casque. Pendant le duplex, je diffuse un extrait de concert fourni pour simuler la présence du reporter près de la salle, avec des traitements pour renforcer le réalisme.\n\nJe dois pouvoir parler aux participants, qui s'entendent via un réseau de casques : le technicien, le présentateur, le journaliste et l'invité doivent pouvoir se parler hors antenne.\n\nLes sources sont traitées en fréquence et en dynamique, et les niveaux de mixage doivent être conformes à la recommandation CST RT 040.\n\nJe veux le synoptique de la régie.",
+  "materielImpose": [
+    {"designation": "Station audionumérique (enregistrement)", "quantite": 1, "reference": null},
+    {"designation": "Micros plateau (présentateur, invité)", "quantite": 2, "reference": null},
+    {"designation": "Logiciel ou matériel de diffusion (jingles, duplex, tapis)", "quantite": 1, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Une console (régie)", "type": "quantite", "verif": {"famille": "console", "min": 1, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Au moins 3 micros : présentateur, invité, journaliste en duplex", "type": "quantite", "verif": {"famille": "capture", "min": 3, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "Le micro du journaliste (lieu annexe) arrive à la console", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "duplex", "vers": "console"}},
+    {"id": "e4", "texte": "Retour casque du journaliste en N-1", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console", "vers": "duplex"}},
+    {"id": "e5", "texte": "Lecteur (jingles, tapis, extrait de concert) raccordé à la console", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "lecteur-media", "vers": "console"}},
+    {"id": "e6", "texte": "Enregistrement du PGM sur la station audionumérique", "type": "sortie", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": "console", "vers": "enregistreur"}},
+    {"id": "e7", "texte": "Retours casques du présentateur et de l'invité", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console", "vers": "retour-casques"}},
+    {"id": "e8", "texte": "Ordre (talkback) du technicien vers les casques", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "talkback", "vers": "retour-casques"}},
+    {"id": "e9", "texte": "Réseau hors antenne : technicien, présentateur, journaliste et invité peuvent se parler", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e10", "texte": "Traitements de fréquence et de dynamique sur les sources ; niveaux conformes à la CST RT 040", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Retour casque du journaliste en N-1 (sans sa propre voix)",
+    "Réseau d'ordres hors antenne : le talkback ne doit pas partir à l'antenne ni à l'enregistrement",
+    "Traitement du duplex (filtrage) pour simuler une liaison distante"
+  ],
+  "corrigeDisponible": false
+}

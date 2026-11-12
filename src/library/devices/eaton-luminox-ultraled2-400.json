@@ -1,0 +1,48 @@
+{
+  "id": "eaton-luminox-ultraled2-400",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Eaton",
+  "model": "ULTRALED 2-400 (LUM16143)",
+  "status": "community",
+  "description": "Bloc autonome d'éclairage de sécurité anti-panique (ambiance) Luminox, 400 lm, autonomie 1 h, SATI, strip LED, batterie lithium-fer-phosphate 3,2 V / 3 Ah, montage plafond, boîtier identique au bloc d'évacuation, 220-240 V 50/60 Hz, 0,4 kg. Bornes sans vis 0,5 à 2,5 mm².",
+  "aliases": [
+    "EATON LUMINOX ULTRALED2-400",
+    "ULTRALED2-400",
+    "LUM16143"
+  ],
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/sonepar-fr/raw/upload/s--3m9L2EJf--/v1/documents/6226/eaton-eclairage-securite-baes-ultraled-2-400-fiche-produit.pdf",
+      "document": "Eaton Luminox, fiche produit ULTRALED 2-400 LUM16143 (copie Sonepar) : 400 lm, 1 h, SATI, 3,2 V / 3 Ah, bornes 0,5 à 2,5 mm², 220-240 V, 0,6 W, 0,4 kg, accessoire télécommande TLU 2",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/securite/signalisation/ultraled2-400/",
+      "document": "Novelty : ULTRALED2-400 (désignation du parc ; version modifiée « C13 & XLR » du loueur, non retenue)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornes sans vis, 220-240 V 50/60 Hz, 0,5 à 2,5 mm², câble traversant possible"
+    },
+    {
+      "id": "remote",
+      "name": "Télécommande",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Ligne de télécommande pour TLU 2 (accessoire LUM10312 listé par Eaton)"
+    }
+  ],
+  "powerW": 0.6,
+  "weightKg": 0.4,
+  "notes": "Version constructeur uniquement : les embases C13 et XLR citées par Novelty sont une modification du loueur. Bornes de télécommande déduites de l'accessoire TLU 2 et de l'ULTRALED 2-45, non montrées par la fiche ULTRALED 2-400 : statut community tant qu'un document Eaton du 2-400 ne les montre pas."
+}

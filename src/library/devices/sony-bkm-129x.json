@@ -1,0 +1,88 @@
+{
+  "id": "sony-bkm-129x",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Sony",
+  "model": "BKM-129X",
+  "pictogram": "processor",
+  "moduleType": "sony-bkm-pvm",
+  "status": "verified",
+  "description": "Adaptateur d'entrée composante analogique Sony BKM-129X (Y/PB/PR ou RGB) pour moniteurs PVM : 3 BNC haute impédance avec bouclage et terminaison 75 ohms automatique, synchro externe sur BNC bouclée, 0,5 W.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/sony_pvm14l4_brochure.pdf",
+      "document": "Sony, brochure PVM-L4/L3 Series (2001) : adaptateurs optionnels pour l'emplacement d'option (Optional accessories)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/3359902/Sony-Bkm-120d.html?page=30",
+      "document": "Sony, BKM-120D Installation Manual (copie ManualsLib), p. 29-30 BKM-129X : Y/PB/PR et RGB BNC × 3 with loop-through output and 75-ohm automatic termination, EXT SYNC BNC × 1 with loop-through, 0,5 W",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "yIn",
+      "name": "Y/G In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Y/R-Y/B-Y ou RGB"
+    },
+    {
+      "id": "ryIn",
+      "name": "R-Y/R In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "byIn",
+      "name": "B-Y/B In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "yOut",
+      "name": "Y/G Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage, terminaison 75 ohms automatique"
+    },
+    {
+      "id": "ryOut",
+      "name": "R-Y/R Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "byOut",
+      "name": "B-Y/B Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "syncIn",
+      "name": "Ext Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "syncOut",
+      "name": "Ext Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bouclage"
+    }
+  ],
+  "powerW": 0.5,
+  "aliases": [
+    "Analog Component Input Adaptor"
+  ]
+}

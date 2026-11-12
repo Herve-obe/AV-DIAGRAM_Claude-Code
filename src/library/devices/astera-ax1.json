@@ -1,0 +1,35 @@
+{
+  "id": "astera-ax1",
+  "family": "luminaire",
+  "manufacturer": "Astera",
+  "model": "AX1 PixelTube",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 16,
+  "weightKg": 1.0,
+  "sources": [
+    {
+      "url": "https://astera-led.com/wp-content/uploads/Datasheet_AX1_Pixel_Tube_V3.pdf",
+      "document": "Astera, Datasheet AX1 PixelTube V3",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "radio",
+      "name": "DMX sans fil",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur CRMX intégré ; protocoles sans fil : CRMX, UHF, Bluetooth, WiFi ; portée CRMX/UHF jusqu'à 300 m"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "48 V CC 0,5 A, jack 5,5 x 2,1 mm"
+    }
+  ]
+}

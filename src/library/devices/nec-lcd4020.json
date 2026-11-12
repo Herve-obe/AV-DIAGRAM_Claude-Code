@@ -1,0 +1,188 @@
+{
+  "id": "nec-lcd4020",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "NEC",
+  "model": "LCD4020",
+  "status": "community",
+  "description": "Écran LCD 40 pouces 1366 x 768 pour affichage public",
+  "aliases": [
+    "NEC LCD4020"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/lcd4020/",
+      "document": "Novelty : LCD4020",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_LCD4020_Brochure-LCD32-65.pdf",
+      "document": "Novelty : LCD4020 : LCD4020 (brochure commercial)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nec_LCD4020_spec_sheet.pdf",
+      "document": "Novelty : LCD4020 : LCD4020",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-bb62120c-61e1-414a-84b9-f8c424da33bd/bb62120c-61e1-414a-84b9-f8c424da33bd.pdf",
+      "document": "NEC, User's Manual LCD4020/LCD4620 (copie archive.org) : Terminal Panel, Specifications LCD4020",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi",
+      "name": "RGB 1 In (DVI-D)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D, HDCP"
+    },
+    {
+      "id": "vga",
+      "name": "RGB 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15"
+    },
+    {
+      "id": "rgb3",
+      "name": "RGB 3 / DVD-HD In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC (R, G, B, H, V) ou composante"
+    },
+    {
+      "id": "vgaOut",
+      "name": "RGB Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15, recopie RGB 2 ou 3"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "videoBnc",
+      "name": "Video In (BNC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite ; BNC et RCA non utilisables ensemble"
+    },
+    {
+      "id": "videoRca",
+      "name": "Video In (RCA)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composite"
+    },
+    {
+      "id": "videoOut",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite"
+    },
+    {
+      "id": "svideo",
+      "name": "S-Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "DIN 4 broches"
+    },
+    {
+      "id": "ain1",
+      "name": "Audio In (jack)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo 3,5 mm, 0,5 Vrms",
+      "level": "line+4"
+    },
+    {
+      "id": "ain2",
+      "name": "Audio In (Cinch) 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA L/R, 0,5 Vrms ; répartition exacte des entrées audio 1 à 3 non précisée",
+      "channels": 2,
+      "level": "line+4"
+    },
+    {
+      "id": "ain3",
+      "name": "Audio In (Cinch) 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "RCA L/R, 0,5 Vrms",
+      "channels": 2,
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "AUDIO OUT, mini-jack stéréo, 0,5 Vrms (manuel NEC ; la fiche commerciale indique Cinch)",
+      "channels": 2,
+      "level": "line+4"
+    },
+    {
+      "id": "rs232In",
+      "name": "External Control In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, mini D-Sub 9"
+    },
+    {
+      "id": "rs232Out",
+      "name": "External Control Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, chaînage"
+    },
+    {
+      "id": "spk",
+      "name": "External Speaker Terminal",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Pour haut-parleurs optionnels 15 W + 15 W ; type de bornier non nommé",
+      "level": "speaker"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Alimentation interne ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 200,
+  "slots": [
+    {
+      "id": "option",
+      "name": "Option slot",
+      "type": "nec-option-slot"
+    }
+  ]
+}

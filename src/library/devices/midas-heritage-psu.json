@@ -1,0 +1,38 @@
+{
+  "id": "midas-heritage-psu",
+  "family": "power",
+  "domain": "sound",
+  "manufacturer": "Midas",
+  "model": "Heritage Series PSU",
+  "pictogram": "power",
+  "status": "community",
+  "description": "Bloc d'alimentation à découpage commun aux consoles Heritage (non dédié à un modèle) : 100-240 V CA, 750 W de puissance de sortie max, rails +18 V, -18 V, +48 V. Deux blocs livrés par console, reliés en parallèle par câbles de liaison fournis pour la redondance. Sortie 10 voies en face avant ou arrière. Embase secteur non nommée dans le document.",
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/648304/Midas-Heritage-3000.html?page=71",
+      "document": "Midas, catalogue produits : Heritage 3000 p. 12-19 (châssis, Overview and Statistics, poids, spécifications) et p. 46-47 (CAN bus XLR, MIDI, RS-232 D-Sub 9, bloc Heritage Series 10 voies) ; pages transmises par Hervé Obejero",
+      "accessed": "2026-11-09"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V CA"
+    },
+    {
+      "id": "out",
+      "name": "Sortie 10 voies",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "10 voies, face avant ou arrière"
+    }
+  ],
+  "aliases": [
+    "Heritage PSU"
+  ]
+}

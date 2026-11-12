@@ -1,0 +1,38 @@
+{
+  "id": "icom-ic-f22",
+  "family": "wireless",
+  "manufacturer": "Icom",
+  "model": "IC-F22",
+  "pictogram": "wireless",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://earhugger.com/?p=4543",
+      "document": "Earhugger, connecteur 2 broches Icom",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.qsl.net/yo4hfu/Files/ICOM/ic-f12_f22_UM.pdf",
+      "document": "Icom IC-F12/IC-F22 Instruction Manual (copie en ligne), p. 1-2 et 4",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Antenne",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Radio professionnelle (PMR), antenne flexible fournie vissée sur le connecteur d'antenne (type de filetage non nommé)"
+    },
+    {
+      "id": "acc",
+      "name": "[SP]/[MIC]",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Prise [SP]/[MIC] pour micro-haut-parleur optionnel ; double jack Icom 3,5 + 2,5 non confirmé par la notice"
+    }
+  ]
+}

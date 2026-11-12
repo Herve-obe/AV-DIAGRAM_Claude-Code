@@ -1,0 +1,234 @@
+{
+  "id": "nec-multeos-m461-dst-touch",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "NEC",
+  "model": "Multeos M461 DST Touch",
+  "status": "community",
+  "description": "Ecran 46\" tactile Full HD, 1920x1080",
+  "aliases": [
+    "M461-LCDTACTILE",
+    "NEC Multeos M461 DST Touch"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/multeos-m461-dst-touch/",
+      "document": "Novelty — Multeos M461 DST Touch",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/UserManual-M401-M461-english.pdf",
+      "document": "Novelty — Multeos M461 DST Touch : M461 DST Touch",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/NEC_Datasheet_M461DST-english.pdf",
+      "document": "Novelty — Multeos M461 DST Touch : M461 DST Touch",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-tactile/46-pouces/multeos-m461-dst-touch-3/",
+      "document": "Novelty — Multeos M461 DST Touch",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI In (DVI-D)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Numérique seulement"
+    },
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Mini D-Sub 15"
+    },
+    {
+      "id": "rgbhvIn",
+      "name": "RGB/HV In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC (R, G, B, H, V), aussi DVD/HD ou vidéo"
+    },
+    {
+      "id": "rgbhvOut",
+      "name": "RGB/HV Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC"
+    },
+    {
+      "id": "videoBnc",
+      "name": "Video In (BNC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite ; BNC et RCA non utilisables ensemble"
+    },
+    {
+      "id": "videoRca",
+      "name": "Video In (RCA)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composite"
+    },
+    {
+      "id": "videoOut",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite"
+    },
+    {
+      "id": "dvdhd",
+      "name": "DVD/HD In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composante Pr Y Pb (3 RCA)"
+    },
+    {
+      "id": "svideo",
+      "name": "S-Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Mini DIN 4 broches"
+    },
+    {
+      "id": "ain1",
+      "name": "Audio In (jack)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "ain2",
+      "name": "Audio In (Cinch) 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cinch ; attribution exacte des entrées 1 à 3 non précisée",
+      "channels": 2,
+      "level": "line+4"
+    },
+    {
+      "id": "ain3",
+      "name": "Audio In (Cinch) 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Cinch",
+      "channels": 2,
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie audio 0,5 Vrms ; manuel NEC : RCA (L/R), fiche commerciale : jack 3,5 mm (conflit)",
+      "level": "line+4"
+    },
+    {
+      "id": "rs232In",
+      "name": "External Control In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, D-Sub 9"
+    },
+    {
+      "id": "rs232Out",
+      "name": "External Control Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, chaînage"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Remote In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Remote IN, mini-jack stéréo 3,5 mm (télécommande filaire optionnelle)"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Remote Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Remote OUT, mini-jack stéréo 3,5 mm"
+    },
+    {
+      "id": "spk",
+      "name": "External Speaker Terminal",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "15 W + 15 W sous 8 ohms ; bornier non nommé",
+      "level": "speaker"
+    },
+    {
+      "id": "touch",
+      "name": "Touch USB",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Dalle tactile DST, protocole USB HID, câble USB fourni ; forme du port non nommée"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Interrupteur général ; type d'embase non nommé"
+    }
+  ],
+  "powerW": 280,
+  "slots": [
+    {
+      "id": "option",
+      "name": "Option board slot",
+      "type": "nec-option-slot"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "wireless-solution-blackbox-f-1-g4",
+  "family": "dmxDistribution",
+  "manufacturer": "Wireless Solution",
+  "model": "BlackBox F-1 G4",
+  "pictogram": "control",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/wireless-solution_blackbox-g4-w-dmw_manuel.pdf",
+      "document": "Wireless Solution, W-DMX G4(S) User Manual édition 32 (via Novelty), §4.2.1 BlackBox F-1",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle, univers 1"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Bypass, XLR 5 points femelle"
+    },
+    {
+      "id": "rf",
+      "name": "W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "IEC 2,5 A (MK I) ou powerCON 20 A (MK II), 90-250 V ; génération non identifiée"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Connecteur Phoenix 12 V CC"
+    }
+  ]
+}

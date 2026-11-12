@@ -1,0 +1,154 @@
+{
+  "id": "samsung-ue46a",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Samsung",
+  "model": "UE46A",
+  "status": "community",
+  "description": "Ecran LED 46\", bord ultra fin (5,2mm), Full HD (1920x1080 - 16/9)",
+  "aliases": [
+    "UE46A@SOLO",
+    "SAMSUNG UE46A"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/ue46a/",
+      "document": "Novelty — UE46A",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_ue46a_manuel.pdf",
+      "document": "Novelty — UE46A : UE46A",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_ue46a_quickguide.pdf",
+      "document": "Novelty — UE46A : UE46A QuickStart Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_syncmaster_me32b_manuel.pdf",
+      "document": "Samsung, Manuel de l'utilisateur ME32B/ME40B/ME46B/ME55B/UE46A/UE55A (copie Novelty) : composants p. 23, face arrière pp. 26-27, câble stéréo IR p. 32, consommation",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "RGB In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI / MagicInfo In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10"
+    },
+    {
+      "id": "component",
+      "name": "AV / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C IN : câble stéréo RS232C (adaptateur fourni)"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C OUT : câble stéréo RS232C (adaptateur fourni)"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ir",
+      "name": "IR / ambient sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ; reçoit le câble stéréo jack 3,5 mm (section « IR Stereo Cable » du manuel)"
+    },
+    {
+      "id": "irOut",
+      "name": "IR Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    }
+  ],
+  "weightKg": 12,
+  "depthMm": 29.9,
+  "powerW": 136
+}

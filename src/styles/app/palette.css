@@ -1,0 +1,9 @@
+/* Palette de commandes et voile des fenêtres superposées. */
+
+/* ---------- Palette de commandes ---------- */
+.overlay { position: fixed; inset: 0; z-index: 50; background: var(--overlay); display: grid; place-items: start center; padding: 14vh 16px 16px; }
+.palette { width: min(580px, 100%); background: var(--bg-2); border: 1px solid var(--border-strong); border-radius: 10px; box-shadow: var(--shadow-2); overflow: hidden; }
+.palette input { width: 100%; padding: 14px 16px; border: 0; border-bottom: 1px solid var(--border); background: none; outline: none; font-size: 15px; }
+.palette ul { list-style: none; margin: 0; padding: 6px; max-height: 360px; overflow-y: auto; }
+.palette li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px; border-radius: 6px; font-size: 13.5px; cursor: pointer; }
+.palette li[aria-selected='true'] { background: var(--accent-soft); }

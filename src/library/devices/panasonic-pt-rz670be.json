@@ -1,0 +1,180 @@
+{
+  "id": "panasonic-pt-rz670be",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Panasonic",
+  "model": "PT-RZ670BE",
+  "status": "community",
+  "description": "Vidéoprojecteur Full HD (6500 lumens - 1920 x 1200), 3G-SDI, HD-SDI",
+  "aliases": [
+    "PANASONIC PT-RZ670BE"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-petite-puissance/4000-a-6000-lumens/pt-rz670be/",
+      "document": "Novelty — PT-RZ670BE",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/panasonic_pt-rz670_commandes.pdf",
+      "document": "Novelty — PT-RZ670BE : Control commands",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz670_ft.pdf",
+      "document": "Novelty — PT-RZ670BE : PT-RZ670B",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-rz670_manuel.pdf",
+      "document": "Novelty — PT-RZ670BE : PT-RZ670 (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/panasonic_pt-rz670_schema.pdf",
+      "document": "Novelty — PT-RZ670BE : Schéma technique",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-rz670_manuel-uk.pdf",
+      "document": "Novelty — PT-RZ670BE : PT-RZ670 (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_rz670_manuel-de-1448369116.pdf",
+      "document": "Novelty — PT-RZ670BE : PT-RZ670 (DE)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "rgb1-1",
+      "name": "RGB 1 R / Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-2",
+      "name": "RGB 1 G / Y / Video",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-3",
+      "name": "RGB 1 B / Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-4",
+      "name": "RGB 1 H / Sync",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-5",
+      "name": "RGB 1 V / C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb2",
+      "name": "RGB 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "serialIn",
+      "name": "Serial In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C"
+    },
+    {
+      "id": "serialOut",
+      "name": "Serial Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C link"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Remote 1 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3 (jack M3 = mini-jack 3,5 mm)"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Remote 1 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3 (jack M3 = mini-jack 3,5 mm)"
+    },
+    {
+      "id": "remote2",
+      "name": "Remote 2 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Commande parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "lanDigitalLink",
+      "name": "LAN / DIGITAL LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT, réseau 100BASE-TX, PJLink, Art-Net"
+    }
+  ],
+  "weightKg": 23.2,
+  "powerW": 720,
+  "depthMm": 581
+}

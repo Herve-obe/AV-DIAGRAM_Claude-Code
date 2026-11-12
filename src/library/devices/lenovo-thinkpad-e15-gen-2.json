@@ -1,0 +1,90 @@
+{
+  "id": "lenovo-thinkpad-e15-gen-2",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "Lenovo",
+  "model": "ThinkPad E15 Gen 2",
+  "status": "verified",
+  "description": "Ordinateur portable 15,6\", Intel Core i7 11 e génération, SSD 512 Go, Full HD, Windows 10 Professionnel, wifi 802.11ac",
+  "aliases": [
+    "E15",
+    "Lenovo ThinkPad E15 Gen 2"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/portable/thinkpad-e15-gen-2/",
+      "document": "Novelty — ThinkPad E15 Gen 2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7268-4488-thinkpad-e15-gen-2-intel-spec.pdf",
+      "document": "Novelty — ThinkPad E15 Gen 2 : ThinkPad_E15_Gen_2_Intel_Spec",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_2_Intel/ThinkPad_E15_Gen_2_Intel_Spec.PDF",
+      "document": "Lenovo PSREF, ThinkPad E15 Gen 2 (Intel), mars 2023 (vues latérales et ports)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "tb4",
+      "name": "Thunderbolt 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Thunderbolt 4 / USB4 40 Gb/s, Power Delivery 3.0 (charge 65 W USB-C), DisplayPort 1.4"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3.2 Gen 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Always On ; type A (dessin PSREF)"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Type A (dessin PSREF)"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4b, jusqu'à 4096x2160 à 30 Hz"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "headset",
+      "name": "Casque / micro",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Combo 3,5 mm"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 5 ou Wi-Fi 6 2x2 + Bluetooth 5.1 selon configuration"
+    }
+  ],
+  "weightKg": 1.7
+}

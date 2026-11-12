@@ -1,0 +1,49 @@
+{
+  "id": "l-acoustics-syva",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "Syva",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 21,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/syva/",
+      "document": "L-Acoustics, page produit Syva, spécifications",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/syva-n/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée speakON",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Enceinte colinéaire, 8 Ω"
+    },
+    {
+      "id": "term",
+      "name": "Bornier à vis 2 points",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "speaker",
+      "format": "Alternative au speakON"
+    },
+    {
+      "id": "ac",
+      "name": "AutoConnect",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "syva-autoconnect",
+      "level": "speaker",
+      "format": "Liaison AutoConnect entre éléments Syva (voir la documentation)"
+    }
+  ]
+}

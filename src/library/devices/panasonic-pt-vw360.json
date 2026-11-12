@@ -1,0 +1,140 @@
+{
+  "id": "panasonic-pt-vw360",
+  "family": "display",
+  "manufacturer": "Panasonic",
+  "model": "PT-VW360",
+  "pictogram": "projector",
+  "status": "verified",
+  "weightKg": 3.3,
+  "sources": [
+    {
+      "url": "https://na.panasonic.com/ns/300841_PT_VW360_S_4P_ctlg_PC.pdf",
+      "document": "Panasonic, catalogue PT-VW360",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "pc1",
+      "name": "Computer 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub HD 15 femelle (RGB, YPbPr, Y/C)"
+    },
+    {
+      "id": "pc2",
+      "name": "Computer 2 In / Computer 1 Out",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub HD 15 femelle, entrée ou sortie au choix par menu"
+    },
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Pin jack, vidéo composite"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3",
+      "level": "line+4"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9"
+    },
+    {
+      "id": "usb",
+      "name": "USB (A) Viewer / Wireless",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB type A, Memory Viewer, module sans fil"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non nommé"
+    },
+    {
+      "id": "audio2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3",
+      "level": "line+4"
+    },
+    {
+      "id": "audio3L",
+      "name": "Audio In 3 L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Pin jack",
+      "level": "line+4"
+    },
+    {
+      "id": "audio3R",
+      "name": "Audio In 3 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Pin jack",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Variable Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo M3",
+      "level": "line+4"
+    },
+    {
+      "id": "usbB",
+      "name": "USB (B) Display",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B, affichage USB"
+    }
+  ],
+  "powerW": 320
+}

@@ -1,0 +1,81 @@
+{
+  "id": "dpa-4066",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "4066",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.014,
+  "sources": [
+    {
+      "url": "https://www.dpamicrophones.com/document-portal/manual/product/4066/variant/16/",
+      "document": "DPA, manuel 4066 : MicroLock, TA4F, LEMO 3 broches, mini-jack ; 5 à 10 V par adaptateur DPA, P48 avec DAD6001-BC ; 14 g",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/microphones/headset-and-earset/4066",
+      "document": "DPA, page produit 4066 : références 4066-OC (CORE : MicroDot 00, LEMO 3 broches 03, TA4F 10, mini-jack 34) et 4066-OP (CORE+ : MicroLock 90, 03, 10, 34)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dpa_d-fine-slim-fidf00-2_manuel.pdf",
+      "document": "DPA, Headset Microphones Manual d:fine (2014, copie Novelty) : MicroDot en standard, 5 à 50 V par adaptateur DPA, fantôme 48 V ± 4 V avec DAD6001-BC, 1,5 mA (3,5 mA avec DAD6001-BC)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/4066f/",
+      "document": "Novelty, 4066F (codart 4066-F/TQG) : MicroDot, 14 g, adaptateurs DAD6001-BC/DAD6024/DAD4099",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Omnidirectionnel, 6 mV/Pa, impédance 30 à 40 ohms (MicroDot). Versions émetteur HF (MicroDot, MicroLock, TA4F, LEMO 3, mini-jack) : alimentation par l'émetteur via adaptateur DPA (5 à 10 V selon le manuel 4066, 5 à 50 V selon le manuel d:fine 2014). Version XLR : adaptateur DAD6001-BC, fantôme 48 V ± 4 V requis.",
+      "modes": [
+        {
+          "connector": "microlock",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "lemo3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "minijack",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "required"
+        }
+      ]
+    }
+  ],
+  "description": "Micro serre-tête omnidirectionnel DPA 4066 (gamme d:fine, versions CORE et CORE+), statique prépolarisé, 6 mV/Pa, port gauche ou droite (perche amovible), noir, beige ou brun, tailles standard et petite. Terminaison au choix : MicroDot (standard DPA, adaptateurs pour la plupart des émetteurs HF), MicroLock (CORE+), TA4F mini-XLR, LEMO 3 broches, mini-jack, ou XLR 3 via l'adaptateur fantôme DAD6001-BC.",
+  "aliases": [
+    "DPA 4066",
+    "d:fine 4066",
+    "4066 CORE",
+    "4066 CORE+",
+    "4066F",
+    "DPA 4066F",
+    "4066-F/TQG"
+  ],
+  "notes": "Fiche unique pour toutes les terminaisons du 4066 (modes de la prise). La référence du parc 4066-F/TQG (F = beige, TQG = adaptateur TA4F Shure) est la même micro : choisir le mode TA4F. La fiche dpa-4066f est un doublon."
+}

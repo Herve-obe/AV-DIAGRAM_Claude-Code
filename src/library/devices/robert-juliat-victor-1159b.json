@@ -1,0 +1,53 @@
+{
+  "id": "robert-juliat-victor-1159b",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Robert Juliat",
+  "model": "Victor 1159B",
+  "status": "community",
+  "description": "Poursuite Victor 1159B, lampe MSR 1 800 W, zoom 7–14,5°, alimentation électronique séparée. Variante DMX 1159B. Consommation système et connectique physique à compléter.",
+  "sources": [
+    {
+      "url": "https://www.robertjuliat.fr/Poursuites/Victor.html",
+      "document": "Robert Juliat — Victor, liste séparée des spécifications 1159 et 1159B DMX",
+      "accessed": "2026-11-04"
+    },
+    {
+      "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
+      "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_FR/Standard/DSFR104_1159B.pdf",
+      "document": "Robert Juliat : DSFR104 Victor 1159B, fiche standard",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis alimentation électronique",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Embase Harting Han 16 × 16 A + T, cordon détachable 3 m 18G1,5 vers l'alimentation électronique (entrée powerCON)"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR 5 points mâle (obturateur motorisé, amorçage)"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle"
+    }
+  ],
+  "powerW": 2040
+}

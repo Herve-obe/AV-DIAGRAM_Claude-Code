@@ -1,0 +1,143 @@
+{
+  "id": "mrc-audio-eqlimit",
+  "family": "processing",
+  "domain": "sound",
+  "pictogram": "processor",
+  "manufacturer": "MRC Audio",
+  "model": "EQlimit",
+  "status": "community",
+  "description": "Limiteur-enregistreur de niveau sonore global ou par tiers d'octave, 1 U, deux entrées micro de mesure (micro MS1 fourni), afficheur déporté DD1 en option. Connecteurs des micros, de l'afficheur, de l'USB et de l'alimentation modem non nommés ; niveaux nominaux non publiés.",
+  "aliases": [
+    "EQlimit-kit",
+    "EQLimit"
+  ],
+  "powerW": 30,
+  "weightKg": 3.0,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mrc_eqlimit_manuel-uk.pdf",
+      "document": "MRC Audio, EQlimit manuel (EN, copie Novelty) : panneau arrière (§ 4), connexions (§ 5.1), caractéristiques (< 30 W, 3 kg, 1 U)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/mrc_eqlimit_ft-uk.pdf",
+      "document": "MRC Audio, fiche EQlimit (EN, copie Novelty)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/mesure-acoustique/divers-mesure-acoustique/eqlimit-kit/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "XLR In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique",
+      "level": "line+4"
+    },
+    {
+      "id": "inR",
+      "name": "XLR In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique",
+      "level": "line+4"
+    },
+    {
+      "id": "outL",
+      "name": "XLR Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique",
+      "level": "line+4"
+    },
+    {
+      "id": "outR",
+      "name": "XLR Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Symétrique",
+      "level": "line+4"
+    },
+    {
+      "id": "mic1",
+      "name": "MIC 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Micro de mesure MS1, entrée symétrique"
+    },
+    {
+      "id": "mic2",
+      "name": "MIC 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Second micro optionnel"
+    },
+    {
+      "id": "display",
+      "name": "Display",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Afficheur déporté DD1, câble 5 m"
+    },
+    {
+      "id": "aux",
+      "name": "AUX",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Boîte relais, alarme incendie, détecteur de porte"
+    },
+    {
+      "id": "modem",
+      "name": "Modem",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232 vers modem GPRS optionnel"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Option Ethernet"
+    },
+    {
+      "id": "modemPwr",
+      "name": "Modem Power Feed",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Jack, 5 ou 15 V DC"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Façade, liaison PC"
+    },
+    {
+      "id": "ac",
+      "name": "Mains Input",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC, 90-250 V CA"
+    }
+  ]
+}

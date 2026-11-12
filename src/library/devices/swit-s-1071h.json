@@ -1,0 +1,117 @@
+{
+  "id": "swit-s-1071h",
+  "family": "display",
+  "manufacturer": "Swit",
+  "model": "S-1071H",
+  "pictogram": "display",
+  "status": "verified",
+  "description": "Moniteur 7 pouces 1024 x 600, entrées SDI, HDMI et composite",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/594474/swit-electronics-s-1071h.html?page=11",
+      "document": "SWIT, S-1071H User Manual p. 11 (copie ManualsDir) : Specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.tlu.ee/sites/default/files/Instituudid/BFM/Instituut/Kasutusjuhendid/S-1071H-User-Manual.pdf",
+      "document": "SWIT, S-1071H User Manual (copie TLU) : Front view, Rear view, Specifications",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage 3G/HD/SD-SDI"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiLoop",
+      "name": "HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Bouclage HDMI"
+    },
+    {
+      "id": "cvbs",
+      "name": "CVBS In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite PAL/NTSC"
+    },
+    {
+      "id": "cvbsLoop",
+      "name": "CVBS Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage composite"
+    },
+    {
+      "id": "audL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée audio stéréo gauche ; niveau non précisé",
+      "level": "line+4"
+    },
+    {
+      "id": "audR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Entrée audio stéréo droite ; niveau non précisé",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "Phone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Prise écouteurs 3,5 mm (audio SDI, HDMI ou analogique)"
+    },
+    {
+      "id": "tally",
+      "name": "Tally Control",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port de commande tally (RS-232), D-Sub 9 au dessin"
+    },
+    {
+      "id": "dc",
+      "name": "DC 12V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches (broche 1 -, broche 4 +), DC 12 V ; batterie DV 6,5-17 V par plaque S-7004 en option"
+    }
+  ],
+  "powerW": 8
+}

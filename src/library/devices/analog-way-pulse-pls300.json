@@ -1,0 +1,212 @@
+{
+  "id": "analog-way-pulse-pls300",
+  "family": "videoSwitcher",
+  "domain": "image",
+  "pictogram": "switcher",
+  "manufacturer": "Analog Way",
+  "model": "PULSE PLS300",
+  "status": "community",
+  "description": "Mélangeur Haute Résolution et Switcher à commutation propre avec Double Scaler",
+  "aliases": [
+    "PLS300",
+    "ANALOG WAY PULSE PLS300"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/pulse-pls300/",
+      "document": "Novelty — PULSE PLS300",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/pls300-231210_-vf_lr-pdf",
+      "document": "Novelty — PULSE PLS300 : Pulse PLS300",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vgaIn1",
+      "name": "Analog In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD15 femelle, analogique SD/ED/HD-TV et informatique"
+    },
+    {
+      "id": "vgaIn2",
+      "name": "Analog In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD15 femelle, analogique SD/ED/HD-TV et informatique"
+    },
+    {
+      "id": "vgaIn3",
+      "name": "Analog In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD15 femelle, analogique SD/ED/HD-TV et informatique"
+    },
+    {
+      "id": "vgaIn4",
+      "name": "Analog In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "HD15 femelle, analogique SD/ED/HD-TV et informatique"
+    },
+    {
+      "id": "dviIn1",
+      "name": "DVI-I In 1 / Analog In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I femelle : entrée analogique 5 ou DVI 1 (prise commune)"
+    },
+    {
+      "id": "dviIn2",
+      "name": "DVI-I In 2 / Analog In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I femelle : entrée analogique 6 ou DVI 2 (prise commune)"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "dviOut1",
+      "name": "Main DVI-I",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I numérique et analogique"
+    },
+    {
+      "id": "vgaOut1",
+      "name": "Main HD15",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RVB ou YUV"
+    },
+    {
+      "id": "dviOut2",
+      "name": "Preview DVI-I",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I numérique et analogique"
+    },
+    {
+      "id": "vgaOut2",
+      "name": "Preview HD15",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RVB ou YUV"
+    },
+    {
+      "id": "audioIn1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn3",
+      "name": "Audio In 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "audioIn4",
+      "name": "Audio In 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "audioInMco1",
+      "name": "Audio In MCO A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 10 points, entrées stéréo (5 à 7 et AUX, répartition non précisée)",
+      "level": "line+4"
+    },
+    {
+      "id": "audioInMco2",
+      "name": "Audio In MCO B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "MCO 10 points, entrées stéréo (5 à 7 et AUX, répartition non précisée)",
+      "level": "line+4"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "line+4",
+      "format": "MCO 10 points, stéréo sym./asym., +21 dBu max sur 600 ohms (sym.)"
+    },
+    {
+      "id": "serial",
+      "name": "RS-232 double",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Commande à distance"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC, 50/60 Hz, interrupteur"
+    }
+  ],
+  "weightKg": 5,
+  "powerW": 140
+}

@@ -1,0 +1,90 @@
+{
+  "id": "w-dmx-blackbox-f-1-g6",
+  "family": "dmxDistribution",
+  "domain": "light",
+  "pictogram": "switch",
+  "manufacturer": "W-DMX BLACKBOX",
+  "model": "F-1 G6",
+  "status": "verified",
+  "description": "Émetteur-récepteur DMX sans fil W-DMX BlackBox F-1 G6 : DMX in/out en XLR 5 et XLR 3, antenne W-DMX (CRMX en option), powerCON TRUE1 TOP et entrée 12 V CC de secours ; 260 × 210 × 70 mm, 1 kg.",
+  "aliases": [
+    "WDMX-F1G6",
+    "W-DMX BLACKBOX F-1 G6"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/f-1-g6/",
+      "document": "Novelty — F-1 G6",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1628-4378-52001-datasheet.pdf",
+      "document": "Novelty — F-1 G6 : F-1 G6",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5908-4378-52001-manual-gb-v1.pdf",
+      "document": "Novelty — F-1 G6 : 52001_MANUAL_GB_V1",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 TOP, 85-250 V / 47-440 Hz"
+    },
+    {
+      "id": "dmxIn5",
+      "name": "DMX In (XLR 5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle"
+    },
+    {
+      "id": "dmxOut5",
+      "name": "DMX Out (XLR 5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In (XLR 3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points mâle"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Out (XLR 3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points femelle"
+    },
+    {
+      "id": "rf",
+      "name": "Antenne W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "W-DMX G6 (CRMX sous licence), antenne omnidirectionnelle 3 dBi fournie, 100 mW"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée 12 V CC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier Phoenix 5,08 mm, 12 V CC ± 20 %, secours"
+    }
+  ],
+  "weightKg": 1
+}

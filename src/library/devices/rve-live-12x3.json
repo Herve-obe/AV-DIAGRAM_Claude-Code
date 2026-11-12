@@ -1,0 +1,244 @@
+{
+  "id": "rve-live-12x3",
+  "family": "dmxDistribution",
+  "manufacturer": "RVE",
+  "model": "LIVE 12x3",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/rve_live-12x3_ft.pdf",
+      "document": "RVE : fiche technique LIVE 6 et 12 × 3 kW, 3 et 6 × 5 kW : connectique, sorties, DMX (hébergée par Novelty)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/3kw/live-12x3/",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, embase XLR 5 mâle, maintien du dernier niveau"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, embase XLR 5 femelle"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée triphasée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "bare-wire",
+      "format": "Câble 1,5 m 3P+N+T 230/400 V 50/60 Hz livré sans fiche (fiche technique RVE LIVE : « cable lenght 1m50 without sockets »)"
+    },
+    {
+      "id": "acOut",
+      "name": "Sortie 1 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out1b",
+      "name": "Sortie 1 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out2a",
+      "name": "Sortie 2 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out2b",
+      "name": "Sortie 2 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out3a",
+      "name": "Sortie 3 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out3b",
+      "name": "Sortie 3 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out4a",
+      "name": "Sortie 4 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out4b",
+      "name": "Sortie 4 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out5a",
+      "name": "Sortie 5 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out5b",
+      "name": "Sortie 5 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out6a",
+      "name": "Sortie 6 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out6b",
+      "name": "Sortie 6 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out7a",
+      "name": "Sortie 7 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out7b",
+      "name": "Sortie 7 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out8a",
+      "name": "Sortie 8 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out8b",
+      "name": "Sortie 8 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out9a",
+      "name": "Sortie 9 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out9b",
+      "name": "Sortie 9 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out10a",
+      "name": "Sortie 10 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out10b",
+      "name": "Sortie 10 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out11a",
+      "name": "Sortie 11 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out11b",
+      "name": "Sortie 11 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    },
+    {
+      "id": "out12a",
+      "name": "Sortie 12 A",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, voie 3 kW"
+    },
+    {
+      "id": "out12b",
+      "name": "Sortie 12 B",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise double NF 10/16 A, même voie"
+    }
+  ],
+  "aliases": [
+    "Live 12×3",
+    "12X3LIVE",
+    "RVE Live 12×3"
+  ],
+  "description": "Bloc de gradation RVE LIVE 12 × 3 kW. Alimentation tri 230/400 V sur câble 1,5 m sans fiche ; 12 prises doubles NF 10/16 A ; DMX 512 XLR 5 entrée et recopie."
+}

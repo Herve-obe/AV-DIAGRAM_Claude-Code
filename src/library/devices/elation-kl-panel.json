@@ -1,0 +1,96 @@
+{
+  "id": "elation-kl-panel",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "KL Panel",
+  "pictogram": "light",
+  "status": "community",
+  "powerW": 295,
+  "weightKg": 13,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/products/kl-panel",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/tv-photo/kl-panel/",
+      "document": "Novelty — KL Panel",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/58992-KLPanelUserManual.pdf",
+      "document": "Elation, KL Panel User Manual (copie Full Compass) : vue d'ensemble p. 9, caractéristiques",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM ; émetteur-récepteur sans fil E-FLY intégré"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Connecteur non précisé, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Chaînage secteur"
+    },
+    {
+      "id": "net-in",
+      "name": "Net In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
+    },
+    {
+      "id": "net-out",
+      "name": "Net Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
+    },
+    {
+      "id": "usb",
+      "name": "Service Port (USB)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "Mise à jour logicielle, alimentation 5 V d'accessoires ; type d'embase non nommé"
+    },
+    {
+      "id": "batt",
+      "name": "Batterie",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points, 24-36 V CC (batterie non fournie)"
+    }
+  ],
+  "aliases": [
+    "KLPANEL",
+    "Elation KL Panel"
+  ]
+}

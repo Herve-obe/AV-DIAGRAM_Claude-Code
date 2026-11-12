@@ -1,0 +1,248 @@
+{
+  "id": "sobem-scame-ad630-outdoor",
+  "family": "power",
+  "domain": "distribution",
+  "pictogram": "power",
+  "manufacturer": "Sobem-Scame",
+  "model": "AD630 Outdoor",
+  "status": "verified",
+  "description": "Armoire de distribution extérieure IP44. Entrée : 2 jeux de Powerlock 150 mm2. Sorties : 5 x P17 125tri + 4 x P17 63tri + 4 x P17 32tri + 4 x P17 32mono + 6 x PC16A. Protection différentielle réglable sur chaque départ. Dé-classable en 400A, 250A. Les prises Socapex et leurs reprises PC16 partagent des circuits ; leur présence ne multiplie pas la puissance disponible. Les cotes et masses de flight-case ne sont pas utilisées comme celles de l’appareil.",
+  "aliases": [
+    "Sobem-Scame AD630 Outdoor"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/630a/ad630-outdoor/",
+      "document": "Novelty — AD630 Outdoor",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/indu-electric_ad630-outdoor_DPX630.pdf",
+      "document": "Novelty — AD630 Outdoor : Legrand DPX630",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/indu-electric_ad630-outdoor_RCM420.pdf",
+      "document": "Novelty — AD630 Outdoor : Bender RCM420",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/indu-electric_ad630-outdoor_VAF-1.pdf",
+      "document": "Novelty — AD630 Outdoor : Indu-electric VAF-1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/energie/armoire-de-distribution/630a/ad630-outdoor/",
+      "document": "Novelty : arrivées, sorties et caractéristiques propres à sobem-scame-ad630-outdoor",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/03/Novelty_catalogue_2025_FR.pdf",
+      "document": "Novelty catalogue 2025, pages 163 et 169 : légende des prises (pictogrammes), photos et protections, relues le 7 novembre 2026",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Arrivée powerlock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Jeu de Powerlock 150 mm², disjoncteur général NSX630F 4P 630 A avec bobine MX, déclassable 400 ou 250 A"
+    },
+    {
+      "id": "arrival2",
+      "name": "Deuxième jeu Powerlock",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerlock",
+      "format": "Jeu de Powerlock 150 mm², disjoncteur général NSX630F 4P 630 A avec bobine MX, déclassable 400 ou 250 A"
+    },
+    {
+      "id": "out1",
+      "name": "p17-125-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "125 A tri, NSX100N Micrologic 2.2 + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out2",
+      "name": "p17-125-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "125 A tri, NSX100N Micrologic 2.2 + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out3",
+      "name": "p17-125-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "125 A tri, NSX100N Micrologic 2.2 + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out4",
+      "name": "p17-125-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "125 A tri, NSX100N Micrologic 2.2 + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out5",
+      "name": "p17-125-tri 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-125-tri",
+      "format": "125 A tri, NSX100N Micrologic 2.2 + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out6",
+      "name": "p17-63-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "63 A tri, NSX100N TM63D + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out7",
+      "name": "p17-63-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "63 A tri, NSX100N TM63D + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out8",
+      "name": "p17-63-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "63 A tri, NSX100N TM63D + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out9",
+      "name": "p17-63-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-63-tri",
+      "format": "63 A tri, NSX100N TM63D + bloc Vigi MH réglable"
+    },
+    {
+      "id": "out10",
+      "name": "p17-32-tri 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri, iC60H 4P 32 A + différentiel (2 départs 40 A 30 mA, 2 départs 63 A 300 mA sélectif)"
+    },
+    {
+      "id": "out11",
+      "name": "p17-32-tri 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri, iC60H 4P 32 A + différentiel (2 départs 40 A 30 mA, 2 départs 63 A 300 mA sélectif)"
+    },
+    {
+      "id": "out12",
+      "name": "p17-32-tri 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri, iC60H 4P 32 A + différentiel (2 départs 40 A 30 mA, 2 départs 63 A 300 mA sélectif)"
+    },
+    {
+      "id": "out13",
+      "name": "p17-32-tri 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-tri",
+      "format": "32 A tri, iC60H 4P 32 A + différentiel (2 départs 40 A 30 mA, 2 départs 63 A 300 mA sélectif)"
+    },
+    {
+      "id": "out14",
+      "name": "p17-32-mono 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "32 A mono, iC60H 2P 32 A + différentiel 2P 40 A 30 mA"
+    },
+    {
+      "id": "out15",
+      "name": "p17-32-mono 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "32 A mono, iC60H 2P 32 A + différentiel 2P 40 A 30 mA"
+    },
+    {
+      "id": "out16",
+      "name": "p17-32-mono 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "32 A mono, iC60H 2P 32 A + différentiel 2P 40 A 30 mA"
+    },
+    {
+      "id": "out17",
+      "name": "p17-32-mono 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "32 A mono, iC60H 2P 32 A + différentiel 2P 40 A 30 mA"
+    },
+    {
+      "id": "out18",
+      "name": "PC16 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), iC60H 16 A + différentiel 25 A 30 mA"
+    },
+    {
+      "id": "out19",
+      "name": "PC16 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), iC60H 16 A + différentiel 25 A 30 mA"
+    },
+    {
+      "id": "out20",
+      "name": "PC16 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), iC60H 16 A + différentiel 25 A 30 mA"
+    },
+    {
+      "id": "out21",
+      "name": "PC16 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), iC60H 16 A + différentiel 25 A 30 mA"
+    },
+    {
+      "id": "out22",
+      "name": "PC16 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), iC60H 16 A + différentiel 25 A 30 mA"
+    },
+    {
+      "id": "out23",
+      "name": "PC16 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "Prise française 16 A 2P+T (PC16), iC60H 16 A + différentiel 25 A 30 mA"
+    }
+  ],
+  "weightKg": 345
+}

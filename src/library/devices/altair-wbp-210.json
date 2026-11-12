@@ -1,0 +1,54 @@
+{
+  "id": "altair-wbp-210",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "WBP-210",
+  "pictogram": "intercom",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.snotechnique.com/image/data/Produit/Sonorisation/Intercom/Altair/Altair-Manuel-WBP210-UK.pdf",
+      "document": "Altair, mode d'emploi WBP-210 (via SNO Technique)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Monocanal, vers base WBS"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4 mâle (dessin du panneau arrière), en parallèle de la mini XLR-4 Tiny QG"
+    },
+    {
+      "id": "headset-mini",
+      "name": "Casque (mini XLR-4)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "format": "Tiny QG (mini XLR-4) en parallèle de la XLR-4"
+    },
+    {
+      "id": "usb",
+      "name": "Charge",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-b",
+      "format": "Embase USB type B (dessin du panneau arrière), charge de la batterie Li-Ion 1800 mAh par le chargeur WBPC-210"
+    }
+  ]
+}

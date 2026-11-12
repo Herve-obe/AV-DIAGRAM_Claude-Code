@@ -1,0 +1,52 @@
+{
+  "id": "eaton-ultraled-2000",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Eaton",
+  "model": "ULTRALED 2000 (LUM16030)",
+  "status": "verified",
+  "description": "Bloc autonome d'éclairage de sécurité anti-panique à phares (10 LED), 2000 lm, autonomie 1 h, SATI, IP42 IK07, classe II, 230 V 50-60 Hz. Raccordement sur domino fourni : secteur et ligne de télécommande (TL500 ou TLU). Version étanche IP65 : ULTRALED 2000 ES (LUM16032).",
+  "aliases": [
+    "Eaton ULTRALED 2000",
+    "LUM16030",
+    "ULTRALED 2000"
+  ],
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/sonepar-fr/raw/upload/s--XvbRRcFC--/v1/documents/6226/eaton-eclairage-securite-baes-anti-panique-ultraled-2000-notice-zno20241-aout-14-fr-fr.pdf",
+      "document": "Eaton (Cooper Sécurité), manuel ULTRALED 2000 & 2000 ES ZNO2024100 F 12/2016 : schéma de branchement secteur + télécommande, caractéristiques (copie Sonepar)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://res.cloudinary.com/sonepar-fr/raw/upload/s--clVAvNIE--/v1/documents/6226/eaton-emergency-lighting-baes-planete-2000-et-2000-es-adr-cgline-datasheet-fr-fr.pdf",
+      "document": "Eaton, fiche Planète 2000 et ULTRALED 2000 : ULTRALED 2000 LUM16030, 2000 lm, 1 h, consommation 6 W (copie Sonepar)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/securite/signalisation/ultraled-2000/",
+      "document": "Novelty : ULTRALED 2000",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Domino fourni, 230 V 50-60 Hz"
+    },
+    {
+      "id": "remote",
+      "name": "Télécommande",
+      "direction": "in",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Ligne de télécommande + / - (TL500, TLU) : mise au repos, programmation des tests"
+    }
+  ],
+  "powerW": 6,
+  "notes": "Version constructeur. La batterie diffère selon le document (16 × 1,2 V / 1,5 Ah dans le manuel, 32 × 1,2 V / 1,6 Ah dans la fiche) : non reprise. Poids non publié."
+}

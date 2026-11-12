@@ -1,0 +1,66 @@
+{
+  "id": "barco-r9864140",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "3D Input (R9864140)",
+  "pictogram": "processor",
+  "moduleType": "barco-hd-input",
+  "status": "verified",
+  "description": "Module d'entrée 3D optionnel (DisplayPort, HDMI, synchro 3D entrée et sortie) pour les emplacements libres des projecteurs Barco HDX et HDF. Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_manuel.pdf",
+      "document": "Barco, HDX series User Manual R5905032 (05/12/2014), chapitre 4.2 Input source connections",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdf-w30-flex_manuel.pdf",
+      "document": "Barco, HDF series User Manual (hébergé par Novelty) : mêmes modules d'entrée R9864010 et R9864140 pour les emplacements libres",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdx-w20-flex_QuickStartGuide.pdf",
+      "document": "Barco, HDX Quick Start Guide : Optional input 5-CABLE INPUT R9864010, Optional 3D input R9864140",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sync3dIn",
+      "name": "3D SYNC IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchro 3D externe (modes séquentiels)"
+    },
+    {
+      "id": "dp",
+      "name": "DISPLAYPORT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.1a, jusqu'à 210 MHz, Deep Color 12 bits"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a, jusqu'à 210 MHz, Deep Color 12 bits"
+    },
+    {
+      "id": "sync3dOut",
+      "name": "3D SYNC OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchro 3D vers émetteur infrarouge de lunettes actives"
+    }
+  ],
+  "aliases": [
+    "R9864140",
+    "Barco 3D input module"
+  ]
+}

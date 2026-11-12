@@ -1,0 +1,47 @@
+{
+  "id": "midas-xl390",
+  "family": "power",
+  "domain": "sound",
+  "manufacturer": "Midas",
+  "model": "XL390",
+  "pictogram": "power",
+  "status": "community",
+  "weightKg": 10,
+  "description": "Bloc d'alimentation des consoles XL3 : deux blocs à découpage, fusible 5 A, rails ±17,5 V et +48 V. Rack 483 x 89 x 418 mm (2U). Sortie circulaire 19 broches femelle vers la console, liaison circulaire 19 broches mâle pour un second bloc. Embase secteur non nommée dans le document.",
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/677098/Midas-Xl3.html",
+      "document": "Midas, XL-3 Manual et brochure XL3 (p. 6-8 : formats, poids, spécifications ; p. 46 : module XL-332 ; p. 50 : dimensions ; p. 122-123 : bloc XL390), copie manualslib ; pages transmises par Hervé Obejero",
+      "accessed": "2026-11-09"
+    }
+  ],
+  "aliases": [
+    "XL-390",
+    "XL3 PSU"
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified"
+    },
+    {
+      "id": "out",
+      "name": "Sortie console",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Circulaire 19 broches femelle"
+    },
+    {
+      "id": "link",
+      "name": "Liaison",
+      "direction": "bidir",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Circulaire 19 broches mâle"
+    }
+  ]
+}

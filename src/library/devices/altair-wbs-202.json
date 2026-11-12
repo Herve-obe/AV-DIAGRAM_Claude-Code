@@ -1,0 +1,167 @@
+{
+  "id": "altair-wbs-202",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "WBS-202",
+  "pictogram": "intercom",
+  "status": "community",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.rent4event.de/pdf/altair-wbs202.pdf",
+      "document": "Altair, mode d'emploi WBS-202 (via Rent4Event)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair, catalogue intercom (via Theatrelight)",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ant1",
+      "name": "Antenne 1",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma"
+    },
+    {
+      "id": "ant2",
+      "name": "Antenne 2",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma"
+    },
+    {
+      "id": "ant1r",
+      "name": "Antenne 1 arrière",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "SMA secondaire ANT-1R (diversité)"
+    },
+    {
+      "id": "ant2r",
+      "name": "Antenne 2 arrière",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "SMA secondaire ANT-2R (diversité)"
+    },
+    {
+      "id": "lineA",
+      "name": "Line A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "lineB",
+      "name": "Line B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "prg",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3-31 femelle symétrique 40 kΩ, sélecteur LINE / MIC",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "pa",
+      "name": "PA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "sa",
+      "name": "SA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4 mâle en façade, en parallèle de la mini XLR-4 Tiny QG"
+    },
+    {
+      "id": "headset-mini",
+      "name": "Casque (mini XLR-4)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "format": "Tiny QG en parallèle de la XLR-4"
+    },
+    {
+      "id": "sync",
+      "name": "Synchro Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "RJ-11 6 broches « OUT », synchronisation de plusieurs bases"
+    },
+    {
+      "id": "syncIn",
+      "name": "Synchro In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj12",
+      "format": "RJ-11 6 broches « IN »"
+    },
+    {
+      "id": "aux",
+      "name": "Audio Link MIC",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo « MIC » (pointe entrée, bague sortie), liaison préampli micro entre bases"
+    },
+    {
+      "id": "auxEar",
+      "name": "Audio Link EAR",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo « EAR » (pointe entrée, bague sortie), écoute vers enceinte ou repère"
+    },
+    {
+      "id": "relay",
+      "name": "Relais",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo, contact inverseur (pointe NO, bague NF, corps commun), activé par SA ou Mic A/B"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec porte-fusible T2A, 90-265 V, 30 VA max (plaque)"
+    }
+  ],
+  "powerW": 30
+}

@@ -1,0 +1,57 @@
+{
+  "id": "barco-em-hdmi-output-card",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "Event Master HDMI Output Card",
+  "pictogram": "processor",
+  "moduleType": "barco-em-output",
+  "status": "verified",
+  "description": "Carte 4 sorties HDMI 1.4a, aussi utilisée comme carte multiviewer (MVR, 2 sorties utilisées). Carte Event Master (non échangeable à chaud) ; référence de commande et consommation non indiquées dans les documents lus.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_quickstart.pdf",
+      "document": "Barco, E2 Quick Start Guide 26-1205004-00 Rev 00 : SDI Input & Output Cards, DVI Input Cards, DisplayPort/HDMI Combo Input Cards, HDMI Output cards (including MVR)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-uk.pdf",
+      "document": "Barco, fiche E2 : 28 entrées via 8 cartes, 14 sorties via 4 cartes (Event Master series cards)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "HDMI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a ; avec la 2e, un signal 4K/UHD"
+    },
+    {
+      "id": "out2",
+      "name": "HDMI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a ; avec la 2e, un signal 4K/UHD"
+    },
+    {
+      "id": "out3",
+      "name": "HDMI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a"
+    },
+    {
+      "id": "out4",
+      "name": "HDMI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "tc-electronic-ada-24-96",
+  "family": "module",
+  "manufacturer": "TC Electronic",
+  "model": "ADA 24/96",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "tc-s6000-io",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/8070-TCReverb6000TechSpecs.pdf",
+      "document": "TC Electronic, brochure System 6000 (copie Full Compass, 2000) : caractéristiques ADA 24/96 Analog I/O et photo de la face arrière",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tc-electronic_m6000mkii_manuel.pdf",
+      "document": "TC Electronic, System 6000 MKII Operation Manual (copie du distributeur Novelty) : « System 6000 Mainframe Rear » p. 7, « Installing Additional I/O Cards » p. 11, « Specifications - Mainframe 6000 MKII » p. 66",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Analog In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (broche 2 +, 3 -), 10/3 kohms ; niveau pleine échelle réglable de +6 à +30 dBu par pas de 6 dB (exemple du manuel : console à +4 dBu)"
+    },
+    {
+      "id": "inR",
+      "name": "Analog In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (broche 2 +, 3 -), 10/3 kohms ; niveau pleine échelle réglable de +6 à +30 dBu"
+    },
+    {
+      "id": "outL",
+      "name": "Analog Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (broche 2 +, 3 -), 40/20 ohms ; niveau pleine échelle réglable 6/0 à 24/18 dBu (sym./asym.), mode sortie symétrique ou asymétrique"
+    },
+    {
+      "id": "outR",
+      "name": "Analog Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (broche 2 +, 3 -), 40/20 ohms ; niveau pleine échelle réglable 6/0 à 24/18 dBu"
+    }
+  ],
+  "description": "Carte d'E/S analogique stéréo du Mainframe System 6000 : deux entrées et deux sorties XLR symétriques, conversion 24 bits jusqu'à 96 kHz. Se monte dans les emplacements I/O A, B ou C. Alimentée par le châssis ; consommation non publiée.",
+  "aliases": [
+    "TC Electronic ADA 24/96",
+    "ADA24/96"
+  ]
+}

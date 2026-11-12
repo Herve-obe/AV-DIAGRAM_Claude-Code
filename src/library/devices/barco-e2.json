@@ -1,0 +1,58 @@
+{
+  "id": "barco-e2",
+  "family": "videoSwitcher",
+  "manufacturer": "Barco",
+  "model": "E2 (Event Master)",
+  "pictogram": "switcher",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/3b64ca7d2e0027e/original/E2-Gen-2-BTO-en-Spec-sheet.pdf",
+      "document": "Barco, fiche E2 Gen 2",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence analogique tri-level et black burst"
+    },
+    {
+      "id": "glLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Boucle"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ-45 10/100/1000 Mb/s, Event Master Toolset, WebUI, API"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur alimentation 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC, 50/60 Hz, 12-5 A"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur alimentation 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100-240 V AC, 50/60 Hz, 12-5 A (redondante)"
+    }
+  ],
+  "powerW": 1100
+}

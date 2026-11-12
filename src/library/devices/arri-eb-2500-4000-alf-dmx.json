@@ -1,0 +1,48 @@
+{
+  "id": "arri-eb-2500-4000-alf-dmx",
+  "family": "power",
+  "domain": "light",
+  "pictogram": "power",
+  "manufacturer": "ARRI",
+  "model": "EB 2500/4000 ALF DMX",
+  "status": "community",
+  "description": "Ballast électronique 2500/4000 W ARRI avec ALF et DMX, pour têtes HMI 2,5 et 4 kW (dont Compact 2500/4000). Connecteurs DMX, tête et secteur non publiés par la source revendeur. Le catalogue loueur décrit le kit Compact SE avec un « ballast selfique DMX » : modèle exact à confirmer.",
+  "aliases": [
+    "L2.76676UL",
+    "ARRI 2500/4000W Electronic Ballast",
+    "Compact SE2500 (ballast)",
+    "Compact SE4000 (ballast)"
+  ],
+  "sources": [
+    {
+      "url": "https://www.abelcine.com/buy/lighting/power-accessories/arri-2500-4000w-120-240v-electronic-ballast-alf-and-dmx",
+      "document": "AbelCine, ARRI 2500/4000W 120-240V Electronic Ballast (ALF & DMX), réf. L2.76676UL (revendeur)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX (ballast)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "unspecified"
+    },
+    {
+      "id": "head",
+      "name": "Câble projecteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Vers tête HMI"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur (ballast)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "HMI 2500 W, ballast électronique"
+    }
+  ]
+}

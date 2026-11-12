@@ -1,0 +1,43 @@
+{
+  "id": "work-l6dmx-serie-2",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "WORK",
+  "model": "L6DMX Série 2",
+  "status": "community",
+  "description": "Controller DMX 6 circuits, fonctionne sur secteur ou sur pile 9V, DMX512",
+  "aliases": [
+    "L6DMX",
+    "WORK L6DMX Série 2"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/6-circuits/l6dmx-serie-2/",
+      "document": "Novelty — L6DMX Série 2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://media.equipson.es/Docs/Manuales/L6DMX_FULLMANUAL_6_V1.pdf",
+      "document": "WORK (Equipson), L6 DMX User Manual V1 (Series 2 sur la photo)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.equipson.es/product/l-6-dmx",
+      "document": "Equipson (maison mère WORK), page produit L 6 DMX (abandonné)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points femelle, inverseur de polarité DMX"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 0.8
+}

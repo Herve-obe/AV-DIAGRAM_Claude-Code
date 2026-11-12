@@ -1,0 +1,51 @@
+{
+  "id": "audio-technica-at8646qm",
+  "family": "passive",
+  "domain": "sound",
+  "pictogram": "patch",
+  "manufacturer": "Audio-Technica",
+  "model": "AT8646QM",
+  "status": "verified",
+  "description": "Platine antichoc de pupitre avec connecteur XLR femelle et raccordement par bornier. Variante QM câblée, distincte du support mécanique AM.",
+  "aliases": [
+    "Audio Technica AT8646QM"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/accessoires-sonorisation/microphones-pieds/at8646qm/",
+      "document": "Novelty — AT8646QM",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1208853218.pdf",
+      "document": "Novelty — AT8646QM : AT8646QM",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.audio-technica.com.hk/templates/index/file/320_1_AT8646_47.pdf",
+      "document": "Audio-Technica — AT8646QM, fixation avec connecteur XLR femelle et bornier de câblage",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Microphone (XLR F)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Embase XLRF du support antichoc"
+    },
+    {
+      "id": "out",
+      "name": "Sortie bornier",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "level": "mic",
+      "format": "Bornier à vis, ordre 1-3-2 ; blindage en 1, signal symétrique et fantôme en 2 et 3"
+    }
+  ],
+  "weightKg": 0.064
+}

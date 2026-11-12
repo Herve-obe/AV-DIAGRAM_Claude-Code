@@ -1,0 +1,63 @@
+{
+  "id": "genelec-8020-cpm",
+  "family": "speaker",
+  "domain": "sound",
+  "pictogram": "speaker",
+  "manufacturer": "GENELEC",
+  "model": "8020 CPM",
+  "status": "community",
+  "description": "Enceinte de monitoring active 4\" + 3/4\", 40W RMS, bi-amplifié, noire",
+  "aliases": [
+    "8020CPM",
+    "GENELEC 8020 CPM"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-monitoring/8020-cpm/",
+      "document": "Novelty — 8020 CPM",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/genelec_8020b_quickguide.pdf",
+      "document": "Novelty — 8020 CPM : 8020 (Quick Guide Setup)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/genelec_8020b_manuel.pdf",
+      "document": "Novelty — 8020 CPM : 8020",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/genelec_8020b_ft.pdf",
+      "document": "Novelty — 8020 CPM : 8020",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/18480-8020COperatingManual.pdf",
+      "document": "Genelec 8020C Operating Manual (copie Full Compass)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle symétrique 10 kΩ"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "100/120/220/230 V selon région ; cordon secteur avec terre fourni"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 3.7,
+  "powerW": 50
+}
