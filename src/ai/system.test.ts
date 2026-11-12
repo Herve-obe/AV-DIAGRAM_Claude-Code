@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { GENERIC_LIBRARY } from '../library/generic'
+import { LIBRARY } from '../library'
 import { createProject, DEFAULT_SHEET_ID, isProject } from '../model/project'
 import { checkProject } from '../model/rules'
 import { createDraft, runTool } from './tools'
@@ -117,6 +118,15 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     const error = JSON.parse(runTool(base(), call('propose_system', wrong), ctx).content).error
     expect(error).toContain('Rôle ou équipement inconnu : desk1, console FOH')
     expect(error).toContain('Refs utilisables dans from et to : mic1, mic2, mic3, desk')
+  })
+
+  it('une liaison impossible nomme les connecteurs en présence et les fiches du même type compatibles', () => {
+    const library = [...GENERIC_LIBRARY, ...LIBRARY.filter(t => t.id.startsWith('shure-beta98') || t.id.startsWith('shure-beta-98'))]
+    const hf = { equipment: [{ ref: 'perc', template_id: 'shure-beta98-hf' }, { ref: 'desk', template_id: 'gen-console' }], connections: [{ from: 'perc', to: 'desk', signal: 'audioAnalog' }] }
+    const error = JSON.parse(runTool(base(), call('propose_system', hf), { ...ctx, library }).content).error
+    expect(error).toContain('sorties libres : ta4 mic ; entrées libres : xlr3 mic')
+    expect(error).toContain('shure-beta-98h-c')
+    expect(error).not.toContain('shure-beta98-hf,')
   })
 
   it('un plan avec une ref en double nomme le rôle fautif', () => {

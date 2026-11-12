@@ -3,15 +3,24 @@ import { cablesFor } from './cables'
 import { connectorsMate } from './connectors'
 import { connect, updateLink } from './project'
 import { checkLink } from './rules'
-import { familiesCompatible, SIGNAL_FAMILIES } from './signals'
-import type { Project } from './types'
+import { familiesCompatible, SIGNAL_FAMILIES, type SignalFamily } from './signals'
+import type { PortDef, Project } from './types'
 
 // Une fiche peut annoncer plusieurs formats ; un câble ne convertit pas deux protocoles distincts.
 const protocols = [/\bAES(?:3|\/EBU)\b/i, /\bMADI\b/i, /S\/?PDIF/i, /\bADAT\b/i, /\bUSB\b/i, /\bDante\b/i, /\bAVB\b/i, /\bAES50\b/i, /\bWord\s*clock\b/i, /\bLTC\b/i, /\bBlack\s*burst\b/i, /\btri[ -]?level\b/i]
 const formats = (value = '') => protocols.flatMap((pattern, i) => pattern.test(value) ? [i] : [])
 
 /** Une sortie et une entrée libres par câble ; les appareils multiples sont appariés explicitement. */
-export function connectSystem(project: Project, roles: Map<string, string[]>, connections: unknown): { project: Project; addedLinks: string[] } | { error: string } {
+/** Une sortie se branche sur une entrée, directement ou par un câble adaptateur du catalogue. */
+export const connectorsJoin = (output: string, input: string) => connectorsMate(output, input) || cablesFor(output, input).length > 0
+
+/** Prises audio exploitables pour un flux : une prise analogique sans niveau documenté n'est pas câblable. */
+export const usablePort = (port: PortDef, signal: SignalFamily, input: boolean) => familiesCompatible(port.signal, signal)
+  && (input ? port.direction !== 'out' : port.direction !== 'in') && (port.signal !== 'audioAnalog' || (!!port.level && port.level !== 'none'))
+
+export type SystemError = { error: string; pair?: { sourceId: string; targetId: string; signal: SignalFamily } }
+
+export function connectSystem(project: Project, roles: Map<string, string[]>, connections: unknown): { project: Project; addedLinks: string[] } | SystemError {
   if (!Array.isArray(connections) || connections.length > 100) return { error: 'connections doit contenir au maximum 100 liaisons.' }
   let next = project
   const addedLinks: string[] = []
@@ -35,16 +44,15 @@ export function connectSystem(project: Project, roles: Map<string, string[]>, co
       for (let cableIndex = 0; cableIndex < count; cableIndex++) {
         if (addedLinks.length >= 100) return { error: 'Limite de 100 câbles par proposition. Découper le système.' }
         const used = new Set(Object.values(next.links).flatMap(l => [l.source, l.target]).map(r => `${r.equipmentId}/${r.portId}`))
-        const candidates = (id: string, input: boolean) => next.equipment[id].ports.filter(p => familiesCompatible(p.signal, entry.signal)
-          && (input ? p.direction !== 'out' : p.direction !== 'in') && !used.has(`${id}/${p.id}`)
-          && (p.signal !== 'audioAnalog' || (!!p.level && p.level !== 'none'))).sort((a, b) => Number(b.signal === entry.signal) - Number(a.signal === entry.signal))
+        const candidates = (id: string, input: boolean) => next.equipment[id].ports.filter(p => usablePort(p, entry.signal, input) && !used.has(`${id}/${p.id}`))
+          .sort((a, b) => Number(b.signal === entry.signal) - Number(a.signal === entry.signal))
         let selected: { project: Project; id: string } | undefined
         for (const output of candidates(sourceId, false)) {
           for (const input of candidates(targetId, true)) {
             const outputFormats = formats(output.format), inputFormats = formats(input.format)
             if (outputFormats.length && inputFormats.length && !outputFormats.some(f => inputFormats.includes(f))) continue
             const cable = cablesFor(output.connector, input.connector)[0]
-            if (!connectorsMate(output.connector, input.connector) && !cable) continue
+            if (!connectorsJoin(output.connector, input.connector)) continue
             const result = connect(next, { equipmentId: sourceId, portId: output.id }, { equipmentId: targetId, portId: input.id })
             if (!result.id) continue
             const patched = updateLink(result.project, result.id, { ...(cable ? { cableTypeId: cable.id } : {}), ...(entry.purpose ? { notes: entry.purpose } : {}) })
@@ -55,7 +63,9 @@ export function connectSystem(project: Project, roles: Map<string, string[]>, co
           }
           if (selected) break
         }
-        if (!selected) return { error: (cableIndex > 0 ? `La simulation a trouvé ${cableIndex} câble(s) compatible(s) pour cette paire, mais links_per_pair=${count} en demande ${count} pour CHAQUE paire (${count * Math.max(from.length, to.length)} câbles pour ce flux). Si un seul câble par appareil est voulu, utiliser links_per_pair=1 ou omettre ce champ ; ne pas y mettre la quantité d’équipements. Si ces câbles indépendants sont obligatoires, choisir des appareils ou interfaces disposant des prises nécessaires. ` : '') + `Aucune paire de prises libres et documentées compatible (${entry.signal}) entre ${next.equipment[sourceId].name} et ${next.equipment[targetId].name}. Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision.` }
+        // Les connecteurs en présence, pour que l'erreur dise ce qui ne se branche pas
+        const plugs = (id: string, input: boolean) => [...new Set(candidates(id, input).map(p => `${p.connector}${p.level ? ' ' + p.level : ''}`))].slice(0, 6).join(', ') || 'aucune'
+        if (!selected) return { pair: { sourceId, targetId, signal: entry.signal }, error: (cableIndex > 0 ? `La simulation a trouvé ${cableIndex} câble(s) compatible(s) pour cette paire, mais links_per_pair=${count} en demande ${count} pour CHAQUE paire (${count * Math.max(from.length, to.length)} câbles pour ce flux). Si un seul câble par appareil est voulu, utiliser links_per_pair=1 ou omettre ce champ ; ne pas y mettre la quantité d’équipements. Si ces câbles indépendants sont obligatoires, choisir des appareils ou interfaces disposant des prises nécessaires. ` : '') + `Aucune paire de prises libres et documentées compatible (${entry.signal}) entre ${next.equipment[sourceId].name} et ${next.equipment[targetId].name} (sorties libres : ${plugs(sourceId, false)} ; entrées libres : ${plugs(targetId, true)}). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision.` }
         next = selected.project
         addedLinks.push(selected.id)
       }
