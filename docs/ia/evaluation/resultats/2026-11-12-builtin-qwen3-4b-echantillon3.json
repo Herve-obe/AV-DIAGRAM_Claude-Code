@@ -1,0 +1,587 @@
+{
+ "provider": "builtin",
+ "model": "qwen3-4b",
+ "date": "2026-11-12T02:33:37.862Z",
+ "global": 0,
+ "results": [
+  {
+   "id": "concert-acoustique-youtube",
+   "difficulte": "simple",
+   "run": 1,
+   "grade": {
+    "id": "concert-acoustique-youtube",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console M7CL",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": 1,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "Deux boîtiers SB168-ES reliés à la console",
+      "type": "quantite",
+      "verif": {
+       "famille": "stagebox",
+       "min": 2,
+       "max": 2,
+       "signal": "audioIp",
+       "de": "stagebox",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "Au moins 4 micros : 2 voix, guitare, cajon",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 4,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Au moins 2 retours artistes, sur enceintes passives via ampli",
+      "type": "liaison",
+      "verif": {
+       "famille": "amplification",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "retour-artistes"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Au moins 4 enceintes : diffusion public stéréo (2) et retours (2)",
+      "type": "quantite",
+      "verif": {
+       "famille": "speaker",
+       "min": 4,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Diffusion public depuis la console",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "diffusion-public"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Mix stéréo vers le PC de streaming",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "poste-streaming"
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Mix stéréo vers l'enregistreur",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Contrôle du signal diffusé et enregistré (retours d'écoute ou mesure)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e10",
+      "texte": "Enregistrement dans un format professionnel (PCM non compressé) pour remise au groupe",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Quel type de prise (micro/ligne) et quel protocole (analogique/digital) doivent être utilisés pour connecter le micro statique DPA 4066 à la console Yamaha DM3 ?"
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps"
+  },
+  {
+   "id": "conference-presse",
+   "difficulte": "simple",
+   "run": 1,
+   "grade": {
+    "id": "conference-presse",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console 01V96",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": 1,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "5 micros : 4 intervenants et 1 micro salle",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 5,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "PC des jingles raccordé à la console (stéréo)",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": "audioAnalog",
+       "de": "lecteur-media",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Diffusion stéréo en salle via amplificateur et au moins 2 enceintes passives",
+      "type": "sortie",
+      "verif": {
+       "famille": "speaker",
+       "min": 2,
+       "max": null,
+       "signal": null,
+       "de": "amplification",
+       "vers": "diffusion-public"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Un amplificateur entre la console et les enceintes passives",
+      "type": "quantite",
+      "verif": {
+       "famille": "amplification",
+       "min": 1,
+       "max": null,
+       "signal": "audioAnalog",
+       "de": "console",
+       "vers": "amplification"
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Envoi mono vers la press-box",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": "audioAnalog",
+       "de": "console",
+       "vers": "press-box"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Enregistrement de secours en double mono",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Niveaux indépendants pour la salle, la press-box et l'enregistreur (sorties distinctes, pas une simple dérivation)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Solution pour que les intervenants entendent les questions de la salle (ex. renvoi du micro salle sur une enceinte orientée vers la table)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e10",
+      "texte": "Contrôle d'écoute de la diffusion salle et du retour de l'enregistreur",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "enregistreur",
+       "vers": "console"
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Le modèle d'entrée 'dpa-4088' pour les micros dynamiques avec pied de table n'a pas de mode approprié pour la prise 'out/audioAnalog/microdot/mic'. Quel type de câble sera utilisé pour les connexions entre les appareils ?"
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps"
+  },
+  {
+   "id": "radio-crossroad",
+   "difficulte": "simple",
+   "run": 1,
+   "grade": {
+    "id": "radio-crossroad",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console (régie)",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "Au moins 3 micros : présentateur, invité, journaliste en duplex",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 3,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "Le micro du journaliste (lieu annexe) arrive à la console",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "duplex",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Retour casque du journaliste en N-1",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "duplex"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Lecteur (jingles, tapis, extrait de concert) raccordé à la console",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "lecteur-media",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Enregistrement du PGM sur la station audionumérique",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Retours casques du présentateur et de l'invité",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "retour-casques"
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Ordre (talkback) du technicien vers les casques",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "talkback",
+       "vers": "retour-casques"
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Réseau hors antenne : technicien, présentateur, journaliste et invité peuvent se parler",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e10",
+      "texte": "Traitements de fréquence et de dynamique sur les sources ; niveaux conformes à la CST RT 040",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "L'appareil « micro présentateur » (Sennheiser E606) n'a pas de mode à choisir pour la prise out/audioAnalog/xlr3/mic. Quel type de connexion est requis pour ce port ?"
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps"
+  },
+  {
+   "id": "talk-show-twitch",
+   "difficulte": "moyen",
+   "run": 1,
+   "grade": {
+    "id": "talk-show-twitch",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console SQ5",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": 1,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "Au moins 5 micros : 3 cravates (présentateur, 2 invités) et 2 pour le live (guitare, voix)",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 5,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "Au moins 2 retours MSP5 : talk-show et live",
+      "type": "quantite",
+      "verif": {
+       "famille": "speaker",
+       "min": 2,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "retour-plateau"
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Mix stéréo vers le PC de streaming",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "poste-streaming"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Mix stéréo vers l'enregistreur audio/vidéo",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Retour d'écoute du streaming et de l'enregistreur vers la régie pour contrôle",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "enregistreur",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Retours talk-show en N-1 : chaque intervenant n'entend pas sa propre voix dans son retour",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Retour standard (mix musicien) pour le live, séparé des retours talk-show",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Enregistrement en format professionnel pour archivage (PCM non compressé)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Puis-je vous préciser les familles de matériel pour les rôles ? Par exemple, pour les micros cravates, est-ce que vous souhaitez les classer sous 'capture' ou une autre famille ?"
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps"
+  }
+ ]
+}

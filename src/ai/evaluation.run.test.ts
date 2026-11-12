@@ -31,7 +31,9 @@ const enabled = env.AVD_EVAL === '1' && !!baseUrl && !!key && !!model
 
 // Transport de test : mêmes chemins que src-tauri/src/ai.rs, sans passer par l'application.
 // node:http(s) plutôt que fetch : fetch de Node coupe une réponse dont les en-têtes tardent plus de cinq minutes.
+let lastBody = ''
 const transport: Transport = { request(_p, _b, req) {
+  lastBody = req.body ?? ''
   const headers: Record<string, string> = { 'content-type': 'application/json' }
   if (provider === 'anthropic') { headers['x-api-key'] = key!; headers['anthropic-version'] = '2023-06-01' }
   else headers.authorization = 'Bearer ' + key
@@ -54,12 +56,24 @@ const dir = new URL('../../docs/ia/evaluation/cas/', import.meta.url)
 const wanted = env.AVD_EVAL_CASES?.split(',').map(s => s.trim())
 const cases: EvalCase[] = readdirSync(dir).filter(f => f.endsWith('.json')).map(f => JSON.parse(readFileSync(new URL(f, dir), 'utf8')))
   .filter((c: EvalCase) => !wanted || wanted.includes(c.id))
+/** Derniers échanges de la conversation envoyée (appels d'outils et réponses), pour comprendre un cas raté. */
+function trace(): string[] {
+  try {
+    const messages: { role: string; content?: unknown; tool_calls?: { function: { name: string; arguments: string } }[] }[] = JSON.parse(lastBody).messages ?? []
+    const short = (t: string) => (t.length > 400 ? t.slice(0, 400) + '…' : t)
+    return messages.flatMap(m => m.role === 'assistant'
+      ? (m.tool_calls ?? []).map(c => short(`→ ${c.function.name} ${c.function.arguments}`))
+      : m.role === 'tool' ? [short(`← ${String(m.content)}`)] : []).slice(-16)
+  } catch {
+    return []
+  }
+}
 const FOLLOW_UP = 'Fais des hypothèses raisonnables, annonce-les, et propose le schéma complet.'
 
 describe.skipIf(!enabled)(`batterie d'évaluation : ${provider} ${model}`, () => {
   it('joue chaque cas et enregistre les notes', async () => {
     const runs = Number(env.AVD_EVAL_RUNS ?? 1)
-    const results: { id: string; difficulte: EvalCase['difficulte']; run: number; grade: CaseGrade; questions: string[]; reply: string; ruleErrors: number; error?: string }[] = []
+    const results: { id: string; difficulte: EvalCase['difficulte']; run: number; grade: CaseGrade; questions: string[]; reply: string; ruleErrors: number; error?: string; trace?: string[] }[] = []
     const out = env.AVD_EVAL_OUT ?? new URL(`../../docs/ia/evaluation/resultats/${new Date().toISOString().slice(0, 10)}-${provider}-${model.replace(/[^\w.-]/g, '_')}.json`, import.meta.url).pathname
     mkdirSync(out.replace(/[^/]+$/, ''), { recursive: true })
     // Écriture après chaque cas : une batterie interrompue garde ses premiers résultats
@@ -80,9 +94,9 @@ describe.skipIf(!enabled)(`batterie d'évaluation : ${provider} ${model}`, () =>
         }
         const produced = res.draft.project
         results.push({ id: c.id, difficulte: c.difficulte, run, grade: gradeCase(c, produced), questions, reply: res.reply,
-          ruleErrors: checkProject(produced).filter(i => i.severity === 'error').length })
+          ruleErrors: checkProject(produced).filter(i => i.severity === 'error').length, ...(res.draft.addedEquipment.length ? {} : { trace: trace() }) })
       } catch (e) {
-        results.push({ id: c.id, difficulte: c.difficulte, run, grade: { id: c.id, automatic: [], forJudge: c.exigences, score: 0 }, questions, reply: '', ruleErrors: 0, error: e instanceof AiError ? `${e.kind}${e.message ? ' : ' + e.message : ''}` : String(e) })
+        results.push({ id: c.id, difficulte: c.difficulte, run, grade: { id: c.id, automatic: [], forJudge: c.exigences, score: 0 }, questions, reply: '', ruleErrors: 0, error: e instanceof AiError ? `${e.kind}${e.message ? ' : ' + e.message : ''}` : String(e), trace: trace() })
       }
       save()
     }

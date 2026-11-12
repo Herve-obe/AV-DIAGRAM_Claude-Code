@@ -476,7 +476,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         if (!entry || (entry.count ?? 1) !== role.count || !role.candidates.includes(entry.template_id)) return fail(`Rôle ${role.ref} : conserver les ${role.count} exemplaires et une référence proposée par plan_diagram (${role.candidates.join(', ')}). Aucun ajout conservé.`)
       }
       let next = draft
-      const refs = new Map<string, string>()
+      const refs = new Map<string, string>(), ignoredModes: string[] = []
       const execute = (name: string, args: Record<string, unknown>) => {
         const result = runTool(next, { id: call.id, name, args }, ctx)
         const value = JSON.parse(result.content)
@@ -501,10 +501,11 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
             for (const selection of entry.port_modes) {
               if (!selection || typeof selection !== 'object' || !Number.isInteger(selection.mode) || selection.mode < 0) return fail('Mode de prise invalide. Aucun élément de cet appel ajouté.')
               const port = eq.ports.find(p => p.id === selection.port_id), mode = port?.modes?.[selection.mode]
-              // Erreur précise : un petit modèle doit pouvoir corriger l'appel sans demander à l'utilisateur
+              // Prise sans mode à choisir : rien à appliquer, la prise reste telle que documentée. L'entrée est ignorée
+              // et signalée plutôt que de refuser tout l'appel (les petits modèles remplissent souvent port_modes sans besoin).
               if (!port?.modes?.length) {
-                const modal = eq.ports.filter(p => p.modes?.length).map(p => p.id)
-                return fail(`${ref} : la prise ${String(selection.port_id)} n'a pas de mode à choisir. ${modal.length ? `Prises à mode : ${modal.join(', ')}.` : 'Cet appareil n’a aucune prise à mode.'} Retirer port_modes sauf besoin précis : le logiciel choisit seul les prises. Aucun élément de cet appel ajouté.`)
+                ignoredModes.push(`${ref}.${String(selection.port_id)}`)
+                continue
               }
               if (!mode) return fail(`${ref} : mode ${selection.mode} absent pour ${port.id}. Modes documentés : ${port.modes.map((m, i) => `${i} = ${m.connector} ${m.level}`).join(' ; ')}. Aucun élément de cet appel ajouté.`)
               if (modes.has(port.id)) return fail(`${ref} : prise ${port.id} citée deux fois dans port_modes. Aucun élément de cet appel ajouté.`)
@@ -523,7 +524,8 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       next = { ...next, project: layoutDiagram(next.project, [...refs.values()], next.sheetId) }
       if (ctx.allowed && !ctx.allowed(draft.base, next.project)) return fail('Proposition refusée par les droits du projet ou du calque.')
       return out({ equipment: [...refs].map(([ref, equipment_id]) => ({ ref, equipment_id })), equipment_added: refs.size,
-        links_added: a.connections.length, note: 'Proposition complète préparée, à valider par l’utilisateur. Lancer check_project.' }, next)
+        links_added: a.connections.length, ...(ignoredModes.length ? { port_modes_ignored: `Prises sans mode à choisir, laissées telles que documentées : ${ignoredModes.join(', ')}.` } : {}),
+        note: 'Proposition complète préparée, à valider par l’utilisateur. Lancer check_project.' }, next)
     }
     case 'check_project': {
       const issues = checkProject(p)
