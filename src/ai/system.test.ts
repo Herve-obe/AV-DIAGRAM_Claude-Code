@@ -104,6 +104,13 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(failed).toContain('micro ou la DI')
   })
 
+  it('un plan avec une ref en double nomme le rôle fautif', () => {
+    const doubled = { ...plan, roles: [...plan.roles, { ...plan.roles[0], query: 'Micro statique' }] }
+    const error = JSON.parse(runTool(base(), call('plan_diagram', doubled), ctx).content).error
+    expect(error).toContain('Rôle 4 (mic)')
+    expect(error).toContain('ref « mic » déjà utilisée')
+  })
+
   it('au second tour, un rôle sans fiche ne redemande pas : le plan est renvoyé au modèle, puis le système est construit', async () => {
     const draft = base(), options = { draft, ctx, connection: { provider: 'builtin' as const, model: 'test' }, system: '', history: [] }
     const first = await runTurn({ ...options, userText: 'Je veux sonoriser une conférence.', transport: replies([call('ask_user', { question: 'Combien de micros ?' })]) })

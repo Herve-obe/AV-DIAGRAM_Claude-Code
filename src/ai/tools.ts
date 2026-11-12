@@ -315,9 +315,16 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
       const roles: NonNullable<Draft['brief']>['roles'] = [], questions: string[] = []
       for (const role of a.roles) {
         const ref = norm(text(role?.ref)).replace(/[^a-z0-9_-]+/g, '-').replace(/^-|-$/g, '')
-        if (!role || typeof role !== 'object' || !/^[a-zA-Z0-9_-]{1,40}$/.test(ref) || roles.some(r => r.ref === ref)
-          || !text(role.query) || text(role.query).length > 120 || !Number.isInteger(role.count) || role.count < 1 || role.count > 50
-          || typeof role.required_model !== 'boolean' || (role.family !== undefined && (typeof role.family !== 'string' || role.family.length > 40))) return fail('Chaque rôle exige ref unique, query, count entier et required_model booléen ; family doit être une famille de matériel.')
+        // Erreur nommant le rôle et le champ en cause : un petit modèle ne retrouve pas seul une ref en double
+        const problems = !role || typeof role !== 'object' ? ['rôle absent'] : [
+          ...(!/^[a-zA-Z0-9_-]{1,40}$/.test(ref) ? ['ref courte requise (lettres, chiffres, tirets)'] : []),
+          ...(roles.some(r => r.ref === ref) ? [`ref « ${ref} » déjà utilisée : donner une ref distincte (ex. ${ref}2) ou regrouper dans count`] : []),
+          ...(!text(role.query) || text(role.query).length > 120 ? ['query requise (120 caractères au plus)'] : []),
+          ...(!Number.isInteger(role.count) || role.count < 1 || role.count > 50 ? ['count entier de 1 à 50'] : []),
+          ...(typeof role.required_model !== 'boolean' ? ['required_model doit valoir true ou false'] : []),
+          ...(role.family !== undefined && (typeof role.family !== 'string' || role.family.length > 40) ? ['family doit être une famille de matériel'] : []),
+        ]
+        if (problems.length) return fail(`Rôle ${a.roles.indexOf(role) + 1}${ref ? ` (${ref})` : ''} : ${problems.join(' ; ')}. Reprendre tout le plan.`)
         const library = ctx.library.filter(t => !role.family || t.family === role.family)
         const found = searchLibrary(library, role.required_model ? role.query : role.query + ' ' + text(role.ref), 12)
           .map(row => ctx.library.find(t => t.id === row.template_id)!)
