@@ -129,6 +129,12 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(error).not.toContain('shure-beta98-hf pour')
   })
 
+  it('une fiche sans aucune prise du signal voulu est déclarée inadaptée au rôle', () => {
+    const wrong = { equipment: [{ ref: 'desk', template_id: 'gen-console' }, { ref: 'computer', template_id: 'gen-mic-dyn', name: 'Poste informatique' }], connections: [{ from: 'desk', to: 'computer', signal: 'audioAnalog' }] }
+    const error = JSON.parse(runTool(base(), call('propose_system', wrong), ctx).content).error
+    expect(error).toContain('Poste informatique (gen-mic-dyn, famille capture) n’a aucune entrée audioAnalog : fiche inadaptée à ce rôle')
+  })
+
   it('une enceinte passive reliée à une console propose une enceinte amplifiée ou un amplificateur à insérer', () => {
     const passive = { equipment: [{ ref: 'desk', template_id: 'gen-console' }, { ref: 'pa', template_id: 'gen-speaker-passive' }], connections: [{ from: 'desk', to: 'pa', signal: 'audioAnalog' }] }
     const error = JSON.parse(runTool(base(), call('propose_system', passive), ctx).content).error

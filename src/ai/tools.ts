@@ -235,6 +235,11 @@ function connectionFixes(library: EquipmentTemplate[], project: Project, pair: S
   const source = pair && project.equipment[pair.sourceId], target = pair && project.equipment[pair.targetId]
   const sourceT = source && library.find(t => t.id === source.templateId), targetT = target && library.find(t => t.id === target.templateId)
   if (!pair || !source || !target || !sourceT || !targetT) return ''
+  // Une extrémité sans aucune prise de ce signal : la fiche ne joue pas ce rôle (ex. un micro choisi pour « poste informatique »)
+  const lacking = [[source, sourceT, false], [target, targetT, true]] as const
+  const misfit = lacking.filter(([e, , input]) => !e.ports.some(p => usablePort(p, pair.signal, input)))
+    .map(([e, t, input]) => `${e.name} (${t.id}, famille ${t.family}) n’a aucune ${input ? 'entrée' : 'sortie'} ${pair.signal}`)
+  if (misfit.length) return ` ${misfit.join(' ; ')} : fiche inadaptée à ce rôle. Choisir une fiche de la famille voulue, ou retirer ce rôle et ce flux en le notant dans assumptions.`
   // Une sortie alimente une entrée : connecteurs reliables (direct ou adaptateur) et niveaux compatibles
   const feeds = (from: PortDef[], to: PortDef[]) => from.some(o => usablePort(o, pair.signal, false)
     && to.some(i => usablePort(i, pair.signal, true) && connectorsJoin(o.connector, i.connector) && !levelIssueOf(o, i)))
