@@ -99,6 +99,15 @@ describe('boucle de l’assistant : garde-fous', () => {
     expect(sent[2]).toContain('Appel identique')
     expect(result.reply).toBe(ask.args.question)
   })
+  it('un appel identique déjà refusé rappelle l’erreur, sans proposer de question après le tour de précision', async () => {
+    const wrong = call('get_template', { template_id: 'inexistant' })
+    const first = await runTurn({ ...base(), userText: 'Quelles sorties a la console ?', transport: transport([{ calls: [ask] }]) })
+    const sent: string[] = []
+    await runTurn({ ...base(), history: first.history, userText: 'Celle du projet.', transport: transport([{ calls: [wrong] }, { calls: [wrong] }, { text: 'Je ne trouve pas cette fiche.' }], sent) }).catch(() => undefined)
+    const repeated = JSON.parse(sent[2]).messages.at(-1).content
+    expect(repeated).toContain('refusé ainsi')
+    expect(repeated).not.toContain('ask_user')
+  })
   it('relance un plan jamais construit, puis abandonne sans rien ajouter', async () => {
     const sent: string[] = []
     const run = runTurn({ ...base(), userText: 'Sonorise une conférence.', transport: transport([

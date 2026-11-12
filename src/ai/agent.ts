@@ -270,7 +270,7 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
   let draft = start
   const added = () => draft.addedEquipment.length > start.addedEquipment.length || draft.addedLinks.length > start.addedLinks.length
   // Appel déjà exécuté → projet à ce moment : le refaire sur le même projet ne mènerait à rien
-  const executed = new Map<string, Project>()
+  const executed = new Map<string, { project: Project; error?: string }>()
   let reminders = 0
 
   /** Une question met fin au tour sans rien conserver ; la demande est gardée pour la réponse suivante. */
@@ -285,11 +285,12 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
     const reject = (error: string) => ({ id: call.id, name: call.name, content: JSON.stringify({ error }) })
     if (!tools.some(t => t.name === call.name)) return reject(`Outil indisponible pour cette demande : ${call.name}.`)
     if (call.name === 'ask_user' && pending) return reject(ONE_ROUND)
-    const key = call.name + JSON.stringify(call.args)
-    if (executed.get(key) === draft.project) return reject('Appel identique déjà effectué sur ce brouillon. Corriger les paramètres d’après le résultat précédent ou poser la question avec ask_user.')
-    executed.set(key, draft.project)
+    const key = call.name + JSON.stringify(call.args), previous = executed.get(key)
+    // Un appel identique donnerait le même résultat : l'erreur est rappelée, et la question n'est proposée que si elle reste permise
+    if (previous?.project === draft.project) return reject(`Appel identique déjà effectué sur ce brouillon${previous.error ? `, refusé ainsi : ${previous.error}` : ''}. Modifier les paramètres en conséquence${pending ? '' : ' ou poser la question avec ask_user'}.`)
     const result = runTool(draft, call, ctx)
     let value = JSON.parse(result.content)
+    executed.set(key, { project: draft.project, ...(typeof value.error === 'string' ? { error: value.error } : {}) })
     if (value.error) return { id: call.id, name: call.name, content: result.content }
     // Second tour : un plan qui redemande (rôle sans fiche, besoin flou) est renvoyé au modèle au lieu de reposer une question
     if (call.name === 'plan_diagram' && pending && value.questions?.length) return reject(`${ONE_ROUND} Points encore ouverts : ${value.questions.join(' ')} Pour un rôle sans fiche, choisir une famille et une recherche plus générales du catalogue, ou retirer ce rôle en le notant dans assumptions.`)

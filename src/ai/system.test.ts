@@ -104,6 +104,21 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(failed).toContain('micro ou la DI')
   })
 
+  it('signale une ref partagée par plusieurs lignes en même temps que les références inconnues', () => {
+    const shared = { ...audio, equipment: [...audio.equipment, { ref: 'mic', template_id: 'gen-mic-dyn', count: 2 }, { ref: 'cajon', template_id: 'Cajon' }] }
+    const error = JSON.parse(runTool(base(), call('propose_system', shared), ctx).content).error
+    expect(error).toContain('Références inconnues : Cajon')
+    expect(error).toContain('ref « mic » donnée à 2 lignes')
+    expect(error).toContain('mic_a')
+  })
+
+  it('une ref de flux inconnue liste toutes les refs fautives et les refs utilisables', () => {
+    const wrong = { ...audio, connections: [{ from: 'mic', to: 'desk1', signal: 'audioAnalog' }, { from: 'console FOH', to: 'speaker', signal: 'audioAnalog' }] }
+    const error = JSON.parse(runTool(base(), call('propose_system', wrong), ctx).content).error
+    expect(error).toContain('Rôle ou équipement inconnu : desk1, console FOH')
+    expect(error).toContain('Refs utilisables dans from et to : mic1, mic2, mic3, desk')
+  })
+
   it('un plan avec une ref en double nomme le rôle fautif', () => {
     const doubled = { ...plan, roles: [...plan.roles, { ...plan.roles[0], query: 'Micro statique' }] }
     const error = JSON.parse(runTool(base(), call('plan_diagram', doubled), ctx).content).error

@@ -16,6 +16,10 @@ export function connectSystem(project: Project, roles: Map<string, string[]>, co
   let next = project
   const addedLinks: string[] = []
   const resolve = (ref: string) => roles.get(ref) ?? (Object.hasOwn(next.equipment, ref) ? [ref] : [])
+  // Toutes les refs inconnues des flux en une seule erreur, avec la liste des refs valides
+  const unknown = [...new Set(connections.flatMap(entry => entry && typeof entry === 'object' ? [entry.from, entry.to] : [])
+    .filter(ref => typeof ref === 'string' && !resolve(ref).length))]
+  if (unknown.length) return { error: `Rôle ou équipement inconnu : ${unknown.join(', ')}. Refs utilisables dans from et to : ${[...roles.keys()].join(', ')}. Une ref de count 1 ne prend pas de numéro.` }
   for (const entry of connections) {
     if (!entry || typeof entry !== 'object' || typeof entry.from !== 'string' || typeof entry.to !== 'string'
       || !SIGNAL_FAMILIES.includes(entry.signal) || (entry.purpose !== undefined && (typeof entry.purpose !== 'string' || entry.purpose.length > 1000))) return { error: 'Chaque liaison exige from, to, signal et éventuellement purpose.' }

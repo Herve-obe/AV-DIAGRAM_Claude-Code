@@ -512,7 +512,15 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         unknown.push(`${wanted || '(vide)'} (${near.length ? `fiches proches : ${near.join(', ')}` : 'aucune fiche proche'})`)
         return entry
       })
-      if (unknown.length) return fail(`Références inconnues : ${unknown.join(' ; ')}. Reprendre tout l’appel avec des template_id du catalogue ; un instrument se représente par le micro ou la DI qui le capte ; un rôle sans fiche se retire en le notant dans assumptions. Aucun élément de cet appel ajouté.`)
+      // Une même ref sur plusieurs lignes : signalée avec les références inconnues, pour une seule correction
+      const lines = new Map<string, number>()
+      for (const entry of equipment) if (entry && typeof entry === 'object' && text(entry.ref)) lines.set(text(entry.ref), (lines.get(text(entry.ref)) ?? 0) + 1)
+      const shared = [...lines].filter(([, n]) => n > 1)
+      const problems = [
+        ...(unknown.length ? [`Références inconnues : ${unknown.join(' ; ')}. Utiliser des template_id du catalogue ; un instrument se représente par le micro ou la DI qui le capte ; un rôle sans fiche se retire en le notant dans assumptions`] : []),
+        ...(shared.length ? [`${shared.map(([ref, n]) => `ref « ${ref} » donnée à ${n} lignes d’equipment`).join(' ; ')} : chaque ligne exige sa propre ref (ex. ${shared[0][0]}_a, ${shared[0][0]}_b), ou une seule ligne avec count ; les connexions citent ces refs`] : []),
+      ]
+      if (problems.length) return fail(`${problems.join('. ')}. Reprendre tout l’appel. Aucun élément de cet appel ajouté.`)
       if (draft.brief) for (const role of draft.brief.roles) {
         const entry = equipment.find((e: { ref?: string } | null) => e?.ref === role.ref)
         if (!entry || (entry.count ?? 1) !== role.count || !role.candidates.includes(entry.template_id)) return fail(`Rôle ${role.ref} : conserver les ${role.count} exemplaires et une référence proposée par plan_diagram (${role.candidates.join(', ')}). Aucun ajout conservé.`)
@@ -531,7 +539,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         if (!Number.isInteger(count) || count < 1 || count > 50) return fail('count doit être un entier de 1 à 50.')
         for (let i = 0; i < count; i++) {
           const ref = text(entry.ref) + (count > 1 ? i + 1 : '')
-          if (refs.has(ref)) return fail(`Référence en double : ${ref}. Aucun élément de cet appel ajouté.`)
+          if (refs.has(ref)) return fail(`Référence en double : ${ref}${count > 1 ? ` (${text(entry.ref)} avec count ${count} est numéroté ${text(entry.ref)}1 à ${text(entry.ref)}${count})` : ''}. Donner une ref distincte à chaque ligne. Aucun élément de cet appel ajouté.`)
           const name = text(entry.name) && text(entry.name) + (count > 1 ? ` ${i + 1}` : '')
           const result = execute('add_equipment', { template_id: entry.template_id, name })
           if (result.error) return fail(`${ref} : ${result.error}. Aucun élément de cet appel ajouté.`)
