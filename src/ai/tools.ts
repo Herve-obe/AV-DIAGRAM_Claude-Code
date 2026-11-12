@@ -226,12 +226,22 @@ export function referenceScore(t: EquipmentTemplate, query: string): number {
   return refs.some(matches) ? 50 : 0
 }
 
+/** Mots vides : ils se retrouvent dans presque toutes les descriptions et faussaient le classement. */
+const STOPWORDS = new Set(['avec', 'sans', 'pour', 'sur', 'sous', 'dans', 'par', 'les', 'des', 'une', 'aux', 'and', 'the', 'with', 'for', 'from'])
+
 export function searchLibrary(library: EquipmentTemplate[], query: string, limit = 12) {
-  const tokens = norm(query).split(/[^a-z0-9]+/).filter(Boolean)
-  return library
-    .map((t) => {
-      const hay = norm(`${t.manufacturer ?? ''} ${t.model} ${t.id} ${t.family} ${(t.aliases ?? []).join(' ')} ${t.description ?? ''}`)
-      return { t, score: referenceScore(t, query) + tokens.filter((k) => hay.includes(k)).length }
+  const tokens = norm(query).split(/[^a-z0-9]+/).filter(k => k && !STOPWORDS.has(k) && (k.length > 2 || /\d/.test(k)))
+  // Le nom, la famille et les alias pèsent double ; chaque mot pèse selon sa rareté dans la liste cherchée :
+  // « micro » figure sur presque toutes les fiches de capture, « dynamique » départage vraiment.
+  const texts = library.map(t => ({ t, name: norm(`${t.manufacturer ?? ''} ${t.model} ${t.id} ${t.family} ${(t.aliases ?? []).join(' ')}`), description: norm(t.description ?? '') }))
+  // Début de mot uniquement : « table » ne doit pas se trouver dans « démontable » ni « commutable »
+  const pattern = new Map(tokens.map(k => [k, new RegExp(`(?:^|[^a-z0-9])${k}`)]))
+  const has = (hay: string, k: string) => pattern.get(k)!.test(hay)
+  const weight = new Map(tokens.map(k => [k, Math.log(1 + texts.length / (1 + texts.filter(x => has(x.name, k) || has(x.description, k)).length))]))
+  return texts
+    .map(({ t, name, description }) => {
+      const words = tokens.reduce((sum, k) => sum + (has(name, k) ? 2 : has(description, k) ? 1 : 0) * weight.get(k)!, 0)
+      return { t, score: referenceScore(t, query) + words }
     })
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score || Number(a.t.portStatus === 'pending') - Number(b.t.portStatus === 'pending')

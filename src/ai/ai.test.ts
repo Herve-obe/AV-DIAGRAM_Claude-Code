@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { LIBRARY } from '../library'
 import { GENERIC_LIBRARY } from '../library/generic'
 import { createProject, DEFAULT_SHEET_ID } from '../model/project'
 import { AiError, listModels, runTurn, type Transport } from './agent'
@@ -100,6 +101,14 @@ describe('assistant : outils', () => {
   it('cherche dans la bibliothèque sans tenir compte des accents', () => {
     const r = searchLibrary(GENERIC_LIBRARY, 'micro statique')
     expect(r[0].template_id).toBe('gen-mic-cond')
+  })
+
+  it('ignore les mots vides et fait passer le nom avant la description', () => {
+    const capture = LIBRARY.filter(t => t.family === 'capture')
+    const ids = searchLibrary(capture, 'micro dynamique avec pied de table', 5).map(r => r.template_id)
+    expect(ids[0]).toBe('gen-mic-dyn')
+    // Micro serre-tête statique dont la description cite la « plage dynamique »
+    expect(ids).not.toContain('dpa-4088')
   })
 
   it('pose et relie sur un brouillon, sans toucher au projet', () => {
