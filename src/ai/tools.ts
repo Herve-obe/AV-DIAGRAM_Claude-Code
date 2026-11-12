@@ -249,6 +249,20 @@ export function searchLibrary(library: EquipmentTemplate[], query: string, limit
     }))
 }
 
+/**
+ * Fiche désignée par son nom plutôt que par son identifiant (« DPA 4066 » pour dpa-4066) : retenue seulement si
+ * le nom correspond exactement à une seule fiche, fabricant et modèle ou identifiant. Rien n'est deviné au-delà.
+ */
+export function resolveTemplate(library: EquipmentTemplate[], value: string): EquipmentTemplate | undefined {
+  const exact = library.find(t => t.id === value)
+  if (exact) return exact
+  const key = (v: string) => norm(v).replace(/[^a-z0-9]+/g, '')
+  const wanted = key(value)
+  if (!wanted) return undefined
+  const found = library.filter(t => key(t.id) === wanted || key(`${t.manufacturer ?? ''} ${t.model}`) === wanted)
+  return found.length === 1 ? found[0] : undefined
+}
+
 /** Position provisoire sans chevauchement, avant le rangement selon les liaisons. */
 function nextPosition(d: Draft): { x: number; y: number } {
   const onSheet = Object.values(d.base.equipment).filter((e) => (e.sheetId ?? DEFAULT_SHEET_ID) === d.sheetId)
@@ -471,8 +485,19 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
     }
     case 'propose_diagram': {
       if (!Array.isArray(a.equipment) || !Array.isArray(a.connections) || a.equipment.length + draft.addedEquipment.length > 50 || a.connections.length + draft.addedLinks.length > 100) return fail('equipment et connections doivent être des listes, au maximum 50 équipements et 100 liaisons par proposition.')
+      // Toutes les références inconnues en une seule erreur, avec les fiches proches : une correction au lieu d'une recherche par appareil
+      const unknown: string[] = []
+      const equipment: typeof a.equipment = a.equipment.map((entry: unknown) => {
+        if (!entry || typeof entry !== 'object') return entry
+        const row = entry as { template_id?: unknown }, wanted = text(row.template_id), t = resolveTemplate(ctx.library, wanted)
+        if (t) return { ...row, template_id: t.id }
+        const near = searchLibrary(ctx.library, wanted, 3).map(r => r.template_id)
+        unknown.push(`${wanted || '(vide)'} (${near.length ? `fiches proches : ${near.join(', ')}` : 'aucune fiche proche'})`)
+        return entry
+      })
+      if (unknown.length) return fail(`Références inconnues : ${unknown.join(' ; ')}. Reprendre tout l’appel avec des template_id du catalogue ; un instrument se représente par le micro ou la DI qui le capte ; un rôle sans fiche se retire en le notant dans assumptions. Aucun élément de cet appel ajouté.`)
       if (draft.brief) for (const role of draft.brief.roles) {
-        const entry = a.equipment.find((e: { ref?: string } | null) => e?.ref === role.ref)
+        const entry = equipment.find((e: { ref?: string } | null) => e?.ref === role.ref)
         if (!entry || (entry.count ?? 1) !== role.count || !role.candidates.includes(entry.template_id)) return fail(`Rôle ${role.ref} : conserver les ${role.count} exemplaires et une référence proposée par plan_diagram (${role.candidates.join(', ')}). Aucun ajout conservé.`)
       }
       let next = draft
@@ -483,7 +508,7 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         if (!value.error) next = result.draft
         return value
       }
-      for (const entry of a.equipment) {
+      for (const entry of equipment) {
         if (!entry || typeof entry !== 'object' || !/^[a-zA-Z0-9_-]{1,40}$/.test(text(entry.ref))) return fail('Chaque équipement exige une ref courte unique (ex. cam1).')
         const count = entry.count ?? 1
         if (!Number.isInteger(count) || count < 1 || count > 50) return fail('count doit être un entier de 1 à 50.')

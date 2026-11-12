@@ -92,6 +92,18 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(JSON.stringify(direct)).toContain('desk.inconnue')
   })
 
+  it('reconnaît une fiche désignée par son nom exact et regroupe les références inconnues en une erreur', () => {
+    const named = { ...audio, equipment: audio.equipment.map(e => e.ref === 'desk' ? { ...e, template_id: 'Console numérique' } : e) }
+    const ok = runTool(runTool(base(), call('plan_diagram', plan), ctx).draft, call('propose_system', named), ctx)
+    expect(JSON.parse(ok.content).error).toBeUndefined()
+    expect(Object.values(ok.draft.project.equipment).some(e => e.templateId === 'gen-console')).toBe(true)
+    const wrong = { ...audio, equipment: [...audio.equipment, { ref: 'guitar', template_id: 'Fender Stratocaster' }, { ref: 'cajon', template_id: 'Cajon' }] }
+    const failed = JSON.parse(runTool(base(), call('propose_system', wrong), ctx).content).error
+    expect(failed).toContain('Références inconnues : Fender Stratocaster')
+    expect(failed).toContain('Cajon')
+    expect(failed).toContain('micro ou la DI')
+  })
+
   it('au second tour, un rôle sans fiche ne redemande pas : le plan est renvoyé au modèle, puis le système est construit', async () => {
     const draft = base(), options = { draft, ctx, connection: { provider: 'builtin' as const, model: 'test' }, system: '', history: [] }
     const first = await runTurn({ ...options, userText: 'Je veux sonoriser une conférence.', transport: replies([call('ask_user', { question: 'Combien de micros ?' })]) })
