@@ -193,7 +193,9 @@ export const useAi = create<AiState>((set, get) => ({
       if (generation !== turn) return
       const kind = e instanceof AiError ? e.kind : 'network'
       const detail = e instanceof Error ? e.message : String(e)
-      set((s) => ({ bubbles: [...s.bubbles, { kind: 'error', text: `${i18n.t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}` }] }))
+      // Code d'erreur natif connu (ex. programme à choisir à nouveau) : message traduit seul
+      const known = typeof e === 'string' ? i18n.t(`ai.local.error.${e}`, { defaultValue: '' }) : ''
+      set((s) => ({ bubbles: [...s.bubbles, { kind: 'error', text: known || `${i18n.t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}` }] }))
     } finally {
       if (generation === turn) set({ busy: false, activeTool: null })
     }

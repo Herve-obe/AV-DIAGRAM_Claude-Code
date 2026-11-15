@@ -738,7 +738,9 @@
         "model": "Ce modèle ne fait pas partie du catalogue local.",
         "busy": "Un téléchargement est déjà en cours.",
         "tools": "Le modèle répond mais n’a pas utilisé les outils demandés. Relance le test ; ne l’active pas pour modifier un schéma tant que ce test ne réussit pas.",
-        "platform": "Le moteur intégré nécessite macOS 13.3 ou plus. AV Diagram reste utilisable ; le mode avancé permet de choisir un moteur compatible avec ton système."
+        "platform": "Le moteur intégré nécessite macOS 13.3 ou plus. AV Diagram reste utilisable ; le mode avancé permet de choisir un moteur compatible avec ton système.",
+        "not-approved": "Ce programme n’a pas été choisi depuis cette version d’AV Diagram (ou il a été déplacé). Choisis-le à nouveau avec le bouton « Choisir » dans la configuration de l’assistant.",
+        "invalid-program": "Ce fichier n’est pas le programme attendu : choisis llama-server (llama.cpp), sans le renommer."
       },
       "externalHint": "Serveur local externe : vérifie qu’il utilise un modèle installé sur ce poste, sans relais cloud.",
       "directory": "Dossier d’installation des modèles",
@@ -753,6 +755,10 @@
       "billing": "IA personnelle {{provider}} : chaque demande est facturée par le fournisseur. Un schéma complet peut demander plusieurs dizaines d'échanges.",
       "more": "En savoir plus",
       "complex": "Cette demande est complexe pour l'IA locale ; le résultat sera à vérifier de près."
+    },
+    "experimental": {
+      "badge": "Expérimental",
+      "note": "En l’état des essais, les petits modèles locaux ne construisent pas encore un schéma complet de façon fiable. Ils conviennent aux explications et aux vérifications simples ; l’option « IA externe via API » (mon compte IA) donne de meilleurs résultats."
     }
   },
   "routing": {
@@ -877,6 +883,7 @@
       "assignAfterJoin": "Les invités apparaîtront ici dès leur connexion. Tu pourras alors leur attribuer les calques avant de commencer.",
       "guestWaiting": "Tu es connecté. L’hôte prépare les rôles et commencera la session. Le schéma reste en lecture seule en attendant."
     },
+    "lockedOut": "Tentatives répétées avec un mauvais code : les nouvelles connexions sont refusées pendant quelques minutes. Terminer la session et en ouvrir une nouvelle génère un nouveau code.",
     "discovery": {
       "title": "Hôtes disponibles",
       "searching": "Recherche d’un hôte sur le réseau local…",
@@ -1611,7 +1618,8 @@
       "timeout": "La conversion a dépassé 60 secondes et a été arrêtée. Préparer un DXF avec le logiciel d’origine.",
       "cancelled": "Conversion annulée. Le projet reste inchangé.",
       "storage": "Impossible de créer les fichiers temporaires. Vérifier l’espace disponible et les droits du poste.",
-      "conversion": "La conversion n’a pas produit de DXF lisible. Vérifier le DWG et la version du convertisseur ; aucun changement n’a été appliqué."
+      "conversion": "La conversion n’a pas produit de DXF lisible. Vérifier le DWG et la version du convertisseur ; aucun changement n’a été appliqué.",
+      "not-approved": "Ce convertisseur n’a pas été choisi dans la fenêtre du système. Relancer la conversion et le choisir à nouveau."
     }
   },
   "manual": {

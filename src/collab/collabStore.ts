@@ -37,6 +37,10 @@ export interface HostInfo {
   addresses: string[]
   peers: { id: number; userId: string; name: string; address: string }[]
   discoveryAvailable?: boolean
+  /** Échecs de code dans la fenêtre globale en cours (toutes adresses confondues) */
+  failedAttempts?: number
+  /** Plafond global d'essais atteint : les nouvelles connexions sont refusées jusqu'à la fin de la fenêtre */
+  locked?: boolean
 }
 
 export interface ChatMessage {

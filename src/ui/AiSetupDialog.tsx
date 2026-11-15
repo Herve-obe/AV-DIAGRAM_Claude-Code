@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { listModels } from '../ai/agent'
 import { assistantErrorText, testAssistant } from '../ai/setup'
 import { checkKeyShape, pickRecommended, PROVIDERS, providerInfo, type ProviderId } from '../ai/providers'
-import { startServer, stopServer } from '../ai/local'
+import { chooseServerProgram, startServer, stopServer } from '../ai/local'
 import { keyStore, nativeAvailable, nativeTransport, openExternal } from '../ai/transport'
 import { useAi } from '../store/aiStore'
 import { Icon } from './Icon'
@@ -126,15 +126,27 @@ export function AiSetupDialog() {
   }
 
   const pickFile = async (kind: 'server' | 'model') => {
+    if (kind === 'server') {
+      // Fenêtre ouverte et programme approuvé par la partie native : on ne retient que le chemin renvoyé
+      try {
+        const chosen = await chooseServerProgram(t('ai.setup.serverFile'))
+        if (!chosen) return
+        setServerPath(chosen)
+        setModels([])
+        setStatus({ state: 'idle' })
+      } catch (e) {
+        setStatus({ state: 'error', text: assistantErrorText(t, e) })
+      }
+      return
+    }
     const { open: openDialog } = await import('@tauri-apps/plugin-dialog')
     const path = await openDialog({
       multiple: false,
       directory: false,
-      filters: kind === 'model' ? [{ name: 'GGUF', extensions: ['gguf'] }] : undefined,
+      filters: [{ name: 'GGUF', extensions: ['gguf'] }],
     })
     if (typeof path !== 'string') return
-    if (kind === 'server') setServerPath(path)
-    else setModelPath(path)
+    setModelPath(path)
     setModels([])
   }
 
@@ -146,6 +158,8 @@ export function AiSetupDialog() {
       setModel(list[0] ?? '')
       setStatus({ state: 'ok', text: t('ai.setup.connected', { count: list.length }) })
     } catch (e) {
+      // Chemin enregistré par une version précédente (ou déplacé) : il faut choisir à nouveau le programme
+      if (e === 'not-approved') setServerPath('')
       setStatus({ state: 'error', text: assistantErrorText(t, e) })
     }
   }
@@ -254,8 +268,9 @@ export function AiSetupDialog() {
               <p className="dialog-hint">{t('ai.setup.chooseHint')}</p>
               <div className="ai-options">
                 <button className="ai-option" onClick={() => setPath('builtin')}>
-                  <strong>{t('ai.setup.local')}</strong>
+                  <strong>{t('ai.setup.local')} <span className="dim">· {t('ai.experimental.badge')}</span></strong>
                   <span>{t('ai.setup.localDesc')}</span>
+                  <span className="dim">{t('ai.experimental.note')}</span>
                 </button>
                 <button className="ai-option" onClick={() => choosePath('account')}>
                   <strong>{t('ai.setup.account')}</strong>

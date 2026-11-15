@@ -738,7 +738,9 @@
         "model": "This model is not in the local catalog.",
         "busy": "A download is already running.",
         "tools": "The model responded without using the requested tools. Try the test again; do not enable diagram changes until this test succeeds.",
-        "platform": "The bundled engine requires macOS 13.3 or later. AV Diagram remains usable; advanced mode lets you choose an engine compatible with your system."
+        "platform": "The bundled engine requires macOS 13.3 or later. AV Diagram remains usable; advanced mode lets you choose an engine compatible with your system.",
+        "not-approved": "This program was not chosen from this version of AV Diagram (or it has been moved). Choose it again with the “Choose” button in the assistant setup.",
+        "invalid-program": "This file is not the expected program: choose llama-server (llama.cpp), without renaming it."
       },
       "externalHint": "External local server: check that it uses a model installed on this computer, without cloud forwarding.",
       "directory": "Model installation folder",
@@ -753,6 +755,10 @@
       "billing": "Personal AI {{provider}}: each request is billed by the provider. A complete diagram may take several dozen exchanges.",
       "more": "Learn more",
       "complex": "This request is complex for the local AI; check the result closely."
+    },
+    "experimental": {
+      "badge": "Experimental",
+      "note": "As tested so far, small local models cannot yet build a complete diagram reliably. They suit explanations and simple checks; the “External AI via API” option (my AI account) gives better results."
     }
   },
   "routing": {
@@ -877,6 +883,7 @@
       "assignAfterJoin": "Guests appear here when they connect. You can then assign their layers before starting.",
       "guestWaiting": "You are connected. The host is assigning roles and will start the session. The diagram is read-only until then."
     },
+    "lockedOut": "Repeated attempts with a wrong code: new connections are refused for a few minutes. Ending the session and starting a new one generates a new code.",
     "discovery": {
       "title": "Available hosts",
       "searching": "Looking for a host on the local network…",
@@ -1611,7 +1618,8 @@
       "timeout": "Conversion exceeded 60 seconds and was stopped. Prepare a DXF using the original software.",
       "cancelled": "Conversion cancelled. The project remains unchanged.",
       "storage": "Could not create temporary files. Check available space and workstation permissions.",
-      "conversion": "Conversion did not produce a readable DXF. Check the DWG and converter version; no change was applied."
+      "conversion": "Conversion did not produce a readable DXF. Check the DWG and converter version; no change was applied.",
+      "not-approved": "This converter was not chosen in the system window. Start the conversion again and choose it again."
     }
   },
   "manual": {

@@ -1,7 +1,7 @@
 // Fichiers : enregistrement et ouverture du format natif .avd (JSON), exports image et CSV.
 // Dans l'application bureau (Tauri), on utilise les fenêtres natives du système ;
 // dans un navigateur (développement), on retombe sur le téléchargement classique.
-import { isTauri } from '@tauri-apps/api/core'
+import { invoke, isTauri } from '@tauri-apps/api/core'
 import i18n from '../i18n'
 import { toPng, toSvg } from 'html-to-image'
 import { getCable } from '../model/cables'
@@ -67,6 +67,14 @@ export async function pickDirectory(defaultPath?: string): Promise<string | null
   const { open } = await import('@tauri-apps/plugin-dialog')
   const dir = await open({ directory: true, multiple: false, defaultPath })
   return typeof dir === 'string' ? dir : null
+}
+
+/**
+ * Écrit le fichier projet de façon atomique (fichier temporaire voisin puis renommage, côté natif) :
+ * une coupure pendant l'écriture laisse l'ancien fichier intact au lieu d'un projet tronqué.
+ */
+async function writeProjectText(path: string, content: string): Promise<void> {
+  await invoke('save_text_atomic', { path, content })
 }
 
 /**
@@ -156,12 +164,11 @@ async function writeProjectFile(project: Project, opts: { as?: boolean }): Promi
   const known = useSaveFolder.getState().projectFiles[project.id]
   if (isTauri()) {
     const { save } = await import('@tauri-apps/plugin-dialog')
-    const { writeTextFile } = await import('@tauri-apps/plugin-fs')
     let path: string | null = !opts.as && known ? known : null
     if (!path) path = await save({ defaultPath: known ?? (await inSaveFolder(`${slug(project.name)}.avd`)), filters: [FILTERS.avd] })
     if (!path) return false
     try {
-      await writeTextFile(path, content)
+      await writeProjectText(path, content)
     } catch (e) {
       // Fichier déplacé ou disque retiré : on redemande l'emplacement
       if (opts.as || path !== known) throw e
@@ -188,7 +195,7 @@ async function writeProjectFile(project: Project, opts: { as?: boolean }): Promi
 export async function createProjectFile(project: Project, folder: string): Promise<string | null> {
   if (!isTauri()) return null
   const { join } = await import('@tauri-apps/api/path')
-  const { exists, mkdir, writeTextFile } = await import('@tauri-apps/plugin-fs')
+  const { exists, mkdir } = await import('@tauri-apps/plugin-fs')
   const base = projectFolderName(project.name)
   let dir: string
   let suffix: number
@@ -207,7 +214,7 @@ export async function createProjectFile(project: Project, folder: string): Promi
   }
   await mkdir(await join(dir, BACKUP_DIR))
   const path = await join(dir, `${slug(base)}.avd`)
-  await writeTextFile(path, JSON.stringify(project, null, 2))
+  await writeProjectText(path, JSON.stringify(project, null, 2))
   const st = useSaveFolder.getState()
   st.setProjectFile(project.id, path)
   st.markSavedToFile(project.id)

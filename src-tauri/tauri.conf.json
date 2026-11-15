@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "AV Diagram",
-  "version": "0.5.31",
+  "version": "0.5.32",
   "identifier": "io.github.herveobe.avdiagram",
   "build": {
     "frontendDist": "../dist",
@@ -25,8 +25,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost ws:",
-      "freezePrototype": true
+      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost ws:"
     }
   },
   "bundle": {

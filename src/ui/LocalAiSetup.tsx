@@ -123,6 +123,7 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
       <div className="dialog-body">
         <section>
           <p className="dialog-hint">{t('ai.local.intro')}</p>
+          <p className="ai-note" role="note"><strong>{t('ai.experimental.badge')}</strong> · {t('ai.experimental.note')}</p>
           {!native && <p className="ai-note">{t('ai.desktopOnly')}</p>}
           {catalog && !catalog.runtime_available && <p className="ai-note">{t(`ai.local.error.${catalog.runtime_error === 'platform' ? 'platform' : 'runtime'}`)}</p>}
           <ol className="ai-steps"><li>{t('ai.local.step1')}</li><li>{t('ai.local.step2')}</li><li>{t('ai.local.step3')}</li></ol>

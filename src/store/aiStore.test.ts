@@ -51,6 +51,16 @@ it('le mode embarqué ne demande ni compte ni consentement pour envoyer', async 
   expect(native.request.mock.calls[0][0]).toBe('builtin')
   expect(useAi.getState().bubbles.at(-1)?.text).toBe('Bonjour')
 })
+it('un programme llama-server enregistré par une version précédente demande un nouveau choix, sans plantage', async () => {
+  useAi.setState({ settings: { ...settings, provider: 'llamacpp', managed: { serverPath: '/ancien/llama-server', modelPath: '/m.gguf' } } })
+  native.ensure.mockRejectedValueOnce('not-approved')
+  await useAi.getState().send('Bonjour')
+  const last = useAi.getState().bubbles.at(-1)
+  expect(last?.kind).toBe('error')
+  expect(last?.text).toContain('Choisis-le à nouveau')
+  expect(native.request).not.toHaveBeenCalled()
+  expect(useAi.getState().busy).toBe(false)
+})
 it('ouvre la configuration sans assistant actif et ferme le chat à la désactivation', () => {
   useAi.getState().saveSettings({ enabled: false, consent: false })
   useAi.getState().setPanelOpen(true)

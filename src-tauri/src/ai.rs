@@ -54,6 +54,16 @@ fn user_url(base_url: Option<String>, https_allowed: bool) -> Result<Url, String
     Ok(u)
 }
 
+/// Délai d'une réponse. Un modèle local sur processeur seul est très lent : une réponse de 1 055 unités
+/// a pris 11 min 29 s sur 4 cœurs sans carte graphique (évaluation), d'où 30 minutes pour les serveurs
+/// locaux. Les fournisseurs en ligne restent à 2 minutes.
+const LOCAL_TIMEOUT_SECS: u64 = 1800;
+const ONLINE_TIMEOUT_SECS: u64 = 120;
+
+fn request_timeout(local: bool) -> Duration {
+    Duration::from_secs(if local { LOCAL_TIMEOUT_SECS } else { ONLINE_TIMEOUT_SECS })
+}
+
 fn endpoint(provider: &str, base_url: Option<String>) -> Result<Endpoint, String> {
     let fixed = |base: &str, auth: Auth| Endpoint { base: base.into(), auth, key_required: true, local: false };
     Ok(match provider {
@@ -169,8 +179,7 @@ pub async fn ai_request(
     if ep.key_required && key.is_none() {
         return Err("aucune clé API enregistrée pour ce fournisseur".into());
     }
-    // Un modèle local sur processeur peut mettre plusieurs minutes à répondre
-    let timeout = Duration::from_secs(if ep.local { 600 } else { 120 });
+    let timeout = request_timeout(ep.local);
     let mut builder = reqwest::Client::builder()
         .timeout(timeout)
         .redirect(reqwest::redirect::Policy::none());
@@ -218,6 +227,14 @@ mod tests {
         assert!(!same_local_server("http://127.0.0.1:8080/v1", Some("http://localhost:8081/v1")));
         assert!(!same_local_server("http://127.0.0.1:8080/v1", Some("http://192.168.1.2:8080/v1")));
         assert!(!same_local_server("http://127.0.0.1:8080/v1", None));
+    }
+
+    #[test]
+    fn delai_long_pour_les_serveurs_locaux_seulement() {
+        assert_eq!(request_timeout(true), Duration::from_secs(1800));
+        assert_eq!(request_timeout(false), Duration::from_secs(120));
+        assert!(endpoint("ollama", Some("http://localhost:11434/v1".into())).unwrap().local);
+        assert!(!endpoint("openai", None).unwrap().local);
     }
 
     #[test]

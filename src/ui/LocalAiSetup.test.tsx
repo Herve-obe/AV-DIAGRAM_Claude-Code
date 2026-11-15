@@ -111,3 +111,10 @@ it('affiche la cause précise du chargement sans réclamer un nouveau téléchar
   expect(button('Activer l’IA locale').disabled).toBe(true)
   expect(button('Télécharger le modèle').disabled).toBe(true)
 })
+
+it('signale l’IA locale intégrée comme expérimentale au moment de choisir le modèle', async () => {
+  await draw()
+  const note = element.querySelector('[role=note]')
+  expect(note?.textContent).toContain('Expérimental')
+  expect(note?.textContent).toContain('ne construisent pas encore un schéma complet de façon fiable')
+})

@@ -62,7 +62,7 @@ fn macos_version_supported(value: &str) -> bool {
     (major, minor) >= (13, 3)
 }
 
-fn check_server_binary(path: &Path) -> Result<(), String> {
+pub(crate) fn check_server_binary(path: &Path) -> Result<(), String> {
     let name = path.file_name().and_then(|n| n.to_str()).unwrap_or_default().to_lowercase();
     if !path.is_absolute() || !matches!(name.as_str(), "llama-server" | "llama-server.exe") {
         return Err("le programme choisi doit être llama-server (llama.cpp)".into());
@@ -145,17 +145,20 @@ pub async fn local_builtin_start(app: tauri::AppHandle, state: tauri::State<'_, 
 
 #[tauri::command]
 pub fn local_start(
+    app: tauri::AppHandle,
     state: tauri::State<LocalServer>,
     server_path: String,
     model_path: String,
     port: u16,
     context: Option<u32>,
 ) -> Result<(), String> {
+    // Seul un programme choisi dans la fenêtre native (program_choose) peut être lancé
+    let server = crate::approved::require(&app, crate::approved::Kind::LlamaServer, &server_path)?;
     let epoch = state.stop();
     // Clé éphémère : une page web ouverte sur le poste ne peut pas interroger ce serveur
     let key = format!("{:032x}{:032x}", rand::random::<u128>(), rand::random::<u128>());
     let connection = (format!("http://127.0.0.1:{port}/v1"), key.clone(), String::new());
-    state.launch(epoch, || spawn_with_key(Path::new(&server_path), Path::new(&model_path), port, context.unwrap_or(8192), Some(&key), None), Some(connection))
+    state.launch(epoch, || spawn_with_key(&server, Path::new(&model_path), port, context.unwrap_or(8192), Some(&key), None), Some(connection))
 }
 
 #[tauri::command]

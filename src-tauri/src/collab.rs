@@ -6,9 +6,13 @@
 // un échange de clé CPace protégé par le code à 6 chiffres, sans jamais l'envoyer, puis ChaCha20-Poly1305 ;
 // le relais prouve qu'il connaît le code, ce qui démasque une fausse session annoncée sur le réseau ;
 // chaque tentative compte avant la poignée de main (5 par minute et par adresse, des connexions
-// ouvertes en parallèle ne les multiplient pas), au plus 8 poignées de main en cours ; une page web autre
-// que l'application est refusée (en-tête Origin) ; nombre de participants et taille des messages limités ;
-// l'hôte peut exclure un participant.
+// ouvertes en parallèle ne les multiplient pas), au plus 8 poignées de main en cours ; un plafond global
+// limite les échecs toutes adresses confondues (30 par fenêtre de 10 minutes) : au-delà, toute nouvelle
+// poignée de main est refusée jusqu'à la fin de la fenêtre, sauf celle du poste hôte lui-même (boucle
+// locale), et l'hôte en est averti (HostInfo.locked) ; une page web autre que l'application est refusée
+// (en-tête Origin) ; nombre de participants et taille des messages limités ; la file d'envoi de chaque
+// participant est bornée (messages et octets) : un invité qui ne lit plus est retiré, comme à un départ
+// normal ; l'hôte peut exclure un participant.
 //
 // Fin de session : « terminée » (l'hôte clique Terminer : les participants sont prévenus et gardent le
 // projet) ou « interrompue » (fermeture de l'application, passage de relais : les participants se
@@ -23,7 +27,7 @@ use std::sync::atomic::{AtomicU32, AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 use tokio::net::{TcpListener, TcpStream};
-use tokio::sync::{mpsc, watch};
+use tokio::sync::{mpsc, watch, Notify};
 use tokio_tungstenite::tungstenite::handshake::server::{ErrorResponse, Request, Response};
 use tokio_tungstenite::tungstenite::http::StatusCode;
 use tokio_tungstenite::tungstenite::protocol::WebSocketConfig;
@@ -36,6 +40,24 @@ const FRAME_OVERHEAD: usize = 1 + 16;
 const HELLO_TIMEOUT: Duration = Duration::from_secs(10);
 const MAX_FAILURES: u32 = 5;
 const LOCKOUT: Duration = Duration::from_secs(60);
+/// Plafond global d'échecs de code, toutes adresses confondues. Sans lui, un attaquant qui occupe 250
+/// adresses du réseau teste 1 250 codes par minute (code à 6 chiffres trouvé en 6 h 40 en moyenne) ;
+/// avec 30 échecs par 10 minutes, l'espérance passe à plusieurs mois. Un code juste n'est pas un échec.
+const MAX_GLOBAL_FAILURES: u32 = 30;
+const GLOBAL_WINDOW: Duration = Duration::from_secs(600);
+/// Au-delà de ce nombre d'adresses suivies, les entrées expirées sont purgées (mémoire bornée).
+const MAX_TRACKED_ADDRESSES: usize = 1024;
+/// File d'envoi d'un invité. Une pointe passagère (réseau Wi-Fi qui hoquette pendant quelques secondes :
+/// mises à jour du document, curseurs, discussion) tient dans 256 messages ; la synchronisation initiale
+/// d'un gros projet est un ou deux messages de 16 Mio au plus, d'où 64 Mio d'octets en attente. Au-delà,
+/// l'invité ne lit plus : il est retiré (sa connexion se ferme) plutôt que de faire grossir la mémoire de l'hôte.
+const MAX_QUEUE_MESSAGES: usize = 256;
+const MAX_QUEUE_BYTES: usize = 64 * 1024 * 1024;
+/// Le poste hôte lit sur la boucle locale, mais son interface peut être occupée (grosse fusion) pendant
+/// que les messages de tous les invités arrivent : seuils plus larges pour qu'une pointe ne l'éjecte pas.
+const HOST_QUEUE_FACTOR: usize = 4;
+/// Une connexion qui ne se ferme pas proprement (invité bloqué) est abandonnée après ce délai.
+const CLOSE_TIMEOUT: Duration = Duration::from_secs(2);
 /// Poignées de main simultanées, toutes adresses confondues
 const MAX_HANDSHAKES: usize = 8;
 // À conserver identique à src/collab/ydoc.ts (cartes et slots partagés).
@@ -46,12 +68,108 @@ const RUNNING: u8 = 0;
 const ENDED: u8 = 1;
 const INTERRUPTED: u8 = 2;
 
+/// Seuils de la file d'envoi d'un participant
+#[derive(Clone, Copy)]
+struct QueueLimits {
+    messages: usize,
+    bytes: usize,
+}
+
+impl QueueLimits {
+    const GUEST: QueueLimits = QueueLimits { messages: MAX_QUEUE_MESSAGES, bytes: MAX_QUEUE_BYTES };
+
+    fn for_host(self) -> QueueLimits {
+        QueueLimits { messages: self.messages * HOST_QUEUE_FACTOR, bytes: self.bytes * 2 }
+    }
+}
+
+/// Messages et octets en attente dans la file d'un participant
+#[derive(Default)]
+struct Pending {
+    messages: AtomicUsize,
+    bytes: AtomicUsize,
+}
+
+fn weight(m: &Message) -> usize {
+    match m {
+        Message::Text(t) => t.len(),
+        Message::Binary(b) => b.len(),
+        _ => 0,
+    }
+}
+
+/// Résultat d'un envoi dans la file d'un participant
+#[derive(Debug, PartialEq)]
+enum Enqueue {
+    Queued,
+    /// Seuils dépassés : le message n'est pas mis en file, le participant doit être retiré
+    Full,
+    /// Connexion déjà fermée
+    Closed,
+}
+
+/// Côté émission de la file d'un participant : file bornée en nombre de messages et en octets.
+/// Les envois se font sous le verrou de `Hub::peers`, ce qui sérialise les compteurs.
+struct Outbox {
+    tx: mpsc::UnboundedSender<Message>,
+    pending: Arc<Pending>,
+    limits: QueueLimits,
+}
+
+/// Côté lecture de la file : la connexion y prend les messages à envoyer au participant.
+struct Inbox {
+    rx: mpsc::UnboundedReceiver<Message>,
+    pending: Arc<Pending>,
+}
+
+fn queue(limits: QueueLimits) -> (Outbox, Inbox) {
+    let (tx, rx) = mpsc::unbounded_channel();
+    let pending = Arc::new(Pending::default());
+    (Outbox { tx, pending: pending.clone(), limits }, Inbox { rx, pending })
+}
+
+impl Outbox {
+    fn send(&self, m: Message) -> Enqueue {
+        let size = weight(&m);
+        let (count, bytes) = (self.pending.messages.load(Ordering::Relaxed), self.pending.bytes.load(Ordering::Relaxed));
+        // Une file vide accepte toujours un message (un seul message peut atteindre 16 Mio)
+        if count > 0 && (count + 1 > self.limits.messages || bytes + size > self.limits.bytes) { return Enqueue::Full; }
+        self.pending.messages.fetch_add(1, Ordering::Relaxed);
+        self.pending.bytes.fetch_add(size, Ordering::Relaxed);
+        if self.tx.send(m).is_err() {
+            self.pending.messages.fetch_sub(1, Ordering::Relaxed);
+            self.pending.bytes.fetch_sub(size, Ordering::Relaxed);
+            return Enqueue::Closed;
+        }
+        Enqueue::Queued
+    }
+}
+
+impl Inbox {
+    async fn recv(&mut self) -> Option<Message> {
+        let m = self.rx.recv().await?;
+        self.pending.messages.fetch_sub(1, Ordering::Relaxed);
+        self.pending.bytes.fetch_sub(weight(&m), Ordering::Relaxed);
+        Some(m)
+    }
+}
+
 struct Peer {
     host: bool,
     user_id: String,
     name: String,
     addr: SocketAddr,
-    tx: mpsc::UnboundedSender<Message>,
+    out: Outbox,
+    /// Réveille la connexion pour qu'elle se ferme même si elle est bloquée à écrire vers un invité qui ne lit plus
+    evict: Arc<Notify>,
+}
+
+/// Retire de la liste les participants dont la file a débordé et ferme leur connexion ; chaque connexion
+/// annonce ensuite `peer-left` aux autres en se terminant, comme pour un départ normal.
+fn evict(peers: &mut HashMap<u32, Peer>, slow: Vec<u32>) {
+    for id in slow {
+        if let Some(p) = peers.remove(&id) { p.evict.notify_one(); }
+    }
 }
 
 /// État partagé d'une session : participants connectés et tentatives de code erronées.
@@ -61,12 +179,33 @@ pub struct Hub {
     peers: Mutex<HashMap<u32, Peer>>,
     next_id: AtomicU32,
     failures: Mutex<HashMap<IpAddr, (u32, Instant)>>,
+    /// Échecs de code toutes adresses confondues : (nombre, début de la fenêtre)
+    global_failures: Mutex<(u32, Instant)>,
     handshakes: AtomicUsize,
+    limits: QueueLimits,
 }
 
 impl Hub {
     pub fn new(code: String) -> Arc<Self> {
-        Arc::new(Hub { code, host_token: rand::random::<[u8; 32]>().iter().map(|b| format!("{b:02x}")).collect(), peers: Mutex::new(HashMap::new()), next_id: AtomicU32::new(1), failures: Mutex::new(HashMap::new()), handshakes: AtomicUsize::new(0) })
+        Self::with_limits(code, QueueLimits::GUEST)
+    }
+
+    fn with_limits(code: String, limits: QueueLimits) -> Arc<Self> {
+        Arc::new(Hub { code, host_token: rand::random::<[u8; 32]>().iter().map(|b| format!("{b:02x}")).collect(), peers: Mutex::new(HashMap::new()), next_id: AtomicU32::new(1), failures: Mutex::new(HashMap::new()), global_failures: Mutex::new((0, Instant::now())), handshakes: AtomicUsize::new(0), limits })
+    }
+
+    /// Échecs comptés dans la fenêtre globale en cours, et plafond atteint ou non.
+    fn global_state(&self) -> (u32, bool) {
+        let mut g = self.global_failures.lock().unwrap();
+        if g.1.elapsed() >= GLOBAL_WINDOW { *g = (0, Instant::now()); }
+        (g.0, g.0 >= MAX_GLOBAL_FAILURES)
+    }
+
+    /// Refus d'une nouvelle poignée de main : adresse bloquée, ou plafond global atteint. Le poste hôte
+    /// (boucle locale) n'est pas concerné par le plafond global : il doit pouvoir rejoindre sa propre
+    /// session ; un attaquant du réseau ne peut pas se présenter depuis la boucle locale.
+    fn refuses(&self, ip: IpAddr) -> bool {
+        self.locked_out(ip) || (!ip.is_loopback() && self.global_state().1)
     }
 
     fn locked_out(&self, ip: IpAddr) -> bool {
@@ -82,7 +221,13 @@ impl Hub {
     }
 
     fn record_failure(&self, ip: IpAddr) {
+        {
+            let mut g = self.global_failures.lock().unwrap();
+            if g.1.elapsed() >= GLOBAL_WINDOW { *g = (0, Instant::now()); }
+            g.0 += 1;
+        }
         let mut f = self.failures.lock().unwrap();
+        if f.len() >= MAX_TRACKED_ADDRESSES { f.retain(|_, (_, since)| since.elapsed() < LOCKOUT); }
         let e = f.entry(ip).or_insert((0, Instant::now()));
         if e.1.elapsed() >= LOCKOUT {
             *e = (0, Instant::now());
@@ -90,46 +235,54 @@ impl Hub {
         e.0 += 1;
     }
 
-    /// Code juste : la tentative comptée avant la poignée de main est annulée.
+    /// Code juste (ou version refusée, qui ne révèle rien du code) : la tentative comptée avant la
+    /// poignée de main est annulée, pour l'adresse et pour le plafond global.
     fn forgive(&self, ip: IpAddr) {
         if let Some(e) = self.failures.lock().unwrap().get_mut(&ip) { e.0 = e.0.saturating_sub(1); }
+        let mut g = self.global_failures.lock().unwrap();
+        g.0 = g.0.saturating_sub(1);
+    }
+
+    /// Envoie un message à un participant ; renvoie false si sa file a débordé.
+    fn deliver(&self, p: &Peer, msg: Message) -> bool {
+        p.out.send(msg) != Enqueue::Full
     }
 
     /// Envoie un message à tous les participants sauf l'expéditeur.
     fn broadcast(&self, from: u32, msg: Message) {
-        for (id, p) in self.peers.lock().unwrap().iter() {
-            if *id != from {
-                let _ = p.tx.send(msg.clone());
-            }
-        }
+        let mut peers = self.peers.lock().unwrap();
+        let slow: Vec<u32> = peers.iter().filter(|(id, p)| **id != from && !self.deliver(p, msg.clone())).map(|(id, _)| *id).collect();
+        evict(&mut peers, slow);
     }
 
     /// 255 + id réseau + proposition : seul le poste hôte reçoit cette enveloppe.
     /// 254 + destinataire + réponse : seul l'hôte authentifié peut adresser un invité.
     fn route(&self, from: u32, data: &[u8]) {
-        let peers = self.peers.lock().unwrap();
+        let mut peers = self.peers.lock().unwrap();
         let Some(sender) = peers.get(&from) else { return };
+        let mut slow = Vec::new();
         if sender.host {
             if data.first() == Some(&254) {
                 if data.len() < 6 { return; }
                 let id = u32::from_be_bytes(data[1..5].try_into().unwrap());
-                if let Some(p) = peers.get(&id) { let _ = p.tx.send(Message::binary(data[5..].to_vec())); }
+                if let Some(p) = peers.get(&id) { if !self.deliver(p, Message::binary(data[5..].to_vec())) { slow.push(id); } }
             } else {
-                for (id, p) in peers.iter() { if *id != from { let _ = p.tx.send(Message::binary(data.to_vec())); } }
+                for (id, p) in peers.iter() { if *id != from && !self.deliver(p, Message::binary(data.to_vec())) { slow.push(*id); } }
             }
         } else {
             let mut wrapped = vec![255];
             wrapped.extend_from_slice(&from.to_be_bytes());
             wrapped.extend_from_slice(data);
-            for p in peers.values().filter(|p| p.host) { let _ = p.tx.send(Message::binary(wrapped.clone())); }
+            for (id, p) in peers.iter().filter(|(_, p)| p.host) { if !self.deliver(p, Message::binary(wrapped.clone())) { slow.push(*id); } }
         }
+        evict(&mut peers, slow);
     }
 
     pub fn kick(&self, id: u32) -> bool {
         // Le participant est prévenu (il ne se reconnecte pas), puis retirer l'émetteur ferme la connexion
         match self.peers.lock().unwrap().remove(&id) {
             Some(p) => {
-                let _ = p.tx.send(json(serde_json::json!({ "type": "kicked" })));
+                let _ = p.out.send(json(serde_json::json!({ "type": "kicked" })));
                 true
             }
             None => false,
@@ -220,7 +373,7 @@ pub async fn serve(listener: TcpListener, hub: Arc<Hub>, mut shutdown: watch::Re
 }
 
 async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown: watch::Receiver<u8>) {
-    if hub.locked_out(addr.ip()) || hub.peers.lock().unwrap().len() >= MAX_PEERS {
+    if hub.refuses(addr.ip()) || hub.peers.lock().unwrap().len() >= MAX_PEERS {
         return;
     }
     if hub.handshakes.fetch_add(1, Ordering::SeqCst) >= MAX_HANDSHAKES {
@@ -254,6 +407,8 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
         _ => None,
     };
     if pake.as_ref().and_then(|h| h.get("protocol").and_then(|v| v.as_u64())) != Some(COLLAB_PROTOCOL) {
+        // Une version différente ne devine pas le code : la tentative ne compte pas
+        hub.forgive(addr.ip());
         let _ = sink.send(refuse("version")).await;
         let _ = sink.close().await;
         return;
@@ -304,12 +459,13 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
 
     // 2. Inscription et annonce aux autres
     let id = hub.next_id.fetch_add(1, Ordering::Relaxed);
-    let (tx, mut rx) = mpsc::unbounded_channel::<Message>();
+    let (out, mut rx) = queue(if host { hub.limits.for_host() } else { hub.limits });
+    let evicted = Arc::new(Notify::new());
     let others = hub.peer_list();
     {
         let mut peers = hub.peers.lock().unwrap();
         if peers.len() >= MAX_PEERS || (host && peers.values().any(|p| p.host)) { return; }
-        peers.insert(id, Peer { host, user_id: user_id.clone(), name: name.clone(), addr, tx });
+        peers.insert(id, Peer { host, user_id: user_id.clone(), name: name.clone(), addr, out, evict: evicted.clone() });
     }
     let welcome = json(serde_json::json!({ "type": "welcome", "protocol": COLLAB_PROTOCOL, "peerId": id, "userId": user_id, "peers": others }));
     if sink.send(seal(&mut outgoing, welcome)).await.is_err() {
@@ -323,8 +479,15 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     loop {
         tokio::select! {
             _ = shutdown.changed() => break,
+            _ = evicted.notified() => break, // file débordée : l'invité ne lit plus
             out = rx.recv() => match out {
-                Some(m) => if sink.send(seal(&mut outgoing, m)).await.is_err() { break },
+                Some(m) => {
+                    // Écrire vers un invité qui ne lit plus peut bloquer : le retrait doit pouvoir l'interrompre
+                    tokio::select! {
+                        sent = sink.send(seal(&mut outgoing, m)) => if sent.is_err() { break },
+                        _ = evicted.notified() => break,
+                    }
+                }
                 None => break, // exclu par l'hôte
             },
             received = source.next() => match received {
@@ -340,9 +503,9 @@ async fn handle(stream: TcpStream, addr: SocketAddr, hub: Arc<Hub>, mut shutdown
     }
     // Le relais peut fermer rx avant que cette connexion ne lise l'arrêt.
     if *shutdown.borrow() == ENDED {
-        let _ = sink.send(seal(&mut outgoing, json(serde_json::json!({ "type": "ended" })))).await;
+        let _ = tokio::time::timeout(CLOSE_TIMEOUT, sink.send(seal(&mut outgoing, json(serde_json::json!({ "type": "ended" }))))).await;
     }
-    let _ = sink.close().await;
+    let _ = tokio::time::timeout(CLOSE_TIMEOUT, sink.close()).await;
     hub.peers.lock().unwrap().remove(&id);
     if host { hub.peers.lock().unwrap().clear(); }
     hub.broadcast(id, json(serde_json::json!({ "type": "peer-left", "peerId": id })));
@@ -379,6 +542,11 @@ pub struct HostInfo {
     peers: Vec<PeerInfo>,
     #[serde(rename = "discoveryAvailable")]
     discovery_available: bool,
+    /// Échecs de code dans la fenêtre globale en cours (toutes adresses confondues)
+    #[serde(rename = "failedAttempts")]
+    failed_attempts: u32,
+    /// Plafond global atteint : les nouvelles poignées de main sont refusées jusqu'à la fin de la fenêtre
+    locked: bool,
 }
 
 fn local_addresses(port: u16) -> Vec<String> {
@@ -397,7 +565,8 @@ fn local_addresses(port: u16) -> Vec<String> {
 }
 
 fn info(r: &Running) -> HostInfo {
-    HostInfo { host_token: r.hub.host_token.clone(), port: r.port, code: r.code.clone(), addresses: local_addresses(r.port), peers: r.hub.peer_list(), discovery_available: r.discovery_available }
+    let (failed_attempts, locked) = r.hub.global_state();
+    HostInfo { failed_attempts, locked, host_token: r.hub.host_token.clone(), port: r.port, code: r.code.clone(), addresses: local_addresses(r.port), peers: r.hub.peer_list(), discovery_available: r.discovery_available }
 }
 
 fn new_code() -> String {
@@ -462,10 +631,22 @@ mod tests {
         for ko in ["https://evil.example", "http://localhost:8080", "null"] { assert!(!allowed_origin(Some(ko))); }
     }
 
+    /// Participant sans connexion : sa file se lit directement.
+    fn test_peer(hub: &Hub, id: u32, host: bool) -> (Arc<Notify>, Inbox) {
+        let (out, inbox) = queue(if host { hub.limits.for_host() } else { hub.limits });
+        let evict = Arc::new(Notify::new());
+        hub.peers.lock().unwrap().insert(id, Peer { host, user_id: "id".into(), name: "test".into(), addr: "127.0.0.1:1000".parse().unwrap(), out, evict: evict.clone() });
+        (evict, inbox)
+    }
+
     async fn start() -> (u16, Arc<Hub>, watch::Sender<u8>) {
+        start_with(QueueLimits::GUEST).await
+    }
+
+    async fn start_with(limits: QueueLimits) -> (u16, Arc<Hub>, watch::Sender<u8>) {
         let listener = TcpListener::bind(("127.0.0.1", 0)).await.unwrap();
         let port = listener.local_addr().unwrap().port();
-        let hub = Hub::new("123456".into());
+        let hub = Hub::with_limits("123456".into(), limits);
         let (stop, rx) = watch::channel(RUNNING);
         tokio::spawn(serve(listener, hub.clone(), rx));
         (port, hub, stop)
@@ -623,27 +804,23 @@ mod tests {
     #[test]
     fn seules_les_propositions_de_l_hote_sont_diffusees() {
         let hub = Hub::new("123456".into());
-        let (host_tx, mut host_rx) = mpsc::unbounded_channel();
-        let (a_tx, mut a_rx) = mpsc::unbounded_channel();
-        let (b_tx, mut b_rx) = mpsc::unbounded_channel();
-        let peer = |host, tx| Peer { host, user_id: "id".into(), name: "test".into(), addr: "127.0.0.1:1000".parse().unwrap(), tx };
-        hub.peers.lock().unwrap().insert(1, peer(true, host_tx));
-        hub.peers.lock().unwrap().insert(2, peer(false, a_tx));
-        hub.peers.lock().unwrap().insert(3, peer(false, b_tx));
+        let (_, mut host_rx) = test_peer(&hub, 1, true);
+        let (_, mut a_rx) = test_peer(&hub, 2, false);
+        let (_, mut b_rx) = test_peer(&hub, 3, false);
         hub.route(2, &[0, 2, 42]);
-        assert_eq!(host_rx.try_recv().unwrap(), Message::binary(vec![255, 0, 0, 0, 2, 0, 2, 42]));
-        assert!(a_rx.try_recv().is_err());
-        assert!(b_rx.try_recv().is_err(), "un invité ne reçoit jamais une proposition non validée");
+        assert_eq!(host_rx.rx.try_recv().unwrap(), Message::binary(vec![255, 0, 0, 0, 2, 0, 2, 42]));
+        assert!(a_rx.rx.try_recv().is_err());
+        assert!(b_rx.rx.try_recv().is_err(), "un invité ne reçoit jamais une proposition non validée");
         // Une fausse enveloppe ciblée reste une proposition invitée, avec son identité réelle.
         hub.route(2, &[254, 0, 0, 0, 3, 99]);
-        assert_eq!(host_rx.try_recv().unwrap(), Message::binary(vec![255, 0, 0, 0, 2, 254, 0, 0, 0, 3, 99]));
-        assert!(b_rx.try_recv().is_err());
+        assert_eq!(host_rx.rx.try_recv().unwrap(), Message::binary(vec![255, 0, 0, 0, 2, 254, 0, 0, 0, 3, 99]));
+        assert!(b_rx.rx.try_recv().is_err());
         hub.route(1, &[254, 0, 0, 0, 3, 7]);
-        assert_eq!(b_rx.try_recv().unwrap(), Message::binary(vec![7]));
-        assert!(a_rx.try_recv().is_err());
+        assert_eq!(b_rx.rx.try_recv().unwrap(), Message::binary(vec![7]));
+        assert!(a_rx.rx.try_recv().is_err());
         hub.route(1, &[0, 2, 8]);
-        assert_eq!(a_rx.try_recv().unwrap(), Message::binary(vec![0, 2, 8]));
-        assert_eq!(b_rx.try_recv().unwrap(), Message::binary(vec![0, 2, 8]));
+        assert_eq!(a_rx.rx.try_recv().unwrap(), Message::binary(vec![0, 2, 8]));
+        assert_eq!(b_rx.rx.try_recv().unwrap(), Message::binary(vec![0, 2, 8]));
     }
 
     #[test]
@@ -653,5 +830,159 @@ mod tests {
         assert!(c.chars().all(|ch| ch.is_ascii_digit()));
         assert!(same_code("123456", "123456"));
         assert!(!same_code("123456", "123457"));
+    }
+
+    fn ip(n: u8) -> IpAddr { format!("192.168.1.{n}").parse().unwrap() }
+
+    #[test]
+    fn plafond_global_toutes_adresses_confondues() {
+        let hub = Hub::new("123456".into());
+        // 29 échecs depuis 29 adresses différentes (aucune n'atteint sa limite de 5) : pas encore bloqué
+        for n in 1..MAX_GLOBAL_FAILURES as u8 { hub.record_failure(ip(n)); }
+        assert!(!hub.refuses(ip(200)));
+        assert_eq!(hub.global_state(), (MAX_GLOBAL_FAILURES - 1, false));
+        hub.record_failure(ip(100));
+        assert_eq!(hub.global_state(), (MAX_GLOBAL_FAILURES, true));
+        // Une adresse neuve est refusée, une adresse jamais vue aussi
+        assert!(hub.refuses(ip(201)));
+        // Le poste hôte (boucle locale) peut toujours rejoindre sa propre session
+        assert!(!hub.refuses("127.0.0.1".parse().unwrap()));
+        assert!(!hub.refuses("::1".parse().unwrap()));
+    }
+
+    #[test]
+    fn le_plafond_global_se_leve_a_la_fin_de_la_fenetre() {
+        let hub = Hub::new("123456".into());
+        for n in 0..MAX_GLOBAL_FAILURES as u8 { hub.record_failure(ip(n)); }
+        assert!(hub.refuses(ip(250)));
+        hub.global_failures.lock().unwrap().1 = Instant::now() - GLOBAL_WINDOW;
+        assert!(!hub.refuses(ip(250)));
+        assert_eq!(hub.global_state(), (0, false));
+    }
+
+    #[test]
+    fn un_code_juste_ne_compte_pas_comme_un_echec() {
+        let hub = Hub::new("123456".into());
+        // Cent connexions réussies depuis la même adresse ou des adresses différentes : jamais bloqué
+        for n in 0..100u8 {
+            hub.record_failure(ip(n % 7));
+            hub.forgive(ip(n % 7));
+        }
+        assert_eq!(hub.global_state(), (0, false));
+        assert!(!hub.refuses(ip(1)));
+    }
+
+    #[tokio::test]
+    async fn un_code_juste_ne_consomme_pas_le_plafond_de_bout_en_bout() {
+        let (port, hub, _stop) = start().await;
+        let mut clients = Vec::new();
+        for _ in 0..MAX_PEERS - 1 {
+            let (c, welcome) = join(port, "123456").await;
+            assert_eq!(welcome["type"], "welcome");
+            clients.push(c);
+        }
+        assert_eq!(hub.global_state().0, 0, "chaque tentative réussie est annulée");
+        // Un mauvais code, lui, compte
+        let (_c, reply) = join(port, "000000").await;
+        assert_eq!(reply["type"], "refused");
+        assert_eq!(hub.global_state().0, 1);
+    }
+
+    #[tokio::test]
+    async fn le_plafond_global_est_signale_dans_les_infos_de_l_hote() {
+        let hub = Hub::new("123456".into());
+        for n in 0..MAX_GLOBAL_FAILURES as u8 { hub.record_failure(ip(n)); }
+        let (failed, locked) = hub.global_state();
+        assert!(locked && failed == MAX_GLOBAL_FAILURES);
+        let (stop, _rx) = watch::channel(RUNNING);
+        let running = Running { port: 1, code: "123456".into(), hub, stop, discovery_available: true };
+        let value = serde_json::to_value(info(&running)).unwrap();
+        assert_eq!(value["locked"], true);
+        assert_eq!(value["failedAttempts"], MAX_GLOBAL_FAILURES);
+    }
+
+    #[test]
+    fn la_file_est_bornee_en_messages() {
+        let (out, mut inbox) = queue(QueueLimits { messages: 3, bytes: 1_000_000 });
+        for _ in 0..3 { assert_eq!(out.send(Message::binary(vec![1])), Enqueue::Queued); }
+        assert_eq!(out.send(Message::binary(vec![1])), Enqueue::Full);
+        // Lire libère de la place
+        assert!(inbox.rx.try_recv().is_ok());
+        inbox.pending.messages.fetch_sub(1, Ordering::Relaxed);
+        inbox.pending.bytes.fetch_sub(1, Ordering::Relaxed);
+        assert_eq!(out.send(Message::binary(vec![1])), Enqueue::Queued);
+    }
+
+    #[tokio::test]
+    async fn la_file_est_bornee_en_octets_et_accepte_un_gros_message_isole() {
+        let (out, mut inbox) = queue(QueueLimits { messages: 100, bytes: 1000 });
+        // Un message plus gros que le plafond passe quand la file est vide (synchronisation initiale)
+        assert_eq!(out.send(Message::binary(vec![0; 5000])), Enqueue::Queued);
+        assert_eq!(out.send(Message::binary(vec![0; 1])), Enqueue::Full);
+        assert_eq!(inbox.recv().await.map(|m| weight(&m)), Some(5000));
+        assert_eq!(out.send(Message::binary(vec![0; 600])), Enqueue::Queued);
+        assert_eq!(out.send(Message::binary(vec![0; 600])), Enqueue::Full);
+        assert_eq!(out.send(Message::binary(vec![0; 400])), Enqueue::Queued);
+        drop(inbox);
+        assert_eq!(out.send(Message::binary(vec![0; 1])), Enqueue::Full, "file pleine avant la fermeture constatée");
+    }
+
+    #[tokio::test]
+    async fn un_participant_lent_est_retire_sans_toucher_aux_autres() {
+        let hub = Hub::with_limits("123456".into(), QueueLimits { messages: 4, bytes: 1_000_000 });
+        let (_, mut host_rx) = test_peer(&hub, 1, true);
+        let (slow_evict, _slow_rx) = test_peer(&hub, 2, false);
+        let (_, mut fast_rx) = test_peer(&hub, 3, false);
+        // L'hôte (seuil ×4 = 16) envoie 10 messages : l'invité 2 (seuil 4, ne lit jamais) déborde, l'invité 3 lit
+        for i in 0..10u8 {
+            hub.route(1, &[0, 0, i]);
+            assert_eq!(fast_rx.recv().await, Some(Message::binary(vec![0, 0, i])));
+        }
+        let ids: Vec<u32> = { let mut v: Vec<u32> = hub.peers.lock().unwrap().keys().copied().collect(); v.sort(); v };
+        assert_eq!(ids, [1, 3], "l'invité lent est retiré");
+        // Sa connexion est réveillée pour se fermer, même bloquée en écriture
+        tokio::time::timeout(Duration::from_secs(1), slow_evict.notified()).await.expect("retrait signalé");
+        // L'hôte n'est pas éjecté et ne reçoit rien d'inattendu
+        assert!(hub.peers.lock().unwrap().contains_key(&1));
+        assert!(host_rx.rx.try_recv().is_err());
+    }
+
+    #[tokio::test]
+    async fn l_hote_tolere_une_pointe_que_refuse_un_invite() {
+        let hub = Hub::with_limits("123456".into(), QueueLimits { messages: 4, bytes: 1_000_000 });
+        let (_, _host_rx) = test_peer(&hub, 1, true);
+        let (_, _guest_rx) = test_peer(&hub, 2, false);
+        let (_, _other_rx) = test_peer(&hub, 3, false);
+        // Les invités 2 et 3 envoient 8 messages chacun, l'hôte (seuil 16) n'a rien lu : il reste
+        for i in 0..8u8 { hub.route(2, &[0, i]); hub.route(3, &[0, i]); }
+        let ids: Vec<u32> = { let mut v: Vec<u32> = hub.peers.lock().unwrap().keys().copied().collect(); v.sort(); v };
+        assert_eq!(ids, [1, 2, 3]);
+        // Au-delà du seuil de l'hôte, il est retiré aussi
+        for i in 0..4u8 { hub.route(2, &[0, i]); }
+        assert!(!hub.peers.lock().unwrap().contains_key(&1));
+    }
+
+    #[tokio::test]
+    async fn un_invite_qui_ne_lit_plus_est_retire_et_les_autres_sont_prevenus() {
+        // Seuils réduits pour que le test reste rapide ; les connexions et les tampons TCP sont réels
+        let (port, hub, _stop) = start_with(QueueLimits { messages: 4, bytes: 64 * 1024 * 1024 }).await;
+        let (mut a, _) = join_with_token(port, "123456", Some(&hub.host_token)).await;
+        let (_slow, welcome) = join(port, "123456").await; // ne lit plus rien après l'accueil
+        let slow_id = welcome["peerId"].as_u64().unwrap() as u32;
+        assert_eq!(next_json(&mut a).await["type"], "peer-joined");
+        let chunk = vec![7u8; 1024 * 1024];
+        let mut left = None;
+        for _ in 0..400 {
+            a.send_binary(&chunk).await;
+            if let Ok(Some((KIND_TEXT, text))) = tokio::time::timeout(Duration::from_millis(20), a.recv()).await {
+                left = Some(serde_json::from_slice::<serde_json::Value>(&text).unwrap());
+                break;
+            }
+        }
+        let left = left.expect("peer-left attendu après le débordement");
+        assert_eq!(left["type"], "peer-left");
+        assert_eq!(left["peerId"], slow_id);
+        assert!(!hub.peers.lock().unwrap().contains_key(&slow_id));
+        assert!(hub.peers.lock().unwrap().values().any(|p| p.host), "l'hôte reste connecté");
     }
 }

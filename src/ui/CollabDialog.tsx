@@ -160,6 +160,7 @@ export function CollabDialog() {
           {role === 'host' && host && <section>
             <div className="collab-code"><span>{t('collab.code')}</span><strong className="mono">{host.code}</strong></div>
             <p className="dialog-hint">{t('collab.lobby.invite')}</p>
+            {host.locked && <p className="collab-error" role="alert"><Icon name="alert" size={14} /> {t('collab.lockedOut')}</p>}
             {host.discoveryAvailable === false && <p className="collab-error" role="alert">{t('collab.discovery.unavailable')}</p>}
             <details className="collab-advanced">
               <summary>{t('collab.advanced')}</summary>

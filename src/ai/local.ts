@@ -26,6 +26,14 @@ export function portOf(baseUrl: string | undefined): number {
 export const stopServer = () => invoke<void>('local_stop')
 
 /**
+ * Choix de llama-server : la partie native ouvre elle-même la fenêtre du système, valide le fichier et
+ * l'ajoute à sa liste de programmes approuvés (src-tauri/src/approved.rs). Seul un chemin renvoyé par cette
+ * commande peut être lancé ; un chemin enregistré par une version précédente est refusé (« not-approved »)
+ * jusqu'à un nouveau choix. Renvoie null si l'utilisateur annule.
+ */
+export const chooseServerProgram = (title?: string) => invoke<string | null>('program_choose', { kind: 'llama-server', title })
+
+/**
  * Lance llama-server et attend que le modèle réponde (le chargement d'un gros modèle prend du temps).
  * Renvoie la liste des modèles servis.
  */

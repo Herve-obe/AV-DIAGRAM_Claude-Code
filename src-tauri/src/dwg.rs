@@ -28,7 +28,7 @@ fn validate_data(data: &[u8]) -> Result<(), String> {
     if data.len() < 6 || &data[..4] != b"AC10" || !data[4..6].iter().all(u8::is_ascii_digit) { return Err("invalid".into()); }
     Ok(())
 }
-fn checked_converter(path: &Path) -> Result<PathBuf, String> {
+pub(crate) fn checked_converter(path: &Path) -> Result<PathBuf, String> {
     if !path.is_absolute() { return Err("converter".into()); }
     let actual = path.canonicalize().map_err(|_| "converter")?;
     let name = actual.file_name().and_then(|s| s.to_str()).unwrap_or_default();
@@ -80,7 +80,9 @@ fn convert(state: DwgConverter, converter: String, data: Vec<u8>, epoch: u64) ->
 }
 
 #[tauri::command]
-pub async fn dwg_to_dxf(state: tauri::State<'_, DwgConverter>, converter: String, data: Vec<u8>) -> Result<Vec<u8>, String> {
+pub async fn dwg_to_dxf(app: tauri::AppHandle, state: tauri::State<'_, DwgConverter>, converter: String, data: Vec<u8>) -> Result<Vec<u8>, String> {
+    // Seul un convertisseur choisi dans la fenêtre native (program_choose) peut être lancé
+    let converter = crate::approved::require(&app, crate::approved::Kind::Oda, &converter)?.to_string_lossy().into_owned();
     let state = state.inner().clone();
     let epoch = state.cancelled.load(Ordering::SeqCst);
     tauri::async_runtime::spawn_blocking(move || convert(state, converter, data, epoch)).await.map_err(|_| "conversion".to_string())?

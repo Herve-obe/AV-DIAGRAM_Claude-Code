@@ -195,4 +195,14 @@ describe('parcours de session collaborative', () => {
     click('Gérer la session')
     expect(useCollab.getState().dialogOpen).toBe(true)
   })
+  it('avertit l’hôte quand le plafond global d’essais de code est atteint, dans la fenêtre et dans la barre', () => {
+    const locked = { ...hosting.host, failedAttempts: 30, locked: true }
+    useCollab.setState({ ...hosting, host: hosting.host }); draw()
+    expect(element.textContent).not.toContain('Tentatives répétées')
+    useCollab.setState({ ...hosting, host: locked }); draw()
+    expect(element.textContent).toContain('Tentatives répétées avec un mauvais code')
+    expect(element.textContent).toContain('génère un nouveau code')
+    draw(true)
+    expect(element.querySelector('[role="alert"]')?.textContent).toContain('Tentatives répétées avec un mauvais code')
+  })
 })

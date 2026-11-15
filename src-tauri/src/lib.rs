@@ -10,6 +10,11 @@ mod pdfsec;
 mod local;
 mod local_models;
 mod dwg;
+mod atomic;
+mod approved;
+
+/// Délai au bout duquel la fenêtre principale est affichée d'office si l'interface ne l'a pas fait
+const STARTUP_SHOW_DELAY_SECS: u64 = 8;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -24,6 +29,19 @@ pub fn run() {
         .manage(local_models::InstallerSetup(std::sync::Mutex::new(local_models::installer_request(std::env::args_os().skip(1)))))
         .manage(collab::CollabServer::default())
         .manage(dwg::DwgConverter::default())
+        .setup(|app| {
+            // Filet de sécurité : la fenêtre part cachée et c'est l'interface qui l'affiche une fois sa
+            // disposition restaurée. Si l'interface plante au chargement, la fenêtre est affichée quand même :
+            // l'application ne doit jamais tourner sans fenêtre.
+            use tauri::Manager;
+            if let Some(window) = app.get_webview_window("main") {
+                std::thread::spawn(move || {
+                    std::thread::sleep(std::time::Duration::from_secs(STARTUP_SHOW_DELAY_SECS));
+                    if !window.is_visible().unwrap_or(false) { let _ = window.show(); }
+                });
+            }
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             ai::ai_request,
             ai::ai_key_set,
@@ -47,7 +65,10 @@ pub fn run() {
             discovery::collab_discover,
             dwg::dwg_to_dxf,
             dwg::dwg_cancel,
-            pdfsec::pdf_protect
+            pdfsec::pdf_protect,
+            atomic::save_text_atomic,
+            approved::program_choose,
+            approved::program_is_approved
         ])
         .build(tauri::generate_context!())
         .expect("erreur au lancement d'AV Diagram")
