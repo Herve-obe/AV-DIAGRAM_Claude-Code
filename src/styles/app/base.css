@@ -1,4 +1,6 @@
-/* Base : remise à zéro des marges et des boîtes, champs de formulaire, petites classes utilitaires. */
+/* Base : remise à zéro des marges et des boîtes, champs de formulaire, petites classes utilitaires.
+   Les règles par défaut des contrôles utilisent :where() (spécificité nulle) : les composants les
+   surchargent sans lutte de cascade. Seul le chevron des listes déroulantes a une spécificité plus haute. */
 
 
 *,
@@ -8,16 +10,77 @@ html, body, #root { height: 100%; margin: 0; }
 body {
   background: var(--bg-0);
   color: var(--text);
-  font: 14px/1.4 var(--font-ui);
+  font: var(--fs-md)/var(--lh-base) var(--font-ui);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overflow: hidden;
 }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { background: none; border: 0; cursor: pointer; padding: 0; }
-button:disabled { cursor: default; opacity: 0.35; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-.mono { font-family: var(--font-mono); font-size: 12px; }
+button:disabled { cursor: default; opacity: var(--disabled-opacity); }
+::selection { background: var(--accent-soft-strong); }
+
+/* Anneau de focus clavier : le même partout (boutons, onglets, lignes, champs) */
+:focus-visible { outline: var(--focus-width) solid var(--focus-color); outline-offset: var(--focus-offset); }
+:focus:not(:focus-visible) { outline: none; }
+
+/* Champs de saisie par défaut */
+:where(input:not([type='checkbox'], [type='radio'], [type='range'], [type='color'], [type='file'], [type='button'], [type='submit']), textarea, select) {
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 5px 8px;
+  color: var(--text);
+  transition: border-color var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease);
+}
+:where(input:not([type='checkbox'], [type='radio'], [type='range'], [type='color'], [type='file']), textarea, select):hover:not(:disabled) { border-color: var(--border-hover); }
+:where(input, textarea, select):focus-visible { outline-offset: -1px; border-color: var(--accent); }
+:where(input, textarea)::placeholder { color: var(--text-3); opacity: 1; }
+:where(input, textarea, select):disabled { opacity: var(--disabled-opacity); cursor: not-allowed; }
+:where(input[readonly]) { color: var(--text-2); }
+:where(input[type='checkbox'], input[type='radio'], progress) { accent-color: var(--accent); }
+:where(input[type='checkbox'], input[type='radio']) { width: 15px; height: 15px; margin: 0; flex: none; }
+:where(input[type='checkbox'], input[type='radio']):focus-visible { outline-offset: 2px; }
+:where(input[type='range']) { accent-color: var(--accent); }
+
+/* Listes déroulantes : chevron dessiné avec les jetons (aucune image, aucune couleur en dur) */
+select:not([multiple]):not([size]) {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-inline-end: 24px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-2) 50%),
+    linear-gradient(135deg, var(--text-2) 50%, transparent 50%);
+  background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+select:not([multiple]):not([size]):disabled { cursor: not-allowed; }
+select option { background: var(--bg-2); color: var(--text); }
+
+/* Barres de défilement fines, aux couleurs de la surface */
+* { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
+@supports not (scrollbar-width: thin) {
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: var(--radius-pill); border: 2px solid transparent; background-clip: content-box; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--scroll-thumb-hover); background-clip: content-box; }
+  ::-webkit-scrollbar-corner { background: transparent; }
+}
+
+/* Transitions courtes sur les contrôles (coupées par prefers-reduced-motion, voir responsive.css) */
+:where(button, a, summary) {
+  transition: background-color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+hr { border: 0; border-top: 1px solid var(--border); }
+a { color: var(--accent); text-underline-offset: 2px; }
+:where(summary) { cursor: pointer; }
+
+.mono { font-family: var(--font-mono); font-size: var(--fs-sm); }
 .dim { color: var(--text-3); }
 .ok-text { color: var(--ok); }
 .spacer { flex: 1; }
-.empty { padding: 12px 14px; color: var(--text-2); font-size: 13px; margin: 0; }
+.empty { padding: var(--space-3) 14px; color: var(--text-2); font-size: var(--fs-base); margin: 0; }

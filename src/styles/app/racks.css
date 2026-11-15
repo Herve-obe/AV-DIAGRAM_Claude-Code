@@ -5,7 +5,7 @@
 .rack-pending h3 { margin: 0 0 4px; font-size: 13px; }
 .rack-pending ul { list-style: none; margin: 8px 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
 .rack-pending li { display: flex; justify-content: space-between; gap: 8px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg-2); cursor: grab; font-size: 12px; }
-.rack-pending li:hover { border-color: var(--accent); }
+.rack-pending li:hover { border-color: var(--border-hover); background: var(--bg-3); }
 .rack-invalid { margin-top: 10px; padding: 8px; border: 1px solid var(--warn); border-radius: 4px; font-size: 12px; }
 .rack-invalid ul { margin: 4px 0 0; }
 .rack-board { display: flex; flex-direction: column; min-width: 0; min-height: 0; }

@@ -2,7 +2,7 @@
 .export-dialog { width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 48px); display: flex; flex-direction: column; }
 .export-dialog .dialog-body { flex: 1; min-height: 0; }
 .export-tabs { margin: 10px 14px 0; align-self: flex-start; }
-.export-foot { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--border); }
+.export-foot { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-top: 1px solid var(--border); background: var(--bg-0); border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
 .export-foot .dialog-hint { flex: 1; margin: 0; }
 .export-mode { margin: 8px 14px 4px; display: inline-flex; }
 .export-scale { max-width: 220px; }

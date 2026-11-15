@@ -12,6 +12,7 @@
   color: var(--text);
   font-size: 12px;
 }
+.eq-node:hover { border-color: var(--border-hover); }
 .eq-node.is-selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-2); }
 .eq-head {
   display: flex; align-items: center; gap: 8px;
@@ -82,11 +83,14 @@
 .edge-label.sev-warning { color: var(--warn); border-color: var(--warn); }
 .edge-label.sev-info { color: var(--text-2); }
 .edge-label.is-selected { border-color: var(--accent); color: var(--text); }
-.react-flow__controls { box-shadow: var(--shadow-1); border-radius: var(--radius); overflow: hidden; }
-.react-flow__controls-button { background: var(--bg-2); border-bottom: 1px solid var(--border); fill: var(--text-2); }
+.react-flow__controls { box-shadow: var(--shadow-1); border: 1px solid var(--border-strong); border-radius: var(--radius-md); overflow: hidden; }
+.react-flow__controls-button { background: var(--bg-2); border-bottom: 1px solid var(--border); fill: var(--text-2); transition: background-color var(--dur-fast) var(--ease); }
+.react-flow__controls-button:last-child { border-bottom: 0; }
 .react-flow__controls-button:hover { background: var(--bg-3); }
+.react-flow__controls-button:active { background: var(--bg-4); }
+.react-flow__controls-button:focus-visible { outline-offset: -2px; }
 .react-flow__controls-button svg { fill: currentColor; color: var(--text-2); }
-.react-flow__minimap { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-.react-flow__attribution { background: transparent; color: var(--text-3); }
+.react-flow__minimap { border: 1px solid var(--border-strong); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-1); }
+.react-flow__attribution { background: transparent; color: var(--text-3); font-size: var(--fs-2xs); }
 .react-flow__attribution a { color: var(--text-3); }
 .react-flow__selection { background: var(--accent-soft); border: 1px solid var(--accent); }

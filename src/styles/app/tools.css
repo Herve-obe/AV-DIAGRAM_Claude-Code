@@ -7,12 +7,19 @@
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px;
   margin: 0 10px 8px; padding: 6px 8px;
   border: 1px solid var(--border); border-radius: var(--radius);
-  background: var(--bg-2); color: var(--text-2); font-size: 12px;
+  background: var(--bg-2); color: var(--text-2); font-size: var(--fs-sm);
 }
 
 /* Onglets des boîtes de dialogue : jamais écrasés quand le contenu dépasse la hauteur */
 .dialog > .segmented { flex-shrink: 0; }
-.dialog-foot { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--border); }
+/* Onglets de dialogue : soulignés, l'onglet actif porte l'accent */
+.dialog > .segmented, .dialog .export-tabs {
+  margin: 0; padding: 0 14px; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; gap: 0; flex-wrap: wrap; align-self: stretch; overflow: visible;
+}
+.dialog > .segmented button, .dialog .export-tabs button { padding: 10px 10px 9px; border-left: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; color: var(--text-2); font: 500 var(--fs-base) var(--font-ui); letter-spacing: 0; text-transform: none; white-space: nowrap; }
+.dialog > .segmented button:hover:not(:disabled, [aria-pressed='true'], [aria-selected='true']), .dialog .export-tabs button:hover:not(:disabled, [aria-pressed='true'], [aria-selected='true']) { background: transparent; color: var(--text); }
+.dialog > .segmented button[aria-pressed='true'], .dialog > .segmented button[aria-selected='true'], .dialog .export-tabs button[aria-pressed='true'], .dialog .export-tabs button[aria-selected='true'] { background: transparent; color: var(--text); border-bottom-color: var(--accent); }
+.dialog-foot { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--border); background: var(--bg-0); border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
 .dialog-head h2 .icon, .dialog-head h2 svg { vertical-align: -2px; color: var(--warn); }
 
 /* Liaison à confirmer */
@@ -30,7 +37,7 @@
   flex: 1; display: flex; justify-content: space-between; gap: 10px; padding: 6px 8px;
   border-radius: var(--radius); text-align: left; font-size: 13px;
 }
-.start-recent-open:hover { background: var(--bg-2); }
+.start-recent-open:hover { background: var(--hover); }
 
 /* Cadre lié à une zone : code de la zone à côté du titre */
 .annotation-zone {
@@ -52,7 +59,7 @@
 
 /* Menu clic droit du synoptique */
 .canvas-menu { position: fixed; top: auto; z-index: 60; min-width: 230px; }
-.canvas-menu .menu-label { padding: 6px 10px 2px; font: 600 11px var(--font-label); letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-2); }
+.canvas-menu .menu-label { padding: 6px 10px 2px; font: 600 var(--fs-xs) var(--font-label); letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-2); }
 .canvas-menu button { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .canvas-menu kbd { font-size: 11px; color: var(--text-3); }
 .canvas-menu hr { border: 0; border-top: 1px solid var(--border); margin: 4px 2px; }
@@ -104,11 +111,11 @@
   display: grid; place-items: center; width: 20px; height: 20px; margin-left: auto; flex: none;
   border-radius: 50%; color: var(--text-2); background: var(--bg-3);
 }
-.search-clear:hover { color: var(--text); background: var(--accent-soft); }
+.search-clear:hover { color: var(--text); background: var(--bg-4); }
 
 /* Séparateurs redimensionnables (bibliothèque, inspecteur, panneau du bas) */
 .splitter { position: absolute; z-index: 30; touch-action: none; }
-.splitter::after { content: ''; position: absolute; background: transparent; transition: background 0.12s; }
+.splitter::after { content: ''; position: absolute; background: transparent; transition: background var(--dur) var(--ease); }
 .splitter:hover::after, .splitter:active::after { background: var(--accent); }
 .splitter-library, .splitter-inspector { top: 0; bottom: 0; width: 8px; cursor: col-resize; }
 .splitter-library { left: calc(var(--lib-w, 248px) - 4px); }
