@@ -103,6 +103,17 @@ describe('assistant : outils', () => {
     expect(r[0].template_id).toBe('gen-mic-cond')
   })
 
+  it('trouve une fiche malgré le pluriel ou le féminin de la demande, sans élargir aux mots voisins', () => {
+    const top = (q: string, n = 1) => searchLibrary(LIBRARY, q, n).map(r => r.template_id)
+    expect(top('enceintes amplifiées')).toEqual(['gen-speaker-active'])
+    expect(top('micros statiques')).toEqual(['gen-mic-cond'])
+    expect(top('micros dynamiques')).toEqual(['gen-mic-dyn'])
+    expect(top('consoles numériques')).toEqual(['gen-console'])
+    // « scènes » ne doit pas ramener la marque Scenilux ; une référence reste cherchée telle quelle
+    expect(top('retours de scènes', 8).some(id => id.startsWith('scenilux'))).toBe(false)
+    expect(top('DPA 4066')).toEqual(['dpa-4066'])
+    expect(top('SM58')).toEqual(['shure-sm58'])
+  })
   it('ignore les mots vides et fait passer le nom avant la description', () => {
     const capture = LIBRARY.filter(t => t.family === 'capture')
     const ids = searchLibrary(capture, 'micro dynamique avec pied de table', 5).map(r => r.template_id)

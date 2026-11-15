@@ -209,16 +209,25 @@ function portGroups(ports: PortDef[]): Record<string, number> {
 /** Fiches retenues par rôle de plan_diagram : toutes montrées au modèle, seules acceptées ensuite. */
 const CANDIDATES_PER_ROLE = 2
 
+/** Radical d'un mot courant : pluriel et féminin retirés (« enceintes amplifiées » doit trouver « Enceinte amplifiée »).
+ *  Une référence (mot contenant un chiffre) et un mot court restent tels quels. */
+const stem = (word: string) => {
+  if (word.length < 5 || /\d/.test(word)) return word
+  const root = word.replace(/[esx]+$/, '')
+  return root.length >= 4 ? root : word
+}
+const stemWords = (words: string) => words.split(' ').map(stem).join(' ')
+
 const referenceWords = (s: string) => norm(s).replace(/([a-z])(\d)/g, '$1 $2').replace(/(\d)([a-z])/g, '$1 $2').replace(/[^a-z0-9]+/g, ' ').trim()
 
 /** Référence entière prioritaire ; un identifiant court (XR18 dans « X AIR XR18 ») reste recherchable. */
 export function referenceScore(t: EquipmentTemplate, query: string): number {
-  const hay = ' ' + referenceWords(query) + ' '
+  const hay = ' ' + stemWords(referenceWords(query)) + ' '
   const matches = (s: string) => {
     const words = referenceWords(s)
     // Une désignation comme « CES » ne doit pas transformer le démonstratif français en référence imposée.
     return !['ces', 'des', 'les', 'une', 'sur', 'aux', 'the', 'and', 'for', 'with'].includes(words)
-      && words.replace(/ /g, '').length >= 3 && hay.includes(' ' + words + ' ')
+      && words.replace(/ /g, '').length >= 3 && hay.includes(' ' + stemWords(words) + ' ')
   }
   const full = [t.model, ...(t.aliases ?? [])].filter(matches)
   if (full.length) return t.status === 'generic' ? 25 : 100
@@ -261,12 +270,15 @@ function connectionFixes(library: EquipmentTemplate[], project: Project, pair: S
   ].join('')
 }
 export function searchLibrary(library: EquipmentTemplate[], query: string, limit = 12) {
-  const tokens = norm(query).split(/[^a-z0-9]+/).filter(k => k && !STOPWORDS.has(k) && (k.length > 2 || /\d/.test(k)))
+  const words = norm(query).split(/[^a-z0-9]+/).filter(k => k && !STOPWORDS.has(k) && (k.length > 2 || /\d/.test(k)))
+  const tokens = [...new Set(words.map(stem))]
+  // Mot ramené à son radical : seule une terminaison courte peut suivre (« scèn » trouve « scène », pas « Scenilux »)
+  const inflected = new Set(words.filter(w => stem(w) !== w).map(stem))
   // Le nom, la famille et les alias pèsent double ; chaque mot pèse selon sa rareté dans la liste cherchée :
   // « micro » figure sur presque toutes les fiches de capture, « dynamique » départage vraiment.
   const texts = library.map(t => ({ t, name: norm(`${t.manufacturer ?? ''} ${t.model} ${t.id} ${t.family} ${(t.aliases ?? []).join(' ')}`), description: norm(t.description ?? '') }))
   // Début de mot uniquement : « table » ne doit pas se trouver dans « démontable » ni « commutable »
-  const pattern = new Map(tokens.map(k => [k, new RegExp(`(?:^|[^a-z0-9])${k}`)]))
+  const pattern = new Map(tokens.map(k => [k, new RegExp(`(?:^|[^a-z0-9])${k}${inflected.has(k) ? '[a-z]{0,3}(?![a-z0-9])' : ''}`)]))
   const has = (hay: string, k: string) => pattern.get(k)!.test(hay)
   const weight = new Map(tokens.map(k => [k, Math.log(1 + texts.length / (1 + texts.filter(x => has(x.name, k) || has(x.description, k)).length))]))
   return texts
@@ -367,9 +379,14 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         ]
         if (problems.length) return fail(`Rôle ${a.roles.indexOf(role) + 1}${ref ? ` (${ref})` : ''} : ${problems.join(' ; ')}. Reprendre tout le plan.`)
         const library = ctx.library.filter(t => !role.family || t.family === role.family)
-        const found = searchLibrary(library, role.required_model ? role.query : role.query + ' ' + text(role.ref), 12)
+        const ranked = searchLibrary(library, role.required_model ? role.query : role.query + ' ' + text(role.ref), 12)
           .map(row => ctx.library.find(t => t.id === row.template_id)!)
-          .filter(t => t.portStatus !== 'pending' && t.ports.length && (!role.required_model || referenceScore(t, role.query) > 0)).slice(0, CANDIDATES_PER_ROLE)
+          .filter(t => t.portStatus !== 'pending' && t.ports.length && (!role.required_model || referenceScore(t, role.query) > 0))
+        let found = ranked.slice(0, CANDIDATES_PER_ROLE)
+        // Modèle libre : une fiche générique pertinente reste parmi les candidats. Si la fiche la mieux classée ne se
+        // branche pas (retour passif choisi pour « retours amplifiés »), le modèle a une solution sans interroger l'utilisateur.
+        const generic = !role.required_model && !found.some(t => t.status === 'generic') ? ranked.find(t => t.status === 'generic') : undefined
+        if (generic && found.length) found = [...found.slice(0, CANDIDATES_PER_ROLE - 1), generic]
         if (!found.length) questions.push(labels.missing.replace('{{query}}', role.query))
         roles.push({ ref, count: role.count, candidates: found.map(t => t.id) })
       }

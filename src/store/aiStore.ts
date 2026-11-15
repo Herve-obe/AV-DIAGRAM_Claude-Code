@@ -31,8 +31,10 @@ export interface AiSettings {
 }
 
 export type Bubble =
-  | { kind: 'user' | 'assistant'; text: string }
-  | { kind: 'error'; text: string }
+  | { kind: 'user'; text: string }
+  /** elapsedMs : temps écoulé entre l'envoi de la demande et la réponse (ou l'erreur) */
+  | { kind: 'assistant'; text: string; elapsedMs?: number }
+  | { kind: 'error'; text: string; elapsedMs?: number }
   | { kind: 'note'; text: string }
 
 const KEY = 'avd.ai'
@@ -74,6 +76,8 @@ interface AiState {
   bubbles: Bubble[]
   history: ChatMessage[]
   busy: boolean
+  /** Heure d'envoi de la demande en cours (Date.now()), pour le décompte affiché pendant la réponse */
+  busySince: number | null
   /** Outil en cours d'exécution, pour l'indicateur d'activité */
   activeTool: string | null
   proposal: Draft | null
@@ -99,6 +103,7 @@ export const useAi = create<AiState>((set, get) => ({
   bubbles: [],
   history: [],
   busy: false,
+  busySince: null,
   activeTool: null,
   proposal: null,
   contextNote: null,
@@ -152,7 +157,8 @@ export const useAi = create<AiState>((set, get) => ({
     draft ??= createDraft(project, ui.currentSheetId)
     // IA locale : prévenir avant de commencer qu'une demande longue ou très contrainte dépasse ses capacités
     const complex = providerInfo(settings.provider).kind === 'local' && isComplexForLocal(question)
-    set({ busy: true, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question },
+    const started = Date.now()
+    set({ busy: true, busySince: started, activeTool: null, contextNote: null, bubbles: [...bubbles, { kind: 'user', text: question },
       ...(complex ? [{ kind: 'note' as const, text: i18n.t('ai.limits.complex') }] : [])] })
     try {
       if (!localLayoutRequest(question) && (settings.provider === 'builtin' || settings.provider === 'llamacpp') && settings.managed) {
@@ -187,7 +193,7 @@ export const useAi = create<AiState>((set, get) => ({
       set((s) => ({
         history: res.history,
         proposal: hasChanges(res.draft) ? res.draft : null,
-        bubbles: [...s.bubbles, { kind: 'assistant', text: res.reply || i18n.t('ai.emptyReply') }],
+        bubbles: [...s.bubbles, { kind: 'assistant', text: res.reply || i18n.t('ai.emptyReply'), elapsedMs: Date.now() - started }],
       }))
     } catch (e) {
       if (generation !== turn) return
@@ -195,9 +201,9 @@ export const useAi = create<AiState>((set, get) => ({
       const detail = e instanceof Error ? e.message : String(e)
       // Code d'erreur natif connu (ex. programme à choisir à nouveau) : message traduit seul
       const known = typeof e === 'string' ? i18n.t(`ai.local.error.${e}`, { defaultValue: '' }) : ''
-      set((s) => ({ bubbles: [...s.bubbles, { kind: 'error', text: known || `${i18n.t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}` }] }))
+      set((s) => ({ bubbles: [...s.bubbles, { kind: 'error', text: known || `${i18n.t(`ai.error.${kind}`)}${detail ? ` (${detail})` : ''}`, elapsedMs: Date.now() - started }] }))
     } finally {
-      if (generation === turn) set({ busy: false, activeTool: null })
+      if (generation === turn) set({ busy: false, busySince: null, activeTool: null })
     }
   },
 
@@ -241,7 +247,7 @@ export const useAi = create<AiState>((set, get) => ({
   cancel: () => {
     generation++
     if (get().settings.managed) void stopServer().catch(() => undefined)
-    set({ busy: false, activeTool: null })
+    set({ busy: false, busySince: null, activeTool: null })
   },
   clear: () => {
     if (get().busy) get().cancel()

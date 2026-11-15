@@ -46,3 +46,25 @@ it('propose les formats avec leur nombre de pages et réserve leur application a
     else Reflect.deleteProperty(HTMLElement.prototype, 'scrollTo')
   }
 })
+
+it('affiche sous la réponse le temps mis par l’IA, et un décompte pendant qu’elle travaille', async () => {
+  Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
+  const scrollTo = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollTo')
+  Object.defineProperty(HTMLElement.prototype, 'scrollTo', { value: vi.fn(), configurable: true })
+  useAi.getState().clear()
+  useAi.setState({ bubbles: [{ kind: 'user', text: 'Sonorise une conférence.' }, { kind: 'assistant', text: 'Voici le schéma.', elapsedMs: 252_000 }] })
+  const element = document.createElement('div'), root = createRoot(element)
+  document.body.append(element)
+  try {
+    await act(async () => root.render(<AssistantPanel />))
+    expect(element.textContent).toContain('Réponse en 4 min 12 s')
+    // La demande de l'utilisateur ne porte pas de durée
+    expect(element.textContent?.match(/Réponse en/g)).toHaveLength(1)
+    await act(async () => useAi.setState({ busy: true, busySince: Date.now() - 65_000 }))
+    expect(element.textContent).toContain('1 min 05 s')
+  } finally {
+    await act(async () => root.unmount()); element.remove(); useAi.setState({ busy: false, busySince: null }); useAi.getState().clear()
+    if (scrollTo) Object.defineProperty(HTMLElement.prototype, 'scrollTo', scrollTo)
+    else Reflect.deleteProperty(HTMLElement.prototype, 'scrollTo')
+  }
+})

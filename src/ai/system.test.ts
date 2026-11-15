@@ -143,6 +143,14 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     expect(error).toContain('Ou insérer entre les deux, avec sa propre ref et deux flux : gen-amp4')
   })
 
+  it('modèle libre : une fiche générique pertinente reste parmi les candidats du plan', () => {
+    const wedges = { ...plan, roles: [{ ref: 'retours', query: 'retours de scène amplifiés', family: 'speaker', count: 2, required_model: false }] }
+    const result = JSON.parse(runTool(base(), call('plan_diagram', wedges), { ...ctx, library: LIBRARY }).content)
+    const candidates = result.roles[0].candidates.map((c: { template_id: string }) => c.template_id)
+    expect(candidates).toContain('gen-speaker-active')
+    expect(candidates).toHaveLength(2)
+  })
+
   it('un plan avec une ref en double nomme le rôle fautif', () => {
     const doubled = { ...plan, roles: [...plan.roles, { ...plan.roles[0], query: 'Micro statique' }] }
     const error = JSON.parse(runTool(base(), call('plan_diagram', doubled), ctx).content).error

@@ -11,6 +11,7 @@
 .ai-suggestions .chip { text-align: left; }
 .ai-bubble { padding: 8px 10px; border-radius: 8px; font-size: 13px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--bg-2); border: 1px solid var(--border); }
 .ai-bubble.is-user { align-self: flex-end; max-width: 90%; background: var(--accent-soft); border-color: transparent; }
+.ai-elapsed { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
 .ai-bubble.is-error { border-color: var(--err); color: var(--err); }
 .ai-bubble.is-note, .ai-bubble.is-busy { background: transparent; border-style: dashed; color: var(--text-3); font-size: 12px; }
 .ai-note { margin: 0; padding: 8px 10px; border: 1px dashed var(--warn); border-radius: 8px; font-size: 12px; color: var(--text-2); }

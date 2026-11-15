@@ -1,6 +1,15 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.33
+## Situation actuelle — 0.5.34
+
+Assistant IA, 15 novembre 2026, d'après les premiers essais d'Hervé avec le Qwen3 14B (portable Ryzen 9 8945HS, 32 Go, moteur sur processeur seul).
+
+- **Premier schéma complet obtenu en local.** Demande « conférence, trois micros dynamiques, une console numérique, deux enceintes amplifiées » : 6 équipements et 5 liaisons proposés sans question, en environ 5 minutes. La mention « Expérimental » reste tant que d'autres cas ne sont pas réussis.
+- **Durée affichée dans le chat.** Chaque réponse (ou erreur) de l'assistant indique le temps écoulé depuis l'envoi (« Réponse en 4 min 12 s ») ; un décompte s'affiche pendant qu'il travaille.
+- **Recherche du catalogue : pluriels et féminins.** « enceintes amplifiées » ne trouvait pas la fiche « Enceinte amplifiée » et proposait une console amplifiée ; « micros statiques » ne trouvait pas le micro statique générique. Les mots courants sont ramenés à leur radical ; une référence (mot avec chiffre) reste cherchée telle quelle.
+- **Fiche générique gardée parmi les candidats.** Second essai (concert acoustique avec retours amplifiés) : le modèle avait reçu pour candidat un retour Nexo 45N12, à entrées Speakon, et demandait s'il fallait ajouter un amplificateur. Quand le modèle n'est pas imposé, une fiche générique pertinente reste désormais parmi les deux candidats du rôle : la liaison impossible se corrige sans interroger l'utilisateur.
+
+## Version 0.5.33
 
 Correctif du 15 novembre 2026, signalé par Hervé sur un portable de 32 Go : le choix du Qwen3 14B affichait à tort « mémoire inférieure au repère conseillé ». Windows rapporte la mémoire utilisable (31,2 Go, la part réservée au matériel et au circuit graphique intégré n'est pas comptée) et l'application la comparait au repère de 32 Go. La mémoire installée est maintenant déduite en arrondissant au multiple de 2 Go supérieur ; l'affichage (« Mémoire installée : 32 Go »), l'avertissement et le modèle proposé par défaut utilisent ce même chiffre. Un vrai manque (15,4 Go pour un repère de 32 Go) reste signalé.
 

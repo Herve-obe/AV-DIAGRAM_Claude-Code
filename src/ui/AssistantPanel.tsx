@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { providerInfo } from '../ai/providers'
 import { nativeAvailable } from '../ai/transport'
 import { checkLink } from '../model/rules'
+import { durationLabel } from '../model/text'
 import type { PaperSize } from '../model/types'
 import { isReady, useAi } from '../store/aiStore'
 import { Icon } from './Icon'
@@ -76,9 +77,19 @@ function Proposal() {
   )
 }
 
+/** Temps écoulé depuis l'envoi de la demande, rafraîchi chaque seconde. Hors zone aria-live : un lecteur d'écran ne l'annonce pas à chaque seconde. */
+function Elapsed({ since }: { since: number }) {
+  const [now, setNow] = useState(() => Date.now())
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(Date.now()), 1000)
+    return () => window.clearInterval(id)
+  }, [])
+  return <span className="ai-elapsed">{durationLabel(now - since)}</span>
+}
+
 export function AssistantPanel() {
   const { t } = useTranslation()
-  const { settings, bubbles, busy, activeTool } = useAi(useShallow((s) => ({ settings: s.settings, bubbles: s.bubbles, busy: s.busy, activeTool: s.activeTool })))
+  const { settings, bubbles, busy, busySince, activeTool } = useAi(useShallow((s) => ({ settings: s.settings, bubbles: s.bubbles, busy: s.busy, busySince: s.busySince, activeTool: s.activeTool })))
   const [text, setText] = useState('')
   const [manualOpen, setManualOpen] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
@@ -137,8 +148,18 @@ export function AssistantPanel() {
             </div>
           </div>
         )}
-        {bubbles.map((b, i) => <div key={i} className={`ai-bubble is-${b.kind}`}>{b.text}</div>)}
-        {busy && <div className="ai-bubble is-busy" aria-live="polite">{activeTool ? t(`ai.tool.${activeTool}`, { defaultValue: activeTool }) : t('ai.thinking')}</div>}
+        {bubbles.map((b, i) => (
+          <div key={i} className={`ai-bubble is-${b.kind}`}>
+            {b.text}
+            {'elapsedMs' in b && b.elapsedMs !== undefined && <span className="ai-elapsed">{t('ai.elapsed', { duration: durationLabel(b.elapsedMs) })}</span>}
+          </div>
+        ))}
+        {busy && (
+          <div className="ai-bubble is-busy">
+            <span aria-live="polite">{activeTool ? t(`ai.tool.${activeTool}`, { defaultValue: activeTool }) : t('ai.thinking')}</span>
+            {busySince !== null && <Elapsed since={busySince} />}
+          </div>
+        )}
         <Proposal />
       </div>
 
