@@ -632,7 +632,7 @@
       "title": "Assistant IA : configuration",
       "chooseHint": "Deux options, même assistant. Tu peux changer à tout moment.",
       "local": "IA locale",
-      "localDesc": "Gratuite, hors ligne, aucune donnée ne sort de l'ordinateur. Elle convient aux explications, aux vérifications et aux schémas simples ; pour un cahier des charges complexe, ses propositions peuvent être incomplètes. Demande un ordinateur assez récent.",
+      "localDesc": "Gratuite, hors ligne, aucune donnée ne sort de l'ordinateur. Expérimentale : elle convient aux explications et aux vérifications, mais ne construit pas encore un schéma complet de façon fiable. Demande un ordinateur assez récent.",
       "account": "IA externe via API",
       "accountDesc": "Utilise ta clé API chez Claude, Gemini, ChatGPT ou Mistral. Meilleurs résultats sur les demandes complexes, mais chaque demande est facturée par le fournisseur : un schéma complet peut demander plusieurs dizaines d'échanges. Connexion Internet nécessaire.",
       "disable": "Désactiver l'assistant",
@@ -751,7 +751,7 @@
     "configured": "Assistant activé",
     "notConfigured": "Assistant non activé",
     "limits": {
-      "banner": "IA locale gratuite : elle convient aux explications, aux vérifications et aux schémas simples. Pour un cahier des charges complexe, ses propositions peuvent être incomplètes : vérifie-les.",
+      "banner": "IA locale gratuite, expérimentale : elle convient aux explications et aux vérifications. Elle ne construit pas encore un schéma complet de façon fiable : vérifie ses propositions.",
       "billing": "IA personnelle {{provider}} : chaque demande est facturée par le fournisseur. Un schéma complet peut demander plusieurs dizaines d'échanges.",
       "more": "En savoir plus",
       "complex": "Cette demande est complexe pour l'IA locale ; le résultat sera à vérifier de près."

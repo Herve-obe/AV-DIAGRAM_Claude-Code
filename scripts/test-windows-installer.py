@@ -170,7 +170,7 @@ def test_install_modes():
     directory = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Edit' and x['text']), None), 'all-users directory')
     assert Path(directory['text']).resolve() == machine_dir.resolve(), directory
     click(button(hwnd, 1))
-    wait_for(lambda: any(x['text'].startswith('Install local AI -') for x in windows(hwnd)), 'AI page')
+    wait_for(lambda: any(x['text'].startswith('Install local AI') for x in windows(hwnd)), 'AI page')
     models = next(x for x in windows(hwnd) if x['cls'] == 'Edit')
     assert Path(models['text']).resolve() == (profile / 'local-ai' / 'models').resolve(), models
     cancel(hwnd)
@@ -258,7 +258,7 @@ try:
     proc, hwnd = maintenance('Add/Reinstall components')
     click(button(hwnd, 1))
     checkbox = wait_for(lambda: next((x for x in windows(hwnd) if x['cls'] == 'Button'
-                                     and x['text'].startswith('Install local AI -')), None), 'optional local AI page')
+                                     and x['text'].startswith('Install local AI')), None), 'optional local AI page')
     assert user.SendMessageW(checkbox['hwnd'], 0xF0, 0, 0) == 0, 'Local AI must be opt-in'
     edit = next(x for x in windows(hwnd) if x['cls'] == 'Edit')
     assert not edit['enabled'], 'Model folder must be disabled until local AI is selected'

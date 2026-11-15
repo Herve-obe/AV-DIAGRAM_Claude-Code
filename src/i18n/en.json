@@ -632,7 +632,7 @@
       "title": "AI assistant: setup",
       "chooseHint": "Two options, same assistant. You can switch at any time.",
       "local": "Local AI",
-      "localDesc": "Free, offline, no data leaves the computer. Suitable for explanations, checks and simple diagrams; for a complex specification its proposals may be incomplete. Requires a fairly recent computer.",
+      "localDesc": "Free, offline, no data leaves the computer. Experimental: suitable for explanations and checks, but it does not yet build a complete diagram reliably. Requires a fairly recent computer.",
       "account": "External AI via API",
       "accountDesc": "Uses your API key with Claude, Gemini, ChatGPT or Mistral. Better results on complex requests, but each request is billed by the provider: a complete diagram may take several dozen exchanges. Internet connection required.",
       "disable": "Turn the assistant off",
@@ -751,7 +751,7 @@
     "configured": "Assistant enabled",
     "notConfigured": "Assistant not enabled",
     "limits": {
-      "banner": "Free local AI: suitable for explanations, checks and simple diagrams. For a complex specification, its proposals may be incomplete: check them.",
+      "banner": "Free local AI, experimental: suitable for explanations and checks. It does not yet build a complete diagram reliably: check its proposals.",
       "billing": "Personal AI {{provider}}: each request is billed by the provider. A complete diagram may take several dozen exchanges.",
       "more": "Learn more",
       "complex": "This request is complex for the local AI; check the result closely."
