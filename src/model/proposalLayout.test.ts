@@ -59,6 +59,20 @@ describe('mise en page des propositions IA', () => {
     }
   })
 
+  it('range une note longue sans couper ses mots', () => {
+    const base = ops.createProject('Note')
+    const added = ops.addEquipment(base, LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 0, y: 0 })
+    const text = 'Je veux sonoriser une conférence avec trois micros dynamiques, une console numérique et deux enceintes amplifiées. '.repeat(3).trim()
+    const noted = ops.addAnnotation(added.project, { kind: 'note', sheetId: ops.DEFAULT_SHEET_ID, position: { x: 40, y: 40 }, size: { w: 900, h: 300 }, text }).project
+    const [choice] = proposalLayouts(base, noted, [added.id], ops.DEFAULT_SHEET_ID)
+    const notes = Object.values(choice.project.annotations ?? {}).filter(a => a.kind === 'note')
+    expect(notes.length).toBeGreaterThan(0)
+    const laid = notes.map(a => a.text).join('\n')
+    // Chaque ligne finit à la fin d'un mot : rejointes par une espace, elles redonnent le texte d'origine
+    expect(laid.split('\n').join(' ')).toBe(text)
+    expect(laid).toContain('\n')
+  })
+
   it('propose de grands formats pour un bloc trop large, sans le réduire ni supprimer ses ports', () => {
     const base = ops.createProject('Grand bloc')
     const added = ops.addEquipment(base, LIBRARY_BY_ID.get('gen-mic-dyn')!, { x: 0, y: 0 }, { name: 'Équipement '.repeat(45) })

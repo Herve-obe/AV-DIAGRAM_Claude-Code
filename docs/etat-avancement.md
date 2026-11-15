@@ -1,6 +1,10 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.34
+## Situation actuelle — 0.5.35
+
+Correctif du 15 novembre 2026, signalé par Hervé : dans la note « Demande d'origine à vérifier » d'une proposition de l'assistant, les mots étaient coupés en fin de ligne (« ampli / fiées »). La mise en page des notes découpait le texte à longueur fixe ; elle passe maintenant à la ligne entre deux mots, et ne coupe qu'un mot plus long que la ligne entière.
+
+## Version 0.5.34
 
 Assistant IA, 15 novembre 2026, d'après les premiers essais d'Hervé avec le Qwen3 14B (portable Ryzen 9 8945HS, 32 Go, moteur sur processeur seul).
 

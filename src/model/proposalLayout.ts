@@ -4,6 +4,7 @@ import { diagramBlockSize, layoutDiagram } from './diagramLayout'
 import { DEFAULT_SHEET_ID, uid } from './project'
 import { SIGNAL_FAMILIES } from './signals'
 import { PAPER_SIZES, type Annotation, type PaperSize, type Project } from './types'
+import { wrapWords } from './text'
 
 export interface ProposalLayout {
   paper: PaperSize
@@ -95,7 +96,8 @@ export function proposalLayouts(base: Project, source: Project, ids: string[], s
         panels.push({ w, h, equipment: [], annotation: note })
         continue
       }
-      const lines = note.text.split('\n').flatMap(line => line.match(new RegExp(`.{1,${chars}}`, 'gu')) ?? [''])
+      // Retour à la ligne entre deux mots : une coupure à longueur fixe tranchait les mots (« ampli / fiées »)
+      const lines = note.text.split('\n').flatMap(line => wrapWords(line, chars))
       for (let start = 0; start < lines.length; start += maxLines) {
         const part = lines.slice(start, start + maxLines)
         panels.push({ w: noteWidth, h: part.length * 20 + 32, equipment: [], annotation: { ...note, text: part.join('\n') } })
