@@ -271,6 +271,8 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
   const added = () => draft.addedEquipment.length > start.addedEquipment.length || draft.addedLinks.length > start.addedLinks.length
   // Appel déjà exécuté → projet à ce moment : le refaire sur le même projet ne mènerait à rien
   const executed = new Map<string, { project: Project; error?: string }>()
+  // Correction donnée par la dernière erreur de construction (candidats du plan qui se branchent)
+  let fix: string | null = null
   let reminders = 0
 
   /** Une question met fin au tour sans rien conserver ; la demande est gardée pour la réponse suivante. */
@@ -285,12 +287,20 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
     const reject = (error: string) => ({ id: call.id, name: call.name, content: JSON.stringify({ error }) })
     if (!tools.some(t => t.name === call.name)) return reject(`Outil indisponible pour cette demande : ${call.name}.`)
     if (call.name === 'ask_user' && pending) return reject(ONE_ROUND)
+    // Le logiciel vient d'indiquer quelle fiche du plan se branche : l'appliquer plutôt que d'interroger l'utilisateur.
+    // Le refus ne vaut qu'une fois : une question reposée ensuite reste possible.
+    if (call.name === 'ask_user' && fix) {
+      const hint = fix
+      fix = null
+      return reject(`L’erreur précédente donne déjà la correction. ${hint} Refaire propose_system avec cette fiche, noter le choix dans assumptions, sans interroger l’utilisateur.`)
+    }
     const key = call.name + JSON.stringify(call.args), previous = executed.get(key)
     // Un appel identique donnerait le même résultat : l'erreur est rappelée, et la question n'est proposée que si elle reste permise
     if (previous?.project === draft.project) return reject(`Appel identique déjà effectué sur ce brouillon${previous.error ? `, refusé ainsi : ${previous.error.replace(/[.\s]+$/, '')}` : ''}. Modifier les paramètres en conséquence${pending ? '' : ' ou poser la question avec ask_user'}.`)
     const result = runTool(draft, call, ctx)
     let value = JSON.parse(result.content)
     executed.set(key, { project: draft.project, ...(typeof value.error === 'string' ? { error: value.error } : {}) })
+    if (BUILD_TOOLS.has(call.name)) fix = typeof value.error === 'string' ? /Candidats du plan qui se branchent : [^.]+\./.exec(value.error)?.[0] ?? null : null
     if (value.error) return { id: call.id, name: call.name, content: result.content }
     // Second tour : un plan qui redemande (rôle sans fiche, besoin flou) est renvoyé au modèle au lieu de reposer une question
     if (call.name === 'plan_diagram' && pending && value.questions?.length) return reject(`${ONE_ROUND} Points encore ouverts : ${value.questions.join(' ')} Pour un rôle sans fiche, choisir une famille et une recherche plus générales du catalogue, ou retirer ce rôle en le notant dans assumptions.`)
@@ -317,7 +327,8 @@ export async function runTurn(opts: TurnOptions): Promise<TurnResult> {
     const ask = reply.toolCalls.find(call => call.name === 'ask_user')
     const question = ask && JSON.parse(runTool(opts.draft, ask, ctx).content).question
     // Un seul tour de questions par demande : après la réponse de l'utilisateur, ask_user est refusé dans execute.
-    if (ask && typeof question === 'string' && !pending) {
+    // Une correction vient d'être donnée par le logiciel : la question passe par execute, qui la renvoie au modèle une fois.
+    if (ask && typeof question === 'string' && !pending && !fix) {
       record('ask_user')
       return clarify(ask, question, { question })
     }

@@ -147,8 +147,27 @@ describe('analyse de besoins et câblage de rôles sans scénario prédéfini', 
     const wedges = { ...plan, roles: [{ ref: 'retours', query: 'retours de scène amplifiés', family: 'speaker', count: 2, required_model: false }] }
     const result = JSON.parse(runTool(base(), call('plan_diagram', wedges), { ...ctx, library: LIBRARY }).content)
     const candidates = result.roles[0].candidates.map((c: { template_id: string }) => c.template_id)
-    expect(candidates).toContain('gen-speaker-active')
+    expect(candidates[0]).toBe('gen-speaker-active')
     expect(candidates).toHaveLength(2)
+    // « amplifiés » : un retour à entrées Speakon seules (amplificateur externe) n'est pas proposé
+    expect(candidates).not.toContain('nexo-45n12')
+    const passive = { ...plan, roles: [{ ref: 'retours', query: 'retours de scène passifs', family: 'speaker', count: 2, required_model: false }] }
+    const passiveIds = JSON.parse(runTool(base(), call('plan_diagram', passive), { ...ctx, library: LIBRARY }).content).roles[0].candidates.map((c: { template_id: string }) => c.template_id)
+    expect(passiveIds).not.toContain('gen-speaker-active')
+  })
+
+  it('une question posée juste après une erreur qui donne la fiche compatible est renvoyée au modèle, une seule fois', async () => {
+    const draft = base(), sent: string[] = []
+    const speakers = { ...plan, roles: [plan.roles[1], { ref: 'pa', query: 'Enceinte', family: 'speaker', count: 1, required_model: false }] }
+    const system = (template_id: string) => ({ equipment: [{ ref: 'desk', template_id: 'gen-console' }, { ref: 'pa', template_id }], connections: [{ from: 'desk', to: 'pa', signal: 'audioAnalog' }] })
+    const result = await runTurn({ draft, ctx, connection: { provider: 'builtin', model: 'test' }, system: '', history: [],
+      userText: 'Une console et une enceinte.',
+      transport: replies([call('plan_diagram', speakers), call('propose_system', system('gen-speaker-passive')), call('ask_user', { question: 'Faut-il un amplificateur ?' }), call('propose_system', system('gen-speaker-active'))], sent) })
+    const refused = JSON.parse(sent[3]).messages.at(-1).content
+    expect(refused).toContain('Candidats du plan qui se branchent : gen-speaker-active')
+    expect(refused).toContain('sans interroger')
+    expect(result.draft.addedEquipment).toHaveLength(2)
+    expect(result.draft.addedLinks).toHaveLength(1)
   })
 
   it('un plan avec une ref en double nomme le rôle fautif', () => {

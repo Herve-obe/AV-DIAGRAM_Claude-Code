@@ -1,6 +1,13 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.35
+## Situation actuelle — 0.5.36
+
+Assistant IA, 15 novembre 2026, d'après le second essai d'Hervé avec le Qwen3 14B sur la 0.5.35 (concert acoustique, « retours de scène amplifiés ») : le modèle a encore retenu le retour Nexo 45N12, à entrées Speakon seules, puis demandé s'il fallait un amplificateur (réponse en 7 min 17 s).
+
+- **Enceinte amplifiée ou passive, d'après la fiche** (`src/model/speakers.ts`). Une entrée ligne, micro ou numérique signifie que l'amplification est dans l'enceinte ; des entrées au niveau haut-parleur seules, qu'un amplificateur externe est nécessaire. Quand la demande dit « amplifiée », « active » ou « passive », le plan ne propose que les enceintes dont les entrées le confirment.
+- **Correction appliquée plutôt que question.** Quand une liaison impossible désigne la fiche du plan qui se branche, une question posée aussitôt après est renvoyée une fois au modèle, avec cette correction ; il peut encore interroger l'utilisateur ensuite.
+
+## Version 0.5.35
 
 Correctif du 15 novembre 2026, signalé par Hervé : dans la note « Demande d'origine à vérifier » d'une proposition de l'assistant, les mots étaient coupés en fin de ligne (« ampli / fiées »). La mise en page des notes découpait le texte à longueur fixe ; elle passe maintenant à la ligne entre deux mots, et ne coupe qu'un mot plus long que la ligne entière.
 

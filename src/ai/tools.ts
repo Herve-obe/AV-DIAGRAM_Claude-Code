@@ -15,6 +15,7 @@ import { diagramBlockSize, layoutDiagram } from '../model/diagramLayout'
 import { proposalLayouts, type ProposalLayout } from '../model/proposalLayout'
 import { connectorsJoin, connectSystem, usablePort, type SystemError } from '../model/systemDiagram'
 import { SIGNAL_FAMILIES } from '../model/signals'
+import { requestedSpeakerPower, speakerPower } from '../model/speakers'
 import { companyAlerts } from '../model/company'
 import fr from '../i18n/fr.json'
 import en from '../i18n/en.json'
@@ -379,9 +380,13 @@ export function runTool(draft: Draft, call: ToolCall, ctx: ToolContext): { draft
         ]
         if (problems.length) return fail(`Rôle ${a.roles.indexOf(role) + 1}${ref ? ` (${ref})` : ''} : ${problems.join(' ; ')}. Reprendre tout le plan.`)
         const library = ctx.library.filter(t => !role.family || t.family === role.family)
-        const ranked = searchLibrary(library, role.required_model ? role.query : role.query + ' ' + text(role.ref), 12)
+        // « amplifiée », « active » ou « passive » : seules les enceintes dont les entrées documentées le confirment sont proposées
+        const power = role.required_model ? null : requestedSpeakerPower(role.query)
+        const matching = searchLibrary(library, role.required_model ? role.query : role.query + ' ' + text(role.ref), power ? 40 : 12)
           .map(row => ctx.library.find(t => t.id === row.template_id)!)
           .filter(t => t.portStatus !== 'pending' && t.ports.length && (!role.required_model || referenceScore(t, role.query) > 0))
+        const suited = power ? matching.filter(t => t.family !== 'speaker' || speakerPower(t.ports) === power) : matching
+        const ranked = suited.length ? suited : matching
         let found = ranked.slice(0, CANDIDATES_PER_ROLE)
         // Modèle libre : une fiche générique pertinente reste parmi les candidats. Si la fiche la mieux classée ne se
         // branche pas (retour passif choisi pour « retours amplifiés »), le modèle a une solution sans interroger l'utilisateur.
