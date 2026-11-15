@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { assistantErrorText, testAssistant } from '../ai/setup'
-import { cancelDownload, downloadModel, downloadProgress, localCatalog, recommendedModel, setModelDirectory, startServer, stopServer, type DownloadProgress, type LocalCatalog } from '../ai/local'
+import { cancelDownload, downloadModel, downloadProgress, installedMemoryGb, localCatalog, meetsMemory, recommendedModel, setModelDirectory, startServer, stopServer, type DownloadProgress, type LocalCatalog } from '../ai/local'
 import { nativeAvailable, openExternal } from '../ai/transport'
 import { pickDirectory } from '../io/files'
 import { useAi } from '../store/aiStore'
@@ -133,7 +133,7 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
               <div className="ai-file"><span className="mono dim" title={catalog.directory}>{catalog.directory}</span><button className="btn" disabled={locked || !native} onClick={() => void chooseDirectory().catch(displayError)}>{t('ai.setup.choose')}</button></div>
               <p className="field-hint">{t('ai.local.directoryHint')}</p>
             </div>
-            <p className="dialog-hint">{catalog.memory_bytes ? t('ai.local.memory', { gb: Math.round(catalog.memory_bytes / 1024 ** 3) }) : t('ai.local.memoryUnknown')}</p>
+            <p className="dialog-hint">{catalog.memory_bytes ? t('ai.local.memory', { gb: installedMemoryGb(catalog.memory_bytes) }) : t('ai.local.memoryUnknown')}</p>
             <div className="ai-choices" role="radiogroup" aria-label={t('ai.setup.model')}>
               {catalog.models.map((m) => <label key={m.id} className={`ai-choice ${id === m.id ? 'is-on' : ''}`}>
                 <input type="radio" name="local-model" checked={id === m.id} disabled={locked} onChange={() => { setId(m.id); setTested(false); setMessage('') }} />
@@ -144,7 +144,7 @@ export function LocalAiSetup({ back, advanced }: { back: () => void; advanced: (
               <p className="dialog-hint">{t('ai.local.space', { gb: size(selected.size) })} {t('ai.local.license', { license: selected.license })}{' '}
                 <button className="btn btn-ghost" disabled={locked} onClick={() => void openExternal(`https://huggingface.co/${selected.repo}/blob/${selected.revision}/LICENSE`)}>{t('ai.local.readLicense')}</button>
               </p>
-              {!!catalog.memory_bytes && catalog.memory_bytes < selected.minimum_ram_gb * 1024 ** 3 && <p className="ai-note">{t('ai.local.lowMemory')}</p>}
+              {!!catalog.memory_bytes && !meetsMemory(selected, catalog.memory_bytes) && <p className="ai-note">{t('ai.local.lowMemory')}</p>}
               {downloading && <div className="ai-download" role="status">
                 <progress max={progress.total} value={progress.downloaded} aria-label={t('ai.local.downloading')} />
                 <span>{t('ai.local.progress', { done: size(progress.downloaded), total: size(progress.total) })}</span>

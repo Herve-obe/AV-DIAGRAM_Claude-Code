@@ -3,7 +3,7 @@ import { GENERIC_LIBRARY } from '../library/generic'
 import { addEquipment, createProject, DEFAULT_SHEET_ID } from '../model/project'
 import { boundedHistory } from './agent'
 import { searchDocumentation } from './knowledge'
-import { recommendedModel, type LocalModel } from './local'
+import { installedMemoryGb, meetsMemory, recommendedModel, type LocalModel } from './local'
 import { buildChatRequest } from './providers'
 import { createDraft, runTool } from './tools'
 
@@ -33,6 +33,20 @@ describe('assistant local : sources et limites', () => {
     expect(recommendedModel(models, 0)?.id).toBe('small')
     expect(recommendedModel(models, 12 * 1024 ** 3)?.id).toBe('small')
     expect(recommendedModel(models, 32 * 1024 ** 3)?.id).toBe('large')
+  })
+
+  it('compte la mémoire installée, pas la mémoire utilisable : 31,2 Go utilisables valent un poste de 32 Go', () => {
+    const gib = 1024 ** 3
+    expect(installedMemoryGb(31.2 * gib)).toBe(32)
+    expect(installedMemoryGb(32 * gib)).toBe(32)
+    expect(installedMemoryGb(15.4 * gib)).toBe(16)
+    expect(installedMemoryGb(7.4 * gib)).toBe(8)
+    expect(installedMemoryGb(13.9 * gib)).toBe(14)
+    expect(installedMemoryGb(0)).toBe(0)
+    expect(meetsMemory({ minimum_ram_gb: 32 }, 31.2 * gib)).toBe(true)
+    expect(meetsMemory({ minimum_ram_gb: 32 }, 29.9 * gib)).toBe(false)
+    expect(meetsMemory({ minimum_ram_gb: 16 }, 13.9 * gib)).toBe(false)
+    expect(meetsMemory({ minimum_ram_gb: 8 }, 0)).toBe(false)
   })
   it('désactive la réflexion longue seulement pour le moteur embarqué', () => {
     const local = JSON.parse(buildChatRequest('openai', 'm', 's', [], [], 'builtin').body!)

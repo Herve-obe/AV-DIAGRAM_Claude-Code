@@ -2,7 +2,7 @@
 import { act, StrictMode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
-import '../i18n'
+import i18n from '../i18n'
 import { useAi } from '../store/aiStore'
 import { LocalAiSetup } from './LocalAiSetup'
 import { AiError } from '../ai/agent'
@@ -117,4 +117,17 @@ it('signale l’IA locale intégrée comme expérimentale au moment de choisir l
   const note = element.querySelector('[role=note]')
   expect(note?.textContent).toContain('Expérimental')
   expect(note?.textContent).toContain('ne construisent pas encore un schéma complet de façon fiable')
+})
+
+it('un poste de 32 Go (31,2 Go utilisables selon Windows) n’est pas averti pour un modèle qui demande 32 Go', async () => {
+  const big = { ...model, id: 'qwen3-14b', label: 'Qwen3 14B', minimum_ram_gb: 32 }
+  actions.catalog.mockResolvedValue({ models: [{ ...big }], memory_bytes: 31.2 * 1024 ** 3, runtime_available: true, directory: 'C:/Models' })
+  await draw()
+  expect(element.textContent).toContain(i18n.t('ai.local.memory', { gb: 32 }))
+  expect(element.textContent).not.toContain(i18n.t('ai.local.lowMemory'))
+  // Un vrai manque de mémoire reste signalé
+  act(() => root.unmount()); root = createRoot(element)
+  actions.catalog.mockResolvedValue({ models: [{ ...big }], memory_bytes: 15.4 * 1024 ** 3, runtime_available: true, directory: 'C:/Models' })
+  await draw()
+  expect(element.textContent).toContain(i18n.t('ai.local.lowMemory'))
 })

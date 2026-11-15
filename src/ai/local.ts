@@ -89,8 +89,21 @@ export const setModelDirectory = (directory: string) => invoke<void>('local_mode
 export interface InstallerRequest { directory: string; model: string }
 export const installerSetupRequest = () => isTauri() ? invoke<InstallerRequest | null>('local_ai_setup_request') : Promise.resolve(null)
 
+/**
+ * Mémoire installée en Go, d'après la mémoire utilisable que rapporte le système. Le système ne compte pas
+ * la part réservée par le matériel et le circuit graphique intégré : un poste de 32 Go annonce 31,2 Go
+ * utilisables. Les barrettes vont par multiples de 2 Go : on arrondit donc au multiple de 2 supérieur.
+ * 0 si la mémoire n'a pas pu être lue.
+ */
+export function installedMemoryGb(bytes: number): number {
+  return bytes > 0 ? Math.ceil(bytes / 1024 ** 3 / 2 - 1e-9) * 2 : 0
+}
+
+/** Le poste atteint-il le repère de mémoire du modèle ? Mémoire inconnue : on ne peut pas le dire, donc non. */
+export const meetsMemory = (model: Pick<LocalModel, 'minimum_ram_gb'>, bytes: number) => installedMemoryGb(bytes) >= model.minimum_ram_gb
+
 /** Mémoire inconnue : choisir le modèle le plus léger. */
 export function recommendedModel(models: LocalModel[], memory: number): LocalModel | undefined {
   const sorted = [...models].sort((a, b) => a.size - b.size)
-  return [...sorted].reverse().find((m) => m.minimum_ram_gb * 1024 ** 3 <= memory) ?? sorted[0]
+  return [...sorted].reverse().find((m) => meetsMemory(m, memory)) ?? sorted[0]
 }

@@ -1,6 +1,10 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.32
+## Situation actuelle — 0.5.33
+
+Correctif du 15 novembre 2026, signalé par Hervé sur un portable de 32 Go : le choix du Qwen3 14B affichait à tort « mémoire inférieure au repère conseillé ». Windows rapporte la mémoire utilisable (31,2 Go, la part réservée au matériel et au circuit graphique intégré n'est pas comptée) et l'application la comparait au repère de 32 Go. La mémoire installée est maintenant déduite en arrondissant au multiple de 2 Go supérieur ; l'affichage (« Mémoire installée : 32 Go »), l'avertissement et le modèle proposé par défaut utilisent ce même chiffre. Un vrai manque (15,4 Go pour un repère de 32 Go) reste signalé.
+
+## Version 0.5.32
 
 Correctifs du 15 novembre 2026, d'après la vérification du même jour.
 
