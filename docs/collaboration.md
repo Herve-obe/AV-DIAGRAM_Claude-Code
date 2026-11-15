@@ -41,6 +41,22 @@ ligne pourrait être ajouté plus tard sans changer le modèle de données, si l
    connaît le code, puis chaque message est chiffré et authentifié (ChaCha20-Poly1305, une clé par
    sens, compteur implicite contre le rejeu). Un espion n'apprend rien ; un faux hôte ou un poste qui
    devine le code n'a qu'un essai par connexion, limité à 5 par minute et par adresse.
+
+   **Limites contre les essais de code et la saturation** (`src-tauri/src/collab.rs`, sans changement
+   de protocole) :
+   - 5 essais par minute et par adresse, au plus 8 poignées de main en cours ;
+   - **plafond global** de 30 échecs par fenêtre de 10 minutes, toutes adresses confondues. Sans lui,
+     un attaquant qui occupe 250 adresses du réseau testerait 1 250 codes par minute (code à 6 chiffres
+     trouvé en 6 h 40 en moyenne). Une fois le plafond atteint, toute nouvelle poignée de main est
+     refusée jusqu'à la fin de la fenêtre ; le poste hôte lui-même (boucle locale) peut toujours
+     rejoindre sa session. Un code juste, ou une version refusée, ne compte pas comme un échec. L'hôte
+     voit un avertissement (`failedAttempts` et `locked` dans l'état de l'hôte) : terminer la session et
+     en ouvrir une nouvelle génère un nouveau code ;
+   - **file d'envoi bornée par participant** : 256 messages et 64 Mio en attente pour un invité (un
+     message seul peut atteindre 16 Mio ; une file vide accepte toujours un message). Un invité qui ne
+     lit plus est retiré, sa connexion se ferme et les autres reçoivent `peer-left`, comme pour un
+     départ normal. Le poste hôte a des seuils plus larges (×4 en messages, ×2 en octets) pour qu'une
+     pointe passagère de son interface ne l'éjecte pas.
 4. **Découverte** : recherche automatique sur le même sous-réseau IPv4 (UDP 4456), sans service externe ni diffusion du code d’accès. Seuls le nom du projet, le nom de l’hôte et son adresse de session sont annoncés. La saisie d’adresse reste dans les options avancées pour les réseaux filtrés et les VPN.
 5. **Présence** : nom et couleur de chaque participant, calque qu'il affiche, sélection en cours
    (contour de couleur sur les blocs qu'il manipule).

@@ -19,8 +19,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # branche stable
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: src-tauri
       - run: npm ci
@@ -31,7 +33,7 @@ jobs:
       - run: python scripts/build-manual.py
       - name: Prepare verified local AI engine
         run: python scripts/prepare-local-ai.py
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@84b9d35b5fc46c1e45415bdb6144030364f7ebc5 # v0
       - uses: actions/upload-artifact@v4
         with:
           name: AV-Diagram-windows
@@ -50,10 +52,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # branche stable
         with:
+          toolchain: stable
           targets: aarch64-apple-darwin,x86_64-apple-darwin
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: src-tauri
       - run: npm ci
@@ -64,7 +67,7 @@ jobs:
       - run: python scripts/build-manual.py
       - name: Prepare verified local AI engines
         run: python scripts/prepare-local-ai.py
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@84b9d35b5fc46c1e45415bdb6144030364f7ebc5 # v0
         with:
           args: --target universal-apple-darwin
       - uses: actions/upload-artifact@v4
@@ -94,8 +97,9 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # branche stable
         with:
+          toolchain: stable
           targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
       - name: Dépendances Linux
         if: matrix.platform == 'ubuntu-22.04'
@@ -110,7 +114,7 @@ jobs:
       - run: python scripts/build-manual.py
       - name: Prepare verified local AI engines
         run: python scripts/prepare-local-ai.py
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@84b9d35b5fc46c1e45415bdb6144030364f7ebc5 # v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

@@ -1,6 +1,6 @@
 # AV Diagram — Manuel utilisateur
 
-Version 0.5.31 · Édition du 11 novembre 2026 · Windows et macOS
+Version 0.5.32 · Édition du 15 novembre 2026 · Windows et macOS
 
 AV Diagram sert à préparer et documenter une installation audiovisuelle : synoptique, implantation, baies, câblage et tableaux techniques. Les vues partagent les mêmes équipements. Le logiciel reste en développement ; vérifier les documents produits avant leur utilisation sur un chantier.
 
@@ -236,7 +236,7 @@ L'aperçu distingue les informations lues du document et celles déduites d'un m
 
 Un DXF peut devenir un fond de plan ou passer par cette reconnaissance de synoptique. Confirmer l'unité si elle n'est pas déclarée. Les blocs imbriqués, textes et courbes 2D pris en charge sont montrés dans l'aperçu ; les éléments ignorés sont signalés. Les courbes sont approchées par des segments. Les références externes ne sont pas ouvertes et les mises en page AutoCAD complexes ne sont pas reproduites.
 
-Pour un DWG, l'application propose une conversion locale facultative. Installer séparément ODA File Converter depuis son éditeur, puis choisir son programme quand AV Diagram le demande. Sous Windows, sélectionner ODAFileConverter.exe ; sur Mac, sélectionner ODAFileConverter dans le dossier Contents/MacOS de son application. Le convertisseur n'est pas fourni avec AV Diagram et reste soumis à ses propres conditions d'utilisation et compatibilités système.
+Pour un DWG, l'application propose une conversion locale facultative. Installer séparément ODA File Converter depuis son éditeur, puis choisir son programme quand AV Diagram le demande. Sous Windows, sélectionner ODAFileConverter.exe ; sur Mac, sélectionner ODAFileConverter dans le dossier Contents/MacOS de son application. Le convertisseur n'est pas fourni avec AV Diagram et reste soumis à ses propres conditions d'utilisation et compatibilités système. La fenêtre de choix est ouverte par la partie native de l'application, qui retient le programme choisi : un autre programme ne peut pas être lancé.
 
 Seul le DWG choisi est copié dans un dossier temporaire privé. La conversion produit un DXF destiné à l'aperçu ; le fichier original n'est pas modifié. L'opération est limitée à 60 secondes et les fichiers temporaires sont nettoyés. Fermer la fenêtre arrête la conversion en cours. Vérifier le DXF obtenu avant de l'appliquer au projet.
 

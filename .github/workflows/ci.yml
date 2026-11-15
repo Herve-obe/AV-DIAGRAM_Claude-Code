@@ -1,10 +1,14 @@
-# Intégration continue : lint, types, tests et build à chaque push et pull request.
+# Intégration continue : lint, types, tests et build à chaque push et pull request ; contrôles natifs,
+# installeur Windows et application macOS à chaque push. Un rouge ici signale un vrai défaut.
+# L'essai du modèle d'IA réel (long, dépendant de la machine) est dans local-ai.yml, hors contrôles bloquants.
 name: CI
 on:
   push:
   pull_request:
 jobs:
   check:
+    # Un push sur une branche du dépôt lance déjà ces contrôles : la pull request ne les relance que pour un dépôt tiers
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +35,8 @@ jobs:
           retention-days: 30
 
   native:
+    # Un push sur une branche du dépôt lance déjà ces contrôles : la pull request ne les relance que pour un dépôt tiers
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,8 +44,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # branche stable
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: src-tauri
       - run: npm ci
@@ -66,30 +74,6 @@ jobs:
       - name: Test native window layout across relaunches
         if: github.event_name == 'push'
         run: python scripts/test-window-layout.py src-tauri/target/release/av-diagram.exe
-
-  local-ai:
-    if: github.event_name == 'push'
-    runs-on: windows-latest
-    timeout-minutes: 55
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Prepare verified local AI engine
-        run: python scripts/prepare-local-ai.py
-      - name: Test real Qwen3 4B tools on a fictitious project
-        run: python scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-test"
-      - name: Upload isolated AI test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-local-AI-test-report
-          path: ${{ runner.temp }}/avd-local-ai-test/integration-result.json
-          if-no-files-found: warn
-          retention-days: 30
 
   windows-installer:
     if: github.event_name == 'push'
@@ -118,10 +102,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # branche stable
         with:
+          toolchain: stable
           targets: aarch64-apple-darwin,x86_64-apple-darwin
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: src-tauri
       - run: npm ci
@@ -157,14 +142,3 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-
-      - name: Test real local AI from the macOS app bundle
-        run: python3 scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-mac" --engine-directory "src-tauri/target/universal-apple-darwin/release/bundle/macos/AV Diagram.app/Contents/Resources/local-ai"
-      - name: Upload macOS AI test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: AV-Diagram-local-AI-macOS-test-report
-          path: ${{ runner.temp }}/avd-local-ai-mac/integration-result.json
-          if-no-files-found: warn
-          retention-days: 30

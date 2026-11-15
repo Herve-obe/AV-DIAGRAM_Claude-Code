@@ -1,6 +1,23 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.31
+## Situation actuelle — 0.5.32
+
+Correctifs du 15 novembre 2026, d'après la vérification du même jour.
+
+- **Lancement réparé.** Depuis le 11 novembre (option `freezePrototype` de Tauri), l'application de bureau tournait sans fenêtre : la dépendance d3-color du canevas plantait au chargement et l'interface n'affichait jamais la fenêtre, créée cachée. L'option est retirée, la partie native affiche désormais la fenêtre d'office après 8 secondes, et un test de non-régression est ajouté. **La 0.5.31 compilée ne s'ouvre pas : installer la 0.5.32.**
+- **Enregistrement atomique.** Le fichier .avd est écrit dans un fichier temporaire voisin puis renommé (`src-tauri/src/atomic.rs`) : une coupure pendant l'écriture ne tronque plus le projet.
+- **Collaboration LAN.** Plafond global de 30 codes erronés par 10 minutes, toutes adresses confondues, avec avertissement à l'hôte ; file d'envoi bornée par participant (256 messages et 64 Mio pour un invité) : un invité qui ne lit plus est retiré. Le protocole reste le 7.
+- **Programmes externes.** llama-server et le convertisseur ODA se choisissent dans une fenêtre système ouverte par la partie native, qui mémorise les chemins approuvés ; tout autre chemin est refusé. Un chemin enregistré par une version précédente doit être choisi à nouveau, une fois.
+- **IA locale.** Mention « Expérimental » (0/100 sur les 7 passes d'évaluation du Qwen3 4B) ; délai d'une réponse locale porté de 10 à 30 minutes.
+- **Interface.** Finition visuelle dans la direction du cahier des charges (section 13) : échelles de jetons (espacement, rayons, typographie, focus), champs et listes unifiés, survols neutres (l'orange reste réservé à la sélection), contrastes AA dans les deux thèmes. Aucune géométrie du canevas modifiée. Les captures du manuel montrent encore l'ancien rendu.
+- **CI.** L'essai du modèle d'IA réel quitte les contrôles bloquants (`.github/workflows/local-ai.yml`, lancement manuel ou hebdomadaire) ; actions tierces épinglées par empreinte ; plus de double exécution push et pull request.
+- **Dépendances et tests.** uuid forcé en 11.1.1 (alerte GHSA-w5hq-g745-h8pq levée) ; 40 tests de comportement ajoutés pour l'interface.
+
+Contrôles : lint, types, 598 tests généraux, compilation, 58 tests Rust et clippy réussis. La fenêtre de choix native sous Windows et le test de disposition des fenêtres ne sont vérifiables que par la CI du commit publié.
+
+Reste ouvert : signature des installeurs (certificats payants), choix du modèle local par défaut, poids du fichier principal de l'interface (5,4 Mo, dominé par la bibliothèque d'équipements).
+
+## Version 0.5.31
 
 Collaboration LAN chiffrée (protocole 7, 11 novembre 2026) : échange de clé protégé par le code, qui ne circule plus, puis chiffrement authentifié de chaque message. **Installer la 0.5.31 sur tous les postes** ; les versions précédentes sont refusées avant tout échange. Détails dans [collaboration.md](collaboration.md).
 

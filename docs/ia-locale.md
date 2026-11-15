@@ -4,6 +4,28 @@ Reprise demandée le 21 octobre 2026. Fonction expérimentale, facultative et d�
 L'application fonctionne entièrement sans assistant. La lecture automatique de riders, le cloud
 des projets et l'affinage d'un modèle ne sont pas inclus. Une API IA externe est maintenant configurable.
 
+## Statut : expérimental (novembre 2026)
+
+L'IA locale intégrée (Qwen3 4B par défaut) a obtenu 0/100 sur les 7 passes d'évaluation faites à ce jour
+(`docs/ia/plan-assistant.md`, étape 6 ; 16 cas prévus, processeur 4 cœurs sans carte graphique). En l'état
+des essais, les petits modèles locaux ne construisent pas encore un schéma complet de façon fiable. Ils
+conviennent aux explications et aux vérifications simples ; l'option « IA externe via API » (mon compte
+IA) donne de meilleurs résultats. L'interface le dit : la mention « Expérimental » et cette explication
+figurent sur le choix « IA locale » de la configuration et sur l'écran de choix du modèle.
+
+**Délai de réponse.** Une réponse de 1 055 unités a pris 11 min 29 s sur ce processeur. La partie native
+(`src-tauri/src/ai.rs`) attend donc un serveur local jusqu'à 1 800 s (30 minutes) ; les fournisseurs en
+ligne restent à 120 s.
+
+**Programmes approuvés.** Le choix de `llama-server` (mode avancé) ne passe plus par un chemin fourni
+par l'interface : le bouton « Choisir… » appelle la commande native `program_choose`, qui ouvre elle-même
+la fenêtre de sélection du système, vérifie le fichier (nom `llama-server`, fichier existant) et mémorise
+son chemin canonique dans `approved-programs.json` (dossier de données locales de l'application, écrit
+seulement par la partie native ; un fichier illisible ou corrompu est traité comme vide). `local_start`
+refuse tout chemin absent de cette liste (erreur `not-approved`). Le convertisseur ODA du DWG suit la
+même règle (`dwg_to_dxf`). Un chemin enregistré par une version précédente n'est pas dans la liste :
+l'assistant affiche « Choisis-le à nouveau » et vide le champ ; il suffit de choisir de nouveau le programme.
+
 ## Installation utilisateur
 
 **Windows, pendant l'installation** : cocher « Installer l'IA locale », choisir le dossier des modèles,
@@ -91,6 +113,8 @@ Le build conserve les notices des archives, notamment LLVM OpenMP sous Windows.
 Avant un build : installer ReportLab 4.4.9 et lancer `python scripts/build-manual.py` ; pour le natif, lancer aussi `python scripts/prepare-local-ai.py`. Le PDF est généré en CI depuis le Markdown, sans binaire PDF suivi dans Git. Sur Mac, `python3` convient aussi.
 Les moteurs sont vérifiés avant extraction ; les liens d'archive sont lus en mémoire et matérialisés
 comme fichiers, jamais extraits avec leur chemin. Aucun téléchargement de programme au lancement.
+
+En CI, cet essai est lancé à la main ou chaque lundi (`.github/workflows/local-ai.yml`) : long et dépendant de la machine, il ne bloque plus les pushs.
 
 `python scripts/test-local-ai.py --directory DOSSIER_DE_TEST` vérifie le vrai Qwen3 4B, le démarre
 sur une adresse locale éphémère, lance les appels d'outils de l'application sur un projet fictif,
