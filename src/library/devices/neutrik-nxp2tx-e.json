@@ -5,8 +5,8 @@
   "pictogram": "wireless",
   "manufacturer": "Neutrik",
   "model": "NXP2TX-E",
-  "status": "community",
-  "description": "Émetteur XIRIUM PRO (audio numérique sans fil 5 GHz) ; les entrées/sorties dépendent des modules d'interface installés et le câble d'alimentation se commande à part. Composition louée non publiée : ports à documenter.",
+  "status": "verified",
+  "description": "Émetteur XIRIUM PRO (audio numérique sans fil 5 GHz) ; les entrées/sorties dépendent des modules d'interface installés et le câble d'alimentation se commande à part. Station de base seule ; les entrées/sorties audio sont fournies par les modules d'interface, non décrits dans cette fiche.",
   "aliases": [
     "XIRIUM PRO TX"
   ],
@@ -34,6 +34,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2tx-e_user-manual_en.pdf",
       "document": "Neutrik XIRIUM PRO User Manual BDA 494E-V7 2019/12, § 4.1 base station (antenne 5 GHz, antenne 2,4 GHz RP-SMA, interrupteur, D-Sub vers le module, port USB) et § 4.2 modules (entrées ou sorties audio, batterie intégrée, embase powerCON TRUE1, 100-240 V 0,5 A)",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neutrik_xirium-pro-nxp2tx-e_user-manual_en.pdf",
+      "document": "Neutrik (constructeur), XIRIUM PRO User Manual BDA 494E-V7 2019/12 (copie hébergée par Novelty), page 12, § 4.1, dessin « Bottom view » de la station de base (TX et RX) : le port USB (repère 11) est représenté avec une embase USB type B, à côté du D-Sub 37 points (repère 10)",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -58,8 +63,8 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour du firmware par le câble NKXPRO-DATA fourni (pont USB-UART) ; type de prise USB non écrit dans le manuel"
+      "connector": "usb-b",
+      "format": "Port USB (type B d'après le dessin du constructeur) : mise à jour du firmware par le câble NKXPRO-DATA fourni (pont USB-UART)"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "PMW-EX3",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 1.9,
   "sources": [
     {
@@ -16,6 +16,11 @@
       "url": "https://pro.sony/support/res/manuals/3878/b894f7254de2a1d298b7dcf18a90e7ac/38780391M.pdf",
       "document": "Sony — PMW-EX3 — Operating Instructions 3-878-039-15",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://cinematography.net/Manuals/SonyEX3opman.pdf",
+      "document": "Sony, manuel PMW-EX3 Operating Instructions 3-878-039-11 (copie hébergée par cinematography.net, non constructeur), chapitre Specifications p. 153 : DC IN connector « DC jack », Power requirements DC 12 V, SDI OUT/GENLOCK IN/TC IN/TC OUT BNC, AUDIO IN XLR 3 broches, AUDIO OUT RCA, i.LINK 4 broches, REMOTE 8 broches, masse 1,9 kg",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -117,7 +122,8 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "DC jack, 12 V CC"
     }
   ]
 }

@@ -9,6 +9,16 @@
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.sonovente.com/en-gb/oxo-funstrip-p28525.html",
+      "document": "Sonovente (revendeur), fiche OXO Funstrip : prises DMX entrée/sortie 3 broches, 750 W, câble d'alimentation et câble de recopie POWERCON fournis ; lampes MR19 annoncées",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.la-bs.com/Objets/FUNSTRIP_10_me.pdf",
+      "document": "La-BS (distributeur), notice française « Sunstrip DMX / Funstrip 10 » : DMX 3 broches entrée/sortie, connecteur d'entrée secteur et connecteur de recopie secteur 230 V 20 A max., 750 W ; type d'embase secteur non nommé, lampes GU10 annoncées (écart avec MR19)",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -17,22 +27,32 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr3",
+      "format": "Entrée DMX, connecteur 3 broches"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr3",
+      "format": "Sortie DMX (recopie), connecteur 3 broches"
     },
     {
       "id": "acIn",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "10 dichroïques 75 W, 240 V"
+      "connector": "powercon",
+      "format": "Entrée secteur 230 V, 20 A max., powerCON d'après le revendeur ; 10 lampes 75 W, 750 W"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Recopie secteur 230 V, 20 A max., pour alimenter l'unité suivante ; powerCON d'après le revendeur"
     }
   ],
   "powerW": 750

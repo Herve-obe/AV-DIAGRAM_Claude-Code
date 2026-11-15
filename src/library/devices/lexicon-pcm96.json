@@ -26,6 +26,16 @@
       "url": "https://barryrudolph.com/mix/pcm96.html",
       "document": "Barry Rudolph, essai PCM96 (Mix) : description du panneau arrière",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://m.barryrudolph.com/recall/manuals/pcm96.pdf",
+      "document": "Lexicon (constructeur), PCM96 Owner's Manual (copie hébergée par barryrudolph.com), p.4 dessin et texte de la face arrière : IEC 3 broches 100-240 V, 2 RJ-45 Ethernet, MIDI thru/in/out, AES/EBU out (XLR mâle) et in (XLR femelle), analogique 2 sorties XLR mâle et 2 entrées XLR femelle, entrée word clock BNC ; aucune prise FireWire ; p.47-48 : 1U, 20 W max, entrées +4 dBu / -10 dBV",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.soundonsound.com/reviews/lexicon-pcm96",
+      "document": "Sound On Sound (presse), test du PCM96 par Hugh Robjohns, novembre 2008 : « two RJ45 (10/100) Ethernet ports, two Firewire 400 ports » en face arrière ; contredit le dessin du manuel cité, qui ne montre aucun port FireWire",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -66,13 +76,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR mâle, symétrie électronique 30 ohms ; niveau +4 dBu ou -10 commutable, +20 dBu max",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line-10"
-        }
-      ]
+      "format": "XLR mâle, symétrie électronique 30 ohms ; +20 dBu maximum (0 dBFS)"
     },
     {
       "id": "outR",
@@ -81,13 +85,7 @@
       "signal": "audioAnalog",
       "connector": "xlr3",
       "level": "line+4",
-      "format": "XLR mâle, symétrie électronique 30 ohms ; niveau +4 dBu ou -10 commutable, +20 dBu max",
-      "modes": [
-        {
-          "connector": "xlr3",
-          "level": "line-10"
-        }
-      ]
+      "format": "XLR mâle, symétrie électronique 30 ohms ; +20 dBu maximum (0 dBFS)"
     },
     {
       "id": "aesIn",
@@ -135,22 +133,6 @@
       "connector": "din5"
     },
     {
-      "id": "fw1",
-      "name": "FireWire 1",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "ieee1394",
-      "format": "FireWire 400 cité par la presse (Barry Rudolph) ; absent du dessin du panneau arrière du manuel lu : à vérifier sur l'appareil"
-    },
-    {
-      "id": "fw2",
-      "name": "FireWire 2",
-      "direction": "bidir",
-      "signal": "audioDigital",
-      "connector": "ieee1394",
-      "format": "FireWire 400 cité par la presse (Barry Rudolph) ; absent du dessin du panneau arrière du manuel lu : à vérifier sur l'appareil"
-    },
-    {
       "id": "eth1",
       "name": "Ethernet 1",
       "direction": "bidir",
@@ -165,6 +147,22 @@
       "connector": "rj45"
     },
     {
+      "id": "fw1",
+      "name": "FireWire 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394",
+      "format": "FireWire 400 décrit par la presse (Sound On Sound, novembre 2008) ; absent du dessin de la face arrière du manuel lu : à vérifier sur l'appareil"
+    },
+    {
+      "id": "fw2",
+      "name": "FireWire 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "ieee1394",
+      "format": "FireWire 400 décrit par la presse (Sound On Sound, novembre 2008) ; absent du dessin de la face arrière du manuel lu : à vérifier sur l'appareil"
+    },
+    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -173,5 +171,6 @@
       "format": "Embase IEC 3 broches, 100-240 V, 50-60 Hz, 20 W max"
     }
   ],
-  "powerW": 20
+  "powerW": 20,
+  "notes": "Deux descriptions se contredisent : le manuel Lexicon lu (copie tierce) ne montre aucun port FireWire, la presse de 2008 en décrit deux. Les ports FireWire restent saisis avec cette réserve ; statut community tant qu'un appareil ou un document Lexicon daté ne tranche pas."
 }

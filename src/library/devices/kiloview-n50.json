@@ -4,7 +4,7 @@
   "manufacturer": "Kiloview",
   "model": "N50 (12G-SDI / NDI)",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "powerW": 16,
   "weightKg": 0.52,
   "sources": [
@@ -17,6 +17,16 @@
       "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/10/N50-N60_Brochure.pdf",
       "document": "Kiloview, brochure N60/N50",
       "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/87145-N50DataSheet.pdf",
+      "document": "Kiloview, fiche technique N50 (copie revendeur Full Compass), tableau Parameters : alimentation « DC 12V (5.5/2.5) or PoE »",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/12/PZeJVNWJ-N50_DataSheet_En_LG_V2.40.pdf",
+      "document": "Kiloview (constructeur), N50 Data Sheet V2.40, p. 9 : schéma du panneau arrière (SDI IN/OUT BNC, prise DC 12V, Line In/Out, 2 RJ45, USB-A, USB-C)",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -91,8 +101,8 @@
       "name": "Alimentation DC",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 à 18 V CC ou PoE 802.3at ; type de prise non écrit"
+      "connector": "dc-barrel",
+      "format": "12 à 18 V CC ou PoE 802.3at ; jack 5,5/2,5 mm"
     }
   ]
 }

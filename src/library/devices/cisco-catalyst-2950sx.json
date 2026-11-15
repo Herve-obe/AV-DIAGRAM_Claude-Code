@@ -4,8 +4,7 @@
   "manufacturer": "Cisco",
   "model": "Catalyst 2950SX",
   "pictogram": "switch",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Switch Cisco Catalyst 2950SX-24 (WS-C2950SX-24) : 24 ports 10/100 RJ45, 2 ports 1000BASE-SX sur MT-RJ, console RJ45, alimentation secteur interne (embase IEC), connecteur RPS pour alimentation redondante Cisco RPS 300/675 ; 30 W maximum.",
   "sources": [
     {
@@ -21,6 +20,11 @@
       "url": "https://www.cisco.com/en/US/docs/switches/lan/catalyst2950/hardware/installation/legacy/hig2950_3.pdf",
       "document": "Cisco, Catalyst 2950 Desktop Switch Hardware Installation Guide 78-11157-05 : 2950SX-24 = 24 × 10/100 + 2 × 1000BASE-SX (MT-RJ), Figure 2-23 panneau arrière (embase secteur, RPS, console RJ45), Table A-1 30 W max",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.cisco.com/en/US/docs/switches/lan/catalyst2950/hardware/installation/legacy/hig2950_3.pdf",
+      "document": "Cisco, Catalyst 2950 Desktop Switch Hardware Installation Guide 78-11157-05, relecture : p.2-27 Figure 2-23 (panneau arrière commun à la gamme, embase secteur de type IEC C14 avec marquage 100-127 V 1 A / 200-240 V 0,5 A, connecteur RPS, console RJ-45) ; p.2-11 ports 1000BASE-SX, câbles patch MT-RJ, 550 m ; Table A-1 (2950SX-24 cité) : 100-127/200-240 VAC autocommuté, 30 W max.",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [

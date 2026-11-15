@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AW-HE42",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://nationwidevideo.com/gear/panasonic-aw-he42-full-hd-professional-ptz-camera/",
@@ -25,6 +25,16 @@
       "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE42P.PJ.E.EJ_simple%28DVQX1917ZA%29_E.pdf",
       "document": "Panasonic — AW-HE42/HE68 — Operating Instructions (Basics), DVQX1917ZA",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/be/en/broadcast-proav/aw-he42",
+      "document": "Panasonic Connect Europe (constructeur), page produit AW-HE42, caractéristiques : entrée audio mini-jack stéréo ø3,5 mm (micro -60 dBV / ligne -10 dBV), SDI BNC, HDMI, G/L IN BNC, RS-422 RJ-45, RS-232C mini-DIN 8, USB mini-B, DC IN 12 V, masse 1,5 kg",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE42P.PJ.E.EJ_simple%28DVQX1917ZA%29_E.pdf",
+      "document": "Panasonic (constructeur), AW-HE42 Operating Instructions DVQX1917ZA, p.62-63 : schéma du panneau arrière (AUDIO IN rond, DC IN 12 V avec pictogramme de prise cylindrique), broches RS-422 et RS-232C",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -107,9 +117,9 @@
       "name": "Audio In",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Entrée externe micro ou ligne ; type de prise et niveaux non donnés dans le mode d'emploi (bases)",
-      "level": "line+4"
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm stéréo, micro -60 dBV (alimentation plug-in 2,5 V commutable) ou ligne -10 dBV",
+      "level": "mic"
     }
   ],
   "aliases": [

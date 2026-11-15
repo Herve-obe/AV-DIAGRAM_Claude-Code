@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AW-UE100",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 2.2,
   "sources": [
     {
@@ -26,6 +26,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6093-4618-ue100-spec.pdf",
       "document": "Novelty — AW-UE100 : ue100_spec",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-UE100P.PJ_simple(DVQX2119ZA)_E.pdf",
+      "document": "Panasonic (constructeur), AW-UE100 Operating Instructions (Excerpted Version) DVQX2119ZA, p.35-37 : schéma du panneau arrière, DC IN 12 V (prise cylindrique, pictogramme de polarité), RS-422 RJ-45, G/L IN BNC, AUDIO IN, LAN, HDMI, 3G SDI OUT et 12G SDI OUT",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -101,8 +106,8 @@
       "name": "DC 12 V In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 V CC, 3,0 A, adaptateur secteur fourni"
+      "connector": "dc-barrel",
+      "format": "12 V CC (10,8 à 13,2 V), 3,0 A, adaptateur secteur fourni, prise cylindrique avec maintien du câble ; ou PoE++"
     }
   ],
   "aliases": [

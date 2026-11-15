@@ -9,6 +9,11 @@
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.la-bs.com/Objets/COLORBEAM-COB90UV_dt.pdf",
+      "document": "La-BS (distributeur OXO), fiche UVBEAM WP OCBEAM/UV/WP : DMX sur XLR 5 In et Out ; alimentation sur « PC16 In » (type non nommé), 100-240 VAC, 110 W, IP65",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -17,14 +22,16 @@
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Entrée DMX XLR 5 broches, protection IP renforcée"
     },
     {
       "id": "dmxOut",
       "name": "DMX Thru",
       "direction": "out",
       "signal": "dmx",
-      "connector": "unspecified"
+      "connector": "xlr5",
+      "format": "Sortie DMX XLR 5 broches, protection IP renforcée"
     },
     {
       "id": "acIn",
@@ -32,7 +39,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "unspecified",
-      "format": "LED UV 90 W, IP65"
+      "format": "LED UV 90 W, IP65 ; 100-240 V CA, « PC16 In » avec protection IP renforcée selon le distributeur : type d'embase non identifié"
     }
   ]
 }

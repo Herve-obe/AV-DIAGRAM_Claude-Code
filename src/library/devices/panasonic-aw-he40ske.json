@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AW-HE40SKE",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "description": "Caméra tourelle PTZ Full HD, zoom 30x, sortie HD-SDI (modèle S), IP et USB, PoE+.",
   "sources": [
     {
@@ -20,6 +20,11 @@
       "url": "https://eu.connect.panasonic.com/it/it/broadcast-proav/aw-he40s",
       "document": "Panasonic AW-HE40S full specifications, exact S variant",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE40PE_Basics(SQW0460)_F.pdf",
+      "document": "Panasonic (constructeur), mode d emploi AW-HE40 (Basics, SQW0460, version française), p.39 : schéma du panneau arrière AW-HE40S, prise DC IN 12 V avec pictogramme de polarité de prise cylindrique, LAN, RS-232C IN/OUT mini-DIN 8, AUDIO IN, SDI OUT, USB mini-B, RS-422",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -86,7 +91,8 @@
       "name": "12 V DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "12 V CC, bloc secteur fourni, prise cylindrique avec maintien du câble ; ou PoE+ (IEEE 802.3at) par le LAN"
     }
   ],
   "weightKg": 1.5,

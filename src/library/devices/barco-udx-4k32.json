@@ -145,8 +145,8 @@
       "name": "Wired Remote",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "XLR, télécommande filaire ; nombre de broches non indiqué pour l'UDX"
+      "connector": "xlr3",
+      "format": "XLR 3 broches, télécommande filaire (dessin du panneau, manuel UDX R5906112, p. 22)"
     },
     {
       "id": "ac",
@@ -184,24 +184,24 @@
       "name": "12 V Out",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 V, 1 A max ; connecteur non nommé"
+      "connector": "dc-barrel",
+      "format": "12 V, 1 A max ; embase ronde de type jack DC d'après le dessin du panneau (manuel UDX R5906112, p. 22)"
     },
     {
       "id": "sync3dOut",
       "name": "Sync Out 3D",
       "direction": "out",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "bnc",
+      "format": "BNC (dessin du panneau, manuel UDX R5906112, p. 22)"
     },
     {
       "id": "sync3dIn",
       "name": "Sync In 3D",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé"
+      "connector": "bnc",
+      "format": "BNC (dessin du panneau, manuel UDX R5906112, p. 22)"
     }
   ],
   "weightKg": 92,

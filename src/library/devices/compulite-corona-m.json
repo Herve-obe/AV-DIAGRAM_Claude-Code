@@ -15,8 +15,39 @@
       "url": "https://www.novelty.fr/produits/eclairage/accessoires-eclairage/shutter/corona-m/",
       "document": "Novelty — Corona M",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.dropbox.com/s/0u177icw2hvpwar/Corona%20Datasheet.pdf?dl=1",
+      "document": "Compulite (constructeur), fiche technique Corona DSR-0901 (lien officiel de compulite.com/corona), gamme Corona S/M/L/XL : prises XLR 4 / 5 / 3 broches, Corona M 4,75 kg",
+      "accessed": "2026-11-15"
     }
   ],
-  "ports": [],
-  "portStatus": "pending"
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX 512",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512, XLR 5 broches (sélection DMX / analogique par dipswitch)"
+    },
+    {
+      "id": "dmx48",
+      "name": "DMX + 48 V",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr4",
+      "format": "XLR 4 broches : signal DMX et alimentation +48 V DC dans un même câble (guirlande possible)"
+    },
+    {
+      "id": "analog",
+      "name": "Analogique 0-10 V",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "XLR 3 broches, 0 à +10 V ; fournit une tension d'alimentation pour fader externe ou module Dimmer Ballast"
+    }
+  ],
+  "weightKg": 4.75,
+  "notes": "Prises relevées sur la fiche technique de la gamme Corona (texte commun aux tailles, avec cotes et poids propres au Corona M). L'alimentation secteur 240/110 V par bloc interne est mentionnée sans nom d'embase : non saisie. Statut community tant que la fiche du Corona M seul ne confirme pas ces prises et le sens de chacune."
 }

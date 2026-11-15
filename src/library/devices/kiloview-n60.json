@@ -4,7 +4,7 @@
   "manufacturer": "Kiloview",
   "model": "N60 (HDMI / NDI)",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "powerW": 16,
   "weightKg": 0.48,
   "sources": [
@@ -12,6 +12,11 @@
       "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/10/N50-N60_Brochure.pdf",
       "document": "Kiloview, brochure N60/N50",
       "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1200-4805-kiloview-n60-manual-uk.pdf",
+      "document": "Kiloview (constructeur), N60 for NDI User Manual V1.6 (copie hébergée par Novelty), pp. 7-10 : interfaces HDMI 2.0, 3,5 mm, 2 Ethernet, USB-A, USB-C, alimentation « DC 12V 2A (5.5/2.5) ou PoE+ »",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -86,8 +91,8 @@
       "name": "Alimentation DC",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 à 18 V CC ou PoE 802.3at ; type de prise non écrit"
+      "connector": "dc-barrel",
+      "format": "12 à 18 V CC ou PoE 802.3at ; jack 5,5/2,5 mm"
     }
   ]
 }

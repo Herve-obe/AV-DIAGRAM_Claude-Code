@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AK-UCU600",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "rackU": 2,
   "sources": [
     {
@@ -25,6 +25,11 @@
     {
       "url": "https://pro-av.panasonic.net/manual/html/AK-UCU600P_PS_E_ES%28DVQP1734XA%29_E/chapter03_06.htm",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/html/AK-UCU600P_PS_E_ES%28DVQP1734XA%29_E/chapter03_05.htm",
+      "document": "Panasonic (constructeur), manuel AK-UCU600P/PS/E/ES DVQP1734XA, Rear panel 2 : schéma coté du panneau arrière, embase AC IN de forme IEC C14 (repère 10)",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -315,8 +320,8 @@
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Prise secteur, cordon fourni (type d'embase non écrit) ; P/PS 100-120 V, E/ES 100-240 V"
+      "connector": "iec-c13",
+      "format": "Embase secteur IEC C14 avec attache de cordon, cordon fourni ; P/PS 100-120 V, E/ES 100-240 V"
     }
   ],
   "domain": "image",

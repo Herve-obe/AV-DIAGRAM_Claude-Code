@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Startech",
   "model": "Dock USB-C & USB-A",
-  "status": "community",
+  "status": "verified",
   "description": "Station d'Accueil Universelle à Triple Écran DisplayPort & HDMI 4K 60Hz - 85W",
   "aliases": [
     "Startech Dock USB-C & USB-A"
@@ -20,6 +20,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/384-4659-mmo-86227172-1607954933-8531-1067.pdf",
       "document": "Novelty — Dock USB-C & USB-A : Dock USB-C & USB-A",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://inquirecontent2.ingrammicro.com/User-Manual/1065245125.pdf",
+      "document": "StarTech.com (constructeur), Quick-Start Guide DK31C3HDPD / DK31C3HDPDUE (rév. 10 août 2021, copie hébergée par Ingram Micro) : schéma des ports, DC Power Input Port « Type-M barrel connector, 20V 7.5A »",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://media.startech.com/cms/pdfs/dk31c3hdpdue_datasheet.pdf",
+      "document": "StarTech.com (constructeur), fiche technique DK31C3HDPDUE : connecteurs, alimentation 20 V CC 7,5 A, poids produit 402 g",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -141,9 +151,9 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "20 V CC 7,5 A, adaptateur secteur fourni ; type de prise non précisé (« M »)"
+      "connector": "dc-barrel",
+      "format": "20 V CC 7,5 A, adaptateur secteur fourni ; embase cylindrique (barrel) de type M"
     }
   ],
-  "weightKg": 0.365
+  "weightKg": 0.402
 }

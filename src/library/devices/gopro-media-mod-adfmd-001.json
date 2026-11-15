@@ -6,8 +6,8 @@
   "model": "Media Mod (ADFMD-001)",
   "pictogram": "camera",
   "moduleType": "gopro-media-mod-h12",
-  "status": "community",
-  "description": "Cadre Media Mod des GoPro HERO9 à HERO12 Black : micro directionnel intégré, sortie HDMI, entrée micro 3,5 mm, 2 griffes. Ne fonctionne que monté sur la caméra. Type de prise HDMI confirmé seulement par des revendeurs : statut community.",
+  "status": "verified",
+  "description": "Cadre Media Mod des GoPro HERO9 à HERO13 Black : micro directionnel intégré, sortie HDMI micro, entrée micro 3,5 mm, 2 griffes. Ne fonctionne que monté sur la caméra. Le type micro HDMI est donné par des revendeurs ; GoPro nomme la sortie « HDMI-out port » et l'entrée « 3.5mm mic port ».",
   "sources": [
     {
       "url": "https://gopro.com/en/us/shop/cameras/hero12-black/CHDHX-121-master.html",
@@ -23,6 +23,16 @@
       "url": "https://www.rubbermonkey.com.au/GoPro-Media-Mod",
       "document": "Rubber Monkey (revendeur), Media Mod : micro HDMI, 3,5 mm, compatibilité HERO9 à HERO12",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://gopro.com/en/us/shop/mounts-accessories/camera-media-mod/ADFMD-001.html",
+      "document": "GoPro, page produit Media Mod ADFMD-001 : « HDMI-out port », port micro 3,5 mm, deux griffes, compatible HERO13/12/11/10 Black (+1)",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.lensrentals.com/buy/gopro-media-mod-for-hero",
+      "document": "Lensrentals (revendeur), Media Mod, caractéristiques : sortie vidéo « HDMI Type-D Micro », entrée micro « 3.5mm (1/8\") », compatible HERO13 à HERO9 Black",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -32,7 +42,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "hdmi-micro",
-      "format": "Micro HDMI d'après les revendeurs"
+      "format": "Micro HDMI (type D) d'après les revendeurs"
     },
     {
       "id": "mic",

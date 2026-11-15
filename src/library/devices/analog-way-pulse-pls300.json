@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "Analog Way",
   "model": "PULSE PLS300",
-  "status": "community",
+  "status": "verified",
   "description": "Mélangeur Haute Résolution et Switcher à commutation propre avec Double Scaler",
   "aliases": [
     "PLS300",
@@ -21,6 +21,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/pls300-231210_-vf_lr-pdf",
       "document": "Novelty — PULSE PLS300 : Pulse PLS300",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2016/07/Analog-Way-Pulse-PLS300-Quick-Start-Guide.pdf",
+      "document": "Analog Way (constructeur), Quick Start Guide Pulse PLS300 (copie hébergée par Rentex), page 3 « Rear Panel Description » : photo du panneau arrière du PLS300 montrant l'embase secteur IEC C14 avec interrupteur ; entrées, sorties, RS-232 DB9, IP-LAN, jacks 3,5 mm et connecteurs MCO",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -203,8 +208,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V AC, 50/60 Hz, interrupteur"
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz, interrupteur ; embase IEC (C14) avec interrupteur à bascule"
     }
   ],
   "weightKg": 5,

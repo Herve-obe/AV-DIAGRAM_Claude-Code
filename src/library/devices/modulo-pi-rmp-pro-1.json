@@ -5,7 +5,7 @@
   "manufacturer": "Modulo Pi",
   "model": "Modulo Player Pro (châssis durci) RMP-PRO-1",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "description": "1 sortie active jusqu'à 2560x1600 ; 4 connecteurs DP 1.4. Châssis durci suspendu. Données : SSD NVMe PCIe 2 To. Options de capture (non montées d'origine) : DELTA-2x3G (2x 3G-SDI), DELTA-1x12G (4x 3G-SDI ou 1x 12G + 2x 3G), DELTA-2x12G (8x 3G ou 2x 12G + 4x 3G), DELTA-6x12G (12x 3G ou 6x 12G), DELTA-2xHDMI (2x HDMI 2.0 4K), DELTA-MIXED (4x 3G-SDI + 1x HDMI 2.0) ; cartes timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R. Rugged : en plus DELTA-HOST (Flex Host Card) et modules Flex MOD-HDMI (1x HDMI 2.0), MOD-DP (1x DP 1.2), MOD-1x12G. Dimensions 482x176,8x690 mm avec poignées. Consommation moyenne en fo",
   "sources": [
     {
@@ -17,6 +17,11 @@
       "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Pro-Rugg-SpecSheet-20231011.pdf",
       "document": "Modulo Player Pro ruggedized chassis SpecSheet (révision matérielle 2024-1, pied de page 23072024)",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Pro-Rugg-SpecSheet-20231011.pdf",
+      "document": "Modulo Pi (constructeur), fiche technique « Modulo Player Pro with ruggedized chassis » (réf. RMP-PRO-1 à RMP-PRO-4x4K, révision matérielle 2024-1), p. 1 : « Audio: 2 x XLR symmetrical audio outputs », « LAN: 2 x RJ45 10GbE », Neutrik TRUE1, tableau des sorties DP 1.4 ; photo du panneau arrière du châssis (la même que dans la fiche Ultra) : AUDIO OUT L et R sur deux XLR mâles à 3 broches",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -73,8 +78,8 @@
       "name": "Sortie audio 1",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "XLR symétrique (nombre de broches non précisé)",
+      "connector": "xlr3",
+      "format": "XLR 3 broches mâle, sortie audio symétrique L (texte et photo de la fiche technique)",
       "level": "line+4"
     },
     {
@@ -82,8 +87,8 @@
       "name": "Sortie audio 2",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "XLR symétrique (nombre de broches non précisé)",
+      "connector": "xlr3",
+      "format": "XLR 3 broches mâle, sortie audio symétrique R (texte et photo de la fiche technique)",
       "level": "line+4"
     },
     {
@@ -99,5 +104,6 @@
     "RMP-PRO-1"
   ],
   "weightKg": 29,
-  "powerW": 450
+  "powerW": 450,
+  "notes": "Non saisis : recopie secteur « THRU » visible sur la photo du châssis (non citée dans le texte), 4 USB 3.0 à l'arrière et 2 en façade, cartes de capture, genlock et timecode en option. La photo de la fiche technique est commune aux gammes Pro et Ultra et montre des embases etherCON ; pour la gamme Pro le texte dit « RJ45 », valeur retenue."
 }

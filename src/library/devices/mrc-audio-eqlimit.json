@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "MRC Audio",
   "model": "EQlimit",
-  "status": "community",
-  "description": "Limiteur-enregistreur de niveau sonore global ou par tiers d'octave, 1 U, deux entrées micro de mesure (micro MS1 fourni), afficheur déporté DD1 en option. Connecteurs des micros, de l'afficheur, de l'USB et de l'alimentation modem non nommés ; niveaux nominaux non publiés.",
+  "status": "verified",
+  "description": "Limiteur-enregistreur de niveau sonore global ou par tiers d'octave, 1 U, deux entrées micro de mesure (micro MS1 fourni), afficheur déporté DD1 en option. Connecteurs lus sur le dessin de la face avant et arrière du manuel (fig. 2) ; niveaux nominaux de ligne non publiés ; alimentation fantôme des entrées micro non précisée.",
   "aliases": [
     "EQlimit-kit",
     "EQLimit"
@@ -28,6 +28,11 @@
     {
       "url": "https://www.novelty.fr/produits/sonorisation/mesure-acoustique/divers-mesure-acoustique/eqlimit-kit/",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/mrc_eqlimit_manuel-uk.pdf",
+      "document": "MRC Audio (constructeur), manuel EQlimit (copie Novelty), p.7-8 : liste des prises 1 à 15 et fig. 2 (dessin de la face avant et arrière : USB en façade, IEC avec fusible, DISPLAY et MIC1/MIC2 en XLR 3 broches, AUX et MODEM en D-sub 9, LAN RJ-45, jack d'alimentation modem, XLR IN/OUT) ; p.46 : 1U, 3 kg, < 30 W, 90-250 V",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -72,24 +77,26 @@
       "name": "MIC 1",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Micro de mesure MS1, entrée symétrique"
+      "connector": "xlr3",
+      "format": "Micro de mesure MS1, entrée symétrique, XLR 3 broches (dessin du manuel, fig. 2)",
+      "level": "mic"
     },
     {
       "id": "mic2",
       "name": "MIC 2",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Second micro optionnel"
+      "connector": "xlr3",
+      "format": "Second micro optionnel, entrée symétrique, XLR 3 broches (dessin du manuel, fig. 2)",
+      "level": "mic"
     },
     {
       "id": "display",
       "name": "Display",
       "direction": "out",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Afficheur déporté DD1, câble 5 m"
+      "connector": "xlr3",
+      "format": "Afficheur déporté DD1, câble 5 m ; embase XLR 3 broches (dessin du manuel, fig. 2)"
     },
     {
       "id": "aux",
@@ -120,16 +127,16 @@
       "name": "Modem Power Feed",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Jack, 5 ou 15 V DC"
+      "connector": "dc-barrel",
+      "format": "Jack d'alimentation, 5 ou 15 V DC (cavalier interne), pour le modem GPRS optionnel"
     },
     {
       "id": "usb",
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Façade, liaison PC"
+      "connector": "usb-b",
+      "format": "Façade, liaison PC (embase carrée de type B sur le dessin du manuel, fig. 2)"
     },
     {
       "id": "ac",

@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "LIGHTWARE",
   "model": "Edid Manager V4",
-  "status": "community",
+  "status": "verified",
   "description": "Émulateur d'EDID DVI et répéteur DVI",
   "aliases": [
     "LIGHTWARE Edid Manager V4"
@@ -35,6 +35,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/lightware_edid-manager-v4_certificat.pdf",
       "document": "Novelty — Edid Manager V4 : Edid Manager v4",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lightware_edid-manager-v4_ft.pdf",
+      "document": "Lightware (constructeur), fiche technique EDID Manager V4 (copie Novelty), p. 2 : « USB: Mini USB-B female connector », « Input / Output: 29 pole DVI-D connector », « Power: Locking DC connector (2.5 / 5.5 mm) »",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/lightware_edid-manager-v4_manuel-1455881987.pdf",
+      "document": "Lightware (constructeur), manuel EDID Manager V4 (copie Novelty), caractéristiques : « DC power connector: locking DC connector, 2.5 / 5.5 mm », dimensions 100,4 x 67,6 x 26 mm",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -44,7 +54,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "dvi",
-      "format": "DVI-I socket, digital single-link only"
+      "format": "DVI-D 29 broches, numérique single-link uniquement"
     },
     {
       "id": "dviOut",
@@ -52,15 +62,15 @@
       "direction": "out",
       "signal": "video",
       "connector": "dvi",
-      "format": "DVI-I socket, digital single-link only"
+      "format": "DVI-D 29 broches, numérique single-link uniquement"
     },
     {
       "id": "usb",
       "name": "USB control",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "EDID management and firmware"
+      "connector": "usb-mini",
+      "format": "Mini USB-B femelle : gestion EDID et mise à jour du firmware"
     },
     {
       "id": "dc",

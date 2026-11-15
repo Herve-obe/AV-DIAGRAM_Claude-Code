@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Panasonic",
   "model": "PT-RZ120BE",
-  "status": "community",
+  "status": "verified",
   "description": "Vidéoprojecteur 4K laser DLP à 1 puce, 12 000 lumens, WUXGA, Full HD 1920 x 1200",
   "aliases": [
     "PANASONIC PT-RZ120BE"
@@ -25,6 +25,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-rz120be_ft-fr.pdf",
       "document": "Novelty — PT-RZ120BE : PT-RZ120BE",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://bizpartner.panasonic.net/public/ppr/file_view/182634",
+      "document": "Panasonic (constructeur), manuel d utilisation PT-RZ120 (Functional Manual, commun à tous les suffixes) : p.56 schéma de branchement du cordon sur la borne AC IN (connecteur de forme IEC C13), p.32 liste des bornes, p.213-214 caractéristiques (consommation 1 100 W, poids env. 23,6 kg, bornes et connecteurs)",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -134,8 +139,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+      "connector": "iec-c13",
+      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon fourni verrouillé par un support de cordon, fiche de cordon de type IEC C13 (schéma du manuel)"
     },
     {
       "id": "sdi1",
@@ -162,7 +167,7 @@
       "format": "HDBaseT, réseau/commande"
     }
   ],
-  "weightKg": 25.2,
-  "powerW": 1275,
+  "weightKg": 23.6,
+  "powerW": 1100,
   "depthMm": 581
 }

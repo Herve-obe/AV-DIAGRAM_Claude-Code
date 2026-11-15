@@ -11,6 +11,11 @@
       "url": "https://www.taiden.com/upload/download/TMX-0808SDI2Datasheet.pdf",
       "document": "Taiden, fiche TMX-0808SDI2",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.taiden.com/upload/download/TMX-0808SDI2.pdf",
+      "document": "Taiden (constructeur), plan coté TMX-0808SDI2 : vue arrière montrant une embase secteur IEC C14 (type de la prise TAINET non lisible)",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -169,8 +174,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V"
+      "connector": "iec-c13",
+      "format": "Embase IEC (plan coté Taiden), 100-240 V 50/60 Hz"
     }
   ]
 }

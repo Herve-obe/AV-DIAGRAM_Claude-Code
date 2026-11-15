@@ -14,6 +14,11 @@
       "url": "https://www.lensrentals.com/product-assets/0da6bae6-7c2a-4007-8c91-26e05c438a6e/vqt5h96.pdf",
       "document": "Panasonic DMC-GH4 Owner's Manual for advanced features VQT5H96 (via Lensrentals)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.na.panasonic.com/?p=416487",
+      "document": "Panasonic (constructeur, support Amérique du Nord), Features and Specifications DMC-GH4 : MIC prise ø3,5 mm, casque prise ø3,5 mm, AV OUT/DIGITAL prise dédiée 8 broches, HDMI micro type D, REMOTE ø2,5 mm",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -31,22 +36,25 @@
       "direction": "out",
       "signal": "video",
       "connector": "unspecified",
-      "format": "Sortie AV et USB"
+      "format": "Prise dédiée 8 broches (sortie AV et USB) ; connecteur absent du catalogue"
     },
     {
       "id": "mic",
       "name": "MIC",
       "direction": "in",
       "signal": "audioAnalog",
-      "connector": "unspecified"
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Prise ø3,5 mm"
     },
     {
       "id": "hp",
       "name": "Casque",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "channels": 2
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Prise ø3,5 mm"
     }
   ]
 }

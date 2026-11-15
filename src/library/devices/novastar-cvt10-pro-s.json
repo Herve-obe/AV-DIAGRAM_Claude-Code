@@ -20,6 +20,11 @@
       "url": "https://www.novelty.fr/produits/video/mur-d-images-led/peripherique-mur-d-images-led/cvt10-pro-s/",
       "document": "Novelty — CVT10 PRO-S",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0099/2260/9218/files/CVT10_Pro_Fiber_Converter_Specifications-V1.0.0.T2.pdf",
+      "document": "NovaStar (constructeur), CVT10 Pro Fiber Converter Specifications V1.0.0.T2 (copie revendeur), pp. 1-4 : face arrière (entrée secteur PowerCON, USB type B, 10 ports Gigabit, OPT1/OPT2), 22 W, 5,9 kg ; la photo montre le modèle Pro-M",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -120,15 +125,26 @@
       "format": "Gigabit vers cartes de réception"
     },
     {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B : commande depuis un PC (NovaLCT), mise à jour"
+    },
+    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "powercon",
+      "format": "100-240 V CA, 50/60 Hz, 1,5 A ; connecteur PowerCON (ne pas brancher sous tension)"
     }
   ],
   "aliases": [
     "CVT10PROS",
     "Novastar CVT10 PRO-S"
-  ]
+  ],
+  "powerW": 22,
+  "weightKg": 5.9
 }

@@ -7,6 +7,8 @@
   - `src/editor/` contient le canevas React Flow, et `src/ui/` les panneaux.
 - Couleurs : uniquement des variables de `src/styles/tokens.css`. Jamais de couleur en dur dans un composant.
 - Bibliothèque : ne jamais inventer une caractéristique constructeur. Une fiche « verified » exige une source (URL et date).
+  - Sources admises (décision du 15 novembre 2026), par ordre de préférence : document du constructeur ; photo ou schéma du constructeur ; page d'un revendeur ; page d'un loueur. Le champ `document` de la source dit sa nature et ce qu'elle prouve. Une photo ou un plan de gamme ne vaut pour une référence que si un document du constructeur confirme par écrit la même prise pour cette référence. Jamais de déduction par ressemblance entre modèles.
+  - Recherche documentaire : un site qui refuse l'accès automatisé (401, 403, contrôle anti-robot) n'est pas contourné ; on passe à une autre source.
   - Équipement principal + option : un équipement qui ne fonctionne pas seul (tête de micro, carte, objectif, module) est une fiche « module » installée dans un emplacement (`slots`) de l'équipement principal. Un principal vendu avec son option est ramené au principal seul (ancienne référence en alias). Valable dans tous les menus.
   - Version constructeur uniquement : une fiche décrit l'appareil tel que livré par le constructeur. Pas de fiche de marque « Novelty » (fabrication sur mesure du loueur) ni de connectique ajoutée ou modifiée par un loueur.
   - Un kit ou un ensemble de plusieurs appareils autonomes est scindé en fiches séparées.

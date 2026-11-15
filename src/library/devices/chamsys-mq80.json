@@ -45,6 +45,11 @@
       "url": "https://chamsyslighting.com/products/mq80",
       "document": "ChamSys, page produit MagicQ MQ80 (version actuelle 48 univers)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://chamsyslighting.com/?p=5300",
+      "document": "ChamSys (constructeur), page MQ80 Spec Sheet : alimentation Neutrik powerCON TRUE1 110-240 V CA, 1 sortie HDMI moniteur externe, 4 ports réseau, 4 sorties DMX, 6 USB",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -170,6 +175,14 @@
       "connector": "din5"
     },
     {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Moniteur externe jusqu'à 1920 × 1200"
+    },
+    {
       "id": "remote",
       "name": "Remote Input",
       "direction": "in",
@@ -182,8 +195,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "powercon",
-      "format": "powerCON verrouillable, 90-240 V ; alimentation interne et onduleur"
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1, 110-240 V CA ; alimentation interne et onduleur"
     }
   ],
   "aliases": [

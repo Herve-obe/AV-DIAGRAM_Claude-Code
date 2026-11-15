@@ -4,7 +4,7 @@
   "manufacturer": "Lilliput",
   "model": "FS7",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "description": "Moniteur de caméra 7 pouces 1920 x 1200, 3G-SDI et HDMI 4K",
   "sources": [
     {
@@ -20,6 +20,11 @@
       "url": "https://www.lilliput.com/uploads/84d362a8.pdf",
       "document": "Lilliput, manuel FS7 : Top & rear panel features",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/84d362a8.pdf",
+      "document": "Lilliput (constructeur), manuel FS7 page 5 : photo du panneau arrière, SDI in/out BNC, EAR, USB-A (mise à jour), HDMI out/in, DC 12V (jack cylindrique, fiche coudée branchée) ; paramètres : DC 7-24 V, 12 W",
+      "accessed": "2026-11-15"
     }
   ],
   "ports": [
@@ -61,16 +66,23 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Ear Jack 3,5 mm stéréo (audio SDI/HDMI désembarqué)",
-      "level": "line+4"
+      "format": "Ear Jack 3,5 mm stéréo (audio SDI/HDMI désembarqué)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB-A, réservé aux mises à jour du programme"
     },
     {
       "id": "dc",
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "DC 7-24 V, bloc 12 V fourni ; plaque batterie Sony F ; connecteur non nommé"
+      "connector": "dc-barrel",
+      "format": "DC 7-24 V, bloc 12 V fourni ; plaque batterie Sony F ; jack d'alimentation cylindrique vu sur la photo du manuel"
     }
   ],
   "powerW": 12

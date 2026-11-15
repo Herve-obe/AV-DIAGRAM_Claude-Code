@@ -1,6 +1,15 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.36
+## Situation actuelle — 0.5.37
+
+Bibliothèque, 15 novembre 2026 : vérification des 464 fiches « Communauté » par une équipe de 21 agents, puis relecture. Hervé a élargi les sources admises : après les documents du constructeur, une photo ou un schéma du constructeur, puis une page de revendeur ou de loueur, à condition de noter la nature de la source (règle ajoutée à `CLAUDE.md`).
+
+- **55 fiches passées en « Vérifié »**, 30 corrigées ou complétées sans pouvoir être vérifiées, 379 inchangées. La bibliothèque compte 1 264 fiches vérifiées et 409 en communauté (1 209 et 464 auparavant).
+- **Relecture.** Les ports FireWire du Lexicon PCM96, supprimés par un agent, sont rétablis avec réserve : le manuel lu ne les montre pas, la presse de 2008 les décrit. Les douze Modulo Pi RMP suivent la même règle : texte de la fiche technique de la gamme et photo du châssis dans la même fiche.
+- **Blocage restant.** L'embase secteur des écrans (Samsung, LG, Sony, NEC) n'est nommée dans aucun document accessible ; plusieurs sites de manuels refusent l'accès automatisé et n'ont pas été contournés.
+- **Rapport** : `docs/inventaire/verification-communaute-2026-11-15.md` (bilan, liste des fiches, décisions à prendre) et son fichier `.json` (détail par fiche).
+
+## Version 0.5.36
 
 Assistant IA, 15 novembre 2026, d'après le second essai d'Hervé avec le Qwen3 14B sur la 0.5.35 (concert acoustique, « retours de scène amplifiés ») : le modèle a encore retenu le retour Nexo 45N12, à entrées Speakon seules, puis demandé s'il fallait un amplificateur (réponse en 7 min 17 s).
 
