@@ -1,0 +1,93 @@
+// Sauvegardes de sécurité tournantes (comme les « Session File Backups » de Pro Tools) : toutes les
+// N minutes, si le projet a changé, une copie horodatée est écrite dans
+// <dossier>/Save Back Up/<identifiant-du-projet>/ ; au-delà du nombre gardé, la plus ancienne est supprimée.
+import { isTauri } from '@tauri-apps/api/core'
+import type { Project } from '../model/types'
+import { useSaveFolder } from '../store/saveFolderStore'
+
+export const BACKUP_DIR = 'Save Back Up'
+export const BACKUP_INTERVALS = [1, 2, 5, 10, 15, 30] as const
+export const BACKUP_COUNTS = [3, 5, 10, 20, 50] as const
+
+const pad = (n: number) => String(n).padStart(2, '0')
+
+/** Nom d'une sauvegarde : nom-du-projet_2026-10-10_14-05-30.avd (l'ordre alphabétique est l'ordre chronologique) */
+export function backupName(base: string, date: Date): string {
+  const d = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
+  const t = `${pad(date.getHours())}-${pad(date.getMinutes())}-${pad(date.getSeconds())}`
+  return `${base}_${d}_${t}.avd`
+}
+
+/** Sauvegardes à supprimer pour n'en garder que `keep` (les plus anciennes d'abord). */
+export function backupsToDelete(names: string[], base: string, keep: number): string[] {
+  const re = new RegExp(`^${base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}_\\d{4}-\\d{2}-\\d{2}_\\d{2}-\\d{2}-\\d{2}\\.avd$`)
+  const mine = names.filter((n) => re.test(n)).sort()
+  return mine.slice(0, Math.max(0, mine.length - keep))
+}
+
+/** Premier dossier qu'on peut créer (le dossier du fichier peut ne pas être autorisé en écriture). */
+async function firstWritable(candidates: Promise<string>[], mkdir: (p: string, o: { recursive: boolean }) => Promise<void>): Promise<string> {
+  let last: unknown
+  for (const c of candidates) {
+    const path = await c
+    try {
+      await mkdir(path, { recursive: true })
+      return path
+    } catch (e) {
+      last = e
+    }
+  }
+  throw last ?? new Error('no folder')
+}
+
+/** Écrit une sauvegarde et supprime les plus anciennes. Sans effet hors de l'application de bureau. */
+export async function writeBackup(project: Project): Promise<boolean> {
+  const st = useSaveFolder.getState()
+  const own = st.projectFiles[project.id]
+  if (!isTauri() || !st.backups || (!st.dir && !own)) return false
+  try {
+    const { dirname, join } = await import('@tauri-apps/api/path')
+    const { mkdir, readDir, remove, writeTextFile } = await import('@tauri-apps/plugin-fs')
+    // Encodage injectif, y compris sur les disques insensibles à la casse.
+    const base = 'project-' + Array.from(new TextEncoder().encode(project.id), b => b.toString(16).padStart(2, '0')).join('')
+    // À côté du fichier du projet (comme Pro Tools), sinon dans le dossier des projets
+    const roots = [...new Set([own ? await dirname(own) : null, st.dir].filter((r): r is string => !!r))]
+    const folder = await firstWritable(roots.map((r) => join(r, BACKUP_DIR, base)), mkdir)
+    const path = await join(folder, backupName(base, new Date()))
+    await writeTextFile(path, JSON.stringify(project, null, 2))
+    const names = (await readDir(folder)).filter((e) => e.isFile).map((e) => e.name)
+    for (const old of backupsToDelete(names, base, st.backupCount)) await remove(await join(folder, old))
+    useSaveFolder.getState().setBackupResult({ at: new Date().toISOString(), path })
+    return true
+  } catch (e) {
+    useSaveFolder.getState().setBackupResult(null, e instanceof Error ? e.message : String(e))
+    return false
+  }
+}
+
+/**
+ * Minuterie des sauvegardes : vérifie chaque minute s'il faut sauvegarder (projet modifié depuis la
+ * dernière sauvegarde et délai écoulé). Renvoie la fonction d'arrêt.
+ */
+export function startBackups(getProject: () => Project): () => void {
+  let lastSaved: Project | null = null
+  let lastAt = Date.now()
+  let writing = false
+  const tick = async () => {
+    const st = useSaveFolder.getState()
+    const p = getProject()
+    if (writing || (!st.dir && !st.projectFiles[p.id]) || !st.backups || p === lastSaved) return
+    if (Date.now() - lastAt < st.backupEvery * 60_000) return
+    writing = true
+    try {
+      if (await writeBackup(p)) {
+        lastSaved = p
+        lastAt = Date.now()
+      }
+    } finally {
+      writing = false
+    }
+  }
+  const id = window.setInterval(() => void tick(), 30_000)
+  return () => window.clearInterval(id)
+}

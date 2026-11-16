@@ -1,0 +1,62 @@
+{
+  "id": "panasonic-dmw-xlr1",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "DMW-XLR1",
+  "pictogram": "mic",
+  "moduleType": "lumix-hotshoe-xlr",
+  "status": "verified",
+  "description": "Adaptateur micro XLR Lumix, fixé et alimenté par la griffe : 2 entrées XLR micro/ligne avec fantôme 48 V. Ne fonctionne que monté sur un boîtier compatible (GH5, GH6, S1…). Niveau ligne documenté à 0 dBu (classé line+4).",
+  "sources": [
+    {
+      "url": "https://www.panasonic.com/sg/consumer/camera-camcorder/accessory/camera-accessory/dmw-xlr1.specs.html",
+      "document": "Panasonic, page caractéristiques DMW-XLR1 : INPUT1, INPUT2 XLR 3 broches femelle, niveaux LINE 0 dBu, MIC/+48V -40 dBu",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/1750/3243/files/GH5.pdf",
+      "document": "Panasonic, DC-GH5 Operating Instructions DVQX1052 : XLR Microphone Adaptor (DMW-XLR1, optional) fixé sur la griffe",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "INPUT1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches femelle ; MIC/MIC+48V -40 dBu, LINE 0 dBu"
+    },
+    {
+      "id": "in2",
+      "name": "INPUT2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR 3 broches femelle ; MIC/MIC+48V -40 dBu, LINE 0 dBu"
+    }
+  ],
+  "aliases": [
+    "XLR Microphone Adaptor",
+    "DMW-XLR1E",
+    "DMWXLR1"
+  ]
+}

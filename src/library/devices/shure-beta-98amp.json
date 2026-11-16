@@ -1,0 +1,28 @@
+{
+  "id": "shure-beta-98amp",
+  "family": "capture",
+  "manufacturer": "Shure",
+  "model": "Beta 98AMP",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.13,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/BETA98AMP/en-US",
+      "document": "Shure, guide d'utilisation Beta 98AMP (pubs.shure.com)",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique électret cardioïde sur col de cygne, préampli intégré à sortie XLR, fantôme 11 à 52 V, 5,5 mA",
+      "phantom": "required"
+    }
+  ]
+}

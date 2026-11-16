@@ -1,0 +1,59 @@
+{
+  "id": "ma-lighting-merger",
+  "family": "dmxDistribution",
+  "domain": "light",
+  "pictogram": "switch",
+  "manufacturer": "MA Lighting",
+  "model": "DMX Merger",
+  "status": "verified",
+  "description": "Fusionneur DMX MA Lighting (réf. 130418), rack 19 pouces 1 U : deux entrées DMX XLR 5 (A et B), une sortie fusionnée XLR 5, mode HTP ou LTP ; cordon secteur Schuko monté ; 483 × 170 × 44,5 mm, 4 kg.",
+  "aliases": [
+    "MA LIGHTING MERGER"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/splitter/merger/",
+      "document": "Novelty — MERGER",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.malighting.com/product-archive/product/ma-dmx-merger-130418/",
+      "document": "MA Lighting, archive produit MA DMX-Merger 130418",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxInA",
+      "name": "DMX In A",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle, terminaison commutable"
+    },
+    {
+      "id": "dmxInB",
+      "name": "DMX In B",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle, décalage d'adresse possible"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie fusionnée HTP ou LTP, XLR 5 points femelle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon secteur monté avec fiche Schuko"
+    }
+  ]
+}

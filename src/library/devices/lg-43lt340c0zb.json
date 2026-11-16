@@ -1,0 +1,125 @@
+{
+  "id": "lg-43lt340c0zb",
+  "family": "display",
+  "manufacturer": "LG",
+  "model": "43LT340C0ZB",
+  "pictogram": "display",
+  "status": "verified",
+  "description": "Téléviseur hôtelier LG 43 pouces Full HD, série LT340C.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.lg.com/hk_en/business/commercial-lite/lg-43LT340C0CB",
+      "document": "LG Hong Kong, page 43LT340C0CB (même série LT340C, variante régionale) : Connectivities, Power Spec",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.appliancesdirect.co.uk/PDFs/43LT340C_UserManual1.PDF",
+      "document": "LG, manuel utilisateur « 32/43LT340C* » (série entière, désignation à astérisque) : schéma p. 7 COMPONENT IN et AV IN en RCA ; cordon secteur raccordé au téléviseur (consignes de sécurité) ; la variante 0ZB n'y est pas nommée, la série l'est (D11)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0, clonage"
+    },
+    {
+      "id": "av",
+      "name": "AV In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Vidéo composite ; RCA (jaune VIDEO/Y, blanc L/MONO, rouge AUDIO R), lu sur le schéma du manuel p. 7"
+    },
+    {
+      "id": "component",
+      "name": "Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Y Pb Pr ; RCA (VIDEO/Y, Pb, Pr, L/MONO, AUDIO R), lu sur le schéma du manuel p. 7"
+    },
+    {
+      "id": "vga",
+      "name": "RGB In (PC)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 points"
+    },
+    {
+      "id": "optical",
+      "name": "Digital Audio Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "format": "Optique"
+    },
+    {
+      "id": "phones",
+      "name": "Headphone Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Casque"
+    },
+    {
+      "id": "spk",
+      "name": "External Speaker Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm (phone jack)"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 points"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "SNMP et MHEG"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50-60 Hz ; cordon secteur raccordé au téléviseur (manuel : « Make sure the power cord is connected securely to the TV »), forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "powerW": 88,
+  "notes": "Non saisie : entrée antenne RF (tuner), PCMCIA/CI, selon la série ; omission volontaire."
+}

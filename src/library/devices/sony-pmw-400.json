@@ -1,0 +1,144 @@
+{
+  "id": "sony-pmw-400",
+  "family": "camera",
+  "manufacturer": "Sony",
+  "model": "PMW-400",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 3.4,
+  "sources": [
+    {
+      "url": "https://pro.sony/en_DJ/pdf/pmw-400l",
+      "document": "Sony, fiche PMW-400L",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.expandore.com/product/sony/Proav/model/XDCAM_HD/PMW-400L.htm",
+      "document": "Expandore, fiche PMW-400L",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://refurbished.sonypencoed.com/app/uploads/2018/09/PMW-400-op.pdf",
+      "document": "Sony, PMW-400 Operating Instructions 4-477-605-13 (1) (copie hébergée par Sony UK, refurbished.sonypencoed.com), pp. 10-20 et spécifications : DC IN XLR 4 broches mâle, MIC IN XLR 5 broches femelle +48 V, AUDIO OUT XLR 5 broches mâle, AUDIO IN CH-1/CH-2 XLR 3 broches femelles, SDI OUT BNC, TC IN/OUT BNC, GENLOCK IN BNC, REMOTE 8 broches, i.LINK 6 broches S400, poids 3,4 kg (boîtier seul)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD / HD-SDI"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Ligne / micro / micro +48 V",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr5",
+      "level": "mic"
+    },
+    {
+      "id": "aOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr5",
+      "level": "line+4"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sony-remote8",
+      "format": "Télécommande Sony 8 broches"
+    },
+    {
+      "id": "ilink",
+      "name": "i.LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "IEEE 1394 (i.LINK) S400, HDV / DV"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    }
+  ],
+  "notes": "Non saisies : connecteur d'adaptateur 50 broches (CBK-CE01 pour CA-FB70 / CA-TX70) et connecteur d'objectif 12 broches (famille mécanique non nommée par le manuel Sony) ; connecteurs non publiés par le constructeur. Autres prises non saisies : LIGHT (2 broches), DC OUT 12 V (4 broches), VIDEO OUT (BNC)."
+}

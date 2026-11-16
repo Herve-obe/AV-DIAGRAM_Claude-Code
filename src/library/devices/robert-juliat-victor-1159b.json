@@ -1,0 +1,58 @@
+{
+  "id": "robert-juliat-victor-1159b",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Robert Juliat",
+  "model": "Victor 1159B",
+  "status": "verified",
+  "description": "Poursuite Victor 1159B, lampe MSR 1 800 W, zoom 7–14,5°, alimentation électronique séparée (cordon secteur détachable 3 m à connecteur powerCON, cordon de montée de lampe détachable 3 m à connecteurs Harting Han 16 × 16 A + T). Variante DMX 1159B ; puissance 2 040 W à 230 V. Option scroller via XLR (24 V + DMX) non saisie.",
+  "sources": [
+    {
+      "url": "https://www.robertjuliat.fr/Poursuites/Victor.html",
+      "document": "Robert Juliat — Victor, liste séparée des spécifications 1159 et 1159B DMX",
+      "accessed": "2026-11-04"
+    },
+    {
+      "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
+      "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_FR/Standard/DSFR104_1159B.pdf",
+      "document": "Robert Juliat : DSFR104 Victor 1159B, fiche standard",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_FR/Standard/DSFR104_1159B.pdf",
+      "document": "Robert Juliat (constructeur), fiche DSFR104 Victor 1159B du 06/08/2025, relue en image (PDF sans couche texte) : p.2 DMX512-A entrée XLR 5 broches mâle / sortie XLR 5 broches femelle ; p.3 raccordement secteur par cordon détachable à connecteur Neutrik powerCON NAC3FCA, 2 040 W à 230 V, cordon de montée de lampe détachable 3 m avec connecteurs Harting Han 16x16A+T",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis alimentation électronique",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Embase Harting Han 16 × 16 A + T, cordon détachable 3 m 18G1,5 vers l'alimentation électronique (entrée powerCON)"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR 5 points mâle (obturateur motorisé, amorçage)"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle"
+    }
+  ],
+  "powerW": 2040
+}

@@ -1,0 +1,40 @@
+{
+  "id": "ermea-par38h",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "ERMEA",
+  "model": "PAR38H",
+  "status": "community",
+  "description": "Projecteur PAR38 noir héxagonal, 200V, avec reprise secteur",
+  "aliases": [
+    "PAR38",
+    "ERMEA PAR38H"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/par-projecteurs-traditionnels/par38h/",
+      "document": "Novelty — PAR38H",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Projecteur traditionnel, commande par gradateur externe ; type de raccordement non écrit"
+    },
+    {
+      "id": "acOut",
+      "name": "Reprise secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Reprise secteur citée par Novelty, type non écrit"
+    }
+  ],
+  "weightKg": 2.2
+}

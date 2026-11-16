@@ -1,0 +1,86 @@
+{
+  "id": "prolights-minieclipse-dy-wdmx-noir",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Prolights",
+  "model": "MiniEclipse DY noir W-DMX (ML138DYHF)",
+  "status": "verified",
+  "description": "Corps de mini découpe à LED Cree 28 W, 6 000 K, finition noire, module W-DMX 2,4 GHz intégré. Consommation maximale 29 W ; alimentation 100–240 V sur cordon à fiche 16 A moulée ; aucune prise DMX filaire. Objectif 19°, 26°, 36° ou 50° vendu séparément : à installer dans l'emplacement « Objectif ».",
+  "aliases": [
+    "ML138DYHF",
+    "Prolights MiniEclipse 19°",
+    "Prolights MiniEclipse 26°",
+    "Prolights MiniEclipse 36°",
+    "Prolights MiniEclipse 50°",
+    "MiniEclipse 19°",
+    "MiniEclipse 26°",
+    "MiniEclipse 36°",
+    "MiniEclipse 50°"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/prolights_minieclipse_corps_de_decoupe_fiche_produit2.pdf",
+      "document": "Prolights / ESL, fiche MiniEclipse (hébergée par Novelty) : références ML138DYHF « Corps MiniEclipse DY noir 6 000 K + module WDMX », optiques ML138L19/26/36/50 noires « à commander séparément », 29 W, 1 / 1,5 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/prolights_minieclipse_corps_de_decoupe_manuel.pdf",
+      "document": "Prolights, MiniEclipseWD / MiniEclipseTRWD user manual (hébergé par Novelty), p. 24 et 29 : 29 W, 1,5 kg, éléments et connexions",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoupe-projecteurs-a-led/minieclipse-19/",
+      "document": "Novelty, MiniEclipse 19° : 6 000 K, finition noire, module W-DMX intégré, 1,5 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoupe-projecteurs-a-led/minieclipse-26/",
+      "document": "Novelty, MiniEclipse 26° : 6 000 K, finition noire, module W-DMX intégré, 1,5 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoupe-projecteurs-a-led/minieclipse-36/",
+      "document": "Novelty, MiniEclipse 36° : 6 000 K, finition noire, module W-DMX intégré, 1,5 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoupe-projecteurs-a-led/minieclipse-50/",
+      "document": "Novelty, MiniEclipse 50° : 6 000 K, finition noire, module W-DMX intégré, 1,5 kg",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon avec fiche secteur 16 A moulée (versions noires) ; 100–240 V 50/60 Hz"
+    },
+    {
+      "id": "wdmx",
+      "name": "W-DMX",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur W-DMX 2,4 GHz (Wireless Solution) intégré, 1, 2 ou 5 canaux"
+    }
+  ],
+  "weightKg": 1.5,
+  "powerW": 29,
+  "slots": [
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "prolights-minieclipse-lens",
+      "accepts": [
+        "prolights-minieclipse-objectif-19",
+        "prolights-minieclipse-objectif-26",
+        "prolights-minieclipse-objectif-36",
+        "prolights-minieclipse-objectif-50"
+      ]
+    }
+  ]
+}

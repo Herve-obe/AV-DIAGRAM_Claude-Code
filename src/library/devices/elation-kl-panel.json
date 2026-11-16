@@ -1,0 +1,82 @@
+{
+  "id": "elation-kl-panel",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "KL Panel",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 295,
+  "weightKg": 13,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/products/kl-panel",
+      "accessed": "2026-11-16",
+      "document": "Elation, page produit KL Panel (consultée pour la désignation et les caractéristiques)"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/tv-photo/kl-panel/",
+      "document": "Novelty — KL Panel",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/58992-KLPanelUserManual.pdf",
+      "document": "Elation, manuel utilisateur KL Panel (copie Full Compass), p. 9 (repérage Power In/Out, Net In/Out, Service Port, Battery Port, DMX In/Out) et fiche technique (DMX 5 broches verrouillable, connecteur secteur IP65 In/Out, XLR 4 broches batterie, 100-240 V, 295 W, 13 kg) ; liste de contenu « Locking Power Cable »",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM ; émetteur-récepteur sans fil E-FLY intégré"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-240 V CA 50/60 Hz ; cordon secteur fourni (liste de contenu du manuel), forme de l'embase non publiée par le constructeur"
+    },
+    {
+      "id": "net-in",
+      "name": "Net In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
+    },
+    {
+      "id": "net-out",
+      "name": "Net Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
+    },
+    {
+      "id": "batt",
+      "name": "Batterie",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points, 24-36 V CC (batterie non fournie)"
+    }
+  ],
+  "aliases": [
+    "KLPANEL",
+    "Elation KL Panel"
+  ],
+  "notes": "Non saisie : recopie secteur Power Out (connecteur non publié par le constructeur). Non saisie : port USB de service (mise à jour, alimentation 5 V d'accessoires ; connecteur non publié par le constructeur)."
+}

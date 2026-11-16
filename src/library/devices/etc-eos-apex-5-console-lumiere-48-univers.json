@@ -1,0 +1,301 @@
+{
+  "id": "etc-eos-apex-5-console-lumiere-48-univers",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "ETC",
+  "model": "Eos Apex 5",
+  "status": "verified",
+  "description": "Console ETC Eos Apex 5 (4450A1401), 24 576 sorties : 4 etherCON gigabit PoE++, 2 SFP+ 10 Gbit/s, 3 DisplayPort, USB-A et USB-C, I/O Garage à 4 baies (emplacements bay1 à bay4) pour modules Gadget II et passerelles Response, reliés en USB interne, entrée IEC 100-240 V ; 864 × 648 × 447 mm.",
+  "aliases": [
+    "ETC | EOS APEX 5 CONSOLE LUMIÈRE 48 UNIVERS",
+    "4450A1401-EU",
+    "EOSAPEX5",
+    "ETC ETC | EOS APEX 5 CONSOLE LUMIÈRE 48 UNIVERS"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/accessoires-eclairage/divers-accessoires-eclairage/etc-eos-apex-5-console-lumiere-48-univers/",
+      "document": "Novelty : ETC | EOS APEX 5 CONSOLE LUMIÈRE 48 UNIVERS",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/63015-Apex5Datasheet.pdf",
+      "document": "ETC, Eos Apex 5 datasheet (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/02_Eos_Family_Product_Overview_and_Setup/Consoles/Eos_Apex_5.htm",
+      "document": "ETC, aide en ligne Eos : Eos Apex 5, ports",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.etcconnect.com/Products/Consoles/Eos-Consoles/Apex/IO-Garage.aspx",
+      "document": "ETC, page I/O Garage : passerelles Response MIDI, SMPTE, Serial et Gadget II",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC verrouillable, 100-240 V CA 50/60 Hz, interrupteur avec disjoncteur intégré"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 100
+      }
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 100
+      }
+    },
+    {
+      "id": "eth3",
+      "name": "Ethernet 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 100
+      }
+    },
+    {
+      "id": "eth4",
+      "name": "Ethernet 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, etherCON, PoE++ 802.3bt source, 100 W max par port, 120 W au total",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 100
+      }
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP+ 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "10 Gbit/s, module cuivre RJ45 ou fibre LC vendu à part"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP+ 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "10 Gbit/s, module cuivre RJ45 ou fibre LC vendu à part"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Moniteur externe DisplayPort 1.2, jusqu'à 4K"
+    },
+    {
+      "id": "dp2",
+      "name": "DisplayPort 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Moniteur externe DisplayPort 1.2, jusqu'à 4K"
+    },
+    {
+      "id": "dp3",
+      "name": "DisplayPort 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Moniteur externe DisplayPort 1.2, jusqu'à 4K"
+    },
+    {
+      "id": "usba1",
+      "name": "USB-A 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba2",
+      "name": "USB-A 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba3",
+      "name": "USB-A 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba4",
+      "name": "USB-A 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba5",
+      "name": "USB-A 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba6",
+      "name": "USB-A 6",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba7",
+      "name": "USB-A 7",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usba8",
+      "name": "USB-A 8",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usbc1",
+      "name": "USB-C 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usbc2",
+      "name": "USB-C 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usbc3",
+      "name": "USB-C 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usbc4",
+      "name": "USB-C 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usbc5",
+      "name": "USB-C 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    },
+    {
+      "id": "usbc6",
+      "name": "USB-C 6",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.1 (arrière et tiroir clavier)"
+    }
+  ],
+  "powerW": 600,
+  "slots": [
+    {
+      "id": "bay1",
+      "name": "I/O Garage baie 1",
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
+    },
+    {
+      "id": "bay2",
+      "name": "I/O Garage baie 2",
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
+    },
+    {
+      "id": "bay3",
+      "name": "I/O Garage baie 3",
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
+    },
+    {
+      "id": "bay4",
+      "name": "I/O Garage baie 4",
+      "type": "etc-io-garage",
+      "accepts": [
+        "etc-gadget-ii-io-garage",
+        "etc-response-midi-gateway-p",
+        "etc-response-serial-gateway-p",
+        "etc-response-smpte-gateway-p"
+      ]
+    }
+  ],
+  "notes": "Consommation : la fiche ETC indique « environ 5 A sous 120 V ou 230/240 V » ; 600 W = 5 A × 120 V, valeur approchée. PRINCIPAL+OPTION : l'I/O Garage à 4 baies reçoit les modules Gadget II (2 sorties DMX) et les passerelles Response SMPTE, MIDI et série ; prévoir des slots et des fiches modules. PoE : 100 W max par port, 120 W au total sur les quatre ports (aide en ligne ETC Eos Apex 5) ; les 5 A de la fiche sont le courant total de la console, PoE compris.",
+  "poeBudgetW": 120
+}

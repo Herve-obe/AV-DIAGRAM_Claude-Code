@@ -1,0 +1,14 @@
+/* ---------- Structure ---------- */
+.app {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: var(--lib-w, 248px) minmax(0, 1fr) var(--insp-w, 288px);
+  min-height: 0;
+  position: relative;
+}
+.stage { display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--canvas); }
+.canvas { flex: 1; min-height: 0; position: relative; }

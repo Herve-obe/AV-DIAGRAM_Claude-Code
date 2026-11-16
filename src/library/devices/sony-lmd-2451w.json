@@ -1,0 +1,177 @@
+{
+  "id": "sony-lmd-2451w",
+  "family": "display",
+  "manufacturer": "Sony",
+  "model": "LMD-2451W",
+  "pictogram": "display",
+  "status": "verified",
+  "description": "Moniteur LCD 24 pouces multi-format, 2 emplacements d'adaptateur d'entrée",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://pro.sony/s3/cms-static-content/operation-manual/4143461061.pdf",
+      "document": "Sony — LMD-2451W/2051W/1751W — Operating Instructions 4-143-461-06",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/978280/Sony-Lmd-2451w.html?page=35",
+      "document": "Sony, LMD-2451W/2051W/1751W Operating Instructions 4-143-461 (copie ManualsLib, pp. 35-36) : Specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/978280/Sony-Lmd-2451w.html?page=12",
+      "document": "Sony, LMD-2451W/2051W/1751W Operating Instructions (copie ManualsLib), p. 12 (face arrière : AC IN, DC 24V IN, phono, BNC, Y/C mini-DIN, EXT SYNC), p. 35-36 (caractéristiques : DVI-D, D-Sub 15, phono -5 dBu, BNC, D-Sub 9 RS-232C, RJ-45, 2 emplacements d'option ; cordon secteur fourni)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dvi",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D, TMDS single link"
+    },
+    {
+      "id": "vga",
+      "name": "HD15 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15"
+    },
+    {
+      "id": "composite",
+      "name": "Composite In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, 1 Vp-p ± 3 dB"
+    },
+    {
+      "id": "yc",
+      "name": "Y/C In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Mini-DIN 4 broches"
+    },
+    {
+      "id": "gy",
+      "name": "G/Y In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, G de RGB ou Y de composante"
+    },
+    {
+      "id": "bp",
+      "name": "B/Pb In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, B de RGB ou différence de couleur"
+    },
+    {
+      "id": "rp",
+      "name": "R/Pr In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, R de RGB ou différence de couleur"
+    },
+    {
+      "id": "extSync",
+      "name": "Ext Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC, 0,3 à 4,0 Vp-p"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu, 47 kohms ou plus",
+      "level": "line+4"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono, -5 dBu, 47 kohms ou plus",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Phono",
+      "level": "line+4"
+    },
+    {
+      "id": "parallel",
+      "name": "Parallel Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Connecteur modulaire 8 broches"
+    },
+    {
+      "id": "serial",
+      "name": "Serial Remote",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, D-Sub 9"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz, 1,5 à 0,7 A ; embase « AC IN », cordon secteur fourni (« AC power cord (1) ») ; forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "powerW": 130,
+  "slots": [
+    {
+      "id": "opt1",
+      "name": "Option input slot 1",
+      "type": "sony-bkm-input"
+    },
+    {
+      "id": "opt2",
+      "name": "Option input slot 2",
+      "type": "sony-bkm-input"
+    }
+  ],
+  "notes": "Non saisies : DC 24V IN (entrée d'alimentation continue de secours, connecteur non publié) et la sortie EXT SYNC (boucle) ; entrées des cartes optionnelles (emplacements)."
+}

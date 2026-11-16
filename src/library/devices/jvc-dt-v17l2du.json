@@ -1,0 +1,191 @@
+{
+  "id": "jvc-dt-v17l2du",
+  "family": "display",
+  "manufacturer": "JVC",
+  "model": "DT-V17L2DU",
+  "pictogram": "display",
+  "status": "verified",
+  "description": "Moniteur LCD 17 pouces HD multi-format, alimentation AC/DC",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=18",
+      "document": "JVC, DT-V17L2D Instructions p. 18 (copie ManualsDir) : Specifications, Input/output terminals",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=15",
+      "document": "JVC, DT-V17L2D Instructions p. 14 (copie ManualsDir) : External Control",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/135160/jvc-dt-v17l2d.html?page=9",
+      "document": "JVC, DT-V17L2D Instructions p. 8 (copie ManualsDir) : Rear panel",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-375acd55-0d60-c504-b55c-a660be3613fb/375acd55-0d60-c504-b55c-a660be3613fb.pdf",
+      "document": "JVC (constructeur), manuel d'instructions DT-V17L2D (copie archive.org d'une copie ManualsOnline), page 8 : panneau arrière, DC IN 12V = XLR 4 broches avec brochage, AC IN = embase IEC C14 dessinée",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-375acd55-0d60-c504-b55c-a660be3613fb/375acd55-0d60-c504-b55c-a660be3613fb.pdf",
+      "document": "JVC (constructeur), manuel d'instructions DT-V17L2D, relu le 2026-11-16 : p.2 tension du produit AC 120 V (USA/Canada) et 220-240 V selon pays, cordon fourni ; p.8 panneau arrière : AC IN, DC IN 12V, SDI 1/2, SDI switched out, DVI-D, VIDEO, COMPO., AUDIO IN et MONITOR OUT (« pin jack »), REMOTE",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.bhphotovideo.com/c/product/556829-REG/JVC_HOOD17LCD_HOOD17LCD_for_DT_V17L2DU_LCD.html",
+      "document": "B&H (revendeur), accessoire « for DT-V17L2DU LCD » : la référence DT-V17L2DU existe chez JVC (version du DT-V17L2D) ; le manuel D couvre les régions 120 V et 220-240 V",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "video",
+      "name": "Video In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite"
+    },
+    {
+      "id": "videoOut",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage pontée"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "HDCP"
+    },
+    {
+      "id": "comp",
+      "name": "Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC (Y, Pb, Pr)"
+    },
+    {
+      "id": "compOut",
+      "name": "Component Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3 BNC, bouclage pontée"
+    },
+    {
+      "id": "sdi1",
+      "name": "HD/SD SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Audio embarqué"
+    },
+    {
+      "id": "sdi2",
+      "name": "HD/SD SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Audio embarqué"
+    },
+    {
+      "id": "sdiOut",
+      "name": "HD/SD SDI Switched Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Sortie de l'entrée SDI choisie"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "500 mV eff.",
+      "level": "line+4"
+    },
+    {
+      "id": "make",
+      "name": "Remote (Make / Trigger)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Terminal MAKE/TRIGGER RJ-45, contacts 1 à 8 (manuel p. 14)"
+    },
+    {
+      "id": "rs485",
+      "name": "Remote (RS-485)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-485, RJ-45 (manuel p. 14)"
+    },
+    {
+      "id": "rs232",
+      "name": "Remote (RS-232C)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232C, D-Sub 9 broches (manuel p. 14)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "DC 12-17 V, 3,0 A ; borne « DC IN 12V » XLR 4 broches (1 : GND, 4 : +12 V) ; batterie Anton Bauer possible"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "AC 120 V / 220-240 V ; borne « AC IN » IEC C14 (dessinée sur le panneau, manuel p.8)"
+    }
+  ],
+  "powerW": 36,
+  "aliases": [
+    "DT-V17L2D"
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "taiden-hcs-4800ma-20",
+  "family": "intercom",
+  "manufacturer": "Taiden",
+  "model": "HCS-4800MA/20",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 7.8,
+  "rackU": 2,
+  "sources": [
+    {
+      "url": "https://www.taiden.com/upload/download/Wired%20Premium%20System%20Main%20Units%201.pdf",
+      "document": "Taiden (constructeur), fiche technique HCS-4800 Series, page HCS-4800MA/20, relue le 2026-11-16 : audio (XLR-F, 2 RCA, XLR-M, 2 RCA), RS232 Sub-D 9 femelle, RJ45 LAN, 2 RJ45 extension, 2 sorties 8P-DIN, fibre SC duplex monomode, USB type C, 100-240 V AC, consommation 20 W, poids 7,8 kg ; embase secteur lue sur la photo du modèle en page 1",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "micIn",
+      "name": "Mic / Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle, micro (fantôme 48 V) ou ligne",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "lineOutXlr",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle symétrique"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out (RCA)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2
+    },
+    {
+      "id": "trunk1",
+      "name": "Trunk 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk2",
+      "name": "Trunk 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "ext1",
+      "name": "Extension 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers unité d'extension HCS-8600MEA ou interface audio"
+    },
+    {
+      "id": "ext2",
+      "name": "Extension 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers unité d'extension HCS-8600MEA ou interface audio"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande PC, TCP/IP"
+    },
+    {
+      "id": "fiber",
+      "name": "Fibre",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sc",
+      "format": "SC duplex monomode, liaison entre deux salles"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Sub-D 9 femelle, contrôle centralisé"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "usb-c",
+      "format": "USB type C, transmission audio numérique (fiche Taiden)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (photo de la fiche Taiden), 100-240 VAC 50/60 Hz ; consommation 20 W, charge alimentée 200 W"
+    }
+  ],
+  "domain": "sound",
+  "powerW": 20,
+  "notes": "Non saisie : interface Emergency (connecteur non publié par le constructeur)."
+}

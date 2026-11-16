@@ -1,0 +1,146 @@
+{
+  "id": "blackmagic-ursa-broadcast-g2",
+  "family": "camera",
+  "manufacturer": "Blackmagic Design",
+  "model": "URSA Broadcast G2",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/blackmagicursabroadcast/techspecs/W-URSA-38",
+      "document": "Blackmagic Design, fiche technique URSA Broadcast G2 (W-URSA-38)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/ursa-broadcast-g2/",
+      "document": "Novelty — URSA Broadcast G2",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (retour programme)"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiMon",
+      "name": "SDI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "audio1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro, ligne ou AES ; fantôme",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "audio2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Micro, ligne ou AES ; fantôme",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5, micro-casque pour ordres"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level, black burst ou timecode"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose12",
+      "format": "Hirose 12 points broadcast (commande d'objectif)"
+    },
+    {
+      "id": "lanc",
+      "name": "LANC",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Mini-jack 2,5 mm"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-C 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Enregistrement sur disque, Zoom / Focus Demand"
+    },
+    {
+      "id": "dcOut",
+      "name": "12 V Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 points 12 V"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches 12 V ; bloc secteur externe 12 V 100 W fourni"
+    },
+    {
+      "id": "dcMolex",
+      "name": "Entrée 12 V (plaque batterie)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Molex 12 broches sous la plaque batterie arrière (V-mount ou Gold mount)"
+    }
+  ],
+  "aliases": [
+    "BlackMagicDesign URSA Broadcast G2"
+  ]
+}

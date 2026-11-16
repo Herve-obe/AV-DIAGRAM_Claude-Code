@@ -1,0 +1,41 @@
+{
+  "id": "innled-t4x-n",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Innled",
+  "model": "T4X-N",
+  "status": "verified",
+  "description": "Mât d'éclairage autonome LED noir, 4 x 4,5 W, 6 à 110h d'autonomie, hauteur 1,60m à 2,80m",
+  "aliases": [
+    "InnLED T4X-N"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/t4x-n/",
+      "document": "Novelty (loueur), page produit T4X-N : désignation, hauteurs, puissance 18 W, DMX HF",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/innled_t4x_ft.pdf",
+      "document": "Innled (constructeur), fiche technique T4X, copie hébergée par Novelty : LED 18 W (4 x 4,5 W), batterie Li-Ion 14,8 V 150 Wh, autonomie 6 à 110 h, finitions noir et blanc",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/innled_t4x_fiche-profuit_fr.pdf",
+      "document": "Innled (constructeur), brochure T4X, copie hébergée par Novelty : DMX-HF intégré, 4 x 4,5 W, IP43",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "ports": [
+    {
+      "id": "wdmx",
+      "name": "DMX HF intégré",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "rf",
+      "format": "Récepteur DMX sans fil intégré"
+    }
+  ],
+  "powerW": 18
+}

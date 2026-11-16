@@ -1,0 +1,64 @@
+{
+  "id": "starway-tonekolor-4406hd",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "STARWAY",
+  "model": "ToneKolor 4406HD",
+  "status": "verified",
+  "description": "Projecteur architectural à LEDs, 44 x 6W LEDs RGBW, angle d'ouverture 35°, DMX512, IP65",
+  "aliases": [
+    "STARWAY ToneKolor 4406HD"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/tonekolor-4406hd/",
+      "document": "Novelty — ToneKolor 4406HD",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/starway_tonekolor4406hd_ft.pdf",
+      "document": "Starway, gamme Projecteurs 2018 (copie Novelty), p. 24 : DMX XLR 5 points, 260 W, 9 kg, IP65",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/starway_tonekolor4406hd_manuel-v2.pdf",
+      "document": "Starway, manuel ToneKolor 4406HD v2 (copie Novelty), p. 2 et 10 : 100-240 V 50/60 Hz, 260 W, 9 kg, cordon d'alimentation, vue arrière avec connecteurs d'alimentation et DMX 5 points sur câbles",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/starway_tonekolor4406hd_certificat.pdf",
+      "document": "Novelty — ToneKolor 4406HD : ToneKolor 4406HD",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points sur queue de câble"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points sur queue de câble"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-240 V, 50/60 Hz, 260 W ; cordon secteur fourni (« cordon d'alimentation »), forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "powerW": 260,
+  "weightKg": 9,
+  "notes": "Non saisie : seconde embase d'alimentation (deux « connecteurs d'alimentation » sur la vue arrière du manuel, rôle et forme non décrits)."
+}

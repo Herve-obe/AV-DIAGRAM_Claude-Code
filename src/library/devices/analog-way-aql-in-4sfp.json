@@ -1,0 +1,57 @@
+{
+  "id": "analog-way-aql-in-4sfp",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Analog Way",
+  "model": "Aquilon 4x 12G-SFP input card",
+  "pictogram": "processor",
+  "moduleType": "aquilon-input-card",
+  "status": "verified",
+  "description": "Carte 4 cages 12G-SFP en entrée. Carte remplaçable sur site, vendue séparément ; référence de commande et consommation non publiées dans les documents lus.",
+  "sources": [
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Quick+Start+Guide/Aquilon-C%2B-quick-start-guide.pdf",
+      "document": "Analog Way, Aquilon C+ (AQL-C+) Quick Start Guide : panneau arrière, modèles de cartes d'entrée et de sortie",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Technical+Datasheet/Aquilon-C%2B-datasheet-en-20260703.pdf",
+      "document": "Analog Way, Aquilon C+ Technical Datasheet EN : Comprehensive set of input and output cards",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "SFP In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Cage SFP+ 12G (modules vidéo non MSA), 4K60 10 bits 4:2:2"
+    },
+    {
+      "id": "in2",
+      "name": "SFP In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Cage SFP+ 12G (modules vidéo non MSA), 4K60 10 bits 4:2:2"
+    },
+    {
+      "id": "in3",
+      "name": "SFP In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Cage SFP+ 12G (modules vidéo non MSA), 4K60 10 bits 4:2:2"
+    },
+    {
+      "id": "in4",
+      "name": "SFP In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Cage SFP+ 12G (modules vidéo non MSA), 4K60 10 bits 4:2:2"
+    }
+  ]
+}

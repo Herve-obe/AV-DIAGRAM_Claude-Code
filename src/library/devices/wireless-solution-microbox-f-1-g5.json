@@ -1,0 +1,52 @@
+{
+  "id": "wireless-solution-microbox-f-1-g5",
+  "family": "dmxDistribution",
+  "manufacturer": "Wireless Solution",
+  "model": "MicroBox F-1 G5",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://lumenradio.com/support-materials/whitebox-g5-manual/",
+      "document": "Wireless Solution, W-DMX G5 User Manual (BlackBox, WhiteBox, Micro, ProBox), 2e édition 2019-01, §7 Hardware (hébergé par LumenRadio)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.procom-me.com/wp-content/uploads/2018/12/A40006G5-Datasheet.pdf",
+      "document": "Wireless Solution, fiche A40006G5 MicroBox F-1 G5 (via distributeur Procom)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle (version F-1) ; adaptateur de genre nécessaire en réception"
+    },
+    {
+      "id": "rf",
+      "name": "W-DMX",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "W-DMX G5 2,4 GHz, émetteur ou récepteur"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation USB 5 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-micro",
+      "format": "Micro-USB 5 V CC ±10 %, 500 mA max., alimentation seule ; fonctionne aussi sur 4 piles AAA (non rechargées par l'USB)"
+    }
+  ],
+  "description": "Émetteur-récepteur W-DMX G5 de poche Wireless Solution MicroBox F-1 G5 : 1 XLR 5 mâle, alimentation par 4 piles AAA ou micro-USB 5 V ; 100 × 40 × 65 mm, 190 g sans piles.",
+  "weightKg": 0.19
+}

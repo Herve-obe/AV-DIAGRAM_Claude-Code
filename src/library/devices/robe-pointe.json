@@ -1,0 +1,108 @@
+{
+  "id": "robe-pointe",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "Pointe",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 470,
+  "weightKg": 15,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_2.pdf",
+      "document": "Robe lighting, fiche produit Pointe",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-asservis-eclairage/lyres/pointe/",
+      "document": "Novelty — Pointe",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/06/fiche-technique_robe-Pointe.pdf",
+      "document": "Novelty — Pointe : Fiche technique",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/06/ROBE_Pointe_Brochure.pdf",
+      "document": "Novelty — Pointe : Brochure",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/06/User_manual_Robin_Pointe.pdf",
+      "document": "Novelty — Pointe : Manuel",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/06/declaration_of_conformity_EC_Pointe.pdf",
+      "document": "Novelty — Pointe : Déclaration de conformité EC",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/2025/06/declaration_of_conformity_UKCA_Pointe.pdf",
+      "document": "Novelty — Pointe : Déclaration de conformité UKCA",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmx-in3",
+      "name": "DMX In (XLR3)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out3",
+      "name": "DMX Out (XLR3)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "ArtNet, MA Net, MA Net2, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Recopie Ethernet"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON"
+    }
+  ],
+  "aliases": [
+    "Robe Pointe"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "barco-xlm-hd30",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "XLM HD30",
+  "status": "verified",
+  "description": "Vidéoprojecteur DLP trois puces 2048 x 1080, 30 000 lumens ANSI, lampe xénon 6,3 kW. Quatre emplacements d'entrée équipés de série des modules RGB, DVI-D, SDI et HD-SDI (échangeables) ; objectif XLD interchangeable.",
+  "aliases": [
+    "XLM-HD30",
+    "R9004460",
+    "BARCO XLM HD30"
+  ],
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/497e7d6462e5d1b3/original/XLM-HD30-en-Spec-sheet.pdf",
+      "document": "Barco, XLM HD30 Spec sheet (EN), last updated 09 Jul 2024 : Lens type XLD, 1:1, 1.45-1.8, 1.8-2.4, 2.2-3.0, 2.8-5.5, 5.5-8.5",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/717176/Barco-R9004460.html",
+      "document": "Barco, XLM HD30 (R9004460) Owner's Manual R59770014, hébergé par ManualsLib : 3 Connections (power, input modules, communication)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.projectisle.com.au/Images/Products/5630/barco_xlm-hd30_manual.pdf",
+      "document": "Barco, XLM HD30 Owner's manual R59770014 (07/07/2006) hébergé par Project Isle (revendeur) : p. 24 prise secteur triphasée ; p. 31 schéma du panneau de communication (CTRL 3 et CTRL 2 XLR 3 broches, CTRL 1 jack 3,5 mm, PORT 1 et 2 RJ-45, RS232/422 IN et OUT Sub-D 9, MONITOR OUT HD-15) ; p. 33-34 télécommande",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rgb",
+      "name": "RGB analog In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "Module RGB analogique de série, Sub-D 15 (RGB-HV VGA)"
+    },
+    {
+      "id": "dviIn",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Module DVI R9850960 de série : DVI data in, VGA à UXGA 60 Hz, 162 MHz"
+    },
+    {
+      "id": "dviLoop",
+      "name": "DVI Loop Through",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Recopie de l'entrée DVI"
+    },
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Module SDI de série (SD-SDI) ; coaxial 75 ohms"
+    },
+    {
+      "id": "hdsdiIn",
+      "name": "HDSDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Module HDSDI R9850970 de série : SMPTE 292M, coaxial 75 ohms"
+    },
+    {
+      "id": "hdsdiLoop",
+      "name": "HDSDI Loop Through",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Recopie HDSDI SMPTE 292M"
+    },
+    {
+      "id": "rsIn",
+      "name": "RS232/422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS232 / RS422 (Serial network IN), Sub-D 9 broches (schéma p. 31, brochage 1 à 9)"
+    },
+    {
+      "id": "rsOut",
+      "name": "RS232/422 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS232 / RS422 (Serial network OUT), recopie, Sub-D 9 broches (schéma p. 31)"
+    },
+    {
+      "id": "lan1",
+      "name": "Ethernet Port 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-T, RJ-45 (fiche technique)"
+    },
+    {
+      "id": "lan2",
+      "name": "Ethernet Port 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-T, ports reliés par le hub interne"
+    },
+    {
+      "id": "ctrl1",
+      "name": "CTRL 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire : jack 3,5 mm mono ou stéréo (manuel p. 33), 9 V, 80 mA max"
+    },
+    {
+      "id": "ctrl2",
+      "name": "CTRL 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "Télécommande filaire unidirectionnelle, XLR 3 broches (lu sur le schéma p. 31)"
+    },
+    {
+      "id": "ctrl3",
+      "name": "CTRL 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "Télécommande robuste bidirectionnelle, XLR 3 broches : 1 GND, 2 DATA+, 3 DATA- (manuel p. 34)"
+    },
+    {
+      "id": "monitor",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Sortie moniteur de prévisualisation, HD-15 : rouge, vert, bleu, synchro H et V (schéma p. 31, brochage p. 36)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord-3ph",
+      "format": "Triphasé 3 x 208 V ou 3 x 400 V (sélecteur de tension) ; fiche technique : 220-240 V ou 380-400 V, 50-60 Hz ; cordon détachable à fiche circulaire multipolaire 3P+T ou 3P+N+T (manuel p. 24), conducteurs 4 mm² minimum ; forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "slots": [
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "barco-xld",
+      "accepts": [
+        "barco-xld-hb-1-0",
+        "barco-xld-hb-1-45-1-8",
+        "barco-xld-hb-1-8-2-4",
+        "barco-xld-hb-2-2-3",
+        "barco-xld-hb-2-8-5-5",
+        "barco-xld-hb-5-5-8-5"
+      ]
+    }
+  ],
+  "powerW": 8000,
+  "weightKg": 180,
+  "notes": "Entrée secteur triphasée : cordon détachable à fiche circulaire multipolaire (manuel p. 24, image 3-2), dont Barco ne nomme ni la forme ni la norme. Non saisie : entrée télécommande sans fil (Sub-D 25 points, WIRELESS REMOTE)."
+}

@@ -1,0 +1,70 @@
+{
+  "id": "chauvet-ovation-reve-f-3-ip",
+  "family": "luminaire",
+  "manufacturer": "Chauvet Professional",
+  "model": "Ovation Rêve F-3 IP",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 532,
+  "sources": [
+    {
+      "url": "https://chauvetprofessional.com/product/ovation-reve-f-3-ip/",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/fresnel-projecteurs-a-led/ovation-reve-f-3-ip/",
+      "document": "Novelty — Ovation Rêve F-3 IP",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://chauvetprofessional.com/wp-content/uploads/2023/10/Ovation_Reve_F-3_IP_UM_Rev3.pdf",
+      "document": "Chauvet Professional, Ovation Rêve F-3 IP User Manual Rev. 3",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM, XLR 5 broches"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 broches"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powerkon-ip65",
+      "format": "Seetronic Powerkon IP65, 100-240 V"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powerkon-ip65",
+      "format": "Seetronic Powerkon IP65 ; 5 appareils max. à 230 V"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Port USB-C de mise à jour logicielle (clé FAT32 jusqu'à 32 Go)"
+    }
+  ],
+  "aliases": [
+    "Chauvet Ovation Rêve F-3 IP"
+  ]
+}

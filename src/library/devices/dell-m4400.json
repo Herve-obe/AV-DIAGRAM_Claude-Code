@@ -1,0 +1,142 @@
+{
+  "id": "dell-m4400",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "DELL",
+  "model": "M4400",
+  "status": "verified",
+  "description": "Ordinateur portable, 3,06Ghz, 1066Mhz, 6M L2 Cache, 1920x1200. Office 2013",
+  "aliases": [
+    "DELL M4400"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/portable/m4400/",
+      "document": "Novelty — M4400",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dell_precision_m4400_ft.pdf",
+      "document": "Novelty — M4400 : M4400",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dell_precision_m4400_manuel.pdf",
+      "document": "Novelty — M4400 : M4400",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dell_precision_m4400_manuel.pdf",
+      "document": "Dell Precision M4400, guide de configuration et de référence rapide (FR, copie du document Dell hébergée par Novelty), vues et caractéristiques",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dell_precision_m4400_ft.pdf",
+      "document": "Dell Precision M4400, fiche technique (copie du document Dell hébergée par Novelty)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "vga",
+      "name": "VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "lan",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "modem",
+      "name": "Modem",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj12",
+      "format": "RJ-11, modem"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb4",
+      "name": "USB 2.0 / eSATA",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Combo eSATA / USB 2.0"
+    },
+    {
+      "id": "fw",
+      "name": "IEEE 1394",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ieee1394",
+      "format": "IEEE 1394a, 4 broches"
+    },
+    {
+      "id": "phones",
+      "name": "Casque / HP",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie casque / haut-parleurs stéréo"
+    },
+    {
+      "id": "mic",
+      "name": "Microphone",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Connecteur de microphone"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Connecteur d'adaptateur secteur (adaptateurs Dell 65, 90 ou 130 W selon configuration)"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi / Bluetooth",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Réseau sans fil ; Bluetooth selon configuration"
+    }
+  ],
+  "weightKg": 2.69
+}

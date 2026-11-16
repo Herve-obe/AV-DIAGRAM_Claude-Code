@@ -1,0 +1,89 @@
+{
+  "id": "robert-juliat-alimentation-900snx",
+  "family": "power",
+  "domain": "light",
+  "pictogram": "power",
+  "manufacturer": "Robert Juliat",
+  "model": "Alimentation magnétique 900 SNX 2 500 W (DMX, CAD 900)",
+  "status": "verified",
+  "description": "Ballast magnétique séparé des découpes D'Artagnan 930, 933 et 934 SNX (2 500 W HID, réamorçage à chaud, gradation DMX), 34 kg. Relié à la tête par le cordon de montée de lampe Harting 16 × 16 A + T (3 m, 25 m max) et, sur les versions à obturateur motorisé, par le cordon XLR 7. Entrée de commande analogique 0/+10 V en XLR 4 mâle (le tableau de câblage du dossier donne un cordon XLR 4 ; une page française indique XLR 5 par erreur). Consommation : les 3 100 W de l'ensemble tête + ballast sont portés par les fiches de tête ; ne pas les additionner.",
+  "aliases": [
+    "PSU 900 SNX",
+    "Ballast 930SNX",
+    "Ballast 933SNX",
+    "Ballast 934SNX"
+  ],
+  "sources": [
+    {
+      "url": "https://www.robertjuliat.com/PDF/Documents/DN30750601_dt_900SNX.pdf",
+      "document": "Robert Juliat, D'Artagnan 930/933/934 SNX Technical File DN30750601 (27 octobre 2010), raccordement projecteur / alimentation : boîtier d'alimentation avec module CAD 900 (a XLR 5 mâle entrée DATA, b XLR 5 femelle sortie DATA, d XLR 7 femelle sortie projecteur, connecteur Harting 5, cordon secteur 6), cordons C (Harting 16 × 16 A M/F, 3 m) et D (XLR 7 M/F, 3 m)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN080_930SNX.pdf",
+      "document": "Robert Juliat, 930SNX fiche standard DSEN080 : PSU magnétique DMX, Data IN XLR 5 mâle / OUT XLR 5 femelle, Power input câble H07RN-F 3G4 (CEE 32), cordon tête / PSU 3 m Harting 16 × 16 A + E, PSU 34 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN083_933SNX.pdf",
+      "document": "Robert Juliat, 933SNX fiche standard DSEN083 : même PSU (34 kg, 3G4, DMX XLR 5)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_EN/Standard/DSEN086_934SNX.pdf",
+      "document": "Robert Juliat, 934SNX fiche standard DSEN086 : même PSU (34 kg, 3G4, DMX XLR 5)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Cordon secteur H07RN-F 3G4 attenant, fiche CEE 32 A (P17)"
+    },
+    {
+      "id": "head",
+      "name": "Sortie tête (Harting)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Connecteur Harting 16 × 16 A + T vers la tête, cordon de montée de lampe 3 m H07RN-F 18G1,5 Harting M/F"
+    },
+    {
+      "id": "shutter",
+      "name": "Sortie projecteur XLR 7",
+      "direction": "out",
+      "signal": "control",
+      "connector": "xlr7",
+      "format": "XLR 7 femelle, obturateur + DATA vers la tête (module CAD 900), cordon 14 conducteurs blindé 3 m XLR 7 M/F"
+    },
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR 5 mâle"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX512-A, XLR 5 femelle"
+    },
+    {
+      "id": "analogIn",
+      "name": "Entrée commande 0/+10 V",
+      "direction": "in",
+      "signal": "control",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle, commande analogique 0/+10 V (module CAD 900)"
+    }
+  ],
+  "weightKg": 34
+}

@@ -1,0 +1,78 @@
+{
+  "id": "db-technologies-k-162",
+  "family": "speaker",
+  "manufacturer": "dB Technologies",
+  "model": "K 162",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 5.5,
+  "sources": [
+    {
+      "url": "https://www.boullard.ch/en/product/sono-studio/speakers/active-speakers/115483-db-technologies-k-162/",
+      "document": "Boullard, fiche K 162 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/db-technologies-k-162-2-x-6-5-inch-160w-active-speaker/p/dbtk162",
+      "document": "Adorama, fiche K 162 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.dbtechnologies.com/us/products/discontinued-products/minibox-k-162",
+      "document": "dBTechnologies (constructeur), page produit MINIBOX K 162 (produit arrêté) : entrées XLR, jack 6,35 et RCA ; sorties XLR, jack 6,35 et RCA ; prise secteur de type VDE (sans autre précision) ; 5,5 kg",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.dbtechnologies.com/docs/299/775/MINIBOX_Series.pdf",
+      "document": "dBTechnologies (constructeur), brochure MINIBOX Series, fiche MINIBOX K162 : entrées 1x XLR, 1x jack 6,3 mm, 1x RCA ; sorties 1x XLR, 1x jack 6,3 mm, 1x RCA ; « Power Socket: VDE » ; 160 W PRG",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "1x XLR (brochure constructeur) ; niveau ligne par défaut, le constructeur annonce aussi une entrée micro sans la localiser"
+    },
+    {
+      "id": "aux",
+      "name": "Entrée RCA (Aux)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4",
+      "format": "1x RCA cinch"
+    },
+    {
+      "id": "out",
+      "name": "Sortie XLR (Link)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "1x XLR"
+    },
+    {
+      "id": "outRca",
+      "name": "Sortie RCA",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4",
+      "format": "1x RCA cinch"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "Prise secteur « VDE » (brochure constructeur) ; forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "notes": "Non saisies : entrée et sortie jack 6,35 mm (TS ou TRS non précisé par le constructeur). Amplification annoncée 160 W PRG (puissance audio, non une consommation)."
+}

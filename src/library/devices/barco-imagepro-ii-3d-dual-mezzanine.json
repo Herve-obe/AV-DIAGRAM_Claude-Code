@@ -1,0 +1,68 @@
+{
+  "id": "barco-imagepro-ii-3d-dual-mezzanine",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "ImagePRO-II 3D/Dual Channel Mezzanine",
+  "pictogram": "processor",
+  "moduleType": "imagepro2-dual",
+  "status": "verified",
+  "description": "Mezzanine installable par l'utilisateur : mode double canal et 3D stéréoscopique, ajoute l'entrée SDI-2 bouclée, une 2e sortie SDI et les prises de synchro 3D. Statut community tant que le connecteur mini-DIN 3 broches n'existe pas dans le catalogue (à ajouter, puis remplacer « unspecified »).",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_manuel-uk.pdf",
+      "document": "Barco, ImagePRO-II User's Guide : panneau arrière n° 8, 15, 16, 17 et 3D/Dual Channel Mezzanine ; spécifications SDI-1 and 2 on BNC",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_image-pro-ii_ft-uk.pdf",
+      "document": "Barco, fiche ImagePRO-II series : R9004683 ImagePRO-II with dual output, R9004668 with dual output and audio",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi2In",
+      "name": "Input 6 SDI-2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdi2Loop",
+      "name": "Input 6 SDI-2 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage de l'entrée SDI-2"
+    },
+    {
+      "id": "sdi2Out",
+      "name": "SDI-2 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI, 2e sortie (canal B)"
+    },
+    {
+      "id": "sync3dIn",
+      "name": "3D Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "minidin3",
+      "format": "Mini-DIN 3 broches VESA 3D (connecteur absent du catalogue)"
+    },
+    {
+      "id": "sync3dOut",
+      "name": "3D Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "minidin3",
+      "format": "Mini-DIN 3 broches VESA 3D (connecteur absent du catalogue)"
+    }
+  ],
+  "aliases": [
+    "ImagePRO-II dual output"
+  ]
+}

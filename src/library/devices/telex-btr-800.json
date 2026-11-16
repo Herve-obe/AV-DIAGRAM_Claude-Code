@@ -1,0 +1,169 @@
+{
+  "id": "telex-btr-800",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Telex",
+  "model": "BTR-800",
+  "status": "verified",
+  "description": "Base intercom sans fil UHF deux canaux, 1 U, pour boîtiers ceinture TR-800 : interfaces 2 fils et 4 fils A et B, entrée/sortie auxiliaires, annonce plateau et relais. Consommation non publiée.",
+  "aliases": [
+    "BTR800",
+    "BTR-800 Base Station"
+  ],
+  "rackU": 1,
+  "weightKg": 5.43,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/telex_btr800_tr800_manuel.pdf",
+      "document": "Telex, BTR-800 / TR-800 manuel (copie Novelty) : panneau arrière BTR-800 (fig. 3), TR-800 (fig. 5), caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/telex_btr800_ft.pdf",
+      "document": "Telex, fiche BTR-800 (copie Novelty) : 5,43 kg, antennes TNC",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/btr800tr800/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/set-intercom-btr800tr800ms702/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "UHF, deux canaux, émission 50 mW"
+    },
+    {
+      "id": "antRx",
+      "name": "Receive Antenna",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "tnc",
+      "format": "TNC femelle"
+    },
+    {
+      "id": "antTx",
+      "name": "Transmit Antenna",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "tnc",
+      "format": "TNC femelle"
+    },
+    {
+      "id": "icA1",
+      "name": "Intercom A 2 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle et femelle en parallèle ; Telex, RTS ou Clear-Com"
+    },
+    {
+      "id": "icA2",
+      "name": "Intercom A 2 fils (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3, en parallèle"
+    },
+    {
+      "id": "icA4w",
+      "name": "Intercom A 4 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "RJ-11, type matrice"
+    },
+    {
+      "id": "icB1",
+      "name": "Intercom B 2 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle et femelle en parallèle ; Telex, RTS ou Clear-Com"
+    },
+    {
+      "id": "icB2",
+      "name": "Intercom B 2 fils (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3, en parallèle"
+    },
+    {
+      "id": "icB4w",
+      "name": "Intercom B 4 fils",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj12",
+      "format": "RJ-11, type matrice"
+    },
+    {
+      "id": "auxIn",
+      "name": "Aux In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique, réglable"
+    },
+    {
+      "id": "auxOut",
+      "name": "Aux Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Ligne symétrique, réglable"
+    },
+    {
+      "id": "sa",
+      "name": "Stage Announce Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique, 2 V eff typique sous 600 Ohm"
+    },
+    {
+      "id": "relay",
+      "name": "Relay Contact",
+      "direction": "out",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Contact sec NO 1 A / 24 V, connecteur Phoenix"
+    },
+    {
+      "id": "link",
+      "name": "Base Station Link",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "Talk-around (WTA) entre deux bases"
+    },
+    {
+      "id": "hs",
+      "name": "Casque local",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle (Telex) ou femelle (version RTS)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC, 100-240 V CA"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "samsung-ed75e",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "ED75E (75\")",
+  "pictogram": "display",
+  "status": "verified",
+  "powerW": 275,
+  "sources": [
+    {
+      "url": "https://www.samsung.com/us/business/support/owners/product/ed-e-series-digital-signage-ed75e/",
+      "document": "Samsung, page support ED75E",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://fullcompass.com/common/files/30533-SamsungEDESeriesCommericalLEDLCDDisplaysCutSheet.pdf",
+      "document": "Samsung, ED-E Series cut sheet ED65E/ED75E (copie revendeur Full Compass) : Connectivity, liste des prises, Power Consumption",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_UK&OriginYN=N&ModelType=N&ModelName=ED75E&CttFileID=7969878&CDCttType=UM&VPath=UM%2F202102%2F20210215123533084%2FBN81-20491A-01_WEB_DCE_DCE-M_DCE-H_EDE_EME_EU_ENG_210205.0.pdf",
+      "document": "Samsung, manuel utilisateur ED65E/ED75E (Europe, février 2021) : p. 14 composants (Power cord) ; p. 17 panneau arrière (schéma et liste des prises) ; p. 124 Power Supply 100 à 240 V",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/30533-SamsungEDESeriesCommericalLEDLCDDisplaysCutSheet.pdf",
+      "document": "Samsung, ED-E Series cut sheet ED65E/ED75E (copie revendeur Full Compass) : Connectivity, Power Supply AC 100-240 V~ 50/60 Hz, Accessories Included (Power Cord)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "D-Sub",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RGB analogique"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "component",
+      "name": "AV In / Video / Component In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde de type jack lue sur le schéma du panneau arrière (manuel p. 17)"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz, alimentation interne ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    },
+    {
+      "id": "usb1",
+      "name": "USB (5 V / 1,5 A)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Lecteur USB"
+    }
+  ],
+  "notes": "Non saisie : IR / AMBIENT SENSOR IN, entrée du capteur externe (connecteur non publié par le constructeur)."
+}

@@ -1,0 +1,83 @@
+{
+  "id": "ma-lighting-lightcommander-12-24",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "MA Lighting",
+  "model": "Lightcommander 12/24",
+  "status": "verified",
+  "description": "Lightcommander12/2 (12/24 circuits), DMX et analogique0–10 V14 canaux D-Sub15. MIDI In/Out, audio RCA, Remote Go jack6,35 mm, lampe pupitre XLR3 12 V. Secteur230 V, plage180–240 V.",
+  "aliases": [
+    "LIGHTCOM. 12/24",
+    "MA LIGHTING Lightcommander 12/24",
+    "Lightcommander II 12/24"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/12-circuits/lightcommander-12-24/",
+      "document": "Novelty — Lightcommander 12/24",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133998.pdf",
+      "document": "Novelty — Lightcommander 12/24 : Lightcommander",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144481.pdf",
+      "document": "MA Lighting — Lightcommander12/2 User Manual v1.32, page29 : tous signaux et brochages",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/ma-lighting_lightcommander_12-2_certificat-1406280178.pdf",
+      "document": "Novelty — Lightcommander 12/24 : Lightcommander",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133998.pdf",
+      "document": "MA Lighting France, catalogue « Consoles pour traditionnels » (copie Novelty) : Lightcommander 12/2, « console DMX traditionnelle 12 ou 24 circuits », sortie Sub-D 15 broches, MIDI In-Out, entrée audio isolée, Go à distance ; équivalence 12/2 = 12/24",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144481.pdf",
+      "document": "MA Lighting (constructeur), manuel Lightcommander 12/2 v1.32, p. 29 : texte et dessin de la face arrière (sortie analogique Sub-D 15, sortie DMX 1990 à connecteur rond à 5 broches listées, entrée son RCA, secteur 230 V) ; p. 30 consigne 8 : l'appareil est livré avec une fiche de sécurité",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "USITT DMX512 (1990) ; connecteur rond à 5 broches listées, lu sur le dessin du manuel p. 29"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "230 V 50 Hz (180-240 V), sélecteur 230/115 V, fusible interne 0,5 A ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    },
+    {
+      "id": "analog",
+      "name": "Analog Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "0–10 V positif ;1–12+S1/S2, masse15"
+    },
+    {
+      "id": "sound",
+      "name": "Sound In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "format": "Isolation transformateur ;1 kΩ, seuil100 mV",
+      "level": "line+4"
+    }
+  ],
+  "notes": "Non saisies : MIDI In/Out et entrée Remote Go (jack 6,35 mm) : connecteur non précisé dans le manuel du 12/2 ; lampe de pupitre XLR 3 (12 V CC). Poids non repris : 5,9 kg chez le loueur, 7 à 8 kg au catalogue MA France selon la version."
+}

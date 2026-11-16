@@ -1,0 +1,79 @@
+{
+  "id": "fischer-amps-shaker-amp-400",
+  "family": "amplification",
+  "manufacturer": "Fischer Amps",
+  "model": "Shaker Amp 400",
+  "pictogram": "amp",
+  "status": "verified",
+  "weightKg": 2.8,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.bax-shop.co.uk/downloads/products/9000-0011-6213/shakeramp-d.pdf",
+      "document": "Fischer Amps, notice Shaker Amp (via Bax Music)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.thomann.pl/fischer_amps_shaker_amp_400.htm",
+      "document": "Thomann, fiche Shaker Amp 400 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://manuals.online/fischer-amps/amplifier/shaker-amp-400/user-manual/1mle1",
+      "document": "Fischer Amps, mode d'emploi Shaker Amp (copie manuals.online, lue par extrait de recherche)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fischer-amps.de/downloads_en.html?file=files%2Fdokumente%2Fdownloads%2FBedienungsanleitungen-englisch-neu%2FShaker-Amp-400-E-2016-12.pdf",
+      "document": "Fischer Amps, manuel Shaker Amp 400 (constructeur), pages 1-4 : face arrière (combo XLR/jack, sortie XLR mâle, jack 1/4\" symétrique entrée/sortie, Speakon, bornier, embase « IEC 3 pole jack »), pad -20 dB, fantôme 48 V, 500 W sous 4 ohms",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "format": "Combo XLR / jack, symétrique ; préampli micro, fantôme 48 V, pad -20 dB",
+      "phantom": "supplied"
+    },
+    {
+      "id": "link",
+      "name": "Link Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, sortie parallèle de l'entrée (le fantôme y est aussi présent)"
+    },
+    {
+      "id": "jack",
+      "name": "Jack In / Out",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack 1/4\", entrée/sortie symétrique en parallèle de l'entrée XLR"
+    },
+    {
+      "id": "spk",
+      "name": "Shaker Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Speakon (1+/1-) et bornier en parallèle ; 500 W max. sous 4 Ω (ButtKicker LFE)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "« IEC 3 pole jack » pour le cordon secteur (manuel p. 3) ; 115/230 V commutable, fusible 2 A (230 V) ou 4 AT (115 V)"
+    }
+  ]
+}

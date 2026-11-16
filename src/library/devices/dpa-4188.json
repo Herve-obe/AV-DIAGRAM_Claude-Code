@@ -1,0 +1,81 @@
+{
+  "id": "dpa-4188",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "4188 Slim directionnel (Flex)",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.0085,
+  "sources": [
+    {
+      "url": "https://www.dpamicrophones.com/microphones/headset-and-earset/4188/",
+      "document": "DPA, page produit 4188 : références 4188-DC-F (CORE : MicroDot 00, LEMO 3 broches 03, TA4F 10, mini-jack 34 ; Earset E ou Headset H ; perche 120 ou 100 mm) et 4188-DP-F-B90-LE (CORE+ MicroLock)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/api/v1/product/variant-group/specification?variantGroupId=55&culture=en-US",
+      "document": "DPA, caractéristiques 4188 CORE : cardioïde, 6 mV/Pa, MicroDot, 30 à 40 ohms, 5 à 10 V par adaptateur DPA, P48 avec DAD6001-BC, 1,5 mA (3,5 mA avec adaptateur XLR), 8,5 g, câble 1,3 m",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/api/v1/product/GetProductSpecifications?productId=19&culture=en-US",
+      "document": "DPA, caractéristiques 4188 CORE+ : MicroLock, P48 avec DAD9001",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://dpa.cloud14.structpim.com/media/s3jggxpy/4188-4288.pdf",
+      "document": "DPA, manuel 4188 & 4288 (document portal, PDF image)",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Cardioïde (gradient de pression), 6 mV/Pa, impédance 30 à 40 ohms (MicroDot / MicroLock), 100 ohms par l'adaptateur XLR. Versions émetteur HF : alimentation par l'émetteur via adaptateur DPA, 5 à 10 V. Terminaisons constructeur (modes) : MicroDot (CORE, réf. 00), MicroLock (CORE+, réf. 90), TA4F mini-XLR (10), LEMO 3 broches (03), mini-jack (34). XLR 3 : adaptateur DAD6001-BC (CORE) ou DAD9001 (CORE+), fantôme P48 requis (fonctionne dès 12 V), 3,5 mA.",
+      "modes": [
+        {
+          "connector": "microlock",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "lemo3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "minijack",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "required"
+        }
+      ]
+    }
+  ],
+  "description": "Micro serre-tête ou tour d'oreille cardioïde DPA d:fine 4188 Slim (versions CORE et CORE+), capsule directionnelle du 4088, statique prépolarisé, 6 mV/Pa, monture Flex légère, à placer à 2 ou 3 cm du coin de la bouche. Accroches (ce ne sont pas des prises) : version Earset simple oreille (suffixe E) ou Headset double oreille (suffixe H) ; port à gauche ou à droite par rotation de la perche et du crochet ; perche 120 mm (L, standard) ou 100 mm (M) ; câble amovible par connecteur de service ; noir, beige ou brun. Poids version Earset : 8,5 g, câble 1,3 m.",
+  "aliases": [
+    "DPA 4188",
+    "d:fine 4188",
+    "d:fine 4188 Slim",
+    "4188 CORE",
+    "4188 CORE+",
+    "4188-DC-F",
+    "4188 Slim Directional"
+  ],
+  "notes": "DPA nomme ce modèle « d:fine CORE 4188 Slim Directional Flex Headset » (noms des fichiers de courbes sur le site DPA). La version pré-CORE vendue comme d:fine Directional / d:fine Slim (FIDF00-2) est décrite par la fiche dpa-dfine-slim."
+}

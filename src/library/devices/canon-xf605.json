@@ -1,0 +1,168 @@
+{
+  "id": "canon-xf605",
+  "family": "camera",
+  "manufacturer": "Canon",
+  "model": "XF605",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 2.01,
+  "sources": [
+    {
+      "url": "https://asia.canon/en/pro-imaging/xf605/main/product",
+      "document": "Canon, page XF605",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/23270b5c-771c-4e83-8060-abd29aec7b88/XF605_Data_Sheet_081321_trim.pdf",
+      "document": "Canon, fiche XF605 (via Lensrentals)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camescope/xf605/",
+      "document": "Novelty — XF605",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/CAXF605R.pdf",
+      "document": "Canon XF605 Instruction Manual (via Adorama)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.mediatec.de/media/71/9c/83/1699705318/Canon%20-%20Datasheet%20-%20XF605.pdf.pdf",
+      "document": "Mediatec (revendeur), copie de la fiche technique Canon XF605 : DC input 3.4 mm jack, XLR 3 broches x2, 3,5 mm mic et casque, HDMI Type A, USB Type-C, 12G-SDI BNC, time code BNC, LAN, Remote Type A (jack 2,5 mm)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/CAXF605R.pdf",
+      "document": "Canon (constructeur), manuel XF605 : terminaux DC IN, TIME CODE, G-LOCK/SYNC, SDI OUT, HDMI OUT, USB Type-C, REMOTE B, spécifications BNC",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, audio intégré et timecode"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, MIC -60 dBu ou LINE +4 dBu, fantôme"
+    },
+    {
+      "id": "in2",
+      "name": "Audio In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "format": "XLR symétrique, MIC -60 dBu ou LINE +4 dBu, fantôme"
+    },
+    {
+      "id": "tc",
+      "name": "Timecode",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC entrée ou sortie"
+    },
+    {
+      "id": "gl",
+      "name": "G-Lock/Sync",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC, entrée genlock ou sortie synchro tri-level selon réglage"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T, SRT"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "Streaming UVC"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "24 V DC (entrée DC IN, adaptateur secteur), jack 3,4 mm"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo, MIC -72 dBV (alimentation plug-in 2,5 V) ou LINE -12 dBV"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo"
+    },
+    {
+      "id": "remoteA",
+      "name": "Remote A",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Mini-jack 2,5 mm stéréo"
+    }
+  ],
+  "aliases": [
+    "CANON XF605"
+  ],
+  "powerW": 14.3,
+  "notes": "Non saisies : prise REMOTE B (circulaire 8 broches RS-422, pour la télécommande RC-V100 ; connecteur non publié sous une forme identifiable) et prise USB-A hôte (5 V, 900 mA, réservée à une extension future)."
+}

@@ -1,0 +1,53 @@
+{
+  "id": "panasonic-dmc-gh4",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "Lumix DMC-GH4",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Panasonic, DMC-GH4 Owner's Manual for advanced features",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.lensrentals.com/product-assets/0da6bae6-7c2a-4007-8c91-26e05c438a6e/vqt5h96.pdf",
+      "document": "Panasonic DMC-GH4 Owner's Manual for advanced features VQT5H96 (via Lensrentals)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.na.panasonic.com/?p=416487",
+      "document": "Panasonic (constructeur, support Amérique du Nord), Features and Specifications DMC-GH4 : MIC prise ø3,5 mm, casque prise ø3,5 mm, AV OUT/DIGITAL prise dédiée 8 broches, HDMI micro type D, REMOTE ø2,5 mm",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi-micro",
+      "format": "Micro HDMI (le manuel parle d'un câble HDMI micro)"
+    },
+    {
+      "id": "mic",
+      "name": "MIC",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Prise ø3,5 mm"
+    },
+    {
+      "id": "hp",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Prise ø3,5 mm"
+    }
+  ],
+  "notes": "Non saisies : AV OUT/DIGITAL (prise dédiée 8 broches, sortie AV et USB, connecteur non publié par le constructeur) et REMOTE (jack ø2,5 mm, prise de télécommande)."
+}

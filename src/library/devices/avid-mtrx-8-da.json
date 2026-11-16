@@ -1,0 +1,40 @@
+{
+  "id": "avid-mtrx-8-da",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX Pristine 8 DA Card",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-mtrx-card",
+  "sources": [
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Installation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Installation Guide, Part Number 9320-70146-00 REV A 04/21 (chapitre 5, annexes A et B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Operation Guide, Part Number 9329-66264-00 REV A 04/21 (chapitre 1, chapitre 5, annexe B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.hhb.co.uk/wp-content/uploads/PT-MTRX-II-Data-Sheet.pdf",
+      "document": "Avid, fiche technique Pro Tools | MTRX II (hébergée par le distributeur HHB) : cartes analogiques en DB25",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1_8",
+      "name": "Line Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "Sorties ligne symétriques, niveau max réglable de -60 à +24 dBu ; D-Sub 25 femelle, brochage Tascam"
+    }
+  ],
+  "description": "Carte 8 sorties ligne analogiques avec réglage de niveau. Toutes les cartes analogiques MTRX utilisent un D-Sub 25 femelle, brochage Tascam (guide d'installation, chapitre 5). Consommation non publiée."
+}

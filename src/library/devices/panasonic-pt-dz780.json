@@ -1,0 +1,188 @@
+{
+  "id": "panasonic-pt-dz780",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Panasonic",
+  "model": "PT-DZ780",
+  "status": "verified",
+  "description": "Vidéoprojecteur 7000 lumens, Full HD, WUXGA 1920x1200",
+  "aliases": [
+    "PANASONIC PT-DZ780"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/pt-dz780/",
+      "document": "Novelty — PT-DZ780",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_pt-dz780_ft-3.pdf",
+      "document": "Novelty — PT-DZ780 : PT-DZ780",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-dz780_manuel-fr.pdf",
+      "document": "Novelty — PT-DZ780 : PT-DZ780 (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-dz780_manuel-de.pdf",
+      "document": "Novelty — PT-DZ780 : PT-DZ780 (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-dz780_manuel-uk.pdf",
+      "document": "Novelty — PT-DZ780 : PT-DZ780 (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://bizpartner.panasonic.net/public/ppr/file_view/14404",
+      "document": "Panasonic, Spec File PT-DZ780W/LW/B/LB : AC 100-240 V, 790 W, 17,8 kg, 521 mm, accessoire « Power cord (×1) », SDI IN BNC, HDMI, DVI-D, RGB 1 BNC ×5, RGB 2 D-sub 15, D-sub 9, REMOTE 1 M3, REMOTE 2 D-sub 9, LAN/DIGITAL LINK RJ-45 100Base-TX Art-Net PJLink, USB DC OUT 5 V/0,9 A",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-dz780_manuel-uk.pdf",
+      "document": "Panasonic, Operating Instructions Functional Manual PT-DZ780/DW750/DX820 (copie hébergée par le loueur Novelty), p. 192 : DC OUT 5V = connecteur USB type A, alimentation seule, 5 V 900 mA ; cordon secteur fourni (accessoires)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "rgb1-1",
+      "name": "RGB 1 R / Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-2",
+      "name": "RGB 1 G / Y / Video",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-3",
+      "name": "RGB 1 B / Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-4",
+      "name": "RGB 1 H / Sync",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb1-5",
+      "name": "RGB 1 V / C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Prises partagées RGB / YPbPr / YC / composite selon mode"
+    },
+    {
+      "id": "rgb2",
+      "name": "RGB 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "serialIn",
+      "name": "Serial In",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 broches femelle, RS-232C, commande externe"
+    },
+    {
+      "id": "serialOut",
+      "name": "Serial Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 broches mâle, RS-232C, liaison de commande"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Remote 1 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3 (jack M3 = mini-jack 3,5 mm)"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Remote 1 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Télécommande filaire M3 (jack M3 = mini-jack 3,5 mm)"
+    },
+    {
+      "id": "remote2",
+      "name": "Remote 2 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 broches femelle, commande externe parallèle"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni (3,0 m, connecteur verrouillable), forme de l'embase non publiée par le constructeur"
+    },
+    {
+      "id": "sdi1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "lanDigitalLink",
+      "name": "LAN / DIGITAL LINK",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "RJ-45 : réseau et DIGITAL LINK (vidéo, réseau, commande série), 100Base-TX, PJLink, Art-Net"
+    },
+    {
+      "id": "usbPower",
+      "name": "USB DC Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "Connecteur USB type A, alimentation seule, 5 V CC, 900 mA maximum (DC OUT 5V)"
+    }
+  ],
+  "weightKg": 17.8,
+  "powerW": 790,
+  "depthMm": 521
+}

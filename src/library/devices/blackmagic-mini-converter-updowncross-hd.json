@@ -1,0 +1,94 @@
+{
+  "id": "blackmagic-mini-converter-updowncross-hd",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter UpDownCross HD",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-28",
+      "document": "Blackmagic Design, fiche technique Mini Converter UpDownCross HD (W-CONM-28)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Jusqu'à 3G"
+    },
+    {
+      "id": "hdmiin",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "ref",
+      "name": "Reference In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level SD/HD (BNC, dessin du panneau)"
+    },
+    {
+      "id": "loop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "hdmiout",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB-C : configuration et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "6 à 36 V CC, prise à vis de maintien, bloc +12 V fourni"
+    }
+  ],
+  "powerW": 5,
+  "description": "Convertisseur de standards SD/HD (montée, descente, croisement) avec entrées et sorties SDI et HDMI et entrée de référence."
+}

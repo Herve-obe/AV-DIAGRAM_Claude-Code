@@ -1,0 +1,237 @@
+{
+  "date": "2026-10-29",
+  "version": "0.5.20",
+  "batch": "audio-01-complements",
+  "inputRevision": 156,
+  "priorRevision533AlreadyApplied": true,
+  "summary": {
+    "records": 9,
+    "previousRemovalsUnchanged": 6,
+    "verified": 745,
+    "community": 961,
+    "generic": 30,
+    "unexaminedFromInitialCommunityBatch": 742
+  },
+  "records": [
+    {
+      "id": "atterotech-undiox2x",
+      "decision": "Sans changement",
+      "information": "Même poids que la version \"+\"",
+      "source": "https://seesound.es/productos/pdfs/Datasheet_unDIO2x2+-7723-7724.pdf",
+      "model": "unDIO2x2",
+      "statusBefore": "verified",
+      "statusAfter": "community",
+      "changedFields": [
+        "status",
+        "description",
+        "sources",
+        "weightKg"
+      ],
+      "values": {
+        "powerW": 3,
+        "weightKg": 0.363,
+        "depthMm": 87.6
+      },
+      "result": "Poids 0,8 lb retenu sur déclaration utilisateur, soit 0,363 kg arrondis ; version sans + conservée.",
+      "provenance": "Déclaration utilisateur et conversion d’unité.",
+      "reserve": [
+        "Le PDF fourni concerne la version + ; il ne prouve pas directement la masse de l’ancien modèle."
+      ]
+    },
+    {
+      "id": "dbx-120a",
+      "decision": "Sans changement",
+      "information": "",
+      "source": "https://www.notice-facile.com/en/manual/1654720/dbx+120a",
+      "model": "120A",
+      "statusBefore": "verified",
+      "statusAfter": "community",
+      "changedFields": [
+        "status",
+        "description",
+        "sources",
+        "powerW"
+      ],
+      "values": {
+        "powerW": 15,
+        "weightKg": 2.2,
+        "depthMm": 157.5
+      },
+      "result": "15 W intégrés comme valeur déclarée par l’utilisateur ; prises TRS et RCA inchangées.",
+      "provenance": "Déclaration utilisateur ; justificatif fourni non consultable.",
+      "reserve": [
+        "Le lien Notice Facile retourne HTTP 403 ; les 15 W ne sont pas présentés comme vérifiés dans un document constructeur."
+      ]
+    },
+    {
+      "id": "digigrid-mgb",
+      "decision": "Sans changement",
+      "information": "\"Professional grade screw lock power connector\".\nConserve la valeur de 10W",
+      "source": "https://digigrid.net/wp-content/uploads/2022/08/DiGiGrid-Complete-2022-Web.pdf",
+      "model": "MGB",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "powerW"
+      ],
+      "values": {
+        "powerW": 10,
+        "weightKg": 0.4,
+        "depthMm": 29
+      },
+      "result": "10 W retenus explicitement pour les budgets ; alimentation à verrouillage vissé confirmée par le catalogue.",
+      "provenance": "Valeur de budget choisie par l’utilisateur, calculée à partir de 5 V × 2 A ; type de verrouillage publié.",
+      "reserve": [
+        "10 W ne sont pas une consommation réelle mesurée ou publiée de l’appareil.",
+        "Le catalogue ne donne pas la référence mécanique et les dimensions exactes de la fiche DC."
+      ]
+    },
+    {
+      "id": "empirical-labs-distressor-el8x",
+      "decision": "Sans changement",
+      "information": "Dimensions : 4.4 cm x 48.3 cm x 25.4 cm (H x L x P)",
+      "source": "https://shop.funky-junk.com/fr/boutique/enregistrement/peripheriques/compresseurs/empirical-labs-el8x-distressor-with-brit-mod/",
+      "model": "Distressor EL8-X",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "description",
+        "depthMm"
+      ],
+      "values": {
+        "powerW": 14,
+        "weightKg": 3.6,
+        "depthMm": 254
+      },
+      "result": "Profondeur 254 mm retenue d’après le complément utilisateur et sa référence Funky Junk.",
+      "provenance": "Dimension déclarée par l’utilisateur ; nouveau lien revendeur inaccessible.",
+      "reserve": [
+        "Funky Junk retourne HTTP 503 ; la page WRD antérieure indiquait 216 mm. La divergence reste documentée."
+      ]
+    },
+    {
+      "id": "focusrite-octopre-platinum",
+      "decision": "Sans changement",
+      "information": "480mm (w) x 44 mm (H) x 265 (D) 3.2 Kg.\nPour la puissance, conserve les 30W",
+      "source": "https://fael-downloads-prod.focusrite.com/customer/prod/s3fs-public/downloads/octopre-user-guide-multilanguage1.pdf",
+      "model": "OctoPre Platinum",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "description",
+        "powerW"
+      ],
+      "values": {
+        "powerW": 30,
+        "weightKg": 3.2,
+        "depthMm": 265
+      },
+      "result": "Poids 3,2 kg et profondeur 265 mm confirmés dans le manuel Focusrite ; 30 W conservés selon instruction utilisateur.",
+      "provenance": "Dimensions et masse publiées par le constructeur ; consommation déclarée.",
+      "reserve": [
+        "30 W ne figurent pas dans la page de spécifications consultée ; valeur utilisateur, pas une mesure constructeur retrouvée."
+      ]
+    },
+    {
+      "id": "focusrite-rednet-d16r",
+      "decision": "Sans changement",
+      "information": "Conversion à conserver, garde 25W",
+      "source": "",
+      "model": "RedNet D16R",
+      "statusBefore": "verified",
+      "statusAfter": "community",
+      "changedFields": [
+        "status",
+        "description",
+        "sources",
+        "powerW"
+      ],
+      "values": {
+        "powerW": 25,
+        "weightKg": 3.84,
+        "depthMm": 263
+      },
+      "result": "25 W retenus comme valeur de budget utilisateur ; indication constructeur 30 VA conservée.",
+      "provenance": "Valeur déclarée / choisie par l’utilisateur, aucune conversion électrique justifiée.",
+      "reserve": [
+        "Sans facteur de puissance, 30 VA ne permettent pas de déduire 25 W ; cette valeur n’est pas présentée comme une conversion certifiée."
+      ]
+    },
+    {
+      "id": "lexicon-pcm96-surround",
+      "decision": "Sans changement",
+      "information": "19.0” W x 1.75” H x 16” D (483 mm x 44,5 mm x 317,5 mm)",
+      "source": "https://adn.harmanpro.com/product_documents/documents/1018_1602284184/PCM96_Surround-Manual-French_original.pdf",
+      "model": "PCM96 Surround (PCM96SUR-A, FireWire)",
+      "statusBefore": "verified",
+      "statusAfter": "community",
+      "changedFields": [
+        "status",
+        "description",
+        "sources",
+        "depthMm"
+      ],
+      "values": {
+        "powerW": 26,
+        "weightKg": 6.5,
+        "depthMm": 317.5
+      },
+      "result": "Profondeur métrique 317,5 mm du document retenue, avec réserve sur les pouces contradictoires.",
+      "provenance": "Valeur métrique documentaire recopiée par l’utilisateur ; contradiction du document maintenue.",
+      "reserve": [
+        "Le même manuel indique 16 pouces, soit 406,4 mm. La profondeur 317,5 mm retenue n’est pas une conversion validée de 16 pouces."
+      ]
+    },
+    {
+      "id": "nexo-dtd-t-n",
+      "decision": "Sans changement",
+      "information": "",
+      "source": "https://www.getdante.com/product/nexo-dtd-t-n/",
+      "model": "DTD-T-N",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "sources"
+      ],
+      "values": {
+        "powerW": 20,
+        "weightKg": 1.3,
+        "depthMm": 65
+      },
+      "result": "Source Audinate ajoutée ; fiche et IEC C14 déjà renseignées conservées.",
+      "provenance": "Page du partenaire Dante consultée ; IEC C14 reste une déclaration utilisateur.",
+      "reserve": [
+        "La page Dante consultée confirme le produit et son interface Dante, sans mention textuelle de l’embase IEC."
+      ]
+    },
+    {
+      "id": "sound-performance-lab-channel-one",
+      "decision": "Sans changement",
+      "information": "",
+      "source": "https://spl.audio/en/spl-produkt/channel-one/",
+      "model": "Channel One 2950",
+      "statusBefore": "community",
+      "statusAfter": "community",
+      "changedFields": [
+        "description",
+        "sources",
+        "powerW"
+      ],
+      "values": {
+        "powerW": 20,
+        "weightKg": 4.15,
+        "depthMm": 210
+      },
+      "result": "20 W intégrés ; la page constructeur Channel One indique max. 20 W.",
+      "provenance": "Consommation publiée pour Channel One et retenue pour le 2950 sur complément utilisateur.",
+      "reserve": [
+        "La page SPL ne mentionne pas 2950 et indique un gabarit 300 mm / 4,85 kg différent du manuel 2950 (210 mm / 4,15 kg) : pas de transposition de ces dimensions ou de ce poids."
+      ]
+    }
+  ]
+}

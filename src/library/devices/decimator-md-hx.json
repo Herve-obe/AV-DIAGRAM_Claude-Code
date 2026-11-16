@@ -1,0 +1,91 @@
+{
+  "id": "decimator-md-hx",
+  "family": "videoRouting",
+  "manufacturer": "Decimator Design",
+  "model": "MD-HX",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.markertek.com/product/dec-md-hx/decimator-md-hx-mini-3g-hd-sd-sdi-to-hdmi-cross-converter-with-scaling-and-frame-rate-conversion",
+      "document": "Markertek, fiche MD-HX (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://decimator.com/brochures/MD-HX_brochure.pdf",
+      "document": "Decimator MD-HX brochure V1.1 p. 1",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://decimator.com/brochures/MD-HX_brochure.pdf",
+      "document": "Decimator Design (constructeur), brochure MD-HX : 1 entrée HDMI, 1 entrée SDI, 1 sortie HDMI, 2 sorties SDI recopie active et 2 sorties SDI, prise DC à verrouillage fileté, port USB de contrôle et de mise à jour sans type précisé, dimensions 79,5 x 123 x 29,5 mm",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI ; recopie active ou sortie"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI ; recopie active ou sortie"
+    },
+    {
+      "id": "out3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "out4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Prise DC à verrouillage fileté métallique, bloc fourni"
+    }
+  ],
+  "depthMm": 123,
+  "notes": "Non saisie : USB (connecteur non publié par le constructeur ; « USB port for control and firmware updates »)."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "shure-p9ra-plus",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "P9RA+",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/PSM900/en-US",
+      "document": "Shure, guide d'utilisation PSM900 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio avec l'émetteur"
+    },
+    {
+      "id": "ear",
+      "name": "Écouteurs",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "sma"
+    }
+  ]
+}

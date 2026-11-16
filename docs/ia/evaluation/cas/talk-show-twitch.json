@@ -1,0 +1,34 @@
+{
+  "id": "talk-show-twitch",
+  "titre": "Talk-show vidéo en direct sur Twitch avec intermède musical",
+  "source": {"fichier": "Sujet 1 - Talk-show TV.pdf", "driveId": "1wjcXgl0pJiT5eQfA67XelOQfv1OjGqCQ", "auteur": "Hervé Obejero", "pages": null},
+  "domaine": ["son"],
+  "difficulte": "moyen",
+  "demande": "Je gère la prise de son et la diffusion audio d'un talk-show vidéo diffusé en direct sur Twitch. L'émission réunit un présentateur et deux invités en studio, avec une intervention musicale acoustique (guitare + voix) sur le plateau.\n\nLa partie talk-show est captée avec des micros-cravates, le live avec des micros dynamiques et/ou statiques. Le mixage du direct est en stéréo : il part vers un PC équipé d'une carte son pour la diffusion, et vers un enregistreur audio/vidéo stéréo. Les retours se font par de petites enceintes de monitoring discrètes sur le plateau : en N-1 pour la partie talk-show, en retour standard pour le live.\n\nJe dois pouvoir contrôler à tout moment la qualité du signal diffusé et du signal enregistré. L'enregistrement doit être dans un format audio professionnel pour l'archivage.\n\nMatériel à disposition : console Allen & Heath SQ5 ; un poste informatique avec carte son pour le streaming ; un enregistreur audio/vidéo externe ; des micros statiques et dynamiques avec pieds ; des micros-cravates Sennheiser MKE 40 et Sanken COS-11 ; des enceintes de monitoring Yamaha MSP5.\n\nJe veux un synoptique des connexions pour la prise de son du talk-show et du live (guitare et voix) et pour les retours plateau, avec le routing de la diffusion et de l'enregistrement.",
+  "materielImpose": [
+    {"designation": "Console numérique", "quantite": 1, "reference": "Allen & Heath SQ5"},
+    {"designation": "Poste informatique avec carte son pour le streaming", "quantite": 1, "reference": null},
+    {"designation": "Enregistreur audio/vidéo externe", "quantite": 1, "reference": null},
+    {"designation": "Micros-cravates", "quantite": null, "reference": "Sennheiser MKE 40 et Sanken COS-11"},
+    {"designation": "Microphones statiques et dynamiques avec pieds", "quantite": null, "reference": null},
+    {"designation": "Enceintes de monitoring", "quantite": null, "reference": "Yamaha MSP5"}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Une console SQ5", "type": "quantite", "verif": {"famille": "console", "min": 1, "max": 1, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Au moins 5 micros : 3 cravates (présentateur, 2 invités) et 2 pour le live (guitare, voix)", "type": "quantite", "verif": {"famille": "capture", "min": 5, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "Au moins 2 retours MSP5 : talk-show et live", "type": "quantite", "verif": {"famille": "speaker", "min": 2, "max": null, "signal": null, "de": "console", "vers": "retour-plateau"}},
+    {"id": "e4", "texte": "Mix stéréo vers le PC de streaming", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console", "vers": "poste-streaming"}},
+    {"id": "e5", "texte": "Mix stéréo vers l'enregistreur audio/vidéo", "type": "sortie", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": "console", "vers": "enregistreur"}},
+    {"id": "e6", "texte": "Retour d'écoute du streaming et de l'enregistreur vers la régie pour contrôle", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "enregistreur", "vers": "console"}},
+    {"id": "e7", "texte": "Retours talk-show en N-1 : chaque intervenant n'entend pas sa propre voix dans son retour", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e8", "texte": "Retour standard (mix musicien) pour le live, séparé des retours talk-show", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e9", "texte": "Enregistrement en format professionnel pour archivage (PCM non compressé)", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "N-1 par intervenant pour le talk-show (une sortie par retour), pas un seul mix commun",
+    "Larsen : cravates omnidirectionnelles près des enceintes de retour",
+    "Oublier le contrôle du signal réellement reçu par le PC de streaming et par l'enregistreur",
+    "Niveau d'entrée de la carte son du PC (ligne) et de l'enregistreur à adapter à la sortie console"
+  ],
+  "corrigeDisponible": false
+}

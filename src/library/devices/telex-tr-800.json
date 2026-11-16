@@ -1,0 +1,39 @@
+{
+  "id": "telex-tr-800",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Telex",
+  "model": "TR-800",
+  "status": "verified",
+  "description": "Boîtier ceinture sans fil UHF pour base BTR-800, six piles AA, micro dynamique ou électret détecté automatiquement.",
+  "aliases": [
+    "TR800"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/telex_btr800_tr800_manuel.pdf",
+      "document": "Telex, BTR-800 / TR-800 manuel (copie Novelty) : panneau arrière BTR-800 (fig. 3), TR-800 (fig. 5), caractéristiques",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "UHF vers BTR-800"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle (Telex) ou femelle (RTS) ; option XLR 5"
+    }
+  ],
+  "weightKg": 0.454
+}

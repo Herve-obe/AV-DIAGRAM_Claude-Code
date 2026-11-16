@@ -1,0 +1,199 @@
+{
+  "id": "etc-gio-enhanced",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "ETC",
+  "model": "Gio Enhanced",
+  "status": "verified",
+  "description": "Gio Enhanced, génération mise à jour en 2018 ; carte I/O à quatre ports DMX et sans MIDI. Cette carte existe aussi sur certains appareils transitoires antérieurs : quatre ports DMX seuls ne prouvent pas une génération Enhanced. Connecteurs physiques à compléter.",
+  "sources": [
+    {
+      "url": "https://support.etcconnect.com/ETC/Consoles/Eos_Family/Gio/What_is_the_Difference_Between_Gio_Enhanced_and_Original_Gio",
+      "document": "ETC — comparaison Gio original / Enhanced, carte I/O et période transitoire",
+      "accessed": "2026-11-04"
+    },
+    {
+      "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
+      "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/02_Eos_Family_Product_Overview_and_Setup/Consoles/Gio.htm",
+      "document": "ETC, aide en ligne Eos v3.3.10 : Gio, ports, alimentation et consommation",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.etcconnect.com/Products/Legacy/Console/Eos-Family/Gio/Tech-Specs.aspx",
+      "document": "ETC, Gio Tech Specs (produit archivé)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://support.etcconnect.com/ETC/Consoles/Eos_Family/Software_and_Programming/Eos_Family_Local_Relay_Out_and_Contact_Closure_Inputs",
+      "document": "ETC, article d'assistance : Local Relay Out and Contact Closure Inputs (Gio : port local DB15, 4 contacts, 1 relais)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/02_Eos_Family_Product_Overview_and_Setup/Consoles/Gio.htm",
+      "document": "ETC (constructeur), aide en ligne Gio relue : « IEC socket » verrouillable sous l'interrupteur, ports Ethernet multiples, ports USB arrière et face avant (stockage), DMX XLR 5 broches, trois DisplayPort, consommation 2 A / 120 V, 1 A / 230-240 V",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.etcconnect.com/Products/Legacy/Console/Eos-Family/Gio/Tech-Specs.aspx",
+      "document": "ETC (constructeur), Tech Specs Gio relues : 4 ports DMX512/RDM, USB x7, 2 Ethernet configurables 802.3af PSE, 3 DisplayPort, connecteur D-Sub de contacts",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://support.etcconnect.com/ETC/Consoles/Eos_Family/Gio/What_is_the_Difference_Between_Gio_Enhanced_and_Original_Gio",
+      "document": "ETC (constructeur), Gio Enhanced : carte I/O à 4 ports DMX et sans MIDI",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "Prise « IEC socket » verrouillable sous l'interrupteur matériel, cordon verrouillé dans l'embase ; fusible en face arrière ; consommation d'environ 2 A sous 120 V ou 1 A sous 230/240 V ; forme de l'embase non publiée par le constructeur"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Configurable, PoE 802.3af source ; RJ45 (interface cuivre imposée par la norme Ethernet ; etherCON non mentionné par ETC)"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Configurable, PoE 802.3af source ; RJ45 (interface cuivre imposée par la norme Ethernet ; etherCON non mentionné par ETC)"
+    },
+    {
+      "id": "usbFront",
+      "name": "USB face avant",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Stockage USB"
+    },
+    {
+      "id": "usb1",
+      "name": "USB arrière 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb2",
+      "name": "USB arrière 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb3",
+      "name": "USB arrière 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb4",
+      "name": "USB arrière 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb5",
+      "name": "USB arrière 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "usb6",
+      "name": "USB arrière 6",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Clavier, pointeur, tactile des moniteurs"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 points"
+    },
+    {
+      "id": "dp1",
+      "name": "DisplayPort 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Moniteur externe, adaptateurs DisplayPort vers DVI fournis"
+    },
+    {
+      "id": "dp2",
+      "name": "DisplayPort 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Moniteur externe, adaptateurs DisplayPort vers DVI fournis"
+    },
+    {
+      "id": "dp3",
+      "name": "DisplayPort 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "Moniteur externe, adaptateurs DisplayPort vers DVI fournis"
+    },
+    {
+      "id": "io",
+      "name": "Local I/O (contacts)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "DB15 : 4 entrées contact sec (12 V CC fournis par la console), 1 sortie relais"
+    }
+  ],
+  "powerW": 230,
+  "notes": "Puissance 230 W = 1 A sous 230 V (consommation publiée : environ 2 A sous 120 V ou 1 A sous 230/240 V ; aucune puissance en watts publiée). Contacts et relais supplémentaires, RS-232 et MIDI via la passerelle Net3 I/O Gateway (non saisis)."
+}

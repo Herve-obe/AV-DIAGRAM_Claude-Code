@@ -1,0 +1,126 @@
+{
+  "id": "samsung-dm32",
+  "family": "display",
+  "manufacturer": "Samsung",
+  "model": "DM32 (32\")",
+  "pictogram": "display",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.samsung.com/us/business/support/owners/product/dm-series-digital-signage-dm32e/",
+      "document": "Samsung, page support DM32E",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db32e_manuel-uk.pdf",
+      "document": "Samsung, User Manual DB32E/DB40E/DB48E/DB55E/DM32E-DM75E/DH40E-DH55E (copie Novelty) : Reverse Side pp. 19-20, IR Stereo Cable p. 25, PowerSaver (consommation)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_db32e_ft.pdf",
+      "document": "Samsung, fiche DB-E 32\"/40\"/48\"/55\" (copie Novelty) : Connectivity, Power Consumption (Typical/Max)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "D-Sub",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "RGB analogique"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI"
+    },
+    {
+      "id": "component",
+      "name": "Composante / CVBS",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : vidéo composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde jack 3,5 mm d'après le dessin du panneau arrière"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "RGB / DVI / HDMI / AV / COMPONENT AUDIO IN, mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle et réseau"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "AC 100-240 V, 50/60 Hz, interrupteur au dos ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe (vendu à part) ; reçoit un câble stéréo jack 3,5 mm (manuel p. 25)"
+    }
+  ],
+  "powerW": 77
+}

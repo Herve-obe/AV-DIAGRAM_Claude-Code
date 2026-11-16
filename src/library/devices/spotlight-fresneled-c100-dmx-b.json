@@ -1,0 +1,59 @@
+{
+  "id": "spotlight-fresneled-c100-dmx-b",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "SPOTLIGHT",
+  "model": "FresneLED C100 DMX B",
+  "status": "verified",
+  "description": "Projecteur Fresnel à LED, 100 W, 5600°K, zoom 12 à 75°, blanc",
+  "aliases": [
+    "FRLED100CW",
+    "SPOTLIGHT FresneLED C100 DMX B"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/fresnel-projecteurs-a-led/fresneled-c100-dmx-b/",
+      "document": "Novelty — FresneLED C100 DMX B",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/spotlight_FresneLED_100_Compact_ft.pdf",
+      "document": "Spotlight, fiche FresneLED 100 Compact (copie Novelty), p. 2 : version DMX 100 W 100-240 V, photo « rear view of DMX version » avec câble fixe, versions Warm 3000 K / Natural 4000 K / Cool 5600 K",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/spotlight_FresneLED_100_Compact_manuel.pdf",
+      "document": "Spotlight, manuel FresneLED / PCLED 100 DMX (copie Novelty), fig. 1 p. 2 et p. 3 : connecteurs DMX IN et DMX THRU (XLR 5 broches lus sur le schéma, femelle en THRU), câble secteur sortant du panneau arrière, 100-240 V 50/60 Hz ; couvre FN LED C100 CW / NW DMX",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 broches (lu sur le schéma du manuel, fig. 1)"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 broches (lu sur le schéma du manuel, fig. 1)"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "100-240 V, 50/60 Hz, 100 W ; câble sortant du panneau arrière (schéma du manuel, fig. 1)"
+    }
+  ],
+  "powerW": 100,
+  "notes": "Identité : « B » correspond à la version blanc froid 5600 K (code Novelty FRLED100CW), couverte par le manuel FN LED C100 CW DMX. Zoom corrigé à 12-75° (fiche constructeur ; la page Novelty indique aussi 9-85°). Poids non saisi (3,7 kg sur la fiche constructeur, 5,2 kg sur la page Novelty)."
+}

@@ -1,0 +1,657 @@
+{
+ "provider": "builtin",
+ "model": "qwen3-4b",
+ "date": "2026-11-12T20:51:36.354Z",
+ "global": 0,
+ "results": [
+  {
+   "id": "concert-acoustique-youtube",
+   "difficulte": "simple",
+   "run": 1,
+   "grade": {
+    "id": "concert-acoustique-youtube",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console M7CL",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": 1,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "Deux boîtiers SB168-ES reliés à la console",
+      "type": "quantite",
+      "verif": {
+       "famille": "stagebox",
+       "min": 2,
+       "max": 2,
+       "signal": "audioIp",
+       "de": "stagebox",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "Au moins 4 micros : 2 voix, guitare, cajon",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 4,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Au moins 2 retours artistes, sur enceintes passives via ampli",
+      "type": "liaison",
+      "verif": {
+       "famille": "amplification",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "retour-artistes"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Au moins 4 enceintes : diffusion public stéréo (2) et retours (2)",
+      "type": "quantite",
+      "verif": {
+       "famille": "speaker",
+       "min": 4,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Diffusion public depuis la console",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "diffusion-public"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Mix stéréo vers le PC de streaming",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "poste-streaming"
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Mix stéréo vers l'enregistreur",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Contrôle du signal diffusé et enregistré (retours d'écoute ou mesure)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e10",
+      "texte": "Enregistrement dans un format professionnel (PCM non compressé) pour remise au groupe",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Quel type de micro est compatible avec la console numérique pour le cajon de percussion ? Les fiches d'AV Diagram indiquent que des modèles comme shure-beta-98a, shure-beta98ad-c, shure-beta-98h-c sont compatibles. Veuillez confirmer si l'un de ces modèles doit être utilisé ou si un autre type de micro est acceptable."
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps",
+   "trace": [
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic_statique\",\"template_id\":\"dpa-4066\",\"name\":\"Micro DPA 4066\",\"count\":3,\"port_modes\":[{\"port_id\":\"out/audioAnalog/microdot/mic\",\"mode\":1}]},{\"ref\":\"mic_dynamique\",\"template_id\":\"sennheiser-e606\",\"name\":\"Micro Sennheiser E606\",\"count\":1,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"guitar\",\"template_id\":\"gen-electric-guitar\",\"name\":\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : ref « speaker_a » donnée à 2 lignes d’equipment : chaque ligne exige sa propre ref (ex. speaker_a_a, speaker_a_b), ou une seule ligne avec count ; les connexions citent ces refs. Reprendre tout l’appel. Aucun élément de cet appel ajouté.. Modifier les paramètres en conséquence.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic_statique\",\"template_id\":\"dpa-4066\",\"name\":\"Micro DPA 4066\",\"count\":3,\"port_modes\":[{\"port_id\":\"out/audioAnalog/microdot/mic\",\"mode\":1}]},{\"ref\":\"mic_dynamique\",\"template_id\":\"sennheiser-e606\",\"name\":\"Micro Sennheiser E606\",\"count\":1,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"guitar\",\"template_id\":\"gen-electric-guitar\",\"name\":\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : ref « speaker_a » donnée à 2 lignes d’equipment : chaque ligne exige sa propre ref (ex. speaker_a_a, speaker_a_b), ou une seule ligne avec count ; les connexions citent ces refs. Reprendre tout l’appel. Aucun élément de cet appel ajouté.. Modifier les paramètres en conséquence.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic_statique\",\"template_id\":\"dpa-4066\",\"name\":\"Micro DPA 4066\",\"count\":3,\"port_modes\":[{\"port_id\":\"out/audioAnalog/microdot/mic\",\"mode\":1}]},{\"ref\":\"mic_dynamique\",\"template_id\":\"sennheiser-e606\",\"name\":\"Micro Sennheiser E606\",\"count\":1,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"guitar\",\"template_id\":\"gen-electric-guitar\",\"name\":\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : ref « speaker_a » donnée à 2 lignes d’equipment : chaque ligne exige sa propre ref (ex. speaker_a_a, speaker_a_b), ou une seule ligne avec count ; les connexions citent ces refs. Reprendre tout l’appel. Aucun élément de cet appel ajouté.. Modifier les paramètres en conséquence.\"}",
+    "→ rearrange_diagram {\"scope\":\"current_sheet\",\"target\":\"single_page\",\"paper\":\"A3\"}",
+    "← {\"error\":\"Aucun équipement à réorganiser sur cette feuille ou dans la sélection.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic_statique\",\"template_id\":\"dpa-4066\",\"name\":\"Micro DPA 4066\",\"count\":3,\"port_modes\":[{\"port_id\":\"out/audioAnalog/microdot/mic\",\"mode\":1}]},{\"ref\":\"mic_dynamique\",\"template_id\":\"sennheiser-e606\",\"name\":\"Micro Sennheiser E606\",\"count\":1,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"guitar\",\"template_id\":\"gen-electric-guitar\",\"name\":\"…",
+    "← {\"error\":\"Rôle speaker : conserver les 2 exemplaires et une référence proposée par plan_diagram (gen-speaker-active, yamaha-hs5). Aucun ajout conservé.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic_statique\",\"template_id\":\"dpa-4066\",\"name\":\"Micro DPA 4066\",\"count\":3,\"port_modes\":[{\"port_id\":\"out/audioAnalog/microdot/mic\",\"mode\":1}]},{\"ref\":\"mic_dynamique\",\"template_id\":\"sennheiser-e606\",\"name\":\"Micro Sennheiser E606\",\"count\":1,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"guitar\",\"template_id\":\"gen-electric-guitar\",\"name\":\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Rôle speaker : conserver les 2 exemplaires et une référence proposée par plan_diagram (gen-speaker-active, yamaha-hs5). Aucun ajout conservé.. Modifier les paramètres en conséquence.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic_statique\",\"template_id\":\"dpa-4066\",\"name\":\"Micro DPA 4066\",\"count\":3,\"port_modes\":[{\"port_id\":\"out/audioAnalog/microdot/mic\",\"mode\":1}]},{\"ref\":\"mic_dynamique\",\"template_id\":\"sennheiser-e606\",\"name\":\"Micro Sennheiser E606\",\"count\":1,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"guitar\",\"template_id\":\"gen-electric-guitar\",\"name\":\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Rôle speaker : conserver les 2 exemplaires et une référence proposée par plan_diagram (gen-speaker-active, yamaha-hs5). Aucun ajout conservé.. Modifier les paramètres en conséquence.\"}"
+   ]
+  },
+  {
+   "id": "conference-presse",
+   "difficulte": "simple",
+   "run": 1,
+   "grade": {
+    "id": "conference-presse",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console 01V96",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": 1,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "5 micros : 4 intervenants et 1 micro salle",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 5,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "PC des jingles raccordé à la console (stéréo)",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": "audioAnalog",
+       "de": "lecteur-media",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Diffusion stéréo en salle via amplificateur et au moins 2 enceintes passives",
+      "type": "sortie",
+      "verif": {
+       "famille": "speaker",
+       "min": 2,
+       "max": null,
+       "signal": null,
+       "de": "amplification",
+       "vers": "diffusion-public"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Un amplificateur entre la console et les enceintes passives",
+      "type": "quantite",
+      "verif": {
+       "famille": "amplification",
+       "min": 1,
+       "max": null,
+       "signal": "audioAnalog",
+       "de": "console",
+       "vers": "amplification"
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Envoi mono vers la press-box",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": "audioAnalog",
+       "de": "console",
+       "vers": "press-box"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Enregistrement de secours en double mono",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Niveaux indépendants pour la salle, la press-box et l'enregistreur (sorties distinctes, pas une simple dérivation)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Solution pour que les intervenants entendent les questions de la salle (ex. renvoi du micro salle sur une enceinte orientée vers la table)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e10",
+      "texte": "Contrôle d'écoute de la diffusion salle et du retour de l'enregistreur",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "enregistreur",
+       "vers": "console"
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Quel type de câble est utilisé pour la diffusion public, press-box et enregistrement ?"
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps",
+   "trace": [
+    "→ ask_user {\"question\":\"Les micros dynamiques 1 et la console Yamaha 01V96 disposent-elles des prises libres nécessaires pour une liaison stéréo ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"gen-mic-dyn\",\"name\":\"Micros dynamiques\",\"count\":4,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"mic2\",\"template_id\":\"yamaha-emx312sc\",\"name\":\"Micro salle\",\"count\":1,\"port_modes\":[{\"port_id\":\"in/audioAnalog/jack-trs/mic\",\"mode\":1}]},{\"ref\":\"desk\",\"template_id\":\"yamaha-01v96\",\"name\":\"Console\",\"count\":1,\"port_modes\"…",
+    "← {\"error\":\"Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console et Enceintes 1 (sorties libres : jack-trs line+4, xlr3 line+4, rca line-10 ; entrées libres : speakon-nl4 speaker). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Fiches du même type compatibles avec Enceintes 1 : …",
+    "→ ask_user {\"question\":\"Les enceintes passives avec amplificateur disposent-elles des prises libres nécessaires pour recevoir le signal stéréo de la console ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"gen-mic-dyn\",\"name\":\"Micros dynamiques\",\"count\":4,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"mic2\",\"template_id\":\"yamaha-emx312sc\",\"name\":\"Micro salle\",\"count\":1,\"port_modes\":[{\"port_id\":\"in/audioAnalog/jack-trs/mic\",\"mode\":1}]},{\"ref\":\"desk\",\"template_id\":\"yamaha-01v96\",\"name\":\"Console\",\"count\":1,\"port_modes\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console et Enceintes 1 (sorties libres : jack-trs line+4, xlr3 line+4, rca line-10 ; entrées libres : speakon-nl4 speaker). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une…",
+    "→ ask_user {\"question\":\"Les enceintes passives avec amplificateur disposent-elles des prises libres nécessaires pour recevoir le signal stéréo de la console ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"gen-mic-dyn\",\"name\":\"Micros dynamiques\",\"count\":4,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"mic2\",\"template_id\":\"yamaha-emx312sc\",\"name\":\"Micro salle\",\"count\":1,\"port_modes\":[{\"port_id\":\"in/audioAnalog/jack-trs/mic\",\"mode\":1}]},{\"ref\":\"desk\",\"template_id\":\"yamaha-01v96\",\"name\":\"Console\",\"count\":1,\"port_modes\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console et Enceintes 1 (sorties libres : jack-trs line+4, xlr3 line+4, rca line-10 ; entrées libres : speakon-nl4 speaker). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une…",
+    "→ ask_user {\"question\":\"Les enceintes passives avec amplificateur disposent-elles des prises libres nécessaires pour recevoir le signal stéréo de la console ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"gen-mic-dyn\",\"name\":\"Micros dynamiques\",\"count\":4,\"port_modes\":[{\"port_id\":\"out/audioAnalog/xlr3/mic\",\"mode\":1}]},{\"ref\":\"mic2\",\"template_id\":\"yamaha-emx312sc\",\"name\":\"Micro salle\",\"count\":1,\"port_modes\":[{\"port_id\":\"in/audioAnalog/jack-trs/mic\",\"mode\":1}]},{\"ref\":\"desk\",\"template_id\":\"yamaha-01v96\",\"name\":\"Console\",\"count\":1,\"port_modes\"…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console et Enceintes 1 (sorties libres : jack-trs line+4, xlr3 line+4, rca line-10 ; entrées libres : speakon-nl4 speaker). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une…"
+   ]
+  },
+  {
+   "id": "radio-crossroad",
+   "difficulte": "simple",
+   "run": 1,
+   "grade": {
+    "id": "radio-crossroad",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console (régie)",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "Au moins 3 micros : présentateur, invité, journaliste en duplex",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 3,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "Le micro du journaliste (lieu annexe) arrive à la console",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "duplex",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Retour casque du journaliste en N-1",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "duplex"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Lecteur (jingles, tapis, extrait de concert) raccordé à la console",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "lecteur-media",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Enregistrement du PGM sur la station audionumérique",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Retours casques du présentateur et de l'invité",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "retour-casques"
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Ordre (talkback) du technicien vers les casques",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "talkback",
+       "vers": "retour-casques"
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Réseau hors antenne : technicien, présentateur, journaliste et invité peuvent se parler",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e10",
+      "texte": "Traitements de fréquence et de dynamique sur les sources ; niveaux conformes à la CST RT 040",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Quel est le mode de communication (micro, ligne) pour le réseau de casques ? Quel protocole (Dante, MADI) est requis pour le duplex ?"
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps",
+   "trace": [
+    "→ ask_user {\"question\":\"Quel est le protocole (Dante, MADI) requis pour le réseau de casques ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic\",\"template_id\":\"gen-mic-dyn\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"green-go-mcxd-novelty-35628\",\"count\":1},{\"ref\":\"speaker\",\"template_id\":\"gen-speaker-active\",\"count\":2},{\"ref\":\"intercom\",\"template_id\":\"clear-com-lq-r2w4-4w4\",\"count\":4},{\"ref\":\"duplex\",\"template_id\":\"rme-madi-routeur\",\"count\":1}],\"connections\":[{\"from\":\"mic\",\"to\":\"desk\",\"signal\":\"audioA…",
+    "← {\"error\":\"Aucune paire de prises libres et documentées compatible (audioAnalog) entre Micro dynamique 2 et MCXD (sorties libres : xlr3 mic ; entrées libres : xlr3 line+4). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Fiches du même type compatibles avec MCXD : sennheiser-e606, sennheiser-e835-s, beyerdyna…",
+    "→ ask_user {\"question\":\"Quel est le mode (micro, ligne) des prises pour le réseau de casques ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic\",\"template_id\":\"gen-mic-dyn\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"green-go-mcxd-novelty-35628\",\"count\":1},{\"ref\":\"speaker\",\"template_id\":\"gen-speaker-active\",\"count\":2},{\"ref\":\"intercom\",\"template_id\":\"clear-com-lq-r2w4-4w4\",\"count\":4},{\"ref\":\"duplex\",\"template_id\":\"rme-madi-routeur\",\"count\":1}],\"connections\":[{\"from\":\"mic\",\"to\":\"desk\",\"signal\":\"audioA…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Micro dynamique 2 et MCXD (sorties libres : xlr3 mic ; entrées libres : xlr3 line+4). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Fiches du même type compat…",
+    "→ ask_user {\"question\":\"Quel est le mode (micro, ligne) des prises pour le réseau de casques ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic\",\"template_id\":\"gen-mic-dyn\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"green-go-mcxd-novelty-35628\",\"count\":1},{\"ref\":\"speaker\",\"template_id\":\"gen-speaker-active\",\"count\":2},{\"ref\":\"intercom\",\"template_id\":\"clear-com-lq-r2w4-4w4\",\"count\":4},{\"ref\":\"duplex\",\"template_id\":\"rme-madi-routeur\",\"count\":1}],\"connections\":[{\"from\":\"mic\",\"to\":\"desk\",\"signal\":\"audioA…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Micro dynamique 2 et MCXD (sorties libres : xlr3 mic ; entrées libres : xlr3 line+4). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Fiches du même type compat…",
+    "→ ask_user {\"question\":\"Quel est le mode (micro, ligne) des prises pour le réseau de casques ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic\",\"template_id\":\"gen-mic-dyn\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"green-go-mcxd-novelty-35628\",\"count\":1},{\"ref\":\"speaker\",\"template_id\":\"gen-speaker-active\",\"count\":2},{\"ref\":\"intercom\",\"template_id\":\"clear-com-lq-r2w4-4w4\",\"count\":4},{\"ref\":\"duplex\",\"template_id\":\"rme-madi-routeur\",\"count\":1}],\"connections\":[{\"from\":\"mic\",\"to\":\"desk\",\"signal\":\"audioA…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Micro dynamique 2 et MCXD (sorties libres : xlr3 mic ; entrées libres : xlr3 line+4). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Fiches du même type compat…"
+   ]
+  },
+  {
+   "id": "talk-show-twitch",
+   "difficulte": "moyen",
+   "run": 1,
+   "grade": {
+    "id": "talk-show-twitch",
+    "automatic": [],
+    "forJudge": [
+     {
+      "id": "e1",
+      "texte": "Une console SQ5",
+      "type": "quantite",
+      "verif": {
+       "famille": "console",
+       "min": 1,
+       "max": 1,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e2",
+      "texte": "Au moins 5 micros : 3 cravates (présentateur, 2 invités) et 2 pour le live (guitare, voix)",
+      "type": "quantite",
+      "verif": {
+       "famille": "capture",
+       "min": 5,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e3",
+      "texte": "Au moins 2 retours MSP5 : talk-show et live",
+      "type": "quantite",
+      "verif": {
+       "famille": "speaker",
+       "min": 2,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "retour-plateau"
+      }
+     },
+     {
+      "id": "e4",
+      "texte": "Mix stéréo vers le PC de streaming",
+      "type": "sortie",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "poste-streaming"
+      }
+     },
+     {
+      "id": "e5",
+      "texte": "Mix stéréo vers l'enregistreur audio/vidéo",
+      "type": "sortie",
+      "verif": {
+       "famille": "recording",
+       "min": 1,
+       "max": null,
+       "signal": null,
+       "de": "console",
+       "vers": "enregistreur"
+      }
+     },
+     {
+      "id": "e6",
+      "texte": "Retour d'écoute du streaming et de l'enregistreur vers la régie pour contrôle",
+      "type": "liaison",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": "enregistreur",
+       "vers": "console"
+      }
+     },
+     {
+      "id": "e7",
+      "texte": "Retours talk-show en N-1 : chaque intervenant n'entend pas sa propre voix dans son retour",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e8",
+      "texte": "Retour standard (mix musicien) pour le live, séparé des retours talk-show",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     },
+     {
+      "id": "e9",
+      "texte": "Enregistrement en format professionnel pour archivage (PCM non compressé)",
+      "type": "contrainte",
+      "verif": {
+       "famille": null,
+       "min": null,
+       "max": null,
+       "signal": null,
+       "de": null,
+       "vers": null
+      }
+     }
+    ],
+    "score": 0
+   },
+   "questions": [
+    "Quelle référence exacte pour le micro cravate (mic1) ? Les options sont : audio-technica-at831b ou sanken-cos-11."
+   ],
+   "reply": "",
+   "ruleErrors": 0,
+   "error": "steps",
+   "trace": [
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"sennheiser-mke-40-ew\",\"name\":\"Micro cravate Sennheiser MKE 40\",\"count\":2},{\"ref\":\"mic2\",\"template_id\":\"sanken-cos-11\",\"name\":\"Micro dynamique Sanken COS-11\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"allen-heath-sq5\",\"name\":\"Console Allen & Heath SQ5\",\"count\":1},{\"ref\":\"computer\",\"template_id\":\"dpa-4488\",\"name\":\"Poste informatique avec carte…",
+    "← {\"error\":\"La simulation a trouvé 1 câble(s) compatible(s) pour cette paire, mais links_per_pair=2 en demande 2 pour CHAQUE paire (4 câbles pour ce flux). Si un seul câble par appareil est voulu, utiliser links_per_pair=1 ou omettre ce champ ; ne pas y mettre la quantité d’équipements. Si ces câbles indépendants sont obligatoires, choisir des appareils ou interfaces disposant des prises nécessair…",
+    "→ ask_user {\"question\":\"Quelles sont les prises libres disponibles sur la console Allen & Heath SQ5 pour recevoir des signaux micro (audioAnalog) ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"sennheiser-mke-40-ew\",\"name\":\"Micro cravate Sennheiser MKE 40\",\"count\":2},{\"ref\":\"mic2\",\"template_id\":\"sanken-cos-11\",\"name\":\"Micro dynamique Sanken COS-11\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"allen-heath-sq5\",\"name\":\"Console Allen & Heath SQ5\",\"count\":1},{\"ref\":\"computer\",\"template_id\":\"dpa-4488\",\"name\":\"Poste informatique avec carte…",
+    "← {\"error\":\"Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console Allen & Heath SQ5 et Poste informatique avec carte son (sorties libres : xlr3 line+4, jack-trs line+4 ; entrées libres : aucune). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Aucun élément de cet appel ajouté.\"}",
+    "→ ask_user {\"question\":\"Quel type de connexion (XLR, TRS, etc.) est requis entre la console Allen & Heath SQ5 et le poste informatique avec carte son pour transférer le signal audio stéréo ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"sennheiser-mke-40-ew\",\"name\":\"Micro cravate Sennheiser MKE 40\",\"count\":2},{\"ref\":\"mic2\",\"template_id\":\"sanken-cos-11\",\"name\":\"Micro dynamique Sanken COS-11\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"allen-heath-sq5\",\"name\":\"Console Allen & Heath SQ5\",\"count\":1},{\"ref\":\"computer\",\"template_id\":\"dpa-4488\",\"name\":\"Poste informatique avec carte…",
+    "← {\"error\":\"Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console Allen & Heath SQ5 et Poste informatique avec carte son (sorties libres : xlr3 line+4, jack-trs line+4 ; entrées libres : aucune). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Aucun élément de cet appel ajouté.\"}",
+    "→ ask_user {\"question\":\"Quelle est la solution pour connecter la console Allen & Heath SQ5 à un poste informatique avec carte son pour transférer le signal audio stéréo ?\"}",
+    "← {\"error\":\"Une précision a déjà été demandée pour cette demande. Retiens une hypothèse visible (assumptions) pour chaque point encore ouvert et construis le système.\"}",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"sennheiser-mke-40-ew\",\"name\":\"Micro cravate Sennheiser MKE 40\",\"count\":2},{\"ref\":\"mic2\",\"template_id\":\"sanken-cos-11\",\"name\":\"Micro dynamique Sanken COS-11\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"allen-heath-sq5\",\"name\":\"Console Allen & Heath SQ5\",\"count\":1},{\"ref\":\"computer\",\"template_id\":\"dpa-4488\",\"name\":\"Poste informatique avec carte…",
+    "← {\"error\":\"Appel identique déjà effectué sur ce brouillon, refusé ainsi : Aucune paire de prises libres et documentées compatible (audioAnalog) entre Console Allen & Heath SQ5 et Poste informatique avec carte son (sorties libres : xlr3 line+4, jack-trs line+4 ; entrées libres : aucune). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches o…",
+    "→ propose_system {\"equipment\":[{\"ref\":\"mic1\",\"template_id\":\"sennheiser-mke-40-ew\",\"name\":\"Micro cravate Sennheiser MKE 40\",\"count\":2},{\"ref\":\"mic2\",\"template_id\":\"sanken-cos-11\",\"name\":\"Micro dynamique Sanken COS-11\",\"count\":2},{\"ref\":\"desk\",\"template_id\":\"allen-heath-sq5\",\"name\":\"Console Allen & Heath SQ5\",\"count\":1},{\"ref\":\"computer\",\"template_id\":\"dpa-4488\",\"name\":\"Poste informatique avec carte…",
+    "← {\"error\":\"Aucune paire de prises libres et documentées compatible (audioIp) entre Console Allen & Heath SQ5 et Poste informatique avec carte son (sorties libres : ethercon, rj45 ; entrées libres : aucune). Vérifier les modes micro/ligne, la capacité, le protocole et les convertisseurs nécessaires ; lire les fiches ou demander une précision. Aucun élément de cet appel ajouté.\"}"
+   ]
+  }
+ ]
+}

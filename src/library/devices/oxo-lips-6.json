@@ -1,0 +1,39 @@
+{
+  "id": "oxo-lips-6",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "OXO",
+  "model": "Lips 6",
+  "status": "verified",
+  "description": "Console DMX LIPS6 à six faders et master, un univers de sortie sur XLR3 femelle. Alimentation par batterie PP3 9 V ou adaptateur optionnel 9 VDC 100 mA minimum (embase non décrite dans la notice). Dimensions 173 × 153 × 55 mm ; 0,8 kg.",
+  "aliases": [
+    "LIPS6",
+    "OXO Lips 6"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/6-circuits/lips-6/",
+      "document": "Novelty — Lips 6",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1393841153OXOLIPS6MANUEL_FR.pdf",
+      "document": "OXO, manuel LIPS6 rev.1.0 (relu), p. 2-3 : sortie DMX 3 broches femelle, adaptateur optionnel DC 9 V 100 mA, batterie PP3 9 V, 173×153×55 mm, 0,8 kg",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Connecteur DMX 3 broches femelle (manuel p. 3)"
+    }
+  ],
+  "weightKg": 0.8,
+  "depthMm": 153,
+  "notes": "Non saisie : embase de l'adaptateur secteur optionnel 9 VDC, 100 mA min. (connecteur non publié par le constructeur). L'appareil fonctionne aussi sur batterie PP3 9 V."
+}

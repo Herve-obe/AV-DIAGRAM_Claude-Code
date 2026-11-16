@@ -1,0 +1,310 @@
+{
+  "date": "2026-10-29",
+  "version": "0.5.23",
+  "batch": "audio-02",
+  "feedbackRevision": 822,
+  "userValidation": {
+    "status": "complete",
+    "validated": 8,
+    "removed": 12,
+    "pending": 0,
+    "yamahaOverride": "Validation explicite reçue après Conserver à compléter"
+  },
+  "summary": {
+    "decisions": 20,
+    "deviceFilesChanged": 6,
+    "removed": 12,
+    "retained": 8,
+    "verified": 749,
+    "community": 945,
+    "generic": 30,
+    "realDevices": 1694,
+    "unexaminedFromInitialCommunityBatch": 722
+  },
+  "records": [
+    {
+      "id": "allen-heath-xone-92",
+      "decision": "Valider",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "verified",
+      "changedFields": []
+    },
+    {
+      "id": "korg-kaoss-pad-kp3-plus",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "verified",
+      "changedFields": []
+    },
+    {
+      "id": "midas-venice-160",
+      "decision": "Valider",
+      "informations": "75W (page 25 du manuel)",
+      "source": "https://www.proscene.ch/data/web/proscene.ch/uploads/database/S02040/midas_venice_manual.pdf",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "verified",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "powerW"
+      ]
+    },
+    {
+      "id": "midas-venice-240",
+      "decision": "Valider",
+      "informations": "95W (page 25 du manuel)\nAlim externe Midas EPS1200 pour les modèles 240 et 320.",
+      "source": "https://www.proscene.ch/data/web/proscene.ch/uploads/database/S02040/midas_venice_manual.pdf",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "powerW"
+      ]
+    },
+    {
+      "id": "midas-venice-320",
+      "decision": "Valider",
+      "informations": "120W (page 25 du manuel)\nAlim externe Midas EPS1200 pour les modèles 240 et 320.",
+      "source": "https://www.proscene.ch/data/web/proscene.ch/uploads/database/S02040/midas_venice_manual.pdf",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "powerW"
+      ]
+    },
+    {
+      "id": "numark-mp103usb",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-cdj-2000-nexus-2",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "verified",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-djm2000-nexus",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-djm2000",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-djm900-nexus-2",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "verified",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-djm900-nxs",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-efx1000",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "pioneer-dj-rmx-1000-platinium-ltd-edition",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "pro-ject-tuner-box-s",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "qsc-touchmix-16",
+      "decision": "Valider",
+      "informations": "Prise secteur IEC C14.\nPoids = 2.98kg\nPower = 42W.\n(https://www.qscaudio.com/resource-files/productresources/mix/q_mix_tmix_specs_web.pdf)",
+      "source": "https://www.qscaudio.com/resource-files/productresources/mix/q_mix_tmix_8_16_30_usermanual_fr.pdf",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "community",
+      "changedFields": [
+        "sources",
+        "ports",
+        "description",
+        "powerW",
+        "weightKg"
+      ]
+    },
+    {
+      "id": "rane-ttm57sl",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "verified",
+      "changedFields": []
+    },
+    {
+      "id": "tascam-ss-cdr200",
+      "decision": "Retirer",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": true,
+      "statusAfter": "community",
+      "changedFields": []
+    },
+    {
+      "id": "universal-audio-uad-2-live-rack",
+      "decision": "Valider",
+      "informations": "",
+      "source": "",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "verified",
+      "changedFields": []
+    },
+    {
+      "id": "xta-dp448",
+      "decision": "Valider",
+      "informations": "Ce sont les mêmes connecteurs XLR pour le mode analogique et le mode AES.\nUn switch en face arrière permet de sélectionner si les Input sont en analogique ou en AES et les sorties se sélectionnent dans le menu de l’appareil, dans ce cas, une sortie sur 2 devient une sortie AES 2 canaux",
+      "source": "https://fr.scribd.com/document/324715846/4-Series-Manual-Version-1p10",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "verified",
+      "changedFields": [
+        "description",
+        "sources",
+        "ports"
+      ]
+    },
+    {
+      "id": "yamaha-d5000",
+      "decision": "Valider",
+      "informations": "On ne mentionne pas les prises jack, dédiées à un usage de footswitch, pas de liaison audio. Pour l’alimentation, le cordon secteur est directement intégré à l’équipement avec une prise de type C",
+      "source": "",
+      "originalDecision": "À décider",
+      "decisionOverride": "Instruction explicite ultérieure : Valide le D5000 selon mes réponses",
+      "applied": true,
+      "excluded": false,
+      "statusAfter": "community",
+      "changedFields": [
+        "description",
+        "sources",
+        "ports"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "url": "https://www.proscene.ch/data/web/proscene.ch/uploads/database/S02040/midas_venice_manual.pdf",
+      "pagesPdf": [
+        4,
+        21,
+        25
+      ],
+      "confirmed": [
+        "75 W / 95 W / 120 W",
+        "EPS1200 externe optionnel sur 240/320",
+        "Talkback +48 V permanent"
+      ]
+    },
+    {
+      "url": "https://www.qscaudio.com/resource-files/productresources/mix/q_mix_tmix_specs_web.pdf",
+      "pagesPdf": [
+        6
+      ],
+      "confirmed": [
+        "42 W"
+      ],
+      "userSelected": [
+        "2,98 kg métriques malgré 5,9 lb contradictoires"
+      ]
+    },
+    {
+      "document": "Manuel QSC TouchMix-8/16 2.1 en cache, page PDF 35 : prise de console 6 contacts et bloc externe. L’IEC C14 déclaré est interprété côté secteur du bloc ; aucune embase IEC n’est ajoutée à la console."
+    },
+    {
+      "document": "Manuel XTA série 4 en cache, page PDF 31 : sélection analogique/AES sur les mêmes prises."
+    },
+    {
+      "document": "D5000 : cordon captif/type C déclaré par l’utilisateur et validé explicitement ; pas de confirmation constructeur de cette fiche de cordon dans les pages lues."
+    }
+  ],
+  "remainingTechnical": [
+    "Midas 240/320 : désignation mécanique de la prise EPS1200 non confirmée.",
+    "QSC TouchMix-16 : prise console 6 contacts non identifiée mécaniquement ; choix 2,98 kg conservé avec contradiction livres/kg.",
+    "Yamaha D5000 : cordon captif type C déclaré et accepté ; aucun connecteur secteur approximatif ajouté au catalogue."
+  ],
+  "compatibility": "Exclusions au chargement de la bibliothèque ; JSON d’origine des douze appareils conservés. Aucun réécriture de projet existant.",
+  "validation": {
+    "testsPassed": 479,
+    "testsSkipped": 6,
+    "typecheck": "passed",
+    "build": "passed",
+    "lint": {
+      "errors": 0,
+      "preexistingWarnings": 4
+    },
+    "native": "À confirmer après publication"
+  }
+}

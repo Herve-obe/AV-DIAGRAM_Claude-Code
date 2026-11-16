@@ -1,0 +1,276 @@
+{
+  "id": "folsom-imagepro-hd",
+  "family": "videoSwitcher",
+  "manufacturer": "Folsom (Barco)",
+  "model": "ImagePRO-HD",
+  "pictogram": "switcher",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://ret.de/media/uploads/2018/02/Barco-ImagePRO-HD-Datenblatt.pdf",
+      "document": "Barco, fiche ImagePRO-HD",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/imagepro-hd/",
+      "document": "Novelty — ImagePRO-HD",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/folsom_imagepro#hd_ft.pdf",
+      "document": "Novelty — ImagePRO-HD : ImagePro HD",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/folsom_imagepro#hd_manuel.pdf",
+      "document": "Novelty — ImagePRO-HD : ImagePro HD",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Universal Input 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I numérique ou analogique"
+    },
+    {
+      "id": "in1Loop",
+      "name": "Universal Input 1 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Recopie"
+    },
+    {
+      "id": "in2",
+      "name": "Universal Input 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "HD-15 RVB, YUV, Y/C ou composite"
+    },
+    {
+      "id": "in2Loop",
+      "name": "Universal Input 2 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "Recopie"
+    },
+    {
+      "id": "in3",
+      "name": "Universal Input 3 R/R-Y/C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, entrée universelle 3"
+    },
+    {
+      "id": "in3G",
+      "name": "Universal Input 3 G/Y/Composite",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, entrée universelle 3"
+    },
+    {
+      "id": "in3B",
+      "name": "Universal Input 3 B/B-Y",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, entrée universelle 3"
+    },
+    {
+      "id": "in3H",
+      "name": "Universal Input 3 H/C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, entrée universelle 3"
+    },
+    {
+      "id": "in3V",
+      "name": "Universal Input 3 V",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, entrée universelle 3"
+    },
+    {
+      "id": "in3Loop",
+      "name": "Universal Input 3 Loop R/R-Y/C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, recopie"
+    },
+    {
+      "id": "in3LoopG",
+      "name": "Universal Input 3 Loop G/Y/Composite",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, recopie"
+    },
+    {
+      "id": "in3LoopB",
+      "name": "Universal Input 3 Loop B/B-Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, recopie"
+    },
+    {
+      "id": "in3LoopH",
+      "name": "Universal Input 3 Loop H/C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, recopie"
+    },
+    {
+      "id": "in3LoopV",
+      "name": "Universal Input 3 Loop V",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, recopie"
+    },
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "outSdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD-SDI"
+    },
+    {
+      "id": "outVga",
+      "name": "Output 1 HD-15",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dsub15",
+      "format": "RVB ou composante"
+    },
+    {
+      "id": "outBnc",
+      "name": "Output 2 R/R-Y/C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, sortie 2"
+    },
+    {
+      "id": "outBncG",
+      "name": "Output 2 G/Y/Composite",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, sortie 2"
+    },
+    {
+      "id": "outBncB",
+      "name": "Output 2 B/B-Y",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, sortie 2"
+    },
+    {
+      "id": "outBncH",
+      "name": "Output 2 H/C",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, sortie 2"
+    },
+    {
+      "id": "outBncV",
+      "name": "Output 2 V",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "BNC, sortie 2"
+    },
+    {
+      "id": "outComp",
+      "name": "Composite Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "outYc",
+      "name": "S-Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "minidin4",
+      "format": "Mini-DIN 4"
+    },
+    {
+      "id": "outDvi",
+      "name": "DVI-D Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock In H/C/Burst",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou synchro H/C"
+    },
+    {
+      "id": "glV",
+      "name": "Genlock In V",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchro V"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande à distance"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Commande à distance"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 47-63 Hz, interrupteur"
+    }
+  ],
+  "aliases": [
+    "IMAGEPROHD",
+    "FOLSOM ImagePRO-HD"
+  ],
+  "powerW": 150
+}

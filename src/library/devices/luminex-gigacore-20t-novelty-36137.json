@@ -1,0 +1,218 @@
+{
+  "id": "luminex-gigacore-20t-novelty-36137",
+  "family": "network",
+  "domain": "network",
+  "pictogram": "switch",
+  "manufacturer": "Luminex",
+  "model": "GigaCore 20T",
+  "status": "verified",
+  "description": "Switch 10 Gb : 4 cages SFP+ 10/1 Gb/s, 8 etherCON Gigabit (4 avant, 4 arrière), 8 RJ45 Gigabit, powerCON TRUE1 entrée/recopie.",
+  "aliases": [
+    "GIGACORE20T",
+    "Luminex GigaCore 20T"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/reseau/switch/gigacore-20t/",
+      "document": "Novelty — GigaCore 20T",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6344-4802-gigacore20t-ft.pdf",
+      "document": "Novelty — GigaCore 20T : gigacore20t_ft",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.luminex.be/wp-content/uploads/doccenter/Product-specification-sheet-GigaCore-20t-v1.0.1.pdf",
+      "document": "Luminex, Product specification sheet GigaCore 20t v1.0.1",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.luminex.be/products/gigacore/gigacore-20t/",
+      "document": "Luminex, page produit GigaCore 20t (consommation, poids)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "front1",
+      "name": "Avant 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "front2",
+      "name": "Avant 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "front3",
+      "name": "Avant 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "front4",
+      "name": "Avant 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rear1",
+      "name": "Arrière etherCON 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rear2",
+      "name": "Arrière etherCON 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rear3",
+      "name": "Arrière etherCON 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rear4",
+      "name": "Arrière etherCON 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj1",
+      "name": "Arrière RJ45 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj2",
+      "name": "Arrière RJ45 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj3",
+      "name": "Arrière RJ45 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj4",
+      "name": "Arrière RJ45 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj5",
+      "name": "Arrière RJ45 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj6",
+      "name": "Arrière RJ45 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj7",
+      "name": "Arrière RJ45 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "rj8",
+      "name": "Arrière RJ45 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T"
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP+ 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP+ 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "sfp3",
+      "name": "SFP+ 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "sfp4",
+      "name": "SFP+ 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP+ 10 Gbit/s ou 1 Gbit/s, indépendante"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 entrée"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 sortie"
+    }
+  ],
+  "powerW": 30,
+  "weightKg": 4,
+  "rackU": 1,
+  "depthMm": 217
+}

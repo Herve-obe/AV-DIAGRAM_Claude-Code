@@ -1,0 +1,55 @@
+{
+  "id": "phonak-repeater-roger",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Phonak",
+  "model": "Repeater Roger",
+  "status": "verified",
+  "description": "Répéteur Roger, 1200 mAh",
+  "aliases": [
+    "PHONAK/RP",
+    "Phonak Repeater Roger"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/repeater-roger/",
+      "document": "Novelty — Repeater Roger",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/9873-4492-manuel-fr-roger-phonak-1.pdf",
+      "document": "Novelty — Repeater Roger : Manuel_fr_ Roger Phonak",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/10594-4492-roger-repeater-techdata-en-web-29032017.pdf",
+      "document": "Novelty — Repeater Roger : techData_EN",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.phonak-communications.com/en/wp-content/uploads/sites/31/2022/10/Roger-Earpiece-System-User-Guide.pdf",
+      "document": "Phonak Communications, Roger Earpiece System User Guide",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison Roger 2,4 GHz",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Répéteur : reçoit la base ou le Touchscreen Mic et réémet vers les oreillettes, 100 mW, 2 ms de latence"
+    },
+    {
+      "id": "usb",
+      "name": "Micro-USB",
+      "direction": "in",
+      "signal": "power",
+      "connector": "usb-micro",
+      "format": "Charge de la batterie Li-Po 1200 mAh, bloc 5 V 1 A fourni ; aussi mise à jour"
+    }
+  ],
+  "weightKg": 0.12
+}

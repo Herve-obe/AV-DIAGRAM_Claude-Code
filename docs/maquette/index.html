@@ -1,0 +1,518 @@
+<title>AV Diagram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ===== Tokens : thème clair (base) ===== */
+:root{
+  --bg:#e9ebee; --panel:#f6f7f9; --panel-2:#eef0f3; --canvas:#fbfbfc; --line:#d3d7dd; --line-2:#c2c7cf;
+  --text:#1e2227; --muted:#5f6772; --faint:#8a929c; --accent:#d9692a; --accent-soft:#f6dccb; --on-accent:#fff;
+  --grid:#d9dde2; --node:#ffffff; --node-head:#eceef1; --shadow:0 1px 2px rgba(20,24,30,.08),0 4px 14px rgba(20,24,30,.06);
+  --s-ana:#2f7fe0; --s-num:#8d63e8; --s-ip:#1fa37a; --s-vid:#c99a12; --s-sync:#d94c8e; --s-ctl:#78828e; --s-net:#1a9bb5; --s-pwr:#d23f37; --s-com:#e07b1f;
+  --ok:#1fa37a; --warn:#c98a0a; --err:#d23f37;
+  --ui:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif; --cond:"Barlow Condensed","Arial Narrow",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#141619; --panel:#1c1f23; --panel-2:#22262b; --canvas:#17191c; --line:#2c3137; --line-2:#3a4048;
+  --text:#dde1e6; --muted:#9aa2ac; --faint:#6b737d; --accent:#f08c4a; --accent-soft:#3a2a1f; --on-accent:#1a1208;
+  --grid:#23272c; --node:#23272c; --node-head:#2b3036; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+  --s-ana:#5b9cf0; --s-num:#a98bf7; --s-ip:#3ccf9e; --s-vid:#f2cb4d; --s-sync:#f06ba8; --s-ctl:#9aa3ad; --s-net:#36c1d9; --s-pwr:#ef5a52; --s-com:#f29a4a;
+  --ok:#3ccf9e; --warn:#f2b84d; --err:#ef5a52;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#141619; --panel:#1c1f23; --panel-2:#22262b; --canvas:#17191c; --line:#2c3137; --line-2:#3a4048;
+  --text:#dde1e6; --muted:#9aa2ac; --faint:#6b737d; --accent:#f08c4a; --accent-soft:#3a2a1f; --on-accent:#1a1208;
+  --grid:#23272c; --node:#23272c; --node-head:#2b3036; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+  --s-ana:#5b9cf0; --s-num:#a98bf7; --s-ip:#3ccf9e; --s-vid:#f2cb4d; --s-sync:#f06ba8; --s-ctl:#9aa3ad; --s-net:#36c1d9; --s-pwr:#ef5a52; --s-com:#f29a4a;
+  --ok:#3ccf9e; --warn:#f2b84d; --err:#ef5a52;
+}
+
+/* ===== Structure de l'application ===== */
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font:14px/1.4 var(--ui);padding-inline:0}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.app{height:100%;display:grid;grid-template-rows:auto 1fr auto auto;min-height:620px}
+.top{display:flex;align-items:center;gap:14px;padding:8px 16px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font:600 15px var(--ui);letter-spacing:.2px}
+.brand svg{width:22px;height:22px}
+.proj{color:var(--muted);font-size:13px}
+.proj b{color:var(--text);font-weight:600}
+.tabs{display:flex;gap:2px;background:var(--panel-2);padding:3px;border-radius:6px;border:1px solid var(--line)}
+.tabs button{padding:4px 10px;border-radius:4px;font:500 13px var(--ui);color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--node);color:var(--text);box-shadow:var(--shadow)}
+.spacer{flex:1}
+.seg{display:flex;border:1px solid var(--line-2);border-radius:6px;overflow:hidden}
+.seg button{padding:4px 10px;font:600 12px var(--cond);letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.kbtn{display:flex;align-items:center;gap:8px;padding:5px 10px;border:1px solid var(--line-2);border-radius:6px;color:var(--muted);font-size:13px;min-width:180px}
+kbd{font:500 11px var(--mono);padding:1px 5px;border:1px solid var(--line-2);border-radius:3px;color:var(--muted);margin-left:auto}
+.icon-btn{width:30px;height:30px;display:grid;place-items:center;border-radius:6px;color:var(--muted)}
+.icon-btn:hover{background:var(--panel-2);color:var(--text)}
+
+.main{display:grid;grid-template-columns:44px 220px 1fr 260px;min-height:0}
+.rail{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:4px;padding-block:8px}
+.rail button{width:32px;height:32px;display:grid;place-items:center;border-radius:6px;color:var(--muted)}
+.rail button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.rail svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+.panel{background:var(--panel);display:flex;flex-direction:column;min-height:0;overflow:auto}
+.lib{border-right:1px solid var(--line)}
+.insp{border-left:1px solid var(--line)}
+.ph{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 6px;font:600 12px var(--cond);letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.search{margin:0 12px 8px;display:flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid var(--line-2);border-radius:6px;background:var(--panel-2)}
+.search input{flex:1;border:0;background:none;color:var(--text);font:inherit;min-width:0;outline:none}
+.fam{padding:6px 12px 2px;font:600 11px var(--cond);letter-spacing:.8px;text-transform:uppercase;color:var(--faint)}
+.item{display:flex;align-items:center;gap:10px;margin:0 6px;padding:6px;border-radius:6px;cursor:grab}
+.item:hover{background:var(--panel-2)}
+.pict{width:30px;height:30px;border-radius:5px;display:grid;place-items:center;background:var(--node-head);border:1px solid var(--line)}
+.pict svg{width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.item>div:nth-child(2){flex:1;min-width:0}
+.item .n{font-weight:500;font-size:13px}
+.item .s{font:11px var(--mono);color:var(--muted)}
+.badge{margin-left:auto;font:600 10px var(--cond);letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:3px;border:1px solid var(--line-2);color:var(--faint)}
+.expert-only{}
+body.beginner .expert-only{display:none!important}
+.hint{margin:8px 12px;padding:8px 10px;border-radius:6px;background:var(--accent-soft);font-size:12.5px;color:var(--text);border:1px solid var(--line)}
+body:not(.beginner) .hint{display:none}
+
+/* Canevas */
+.stage{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;background:var(--canvas)}
+.filters{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--panel)}
+.chip{display:flex;align-items:center;gap:6px;padding:3px 9px 3px 7px;border-radius:99px;border:1px solid var(--line-2);font:500 12px var(--ui);color:var(--text)}
+.chip i{width:14px;height:3px;border-radius:2px;background:var(--c)}
+.chip[aria-pressed="false"]{opacity:.4}
+.chip[aria-pressed="false"] i{background:var(--faint)}
+.canvas-wrap{flex:1;overflow:auto;position:relative;
+  background-image:radial-gradient(var(--grid) 1.2px,transparent 1.2px);background-size:20px 20px}
+#svg{display:block;touch-action:none;width:100%;min-width:900px;height:auto}
+.node rect.body{fill:var(--node);stroke:var(--line-2);stroke-width:1}
+.node.sel rect.body{stroke:var(--accent);stroke-width:2}
+.node rect.head{fill:var(--node-head)}
+.node .title{font:600 13px var(--ui);fill:var(--text)}
+.node .sub{font:10.5px var(--mono);fill:var(--muted)}
+.node .port{font:11px var(--ui);fill:var(--muted)}
+.node{cursor:move}
+.edge{fill:none;stroke-width:2;stroke-linejoin:round}
+.edge.hidden,.edge-label.hidden{display:none}
+.edge.err{stroke-dasharray:none}
+.edge-label{font:500 10px var(--mono);fill:var(--muted)}
+.zone rect{fill:var(--accent);fill-opacity:.04;stroke:var(--line-2);stroke-dasharray:4 4}
+.zone text{font:600 11px var(--cond);letter-spacing:1px;fill:var(--faint);text-transform:uppercase}
+.alert-dot{fill:var(--warn)}
+.legend{position:absolute;left:12px;bottom:12px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:11.5px;display:grid;grid-template-columns:auto auto;gap:3px 10px;box-shadow:var(--shadow)}
+.legend span{display:flex;align-items:center;gap:6px;color:var(--muted)}
+.legend svg{width:22px;height:6px}
+
+/* Inspecteur */
+.field{display:grid;grid-template-columns:96px 1fr;gap:8px;align-items:center;padding:4px 12px;font-size:13px}
+.field label{color:var(--muted);font-size:12px}
+.field .v{padding:4px 7px;border:1px solid var(--line);border-radius:5px;background:var(--panel-2);font:12px var(--mono);min-height:26px;overflow-wrap:anywhere}
+.sect{border-top:1px solid var(--line);margin-top:8px}
+.portlist{padding:0 12px 10px;display:grid;gap:3px}
+.pl{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;font-size:12.5px}
+.pl i{width:8px;height:8px;border-radius:2px;background:var(--c)}
+.pl span:last-child{font:11px var(--mono);color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:5px;font:600 11px var(--cond);letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:var(--panel-2);border:1px solid var(--line)}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c)}
+.empty{padding:14px 12px;color:var(--muted);font-size:13px}
+
+/* Dock inférieur */
+.dock{background:var(--panel);border-top:1px solid var(--line);height:210px;display:flex;flex-direction:column;min-height:0}
+.dock-tabs{display:flex;gap:2px;padding:6px 12px 0;border-bottom:1px solid var(--line)}
+.dock-tabs button{padding:6px 12px;font:600 12px var(--cond);letter-spacing:.7px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent}
+.dock-tabs button[aria-pressed="true"]{color:var(--text);border-color:var(--accent)}
+.count{font:500 10px var(--mono);margin-left:4px;padding:0 4px;border-radius:3px;background:var(--panel-2)}
+.count.w{background:var(--warn);color:#1a1208}
+.dock-body{flex:1;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}
+th{position:sticky;top:0;background:var(--panel);text-align:left;font:600 11px var(--cond);letter-spacing:.7px;text-transform:uppercase;color:var(--faint);padding:6px 12px;border-bottom:1px solid var(--line)}
+td{padding:5px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.m{font-family:var(--mono);font-size:12px}
+tr.hl td{background:var(--accent-soft)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:6px;vertical-align:-1px}
+.sev{font:600 11px var(--cond);letter-spacing:.5px;text-transform:uppercase;color:var(--c)}
+
+.statusbar{display:flex;gap:16px;align-items:center;padding:4px 16px;font:11.5px var(--mono);color:var(--muted);background:var(--panel-2);border-top:1px solid var(--line);flex-wrap:wrap}
+.statusbar .ok{color:var(--ok)}
+
+/* Palette de commandes */
+.overlay{position:fixed;inset:0;background:rgba(10,12,15,.45);display:grid;place-items:start center;padding:12vh 16px 16px;z-index:10}
+.palette{width:min(560px,100%);background:var(--panel);border:1px solid var(--line-2);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.palette input{width:100%;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--text);font:15px var(--ui);outline:none}
+.palette ul{list-style:none;margin:0;padding:6px;max-height:320px;overflow:auto}
+.palette li{display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px;font-size:13.5px;cursor:pointer}
+.palette li[aria-selected="true"],.palette li:hover{background:var(--accent-soft)}
+.palette li span{color:var(--faint);font:11px var(--mono)}
+.demo{position:fixed;left:50%;bottom:36px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:6px 12px;border-radius:6px;font-size:12.5px;z-index:11}
+
+@media (max-width:1100px){.main{grid-template-columns:44px 200px 1fr 230px}}
+@media (max-width:860px){
+  .app{height:auto}
+  .main{grid-template-columns:1fr}
+  .rail{flex-direction:row;justify-content:center;border-right:0;border-bottom:1px solid var(--line)}
+  .lib,.insp{border:0;border-bottom:1px solid var(--line);max-height:260px}
+  .canvas-wrap{height:420px}
+  .kbtn{min-width:0}
+  .kbtn .lbl{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app" id="app">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--accent)" stroke-width="2"/><rect x="15" y="5" width="7" height="14" rx="1.5" fill="none" stroke="var(--text)" stroke-width="2"/><path d="M9 9h3v6h3" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>
+      AV Diagram
+    </div>
+    <div class="proj">Exemple : <b>Concert, salle 1 200 places</b></div>
+    <div class="tabs" role="group" aria-label="Pages du projet">
+      <button aria-pressed="true">Scène</button><button aria-pressed="false">Régie FOH</button><button aria-pressed="false">Retours</button>
+    </div>
+    <div class="spacer"></div>
+    <button class="kbtn" id="openPal" aria-label="Ouvrir la palette de commandes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lbl">Rechercher, commande</span><kbd>Ctrl K</kbd></button>
+    <div class="seg" role="group" aria-label="Mode d'interface">
+      <button id="mBeg" aria-pressed="false">Débutant</button><button id="mExp" aria-pressed="true">Expert</button>
+    </div>
+    <button class="icon-btn" id="theme" title="Changer de thème" aria-label="Changer de thème"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+  </header>
+
+  <div class="main">
+    <nav class="rail" aria-label="Outils">
+      <button aria-pressed="true" title="Sélection (V)"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 2-2 6z"/></svg></button>
+      <button aria-pressed="false" title="Relier (C)"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h5v12h5"/></svg></button>
+      <button aria-pressed="false" title="Zone (Z)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1" stroke-dasharray="3 3"/></svg></button>
+      <button aria-pressed="false" title="Texte (T)"><svg viewBox="0 0 24 24"><path d="M5 6V4h14v2M12 4v16M9 20h6"/></svg></button>
+      <button aria-pressed="false" title="Dessin libre (P)" class="expert-only"><svg viewBox="0 0 24 24"><path d="M4 20c4-1 5-6 8-9s6-4 8-7"/></svg></button>
+      <button aria-pressed="false" title="Rack"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M5 8h14M5 13h14M5 18h14"/></svg></button>
+      <button aria-pressed="false" title="Plan"><svg viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></button>
+    </nav>
+
+    <aside class="panel lib" aria-label="Bibliothèque">
+      <div class="ph">Bibliothèque <span class="badge expert-only">312</span></div>
+      <div class="search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="libq" placeholder="Console, stagebox, SDI..." aria-label="Filtrer la bibliothèque"></div>
+      <div class="hint">Glisse un équipement sur le canevas, puis tire une liaison d'une sortie (à droite du bloc) vers une entrée (à gauche).</div>
+      <div id="libList"></div>
+    </aside>
+
+    <section class="stage" aria-label="Canevas">
+      <div class="filters" id="filters" role="group" aria-label="Filtres d'affichage par signal"></div>
+      <div class="canvas-wrap" id="wrap">
+        <svg id="svg" viewBox="0 0 1220 600" aria-label="Synoptique"></svg>
+      </div>
+      <div class="legend" id="legend" aria-label="Légende"></div>
+    </section>
+
+    <aside class="panel insp" aria-label="Inspecteur" id="insp"></aside>
+  </div>
+
+  <section class="dock" aria-label="Listes générées">
+    <div class="dock-tabs" role="group">
+      <button data-t="cables" aria-pressed="true">Câblage <span class="count" id="cCab"></span></button>
+      <button data-t="bom" aria-pressed="false">Nomenclature</button>
+      <button data-t="patch" aria-pressed="false" class="expert-only">Patch console</button>
+      <button data-t="alerts" aria-pressed="false">Alertes <span class="count w" id="cAl"></span></button>
+    </div>
+    <div class="dock-body" id="dock"></div>
+  </section>
+
+  <footer class="statusbar">
+    <span>Zoom 100 %</span><span id="sbN"></span><span id="sbE"></span><span class="ok">Enregistré localement</span><span>Hors ligne prêt</span><span>Maquette : données d'exemple génériques</span>
+  </footer>
+</div>
+
+<div class="overlay" id="ov" hidden>
+  <div class="palette" role="dialog" aria-label="Palette de commandes">
+    <input id="palq" placeholder="Tape une commande ou un équipement" aria-label="Commande">
+    <ul id="palList" role="listbox"></ul>
+  </div>
+</div>
+<div class="demo" id="toast" hidden></div>
+
+<script>
+/* Données d'exemple : équipements génériques, aucune caractéristique constructeur réelle */
+const SIG={
+  ana:{n:"Audio analogique",v:"--s-ana",d:""},
+  num:{n:"Audio numérique",v:"--s-num",d:""},
+  ip:{n:"Audio sur IP",v:"--s-ip",d:"9 5"},
+  vid:{n:"Vidéo",v:"--s-vid",d:""},
+  sync:{n:"Synchro",v:"--s-sync",d:"2 4"},
+  com:{n:"Intercom",v:"--s-com",d:"8 3 2 3"},
+  ctl:{n:"Contrôle",v:"--s-ctl",d:"4 3"},
+  net:{n:"Réseau",v:"--s-net",d:""},
+  pwr:{n:"Électrique",v:"--s-pwr",d:""}
+};
+const PICT={
+  mic:'<path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM6 11a6 6 0 0 0 12 0M12 17v4"/>',
+  di:'<rect x="4" y="7" width="16" height="10" rx="1.5"/><path d="M8 12h3M13 12h3"/>',
+  box:'<rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="7" cy="10" r="1"/><circle cx="11" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><circle cx="7" cy="14" r="1"/><circle cx="11" cy="14" r="1"/><circle cx="15" cy="14" r="1"/>',
+  desk:'<path d="M3 17l3-10h12l3 10z"/><path d="M8 10v4M11 9v5M14 11v3M17 10v4"/>',
+  dsp:'<rect x="3" y="8" width="18" height="8" rx="1"/><path d="M6 12h2l1-2 2 4 1-2h6"/>',
+  amp:'<rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 12h4l2-3v6l2-3h2"/>',
+  spk:'<rect x="6" y="3" width="12" height="18" rx="1.5"/><circle cx="12" cy="15" r="3"/><circle cx="12" cy="7.5" r="1.5"/>',
+  sw:'<rect x="3" y="8" width="18" height="8" rx="1"/><path d="M6 12h1M9 12h1M12 12h1M15 12h1M18 12h0"/>',
+  clk:'<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>',
+  cam:'<rect x="3" y="7" width="13" height="10" rx="1.5"/><path d="M16 11l5-3v8l-5-3z"/>',
+  rec:'<rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="12" cy="12" r="3"/>'
+};
+const LIB=[
+  {fam:"Captation",items:[{n:"Micro dynamique",s:"1 sortie XLR",p:"mic"},{n:"Micro statique",s:"1 sortie XLR, 48 V",p:"mic"},{n:"Boîte de direct (DI)",s:"jack in, XLR out",p:"di"}]},
+  {fam:"Consoles et stageboxes",items:[{n:"Console numérique",s:"générique",p:"desk"},{n:"Stagebox Dante",s:"générique",p:"box"},{n:"Stagebox MADI",s:"générique",p:"box",x:1}]},
+  {fam:"Diffusion",items:[{n:"Processeur système",s:"générique",p:"dsp"},{n:"Amplificateur 4 canaux",s:"générique",p:"amp"},{n:"Enceinte passive",s:"Speakon NL4",p:"spk"}]},
+  {fam:"Réseau et synchro",items:[{n:"Switch réseau géré",s:"générique",p:"sw"},{n:"Horloge maître",s:"word clock, PTP",p:"clk",x:1}]},
+  {fam:"Vidéo",items:[{n:"Caméra",s:"sortie SDI",p:"cam"},{n:"Enregistreur multipiste",s:"générique",p:"rec",x:1}]}
+];
+
+/* Nœuds du synoptique d'exemple */
+const nodes=[
+  {id:"mic1",n:"Kick In",m:"Micro dynamique",p:"mic",x:40,y:70,ins:[],outs:[["Sortie","ana","XLR3 M","micro"]],z:"Scène",pw:0,w:0.3},
+  {id:"mic2",n:"Voix lead",m:"Micro statique",p:"mic",x:40,y:170,ins:[],outs:[["Sortie","ana","XLR3 M","micro"]],z:"Scène",pw:0,w:0.2},
+  {id:"di1",n:"DI clavier",m:"Boîte de direct",p:"di",x:40,y:270,ins:[["Entrée","ana","Jack TS","instrument"]],outs:[["Sortie","ana","XLR3 M","micro"]],z:"Scène",pw:0,w:0.9},
+  {id:"sb",n:"Stagebox SB-1",m:"Stagebox Dante 32x16",p:"box",x:270,y:90,ins:[["In 1","ana","XLR3 F","micro"],["In 2","ana","XLR3 F","micro"],["In 3","ana","XLR3 F","micro"],["Word clock","sync","BNC","WC"]],outs:[["Dante pri.","ip","etherCON","64 can."]],z:"Scène",pw:60,w:6},
+  {id:"sw",n:"Switch SW-1",m:"Switch géré 8 ports",p:"sw",x:520,y:300,ins:[["Port 1","net","etherCON","1 Gbit/s"],["Port 2","net","etherCON","1 Gbit/s"]],outs:[["Port 8","net","etherCON","1 Gbit/s"]],z:"Régie FOH",pw:40,w:2},
+  {id:"desk",n:"Console FOH",m:"Console numérique 48 voies",p:"desk",x:540,y:70,ins:[["Dante pri.","ip","etherCON","64 can."],["Line in 1","ana","XLR3 F","ligne +4 dBu"]],outs:[["Master L","num","XLR3 M","AES3"],["Master R","num","XLR3 M","AES3"],["Rec","ip","etherCON","Dante"]],z:"Régie FOH",pw:250,w:28},
+  {id:"dsp",n:"Processeur PS-1",m:"Processeur système 4x8",p:"dsp",x:800,y:60,ins:[["AES 1/2","num","XLR3 F","AES3"]],outs:[["Out A","ana","XLR3 M","ligne +4 dBu"],["Out B","ana","XLR3 M","ligne +4 dBu"]],z:"Régie FOH",pw:50,w:5},
+  {id:"amp",n:"Ampli AMP-1",m:"Amplificateur 4 canaux",p:"amp",x:800,y:230,ins:[["In A","ana","XLR3 F","ligne +4 dBu"],["In B","ana","XLR3 F","ligne +4 dBu"]],outs:[["Out 1","ana","Speakon NL4","HP"],["Out 2","ana","Speakon NL4","HP"]],z:"Scène",pw:1200,w:12},
+  {id:"spkL",n:"Façade L",m:"Enceinte passive",p:"spk",x:1020,y:200,ins:[["Entrée","ana","Speakon NL4","HP"]],outs:[],z:"Scène",pw:0,w:35},
+  {id:"spkR",n:"Façade R",m:"Enceinte passive",p:"spk",x:1020,y:310,ins:[["Entrée","ana","Speakon NL4","HP"]],outs:[],z:"Scène",pw:0,w:35},
+  {id:"clk",n:"Horloge CLK-1",m:"Horloge maître",p:"clk",x:270,y:330,ins:[],outs:[["WC out 1","sync","BNC","WC 48 kHz"]],z:"Régie FOH",pw:20,w:2},
+  {id:"rec",n:"Enregistreur REC-1",m:"Enregistreur multipiste",p:"rec",x:800,y:420,ins:[["Line in","ana","XLR3 F","ligne +4 dBu"],["Réseau","net","RJ45","1 Gbit/s"]],outs:[],z:"Régie FOH",pw:45,w:3}
+];
+/* Liaisons : [nœud source, index sortie, nœud destination, index entrée, longueur m] */
+const edges=[
+  ["mic1",0,"sb",0,10],["mic2",0,"sb",1,10],["di1",0,"sb",2,5],["clk",0,"sb",3,30],
+  ["sb",0,"sw",0,50],["desk",2,"sw",1,3],
+  ["sw",0,"desk",0,3],
+  ["desk",0,"dsp",0,2],["dsp",0,"amp",0,40],["dsp",1,"amp",1,40],
+  ["amp",0,"spkL",0,15],["amp",1,"spkR",0,15],
+  ["mic2",0,"rec",0,0]
+].map((e,i)=>({id:"FOH-"+String(i+1).padStart(3,"0"),s:e[0],so:e[1],t:e[2],ti:e[3],len:e[4]}));
+edges[12].id="SCN-013"; edges[12].split=true; /* départ via splitter, pour montrer une alerte de niveau */
+
+const W=180,HEAD=38,ROW=20;
+const byId=Object.fromEntries(nodes.map(n=>[n.id,n]));
+const nodeH=n=>HEAD+Math.max(n.ins.length,n.outs.length,1)*ROW+10;
+const portPos=(n,side,i)=>({x:n.x+(side==="out"?W:0),y:n.y+HEAD+i*ROW+10});
+const col=k=>`var(${SIG[k].v})`;
+
+let visible=Object.fromEntries(Object.keys(SIG).map(k=>[k,true]));
+let sel="desk", selEdge=null, dockTab="cables";
+
+/* Règles de compatibilité (extrait) */
+function check(e){
+  const s=byId[e.s].outs[e.so], t=byId[e.t].ins[e.ti];
+  const fam=x=>x==="ip"?"net":x; /* un flux audio sur IP circule sur un lien réseau */
+  if(fam(s[1])!==fam(t[1])) return {g:"Erreur",c:"--err",m:`${SIG[s[1]].n} vers ${SIG[t[1]].n}`,f:"Vérifier le type de port ou ajouter un convertisseur"};
+  if(s[3]==="micro"&&t[3].startsWith("ligne")) return {g:"Avertissement",c:"--warn",m:"Niveau micro vers entrée ligne (+4 dBu)",f:"Passer par un préampli ou une entrée micro"};
+  if(s[2].replace(/ [MF]$/,"")!==t[2].replace(/ [MF]$/,"")) return {g:"Avertissement",c:"--warn",m:`${s[2]} vers ${t[2]}`,f:"Ajouter un adaptateur"};
+  return null;
+}
+const alerts=()=>edges.map(e=>({e,r:check(e)})).filter(a=>a.r);
+
+function path(e){
+  const a=portPos(byId[e.s],"out",e.so), b=portPos(byId[e.t],"in",e.ti);
+  let mx=a.x+Math.max(24,(b.x-a.x)/2);
+  if(b.x<a.x+30){ const dy=Math.max(byId[e.s].y+nodeH(byId[e.s]),byId[e.t].y+nodeH(byId[e.t]))+16;
+    return `M${a.x} ${a.y}H${a.x+16}V${dy}H${b.x-16}V${b.y}H${b.x}`; }
+  return `M${a.x} ${a.y}H${mx}V${b.y}H${b.x}`;
+}
+
+const svg=document.getElementById("svg");
+function render(){
+  let h="";
+  /* zones */
+  h+=`<g class="zone"><rect x="20" y="20" width="440" height="440" rx="8"/><text x="32" y="40">Zone scène</text></g>`;
+  h+=`<g class="zone"><rect x="500" y="20" width="480" height="560" rx="8"/><text x="512" y="40">Zone régie FOH</text></g>`;
+  const al=new Set(alerts().map(a=>a.e.id));
+  for(const e of edges){
+    const k=byId[e.s].outs[e.so][1], hid=!visible[k]?" hidden":"";
+    const d=path(e), w=e.id===selEdge?3.5:2;
+    h+=`<path class="edge${hid}" data-e="${e.id}" d="${d}" stroke="${col(k)}" stroke-width="${w}" stroke-dasharray="${SIG[k].d}"/>`;
+    h+=`<path class="edge${hid}" data-e="${e.id}" d="${d}" stroke="transparent" stroke-width="12" style="cursor:pointer"/>`;
+    const b=portPos(byId[e.t],"in",e.ti);
+    h+=`<text class="edge-label${hid}" x="${b.x-8}" y="${b.y-5}" text-anchor="end">${e.id}</text>`;
+    if(al.has(e.id)&&!hid) h+=`<circle class="alert-dot" cx="${b.x-4}" cy="${b.y+8}" r="4"><title>Alerte sur ${e.id}</title></circle>`;
+  }
+  for(const n of nodes){
+    const H=nodeH(n);
+    h+=`<g class="node${n.id===sel?" sel":""}" data-n="${n.id}" transform="translate(${n.x},${n.y})">
+      <rect class="body" width="${W}" height="${H}" rx="6"/>
+      <rect class="head" x="1" y="1" width="${W-2}" height="${HEAD-4}" rx="5"/>
+      <g transform="translate(9,8) scale(.85)" fill="none" stroke="var(--text)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${PICT[n.p]}</g>
+      <text class="title" x="34" y="17">${n.n}</text><text class="sub" x="34" y="30">${n.m.length>24?n.m.slice(0,23)+"…":n.m}</text>`;
+    n.ins.forEach((p,i)=>{h+=`<circle cx="0" cy="${HEAD+i*ROW+10}" r="4.5" fill="${col(p[1])}" stroke="var(--node)" stroke-width="1.5"/><text class="port" x="10" y="${HEAD+i*ROW+14}">${p[0]}</text>`});
+    n.outs.forEach((p,i)=>{h+=`<circle cx="${W}" cy="${HEAD+i*ROW+10}" r="4.5" fill="${col(p[1])}" stroke="var(--node)" stroke-width="1.5"/><text class="port" x="${W-10}" y="${HEAD+i*ROW+14}" text-anchor="end">${p[0]}</text>`});
+    h+=`</g>`;
+  }
+  svg.innerHTML=h;
+  document.getElementById("sbN").textContent=nodes.length+" équipements";
+  document.getElementById("sbE").textContent=edges.length+" liaisons";
+  document.getElementById("cCab").textContent=edges.length;
+  document.getElementById("cAl").textContent=alerts().length;
+}
+
+function renderFilters(){
+  const f=document.getElementById("filters"), lg=document.getElementById("legend");
+  f.innerHTML=Object.entries(SIG).map(([k,s])=>`<button class="chip" data-k="${k}" aria-pressed="${visible[k]}" style="--c:var(${s.v})"><i></i>${s.n}</button>`).join("");
+  lg.innerHTML=Object.entries(SIG).slice(0,6).map(([k,s])=>`<span><svg viewBox="0 0 22 6"><line x1="0" y1="3" x2="22" y2="3" stroke="var(${s.v})" stroke-width="2.5" stroke-dasharray="${s.d}"/></svg>${s.n}</span>`).join("");
+}
+document.getElementById("filters").addEventListener("click",e=>{
+  const b=e.target.closest(".chip"); if(!b) return; visible[b.dataset.k]=!visible[b.dataset.k]; renderFilters(); render();
+});
+
+function renderLib(q=""){
+  q=q.toLowerCase();
+  document.getElementById("libList").innerHTML=LIB.map(g=>{
+    const it=g.items.filter(i=>(i.n+i.s).toLowerCase().includes(q));
+    if(!it.length) return "";
+    return `<div class="fam">${g.fam}</div>`+it.map(i=>`<div class="item${i.x?" expert-only":""}" title="Glisser sur le canevas"><div class="pict"><svg viewBox="0 0 24 24">${PICT[i.p]}</svg></div><div><div class="n">${i.n}</div><div class="s">${i.s}</div></div></div>`).join("");
+  }).join("");
+}
+document.getElementById("libq").addEventListener("input",e=>renderLib(e.target.value));
+document.getElementById("libList").addEventListener("click",()=>toast("Maquette : le glisser-déposer arrive au lot 1"));
+
+function renderInsp(){
+  const el=document.getElementById("insp");
+  if(selEdge){
+    const e=edges.find(x=>x.id===selEdge), s=byId[e.s].outs[e.so], t=byId[e.t].ins[e.ti], r=check(e);
+    el.innerHTML=`<div class="ph">Liaison</div>
+      <div class="field"><label>Numéro</label><div class="v">${e.id}</div></div>
+      <div class="field"><label>Signal</label><div class="v"><span class="sw" style="--c:${col(s[1])}"></span>${SIG[s[1]].n}</div></div>
+      <div class="field"><label>De</label><div class="v">${byId[e.s].n} / ${s[0]}</div></div>
+      <div class="field"><label>Vers</label><div class="v">${byId[e.t].n} / ${t[0]}</div></div>
+      <div class="field"><label>Connecteurs</label><div class="v">${s[2]} → ${t[2]}</div></div>
+      <div class="field expert-only"><label>Longueur</label><div class="v">${e.len?e.len+" m":"à définir"}</div></div>
+      <div class="field expert-only"><label>Flux</label><div class="v">${s[3]}</div></div>
+      <div class="field"><label>Contrôle</label><div class="v">${r?`<span class="status" style="--c:var(${r.c})">${r.g}</span><br>${r.m}<br><span style="color:var(--muted)">${r.f}</span>`:`<span class="status" style="--c:var(--ok)">Compatible</span>`}</div></div>`;
+    return;
+  }
+  const n=byId[sel];
+  if(!n){el.innerHTML=`<div class="ph">Inspecteur</div><p class="empty">Sélectionne un équipement ou une liaison.</p>`;return}
+  const pl=(arr,dir)=>arr.map(p=>`<div class="pl" style="--c:${col(p[1])}"><i></i><span>${p[0]}</span><span>${p[2]}</span></div>`).join("")||`<div class="pl"><span></span><span style="color:var(--faint)">Aucun</span></div>`;
+  el.innerHTML=`<div class="ph">Équipement <span class="badge">Générique</span></div>
+    <div class="field"><label>Nom</label><div class="v">${n.n}</div></div>
+    <div class="field"><label>Modèle</label><div class="v">${n.m}</div></div>
+    <div class="field"><label>Zone</label><div class="v">${n.z}</div></div>
+    <div class="field expert-only"><label>Puissance</label><div class="v">${n.pw} W</div></div>
+    <div class="field expert-only"><label>Poids</label><div class="v">${n.w} kg</div></div>
+    <div class="field expert-only"><label>Source</label><div class="v" style="color:var(--muted)">Bloc générique, sans fiche constructeur</div></div>
+    <div class="sect"><div class="ph">Entrées (${n.ins.length})</div><div class="portlist">${pl(n.ins)}</div></div>
+    <div class="sect"><div class="ph">Sorties (${n.outs.length})</div><div class="portlist">${pl(n.outs)}</div></div>`;
+}
+
+function renderDock(){
+  const d=document.getElementById("dock");
+  if(dockTab==="cables"){
+    d.innerHTML=`<table><thead><tr><th>N°</th><th>Signal</th><th>De</th><th>Vers</th><th>Connecteurs</th><th>Longueur</th></tr></thead><tbody>`+
+      edges.map(e=>{const s=byId[e.s].outs[e.so],t=byId[e.t].ins[e.ti];
+        return `<tr class="${e.id===selEdge?"hl":""}" data-e="${e.id}"><td class="m">${e.id}</td><td><span class="sw" style="--c:${col(s[1])}"></span>${SIG[s[1]].n}</td><td>${byId[e.s].n} / ${s[0]}</td><td>${byId[e.t].n} / ${t[0]}</td><td class="m">${s[2]} → ${t[2]}</td><td class="m">${e.len?e.len+" m":"à définir"}</td></tr>`}).join("")+`</tbody></table>`;
+  } else if(dockTab==="bom"){
+    const g={}; nodes.forEach(n=>{g[n.m]=g[n.m]||{q:0,pw:n.pw,w:n.w};g[n.m].q++});
+    const rows=Object.entries(g); const P=nodes.reduce((a,n)=>a+n.pw,0), M=nodes.reduce((a,n)=>a+n.w,0);
+    d.innerHTML=`<table><thead><tr><th>Désignation</th><th>Qté</th><th>Puissance unit.</th><th>Poids unit.</th></tr></thead><tbody>`+
+      rows.map(([k,v])=>`<tr><td>${k}</td><td class="m">${v.q}</td><td class="m">${v.pw} W</td><td class="m">${v.w} kg</td></tr>`).join("")+
+      `<tr><td><b>Total</b> (courant à 230 V : ${(P/230).toFixed(1)} A)</td><td class="m">${nodes.length}</td><td class="m"><b>${P} W</b></td><td class="m"><b>${M.toFixed(1)} kg</b></td></tr></tbody></table>`;
+  } else if(dockTab==="patch"){
+    const sb=byId.sb;
+    d.innerHTML=`<table><thead><tr><th>Entrée console</th><th>Source</th><th>Stagebox</th><th>Câble</th></tr></thead><tbody>`+
+      edges.filter(e=>e.t==="sb"&&byId[e.s].outs[e.so][1]==="ana").map((e,i)=>`<tr><td class="m">Ch ${String(i+1).padStart(2,"0")}</td><td>${byId[e.s].n}</td><td class="m">${sb.n} / ${sb.ins[e.ti][0]}</td><td class="m">${e.id}</td></tr>`).join("")+`</tbody></table>`;
+  } else {
+    const a=alerts();
+    d.innerHTML=`<table><thead><tr><th>Gravité</th><th>Liaison</th><th>Problème</th><th>Correction proposée</th></tr></thead><tbody>`+
+      (a.length?a.map(x=>`<tr data-e="${x.e.id}"><td><span class="sev" style="--c:var(${x.r.c})">${x.r.g}</span></td><td class="m">${x.e.id}</td><td>${x.r.m}</td><td>${x.r.f}</td></tr>`).join(""):`<tr><td colspan="4">Aucune alerte</td></tr>`)+`</tbody></table>`;
+  }
+}
+document.querySelector(".dock-tabs").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  dockTab=b.dataset.t; document.querySelectorAll(".dock-tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderDock();
+});
+document.getElementById("dock").addEventListener("click",e=>{
+  const r=e.target.closest("tr[data-e]"); if(!r) return; selEdge=r.dataset.e; sel=null; refresh();
+});
+
+/* Sélection et déplacement des blocs */
+let drag=null;
+const toSvg=e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;return pt.matrixTransform(svg.getScreenCTM().inverse())};
+svg.addEventListener("pointerdown",e=>{
+  const g=e.target.closest(".node"), p=e.target.closest(".edge");
+  if(g){ sel=g.dataset.n; selEdge=null; const n=byId[sel];
+    const q=toSvg(e); drag={n,dx:q.x-n.x,dy:q.y-n.y}; svg.setPointerCapture(e.pointerId); refresh(); }
+  else if(p){ selEdge=p.dataset.e; sel=null; refresh(); }
+  else { sel=null; selEdge=null; refresh(); }
+});
+svg.addEventListener("pointermove",e=>{
+  if(!drag) return;
+  const q=toSvg(e); drag.n.x=Math.round((q.x-drag.dx)/10)*10; drag.n.y=Math.round((q.y-drag.dy)/10)*10; render();
+});
+svg.addEventListener("pointerup",()=>drag=null);
+
+function refresh(){render();renderInsp();renderDock()}
+
+/* Mode débutant / expert */
+const setMode=beg=>{document.body.classList.toggle("beginner",beg);
+  document.getElementById("mBeg").setAttribute("aria-pressed",beg);document.getElementById("mExp").setAttribute("aria-pressed",!beg);
+  if(beg&&dockTab==="patch"){dockTab="cables";document.querySelectorAll(".dock-tabs button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.t==="cables"));}
+  renderDock();};
+document.getElementById("mBeg").onclick=()=>setMode(true);
+document.getElementById("mExp").onclick=()=>setMode(false);
+
+/* Thème */
+document.getElementById("theme").onclick=()=>{
+  const r=document.documentElement, cur=r.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  r.dataset.theme=cur==="dark"?"light":"dark";
+};
+
+/* Onglets de pages */
+document.querySelector(".tabs").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  if(b.textContent!=="Scène") toast("Maquette : seule la page Scène est dessinée");
+});
+document.querySelector(".rail").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  document.querySelectorAll(".rail button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+});
+
+/* Palette de commandes */
+const CMDS=[["Ajouter un équipement","A"],["Relier deux ports","C"],["Afficher seulement l'audio","Alt 1"],["Afficher seulement la vidéo","Alt 2"],["Afficher tous les signaux","Alt 0"],["Aller aux alertes","Ctrl !"],["Renuméroter les câbles","Ctrl Maj N"],["Exporter en PDF","Ctrl E"],["Passer en mode débutant",""],["Passer en mode expert",""],["Changer de thème","Ctrl Maj T"]];
+let palIdx=0;
+const ov=document.getElementById("ov"), palq=document.getElementById("palq");
+function renderPal(){
+  const q=palq.value.toLowerCase(), list=CMDS.filter(c=>c[0].toLowerCase().includes(q));
+  palIdx=Math.min(palIdx,Math.max(0,list.length-1));
+  document.getElementById("palList").innerHTML=list.map((c,i)=>`<li role="option" aria-selected="${i===palIdx}" data-c="${c[0]}">${c[0]}<span>${c[1]}</span></li>`).join("")||`<li>Aucune commande</li>`;
+}
+function runCmd(c){
+  ov.hidden=true;
+  if(c.includes("seulement l'audio")) Object.keys(visible).forEach(k=>visible[k]=["ana","num","ip"].includes(k));
+  else if(c.includes("seulement la vidéo")) Object.keys(visible).forEach(k=>visible[k]=k==="vid");
+  else if(c.includes("tous les signaux")) Object.keys(visible).forEach(k=>visible[k]=true);
+  else if(c.includes("alertes")){ dockTab="alerts"; document.querySelectorAll(".dock-tabs button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.t==="alerts")); }
+  else if(c.includes("débutant")) setMode(true);
+  else if(c.includes("expert")) setMode(false);
+  else if(c.includes("thème")) document.getElementById("theme").click();
+  else toast("Maquette : « "+c+" » arrive au lot 1");
+  renderFilters(); refresh();
+}
+const openPal=()=>{ov.hidden=false;palq.value="";palIdx=0;renderPal();palq.focus()};
+document.getElementById("openPal").onclick=openPal;
+palq.addEventListener("input",()=>{palIdx=0;renderPal()});
+palq.addEventListener("keydown",e=>{
+  const items=[...document.querySelectorAll("#palList li[data-c]")];
+  if(e.key==="ArrowDown"){palIdx=Math.min(palIdx+1,items.length-1);renderPal();e.preventDefault()}
+  if(e.key==="ArrowUp"){palIdx=Math.max(palIdx-1,0);renderPal();e.preventDefault()}
+  if(e.key==="Enter"&&items[palIdx]) runCmd(items[palIdx].dataset.c);
+  if(e.key==="Escape") ov.hidden=true;
+});
+document.getElementById("palList").addEventListener("click",e=>{const li=e.target.closest("li[data-c]"); if(li) runCmd(li.dataset.c)});
+ov.addEventListener("click",e=>{if(e.target===ov) ov.hidden=true});
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPal()}});
+
+let tt; function toast(m){const t=document.getElementById("toast");t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,2200)}
+
+renderLib(); renderFilters(); refresh();
+</script>

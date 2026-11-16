@@ -1,0 +1,53 @@
+{
+  "id": "avid-mtrx-digilink",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX DigiLink I/O Card",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-mtrx-card",
+  "sources": [
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Operation Guide, Part Number 9329-66264-00 REV A 04/21 (chapitre 1, chapitre 5, annexe B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.avid.com/products/pro-tools-mtrx-ii/build-your-own",
+      "document": "Avid, page Pro Tools | MTRX II Build Your Own (cartes communes MTRX et MTRX II)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://kb.avid.com/pkb/articles/compatibility/MTRX-Option-Card-Compatibility",
+      "document": "Avid Knowledge Base, MTRX Option Card Compatibility (carte DigiLink, SFP MADI)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Installation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Installation Guide, Part Number 9320-70146-00 REV A 04/21 (chapitre 5, annexes A et B)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dl1",
+      "name": "DigiLink Mini 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "32 canaux à 44,1-96 kHz, 16 à 176,4/192 kHz"
+    },
+    {
+      "id": "dl2",
+      "name": "DigiLink Mini 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "32 canaux à 44,1-96 kHz, 16 à 176,4/192 kHz"
+    }
+  ],
+  "description": "Carte DigiLink 64 canaux sur deux ports DigiLink Mini (licence DigiLink I/O incluse). Six cartes DigiLink au plus dans un MTRX selon la base de connaissances Avid (le guide d'installation annonce huit). Consommation non publiée."
+}

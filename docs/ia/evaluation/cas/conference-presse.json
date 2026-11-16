@@ -1,0 +1,36 @@
+{
+  "id": "conference-presse",
+  "titre": "Conférence de presse d'après-match avec press-box",
+  "source": {"fichier": "Sujet 2 - Débat Public.pdf", "driveId": "1MYCWkRPzcVtpGcpYxVwjGEVvU4Bm-roL", "auteur": "Hervé Obejero", "pages": null},
+  "domaine": ["son"],
+  "difficulte": "simple",
+  "demande": "Je prends en charge la régie d'une conférence de presse d'après-match en public, avec 4 intervenants : un entraîneur et 3 joueurs, assis côte à côte le long d'une table, chacun avec un micro sur pied de table. Les journalistes présents dans la salle posent leurs questions via un micro disponible dans la salle. Des jingles musicaux, lancés depuis un PC avec carte son, marquent le début et la fin de la conférence.\n\nLe son doit être diffusé dans la salle en stéréo, mais aussi envoyé vers une « press-box » pour les journalistes (en mono) et vers un enregistreur de secours (en double mono), avec des niveaux différents pour chaque destination.\n\nLes intervenants n'ont pas de retours dédiés : il faut trouver une solution pour qu'ils entendent les questions posées depuis la salle. Je dois pouvoir contrôler à tout moment la qualité du signal diffusé en salle et celle du signal enregistré. L'enregistrement doit être dans un format audio professionnel pour l'archivage.\n\nMatériel à disposition : console Yamaha 01V96 ; un poste informatique avec carte son pour les jingles ; un enregistreur audio externe ; une press-box ; des micros dynamiques avec pieds de table ; des enceintes passives avec amplificateur.\n\nJe veux le schéma des connexions audio : routing des micros, diffusion public (stéréo), press-box (mono) et enregistrement (double mono).",
+  "materielImpose": [
+    {"designation": "Console numérique", "quantite": 1, "reference": "Yamaha 01V96"},
+    {"designation": "Poste informatique avec carte son pour les jingles", "quantite": 1, "reference": null},
+    {"designation": "Enregistreur audio externe", "quantite": 1, "reference": null},
+    {"designation": "Press-box", "quantite": 1, "reference": null},
+    {"designation": "Micros dynamiques avec pieds de table", "quantite": null, "reference": null},
+    {"designation": "Enceintes passives", "quantite": null, "reference": null},
+    {"designation": "Amplificateur", "quantite": null, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Une console 01V96", "type": "quantite", "verif": {"famille": "console", "min": 1, "max": 1, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "5 micros : 4 intervenants et 1 micro salle", "type": "quantite", "verif": {"famille": "capture", "min": 5, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "PC des jingles raccordé à la console (stéréo)", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "audioAnalog", "de": "lecteur-media", "vers": "console"}},
+    {"id": "e4", "texte": "Diffusion stéréo en salle via amplificateur et au moins 2 enceintes passives", "type": "sortie", "verif": {"famille": "speaker", "min": 2, "max": null, "signal": null, "de": "amplification", "vers": "diffusion-public"}},
+    {"id": "e5", "texte": "Un amplificateur entre la console et les enceintes passives", "type": "quantite", "verif": {"famille": "amplification", "min": 1, "max": null, "signal": "audioAnalog", "de": "console", "vers": "amplification"}},
+    {"id": "e6", "texte": "Envoi mono vers la press-box", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": "audioAnalog", "de": "console", "vers": "press-box"}},
+    {"id": "e7", "texte": "Enregistrement de secours en double mono", "type": "sortie", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": "console", "vers": "enregistreur"}},
+    {"id": "e8", "texte": "Niveaux indépendants pour la salle, la press-box et l'enregistreur (sorties distinctes, pas une simple dérivation)", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e9", "texte": "Solution pour que les intervenants entendent les questions de la salle (ex. renvoi du micro salle sur une enceinte orientée vers la table)", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e10", "texte": "Contrôle d'écoute de la diffusion salle et du retour de l'enregistreur", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "enregistreur", "vers": "console"}}
+  ],
+  "pointsDeVigilance": [
+    "Press-box en mono : sommer correctement le mix, sans jingles à un niveau excessif",
+    "Double mono : mêmes signaux sur deux pistes avec des niveaux différents (sécurité), pas une stéréo",
+    "Renvoi du micro salle vers les intervenants sans larsen avec leurs micros de table",
+    "Sorties matrices ou auxiliaires séparées pour avoir des niveaux indépendants"
+  ],
+  "corrigeDisponible": false
+}

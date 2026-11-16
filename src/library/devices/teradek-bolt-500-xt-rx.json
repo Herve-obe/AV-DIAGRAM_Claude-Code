@@ -1,0 +1,62 @@
+{
+  "id": "teradek-bolt-500-xt-rx",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Bolt 500 XT RX",
+  "status": "verified",
+  "description": "Récepteur vidéo sans fil Bolt 500 XT : sorties SDI et HDMI, alimentation par connecteur 2 broches verrouillable (type LEMO).",
+  "aliases": [
+    "Bolt 500 XT (TX / RX) récepteur"
+  ],
+  "sources": [
+    {
+      "url": "https://www.adorama.com/tebolt500xtt.html",
+      "document": "Adorama, fiche Bolt 500 XT (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://d1xl95ab8ijfds.cloudfront.net/Public/Bolt3/Docs/xt_lt/Teradek_Bolt_500_XT_Quick_Start_Guide_v1.6_1119_web.pdf",
+      "document": "Teradek (constructeur), Bolt 500 XT Quick Start Guide v1.6, p. 1 : TX (HDMI input, 3G-SDI input, 3G-SDI output, RP-SMA) et RX (3G-SDI output, HDMI output) ; p. 4 : « Bolt uses a 2-pin power connector » avec photo de la fiche ronde verrouillable (type LEMO) ; alimentation par adaptateur secteur fourni ou batterie",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://guide.teradek.com/a/1625348-power-cables",
+      "document": "Teradek (constructeur), guide Bolt 4K, Power Cables : « locking 2-pin power connector similar to the 0B 302 series LEMO connector » (même gamme Bolt, autre modèle : appui complémentaire seulement)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rxSdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "rxHdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "150 m"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "lemo2",
+      "format": "Connecteur d'alimentation 2 broches verrouillable (pin 1 GND, pin 2 +DC), lu sur le guide p. 4 ; « similaire à la série LEMO 0B 302 » selon Teradek (guide Bolt 4K)"
+    }
+  ]
+}

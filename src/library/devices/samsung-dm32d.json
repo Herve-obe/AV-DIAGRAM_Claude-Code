@@ -1,0 +1,142 @@
+{
+  "id": "samsung-dm32d",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Samsung",
+  "model": "DM32D",
+  "status": "verified",
+  "description": "Ecran LED 32\", bord ultra fin, Full HD (1920x1080 - 16/9)",
+  "aliases": [
+    "SAMSUNG DM32D"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/dm32d/",
+      "document": "Novelty — DM32D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_ue55d_manuel.pdf",
+      "document": "Novelty — DM32D : Duplication : UE55D",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-samsung_ue55d_quickstart.pdf",
+      "document": "Novelty — DM32D : Duplication : QuickStart Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://cdn.blueally.com/digitaldisplaystore/datasheets/lfd-dmdseriesb2bdsht-jun14t-final-6-8-14.pdf",
+      "document": "Samsung, DM-D Series spec sheet DM32D/DM40D/DM48D/DM55D (copie revendeur BlueAlly) : Connectivity, Power Supply AC 100-240 V~ 50/60 Hz, Power Consumption, Accessories Included (Power Cord)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://downloadcenter.samsung.com/content/UM/201404/20140410210328426/[DMD32~55-EU]WebManual_Eng_for_Europe-00_20140401.00.pdf",
+      "document": "Samsung, manuel utilisateur DM32D/DM40D/DM48D/DM55D (Europe, avril 2014) : p. 12 composants (Power cord) ; p. 16 panneau arrière (schéma et liste des prises, IR OUT réservé aux DM40D/48D/55D) ; p. 20 « Connection Using an IR Stereo Cable » ; p. 164 Power Supply AC 100 à 240 V, 60/50 Hz",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rs232-in",
+      "name": "RS232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "RS232C par jack stéréo"
+    },
+    {
+      "id": "ir",
+      "name": "IR / Ambient Sensor In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "IR / AMBIENT SENSOR IN : alimente le capteur externe ou reçoit le signal du capteur de luminosité ; câble stéréo IR (manuel p. 20), prise ronde lue sur le schéma du panneau arrière (p. 16)"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "aout",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "usb1",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 points"
+    },
+    {
+      "id": "component",
+      "name": "AV In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde de type jack lue sur le schéma du panneau arrière (manuel p. 16)"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande MDC et réseau"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "weightKg": 4.84,
+  "powerW": 77,
+  "notes": "IR OUT : absent du DM32D, le manuel (p. 16) le réserve aux DM40D, DM48D et DM55D. Non saisie : fente SD CARD (non nommée comme connecteur par le constructeur)."
+}

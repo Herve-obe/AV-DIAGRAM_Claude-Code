@@ -1,0 +1,65 @@
+{
+  "id": "analog-way-aql-out-4sdi12g",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Analog Way",
+  "model": "Aquilon 4x 12G-SDI output card",
+  "pictogram": "processor",
+  "moduleType": "aquilon-output-card",
+  "status": "verified",
+  "description": "Carte de sortie ACC-AQL-OUT-SDI pour Aquilon : 4 sorties 12G-SDI sur BNC (compatibles SD, HD, 3G, 6G), 4K60 4:2:2 10 bits par port, 8 canaux audio intégrés. Carte remplaçable sur site, alimentée par le mélangeur.",
+  "sources": [
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Quick+Start+Guide/Aquilon-C%2B-quick-start-guide.pdf",
+      "document": "Analog Way, Aquilon C+ (AQL-C+) Quick Start Guide : panneau arrière, modèles de cartes d'entrée et de sortie",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Technical+Datasheet/Aquilon-C%2B-datasheet-en-20260703.pdf",
+      "document": "Analog Way, Aquilon C+ Technical Datasheet EN : Comprehensive set of input and output cards",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Common/Accessories/Four+12G-SDI+output+card/Technical+datasheet/acc-aql-out-sdi-datasheet-en-20260401.pdf",
+      "document": "Analog Way, datasheet Four 12G-SDI output card for Aquilon series, ref. ACC-AQL-OUT-SDI (EN, 2026-04-01) : photo 4 BNC OUT 1 à 4, alimentée par le mélangeur",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "12G-SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, compatible 3G et 6G"
+    },
+    {
+      "id": "out2",
+      "name": "12G-SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, compatible 3G et 6G"
+    },
+    {
+      "id": "out3",
+      "name": "12G-SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, compatible 3G et 6G"
+    },
+    {
+      "id": "out4",
+      "name": "12G-SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, compatible 3G et 6G"
+    }
+  ],
+  "aliases": [
+    "ACC-AQL-OUT-SDI"
+  ]
+}

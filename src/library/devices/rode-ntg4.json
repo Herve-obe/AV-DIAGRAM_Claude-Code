@@ -1,0 +1,27 @@
+{
+  "id": "rode-ntg4",
+  "family": "capture",
+  "manufacturer": "Rode",
+  "model": "NTG4",
+  "pictogram": "mic",
+  "status": "verified",
+  "description": "Microphone statique à sortie analogique XLR ; alimentation fantôme requise.",
+  "sources": [
+    {
+      "url": "https://edge.rode.com/pdf/products/88/ntg4_quickstart.pdf",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "XLR 3 points, alimentation fantôme 48 V"
+    }
+  ]
+}

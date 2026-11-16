@@ -1,0 +1,60 @@
+{
+  "id": "telex-tr-825-a2",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "TELEX",
+  "model": "TR-825 A2",
+  "status": "verified",
+  "description": "Beltpack HF double écoute, sur plan de fréquence A2 T:518-536MHz/R:632-650MHz",
+  "aliases": [
+    "BTR800/TXTR2/A2",
+    "TELEX TR-825 A2"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/tr-825-a2/",
+      "document": "Novelty — TR-825 A2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/telex_tr825_ft.pdf",
+      "document": "Novelty — TR-825 A2 : TR-825",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/telex_tr825_QuickStart.pdf",
+      "document": "Novelty — TR-825 A2 : TR-825 (Quick Start Guide)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/telex_tr825_manuel.pdf",
+      "document": "Novelty — TR-825 A2 : TR-825",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/telex_tr825_certificat.pdf",
+      "document": "Novelty — TR-825 A2 : TR-825",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison HF base",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "UHF, plan A2 (émission 518-536 MHz, réception 632-650 MHz) vers base BTR-800 ; antennes quart d'onde vissées"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle (A4M) sur le TR-825 standard ; variantes distinctes : TR-825 5-Pin (XLR 5 mâle), TR-825-RTS (XLR 4 femelle), TR-825-RTS 5-Pin (XLR 5 femelle). Écoute double A/B, micro dynamique ou électret détecté automatiquement, sortie 40 mW sur 600 ohms"
+    }
+  ],
+  "weightKg": 0.595
+}

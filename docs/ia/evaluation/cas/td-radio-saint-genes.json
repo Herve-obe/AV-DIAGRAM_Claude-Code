@@ -1,0 +1,42 @@
+{
+  "id": "td-radio-saint-genes",
+  "titre": "Émission de radio en public en extérieur, avec duplex (TD Radio)",
+  "source": {"fichier": "TD Sono - AV 2 SON.pdf", "driveId": "1LQBzOhq4ktFExeeLICRRt61_sxlSQB7p", "auteur": "Hervé Obejero", "pages": null},
+  "domaine": ["son"],
+  "difficulte": "moyen",
+  "demande": "Je dois préparer la régie d'une émission de radio diffusée en direct et en public, en extérieur, à l'« Auditorium de Saint Genès ». Sur le plateau : un présentateur et 2 invités (un guitariste et une chanteuse), plus un reporter en duplex. Il faut une sonorisation pour le public. Deux consoles : une console FOH et une console Broadcast.\n\nConsole FOH : captation et mixage pour le public de la partie interview (le présentateur interviewe les 2 musiciens), de la partie musique live (chant accompagné d'une guitare acoustique) et des signaux venant de la console Broadcast (médias, duplex…). Depuis la FOH je dois prévoir : un système de retour indépendant pour la partie interview ; un système de retour indépendant pour la partie musique live (un retour chant + un retour guitariste) ; un système de diffusion pour le public.\n\nConsole Broadcast : mixage pour la diffusion radio du signal du duplex, des signaux d'un lecteur média (jingles, pubs…), du signal venant de la station de radio (direct antenne) et des signaux venant de la console FOH. Depuis la Broadcast je dois prévoir : une écoute PGM à niveau indépendant pour les JRI ; un retour N-1 pour le duplex ; une sortie PGM pour la diffusion radio en direct conforme à la recommandation technique CST-RT-017-TV v3.0 (2011) ; un enregistrement du PGM sur l'enregistreur numérique Sound Devices SD744, conforme à la même recommandation, en fichier stéréo PCM (WAV) 48 kHz / 24 bits. Je dois pouvoir contrôler le niveau de l'émission en direct, et ce contrôle doit figurer sur le schéma.\n\nLe poste du présentateur et les postes invités ont chacun un micro et un retour sur enceintes. Je veux le synoptique, les schémas et les grilles d'affectation, assez détaillés pour qu'une personne extérieure puisse monter le plateau sans moi.",
+  "materielImpose": [
+    {"designation": "Console FOH", "quantite": 1, "reference": null},
+    {"designation": "Console Broadcast", "quantite": 1, "reference": null},
+    {"designation": "Enregistreur numérique du PGM", "quantite": 1, "reference": "Sound Devices SD744 (744)"},
+    {"designation": "Lecteur média (jingles, pubs)", "quantite": 1, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Deux consoles : une FOH et une Broadcast", "type": "quantite", "verif": {"famille": "console", "min": 2, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Au moins 4 sources de captation plateau (présentateur, 2 invités, guitare du live)", "type": "quantite", "verif": {"famille": "capture", "min": 4, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "Au moins 5 enceintes : diffusion public stéréo (2), retour interview (1), retour chant (1), retour guitariste (1)", "type": "quantite", "verif": {"famille": "speaker", "min": 5, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e4", "texte": "Les sources de la FOH sont envoyées à la console Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-foh", "vers": "console-broadcast"}},
+    {"id": "e5", "texte": "La console Broadcast renvoie les médias et le duplex à la FOH", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "console-foh"}},
+    {"id": "e6", "texte": "Le signal du duplex arrive sur la console Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "codec-duplex", "vers": "console-broadcast"}},
+    {"id": "e7", "texte": "Un retour N-1 part de la console Broadcast vers le duplex", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "codec-duplex"}},
+    {"id": "e8", "texte": "Le lecteur média est raccordé à la console Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "lecteur-media", "vers": "console-broadcast"}},
+    {"id": "e9", "texte": "Le direct antenne de la station de radio arrive sur la console Broadcast", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-radio", "vers": "console-broadcast"}},
+    {"id": "e10", "texte": "Sortie PGM de la Broadcast vers la diffusion radio", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "diffusion-radio"}},
+    {"id": "e11", "texte": "Enregistrement du PGM sur le SD744", "type": "sortie", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": "console-broadcast", "vers": "enregistreur-pgm"}},
+    {"id": "e12", "texte": "Écoute PGM à niveau indépendant pour les JRI", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "ecoute-jri"}},
+    {"id": "e13", "texte": "Diffusion public alimentée par la console FOH", "type": "sortie", "verif": {"famille": "speaker", "min": 2, "max": null, "signal": null, "de": "console-foh", "vers": "diffusion-public"}},
+    {"id": "e14", "texte": "Un point de mesure du niveau (loudness) du PGM figure sur le schéma", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-broadcast", "vers": "mesure-niveau"}},
+    {"id": "e15", "texte": "Retour interview indépendant, et deux retours live distincts (chant, guitariste), tous depuis la FOH", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console-foh", "vers": "retour-plateau"}},
+    {"id": "e16", "texte": "Le retour du duplex est un N-1 : il ne contient pas la voix du reporter", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e17", "texte": "Enregistrement en WAV stéréo PCM 48 kHz / 24 bits, PGM conforme CST-RT-017 v3.0", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Retour duplex en vrai N-1 (sans la voix du reporter), sinon écho chez le reporter",
+    "Boucle FOH ↔ Broadcast : ce que la Broadcast renvoie à la FOH ne doit pas contenir les sources de la FOH",
+    "Écoute JRI sur une sortie à niveau indépendant, pas une dérivation du PGM antenne",
+    "Retours interview et retours live séparés (deux retours live distincts : chant et guitariste)",
+    "Oublier le point de contrôle du niveau (loudness) sur le schéma, alors que le sujet l'exige",
+    "Oublier l'arrivée du direct antenne de la station dans la console Broadcast"
+  ],
+  "corrigeDisponible": false
+}

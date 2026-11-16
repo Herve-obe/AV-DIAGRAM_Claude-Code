@@ -1,0 +1,32 @@
+{
+  "id": "ltm-lt300n-led-rail",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "LTM",
+  "model": "LT300N-LED-RAIL",
+  "status": "verified",
+  "description": "Projecteurs LED 1x40W, lentille fresnel, type \"MIZAR\", blanc, 4000° K, conso 12W, (équivalent 400W halogène), volets 4 faces, équipés alim rail LITA",
+  "aliases": [
+    "LTM LT300N-LED-RAIL"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/eclairage-sur-rail-eclairage/projecteur/lt300n-led-rail/",
+      "document": "Novelty (loueur), fiche produit : « équipés alim rail LITA », rangé en Éclairage sur rail ; alimentation 220/240 V 50/60 Hz, LED 40 W, conso 12 W",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rail",
+      "name": "Adaptateur rail",
+      "direction": "in",
+      "signal": "power",
+      "connector": "rail-3c",
+      "format": "Alimentation par alim rail LITA intégrée (page du loueur, catégorie Éclairage sur rail), 220/240 V, 50/60 Hz"
+    }
+  ],
+  "powerW": 12,
+  "notes": "Le type de rail (3 allumages) est déduit de la mention « alim rail » et de la rubrique Éclairage sur rail du loueur ; la page ne dit pas « rail tri »."
+}

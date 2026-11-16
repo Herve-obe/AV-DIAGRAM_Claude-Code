@@ -1,0 +1,69 @@
+{
+  "id": "oxo-simoun2",
+  "family": "dmxDistribution",
+  "manufacturer": "OXO",
+  "model": "Simoun 2",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualslib.fr/manual/109998/Oxo-Simoun-2-W.html",
+      "document": "OXO, mode d'emploi Simoun 2 W V1.3 (copie ManualsLib), présentation et connexions",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/2kw/simoun-2-set-x2/",
+      "document": "Novelty (loueur), page Simoun 2 set x2 : « Sortie graduée sur embase PC16A », DMX entrée et sortie XLR 3 broches, 230 VAC 50-60 Hz",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://impact-even.com/userfiles/files/telechargement/eclairage/oxo_simoun2r_manuel.pdf",
+      "document": "OXO, manuel Simoun 2 [R] V1.3 11/2021 (copie Impact Événement), p. 5 et 6 : cordon secteur, DMX XLR3 In mâle / Out femelle, sortie 10 A max., F10A, 182x92x65 mm, 1,1 kg",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points mâle"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 points femelle"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon secteur, 230 V 50 Hz, 10 A max., fusible F10A 250 V"
+    },
+    {
+      "id": "acOut",
+      "name": "Sortie gradée",
+      "direction": "out",
+      "signal": "power",
+      "connector": "cee7-e",
+      "format": "1 voie, 10 A max. ; prise « PC 16 A » (Novelty), sortie sous volet IP54 sur la photo du manuel"
+    }
+  ],
+  "description": "Gradateur 1 voie OXO Simoun 2 [R], sortie 10 A max., commande DMX (XLR 3 entrée et recopie) et curseur HTP ; 182 × 92 × 65 mm, 1,1 kg.",
+  "aliases": [
+    "Simoun 2, set x2",
+    "1X2 (X2)",
+    "OXO Simoun 2, set x2"
+  ]
+}

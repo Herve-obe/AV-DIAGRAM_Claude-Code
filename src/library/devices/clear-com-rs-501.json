@@ -1,0 +1,58 @@
+{
+  "id": "clear-com-rs-501",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "RS-501",
+  "status": "verified",
+  "description": "Boîtier ceinture partyline 1 canal (Encore) : ligne intercom XLR 3 entrée et repiquage en parallèle, casque XLR 4 mâle. Alimenté par la ligne.",
+  "aliases": [
+    "RS501",
+    "Body RS501",
+    "BODY-PACK"
+  ],
+  "weightKg": 0.22,
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/16552-UserGuide.pdf",
+      "document": "Clear-Com, RS-501/502/522 Beltpack Operating Instructions (copie Full Compass) : connecteurs H, I et K",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/113-ClearComBeltpackAccessoriesBrochure.pdf",
+      "document": "Clear-Com, brochure RS-501, RS-502, RS-522 (copie Full Compass) : (2) XLR 3 M-F, casque XLR 4 M, 0,22 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/body-pack/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, en parallèle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle ; micro dynamique ou électret selon réglage"
+    }
+  ]
+}

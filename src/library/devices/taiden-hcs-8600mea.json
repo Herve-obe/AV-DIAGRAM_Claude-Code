@@ -1,0 +1,108 @@
+{
+  "id": "taiden-hcs-8600mea",
+  "family": "intercom",
+  "manufacturer": "Taiden",
+  "model": "HCS-8600MEA",
+  "pictogram": "intercom",
+  "status": "verified",
+  "powerW": 500,
+  "sources": [
+    {
+      "url": "https://euro-trend.pl/wp-content/uploads/HCS-8600MEA_Series_Congress_Extension_Main_Unit_D.1622792155646.pdf",
+      "document": "Taiden (constructeur, via le distributeur Euro-Trend), fiche HCS-8600MEA series, page HCS-8600MEA, relue le 2026-11-16 : 5 sorties 8P-DIN, 2 RJ45 entrée, 1 RJ45 sortie, 2 fibres SC duplex monomode, 100-240 V AC, 500 W, 3,6 kg ; embase secteur lue sur la photo du modèle",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "trunk1",
+      "name": "Trunk 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk2",
+      "name": "Trunk 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk3",
+      "name": "Trunk 3",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk4",
+      "name": "Trunk 4",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "trunk5",
+      "name": "Trunk 5",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din8",
+      "format": "Ligne de conférence (câble 8 points en boucle)"
+    },
+    {
+      "id": "in1",
+      "name": "Extension In 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Depuis l'unité centrale ou l'extension précédente"
+    },
+    {
+      "id": "in2",
+      "name": "Extension In 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45"
+    },
+    {
+      "id": "out",
+      "name": "Extension Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers l'extension suivante"
+    },
+    {
+      "id": "fiber1",
+      "name": "Fibre 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sc",
+      "format": "SC duplex monomode"
+    },
+    {
+      "id": "fiber2",
+      "name": "Fibre 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "sc",
+      "format": "SC duplex monomode"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (lue sur la photo du modèle, fiche Taiden), 100-240 VAC 50/60 Hz, consommation 500 W"
+    }
+  ],
+  "domain": "sound",
+  "weightKg": 3.6,
+  "notes": "Pas de seconde entrée d'alimentation : l'entrée de secours (dual backup power inputs) n'existe que sur la variante HCS-8600MEA2."
+}

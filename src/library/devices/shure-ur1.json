@@ -1,0 +1,58 @@
+{
+  "id": "shure-ur1",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR1",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.lost-manuals.com/en/manufacturer/shure/ur4d",
+      "document": "Archive de manuels (tiers), gamme UHF-R",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fisheraudiovisual.com/wp-content/uploads/2018/10/Shure-UHF-R-User-Manual.pdf",
+      "document": "Shure UHF-R User Manual — copie fabricant hébergée par Fisher Audio Visual",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://cdn.storm.rent/content/2020/06/Shure_UR4D_Manual.pdf",
+      "document": "Shure UHF-R Plus User Guide, 27NS14492 Rev.2, 2011 — Storm",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée audio",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "TA4M, asymétrique, actif ; micro cravate ou câble instrument",
+      "modes": [
+        {
+          "connector": "ta4",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Antenne fouet sur SMA"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
+}

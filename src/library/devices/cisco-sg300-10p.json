@@ -1,0 +1,207 @@
+{
+  "id": "cisco-sg300-10p",
+  "family": "network",
+  "manufacturer": "Cisco",
+  "model": "SG300-10P",
+  "pictogram": "switch",
+  "status": "community",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/informatique-video/peripheriques-informatique/routeur-switch-hub/sg300-10p/",
+      "document": "Novelty — SG300-10P",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/cisco_sg300-10p_ft-fr.pdf",
+      "document": "Novelty — SG300-10P : SG300-10P (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/cisco_sg300-10p_ft-de.pdf",
+      "document": "Novelty — SG300-10P : SG300-10P (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/cisco_sg300-10p_ft-uk.pdf",
+      "document": "Novelty — SG300-10P : SG300-10P (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/cisco_sg300-10p_manuel-fr.pdf",
+      "document": "Novelty — SG300-10P : SG300-10P (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/cisco_sg300-10p_manuel-uk.pdf",
+      "document": "Novelty — SG300-10P : SG300-10P (UK)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ge1",
+      "name": "GE 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge2",
+      "name": "GE 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge3",
+      "name": "GE 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge4",
+      "name": "GE 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge5",
+      "name": "GE 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge6",
+      "name": "GE 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge7",
+      "name": "GE 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "ge8",
+      "name": "GE 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000BASE-T, PoE 802.3af (15,4 W max par port)",
+      "network": {
+        "capacityMbps": 1000,
+        "poe": "source",
+        "poeW": 15.4
+      }
+    },
+    {
+      "id": "combo1",
+      "name": "Combo 1 (GE 9)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Port combo Gigabit : cage SFP (mini-GBIC) ou RJ45 partagé, pas de PoE",
+      "modes": [
+        {
+          "connector": "rj45",
+          "level": "none"
+        }
+      ],
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "combo2",
+      "name": "Combo 2 (GE 10)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Port combo Gigabit : cage SFP (mini-GBIC) ou RJ45 partagé, pas de PoE",
+      "modes": [
+        {
+          "connector": "rj45",
+          "level": "none"
+        }
+      ],
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "console",
+      "name": "Console",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Port console série RS-232 (câble série fourni), 115 200 bit/s"
+    },
+    {
+      "id": "ac",
+      "name": "Alimentation (bloc externe)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Bloc secteur externe 100-240 V, 2 A (fourni) ; connecteur côté switch non documenté par Cisco"
+    }
+  ],
+  "aliases": [
+    "Cisco SG300-10P"
+  ],
+  "powerW": 81.44,
+  "poeBudgetW": 62,
+  "weightKg": 1.24,
+  "depthMm": 170
+}

@@ -1,0 +1,264 @@
+{
+  "id": "video-devices-pix-270i",
+  "family": "recording",
+  "domain": "image",
+  "pictogram": "recorder",
+  "manufacturer": "Video Devices",
+  "model": "Pix 270i",
+  "status": "verified",
+  "description": "Enregistreur vidéo sur fichiers 3G-SDI / HDMI, 64 pistes audio (analogique, AES, MADI, Dante)",
+  "aliases": [
+    "PIX270I",
+    "Video Devices Pix 270i"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/enregistreur-disque-dur/pix-270i/",
+      "document": "Novelty : Pix 270i",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/video-devices_pix270i_ft.pdf",
+      "document": "Novelty : Pix 270i : Pix 270i",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/video-devices_pix270i_manuel-uk.pdf",
+      "document": "Novelty : Pix 270i : Pix 270i",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/video-devices_pix270i_rs422.pdf",
+      "document": "Novelty : Pix 270i : RS232",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/video-devices_pix270i_pixnet-web-api.pdf",
+      "document": "Novelty : Pix 270i : Pixnet Web API",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/video-devices_pix270i_certificat.pdf",
+      "document": "Novelty : Pix 270i : Pix 270i",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dc1",
+      "name": "DC IN principale",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "10-27 V CC, XLR 4 points (broche 1 masse, broche 4 +)"
+    },
+    {
+      "id": "dc2",
+      "name": "DC IN secondaire",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "10-27 V CC, redondance"
+    },
+    {
+      "id": "madiOptIn",
+      "name": "MADI In (optique)",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "MADI AES10, fibre multimode SC"
+    },
+    {
+      "id": "madiOptOut",
+      "name": "MADI Out (optique)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64
+    },
+    {
+      "id": "madiIn",
+      "name": "MADI In (BNC)",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64
+    },
+    {
+      "id": "madiOut",
+      "name": "MADI Out (BNC)",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64
+    },
+    {
+      "id": "tcIn",
+      "name": "Timecode In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcOut",
+      "name": "Timecode Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "syncIn",
+      "name": "Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Genlock bi/tri-level ou word clock"
+    },
+    {
+      "id": "syncOut",
+      "name": "Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Genlock ou word clock"
+    },
+    {
+      "id": "aes",
+      "name": "AES I/O",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "8 entrées + 8 sorties AES3, 110 ohms"
+    },
+    {
+      "id": "anaOut",
+      "name": "Analog Out 1-8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 8,
+      "level": "line+4",
+      "format": "Symétrique ligne, brochage Tascam ; écrêtage +18 dBu"
+    },
+    {
+      "id": "anaIn",
+      "name": "Analog In 1-8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 8,
+      "level": "line+4",
+      "format": "Symétrique ligne, brochage Tascam ; écrêtage +26 dBu"
+    },
+    {
+      "id": "xlrIn1",
+      "name": "Line In 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique ligne, sommée avec la voie 1 du DB-25"
+    },
+    {
+      "id": "xlrIn2",
+      "name": "Line In 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "xlrOut1",
+      "name": "Line Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Même signal que la voie 1 du DB-25"
+    },
+    {
+      "id": "xlrOut2",
+      "name": "Line Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1G / 100M : Dante 64 canaux, groupe réseau, web, fichiers"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Protocole Sony 9 broches"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Phoenix 10 points, 6 points logiques"
+    },
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI, 16 canaux intégrés"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G / HD / SD-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3"
+    },
+    {
+      "id": "kbd",
+      "name": "USB clavier",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Face avant"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Face avant, jack 6,35 stéréo"
+    }
+  ],
+  "weightKg": 3.04,
+  "powerW": 30
+}

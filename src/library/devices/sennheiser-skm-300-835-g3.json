@@ -1,0 +1,67 @@
+{
+  "id": "sennheiser-skm-300-835-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 300 G3",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.sonovente.com/sennheiser-ew-335-g3-g-p27507.html",
+      "document": "Sonovente, contenu du kit ew 335 G3 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.markertek.com/Attachments/Manuals/Sennheiser/503611-Manual.pdf",
+      "document": "Sennheiser, SKM 300 G3 Instruction manual, copie du revendeur Markertek",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf/9da0cf3e0b7411f192c65e789cf0ae6f",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF ; tête interchangeable"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard",
+      "accepts": [
+        "sennheiser-mmd-835-bk",
+        "sennheiser-mmd-845",
+        "sennheiser-mme-865",
+        "sennheiser-mmd-935",
+        "sennheiser-mmd-945",
+        "sennheiser-mmk-965",
+        "sennheiser-mmd-42"
+      ]
+    }
+  ],
+  "description": "Émetteur main ew 300 G3, tête interchangeable à filetage standard Sennheiser (vendu avec la tête MMD 835 dans l'ensemble ew 335 G3 ; la tête est désormais une option).",
+  "aliases": [
+    "SKM 300-835 G3",
+    "SKM300-835",
+    "SKM 300-835",
+    "SKM 300 G3 (835)"
+  ]
+}

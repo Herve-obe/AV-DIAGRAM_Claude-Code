@@ -1,0 +1,104 @@
+{
+  "id": "martin-p3-175",
+  "family": "lightingControl",
+  "manufacturer": "Martin",
+  "model": "P3-175",
+  "pictogram": "control",
+  "status": "verified",
+  "weightKg": 3.5,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/p3-175-system-controller",
+      "document": "Martin, page produit P3-175",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p3",
+      "name": "P3 Data",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "1 Gbit/s"
+    },
+    {
+      "id": "net",
+      "name": "EtherDMX",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 100/1000, Art-Net, sACN, Kinesys K2/Vector"
+    },
+    {
+      "id": "ndi",
+      "name": "NDI In",
+      "direction": "in",
+      "signal": "videoIp",
+      "connector": "ethercon",
+      "format": "Entrée vidéo NDI, etherCON 100/1000"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4a"
+    },
+    {
+      "id": "gui",
+      "name": "Moniteur",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort++ (interface utilisateur)"
+    },
+    {
+      "id": "mgmt",
+      "name": "Management",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON 100/1000 : visualiseur tiers, gestion, syslog, serveur web"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 2.0 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2.0 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3_1",
+      "name": "USB 3.0 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3_2",
+      "name": "USB 3.0 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur"
+    }
+  ],
+  "powerW": 65
+}

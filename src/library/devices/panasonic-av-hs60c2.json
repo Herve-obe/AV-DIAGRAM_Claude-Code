@@ -1,0 +1,97 @@
+{
+  "id": "panasonic-av-hs60c2",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AV-HS60C2 (pupitre AV-HS6000)",
+  "pictogram": "control",
+  "status": "verified",
+  "powerW": 40,
+  "weightKg": 13.9,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/av-hs6000/spec.html",
+      "document": "Panasonic, AV-HS6000 Specifications",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://partner.connect.panasonic.com/sites/default/files/CS/PCO/Product%20Documents/Basic%20Docs/AV-HS60C1C2%28VQT5J57-4%29_J.pdf",
+      "document": "Panasonic, AV-HS60C1/AV-HS60C2 mode d'emploi (VQT5J57-4, japonais), p. 12 « 背面 » (panneau arrière)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mainframe",
+      "name": "MAIN FRAME",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison vers l'unité AV-HS60U2"
+    },
+    {
+      "id": "menu",
+      "name": "MENU PANEL",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Panneau de menu AV-HS60CS3 (exclusif avec la sortie DVI-D)"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Écran de menu"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris / clavier pour le menu"
+    },
+    {
+      "id": "com1",
+      "name": "COM1 (M)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-422 maître, D-Sub 9 points femelle"
+    },
+    {
+      "id": "com2",
+      "name": "COM2 (RS-232)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "RS-232, D-Sub 9 points mâle, commande d'appareils externes"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI I/O",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "D-Sub 25 points femelle : 8 entrées GPI, 10 sorties GPI/tally, 1 sortie alarme"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase secteur (dessin du panneau arrière), 100-240 V"
+    },
+    {
+      "id": "ac2",
+      "name": "AC IN 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Seconde embase secteur, alimentation redondante (modèle AV-HS60C2)"
+    }
+  ],
+  "domain": "image"
+}

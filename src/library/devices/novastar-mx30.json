@@ -1,0 +1,230 @@
+{
+  "id": "novastar-mx30",
+  "family": "videoRouting",
+  "manufacturer": "NovaStar",
+  "model": "MX30",
+  "pictogram": "processor",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1865470-REG/novastar_mx30_controller.html",
+      "document": "B&H, fiche MX30 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/mur-d-images-led/peripherique-mur-d-images-led/mx30/",
+      "document": "Novelty — MX30",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://skv.lighting/wp-content/uploads/2024/07/MX30-LED-Display-Controller-Specifications-V1.4.0.pdf",
+      "document": "NovaStar MX30 LED Display Controller Specifications V1.4.0 (copie revendeur SKV Lighting)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI 2.0-1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4K60, HDCP 2.2"
+    },
+    {
+      "id": "hdmiLoop1",
+      "name": "HDMI 2.0-1 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 1.4-2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "hdmiLoop2",
+      "name": "HDMI 1.4-2 Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp",
+      "name": "DP 1.1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.1"
+    },
+    {
+      "id": "sdi",
+      "name": "3G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop1",
+      "name": "3G-SDI Loop 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdi2",
+      "name": "3G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiLoop2",
+      "name": "3G-SDI Loop 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "led1",
+      "name": "LED Out 1",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led2",
+      "name": "LED Out 2",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led3",
+      "name": "LED Out 3",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led4",
+      "name": "LED Out 4",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led5",
+      "name": "LED Out 5",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led6",
+      "name": "LED Out 6",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led7",
+      "name": "LED Out 7",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led8",
+      "name": "LED Out 8",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led9",
+      "name": "LED Out 9",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "led10",
+      "name": "LED Out 10",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception, secours entre ports"
+    },
+    {
+      "id": "opt1",
+      "name": "Optical 1",
+      "direction": "out",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode)"
+    },
+    {
+      "id": "opt2",
+      "name": "Optical 2",
+      "direction": "out",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP 10G (module optique LC monomode ou multimode)"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1 (contrôle)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2 (contrôle)",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Bi-level, tri-level, black burst"
+    },
+    {
+      "id": "genlockLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 avec interrupteur"
+    }
+  ],
+  "aliases": [
+    "Novastar MX30"
+  ],
+  "powerW": 55
+}

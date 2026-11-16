@@ -1,0 +1,57 @@
+{
+  "id": "radial-twin-iso",
+  "family": "processing",
+  "manufacturer": "Radial Engineering",
+  "model": "Twin-Iso",
+  "pictogram": "processor",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/twin-iso",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.radialeng.com/wp-content/uploads/2018/04/smartsheet-twiniso.pdf",
+      "document": "Radial Engineering, Smart Sheet Twin-Iso",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Entrée 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, 600 ohms symétrique"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, 600 ohms symétrique, ground lift"
+    },
+    {
+      "id": "in2",
+      "name": "Entrée 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, 600 ohms symétrique"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, 600 ohms symétrique, ground lift"
+    }
+  ]
+}

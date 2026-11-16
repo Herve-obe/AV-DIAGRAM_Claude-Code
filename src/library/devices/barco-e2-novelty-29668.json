@@ -1,0 +1,222 @@
+{
+  "id": "barco-e2-novelty-29668",
+  "family": "videoSwitcher",
+  "domain": "image",
+  "pictogram": "switcher",
+  "manufacturer": "Barco",
+  "model": "E2",
+  "status": "verified",
+  "description": "Systèmes de gestion d’écrans 4K",
+  "aliases": [
+    "E2-4K",
+    "BARCO E2"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/gestion-d-images/regie-complete/e2/",
+      "document": "Novelty — E2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-de.pdf",
+      "document": "Novelty — E2 : E2 (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-fr.pdf",
+      "document": "Novelty — E2 : E2 (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-uk.pdf",
+      "document": "Novelty — E2 : E2 (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_manuel.pdf",
+      "document": "Novelty — E2 : E2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_quickstart.pdf",
+      "document": "Novelty — E2 : Quick Start",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_guide-securite.pdf",
+      "document": "Novelty — E2 : Guide de sécurité",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "glIn",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence analogique bi-level/black burst SD, tri-level HD"
+    },
+    {
+      "id": "glLoop",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Boucle"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mb/s, logiciel Event Master"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur alimentation 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, alimentation redondante échangeable à chaud"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur alimentation 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, alimentation redondante échangeable à chaud"
+    }
+  ],
+  "weightKg": 31,
+  "powerW": 700,
+  "slots": [
+    {
+      "id": "exp1",
+      "name": "Carte d'expansion 1",
+      "type": "barco-em-expansion"
+    },
+    {
+      "id": "exp2",
+      "name": "Carte d'expansion 2",
+      "type": "barco-em-expansion"
+    },
+    {
+      "id": "in1",
+      "name": "Carte d'entrée 1",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Carte d'entrée 2",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in3",
+      "name": "Carte d'entrée 3",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in4",
+      "name": "Carte d'entrée 4",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in5",
+      "name": "Carte d'entrée 5",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in6",
+      "name": "Carte d'entrée 6",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in7",
+      "name": "Carte d'entrée 7",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "in8",
+      "name": "Carte d'entrée 8",
+      "type": "barco-em-input",
+      "accepts": [
+        "barco-em-dp-hdmi-input-card",
+        "barco-em-dvi-input-card",
+        "barco-em-sdi-input-card"
+      ]
+    },
+    {
+      "id": "out1",
+      "name": "Carte de sortie 1",
+      "type": "barco-em-output",
+      "accepts": [
+        "barco-em-hdmi-output-card",
+        "barco-em-sdi-output-card"
+      ]
+    },
+    {
+      "id": "out2",
+      "name": "Carte de sortie 2",
+      "type": "barco-em-output",
+      "accepts": [
+        "barco-em-hdmi-output-card",
+        "barco-em-sdi-output-card"
+      ]
+    },
+    {
+      "id": "out3",
+      "name": "Carte de sortie 3",
+      "type": "barco-em-output",
+      "accepts": [
+        "barco-em-hdmi-output-card",
+        "barco-em-sdi-output-card"
+      ]
+    },
+    {
+      "id": "mvr",
+      "name": "Carte multiviewer",
+      "type": "barco-em-output",
+      "accepts": [
+        "barco-em-hdmi-output-card"
+      ]
+    }
+  ]
+}

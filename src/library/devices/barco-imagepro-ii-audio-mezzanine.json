@@ -1,0 +1,32 @@
+{
+  "id": "barco-imagepro-ii-audio-mezzanine",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "ImagePRO-II Audio Mezzanine",
+  "pictogram": "processor",
+  "moduleType": "imagepro2-audio",
+  "status": "verified",
+  "description": "Mezzanine audio installable par l'utilisateur : audio externe analogique et AES sur un connecteur DB-25 (désembeddage et embeddage). Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_manuel-uk.pdf",
+      "document": "Barco, ImagePRO-II User's Guide : Table A-4 Audio Mezzanine Specifications, Figure A-4 et Table A-13 DB-25 Connector Pinouts",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "audio",
+      "name": "Audio (DB-25)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 12,
+      "format": "DB-25 : 2 entrées et 2 sorties analogiques symétriques (+4 dBu ou -10 dBV), 4 paires AES/EBU 75 ohms en entrée et 4 en sortie ; brochage Table A-13"
+    }
+  ],
+  "aliases": [
+    "ImagePRO-II with audio"
+  ]
+}

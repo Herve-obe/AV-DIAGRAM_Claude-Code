@@ -1,0 +1,150 @@
+{
+  "id": "sennheiser-asa-214",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "ASA 214",
+  "status": "verified",
+  "description": "Splitter d'antenne actif 4:1, permet d'alimenter en signal jusqu'à quatre récepteur diversity à partir de seulement deux antennes",
+  "aliases": [
+    "SENNHEISER ASA 214"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/antenne-accessoires/asa-214/",
+      "document": "Novelty — ASA 214",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/seinnheiser_asa214-uhf_certif.pdf",
+      "document": "Novelty — ASA 214 : ASA 214",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_asa214-uhf_manual.pdf",
+      "document": "Novelty — ASA 214 : ASA 214",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/seinnheiser_asa214-uhf_quick_guide.pdf",
+      "document": "Novelty — ASA 214 : Quick Guide",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/seinnheiser_asa214-uhf_brochure.pdf",
+      "document": "Novelty — ASA 214 : Brochure commercial",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-asa214.html",
+      "document": "Sennheiser ew G4 — ASA 214 specifications",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.sennheiser.com/globalassets/digizuite/40917-en-ew_100_g4_manual_v2-2_10_2019_en.pdf",
+      "document": "Sennheiser ew 100 G4 instruction manual v2.2",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "antA",
+      "name": "ANT RF IN A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Entrée d'antenne, voie diversity A ; téléalimentation des boosters 12 V 130 mA"
+    },
+    {
+      "id": "antB",
+      "name": "ANT RF IN B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Entrée d'antenne, voie diversity B ; téléalimentation des boosters 12 V 130 mA"
+    },
+    {
+      "id": "outA1",
+      "name": "A1",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outA2",
+      "name": "A2",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outA3",
+      "name": "A3",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outA4",
+      "name": "A4",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie A vers un récepteur ; alimente le récepteur (12 V, 350 mA)"
+    },
+    {
+      "id": "outB1",
+      "name": "B1",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "outB2",
+      "name": "B2",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "outB3",
+      "name": "B3",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "outB4",
+      "name": "B4",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Sortie HF voie B vers un récepteur"
+    },
+    {
+      "id": "rfOutA",
+      "name": "RF OUT A",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Cascade vers un second ASA 214 (système 8 voies)"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc secteur NT 1-1, 13,8 V DC"
+    }
+  ],
+  "weightKg": 1.09,
+  "powerW": 3.4
+}

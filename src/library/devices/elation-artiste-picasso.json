@@ -1,0 +1,99 @@
+{
+  "id": "elation-artiste-picasso",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "Artiste Picasso",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 38.1,
+  "sources": [
+    {
+      "url": "https://fullcompass.com/prod/564065-elation-artiste-picasso-fc-620w-led-cmy-moving-head-fixture-with-zoom-framing-shutters-case",
+      "document": "Full Compass, fiche Artiste Picasso (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-asservis-eclairage/lyres/artiste-picasso/",
+      "document": "Novelty — Artiste Picasso",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_artiste-picasso_dmx.pdf",
+      "document": "Novelty — Artiste Picasso : DMX Protocol",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/elation_artiste-picasso_ft.pdf",
+      "document": "Novelty — Artiste Picasso : Picasso",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/elation_artiste-picasso_gobod.pdf",
+      "document": "Novelty — Artiste Picasso : Gobos",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_artiste-picasso_manuel-uk.pdf",
+      "document": "Manuel constructeur elation-artiste-picasso, description des connecteurs (Bora p7 ; Elation p9) et caractéristiques finales",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_artiste-picasso_photometric.pdf",
+      "document": "Novelty — Artiste Picasso : Photometrics",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ethIn",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "ethOut",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie réseau"
+    },
+    {
+      "id": "usb",
+      "name": "Service USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour firmware, port de maintenance"
+    }
+  ],
+  "aliases": [
+    "Elation Artiste Picasso"
+  ],
+  "powerW": 1000,
+  "depthMm": 544.5,
+  "description": "Lyre profile LED620 W ; consommation1000 W max.457 ×544,5 ×757,5 mm ; DMX/RDM, Art-Net/sACN et E-FLY intégrés."
+}

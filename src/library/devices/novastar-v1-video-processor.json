@@ -1,0 +1,176 @@
+{
+  "id": "novastar-v1-video-processor",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "NovaStar",
+  "model": "V1 Video Processor",
+  "status": "verified",
+  "description": "Processeur vidéo pour Mur LED, 4096 x 2160 pixels, OUT : HDMI, HDBaseT, 3G-SDI, DVI",
+  "aliases": [
+    "Thunderview_V1"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/mur-d-images-led/peripherique-mur-d-images-led/v1-video-processor/",
+      "document": "Novelty — V1 Video Processor",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/novastar_v1_manuel.pdf",
+      "document": "Novelty — V1 Video Processor : V1 Video Processor",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "hdbtIn",
+      "name": "HDBT In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT"
+    },
+    {
+      "id": "dpIn",
+      "name": "DP In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI 1 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI 2 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI 3 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "spdif",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "format": "Entrée audio indépendante, prise coaxiale ronde (dessin)"
+    },
+    {
+      "id": "vgaIn",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dviIn",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "cvbsIn",
+      "name": "CVBS In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "genlock",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdbtOut",
+      "name": "HDBT Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Ordinateur de contrôle"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour FPGA"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Mise à jour FPGA"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 avec interrupteur"
+    }
+  ]
+}

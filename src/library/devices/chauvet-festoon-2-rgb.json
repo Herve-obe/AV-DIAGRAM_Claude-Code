@@ -1,0 +1,61 @@
+{
+  "id": "chauvet-festoon-2-rgb",
+  "family": "luminaire",
+  "manufacturer": "Chauvet DJ",
+  "model": "Festoon 2 RGB",
+  "pictogram": "light",
+  "status": "community",
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/61482-FESTOON2RGBQuickReferenceGuide.pdf",
+      "document": "Chauvet DJ, guide Festoon 2 RGB (via Full Compass)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/61483-FESTOON2RGBUserManual.pdf",
+      "document": "Chauvet DJ, Festoon 2 RGB User Manual (copie Full Compass) : caractéristiques, entrée et sortie IEC, consommation 47/78/108 W",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC, 100-240 V"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC en version Europe/UK (Edison aux USA)"
+    },
+    {
+      "id": "string",
+      "name": "Guirlande",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Sortie vers ampoules (puissance et données)"
+    }
+  ],
+  "powerW": 108
+}

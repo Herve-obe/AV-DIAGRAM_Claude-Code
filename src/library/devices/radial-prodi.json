@@ -1,0 +1,46 @@
+{
+  "id": "radial-prodi",
+  "family": "capture",
+  "manufacturer": "Radial Engineering",
+  "model": "ProDI",
+  "pictogram": "di",
+  "status": "verified",
+  "description": "Boîte de direct passive, sans alimentation.",
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/wp-content/uploads/2025/03/ProDI-ProD2-Manual-WEB-02-2025.pdf",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.radialeng.com/product/prodi/faq",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée instrument",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "out",
+      "name": "Sortie XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "none"
+    }
+  ]
+}

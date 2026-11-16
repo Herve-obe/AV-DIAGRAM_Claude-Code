@@ -1,0 +1,60 @@
+{
+  "id": "avid-hd-io-digital-card",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | HD I/O Digital Expansion Card (Digital I/O)",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-hdio-card",
+  "sources": [
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/avid_hd_io_guide_v81.pdf",
+      "document": "Avid, HD I/O Guide v8.1, Part Number 9320-62016-00 REV B 08/10 (copie en ligne du guide constructeur) : chapitre 2 « HD I/O Back Panel », « Input and Output Cards », annexe A « Adding or Removing I/O Cards », annexe B « Pinout Diagrams for the DB-25 Connectors »",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes",
+      "name": "AES/EBU I/O (1-8)",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "AES/EBU 8 canaux en entrée et 8 en sortie sur un seul DB-25 (paires RCV et XMT, annexe B), 192 kHz en simple fil ; conversion de fréquence en entrée"
+    },
+    {
+      "id": "tdifio",
+      "name": "TDIF I/O",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "TDIF 8 canaux entrée/sortie, brochage TDIF standard, DB-25"
+    },
+    {
+      "id": "adatin",
+      "name": "ADAT In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT optique 8 canaux jusqu'à 48 kHz (S/MUX au-delà), S/PDIF optique non pris en charge sur la carte"
+    },
+    {
+      "id": "adatout",
+      "name": "ADAT Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "toslink",
+      "channels": 8,
+      "format": "ADAT optique 8 canaux jusqu'à 48 kHz (S/MUX au-delà)"
+    }
+  ],
+  "description": "Carte numérique 8 canaux du HD I/O : AES/EBU (DB-25), TDIF (DB-25) et ADAT optique entrée/sortie ; un seul format numérique utilisable à la fois. Alimentée par le châssis ; consommation non publiée.",
+  "aliases": [
+    "HD I/O Digital I/O card",
+    "HD I/O Digital card"
+  ]
+}

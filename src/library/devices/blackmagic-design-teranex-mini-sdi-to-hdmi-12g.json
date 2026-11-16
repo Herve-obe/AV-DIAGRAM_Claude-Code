@@ -1,0 +1,103 @@
+{
+  "id": "blackmagic-design-teranex-mini-sdi-to-hdmi-12g",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Blackmagic Design",
+  "model": "Teranex Mini SDI to HDMI 12G",
+  "status": "verified",
+  "description": "Convertisseur SDI vers HDMI 12G",
+  "aliases": [
+    "BlackMagicDesign Teranex Mini SDI to HDMI 12G"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/teranex-mini-sdi-to-hdmi-12g/",
+      "document": "Novelty — Teranex Mini SDI to HDMI 12G",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/teranexmini/techspecs/W-TERAMIN-01",
+      "document": "Blackmagic Design, caractéristiques techniques Teranex Mini SDI to HDMI 12G (W-TERAMIN-01)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/TeranexMiniManual.pdf",
+      "document": "Blackmagic Teranex Mini, Installation and Operation Manual",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "audio1",
+      "name": "L - Analog / AES-EBU Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique : voie analogique gauche ou AES/EBU (commutateur 8)",
+      "level": "line+4"
+    },
+    {
+      "id": "audio2",
+      "name": "R - Analog / AES-EBU / Timecode Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "XLR symétrique : voie analogique droite, AES/EBU ou timecode (commutateur 7)",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet PoE+",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "network": {
+        "poe": "sink"
+      },
+      "format": "Ethernet, configuration ; alimentation PoE+"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V CA, embase IEC C14 intégrée"
+    }
+  ],
+  "weightKg": 0.58,
+  "powerW": 16
+}

@@ -1,0 +1,37 @@
+{
+  "id": "audio-technica-es925",
+  "family": "capture",
+  "manufacturer": "Audio-Technica",
+  "model": "ES925",
+  "pictogram": "mic",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://leisuretec.co.uk/blogs/leisuretec-blog/audio-technica-es925-gooseneck-microphones-system-and-size-guide",
+      "document": "Leisuretec, guide de la gamme ES925",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://audio-technica.co.in/product/modular-microphone-system-es925/",
+      "document": "Audio-Technica (site de la filiale Inde), fiche ES925 : alimentation fantôme requise pour tous les modules (XLR 11-52 V, FM3/FM5/DS5 22-52 V) ; sortie XLRM 3 points (XLR, FM3), XLRM 5 points (FM5), bornier TB5M (DS5)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://soundpro.com/products/audio-technica-es925ml12xlr",
+      "document": "SoundPro (revendeur), ES925ML12/XLR : module XLR, sortie XLRM 3 points intégrée, fantôme 11-52 V",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Col de cygne modulaire (6 à 24\") ; la prise dépend du module : XLRM 3 points (modules XLR et FM3), XLRM 5 points (FM5), bornier TB5M (DS5). Représentée ici avec le module XLR 3 points ; fantôme 11-52 V (XLR) ou 22-52 V (FM3, FM5, DS5)",
+      "phantom": "required"
+    }
+  ]
+}

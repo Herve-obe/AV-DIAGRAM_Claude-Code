@@ -1,0 +1,42 @@
+{
+  "id": "panasonic-av-hs04m7",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "AV-HS04M7",
+  "pictogram": "processor",
+  "moduleType": "av-hs410-option",
+  "status": "verified",
+  "description": "Carte de sortie SDI Panasonic AV-HS04M7 : 2 sorties HD/SD-SDI sur BNC, alimentée par le mélangeur (8 W). Emplacements A et B de l'AV-HS410.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_AV-HS410_manuel_base.pdf",
+      "document": "Panasonic, AV-HS410 Operating Instructions <Basics>, p. 9 Option boards (sold separately) : cartes, fonctions, emplacements A et B",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.de/manual/572027/Panasonic-Av-Hs04M7.html",
+      "document": "Panasonic, AV-HS04M7 Bedienungsanleitung (copie ManualsLib) : p. 22 deux SDI OUTPUTS, p. 30 BNC-Buchse 2 Leitungen, 12 V depuis le mélangeur, Leistungsaufnahme 8 W",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI"
+    }
+  ],
+  "powerW": 8
+}

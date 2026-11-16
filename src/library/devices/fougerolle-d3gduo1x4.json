@@ -1,0 +1,117 @@
+{
+  "id": "fougerolle-d3gduo1x4",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Fougerolle",
+  "model": "D3GDUO1X4",
+  "status": "verified",
+  "description": "Double distributeur 1x4 3G HD-SDI/SD-SDI/ASI",
+  "aliases": [
+    "Fougerolle D3GDUO1X4"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/distributeur-sdi/d3gduo1x4/",
+      "document": "Novelty — D3GDUO1X4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/f_dhd-x.pdf",
+      "document": "Novelty — D3GDUO1X4 : Miniflex",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/f_dhd-x.pdf",
+      "document": "Fougerolle (constructeur), fiche technique MiniFlex DHD (gamme jointe par Novelty à la fiche D3GDUO1X4), pp. 1-2 : entrée et sorties « BNC HF plaqué or », versions simple, double ou triple en bandeau, alimentation 100-240 V CA 50-60 Hz, « cordon de 1m50 avec fiche secteur européenne IEC »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.potar.fr/location-materiel/video/peripherique/distributeur-sdi/fougerolle/d3gduo1x4-2177",
+      "document": "Potar (loueur), fiche Fougerolle D3GDUO1X4 : « double distributeur 1x4 3G HD-SDI/SD-SDI/ASI », alimentation secteur intégrée, même fiche MiniFlex",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Distributeur 1 · SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ou ASI, égaliseur et reclocking"
+    },
+    {
+      "id": "out1_1",
+      "name": "Distributeur 1 · SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1_2",
+      "name": "Distributeur 1 · SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1_3",
+      "name": "Distributeur 1 · SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1_4",
+      "name": "Distributeur 1 · SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "in2",
+      "name": "Distributeur 2 · SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ou ASI, égaliseur et reclocking"
+    },
+    {
+      "id": "out2_1",
+      "name": "Distributeur 2 · SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out2_2",
+      "name": "Distributeur 2 · SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out2_3",
+      "name": "Distributeur 2 · SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "out2_4",
+      "name": "Distributeur 2 · SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-240 V CA, 50-60 Hz, alimentation intégrée ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ]
+}

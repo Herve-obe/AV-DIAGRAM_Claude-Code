@@ -1,0 +1,61 @@
+{
+  "id": "barco-udx-var-input",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "Virtual & Augmented Reality Input (V&AR, Quad DP 1.2)",
+  "pictogram": "processor",
+  "moduleType": "barco-udx-input",
+  "status": "verified",
+  "description": "Module d'entrée optionnel à 4 entrées DisplayPort 1.2 pour l'emplacement libre des projecteurs Barco UDX. Référence de commande non indiquée dans le manuel ; consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_manuel-uk.pdf",
+      "document": "Barco, UDX series User Manual R5906112 (17/06/2017), 3.3 Input source connections, Virtual & Augmented Reality Input (V&AR) (Optional)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_udx-4k32_ft.pdf",
+      "document": "Barco, fiche UDX-4K32 : Optional Inputs Quad DP1.2",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dpa",
+      "name": "DP A",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, jusqu'à 600 MHz, HBR2 ; voie A du mode quadruple"
+    },
+    {
+      "id": "dpb",
+      "name": "DP B",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, jusqu'à 600 MHz, HBR2 ; voie B du mode quadruple"
+    },
+    {
+      "id": "dpc",
+      "name": "DP C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, jusqu'à 600 MHz, HBR2 ; voie C du mode quadruple"
+    },
+    {
+      "id": "dpd",
+      "name": "DP D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2, jusqu'à 600 MHz, HBR2 ; voie D du mode quadruple"
+    }
+  ],
+  "aliases": [
+    "V&AR input",
+    "Quad DP 1.2 input"
+  ]
+}

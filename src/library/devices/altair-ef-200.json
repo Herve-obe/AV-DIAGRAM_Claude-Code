@@ -1,0 +1,98 @@
+{
+  "id": "altair-ef-200",
+  "family": "intercom",
+  "manufacturer": "Altair",
+  "model": "EF-200",
+  "pictogram": "intercom",
+  "status": "verified",
+  "weightKg": 3.0,
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://theatrelight.co.nz/wp-content/uploads/2022/01/Altair-Catalogue.pdf",
+      "document": "Altair (constructeur), catalogue intercom, page EF-200 : alimentation 90-264 V 50-60 Hz 50 VA, lignes XLR-3F et XLR-3M pour les deux canaux, PRG IN, P.A. OUT, casque XLR-4M, 1 U, 3 kg net",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/811173/Altair-Ef-200.html",
+      "document": "Altair (constructeur), mode d'emploi EF-200 (copie ManualsLib), pages 7, 9, 10, 11, 13 : câble tripolaire à connecteur IEC femelle, entrée programme XLR-3-31 femelle, sortie PA XLR-3-32 mâle, relais sur jack 1/4\", liaison maître/esclave en RJ45 8 broches FCC-68",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lineA",
+      "name": "Line A",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "lineB",
+      "name": "Line B",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline (XLR-3F + XLR-3M en parallèle)"
+    },
+    {
+      "id": "prg",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3F symétrique, micro / ligne",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "pa",
+      "name": "PA Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR-3M symétrique"
+    },
+    {
+      "id": "link",
+      "name": "Multichannel Link MASTER",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison maître / esclave, câble RJ45 8 broches (extension non croisée), connecteur FCC-68 repéré « MASTER »"
+    },
+    {
+      "id": "linkSlave",
+      "name": "Multichannel Link SLAVE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison maître / esclave, connecteur FCC-68 repéré « SLAVE » (chaînage : un maître et jusqu'à 4 esclaves)"
+    },
+    {
+      "id": "headset",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR-4M"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC mâle (manuel : « female I.E.C. connector of the tripolar cable into the unit power supply male connector »), 90-264 V, 50/60 Hz, 50 VA ; alimente la ligne en 24 V"
+    }
+  ],
+  "powerW": 50,
+  "notes": "powerW = 50 VA donnés par le constructeur (catalogue et manuel), repris tels quels. Non saisi : prise du contact de relais multi-usage (jack 1/4\", câblage non lu : connecteur non publié avec certitude). Non saisie aussi : prise de la batterie de secours. Liaison maître/esclave : le manuel parle de câble RJ45 8 broches et de connecteurs FCC-68 (la fiche disait RJ12)."
+}

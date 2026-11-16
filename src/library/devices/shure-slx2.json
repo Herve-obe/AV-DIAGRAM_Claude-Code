@@ -1,0 +1,52 @@
+{
+  "id": "shure-slx2",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "SLX2 (émetteur main)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Shure, SLX Wireless Systems User Guide (fichier SLX System.pdf, section française)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/SLX/en-US.pdf",
+      "document": "Shure, SLX caractéristiques (PDF)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "30 mW max ; tête interchangeable Shure ; 2 piles AA"
+    }
+  ],
+  "description": "Émetteur main SLX analogique, tête interchangeable Shure (cartouches RPW112 SM58, RPW114 SM86, RPW118 Beta 58A, RPW120 Beta 87A, RPW122 Beta 87C), 2 piles AA. Corps seul : la tête est une option.",
+  "aliases": [
+    "SLX2/SM58",
+    "SLX2/SM86",
+    "SLX2/BETA 58",
+    "SLX2/BETA 87A",
+    "SLX2/BETA 87C"
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "shure-capsule-sans-fil",
+      "accepts": [
+        "shure-rpw112-sm58",
+        "shure-rpw114-sm86",
+        "shure-rpw118-beta58a",
+        "shure-rpw120-beta87a",
+        "shure-rpw122-beta87c",
+        "shure-rpw192-ksm11"
+      ]
+    }
+  ]
+}

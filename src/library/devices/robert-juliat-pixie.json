@@ -1,0 +1,42 @@
+{
+  "id": "robert-juliat-pixie",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Robert Juliat",
+  "model": "Pixie",
+  "status": "verified",
+  "description": "Pousuite 575W HMI \"Pixie\", avec pied Gitzo, 8 à 13°",
+  "aliases": [
+    "JULIAT Pixie"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/poursuite/pixie/",
+      "document": "Novelty — Pixie",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203954507.pdf",
+      "document": "Robert Juliat — documentation GT4000, couvre le pied et non la poursuite Pixie",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://manualslib.fr/manual/398163/Robert-Juliat-Pixie-8-13.html?page=14",
+      "document": "Robert Juliat (constructeur), dossier technique PIXIE 8/13 (hébergé par ManualsLib), p. 9 et 14 : « Alimentation incorporée », P = 575 W, 3,5 A max ; liste de pièces ME16U00301 « Cordon secteur L = 2,5 m » ; prouve l'entrée secteur et le cordon fourni",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "208 V 60 Hz, 220/240 V 50 Hz, 245 V 50 Hz (tensions citées p. 14) ; 575 W, 3,5 A max ; alimentation incorporée ; cordon secteur 2,5 m fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "weightKg": 27,
+  "powerW": 575
+}

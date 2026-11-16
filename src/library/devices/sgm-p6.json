@@ -1,0 +1,64 @@
+{
+  "id": "sgm-p6",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "P-6",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 630,
+  "weightKg": 14.5,
+  "sources": [
+    {
+      "url": "https://www.sgmlighting.com/products/p%C2%B76",
+      "accessed": "2026-11-16",
+      "document": "SGM (constructeur), page produit P-6 : 115-277 V, 630 W, 14,5 kg, DMX XLR 5 points IP66, câble d'alimentation 2 m fourni, renvoi secteur"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/p6/",
+      "document": "Novelty — P6",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1496-4611-p-6-37729.pdf",
+      "document": "Novelty — P6 : P6",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/6471-4611-sgm-p-6-std-and-poi-user-manual-rev-e.pdf",
+      "document": "SGM, manuel P-6 Rev E (copie Novelty), p. 8 : alimentation 100-277 V, câble fourni avec connecteur « powercon twist-lock » côté appareil",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Embase IP66 XLR 5 points ; DMX sans fil LumenRadio avec RDM"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Embase IP66 XLR 5 points, renvoi DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-277 V, 50/60 Hz; cordon secteur fourni (« 2 m IP66 power cable pigtail »), connecteur côté appareil de type « powercon twist-lock » selon le manuel, génération non précisée par le constructeur ; embase non publiée"
+    }
+  ],
+  "aliases": [
+    "P6",
+    "P6WASH",
+    "SGM P6"
+  ],
+  "notes": "Non saisie : renvoi secteur (« power input connector & link-thru », connecteur non publié par le constructeur)."
+}

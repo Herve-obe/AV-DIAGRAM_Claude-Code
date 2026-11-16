@@ -1,0 +1,28 @@
+{
+  "id": "lewitt-lct-140-air",
+  "family": "capture",
+  "manufacturer": "Lewitt",
+  "model": "LCT 140 AIR",
+  "pictogram": "mic",
+  "status": "verified",
+  "description": "Microphone statique à sortie analogique XLR ; alimentation fantôme requise.",
+  "sources": [
+    {
+      "url": "https://www.lewitt-audio.com/microphones/lct-recording/lct-140-air",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required",
+      "format": "XLR 3 points, alimentation fantôme 48 V"
+    }
+  ],
+  "weightKg": 0.066
+}

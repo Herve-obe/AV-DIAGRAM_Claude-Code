@@ -1,0 +1,1409 @@
+Skip to content
+
+🚀Release: We have released version 5.2.2, please check out the release notes (software, firmware) for more details.
+
+Green-GO Intercom System Documentation
+RDX Radio Interface
+ 
+Type to start searching
+Home
+Software Guide
+Device Manuals
+Scripting
+Green-GO Talk
+Community
+Website
+Device Manuals
+Wired User Stations
+Wireless DECT Devices
+Wireless 5G/4G Device
+Interfaces
+RDX Radio Interface
+SI2WR 2-Wire Interface
+SI4WR 4-Wire Interface
+INTX Audio InterfaceX
+Q4WR 4-Wire Interface
+DNTI Dante Interface
+BridgeX Network Interface
+Accessories
+Switches
+Table of contents
+What's in the box?
+Device overview
+Front panel
+Back panel
+The user interface
+Interfacing with a radio
+D-Sub 9 pinouts
+Example adapter schematics
+Configure transmitting channels
+Adjust the PTT behavior
+The setup menu
+User
+Radio Port
+Device
+Connection
+Config
+Network
+Info
+Reset the memory cache
+Technical specifications
+General
+Radio connector
+Downloads
+Firmware
+Other
+The RDX Radio Interface¶
+
+The RDX Radio Interface is used for linking portable radios into a Green-GO system, featuring a full-color OLED display that shows information about channels; configurable by the four buttons on the front of the device with access to many of the same functions and features as most other Green-GO devices.
+
+Tx, Rx and PTT emulation is presented as a D-SUB 9 connector. Powered via PoE through a network cable connected to the devices Ethercon port.
+
+A bespoke cable assembly is required between the interface and a captive radio of your choice, please see D-Sub 9 pinouts for details on termination and Example adapter schematics.
+
+What's in the box?¶
+
+The Green-GO RDX radio interface comes with the following package contents:
+
+1 x Green-GO RDX radio interface
+1 x Printed quickstart guide
+Optional Green-GO accessories
+Device overview¶
+Front panel¶
+
+4 Buttons
+The four Buttons are used to enter and navigate the setup menu.
+4 RGB Status LEDs
+The device or channel status is presented by four powerful RGB LEDs.
+1 OLED Display
+The high contrast, color OLED display presents channel and device information clearly but compactly.
+Back panel¶
+
+1 PoE Powered 10/100 Mbps Neutrik EtherCON
+The 10/100 Mbps Neutrik EtherCON serves as power input and connection to the local network.
+1 D-Sub 9 Radio Connector
+An external radio is connected to the D-Sub 9 connector. Both audio and PTT control are transmitted to the headset connector of any radio.
+2 Jumper Switches
+The two jumper switches can be used to adjust the physical connection to the external radio.
+The user interface¶
+
+The user interface of the RDX radio interface is compact and straightforward:
+
+The user linked to the device is shown on top of the screen.
+Currently enabled channels and the input level coming from a connected radio is shown in the middle of the screen.
+On the bottom of the screen, the channel(s) receiving communication from the Green-GO network is displayed with the received signal level going to the connected radio.
+Interfacing with a radio¶
+
+The Green-GO RDX radio interface can interface with a broad range of two-way radios.
+
+The device doesn't come with any adapter cables. However, with the connection schemes and pinouts below, you can create a connector cable for the radio type that you wish to use. The cable will connect the D-Sub 9 connector on the back of the RDX interface with the headset connector found on the radio.
+
+ Notice: To avoid signal loss, your adapter cable should be shielded and no longer than 1.5 meters.
+
+A correctly build adapter cable is cruical for correct operation. So, to get a better understanding of the following pin-out schemes, it is good to know how the D-Sub 9 pins are actually connected internally:
+
+As soon as the RDX radio interface receives audio on any channel from the Green-GO network, a push-to-talk relay is activated that takes care of the keying of the radio. Any audio received via the connected two-way radio is automatically transmitted to any channel using the Autotalk channel mode.
+
+D-Sub 9 pinouts¶
+
+D-Sub 9 Pin	Description
+1	Audio input (+)
+2	PTT relay (normally closed)
+3	PTT relay (common)
+4	PTT relay (normally open)
+5	Audio output (-)
+6	Audio input (-)
+7	PTT relay (common)
+8	Audio output (DC path)
+9	Audio output (+) 
+Adjust the physical connection¶
+
+As seen in the device diagram above, the two available jumper switches on the back of the device can influence how the audio going to the connected two-way radio is transmitted, noting that the black square indicates the position of the jumper switch:
+
+Switch 1
+Switch 1 acts as an attenuator for the transmitted audio signal.
+Switch 2
+Enables a path for a DC voltage supplied by the radio.
+Example adapter schematics¶
+Hytera 16-pin H8¶
+
+Important Information
+
+This schematic is untested and still requires verification. Please share your results in our community forums.
+
+Potentially Compatible Devices
+Hytera 16-pin H9¶
+
+Important Information
+
+This schematic is untested and still requires verification. Please share your results in our community forums.
+
+Potentially Compatible Devices
+Kenwood 2-pin K1¶
+
+Potentially Compatible Devices
+Kenwood 14-pin K2¶
+
+Potentially Compatible Devices
+Motorola 2-pin M1¶
+
+Potentially Compatible Devices
+Motorola 12-pin M4¶
+
+Potentially Compatible Devices
+Motorola 13-pin M5¶
+
+Potentially Compatible Devices
+Motorola 12-pin M7¶
+
+Potentially Compatible Devices
+Motorola 8-pin M9¶
+
+Potentially Compatible Devices
+Sepura 11-pin sRAC¶
+
+Important Information
+
+This schematic is untested and still requires verification. Please share your results in our community forums.
+
+Potentially Compatible Devices
+Tait 8-pin TPB-AA-005¶
+
+Potentially Compatible Devices
+Configure transmitting channels¶
+
+Depending on your configuration no audio may be tranmitted to your Green-GO network. To change this you need to configure the mode of one or more of the user's channels to Autotalk.
+
+Using the channel mode Autotalk automatically enables a channel as soon as audio from the two-way radio reaches or overcomes the configured Gate threshold.
+
+Setup Menu Guide
+Setup Menu
+
+└──> User
+
+     └──> Channels
+
+          └──> Channel ID#
+
+               ├──> ...
+
+               └──> Channel Mode: Autotalk # (1)!
+
+Defines the operation mode of the channel
+Adjust the PTT behavior¶
+
+Depending on your situation, adjusting your Green-GO RDX interface's TX mode may be required. By default, a Green-GO RDX interface will activate its PTT relay as soon as a remote Green-GO device opens a channel to the interface (TX mode: TX Talk). This will usually block the radio channel until the channel is closed again and the local Active Time has run out.
+
+Configuring the TX mode to TX VOX will change this behavior and only trigger the PTT relay if actual audio is received from the Green-GO network. Meaning remote Green-GO devices have to overcome their local Gate threshold before activating the PTT relay.
+
+Setup Menu Guide
+The setup menu¶
+
+The setup menu allows local access to almost all user and device configuration properties. All changes in the setup menu are done and stored locally on the device but can be easily synced back into the configuration file using the Green-GO Control software. These settings are also persistent on the device unless overwritten.
+
+The setup menu is accessed by sequentially pressing both left-hand buttons (Button 1+Button 2).
+
+Once inside the setup menu, the left-hand buttons will change function:
+
+The Button 1 (top-left) confirms a selection or value while the Button 2 (bottom-left) can be used to either exit the current (sub-) menu or cancel a value selection.
+
+The right-hand buttons (Button 3 and Button 4) are used to move a selection or change a selected value up or down.
+
+A (sub-) menu can be exited by using the the menu entries Exit or Cancel, and alternatively with the Button 2 (bottom-left).
+
+Access to the setup menu can be restricted by configuring the security options of a configuration file or user with the help of the Green-GO Control software. In restrictive security configurations, the user may be asked to enter the Tech Pincode before access is given.
+
+ Tip: More information on security options can be found here.
+
+Setup Menu Guide
+User¶
+
+The User submenu holds settings for user-relevant configuration like:
+
+The user that is linked to the device.
+The channel configuration.
+Configuration for the four special channels.
+General user settings (color, communication settings, etc.).
+Script management.
+Select User¶
+AVAILABLE USERS¶
+
+This menu lists all available users of the active configuration file.
+
+ Setup menu:
+User ▸ Select User
+
+ Option range:
+Defined by configuration file
+
+ Default:
+Unset
+
+Channels¶
+Channel 1 ‒ 32¶
+
+The following is available for each of the 32 channels.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Assign
+
+ Option range:
+None, Groups, Users
+
+ Default:
+Unset
+
+LISTEN OVERRIDE¶
+
+This option allows defining a separate listen source for the channel. The user talks to the primary target assigned but listens to the group defined here.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Listen Override
+
+ Option range:
+None, Groups
+
+ Default:
+Unset
+
+LISTEN¶
+
+A channel can be enabled or muted independently from the set channel Level. The Listen state of the channel can be easily toggled on or off without losing the set channel level.
+
+This option may be influenced by the Listen Mode.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Listen
+
+ Option range:
+Muted, On
+
+ Default:
+On
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Level
+
+ Option range:
+-40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+TALK MODE¶
+
+The Talk Mode defines how a channel can be  activated for vox communications with the talk button.
+
+Mode	Description
+Disabled	This option disables the talk function on the channel.
+Momentary	This option allows for a push-to-talk style of operation.
+Latch	This option acts as a toggle: The first press enables talk, the second press disables talk.
+Latch/Mom	This option allows for a mixed operation. Short presses act as a latch toggle, and long button presses allow for momentary communication.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Talk Mode
+
+ Option range:
+Disabled, Momentary, Latch, Latch/Mom
+
+ Default:
+Latch/Mom
+
+PRIORITY¶
+
+A channel can be configured with one of three priorities. For example, when a higher priority channel transmits, communication with lower priority can be attenuated (Priority Dim).
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Priority
+
+ Option range:
+Low, Normal, High
+
+ Default:
+Normal
+
+LISTEN MODE¶
+
+The Listen state defines a muted or unmuted channel. The Listen Mode options define if and how the channel's listen state is toggled.
+
+Mode	Description
+Listen On Talk	This mode enables the Listen state of the channel (unmutes), as soon as the  talk is active on the channel. Disabling talk on the channel will disable the Listen state again (mute).
+No Listen On Talk	An active talk doesn't affect the Listen state of the channel, but the channel respects the Isolate function.
+Ignore Isolate	This mode ignores the Isolate function.
+Fixed	This mode doesn't change the Listen state.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Listen Mode
+
+ Option range:
+Listen On Talk, No Listen On Talk, Isolate Ignore, Fixed
+
+ Default:
+Listen On Talk
+
+CALL MODE¶
+
+This option defines if call signals can be sent and/or received on the channel.
+
+Mode	Description
+Disabled	This option disables all call signals on the channel.
+Recv Only	Call signals can be received on the channel.
+Send Only	Call signals can be sent to the channel.
+Send/Recv	This mode enables the sending and receiving of call signals on the channel.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Call Mode
+
+ Option range:
+Disabled, Recv Only, Send Only, Send/Recv
+
+ Default:
+Send/Recv
+
+CUE MODE¶
+
+The Cue Mode defines how an incomming cue signal is handled.
+
+Mode	Description
+Normal	This option allows for a three-staged cue signal with a manual ready reply.
+Auto Answer	This option automatically answers incomming cue signals on this channel, reducing the effective stages to ready and go.
+Ignore	This option ignores incomming cue signals. Cue signals sent may be answered by other devices.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Cue Mode
+
+ Option range:
+Normal, Auto Answer, Ignore
+
+ Default:
+Normal
+
+CHANNEL MODE¶
+
+The Channel Mode allows for simple automation that enables complex channel configurations. Things like automatic replies and GPIO control can be configured here.
+
+Mode	Description
+Normal	This is the default setting. The channel takes no action when voice communication is received.
+No Reply	This option disables the Answer/Reply function on the channel.
+Reply Direct	With this option set, the Answer/Reply function will only reply to the last active member of a group.
+Auto Reply	This option automatically activates the talk function on the channel as soon as voice communication is received.
+Autotalk	This option automatically opens the channel as soon as the enabled input becomes active.
+Solo Talk	This option automatically disables the talk function on any other channel when the talk function of the channel itself is set to active.
+GPIO Control	This sends a special GPIO control data packet on the channel and disables the talk function for the channel.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Channel Mode
+
+ Option range:
+Normal, No Reply, Reply Direct, Auto Reply, Autotalk, Solo Talk, GPIO Control
+
+ Default:
+Normal
+
+Special Channels¶
+
+Each user has, in addition to the 32 normal channels, four additional special channels.
+
+The temporary duplex channel for private communications.
+The passive program audio channel.
+The passive annoucements channel.
+The passive emergency channel.
+Direct¶
+
+The direct channel is temporary and functions bi-directional.
+
+The channel gets created as soon as any remote user who isn't configured on any of the 32 channels contacts the user linked to this device (voice communication, call signal, cue signal).
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Direct ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+PRIORITY¶
+
+A channel can be configured with one of three priorities. For example, when a higher priority channel transmits, communication with lower priority can be attenuated (Priority Dim).
+
+ Setup menu:
+User ▸ Special Channels ▸ Direct ▸ Priority
+
+ Option range:
+Low, Normal, High
+
+ Default:
+Normal
+
+CUE MODE¶
+
+The Cue Mode defines how an incomming cue signal is handled.
+
+Mode	Description
+Normal	This option allows for a three-staged cue signal with a manual ready reply.
+Auto Answer	This option automatically answers incomming cue signals on this channel, reducing the effective stages to ready and go.
+Ignore	This option ignores incomming cue signals. Cue signals sent may be answered by other devices.
+
+ Setup menu:
+User ▸ Special Channels ▸ Direct ▸ Cue Mode
+
+ Option range:
+Normal, Ignore, Auto Answer
+
+ Default:
+Normal
+
+Program¶
+
+The channel for program audio is passive (listen-only), meaning the user can only receive audio on this channel. The channel receives audio through a group, has independent volume control, and supports dimming when the user receives an audio signal on any of his 32 regular channels.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Special Channels ▸ Program ▸ Assign
+
+ Option range:
+None, Groups
+
+ Default:
+None
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Program ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+DIM¶
+
+The program audio channel can automatically attenuate as soon as any of the other channels is active.
+
+ Setup menu:
+User ▸ Special Channels ▸ Program ▸ Dim
+
+ Option range:
+Mute, -24 dB ‒ -6 dB, Off (6 dB increments)
+
+ Default:
+Off
+
+Announce¶
+
+The announcement channel is a passive channel (listen-only) that transmits with a higher priority as regular channels. Incoming audio transmissions on this channel can attenuate communication on any of the regular channels, depending on the Priority Dim setting.
+
+The announcement channel receives its audio through a group. To send audio to this channel, the configured group needs to be assigned to one of the 32 regular channels of a user.
+
+ Warning: Please configure talking access to the source group of the announcement channel carefully, as any communication through the group may interrupt ongoing user communication.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Special Channels ▸ Announce ▸ Assign
+
+ Option range:
+None, Groups
+
+ Default:
+None
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Announce ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+Emergency¶
+
+The emergency channel is a passive channel (listen-only) that transmits with the highest priority. Incoming audio transmissions on this channel will mute any communication on any of the 32 regular channels.
+
+The emergency channel receives its audio through a group. To send audio to this channel, the configured group needs to be assigned to one of the 32 regular channels of a user.
+
+ Warning: Please configure talking access to the source group of the emergency channel carefully, as any communication through the group may interrupt ongoing user communication.
+
+ASSIGN¶
+
+This menu allows selecting a communication target for the channel. Entering this menu will bring up a pre-filter that provides easy access to the active configuration file's available groups and users.
+
+ Setup menu:
+User ▸ Special Channels ▸ Emergency ▸ Assign
+
+ Option range:
+None, Groups
+
+ Default:
+None
+
+LEVEL¶
+
+This option defines the output level for the channel.
+
+ Setup menu:
+User ▸ Special Channels ▸ Emergency ▸ Level
+
+ Option range:
+Mute, -40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+Settings¶
+
+The user settings configure global communication functions. These settings affect communication on all channels and are not adjustable on a per-channel basis.
+
+ACTIVE TIME¶
+
+The Active Time defines a delay that keeps the channel  active after the last voice transmission has been received. The main use for this is to give users a chance to identify the transmitting channel before it goes inactive again.
+
+ Warning: This setting directly influences some functions on a Green-GO engine like Answer/Reply by setting the state Answer to active.
+
+ Setup menu:
+User ▸ Settings ▸ Active Time
+
+ Option range:
+0.5 sec, 1 sec, 2 sec, 5 sec, 30 sec, 60 sec, 120 sec
+
+ Default:
+5 seconds
+
+REPLY MODE¶
+
+The Reply Mode defines the behavior of the Answer/Reply function.
+
+Mode	Description
+Disabled	This option disables the Answer/Reply function.
+Active	This option enables the Answer/Reply function to answer all currently ongoing voice communication.
+Last	This option enables the Answer/Reply function to only answer the last opened channel.
+
+ Setup menu:
+User ▸ Settings ▸ Reply Mode
+
+ Option range:
+Disabled, Active, Last
+
+ Default:
+Last
+
+ISOLATE¶
+
+This function mutes all channels that do not have an  active talk enabled. Channels will be unmuted as soon as no channel has the talk function enabled.
+
+This function is helpful to control incoming audio in hectic systems. It limits the received audio to active user communications.
+
+ Setup menu:
+User ▸ Settings ▸ Isolate
+
+ Option range:
+Disabled, Enabled
+
+ Default:
+Disabled
+
+TONE LEVEL¶
+
+The Tone Level defines the loudness for all alarm signals like cue signals and the Alert Call.
+
+ Setup menu:
+User ▸ Settings ▸ Tone Level
+
+ Option range:
+Mute, -24 dB ‒ 0 dB (6 dB increments)
+
+ Default:
+-12 dB
+
+ALERT TONE¶
+
+This settings defines the alarm signal type for things like Alert Call or cue signals.
+
+ Setup menu:
+User ▸ Settings ▸ Alert Tone
+
+ Option range:
+Fast, Slow, Pulse
+
+ Default:
+Fast
+
+ROOM¶
+
+This setting assigns a user to a room, available in the configuration file.
+
+ Setup menu:
+User ▸ Settings ▸ Room
+
+ Option range:
+None, Available Rooms
+
+ Default:
+None
+
+ROOM DIM¶
+
+The Room Dim option configures if and how the audio signals from the configured room should be attenuated. The output affected by this setting is defined by the option Room Output.
+
+ Setup menu:
+User ▸ Settings ▸ Room Dim
+
+ Option range:
+Mute, -24db ‒ -6 dB (6 dB increments), Off
+
+ Default:
+Off
+
+ROOM OUTPUT¶
+
+The option Room Output defines the hardware output on which audio signals from the configured room will be attenuated. The attenuation itself is configured by the setting Room Dim.
+
+ Setup menu:
+User ▸ Settings ▸ Room Output
+
+ Option range:
+Both, 1, 2
+
+ Default:
+Both
+
+PRIORITY DIM¶
+
+The property Priority Dim defines the amount channels with lower priority get attenuated as soon as audio is being transmitted on higher priority channels. Each of the 32 generic channels can have one of three priorities.
+
+Activating this setting and defining channel priorities will help to manage user stations with high communication traffic.
+
+ Warning: This setting does not affect the behavior of the special channels Emergency or Program Audio.
+
+ Setup menu:
+User ▸ Settings ▸ Priority Dim
+
+ Option range:
+Mute, -24 dB ‒ -6 dB (6 dB increments), Off
+
+ Default:
+Off
+
+POPUP¶
+
+This setting defines if and what popups are shown to the user.
+
+Mode	Description
+System Only	This is the bare minimum. System popups for system events like joining a configuration, etc., will always be shown.
+Cue	This option will show popups for system notifications and incoming cue signals.
+Cue+Direct	This option enables popups for system events, cue signals, and communications on the special channel for temporary direct communication.
+Cue/Direct/Extended	This option enables popups for system events, cue signals, direct channel communications, and communications on channels that are not directly available through the UI (hidden).
+
+ Setup menu:
+User ▸ Settings ▸ Popup
+
+ Option range:
+System Only, Cue, Cue+Direct, Cue/Direct/Extended
+
+ Default:
+Cue/Direct/Extended
+
+CUE TIMEOUT¶
+
+This setting defines the hold-time for an outgoing GO cue signal.
+
+ Setup menu:
+User ▸ Settings ▸ Cue Timeout
+
+ Option range:
+0.5 sec, 1 sec, 2 sec, 5 sec, 30 sec, 60 sec, 120 sec
+
+ Default:
+5 sec
+
+Script¶
+Loaded Script¶
+
+This menu shows the currently loaded script and allows to load any script stored in the configuration.
+
+AVAILABLE SCRIPTS¶
+
+This submenu is available by clicking on the currently loaded script and lists all scripts stored in the configuration file.
+
+ Setup menu:
+User ▸ Scripts ▸ Script Name
+
+ Option range:
+Available scripts
+
+ Default:
+Unset
+
+Status¶
+
+This property shows the current status of the currently loaded script.
+
+Radio Port¶
+
+The Radio Port submenu holds all settings relevant for the connection to the radio.
+
+GAIN¶
+
+The input Gain configures the amplification of the input signal.
+
+ Setup menu:
+Audio ▸ Gain
+
+ Option range:
++30 dB ‒ +60 dB (1 dB increments)
+
+ Default:
+none
+
+COMPRESSOR¶
+
+This is a simple Compressor that can be enabled with this setting. It reduces the dynamic range of the input signal by attenuating the louder parts of the signal, making it less likely to transmit distorted audio. When this setting is enabled, the timings of the compressor can be adjusted.
+
+ Setup menu:
+Audio ▸ Compressor
+
+ Option range:
+Off, Fast, Med, Slow
+
+ Default:
+Med
+
+GATE THRESHOLD¶
+
+The option Gate Threshold defines the threshold for the noise-gate to open the microphone. Audio signals below the configured threshold will be cut out and not transmitted.
+
+ Setup menu:
+Audio ▸ Gate Threshold
+
+ Option range:
+-50 dB ‒ -25 dB (5 dB increments), Off
+
+ Default:
+-50 dB
+
+GATE HOLD¶
+
+The property Gate Hold defines the hold time after which the noise-gate closes again after being activated once.
+
+ Setup menu:
+Audio ▸ Gate Hold
+
+ Option range:
+Short, Medium, Long, Xlong
+
+ Default:
+Medium
+
+OUTPUT¶
+
+The Output property acts as a master for the device output. It allows to quickly lower or raise all the output levels simultaneously.
+
+ Setup menu:
+User ▸ Channels ▸ ID ▸ Output
+
+ Option range:
+-40 dB ‒ +12 dB (1 dB increments)
+
+ Default:
+0 dB
+
+OUTPUT LIMITER¶
+
+The option Output Limiter allows configuring a simple limiter for the user's audio output(s). The limiter attenuates the loudest part of the user's channel mix to prevent potential signal clipping.
+
+ Setup menu:
+Audio ▸ Output Limiter
+
+ Option range:
+-24 dB ‒ -6 dB (6 dB increments), Off
+
+ Default:
+-6 dB
+
+TX MODE¶
+
+The TX Mode controls the behavior of the PTT relay.
+
+Mode	Description
+Disabled	The PTT relay is not triggert, regardless of incomming communications
+Vox	The PTT relay is only triggered for the duration an active audio transmission is received. An inactive but open channel doesn't trigger the relay.
+Talk	The PTT relay is triggered as soon as a remote channel is opened - no incoming audio transmission is needed.
+
+ Setup menu:
+Audio ▸ Main Level
+
+ Option range:
+Disabled, Vox, Talk
+
+ Default:
+Vox
+
+Device¶
+
+The Device submenu holds settings for the device-relevant configuration.
+
+LED INTENSITY¶
+
+The option LED Intensity controls the brightness of the status and button backlights.
+
+ Setup menu:
+Device ▸ Device Settings ▸ LED Intensity
+
+ Option range:
+Min, 1 ‒ 6 (1 increments), Max
+
+ Default:
+4
+
+LED TIMEOUT¶
+
+The option LED Timeout defines if the status and button backlights of the device will be controlled by the Screen Timeout.
+
+ Setup menu:
+Device ▸ Device Settings ▸ LED Timeout
+
+ Option range:
+Disabled, Enabled
+
+ Default:
+Disabled
+
+SCREEN TIMEOUT¶
+
+The option Screen Timeout configures a timer that turns off all displays when the device is idle. Any user action or communication received will restart the timer and reactivate the displays.
+
+ Setup menu:
+Device ▸ Device Settings ▸ Screen Timeout
+
+ Option range:
+Always On, 1 Minute, 10 Minutes, 1 Hour, 10 Hours
+
+ Default:
+1 Hour
+
+Connection¶
+
+The connection menu allows changing the connection mode used by the Green-GO Engine. This allows connecting an engine to either a local or a remote network.
+
+Local connection mode
+Direct IP connection mode
+Cloud ID connection mode
+
+ Notice: Selecting one of the above modes will change the menu layout.
+
+Mode¶
+Local¶
+
+This is the default connection mode, allowing for communication with the local network.
+
+This mode doesn't need any configuration. Instead, devices will start to communicate as soon as they are in the same local network and members of the same configuration file.
+
+Direct IP¶
+
+The direct IP connection mode allows connecting the Green-GO Engine to a remote Green-GO BridgeX. This mode will require correct routing and potential port forwarding in case a NAT is used on the receiving end.
+
+This mode is mainly thought out to be used for locally routed connections like a connection via WiFi access points.
+
+ Tip: Please check out the guide on bridging connections to find out more about this connection mode.
+
+IP ADDRESS¶
+
+The IP address defines the external or public IPv4 address of the remote Green-GO BridgeX.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ IP Address
+
+ Option range:
+IPv4 address-space
+
+ Default:
+Unset
+
+UDP PORT¶
+
+The UDP port defines the target bridge port for the remote connection.
+
+ Notice: Keep in mind that each bridge port can accept and serve only one connection.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ UDP Port
+
+ Option range:
+Auto, 00000 - 99999
+
+ Default:
+Auto
+
+PASSWORD¶
+
+This defines the authentication password needed for a connection to a bridge port.
+
+ Notice: The password is always eight characters long!
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Password
+
+ Option range:
+8 characters: A - Z, a - z, 0 - 9, +, -
+
+ Default:
+Unset
+
+SEND BUFFER¶
+
+The send buffer is used to buffer potential jitter on the outgoing connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Send Buffer
+
+ Option range:
+10 ms, 20 ms, 30 ms, 40 ms
+
+ Default:
+10 ms
+
+RECEIVE BUFFER¶
+
+The receive buffer is used to buffer potential jitter on the incoming connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Receive Buffer
+
+ Option range:
+20 ms - 200 ms (10 ms increments)
+
+ Default:
+20 ms
+
+DIAGNOSTICS¶
+
+The diagnostics menu contains a number of useful statistics for the incoming and outgoing connections.
+
+ Setup menu:
+Connection ▸ Mode: Direct IP ▸ Diagnostics
+
+Cloud ID¶
+
+The cloud ID connection mode provides an easy way to connect your devices over the internet utilizing the hole punching technique to establish a direct connection through firewalls or routers using NAT.
+
+ Warning: This service is not live.
+
+The cloud ID is provided and generated by a hosted service and can be used to connect and dynamically assign multiple clients. This will be available in the future as a service.
+
+ Tip: Check out our guide on bridge connections to find out more about the cloud ID connection mode.
+
+ID¶
+
+The eight-character cloud ID defines the session for the connection and is needed to authenticate with the cloud service.
+
+ Tip: The cloud ID is generated by the public cloud service.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ ID
+
+ Option range:
+8 characters: A - Z, a - z, 0 - 9, +, -
+
+ Default:
+Unset
+
+PASSWORD¶
+
+The eight-character password is needed to authenticate with the cloud service.
+
+ Tip: The password is generated by the public cloud service.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Password
+
+ Option range:
+8 characters: A - Z, a - z, 0 - 9, +, -
+
+ Default:
+Unset
+
+SEND BUFFER¶
+
+The send buffer is used to buffer potential jitter on the outgoing connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Send Buffer
+
+ Option range:
+10 ms, 20 ms, 30 ms, 40 ms
+
+ Default:
+10 ms
+
+RECEIVE BUFFER¶
+
+The receive buffer is used to buffer potential jitter on the incoming connection.
+
+ Tip: This setting usually only requires configuration in case of a bad or high latency connection.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Receive Buffer
+
+ Option range:
+20 ms - 200 ms (10 ms increments)
+
+ Default:
+20 ms
+
+DIAGNOSTICS¶
+
+The diagnostics menu contains a number of useful statistics for the incoming and outgoing connections.
+
+ Setup menu:
+Connection ▸ Mode: Cloud ID ▸ Diagnostics
+
+Config¶
+
+The Config submenu allows loading configurations onto the device without the use of the Green-GO Control software.
+
+ Tip: The currently used configuration can be viewed in the Info submenu.
+
+Join Config¶
+
+This submenu lists all active configurations in a local network. However, the configuration currently used by the device will not be shown.
+
+AVAILABLE CONFIGURATIONS¶
+
+Clicking on any entry will bring up a confirmation screen. Pressing the option Join will load the configuration onto the device.
+
+ Notice: Depending on the security setup of a configuration, you may be asked to provide a config password before being allowed to join.
+
+ Setup menu:
+Config ▸ Join Config ▸ Configuration Name
+
+Default Configuration¶
+
+This submenu allows loading a custom default configuration.
+
+ Tip: You can define a custom configuration with the help of the Green-GO Control software.
+
+LOAD¶
+
+The factory default configuration file will be loaded by clicking the' Load' property.
+
+ Setup menu:
+Config ▸ Default Configuration ▸ Load
+
+Factory Default¶
+
+This submenu allows loading the factory default configuration file.
+
+LOAD¶
+
+The factory default configuration file will be loaded by clicking the' Load' property.
+
+ Setup menu:
+Config ▸ Factory Default ▸ Load
+
+Network¶
+
+The Network submenu allows to configure the network interface of the device. The configuration supports two modes (IPv4):
+
+Dynamic: Yes¶
+
+Dynamic: Yes autoconfigures the network interface, either listening to a local DHCP server or autoconfiguring a 169.254.0.0/16 IPv4 address.
+
+Dynamic: No¶
+
+Dynamic: No allows for manual network configuration.
+
+ADDRESS¶
+
+The option Address defines the private IPv4 address of the device.
+
+ Setup menu:
+Network ▸ Dynamic: No ▸ Address
+
+ Option range:
+0.0.0.0 - 255.255.255.255
+
+ Default:
+Unset
+
+NETMASK¶
+
+The option Netmask defines the local subnet of the device.
+
+ Setup menu:
+Network ▸ Dynamic: No ▸ Netmask
+
+ Option range:
+0.0.0.0 - 255.255.255.255
+
+ Default:
+Unset
+
+GATEWAY¶
+
+The option Gateway defines the local network gateway.
+
+ Setup menu:
+Network ▸ Dynamic: No ▸ Gateway
+
+ Option range:
+0.0.0.0 - 255.255.255.255
+
+ Default:
+Unset
+
+Info¶
+
+The Info submenu makes the essential configuration settings available to view in one place. Some of the options available provide tools for debugging the device or system.
+
+Name¶
+
+This option shows the device name.
+
+ Setup menu:
+Info ▸ Name
+
+Config¶
+
+This submenu shows the information regarding the current configuration file used by the device.
+
+The provided information can be useful when debugging problems regarding devices that are out of sync.
+
+NAME¶
+
+This option shows the name of the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Name
+
+STAMP¶
+
+This option shows the timestamp of the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Stamp
+
+SAMPLE RATE¶
+
+This option shows the sample rate used by the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Sample Rate
+
+MULTICAST IP¶
+
+This option shows the currently set multicast IP of the configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ Multicast IP
+
+ID¶
+
+This option shows the unique ID of the currently active configuration file.
+
+ Setup menu:
+Info ▸ Config ▸ ID
+
+IP¶
+
+This submenu shows the current IP address of the device and allows to ping a remote IPv4 target to verify the current network connection.
+
+PING¶
+
+This option allows defining an IPv4 target to be pinged.
+
+ Setup menu:
+Info ▸ IP ▸ Ping
+
+PACKETS¶
+
+This option allows initiating the ping script, sending out 10 consecutive pings to the defined target. Also, this option acts as a total packets counter, showing how many packets have been sent.
+
+ Tip: Activating this option again will restart the script.
+
+ Setup menu:
+Info ▸ IP ▸ Packets
+
+Packet Statistics¶
+Lost
+Counter showing the numbers of packets lost during the last run of the ping script.
+Avg
+The average response time recorded for the last run of the ping script.
+Min
+The minimum response time recorded for the last run of the ping script.
+Max
+The maximum response time recorded for the last run of the ping script.
+
+ Warning: On a local Green-GO network, the response times shouldn't exceed 1ms!
+
+Firmware¶
+
+This submenu displays the device's firmware version.
+
+ Setup menu:
+Info ▸ Firmware
+
+Serial¶
+
+This option displays the device's serial number.
+
+ Setup menu:
+Info ▸ Serial
+
+Reset To Defaults¶
+
+This submenu allows resetting the complete device or parts of the configuration back to the factory defaults.
+
+RESET DEVICE¶
+
+This option allows resetting the device configuration back to the factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reset Device
+
+RESET AUDIO¶
+
+This option allows resetting the audio configuration back to the factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reset Audio
+
+RELOAD USER¶
+
+This option allows reloading the current user and all its settings.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Reload User
+
+FACTORY RESET¶
+
+This option allows resetting the complete device back to factory defaults.
+
+ Setup menu:
+Info ▸ Reset to Defaults ▸ Factory Reset
+
+Reset the memory cache¶
+
+Normally, is not necessary to reset a device's memory cache. However, it may help to resolve issues when problems occur after a firmware update or a general device reset is required.
+
+Resetting a device's memory cache is done in the forced Boot Mode:
+
+Power down your device.
+While powering up your device, press and hold Button 4.
+You can release the button after the device booted into the forced Boot Mode.
+Press and hold the button identified in step two again for approximately 30 seconds.
+While resetting, devices with a display will show a countdown.
+Release the button after the countdown has run down.
+Restart your device.
+
+ Attention: Clearing the memory cache of your device will always result in the loss of any local device configuration and return the device to the Factory Default configuration file.
+
+Technical specifications¶
+General¶
+
+Connectors
+:
+1 x D-Sub9
+1 x Neutrik RJ45 etherCON (10/100 Mbps)
+
+User controls
+:
+4 x Buttons
+2 x jumper-switches
+
+Display
+:
+1 x 0,95" OLED screen (color)
+
+Display resolution
+:
+64 x 96 pixel, 15 x 22 mm (H/W)
+
+Power inputs
+:
+Power over Ethernet: IEEE 802.3af 48-56 Vdc
+
+Power usage
+:
+2,5 Watt typical, 5 Watt max
+
+Dimensions
+ (H/W/D):
+41 x 95 x 119 mm
+
+Weight
+:
+246 g
+
+Environmental
+:
+Ambient temperature: 0° ‒ +55° C
+
+Radio connector¶
+
+Max Gain
+:
++12 dB
+
+Max Level
+:
++16 dBu
+
+Input Impedance
+:
+400 Ω ± 100 Ω
+
+In and Outputs
+:
+Transformer isolated
+
+PTT contact
+:
+N.O. and N.C. dry relay contacts
+
+Downloads¶
+ Firmware¶
+ Latest firmware (ZIP archive)
+ Firmware archive
+ Other¶
+ Technical drawings (ZIP archive)
+ CE-Certificate (PDF)
+July 15, 2026
+ 
+February 1, 2021
+ 
+Chad Phelps, Henk-Jan Blok, Koen Versantvoort, Timo Toups
+ Back to top
+Copyright © 2018 - 2026 Green-GO by Evenution

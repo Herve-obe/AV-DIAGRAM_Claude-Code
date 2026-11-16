@@ -1,0 +1,141 @@
+{
+  "id": "lumantek-ez-pro-vs4",
+  "family": "videoSwitcher",
+  "manufacturer": "Lumantek",
+  "model": "ez-Pro VS4",
+  "pictogram": "switcher",
+  "status": "verified",
+  "powerW": 20,
+  "sources": [
+    {
+      "url": "https://www.adorama.com/lumantek-ez-pro-vs4-4-channel-full-hd-seamless-switcher/p/lumezprovs4",
+      "document": "Adorama, fiche ez-Pro VS4 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/ez-pro-vs4/",
+      "document": "Novelty — EZ-PRO VS4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/2370-4694-lumantek-ez-pro-vs4-ft-uk.pdf",
+      "document": "Novelty — EZ-PRO VS4 : lumantek_ez-pro-vs4_ft-uk",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3395-4694-lumantek-ez-pro-vs4-manuel-uk.pdf",
+      "document": "Novelty — EZ-PRO VS4 : lumantek_ez-pro-vs4_manuel-uk",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "in4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Shared logical input 4 with HDMI"
+    },
+    {
+      "id": "pgmHdmi",
+      "name": "PGM HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "pgmSdi",
+      "name": "PGM SDI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "mv",
+      "name": "Multiview HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "audioIn",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 symétrique (L)",
+      "level": "line+4"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack 3,5 stéréo",
+      "level": "line+4"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "DC 7 à 14 V, 20 W max"
+    },
+    {
+      "id": "hdmiIn4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Shared logical input 4 with SDI"
+    },
+    {
+      "id": "audioInR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 symétrique (R)",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB management",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "USB 2.0 : logiciel de commande, logos, mise à jour"
+    }
+  ],
+  "aliases": [
+    "EZPROVS4",
+    "Lumantek EZ-PRO VS4"
+  ],
+  "weightKg": 1.7,
+  "depthMm": 230
+}

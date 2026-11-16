@@ -1,0 +1,89 @@
+{
+  "id": "lilliput-fs7",
+  "family": "display",
+  "manufacturer": "Lilliput",
+  "model": "FS7",
+  "pictogram": "display",
+  "status": "verified",
+  "description": "Moniteur de caméra 7 pouces 1920 x 1200, 3G-SDI et HDMI 4K",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 : désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.lilliput.com/fs7-product/",
+      "document": "Lilliput, page produit FS7 : Input/Output, Power",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/84d362a8.pdf",
+      "document": "Lilliput, manuel FS7 : Top & rear panel features",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/84d362a8.pdf",
+      "document": "Lilliput (constructeur), manuel FS7 page 5 : photo du panneau arrière, SDI in/out BNC, EAR, USB-A (mise à jour), HDMI out/in, DC 12V (jack cylindrique, fiche coudée branchée) ; paramètres : DC 7-24 V, 12 W",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "3G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "3G-SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4, jusqu'à 4K 30p"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4"
+    },
+    {
+      "id": "phones",
+      "name": "Ear Jack",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Ear Jack 3,5 mm stéréo (audio SDI/HDMI désembarqué)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB-A, réservé aux mises à jour du programme"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "DC 7-24 V, bloc 12 V fourni ; plaque batterie Sony F ; jack d'alimentation cylindrique vu sur la photo du manuel"
+    }
+  ],
+  "powerW": 12
+}

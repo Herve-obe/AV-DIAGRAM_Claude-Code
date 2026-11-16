@@ -1,0 +1,57 @@
+{
+  "id": "barco-em-sdi-input-card",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Barco",
+  "model": "Event Master SDI Input Card",
+  "pictogram": "processor",
+  "moduleType": "barco-em-input",
+  "status": "verified",
+  "description": "Carte 4 entrées SDI BNC. Carte Event Master (non échangeable à chaud) ; référence de commande et consommation non indiquées dans les documents lus.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_e2_quickstart.pdf",
+      "document": "Barco, E2 Quick Start Guide 26-1205004-00 Rev 00 : SDI Input & Output Cards, DVI Input Cards, DisplayPort/HDMI Combo Input Cards, HDMI Output cards (including MVR)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/barco_e2_ft-uk.pdf",
+      "document": "Barco, fiche E2 : 28 entrées via 8 cartes, 14 sorties via 4 cartes (Event Master series cards)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI (6G ready)"
+    },
+    {
+      "id": "in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI (6G ready)"
+    },
+    {
+      "id": "in3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI (6G ready)"
+    },
+    {
+      "id": "in4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI (6G ready)"
+    }
+  ]
+}

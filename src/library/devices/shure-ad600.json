@@ -1,0 +1,142 @@
+{
+  "id": "shure-ad600",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD600",
+  "pictogram": "wireless",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD600/en-US",
+      "document": "Shure, guide d'utilisation AD600 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/AD600/en-US.pdf",
+      "document": "Shure, AD600 Spectrum Manager User Guide (PDF)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω ; alimentation d'antenne commutable"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω ; alimentation d'antenne commutable"
+    },
+    {
+      "id": "antC",
+      "name": "Antenne C",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω ; alimentation d'antenne commutable"
+    },
+    {
+      "id": "antD",
+      "name": "Antenne D",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω ; alimentation d'antenne commutable"
+    },
+    {
+      "id": "antE",
+      "name": "Antenne E",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω ; alimentation d'antenne commutable"
+    },
+    {
+      "id": "antF",
+      "name": "Antenne F",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω ; alimentation d'antenne commutable"
+    },
+    {
+      "id": "ctrl1",
+      "name": "Ethernet ctrl 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle, PoE"
+    },
+    {
+      "id": "ctrl2",
+      "name": "Ethernet ctrl 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Contrôle, PoE"
+    },
+    {
+      "id": "dante1",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45"
+    },
+    {
+      "id": "dante2",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Export des balayages (type de prise non précisé)"
+    },
+    {
+      "id": "mon",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "format": "Jack 6,35 stéréo asymétrique, 63 Ω"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC verrouillable, 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Cascade secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Cascade IEC verrouillable"
+    },
+    {
+      "id": "dc",
+      "name": "Entrée DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle, 10,9-16 V DC, 5,5 A max"
+    }
+  ]
+}

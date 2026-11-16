@@ -1,0 +1,39 @@
+{
+  "id": "radio-tablettes-duplex",
+  "titre": "Plateau radio avec duplex de Berlin et quiz (Tous à vos tablettes)",
+  "source": {"fichier": "Sujet TMO 1.pdf", "driveId": "14r6ejNarKCn-hVxK3et7GOu6HnJYceY6", "auteur": "Hervé Obejero", "pages": "1-5"},
+  "domaine": ["son"],
+  "difficulte": "simple",
+  "demande": "Je dois faire en direct la régie d'une émission de radio : un journaliste (animateur) et un invité sur le plateau, et un reporter en duplex depuis Berlin. L'invité participe à un quiz. Les éléments préparés sur une station de montage audionumérique (reportage, génériques, jingles « gagné » et « perdu », ambiance tic-tac du quiz, ambiance de foule) sont diffusés pendant l'émission.\n\nSur le plateau, le présentateur est face à son invité ; les deux doivent pouvoir s'entendre par un réseau de casques commun, hors antenne. La régie doit pouvoir communiquer avec les intervenants du plateau à tout moment.\n\nLe correspondant en duplex doit pouvoir communiquer avec le studio via un retour de type N-1. Pendant le duplex, j'ajoute une ambiance de foule sous sa voix et des traitements pour simuler une liaison téléphonique.\n\nL'émission est réalisée dans les conditions du direct et enregistrée sur un support numérique 2 pistes, conforme à la recommandation CST RT 017 - TV - Rec Tech PAD Éditeurs v3.0.\n\nMatériel : 1 station de travail audionumérique avec égaliseurs, dynamique, réverbération et delay ; 1 enregistreur 2 pistes ; 1 set de micros statiques et dynamiques ; 1 console de mixage ; 1 système d'écoute (monitoring) ; 1 système de retour casques ; 2 casques fermés ; 1 enceinte pour le duplex ; 1 loudness meter normalisé EBU R128 ; câblage et accessoires.\n\nJe veux le schéma de câblage de ma régie.",
+  "materielImpose": [
+    {"designation": "Station de travail audionumérique", "quantite": 1, "reference": null},
+    {"designation": "Enregistreur 2 pistes", "quantite": 1, "reference": null},
+    {"designation": "Console de mixage", "quantite": 1, "reference": null},
+    {"designation": "Micros statiques et dynamiques", "quantite": null, "reference": null},
+    {"designation": "Système d'écoute (monitoring)", "quantite": 1, "reference": null},
+    {"designation": "Système de retour casques", "quantite": 1, "reference": null},
+    {"designation": "Casque fermé", "quantite": 2, "reference": null},
+    {"designation": "Enceinte pour le duplex", "quantite": 1, "reference": null},
+    {"designation": "Loudness meter EBU R128", "quantite": 1, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Une console", "type": "quantite", "verif": {"famille": "console", "min": 1, "max": 1, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "3 micros : animateur, invité, correspondant en duplex", "type": "quantite", "verif": {"famille": "capture", "min": 3, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e3", "texte": "Station de montage (reportage, jingles, ambiances) raccordée à la console", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-daw", "vers": "console"}},
+    {"id": "e4", "texte": "Micro du correspondant vers la console", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "duplex", "vers": "console"}},
+    {"id": "e5", "texte": "Retour N-1 vers l'enceinte du duplex", "type": "liaison", "verif": {"famille": "speaker", "min": null, "max": null, "signal": null, "de": "console", "vers": "duplex"}},
+    {"id": "e6", "texte": "Retour casques commun pour l'animateur et l'invité", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console", "vers": "retour-casques"}},
+    {"id": "e7", "texte": "Ordre (talkback) de la régie vers les casques du plateau", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "talkback", "vers": "retour-casques"}},
+    {"id": "e8", "texte": "Enregistrement du PGM sur l'enregistreur 2 pistes", "type": "sortie", "verif": {"famille": "recording", "min": 1, "max": null, "signal": null, "de": "console", "vers": "enregistreur"}},
+    {"id": "e9", "texte": "Écoutes stéréo de la régie (3 enceintes au total avec celle du duplex)", "type": "sortie", "verif": {"famille": "speaker", "min": 2, "max": null, "signal": null, "de": "console", "vers": "ecoute-regie"}},
+    {"id": "e10", "texte": "Loudness meter EBU R128 sur le PGM", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "console", "vers": "mesure-niveau"}},
+    {"id": "e11", "texte": "Enregistrement conforme CST RT 017 v3.0", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "N-1 du duplex sans la voix du correspondant",
+    "Micro du correspondant et enceinte du duplex dans le même lieu : risque de larsen ou d'écho",
+    "Réseau casques hors antenne : l'ordre de la régie ne doit pas partir à l'enregistrement",
+    "Ambiance de foule et traitement « téléphone » sur la voie du duplex seulement"
+  ],
+  "corrigeDisponible": false
+}

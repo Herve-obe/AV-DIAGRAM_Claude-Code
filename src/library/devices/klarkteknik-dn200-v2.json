@@ -1,0 +1,113 @@
+{
+  "id": "klarkteknik-dn200-v2",
+  "family": "capture",
+  "manufacturer": "Klark Teknik",
+  "model": "DN200 V2",
+  "pictogram": "di",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.andertons.co.uk/klark-teknik-dn200-v2-active-stereo-di-box/",
+      "document": "Andertons, fiche DN200 V2 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://prostage.gr/en/klark-teknik-dn200-v2.html",
+      "document": "Prostage, fiche DN200 V2 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://mediadl.musictribe.com/media/PLM/data/docs/P0E3G/QSG_KT_0809-AAS_DN200-V2_WW.pdf",
+      "document": "DN200 V2 Quick Start Guide, contrôles p. 1 et caractéristiques p. 6",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://manualzz.com/doc/58422681/klark-teknik-dn200-v2-di-box-quick-start-guide",
+      "document": "DN200 V2 Quick Start Guide, contrôles p. 1 et caractéristiques p. 6",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Ligne ou instrument, symétrique/asymétrique ; XLR 20 kΩ / jack 1 MΩ ; pad 20 dB",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "Ligne ou instrument, symétrique/asymétrique ; XLR 20 kΩ / jack 1 MΩ ; pad 20 dB",
+      "modes": [
+        {
+          "connector": "combo",
+          "level": "instrument"
+        }
+      ]
+    },
+    {
+      "id": "link1",
+      "name": "Link 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Reprise parallèle L/R, symétrique ou asymétrique ; ne pas utiliser avec Stereo In"
+    },
+    {
+      "id": "link2",
+      "name": "Link 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "instrument",
+      "format": "Reprise parallèle L/R, symétrique ou asymétrique ; ne pas utiliser avec Stereo In"
+    },
+    {
+      "id": "mini",
+      "name": "Stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Entrée ligne stéréo asymétrique ; débrancher les entrées L/R et Link Thru pendant son utilisation"
+    },
+    {
+      "id": "out1",
+      "name": "Output 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Fantôme 48 V requis",
+      "phantom": "required"
+    },
+    {
+      "id": "out2",
+      "name": "Output 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Fantôme 48 V requis ; modes Sum / Split",
+      "phantom": "required"
+    }
+  ],
+  "weightKg": 0.65,
+  "depthMm": 142,
+  "description": "DI active stéréo ; modes Stereo, Sum (L+R vers les deux sorties) et Split (L vers les deux sorties). P48 requis sur les deux XLR pour les modes à deux sorties."
+}

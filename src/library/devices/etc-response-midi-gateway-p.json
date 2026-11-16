@@ -1,0 +1,60 @@
+{
+  "id": "etc-response-midi-gateway-p",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "ETC",
+  "model": "Response MIDI Gateway, backpack (RSN-MIDI-P)",
+  "pictogram": "control",
+  "moduleType": "etc-io-garage",
+  "status": "verified",
+  "description": "Passerelle MIDI (Note, MSC, MTC) vers console Eos, version backpack montée dans une baie de l'I/O Garage (liaison USB interne). Prises MIDI In, Thru et Out ; brochage 5 points + blindage (DIN 5 MIDI standard). Le port RJ45 (Net3/ACN, PoE) et la prise USB B ne sont pas saisis : la documentation Apex ne dit pas s'ils restent accessibles dans la baie. Consommation non publiée.",
+  "aliases": [
+    "RSN-MIDI-P",
+    "4267A1009",
+    "ETC Response MIDI Gateway"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/46266-ResponseShowControlGatewayDataSheet.pdf",
+      "document": "ETC, Response Show Control Gateways datasheet (copie Full Compass) : références, connecteurs (SMPTE XLR 3 femelle, MIDI In/Out/Thru, Serial Sub-D 9, RJ45, USB B), 0,22 kg",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/63015-Apex5Datasheet.pdf",
+      "document": "ETC, Eos Apex 5 datasheet (copie Full Compass) : I/O Garage à quatre baies, accessoires GADGET2 4267A1004, RSN-SMPTE-P 4267A1007, RSN-MIDI-P 4267A1009, RSN-SERIAL-P 4267A1011 « for use in I/O Garage », kits 4450K1020 et 4450K1030",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1461876/Etc-Response.html",
+      "document": "ETC, Response MIDI Gateway Setup Instructions (copie ManualsLib) : ports MIDI In, Thru et Out, brochages 1 à 5 + blindage",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI, DIN 5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "Recopie MIDI In, DIN 5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5",
+      "format": "MIDI, DIN 5"
+    }
+  ],
+  "weightKg": 0.22
+}

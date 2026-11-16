@@ -1,0 +1,90 @@
+{
+  "id": "briteq-bt-blinder2-ip",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Briteq",
+  "model": "BT-Blinder2-IP",
+  "status": "verified",
+  "description": "Blinder IP65 2 LED135 W ; consommation310 W. 8,1 kg sans kit d’accroche,8,8 kg avec kit. XLR3 uniquement avec kit de conversion optionnel.",
+  "aliases": [
+    "Briteq BT-Blinder2-IP"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/rampe/bt-blinder2-ip/",
+      "document": "Novelty — BT-Blinder2-IP",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/briteq_bt-blinder2-ip_certificat.pdf",
+      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-blinder2-ip_manuel-de.pdf",
+      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-blinder2-ip_manuel-fr.pdf",
+      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP (Fr)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/briteq_bt-blinder2-ip_manuel-uk.pdf",
+      "document": "Manuel constructeur briteq-bt-blinder2-ip, pages PDF 5,12 : repérage des connecteurs et spécifications",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/briteq_bt-blinder2-ip_ft-de.pdf",
+      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/briteq_bt-blinder2-ip_ft-fr.pdf",
+      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/briteq_bt-blinder2-ip_ft-uk.pdf",
+      "document": "Novelty — BT-Blinder2-IP : BT-Blinder2-IP (UK)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Secteur Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur"
+    }
+  ],
+  "weightKg": 8.1,
+  "powerW": 310
+}

@@ -1,0 +1,61 @@
+{
+  "id": "panasonic-ak-hrp1010",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AK-HRP1010",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://na.panasonic.com/audio-video-solutions/broadcast-cinema-pro-video/camera-controllers/ak-hrp1010-remote-operation-panel-14-rack",
+      "document": "Panasonic, page AK-HRP1010",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/en/products/ak-hrp1010gj/",
+      "document": "Panasonic, page produit AK-HRP1010GJ, caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/en/products/ak-hrp1010gj/",
+      "document": "Panasonic, page produit AK-HRP1010GJ, caractéristiques",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/2804333/Panasonic-Ak-Hrp1010g.html?page=135",
+      "document": "Panasonic AK-HRP1010G, mode d'emploi (copie ManualsLib), brochage du connecteur CCU",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "RJ45, contrôle IP ; PoE 42-57 V",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "ccu",
+      "name": "CCU / Caméra",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "10 points mâle, Hirose HR10A-10R-10P(71) (tableau de brochage du manuel) ; broche 9 : 12 V par la caméra / CCU (10-16 V CC)"
+    },
+    {
+      "id": "preview",
+      "name": "Preview",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "9 points femelle JST JEY-9S-1A3F : sortie contact sec preview (broches 1-2), entrée tally (broche 8)"
+    }
+  ],
+  "domain": "image",
+  "powerW": 10.8
+}

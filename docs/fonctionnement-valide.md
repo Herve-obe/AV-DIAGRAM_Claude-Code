@@ -1,0 +1,124 @@
+# Enregistrement et collaboration d’AV Diagram
+
+Fonctionnement initial intégré par la [PR n° 2](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/2), complété dans la [PR n° 3](https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/3).
+
+## Nouvelles vues — 0.4.0
+
+Le [guide des vues et échanges](vues-et-echanges-0.4.0.md) décrit le plan métrique, le DXF, les listes Excel et l'import de patch, les vues réseau/électrique/intercom/synchronisation et les coudes pour blocs pivotés. Les comportements de fichier principal, Save Back Up, projet en dossier et autorisations de calques ci-dessous sont conservés. Depuis 0.5.30, les droits simplifiés demandent une version compatible avec le protocole 6 sur tous les postes.
+
+## Fichiers et sauvegardes
+
+- Sur ordinateur, créer un projet demande son nom et un dossier parent. Depuis la version **0.3.1**, un sous-dossier au nom du projet y est créé, avec son fichier `.avd` et **Save Back Up**. Par exemple : `Téléchargements / Concert / concert.avd` et `Téléchargements / Concert / Save Back Up /`. Le fichier est créé avant de remplacer le projet ouvert.
+- Les accents et les espaces du nom de dossier sont conservés ; les caractères interdits sont adaptés. Si le dossier existe déjà, un suffixe `(2)`, `(3)`, etc. évite toute réutilisation ou écrasement. Les fichiers existants ne sont pas déplacés.
+- Les exports PDF, images et CSV sont proposés dans le dossier du projet ouvert ; l'utilisateur peut choisir une autre destination. Le dossier parent reste proposé pour les prochains nouveaux projets.
+- **Ctrl+S / Cmd+S** remplace le fichier principal. Le bouton Enregistrer fait la même chose. **Ctrl+Maj+S / Cmd+Maj+S** permet de choisir un autre emplacement.
+- Les modifications courantes ne remplacent plus automatiquement le fichier principal.
+- Les copies de sécurité restent automatiques. Dans Paramètres > Enregistrement, choisir l’intervalle et le nombre de copies.
+- Les copies vont dans **Save Back Up**, avec un sous-dossier stable propre au projet. Avec dix copies conservées, la onzième supprime la plus ancienne de ce projet. Deux projets de même nom restent indépendants ; renommer un projet ne crée pas une seconde rotation.
+- **Enregistrer sous** reste un choix explicite de fichier : il ne déplace pas les sauvegardes déjà créées. Les prochaines copies et les exports suivent le nouvel emplacement du `.avd`. Si le dossier n'est pas accessible pour une copie automatique, le dossier global configuré reste utilisé en secours et le chemin réel est indiqué dans les paramètres.
+- Les anciennes copies du dossier « Sauvegardes » restent en place. Elles ne sont pas supprimées lors du changement de fonctionnement.
+- L’indicateur « Fichier principal enregistré » correspond à la version effectivement écrite. Une copie de sécurité ne change pas cet indicateur.
+- Fermer ou changer de projet propose **Enregistrer / Ne pas enregistrer / Annuler**. Une erreur d’écriture garde le document ouvert.
+- Depuis **0.3.3**, en double écran, quitter depuis la fenêtre principale ferme aussi **Infos**, après la confirmation et, si demandé, la réussite de l’enregistrement. **Annuler** ou un échec d’enregistrement garde les deux fenêtres ouvertes. Si Infos ne peut pas se fermer, la principale reste ouverte avec un message et permet de réessayer. Fermer Infos seule permet toujours de continuer dans la fenêtre principale.
+- Les projets récents sont des raccourcis. Les retirer ne supprime ni les fichiers ni les anciens contenus locaux.
+
+Une copie interne aide à reprendre le travail après un plantage. Elle reste distincte du fichier principal et des copies du dossier Save Back Up. Si le fichier principal est absent, la dernière copie interne récupérable est ouverte comme travail non enregistré.
+
+## Collaboration sur le réseau local
+
+Depuis **Session Collaborative**, l’hôte ouvre une salle d’attente avec son schéma. Les invités choisissent l’hôte dans la recherche automatique sur le réseau local et saisissent son code. La saisie d’adresse reste disponible dans les options avancées si la découverte est bloquée.
+
+Depuis la version **0.2.3**, un hôte unique est présélectionné. S'il y a plusieurs sessions, l'invité choisit celle à rejoindre. Le nom de l'invité reste à renseigner en haut de la fenêtre ; le nom affiché sous le projet est celui de l'hôte. À côté du bouton Rejoindre, un message précise s'il manque le nom, la sélection d'une session ou les six chiffres du code. Une saisie d'adresse manuelle reste prioritaire. Le choix de l'hôte est conservé pendant l'actualisation ; sa disparition ne choisit pas un autre hôte à sa place, même s'il avait été présélectionné.
+
+Les invités connectés apparaissent chez l’hôte. Il leur attribue les calques, puis clique sur **Commencer la session**, en bas de la fenêtre. Jusque-là, les invités sont en lecture seule, même si un calque leur a déjà été attribué. L’hôte coche les calques autorisés pour chaque invité : un invité peut recevoir plusieurs calques et plusieurs invités peuvent modifier le même calque en même temps. Retirer une case ne modifie pas les droits des autres invités. Les sessions partagées demandent la version 0.5.30 ou une version compatible avec le protocole 6 sur tous les postes. L’hôte peut réattribuer ou retirer les droits pendant la session, y compris pour un invité déconnecté.
+
+Le bouton **Terminer la session** reste visible dans le bandeau du logiciel chez l’hôte, même si la fenêtre de gestion est fermée. Les invités disposent de **Quitter la session**. Le schéma reste ouvert sur chaque poste.
+
+L'annonce de fin précède la fermeture des connexions, y compris lorsque les canaux internes ont déjà été fermés par le relais. Une fermeture voulue doit rester distincte d'une interruption qui déclenche la reprise.
+
+Les invités voient le schéma complet. Les métiers attribués incluent automatiquement le calque et le matériel Réseau. Réseau seul ne donne pas les autres métiers. Leur vue générale reste en lecture seule, sauf avec Droits complets. Les réglages communs du projet sont accessibles à l’hôte et aux invités avec Droits complets. Sur un appareil partagé, un invité peut modifier les ports de son domaine, sans changer les éléments protégés des autres domaines.
+
+Deux invités peuvent modifier ou ajouter simultanément des ports audio et vidéo du même appareil. Annuler une modification conserve celles de l’autre invité. Les fichiers `.avd` existants restent compatibles.
+
+L’hôte garde l’accès à tous les calques, y compris depuis la vue générale. Retirer une attribution empêche les nouvelles modifications de l’invité concerné. Les droits sont conservés lors d’une reconnexion normale du même poste.
+
+Pour ouvrir un autre schéma, quitter ou terminer d’abord la session. Une ouverture locale ne doit pas remplacer le document partagé.
+
+Pour tester le parcours de connexion, installer la version **0.2.3** sur les postes. La découverte utilise le réseau local IPv4 et UDP 4456 ; sur un VPN ou un réseau filtré, les options avancées permettent de rejoindre par adresse. La version 0.2.2 continue la recherche et les annonces après une erreur UDP ponctuelle liée à un port fermé ou à un paquet trop grand.
+
+Un premier essai sur deux postes Windows 11 en Ethernet, IP fixes sur le même switch d'un établissement scolaire, confirme le fonctionnement de la session après saisie manuelle de l'adresse. Un nouvel essai en 0.2.2 confirme la découverte de l'hôte. L'utilisateur a ensuite signalé un bouton Rejoindre inactif ; la 0.2.3 explicite ses conditions d'activation, qui restent à retester sur ces postes.
+
+Si un poste de secours a repris l’hébergement après une panne, il conserve la session à jour. Le poste initial qui reprend rejoint ce secours ; l’hébergement ne revient pas automatiquement chez lui. Cela évite qu’un ancien état remplace les modifications faites pendant son absence.
+
+## Canevas et équipements à nombreux ports
+
+Le format et l'orientation définissent des pages fixes à 100 %. Dépasser un bord ajoute des pages,
+sans réduire le dessin ni déplacer les équipements. Les pointillés montrent la zone de dessin de
+chaque page, hors marges, légende et cartouche. La touche F recadre sur toutes les pages.
+
+Depuis **0.3.2**, la grille et le PDF retirent les rangées et colonnes extérieures devenues vides,
+même si le dessin a été déplacé dans une page éloignée de l'origine ou dans les coordonnées négatives.
+La taille et les limites des pages restent fixes ; les équipements ne sont pas déplacés automatiquement.
+Les cadres, notes, câbles et étiquettes visibles comptent dans l'encombrement : un cadre resté sur une
+autre page peut donc la conserver. Le modèle **Plateau TV 3 caméras** démarre avec ses cadres à
+l'intérieur d'une page A3 paysage pour chaque vue (**Plateau et régie vidéo** et **Intercom**).
+Cette marge initiale s'applique uniquement aux nouveaux projets issus des modèles, sans modifier les fichiers existants.
+
+À l'export : **Mettre à l'échelle sur une page** ou **Conserver sur plusieurs pages**. Le choix
+ne change pas le canevas. Le total annoncé est une estimation ; le PDF utilise les dimensions
+affichées et les tracés du routeur. La vue et la sélection sont restaurées après l'export.
+
+Au-delà de 16 ports, les appareils montrent uniquement les ports reliés. **Ajouter une connexion**
+permet de choisir **Entrées**, **Sorties** ou **Bidirectionnels**, puis révèle un port libre de cette
+catégorie ; il faut ensuite tirer le câble depuis ou vers ce port. Seuls les ports du calque actif
+sont proposés. Si une catégorie n'a plus de port libre, une autre est proposée automatiquement.
+**Tous les ports** ouvre la vue complète ; **Ports reliés** la replie. Les renvois vers les autres
+feuilles restent visibles. Ces actions d'affichage sont propres au poste et ne modifient pas les droits.
+
+## Catalogue Novelty
+
+Depuis **0.3.5**, le catalogue français Novelty est inclus hors catégorie **Structure**.
+Les doublons et désignations équivalentes renvoient à une fiche commune. Les variantes
+et ensembles restent distincts lorsqu'ils ne sont pas interchangeables.
+
+**Sans connectique** désigne un accessoire non câblé. **Connexions à compléter** signale
+une fiche dont les entrées/sorties ne sont pas entièrement documentées. Dans ce cas,
+les ports connus sont disponibles et aucun port supplémentaire n'est supposé. Les
+documents sont accessibles depuis l'inspecteur ; **Compléter les connexions** permet
+de passer en mode Expert pour ajouter les ports nécessaires. Les nouveaux modèles
+restent au statut Communauté jusqu'au contrôle de leur documentation technique.
+
+## Installation et désinstallation Windows
+
+Depuis **0.3.4**, relancer l'installeur de la même version et choisir **Uninstall**
+ferme aussi l'installeur à la fin de la désinstallation. Le choix du dossier
+d'installation ne doit plus réapparaître. Annuler la désinstallation revient au
+choix de maintenance ; **Add/Reinstall components** permet toujours de réinstaller.
+Avec un installeur d'une autre version, **Uninstall before installing** désinstalle
+l'ancienne version puis continue normalement vers la nouvelle installation.
+
+## Vérification avant fusion
+
+Pour compléter les simulations par un essai sur trois ordinateurs :
+
+1. Installer la même version sur les trois postes. Ouvrir une session sur l’hôte et faire rejoindre deux invités ; attribuer Audio au premier, Vidéo au second.
+2. Utiliser un appareil comportant des ports audio et vidéo. Modifier puis ajouter un port de chaque domaine simultanément. Vérifier que les trois postes affichent les deux changements.
+3. Annuler chez l’invité Audio : seul son changement doit disparaître. Vérifier aussi qu’il ne peut modifier ni le calque Vidéo ni la vue générale ; l’hôte doit pouvoir tout modifier.
+4. Couper puis rétablir le réseau d’un invité et vérifier la reconnexion. Sur des copies de test, fermer brutalement l’hôte avec un secours activé, puis reprendre depuis le poste initial : il doit rejoindre le document du secours à jour.
+5. Modifier le schéma sans enregistrer, puis rouvrir le fichier principal depuis une autre copie de l’application : il doit contenir la dernière version enregistrée manuellement. Ctrl+S / Cmd+S doit ensuite mettre ce fichier à jour.
+6. Régler une rotation courte, attendre une copie de plus que le nombre conservé et vérifier le contenu de « Save Back Up ». Tester aussi un emplacement devenu inaccessible : l’erreur d’écriture doit garder le projet ouvert et non enregistré.
+
+Les 213 tests TypeScript passent ; les types, le lint et la construction de l’interface passent aussi. Les tests comprennent la rotation, les homonymes, les pannes d’écriture, l’indicateur d’enregistrement, la fenêtre Infos, le parcours de session, la découverte dans l'interface, les conditions du bouton Rejoindre et des simulations à deux et trois instances : attribution puis retrait de droits, reconnexion, reprise du poste initial sur un secours actif, modification et ajout simultanés de ports, puis annulation individuelle. Les quatre avertissements de lint existaient déjà.
+
+La CI de la PR vérifie les tests TypeScript et les tests natifs Windows et macOS, dont la découverte sur sockets locales. Deux régressions couvrent une recherche vers un port fermé suivie d'une réponse valide et la poursuite des annonces après un paquet trop grand. Le test de relais manuel reste ignoré, comme prévu. Les essais avec dialogues natifs, disques réels et trois ordinateurs restent à faire, notamment les pannes et reprises. Deux hôtes isolés par une coupure ne fusionnent pas automatiquement leurs documents : il faut conserver leurs fichiers avant une fusion manuelle.
+
+
+
+### Droits métier et appareils mixtes — 0.5.29
+
+Les attributions existantes deviennent des droits par métier, conservés lors d’un changement de filtre. Audio inclut les interfaces techniques des appareils audio et le raccordement compatible à un port réseau partagé libre ; Image et Lumière suivent la même règle. Le métier Réseau et l’hôte conservent la configuration des switches. Les ports métier d’un appareil partagé restent protégés séparément. La suppression d’un appareil mixte non relié est autorisée à son métier principal ; une suppression de liaison protégée reste refusée avec son motif. Le mode général reste en lecture seule pour les invités.
+
+
+### Droits simplifiés — 0.5.30
+
+Chaque métier inclut désormais l’édition du calque et du matériel Réseau, y compris les paramètres des switches. Réseau seul reste limité à ce domaine. L’hôte peut accorder Droits complets à un invité : édition de tout le projet, y compris Général, paramètres communs, feuilles et baies. Ce droit est distinct des métiers cochés ; son retrait restaure les attributions précédentes. L’administration de la session reste à l’hôte, et tous les invités restent en lecture seule avant le démarrage. Les anciennes réservations uniques restent lisibles.

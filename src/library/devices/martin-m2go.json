@@ -1,0 +1,196 @@
+{
+  "id": "martin-m2go",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "Martin",
+  "model": "M2GO",
+  "status": "verified",
+  "description": "Console Martin M2GO, quatre sorties DMX/RDM bidirectionnelles, deux réseaux Gigabit, VGA et HDMI. Cinq USB-A (quatre arrière, un latéral), un USB-B, audio Line In/Out et Mic In. Alimentation externe 12 VDC XLR4 et lampe 12 V XLR3. Poids 5,2 kg ; dimensions 540 × 300 × 99 mm avec couvercle. Cartes MIDI et SMPTE optionnelles, non présumées installées.",
+  "aliases": [
+    "MARTIN M2GO"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/asservis/m2go/",
+      "document": "Novelty — M2GO",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/martin_m2go_ft.pdf",
+      "document": "Novelty — M2GO : M2GO",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/martin_m2go_manuel.pdf",
+      "document": "Novelty — M2GO : M2GO",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/martin_m2go_installation_guide.pdf",
+      "document": "Martin — M2GO/M2PC safety and installation guide, p.13–14 et17 (imprimées11–12 et15) : tous connecteurs M2GO et caractéristiques",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/martin_m2go_conformité.pdf",
+      "document": "Novelty — M2GO : M2GO",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie DMX/RDM, utilisable en entrée"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie DMX/RDM, utilisable en entrée"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie DMX/RDM, utilisable en entrée"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie DMX/RDM, utilisable en entrée"
+    },
+    {
+      "id": "usb1",
+      "name": "USB-A 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Arrière"
+    },
+    {
+      "id": "usb2",
+      "name": "USB-A 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Arrière"
+    },
+    {
+      "id": "usb3",
+      "name": "USB-A 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Arrière"
+    },
+    {
+      "id": "usb4",
+      "name": "USB-A 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Arrière"
+    },
+    {
+      "id": "usb5",
+      "name": "USB-A 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Latéral"
+    },
+    {
+      "id": "usbB",
+      "name": "USB-B",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b"
+    },
+    {
+      "id": "etherDmx",
+      "name": "EtherDMX",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit, Art-Net"
+    },
+    {
+      "id": "network",
+      "name": "Réseau MaxNet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Gigabit"
+    },
+    {
+      "id": "vga",
+      "name": "Moniteur VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "hdmi",
+      "name": "Moniteur HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "lineOut",
+      "name": "Line Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo, prise verte",
+      "level": "line+4"
+    },
+    {
+      "id": "lineIn",
+      "name": "Line In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Stéréo, prise bleue",
+      "level": "line+4"
+    },
+    {
+      "id": "micIn",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mono, prise rose"
+    },
+    {
+      "id": "lamp",
+      "name": "Lampe de pupitre",
+      "direction": "out",
+      "signal": "power",
+      "connector": "xlr3",
+      "format": "12 V, 500 mA, femelle"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 VDC, mâle ; bloc externe 12 V / 5 A"
+    }
+  ],
+  "weightKg": 5.2,
+  "powerW": 60,
+  "depthMm": 300
+}

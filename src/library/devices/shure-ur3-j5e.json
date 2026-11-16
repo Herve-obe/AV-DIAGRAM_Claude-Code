@@ -1,0 +1,52 @@
+{
+  "id": "shure-ur3-j5e",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR3-J5E",
+  "status": "verified",
+  "description": "Emetteur Plug-On UHF-R UR3 (plan J5E 578-638 MHz)",
+  "aliases": [
+    "UR3/J5E",
+    "SHURE UR3-J5E"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur3-j5e/",
+      "document": "Novelty — UR3-J5E",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/UR3/en-US.pdf",
+      "document": "Shure UR3 Plug-on Transmitter User Guide",
+      "accessed": "2026-10-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR femelle (se monte sur le micro) ; micro ou ligne ; fantôme 12 / 48 V commutable",
+      "phantom": "supplied",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
+}

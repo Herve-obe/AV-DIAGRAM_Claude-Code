@@ -1,0 +1,46 @@
+{
+  "id": "clear-com-rs-701",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "RS-701",
+  "status": "verified",
+  "description": "Boîtier ceinture partyline 1 canal (Encore) : ligne intercom XLR 3 femelle et XLR 3 mâle, casque XLR 4 mâle, micro dynamique ou électret par commutateur.",
+  "aliases": [
+    "RS701"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/2153-4683-rs-701-quickstartguide-399g034.pdf",
+      "document": "Clear-Com, RS-701 Beltpack Quick Reference Guide 399G034 Rev A (copie Novelty) : connecteurs 7, 8 et 9",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Ligne intercom (entrée)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle ; alimentation 15 à 30 V par la ligne"
+    },
+    {
+      "id": "loop",
+      "name": "Ligne intercom (repiquage)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle"
+    }
+  ]
+}

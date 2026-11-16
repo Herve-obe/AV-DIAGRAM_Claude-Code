@@ -1,0 +1,87 @@
+{
+  "id": "clear-com-fsii-spl",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "FSII-SPL",
+  "status": "verified",
+  "description": "Splitter actif FreeSpeak II : relie jusqu'à 5 antennes FSII-TCVR à la base, en RJ45 ou en fibre (module optionnel). Doit être alimenté localement.",
+  "aliases": [
+    "FreeSpeak II splitter",
+    "PD2203"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_base-ii_manuel.pdf",
+      "document": "Clear-Com, FreeSpeak II User Guide 399G169 Rev B (27 avril 2016, copie Novelty) : § 2.4 connecteurs arrière de la base, § 5.3 connecteurs du splitter, § 15 caractéristiques",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "Prise ronde 4 broches de type XLR (photo § 5.3)"
+    },
+    {
+      "id": "fiber",
+      "name": "Fiber",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "sfp",
+      "format": "Liaison fibre vers la base, module optionnel"
+    },
+    {
+      "id": "base",
+      "name": "Base",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Vers la base, RJ45 Cat 5"
+    },
+    {
+      "id": "ant1",
+      "name": "Antenne 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Antenne FSII-TCVR"
+    },
+    {
+      "id": "ant2",
+      "name": "Antenne 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Antenne FSII-TCVR"
+    },
+    {
+      "id": "ant3",
+      "name": "Antenne 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Antenne FSII-TCVR"
+    },
+    {
+      "id": "ant4",
+      "name": "Antenne 4",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Antenne FSII-TCVR"
+    },
+    {
+      "id": "ant5",
+      "name": "Antenne 5",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "ethercon",
+      "format": "Antenne FSII-TCVR"
+    }
+  ]
+}

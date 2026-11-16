@@ -1,0 +1,38 @@
+{
+  "id": "concert-noel-synchro",
+  "titre": "Concert de Noël : synoptique de synchronisation et de timecode",
+  "source": {"fichier": "BTS Blanc TMO AV2 SON dossier Concert de Noël avec ANNEXES.pdf", "driveId": "1nlAWMplQzMAhTUZqeTtAc-UQW4CHEwNV", "auteur": "Hervé Obejero", "pages": "2-3 (sujet), 8-11 (devis), 14 (rappel EtherSound)"},
+  "domaine": ["son", "sync", "reseau"],
+  "difficulte": "moyen",
+  "demande": "Pour le concert de Noël (comédie musicale en chapelle), je dois établir le synoptique de câblage de synchronisation et de timecode, et proposer une méthode pour synchroniser l'enregistreur Sound Devices 744T avec le reste de l'enregistrement multipiste.\n\nInstallation : trois pôles audio (plateau, régie FOH, enregistrement). Au plateau, deux boîtiers de scène Yamaha SB168-ES en EtherSound. En régie FOH, une console Yamaha M7CL-48ES avec une carte MY16-AU2, l'ordinateur des jingles et le 744T, qui enregistre 2 ou 4 pistes supplémentaires en synchronisation avec le multipiste. Au pôle enregistrement, un iMac avec Pro Tools Ultimate, un châssis Magma ExpressBox 3T avec carte Avid HDX, une interface Avid HD I/O (16 entrées / 8 sorties analogiques, 8 sorties numériques), une surface Avid C|24 et une horloge de synchronisation Avid Sync HD I/O.\n\nCâbles prévus au devis : câble série mini-DIN 8 broches pour la Sync HD ; paire de BNC pour la liaison Loop Sync entre la Sync HD et l'HD I/O ; câble Sound Devices XL-LB2 (timecode LEMO 5 broches vers BNC IN et BNC OUT) ; câble BNC HD-SDI de 30 m et cordon BNC de patch ; câbles RJ45. Dans un réseau EtherSound en cascade, le premier appareil (Primary Master) fournit l'horloge à tout le réseau.\n\nJe veux le synoptique de synchro (horloge et timecode) et la méthode de synchronisation du 744T.",
+  "materielImpose": [
+    {"designation": "Horloge de synchronisation", "quantite": 1, "reference": "Avid Sync HD I/O"},
+    {"designation": "Interface audio Pro Tools", "quantite": 1, "reference": "Avid HD I/O"},
+    {"designation": "Châssis d'extension avec carte HDX", "quantite": 1, "reference": "Magma ExpressBox 3T + Avid HDX"},
+    {"designation": "Station d'enregistrement", "quantite": 1, "reference": "Apple iMac + Avid Pro Tools Ultimate"},
+    {"designation": "Surface de contrôle", "quantite": 1, "reference": "Avid C|24"},
+    {"designation": "Console numérique", "quantite": 1, "reference": "Yamaha M7CL-48ES"},
+    {"designation": "Carte d'extension", "quantite": 1, "reference": "Yamaha MY16-AU2"},
+    {"designation": "Boîtier de scène EtherSound", "quantite": 2, "reference": "Yamaha SB168-ES"},
+    {"designation": "Enregistreur 4 pistes", "quantite": 1, "reference": "Sound Devices 744T"},
+    {"designation": "Câble timecode LEMO 5 vers BNC", "quantite": 1, "reference": "Sound Devices XL-LB2"}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Une horloge maîtresse unique (Sync HD I/O)", "type": "quantite", "verif": {"famille": "sync", "min": 1, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Sync HD → HD I/O en Loop Sync (BNC)", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "sync", "de": "horloge-maitre", "vers": "interface-protools"}},
+    {"id": "e3", "texte": "Liaison série mini-DIN 8 entre la Sync HD et le système Pro Tools", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "horloge-maitre", "vers": "station-protools"}},
+    {"id": "e4", "texte": "Timecode distribué au 744T (entrée TC par le câble XL-LB2)", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "sync", "de": "horloge-maitre", "vers": "enregistreur-744"}},
+    {"id": "e5", "texte": "Méthode de synchronisation du 744T expliquée : timecode commun et, si l'appareil l'accepte, même référence d'horloge que le multipiste (à vérifier dans sa documentation)", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e6", "texte": "Liaison longue (BNC 30 m) entre le pôle enregistrement et la régie FOH pour la synchro", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "sync", "de": "pole-enregistrement", "vers": "regie-foh"}},
+    {"id": "e7", "texte": "Chaîne EtherSound SB168-ES ↔ M7CL avec un Primary Master identifié", "type": "liaison", "verif": {"famille": "stagebox", "min": 2, "max": null, "signal": "audioIp", "de": "stagebox", "vers": "console"}},
+    {"id": "e8", "texte": "Cohérence d'horloge entre la M7CL (MY16-AU2) et Pro Tools : une seule référence, les autres en esclave", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e9", "texte": "Même fréquence d'échantillonnage et même cadence de timecode sur tous les appareils", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Confondre horloge (word clock) et timecode : le timecode seul ne verrouille pas la vitesse d'échantillonnage",
+    "Deux maîtres d'horloge (M7CL et Sync HD) sans choisir lequel pilote l'autre",
+    "Oublier que le 744T est en régie FOH, loin de la Sync HD : liaison longue nécessaire",
+    "Le Primary Master EtherSound fournit l'horloge du réseau EtherSound"
+  ],
+  "corrigeDisponible": false
+}

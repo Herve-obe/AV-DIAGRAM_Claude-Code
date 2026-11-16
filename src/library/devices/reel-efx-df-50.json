@@ -1,0 +1,65 @@
+{
+  "id": "reel-efx-df-50",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Reel EFX",
+  "model": "DF-50 DMX",
+  "status": "verified",
+  "description": "Machine à brouillard totalement inodore, sans résidus, DMX512, 35h autonomie",
+  "aliases": [
+    "Reel EFX DF-50",
+    "DF-50",
+    "Reel EFX DF-50 DMX"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/machine-a-brouillard/df-50/",
+      "document": "Novelty (loueur), page DF-50 : version pilotable en DMX",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/reel-efx_df-50-dmx_ft.pdf",
+      "document": "Novelty — DF-50 : DF-50",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/reel-efx_DF50_certificat.pdf",
+      "document": "Novelty — DF-50 : DF-50",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://goknight.com/content/documentation/20-df-50-owner-s-manual.pdf",
+      "document": "Reel EFX, manuel « DF-50 Diffusion Hazer & DF-50 DMX Option » (copie Knight), p. 1 et 10 : cordon secteur fourni, DMX XLR 5 points avec chaînage, brochage",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points (USITT 1990)"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX (chaînage possible à travers l'appareil), XLR 5 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "110-125 V (4 A) ou 220 V (2 A), 50-60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "weightKg": 16,
+  "notes": "Puissance non saisie : le constructeur donne 4 A sous 110-125 V ou 2 A sous 220 V sans puissance en watts, et la page Novelty indique 2200 W, valeurs incohérentes."
+}

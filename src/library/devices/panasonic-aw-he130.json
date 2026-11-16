@@ -1,0 +1,111 @@
+{
+  "id": "panasonic-aw-he130",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-HE130",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-HE130WPE_KPE_OPERATION(VQT5L27A-2)_E.pdf",
+      "document": "Panasonic, AW-HE130 Operating Instructions VQT5L27A-2",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/aw-he130k/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "video",
+      "name": "Video Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite 1,0 V crête-crête, retour"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Synchro externe"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "Contrôle IP et vidéo ; alimentation PoE+",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Contrôle série (RJ45)"
+    },
+    {
+      "id": "rs232-in",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Mini-DIN 8 points"
+    },
+    {
+      "id": "rs232-out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minidin8",
+      "format": "Mini-DIN 8 points"
+    },
+    {
+      "id": "audio",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo, MIC -40 dBV (alimentation plug-in 2,5 V) ou LINE -10 dBV",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V DC, 1,8 A (adaptateur secteur fourni), avec serre-câble"
+    }
+  ],
+  "powerW": 21.6
+}

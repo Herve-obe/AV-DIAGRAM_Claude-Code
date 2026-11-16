@@ -1,0 +1,59 @@
+{
+  "id": "lightware-edid-manager",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Lightware",
+  "model": "EDID Manager",
+  "status": "verified",
+  "description": "Émulateur d'EDID DVI et répéteur DVI (100 EDID, compensation de câble 50 m), première génération sans USB, distincte de l'EDID Manager V4. Bloc secteur 5 V fourni.",
+  "aliases": [
+    "Edid Manager – Set x2",
+    "EDIDMANAGER-SET",
+    "LIGHTWARE Edid Manager"
+  ],
+  "powerW": 1.1,
+  "weightKg": 0.175,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/EDID_MANAGER.pdf",
+      "document": "Lightware, fiche EDID Manager (copie Novelty) : DVI-D 24 broches entrée/sortie, alimentation DC 2 mm, 1,125 W typ., 175 g",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/EDID_Manager_User_Manual.pdf",
+      "document": "Lightware, EDID Manager User's Manual (copie Novelty) : bloc +5 V, alimentation 500 mA des émetteurs fibre par la broche 14 de la sortie DVI",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/edid-manager-set-x2/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dviIn",
+      "name": "DVI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D 24 broches"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-D 24 broches ; 5 V 500 mA pour émetteur fibre (broche 14)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Prise DC 2 mm, 9 à 12 V DC (bloc +5 V fourni)"
+    }
+  ]
+}

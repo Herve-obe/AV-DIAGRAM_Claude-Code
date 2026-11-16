@@ -1,0 +1,58 @@
+{
+  "id": "panasonic-ag-ec4",
+  "family": "control",
+  "manufacturer": "Panasonic",
+  "model": "AG-EC4",
+  "pictogram": "control",
+  "status": "verified",
+  "description": "Boîtier de commande déporté pour caméscopes P2 / 300Studio, câble 10 points",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2018-12/AG-EC4G%28VQT2H46-2%29_EGFISJ.pdf",
+      "document": "Panasonic, AG-EC4G Operating Instructions VQT2H46-2, « Connector area » et caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sites/default/files/media/document/2018-12/AG-EC4G%28VQT2H46-2%29_EGFISJ.pdf",
+      "document": "Panasonic, AG-EC4G Operating Instructions VQT2H46-2",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://eu.connect.panasonic.com/sk/en/download-specifications/7098",
+      "document": "Panasonic, fiche produit AG-EC4 (PDF, pages en images, lues) : désignation AG-EC4 (inscription AG-EC4 visible sur la face avant, unité citée AG-EC4G dans la liste du système studio), câble de télécommande 50 m max., 630 g",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://manualslib.com/manual/895531/Panasonic-Ag-Ec4g.html?page=8",
+      "document": "Manuel Panasonic AG-EC4G hébergé par ManualsLib, page « Connection cable » : câble 10 points, fiches Hirose HR10A-10P-10P (côté caméra) et HR10A-10P-10S (côté commande)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "cam",
+      "name": "CAM/BS",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "Rond 10 points, fiches de câble Hirose HR10A-10P-10S côté boîtier (manuel AG-EC4G, page « Connection cable ») vers la prise REMOTE de la caméra ou de la station de base (câble 10 points fourni, 10 m) ; données, vidéo retour et +12 V fournis par la caméra"
+    },
+    {
+      "id": "vout",
+      "name": "VIDEO OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite VBS 1 Vcc 75 ohms, image de contrôle"
+    }
+  ],
+  "domain": "image",
+  "powerW": 2.5,
+  "aliases": [
+    "AG-EC4G"
+  ]
+}

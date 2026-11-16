@@ -1,0 +1,154 @@
+{
+  "id": "bss-dpr-404",
+  "family": "processing",
+  "manufacturer": "BSS Audio",
+  "model": "DPR-404",
+  "pictogram": "processor",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://bssaudio.com/en-US/product_documents/dpr404dspdf",
+      "document": "BSS, fiche DPR-404",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/compresseur/dpr404/",
+      "document": "Novelty : DPR404",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/feuille_de_notes/1190027825.pdf",
+      "document": "Novelty : DPR404 : BSS DPR404",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://bssaudio.com/en-US/product_documents/dpr404umpdf",
+      "document": "BSS, DPR-404 User Manual V3.0 (1999), Fig 5.1 et Specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out1",
+      "name": "Output 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, symétrique"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out2",
+      "name": "Output 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, symétrique"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out3",
+      "name": "Output 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, symétrique"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out4",
+      "name": "Output 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, symétrique"
+    },
+    {
+      "id": "sc1",
+      "name": "Sidechain Insert 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS : départ (ring) / retour (tip)"
+    },
+    {
+      "id": "sc2",
+      "name": "Sidechain Insert 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS : départ (ring) / retour (tip)"
+    },
+    {
+      "id": "sc3",
+      "name": "Sidechain Insert 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS : départ (ring) / retour (tip)"
+    },
+    {
+      "id": "sc4",
+      "name": "Sidechain Insert 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Jack TRS : départ (ring) / retour (tip)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble secteur captif (cordon ancré), fiche à monter selon le pays : aucun connecteur du catalogue ne s'applique (« Anchored 2m power cord ») ; 120/240 V commutable ; plaque : 30 VA"
+    }
+  ],
+  "aliases": [
+    "DPR404",
+    "BSS DPR404"
+  ],
+  "powerW": 30
+}

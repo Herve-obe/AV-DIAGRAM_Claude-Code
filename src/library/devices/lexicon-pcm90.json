@@ -1,0 +1,114 @@
+{
+  "id": "lexicon-pcm90",
+  "family": "processing",
+  "manufacturer": "Lexicon",
+  "model": "PCM90",
+  "pictogram": "processor",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://www.zzounds.com/item--LEXPCM91",
+      "document": "zZounds, fiche PCM91 (le PCM91 reprend le PCM90 avec l'AES/EBU en plus)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/reverberation/pcm90-pcm91/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.soundonsound.com/reviews/lexicon-pcm90",
+      "document": "Sound On Sound, essai Lexicon PCM90 : panneau arrière",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.soundonsound.com/reviews/lexicon-pcm90",
+      "document": "Sound On Sound (presse), essai Lexicon PCM90, relu : entrées hybrides XLR/jack, sorties jack et XLR, entrées/sorties S/PDIF sur prises phono, MIDI In/Out/Thru, « standard IEC mains lead »",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inL",
+      "name": "Input L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR / jack 6,35 symétrique"
+    },
+    {
+      "id": "inR",
+      "name": "Input R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "line+4",
+      "format": "XLR / jack 6,35 symétrique"
+    },
+    {
+      "id": "outL",
+      "name": "Output L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (et jack 6,35)"
+    },
+    {
+      "id": "outR",
+      "name": "Output R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR symétrique (et jack 6,35)"
+    },
+    {
+      "id": "spdifIn",
+      "name": "S/PDIF In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "spdifOut",
+      "name": "S/PDIF Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "rca",
+      "channels": 2
+    },
+    {
+      "id": "midiIn",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiOut",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midiThru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "« standard IEC mains lead » (essai Sound On Sound) ; tension et consommation non publiées"
+    }
+  ],
+  "notes": "Non saisies : prise de la pédale double / pédale de volume en option (connecteur non publié par le constructeur). Niveaux : Sound On Sound indique un commutateur « 0 dBu symétrique ou -20 dBu asymétrique » ; le niveau ligne +4 par défaut du projet est conservé, le 0 dBu n'étant pas un niveau de la bibliothèque."
+}

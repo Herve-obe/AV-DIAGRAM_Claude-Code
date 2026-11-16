@@ -1,0 +1,52 @@
+{
+  "id": "sennheiser-skm-100-g4",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 100 G4 (émetteur main)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.45,
+  "sources": [
+    {
+      "document": "Sennheiser, evolution wireless G4 100 series Instruction Manual, ew 100 G4 v2.2 (ew_100_G4_Manual_v2-2_10_2019_EN.pdf)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-skm100g4.html",
+      "document": "Sennheiser ew G4, SKM 100 G4 specifications",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf/9da0cf3e0b7411f192c65e789cf0ae6f",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, 30 mW max ; tête de micro interchangeable"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard",
+      "accepts": [
+        "sennheiser-mmd-835-bk",
+        "sennheiser-mmd-845",
+        "sennheiser-mme-865",
+        "sennheiser-mmd-935",
+        "sennheiser-mmd-945",
+        "sennheiser-mmk-965",
+        "sennheiser-mmd-42",
+        "sennheiser-mm-435",
+        "sennheiser-mm-445"
+      ]
+    }
+  ]
+}

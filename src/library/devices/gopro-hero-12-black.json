@@ -1,0 +1,53 @@
+{
+  "id": "gopro-hero-12-black",
+  "family": "camera",
+  "domain": "image",
+  "pictogram": "camera",
+  "manufacturer": "GoPro",
+  "model": "Hero 12 Black",
+  "status": "verified",
+  "description": "Caméra d'action jusqu'à 5.3K, 120 Hz, HDR, WIFI, Bluetooth, étanche 10m, livré avec Module Media et autres accessoires",
+  "aliases": [
+    "GoPro Hero 12 Black"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/hero-12-black/",
+      "document": "Novelty — Hero 12 Black",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://gopro.com/en/us/shop/cameras/hero12-black/CHDHX-121-master.html",
+      "document": "GoPro, page produit HERO12 Black",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "Charge de la batterie, transfert, accessoires (câble USB-C fourni)"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth / sans fil",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Audio Bluetooth (AirPods, micros sans fil), commandes, synchro timecode via appli Quik"
+    }
+  ],
+  "slots": [
+    {
+      "id": "mod",
+      "name": "Media Mod",
+      "type": "gopro-media-mod-h12",
+      "accepts": [
+        "gopro-media-mod-adfmd-001"
+      ]
+    }
+  ]
+}

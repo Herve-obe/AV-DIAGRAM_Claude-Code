@@ -1,0 +1,95 @@
+{
+  "id": "blackmagic-web-presenter-hd",
+  "family": "recording",
+  "manufacturer": "Blackmagic Design",
+  "model": "Web Presenter HD",
+  "pictogram": "recorder",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.soundseasy.com.au/products/blackmagic-web-presenter-hd",
+      "document": "Sounds Easy, fiche Web Presenter HD (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://shop.pssl.com/products/blackmagic-blackmagic-web-presenter-hd",
+      "document": "PSSL, fiche Web Presenter HD (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1368-4617-blackmagicwebpresenterhdmanual.pdf",
+      "document": "Blackmagic Web Presenter HD/4K operation manual pp.5-6",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "sdiMon",
+      "name": "SDI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiMon",
+      "name": "HDMI Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "usb",
+      "name": "Rear USB-C webcam",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "usb-c",
+      "format": "Webcam / setup / mobile tethering"
+    },
+    {
+      "id": "usbFront",
+      "name": "Front USB-C configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet streaming",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "dc",
+      "name": "DC12V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC"
+    }
+  ],
+  "domain": "image",
+  "rackU": 1
+}

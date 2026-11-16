@@ -1,0 +1,157 @@
+{
+  "id": "sony-fx6",
+  "family": "camera",
+  "domain": "image",
+  "pictogram": "camera",
+  "manufacturer": "Sony",
+  "model": "FX6",
+  "status": "verified",
+  "description": "Caméra cinéma plein format 4K Sony (ILME-FX6), sortie 12G-SDI et HDMI, timecode, Wi-Fi ; entrées XLR sur la poignée fournie.",
+  "aliases": [
+    "SONY FX6"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/fx6/",
+      "document": "Novelty — FX6",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro.sony/support/res/manuals/5024/c3bfbc891ee0f149e46d142754fd6aa7/50244581M.pdf",
+      "document": "Sony — FX6 ILME-FX6 — Operating Instructions, logiciel 6.0",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/60546-ILMEFX6VManual.pdf",
+      "document": "Sony ILME-FX6V Operating Instructions (via Full Compass)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G/6G/3G-SDI (niveau A/B), HD-SDI"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI Type A"
+    },
+    {
+      "id": "tc",
+      "name": "TC In/Out",
+      "direction": "bidir",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "BNC, entrée ou sortie timecode"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack stéréo, -16 dBu"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "jack25",
+      "format": "Sub-mini jack 2,5 mm 3 pôles"
+    },
+    {
+      "id": "grip",
+      "name": "Télécommande poignée",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 mm 4 pôles (poignée de commande fournie)"
+    },
+    {
+      "id": "usbc",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c",
+      "format": "USB 3.2 Gen 1 (adaptateur LAN filaire USB-C possible)"
+    },
+    {
+      "id": "usb",
+      "name": "USB/Multi",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "USB 2.0 micro-B, stockage de masse et multi-interface"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "IEEE 802.11 a/b/g/n/ac (FX6V), 2,4 et 5 GHz"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Fiche EIAJ, 19,5 V DC (18 à 20,5 V)"
+    },
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR 3 broches femelle, LINE / MIC / MIC+48V commutable, MIC -30 à -80 dBu"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ],
+      "phantom": "supplied",
+      "format": "XLR 3 broches femelle, LINE / MIC / MIC+48V commutable, MIC -30 à -80 dBu"
+    }
+  ],
+  "weightKg": 0.89,
+  "powerW": 18,
+  "slots": [
+    {
+      "id": "handle",
+      "name": "Poignée XLR",
+      "type": "sony-fx6-handle",
+      "accepts": [
+        "sony-fx6-handle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "chauvet-professional-double-derby",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Chauvet Professional",
+  "model": "Double Derby",
+  "status": "community",
+  "description": "Projecteur à LED effet discothèque, type \"Derby\"",
+  "aliases": [
+    "DOUBLEDERBY",
+    "Chauvet Double Derby"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/divers-effets-speciaux/double-derby/",
+      "document": "Novelty — Double Derby",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_double-derby_manuel.pdf",
+      "document": "Manuel constructeur lié par le loueur, couverture et panneau étudiés ; variante à confirmer",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/chauvet_double-derby_ft2.pdf",
+      "document": "Novelty — Double Derby : Double Derby",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle verrouillable"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "XLR 3 femelle verrouillable"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Cordon d’alimentation"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "unspecified",
+      "format": "Prise de recopie à côté du cordon : Edison sur la version USA, version européenne non décrite"
+    }
+  ],
+  "weightKg": 2.7,
+  "powerW": 24
+}

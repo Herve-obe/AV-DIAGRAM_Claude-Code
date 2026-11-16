@@ -1,0 +1,130 @@
+{
+  "id": "dell-m4700-precision",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "DELL",
+  "model": "M4700 Precision",
+  "status": "verified",
+  "description": "PC portable, Intel Core i7-3540M 3,00GHz, RAM 16 Go, SSD 128 Go, Windows 7 Pro, Office 2013",
+  "aliases": [
+    "M4700",
+    "DELL M4700 Precision"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/informatique-video/ordinateur-et-tablettes/portable/m4700-precision/",
+      "document": "Novelty — M4700 Precision",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dl.dell.com/manuals/all-products/esuprt_laptop/esuprt_precision_mobile/precision-m4700_setup%20guide_en-us.pdf",
+      "document": "Dell, Precision M4700 Setup and Features Information (2012-06), figures 1 et 2",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/us/Dell-Precision-M4700-Spec-Sheet-tab.pdf",
+      "document": "Dell, Precision M4700 Spec Sheet",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dp",
+      "name": "DisplayPort",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport"
+    },
+    {
+      "id": "vga",
+      "name": "VGA",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "lan",
+      "name": "Réseau",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "usb3a",
+      "name": "USB 3.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb3b",
+      "name": "USB 3.0 PowerShare",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2a",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "usb2b",
+      "name": "USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a"
+    },
+    {
+      "id": "esata",
+      "name": "eSATA / USB 2.0",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Combo eSATA / USB 2.0"
+    },
+    {
+      "id": "fw",
+      "name": "IEEE 1394",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "ieee1394",
+      "format": "4 points"
+    },
+    {
+      "id": "mic",
+      "name": "Micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Prise micro 3,5 mm"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Adaptateur 180 W"
+    }
+  ],
+  "weightKg": 2.9
+}

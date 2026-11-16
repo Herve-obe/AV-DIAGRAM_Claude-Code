@@ -1,0 +1,41 @@
+{
+  "id": "ayrton-arcaline-2-50",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Ayrton",
+  "model": "Arcaline 2 50",
+  "status": "verified",
+  "description": "Barre LED Arcaline 2 50, IP65, DMX512/RDM. Consommation maximale 50 W ; poids 4.7 kg. Un connecteur verrouillable IP65 à 7 contacts mâle/femelle porte ensemble le secteur 110–240 V et le DMX, en entrée et en renvoi ; aucune prise XLR ou powerCON séparée.",
+  "sources": [
+    {
+      "url": "https://www.ayrton.eu/wp-content/uploads/2015/04/Arcaline2.pdf",
+      "document": "Ayrton (constructeur), fiche Arcaline 2, relue : connecteur multifonction IP65 verrouillable 7 contacts mâle/femelle pour alimentation (entrée/sortie) et DMX512/RDM ; 110–240 V ; 50 W / 100 W max ; poids 4,7 kg / 8,2 kg",
+      "accessed": "2026-11-16"
+    },
+    {
+      "document": "Réponses utilisateur du 4 novembre 2026 — identité et séparation des variantes, sans certification technique",
+      "accessed": "2026-11-04"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hybridIn",
+      "name": "Entrée hybride secteur / DMX",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Connecteur multifonction IP65 verrouillable 7 contacts mâle/femelle ; secteur 110–240 V + DMX512/RDM"
+    },
+    {
+      "id": "hybridOut",
+      "name": "Renvoi hybride secteur / DMX",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Connecteur multifonction IP65 verrouillable 7 contacts mâle/femelle ; secteur 110–240 V + DMX512/RDM"
+    }
+  ],
+  "powerW": 50,
+  "weightKg": 4.7
+}

@@ -1,0 +1,72 @@
+{
+  "id": "sennheiser-skm-5200",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 5200",
+  "status": "verified",
+  "description": "Émetteur main UHF de la série 5000, tête vissée interchangeable (têtes condensateur ME 5002/5004/5005/5005 e/5009, dynamique MD 5005, Neumann KK 104 S et KK 105 S). Livré sans tête ni alimentation.",
+  "aliases": [
+    "SKM 5200 BK",
+    "SKM 5200 NI",
+    "SKM 5200-II",
+    "SKM 5200-II BK",
+    "SKM 5200-II NI"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fullcompass.com/common/files/8253-SennheiserSKM5200PDF.pdf",
+      "document": "Sennheiser, SKM 5200 Instructions for use (2006), copie Full Compass : têtes interchangeables p. 12-13, caractéristiques",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.sennheiser.com/en-de/catalog/products/wireless-systems/skm-5200-ii/skm-5200-ii-504099",
+      "document": "Sennheiser, page produit SKM 5200-II (504099) : compatible avec toutes les têtes de la série 5000 et les têtes Neumann",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.neumann.com/en-at/products/microphones/kk-105-s",
+      "document": "Neumann, page produit KK 105 S : pour SKM 5000/5200, supercardioïde, 1,3 mV/Pa",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf/9da0cf3e0b7411f192c65e789cf0ae6f",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF 450-960 MHz selon variante, 50 mW (-3 dB) à 50 Ω ; tête interchangeable série 5000"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-skm5000",
+      "accepts": [
+        "sennheiser-me-5002",
+        "sennheiser-me-5004",
+        "sennheiser-me-5005",
+        "sennheiser-me-5005e",
+        "sennheiser-me-5009",
+        "sennheiser-md-5005",
+        "sennheiser-md-5235",
+        "neumann-kk-104-s",
+        "neumann-kk105-s",
+        "neumann-kk-105-hd"
+      ]
+    }
+  ]
+}

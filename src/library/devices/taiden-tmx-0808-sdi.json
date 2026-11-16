@@ -1,0 +1,199 @@
+{
+  "id": "taiden-tmx-0808-sdi",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Taiden",
+  "model": "TMX-0808SDI",
+  "status": "verified",
+  "description": "Commutateur de matrice vidéo HD 8x8",
+  "aliases": [
+    "TMX0808SDI",
+    "Taiden TMX-0808 SDI",
+    "TMX-0808 SDI"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/traduction-simultanee/regie-emetteur/tmx-0808-sdi/",
+      "document": "Novelty — TMX-0808 SDI",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/taiden_tmx-0808sdi_ft.pdf",
+      "document": "Taiden (constructeur, via Novelty), fiche TMX-0404SDI / 0804SDI / 0808SDI, page TMX-0808SDI, relue le 2026-11-16 : 8 BNC entrée, 8 BNC sortie, RS-232 Sub-D 9 femelle, RJ45 TCP/IP, RS422/RS485 et TAINET, 100-240 V AC, 2,7 kg ; schéma de branchement p. 4 : embase IEC avec fusible, borniers TAINET et RS-422",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in3",
+      "name": "SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in4",
+      "name": "SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in5",
+      "name": "SDI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in6",
+      "name": "SDI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in7",
+      "name": "SDI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "in8",
+      "name": "SDI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out5",
+      "name": "SDI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out6",
+      "name": "SDI Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out7",
+      "name": "SDI Out 7",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "out8",
+      "name": "SDI Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "rs232",
+      "name": "COM (RS-232)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "D-Sub 9 femelle, système de contrôle"
+    },
+    {
+      "id": "eth",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "TCP/IP"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422/485",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Commande des caméras dôme ; bornier enfichable à vis, lu sur le schéma de branchement de la fiche Taiden (page 4, vue arrière)"
+    },
+    {
+      "id": "tainet",
+      "name": "TAINET",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "terminal",
+      "format": "Liaison au système de conférence Taiden ; bornier enfichable à vis, lu sur le schéma de branchement de la fiche Taiden (page 4, vue arrière)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec porte-fusible (schéma de branchement de la fiche Taiden, page 4), 100-240 V AC 50/60 Hz"
+    }
+  ],
+  "weightKg": 2.7,
+  "notes": "Non saisie : entrée/sortie de synchronisation externe (BNC, visible sur le schéma de branchement, fonction annexe)."
+}

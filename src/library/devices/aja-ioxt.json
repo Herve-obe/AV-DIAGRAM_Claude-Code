@@ -1,0 +1,186 @@
+{
+  "id": "aja-ioxt",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "AJA",
+  "model": "ioXT",
+  "status": "verified",
+  "description": "Interface d'acquisition et de lecture vidéo Thunderbolt : SDI 3G, HDMI, sortie composante, 8 voies audio analogiques, référence et LTC.",
+  "aliases": [
+    "AJA ioXT"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/ioxt/",
+      "document": "Novelty — ioXT",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/aja_ioXT_manuel.pdf",
+      "document": "Novelty — ioXT : ioXT",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/aja_ioXT_ft.pdf",
+      "document": "Novelty — ioXT : ioXT",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/aja_ioXT_certificat.pdf",
+      "document": "Novelty — ioXT : ioXT",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/aja_using_AJA_and_Adobe_Mercury_Engine.pdf",
+      "document": "Novelty — ioXT : Using AJA and Adobe Mercury Engine",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/aja_using_Avid_and_AJA.pdf",
+      "document": "Novelty — ioXT : Using Avid and AJA",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dc",
+      "name": "Power 12V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "12 V CC, XLR 4 points (bloc secteur fourni ou batterie)"
+    },
+    {
+      "id": "tb1",
+      "name": "Thunderbolt 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "mini-displayport",
+      "format": "Thunderbolt (prise Mini DisplayPort), vers l'ordinateur ou en chaînage"
+    },
+    {
+      "id": "tb2",
+      "name": "Thunderbolt 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "mini-displayport",
+      "format": "Thunderbolt (prise Mini DisplayPort), chaînage vers stockage"
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DE-9 femelle, protocole Sony 9 broches (contrôle machine)"
+    },
+    {
+      "id": "aout",
+      "name": "Balanced Analog Audio Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "DB-25 brochage Tascam, 8 voies symétriques ; pleine échelle 0 dBFS = +24 dBu (ou +18 dBu)",
+      "level": "line+4"
+    },
+    {
+      "id": "compY",
+      "name": "Y/G/CVBS Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Y ou composite"
+    },
+    {
+      "id": "compPb",
+      "name": "Pb/B/Y Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Pb ou S-Vidéo Y"
+    },
+    {
+      "id": "compPr",
+      "name": "Pr/R/C Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Pr ou S-Vidéo C"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3, sans HDCP"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.4, sans HDCP"
+    },
+    {
+      "id": "sdiIn1",
+      "name": "SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "sdiIn2",
+      "name": "SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ou 2e lien dual-link"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI ou 2e lien dual-link"
+    },
+    {
+      "id": "refIn",
+      "name": "LTC / Ref In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence (noir couleur ou synchro composite) ou LTC, non terminée"
+    },
+    {
+      "id": "ltcOut",
+      "name": "LTC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Sortie LTC ; bouclage de référence en mode passage"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack TRS en façade, niveau réglable"
+    }
+  ],
+  "weightKg": 0.79
+}

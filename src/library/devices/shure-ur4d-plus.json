@@ -1,0 +1,205 @@
+{
+  "id": "shure-ur4d-plus",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR4D+",
+  "status": "verified",
+  "description": "Récepteur UHF-R double diversity (version Plus), 1 U : deux sorties XLR (commutateur micro/ligne) et deux jacks, recopie HF A/B vers 10 récepteurs, Ethernet et USB, secteur IEC avec recopie. Distinct du UR4D d'origine par la génération ; même connectique.",
+  "aliases": [
+    "UR4D Plus",
+    "SHURE UR4D+",
+    "UR4D+ G1E",
+    "UR4D+ L3E"
+  ],
+  "rackU": 1,
+  "weightKg": 5.0,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-uhf-r-plus_spec_sheet_EN.pdf",
+      "document": "Shure, UHF-R Plus spec sheet (copie Novelty) : UR4D+ 0,8 A max, 5,0 kg, 44 x 483 x 366 mm, Ethernet et USB",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-uhf-r-plus_user_guide_EN.pdf",
+      "document": "Shure, UHF-R Plus User Guide (copie Novelty) : panneau arrière UR4S+/UR4D+",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://cdn.storm.rent/content/2020/06/Shure_UR4D_Manual.pdf",
+      "document": "Shure UHF-R Plus User Guide, 27NS14492 Rev.2, 2011 (copie Storm)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x1-freq-l3e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x2-freq-l3e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1-x1-freq-l3e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1-x2-freq-l3e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x2-freq-l3e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x1-freq-l3e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x1-freq-g1e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/ur4d-ur1m-x2-freq-g1e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x2-freq-g1e/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/main/ur4d-ur2-x1-freq-g1e/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Réception HF",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "2 canaux, liaisons radio avec émetteurs UHF-R"
+    },
+    {
+      "id": "antA",
+      "name": "Antenne A",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω, bias 12 V 150 mA"
+    },
+    {
+      "id": "antB",
+      "name": "Antenne B",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "BNC 50 Ω, bias 12 V 150 mA"
+    },
+    {
+      "id": "xlr1",
+      "name": "Sortie XLR 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique électronique, +24 dBu max (-6 dBu en position Mic, -30 dB)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "xlr2",
+      "name": "Sortie XLR 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Symétrique électronique, +24 dBu max (-6 dBu en position Mic, -30 dB)",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "jack1",
+      "name": "Sortie jack 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 à symétrie d'impédance, 200 Ω, +18 dBu max",
+      "level": "line+4"
+    },
+    {
+      "id": "jack2",
+      "name": "Sortie jack 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 à symétrie d'impédance, 200 Ω, +18 dBu max",
+      "level": "line+4"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Wireless Workbench"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC, 100-240 V"
+    },
+    {
+      "id": "acout",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Non commutée, chaînage de 5 UR4 maximum"
+    },
+    {
+      "id": "rfOutA",
+      "name": "RF A out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Distribution HF vers le récepteur suivant"
+    },
+    {
+      "id": "rfOutB",
+      "name": "RF B out",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "bnc",
+      "format": "Distribution HF vers le récepteur suivant"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Interface ordinateur"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 en façade, 1 W sous 63 Ω"
+    }
+  ]
+}

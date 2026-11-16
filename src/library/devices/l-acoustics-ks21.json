@@ -1,0 +1,53 @@
+{
+  "id": "l-acoustics-ks21",
+  "family": "speaker",
+  "manufacturer": "L-Acoustics",
+  "model": "KS21",
+  "pictogram": "speaker",
+  "status": "verified",
+  "weightKg": 49,
+  "sources": [
+    {
+      "url": "https://www.l-acoustics.com/products/ks21/",
+      "document": "L-Acoustics, page produit KS21, spécifications",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-grave/ks21/",
+      "document": "Novelty — KS21",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/l-acoustics_ks21_sps_en_1pdf.pdf",
+      "document": "Novelty — KS21 : KS21",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://prdstglaxxwe001.blob.core.windows.net/webapp-lacoustics/documentation/LOUDSPEAKERS/KS21/EN/System%20Spec%20Sheet/KS21_SPS_EN_1.2.pdf",
+      "accessed": "2026-11-06"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a",
+      "name": "IN (speakON 4)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Caisson de grave 21\", 8 Ω ; entrée speakON 4 points"
+    },
+    {
+      "id": "b",
+      "name": "LINK (speakON 4)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "Recopie de IN, speakON 4 points"
+    }
+  ],
+  "aliases": [
+    "L-ACOUSTICS KS21"
+  ]
+}

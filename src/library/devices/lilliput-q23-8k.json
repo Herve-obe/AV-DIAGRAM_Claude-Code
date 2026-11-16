@@ -1,0 +1,179 @@
+{
+  "id": "lilliput-q23-8k",
+  "family": "display",
+  "manufacturer": "Lilliput",
+  "model": "Q23-8K",
+  "pictogram": "display",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.videocraft.com.au/products/lilliput-q23-8k-23-8-12g-sdi-hdmi-broadcast-studio-monitor",
+      "document": "Videocraft, fiche Q23-8K (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/moniteur-video/q23-8k/",
+      "document": "Novelty : Q23-8K",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.lilliput.com/uploads/8K-Production-Monitors-User-Manual.pdf",
+      "document": "Lilliput, manuel 8K Production Monitor : 2.1 Front Panel, 2.2 Rear Panel, Specifications",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.lilliput.com/q23-8k-product/",
+      "document": "Lilliput, page produit Q23-8K : Specifications",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "bnc1",
+      "name": "12G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (quad link 8K)"
+    },
+    {
+      "id": "bnc2",
+      "name": "12G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (quad link 8K)"
+    },
+    {
+      "id": "bnc3",
+      "name": "12G-SDI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (quad link 8K)"
+    },
+    {
+      "id": "bnc4",
+      "name": "12G-SDI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI (quad link 8K)"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 2.0 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sfp",
+      "name": "SFP+",
+      "direction": "in",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Module fibre 12G en option"
+    },
+    {
+      "id": "ac",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "Power IN XLR 4 broches, DC 12-24 V (bloc 15 V / 4 A fourni) ; plaque batterie V-Lock ou Anton Bauer 14,8 V en option"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "12G-SDI Loop Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "12G-SDI Loop Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "12G-SDI Loop Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "12G-SDI Loop Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, quad link 8K"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI 2.0 Loop Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "phones",
+      "name": "Prise d'oreille",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "rs422In",
+      "name": "RS422 In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS422 In, RJ45 8 broches, protocoles Lilliput et TSL V3.1"
+    },
+    {
+      "id": "rs422Out",
+      "name": "RS422 Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS422 Out, RJ45 8 broches (chaînage)"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "GPI In, RJ45 8 broches (GPI 1 à 8, contact à la masse)"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "LAN 10/100, RJ45, commande du moniteur"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "in",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Face avant : chargement 3D LUT et mise à jour logicielle"
+    }
+  ],
+  "aliases": [
+    "Lilliput Q23-8K"
+  ],
+  "powerW": 60
+}

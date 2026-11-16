@@ -1,0 +1,99 @@
+{
+  "id": "d-san-perfectcue-mini",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "D'San",
+  "model": "PerfectCue Mini",
+  "status": "community",
+  "description": "Pavlof HF pour contrôle de 2 PC",
+  "aliases": [
+    "PERFECTCUEMINI",
+    "D'San PerfectCue Mini"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/divers-peripherique/perfectcue-mini/",
+      "document": "Novelty — PerfectCue Mini",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/UserGuide.pdf",
+      "document": "Novelty — PerfectCue Mini : PerfectCue",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.dsan.com/perfectcue-mini",
+      "document": "D'San, page produit PerfectCue Mini",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.dsan.com/product/perfectcue-mini/",
+      "document": "D'San, page produit PerfectCue Mini (PC-MINI)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dsan.com/wp-content/uploads/2025/04/PerfectCueMiniUserGuideOL-2.pdf",
+      "document": "D'San, PerfectCue Mini User Guide",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Récepteur HF",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "433,92 MHz, 256 canaux (micro-interrupteurs), portée 300 ft (100 m), depuis la télécommande fournie"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB programmable, ordinateur 1 ; type non précisé ; alimentation 5 V par le bus possible"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "unspecified",
+      "format": "USB programmable, ordinateur 2 ; type non précisé"
+    },
+    {
+      "id": "serXlr",
+      "name": "Série XLR",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "xlr3",
+      "format": "Liaison série et alimentation vers d'autres PerfectCue ou voyants, « pour câble micro standard » (XLR 3) ; ne pas relier à un appareil audio"
+    },
+    {
+      "id": "serRj",
+      "name": "Série RJ45",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison série et alimentation sur câble Cat 5 vers d'autres PerfectCue ou voyants ; ne pas relier à un appareil réseau"
+    },
+    {
+      "id": "phono",
+      "name": "Phono Jack (casque)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "format": "Sortie audio pour casque ou oreillette de top (volume haut, bas, arrêt) ; diamètre du jack non précisé"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation externe",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "Bloc secteur D'San 12 V (PC-PW), broche centrale positive, embase en retrait ; ou alimentation 5 V par le bus USB"
+    }
+  ]
+}

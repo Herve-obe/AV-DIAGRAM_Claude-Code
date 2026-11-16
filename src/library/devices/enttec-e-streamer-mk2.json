@@ -1,0 +1,149 @@
+{
+  "id": "enttec-e-streamer-mk2",
+  "family": "dmxDistribution",
+  "manufacturer": "ENTTEC",
+  "model": "E-Streamer MK2",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.enttec.com/wp-content/uploads/2016/12/E-streamer-MK2-brochure.pdf",
+      "document": "ENTTEC, brochure E-Streamer MK2",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.enttec.co.uk/wp-content/uploads/2016/12/E-streamer-MK2-brochure.pdf",
+      "document": "ENTTEC, brochure E-Streamer Mk2 (miroir enttec.co.uk)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/19635-EnttecEStreamerMk2UserManual.pdf",
+      "document": "ENTTEC, E-Streamer Mk2 User Manual (copie Full Compass), p. 6 : face arrière et plaque signalétique",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX Input 1",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX Input 2",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX Input 3",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX Input 4",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points mâle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmxOut1",
+      "name": "DMX Output 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmxOut2",
+      "name": "DMX Output 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Output 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle ; version 70711 uniquement"
+    },
+    {
+      "id": "dmxOut4",
+      "name": "DMX Output 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points femelle ; version 70711 uniquement"
+    },
+    {
+      "id": "dintec1",
+      "name": "DIN-TEC 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "rj45",
+      "format": "Prise RJ45 pour appareils ENTTEC DIN-TEC ; version 70711 uniquement"
+    },
+    {
+      "id": "dintec2",
+      "name": "DIN-TEC 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "rj45",
+      "format": "Prise RJ45 pour appareils ENTTEC DIN-TEC ; version 70711 uniquement"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100/1000, Art-Net / ESP, interface web"
+    },
+    {
+      "id": "usb",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Stockage de sauvegarde et restauration"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Stockage de sauvegarde et restauration"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DB9, commande à distance série"
+    },
+    {
+      "id": "dc",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC, 100-260 V CA 50/60 Hz, 20 W max."
+    }
+  ],
+  "powerW": 20,
+  "description": "Enregistreur/lecteur DMX ENTTEC E-Streamer Mk2, rack 1 U : version 70711 avec 4 entrées et 4 sorties DMX XLR 5 et 2 prises DIN-TEC, Ethernet gigabit, 2 USB, RS-232 DB9, entrée IEC 100-260 V."
+}

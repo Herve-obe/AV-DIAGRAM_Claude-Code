@@ -1,0 +1,41 @@
+{
+  "id": "shure-brh440m",
+  "family": "intercom",
+  "manufacturer": "Shure",
+  "model": "BRH440M",
+  "pictogram": "intercom",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogue Novelty 2025 ; documentation Shure non trouvée en ligne (à compléter)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.shure.com/en-US/docs/guide/BRH44xM",
+      "document": "Shure BRH440M / BRH441M User Guide",
+      "accessed": "2026-10-25"
+    },
+    {
+      "url": "https://www.markertek.com/Attachments/Specifications/Shure/BRH441M-LC-Specifications.pdf",
+      "document": "Shure, BRH441M-LC Specifications (copie revendeur Markertek)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://pubs.shure.com/view/guide/BRH44xM/en-US.pdf",
+      "document": "Shure BRH440M / BRH441M User Guide (PDF) : câble amovible vendu à part, connecteur 6 broches côté casque, caractéristiques micro et écouteurs, brochages BCASCA",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hp",
+      "name": "Casque-micro (câble BCASCA)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "shure-bcasca",
+      "format": "Casque deux oreilles, embase 6 points Shure du câble amovible BCASCA (vendu à part : BCASCA-NXLR4, NXLR4-FEM, NXLR3QI, extrémités libres) ; micro dynamique cardioïde 145 ohms, -66,5 dBV/Pa ; écouteurs 300 ohms",
+      "channels": 2
+    }
+  ],
+  "weightKg": 0.343
+}

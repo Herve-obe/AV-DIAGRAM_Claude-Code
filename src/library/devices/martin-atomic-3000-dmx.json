@@ -1,0 +1,63 @@
+{
+  "id": "martin-atomic-3000-dmx",
+  "family": "luminaire",
+  "manufacturer": "Martin",
+  "model": "Atomic 3000 DMX",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 7.5,
+  "sources": [
+    {
+      "url": "https://www.martin.com/en/products/atomic-3000-dmx",
+      "document": "Martin, page produit Atomic 3000 DMX",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/stroboscope/atomic3000-detonator/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 points"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In 3 points",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512, XLR 3 points"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru 3 points",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX, XLR 3 points"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "bare-wire",
+      "format": "Queue de câble captive 1,5 m 14 AWG, livrée sans fiche ; 200–240 V (MAX-15), 8 A typique, 33 A en crête"
+    }
+  ],
+  "powerW": 1840
+}

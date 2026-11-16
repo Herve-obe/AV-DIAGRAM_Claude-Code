@@ -1,0 +1,161 @@
+{
+  "id": "novastar-cvt10-pro-s",
+  "family": "videoRouting",
+  "manufacturer": "NovaStar",
+  "model": "CVT10 Pro-S",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1941746-REG/novastar_cvt10pro_s_cvt10_pro_s_cat6_fiber_converter.html",
+      "document": "B&H, fiche CVT10 Pro-S (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://midwich.us/p/cvt10pro-s-fiber-converter",
+      "document": "Midwich, fiche CVT10 Pro-S",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/mur-d-images-led/peripherique-mur-d-images-led/cvt10-pro-s/",
+      "document": "Novelty — CVT10 PRO-S",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0099/2260/9218/files/CVT10_Pro_Fiber_Converter_Specifications-V1.0.0.T2.pdf",
+      "document": "NovaStar (constructeur), CVT10 Pro Fiber Converter Specifications V1.0.0.T2 (copie revendeur), pp. 1-4 : face arrière (entrée secteur PowerCON, USB type B, 10 ports Gigabit, OPT1/OPT2), 22 W, 5,9 kg ; la photo montre le modèle Pro-M",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://oss.novastar.tech/uploads/2024/10/CVT10-Pro-Fiber-Converter-Specifications-V1.1.0.pdf",
+      "document": "NovaStar (constructeur), CVT10 Pro Fiber Converter Specifications V1.1.0, pp. 2-4 (texte commun Pro-S / Pro-M) : entrée secteur « PowerCON » (à ne pas brancher sous tension), port USB de type B, 10 ports Gigabit Ethernet, 2 ports optiques OPT1/OPT2, « Pro-S ... Connector type: LC », 100-240 V 1,5 A, 22 W, 5,9 kg ; la photo de la face arrière (modèle Pro-M) montre 10 embases de type etherCON avec capuchons, un USB B et un PowerCON",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://pixelpitchers.com/novastar/cvt10-pro-s",
+      "document": "Pixel Pitchers (revendeur), fiche CVT10 Pro-S : « 10x Neutrik Gigabit Ethernet outputs », 2 ports optiques 10G monomode, « PowerCON power », 1 USB type B",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "opt1",
+      "name": "Optical 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "lc",
+      "format": "10G monomode, module optique à chaud ; fibre à connecteur LC (principal)"
+    },
+    {
+      "id": "opt2",
+      "name": "Optical 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "lc",
+      "format": "10G monomode, module optique à chaud ; fibre à connecteur LC (secours)"
+    },
+    {
+      "id": "led1",
+      "name": "LED Out 1",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led2",
+      "name": "LED Out 2",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led3",
+      "name": "LED Out 3",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led4",
+      "name": "LED Out 4",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led5",
+      "name": "LED Out 5",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led6",
+      "name": "LED Out 6",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led7",
+      "name": "LED Out 7",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led8",
+      "name": "LED Out 8",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led9",
+      "name": "LED Out 9",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "led10",
+      "name": "LED Out 10",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit vers cartes de réception"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB type B : commande depuis un PC (NovaLCT), mise à jour"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "100-240 V CA, 50/60 Hz, 1,5 A ; connecteur PowerCON (ne pas brancher sous tension)"
+    }
+  ],
+  "aliases": [
+    "CVT10PROS",
+    "Novastar CVT10 PRO-S"
+  ],
+  "powerW": 22,
+  "weightKg": 5.9,
+  "notes": "Face arrière lue sur la photo du constructeur (modèle Pro-M, même châssis) : les ports optiques sont logés dans des embases étanches ; le constructeur écrit « Connector type: LC » pour la fibre du Pro-S, retenu ici."
+}

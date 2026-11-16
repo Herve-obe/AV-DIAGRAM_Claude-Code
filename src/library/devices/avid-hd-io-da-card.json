@@ -1,0 +1,34 @@
+{
+  "id": "avid-hd-io-da-card",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | HD I/O DA Expansion Card (Analog Out)",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-hdio-card",
+  "sources": [
+    {
+      "url": "https://www.barryrudolph.com/recall/manuals/avid_hd_io_guide_v81.pdf",
+      "document": "Avid, HD I/O Guide v8.1, Part Number 9320-62016-00 REV B 08/10 (copie en ligne du guide constructeur) : chapitre 2 « HD I/O Back Panel », « Input and Output Cards », annexe A « Adding or Removing I/O Cards », annexe B « Pinout Diagrams for the DB-25 Connectors »",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aout",
+      "name": "Analog Output (1-8)",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "dsub25",
+      "level": "line+4",
+      "channels": 8,
+      "format": "8 sorties symétriques à +4 dBu, DB-25 ; cavalier Hi/Lo par voie (-6 dB) et Output Trim pour des appareils à -10 dBV"
+    }
+  ],
+  "description": "Carte de sorties analogiques 8 voies du HD I/O : un DB-25, convertisseurs N/A 24 bits / 192 kHz, réglages Output Trim sous le connecteur. Alimentée par le châssis ; consommation non publiée.",
+  "aliases": [
+    "HD I/O Analog Out card",
+    "HD I/O DA card"
+  ]
+}

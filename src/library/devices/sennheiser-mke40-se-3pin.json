@@ -1,0 +1,46 @@
+{
+  "id": "sennheiser-mke40-se-3pin",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "MKE 40 (terminaison SE 3 broches)",
+  "pictogram": "mic",
+  "status": "verified",
+  "description": "Micro cravate statique cardioïde Sennheiser MKE 40-4 (réf. 003579), terminaison « 3-pin SE » (Lemo 3 broches) pour émetteurs de poche Sennheiser SK 50, SK 250, SK 2000, SK 5212, SK 6000, SK 9000.",
+  "sources": [
+    {
+      "document": "Novelty — MKE40",
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/mke40/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "document": "Choix utilisateur reçu le 4 novembre 2026",
+      "accessed": "2026-11-04"
+    },
+    {
+      "url": "https://www.sennheiser.com/en-fi/catalog/products/wireless-systems/mke-40/mke-40-black-3-pin-003579",
+      "document": "Sennheiser, page produit MKE 40 (BLACK 3-PIN) 003579",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.thomann.de/dk/sennheiser_mke404.htm",
+      "document": "Thomann (revendeur), MKE 40-4, connecteur Lemo 3 broches",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/lavalier-mics/lavalier-mics/specifications.html",
+      "document": "Sennheiser, caractéristiques des micros cravate (MKE 40-4 : 3-Pin SE, 42 mV/Pa)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "lemo3",
+      "level": "mic",
+      "format": "Cravate statique cardioïde MKE 40-4 (réf. 003579, noir), connecteur « 3-pin SE » (Lemo 3 broches) pour émetteurs SK 50, SK 250, SK 2000, SK 5212, SK 6000, SK 9000 ; alimentée par l'émetteur (pas de fantôme 48 V) ; 42 mV/Pa, 3 kohms ; câble 1,60 m"
+    }
+  ]
+}

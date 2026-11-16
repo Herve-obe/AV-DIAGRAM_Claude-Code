@@ -1,0 +1,89 @@
+{
+  "id": "digital-forecast-bridge-m-hh",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Digital Forecast",
+  "model": "Bridge-M-HH",
+  "status": "verified",
+  "description": "Convertisseur de signaux HDMI vers 3G-SDI avec scaler intégré",
+  "aliases": [
+    "Digital Forecast Bridge-M-HH"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/bridge-m-hh/",
+      "document": "Novelty — Bridge-M-HH",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/digital-forecast_bridge-m-hh_ft.pdf",
+      "document": "Novelty — Bridge-M-HH : Bridge-M-HH",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.adorama.com/dfmhh.html",
+      "document": "Adorama (revendeur), fiche Bridge M_HH : « 1x 3.5mm stereo analog audio », « 1x USB », « 1x DC power » (type USB non précisé)",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/digital-forecast_bridge-m-hh_ft.pdf",
+      "document": "Digital Forecast (constructeur), fiche technique Bridge M_HH (copie Novelty), p. 1 : entrée HDMI, sortie HDMI, sortie SDI, entrée audio L/R « stereo audio jack », DC 5-24 V, 95 g, 4,37 W (max 5 W), 20 mm de profondeur ; schéma coté de la face d'entrée : HDMI, Mini USB, jack audio rond et embase DC à jack",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmiIn",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1.3; up to 1080p60"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiOut",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "audioIn",
+      "name": "Stereo audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Entrée stéréo L/R, jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini USB lu sur le schéma coté de la fiche constructeur (fonction non précisée)"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "5-24 V CC, nominal 12 V ; jack DC lu sur le schéma coté de la fiche constructeur"
+    }
+  ],
+  "weightKg": 0.095,
+  "powerW": 5,
+  "depthMm": 20,
+  "notes": "Niveau de l'entrée audio : +4 dBu par défaut (matériel professionnel, niveau non publié par le constructeur)."
+}

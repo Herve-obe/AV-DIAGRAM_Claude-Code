@@ -1,0 +1,238 @@
+{
+  "id": "vivitek-du7098z-b",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Vivitek",
+  "model": "DU7098Z-B",
+  "status": "verified",
+  "description": "Vidéoprojecteur laser, 7 000 lumens, 4K-UHD (3840x2160), résolution native WUXGA (1920x1200)",
+  "aliases": [
+    "Vivitek DU7098Z-B"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/vp-grande-puissance/8-000-a-16-000-lumens/du7098z-b/",
+      "document": "Novelty : DU7098Z-B",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/vivitek_du7098z_fiche_technique.pdf",
+      "document": "Novelty : DU7098Z-B : DU7098Z",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/vivitek_du7098z_manuel_de.pdf",
+      "document": "Novelty : DU7098Z-B : DU7098Z (DE)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/vivitek_du7098z_manuel_fr.pdf",
+      "document": "Novelty : DU7098Z-B : DU7098Z (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/vivitek_du7098z_manuel_uk.pdf",
+      "document": "Novelty : DU7098Z-B : DU7098Z (UK)",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/vivitek_du7098z_led_error_messages.pdf",
+      "document": "Novelty : DU7098Z-B : LED message error",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/vivitek_du7098z_datas.pdf",
+      "document": "Novelty : DU7098Z-B : RS232",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "monOut",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (DB15)"
+    },
+    {
+      "id": "sync3dOut",
+      "name": "3D-Sync Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "minidin3",
+      "format": "3D-Sync Out 5 V, mini-DIN 3 broches (dessin du panneau), émetteur IR de lunettes 3D"
+    },
+    {
+      "id": "vga",
+      "name": "Computer In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "D-Sub 15 (DB15)"
+    },
+    {
+      "id": "hdbt",
+      "name": "HDBaseT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rj45",
+      "format": "HDBaseT (vidéo, audio, RS-232, IR, réseau)"
+    },
+    {
+      "id": "sync3dIn",
+      "name": "3D-Sync In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "minidin3",
+      "format": "3D-Sync In 5 V, mini-DIN 3 broches (dessin du panneau)"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmi1",
+      "name": "HDMI 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmi2",
+      "name": "HDMI 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "rs232In",
+      "name": "RS-232C In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DB-9"
+    },
+    {
+      "id": "rs232Out",
+      "name": "RS-232C Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "DB-9, chaînage"
+    },
+    {
+      "id": "trigger",
+      "name": "12V Trigger",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm, commande d'écran"
+    },
+    {
+      "id": "remoteIn",
+      "name": "Wire Remote In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm"
+    },
+    {
+      "id": "remoteOut",
+      "name": "Wire Remote Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm, chaînage"
+    },
+    {
+      "id": "ain",
+      "name": "Audio In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutL",
+      "name": "Audio Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "aoutR",
+      "name": "Audio Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "ainL",
+      "name": "Audio In L",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "ainR",
+      "name": "Audio In R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "video",
+      "name": "Video",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Vidéo composite, RCA (dessin du panneau)"
+    },
+    {
+      "id": "bnc",
+      "name": "BNC (RGBHV / Component)",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "5 BNC"
+    },
+    {
+      "id": "lan",
+      "name": "RJ45",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Commande LAN"
+    },
+    {
+      "id": "usbPower",
+      "name": "USB Power",
+      "direction": "out",
+      "signal": "power",
+      "connector": "usb-a",
+      "format": "USB type A, 5 V / 1,5 A"
+    },
+    {
+      "id": "ac",
+      "name": "AC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c19",
+      "format": "AC IN 100-240 V, 50/60 Hz ; embase IEC C20 d'après le dessin du manuel (cordon C19)"
+    }
+  ],
+  "weightKg": 23,
+  "powerW": 650
+}

@@ -1,0 +1,45 @@
+{
+  "id": "sennheiser-sk-100-g3",
+  "family": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SK 100 G3 (émetteur de poche)",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.16,
+  "sources": [
+    {
+      "document": "Sennheiser, SK 100 G3 notice d'emploi FR, Publ. 12/16",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://archive.org/download/manualsonline-id-4e22a40b-6a45-4b0e-9969-362a0ec59e1b/4e22a40b-6a45-4b0e-9969-362a0ec59e1b.pdf",
+      "document": "Sennheiser, SK 100 G3 Instruction manual EN (copie archive.org)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée MIC/LINE",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "mic",
+      "format": "Jack 3,5 mm verrouillable ; alimente les micros statiques Sennheiser ; 40 kΩ (mic) / 1 MΩ (ligne), 3 Veff max",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, 30 mW typ."
+    }
+  ]
+}

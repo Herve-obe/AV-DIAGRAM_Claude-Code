@@ -1,0 +1,32 @@
+{
+  "id": "aric-rail-dichro",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "ARIC",
+  "model": "RAIL/DICHRO",
+  "status": "community",
+  "description": "Projecteur pour rail tri, BT dichroïque avec transfo 50W/220V",
+  "aliases": [
+    "RAILDICHRO1",
+    "ARIC RAIL/DICHRO"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/eclairage-sur-rail-eclairage/projecteur/rail-dichro/",
+      "document": "Novelty — RAIL/DICHRO",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rail",
+      "name": "Adaptateur rail tri",
+      "direction": "in",
+      "signal": "power",
+      "connector": "rail-3c",
+      "format": "Adaptateur pour rail 3 allumages (rail tri), transformateur 230 V / basse tension intégré ; marque de l'adaptateur non écrite"
+    }
+  ],
+  "powerW": 50
+}

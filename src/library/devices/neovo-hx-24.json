@@ -1,0 +1,127 @@
+{
+  "id": "neovo-hx-24",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "NEOVO",
+  "model": "HX-24",
+  "status": "verified",
+  "description": "Ecran LED 24\", Full HD (1920 x 1080, 16/9), dalle verre",
+  "aliases": [
+    "RV/HX24",
+    "NEOVO HX-24"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/ecran-lcd-et-led/ecran-lcd-led/hx-24/",
+      "document": "Novelty — HX-24",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/neovo_hx-24_ft.pdf",
+      "document": "Novelty — HX-24 : HX-24",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neovo_hx-24_manuel-fr.pdf",
+      "document": "Novelty — HX-24 : HX-24 (FR)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neovo_hx-24_manuel-uk.pdf",
+      "document": "Novelty — HX-24 : HX-24 (UK)",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/neovo_hx-24_manuel-de.pdf",
+      "document": "Novelty — HX-24 : HX-24 (DE)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi"
+    },
+    {
+      "id": "hdmi",
+      "name": "HDMI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsIn",
+      "name": "CVBS In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "cvbsOut",
+      "name": "CVBS Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "audioIn",
+      "name": "PC stereo In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line+4"
+    },
+    {
+      "id": "audioL",
+      "name": "Video audio L In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "audioR",
+      "name": "Video audio R In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line+4"
+    },
+    {
+      "id": "dc",
+      "name": "DC12V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ],
+  "weightKg": 7.7,
+  "powerW": 27,
+  "depthMm": 155
+}

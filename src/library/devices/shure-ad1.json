@@ -1,0 +1,42 @@
+{
+  "id": "shure-ad1",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD1",
+  "pictogram": "wireless",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD1/en-US",
+      "document": "Shure, guide d'utilisation AD1 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée TA4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "Mini XLR 4 (TA4) ; variante LEMO 3 existante"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Antenne quart d'onde sur SMA"
+    }
+  ]
+}

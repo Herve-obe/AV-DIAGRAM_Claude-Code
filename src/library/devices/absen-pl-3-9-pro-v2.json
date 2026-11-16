@@ -1,0 +1,56 @@
+{
+  "id": "absen-pl-3-9-pro-v2",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "display",
+  "manufacturer": "Absen",
+  "model": "PL 3.9 pro V2",
+  "status": "community",
+  "description": "Mur d'image indoor / outdoor / floor, dalles 500x500, 500x1000 et dalles edge",
+  "aliases": [
+    "PL39",
+    "Absen PL 3.9 pro V2"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/mur-d-images-led/plein-jour-led/pl-3-9-pro-v2/",
+      "document": "Novelty — PL 3.9 pro V2",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dataIn",
+      "name": "Data In",
+      "direction": "in",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Données de la carte de réception (etherCON)"
+    },
+    {
+      "id": "dataOut",
+      "name": "Data Out",
+      "direction": "out",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Chaînage vers la dalle suivante"
+    },
+    {
+      "id": "acIn",
+      "name": "Power In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Secteur, Neutrik powerCON TRUE1"
+    },
+    {
+      "id": "acOut",
+      "name": "Power Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur vers la dalle suivante"
+    }
+  ],
+  "powerW": 120
+}

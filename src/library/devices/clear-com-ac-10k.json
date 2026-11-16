@@ -1,0 +1,55 @@
+{
+  "id": "clear-com-ac-10k",
+  "family": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "AC-10K",
+  "pictogram": "intercom",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://auvergne-rhone-alpes.novelty-group.com/download/materiel_manuels/1186142771.pdf",
+      "document": "Clear-Com, notice AC-10 (via Novelty)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/ac10k/",
+      "document": "Novelty — AC10K",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186142771.pdf",
+      "document": "Novelty — AC10K : AC10K-AC10H",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "line",
+      "name": "Ligne",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "Partyline Clear-Com"
+    },
+    {
+      "id": "ext",
+      "name": "Système externe",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "binding-post",
+      "format": "2, 3 ou 4 fils, bornes à vis"
+    },
+    {
+      "id": "testHs",
+      "name": "Casque de test",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 en façade, marqué Test Headset, pour l'équilibrage (notice AC-10)"
+    }
+  ],
+  "aliases": [
+    "AC10K",
+    "CLEARCOM AC10K"
+  ]
+}

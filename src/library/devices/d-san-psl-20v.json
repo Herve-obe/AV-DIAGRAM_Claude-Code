@@ -1,0 +1,46 @@
+{
+  "id": "d-san-psl-20v",
+  "family": "control",
+  "domain": "image",
+  "pictogram": "control",
+  "manufacturer": "D'San",
+  "model": "PSL-20V",
+  "status": "verified",
+  "description": "Voyant de pupitre Limitimer (vert, jaune, rouge, afficheur 4 chiffres, haut-parleur), alimenté et piloté par le câble Cat 5, deux RJ45 pour le chaînage.",
+  "sources": [
+    {
+      "url": "https://www.adorama.com/col/productManuals/DSAPRO2000T.pdf",
+      "document": "D'San, Speaker Timer PRO-2000 / PRO-2000BT User Manual (copie Adorama) : liaison Cat 5 vers voyant, bloc 12 V",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/34491-DSanASL2ND3SeriesUserManual.pdf",
+      "document": "D'San, ASL2-ND3 Series User Manual (copie Full Compass)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.dsan.com/product/podium-signal-light/",
+      "document": "D'San, page produit Podium Signal Light PSL-20V",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rjIn",
+      "name": "RJ45 1",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Liaison Limitimer : données et alimentation par le câble Cat 5"
+    },
+    {
+      "id": "rjOut",
+      "name": "RJ45 2 (chaînage)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Chaînage vers un autre voyant"
+    }
+  ],
+  "weightKg": 0.5
+}

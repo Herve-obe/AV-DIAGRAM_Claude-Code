@@ -1,0 +1,74 @@
+{
+  "id": "robe-spikie",
+  "family": "luminaire",
+  "manufacturer": "Robe",
+  "model": "Spikie",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 100,
+  "weightKg": 7.3,
+  "sources": [
+    {
+      "url": "https://cdn.aws.robe.cz/print/en_product_664.pdf",
+      "document": "Robe lighting, fiche produit Spikie",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-asservis-eclairage/lyres/spikie/",
+      "document": "Novelty — Spikie",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/7338-4645-user-manual-robin-spikie.pdf",
+      "document": "Novelty — Spikie : User_manual_Spikie",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/9152-4645-664.pdf",
+      "document": "Novelty — Spikie : Specifications_Spikie",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/6463-4645-declaration-of-conformity-ec-spikie.pdf",
+      "document": "Novelty — Spikie : declaration_of_conformity_EC_Spikie",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX-512 / RDM ; sans fil CRMX LumenRadio en option"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Neutrik powerCON TRUE1"
+    },
+    {
+      "id": "ac-out",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Chaînage secteur"
+    }
+  ],
+  "aliases": [
+    "Robe Spikie"
+  ]
+}

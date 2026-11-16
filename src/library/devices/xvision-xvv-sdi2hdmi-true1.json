@@ -1,0 +1,82 @@
+{
+  "id": "xvision-xvv-sdi2hdmi-true1",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "router",
+  "manufacturer": "Xvision",
+  "model": "XVV-SDI2HDMI-TRUE1",
+  "status": "verified",
+  "description": "Convertisseur 3G/HD/SD-SDI vers HDMI avec 2 bouclages SDI et alimentation intégrée sur powerCON TRUE1 avec recopie.",
+  "aliases": [
+    "Xvision XVV-SDI2HDMI-TRUE1"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/xvv-sdi2hdmi-true1/",
+      "document": "Novelty — XVV-SDI2HDMI-TRUE1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/xvision_xvv-sdi2hdmi_ft.pdf",
+      "document": "Novelty — XVV-SDI2HDMI-TRUE1 : XVV-SDI2HDMI-TRUE1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/xvision_xvv-sdi2hdmi_manuel-uk.pdf",
+      "document": "Novelty — XVV-SDI2HDMI-TRUE1 : XVV-SDI2HDMI-TRUE1",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage reclocké et amplifié"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Bouclage reclocké et amplifié"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI type A à verrouillage"
+    },
+    {
+      "id": "powerIn",
+      "name": "PowerCON True1 In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "90-250 V CA, alimentation intégrée"
+    },
+    {
+      "id": "powerOut",
+      "name": "PowerCON True1 Out",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "Recopie secteur pour appareil voisin"
+    }
+  ],
+  "weightKg": 1,
+  "powerW": 25
+}

@@ -1,0 +1,223 @@
+{
+  "id": "luminex-gigacore-14",
+  "family": "network",
+  "domain": "network",
+  "pictogram": "switch",
+  "manufacturer": "Luminex",
+  "model": "GigaCore 14R",
+  "status": "verified",
+  "description": "Switch Gigabit Luminex GigaCore 14R : 12 ports etherCON (10 avant, 2 arrière), 2 cages SFP, console série RJ45, embase IEC avec fusible, entrées de secours 15 V DC et PoE 48 V DC sur Molex Micro-Fit 6 broches ; 30 W max (180 W avec bloc PoE optionnel).",
+  "aliases": [
+    "Luminex Gigacore 14",
+    "Gigacore 14"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/informatique-video/peripheriques-informatique/routeur-switch-hub/gigacore-14/",
+      "document": "Novelty — Gigacore 14",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/luminex_gigacore14r_manuel.pdf",
+      "document": "Novelty — Gigacore 14 : Gigacore 14R",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/luminex_gigacore14r_specifications_rev2.pdf",
+      "document": "Novelty — Gigacore 14 : Gigacore 14R",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "front1",
+      "name": "Avant 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front2",
+      "name": "Avant 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front3",
+      "name": "Avant 3",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front4",
+      "name": "Avant 4",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front5",
+      "name": "Avant 5",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front6",
+      "name": "Avant 6",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front7",
+      "name": "Avant 7",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front8",
+      "name": "Avant 8",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front9",
+      "name": "Avant 9",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "front10",
+      "name": "Avant 10",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "rear1",
+      "name": "Arrière 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "rear2",
+      "name": "Arrière 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "10/100/1000 Mbit/s, etherCON blindé",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "sfp1",
+      "name": "SFP 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP mini-GBIC 10/100/1000 Mbit/s (arrière)",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "sfp2",
+      "name": "SFP 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "sfp",
+      "format": "Cage SFP mini-GBIC 10/100/1000 Mbit/s (arrière)",
+      "network": {
+        "capacityMbps": 1000
+      }
+    },
+    {
+      "id": "console",
+      "name": "Console",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Port console série sur RJ45"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC avec porte-fusible, 100-240 V 50-60 Hz"
+    },
+    {
+      "id": "dcBackup",
+      "name": "Alimentation de secours 15 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "molex-microfit6",
+      "format": "Molex Micro-Fit 6 broches, 15 V DC / 2 A (broches 3 et 6 +15 V)"
+    },
+    {
+      "id": "poeBackup",
+      "name": "Entrée PoE de secours 48 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "molex-microfit6",
+      "format": "Molex Micro-Fit 6 broches, 48 V DC / 2,1 A (broches 2 et 5 +48 V)"
+    }
+  ],
+  "weightKg": 2.5,
+  "powerW": 30,
+  "rackU": 1,
+  "depthMm": 204
+}

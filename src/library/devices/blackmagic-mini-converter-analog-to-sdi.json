@@ -1,0 +1,98 @@
+{
+  "id": "blackmagic-mini-converter-analog-to-sdi",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter Analog to SDI",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-00",
+      "document": "Blackmagic Design, fiche technique Mini Converter Analog to SDI (W-CONM-00)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "vin",
+      "name": "Y / NTSC-PAL In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante Y ou composite NTSC/PAL (BNC)"
+    },
+    {
+      "id": "vin2",
+      "name": "B-Y / S-Video Y In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante B-Y ou S-Vidéo Y (BNC)"
+    },
+    {
+      "id": "vin3",
+      "name": "R-Y / S-Video C In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composante R-Y ou S-Vidéo C (BNC)"
+    },
+    {
+      "id": "ain",
+      "name": "L - Analog / AES-EBU In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique gauche ou paire AES/EBU (commutateur 8)",
+      "level": "line+4"
+    },
+    {
+      "id": "ainR",
+      "name": "R - Analog In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique, voie analogique droite",
+      "level": "line+4"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "+12 V CC, bloc universel fourni (plage 12 à 31 V CC)"
+    }
+  ],
+  "powerW": 6.5,
+  "description": "Convertisseur vidéo analogique (composante, S-Vidéo, composite) vers SD/HD-SDI avec intégration audio analogique ou AES/EBU."
+}

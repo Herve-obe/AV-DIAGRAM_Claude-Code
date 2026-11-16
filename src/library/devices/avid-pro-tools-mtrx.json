@@ -1,0 +1,314 @@
+{
+  "id": "avid-pro-tools-mtrx",
+  "family": "recording",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX",
+  "pictogram": "stagebox",
+  "status": "verified",
+  "aliases": [
+    "MTRX",
+    "Pro Tools MTRX"
+  ],
+  "rackU": 2,
+  "depthMm": 350,
+  "weightKg": 5,
+  "powerW": 90,
+  "sources": [
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Installation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Installation Guide, Part Number 9320-70146-00 REV A 04/21 (chapitre 5, annexes A et B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Operation Guide, Part Number 9329-66264-00 REV A 04/21 (chapitre 1, chapitre 5, annexe B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Installation_Guide_C.pdf",
+      "document": "Avid, Pro Tools | MTRX Installation Guide, Part Number 9320-70091-00 REV A 08/18 (consignes de sécurité : deux cordons secteur)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_B.pdf",
+      "document": "Avid, Pro Tools | MTRX Guide, Part Number 9329-65982-00 REV A 08/18 (General Description : deux alimentations)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://arva.se/wp-content/uploads/2017/08/pro_tool_MTRX_DS_A4.pdf",
+      "document": "Avid, fiche technique Pro Tools | MTRX PTMTRXDS1216 (2016, hébergée par le distributeur Arva)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://kb.avid.com/pkb/articles/Knowledge/Pro-Tools-MTRX-Support",
+      "document": "Avid Knowledge Base, Pro Tools | MTRX Family Support and Compatibility",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "aes1_4",
+      "name": "AES/EBU I/O 1-4",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "4 paires AES3 en entrée et 4 en sortie (8 voies mono par sens) ; D-Sub 25 femelle, brochage Tascam"
+    },
+    {
+      "id": "aes5_8",
+      "name": "AES/EBU I/O 5-8",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "dsub25",
+      "channels": 8,
+      "format": "4 paires AES3 en entrée et 4 en sortie (8 voies mono par sens) ; D-Sub 25 femelle, brochage Tascam"
+    },
+    {
+      "id": "madiIn",
+      "name": "MADI In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial 75 ohms, 64 canaux (56 en trame normale)"
+    },
+    {
+      "id": "madiOut",
+      "name": "MADI Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64,
+      "format": "MADI coaxial 75 ohms, 64 canaux (56 en trame normale)"
+    },
+    {
+      "id": "dl1",
+      "name": "DigiLink Mini Primary 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Port principal vers carte HDX ou HD Native"
+    },
+    {
+      "id": "dl2",
+      "name": "DigiLink Mini Pr 2/Exp",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "digilink-mini",
+      "channels": 32,
+      "format": "Second port principal ou extension vers une autre interface ; 64 canaux au total avec les deux ports"
+    },
+    {
+      "id": "wcout",
+      "name": "Word Clock Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "wcin",
+      "name": "WC/VBB In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Word Clock ou Video Black Burst (configurable)"
+    },
+    {
+      "id": "aes11",
+      "name": "AES11 In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Synchro AES11/AES3, XLR femelle"
+    },
+    {
+      "id": "net1",
+      "name": "Net 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T ; commande DADman, et Dante primaire si le module Dante 64 est installé (port de commande en mode redondant)"
+    },
+    {
+      "id": "net2",
+      "name": "Net 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "1000BASE-T ; switch interne avec Net 1, ou Dante secondaire en mode redondant (module Dante 64)"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 VAC nominal (90-260 VAC), 47-63 Hz, 90 VA max ; fusible T1AH/250V dans l'embase IEC"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Seconde alimentation (redondante jusqu'à cinq cartes) ; présentée comme optionnelle dans le schéma du guide 2021"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot1",
+      "name": "Slot 1",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot2",
+      "name": "Slot 2",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot3",
+      "name": "Slot 3",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot4",
+      "name": "Slot 4",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot5",
+      "name": "Slot 5",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot6",
+      "name": "Slot 6",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot7",
+      "name": "Slot 7",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "slot8",
+      "name": "Slot 8",
+      "type": "avid-mtrx-card",
+      "accepts": [
+        "avid-mtrx-2-mic-line-ad",
+        "avid-mtrx-8-aes3",
+        "avid-mtrx-8-da",
+        "avid-mtrx-8-line-ad",
+        "avid-mtrx-8-mic-line-ad",
+        "avid-mtrx-dante-128",
+        "avid-mtrx-digilink",
+        "avid-mtrx-dual-madi-card",
+        "avid-mtrx-dual-sdi",
+        "avid-mtrx-spq"
+      ]
+    },
+    {
+      "id": "mini",
+      "name": "Optical I/O (mini-module MADI)",
+      "type": "avid-mtrx-mini",
+      "accepts": [
+        "avid-mtrx-madi-module"
+      ]
+    },
+    {
+      "id": "dante64",
+      "name": "Module Dante 64 (carte mère)",
+      "type": "avid-mtrx-dante64",
+      "accepts": [
+        "avid-mtrx-dante-64"
+      ]
+    }
+  ],
+  "description": "Interface modulaire 2U (grand modèle, distinct du MTRX Studio). Châssis : 16 voies AES/EBU sur deux D-Sub 25, MADI coaxial 64 canaux, deux ports DigiLink Mini (64 canaux), synchro Word Clock/VBB et AES11, deux ports Ethernet. Huit emplacements de cartes (numérotés de droite à gauche) acceptant toutes les cartes, mais six cartes analogiques au plus (48 voies analogiques) ; emplacement Optical I/O pour le mini-module MADI ; module Dante 64 sur la carte mère. Pas de prise casque ni de sortie monitoring dédiée. Consommation 90 VA max (convertie en 90 W par excès). Poids 5 kg sans cartes, profondeur 35 cm sans connecteurs. Fin de commercialisation le 31 mars 2023."
+}

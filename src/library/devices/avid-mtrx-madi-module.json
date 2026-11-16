@@ -1,0 +1,48 @@
+{
+  "id": "avid-mtrx-madi-module",
+  "family": "module",
+  "manufacturer": "Avid",
+  "model": "Pro Tools | MTRX MADI Module for Base Unit",
+  "pictogram": "processor",
+  "status": "verified",
+  "domain": "misc",
+  "moduleType": "avid-mtrx-mini",
+  "sources": [
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Installation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Installation Guide, Part Number 9320-70146-00 REV A 04/21 (chapitre 5, annexes A et B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/MTRX/MTRX_Operation_Guide_5.4.5.pdf",
+      "document": "Avid, Pro Tools | MTRX Operation Guide, Part Number 9329-66264-00 REV A 04/21 (chapitre 1, chapitre 5, annexe B)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://arva.se/wp-content/uploads/2017/08/pro_tool_MTRX_DS_A4.pdf",
+      "document": "Avid, fiche technique Pro Tools | MTRX PTMTRXDS1216 (2016, hébergée par le distributeur Arva)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sfp1",
+      "name": "MADI SFP 1",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sfp",
+      "channels": 64,
+      "format": "Cage SFP, MADI optique ou coaxial selon le module SFP (qualifié Avid) ; HotLink en optique seulement"
+    },
+    {
+      "id": "sfp2",
+      "name": "MADI SFP 2",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sfp",
+      "channels": 64,
+      "format": "Seconde cage SFP, à équiper d'un module SFP"
+    }
+  ],
+  "description": "Mini-module MADI (Dual MADI I/O) pour l'emplacement Optical I/O du châssis : une ou deux cages SFP, 2 x 64 canaux. Consommation non publiée."
+}

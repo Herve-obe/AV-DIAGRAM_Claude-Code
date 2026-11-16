@@ -1,0 +1,46 @@
+{
+  "id": "oxo-uv-beam",
+  "family": "luminaire",
+  "manufacturer": "OXO",
+  "model": "UV Beam",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.la-bs.com/Objets/COLORBEAM-COB90UV_dt.pdf",
+      "document": "La-BS (distributeur OXO), fiche UVBEAM WP OCBEAM/UV/WP, COB 90 W : DMX sur XLR 5 In et Out ; alimentation « sur PC16 In avec protection IP renforcée » (embase secteur nommée sans forme), 100-240 VAC, 110 W, 5,8 kg, IP65",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Entrée DMX XLR 5 broches, protection IP renforcée"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Sortie DMX XLR 5 broches, protection IP renforcée"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-240 V CA, 47-63 Hz, 110 W ; entrée nommée « PC16 In » avec protection IP renforcée (fiche La-BS) ; forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "notes": "Fiche établie sur la fiche La-BS (COB 90 W, 5,8 kg). Le manuel OXO « UV Beam COB 100 W » (125 W, 5,4 kg) est une autre variante, non retenue."
+}

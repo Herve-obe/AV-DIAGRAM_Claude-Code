@@ -1,0 +1,125 @@
+{
+  "id": "bose-s1-pro",
+  "family": "speaker",
+  "manufacturer": "Bose",
+  "model": "S1 Pro",
+  "pictogram": "speaker",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://thomann.ae/bose_s1_pro_441087.htm",
+      "document": "Thomann, fiche S1 Pro (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/s1-2/",
+      "document": "Novelty, fiche S1 (loueur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_s1_manuel-fr.pdf",
+      "document": "Notice Bose S1 Pro AM807173 Rev00 pp.7–8 et17 ; fiche fabricant 2018 p.2.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/bose_s1_ft.pdf",
+      "document": "Notice Bose S1 Pro AM807173 Rev00 pp.7–8 et17 ; fiche fabricant 2018 p.2.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-amplifiee/s1/",
+      "document": "Novelty — S1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/bose_s1_manuel-uk.pdf",
+      "document": "Novelty — S1 : S1 (UK)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "CH 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ],
+      "phantom": "none",
+      "format": "Entrée micro XLR ou instrument jack TS ; pas de fantôme"
+    },
+    {
+      "id": "in2",
+      "name": "CH 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "combo",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "jack-ts",
+          "level": "instrument",
+          "phantom": "none"
+        }
+      ],
+      "phantom": "none",
+      "format": "Entrée micro XLR ou instrument jack TS ; pas de fantôme"
+    },
+    {
+      "id": "aux",
+      "name": "AUX IN CH3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Ligne stéréo 3,5 mm ; indisponible lorsque Bluetooth est actif"
+    },
+    {
+      "id": "bt",
+      "name": "Bluetooth CH3",
+      "direction": "in",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Audio Bluetooth intégré, alternative à AUX"
+    },
+    {
+      "id": "lineOut",
+      "name": "LINE OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4",
+      "format": "Ligne symétrique mono post-mix"
+    },
+    {
+      "id": "service",
+      "name": "SERVICE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-micro",
+      "format": "Port de service Bose uniquement, pas audio USB"
+    },
+    {
+      "id": "ac",
+      "name": "AC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13"
+    }
+  ],
+  "weightKg": 6.8,
+  "depthMm": 286,
+  "description": "Système Bose S1 Pro original, 330 × 241 × 286 mm, 6,8 kg selon notice 2017 / brochure 2018. Deux entrées combo micro/instrument, AUX ou Bluetooth, sortie ligne et micro-USB de service. Batterie optionnelle dans cette version ; consommation W non spécifiée dans la notice.",
+  "aliases": [
+    "S1",
+    "BOSE® S1"
+  ]
+}

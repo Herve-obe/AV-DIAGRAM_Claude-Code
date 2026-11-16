@@ -1,0 +1,388 @@
+{
+  "id": "midas-dm12",
+  "family": "console",
+  "manufacturer": "Midas",
+  "model": "DM12",
+  "pictogram": "console",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogue Novelty 2025 (désignation et nombre de voies)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://cdn-media.empowertribe.com/2067750f6d374a24bd75431b70dfdf0d/QSG_MI_0601-AHB_DM16-DM12_WW.pdf",
+      "document": "Midas DM16/DM12 — Quick Start Guide multilingue",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Mic 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in2",
+      "name": "Mic 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in3",
+      "name": "Mic 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in4",
+      "name": "Mic 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in5",
+      "name": "Mic 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in6",
+      "name": "Mic 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in7",
+      "name": "Mic 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "in8",
+      "name": "Mic 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée micro XLR symétrique, préampli Midas",
+      "phantom": "supplied"
+    },
+    {
+      "id": "out1",
+      "name": "Master L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie master XLR"
+    },
+    {
+      "id": "out2",
+      "name": "Master R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "Sortie master XLR"
+    },
+    {
+      "id": "psu",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC standard (Mains connection: Standard IEC receptacle), alimentation à découpage 100-240 V, 40 W"
+    },
+    {
+      "id": "line1",
+      "name": "Line 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 1 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins1",
+      "name": "Insert 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line2",
+      "name": "Line 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 2 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins2",
+      "name": "Insert 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line3",
+      "name": "Line 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 3 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins3",
+      "name": "Insert 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line4",
+      "name": "Line 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 4 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins4",
+      "name": "Insert 4",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line5",
+      "name": "Line 5",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 5 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins5",
+      "name": "Insert 5",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line6",
+      "name": "Line 6",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 6 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins6",
+      "name": "Insert 6",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line7",
+      "name": "Line 7",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 7 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins7",
+      "name": "Insert 7",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "line8",
+      "name": "Line 8",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne jack TRS de la voie 8 (prise distincte du micro)",
+      "level": "line+4"
+    },
+    {
+      "id": "ins8",
+      "name": "Insert 8",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "st1L",
+      "name": "Stereo 1 L (Mono)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne stéréo symétrique jack TRS",
+      "level": "line+4"
+    },
+    {
+      "id": "st1R",
+      "name": "Stereo 1 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne stéréo symétrique jack TRS",
+      "level": "line+4"
+    },
+    {
+      "id": "st2L",
+      "name": "Stereo 2 L (Mono)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne stéréo symétrique jack TRS",
+      "level": "line+4"
+    },
+    {
+      "id": "st2R",
+      "name": "Stereo 2 R",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Entrée ligne stéréo symétrique jack TRS",
+      "level": "line+4"
+    },
+    {
+      "id": "mainInsL",
+      "name": "Main Insert L",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "mainInsR",
+      "name": "Main Insert R",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Insert jack TRS (câble en Y)",
+      "level": "line+4"
+    },
+    {
+      "id": "aux1",
+      "name": "Aux Out 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "aux2",
+      "name": "Aux Out 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "monL",
+      "name": "Monitor Out L",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "monR",
+      "name": "Monitor Out R",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "line+4"
+    },
+    {
+      "id": "tapeIn",
+      "name": "2 Track In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "2 RCA asymétriques, 20 kohms, max +21 dBu ; « line-level », nominal non publié",
+      "level": "line+4"
+    },
+    {
+      "id": "recOut",
+      "name": "Record Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "2 RCA asymétriques, 1 kohm, max +21 dBu ; « line-level », nominal non publié",
+      "level": "line+4"
+    },
+    {
+      "id": "phones",
+      "name": "Phones",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "channels": 2,
+      "level": "none",
+      "format": "Jack TRS asymétrique, 25 Ω, +21 dBu max"
+    }
+  ],
+  "powerW": 40
+}

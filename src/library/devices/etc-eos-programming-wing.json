@@ -1,0 +1,102 @@
+{
+  "id": "etc-eos-programming-wing",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "ETC",
+  "model": "Eos Programming Wing",
+  "status": "verified",
+  "description": "Eos Programming Wing : surface de programmation pour ETCnomad, RPU et RVI, reliée en USB ; 4 sorties DMX XLR 5, entrée Remote Trigger D-Sub 15, USB-B vers l'hôte, 2 USB-A, entrée 12 V CC par bloc externe.",
+  "aliases": [
+    "ETC | EOS PROGRAMMING WING",
+    "EOS/WING",
+    "ETC ETC | EOS PROGRAMMING WING"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/accessoires-eclairage/divers-accessoires-eclairage/etc-eos-programming-wing/",
+      "document": "Novelty — ETC | EOS PROGRAMMING WING",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.etcconnect.com/WorkArea/DownloadAsset.aspx?id=10737486489",
+      "document": "ETC Eos Programming, Motorized, and Standard Fader Wings — Setup Guide 4240M2200 rev.E, décembre 2017",
+      "accessed": "2026-10-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx1",
+      "name": "DMX 1",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points femelle"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points femelle"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points femelle"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512, XLR 5 points femelle"
+    },
+    {
+      "id": "remote",
+      "name": "Remote Trigger",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "D-Sub 15 broches, déclenchement à distance (show control)"
+    },
+    {
+      "id": "usbIn",
+      "name": "USB In (hôte)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "Vers la console ou l'ordinateur hôte (câble A-B fourni)"
+    },
+    {
+      "id": "usbOut1",
+      "name": "USB Out 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Port USB alimenté"
+    },
+    {
+      "id": "usbOut2",
+      "name": "USB Out 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Port USB alimenté"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12 V",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC, 5 A max. (marquage) ; bloc secteur externe fourni avec cordon IEC"
+    }
+  ],
+  "powerW": 60
+}

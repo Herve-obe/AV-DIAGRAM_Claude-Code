@@ -1,0 +1,36 @@
+{
+  "id": "panasonic-av-hs04m3",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "AV-HS04M3",
+  "pictogram": "processor",
+  "moduleType": "av-hs410-option",
+  "status": "verified",
+  "description": "DVI Input Board : 2 entrées DVI-I. Carte optionnelle des emplacements A et B du mélangeur Panasonic AV-HS410 (IN/OUT A1-A2, B1-B2). Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_AV-HS410_manuel_base.pdf",
+      "document": "Panasonic, AV-HS410 Operating Instructions <Basics>, p. 9 Option boards (sold separately) : cartes, fonctions, emplacements A et B",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "DVI-I In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I (numérique ou analogique)"
+    },
+    {
+      "id": "in2",
+      "name": "DVI-I In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "DVI-I (numérique ou analogique)"
+    }
+  ]
+}

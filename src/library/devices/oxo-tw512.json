@@ -1,0 +1,65 @@
+{
+  "id": "oxo-tw512",
+  "family": "dmxDistribution",
+  "manufacturer": "OXO",
+  "model": "TW512",
+  "pictogram": "control",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/tw512/",
+      "document": "Novelty — TW512",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_tw512_manuel.pdf",
+      "document": "Novelty — TW512 : TW512",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/tw512/",
+      "document": "Novelty (loueur), page produit TW512, détails produit : « Connectique XLR 3 et Powercon »",
+      "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/oxo_tw512_manuel.pdf",
+      "document": "OXO, user manual TW 512 (2013), p.1 : 100-240 V CA 50 Hz, 2 W max., antenne SMA 50 ohms, 2400-2483 MHz, 13 canaux ; ne nomme pas les embases DMX ni secteur",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX",
+      "direction": "bidir",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Embase XLR 3 broches (émetteur/récepteur, fonctions échangeables)"
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "direction": "bidir",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Antenne SMA 50 Ω, 2,4 GHz (2400-2483 MHz), 13 canaux ; DMX Wi-Fi ColorBatt"
+    },
+    {
+      "id": "dc",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON, 100-240 V CA 50 Hz, 2 W max."
+    }
+  ],
+  "aliases": [
+    "DMXHF-TW512",
+    "OXO TW512"
+  ],
+  "powerW": 2
+}

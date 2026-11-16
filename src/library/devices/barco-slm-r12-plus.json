@@ -1,0 +1,137 @@
+{
+  "id": "barco-slm-r12-plus",
+  "family": "display",
+  "domain": "image",
+  "pictogram": "projector",
+  "manufacturer": "Barco",
+  "model": "SLM R12+ Performer",
+  "status": "verified",
+  "description": "Vidéoprojecteur DLP trois puces SXGA+ 1400 x 1050, 12 000 lumens ANSI, lampe xénon 2,2 kW. Emplacements 1 et 2 fixes (5 BNC, DVI entrée, DVI sortie), emplacements 3 et 4 pour modules SDI, HD-SDI ou décodeur vidéo ; objectif TLD / TLD HB interchangeable.",
+  "aliases": [
+    "SLM R12+",
+    "SLM R12 Plus",
+    "SLMR12+",
+    "BARCO SLM R12+"
+  ],
+  "sources": [
+    {
+      "url": "https://assets.barco.com/m/3740efb489e5ddd6/original/SLM-R12-Performer-fr-Spec-sheet.pdf",
+      "document": "Barco, SLM R12+ Performer fiche technique (FR), créée le 09 Jul 2024",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/452220/Barco-Slm-R12.html",
+      "document": "Barco, SLM R12+ Owner's Manual R5976654 (27/01/2005), hébergé par ManualsLib : Lenses p. 27, Connections p. 37 à 50",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/452220/Barco-Slm-R12.html?page=27",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/55738/barco-slm-r12.html?page=11",
+      "document": "Barco, SLM R12+ Owner's Manual (copie texte hébergée par ManualsDir, revendeur de manuels), § 2 « Packaging and dimensions », contenu du carton : « 1 European and 1 American power cable »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/55738/barco-slm-r12.html?page=41",
+      "document": "Barco, SLM R12+ Owner's Manual (copie texte hébergée par ManualsDir), § 4.5.4 « Fixed slot (slot 1 & 2) » : 5 bornes BNC pour l'entrée 5 câbles et une prise DVI ; schéma des connecteurs : DVI INPUT, DVI OUTPUT",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://assets.barco.com/m/3740efb489e5ddd6/original/SLM-R12-Performer-fr-Spec-sheet.pdf",
+      "document": "Barco, SLM R12+ Performer fiche technique (FR) relue : alimentation 220-240 Vca 50-60 Hz, consommation 2 750 W, poids 56 kg, ports RS-232, IR externe, 2 déclencheurs 12 V",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "r",
+      "name": "5-Cable R",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Slots 1 et 2 fixes : 5 bornes BNC (RGBHV, RGBS, RGsB, composite, S-Vidéo, composante)"
+    },
+    {
+      "id": "g",
+      "name": "5-Cable G",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "b",
+      "name": "5-Cable B",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "h",
+      "name": "5-Cable H/C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "v",
+      "name": "5-Cable V",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "dviIn",
+      "name": "DVI Input",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Embase DVI 24 broches (brochage du manuel)"
+    },
+    {
+      "id": "dviOut",
+      "name": "DVI Output",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Slot 1 : sortie DVI (« DVI OUTPUT » du schéma du manuel) pour second projecteur"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "220-240 V AC 50/60 Hz, disjoncteur 15 A intégré à l'interrupteur ; cordon secteur fourni (un européen, un américain), forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot3",
+      "name": "Input slot 3",
+      "type": "barco-slm-input"
+    },
+    {
+      "id": "slot4",
+      "name": "Input slot 4",
+      "type": "barco-slm-input"
+    },
+    {
+      "id": "lens",
+      "name": "Objectif",
+      "type": "barco-tld",
+      "accepts": [
+        "barco-tld-1-2",
+        "barco-tld-hb-0-8",
+        "barco-tld-hb-1-6-2",
+        "barco-tld-hb-2-2-8",
+        "barco-tld-hb-2-8-5",
+        "barco-tld-hb-5-8"
+      ]
+    }
+  ],
+  "powerW": 2750,
+  "weightKg": 56,
+  "notes": "Non saisies : RS232/RS422 entrée et sortie, télécommande filaire CTRL 1 à CTRL 3, deux déclencheurs 12 V, Ethernet RJ-45 optionnel (connecteurs non publiés par le constructeur dans les pages lisibles)."
+}

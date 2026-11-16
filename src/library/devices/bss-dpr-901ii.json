@@ -1,0 +1,68 @@
+{
+  "id": "bss-dpr-901ii",
+  "family": "processing",
+  "manufacturer": "BSS Audio",
+  "model": "DPR-901ii",
+  "pictogram": "processor",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://bssaudio.com/en-US/product_documents/dpr901dspdf",
+      "document": "BSS, fiche DPR-901ii",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://bssaudio.com/en-US/product_documents/dpr901iiumpdf",
+      "document": "BSS, DPR-901ii User's Manual, § 2.3 Fig 2.2, § 2.7 et Specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Main Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out1",
+      "name": "Main Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, symétrique"
+    },
+    {
+      "id": "in2",
+      "name": "Split Input",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrique ; entrée des bandes 3 et 4 en mode SPLIT (inopérante en mode MAIN)"
+    },
+    {
+      "id": "out2",
+      "name": "Split Output",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle, symétrique flottante ; sortie des bandes 1 et 2 (ou bypass de Main Input en mode SPLIT)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC (« IEC mains input socket ») ; 115/230 V commutable, 40 VA"
+    }
+  ],
+  "powerW": 40
+}

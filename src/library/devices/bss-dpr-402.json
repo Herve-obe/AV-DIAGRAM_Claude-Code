@@ -1,0 +1,89 @@
+{
+  "id": "bss-dpr-402",
+  "family": "processing",
+  "manufacturer": "BSS Audio",
+  "model": "DPR-402",
+  "pictogram": "processor",
+  "status": "verified",
+  "rackU": 1,
+  "sources": [
+    {
+      "url": "https://bssaudio.com/en-US/product_documents/dpr402umpdf",
+      "document": "BSS, mode d'emploi DPR-402",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/peripheriques/compresseur/dpr402/",
+      "document": "Novelty — DPR402",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/feuille_de_notes/1190027790.pdf",
+      "document": "Novelty — DPR402 : BSS DPR402",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manualshive.com/en/manual/bss-audio/dpr-402/2823533?page=11",
+      "accessed": "2026-11-06"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out1",
+      "name": "Output 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle (XLR3-32), sortie asymétrique : 1 = masse, 2 = masse, 3 = point chaud"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR femelle, symétrie électronique"
+    },
+    {
+      "id": "out2",
+      "name": "Output 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR mâle (XLR3-32), sortie asymétrique : 1 = masse, 2 = masse, 3 = point chaud"
+    },
+    {
+      "id": "barrier",
+      "name": "Barrier Strip",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "terminal",
+      "format": "Bornier arrière : entrées / sorties et inserts de side-chain"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "Câble secteur captif (cordon ancré), fiche à monter selon le pays : aucun connecteur du catalogue ne s'applique ; sélecteur 120/240 V, 15 VA (spécifications), plaque du dessin : 30 VA"
+    }
+  ],
+  "aliases": [
+    "DPR402",
+    "BSS DPR402"
+  ],
+  "powerW": 15
+}

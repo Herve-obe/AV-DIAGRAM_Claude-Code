@@ -1,0 +1,67 @@
+{
+  "id": "etc-source-four-led-zoom",
+  "family": "luminaire",
+  "manufacturer": "ETC",
+  "model": "Source Four LED Zoom",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/ET7460A1061A.pdf",
+      "document": "ETC (constructeur), Source Four LED Profile User Manual v1.7.0 (copie Adorama), spécifications électriques et contrôle, valables pour toute la gamme (Lustr+, Series 2 Lustr, Studio HD, Daylight, Tungsten) : powerCON in et thru, universal 100-240 V, DMX in et thru sur XLR 5 broches",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512-A, XLR 5 points"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON, 100-240 V"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Neutrik powerCON Thru"
+    }
+  ],
+  "slots": [
+    {
+      "id": "lens",
+      "name": "Optique zoom",
+      "type": "etc-source-four-zoom-lens",
+      "accepts": [
+        "etc-source-four-zoom-1530-41530lt",
+        "etc-source-four-zoom-2550-42550lt"
+      ]
+    }
+  ],
+  "domain": "light",
+  "description": "Moteur Source Four LED (powerCON in/thru, DMX XLR 5 in/thru) utilisé avec un ensemble optique zoom Source Four 15-30° ou 25-50°, monté sans le fût à couteaux : installer l'optique dans l'emplacement « Optique zoom ». Moteur exact du parc non identifié (le catalogue Novelty donne 170 W, 5 600 K) : consommation non renseignée.",
+  "notes": "Série du moteur non identifiée (Lustr+, Series 2, Studio HD, Daylight/Tungsten) : les prises sont communes à toute la gamme selon le manuel ETC ; la consommation, qui varie selon la série, n'est pas renseignée."
+}

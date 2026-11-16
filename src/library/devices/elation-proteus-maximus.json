@@ -1,0 +1,76 @@
+{
+  "id": "elation-proteus-maximus",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "Proteus Maximus",
+  "pictogram": "light",
+  "status": "verified",
+  "powerW": 1400,
+  "weightKg": 53,
+  "sources": [
+    {
+      "url": "https://www.elationlighting.com/products/proteus-maximus",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/lyres-projecteurs-a-led/proteus-maximus/",
+      "document": "Novelty — Proteus Maximus",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/elation_proteus-maximus_manuel.pdf",
+      "document": "Novelty — Proteus Maximus : Proteus Maximus",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/elation_proteus-maximus_dmx.pdf",
+      "document": "Novelty — Proteus Maximus : DMX",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In (XLR5)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX / RDM"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out (XLR5)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON IP65 ; Art-Net, sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON IP65"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1 IP65, 120-240 V"
+    }
+  ],
+  "aliases": [
+    "Elation Proteus Maximus"
+  ]
+}

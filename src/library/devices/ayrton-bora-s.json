@@ -1,0 +1,82 @@
+{
+  "id": "ayrton-bora-s",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Ayrton",
+  "model": "Bora-S",
+  "status": "verified",
+  "description": "Lyre wash BORA-S,494 ×737 ×280 mm ;1150 W maximum, DMX/RDM, Art-Net/sACN et CRMX intégré.",
+  "aliases": [
+    "AYRTON Bora-S"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-asservis-eclairage/bora-s/",
+      "document": "Novelty — Bora-S",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/998-4161-ce-bora-bora-s.pdf",
+      "document": "Novelty — Bora-S : CE-BORA-BORA-S",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7001-4161-bora.pdf",
+      "document": "Novelty — Bora-S : Bora",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/650-4161-bora-1-1.pdf",
+      "document": "Manuel constructeur ayrton-bora-s, description des connecteurs (Bora p7 ; Elation p9) et caractéristiques finales",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3023-4161-bora-dmx-chart-v1.pdf",
+      "document": "Novelty — Bora-S : BORA-DMX-Chart-V1",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in5",
+      "name": "DMX In XLR5",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmx-out5",
+      "name": "DMX Out XLR5",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon-true1"
+    },
+    {
+      "id": "eth-in",
+      "name": "Ethernet In",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Art-Net / sACN"
+    },
+    {
+      "id": "eth-out",
+      "name": "Ethernet Out",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Recopie réseau"
+    }
+  ],
+  "weightKg": 37.8,
+  "powerW": 1150,
+  "depthMm": 280
+}

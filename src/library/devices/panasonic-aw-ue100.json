@@ -1,0 +1,118 @@
+{
+  "id": "panasonic-aw-ue100",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AW-UE100",
+  "pictogram": "camera",
+  "status": "verified",
+  "weightKg": 2.2,
+  "sources": [
+    {
+      "url": "https://pro-av.panasonic.net/en/products/aw-ue100/spec.html",
+      "document": "Panasonic, AW-UE100 Specifications",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/captation/camera/aw-ue100/",
+      "document": "Novelty — AW-UE100",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/9682-4618-aw-ue100pc-e-ej-install-dvqp2255xa-f.pdf",
+      "document": "Novelty — AW-UE100 : AW-UE100PC.E.EJ",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6093-4618-ue100-spec.pdf",
+      "document": "Novelty — AW-UE100 : ue100_spec",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/manual/pdf/AW-UE100P.PJ_simple(DVQX2119ZA)_E.pdf",
+      "document": "Panasonic (constructeur), AW-UE100 Operating Instructions (Excerpted Version) DVQX2119ZA, p.35-37 : schéma du panneau arrière, DC IN 12 V (prise cylindrique, pictogramme de polarité), RS-422 RJ-45, G/L IN BNC, AUDIO IN, LAN, HDMI, 3G SDI OUT et 12G SDI OUT",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmi",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0, 4K"
+    },
+    {
+      "id": "sdi12",
+      "name": "12G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 2082-1 / 424M / 292M"
+    },
+    {
+      "id": "sdi3",
+      "name": "3G-SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SMPTE 424M / 292M"
+    },
+    {
+      "id": "gl",
+      "name": "G/L In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Black burst ou tri-level, 75 ohms"
+    },
+    {
+      "id": "lan",
+      "name": "LAN",
+      "direction": "bidir",
+      "signal": "videoIp",
+      "connector": "rj45",
+      "format": "100BASE-TX / 1000BASE-T ; contrôle IP et vidéo ; alimentation PoE++",
+      "network": {
+        "poe": "sink"
+      }
+    },
+    {
+      "id": "rs422",
+      "name": "RS-422",
+      "direction": "in",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "CONTROL IN RS-422A (RJ45)"
+    },
+    {
+      "id": "mic",
+      "name": "MIC/LINE In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack 3,5 stéréo, MIC -40 dBV (plug-in 2,5 V) ou LINE -10 dBV ; SDI, HDMI et IP",
+      "level": "mic",
+      "modes": [
+        {
+          "connector": "minijack",
+          "level": "line-10"
+        }
+      ],
+      "channels": 2
+    },
+    {
+      "id": "dc",
+      "name": "DC 12 V In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V CC (10,8 à 13,2 V), 3,0 A, adaptateur secteur fourni, prise cylindrique avec maintien du câble ; ou PoE++"
+    }
+  ],
+  "aliases": [
+    "AWUE100KEJ",
+    "PANASONIC AW-UE100"
+  ],
+  "powerW": 36
+}

@@ -1,0 +1,66 @@
+{
+  "id": "sennheiser-skm-300-g4-s",
+  "family": "wireless",
+  "domain": "sound",
+  "pictogram": "wireless",
+  "manufacturer": "Sennheiser",
+  "model": "SKM 300 G4-S",
+  "status": "verified",
+  "description": "Émetteur main ew 300 G4 avec touche silence, tête interchangeable à filetage standard Sennheiser (evolution). Alimentation 2 piles AA ou accu BA 2015.",
+  "aliases": [
+    "SKM 300 G4",
+    "SKM300 G4-S"
+  ],
+  "sources": [
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/ew-g4/specifications-skm300g4.html",
+      "document": "Sennheiser ew G4, caractéristiques SKM 300 G4-S",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf",
+      "document": "Sennheiser SoundAcademy, Wireless Microphone Capsule Compatibility Matrix v2.1 (février 2026)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://docs.cloud.sennheiser.com/en-us/mic-modules/mic-modules_instruction_manual_04_2026_en.pdf",
+      "document": "Sennheiser, Microphone modules Instruction manual 04/2026 (tableau de compatibilité et caractéristiques)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.sennheiser.com/download/assets/SKM_capsule_compatibility_matrix.pdf/9da0cf3e0b7411f192c65e789cf0ae6f",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "UHF, puissance commutable 10/30/50 mW ; tête interchangeable"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-capsule-standard",
+      "accepts": [
+        "sennheiser-mmd-835-bk",
+        "sennheiser-mmd-845",
+        "sennheiser-mme-865",
+        "sennheiser-mmd-935",
+        "sennheiser-mmd-945",
+        "sennheiser-mmk-965",
+        "sennheiser-mmd-42",
+        "sennheiser-mm-435",
+        "sennheiser-mm-445",
+        "sennheiser-md-9235",
+        "neumann-kk-204",
+        "neumann-kk-205"
+      ]
+    }
+  ]
+}

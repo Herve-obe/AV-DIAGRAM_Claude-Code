@@ -1,0 +1,80 @@
+{
+  "id": "taiden-hcs-8385",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Taiden",
+  "model": "HCS-8385",
+  "status": "community",
+  "description": "Console interprète 64 canaux",
+  "aliases": [
+    "HCS8385",
+    "Taiden HCS-8385"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/traduction-simultanee/regie-emetteur/hcs-8385/",
+      "document": "Novelty — HCS-8385",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/taiden_HCS-8385_60_64-Channel_Simultaneous_Interpreter_ft.pdf",
+      "document": "Novelty — HCS-8385 : HCS-8385",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "mic",
+      "name": "Micro enfichable",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "unspecified",
+      "level": "mic",
+      "format": "Embase pour micro col de cygne électret enfichable ; type non nommé"
+    },
+    {
+      "id": "hs1",
+      "name": "Casque-micro 1",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRRS"
+    },
+    {
+      "id": "hs2",
+      "name": "Casque-micro 2",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRRS"
+    },
+    {
+      "id": "hs3",
+      "name": "Casque-micro 3",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 TRRS"
+    },
+    {
+      "id": "trunkIn",
+      "name": "Câble 6P-DIN (fiche)",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din6",
+      "format": "Câble 1,5 m vers l'unité centrale ou le pupitre précédent"
+    },
+    {
+      "id": "trunkOut",
+      "name": "Câble 6P-DIN (embase)",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din6",
+      "format": "Câble 0,6 m de bouclage"
+    }
+  ],
+  "portStatus": "pending",
+  "weightKg": 1.1,
+  "powerW": 4.3
+}

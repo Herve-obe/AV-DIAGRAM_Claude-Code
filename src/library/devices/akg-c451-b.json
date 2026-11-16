@@ -1,0 +1,28 @@
+{
+  "id": "akg-c451-b",
+  "family": "capture",
+  "manufacturer": "AKG",
+  "model": "C451 B",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.125,
+  "sources": [
+    {
+      "url": "https://www.akg.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwccf0487a/pdfs/AKG_CutSheet_C451B_Condencer_Mic.pdf",
+      "document": "AKG, fiche produit C451 B",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Statique petite membrane, alimentation 9 à 52 V, 2 mA, XLR symétrique mâle",
+      "phantom": "required"
+    }
+  ]
+}

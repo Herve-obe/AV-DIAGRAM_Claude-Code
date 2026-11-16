@@ -1,0 +1,69 @@
+{
+  "id": "hollyland-solidcom-m1-station",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Hollyland",
+  "model": "Solidcom M1 (station)",
+  "status": "verified",
+  "description": "Station de base de l'intercom sans fil Solidcom M1 (1,9 GHz, 8 boîtiers ceinture en conversation simultanée, 450 m en vue directe) : interfaces 2 fils et 4 fils, alimentation RJ45 ou PoE, batterie NP-F. Port USB de mise à jour non représenté.",
+  "aliases": [
+    "Solidcom M1 Station",
+    "SOLIDCOM M1"
+  ],
+  "powerW": 3,
+  "weightKg": 1.56,
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/9174-4683-solidcom-m1-user-manual.pdf",
+      "document": "Hollyland, Solidcom M1 User Manual (copie Novelty) : interfaces de la station et du boîtier ceinture, caractéristiques (< 3 W / < 0,6 W, 1560 g / 200 g)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/set-intercom-solidcom-m1ms702/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "rf",
+      "name": "Liaison radio",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rf",
+      "format": "1,9 GHz GFSK, 21 dBm, deux antennes omnidirectionnelles"
+    },
+    {
+      "id": "2w",
+      "name": "2-Wire",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "2 fils : broche 1 masse, 2 alimentation, 3 audio"
+    },
+    {
+      "id": "4w",
+      "name": "4-Wire",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "4 fils, entrée 10 kOhm"
+    },
+    {
+      "id": "pwr",
+      "name": "Power Supply",
+      "direction": "in",
+      "signal": "power",
+      "connector": "rj45",
+      "format": "Alimentation par RJ45 (adaptateur PoE fourni)"
+    },
+    {
+      "id": "poe",
+      "name": "PoE",
+      "direction": "in",
+      "signal": "power",
+      "connector": "rj45",
+      "format": "Alimentation PoE"
+    }
+  ]
+}

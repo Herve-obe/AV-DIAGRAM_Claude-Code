@@ -1,0 +1,111 @@
+{
+  "id": "ssl-system-t-s300-32",
+  "family": "console",
+  "manufacturer": "Solid State Logic",
+  "model": "System T S300-32 (surface)",
+  "pictogram": "console",
+  "status": "verified",
+  "powerW": 210,
+  "weightKg": 80,
+  "sources": [
+    {
+      "document": "SSL, System T Installation Guide Rev H",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://solidstatelogic.com/products/s300",
+      "document": "SSL, page produit System T S300",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://solidstatelogic.com/assets/uploads/downloads/SSL_System_T_S300_48_Brochure.pdf",
+      "document": "SSL, brochure System T S300-48",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.cablateam.com/wp-content/uploads/2021/02/System-T-Installation-Guide-Rev-H.pdf",
+      "document": "SSL, System T Installation Guide Rev H (copie hébergée par Cablateam) : p. 18 photo du dos d'une console avec deux embases IEC mains redondantes (embases C14 lues sur la photo) ; p. 74 « All inlets use detachable IEC-type mains leads », « dual-redundant power supplies ... two separate IEC mains input connectors » ; p. 35-36 S300 : alimentations 600 W, 100-240 V, 200/210 W, 80 kg, panneau de connexion (OCP, Dante, connectivité, Studio Integration, USB-A, HDMI)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ocpP",
+      "name": "OCP primaire",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Réseau de contrôle vers le Tempest Engine"
+    },
+    {
+      "id": "ocpS",
+      "name": "OCP secondaire",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45"
+    },
+    {
+      "id": "danteP",
+      "name": "Dante primaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45",
+      "format": "Audio de la surface (écoute, talkback) sur le réseau Dante"
+    },
+    {
+      "id": "danteS",
+      "name": "Dante secondaire",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "rj45"
+    },
+    {
+      "id": "conn",
+      "name": "Connectivity",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Surfaces supplémentaires ou distantes"
+    },
+    {
+      "id": "studio",
+      "name": "Studio Integration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Automatisation de production et contrôle de STAN"
+    },
+    {
+      "id": "hdmi",
+      "name": "Écran Overview",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 1920 x 1080 vers écran tactile externe"
+    },
+    {
+      "id": "usb",
+      "name": "Tactile écran externe",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB-A, 3 m max en câble passif"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur A",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Alimentations 600 W max, 100-240 VAC ; consommation 200 W typ., 210 W max ; embase IEC C14 (lue sur la photo p. 18 du guide), cordon détachable non fourni par SSL"
+    },
+    {
+      "id": "acB",
+      "name": "Secteur B",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Seconde embase IEC redondante (deux embases séparées, guide p. 74) ; C14 lue sur la photo p. 18"
+    }
+  ]
+}

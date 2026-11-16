@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 1,
+  "campaign": "catalogue-pro-2026-10-31",
+  "base": {
+    "version": "0.5.24",
+    "commit": "bc7d38e1fe1bd3d2bfda628158dcd7821bbb0386",
+    "tree": "bfd3481c97c153c5e66799fa345a8b7fc2a2a366",
+    "branch": "codex/ia-locale"
+  },
+  "phase": "tri_user_decisions_complete_technical_proposals_pending",
+  "scope": "Toutes les références actives : retrait explicite DJ/CD et équipements grand public certains, puis audit des informations manquantes et tableaux de validation.",
+  "counts": {
+    "active": 1694,
+    "community": 945,
+    "verified": 749,
+    "after": {
+      "real": 1662,
+      "verified": 741,
+      "community": 921,
+      "generic": 30
+    },
+    "researchedThisPass": 40,
+    "reusedAudioPending": 20,
+    "afterUserDecisions": {
+      "real": 1646,
+      "verified": 741,
+      "community": 905,
+      "generic": 30
+    }
+  },
+  "partitions": {
+    "audio": {
+      "count": 685,
+      "assigned": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/audio-assigned.json",
+      "index": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/audio-index.tsv"
+    },
+    "video": {
+      "count": 436,
+      "assigned": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/video-assigned.json",
+      "index": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/video-index.tsv"
+    },
+    "lumiere": {
+      "count": 461,
+      "assigned": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/lumiere-assigned.json",
+      "index": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/lumiere-index.tsv"
+    },
+    "annexes": {
+      "count": 112,
+      "assigned": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/annexes-assigned.json",
+      "index": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/annexes-index.tsv"
+    }
+  },
+  "rules": {
+    "removeDjAndCdRegardlessOfPro": true,
+    "removeByPriceOrBrand": false,
+    "keepAmbiguousUntilReview": true,
+    "preserveOldProjects": true,
+    "keepSourceJson": true,
+    "technicalProposalsRequireTable": true,
+    "researchLotSize": 20,
+    "noAutomaticNextLotWithoutUser": true
+  },
+  "pendingAudio03": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-audio-lot-03-2026-10-29/propositions.json",
+  "cards": [
+    {
+      "id": "TRI-AUDIO",
+      "owner": "agent_audio",
+      "state": "complete"
+    },
+    {
+      "id": "TRI-VIDEO",
+      "owner": "agent_video",
+      "state": "complete"
+    },
+    {
+      "id": "TRI-LUMIERE",
+      "owner": "agent_lumiere",
+      "state": "complete"
+    },
+    {
+      "id": "TRI-ANNEXES",
+      "owner": "principal",
+      "state": "complete"
+    },
+    {
+      "id": "DOC-VIDEO-01",
+      "owner": "/root/recherche_video_pro",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "state": "review",
+      "files": [
+        "handoffs/video-propositions.json",
+        "handoffs/video-recherche.md"
+      ],
+      "acceptance": [
+        "20 références exactes et sources/pages réellement lues",
+        "Questions ciblées et inconnues explicites",
+        "Aucune donnée appliquée avant tableau"
+      ],
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/handoffs/video-propositions.json"
+    },
+    {
+      "id": "DOC-LUMIERE-01",
+      "owner": "/root/tri_lumiere_review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "state": "review",
+      "files": [
+        "handoffs/light-propositions.json",
+        "handoffs/light-recherche.md"
+      ],
+      "acceptance": [
+        "20 références exactes et sources/pages réellement lues",
+        "Questions ciblées et inconnues explicites",
+        "Aucune donnée appliquée avant tableau"
+      ],
+      "handoff": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-pro-2026-10-31/handoffs/light-propositions.json"
+    }
+  ],
+  "removed": [
+    "allen-heath-xone-92",
+    "allenheath-xone-22",
+    "allenheath-xone-db4",
+    "denon-dn-c620",
+    "pioneerdj-cdj-2000nxs",
+    "pioneerdj-cdj-2000nxs2",
+    "pioneerdj-cdj-3000",
+    "pioneerdj-djm-2000nxs",
+    "pioneerdj-djm-900nxs2",
+    "pioneerdj-djm-a9",
+    "pioneerdj-djm-v10",
+    "pioneerdj-plx-1000",
+    "tascam-cd-200",
+    "technics-sl-1200mk2",
+    "technics-sl-1210mk2",
+    "technics-sl-1210mk7",
+    "daytron-dv6710",
+    "peekton-pk6750-hdmi",
+    "samsung-ue46es6560sxzf",
+    "samsung-ue48h5000",
+    "apple-apple-tv-3",
+    "eizo-foris-fs2434",
+    "iiyama-g-master-g2530hsu",
+    "samsung-ue48j5000",
+    "samsung-ue43au7172",
+    "samsung-ue40n7125",
+    "luminara-bougieled-8x18",
+    "luminara-bougieled-8x23",
+    "etc-s4-egg-crate",
+    "etc-s4-top-hat",
+    "novelty-gobos",
+    "novelty-cdxadapt"
+  ],
+  "ambiguous": [],
+  "research": {
+    "audio03": {
+      "status": "already_prepared_awaiting_user",
+      "path": "C:/Users/herve/Documents/Codex/2026-10-12/est/work/catalogue-audio-lot-03-2026-10-29/propositions.json"
+    },
+    "video01": {
+      "status": "awaiting_user_validation",
+      "owner": "/root/recherche_video_pro",
+      "records": 20
+    },
+    "light01": {
+      "status": "awaiting_user_validation",
+      "owner": "/root/tri_lumiere_review",
+      "records": 20
+    }
+  },
+  "targetVersion": "0.5.25",
+  "validation": {
+    "lint": {
+      "exit": 0,
+      "warnings": 4
+    },
+    "typecheck": {
+      "exit": 0
+    },
+    "tests": {
+      "passed": 490,
+      "skipped": 6,
+      "exit": 0
+    },
+    "build": {
+      "exit": 0
+    },
+    "forms": {
+      "tables": [
+        {
+          "lot": "av-diagram-tri-pro-2026-10-31",
+          "rows": 21,
+          "previousLotIgnored": true,
+          "partialSubmission": true,
+          "restore": true,
+          "fallback": true,
+          "jsErrors": 0
+        },
+        {
+          "lot": "av-diagram-video-pro-01-2026-10-31",
+          "rows": 20,
+          "previousLotIgnored": true,
+          "partialSubmission": true,
+          "restore": true,
+          "fallback": true,
+          "jsErrors": 0
+        },
+        {
+          "lot": "av-diagram-lumiere-pro-01-2026-10-31",
+          "rows": 20,
+          "previousLotIgnored": true,
+          "partialSubmission": true,
+          "restore": true,
+          "fallback": true,
+          "jsErrors": 0
+        }
+      ],
+      "sourceTemplatesUnchanged": 2156
+    }
+  },
+  "forms": [
+    {
+      "file": "C:\\Users\\herve\\.codex\\visualizations\\2026\\10\\12\\01a131a0-9286-7e20-8102-acb5e13126aa\\tri-pro-retours-2026-10-31.html",
+      "lot": "av-diagram-tri-pro-2026-10-31",
+      "root": "avd-tri-pro-feedback",
+      "rows": 21,
+      "firstId": "fohhn-fp22-cd-rx",
+      "ids": [
+        "fohhn-fp22-cd-rx",
+        "fohhn-fp22-cd-rx-tx",
+        "fohhn-fp-22-rx",
+        "fohhn-fp-22-rxtx",
+        "prozor-dac001",
+        "shure-se112",
+        "gopro-hero-12-black",
+        "gopro-hero-3-black-edition-surf",
+        "panasonic-dc-gh5",
+        "panasonic-dmc-gh4",
+        "panasonic-dmc-gh5",
+        "dell-g5-15-5590-noir-rtx-2060-hexa-core-i7",
+        "starway-jupiter",
+        "divers-starflash",
+        "sunlitlux-tl2001-6-13w-4000-k",
+        "sunlitlux-tl2001-6-13w-6500-k",
+        "sunlitlux-tl2001-6-21w-4000-k",
+        "sunlitlux-tl2001-6-21w-6500-k",
+        "sunlitlux-tl2001-6-28w-4000-k",
+        "sunlitlux-tl2001-6-28w-6500-k",
+        "chauvet-dj-bank"
+      ],
+      "tri": true
+    },
+    {
+      "file": "C:\\Users\\herve\\.codex\\visualizations\\2026\\10\\12\\01a131a0-9286-7e20-8102-acb5e13126aa\\video-pro-01-retours-2026-10-31.html",
+      "lot": "av-diagram-video-pro-01-2026-10-31",
+      "root": "avd-video-pro-01-feedback",
+      "rows": 20,
+      "firstId": "absen-pl2-5pro",
+      "ids": [
+        "absen-pl2-5pro",
+        "aja-ioxt",
+        "avermedia-cp150",
+        "barco-e2-novelty-29668",
+        "barco-imagepro-ii",
+        "blackmagic-design-atem-constellation-hd-2-me",
+        "blackmagic-design-blackmagic-video-assist-7",
+        "blackmagic-design-teranex-av",
+        "christie-hd10k-m",
+        "christie-hd14k-m",
+        "christie-hd20k-j",
+        "cyanview-rio-live",
+        "d-san-perfectcue-mini",
+        "dell-e248wfp",
+        "epson-eb-pu1007b",
+        "epson-eb-pu1008b",
+        "fougerolle-d3gduo1x4",
+        "fujinon-rmd-30",
+        "fusion-hdmi2-0-fiber-link",
+        "id-al-evp380"
+      ],
+      "tri": false
+    },
+    {
+      "file": "C:\\Users\\herve\\.codex\\visualizations\\2026\\10\\12\\01a131a0-9286-7e20-8102-acb5e13126aa\\lumiere-pro-01-retours-2026-10-31.html",
+      "lot": "av-diagram-lumiere-pro-01-2026-10-31",
+      "root": "avd-lumiere-pro-01-feedback",
+      "rows": 20,
+      "firstId": "chamsys-mq70",
+      "ids": [
+        "chamsys-mq70",
+        "oxo-wds512r",
+        "rve-12x3-dimkit",
+        "rve-36x2-live",
+        "rve-6x2-3kw-stager",
+        "w-dmx-blackbox-f-1-g4",
+        "w-dmx-blackbox-f-1-g6",
+        "ambiance-lumiere-piko",
+        "arri-360-c",
+        "briteq-bt-nanobeam-bq1",
+        "claypaky-b-eye-k15",
+        "claypaky-b-eye-k25",
+        "eaton-luminox-ultraled-2-45",
+        "etc-s4par",
+        "etc-s4parnell",
+        "etc-source-four-mini-led-36",
+        "etc-source-four-mini-led-50",
+        "eurolite-s4par-blanc",
+        "innled-t4x-b",
+        "innled-t4x-n"
+      ],
+      "tri": false
+    }
+  ],
+  "publication": {
+    "version": "0.5.25",
+    "commit": "eed6f49094f3c007ee46420e6ae3d3c2151ccee7",
+    "tree": "52ce14d9d5b8770c327d3599e9c2a8ad1adfee55",
+    "files": 17,
+    "deleted": 0,
+    "deviceSourceChanges": 0,
+    "branch": "codex/ia-locale",
+    "pullRequest": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/pull/4",
+    "draft": true,
+    "runs": [
+      {
+        "id": 41231105875,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231105875",
+        "status": "in_progress",
+        "conclusion": null,
+        "event": "pull_request"
+      },
+      {
+        "id": 41231102225,
+        "url": "https://github.com/Herve-obe/AV-DIAGRAM_Claude-Code/actions/runs/41231102225",
+        "status": "in_progress",
+        "conclusion": null,
+        "event": "push"
+      }
+    ]
+  },
+  "userDecisions": {
+    "lot": "av-diagram-tri-pro-2026-10-31",
+    "revision": 21,
+    "version": "0.5.26",
+    "status": "complete",
+    "removed": 16,
+    "kept": 5,
+    "pending": 0,
+    "technicalDataApplied": false,
+    "report": "docs/inventaire/retours-tri-av-professionnel-2026-10-31.json",
+    "validation": {
+      "lint": {
+        "exit": 0,
+        "warnings": 4
+      },
+      "typecheck": {
+        "exit": 0
+      },
+      "tests": {
+        "passed": 490,
+        "skipped": 6,
+        "exit": 0
+      },
+      "build": {
+        "tscExit": 0,
+        "viteExit": 0
+      },
+      "versions": "0.5.26",
+      "dependenciesChanged": false,
+      "sourceModelsUnchanged": 2156
+    }
+  },
+  "initialAmbiguous": [
+    "fohhn-fp22-cd-rx",
+    "fohhn-fp22-cd-rx-tx",
+    "fohhn-fp-22-rx",
+    "fohhn-fp-22-rxtx",
+    "prozor-dac001",
+    "shure-se112",
+    "gopro-hero-12-black",
+    "gopro-hero-3-black-edition-surf",
+    "panasonic-dc-gh5",
+    "panasonic-dmc-gh4",
+    "panasonic-dmc-gh5",
+    "dell-g5-15-5590-noir-rtx-2060-hexa-core-i7",
+    "starway-jupiter",
+    "divers-starflash",
+    "sunlitlux-tl2001-6-13w-4000-k",
+    "sunlitlux-tl2001-6-13w-6500-k",
+    "sunlitlux-tl2001-6-21w-4000-k",
+    "sunlitlux-tl2001-6-21w-6500-k",
+    "sunlitlux-tl2001-6-28w-4000-k",
+    "sunlitlux-tl2001-6-28w-6500-k",
+    "chauvet-dj-bank"
+  ]
+}

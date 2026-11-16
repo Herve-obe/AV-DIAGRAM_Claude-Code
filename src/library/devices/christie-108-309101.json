@@ -1,0 +1,74 @@
+{
+  "id": "christie-108-309101",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Christie",
+  "model": "Analog Input Card (108-309101-XX)",
+  "pictogram": "processor",
+  "moduleType": "christie-option-card",
+  "status": "verified",
+  "description": "Carte d'entrée analogique 5 BNC (RGB 3, 4 ou 5 fils, YPbPr), sans bouclage. Carte d'option pour les emplacements des projecteurs Christie M Series et J Series (utilisable dans n'importe quel emplacement). Consommation non publiée.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd14k-m_manuel-uk.pdf",
+      "document": "Christie, M Series User Manual 020-100009-08 Rev. 1 (05-2013), 2.1.3 et 2.11.3 Analog BNC Input Card",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/christie_hd20k-roadster_manuel.pdf",
+      "document": "Christie, J Series (Roadster HD20K-J) User Manual : mêmes cartes d'option",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/christie_hd14k-m_ft-uk.pdf",
+      "document": "Christie, fiche M Series : références des cartes d'entrée 108-3xxxxx-XX",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "r",
+      "name": "Red/Pr",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "RGB ou Pr"
+    },
+    {
+      "id": "g",
+      "name": "Green/Y",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "G, Y ou synchro sur le vert"
+    },
+    {
+      "id": "b",
+      "name": "Blue/Pb",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "B ou Pb"
+    },
+    {
+      "id": "hc",
+      "name": "H/C",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Synchro H ou composite"
+    },
+    {
+      "id": "v",
+      "name": "V",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Synchro V"
+    }
+  ],
+  "aliases": [
+    "108-309101-XX",
+    "Christie Analog BNC Input Card"
+  ]
+}

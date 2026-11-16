@@ -1,0 +1,67 @@
+{
+  "id": "sgm-i-2-wash",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "i-2 Wash",
+  "pictogram": "light",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/i2/",
+      "document": "Novelty — i2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/5413-4652-sgm-i2-user-manual.pdf",
+      "document": "Novelty — i2 : SGM-i2-User Manual",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/6655-4652-declaration-of-conformity-i-2.pdf",
+      "document": "Novelty — i2 : Declaration of Conformity i-2",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.sgmlighting.com/products/i%c2%b72-rgbw",
+      "document": "SGM (constructeur), page produit i-2 RGBW : « DMX data in/out : 2 IP65 XLR 5-pin cables 0.5m (permanently wired) », « Power : Power cable 1 meter with bare ends (permanently wired) », 230 W max, 6,1 kg, 69 LED, IP65",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Câble de 0,5 m terminé par un XLR 5 points IP65, fixé à demeure"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Câble de 0,5 m terminé par un XLR 5 points IP65, fixé à demeure (renvoi DMX)"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "bare-wire",
+      "format": "Câble de 1 m à fils nus, fixé à demeure"
+    }
+  ],
+  "aliases": [
+    "i2",
+    "I2WASH",
+    "SGM i2"
+  ],
+  "powerW": 230,
+  "weightKg": 6.1
+}

@@ -1,0 +1,43 @@
+{
+  "id": "shure-ur1m",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "UR1M",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.064,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/view/guide/UR1M/en-US.pdf",
+      "document": "Shure, guide utilisateur UR1M",
+      "accessed": "2026-10-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée audio",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "ta4",
+      "level": "mic",
+      "format": "TA4M (version UR1MLEMO3 : Lemo 3 points) ; asymétrique, +5 dBu max"
+    },
+    {
+      "id": "ant",
+      "name": "Antenne",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "sma",
+      "format": "Antenne fouet"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "id": "analog-way-zenith-200",
+  "family": "videoSwitcher",
+  "domain": "image",
+  "pictogram": "switcher",
+  "manufacturer": "Analog Way",
+  "model": "Zenith 200",
+  "status": "verified",
+  "description": "Mélangeur 4k60 16 entrées, 6 sorties PGM, 1 sorties MV, 4 mixer layer",
+  "aliases": [
+    "ZEN200",
+    "ANALOG WAY Zenith 200"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/zenith-200/",
+      "document": "Novelty — Zenith 200",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8480-4689-analog-way-zenith-200-ft-fr.pdf",
+      "document": "Novelty — Zenith 200 : analog-way_zenith-200_ft-fr",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Alta+4k/Products/Zenith+200/Quick+Start+Guide/zenith-200-quick-start-guide.pdf",
+      "document": "Analog Way Zenith 200 Quick Start Guide (ZEN200)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "hdmiIn1",
+      "name": "HDMI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn2",
+      "name": "HDMI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn3",
+      "name": "HDMI In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn4",
+      "name": "HDMI In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn5",
+      "name": "HDMI In 5",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn6",
+      "name": "HDMI In 6",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn7",
+      "name": "HDMI In 7",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn8",
+      "name": "HDMI In 8",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn9",
+      "name": "HDMI In 9",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "hdmiIn10",
+      "name": "HDMI In 10",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dpIn1",
+      "name": "DisplayPort In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dpIn2",
+      "name": "DisplayPort In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dpIn3",
+      "name": "DisplayPort In 3",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "dpIn4",
+      "name": "DisplayPort In 4",
+      "direction": "in",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2"
+    },
+    {
+      "id": "sdi12In1",
+      "name": "12G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi12In2",
+      "name": "12G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "sdi3In1",
+      "name": "3G-SDI In 1",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI, connecteur sélectionnable avec la HDMI 1.4 de la même entrée"
+    },
+    {
+      "id": "sdi3In2",
+      "name": "3G-SDI In 2",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI, connecteur sélectionnable avec la HDMI 1.4 de la même entrée"
+    },
+    {
+      "id": "hdmiLoop1",
+      "name": "HDMI Loop Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Boucle de l'entrée 5"
+    },
+    {
+      "id": "hdmiLoop2",
+      "name": "HDMI Loop Out 8",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Boucle de l'entrée 8"
+    },
+    {
+      "id": "hdmiOut1",
+      "name": "HDMI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut2",
+      "name": "HDMI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut3",
+      "name": "HDMI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut4",
+      "name": "HDMI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut5",
+      "name": "HDMI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "hdmiOut6",
+      "name": "HDMI Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "HDMI 2.0"
+    },
+    {
+      "id": "sdiOut1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
+    },
+    {
+      "id": "sdiOut2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jumelée à la HDMI de la même sortie"
+    },
+    {
+      "id": "sdiOut3",
+      "name": "SDI Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
+    },
+    {
+      "id": "sdiOut4",
+      "name": "SDI Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
+    },
+    {
+      "id": "sdiOut5",
+      "name": "SDI Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
+    },
+    {
+      "id": "sdiOut6",
+      "name": "SDI Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, jumelée à la HDMI et au SFP+ de la même sortie"
+    },
+    {
+      "id": "sfpOut1",
+      "name": "SFP+ cage Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Miroir sortie, module optionnel"
+    },
+    {
+      "id": "sfpOut2",
+      "name": "SFP+ cage Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Miroir sortie, module optionnel"
+    },
+    {
+      "id": "sfpOut3",
+      "name": "SFP+ cage Out 5",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Miroir sortie, module optionnel"
+    },
+    {
+      "id": "sfpOut4",
+      "name": "SFP+ cage Out 6",
+      "direction": "out",
+      "signal": "video",
+      "connector": "sfp",
+      "format": "Miroir sortie, module optionnel"
+    },
+    {
+      "id": "mvHdmi",
+      "name": "Multiviewer HDMI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "mvSdi",
+      "name": "Multiviewer SDI",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "refIn",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Tri-level (HD) ou Black Burst (SD)"
+    },
+    {
+      "id": "refOut",
+      "name": "Genlock Loop",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "lan",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "Gigabit, Neutrik RJ45 (commande Web RCS/API)"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V AC, 50/60 Hz"
+    }
+  ],
+  "weightKg": 12.8,
+  "powerW": 250,
+  "rackU": 3,
+  "depthMm": 489,
+  "slots": [
+    {
+      "id": "audio",
+      "name": "Carte audio optionnelle",
+      "type": "analog-way-audio-card",
+      "accepts": [
+        "analog-way-alta4k-audio-card"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "rts-kp-12-cld",
+  "family": "intercom",
+  "manufacturer": "RTS",
+  "model": "KP-12-CLD",
+  "pictogram": "intercom",
+  "status": "verified",
+  "description": "Poste d'intercom RTS KP 12 CLD, 12 touches, écran couleur 4,2 pouces, 1 U : liaison matrice sur RJ-45 ou DB-9, micro de pupitre et casque en façade, haut-parleur intégré, USB. Panneau d'extension GPIO et cartes RVON-2 ou OKI (OMNEO) en option.",
+  "sources": [
+    {
+      "url": "https://products.telex.com/download/98153",
+      "document": "RTS / Bosch, KP 12 CLD Color Keypanel User Manual F.01U.193.296 rev. 04 (déc. 2011, jusqu'à la version 1.1.1) : spécifications p. 4, façade p. 6, panneau arrière et panneau d'extension p. 7, brochages p. 8-10",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://products.rtsintercoms.com/downloadfile.php?id=99058",
+      "document": "RTS, Quick Start Guide OKI (OMNEO Keypanel Interface) KP 12 CLD F01U280811 rev. 01 : 2 RJ-45 et LC optionnel sur le capot d'extension",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "frame",
+      "name": "Frame (RJ-45)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "rj45",
+      "format": "Liaison audio et données vers la matrice RTS, câble RTS RJ11 ou Cat5 standard ; niveaux 8 dBu nominal, 20 dBu max."
+    },
+    {
+      "id": "frameDb9",
+      "name": "Frame (DB-9)",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "dsub9",
+      "format": "Même liaison matrice sur DB-9, alternative au RJ-45"
+    },
+    {
+      "id": "lcp",
+      "name": "LCP 16 CLD",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Panneau de réglage LCP 16 CLD (niveaux Aux, haut-parleur et casque)"
+    },
+    {
+      "id": "exp",
+      "name": "Expansion",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "Vers panneaux d'extension de touches"
+    },
+    {
+      "id": "usb",
+      "name": "USB (façade)",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB type A alimenté : recharge d'un téléphone, chargement et sauvegarde de données"
+    },
+    {
+      "id": "panelMic",
+      "name": "Micro de pupitre",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "level": "mic",
+      "format": "Jack 6,35 stéréo en façade (pointe audio + polarisation DC) pour micro col de cygne électret ; -42,5 dBu nominal, -22,5 dBu max."
+    },
+    {
+      "id": "headset",
+      "name": "Casque-micro (façade)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR femelle en façade : 4 ou 5 broches (casque seul), 6 ou 7 broches (casque et pédale) selon version ; micro dynamique -60 dBu nominal",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "mic"
+        },
+        {
+          "connector": "xlr6",
+          "level": "mic"
+        },
+        {
+          "connector": "xlr7",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC (photo du panneau arrière)"
+    }
+  ],
+  "powerW": 43
+}

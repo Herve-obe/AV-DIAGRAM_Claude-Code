@@ -1,0 +1,46 @@
+{
+  "id": "radial-pro48",
+  "family": "capture",
+  "manufacturer": "Radial Engineering",
+  "model": "Pro48",
+  "pictogram": "di",
+  "status": "verified",
+  "description": "Boîte de direct active, alimentée par fantôme 48 V.",
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/pro48/features",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.radialeng.com/product/pro48/specifications",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée instrument",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "thru",
+      "name": "Thru",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-ts",
+      "level": "instrument"
+    },
+    {
+      "id": "out",
+      "name": "Sortie XLR",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "required"
+    }
+  ]
+}

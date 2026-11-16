@@ -1,0 +1,59 @@
+{
+  "id": "chauvet-professional-swarm-4",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "Chauvet Professional",
+  "model": "Swarm 4",
+  "status": "verified",
+  "description": "Effet Swarm4 (pas Swarm4FX),4 canaux DMX,308 ×189 ×308 mm. Manuel rev2 : consommation39 W à230 V. Raccordement en chaîne secteur dépendant de la version régionale ; l’Edison montré sur le schéma concerne uniquement les USA.",
+  "aliases": [
+    "SWARM4",
+    "Chauvet Swarm 4"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/effets-speciaux/divers-effets-speciaux/swarm-4/",
+      "document": "Novelty — Swarm 4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/chauvet_swarm4_ft.pdf",
+      "document": "Novelty — Swarm 4 : Swarm 4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/chauvet_swarm4_manuel.pdf",
+      "document": "Chauvet DJ (constructeur), Swarm 4 User Manual rev. 2 ML, relu : « 1 x Power Cord » fourni, entrée « Power In » et câble d'entrée, 100–240 V ; DMX in/out XLR 3 verrouillables mâle/femelle ; 39 W à 230 V ; 3,7 kg ; 308 × 189 × 308 mm ; recopie Edison réservée à la version nord-américaine",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "dmx-out",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3"
+    },
+    {
+      "id": "ac-in",
+      "name": "Secteur In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100–240 V CA, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "notes": "Non saisie : recopie secteur (connecteur propre à la version régionale, non publié par le constructeur pour l'Europe ; l'Edison du schéma concerne la version nord-américaine).",
+  "weightKg": 3.7,
+  "powerW": 39,
+  "depthMm": 189
+}

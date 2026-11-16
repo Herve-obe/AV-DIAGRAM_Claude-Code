@@ -1,0 +1,61 @@
+{
+  "id": "solid-state-logic-madi-opticoax",
+  "family": "processing",
+  "domain": "sound",
+  "pictogram": "processor",
+  "manufacturer": "Solid State Logic",
+  "model": "MADI OptiCoax",
+  "status": "verified",
+  "description": "Interface Delta-Link MADI OptiCoax, convertit un signal MADI optique en coaxial et vice versa, fonctionne en autonome",
+  "aliases": [
+    "MADIOPTICOAX",
+    "Solid State Logic MADI OptiCoax"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/audio-numerique/interfaces/madi-opticoax/",
+      "document": "Novelty — MADI OptiCoax",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.solidstatelogic.com/assets/uploads/downloads/82BSJE01B_OptiCoax_Quickstart_Guide.pdf",
+      "document": "SSL, MADI Opti-Coax Quick Start Guide 82BSJE01B",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "coaxIn",
+      "name": "MADI coaxial In",
+      "direction": "in",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64
+    },
+    {
+      "id": "coaxOut",
+      "name": "MADI coaxial Out",
+      "direction": "out",
+      "signal": "audioDigital",
+      "connector": "bnc",
+      "channels": 64
+    },
+    {
+      "id": "opt",
+      "name": "MADI optique E/S",
+      "direction": "bidir",
+      "signal": "audioDigital",
+      "connector": "sc",
+      "channels": 64,
+      "format": "SC duplex multimode 50/125 µm OM2 ou mieux, moins de 1000 m"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "100-240 V, 50/60 Hz, 250 mA max"
+    }
+  ]
+}

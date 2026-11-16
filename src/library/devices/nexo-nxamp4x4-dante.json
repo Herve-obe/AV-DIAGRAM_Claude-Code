@@ -1,0 +1,206 @@
+{
+  "id": "nexo-nxamp4x4-dante",
+  "family": "amplification",
+  "domain": "sound",
+  "pictogram": "amp",
+  "manufacturer": "NEXO",
+  "model": "NXAMP4x4 Dante",
+  "status": "verified",
+  "description": "Amplificateur 4x 3300w sous 4Ω, filtre intégré, équipé carte Dante",
+  "aliases": [
+    "NXAMP4X4-DANTE",
+    "NEXO NXAMP4x4 Dante"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/amplificateurs/unitaire/nxamp4x4-dante/",
+      "document": "Novelty — NXAMP4x4 Dante",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/dupli-1253089759.pdf",
+      "document": "Novelty — NXAMP4x4 Dante : NXAMP4x4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/dupli-nexo_nxamp_4x4_manuel.pdf",
+      "document": "Novelty — NXAMP4x4 Dante : NXAMP4x4",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/360977/nexo-nuar-nxamp.html?page=131",
+      "document": "NEXO, manuel NXAMP (NUAR), caractéristiques NXDT104 (miroir manualsdir)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in1",
+      "name": "Input 1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 femelle symétrique, 20 kohms, +28 dBu max"
+    },
+    {
+      "id": "in2",
+      "name": "Input 2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 femelle symétrique, 20 kohms, +28 dBu max"
+    },
+    {
+      "id": "in3",
+      "name": "Input 3",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 femelle symétrique, 20 kohms, +28 dBu max"
+    },
+    {
+      "id": "in4",
+      "name": "Input 4",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 femelle symétrique, 20 kohms, +28 dBu max"
+    },
+    {
+      "id": "link1",
+      "name": "Link 1",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 mâle en parallèle de l'entrée"
+    },
+    {
+      "id": "link2",
+      "name": "Link 2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 mâle en parallèle de l'entrée"
+    },
+    {
+      "id": "link3",
+      "name": "Link 3",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 mâle en parallèle de l'entrée"
+    },
+    {
+      "id": "link4",
+      "name": "Link 4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR3 mâle en parallèle de l'entrée"
+    },
+    {
+      "id": "spkA",
+      "name": "Speakon A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "speakON NL4, routage selon le mode (4 canaux ou pont)"
+    },
+    {
+      "id": "spkB",
+      "name": "Speakon B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "speakON NL4, routage selon le mode (4 canaux ou pont)"
+    },
+    {
+      "id": "spkC",
+      "name": "Speakon C",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "speakON NL4, routage selon le mode (4 canaux ou pont)"
+    },
+    {
+      "id": "spkD",
+      "name": "Speakon D",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "format": "speakON NL4, routage selon le mode (4 canaux ou pont)"
+    },
+    {
+      "id": "danteP",
+      "name": "Dante Primary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 4,
+      "format": "Carte NXDT104, 4 canaux réseau vers ampli, 24 bits 48 kHz, 100 Mb/1 Gb"
+    },
+    {
+      "id": "danteS",
+      "name": "Dante Secondary",
+      "direction": "bidir",
+      "signal": "audioIp",
+      "connector": "ethercon",
+      "channels": 4,
+      "format": "Carte NXDT104, redondance ou commutateur"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Carte NXDT104, port de télécommande ou Dante en mode commutateur ; type de prise non précisé (« additional port »)"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "Mise à jour du firmware"
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "5 entrées, 8 sorties génériques"
+    },
+    {
+      "id": "ac1",
+      "name": "Secteur 1",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON 20 A (NXAMP4X4C 220-240 V), 16 A max par cordon ; powerCON 30 A en 100-120 V"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON 20 A, à brancher sur un circuit distinct"
+    }
+  ],
+  "weightKg": 24.5,
+  "powerW": 3000
+}

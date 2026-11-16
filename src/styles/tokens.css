@@ -1,0 +1,238 @@
+/* Design system AV Diagram. Direction : logiciels de post-production (DaVinci Resolve) :
+   gris graphite neutres, panneaux denses, un seul accent orange, couleurs réservées aux signaux.
+   Le thème sombre est la référence (travail en régie) ; le thème clair suit les mêmes rôles. */
+
+@import '@fontsource/barlow/400.css';
+@import '@fontsource/barlow/500.css';
+@import '@fontsource/barlow/600.css';
+@import '@fontsource/barlow-condensed/500.css';
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+:root {
+  color-scheme: dark;
+  /* Surfaces, du fond vers l'avant */
+  --bg-0: #0f1012;
+  --bg-1: #16171a;
+  --bg-2: #1c1e21;
+  --bg-3: #24262a;
+  --bg-4: #2e3136;
+  --canvas: #131416;
+  /* Aperçu d'un plan importé : papier blanc quel que soit le thème */
+  --paper: #ffffff;
+  --paper-line: #566274;
+  --paper-text: #333333;
+  --paper-muted: #868e96;
+  --grid-dot: #26292d;
+  --border: #2a2d31;
+  --border-strong: #3d4147;
+  /* Bord d'un champ ou d'un bouton survolé */
+  --border-hover: #50555c;
+  /* Texte */
+  --text: #e4e6ea;
+  --text-2: #adb2ba;
+  /* Texte tertiaire : au moins 4,5:1 sur toutes les surfaces (bg-0 à bg-4) */
+  --text-3: #949aa3;
+  /* Accent unique (sélection, état actif) */
+  --accent: #f0883e;
+  --accent-hover: #f69a57;
+  --accent-active: #dd7a30;
+  --accent-soft: rgba(240, 136, 62, 0.14);
+  --accent-soft-strong: rgba(240, 136, 62, 0.24);
+  --on-accent: #1a0f06;
+  /* Survol et appui neutres (menus, listes, boutons discrets) */
+  --hover: rgba(255, 255, 255, 0.055);
+  --pressed: rgba(255, 255, 255, 0.09);
+  /* États */
+  --ok: #3fc98f;
+  --warn: #f2b54a;
+  --err: #f4675d;
+  --err-soft: rgba(244, 103, 93, 0.14);
+  /* Texte sur un fond d'état ou de participant (contraste d'au moins 4,5:1 avec le fond correspondant) */
+  --on-warn: #1b1305;
+  --on-err: #1a0605;
+  --on-peer: #ffffff;
+  /* Signaux (code couleur du projet, cahier des charges 5.1) */
+  --sig-audio-analog: #5b9df2;
+  --sig-audio-digital: #a88cf7;
+  --sig-audio-ip: #3fcf9c;
+  --sig-video: #f1cb4f;
+  --sig-sync: #f06caa;
+  --sig-intercom: #f39a4c;
+  --sig-control: #9aa3ad;
+  --sig-network: #3cc2da;
+  --sig-power: #ef5b54;
+  --sig-rf: #9ad94e;
+  --sig-dmx: #e0a96a;
+  /* Nœuds */
+  --node-bg: #1f2124;
+  --node-head: #26292d;
+  --node-border: #34373c;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* Menus déroulants et infobulles : plus proches du fond que les fenêtres */
+  --shadow-pop: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.25);
+  /* Reflet d'arête sur les surfaces surélevées */
+  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  /* Barre de défilement */
+  --scroll-thumb: #3a3e44;
+  --scroll-thumb-hover: #565b63;
+  /* Voile de la mini-carte hors de la zone affichée, identique dans les trois thèmes */
+  --minimap-mask: rgba(0, 0, 0, 0.35);
+  /* Voile derrière les fenêtres de dialogue, identique dans les trois thèmes */
+  --overlay: rgba(0, 0, 0, 0.45);
+  /* Typographie */
+  --font-ui: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-label: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --radius: 6px;
+  /* Échelle d'espacement (base 4 px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  /* Échelle de rayons */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-pill: 999px;
+  /* Échelle typographique (px) */
+  --fs-2xs: 10.5px;
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-base: 13px;
+  --fs-md: 14px;
+  --fs-lg: 16px;
+  --fs-xl: 20px;
+  --lh-tight: 1.25;
+  --lh-base: 1.4;
+  --lh-loose: 1.55;
+  /* Hauteurs de contrôles */
+  --control-sm: 24px;
+  --control-md: 30px;
+  --control-lg: 36px;
+  /* Mouvement : court et discret, coupé sous prefers-reduced-motion */
+  --dur-fast: 90ms;
+  --dur: 150ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  /* Anneau de focus clavier, identique partout */
+  --focus-color: var(--accent);
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  /* Opacité d'un contrôle désactivé (le texte reste lisible) */
+  --disabled-opacity: 0.45;
+  --z-pop: 20;
+  --z-overlay: 50;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --bg-0: #e5e8ec;
+    --bg-1: #eff1f4;
+    --bg-2: #f8f9fb;
+    --bg-3: #e7eaee;
+    --bg-4: #dadde3;
+    --canvas: #f8f9fa;
+    --grid-dot: #d3d7dc;
+    --border: #d3d7dd;
+    --border-strong: #b9bfc7;
+    --border-hover: #8f97a1;
+    --text: #1b1e23;
+    --text-2: #4a515b;
+    --text-3: #59606a;
+    --accent: #ad4a08;
+    --accent-hover: #bc540f;
+    --accent-active: #963f05;
+    --accent-soft-strong: rgba(173, 74, 8, 0.2);
+    --hover: rgba(20, 24, 30, 0.055);
+    --pressed: rgba(20, 24, 30, 0.1);
+    --accent-soft: rgba(173, 74, 8, 0.1);
+    --on-accent: #ffffff;
+    --ok: #0a6e47;
+    --warn: #7d5500;
+    --err: #b42d26;
+    --err-soft: rgba(180, 45, 38, 0.1);
+    --on-err: #ffffff;
+    --on-warn: #ffffff;
+    --sig-audio-analog: #2c78dc;
+    --sig-audio-digital: #7f57e0;
+    --sig-audio-ip: #15986c;
+    --sig-video: #b88d06;
+    --sig-sync: #d4458a;
+    --sig-intercom: #d9731c;
+    --sig-control: #6f7985;
+    --sig-network: #1590a8;
+    --sig-power: #d23c33;
+    --sig-rf: #5a8f17;
+    --sig-dmx: #9b6327;
+    --node-bg: #ffffff;
+    --node-head: #f0f2f4;
+    --node-border: #c9ced4;
+    --shadow-1: 0 1px 2px rgba(20, 24, 30, 0.1);
+    --shadow-pop: 0 6px 18px rgba(20, 24, 30, 0.16), 0 0 0 1px rgba(20, 24, 30, 0.06);
+    --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    --scroll-thumb: #bcc1c8;
+    --scroll-thumb-hover: #8f97a1;
+    --minimap-mask: rgba(20, 24, 30, 0.14);
+    --shadow-2: 0 10px 30px rgba(20, 24, 30, 0.16);
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg-0: #e5e8ec;
+  --bg-1: #eff1f4;
+  --bg-2: #f8f9fb;
+  --bg-3: #e7eaee;
+  --bg-4: #dadde3;
+  --canvas: #f8f9fa;
+  --grid-dot: #d3d7dc;
+  --border: #d3d7dd;
+  --border-strong: #b9bfc7;
+  --border-hover: #8f97a1;
+  --text: #1b1e23;
+  --text-2: #4a515b;
+  --text-3: #59606a;
+  --accent: #ad4a08;
+  --accent-hover: #bc540f;
+  --accent-active: #963f05;
+  --accent-soft-strong: rgba(173, 74, 8, 0.2);
+  --hover: rgba(20, 24, 30, 0.055);
+  --pressed: rgba(20, 24, 30, 0.1);
+  --accent-soft: rgba(173, 74, 8, 0.1);
+  --on-accent: #ffffff;
+  --ok: #0a6e47;
+  --warn: #7d5500;
+  --err: #b42d26;
+  --err-soft: rgba(180, 45, 38, 0.1);
+  --on-err: #ffffff;
+  --on-warn: #ffffff;
+  --sig-audio-analog: #2c78dc;
+  --sig-audio-digital: #7f57e0;
+  --sig-audio-ip: #15986c;
+  --sig-video: #b88d06;
+  --sig-sync: #d4458a;
+  --sig-intercom: #d9731c;
+  --sig-control: #6f7985;
+  --sig-network: #1590a8;
+  --sig-power: #d23c33;
+  --sig-rf: #5a8f17;
+  --sig-dmx: #9b6327;
+  --node-bg: #ffffff;
+  --node-head: #f0f2f4;
+  --node-border: #c9ced4;
+  --shadow-1: 0 1px 2px rgba(20, 24, 30, 0.1);
+  --shadow-pop: 0 6px 18px rgba(20, 24, 30, 0.16), 0 0 0 1px rgba(20, 24, 30, 0.06);
+  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --scroll-thumb: #bcc1c8;
+  --scroll-thumb-hover: #8f97a1;
+  --minimap-mask: rgba(20, 24, 30, 0.14);
+  --shadow-2: 0 10px 30px rgba(20, 24, 30, 0.16);
+}

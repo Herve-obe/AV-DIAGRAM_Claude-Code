@@ -1,0 +1,71 @@
+{
+  "id": "sgm-p-3-vision",
+  "family": "luminaire",
+  "manufacturer": "SGM",
+  "model": "P-3 Vision",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 8.3,
+  "sources": [
+    {
+      "url": "https://www.livedesignonline.com/news/sgm-light-introduces-p-3-visionr-cutting-edge-hybrid-solution-lighting-and-video-design",
+      "document": "Live Design, annonce P-3 Vision",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/architecture/p-3-vision/",
+      "document": "Novelty — P-3 Vision",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.sgmlighting.com/products/p-3-vision",
+      "document": "SGM (constructeur), page produit P-3 Vision : 115-277 V, 360 W, 8,3 kg, câble d'alimentation 2 m fourni, 2 ports Ethernet RJ45 IP66, renvoi secteur",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5"
+    },
+    {
+      "id": "net1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net / sACN, RJ45 IP66 à verrouillage (compatible etherCON), deux ports en chaînage"
+    },
+    {
+      "id": "net2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "Art-Net / sACN, RJ45 IP66 à verrouillage (compatible etherCON), deux ports en chaînage"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-277 V, 50/60 Hz; cordon secteur fourni (« 2 m IP66 power cable pigtail »), connecteur côté appareil de type « powercon twist-lock » selon le manuel, génération non précisée par le constructeur ; embase non publiée"
+    }
+  ],
+  "aliases": [
+    "SGM P-3 Vision"
+  ],
+  "powerW": 360,
+  "notes": "Non saisie : renvoi secteur (« power input connector & link-thru », connecteur non publié par le constructeur). Non saisi : récepteur CRMX sans fil intégré."
+}

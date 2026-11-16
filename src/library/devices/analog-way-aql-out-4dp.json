@@ -1,0 +1,57 @@
+{
+  "id": "analog-way-aql-out-4dp",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Analog Way",
+  "model": "Aquilon 4x DisplayPort 1.2 output card",
+  "pictogram": "processor",
+  "moduleType": "aquilon-output-card",
+  "status": "verified",
+  "description": "Carte 4 sorties DisplayPort 1.2 (2 en DisplayPort 1.4). Carte remplaçable sur site, vendue séparément ; référence de commande et consommation non publiées dans les documents lus.",
+  "sources": [
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Quick+Start+Guide/Aquilon-C%2B-quick-start-guide.pdf",
+      "document": "Analog Way, Aquilon C+ (AQL-C+) Quick Start Guide : panneau arrière, modèles de cartes d'entrée et de sortie",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://dwn01.analogway.com/Site+Internet/Series/Aquilon/Products/Aquilon+C%2B/Technical+Datasheet/Aquilon-C%2B-datasheet-en-20260703.pdf",
+      "document": "Analog Way, Aquilon C+ Technical Datasheet EN : Comprehensive set of input and output cards",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out1",
+      "name": "DP Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2 ; en DisplayPort 1.4 seules 2 sorties"
+    },
+    {
+      "id": "out2",
+      "name": "DP Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2 ; en DisplayPort 1.4 seules 2 sorties"
+    },
+    {
+      "id": "out3",
+      "name": "DP Out 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2 ; en DisplayPort 1.4 seules 2 sorties"
+    },
+    {
+      "id": "out4",
+      "name": "DP Out 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "displayport",
+      "format": "DisplayPort 1.2 ; en DisplayPort 1.4 seules 2 sorties"
+    }
+  ]
+}

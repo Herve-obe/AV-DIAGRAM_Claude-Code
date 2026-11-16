@@ -1,0 +1,237 @@
+{
+  "id": "ma-grandma2-full-size",
+  "family": "lightingControl",
+  "manufacturer": "MA Lighting",
+  "model": "grandMA2 full-size",
+  "pictogram": "console",
+  "status": "verified",
+  "weightKg": 46,
+  "sources": [
+    {
+      "url": "https://www.malighting.com/product-archive/product/grandma2-full-size-120111/",
+      "document": "MA Lighting, page archive grandMA2 full-size",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/asservis/grandma2-full-size/",
+      "document": "Novelty — GrandMA2 Full Size",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/grandMA2_brochure.pdf",
+      "document": "Novelty — GrandMA2 Full Size : GrandMA 2 Full Size",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/ma-lighting_grandma2_fullsize_certificat.pdf",
+      "document": "Novelty — GrandMA2 Full Size : GrandMA 2 Full Size",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/key_technical_data.html",
+      "document": "MA Lighting, grandMA2 User Manual v3.9 : Technical Data",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/key_fs_connect_grandma2_fader_wing.html",
+      "document": "MA Lighting, grandMA2 : connexion du fader wing (MA-Link D-Sub 15)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/key_fs_connect_sound.html",
+      "document": "MA Lighting, grandMA2 : connexion Sound/Audio In (XLR 3, min. 20 mV)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "powerCON, 120/230 V 50/60 Hz, 350 VA"
+    },
+    {
+      "id": "eth1",
+      "name": "Ethernet 1",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON"
+    },
+    {
+      "id": "eth2",
+      "name": "Ethernet 2",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "ethercon",
+      "format": "etherCON"
+    },
+    {
+      "id": "dmx1",
+      "name": "DMX 1 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx2",
+      "name": "DMX 2 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx3",
+      "name": "DMX 3 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx4",
+      "name": "DMX 4 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx5",
+      "name": "DMX 5 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx6",
+      "name": "DMX 6 Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "dmx-in",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 points"
+    },
+    {
+      "id": "smpte",
+      "name": "SMPTE",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode, XLR 3 points"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "remote",
+      "name": "Analogue Remote",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub25",
+      "format": "Télécommande analogique, D-Sub 25"
+    },
+    {
+      "id": "sound",
+      "name": "Sound In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "format": "Entrée son XLR 3 points symétrique, signal min. 20 mV",
+      "level": "line+4"
+    },
+    {
+      "id": "malink",
+      "name": "MA Link",
+      "direction": "out",
+      "signal": "control",
+      "connector": "dsub15",
+      "format": "MA-Link vers jusqu'à 4 grandMA2 fader wings, D-Sub 15"
+    },
+    {
+      "id": "dvi1",
+      "name": "DVI 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Écran externe"
+    },
+    {
+      "id": "dvi2",
+      "name": "DVI 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Écran externe"
+    },
+    {
+      "id": "usb1",
+      "name": "USB 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb2",
+      "name": "USB 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb3",
+      "name": "USB 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb4",
+      "name": "USB 4",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    },
+    {
+      "id": "usb5",
+      "name": "USB 5",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB, type non précisé sur la page"
+    }
+  ],
+  "aliases": [
+    "GrandMA2 Full Size",
+    "GRANDMAFULL",
+    "MA LIGHTING GrandMA2 Full Size"
+  ],
+  "powerW": 350
+}

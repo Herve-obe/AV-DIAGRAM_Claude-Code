@@ -1,0 +1,100 @@
+{
+  "id": "blackmagic-mini-converter-audio-to-sdi",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter Audio to SDI",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs/W-CONM-04",
+      "document": "Blackmagic Design, fiche technique Mini Converter Audio to SDI (W-CONM-04)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters, Installation and Operation Manual (version courante en ligne)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI (BNC)"
+    },
+    {
+      "id": "alt",
+      "name": "SDI In ALT",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Secours automatique"
+    },
+    {
+      "id": "out",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SDI avec audio intégré, sortie de bouclage (SD, HD, 3G-SDI)"
+    },
+    {
+      "id": "ain",
+      "name": "CH 1 Analog / AES-EBU 1-2 In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique 1 ou AES/EBU canaux 1 et 2",
+      "level": "line+4"
+    },
+    {
+      "id": "ain2",
+      "name": "CH 2 Analog / AES-EBU 3-4 In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique 2 ou AES/EBU canaux 3 et 4",
+      "level": "line+4"
+    },
+    {
+      "id": "ain3",
+      "name": "CH 3 Analog / AES-EBU 5-6 In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique 3 ou AES/EBU canaux 5 et 6",
+      "level": "line+4"
+    },
+    {
+      "id": "ain4",
+      "name": "CH 4 Analog / AES-EBU 7-8 In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 TRS symétrique : voie analogique 4 ou AES/EBU canaux 7 et 8",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini",
+      "format": "Mini-B : configuration et mise à jour"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "12 V universel fourni"
+    }
+  ],
+  "powerW": 8.4,
+  "description": "Intégrateur audio : ajoute 4 voies analogiques ou 8 canaux AES/EBU dans un signal SD, HD ou 3G-SDI."
+}

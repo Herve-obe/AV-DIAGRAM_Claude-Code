@@ -1,0 +1,69 @@
+{
+  "id": "radial-hotshot-dm1",
+  "family": "processing",
+  "manufacturer": "Radial Engineering",
+  "model": "HotShot DM1",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 0.56,
+  "sources": [
+    {
+      "url": "https://www.radialeng.com/product/hotshot-dm1",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.radialeng.com/wp-content/uploads/2018/04/Radial-SmartSheet-Hotshot-DM1_01-2022.pdf",
+      "document": "Radial Engineering, Smart Sheet HotShot DM1",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/accessoires-sonorisation/microphones-divers/hotshot-dm-1/",
+      "document": "Novelty — HotShot DM-1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/radial-engineering_hotshotdm1_ft.pdf",
+      "document": "Novelty — HotShot DM-1 : HotShot DM-1",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/radial-engineering_hotshotdm1_manuel.pdf",
+      "document": "Novelty — HotShot DM-1 : HotShot DM-1",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée micro",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR, micro dynamique"
+    },
+    {
+      "id": "out-a",
+      "name": "Output A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Sortie directe vers la façade"
+    },
+    {
+      "id": "out-b",
+      "name": "Output B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Sortie commutée par la pédale (talkback vers les retours ou l'intercom)"
+    }
+  ],
+  "aliases": [
+    "HotShot DM-1",
+    "HOTSHOTDM1",
+    "Radial Engineering HotShot DM-1"
+  ]
+}

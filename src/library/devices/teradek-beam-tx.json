@@ -1,0 +1,85 @@
+{
+  "id": "teradek-beam-tx",
+  "family": "videoRouting",
+  "domain": "image",
+  "pictogram": "wireless",
+  "manufacturer": "Teradek",
+  "model": "Beam TX",
+  "status": "verified",
+  "description": "Encodeur H.264 Wi-Fi 5 GHz Beam : entrée SDI avec bouclage, retour d'ordre (IFB) analogique, Ethernet, RS-422 (RJ45), alimentation LEMO 2 broches.",
+  "aliases": [
+    "Beam (TX / RX) émetteur"
+  ],
+  "powerW": 12,
+  "weightKg": 0.99,
+  "sources": [
+    {
+      "url": "https://www.markertek.com/Attachments/Specifications/TERADEK/10-0571-Specifications.pdf",
+      "document": "Teradek, Beam TX and RX Product Specification Sheet 2017 (copie Markertek) : interfaces, 12 W, 990 g (TX) / 610 g (RX)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "http://cdn.teradek.com/Public/Beam/Docs/Teradek_Beam_User_Guide_v1.3.1_1015.pdf",
+      "document": "Teradek (constructeur), Beam User Guide v1.3.1 : p. 4-7 vues avant et arrière (photo et tableau : entrée « 2-pin Lemo DC Input (7-17V) », USB firmware, minijacks, BNC SDI) ; p. 27 : connecteur LEMO série 0B 302 ; p. 28 : RS-422 sur schéma RJ45",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "txSdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G-SDI"
+    },
+    {
+      "id": "txLoop",
+      "name": "SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "ifb",
+      "name": "Talkback (IFB)",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Mini-jack stéréo entrée/sortie, 8 kHz"
+    },
+    {
+      "id": "eth",
+      "name": "Ethernet",
+      "direction": "bidir",
+      "signal": "network",
+      "connector": "rj45",
+      "format": "10/100BASE-TX"
+    },
+    {
+      "id": "serial",
+      "name": "RS-422",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "rj45",
+      "format": "RS-422 full duplex ; prise RJ45 lue sur le schéma du manuel, p. 28"
+    },
+    {
+      "id": "rf",
+      "name": "Liaison HF",
+      "direction": "out",
+      "signal": "rf",
+      "connector": "rf",
+      "format": "Wi-Fi 802.11a/n 5 GHz, 3x3 MIMO"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "lemo2",
+      "format": "7 à 17 V DC, 12 W ; LEMO 2 broches (série 0B 302)"
+    }
+  ],
+  "notes": "Non saisi : port USB (mise à jour du firmware, connecteur non nommé par le manuel)."
+}

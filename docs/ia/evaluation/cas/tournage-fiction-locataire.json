@@ -1,0 +1,39 @@
+{
+  "id": "tournage-fiction-locataire",
+  "titre": "Tournage et post-production son d'une fiction TV (Le locataire)",
+  "source": {"fichier": "Sujet TMO 2.pdf", "driveId": "1eScl4AJm9T7ojqF03IlxFwls4MfS6lPS", "auteur": "Hervé Obejero", "pages": "1-3"},
+  "domaine": ["son", "video", "sync"],
+  "difficulte": "simple",
+  "demande": "Je dois mettre en œuvre le système de tournage et de post-production son d'une courte fiction TV, tournée en plan-séquence avec une caméra fixe : un homme rentre chez lui, s'endort sur son bureau, puis est réveillé par le téléphone (fonction haut-parleur) : sa voisine lui demande de baisser le son. Prise de son directe, plusieurs prises possibles ; la voix de la voisine peut être enregistrée au tournage ou en post-production, comme les bruitages (pas, clés, porte), qui peuvent aussi venir d'une banque de sons fournie.\n\nTournage : un caméscope sur pied alimenté sur secteur, avec un retour image (moniteur) pour percher et cadrer ; une mixette stéréo ; un kit de micros : un micro-cravate HF, un micro semi-canon sur perche avec suspension, un micro dynamique cardioïde ; une cassette vierge (DVCAM ou Beta) pour le tournage et le report du son.\n\nPost-production : une régie avec un banc de montage virtuel pour la post-production son à l'image ; un magnétoscope synchronisable avec possibilité d'insert audio ; une console de mixage ou une surface de contrôle ; un loudness meter EBU R128 ; des plug-ins ou périphériques de traitement temporel, dynamique et fréquentiel. Je dois synchroniser le magnétoscope avec la station audionumérique et faire l'acquisition du tournage. Pour l'image de travail, je peux soit synchroniser le magnétoscope, soit faire l'acquisition de l'image. Le mixage final est reporté sur la cassette DVCAM du tournage, conforme à la recommandation CST - RT 017 - TV - Rec Tech PAD Éditeurs v3.0.\n\nJe veux le synoptique du tournage et celui de la post-production.",
+  "materielImpose": [
+    {"designation": "Caméscope sur pied", "quantite": 1, "reference": null},
+    {"designation": "Moniteur de retour image", "quantite": 1, "reference": null},
+    {"designation": "Mixette stéréo", "quantite": 1, "reference": null},
+    {"designation": "Micro-cravate HF", "quantite": 1, "reference": null},
+    {"designation": "Micro semi-canon avec perche et suspension", "quantite": 1, "reference": null},
+    {"designation": "Micro dynamique cardioïde", "quantite": 1, "reference": null},
+    {"designation": "Station de montage son à l'image", "quantite": 1, "reference": null},
+    {"designation": "Magnétoscope synchronisable avec insert audio", "quantite": 1, "reference": null},
+    {"designation": "Console de mixage ou surface de contrôle", "quantite": 1, "reference": null},
+    {"designation": "Loudness meter EBU R128", "quantite": 1, "reference": null}
+  ],
+  "exigences": [
+    {"id": "e1", "texte": "Trois micros : cravate HF, semi-canon sur perche, dynamique", "type": "quantite", "verif": {"famille": "capture", "min": 3, "max": null, "signal": null, "de": null, "vers": null}},
+    {"id": "e2", "texte": "Liaison HF du micro-cravate vers la mixette", "type": "liaison", "verif": {"famille": "wireless", "min": 1, "max": null, "signal": null, "de": "recepteur-hf", "vers": "mixette"}},
+    {"id": "e3", "texte": "Micros vers la mixette stéréo", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "audioAnalog", "de": "micro", "vers": "mixette"}},
+    {"id": "e4", "texte": "Sortie de la mixette vers le caméscope (enregistrement du son sur la cassette)", "type": "liaison", "verif": {"famille": "camera", "min": 1, "max": null, "signal": "audioAnalog", "de": "mixette", "vers": "camera"}},
+    {"id": "e5", "texte": "Retour image du caméscope vers le moniteur", "type": "liaison", "verif": {"famille": "display", "min": 1, "max": null, "signal": "video", "de": "camera", "vers": "moniteur"}},
+    {"id": "e6", "texte": "Synchronisation du magnétoscope avec la station (timecode / contrôle machine)", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": "sync", "de": "magnetoscope", "vers": "station-daw"}},
+    {"id": "e7", "texte": "Acquisition audio (et image si choisie) du magnétoscope vers la station", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "magnetoscope", "vers": "station-daw"}},
+    {"id": "e8", "texte": "Report du mix final de la station vers le magnétoscope (insert audio)", "type": "sortie", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-daw", "vers": "magnetoscope"}},
+    {"id": "e9", "texte": "Loudness meter sur le mix final", "type": "liaison", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": "station-daw", "vers": "mesure-niveau"}},
+    {"id": "e10", "texte": "Report conforme CST RT 017 v3.0", "type": "contrainte", "verif": {"famille": null, "min": null, "max": null, "signal": null, "de": null, "vers": null}}
+  ],
+  "pointsDeVigilance": [
+    "Mixette vers caméscope : adapter le niveau (ligne ou micro) à l'entrée de la caméra",
+    "Pistes séparées sur la cassette (perche et cravate) pour garder le choix au mixage",
+    "Synchronisation magnétoscope/station : timecode et référence vidéo communs, contrôle machine",
+    "Report en insert audio seul, sans effacer l'image"
+  ],
+  "corrigeDisponible": false
+}

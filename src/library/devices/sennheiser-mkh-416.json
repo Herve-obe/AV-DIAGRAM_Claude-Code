@@ -1,0 +1,41 @@
+{
+  "id": "sennheiser-mkh-416",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "MKH 416 (P48U3)",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.175,
+  "sources": [
+    {
+      "document": "Sennheiser MKH 416-P48U3, Instruction manual, Publ. 09/21, 047768/A13 (Specifications, p. 9)",
+      "accessed": "2026-09-24"
+    },
+    {
+      "url": "https://www.sennheiser.com/en-us/catalog/products/microphones/mkh-416/mkh-416-p48u3-001511",
+      "document": "Sennheiser, page produit MKH 416 P48U3 (001511)",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "p1",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Canon HF, fantôme 48 V ± 4 V (env. 2 mA), 25 mV/Pa",
+      "phantom": "required"
+    }
+  ],
+  "description": "Micro canon statique super-cardioïde/lobe MKH 416 P48U3 : sortie XLR 3 broches, niveau micro, alimentation fantôme 48 V ± 4 V obligatoire (env. 2 mA), 25 mV/Pa, impédance nominale 25 ohms, 175 g.",
+  "aliases": [
+    "MKH 416",
+    "MKH416",
+    "MKH 416 P48U3",
+    "MKH 416-P48U3",
+    "MKH 416 P48U"
+  ],
+  "notes": "Vérifié sur la page produit Sennheiser (001511) : XLR 3 broches, P48, 2 mA, 25 mV/Pa, 175 g. Pas de consommation secteur : micro alimenté par le fantôme (powerW volontairement absent). La désignation du parc « P48U » correspond à la version actuelle P48U3."
+}

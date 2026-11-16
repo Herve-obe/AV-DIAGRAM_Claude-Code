@@ -1,0 +1,28 @@
+{
+  "id": "sennheiser-e845",
+  "family": "capture",
+  "manufacturer": "Sennheiser",
+  "model": "e 845",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.33,
+  "sources": [
+    {
+      "url": "https://www.sennheiser.com/globalassets/digizuite/41680-en-sp_1210_v1.0_e_845_e_845-s_product_specification_en.pdf",
+      "document": "Sennheiser, Product specification evolution wired e 845 | e 845-S",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Dynamique supercardioïde, 1,8 mV/Pa, XLR-3",
+      "phantom": "none"
+    }
+  ]
+}

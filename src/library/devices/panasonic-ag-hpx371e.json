@@ -1,0 +1,170 @@
+{
+  "id": "panasonic-ag-hpx371e",
+  "family": "camera",
+  "manufacturer": "Panasonic",
+  "model": "AG-HPX371E",
+  "pictogram": "camera",
+  "status": "verified",
+  "sources": [
+    {
+      "document": "Panasonic, AG-HPX370 / AG-HPX371E Mode d'emploi VQT2T24-4 (F)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.hannu-pro.com/all_products/pro/all_docs/AG-HPX371E.pdf",
+      "document": "Panasonic, brochure et spécifications AG-HPX370 series (AG-HPX370/371/372/374), PDF hébergé par un distributeur : Audio Out pin jack ×2 316 mV 600 ohms, USB 2.0 Device Type-B, USB 2.0 Host Type-A, Remote 10 pin, DC In XLR 4 broches",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.csportal.panasonic-la.com//descargaspla/PLA/VIDEO%20PRO//P2//CAMARA/AG-HPX370P/DOCUMENTO/MANUAL%20DE%20USUARIO//AG-HPX370_User_Esp.pdf",
+      "document": "Panasonic, instrucciones de funcionamiento AG-HPX370 (série, en espagnol) : connecteurs AUDIO OUT, USB 2.0 (DEVICE) et (HOST), REMOTE relié à l'AJ-RC10G ou à l'AG-EC4G",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://manualslib.com/manual/895531/Panasonic-Ag-Ec4g.html?page=8",
+      "document": "Manuel Panasonic AG-EC4G hébergé par ManualsLib, page « Connection cable » : câble 10 points, fiche côté caméra Hirose HR10A-10P-10P (câble branché sur la prise REMOTE, selon le manuel HPX370)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi1",
+      "name": "SDI OUT 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD-SDI ou SD-SDI (AUTO, 1080i, 576i)"
+    },
+    {
+      "id": "sdi2",
+      "name": "SDI OUT 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Mêmes signaux que SDI OUT 1"
+    },
+    {
+      "id": "vout",
+      "name": "VIDEO OUT",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "Composite (convertie en mode HD)"
+    },
+    {
+      "id": "genlock",
+      "name": "GENLOCK IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Référence de synchronisation"
+    },
+    {
+      "id": "tcin",
+      "name": "TC IN",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "tcout",
+      "name": "TC OUT",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "mic",
+      "name": "MIC IN (avant)",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; alimentation fantôme par menu"
+    },
+    {
+      "id": "a1",
+      "name": "AUDIO IN CH1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; ligne, micro ou micro + fantôme",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "name": "AUDIO IN CH2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "phantom": "supplied",
+      "format": "XLR 3 broches ; ligne, micro ou micro + fantôme",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "aout",
+      "name": "AUDIO OUT",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "channels": 2,
+      "format": "Prises RCA (« pin jack » ×2, CH1/CH2), 316 mV sur 600 ohms (soit -10 dBV) ; canaux 1/2 ou 3/4 (MONITOR SELECT)",
+      "level": "line-10"
+    },
+    {
+      "id": "dv",
+      "name": "DVCPRO/DV",
+      "direction": "bidir",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "IEEE 1394 : entrée et sortie vidéo, audio et données"
+    },
+    {
+      "id": "usbd",
+      "name": "USB 2.0 DEVICE",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-b",
+      "format": "USB 2.0 Device, type B"
+    },
+    {
+      "id": "usbh",
+      "name": "USB 2.0 HOST",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0 Host, type A"
+    },
+    {
+      "id": "remote",
+      "name": "REMOTE",
+      "direction": "in",
+      "signal": "control",
+      "connector": "hirose10",
+      "format": "Rond 10 points (Hirose HR10, fiche HR10A-10P-10P du câble 10 points côté caméra) ; télécommande AJ-RC10G ou unité d'extension AG-EC4G"
+    },
+    {
+      "id": "dc",
+      "name": "DC IN",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "Alimentation externe, XLR 4 broches"
+    }
+  ],
+  "notes": "Non saisies : sortie DC OUT 12 V (4 broches), entrée WIRELESS (D-Sub 25 broches), prise casque (mini-jack stéréo 3,5 mm) et objectif (12 broches). Niveau ligne des entrées AUDIO IN : 0 dBu publié par Panasonic, approché ici par la valeur ligne +4 dBu du catalogue."
+}

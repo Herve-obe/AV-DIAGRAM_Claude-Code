@@ -1,0 +1,70 @@
+{
+  "id": "elation-kl-fresnel-6-cw",
+  "family": "luminaire",
+  "manufacturer": "Elation",
+  "model": "KL Fresnel 6 CW",
+  "pictogram": "light",
+  "status": "verified",
+  "weightKg": 8.4,
+  "sources": [
+    {
+      "url": "https://goknight.com/content/documentation/KL Fresnel 6 CW Spec Sheet.pdf",
+      "document": "Elation, fiche KL Fresnel 6 CW (via Goknight)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.elationlighting.com/products/kl-fresnel-6-cw",
+      "document": "Elation, page produit KL Fresnel 6 CW : DMX 3/5 broches, câble d’alimentation IP65 verrouillable In/Out, 180 W max, RDM",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.centryngroup.com/dl/files/KLF060__DL__008.pdf",
+      "document": "Elation, manuel utilisateur KL Fresnel 6 CW : repérage Power In/Out, DMX 5 et 3 broches In/Out ; liste de contenu « Power Cable » ; 100-240 V, 180 W, 8,4 kg",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In (5 points)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Thru (5 points)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "dmxIn3",
+      "name": "DMX In (3 points)",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "DMX512 / RDM"
+    },
+    {
+      "id": "dmxOut3",
+      "name": "DMX Thru (3 points)",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr3",
+      "format": "Recopie DMX"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "100-240 V CA 50/60 Hz, 180 W max ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "powerW": 180,
+  "notes": "Non saisie : recopie secteur (Power Out) (connecteur non publié par le constructeur)."
+}

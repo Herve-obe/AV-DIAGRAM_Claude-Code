@@ -1,0 +1,153 @@
+{
+  "id": "clear-com-cs-702",
+  "family": "intercom",
+  "domain": "sound",
+  "pictogram": "intercom",
+  "manufacturer": "Clear-Com",
+  "model": "CS-702",
+  "status": "verified",
+  "description": "Station centrale 2 canaux, jusqu'à 30 boîtiers ceinture ou 10 postes haut-parleur ou combinaison des deux",
+  "aliases": [
+    "CLEARCOM CS-702"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/interphonie/intercom/cs-702/",
+      "document": "Novelty — CS-702",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clear-com_cs702_ft.pdf",
+      "document": "Novelty — CS-702 : CS-702",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clear-com_cs702_encore-partyline-installation-manual.pdf",
+      "document": "Novelty — CS-702 : CS-702",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clear-com_cs702_brochure.pdf",
+      "document": "Novelty — CS-702 : Brochure commerciale",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/332631/clear-com-cs-702.html",
+      "document": "Clear-Com, CS-702 Two-Channel Main Station, User Manual (copie manualsdir)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://clearcom.com/Product/PgrID/486/PageID/7/id/1510",
+      "document": "Clear-Com, page produit CS-702",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "a1",
+      "name": "Ligne intercom A 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, câblées en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "a2",
+      "name": "Ligne intercom A 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, câblées en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "a3",
+      "name": "Ligne intercom A 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, câblées en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b1",
+      "name": "Ligne intercom B 1",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, câblées en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b2",
+      "name": "Ligne intercom B 2",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, câblées en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "b3",
+      "name": "Ligne intercom B 3",
+      "direction": "bidir",
+      "signal": "intercom",
+      "connector": "xlr3",
+      "format": "XLR 3 mâle, câblées en parallèle ; broche 2 alimentation 30 V CC, broche 3 audio"
+    },
+    {
+      "id": "pgm",
+      "name": "Program In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 femelle, symétrique électronique ; sélecteur Mic/Line",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "mic"
+        }
+      ]
+    },
+    {
+      "id": "ann",
+      "name": "Announce Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR 3 mâle, symétrique par transformateur, 600 Ω, 0 dBu nominal"
+    },
+    {
+      "id": "relay",
+      "name": "Relay Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "jack-trs",
+      "format": "Jack 6,35 : contact sec du bouton Announce (pointe C, bague repos, corps travail)"
+    },
+    {
+      "id": "hs",
+      "name": "Casque",
+      "direction": "bidir",
+      "signal": "audioAnalog",
+      "connector": "xlr4",
+      "format": "XLR 4 mâle en façade ; micro dynamique, écouteur 50 à 2000 Ω"
+    },
+    {
+      "id": "ear",
+      "name": "Earphone",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Jack 3,5 mm en façade, en parallèle de l'écouteur du casque"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "IEC 320, 100 à 240 V CA"
+    }
+  ],
+  "weightKg": 2.3,
+  "powerW": 60
+}

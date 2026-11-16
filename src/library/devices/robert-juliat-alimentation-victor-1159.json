@@ -1,0 +1,40 @@
+{
+  "id": "robert-juliat-alimentation-victor-1159",
+  "family": "power",
+  "domain": "light",
+  "pictogram": "power",
+  "manufacturer": "Robert Juliat",
+  "model": "Alimentation électronique Victor 1159 (1 800 W MSR)",
+  "status": "verified",
+  "description": "Alimentation électronique séparée, sans scintillement, avec PFC, de la poursuite Victor 1159, 13,2 kg. Entrée secteur sur embase powerCON (cordon détachable NAC3FCA fourni) ; reçoit le cordon de lampe de 3 m attenant à la tête (Harting 16 × 16 A + T, 25 m max). Consommation : les 2 040 W de l'ensemble sont portés par la fiche de tête ; ne pas les additionner. Non vérifié pour la version 1159B DMX.",
+  "aliases": [
+    "PSU 1159",
+    "Alimentation Victor"
+  ],
+  "sources": [
+    {
+      "url": "https://www.robertjuliat.com/Product_Specifications/Fiches_FR/Standard/DSFR107_1159.pdf",
+      "document": "Robert Juliat, DSFR107 Victor 1159, fiche standard : cordon d'alimentation détachable Neutrik powerCON NAC3FCA inclus, H07RNF 3G1.5, fiche CEE 7/7 ; alimentation séparée électronique 13,2 kg ; cordon de lampe attenant 3 m 18G1,5 Harting Han 16 × 16 A + T",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Embase powerCON (cordon NAC3FCA détachable fourni, H07RN-F 3G1,5, fiche CEE 7/7)"
+    },
+    {
+      "id": "head",
+      "name": "Entrée cordon de lampe (Harting)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Harting Han 16 × 16 A + T, reçoit le cordon de 3 m attenant à la tête"
+    }
+  ],
+  "weightKg": 13.2
+}

@@ -1,0 +1,74 @@
+{
+  "id": "klarkteknik-dn360",
+  "family": "processing",
+  "manufacturer": "Klark Teknik",
+  "model": "DN360",
+  "pictogram": "processor",
+  "status": "verified",
+  "weightKg": 5.0,
+  "rackU": 3,
+  "sources": [
+    {
+      "url": "https://pssl.com/products/klark-teknik-dn360-2-ch-31-band-graphic-equalizer",
+      "document": "PSSL, fiche DN360 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.markertek.com/product/kt-dn360/klark-teknik-dn360-two-channel-30-band-1-3-octave-classic-graphic-eq",
+      "document": "Markertek, fiche DN360 (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.la-bs.com/Objets/DN360_me.pdf",
+      "document": "Klark Teknik, DN360 Operators Manual : Voltage selection and power connection, Rear panel functions, Specifications",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "inA",
+      "name": "Input A",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, symétrie par transformateur ; surcharge à +19 dBu"
+    },
+    {
+      "id": "inB",
+      "name": "Input B",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, symétrie par transformateur ; surcharge à +19 dBu"
+    },
+    {
+      "id": "outA",
+      "name": "Output A",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, symétrie par transformateur"
+    },
+    {
+      "id": "outB",
+      "name": "Output B",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "line+4",
+      "format": "XLR, symétrie par transformateur"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "iec-c13",
+      "format": "Embase IEC 3 broches (« IEC standard power socket »), fusible au panneau arrière, tension selon étiquette ; < 15 VA"
+    }
+  ],
+  "powerW": 15
+}

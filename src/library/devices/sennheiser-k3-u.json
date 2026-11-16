@@ -1,0 +1,59 @@
+{
+  "id": "sennheiser-k3-u",
+  "family": "capture",
+  "domain": "sound",
+  "pictogram": "mic",
+  "manufacturer": "Sennheiser",
+  "model": "K 3-U",
+  "status": "verified",
+  "description": "Module d'alimentation (poignée) du système modulaire K 3 : reçoit une tête ME 20, ME 40, ME 80 ou ME 88. Pile 5,6 V (env. 600 h) ou fantôme 12-48 V sans commutation, sortie symétrique basse impédance par transformateur, filtre coupe-bas 2 positions.",
+  "aliases": [
+    "K3-U",
+    "K 3 U"
+  ],
+  "sources": [
+    {
+      "url": "https://audio.manualsonline.com/manuals/mfg/sennheiser/mke_203.html?p=4",
+      "document": "Sennheiser, notice MKE 203/403/803/883 (système K 3), copie ManualsOnline p. 4 : description technique des modules K 3 N et K 3-U",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://audio.manualsonline.com/manuals/mfg/sennheiser/mke_203.html?p=5",
+      "document": "Même notice p. 5 : brochage (K 3 N : DIN 41524 3 points, schéma N ; K 3-U : XLR-3, schéma -U)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://audio.manualsonline.com/manuals/mfg/sennheiser/mke_203.html?p=6",
+      "document": "Même notice p. 6-8 : caractéristiques MKE 203/403/803 N et -U (têtes ME 20, ME 40, ME 80, ME 88)",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://audio.manualsonline.com/manuals/mfg/sennheiser/mke_203.html?p=2",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie micro",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Symétrique, env. 200 Ω, XLR-3 mâle (1 masse, 2 et 3 modulation) ; pile 5,6 V ou fantôme 12-48 V (DIN 45596)"
+    }
+  ],
+  "slots": [
+    {
+      "id": "capsule",
+      "name": "Tête de micro",
+      "type": "sennheiser-k3",
+      "accepts": [
+        "sennheiser-me20",
+        "sennheiser-me40",
+        "sennheiser-me80",
+        "sennheiser-me88"
+      ]
+    }
+  ]
+}

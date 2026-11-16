@@ -1,0 +1,61 @@
+{
+  "id": "shure-ad3",
+  "family": "wireless",
+  "manufacturer": "Shure",
+  "model": "AD3",
+  "pictogram": "wireless",
+  "status": "verified",
+  "weightKg": 0.24,
+  "sources": [
+    {
+      "url": "https://pubs.shure.com/guide/AD3/en-US",
+      "document": "Shure, guide d'utilisation AD3 (pubs.shure.com)",
+      "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/traduction-simultanee/regie-emetteur/ad3/",
+      "document": "Novelty — AD3",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_certificat_de_conformite/9604-4650-ad3-declarations-of-conformity-eu.pdf",
+      "document": "Novelty — AD3 : ad3-declarations-of-conformity-eu",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/830-4650-axient-digital-specification-sheet-ad600-letter-en.pdf",
+      "document": "Novelty — AD3 : Axient-Digital_Specification-Sheet",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "Entrée XLR",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR verrouillable, se fixe sur le micro ; alimentation fantôme disponible",
+      "phantom": "supplied"
+    },
+    {
+      "id": "rf",
+      "name": "Émission HF",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rf",
+      "format": "Liaison radio vers le récepteur"
+    },
+    {
+      "id": "usb",
+      "name": "USB-C",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-c"
+    }
+  ],
+  "aliases": [
+    "SHURE AD3"
+  ]
+}

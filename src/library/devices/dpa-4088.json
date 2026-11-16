@@ -1,0 +1,77 @@
+{
+  "id": "dpa-4088",
+  "family": "capture",
+  "manufacturer": "DPA",
+  "model": "4088",
+  "pictogram": "mic",
+  "status": "verified",
+  "weightKg": 0.014,
+  "sources": [
+    {
+      "url": "https://www.dpamicrophones.com/document-portal/manual/product/4088/variant/17/",
+      "accessed": "2026-09-26"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/microphones/headset-and-earset/4088/",
+      "document": "DPA, page produit 4088 : références 4088-DC-A (CORE : MicroDot 00, LEMO 3 broches 03, TA4F 10, mini-jack 34 ; taille standard ou S) et CORE+ MicroLock",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dpamicrophones.com/api/v1/product/GetProductSpecifications?productId=17&culture=en-US",
+      "document": "DPA, caractéristiques 4088 (CORE+) : cardioïde, 6 mV/Pa, 30 à 40 ohms, MicroLock, TA4F, LEMO 3 broches, mini-jack, 5 à 10 V par adaptateur DPA, P48 avec DAD9001, 1,5 mA, 14 g, câble 1,2 m",
+      "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/micros-hf/cravatte-serre-tete/4088f/",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "out",
+      "name": "Sortie",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "microdot",
+      "level": "mic",
+      "phantom": "none",
+      "format": "Cardioïde (gradient de pression), 6 mV/Pa, impédance 30 à 40 ohms. Versions émetteur HF : alimentation par l'émetteur via adaptateur DPA, 5 à 10 V. Terminaisons constructeur (modes) : MicroDot (CORE, réf. 00), MicroLock (CORE+, réf. 90), TA4F mini-XLR (10), LEMO 3 broches (03), mini-jack (34). XLR 3 : adaptateur DAD6001-BC (CORE) ou DAD9001 (CORE+), fantôme P48 requis (fonctionne dès 12 V), 3,5 mA.",
+      "modes": [
+        {
+          "connector": "microlock",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "ta4",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "lemo3",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "minijack",
+          "level": "mic",
+          "phantom": "none"
+        },
+        {
+          "connector": "xlr3",
+          "level": "mic",
+          "phantom": "required"
+        }
+      ]
+    }
+  ],
+  "description": "Micro serre-tête cardioïde DPA d:fine 4088 (versions CORE et CORE+), statique prépolarisé, 6 mV/Pa, grille non démontable. Accroches (ce ne sont pas des prises) : monture double oreille réglable, perche clipsée changeant de côté, taille standard ou petite (suffixe S), noir, beige ou brun. 14 g avec câble et connecteur, câble 1,2 m.",
+  "aliases": [
+    "DPA 4088",
+    "d:fine 4088",
+    "4088 CORE",
+    "4088 CORE+",
+    "4088-DC-A"
+  ],
+  "notes": "Fiche unique pour toutes les terminaisons du 4088 (modes de la prise), sur le modèle de dpa-4066. La fiche dpa-4088f (4088-F/LEMO, beige, LEMO 3 broches) est un doublon : choisir le mode LEMO 3."
+}

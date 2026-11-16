@@ -1,0 +1,107 @@
+{
+  "id": "blackmagic-design-mini-converter-sdi-to-audio-4k",
+  "family": "videoRouting",
+  "manufacturer": "Blackmagic Design",
+  "model": "Mini Converter SDI to Audio 4K",
+  "pictogram": "router",
+  "status": "verified",
+  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf?_v=1723186810000",
+      "document": "Blackmagic Converters — Installation and Operation Manual, juillet 2024",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.blackmagicdesign.com/products/miniconverters/techspecs",
+      "document": "Blackmagic Mini Converters, Technical Specifications, exact 4K audio model",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/BlackmagicConvertersManual.pdf",
+      "document": "Blackmagic Converters manual pp.59,67",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G/6G-SDI"
+    },
+    {
+      "id": "sdiAlt",
+      "name": "SDI Alt In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G/6G-SDI"
+    },
+    {
+      "id": "sdiOut",
+      "name": "SDI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "SD/HD/3G/6G-SDI"
+    },
+    {
+      "id": "audio1",
+      "name": "Audio 1 / AES 1–2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Analogique symétrique ou AES/EBU 2 canaux ; modes exclusifs",
+      "level": "line+4"
+    },
+    {
+      "id": "audio2",
+      "name": "Audio 2 / AES 3–4",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Analogique symétrique ou AES/EBU 2 canaux ; modes exclusifs",
+      "level": "line+4"
+    },
+    {
+      "id": "audio3",
+      "name": "Audio 3 / AES 5–6",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Analogique symétrique ou AES/EBU 2 canaux ; modes exclusifs",
+      "level": "line+4"
+    },
+    {
+      "id": "audio4",
+      "name": "Audio 4 / AES 7–8",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "jack-trs",
+      "format": "Analogique symétrique ou AES/EBU 2 canaux ; modes exclusifs",
+      "level": "line+4"
+    },
+    {
+      "id": "usb",
+      "name": "USB configuration",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-mini"
+    },
+    {
+      "id": "dc",
+      "name": "Alimentation 12–31 V DC",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel"
+    }
+  ],
+  "powerW": 5.52
+}

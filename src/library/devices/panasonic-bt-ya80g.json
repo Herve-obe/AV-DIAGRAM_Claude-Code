@@ -1,0 +1,37 @@
+{
+  "id": "panasonic-bt-ya80g",
+  "family": "module",
+  "domain": "misc",
+  "manufacturer": "Panasonic",
+  "model": "BT-YA80G",
+  "pictogram": "processor",
+  "moduleType": "panasonic-bt-ya80g",
+  "status": "verified",
+  "description": "Unité d'entrée SDI optionnelle du moniteur Panasonic BT-LH80W (vendue séparément) : une entrée BNC HD/SD-SDI. Consommation et poids non publiés.",
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_bt-lh80_manuel.PDF",
+      "document": "Panasonic, BT-LH80W Operating Instructions : rear panel n° 8 « SDI (HD/SD) input terminal (BNC) - option », spécifications « SDI : 1 line, BNC x 1 (Optional) », « Enabled when the separately sold BT-YA80G is installed »",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/panasonic_bt-lh80_ft.pdf",
+      "document": "Panasonic, fiche BT-LH80W : option BT-YA80G SDI INPUT UNIT",
+      "accessed": "2026-11-07"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdi",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "HD/SD-SDI, commutation automatique HD/SD"
+    }
+  ],
+  "aliases": [
+    "SDI INPUT UNIT BT-YA80G",
+    "BTYA80G"
+  ]
+}

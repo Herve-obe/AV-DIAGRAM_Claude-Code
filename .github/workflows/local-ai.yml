@@ -1,0 +1,54 @@
+# Essai du modèle d'IA locale réel (Qwen3 4B) : téléchargement de 2,5 Go puis six essais d'outils.
+# Long (jusqu'à 45 minutes) et dépendant de la vitesse de la machine : il ne bloque pas les pushs.
+# Lancement manuel (onglet Actions, « Run workflow ») ou chaque lundi à 4 h 17 UTC.
+name: Local AI
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * 1'
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Prepare verified local AI engine
+        run: python scripts/prepare-local-ai.py
+      - name: Test real Qwen3 4B tools on a fictitious project
+        run: python scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-test"
+      - name: Upload isolated AI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-local-AI-test-report
+          path: ${{ runner.temp }}/avd-local-ai-test/integration-result.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  macos:
+    runs-on: macos-15
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Prepare verified local AI engines
+        run: python3 scripts/prepare-local-ai.py
+      - name: Test real local AI with the prepared macOS engine
+        run: python3 scripts/test-local-ai.py --directory "${{ runner.temp }}/avd-local-ai-mac"
+      - name: Upload macOS AI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AV-Diagram-local-AI-macOS-test-report
+          path: ${{ runner.temp }}/avd-local-ai-mac/integration-result.json
+          if-no-files-found: warn
+          retention-days: 30

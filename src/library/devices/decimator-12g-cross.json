@@ -1,0 +1,111 @@
+{
+  "id": "decimator-12g-cross",
+  "family": "videoRouting",
+  "manufacturer": "Decimator Design",
+  "model": "12G-CROSS (DD-12G-CROSS)",
+  "pictogram": "router",
+  "status": "verified",
+  "sources": [
+    {
+      "url": "https://www.bhphotovideo.com/c/product/1474644-REG/decimator_12g_cross_4k_hdmi_sdi_cross_converter.html",
+      "document": "B&H, fiche 12G-CROSS (revendeur)",
+      "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6379-4627-12g-cross-brochure.pdf",
+      "document": "Decimator 12G-CROSS brochure v1, p. 1",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://decimator.com/Products/MiniConverters/12G-CROSS/12G-CROSS.html",
+      "document": "Decimator Design, page produit 12G-CROSS",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/12g-cross/",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://decimator.com/specs/12G-CROSS_HARDWARE_MANUAL_FV1.4.pdf",
+      "document": "Decimator Design (constructeur), manuel 12G-CROSS V1.4, pp. 2-3 : 1 entrée SDI, entrée et sortie HDMI, entrée Genlock, 2 x 2 sorties SDI (schéma BNC et HDMI type A), prise d'alimentation DC à verrouillage fileté métallique, port USB de contrôle et de mise à jour sans type précisé",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6379-4627-12g-cross-brochure.pdf",
+      "document": "Decimator Design (constructeur), brochure 12G-CROSS (copie Novelty) : 1 HDMI type A en entrée et en sortie, 1 Genlock, 4 sorties SDI, alimentation +5 à +32 V CC centre positif, dimensions 106 x 130 x 31 mm",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "12G-SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc"
+    },
+    {
+      "id": "hdmiIn",
+      "name": "HDMI 2.0 In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "gl",
+      "name": "Genlock",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc"
+    },
+    {
+      "id": "out1",
+      "name": "SDI Out 1",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "out2",
+      "name": "SDI Out 2",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI"
+    },
+    {
+      "id": "loop1",
+      "name": "SDI Out / Loop 3",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, recopie ou sortie"
+    },
+    {
+      "id": "loop2",
+      "name": "SDI Out / Loop 4",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "12G-SDI, recopie ou sortie"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI 2.0 Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "+5 à +32 V CC, centre positif, prise DC à verrouillage fileté métallique"
+    }
+  ],
+  "depthMm": 130,
+  "notes": "Non saisie : USB (connecteur non publié par le constructeur ; « USB port for control and firmware updates »)."
+}

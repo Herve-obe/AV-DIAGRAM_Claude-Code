@@ -1,0 +1,43 @@
+{
+  "id": "cls-jade-zoom",
+  "family": "luminaire",
+  "domain": "light",
+  "pictogram": "light",
+  "manufacturer": "CLS",
+  "model": "JADE ZOOM",
+  "status": "verified",
+  "description": "Jade Zoom25 W3000 K CRI97 selon désignation du parc, commande W-DMX uniquement ; alimentation par adaptateur rail Global/Eutrac. Les variantes DMX filaire/DALI/Casambi et35 W du fabricant sont distinctes.",
+  "aliases": [
+    "JADE-25W-N",
+    "CLS JADE ZOOM"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/eclairage-sur-rail-eclairage/gradateur/jade-zoom/",
+      "document": "Novelty — JADE ZOOM",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1973-4376-jade-zoom.pdf",
+      "document": "CLS — Jade Zoom, fiche générée20février2023, page1 : adaptateur rail Global/Eutrac, gamme25/35 W",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/10478-4376-manual-jade-zoom-web.pdf",
+      "document": "CLS — Jade Zoom User Manual, variantes de montage et commande",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "track-power",
+      "name": "Alimentation par rail",
+      "direction": "in",
+      "signal": "power",
+      "connector": "rail-3c",
+      "format": "Adaptateur de rail 3 allumages Global/Eutrac, 230 V CA"
+    }
+  ],
+  "weightKg": 0.95,
+  "powerW": 25
+}

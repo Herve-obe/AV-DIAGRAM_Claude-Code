@@ -1,0 +1,61 @@
+{
+  "id": "de-sisti-de-lux-4610",
+  "family": "luminaire",
+  "manufacturer": "De Sisti",
+  "model": "De Lux 4610",
+  "pictogram": "light",
+  "status": "verified",
+  "description": "Projecteur fluorescent vidéo De Sisti DE-LUX 4610, 4 lampes biax 55 W (3200 ou 5600 K), 230 V, commande DMX un canal (allumage et gradation) et commande locale.",
+  "sources": [
+    {
+      "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
+      "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.musicworld.bg/en/c_2715/i_13209/DeSisty_DeLux_4.html",
+      "document": "Music World (revendeur), DE-LUX 4610.110 230 V 4 x 55 W : DMX un canal, consommation 220 W",
+      "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.desisti.it/wp-content/uploads/2018/01/ds_De_Lux_4.pdf",
+      "document": "De Sisti (constructeur), fiche technique DE LUX 4 220 W, mod. 4610 / 4660 : 4610.110 = 230 V 4x55 W DMX un canal, 220 W, 8,5 kg (version à main) ; p. 3 : photo « DMX versions » montrant DMX In & Out (XLR 5 broches) et Power feed In & Out (powerCON bleue et blanche)",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX 512, un canal (allumage et gradation) ; XLR 5 broches, lu sur la photo de la face arrière de la version DMX, fiche technique DE LUX 4 (constructeur), p. 3"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Chaînage DMX ; XLR 5 broches, lu sur la photo de la face arrière de la version DMX, fiche technique DE LUX 4 (constructeur), p. 3"
+    },
+    {
+      "id": "acIn",
+      "name": "Secteur (Power feed In)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "230 V / 50 Hz ; embase powerCON bleue, lu sur la photo de la face arrière de la version DMX, fiche technique DE LUX 4 (constructeur), p. 3"
+    },
+    {
+      "id": "acOut",
+      "name": "Recopie secteur (Power feed Out)",
+      "direction": "out",
+      "signal": "power",
+      "connector": "powercon",
+      "format": "Chaînage secteur ; embase powerCON blanche, lu sur la photo de la face arrière de la version DMX, fiche technique DE LUX 4 (constructeur), p. 3"
+    }
+  ],
+  "powerW": 220,
+  "weightKg": 8.5
+}

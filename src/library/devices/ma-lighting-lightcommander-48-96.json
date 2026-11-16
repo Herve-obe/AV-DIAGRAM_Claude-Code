@@ -1,0 +1,98 @@
+{
+  "id": "ma-lighting-lightcommander-48-96",
+  "family": "lightingControl",
+  "domain": "light",
+  "pictogram": "console",
+  "manufacturer": "MA Lighting",
+  "model": "Lightcommander 48/96",
+  "status": "verified",
+  "description": "Lightcommander II48/6, désignation du parc 48/96. Sortie DMX XLR5, 2 sortie(s) Socapex EF337, MIDI In/Out/Thru, audio jack6,35 mm. Secteur90–240 V CA ; 48/6 avec second Socapex pour canaux31–54.",
+  "aliases": [
+    "LIGHTCOMII 48/6",
+    "MA LIGHTING Lightcommander 48/96"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/jeux-d-orgue/48-circuits/lightcommander-48-96/",
+      "document": "Novelty — Lightcommander 48/96",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133958.pdf",
+      "document": "Novelty — Lightcommander 48/96 : Lightcommander",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144442.pdf",
+      "document": "MA Lighting — Lightcommander II24/6 et48/6 User Manual v2.x, pages4–5,42 : variantes et connectique",
+      "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1186144442.pdf",
+      "document": "MA Lighting (constructeur), manuel Lightcommander II 24/6 - 48/6 v2.59, p. 42 : secteur 90-240 V, entrée et interrupteur en face arrière ; sortie DMX sur XLR 5 broches ; Socapex EF337 ; entrée son jack 1/4 pouce ; MIDI In/Out/Thru (câble MIDI 5 broches, p. 40) ; consigne de sécurité 8 : appareil livré avec une fiche de sécurité",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186133998.pdf",
+      "document": "MA Lighting France, catalogue « Consoles pour traditionnels » (copie Novelty) : Lightcommander II 24/6 (24/48 circuits, 16 kg) et II 48/6 (extension 48/96, 24 kg), MIDI IN/OUT/THRU, connecteur XLR pour flexible, alimentation 100-260 V",
+      "accessed": "2026-11-16"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmx",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 (1990) USITT, XLR 5 broches"
+    },
+    {
+      "id": "analog1",
+      "name": "Analog 1",
+      "direction": "out",
+      "signal": "control",
+      "connector": "multipin-37",
+      "format": "Socapex EF337 ;1–30 ; masses36/37"
+    },
+    {
+      "id": "analog2",
+      "name": "Analog 2",
+      "direction": "out",
+      "signal": "control",
+      "connector": "multipin-37",
+      "format": "Socapex EF337 ;31–54 ; masses36/37"
+    },
+    {
+      "id": "midi-in",
+      "name": "MIDI In",
+      "direction": "in",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-out",
+      "name": "MIDI Out",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "midi-thru",
+      "name": "MIDI Thru",
+      "direction": "out",
+      "signal": "control",
+      "connector": "din5"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "90-240 V CA 40-60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "weightKg": 24,
+  "notes": "Non saisies : entrée audio (jack 6,35 mm, TS ou TRS non précisé), lampe de pupitre XLR. Équivalence « 48/96 » = II 48/6 : établie par le catalogue MA France (poids 24 kg)."
+}

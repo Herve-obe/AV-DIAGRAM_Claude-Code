@@ -1,0 +1,107 @@
+{
+  "id": "rve-6x5",
+  "family": "dmxDistribution",
+  "domain": "light",
+  "pictogram": "switch",
+  "manufacturer": "RVE",
+  "model": "6×5",
+  "status": "verified",
+  "description": "Bloc de gradation RVE 6 × 5 kW (gammes LIVE et DimKit 6x5 kW, même connectique de série) : alimentation tri 230/400 V sur câble 1,5 m sans fiche, 6 prises P17 32 A, DMX 512 XLR 5 entrée et recopie.",
+  "aliases": [
+    "6x5",
+    "RVE 6×5"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/LIVE.pdf",
+      "document": "RVE (constructeur, hébergée par Novelty), fiche technique LIVE 6 et 12 x 3 kW, 3 et 6 x 5 kW : câble 1,50 m sans fiche, 3 prises P17 32 A sur les 5 kW (6 sur le 6 x 5 kW), DMX 512 sur XLR 5 (1 In / 1 Out), 18,5 kg pour le 6 x 5 kW",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1186134874.pdf",
+      "document": "RVE (constructeur, hébergée par Novelty), fiche technique DimKit : alimentation 3 phases + neutre + terre 230/400 V sur câble 1,50 m sans fiche, 6 prises P17 32 A sur le 6 x 5 kW, DMX 512 sur XLR 5, USB pour le PALM, 18,5 kg",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/5kw/6x5/",
+      "document": "Novelty, page de location (référence catalogue du parc ; connectique et modifications du loueur non reprises)",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX 512 sur embase XLR 5 mâle, maintien du dernier niveau reçu"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX 512, embase XLR 5 femelle"
+    },
+    {
+      "id": "acIn",
+      "name": "Arrivée triphasée",
+      "direction": "in",
+      "signal": "power",
+      "connector": "bare-wire",
+      "format": "Câble 1,5 m 3P+N+T 230/400 V 50/60 Hz livré sans fiche"
+    },
+    {
+      "id": "out1",
+      "name": "Sortie 1",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Prise P17 32 A, voie de 5 kW"
+    },
+    {
+      "id": "out2",
+      "name": "Sortie 2",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Prise P17 32 A, voie de 5 kW"
+    },
+    {
+      "id": "out3",
+      "name": "Sortie 3",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Prise P17 32 A, voie de 5 kW"
+    },
+    {
+      "id": "out4",
+      "name": "Sortie 4",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Prise P17 32 A, voie de 5 kW"
+    },
+    {
+      "id": "out5",
+      "name": "Sortie 5",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Prise P17 32 A, voie de 5 kW"
+    },
+    {
+      "id": "out6",
+      "name": "Sortie 6",
+      "direction": "out",
+      "signal": "power",
+      "connector": "p17-32-mono",
+      "format": "Prise P17 32 A, voie de 5 kW"
+    }
+  ],
+  "weightKg": 18.5,
+  "notes": "Non saisi : port USB de connexion du PALM, présent sur la gamme DimKit seulement (fiche technique DimKit : « Connexion du PALM : sur prise USB »). Les sorties 4 × P17 16 A tri et l'entrée 0-10 V citées par le loueur ne sont pas la version de série."
+}

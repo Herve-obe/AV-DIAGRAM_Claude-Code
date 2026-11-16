@@ -1,0 +1,55 @@
+{
+  "id": "apg-dx5-w",
+  "family": "speaker",
+  "domain": "sound",
+  "pictogram": "speaker",
+  "manufacturer": "APG",
+  "model": "DX5 W",
+  "status": "verified",
+  "description": "DX5 passive 16 Ω ; T50 optionnel non présumé installé. Une enceinte.",
+  "aliases": [
+    "DX5W",
+    "APG DX5 W"
+  ],
+  "sources": [
+    {
+      "url": "https://www.novelty.fr/produits/sonorisation/diffusion-sonorisation/enceinte-non-amplifiee/dx5-w/",
+      "document": "Novelty — DX5 W",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/apg_dx5w_ft.pdf",
+      "document": "Novelty — DX5 W : DX5",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/apg_dx5w_ft.pdf",
+      "document": "APG DX5 fiche pp.1–2",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "ports": [
+    {
+      "id": "in",
+      "name": "IN",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "DX5 passive 16 Ω ; T50 optionnel non présumé installé"
+    },
+    {
+      "id": "link",
+      "name": "LINK",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "speakon-nl4",
+      "level": "speaker",
+      "channels": 1,
+      "format": "Reprise parallèle ; DX5 passive 16 Ω ; T50 optionnel non présumé installé"
+    }
+  ],
+  "weightKg": 4,
+  "depthMm": 180
+}
