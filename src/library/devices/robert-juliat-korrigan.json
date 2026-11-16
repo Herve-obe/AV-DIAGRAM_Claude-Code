@@ -5,8 +5,8 @@
   "pictogram": "light",
   "manufacturer": "Robert Juliat",
   "model": "Korrigan",
-  "status": "community",
-  "description": "Poursuite Korrigan conservée séparément de Super Korrigan 1149. Caractéristiques propres au Korrigan et connectique à compléter ; aucune transposition des dossiers Super Korrigan.",
+  "status": "verified",
+  "description": "Poursuite Korrigan 1011+, lampe HMI 1 200 W, zoom 5–9°, ballast magnétique séparé relié par cordon Harting 16 × 16 A. Distincte du Super Korrigan 1149 (zoom 7–14,5°). Version 1011+B : variateur motorisé DMX, option non saisie.",
   "sources": [
     {
       "document": "Réponses utilisateur du 4 novembre 2026, lot lumière 02 : identité des variantes uniquement",
@@ -16,9 +16,23 @@
       "url": "https://www.novelty.fr/produits/eclairage/projecteurs-traditionnels/poursuite/korrigan/",
       "document": "Novelty — Korrigan, référence déjà présente au catalogue ; identité seulement",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.la-bs.com/Objets/KORRIGAN-B_dt.pdf",
+      "document": "Robert Juliat (constructeur), notice « KORRIGAN » 1011+ (zoom 5°/9°, HMI 1200 W), page Alimentation : ballast selfique, « Cordon montée de lampe 3 m standard Harting 16x16A + T », « Cordon secteur 2,5 m avec fiche 10/16A + T NF/SCHUKO » ; 29 kg à l'unité ; identité du modèle confirmée (5° à 9° comme la page Novelty)",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 1200
+  "ports": [
+    {
+      "id": "ac",
+      "name": "Alimentation depuis ballast",
+      "direction": "in",
+      "signal": "power",
+      "connector": "multipin",
+      "format": "Cordon de montée de lampe 3 m, Harting 16 × 16 A + T, depuis le ballast magnétique (cordon secteur 2,5 m avec fiche 10/16 A + T NF/Schuko sur le ballast)"
+    }
+  ],
+  "powerW": 1200,
+  "notes": "Non saisie : commande DMX512 / 0-10 V du variateur de la version 1011+B (suffixe du parc non connu)."
 }

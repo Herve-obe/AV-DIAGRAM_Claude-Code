@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "Smart Videohub CleanSwitch 12x12",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -16,6 +16,11 @@
       "url": "https://documents.blackmagicdesign.com/UserManuals/Videohub12GInstallation.pdf",
       "document": "Blackmagic Videohub 12G Installation and Operation Manual",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://documents.blackmagicdesign.com/UserManuals/Videohub12GInstallation.pdf",
+      "document": "Blackmagic Design (constructeur), Videohub 12G Installation and Operation Manual, p. 18 : section CleanSwitch 12x12 (resynchronisation des entrées, USB pour la configuration réseau via Videohub Setup, connecteur non nommé) ; le dessin de la face arrière CleanSwitch n'est pas affiché dans le PDF",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -236,13 +241,6 @@
       "format": "RS-422, prise « RJ-6 » selon Blackmagic (6 contacts), commande des points de croisement"
     },
     {
-      "id": "usb",
-      "name": "USB",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -250,5 +248,6 @@
       "connector": "iec-c13",
       "format": "100-240 V CA, embase IEC (cordon IEC requis)"
     }
-  ]
+  ],
+  "notes": "Non saisi : port USB de configuration (type de connecteur non publié pour ce modèle ; le manuel ne cite USB-C que pour d'autres modèles)."
 }

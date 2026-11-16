@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Barco",
   "model": "UDM-4K30",
-  "status": "community",
+  "status": "verified",
   "description": "Video projecteur 4k 27000 lumens avec berceau motorisé",
   "aliases": [
     "BARCO UDM-4K30"
@@ -20,6 +20,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1191-4756-barco-udm-4k30-ft-fr.pdf",
       "document": "Novelty — UDM-4K30 : barco_udm-4k30_ft-fr",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://assets.barco.com/m/417764b3f36c296b/original/UDM-4K30-fr-Spec-sheet.pdf",
+      "document": "Barco, UDM-4K30 fiche technique (FR) : entrées HDBaseT simple, HDMI 2.0, DP 1.2, Quad 3G/12G SDI ; réseau 10/100 base-T RJ-45 (fiche EN) ; alimentation 120-160 V / 200-240 V 50-60 Hz ; consommation 1 900 W nom. / 2 300 W max. à 230 V ; accessoire standard « cordon d'alimentation »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2025/07/UDM-4K30_en_1752648582.3827903.pdf",
+      "document": "Barco, UDM-4K30 spec sheet (EN) hébergée par Rentex (loueur) : network connection 10/100 base-T RJ-45, standard accessories « Power cord »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -44,7 +54,8 @@
       "name": "HDBaseT",
       "direction": "in",
       "signal": "video",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "HDBaseT, entrée simple"
     },
     {
       "id": "sdi1",
@@ -84,40 +95,19 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "100BASE-T"
-    },
-    {
-      "id": "serial",
-      "name": "RS-232",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
-      "id": "remote",
-      "name": "Wired Remote",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "XLR"
-    },
-    {
-      "id": "dmx",
-      "name": "DMX 512",
-      "direction": "bidir",
-      "signal": "dmx",
-      "connector": "unspecified"
+      "format": "10/100BASE-T, RJ-45"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "120-160 V (70 % de luminosité) / 200-240 V, 50-60 Hz ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "120-160 V (luminosité max. 70 %, 18,5 A) / 200-240 V (+/- 10 %, 13,5 A), 50-60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "weightKg": 48,
-  "powerW": 2200,
-  "depthMm": 540
+  "powerW": 2300,
+  "depthMm": 540,
+  "notes": "Non saisie : RS-232 (connecteur non publié par le constructeur), entrée de télécommande filaire XLR (connecteur non publié par le constructeur), DMX 512 entrée/sortie (connecteur non publié par le constructeur). Consommation : 1 900 W nominal, 2 300 W maximum à 230 V (valeur retenue : maximum)."
 }

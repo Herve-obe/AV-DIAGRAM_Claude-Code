@@ -5,10 +5,11 @@
   "pictogram": "camera",
   "manufacturer": "Sony",
   "model": "PMW-350k",
-  "status": "community",
+  "status": "verified",
   "description": "Caméscope épaule tri CMOS 2/3'', XDCAM, SXS Pro, 1080i",
   "aliases": [
-    "SONY PMW-350k"
+    "SONY PMW-350k",
+    "PMW-350"
   ],
   "sources": [
     {
@@ -18,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/3402-4621-pmw-350k.pdf",
-      "document": "Novelty — PMW-350k : PMW-350K",
-      "accessed": "2026-10-19"
+      "document": "Sony (copie hébergée par Novelty), documentation PMW-350K en français, pp. 26-28 : entrées/sorties (BNC genlock, timecode in/out, SDI, composite ; XLR 3 broches femelle x2 ; XLR 5 broches micro et sortie audio ; casque mini-jack ; entrée DC XLR 4 broches ; télécommande 8 broches ; i.LINK ; USB Mini-B ; HDMI type A), poids 3,2 kg sans objectif, 12 V CC, env. 18 W, profondeur 332 mm",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://pro.sony/support/res/manuals/4164/cdf0f1d1909933443fd6de8196a2c41a/41644652M.pdf",
@@ -147,7 +148,7 @@
       "direction": "bidir",
       "signal": "video",
       "connector": "ieee1394",
-      "format": "IEEE 1394 6 broches, HDV / DVCAM"
+      "format": "IEEE 1394 (i.LINK) S400, HDV / DVCAM"
     },
     {
       "id": "usb",
@@ -162,25 +163,10 @@
       "direction": "in",
       "signal": "power",
       "connector": "xlr4"
-    },
-    {
-      "id": "dcOut",
-      "name": "DC Out",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Sortie CC 4 broches ; famille mécanique non précisée par la fiche Sony"
-    },
-    {
-      "id": "lens",
-      "name": "Objectif",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "8 broches ; famille mécanique non précisée"
     }
   ],
   "weightKg": 3.2,
   "powerW": 18,
-  "depthMm": 332
+  "depthMm": 332,
+  "notes": "Non saisies : sortie DC 4 broches et connecteur d'objectif 8 broches (connecteurs non publiés par le constructeur). Le poids de 3,2 kg est celui du boîtier sans objectif. Sony décrit i.LINK en 4 broches dans sa fiche technique ; une copie ManualsLib du mode d'emploi parle de 6 broches : le nombre de broches n'est pas retenu dans la fiche. Les références Sony sont PMW-350K (avec objectif) et PMW-350L (sans objectif)."
 }

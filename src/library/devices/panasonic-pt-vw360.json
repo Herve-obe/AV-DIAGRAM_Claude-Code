@@ -9,8 +9,13 @@
   "sources": [
     {
       "url": "https://na.panasonic.com/ns/300841_PT_VW360_S_4P_ctlg_PC.pdf",
-      "document": "Panasonic, catalogue PT-VW360",
-      "accessed": "2026-10-08"
+      "document": "Panasonic, catalogue PT-VW360 : Power supply AC 100-240 V, 50/60 Hz",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://na.panasonic.com/ns/271102_vw360_manual_en.pdf",
+      "document": "Panasonic, mode d'emploi PT-VW360 (constructeur), « Connecting the power cord » : « supplied power cord » fixé à la borne <AC IN> (forme non nommée)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -88,8 +93,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "audio2",

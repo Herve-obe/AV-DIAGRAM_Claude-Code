@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "NEC",
   "model": "LCD4020",
-  "status": "community",
+  "status": "verified",
   "description": "Écran LCD 40 pouces 1366 x 768 pour affichage public",
   "aliases": [
     "NEC LCD4020"
@@ -23,13 +23,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nec_LCD4020_spec_sheet.pdf",
-      "document": "Novelty : LCD4020 : LCD4020",
-      "accessed": "2026-10-19"
+      "document": "NEC (constructeur, hébergé par Novelty), fiche technique LCD4020 : entrées/sorties, alimentation interne 100-120/220-240 V, 200 W max, cordon fourni",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://archive.org/download/manualsonline-id-bb62120c-61e1-414a-84b9-f8c424da33bd/bb62120c-61e1-414a-84b9-f8c424da33bd.pdf",
-      "document": "NEC, User's Manual LCD4020/LCD4620 (copie archive.org) : Terminal Panel, Specifications LCD4020",
-      "accessed": "2026-11-08"
+      "document": "NEC (constructeur), manuel utilisateur LCD4020/LCD4620, copie archive.org, pages 6 et 38 : panneau de connexion (AC IN « avec le cordon fourni », DVI-D, VGA, RGB/HV BNC entrée et sortie, HDMI, DVD/HD RCA, vidéo BNC/RCA, S-Vidéo, audio, RS-232C 9 broches) et spécifications LCD4020",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -51,19 +51,19 @@
     },
     {
       "id": "rgb3",
-      "name": "RGB 3 / DVD-HD In",
+      "name": "RGB/HV In",
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "5 BNC (R, G, B, H, V) ou composante"
+      "format": "5 BNC (R, G, B, H, V), sync sur le vert possible"
     },
     {
       "id": "vgaOut",
-      "name": "RGB Out",
+      "name": "RGB/HV Out",
       "direction": "out",
       "signal": "video",
-      "connector": "vga",
-      "format": "Mini D-Sub 15, recopie RGB 2 ou 3"
+      "connector": "bnc",
+      "format": "5 BNC (R, G, B, H, V), recopie de RGB/HV In"
     },
     {
       "id": "hdmi",
@@ -71,6 +71,14 @@
       "direction": "in",
       "signal": "video",
       "connector": "hdmi"
+    },
+    {
+      "id": "dvdhd",
+      "name": "DVD/HD In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "rca",
+      "format": "Composante Y, Cb/Pb, Cr/Pr (3 RCA)"
     },
     {
       "id": "videoBnc",
@@ -160,21 +168,12 @@
       "format": "RS-232C, chaînage"
     },
     {
-      "id": "spk",
-      "name": "External Speaker Terminal",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Pour haut-parleurs optionnels 15 W + 15 W ; type de bornier non nommé",
-      "level": "speaker"
-    },
-    {
       "id": "ac",
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation interne ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "Alimentation interne 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 200,
@@ -184,5 +183,6 @@
       "name": "Option slot",
       "type": "nec-option-slot"
     }
-  ]
+  ],
+  "notes": "Non saisies : sortie haut-parleurs externes 15 W + 15 W, 4 bornes à ressort (type de bornier non publié par le constructeur) ; entrée antenne TV, connecteur F (le manuel précise que le produit acheté peut ne pas en disposer) ; emplacement carte option modélisé par le slot."
 }

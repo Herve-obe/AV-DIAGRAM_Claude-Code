@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Analog Way",
   "model": "VIO 4K",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseurs vidéo multi-formats",
   "aliases": [
     "VIO4K",
@@ -56,6 +56,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_application-note.pdf",
       "document": "Novelty — VIO 4K : Optimizing Latency",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_vio-4k_manuel.pdf",
+      "document": "Analog Way (constructeur), VIO 4K User Manual (copie Novelty), p. 9-10 : photos annotées des faces avant et arrière (USB host/device, HDMI, DP, SFP, BNC, DVI, HD15, GPO, Ethernet et Device sync à embases etherCON, RS232 DB9, secteur IEC avec fusible) ; la prise « 3D SYNC IN/OUT » n'est pas nommée (photo trop floue pour compter les broches)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -217,14 +222,6 @@
       "connector": "dsub9"
     },
     {
-      "id": "sync3d",
-      "name": "3D Sync In/Out",
-      "direction": "bidir",
-      "signal": "sync",
-      "connector": "unspecified",
-      "format": "Mini-DIN (nombre de broches non précisé), synchro 3D"
-    },
-    {
       "id": "tally",
       "name": "Tally / GPO",
       "direction": "bidir",
@@ -277,5 +274,6 @@
       "name": "Option audio",
       "type": "vio4k-audio"
     }
-  ]
+  ],
+  "notes": "Non saisi : prise « 3D SYNC IN/OUT » (connecteur non publié par le constructeur)."
 }

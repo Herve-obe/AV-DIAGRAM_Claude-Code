@@ -5,7 +5,7 @@
   "pictogram": "speaker",
   "manufacturer": "GENELEC",
   "model": "8020 CPM",
-  "status": "community",
+  "status": "verified",
   "description": "Enceinte de monitoring active 4\" + 3/4\", 40W RMS, bi-amplifié, noire",
   "aliases": [
     "8020CPM",
@@ -36,6 +36,16 @@
       "url": "https://www.fullcompass.com/common/files/18480-8020COperatingManual.pdf",
       "document": "Genelec 8020C Operating Manual (copie Full Compass)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/18480-8020COperatingManual.pdf",
+      "document": "Relecture : Genelec, manuel 8020C : « supplied with an integrated amplifier unit, mains cable and an operating manual » ; entrée XLR femelle symétrique 10 kOhm ; tension 100-230 V selon région ; étiquette MAINS INPUT 50/60 Hz 50 W",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://8thstreet.com/Product/Get/67728/genelec-8020cpm-pair-producer-black-two-active-bi-amplified-475-inch-hf-powered-monitors",
+      "document": "8th Street Music (revendeur) : 8020CPM = 8020C Producer Black, bi-amplifiée",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -53,11 +63,11 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100/120/220/230 V selon région ; cordon secteur avec terre fourni"
+      "connector": "mains-cord",
+      "format": "100, 120, 220 ou 230 V selon la région, 50/60 Hz, 50 W (étiquette de l embase « MAINS INPUT ») ; cordon secteur avec terre fourni, forme de l embase non publiée par le constructeur"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 3.7,
-  "powerW": 50
+  "powerW": 50,
+  "notes": "8020 CPM : référence commerciale de l enceinte 8020C finition Producer Black ; caractéristiques de la 8020C."
 }

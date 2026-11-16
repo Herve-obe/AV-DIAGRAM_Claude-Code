@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "NEOVO",
   "model": "X-20",
-  "status": "community",
+  "status": "verified",
   "description": "\"Ecran LCD 20\"\" (vidéo 60Hz - 1600 x 1200 -4/3)\"",
   "aliases": [
     "X2050HZ",
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/1601.pdf",
-      "document": "Novelty — X-20 : Document",
-      "accessed": "2026-10-19"
+      "document": "NEOVO (constructeur, hébergé par Novelty), manuel utilisateur X-20/X-19/X-17/X-15, pages 5, 6 et 24 : cordon d'alimentation fourni, prise d'entrée AC, entrée VGA D-sub 15, < 60 W, 8,2 kg",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -36,10 +36,11 @@
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Prise d'entrée d'alimentation AC (le « 3-pin AC » de l'ancienne fiche n'est pas écrit dans le manuel)"
+      "connector": "mains-cord",
+      "format": "Prise d'entrée d'alimentation CA 3 broches ; cordon d'alimentation fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 60,
-  "weightKg": 8.2
+  "weightKg": 8.2,
+  "notes": "Non saisies : entrée numérique DVI-D, entrée S-Vidéo et entrée CVBS, décrites « optionnelles » par le manuel de la gamme X-20/X-19/X-17/X-15 et dont la présence sur ce modèle n'est pas établie."
 }

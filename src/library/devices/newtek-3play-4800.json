@@ -4,13 +4,23 @@
   "manufacturer": "NewTek",
   "model": "3Play 4800",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "rackU": 4,
   "sources": [
     {
       "url": "https://expandore.com/Newtek/3Play-4800.htm",
       "document": "Expandore, fiche 3Play 4800",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/782224/newtek-3play-4800.html?page=37",
+      "document": "NewTek, manuel 3Play 4800 (copie ManualsDir) p. 37 : « Connect the A/C power cord(s) from the three-prong connection(s) on 3Play s backplate » ; câbles secteur dans le contenu de la boîte",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/782224/newtek-3play-4800.html?page=27",
+      "document": "NewTek, manuel 3Play 4800 p. 27 : « 3Play 4800 (only) also provides redundant power supplies »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -121,8 +131,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Cordon(s) secteur fourni(s) ; type d'embase non précisé"
+      "connector": "mains-cord",
+      "format": "Alimentation secteur (A/C) ; cordon(s) secteur fourni(s) (le manuel parle de « three-prong connection(s) on 3Play s backplate »), alimentations redondantes sur le 4800 ; cordon secteur fourni, forme de l embase non publiée par le constructeur"
     }
   ],
   "domain": "image"

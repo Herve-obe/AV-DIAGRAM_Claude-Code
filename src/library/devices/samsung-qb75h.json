@@ -4,7 +4,7 @@
   "manufacturer": "Samsung",
   "model": "QB75H (75\")",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "powerW": 407,
   "sources": [
     {
@@ -14,8 +14,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_qb75h_ft.pdf",
-      "document": "Samsung QBH series manufacturer datasheet p.1; QB75H quick guide",
-      "accessed": "2026-10-27"
+      "document": "Samsung, fiche QBH series (QB65H / QB75H, copie Novelty) : Power Supply AC 100-240 V~ 50/60 Hz ; Accessories Included : Power Cord ; connectique",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_qb75h_quick-guide.pdf",
+      "document": "Samsung, Quick Setup Guide QB75H (copie Novelty) : liste des composants, (4) Power cord",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -102,22 +107,19 @@
       "connector": "rj45"
     },
     {
-      "id": "ir",
-      "name": "IR In",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Capteur IR externe (External sensor : IR) ; connecteur non nommé dans la fiche et le guide rapide"
-    },
-    {
       "id": "ac",
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "weightKg": 34.8,
-  "depthMm": 66
+  "depthMm": 66,
+  "notes": "Non saisie : IR IN, entrée du capteur externe (connecteur non publié par le constructeur).",
+  "aliases": [
+    "QB75H",
+    "SAMSUNG QB75H"
+  ]
 }

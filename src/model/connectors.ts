@@ -69,6 +69,11 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'iec-c13', label: 'IEC C13/C14', mate: 'iec-c13' },
   { id: 'iec-c7', label: 'IEC C7/C8', mate: 'iec-c7' },
   { id: 'mains-captive', label: 'Cordon secteur captif (fiche du pays)', mate: 'mains-captive', alsoMates: ['schuko', 'cee7-e'] },
+  // Entrée secteur documentée (cordon fourni ou embase « AC IN ») dont le constructeur ne publie pas la forme :
+  // la fiche dit ce qui est documenté (un cordon vers la prise murale) sans inventer une embase.
+  { id: 'mains-cord', label: "Cordon secteur détachable (embase de l'appareil non publiée)", mate: 'mains-captive', alsoMates: ['schuko', 'cee7-e'] },
+  // Même principe en triphasé : cordon détachable documenté, forme de l'embase non publiée, aucun accouplement supposé.
+  { id: 'mains-cord-3ph', label: "Cordon secteur triphasé détachable (embase de l'appareil non publiée)", mate: 'mains-cord-3ph' },
   { id: 'iec-c19', label: 'IEC C19/C20', mate: 'iec-c19' },
   { id: 'schuko', label: 'Schuko CEE 7/4', mate: 'schuko' },
   { id: 'cee7-e', label: 'Prise française CEE 7/5 (type E)', mate: 'cee7-e' },
@@ -91,6 +96,15 @@ export const CONNECTORS: ConnectorDef[] = [
   { id: 'ta5', label: 'Mini XLR 5 (TA5)', mate: 'ta5' },
   { id: 'smc9', label: 'SMC9 (Sony, émetteurs DWT)', mate: 'smc9' },
   { id: 'bare-wire', label: 'Fils nus (sans connecteur, à câbler)', mate: 'bare-wire' },
+  { id: 'lemo2', label: 'LEMO 2 broches (alimentation)', mate: 'lemo2' },
+  { id: 'veam', label: 'VEAM (liaison tête / ballast HMI)', mate: 'veam' },
+  { id: 'kino-4bank', label: 'Connecteur circulaire Kino Flo 4Bank (tête / ballast)', mate: 'kino-4bank' },
+  { id: 'power-molex', label: "Embase d'alimentation Molex à verrouillage", mate: 'power-molex' },
+  { id: 'power-din4', label: "DIN 4 broches d'alimentation", mate: 'power-din4' },
+  { id: 'dc-locking', label: "Connecteur d'alimentation à verrouillage quart de tour (twist lock)", mate: 'dc-locking' },
+  { id: 'ross-power6', label: "Embase d'alimentation Ross 6 broches", mate: 'ross-power6' },
+  { id: 'minidin6', label: 'Mini-DIN 6', mate: 'minidin6' },
+  { id: 'f-connector', label: 'Connecteur F (antenne)', mate: 'f-connector' },
   { id: 'lemo3', label: 'LEMO 3 points', mate: 'lemo3' },
   { id: 'sma', label: 'SMA', mate: 'sma' },
   { id: 'microdot', label: 'MicroDot (DPA)', mate: 'microdot' },

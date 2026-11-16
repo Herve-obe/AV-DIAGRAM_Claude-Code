@@ -4,7 +4,7 @@
   "manufacturer": "Behringer",
   "model": "MS16",
   "pictogram": "speaker",
-  "status": "community",
+  "status": "verified",
   "weightKg": 3.5,
   "sources": [
     {
@@ -31,6 +31,11 @@
       "url": "https://r2.gear4music.com/media/21/219922/download_219922.pdf",
       "document": "Behringer MS16 User Manual, § 2 Control Elements and Connections (copie revendeur Gear4music)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://r2.gear4music.com/media/21/219922/download_219922.pdf",
+      "document": "Relecture : Behringer MS16, manuel utilisateur (copie Gear4music) § 1.2 : alimentation par le câble attaché à l appareil ; (11)-(13) prises ; spécifications : Mic 1/4 TRS, entrées 1/8 TRS et RCA, tensions secteur",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -86,18 +91,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "« AC POWER input » (n° 13) : le dessin du manuel montre un passage rond sans embase identifiable (cordon probablement captif, non écrit) ; 0,14 A / 230 V"
-    },
-    {
-      "id": "spkOut",
-      "name": "Speaker to Left",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "level": "speaker",
-      "format": "Prise SPEAKER TO LEFT vers l'enceinte passive gauche, câble fourni ; type de prise non nommé"
+      "connector": "mains-captive",
+      "format": "Cordon secteur fixe (manuel § 1.2 : « Power is delivered via the cable attached to the unit »), 120 V 60 Hz / 230 V 50 Hz / 100 V selon version, 0,14 A sous 230 V ; sur la face arrière l entrée repérée « AC POWER » (13) est le passage du cordon"
     }
   ],
-  "powerW": 32
+  "powerW": 32,
+  "notes": "Non saisie : prise SPEAKER TO LEFT vers l enceinte gauche passive (câble fourni, type de prise non nommé par le constructeur). Une ancienne révision de la fiche technique donne un bloc secteur externe 9 V~ ; la fiche suit le manuel utilisateur (cordon fixe)."
 }

@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Barco",
   "model": "ImagePRO-II",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur de résolution, convertisseur de balayage et commutateur 1U : entrées DVI-I, analogique, HDMI, DisplayPort, SDI ; sorties SDI, composite, DVI-D, analogique, HDMI, DisplayPort.",
   "aliases": [
     "IMAGEPROII",
@@ -39,8 +39,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_manuel-uk.pdf",
-      "document": "Novelty — ImagePRO-II : ImagePRO-II (UK)",
-      "accessed": "2026-10-19"
+      "document": "Barco, manuel ImagePRO-II hébergé par Novelty (loueur), chap. 2 « Hardware Orientation » : connecteur secteur 100-240 VAC 47-63 Hz relié « through the supplied power cord » ; l'emballage contient un cordon d'alimentation ; Ethernet RJ-45 / EtherCon ; liste des connecteurs de la face arrière",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_image-pro-ii_quick-start.pdf",
@@ -59,8 +59,8 @@
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V CA, 47-63 Hz, embase avec interrupteur, cordon fourni ; type non écrit"
+      "connector": "mains-cord",
+      "format": "100-240 V CA, 47-63 Hz, embase avec interrupteur ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "eth",
@@ -115,7 +115,8 @@
       "name": "Input 4 DisplayPort In",
       "direction": "in",
       "signal": "video",
-      "connector": "displayport"
+      "connector": "displayport",
+      "format": "DisplayPort, HDCP"
     },
     {
       "id": "sdiIn",
@@ -178,7 +179,8 @@
       "name": "DisplayPort Out",
       "direction": "out",
       "signal": "video",
-      "connector": "displayport"
+      "connector": "displayport",
+      "format": "DisplayPort, HDCP"
     },
     {
       "id": "genlock",
@@ -223,5 +225,6 @@
         "barco-imagepro-ii-audio-mezzanine"
       ]
     }
-  ]
+  ],
+  "notes": "Non saisies : deuxième entrée SDI (SDI-2 avec bouclage) et deuxième sortie SDI (SDI-2), 3D Sync In/Out (BNC), mezzanine audio."
 }

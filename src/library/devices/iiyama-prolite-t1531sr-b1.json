@@ -4,14 +4,46 @@
   "manufacturer": "iiyama",
   "model": "ProLite T1531SR-B1",
   "pictogram": "display",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Moniteur tactile résistif 15 pouces 4:3 (1024 x 768), entrées VGA et DVI-D",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.tpvchollo.com/imagenes/adjuntos/monitor-tactil-iiyama-prolite-t1531sr.pdf",
+      "document": "Revendeur (tpvchollo), copie de la fiche technique iiyama « PROLITE T1531SR-B1 » : entrée analogique VGA, entrée numérique DVI-D, entrées USB et RS-232C, alimentation AC 100-240 V interne, 20 W, 4,8 kg, accessoires « power cable, VGA signal cable, DVI-D signal cable, RS-232C signal cable, audio cable, USB cable »",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "vga",
+      "name": "VGA In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "vga",
+      "format": "Entrée analogique VGA"
+    },
+    {
+      "id": "dvi",
+      "name": "DVI-D In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "dvi",
+      "format": "Entrée numérique DVI-D"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz, alimentation interne ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "powerW": 20,
+  "weightKg": 4.8,
+  "notes": "Non saisies : liaison tactile USB, RS-232C et entrée audio (connecteurs non nommés par le constructeur)."
 }

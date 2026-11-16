@@ -4,7 +4,7 @@
   "manufacturer": "Kiloview",
   "model": "E3",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.kiloview.com/en/kiloview-e3",
@@ -15,6 +15,11 @@
       "url": "https://www.kiloview.com/en/wp-content/uploads/2025/01/E3_Datesheet_En_LG.pdf",
       "document": "Kiloview, fiche E3",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://enstatic.kiloview.com/wp-content/uploads/2025/08/User-Manual_E3.pdf",
+      "document": "Kiloview (constructeur), manuel utilisateur E3, p. 5 : face arrière (alimentation, entrée ligne 3,5 mm, USB-A, boucle et entrée SDI en BNC, boucle et entrée HDMI, Ethernet 1000M PoE) et 2 USB-C en face avant ; p. 7 : schéma de branchement d'une fiche DC cylindrique ; alimentation DC 12 V 1 A, bloc fourni",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -93,8 +98,8 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 V CC, 1 A ou PoE"
+      "connector": "dc-barrel",
+      "format": "12 V CC, 1 A (bloc fourni) ou PoE ; embase ronde pour fiche DC cylindrique, lue sur le schéma du manuel (p. 5 et 7)"
     }
   ],
   "powerW": 9

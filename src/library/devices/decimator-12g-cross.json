@@ -4,7 +4,7 @@
   "manufacturer": "Decimator Design",
   "model": "12G-CROSS (DD-12G-CROSS)",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.bhphotovideo.com/c/product/1474644-REG/decimator_12g_cross_4k_hdmi_sdi_cross_converter.html",
@@ -24,6 +24,16 @@
     {
       "url": "https://www.novelty.fr/produits/video/peripherique/convertisseur/12g-cross/",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://decimator.com/specs/12G-CROSS_HARDWARE_MANUAL_FV1.4.pdf",
+      "document": "Decimator Design (constructeur), manuel 12G-CROSS V1.4, pp. 2-3 : 1 entrée SDI, entrée et sortie HDMI, entrée Genlock, 2 x 2 sorties SDI (schéma BNC et HDMI type A), prise d'alimentation DC à verrouillage fileté métallique, port USB de contrôle et de mise à jour sans type précisé",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/6379-4627-12g-cross-brochure.pdf",
+      "document": "Decimator Design (constructeur), brochure 12G-CROSS (copie Novelty) : 1 HDMI type A en entrée et en sortie, 1 Genlock, 4 sorties SDI, alimentation +5 à +32 V CC centre positif, dimensions 106 x 130 x 31 mm",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -88,14 +98,6 @@
       "connector": "hdmi"
     },
     {
-      "id": "usb",
-      "name": "USB",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Contrôle et mise à jour"
-    },
-    {
       "id": "dc",
       "name": "DC In",
       "direction": "in",
@@ -104,5 +106,6 @@
       "format": "+5 à +32 V CC, centre positif, prise DC à verrouillage fileté métallique"
     }
   ],
-  "depthMm": 130
+  "depthMm": 130,
+  "notes": "Non saisie : USB (connecteur non publié par le constructeur ; « USB port for control and firmware updates »)."
 }

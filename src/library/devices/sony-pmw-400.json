@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "PMW-400",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 3.4,
   "sources": [
     {
@@ -16,6 +16,11 @@
       "url": "https://www.expandore.com/product/sony/Proav/model/XDCAM_HD/PMW-400L.htm",
       "document": "Expandore, fiche PMW-400L",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://refurbished.sonypencoed.com/app/uploads/2018/09/PMW-400-op.pdf",
+      "document": "Sony, PMW-400 Operating Instructions 4-477-605-13 (1) (copie hébergée par Sony UK, refurbished.sonypencoed.com), pp. 10-20 et spécifications : DC IN XLR 4 broches mâle, MIC IN XLR 5 broches femelle +48 V, AUDIO OUT XLR 5 broches mâle, AUDIO IN CH-1/CH-2 XLR 3 broches femelles, SDI OUT BNC, TC IN/OUT BNC, GENLOCK IN BNC, REMOTE 8 broches, i.LINK 6 broches S400, poids 3,4 kg (boîtier seul)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -120,27 +125,12 @@
       "format": "Télécommande Sony 8 broches"
     },
     {
-      "id": "lens",
-      "name": "Objectif",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "hirose12",
-      "format": "Objectif broadcast 12 points (Hirose 12 points)"
-    },
-    {
       "id": "ilink",
       "name": "i.LINK",
       "direction": "bidir",
       "signal": "video",
-      "connector": "ieee1394"
-    },
-    {
-      "id": "cbk",
-      "name": "Interface 50 points",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Adaptateur CBK-CE01 (triax / fibre, intercom, tally)"
+      "connector": "ieee1394",
+      "format": "IEEE 1394 (i.LINK) S400, HDV / DV"
     },
     {
       "id": "dc",
@@ -149,5 +139,6 @@
       "signal": "power",
       "connector": "xlr4"
     }
-  ]
+  ],
+  "notes": "Non saisies : connecteur d'adaptateur 50 broches (CBK-CE01 pour CA-FB70 / CA-TX70) et connecteur d'objectif 12 broches (famille mécanique non nommée par le manuel Sony) ; connecteurs non publiés par le constructeur. Autres prises non saisies : LIGHT (2 broches), DC OUT 12 V (4 broches), VIDEO OUT (BNC)."
 }

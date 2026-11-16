@@ -4,7 +4,7 @@
   "manufacturer": "Lexicon",
   "model": "PCM91",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -16,6 +16,11 @@
       "url": "https://www.pssl.com/products/lexicon-pcm91-digital-reverb-processor",
       "document": "PSSL, fiche PCM91 (revendeur)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.soundpure.com/p/lexicon-pcm91-reverb-processor-used/40459",
+      "document": "Sound Pure (revendeur), fiche PCM91, relue : entrées et sorties XLR et jack 6,35 symétriques, AES/EBU XLR, S/PDIF RCA coaxial, MIDI In/Thru/Out DIN 5 broches, footswitch jack TRS pour deux interrupteurs, 100–240 V 50–60 Hz 35 W « 3-pin IEC connector »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -121,7 +126,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "100–240 V, 50–60 Hz, commutation automatique, 35 W ; « 3-pin IEC connector »"
     }
-  ]
+  ],
+  "powerW": 35,
+  "notes": "Non saisies : fente mémoire PCMCIA type I (68 broches) et entrée d'alimentation distante 2,5 mm 9 V AC, non fournie (connecteurs secondaires)."
 }

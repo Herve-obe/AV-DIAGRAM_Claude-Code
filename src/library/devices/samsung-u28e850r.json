@@ -4,7 +4,7 @@
   "manufacturer": "Samsung",
   "model": "U28E850R",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "weightKg": 4.94,
   "sources": [
     {
@@ -14,8 +14,8 @@
     },
     {
       "url": "https://www.officestationery.co.uk/documents/40859-EXR8SALU28E85KRS.pdf",
-      "document": "Samsung, manuel utilisateur U24E850R/U28E850R/U32E850R (copie hébergée par le revendeur officestationery.co.uk), pages 23-24 (U28E850R, panneau arrière) : entrée [POWER IN] dessinée à trois broches en trapèze, HDMI IN 1 (3840 x 2160 à 30 Hz) et HDMI IN 2 (3840 x 2160 à 60 Hz), DP IN, MINI DP IN, 4 USB, USB (PC IN), prise casque",
-      "accessed": "2026-11-15"
+      "document": "Samsung, manuel utilisateur U24E850R/U28E850R/U32E850R (copie hébergée par le revendeur officestationery.co.uk), pages 23-24 (U28E850R, panneau arrière) : entrée [POWER IN] dessinée à trois broches en trapèze, HDMI IN 1 (3840 x 2160 à 30 Hz) et HDMI IN 2 (3840 x 2160 à 60 Hz), DP IN, MINI DP IN, 4 USB, USB (PC IN), prise casque ; p. 92 : réglage DisplayPort Ver.",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -41,7 +41,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "displayport",
-      "format": "DP 1.2"
+      "format": "DisplayPort ; version 1.1 ou 1.2 au choix dans le menu (DisplayPort Ver., 1.2 par défaut), manuel p. 92"
     },
     {
       "id": "minidp",
@@ -98,15 +98,8 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Hub USB 3.0, port aval, charge rapide"
-    },
-    {
-      "id": "phones",
-      "name": "Casque",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "minijack",
-      "format": "Sortie casque"
     }
   ],
-  "powerW": 45
+  "powerW": 45,
+  "notes": "Non saisie : sortie casque (connecteur non publié par le constructeur)."
 }

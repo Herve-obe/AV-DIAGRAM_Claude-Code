@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Panasonic",
   "model": "PT-RZ670BE",
-  "status": "community",
+  "status": "verified",
   "description": "Vidéoprojecteur Full HD (6500 lumens - 1920 x 1200), 3G-SDI, HD-SDI",
   "aliases": [
     "PANASONIC PT-RZ670BE"
@@ -45,6 +45,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_rz670_manuel-de-1448369116.pdf",
       "document": "Novelty — PT-RZ670BE : PT-RZ670 (DE)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://bizpartner.panasonic.net/public/ppr/file_view/19592",
+      "document": "Panasonic, Spec File PT-RZ670B/RZ670W/RZ670LB/RZ670LW (septembre 2014) : AC 100-240 V, 720 W, 23,2 kg, 581 mm de profondeur, cordon avec verrouillage fourni (2 pour les modèles UE), SDI BNC, HDMI, DVI-D, RGB 1 BNC ×5, RGB 2 D-sub 15, SERIAL D-sub 9, REMOTE 1 M3, REMOTE 2 D-sub 9, LAN/DIGITAL LINK RJ-45 100Base-TX Art-Net PJLink",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -115,7 +120,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C"
+      "format": "D-Sub 9 broches femelle, RS-232C, commande externe"
     },
     {
       "id": "serialOut",
@@ -123,7 +128,7 @@
       "direction": "out",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C link"
+      "format": "D-Sub 9 broches mâle, liaison de commande"
     },
     {
       "id": "remoteIn",
@@ -147,15 +152,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "Commande parallèle"
+      "format": "D-Sub 9 broches femelle, commande externe parallèle"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur avec verrouillage fourni (3,0 m ; 2 cordons pour les modèles UE), forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "sdi1",

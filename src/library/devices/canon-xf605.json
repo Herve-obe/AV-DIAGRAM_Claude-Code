@@ -4,7 +4,7 @@
   "manufacturer": "Canon",
   "model": "XF605",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 2.01,
   "sources": [
     {
@@ -26,6 +26,16 @@
       "url": "https://www.adorama.com/col/productManuals/CAXF605R.pdf",
       "document": "Canon XF605 Instruction Manual (via Adorama)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.mediatec.de/media/71/9c/83/1699705318/Canon%20-%20Datasheet%20-%20XF605.pdf.pdf",
+      "document": "Mediatec (revendeur), copie de la fiche technique Canon XF605 : DC input 3.4 mm jack, XLR 3 broches x2, 3,5 mm mic et casque, HDMI Type A, USB Type-C, 12G-SDI BNC, time code BNC, LAN, Remote Type A (jack 2,5 mm)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/CAXF605R.pdf",
+      "document": "Canon (constructeur), manuel XF605 : terminaux DC IN, TIME CODE, G-LOCK/SYNC, SDI OUT, HDMI OUT, USB Type-C, REMOTE B, spécifications BNC",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -93,14 +103,6 @@
       "format": "BNC, entrée genlock ou sortie synchro tri-level selon réglage"
     },
     {
-      "id": "remote",
-      "name": "Remote B",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Remote B, circulaire 8 broches RS-422 (télécommande RC-V100)"
-    },
-    {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
@@ -121,8 +123,8 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "24 V DC (adaptateur secteur), prise non nommée"
+      "connector": "dc-barrel",
+      "format": "24 V DC (entrée DC IN, adaptateur secteur), jack 3,4 mm"
     },
     {
       "id": "mic",
@@ -161,5 +163,6 @@
   "aliases": [
     "CANON XF605"
   ],
-  "powerW": 14.3
+  "powerW": 14.3,
+  "notes": "Non saisies : prise REMOTE B (circulaire 8 broches RS-422, pour la télécommande RC-V100 ; connecteur non publié sous une forme identifiable) et prise USB-A hôte (5 V, 900 mA, réservée à une extension future)."
 }

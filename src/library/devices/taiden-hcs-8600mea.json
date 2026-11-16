@@ -4,13 +4,13 @@
   "manufacturer": "Taiden",
   "model": "HCS-8600MEA",
   "pictogram": "intercom",
-  "status": "community",
+  "status": "verified",
   "powerW": 500,
   "sources": [
     {
       "url": "https://euro-trend.pl/wp-content/uploads/HCS-8600MEA_Series_Congress_Extension_Main_Unit_D.1622792155646.pdf",
-      "document": "Taiden, fiche HCS-8600MEA series (via distributeur Euro-Trend)",
-      "accessed": "2026-10-08"
+      "document": "Taiden (constructeur, via le distributeur Euro-Trend), fiche HCS-8600MEA series, page HCS-8600MEA, relue le 2026-11-16 : 5 sorties 8P-DIN, 2 RJ45 entrée, 1 RJ45 sortie, 2 fibres SC duplex monomode, 100-240 V AC, 500 W, 3,6 kg ; embase secteur lue sur la photo du modèle",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -98,17 +98,11 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V, 500 W"
-    },
-    {
-      "id": "ac2",
-      "name": "Secteur secours",
-      "direction": "in",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation redondante"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (lue sur la photo du modèle, fiche Taiden), 100-240 VAC 50/60 Hz, consommation 500 W"
     }
   ],
-  "domain": "sound"
+  "domain": "sound",
+  "weightKg": 3.6,
+  "notes": "Pas de seconde entrée d'alimentation : l'entrée de secours (dual backup power inputs) n'existe que sur la variante HCS-8600MEA2."
 }

@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Taiden",
   "model": "HCS-4100MB-50",
-  "status": "community",
+  "status": "verified",
   "description": "Unité centrale disc./vote, 64 canaux",
   "aliases": [
     "HCS4100MB50",
@@ -24,8 +24,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/HCS-4100M%20Series%20Congress%20Main%20Unit%20Datasheet.pdf",
-      "document": "Taiden, HCS-4100M/50 Series Congress Main Unit, fiche technique",
-      "accessed": "2026-11-07"
+      "document": "Taiden (constructeur, via Novelty), fiche HCS-4100/50 Series, page HCS-4100MB/50, relue le 2026-11-16 : XLR et 2 RCA en entrée, XLR et 2 RCA en sortie, 2 RS-232 Sub-D 9 femelles, RJ45 LAN et extension, 2 sorties 6P-DIN, 100-120 V 60 Hz ou 220-240 V 50 Hz, 200 W, 7,8 kg ; embase secteur lue sur la photo du modèle",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -121,46 +121,15 @@
       "format": "Sortie ligne de conférence 6P-DIN (audio numérique, données, alimentation des pupitres)"
     },
     {
-      "id": "video",
-      "name": "Video switcher",
-      "direction": "out",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Interface de commande de mélangeur vidéo ; prise non précisée"
-    },
-    {
-      "id": "emergency",
-      "name": "Emergency",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Signal d'alarme ; prise non précisée"
-    },
-    {
-      "id": "usb1",
-      "name": "USB 1 (façade)",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour et sauvegarde ; type non précisé"
-    },
-    {
-      "id": "usb2",
-      "name": "USB 2 (façade)",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-120 V 60 Hz ou 220-240 V 50 Hz ; embase non précisée"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (lue sur la photo du modèle dans la fiche Taiden, page 3), 100-120 V 60 Hz ou 220-240 V 50 Hz, 200 W"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 7.8,
-  "powerW": 200
+  "powerW": 200,
+  "notes": "Non saisies : interface de commande de mélangeur vidéo, interface Emergency et 2 ports USB en façade (connecteurs non publiés dans le texte de la fiche technique ; photo trop petite pour les lire)."
 }

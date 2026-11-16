@@ -4,9 +4,8 @@
   "manufacturer": "Sony",
   "model": "DSR-400P",
   "pictogram": "camera",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Caméscope d'épaule DVCAM / DV, trois CCD 2/3 pouce (4:3), sortie i.LINK DV",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -16,7 +15,121 @@
       "url": "https://pro.sony/s3/cms-static-content/operation-manual/3868500061.pdf",
       "document": "Sony — DSR-400/450WS — Operating Instructions",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.vitelsanorte.com/vitelsa/fotos/productos/pdf/eus/DSR-450WSP_400P(brch)_eng.pdf",
+      "document": "Sony, brochure DSR-450WSP / DSR-400P (copie hébergée par le distributeur Vitelsa Norte), tableau des spécifications, colonne DSR-400P : entrées/sorties (BNC genlock, XLR 3 femelles, timecode BNC, i.LINK 6 broches sortie DV, sortie moniteur BNC, sorties audio phono -10 dBu, casque mini-jack, entrée DC XLR 4 broches mâle 11-17 V), consommation environ 17 W",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "gl",
+      "name": "Genlock In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Genlock vidéo, 1,0 Vc-c 75 Ω"
+    },
+    {
+      "id": "in1",
+      "name": "Audio In CH-1",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 3 femelle, -60 dBu / +4 dBu, 10 kΩ, symétrique",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "in2",
+      "name": "Audio In CH-2",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "XLR 3 femelle, -60 dBu / +4 dBu, 10 kΩ, symétrique",
+      "modes": [
+        {
+          "connector": "xlr3",
+          "level": "line+4"
+        }
+      ]
+    },
+    {
+      "id": "mic",
+      "name": "Mic In",
+      "direction": "in",
+      "signal": "audioAnalog",
+      "connector": "xlr3",
+      "level": "mic",
+      "format": "Entrée microphone, XLR 3 femelle, -60 dBu"
+    },
+    {
+      "id": "tcIn",
+      "name": "TC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Timecode, 0,5 à 18 Vc-c, 10 kΩ"
+    },
+    {
+      "id": "tcOut",
+      "name": "TC Out",
+      "direction": "out",
+      "signal": "sync",
+      "connector": "bnc",
+      "format": "Timecode, 1,0 Vc-c, 75 Ω"
+    },
+    {
+      "id": "ilink",
+      "name": "i.LINK (DV Out)",
+      "direction": "out",
+      "signal": "video",
+      "connector": "ieee1394",
+      "format": "i.LINK 6 broches, sortie DV seule"
+    },
+    {
+      "id": "monitor",
+      "name": "Monitor Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "1,0 Vc-c, 75 Ω"
+    },
+    {
+      "id": "aOut",
+      "name": "Audio Out CH-1/CH-2",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "rca",
+      "level": "line-10",
+      "channels": 2,
+      "format": "Prises phono (2), -10 dBu, 47 kΩ"
+    },
+    {
+      "id": "phones",
+      "name": "Casque",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "channels": 2,
+      "format": "Mini-jack"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "xlr4",
+      "format": "XLR 4 broches mâle, 11 à 17 V CC"
+    }
+  ],
+  "powerW": 17,
+  "notes": "Non saisies : connecteur d'objectif 12 broches, viseur 20 broches, microphone sans fil 7 broches, LIGHT 2 broches 12 V, sortie DC 4 broches (connecteurs non publiés par le constructeur). Les entrées/sorties en option (entrée composite CBK-SC01, sortie SDI CBK-SD01) et la télécommande 8 broches sont réservées au DSR-450WSP ; la brochure les marque d'un tiret pour le DSR-400P."
 }

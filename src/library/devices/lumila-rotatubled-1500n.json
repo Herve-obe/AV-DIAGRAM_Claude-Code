@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "LUMILA",
   "model": "RotaTubLED 1500N",
-  "status": "community",
+  "status": "verified",
   "description": "Tube LED rotatif, 25W / 230V, IP65, 5000°K, long. 1,50m, fixation par vis ou aimants, gamme Pipeline®",
   "aliases": [
     "TUBELED1500",
@@ -14,13 +14,13 @@
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/decoration-sur-mesure/rotatubled-1500n/",
-      "document": "Novelty — RotaTubLED 1500N",
-      "accessed": "2026-10-19"
+      "document": "Novelty (loueur), fiche produit : 25 W, 1443 x Ø37 mm, « tube + cordon alim. » 770 g, alimentation 230 V directe",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lumila_pipeline-1500n_ft2-fr.pdf",
-      "document": "Novelty — RotaTubLED 1500N : Pipeline® (FR)",
-      "accessed": "2026-10-19"
+      "document": "Lumila, fiche Pipeline (rev. V5, mars 2015), p.2-3 : Pipeline 17, 230 VAC, 150 cm = 25 W, L1 1 378,6 mm / L4 1 442,6 mm ; alimentation directe 230 VAC",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/lumila_pipeline-1500n_ft2-uk.pdf",
@@ -28,7 +28,16 @@
       "accessed": "2026-10-19"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "powerW": 25
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "230 V AC, 25 W ; cordon secteur fourni, forme de l’embase non publiée par le constructeur"
+    }
+  ],
+  "powerW": 25,
+  "notes": "Correspond au Pipeline 17, 150 cm, 230 VAC de la fiche Lumila (25 W ; longueur de tube 1 378,6 mm). Cordon d’alimentation cité par le loueur (« tube + cordon alim. », 770 g)."
 }

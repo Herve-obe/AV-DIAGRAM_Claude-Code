@@ -4,7 +4,7 @@
   "manufacturer": "Ross Video",
   "model": "Carbonite Black Solo",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -20,6 +20,16 @@
     {
       "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/carbonite-black-solo/",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://buy.rossvideo.com/collections/all/products/redundant-power-supply-for-carbonite-black-solo-all-in-one-and-processing-engine",
+      "document": "Ross Video (boutique constructeur), alimentation PSU-12V9A-6PIN pour Carbonite Black Solo : « 12V 9A PSU with 6 Pin Connector » (prises PS1/PS2)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/760-4615-carbonite-black-solo-operation-4840dr-110.pdf",
+      "document": "Ross Video, Carbonite Black Solo Operation Manual (v2.0), p. 14 : face arrière, ports PS1/PS2, série, tally, GPI, Ethernet, AES, HDMI, BNC",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -140,14 +150,6 @@
       "connector": "hdmi"
     },
     {
-      "id": "aes",
-      "name": "AES Out",
-      "direction": "out",
-      "signal": "audioDigital",
-      "connector": "unspecified",
-      "format": "Sortie audio AES des canaux Media-Store et MediaWipe (type de prise non nommé)"
-    },
-    {
       "id": "ref",
       "name": "Reference In",
       "direction": "in",
@@ -167,16 +169,16 @@
       "name": "Alimentation PS1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc d'alimentation primaire externe, prise multibroche non nommée"
+      "connector": "ross-power6",
+      "format": "Alimentation externe 12 V 9 A à connecteur 6 broches (PSU-12V9A-6PIN, boutique Ross Video)"
     },
     {
       "id": "ac2",
       "name": "Alimentation PS2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc d'alimentation secondaire (redondance), prise multibroche non nommée"
+      "connector": "ross-power6",
+      "format": "Alimentation externe 12 V 9 A à connecteur 6 broches (PSU-12V9A-6PIN, boutique Ross Video)"
     },
     {
       "id": "serial",
@@ -202,5 +204,6 @@
       "connector": "dsub25",
       "format": "24 GPI entrées ou sorties"
     }
-  ]
+  ],
+  "notes": "Non saisie : AES (sortie audio Media-Store/MediaWipe, connecteur non publié par le constructeur)."
 }

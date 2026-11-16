@@ -4,7 +4,7 @@
   "manufacturer": "NovaStar",
   "model": "CVT10 Pro-S",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.bhphotovideo.com/c/product/1941746-REG/novastar_cvt10pro_s_cvt10_pro_s_cat6_fiber_converter.html",
@@ -25,6 +25,16 @@
       "url": "https://cdn.shopify.com/s/files/1/0099/2260/9218/files/CVT10_Pro_Fiber_Converter_Specifications-V1.0.0.T2.pdf",
       "document": "NovaStar (constructeur), CVT10 Pro Fiber Converter Specifications V1.0.0.T2 (copie revendeur), pp. 1-4 : face arrière (entrée secteur PowerCON, USB type B, 10 ports Gigabit, OPT1/OPT2), 22 W, 5,9 kg ; la photo montre le modèle Pro-M",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://oss.novastar.tech/uploads/2024/10/CVT10-Pro-Fiber-Converter-Specifications-V1.1.0.pdf",
+      "document": "NovaStar (constructeur), CVT10 Pro Fiber Converter Specifications V1.1.0, pp. 2-4 (texte commun Pro-S / Pro-M) : entrée secteur « PowerCON » (à ne pas brancher sous tension), port USB de type B, 10 ports Gigabit Ethernet, 2 ports optiques OPT1/OPT2, « Pro-S ... Connector type: LC », 100-240 V 1,5 A, 22 W, 5,9 kg ; la photo de la face arrière (modèle Pro-M) montre 10 embases de type etherCON avec capuchons, un USB B et un PowerCON",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://pixelpitchers.com/novastar/cvt10-pro-s",
+      "document": "Pixel Pitchers (revendeur), fiche CVT10 Pro-S : « 10x Neutrik Gigabit Ethernet outputs », 2 ports optiques 10G monomode, « PowerCON power », 1 USB type B",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -34,7 +44,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "lc",
-      "format": "10G monomode LC (principal)"
+      "format": "10G monomode, module optique à chaud ; fibre à connecteur LC (principal)"
     },
     {
       "id": "opt2",
@@ -42,7 +52,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "lc",
-      "format": "10G monomode LC (secours)"
+      "format": "10G monomode, module optique à chaud ; fibre à connecteur LC (secours)"
     },
     {
       "id": "led1",
@@ -146,5 +156,6 @@
     "Novastar CVT10 PRO-S"
   ],
   "powerW": 22,
-  "weightKg": 5.9
+  "weightKg": 5.9,
+  "notes": "Face arrière lue sur la photo du constructeur (modèle Pro-M, même châssis) : les ports optiques sont logés dans des embases étanches ; le constructeur écrit « Connector type: LC » pour la fibre du Pro-S, retenu ici."
 }

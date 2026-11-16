@@ -5,8 +5,8 @@
   "pictogram": "processor",
   "manufacturer": "Sound Performance Lab",
   "model": "Channel One 2950",
-  "status": "community",
-  "description": "Tranche mono SPL Channel One 2950, sans carte convertisseur selon l’utilisateur. Micro XLR P48, ligne TRS ou instrument, insert Send/Return, sorties XLR/TRS parallèles, Playback et casque. IEC C14 confirmée par l’utilisateur ; A/D Input 2 inactive sans carte et non proposée au câblage. Gabarit du manuel 2950 conservé : 482 × 88 × 210 mm, 4,15 kg. Consommation retenue : 20 W maximum, publiée sur la page SPL Channel One fournie ; cette page décrit aussi un gabarit différent (300 mm / 4,85 kg), non transposé au 2950.",
+  "status": "verified",
+  "description": "Tranche mono SPL Channel One 2950, sans carte convertisseur selon l’utilisateur. Micro XLR P48, ligne TRS ou instrument, insert Send/Return, sorties XLR/TRS parallèles, Playback et casque. Embase IEC C14 lue sur le dessin du manuel ; A/D Input 2 inactive sans carte et non proposée au câblage. Gabarit du manuel 2950 conservé : 482 × 88 × 210 mm, 4,15 kg. Consommation retenue : 20 W maximum, publiée sur la page SPL Channel One fournie ; cette page décrit aussi un gabarit différent (300 mm / 4,85 kg), non transposé au 2950.",
   "aliases": [
     "Channel One",
     "CHANNELONE2950",
@@ -36,6 +36,11 @@
     {
       "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Lien SPL fourni pour les 20 W annoncés ; valeur maintenant renseignée, gabarit spécifique du manuel 2950 conservé.",
       "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/Channel_One_2950_BA_E.pdf",
+      "document": "SPL (constructeur), manuel Channel One 2950, relu : face arrière p. 7 (MAINS INPUT à embase IEC avec porte-fusible, XLR, jacks TRS, Playback), p. 8-10 (symétrique/asymétrique, sélecteur de tension), p. 12 (INSTRUMENT jack en façade), p. 21 (PHONES TRS), p. 24 (482 × 88 × 210 mm, 4,15 kg)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -65,7 +70,7 @@
       "signal": "audioAnalog",
       "connector": "jack-ts",
       "level": "instrument",
-      "format": "Jack 6,35 haute impédance en façade, maximum +14 dBu ; alternative à Line In"
+      "format": "Jack 6,35 en façade (« INSTRUMENT input jack is placed on the front »), entrée asymétrique 1 MΩ, maximum +14 dBu ; alternative à Line In"
     },
     {
       "id": "send",
@@ -109,7 +114,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 TS asymétrique (seules entrées asymétriques de l'appareil), uniquement pour le mélange casque ; niveau non publié"
+      "format": "Jack 6,35 asymétrique (manuel p. 7 et 10 : « unbalanced PLAYBACK INPUTS »), uniquement pour le mélange casque ; niveau non publié"
     },
     {
       "id": "playbackR",
@@ -117,7 +122,7 @@
       "direction": "in",
       "signal": "audioAnalog",
       "connector": "jack-ts",
-      "format": "Jack 6,35 TS asymétrique (seules entrées asymétriques de l'appareil), uniquement pour le mélange casque ; niveau non publié"
+      "format": "Jack 6,35 asymétrique (manuel p. 7 et 10 : « unbalanced PLAYBACK INPUTS »), uniquement pour le mélange casque ; niveau non publié"
     },
     {
       "id": "phones",
@@ -126,7 +131,7 @@
       "signal": "audioAnalog",
       "connector": "jack-trs",
       "channels": 2,
-      "format": "Casque stéréo TRS 6,35 ; pas une sortie ligne symétrique",
+      "format": "Casque stéréo, jack 6,35 TRS en façade (manuel p. 21 : pointe gauche, bague droite) ; pas une sortie ligne symétrique",
       "level": "none"
     },
     {
@@ -141,5 +146,6 @@
   "weightKg": 4.15,
   "rackU": 2,
   "depthMm": 210,
-  "powerW": 20
+  "powerW": 20,
+  "notes": "Non saisie : carte convertisseur A/D optionnelle et son entrée A/D Input 2 (absentes de la version décrite). La puissance de 20 W vient de la page SPL « Channel One » sans référence 2950, dont le gabarit diffère de celui du manuel 2950."
 }

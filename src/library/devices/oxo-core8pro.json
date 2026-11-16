@@ -4,7 +4,7 @@
   "manufacturer": "OXO",
   "model": "CORE8PRO",
   "pictogram": "switch",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -14,6 +14,11 @@
       "url": "https://store.face.be/en/oxo-core8-pro-67327",
       "document": "FACE (distributeur, Belgique), fiche OXO Core8 Pro 67327",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.axente.fr/core8-pro-rackable.html",
+      "document": "Axente (revendeur), fiche OCORE8PRO/R : 2 etherCON RJ45 1 Gbit sans PoE, 8 etherCON RJ45 100 Mbit PoE+ 30 W par port, embase powerCON TRUE1 In, 250 W, 1,20 kg, rack 19 pouces 1U",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -156,5 +161,5 @@
   "weightKg": 1.2,
   "rackU": 1,
   "description": "Switch non administrable PoE+ midspan 8 sorties etherCON (30 W par port) et 2 entrées etherCON sans PoE, rack 19 pouces 1U.",
-  "notes": "PoE : consommation 250 W (FACE) ; 30 W par port ; budget PoE total non publié (8 × 30 W = 240 W, non retenu sans source). FACE annonce 2 etherCON 1 Gbit/s (entrées sans PoE) et 8 etherCON 100 Mbit/s (sorties PoE) : débit des sorties corrigé à 100 Mbit/s, à reconfirmer (page FACE indisponible le 7 novembre, lue par extrait de recherche)."
+  "notes": "PoE : consommation 250 W ; 30 W par port ; budget PoE total non publié (8 × 30 W = 240 W, non retenu sans source). Le revendeur Axente confirme 2 etherCON 1 Gbit/s (entrées sans PoE) et 8 etherCON 100 Mbit/s (sorties PoE+)."
 }

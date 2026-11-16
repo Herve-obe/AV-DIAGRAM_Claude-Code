@@ -5,7 +5,7 @@
   "pictogram": "control",
   "manufacturer": "D'San",
   "model": "PRO-2000BT",
-  "status": "community",
+  "status": "verified",
   "description": "Console chronomètre de temps de parole Limitimer avec émetteur Bluetooth intégré : deux prises Cat 5 et une XLR de données vers les voyants, bloc 12 V externe.",
   "sources": [
     {
@@ -31,6 +31,16 @@
       "url": "https://www.dsan.com/product/audience-signal-light/",
       "document": "D'San, page produit Audience Signal Light (XLR 3 broches côté voyant)",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.dsan.com/product/limitimer-speaker-timer-wireless/",
+      "document": "D'San (constructeur), page produit Limitimer Speaker Timer Wireless PRO-2000BT-T, spécifications : « 12-volt external power supply », « Class II Bluetooth », « Two Cat5 and one XLR data jacks »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.adorama.com/col/productManuals/DSAPRO2000T.pdf",
+      "document": "D'San, guide PRO-2000 / PRO-2000BT, p. 2 dessin du panneau arrière : deux prises RJ45, prise XLR, embase ronde d'alimentation 12 V (A) lue sur le dessin ; Bluetooth p. 3-4",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -72,7 +82,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "Bloc secteur externe 12 V fourni"
+      "format": "Bloc secteur externe 12 V fourni ; embase ronde à ergot central lue sur le dessin du guide p. 2"
     }
   ]
 }

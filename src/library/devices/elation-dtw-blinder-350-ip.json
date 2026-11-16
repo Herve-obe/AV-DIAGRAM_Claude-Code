@@ -4,12 +4,22 @@
   "manufacturer": "Elation",
   "model": "DTW Blinder 350 IP",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.elationlighting.com/products/dtw-blinder-350-ip",
       "document": "Elation, page produit DTW Blinder 350 IP : DMX 5 broches IP In/Out, câble d’alimentation IP65 verrouillable In/Out, 310 W max",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://assets.centryngroup.com/dl/files/DTW350__DL__008.pdf",
+      "document": "Elation, manuel utilisateur DTW Blinder 350 IP, p. 9 (schéma du panneau : Power In 100-240 V, Power Out max 100-240 V 9 A, DMX 5 broches verrouillable In/Out) et p. 23 (IP65 locking power cable In/Out)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.stagespot.com/elation-dtw-blinder-350-ip.html",
+      "document": "Stagespot (revendeur), fiche produit DTW Blinder 350 IP : connexions « powerCON TRUE1 In/Out » et DMX IP",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -34,16 +44,16 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Câble d’alimentation verrouillable IP65, type non nommé"
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, 100-240 V CA 50/60 Hz, IP65 verrouillable"
     },
     {
       "id": "acOut",
       "name": "Recopie secteur",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Câble verrouillable IP65, type non nommé"
+      "connector": "powercon-true1",
+      "format": "powerCON TRUE1, recopie secteur, max 100-240 V 9 A, IP65 verrouillable"
     }
   ],
   "powerW": 310

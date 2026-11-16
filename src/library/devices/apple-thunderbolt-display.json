@@ -4,7 +4,7 @@
   "manufacturer": "Apple",
   "model": "Thunderbolt Display",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "description": "Écran 27 pouces 2560 x 1440 IPS avec dock Thunderbolt",
   "sources": [
     {
@@ -15,6 +15,21 @@
       "url": "https://support.apple.com/en-gb/112597",
       "document": "Apple, Thunderbolt Display - Technical Specifications",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://support.apple.com/en-gb/112597",
+      "document": "Apple, Thunderbolt Display, caractéristiques techniques : câbles Thunderbolt et MagSafe intégrés, trois ports USB 2.0, FireWire 800, Gigabit Ethernet, Thunderbolt ; 100-240 V ; contenu du carton : « AC power cord » ; 250 W max",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://cdsassets.apple.com/live/6GJYWVAV/start/ma1594_thunderbolt_display_getting_started.pdf",
+      "document": "Apple, Thunderbolt Display Getting Started (constructeur), p. 6 : « Insert the power cord into the display, and then insert the AC plug into a grounded power outlet » ; p. 11 : ports USB 2.0, FireWire 800, Ethernet, Thunderbolt",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://cdsassets.apple.com/live/6GJYWVAV/start/ma1594_thunderbolt_display_getting_started.pdf",
+      "document": "Apple, Thunderbolt Display Getting Started (constructeur), p. 7 : « Connect an external USB keyboard and mouse to a USB port on your display » ; p. 11 : trois ports USB 2.0 hauts débits",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -27,36 +42,28 @@
       "format": "Câble captif Thunderbolt (forme Mini DisplayPort) vers le Mac"
     },
     {
-      "id": "magsafe",
-      "name": "Câble MagSafe intégré",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Câble captif MagSafe universel, jusqu'à 85 W pour le portable"
-    },
-    {
       "id": "usb1",
       "name": "USB 2.0 (1)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "USB 2.0 alimenté ; forme non nommée"
+      "connector": "usb-a",
+      "format": "USB 2.0 alimenté ; port hôte recevant clavier et souris USB (guide Getting Started, p. 7 et p. 11)"
     },
     {
       "id": "usb2",
       "name": "USB 2.0 (2)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "USB 2.0 alimenté"
+      "connector": "usb-a",
+      "format": "USB 2.0 alimenté ; port hôte recevant clavier et souris USB (guide Getting Started, p. 7 et p. 11)"
     },
     {
       "id": "usb3",
       "name": "USB 2.0 (3)",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "USB 2.0 alimenté"
+      "connector": "usb-a",
+      "format": "USB 2.0 alimenté ; port hôte recevant clavier et souris USB (guide Getting Started, p. 7 et p. 11)"
     },
     {
       "id": "fw",
@@ -86,9 +93,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Cordon secteur fourni ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "100-240 V CA ; cordon secteur fourni (« AC power cord » au carton, branché sur l'écran), forme de l'embase non publiée par le constructeur"
     }
   ],
-  "powerW": 250
+  "powerW": 250,
+  "notes": "Non saisie : câble MagSafe de sortie (alimentation auxiliaire du portable, MagSafe absent du catalogue de connecteurs)."
 }

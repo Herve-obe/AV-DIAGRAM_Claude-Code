@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "Schneider",
   "model": "OVA48060",
-  "status": "community",
+  "status": "verified",
   "description": "Bloc phare 2400 Lumens",
   "aliases": [
     "Schneider OVA48060"
@@ -20,9 +20,22 @@
       "url": "https://res.cloudinary.com/sonepar-fr/raw/upload/s--zd5-I82Q--/v1/documents/1887/OVA48060_document.pdf",
       "document": "Schneider Electric (constructeur), fiche technique OVA48060 hébergée par Sonepar : poids net 3,4 kg, 2400 lm ; aucune connectique décrite",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://download.se.com/files?p_enDocType=Instruction+sheet&p_File_Name=IST004990_ED_02_A3_LOW.pdf&p_Doc_Ref=IST002740_ED",
+      "document": "Schneider Electric (constructeur), notice OVA48060 (IST004990), pages 1 à 2 (en images) : bornier débrochable fourni, raccordement 230 V 50/60 Hz et ligne DALI",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 3.4
+  "ports": [
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "terminal",
+      "format": "Bornier débrochable à vis fourni, 230 V CA, 50/60 Hz (lu sur le schéma de raccordement de la notice)"
+    }
+  ],
+  "notes": "Non saisie : ligne DALI d'adressage (signal sans équivalent dans la bibliothèque). Poids non saisi : 3,4 kg sur la fiche technique, 2,1 kg sur la notice. Consommation non saisie : 11 VA sur la fiche technique, 12,5 VA / 0,5 W sur la notice."
 }

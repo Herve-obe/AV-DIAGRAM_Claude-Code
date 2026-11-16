@@ -4,7 +4,7 @@
   "manufacturer": "Lexicon",
   "model": "PCM96",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -36,6 +36,16 @@
       "url": "https://www.soundonsound.com/reviews/lexicon-pcm96",
       "document": "Sound On Sound (presse), test du PCM96 par Hugh Robjohns, novembre 2008 : « two RJ45 (10/100) Ethernet ports, two Firewire 400 ports » en face arrière ; contredit le dessin du manuel cité, qui ne montre aucun port FireWire",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.hhb.co.uk/prod/lexicon/pcm-96/",
+      "document": "HHB (distributeur), fiche PCM96, relue : « Dual Ethernet and Firewire Connections », MIDI In/Out/Thru, BNC wordclock, 2 voies XLR analogiques, 2 voies AES/EBU",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.soundonsound.com/reviews/lexicon-pcm96",
+      "document": "Sound On Sound (presse), test PCM96, relu : face arrière « mains IEC inlet », « two RJ45 (10/100) Ethernet ports, two Firewire 400 ports », trois MIDI ; FireWire en contrôle et audio",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -152,7 +162,7 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ieee1394",
-      "format": "FireWire 400 décrit par la presse (Sound On Sound, novembre 2008) ; absent du dessin de la face arrière du manuel lu : à vérifier sur l'appareil"
+      "format": "FireWire 400 : contrôle par le plug-in PCM96 et, en mode « Firewire with audio », flux audio (jusqu'à 4 canaux entrée/sortie) selon Sound On Sound ; cité aussi par HHB ; non montré par le manuel Lexicon lu"
     },
     {
       "id": "fw2",
@@ -160,7 +170,7 @@
       "direction": "bidir",
       "signal": "audioDigital",
       "connector": "ieee1394",
-      "format": "FireWire 400 décrit par la presse (Sound On Sound, novembre 2008) ; absent du dessin de la face arrière du manuel lu : à vérifier sur l'appareil"
+      "format": "FireWire 400 : contrôle par le plug-in PCM96 et, en mode « Firewire with audio », flux audio (jusqu'à 4 canaux entrée/sortie) selon Sound On Sound ; cité aussi par HHB ; non montré par le manuel Lexicon lu"
     },
     {
       "id": "ac",
@@ -172,5 +182,5 @@
     }
   ],
   "powerW": 20,
-  "notes": "Deux descriptions se contredisent : le manuel Lexicon lu (copie tierce) ne montre aucun port FireWire, la presse de 2008 en décrit deux. Les ports FireWire restent saisis avec cette réserve ; statut community tant qu'un appareil ou un document Lexicon daté ne tranche pas."
+  "notes": "Deux ports FireWire 400 : décrits par Sound On Sound (novembre 2008, « two Firewire 400 ports », rôle précisé) et par la page HHB (« Dual Ethernet and Firewire Connections »). Le manuel Lexicon lu (copie tierce, p. 4) ne les montre pas : ils sont retenus sur ces deux sources concordantes."
 }

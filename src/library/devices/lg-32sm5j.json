@@ -4,7 +4,7 @@
   "manufacturer": "LG",
   "model": "32SM5J (32\")",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "powerW": 75,
   "sources": [
     {
@@ -14,8 +14,8 @@
     },
     {
       "url": "https://media.us.lg.com/m/3f0602d8f7d3cf79/original/32SM5J-Spec-Sheet.pdf",
-      "document": "LG32SM5J manufacturerdatasheet pp.3-4; global32SM5J specifications",
-      "accessed": "2026-10-27"
+      "document": "LG, fiche technique 32SM5J, p. 3 (schéma Connectivity : prises rondes pour IR, audio et RS-232C) et p. 4 (Power Supply 100-240 Vac 50/60 Hz ; accessoires de base : Power Cord)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -96,9 +96,15 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
-  "depthMm": 55.5
+  "depthMm": 55.5,
+  "notes": "La fiche LG annonce USB 2.0 type A « Yes (x2) » mais son schéma Connectivity n'en montre qu'un : un seul est saisi.",
+  "aliases": [
+    "LG 32SM5J-B",
+    "LG32SM5J",
+    "LG LG 32SM5J-B"
+  ]
 }

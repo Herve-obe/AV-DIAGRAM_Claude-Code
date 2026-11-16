@@ -2,9 +2,9 @@
   "id": "samsung-db22",
   "family": "display",
   "manufacturer": "Samsung",
-  "model": "DB22 (22\")",
+  "model": "DB22D",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.samsung.com/us/business/support/owners/product/db-series-digital-signage-db22d/",
@@ -13,8 +13,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/samsung_db10d_brochure.pdf",
-      "document": "Samsung, brochure DB22D-P / DB22D-T / DB10D (copie Novelty) : spécifications",
-      "accessed": "2026-11-07"
+      "document": "Samsung, brochure DB22D-P / DB22D-T / DB10D (copie Novelty), Specifications : entrées D-SUB, HDMI, audio stereo mini jack, USB 2.0, RS232C (in) par jack stéréo, RJ45 ; Power Supply AC 100-240 V~ 50/60 Hz, Type Internal ; Accessories Included : Power Cord",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -56,8 +56,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz, alimentation interne ; type d'embase non indiqué. Référence catalogue Novelty « DB22 » ; connectique de la génération DB22D"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz, alimentation interne ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "rs232-in",
@@ -76,5 +76,9 @@
       "format": "Commande MDC et réseau"
     }
   ],
-  "powerW": 44
+  "powerW": 44,
+  "aliases": [
+    "DB22",
+    "DB22 (22\")"
+  ]
 }

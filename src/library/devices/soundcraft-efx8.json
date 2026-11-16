@@ -4,7 +4,7 @@
   "manufacturer": "Soundcraft",
   "model": "EFX8",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "weightKg": 4.6,
   "sources": [
     {
@@ -21,6 +21,16 @@
       "url": "https://goknight.com/content/documentation/EFXEPM-UG-20101130%20(1).pdf",
       "document": "Soundcraft EFX/EPM User Guide Issue 1210, Typical Specifications p. 52 (copie revendeur)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://goknight.com/content/documentation/EFXEPM-UG-20101130%20(1).pdf",
+      "document": "Soundcraft, EFX/EPM User Guide (copie revendeur goknight), consignes de sécurité : « mains cord set », « mains lead », « mains plug », fonctionnement sur une plage de tensions secteur indiquée au dos ; consommation moyenne en veille 13 W (EPM6) / < 35 W (EFX8) dans les caractéristiques",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://harmanaudio.com/mixers/EFX8.html",
+      "document": "Harman Audio (page constructeur), EFX8 : contenu du carton « 1 x IEC power cable » (lu par extrait de recherche : accès direct refusé)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -432,8 +442,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Cordon secteur amovible (« mains cord set ») ; type d'embase non indiqué dans le guide, non visible sur les dessins"
+      "connector": "mains-cord",
+      "format": "Tension secteur indiquée au dos de l'appareil ; cordon secteur fourni (« IEC power cable » dans le contenu du carton, « mains cord set » dans le guide), forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 35

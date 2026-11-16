@@ -4,11 +4,12 @@
   "domain": "image",
   "pictogram": "projector",
   "manufacturer": "Panasonic",
-  "model": "PT-RZ12",
-  "status": "community",
+  "model": "PT-RZ12K",
+  "status": "verified",
   "description": "Vidéoprojecteur laser DLP à 3 puces, 12 000 lumens, WUXGA, taux de contraste de 20 000/1, fréquence d'images 120 Hz, système de refroidissement liquide résistant à la poussière",
   "aliases": [
-    "PANASONIC PT-RZ12"
+    "PANASONIC PT-RZ12",
+    "PT-RZ12"
   ],
   "sources": [
     {
@@ -35,6 +36,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/panasonic_pt-rz12_manuel-fr.pdf",
       "document": "Novelty — PT-RZ12 : PT-RZ12 (FR)",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://bizpartner.panasonic.net/public/ppr/file_view/35307",
+      "document": "Panasonic, Spec File PT-RZ12K (septembre 2015) : AC 100-240 V, 1 200 W, 44 kg sans objectif, 740 mm, accessoire « Power cord (×1) (×2 pour PT-RZ12KE) », SDI IN 1 BNC ×2, HDMI, DVI-D, RGB 1 BNC ×5, RGB 2 D-sub 15, 3D SYNC BNC, D-sub 9, REMOTE 1 M3, REMOTE 2 D-sub 9, LAN/DIGITAL LINK RJ-45",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -105,7 +111,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C"
+      "format": "D-Sub 9 broches femelle, RS-232C, commande externe"
     },
     {
       "id": "serialOut",
@@ -113,7 +119,7 @@
       "direction": "out",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C link"
+      "format": "D-Sub 9 broches mâle, liaison de commande"
     },
     {
       "id": "remoteIn",
@@ -137,15 +143,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "Commande parallèle"
+      "format": "D-Sub 9 broches, commande externe parallèle"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni (3,0 m ; 2 cordons pour le PT-RZ12KE), forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "sdi1",
@@ -153,7 +159,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G/HD/SD-SDI"
+      "format": "3G/HD/SD-SDI, dual-link (SDI IN 1 : 2 BNC)"
     },
     {
       "id": "sdi2",
@@ -161,7 +167,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "bnc",
-      "format": "3G/HD/SD-SDI"
+      "format": "3G/HD/SD-SDI, dual-link (SDI IN 1 : 2 BNC)"
     },
     {
       "id": "lanDigitalLink",

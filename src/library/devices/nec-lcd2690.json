@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "NEC",
   "model": "LCD2690",
-  "status": "community",
+  "status": "verified",
   "description": "Ecran LCD 26\" (1920 x 1200, 16/10)",
   "aliases": [
     "NEC LCD2690"
@@ -19,12 +19,12 @@
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/nec_2690_manuel.pdf",
       "document": "Novelty — LCD2690 : lcD2690",
-      "accessed": "2026-10-19"
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/nec_2690_ft.pdf",
       "document": "Novelty — LCD2690 : LCD2690",
-      "accessed": "2026-10-19"
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -50,21 +50,14 @@
       "connector": "vga"
     },
     {
-      "id": "dcOut",
-      "name": "Optional soundbar DC Out",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Sortie DC pour la barre de son MultiSync optionnelle ; ni la fiche ni le manuel lus ne la décrivent"
-    },
-    {
       "id": "ac",
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
-  "powerW": 111
+  "powerW": 111,
+  "notes": "Non saisie : sortie DC de la barre de son MultiSync optionnelle (connecteur non publié par le constructeur)."
 }

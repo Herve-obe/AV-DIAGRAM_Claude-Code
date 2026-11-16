@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Analog Way",
   "model": "Smart Matrix SMX200",
-  "status": "community",
+  "status": "verified",
   "description": "Matrice Scalée de 12 x 2 avec sortie Native Haute Résolution dotée de 4 scalers",
   "aliases": [
     "SMX200",
@@ -21,6 +21,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/SMX200-231210_VF_LR.pdf",
       "document": "Novelty — Smart Matrix SMX200 : Smart Matrix",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/SMX200-231210_VF_LR.pdf",
+      "document": "Analog Way (constructeur), fiche technique SMX200 (copie Novelty), p. 4 : « Connecteur principal AC avec interrupteur On/Off », alimentation interne 100-240 V 50/60 Hz, « Livré avec 1 x Câble secteur » ; connecteurs HD15-F, DVI-I, BNC, MCO 5 broches, DB9, RJ45",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -291,8 +296,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V CA, 50/60 Hz, alimentation interne avec interrupteur ; type d'embase non précisé"
+      "connector": "mains-cord",
+      "format": "100-240 V CA, 50/60 Hz, alimentation interne avec interrupteur ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "weightKg": 5,

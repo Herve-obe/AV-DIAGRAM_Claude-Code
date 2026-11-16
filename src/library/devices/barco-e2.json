@@ -4,12 +4,22 @@
   "manufacturer": "Barco",
   "model": "E2 (Event Master)",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://assets.barco.com/m/3b64ca7d2e0027e/original/E2-Gen-2-BTO-en-Spec-sheet.pdf",
-      "document": "Barco, fiche E2 Gen 2",
-      "accessed": "2026-10-08"
+      "document": "Barco, fiche E2 Gen 2 (EN, 27 Nov 2025) relue : genlock analogique BNC avec boucle ; Ethernet RJ-45 10/100/1000 ; alimentation 100-240 Vac 50/60 Hz 12-5 A (x2), 1 100 W par unité, deux blocs redondants",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.avendor.com/products/e2-gen2-empty-chassis",
+      "document": "Avendor (revendeur), fiche « Barco R9029359BF E2 Gen2 Empty Chassis with US/EU Power Cord » : cordons secteur US et EU fournis avec le châssis",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.rentex.com/wp-content/uploads/2016/07/R5905947WW_01_Safety.pdf",
+      "document": "Barco, E2 Safety Guide R5905947 (31/10/2014, E2 première génération R9004698) hébergé par Rentex (loueur) : accessoires fournis, 2 cordons secteur CEE 7 et 2 cordons NEMA 5/15 ; indication seulement, ne vaut pas pour la Gen 2 sans la source Avendor",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -42,17 +52,18 @@
       "name": "Secteur alimentation 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V AC, 50/60 Hz, 12-5 A"
+      "connector": "mains-cord",
+      "format": "100-240 V AC, 50/60 Hz, 12-5 A ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "ac2",
       "name": "Secteur alimentation 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V AC, 50/60 Hz, 12-5 A (redondante)"
+      "connector": "mains-cord",
+      "format": "100-240 V AC, 50/60 Hz, 12-5 A (redondante) ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
-  "powerW": 1100
+  "powerW": 1100,
+  "notes": "Non saisies : cartes d'entrées, de sorties et de multiviewer (modulaires, hors châssis), entrées de synchro 3D (DIN), USB de façade."
 }

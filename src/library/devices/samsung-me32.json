@@ -2,9 +2,9 @@
   "id": "samsung-me32",
   "family": "display",
   "manufacturer": "Samsung",
-  "model": "ME32 (32\")",
+  "model": "ME32C",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "powerW": 70,
   "sources": [
     {
@@ -14,8 +14,8 @@
     },
     {
       "url": "https://ret.de/wp-content/uploads/2018/01/Samsung-ME32C-Manual.pdf",
-      "document": "Samsung, User Manual ME32C/ME40C/ME46C/ME55C (copie revendeur RET) : Reverse Side p. 22, PowerSaver",
-      "accessed": "2026-11-07"
+      "document": "Samsung, User Manual ME32C/ME40C/ME46C/ME55C (copie revendeur RET) : p. 18 « Checking the Components » (Power cord) ; panneau arrière (liste des prises) ; « Connection Using an IR Stereo Cable » ; rubrique Specifications : Power Supply 100 à 240 V",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -130,8 +130,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+      "connector": "mains-cord",
+      "format": "Tension 100-240 V (étiquette au dos du produit) ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "ir",
@@ -149,5 +149,10 @@
       "connector": "minijack",
       "format": "IR OUT : renvoie le signal reçu par le capteur externe (LOOP OUT) vers l'IR / AMBIENT SENSOR IN d'un autre écran, câble stéréo jack 3,5 mm"
     }
-  ]
+  ],
+  "aliases": [
+    "ME32",
+    "ME32 (32\")"
+  ],
+  "notes": "Non saisie : ANT IN (entrée antenne, connecteur non nommé par le constructeur)."
 }

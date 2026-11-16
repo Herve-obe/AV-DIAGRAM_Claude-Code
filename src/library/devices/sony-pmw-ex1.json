@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "PMW-EX1",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 2.4,
   "sources": [
     {
@@ -16,6 +16,11 @@
       "url": "https://pro.sony/s3/cms-static-content/operation-manual/3278905151.pdf",
       "document": "Sony — PMW-EX1 — Operating Instructions 3-278-905-15",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://spirolux.co.uk/wp-content/uploads/2023/04/Sony-EX1-Camera.pdf",
+      "document": "Sony, PMW-EX1 Operating Instructions 3-280-015-15(1) (copie hébergée par spirolux.co.uk) : p. 130 entrées/sorties (XLR 3 broches femelle x2, DC jack, BNC SDI, i.LINK 4 broches S400, USB mini-B, casque mini-jack stéréo), p. 22 alimentation DC IN",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -71,7 +76,8 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "dc-barrel",
+      "format": "DC jack, 12 V CC (spécifications du manuel Sony, p. 130 ; alimentation par le BC-U1/BC-U2 fourni, p. 22)"
     },
     {
       "id": "usb",
@@ -90,5 +96,6 @@
       "channels": 2,
       "format": "Mini-jack stéréo"
     }
-  ]
+  ],
+  "notes": "Non saisies (secondaires) : sortie A/V multiconnecteur (audio -10 dBu, composite/Y-C) et sortie composante Mini D. Le manuel p. 130 donne DC IN sous la forme « DC jack » sans en préciser les dimensions."
 }

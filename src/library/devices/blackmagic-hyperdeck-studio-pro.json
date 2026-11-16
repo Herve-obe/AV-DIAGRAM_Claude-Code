@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "HyperDeck Studio Pro",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "domain": "image",
   "rackU": 1,
   "sources": [
@@ -16,6 +16,11 @@
       "url": "https://documents.blackmagicdesign.com/UserManuals/HyperDeckStudioManual.pdf",
       "document": "Blackmagic Design, HyperDeck Disk Recorders Installation and Operation Manual (mars 2020), dessins du panneau arrière HyperDeck Studio Pro, « RS-422 Control »",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://mz.unic.ac.cy/wp-content/uploads/2015/12/Blackmagic-HyperDeck-Manual.pdf",
+      "document": "Blackmagic Design (constructeur), HyperDeck Disk Recorders Installation and Operation Manual (août 2015, copie hébergée par mz.unic.ac.cy), p. 5 : dessin du panneau arrière HyperDeck Studio Pro (secteur IEC « standard IEC cable », Thunderbolt à prise de forme mini DisplayPort, REMOTE DB9, Ethernet, HDMI, BNC) ; p. 18 : « HyperDeck Studio Pro USB port » dessiné en USB type B ; p. 28 : Thunderbolt",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -152,16 +157,16 @@
       "name": "Thunderbolt",
       "direction": "bidir",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Acquisition sur ordinateur"
+      "connector": "mini-displayport",
+      "format": "Thunderbolt (acquisition sur ordinateur) ; prise de forme mini DisplayPort lue sur le dessin du manuel, p. 5"
     },
     {
       "id": "usb",
       "name": "USB 2.0",
       "direction": "bidir",
       "signal": "control",
-      "connector": "usb-mini",
-      "format": "USB 2.0 Mini-B : installation, mises à jour, HyperDeck Utility"
+      "connector": "usb-b",
+      "format": "USB 2.0 type B : installation, mises à jour, HyperDeck Utility ; type B lu sur le dessin du manuel, p. 18 (corrige « Mini-B »)"
     },
     {
       "id": "ac",

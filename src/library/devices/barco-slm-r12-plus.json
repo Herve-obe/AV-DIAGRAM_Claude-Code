@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Barco",
   "model": "SLM R12+ Performer",
-  "status": "community",
+  "status": "verified",
   "description": "Vidéoprojecteur DLP trois puces SXGA+ 1400 x 1050, 12 000 lumens ANSI, lampe xénon 2,2 kW. Emplacements 1 et 2 fixes (5 BNC, DVI entrée, DVI sortie), emplacements 3 et 4 pour modules SDI, HD-SDI ou décodeur vidéo ; objectif TLD / TLD HB interchangeable.",
   "aliases": [
     "SLM R12+",
@@ -27,6 +27,21 @@
     {
       "url": "https://www.manualslib.com/manual/452220/Barco-Slm-R12.html?page=27",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/55738/barco-slm-r12.html?page=11",
+      "document": "Barco, SLM R12+ Owner's Manual (copie texte hébergée par ManualsDir, revendeur de manuels), § 2 « Packaging and dimensions », contenu du carton : « 1 European and 1 American power cable »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/55738/barco-slm-r12.html?page=41",
+      "document": "Barco, SLM R12+ Owner's Manual (copie texte hébergée par ManualsDir), § 4.5.4 « Fixed slot (slot 1 & 2) » : 5 bornes BNC pour l'entrée 5 câbles et une prise DVI ; schéma des connecteurs : DVI INPUT, DVI OUTPUT",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://assets.barco.com/m/3740efb489e5ddd6/original/SLM-R12-Performer-fr-Spec-sheet.pdf",
+      "document": "Barco, SLM R12+ Performer fiche technique (FR) relue : alimentation 220-240 Vca 50-60 Hz, consommation 2 750 W, poids 56 kg, ports RS-232, IR externe, 2 déclencheurs 12 V",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -80,71 +95,15 @@
       "direction": "out",
       "signal": "video",
       "connector": "dvi",
-      "format": "Slot 1 : sortie DVI de recopie vers un second projecteur ; type d'embase déduit, non nommé"
-    },
-    {
-      "id": "rsIn",
-      "name": "RS232/422 In",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "RS232 / RS422 ; type d'embase non nommé dans les pages lues"
-    },
-    {
-      "id": "rsOut",
-      "name": "RS232/422 Out",
-      "direction": "out",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Recopie série ; type d'embase non nommé"
-    },
-    {
-      "id": "ctrl1",
-      "name": "CTRL 1",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Entrée de commande du panneau (manuel : Hardwired remote, CTRL 1 à 3) ; fonction et embase non détaillées"
-    },
-    {
-      "id": "ctrl2",
-      "name": "CTRL 2",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Entrée de commande ; fonction et embase non détaillées"
-    },
-    {
-      "id": "ctrl3",
-      "name": "CTRL 3",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Télécommande robuste filaire (R9840170) ; embase non nommée"
-    },
-    {
-      "id": "trig1",
-      "name": "12 V Trigger Out 1",
-      "direction": "out",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Déclencheur 12 V (fiche technique : 2x 12 V triggers) ; embase non nommée"
-    },
-    {
-      "id": "trig2",
-      "name": "12 V Trigger Out 2",
-      "direction": "out",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Déclencheur 12 V ; embase non nommée"
+      "format": "Slot 1 : sortie DVI (« DVI OUTPUT » du schéma du manuel) pour second projecteur"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "220-240 V AC 50/60 Hz, disjoncteur 15 A intégré à l'interrupteur ; embase mâle, cordon fourni"
+      "connector": "mains-cord",
+      "format": "220-240 V AC 50/60 Hz, disjoncteur 15 A intégré à l'interrupteur ; cordon secteur fourni (un européen, un américain), forme de l'embase non publiée par le constructeur"
     }
   ],
   "slots": [
@@ -173,5 +132,6 @@
     }
   ],
   "powerW": 2750,
-  "weightKg": 56
+  "weightKg": 56,
+  "notes": "Non saisies : RS232/RS422 entrée et sortie, télécommande filaire CTRL 1 à CTRL 3, deux déclencheurs 12 V, Ethernet RJ-45 optionnel (connecteurs non publiés par le constructeur dans les pages lisibles)."
 }

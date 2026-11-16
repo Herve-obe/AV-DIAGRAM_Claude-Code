@@ -5,7 +5,7 @@
   "pictogram": "switch",
   "manufacturer": "Tenda",
   "model": "TEG1016G",
-  "status": "community",
+  "status": "verified",
   "description": "Switch 16 ports, ethernet 10/100/1000 Mbps",
   "aliases": [
     "SWITCH-TEG1016G",
@@ -31,6 +31,16 @@
       "url": "https://static.tenda.com.cn/tdeweb/download/TEG1016Gv9/TEG1016G%20v9.0-Datasheet-EN.pdf",
       "document": "Tenda, TEG1016G v9.0 datasheet",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.tenda.cz/sites/Upload/TEG1016G/TEG1016G_DS.pdf",
+      "document": "Tenda (constructeur), fiche technique TEG1016G : AC 100-240 V 50/60 Hz, consommation max 12 W (220 V), 440x179x44 mm, contenu du colis « Power cord »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://static.tenda.com.cn/tdeweb/download/TEG1016Gv9/TEG1016G%20v9.0-Datasheet-EN.pdf",
+      "document": "Tenda (constructeur), datasheet TEG1016G v9.0, p. 3 : AC 100-240 V 50/60 Hz, consommation < 12 W",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -215,10 +225,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation interne 100-240 V 50/60 Hz, cordon secteur fourni (type d'embase non documenté)"
+      "connector": "mains-cord",
+      "format": "Alimentation interne AC 100-240 V 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
-  "powerW": 25,
+  "powerW": 12,
   "rackU": 1
 }

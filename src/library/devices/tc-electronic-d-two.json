@@ -4,7 +4,7 @@
   "manufacturer": "TC Electronic",
   "model": "D-Two",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -21,6 +21,11 @@
       "url": "https://www.manualsdir.com/manuals/280346/tc-electronic-d-two.html?page=30",
       "document": "TC Electronic D-Two User Manual, caractéristiques techniques p. 30 (copie ManualsDir)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/280346/tc-electronic-d-two.html?page=30",
+      "document": "Relecture : copie ManualsDir du mode d emploi D-Two, p. 30 : caractéristiques (entrées/sorties, MIDI, S/PDIF)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -98,13 +103,6 @@
       "connector": "din5"
     },
     {
-      "id": "pedal",
-      "name": "Pédale",
-      "direction": "in",
-      "signal": "control",
-      "connector": "jack-trs"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -113,5 +111,6 @@
       "format": "Embase IEC (photo de la face arrière, brochure TC), alimentation automatique 100-240 V, étiquette « 15W »"
     }
   ],
-  "powerW": 15
+  "powerW": 15,
+  "notes": "Non saisie : prise pédale (connecteur « 1/4 phone jack », TS ou TRS non précisé par le constructeur)."
 }

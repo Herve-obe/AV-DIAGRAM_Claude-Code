@@ -4,13 +4,13 @@
   "manufacturer": "Taiden",
   "model": "TMX-0808SDI2",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "weightKg": 3.0,
   "sources": [
     {
       "url": "https://www.taiden.com/upload/download/TMX-0808SDI2Datasheet.pdf",
-      "document": "Taiden, fiche TMX-0808SDI2",
-      "accessed": "2026-10-08"
+      "document": "Taiden (constructeur), fiche TMX-0808SDI2, relue le 2026-11-16 : 8 BNC en entrée, 8 BNC en sortie, RS-232 Sub-D 9 femelle, RJ45 TCP/IP, TAINET, 100-240 V AC, 3,0 kg ; schéma de branchement p. 2 : vue arrière avec embase IEC et borniers TAINET/RS-422",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.taiden.com/upload/download/TMX-0808SDI2.pdf",
@@ -159,8 +159,8 @@
       "name": "TAINET",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Liaison système de conférence (suivi caméra)"
+      "connector": "terminal",
+      "format": "Liaison système de conférence (suivi caméra) ; bornier enfichable à vis, lu sur le schéma de branchement de la fiche Taiden (page 2, vue arrière)"
     },
     {
       "id": "eth",
@@ -175,7 +175,8 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "Embase IEC (plan coté Taiden), 100-240 V 50/60 Hz"
+      "format": "Embase IEC avec porte-fusible (schéma de branchement de la fiche Taiden, page 2), 100-240 V AC 50/60 Hz"
     }
-  ]
+  ],
+  "notes": "Non saisies : 2 ports RS-422 (caméras dôme), RS-232 pour clavier de commande (borniers) et port USB (fonctions annexes)."
 }

@@ -10,8 +10,8 @@
   "sources": [
     {
       "url": "https://www.lg.com/us/business/download/resources/BT00001837/LG_SPEC-SHEET_SM5KE_061823_PR.pdf",
-      "document": "LG, spec sheet SM5KE",
-      "accessed": "2026-10-08"
+      "document": "LG, spec sheet SM5KE : alimentation 100-240 V~ 50/60 Hz intégrée, accessoires de base dont Power Cord, entrée IR & LIGHT SENSOR (connecteur non nommé)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -113,20 +113,17 @@
       "connector": "rj45"
     },
     {
-      "id": "ir",
-      "name": "IR / capteur",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "IR & Light Sensor : entrée du récepteur IR / capteur de lumière fourni ; connecteur non nommé dans la fiche (LG le donne en jack stéréo 3,5 mm sur la 32SM5J, non confirmé pour ce modèle)"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
+  ],
+  "notes": "Non saisie : entrée IR / capteur de lumière (connecteur non publié par le constructeur pour ce modèle).",
+  "aliases": [
+    "55SM5KE",
+    "LG 55SM5KE"
   ]
 }

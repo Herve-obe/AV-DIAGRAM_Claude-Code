@@ -5,8 +5,8 @@
   "manufacturer": "Modulo Pi",
   "model": "Modulo Player Pro MP-PRO-2x4K",
   "pictogram": "recorder",
-  "status": "community",
-  "description": "6 sorties jusqu'à 2560x1600 ou 2 sorties 4K (4096x2160) ; 6 connecteurs physiques mini DP 1.4. Données : SSD NVMe PCIe 4 To. Pas d'entrée de capture d'origine. Options de capture (non montées d'origine) : DELTA-2x3G (2x 3G-SDI), DELTA-1x12G (4x 3G-SDI ou 1x 12G + 2x 3G), DELTA-2x12G (8x 3G ou 2x 12G + 4x 3G), DELTA-6x12G (12x 3G ou 6x 12G), DELTA-2xHDMI (2x HDMI 2.0 4K), DELTA-MIXED (4x 3G-SDI + 1x HDMI 2.0) ; cartes timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R. Rack 19\" 4U, 482x175x515 mm avec poignées. Consommation moyenne en forte charge 450 W (alimentation 850 W). AMD EPYC, 64 à 128 Go RAM, AM",
+  "status": "verified",
+  "description": "6 sorties jusqu'à 2560x1600 ou 2 sorties 4K (4096x2160) ; 6 connecteurs physiques mini DP 1.4. Données : SSD NVMe PCIe 4 To. Pas d'entrée de capture d'origine. Options de capture (non montées d'origine) : DELTA-2x3G (2x 3G-SDI), DELTA-1x12G (4x 3G-SDI ou 1x 12G + 2x 3G), DELTA-2x12G (8x 3G ou 2x 12G + 4x 3G), DELTA-6x12G (12x 3G ou 6x 12G), DELTA-2xHDMI (2x HDMI 2.0 4K), DELTA-MIXED (4x 3G-SDI + 1x HDMI 2.0) ; cartes timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R. Rack 19\" 4U, 482x175x515 mm avec poignées. Consommation moyenne en forte charge 450 W (alimentation 850 W). AMD EPYC, 64 à 128 Go RAM, AMD Radeon Pro. 1 adaptateur actif mini DP vers HDMI fourni par sortie.",
   "sources": [
     {
       "url": "https://www.modulo-pi.com/media-servers/modulo-player/",
@@ -15,8 +15,8 @@
     },
     {
       "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Pro-SpecSheet-20231011.pdf",
-      "document": "Modulo Player Pro SpecSheet (révision matérielle 2024-1, pied de page 23072024)",
-      "accessed": "2026-11-08"
+      "document": "Modulo Player Pro SpecSheet (révision matérielle 2024-1, pied de page 23072024) ; relue le 2026-11-16 : références et sorties physiques, LAN, USB, alimentation 100-240 VAC, cordon secteur EU fourni (rubrique Complimentary)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -97,13 +97,14 @@
       "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 VAC 50-60 Hz, alimentation 850 W, cordon EU fourni ; type d'embase non précisé"
+      "connector": "mains-cord",
+      "format": "100-240 VAC 50-60 Hz, alimentation 850 W ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "aliases": [
     "MP-PRO-2x4K"
   ],
   "weightKg": 17,
-  "powerW": 450
+  "powerW": 450,
+  "notes": "Non saisies : 2 prises USB 3.2 Gen 1 (type de connecteur non publié par le constructeur) ; audio par carte son USB ou PCIe en option."
 }

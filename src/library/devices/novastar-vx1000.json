@@ -4,7 +4,7 @@
   "manufacturer": "NovaStar",
   "model": "VX1000",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "domain": "image",
   "powerW": 35,
   "weightKg": 4,
@@ -28,6 +28,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3845-4625-vx1000-all-in-one-controller-user-manual-v1-2-1.pdf",
       "document": "Novelty — VX1000 : VX1000-User-Manual",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://oss.novastar.tech/uploads/2024/07/VX1000-All-in-One-Controller-Specifications-V1.6.0.pdf",
+      "document": "NovaStar (constructeur), VX1000 Specifications V1.6.0, pp. 1-10 : relecture de toutes les prises (3G-SDI in/loop, 2 HDMI 1.4 dont 1 loop, 2 DVI dont 1 loop, 10 Ethernet Gigabit, HDMI 1.3 de contrôle, OPT 1 et 2 à module 10G LC, Ethernet de commande, USB type B et type A, Genlock in/loop) ; schéma arrière : embase IEC avec interrupteur ; 100-240 V 1,5 A, 35 W, 4 kg, cordon fourni",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -236,23 +241,16 @@
       "connector": "bnc"
     },
     {
-      "id": "sensor",
-      "name": "Capteur de lumière",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Capteur de luminosité ambiante, prise ronde 4 points (type non écrit)"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "100-240 V CA, embase IEC C14 avec interrupteur"
+      "format": "100-240 V CA, 50/60 Hz, 1,5 A ; embase IEC lue sur le schéma de la face arrière (spécifications, p. 5), avec interrupteur"
     }
   ],
   "aliases": [
     "Novastar VX1000"
-  ]
+  ],
+  "notes": "Non saisie : capteur de lumière (connecteur non publié par le constructeur ; « LIGHT SENSOR », prise ronde sur la face arrière)."
 }

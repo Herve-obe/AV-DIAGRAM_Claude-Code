@@ -4,7 +4,7 @@
   "manufacturer": "TC Electronic",
   "model": "Mainframe 6000 MKII",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://cdn.mediavalet.com/aunsw/musictribe/atsr2rqJk0CQQEHdz8zBWg/8n1djIW4iUOrITp-O61HUQ/Original/tc_electronic_system_6000_mkii_operation_manual_english.pdf",
@@ -20,6 +20,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tc-electronic_m6000mkii_manuel.pdf",
       "document": "TC Electronic, System 6000 MKII Operation Manual (copie du distributeur Novelty) : « System 6000 Mainframe Rear » p. 7, « Installing Additional I/O Cards » p. 11, « Specifications - Mainframe 6000 MKII » p. 66",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/tc-electronic_m6000mkii_manuel.pdf",
+      "document": "Relecture : manuel M6000 MKII (copie Novelty) : face arrière p. 7 (Power In 100-230 V auto, Pedal « tip to ground switch », LAN RJ-45, MIDI DIN 5 broches, BNC Word Clock), consigne de cordon secteur « like the one supplied with the product » (consignes de sécurité)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -60,14 +65,6 @@
       "direction": "out",
       "signal": "control",
       "connector": "din5"
-    },
-    {
-      "id": "smpte",
-      "name": "SMPTE",
-      "direction": "in",
-      "signal": "sync",
-      "connector": "jack-trs",
-      "format": "Entrée timecode SMPTE, jack 6,35 (« 1/4\" connection ») ; TS ou TRS non précisé par le manuel"
     },
     {
       "id": "gpi",
@@ -127,5 +124,6 @@
   ],
   "rackU": 2,
   "depthMm": 305,
-  "weightKg": 8.6
+  "weightKg": 8.6,
+  "notes": "Non saisie : entrée SMPTE (« 1/4 connection », TS ou TRS non précisé par le constructeur) ; prise Remote (service et test)."
 }

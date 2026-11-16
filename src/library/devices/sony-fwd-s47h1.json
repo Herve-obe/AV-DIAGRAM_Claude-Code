@@ -4,7 +4,7 @@
   "manufacturer": "Sony",
   "model": "FWD-S47H1",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "description": "Écran LCD professionnel 47 pouces Full HD, emplacement d'option",
   "sources": [
     {
@@ -15,6 +15,11 @@
       "url": "https://www.sony.com/electronics/support/res/manuals/4111/11e4696b24929453502bf797e4125d71/41115590M.pdf",
       "document": "Sony FWD-S47H1 — Operating Instructions",
       "accessed": "2026-10-26"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/981727/Sony-Fwd-S42h1.html?page=100",
+      "document": "Sony, FWD-S42H1/FWD-S47H1 Operating Instructions (copie ManualsLib, version française), p. 99-100 (face arrière) : prise AC IN avec cordon secteur fourni, HD15 IN/OUT, VIDEO IN/OUT BNC, S VIDEO IN mini-DIN 4 broches, DVI-D, mini-prises stéréo, port REMOTE 10BASE-T/100BASE-TX, prise SPEAKER pour SS-SPG02",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -31,8 +36,8 @@
       "name": "HD15 Loop Out",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Sortie de bouclage active ; connecteur non nommé"
+      "connector": "vga",
+      "format": "D-Sub 15 (HD15 RGB/COMPONENT OUT), sortie de bouclage"
     },
     {
       "id": "vgaAudio",
@@ -81,8 +86,8 @@
       "name": "Video Loop Out",
       "direction": "out",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Sortie de bouclage ; connecteur non nommé"
+      "connector": "bnc",
+      "format": "BNC (VIDEO OUT), sortie de bouclage"
     },
     {
       "id": "videoAudio",
@@ -103,15 +108,6 @@
       "level": "line+4"
     },
     {
-      "id": "spk",
-      "name": "Speaker Out",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "7 W + 7 W sous 6 ohms ; bornier non nommé",
-      "level": "speaker"
-    },
-    {
       "id": "lan",
       "name": "LAN",
       "direction": "bidir",
@@ -124,8 +120,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 3,3 A ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 3,3 A ; prise « AC IN », cordon secteur fourni ; forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 320,
@@ -135,5 +131,6 @@
       "name": "Option adaptor slot",
       "type": "sony-bkm-fw"
     }
-  ]
+  ],
+  "notes": "Non saisie : Speaker (prise pour enceintes SS-SPG02 non fournies ; connecteur non publié par le constructeur)."
 }

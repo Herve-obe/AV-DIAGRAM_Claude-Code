@@ -5,7 +5,7 @@
   "pictogram": "switch",
   "manufacturer": "ELC",
   "model": "Show Store",
-  "status": "community",
+  "status": "verified",
   "description": "Boitier d'enregistrement & restitution DMX",
   "aliases": [
     "SHOWSTORE",
@@ -16,9 +16,55 @@
       "url": "https://www.novelty.fr/produits/eclairage/dmx-eclairage/interface/show-store/",
       "document": "Novelty — Show Store",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://manualedistruzioni.it/elc/controllers/showstore/user-manual/13kbe",
+      "document": "ELC (constructeur), manuel utilisateur ShowSTORE (copie manualedistruzioni.it), relu : DMX in/out XLR 5, RS 232 SUB D9 femelle, GPI SUB-D 9 points, « 19\" 1HE rack unit with a 1.5m power cord »",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": [],
-  "portStatus": "pending",
-  "weightKg": 2
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "« DMX connection (input and output) », XLR 5 broches (la broche 4 est reliée à « other XLR5 pin 4 »)"
+    },
+    {
+      "id": "dmxOut",
+      "name": "DMX Out",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "XLR 5 broches"
+    },
+    {
+      "id": "rs232",
+      "name": "RS-232",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "« RS 232 connection (SUB D9 female) for control » : D-Sub 9 femelle"
+    },
+    {
+      "id": "gpi",
+      "name": "GPI",
+      "direction": "in",
+      "signal": "control",
+      "connector": "dsub9",
+      "format": "« GPI connection (parallel contact closure) on 9p SUB-D » : contacts secs en parallèle, D-Sub 9"
+    },
+    {
+      "id": "ac",
+      "name": "Secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "« 19\" 1HE rack unit with a 1.5m power cord » : cordon secteur de 1,5 m ; tension non publiée ; forme de l'embase non publiée par le constructeur"
+    }
+  ],
+  "weightKg": 2,
+  "notes": "Poids 2 kg : valeur de la page Novelty, non confirmée par le manuel ELC. Consommation non publiée. Le manuel ELC lu (ShowSTORE, Software V3.0 / ShowStore V2.0) peut ne pas correspondre à la version matérielle « ancien, disque dur 2 Go » du loueur."
 }

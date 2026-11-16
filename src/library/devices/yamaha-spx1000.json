@@ -5,7 +5,7 @@
   "manufacturer": "Yamaha",
   "model": "SPX1000",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "description": "Multi-effet numérique stéréo 1 U : entrées et sorties analogiques sur jacks mono asymétriques (+4/−20 dBm commutable), E/S numériques au format propriétaire Yamaha sur prises 8 broches, MIDI In et Thru/Out, quatre jacks de pédale à l'arrière et deux entrées de pédale d'expression en façade. 22 W ; 480 × 45,2 × 319 mm (L × H × P). Poids non publié dans le manuel constructeur.",
   "aliases": [
     "YAMAHA SPX1000",
@@ -97,61 +97,6 @@
       "format": "MIDI THRU ou OUT selon commutateur (DIN 5 broches)"
     },
     {
-      "id": "trig2",
-      "name": "Trigger 2 Analog",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; déclenchement par signal analogique, sensibilité micro/ligne commutable",
-      "level": "mic",
-      "modes": [
-        {
-          "connector": "unspecified",
-          "level": "line+4"
-        }
-      ]
-    },
-    {
-      "id": "fsBypass",
-      "name": "Footswitch Bypass",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; interrupteur au pied Yamaha FC5 ou équivalent"
-    },
-    {
-      "id": "fsIncDec",
-      "name": "Footswitch Memory Inc/Dec",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; FC5 ou équivalent, rappel d'une plage de programmes"
-    },
-    {
-      "id": "fsTrig1",
-      "name": "Footswitch Trigger 1",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; FC5 ou équivalent, même fonction que la touche TRIGGER"
-    },
-    {
-      "id": "extCtrl1",
-      "name": "Ext Ctrl / Foot Vol 1",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; en façade, pédale d'expression Yamaha FC7"
-    },
-    {
-      "id": "extCtrl2",
-      "name": "Ext Ctrl / Foot Vol 2",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Jack 6,35 mm (« phone jack ») ; nombre de contacts non précisé par le manuel ; en façade, pédale d'expression Yamaha FC7"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -159,5 +104,6 @@
       "connector": "mains-captive",
       "format": "Cordon secteur fixe (le schéma de la face arrière montre une sortie de cordon) ; 120 V 60 Hz ou 220-240 V 50/60 Hz, 22 W"
     }
-  ]
+  ],
+  "notes": "Non saisies : entrée de déclenchement TRIGGER 2, quatre jacks de pédale et deux entrées de pédale d expression en façade (« phone jack », nombre de contacts non publié par le constructeur)."
 }

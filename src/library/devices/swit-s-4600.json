@@ -4,14 +4,62 @@
   "manufacturer": "Swit",
   "model": "S-4600",
   "pictogram": "router",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Convertisseur portable 3G/HD/SD-SDI vers HDMI avec boucle SDI et sortie audio analogique",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
       "accessed": "2026-10-22"
+    },
+    {
+      "url": "https://www.markertek.com/Attachments/Manuals/Swit/S-4600-Manual.pdf",
+      "document": "SWIT (constructeur), manuel utilisateur S-4600 SDI to HDMI converter (copie Markertek) : vue produit, spécifications (SDI x1, boucle SDI, HDMI, audio 3,5 mm, DC 5,5 mm, 3 W, 200 g)",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "sdiIn",
+      "name": "SDI In",
+      "direction": "in",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI"
+    },
+    {
+      "id": "sdiLoop",
+      "name": "SDI Loop",
+      "direction": "out",
+      "signal": "video",
+      "connector": "bnc",
+      "format": "3G/HD/SD-SDI, sortie en boucle"
+    },
+    {
+      "id": "hdmiOut",
+      "name": "HDMI Out",
+      "direction": "out",
+      "signal": "video",
+      "connector": "hdmi",
+      "format": "Audio SDI désembarqué intégré à la sortie HDMI"
+    },
+    {
+      "id": "audioOut",
+      "name": "Audio Out",
+      "direction": "out",
+      "signal": "audioAnalog",
+      "connector": "minijack",
+      "format": "Sortie audio analogique 3,5 mm (audio embarqué SDI) ; niveau non publié, niveau ligne professionnel par défaut",
+      "level": "line+4"
+    },
+    {
+      "id": "dc",
+      "name": "DC In",
+      "direction": "in",
+      "signal": "power",
+      "connector": "dc-barrel",
+      "format": "DC 12 V (6-18 V), prise « 5.5mm pole DC input », adaptateur fourni"
+    }
+  ],
+  "powerW": 3,
+  "weightKg": 0.2
 }

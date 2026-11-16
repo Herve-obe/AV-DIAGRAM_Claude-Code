@@ -4,7 +4,7 @@
   "manufacturer": "MA Lighting",
   "model": "VPU basic MK2",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "weightKg": 15,
   "sources": [
     {
@@ -26,6 +26,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/ma-lighting_vpu-plus-mk2_manuel.pdf",
       "document": "MA Lighting (constructeur), VPU QuickManual XVI.05 (copie Novelty), p. 24 : photo du panneau arrière (3 DVI, powerCON in/out, 2 Ethernet, sortie audio XLR 3 symétrique L/R, USB, eSATA, SDI/genlock optionnels) ; manuel commun VPU plus et basic, ne désigne pas explicitement MK2",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://help.malighting.com/grandMA2/en/help/ma_vpu/key_comparison-vpu-plus-vpu-basic-vpu-light.html",
+      "document": "MA Lighting (constructeur), aide grandMA2, tableau comparatif VPU plus / basic MK2 / light : colonne « MA VPU basic MK2 » : 3 DVI (DVI-D dual, DVI-D single, DVI-I dual), 2 etherCON, powerCON in/out, 2 sorties audio XLR mâle symétriques niveau studio, USB (2 en façade, 2 USB 3.0 + 1 USB 2.0 à l'arrière), eSATA, SDI option",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -43,7 +48,7 @@
       "direction": "out",
       "signal": "video",
       "connector": "dvi",
-      "format": "DVI-D dual link"
+      "format": "DVI-D single link"
     },
     {
       "id": "dvi3",
@@ -89,7 +94,7 @@
     },
     {
       "id": "usb1",
-      "name": "USB 1",
+      "name": "USB arrière 1",
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
@@ -97,7 +102,7 @@
     },
     {
       "id": "usb2",
-      "name": "USB 2",
+      "name": "USB arrière 2",
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-a",
@@ -118,11 +123,36 @@
       "signal": "power",
       "connector": "powercon",
       "format": "powerCON gris, recopie secteur"
+    },
+    {
+      "id": "usb3",
+      "name": "USB arrière 3",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "Souris, clavier, stockage (USB 2.0)"
+    },
+    {
+      "id": "usbFront1",
+      "name": "USB face avant 1",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
+    },
+    {
+      "id": "usbFront2",
+      "name": "USB face avant 2",
+      "direction": "bidir",
+      "signal": "control",
+      "connector": "usb-a",
+      "format": "USB 2.0"
     }
   ],
   "aliases": [
     "VPU",
     "MA LIGHTING VPU Basic MK2"
   ],
-  "powerW": 300
+  "powerW": 300,
+  "notes": "Non saisies : eSATA 6G (connecteur absent du catalogue), entrées SDI (option) ; sorties audio XLR « studio level » (niveau chiffré non publié, ligne +4 dBu par défaut)."
 }

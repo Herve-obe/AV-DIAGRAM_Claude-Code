@@ -4,12 +4,17 @@
   "manufacturer": "Sony",
   "model": "HXC-D70 (caméra HD)",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "weightKg": 3.4,
   "sources": [
     {
-      "document": "Sony, HXC-D70 HD Color Camera Operating Instructions 4-291-685-11 (2), © 2011",
+      "document": "Sony, HXC-D70 HD Color Camera Operating Instructions 4-291-685-11 (2), © 2011 (numéro imprimé 4-291-686-11 sur la copie ManualsLib)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/883808/Sony-Hxc-D70.html?page=16",
+      "document": "Sony, HXC-D70 manuel d'utilisation (copie ManualsLib), p. 13-16 : connecteur CCU multiconducteur, TRUNK D-Sub 9, DC IN XLR 4 broches femelle, SDI IN/OUT et TEST en BNC, PROMPTER/GENLOCK BNC, AUDIO XLR 3 femelle, INTERCOM XLR 5, EARPHONE mini-jack stéréo, REMOTE 8 broches",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -119,15 +124,8 @@
       "signal": "power",
       "connector": "xlr4",
       "format": "XLR 4 broches, 10,5 à 17 V DC ; environ 1,92 A avec viseur, objectif et micro"
-    },
-    {
-      "id": "dcout",
-      "name": "DC OUT",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "4 broches femelle, 10,5 à 17 V DC, 1,5 A max (torche)"
     }
   ],
-  "powerW": 23
+  "powerW": 23,
+  "notes": "Non saisie : DC OUT (sortie d'alimentation 4 broches femelle pour torche ; connecteur non publié par le constructeur)."
 }

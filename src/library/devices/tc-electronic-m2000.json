@@ -4,7 +4,7 @@
   "manufacturer": "TC Electronic",
   "model": "M2000",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -26,6 +26,16 @@
       "url": "https://www.manualsdir.com/manuals/280363/tc-electronic-m2000.html?page=8",
       "document": "TC Electronic M2000 manual, face arrière p. 8, caractéristiques p. 31, niveaux nominaux p. 35 (copie ManualsDir)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/280363/tc-electronic-m2000.html?page=31",
+      "document": "Relecture : copie ManualsDir du manuel M2000, p. 31 : caractéristiques (XLR symétriques, DIN 5 broches, tension 100-240 V, < 20 W, pédale 1/4 phone jack)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://gearsupply.com/shop/tc-electronic-m2000/",
+      "document": "Gear Supply (revendeur), annonce M2000 : liste « Includes: Power Cable » (cordon secteur fourni)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -115,24 +125,18 @@
       "connector": "din5"
     },
     {
-      "id": "pedal",
-      "name": "Pédale",
-      "direction": "in",
-      "signal": "control",
-      "connector": "jack-trs"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "iec-c13",
-      "format": "Embase IEC avec interrupteur arrière (dessin de la face arrière, manuel p. 8), 100-240 V automatique"
+      "connector": "mains-cord",
+      "format": "100 à 240 V AC, 50-60 Hz (sélection automatique), < 20 W (caractéristiques, manuel p. 31) ; cordon secteur fourni, forme de l embase non publiée par le constructeur"
     }
   ],
   "aliases": [
     "M2000 TC",
     "TC-ELECTRONIC M2000"
   ],
-  "powerW": 20
+  "powerW": 20,
+  "notes": "Non saisie : prise pédale (« 1/4 phone jack » pour interrupteur au pied momentané, TS ou TRS non précisé) ; fente PC Card. Interrupteur secteur à l arrière."
 }

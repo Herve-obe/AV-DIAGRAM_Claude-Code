@@ -4,13 +4,14 @@
   "manufacturer": "Elation",
   "model": "KL Panel XL",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "powerW": 544,
   "weightKg": 17.2,
   "sources": [
     {
       "url": "https://www.elationlighting.com/products/kl-panel-xl",
-      "accessed": "2026-09-26"
+      "accessed": "2026-11-16",
+      "document": "Elation, page produit KL Panel XL (consultée pour la désignation et les caractéristiques)"
     },
     {
       "url": "https://www.novelty.fr/produits/eclairage/projecteurs-a-led/tv-photo/kl-panel-xl/",
@@ -19,8 +20,8 @@
     },
     {
       "url": "https://www.elationlighting.com/cdn/shop/files/Elation_KL_Panel_XL_-_User_Manual.pdf",
-      "document": "Elation, KL Panel XL User Manual (vue d'ensemble p. 8, caractéristiques)",
-      "accessed": "2026-11-07"
+      "document": "Elation, manuel utilisateur KL Panel XL, p. 8 (repérage Power In/Out, Net In/Out, Service Port, Battery Port, DMX 5 et 3 broches) et fiche technique (DMX 5 et 3 broches verrouillables, connecteur secteur IP65 In/Out, XLR 4 broches batterie, 544 W, 17,2 kg) ; liste de contenu « Power Cable (x1) »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -61,16 +62,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Connecteur non précisé, 100-240 V"
-    },
-    {
-      "id": "ac-out",
-      "name": "Recopie secteur",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Chaînage secteur"
+      "connector": "mains-cord",
+      "format": "100-240 V CA 50/60 Hz ; cordon secteur fourni (liste de contenu du manuel), forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "net-in",
@@ -89,14 +82,6 @@
       "format": "Embase RJ45 en boîtier IP65 (dessin du manuel), modèle exact non nommé"
     },
     {
-      "id": "usb",
-      "name": "USB",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Mise à jour, alimentation 5 V d'accessoires"
-    },
-    {
       "id": "batt",
       "name": "Batterie",
       "direction": "in",
@@ -108,5 +93,6 @@
   "aliases": [
     "KLPANELXL",
     "Elation KL PANEL XL"
-  ]
+  ],
+  "notes": "Non saisie : recopie secteur Power Out (connecteur non publié par le constructeur). Non saisie : port USB de service (mise à jour, alimentation 5 V d'accessoires ; connecteur non publié par le constructeur)."
 }

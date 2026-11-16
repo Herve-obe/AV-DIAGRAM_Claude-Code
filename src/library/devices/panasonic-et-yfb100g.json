@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "ET-YFB100G",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://docs.connect.panasonic.com/prodisplays/products/et-yfb100g/",
@@ -15,6 +15,11 @@
       "url": "https://www.fullcompass.com/common/files/18159-ETYFB100GSpecsSheet.pdf",
       "document": "Panasonic ET-YFB100G Spec Sheet, septembre 2012 (copie revendeur Full Compass)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://pna-b2b-storage-mkt.s3.amazonaws.com/production/8139_ET-YFB100G_Operating_Instruction_English.pdf",
+      "document": "Panasonic, ET-YFB100G Operating Instructions (copie Panasonic Amérique du Nord), p. 14 (panneau de connexion), p. 24 (schéma du bloc secteur dans l'embase DC IN 16V), p. 50-51 (spécifications) : toutes les prises de la fiche",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -48,15 +53,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "dsub15",
-      "format": "D-sub HD 15 femelle"
-    },
-    {
-      "id": "pcOut",
-      "name": "Computer 1 Out",
-      "direction": "out",
-      "signal": "video",
-      "connector": "dsub15",
-      "format": "D-sub HD 15 femelle, recopie"
+      "format": "D-sub HD 15 femelle : RGB ou YPbPr"
     },
     {
       "id": "video",
@@ -105,7 +102,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "D-Sub 9 femelle, RS-232C"
+      "format": "D-Sub 9 broches, RS-232C, commande externe"
     },
     {
       "id": "remote",
@@ -113,7 +110,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "D-Sub 9 femelle, commande parallèle"
+      "format": "D-Sub 9 broches, commande externe"
     },
     {
       "id": "lan",
@@ -121,16 +118,17 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "100BASE-TX"
+      "format": "RJ-45, 10BASE-T/100BASE-TX, compatible PJLink"
     },
     {
       "id": "ac",
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "16 V CC, bloc secteur fourni (100-240 V) ; type de prise non écrit"
+      "connector": "dc-barrel",
+      "format": "16 V CC, 3,75 A ; bloc secteur fourni (100-240 V, 50/60 Hz), fiche coudée de type jack d'alimentation lue sur le schéma du manuel, p. 24"
     }
   ],
-  "powerW": 16
+  "powerW": 16,
+  "notes": "Le manuel (p. 14 et 50) ne mentionne aucune sortie COMPUTER : la prise « Computer 1 Out » de l'ancienne fiche a été retirée."
 }

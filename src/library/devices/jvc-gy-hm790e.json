@@ -4,16 +4,16 @@
   "manufacturer": "JVC",
   "model": "GY-HM790E",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "JVC, GY-HM790U / GY-HM790E HD Memory Card Camera Recorder Instructions (LST1108-001A)",
-      "accessed": "2026-09-25"
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://manuals.jvckenwood.com/download/files/LST1108-001A.pdf",
-      "document": "JVC GY-HM790U / GY-HM790E Instructions LST1108-001A",
-      "accessed": "2026-11-07"
+      "document": "JVC (constructeur), GY-HM790U / GY-HM790E Instructions LST1108-001A : panneau de connexion ; STUDIO (10 broches) et REMOTE (6 broches) sans forme nommée",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -132,22 +132,6 @@
       "format": "Mini USB-B 2.0, stockage de masse"
     },
     {
-      "id": "studio",
-      "name": "STUDIO",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "10 broches, liaison studio (adaptateur studio)"
-    },
-    {
-      "id": "remote",
-      "name": "REMOTE",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "6 broches JVC (télécommandes RM-LP25U / RM-LP55U / RM-P210)"
-    },
-    {
       "id": "dc",
       "name": "DC INPUT",
       "direction": "in",
@@ -174,5 +158,6 @@
       "format": "Mini-jack 3,5 stéréo"
     }
   ],
-  "powerW": 26
+  "powerW": 26,
+  "notes": "Non saisie : prise STUDIO 10 broches (liaison studio) ; non saisie : prise REMOTE 6 broches JVC (connecteurs propriétaires non publiés par le constructeur)."
 }

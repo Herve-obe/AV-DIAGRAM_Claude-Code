@@ -4,7 +4,7 @@
   "manufacturer": "Blackmagic Design",
   "model": "ATEM Television Studio Pro 4K",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.leni.fr/wp-content/uploads/2022/09/peripherique-video-ATEM-TV-PRO-4K.pdf",
@@ -15,6 +15,21 @@
       "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/atem-television-studio-pro-4k/",
       "document": "Novelty — ATEM Television Studio Pro 4K",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.adorama.com/bmatemtvs4.html",
+      "document": "Adorama (revendeur), fiche ATEM Television Studio Pro 4K : alimentation interne 110-240 V CA, « Power Cable Not Included », cordons vendus séparément ; talkback « uses aviation headset »",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.leni.fr/wp-content/uploads/2022/09/peripherique-video-ATEM-TV-PRO-4K.pdf",
+      "document": "Blackmagic Design, Technical Specifications ATEM Television Studio Pro 4K (copie Leni), pp. 1-4 : 8 entrées SDI, 9 sorties programme, 1 aux, multiview SDI et HDMI, 2 XLR, référence, mise à jour par USB, alimentation interne 100-240 V CA, 70 W",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/atem-television-studio-pro-4k/",
+      "document": "Novelty (loueur), page produit : synchronisation (BNC), aux vidéo (BNC), 2 XLR audio, Ethernet RJ-45, port USB 2.0 type B, alimentation interne 100-240 V CA",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -196,14 +211,6 @@
       "level": "line+4"
     },
     {
-      "id": "tb",
-      "name": "Talkback",
-      "direction": "bidir",
-      "signal": "intercom",
-      "connector": "unspecified",
-      "format": "Casque type aviation (micro + écouteurs), prises non décrites"
-    },
-    {
       "id": "ref",
       "name": "Reference In",
       "direction": "in",
@@ -223,20 +230,22 @@
       "name": "USB",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Configuration"
+      "connector": "usb-b",
+      "format": "USB 2.0 type B, configuration et mises à jour (page Novelty, loueur)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "mains-cord",
+      "format": "100-240 V CA, alimentation interne ; cordon secteur détachable non fourni (vendu séparément, Adorama) ; forme de l'embase non publiée par le constructeur pour ce modèle"
     }
   ],
   "aliases": [
     "ATEMTVSTUDPRO4K",
     "BlackMagicDesign ATEM Television Studio Pro 4K"
   ],
-  "powerW": 70
+  "powerW": 70,
+  "notes": "Non saisies : talkback (casque de type aviation, prises jack 6,35 mm selon un loueur, non publiées par le constructeur), entrée microphone, sortie casque, RS-422 (D-Sub 9 selon un loueur), entrée d'alimentation continue 12 V CC à 4 broches (secours)."
 }

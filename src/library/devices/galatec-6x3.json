@@ -5,8 +5,8 @@
   "pictogram": "switch",
   "manufacturer": "GALATEC",
   "model": "6×3",
-  "status": "community",
-  "description": "Bloc de puissance Galatec 6 × 3 kW, rack 19 pouces 3 U : commande DMX512 (XLR 5 entrée et recopie) et analogique 0-10 V (DIN 8), 6 voies 16 A sur PC 16 A, arrivée P17 32 A triphasée.",
+  "status": "verified",
+  "description": "Bloc de puissance Galatec 6 × 3 kW, rack 19 pouces 3 U : commande DMX512 (XLR 5 entrée et recopie) et analogique 0-10 V (DIN 8), 6 voies 16 A sur double PC 10/16 A par voie, arrivée P17 32 A triphasée.",
   "aliases": [
     "Compact Control 4",
     "BP3K/6X3",
@@ -15,8 +15,8 @@
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/3kw/6x3/",
-      "document": "Novelty — 6×3",
-      "accessed": "2026-10-19"
+      "document": "Novelty (loueur), page produit 6×3 « Compact Control 4 » (Codart BP3K/6X3) : DMX 512 XLR 5 mâle et femelle, analogique 0-10 V sur DIN 8 broches verrouillable, embase mâle CEE 17 32 A triphasée, 6 voies 16 A sur double PC 10/16 A par voie",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -58,7 +58,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+      "format": "Double PC 10/16 A par voie (prises françaises), 16 A (3,7 kW) par voie ; page loueur"
     },
     {
       "id": "out2",
@@ -66,7 +66,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+      "format": "Double PC 10/16 A par voie (prises françaises), 16 A (3,7 kW) par voie ; page loueur"
     },
     {
       "id": "out3",
@@ -74,7 +74,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+      "format": "Double PC 10/16 A par voie (prises françaises), 16 A (3,7 kW) par voie ; page loueur"
     },
     {
       "id": "out4",
@@ -82,7 +82,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+      "format": "Double PC 10/16 A par voie (prises françaises), 16 A (3,7 kW) par voie ; page loueur"
     },
     {
       "id": "out5",
@@ -90,7 +90,7 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+      "format": "Double PC 10/16 A par voie (prises françaises), 16 A (3,7 kW) par voie ; page loueur"
     },
     {
       "id": "out6",
@@ -98,8 +98,8 @@
       "direction": "out",
       "signal": "power",
       "connector": "cee7-e",
-      "format": "PC 10/16 A, 16 A (3,7 kW) par voie"
+      "format": "Double PC 10/16 A par voie (prises françaises), 16 A (3,7 kW) par voie ; page loueur"
     }
   ],
-  "portStatus": "pending"
+  "notes": "Connectique lue sur la seule page du loueur Novelty (aucun document constructeur trouvé). Non saisie : sortie multibroche 16 points (type Harting) que la page propose « et/ou » en plus des doubles PC, sans dire si l'exemplaire du parc en dispose."
 }

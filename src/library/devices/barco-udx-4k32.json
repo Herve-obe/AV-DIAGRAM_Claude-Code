@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Barco",
   "model": "UDX-4K32",
-  "status": "community",
+  "status": "verified",
   "description": "Projecteur pour grands espaces au phosphore laser DLP 3 puces 4K UHD 31 000 lumens",
   "aliases": [
     "BARCO UDX-4K32"
@@ -28,8 +28,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_manuel-uk.pdf",
-      "document": "Novelty — UDX-4K32 : UDX-4K32 (UK)",
-      "accessed": "2026-10-19"
+      "document": "Barco, manuel UDX R5906112 (17/06/2017) hébergé par Novelty (loueur) : alimentation 120-160 V / 200-240 V 20 A, accessoire standard « Power cord », panneau de communication p. 22 (schéma lu : prise 12 V, USB-A, LAN, DMX XLR 5, remote XLR, RS232 Sub-D, sync 3D BNC), chap. 3 « Input & Communication » (HDBaseT Input 1 et 2)",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_manuel-de.pdf",
@@ -43,8 +43,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_Installation-manuel-uk.pdf",
-      "document": "Novelty — UDX-4K32 : Installation (UK)",
-      "accessed": "2026-10-19"
+      "document": "Barco, manuel UDX R5906112 (17/06/2017) hébergé par Novelty (loueur) : alimentation 120-160 V / 200-240 V 20 A, accessoire standard « Power cord », panneau de communication p. 22 (schéma lu : prise 12 V, USB-A, LAN, DMX XLR 5, remote XLR, RS232 Sub-D, sync 3D BNC), chap. 3 « Input & Communication » (HDBaseT Input 1 et 2)",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_udx-4k32_Safety-DE.pdf",
@@ -90,7 +90,7 @@
       "direction": "in",
       "signal": "video",
       "connector": "rj45",
-      "format": "HDBaseT (la fiche technique annonce une entrée unique ; le dessin du module V&H du manuel en montre deux)"
+      "format": "HDBaseT (entrée 1 ; le manuel liste une seconde entrée HDBaseT 2 non saisie)"
     },
     {
       "id": "sdi1",
@@ -153,7 +153,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "mains-cord",
+      "format": "120-160 V / 200-240 V AC (+/- 10 %), 20 A, 50-60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "dmxIn",
@@ -216,5 +217,6 @@
         "barco-udx-var-input"
       ]
     }
-  ]
+  ],
+  "notes": "Non saisies : deuxième entrée HDBaseT, entrée série USB-B (équivalente au Sub-D), antennes optionnelles."
 }

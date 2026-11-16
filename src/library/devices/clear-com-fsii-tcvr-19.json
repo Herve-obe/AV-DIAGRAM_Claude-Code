@@ -5,8 +5,8 @@
   "pictogram": "intercom",
   "manufacturer": "Clear-Com",
   "model": "FSII-TCVR-19",
-  "status": "community",
-  "description": "Antenne émetteur-récepteur active FreeSpeak II 1,9 GHz, IP65, reliée à la base ou au splitter en etherCON, alimentée localement ou par la base (une antenne, 300 m). Connecteur DC non précisé (XLR d'après la notice, nombre de broches non indiqué).",
+  "status": "verified",
+  "description": "Antenne émetteur-récepteur active FreeSpeak II 1,9 GHz, IP65, reliée à la base ou au splitter en etherCON RJ45, alimentée par la base (liaisons de moins de 300 m) ou localement.",
   "aliases": [
     "FSII-TCVR-19-EU",
     "FreeSpeak II antenne 1,9 GHz"
@@ -15,8 +15,8 @@
   "sources": [
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/clearcom_freespeak-ii_1-9antenna_ft.pdf",
-      "document": "Clear-Com, fiche FreeSpeak II-19 Antenna v.1 7/15 (copie Novelty) : etherCON, DC In, USB usine, 0,19 kg",
-      "accessed": "2026-11-07"
+      "document": "Clear-Com (constructeur), fiche FreeSpeak II-19 Antenna v.1 7/15 : « Ethercon RJ-45 (base/matrix connection) », DC In, USB (factory use), alimentation locale ou par la base, IP-65, 0,19 kg",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/clearcom_freespeak-ii_base-ii_manuel.pdf",
@@ -40,14 +40,7 @@
       "signal": "intercom",
       "connector": "ethercon",
       "format": "Vers base FSII ou splitter, Cat 5/6 blindé"
-    },
-    {
-      "id": "dc",
-      "name": "DC In",
-      "direction": "in",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation locale ; fiche XLR mâle côté alimentation selon la notice"
     }
-  ]
+  ],
+  "notes": "Non saisie : entrée « DC In » d'alimentation locale (facultative, l'antenne pouvant être alimentée par la base : connecteur non publié, XLR d'après la notice sans nombre de broches). Non saisi : port USB réservé à l'usine."
 }

@@ -5,7 +5,7 @@
   "manufacturer": "Sony",
   "model": "HXCU-TX70 (CCU triax)",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "rackU": 1.5,
   "weightKg": 7.9,
   "description": "CCU pour HXC-D70 via CA-TX70. Liaison caméra triax, version Fischer indiquée pour cet usage. Hauteur physique 1,5 U ; deux U entières réservées dans la vue baies.",
@@ -23,8 +23,8 @@
     },
     {
       "url": "https://www.fullcompass.com/common/files/19866-DigitalTriaxBrochurewithSpecifications.pdf",
-      "document": "Sony, brochure Digital Triax / Fiber HXC-D70, HXCU-FB70, HXCU-TX70 avec caractéristiques (via Full Compass)",
-      "accessed": "2026-11-07"
+      "document": "Sony, brochure Digital Triax / Fiber (copie Full Compass), colonne HXCU-TX70 : AC 100-240 V 50/60 Hz, sortie micro XLR 3 broches mâle x2 0/-20 dBu, entrées/sorties (triax, D-sub 25, remote 8 broches, LAN RJ-45, BNC, XLR 5) ; accessoires fournis : numéros, mode d'emploi, CD-ROM, garantie (pas de cordon secteur) ; rubrique « Input connectors : AC input, AC 100 V to 240 V » (embase secteur nommée sans sa forme)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -194,7 +194,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie audio caméra, 0 dBu ou −20 dBu."
+      "format": "Sortie audio caméra, 0 dBu ou −20 dBu.",
+      "level": "line+4"
     },
     {
       "id": "audio-out2",
@@ -202,7 +203,8 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "xlr3",
-      "format": "Sortie audio caméra, 0 dBu ou −20 dBu."
+      "format": "Sortie audio caméra, 0 dBu ou −20 dBu.",
+      "level": "line+4"
     },
     {
       "id": "headset",
@@ -251,8 +253,8 @@
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100–240 V CA, 50/60 Hz ; 4,5 A max. Puissance en watts non déclarée."
+      "connector": "mains-cord",
+      "format": "100–240 V CA, 50/60 Hz ; 4,5 A max. ; « AC input » nommée par le constructeur sans sa forme ; cordon secteur non listé dans les accessoires fournis ; forme de l'embase non publiée par le constructeur. Puissance en watts non déclarée."
     }
   ]
 }

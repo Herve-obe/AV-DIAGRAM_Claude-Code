@@ -4,7 +4,7 @@
   "manufacturer": "iiyama",
   "model": "ProLite B2780HSU-B1",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "description": "Écran LED 27 pouces Full HD, entrées VGA, DVI et HDMI, hub USB",
   "sources": [
     {
@@ -25,6 +25,11 @@
       "url": "https://iiyama.com/pdf/Product/254/en.pdf",
       "document": "iiyama (constructeur), fiche produit ProLite B2780HSU-B1 (EN) : alimentation interne 100-240 V, 37 W typique, 8 kg sans emballage, 642 x 438-548 x 250 mm",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://asset.conrad.com/media10/add/160267/c1/-/de/000375274ML01/manual-375274-iiyama-b2780hsu-b1-led-686-cm-27-inch-eec-b-a-f-1920-x-1080-p-2-ms-dvi-hdmi-usb-vga-mva-led.pdf",
+      "document": "iiyama (constructeur), manuel B2780HSU-B1 (DE, copie Conrad), relu le 2026-11-16 : contenu de l'emballage « Netzkabel », « Schließen Sie das Netzkabel erst an den Monitor ... »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -63,11 +68,12 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation interne ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "Alimentation interne, 100-240 V ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 37,
   "weightKg": 8,
-  "depthMm": 250
+  "depthMm": 250,
+  "notes": "Non saisies : 3 prises USB-DOWN, prise casque et entrée audio (connecteurs non nommés ou non modélisés dans cette fiche)."
 }

@@ -5,7 +5,7 @@
   "pictogram": "processor",
   "manufacturer": "NEXO",
   "model": "DTD-T-N",
-  "status": "community",
+  "status": "verified",
   "description": "DTD-T-N : contrôleur NEXO avec réception Dante stéréo. Entrées analogiques XLR et Link, entrée AES3, Mini-USB, sorties ligne L/R/Sub. Deux entrées Speakon de mesure reçoivent les amplificateurs et deux sorties Speakon en façade les redistribuent aux enceintes : le DTD ne les amplifie pas. 1U, 480 × 44 × 65 mm, 1,3 kg, 20 W maximum.",
   "aliases": [
     "DTD-TN",
@@ -40,6 +40,11 @@
       "url": "https://www.getdante.com/product/nexo-dtd-t-n/",
       "document": "Catalogue officiel Dante/Audinate, NEXO DTD-T-N : identité produit et interface Dante ; pas de confirmation textuelle de l’IEC C14",
       "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.nexo-sa.com/wp-content/uploads/DTD_USER_MANUAL_EN_FR_v1.4.pdf",
+      "document": "NEXO (constructeur), DTD User Manual v1.4, p. 4, 5, 7 et 8 relus : dessin de la face arrière DTD-T (embase IEC C14 « 90-240V~ 50/60 Hz 20W », 2 Speakon SP4, RJ45 Dante, XLR AES/EBU, 3 XLR de sortie) ; entrées analogiques XLR en face avant",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -179,7 +184,7 @@
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "IEC C14 confirmée par l’utilisateur ; 90–240 V, 50/60 Hz selon notice"
+      "format": "Embase IEC C14 lue sur le dessin de la face arrière DTD-T, manuel p. 8 ; 90–240 V 50/60 Hz 20 W (inscription de la plaque)"
     }
   ],
   "weightKg": 1.3,

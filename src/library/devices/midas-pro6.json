@@ -4,7 +4,7 @@
   "manufacturer": "Midas",
   "model": "PRO6",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.avlfx.com/category/product/1845-midas-pro-series-pro-6-cc-ip-live-digital-console-control-centre-with-64-input-channels-35-mix-buses-and-96-khz-sample-rate/category_pathway-52",
@@ -20,6 +20,11 @@
       "url": "https://www.manualslib.com/manual/1919930/Midas-Pro6.html?page=279",
       "document": "Midas PRO6 Owner’s Manual, sections snake X/Y, word clock, AES50, Ethernet, I/O p. 277-280 et spécification p. 352 (copie ManualsLib)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.eviaudio.fr/wp-content/uploads/2019/05/midas_pro6_manuel2.pdf",
+      "document": "Midas, PRO6 Live Audio System Owner's Manual (copie eviaudio.fr, 614 p.), p. 21 « Front and rear panel connections » : prise phones sous l'accoudoir gauche (monitor A) et droit (monitor B) ; spécifications PRO6 Control Surface (p. 329-330) : « Headphone connector ¼\" Jack (stereo) »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -125,20 +130,20 @@
       "name": "Casque A",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "jack-trs",
       "level": "none",
       "channels": 2,
-      "format": "Sous l’accoudoir gauche, bus monitor A ; type de prise non précisé"
+      "format": "Sous l’accoudoir gauche, bus monitor A ; jack 1/4\" stéréo (spécification PRO6 Control Surface)"
     },
     {
       "id": "phonesB",
       "name": "Casque B",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "jack-trs",
       "level": "none",
       "channels": 2,
-      "format": "Sous l’accoudoir droit, bus monitor B ; type de prise non précisé"
+      "format": "Sous l’accoudoir droit, bus monitor B ; jack 1/4\" stéréo (spécification PRO6 Control Surface)"
     },
     {
       "id": "snakeXopt",

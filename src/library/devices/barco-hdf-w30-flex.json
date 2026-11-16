@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Barco",
   "model": "HDF-W30 Flex",
-  "status": "community",
+  "status": "verified",
   "description": "Vidéoprojecteur Full HD, 30 000 lumens, WUXGA, 1920 x 1080, luminosité Flex (18 000 à 30 000 lumens par incrément de 2 000 lumens)",
   "aliases": [
     "HDFW30FLEX",
@@ -24,8 +24,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdf-w30-flex_manuel.pdf",
-      "document": "Novelty — HDF-W30 Flex : HDF-W30 Flex",
-      "accessed": "2026-10-19"
+      "document": "Barco, manuel HDF R5905158 hébergé par Novelty (loueur) : cordon d'alimentation livré avec le projecteur, prise 12 V (sortie), DMX XLR 5 broches, entrée DVI-I double lien, ports RS232/RS422 (Sub-D et USB-B), USB-A maître, télécommande XLR, Ethernet EtherCon",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/barco_hdf-w30-flex_Quick-Start-Guide.pdf",
@@ -44,7 +44,8 @@
       "name": "Dual-Link DVI-I",
       "direction": "in",
       "signal": "video",
-      "connector": "dvi"
+      "connector": "dvi",
+      "format": "DVI-I double lien HDCP, jusqu'à 210 MHz"
     },
     {
       "id": "sdiIn1",
@@ -83,22 +84,24 @@
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45",
-      "format": "100BASE-T, Art-Net"
+      "connector": "ethercon",
+      "format": "10/100BASE-T, Neutrik EtherCon RJ45, Art-Net"
     },
     {
       "id": "dmxIn",
       "name": "DMX In",
       "direction": "in",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX, XLR 5 broches (entrée)"
     },
     {
       "id": "dmxOut",
       "name": "DMX Out",
       "direction": "out",
       "signal": "dmx",
-      "connector": "xlr5"
+      "connector": "xlr5",
+      "format": "DMX, XLR 5 broches (sortie, bouclage vers l'appareil suivant)"
     },
     {
       "id": "remote",
@@ -125,20 +128,12 @@
       "format": "USB type A maître : mises à jour et sauvegardes sur clé"
     },
     {
-      "id": "dcOut",
-      "name": "12 V / 1 A Out",
-      "direction": "out",
-      "signal": "power",
-      "connector": "dc-barrel",
-      "format": "12 V, 1 A max, actif hors veille ; embase ronde de type jack DC d'après le dessin du panneau (manuel HDF R5905158, p. 44), non nommée dans le texte"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "200–240 V AC ; cordon fourni, type d'embase côté projecteur non nommé"
+      "connector": "mains-cord",
+      "format": "200-240 V AC 50/60 Hz, 24 A à 200 V ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "usbRs",
@@ -170,5 +165,6 @@
         "barco-r9864140"
       ]
     }
-  ]
+  ],
+  "notes": "Non saisie : sortie 12 V (1 A max, alimentation d'un équipement externe) (connecteur non publié par le constructeur). Non saisies aussi : synchro 3D (BNC), ports d'antenne optionnels."
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Robert Juliat",
   "model": "Ivanhoe",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "powerW": 2500,
   "sources": [
     {
@@ -40,6 +40,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203953552.pdf",
       "document": "Robert Juliat (constructeur), dossier technique 1039/1439, p. A-6 : « e - EF secteur CEE - 10A. 250V » ; pièce détachée COU0003250 « Embase femelle CEE / EEC female socket - 2p + T 10A. 250V » (utilisation maximale 2 A) ; la forme exacte de l'embase n'est nommée nulle part",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/fichiers/1203953552.pdf",
+      "document": "Robert Juliat (constructeur), dossier technique 1039/1439, relu : « d - EM HARTING 16 x 16A alimentation » côté projecteur (ac) ; sortie CEE 10 A secondaire non saisie",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -50,19 +55,12 @@
       "signal": "power",
       "connector": "multipin",
       "format": "Harting 16 × 16 A + terre, liaison 3 m"
-    },
-    {
-      "id": "auxPower",
-      "name": "Secteur auxiliaire scroller",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Embase femelle CEE 2P + T, 10 A / 250 V (dossier technique p. A-6 ; pièce COU0003250, utilisation maximale 2 A) ; forme exacte non précisée"
     }
   ],
   "aliases": [
     "Ivanhoé",
     "JULIAT Ivanhoé"
   ],
-  "description": "Poursuite Ivanhoe 1039, lampe HMI 2 500 W et ballast séparé. La tête a une entrée Harting 16 × 16 A + terre et une sortie secteur auxiliaire CEE 10 A / 250 V pour scroller. Le câble P17 32 A décrit appartient au ballast. Les versions B/CB ajoutent XLR7 de commande et sortie DATA XLR5 ; suffixe du parc non connu, ces options ne sont pas ajoutées."
+  "description": "Poursuite Ivanhoe 1039, lampe HMI 2 500 W et ballast séparé. La tête a une entrée Harting 16 × 16 A + terre. Le câble P17 32 A décrit appartient au ballast. Les versions B/CB ajoutent XLR7 de commande et sortie DATA XLR5 ; suffixe du parc non connu, ces options ne sont pas ajoutées.",
+  "notes": "Non saisie : secteur auxiliaire scroller, embase femelle CEE 2P+T 10 A / 250 V (connecteur non publié par le constructeur)."
 }

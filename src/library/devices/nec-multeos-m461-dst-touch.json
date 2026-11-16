@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "NEC",
   "model": "Multeos M461 DST Touch",
-  "status": "community",
+  "status": "verified",
   "description": "Ecran 46\" tactile Full HD, 1920x1080",
   "aliases": [
     "M461-LCDTACTILE",
@@ -19,13 +19,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/UserManual-M401-M461-english.pdf",
-      "document": "Novelty — Multeos M461 DST Touch : M461 DST Touch",
-      "accessed": "2026-10-19"
+      "document": "NEC (constructeur, hébergé par Novelty), manuel utilisateur M401/M461 (sans tactile), page 8-9 : panneau de connexion, AC IN avec cordon fourni, REMOTE IN/OUT par câble mini-jack stéréo 3,5 mm",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/NEC_Datasheet_M461DST-english.pdf",
-      "document": "Novelty — Multeos M461 DST Touch : M461 DST Touch",
-      "accessed": "2026-10-19"
+      "document": "NEC (constructeur, hébergé par Novelty), fiche technique M461 with DST Touch : entrées/sorties vidéo et audio, DisplayPort, Ethernet, RS-232C, 280 W max, alimentation interne, cordon et câble USB fournis",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/produits/video/ecran-tactile/46-pouces/multeos-m461-dst-touch-3/",
@@ -155,7 +155,7 @@
       "direction": "out",
       "signal": "audioAnalog",
       "connector": "minijack",
-      "format": "Sortie audio 0,5 Vrms ; manuel NEC : RCA (L/R), fiche commerciale : jack 3,5 mm (conflit)",
+      "format": "Prise jack 3,5 mm (fiche technique DST : « 1 x 3.5 mm Head-jack »)",
       "level": "line+4"
     },
     {
@@ -198,29 +198,12 @@
       "format": "Remote OUT, mini-jack stéréo 3,5 mm"
     },
     {
-      "id": "spk",
-      "name": "External Speaker Terminal",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "15 W + 15 W sous 8 ohms ; bornier non nommé",
-      "level": "speaker"
-    },
-    {
-      "id": "touch",
-      "name": "Touch USB",
-      "direction": "out",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Dalle tactile DST, protocole USB HID, câble USB fourni ; forme du port non nommée"
-    },
-    {
       "id": "ac",
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Interrupteur général ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "Alimentation interne 100-120/220-240 V ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 280,
@@ -230,5 +213,6 @@
       "name": "Option board slot",
       "type": "nec-option-slot"
     }
-  ]
+  ],
+  "notes": "Non saisies : sortie haut-parleurs externes 15 W + 15 W (bornier non publié) ; port USB de la dalle tactile DST, protocole USB HID, câble USB fourni (forme du port non publiée pour ce modèle). Le manuel cité est celui des M401/M461 sans tactile : le panneau de connexion en est tiré, la fiche technique DST confirme entrées, sorties, DisplayPort, Ethernet, RS-232C, alimentation et cordon."
 }

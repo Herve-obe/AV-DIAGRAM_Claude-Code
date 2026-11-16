@@ -5,7 +5,7 @@
   "pictogram": "router",
   "manufacturer": "Digital Forecast",
   "model": "Bridge-M-HH",
-  "status": "community",
+  "status": "verified",
   "description": "Convertisseur de signaux HDMI vers 3G-SDI avec scaler intégré",
   "aliases": [
     "Digital Forecast Bridge-M-HH"
@@ -25,6 +25,11 @@
       "url": "https://www.adorama.com/dfmhh.html",
       "document": "Adorama (revendeur), fiche Bridge M_HH : « 1x 3.5mm stereo analog audio », « 1x USB », « 1x DC power » (type USB non précisé)",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/digital-forecast_bridge-m-hh_ft.pdf",
+      "document": "Digital Forecast (constructeur), fiche technique Bridge M_HH (copie Novelty), p. 1 : entrée HDMI, sortie HDMI, sortie SDI, entrée audio L/R « stereo audio jack », DC 5-24 V, 95 g, 4,37 W (max 5 W), 20 mm de profondeur ; schéma coté de la face d'entrée : HDMI, Mini USB, jack audio rond et embase DC à jack",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -66,7 +71,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "usb-mini",
-      "format": "Socket shown in manufacturer dimensional drawing; function not specified"
+      "format": "Mini USB lu sur le schéma coté de la fiche constructeur (fonction non précisée)"
     },
     {
       "id": "dc",
@@ -74,10 +79,11 @@
       "direction": "in",
       "signal": "power",
       "connector": "dc-barrel",
-      "format": "5-24 V DC, nominal 12 V"
+      "format": "5-24 V CC, nominal 12 V ; jack DC lu sur le schéma coté de la fiche constructeur"
     }
   ],
   "weightKg": 0.095,
   "powerW": 5,
-  "depthMm": 20
+  "depthMm": 20,
+  "notes": "Niveau de l'entrée audio : +4 dBu par défaut (matériel professionnel, niveau non publié par le constructeur)."
 }

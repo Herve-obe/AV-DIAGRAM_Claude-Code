@@ -4,7 +4,7 @@
   "manufacturer": "OXO",
   "model": "Simoun 2",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -17,12 +17,13 @@
     },
     {
       "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/2kw/simoun-2-set-x2/",
-      "accessed": "2026-10-19"
-    },
-    {
-      "url": "https://www.novelty.fr/produits/eclairage/blocs-de-puissance/2kw/simoun-2-set-x2/",
       "document": "Novelty (loueur), page Simoun 2 set x2 : « Sortie graduée sur embase PC16A », DMX entrée et sortie XLR 3 broches, 230 VAC 50-60 Hz",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://impact-even.com/userfiles/files/telechargement/eclairage/oxo_simoun2r_manuel.pdf",
+      "document": "OXO, manuel Simoun 2 [R] V1.3 11/2021 (copie Impact Événement), p. 5 et 6 : cordon secteur, DMX XLR3 In mâle / Out femelle, sortie 10 A max., F10A, 182x92x65 mm, 1,1 kg",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -48,18 +49,18 @@
       "direction": "in",
       "signal": "power",
       "connector": "mains-captive",
-      "format": "Cordon secteur, 230 V 50 Hz, 2 300 W max., fusible F10A"
+      "format": "Cordon secteur, 230 V 50 Hz, 10 A max., fusible F10A 250 V"
     },
     {
       "id": "acOut",
       "name": "Sortie gradée",
       "direction": "out",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "1 voie, 2 300 W max., sortie graduée sur embase « PC16A » (Novelty) ; type de prise non précisé par OXO"
+      "connector": "cee7-e",
+      "format": "1 voie, 10 A max. ; prise « PC 16 A » (Novelty), sortie sous volet IP54 sur la photo du manuel"
     }
   ],
-  "description": "Gradateur 1 voie OXO Simoun 2, 2 300 W max., commande DMX (XLR 3 entrée et recopie) et curseur HTP ; 182 × 92 × 65 mm, 1,1 kg.",
+  "description": "Gradateur 1 voie OXO Simoun 2 [R], sortie 10 A max., commande DMX (XLR 3 entrée et recopie) et curseur HTP ; 182 × 92 × 65 mm, 1,1 kg.",
   "aliases": [
     "Simoun 2, set x2",
     "1X2 (X2)",

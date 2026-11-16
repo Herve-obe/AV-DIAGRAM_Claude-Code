@@ -5,10 +5,11 @@
   "pictogram": "display",
   "manufacturer": "Samsung",
   "model": "DB40E",
-  "status": "community",
+  "status": "verified",
   "description": "Ecran LED 40\", Full HD (1920x1080 - 16/9), 350 cd/m2, contraste 5000/1",
   "aliases": [
-    "SAMSUNG DB40E"
+    "SAMSUNG DB40E",
+    "DB40 (40\")"
   ],
   "sources": [
     {
@@ -38,13 +39,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/samsung_db32e_manuel-uk.pdf",
-      "document": "Samsung, User Manual DB32E/DB40E/DB48E/DB55E/DM32E-DM75E/DH40E-DH55E (copie Novelty) : Reverse Side pp. 19-20, IR Stereo Cable p. 25, PowerSaver (consommation)",
-      "accessed": "2026-11-07"
+      "document": "Samsung, User Manual DB32E/DB40E/DB48E/DB55E/DM32E-DM75E/DH40E-DH55E (copie Novelty, revendeur loueur) : p. 16 « Checking the Components » (Power cord fourni) ; rubrique Specifications (p. 197) : Power Supply AC 100 à 240 V, 60/50 Hz ; panneau arrière pp. 19-20 : aucune embase secteur nommée",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/samsung_db32e_ft.pdf",
-      "document": "Samsung, fiche DB-E 32\"/40\"/48\"/55\" (copie Novelty) : Connectivity, Power Consumption (Typical/Max)",
-      "accessed": "2026-11-07"
+      "document": "Samsung, fiche DB-E 32\"/40\"/48\"/55\" (copie Novelty) : Power Supply AC 100-240 V~ 50/60 Hz ; Accessories Included : Power Cord ; Connectivity",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -135,8 +136,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz, interrupteur au dos ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz, interrupteur au dos ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "weightKg": 7.5,

@@ -5,7 +5,7 @@
   "manufacturer": "Modulo Pi",
   "model": "Modulo Player Standard MP-STD-4",
   "pictogram": "recorder",
-  "status": "community",
+  "status": "verified",
   "description": "4 sortie(s) active(s) jusqu'à 2560x1600 ou 1 sortie 4K 4096x2160 ; 4 connecteurs physiques DP 1.4 (lesquels sont actifs : non précisé). 1 adaptateur DP actif vers HDMI fourni par sortie. Pas d'entrée de capture (options timecode TC-PCIE-R, TC-PCIE-RW, TC-USB-R uniquement). Rack 19\" 4U, 435x175x470 mm sans poignées. Consommation moyenne en forte charge 300 W (alimentation 750 W). Intel Core 7, 2x8 Go DDR4, carte AMD Radeon Pro.",
   "sources": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "url": "https://www.modulo-pi.com/wp-content/uploads/2023/10/Modulo-Player-Standard-SpecSheet-20231011.pdf",
-      "document": "Modulo Player Standard SpecSheet (révision matérielle 2024-1, pied de page 23072024)",
-      "accessed": "2026-11-08"
+      "document": "Modulo Player Standard SpecSheet (révision matérielle 2024-1, pied de page 23072024) ; relue le 2026-11-16 : références et sorties physiques, LAN, USB, alimentation 100-240 VAC, cordon secteur EU fourni (rubrique Complimentary)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -74,13 +74,14 @@
       "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 VAC 50-60 Hz, alimentation 750 W, cordon EU fourni ; type d'embase non précisé"
+      "connector": "mains-cord",
+      "format": "100-240 VAC 50-60 Hz, alimentation 750 W ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "aliases": [
     "MP-STD-4"
   ],
   "weightKg": 17,
-  "powerW": 300
+  "powerW": 300,
+  "notes": "Non saisies : 2 prises USB 3.1 Gen 2 et 2 prises USB 2.0 (type de connecteur non publié par le constructeur)."
 }

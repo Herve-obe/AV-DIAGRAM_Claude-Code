@@ -10,8 +10,8 @@
   "sources": [
     {
       "url": "https://media.us.lg.com/m/282db330798d0252/original/UH5F-H-Series-Spec-Sheet.pdf",
-      "document": "LG, spec sheet UHD Signage 65/55/49/43\" UH5F-H",
-      "accessed": "2026-10-08"
+      "document": "LG, spec sheet UHD Signage 65/55/49/43\" UH5F-H : alimentation 100-240 Vac 50/60 Hz, accessoires dont Power Cord, IR IN (connecteur non nommé)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -113,20 +113,17 @@
       "connector": "rj45"
     },
     {
-      "id": "ir",
-      "name": "IR / capteur",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "IR IN : entrée du récepteur IR / capteur de lumière fourni ; connecteur non nommé dans la fiche (LG le donne en jack stéréo 3,5 mm sur la 32SM5J, non confirmé pour ce modèle)"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
+  ],
+  "notes": "Non saisie : entrée IR / capteur de lumière (connecteur non publié par le constructeur pour ce modèle).",
+  "aliases": [
+    "43UH5F-H",
+    "LG 43UH5F-H"
   ]
 }

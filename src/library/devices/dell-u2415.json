@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "DELL",
   "model": "U2415",
-  "status": "community",
+  "status": "verified",
   "description": "Ecran LED 24\", 16:10 1920x1200, 300 cd/m2, 2xHDMI, DisplayPort, Mini DisplayPort, concentrateur USB 3.0",
   "aliases": [
     "DELL U2415"
@@ -20,6 +20,16 @@
       "url": "https://dl.dell.com/manuals/all-products/esuprt_display_projector/esuprt_display/dell-u2415_User's-Guide_en-us.pdf",
       "document": "Dell, UltraSharp U2415 User's Guide : Bottom View, Power Management Modes",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/621086/dell-u2415-monitor.html?page=6",
+      "document": "Copie du guide utilisateur Dell U2415 (manualsdir), contenu du carton : « Power cable — Varies by Countries », câble USB 3.0 amont",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/621086/dell-u2415-monitor.html?page=10",
+      "document": "Copie du guide utilisateur Dell U2415 (manualsdir), vue du dessous : « AC power cord connector — Connect the power cable »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -70,14 +80,6 @@
       "format": "Sortie ligne pour enceintes, casque non pris en charge ; forme jack 3,5 mm non écrite"
     },
     {
-      "id": "usbUp",
-      "name": "USB upstream",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "USB 3.0 vers l'ordinateur ; forme non nommée"
-    },
-    {
       "id": "usbDown1",
       "name": "USB downstream 9a",
       "direction": "bidir",
@@ -98,9 +100,10 @@
       "name": "AC power cord connector",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
-  "powerW": 75
+  "powerW": 75,
+  "notes": "Non saisie : USB upstream (connecteur non publié par le constructeur : le guide parle d'un câble USB 3.0 amont fourni et d'un connecteur 9 broches, sans nommer la forme)."
 }

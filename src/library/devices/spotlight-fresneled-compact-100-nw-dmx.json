@@ -4,9 +4,8 @@
   "manufacturer": "Spotlight",
   "model": "FresneLED Compact 100 NW DMX",
   "pictogram": "light",
-  "status": "community",
-  "portStatus": "pending",
-  "description": "Référence issue d’un catalogue utilisateur. Caractéristiques et connectique constructeur à documenter avant câblage.",
+  "status": "verified",
+  "description": "Projecteur Fresnel à LED compact, 100 W, blanc naturel 4000 K, zoom 12 à 75°, DMX512 / RDM ou potentiomètre local",
   "sources": [
     {
       "document": "Relevé de références utilisateur du 22 octobre 2026 — désignations seulement, sans caractéristiques constructeur vérifiées",
@@ -14,9 +13,41 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/spotlight_FresneLED_100_Compact_manuel.pdf",
-      "document": "Spotlight : manuel FresneLED / PCLED 100 DMX (FN LED C100 NW DMX), hébergé par Novelty",
-      "accessed": "2026-11-07"
+      "document": "Spotlight, manuel FresneLED / PCLED 100 DMX (copie Novelty), fig. 1 p. 2 et p. 3 : connecteurs DMX IN et DMX THRU (XLR 5 broches lus sur le schéma, femelle en THRU), câble secteur sortant du panneau arrière, 100-240 V 50/60 Hz ; couvre FN LED C100 CW / NW DMX",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/spotlight_FresneLED_100_Compact_ft.pdf",
+      "document": "Spotlight, fiche FresneLED 100 Compact (copie Novelty), p. 2 : version DMX 100 W 100-240 V, photo « rear view of DMX version » avec câble fixe, versions Warm 3000 K / Natural 4000 K / Cool 5600 K",
+      "accessed": "2026-11-16"
     }
   ],
-  "ports": []
+  "ports": [
+    {
+      "id": "dmxIn",
+      "name": "DMX In",
+      "direction": "in",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "DMX512 / RDM, XLR 5 broches (lu sur le schéma du manuel, fig. 1)"
+    },
+    {
+      "id": "dmxThru",
+      "name": "DMX Thru",
+      "direction": "out",
+      "signal": "dmx",
+      "connector": "xlr5",
+      "format": "Recopie DMX, XLR 5 broches (lu sur le schéma du manuel, fig. 1)"
+    },
+    {
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-captive",
+      "format": "100-240 V, 50/60 Hz, 100 W ; câble sortant du panneau arrière (schéma du manuel, fig. 1)"
+    }
+  ],
+  "powerW": 100,
+  "notes": "Version blanc naturel 4000 K (FN LED C100 NW DMX du manuel). Poids non saisi."
 }

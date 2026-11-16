@@ -5,7 +5,7 @@
   "pictogram": "display",
   "manufacturer": "Samsung",
   "model": "UE46C",
-  "status": "community",
+  "status": "verified",
   "description": "Ecran LED 46\", bord ultra fin (5,2mm), Full HD (1920x1080 - 16/9)",
   "aliases": [
     "UE46C@SOLO",
@@ -29,8 +29,8 @@
     },
     {
       "url": "https://www.fullcompass.com/common/files/19508-SamsungUECSeriesSpecSheet.pdf",
-      "document": "Samsung, UE-C Series spec sheet UE46C/UE55C (copie revendeur Full Compass) : Connectivity, Power Consumption (Typical/Max)",
-      "accessed": "2026-11-07"
+      "document": "Samsung, UE-C Series spec sheet UE46C/UE55C (copie revendeur Full Compass), p. 2 : Connectivity, Power Supply AC 100-240 V~ 50/60 Hz, accessoires inclus : Power Cord ; schéma Connectivity : AV In = embase RCA jaune",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -49,14 +49,6 @@
       "signal": "control",
       "connector": "minijack",
       "format": "RS232C par jack stéréo"
-    },
-    {
-      "id": "ir",
-      "name": "IR / Ambient Sensor In",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Capteur IR / luminosité externe ; connecteur non nommé dans la fiche UE-C"
     },
     {
       "id": "aout",
@@ -135,16 +127,8 @@
       "name": "AV In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Composante (CVBS commun) ; connecteur non nommé dans la fiche UE-C"
-    },
-    {
-      "id": "irOut",
-      "name": "IR Out",
-      "direction": "out",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Connecteur non nommé dans la fiche UE-C"
+      "connector": "rca",
+      "format": "AV IN (n° 13) : embase RCA jaune lue sur le schéma Connectivity de la fiche UE-C ; spécifications : Component (CVBS commun)"
     },
     {
       "id": "lan",
@@ -159,10 +143,11 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; type d'embase non indiqué"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée AC 100-240 V, 50/60 Hz; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "weightKg": 12,
-  "powerW": 132
+  "powerW": 132,
+  "notes": "Non saisie : IR / Ambient Sensor In (connecteur non publié par le constructeur). Non saisie : IR Out (connecteur non publié par le constructeur). La fiche UE-C indique « External Sensor : N/A » alors que son schéma montre les prises IR In et IR Out."
 }

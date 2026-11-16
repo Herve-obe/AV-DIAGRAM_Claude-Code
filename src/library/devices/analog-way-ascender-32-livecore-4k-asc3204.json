@@ -5,7 +5,7 @@
   "pictogram": "switcher",
   "manufacturer": "Analog Way",
   "model": "Ascender 32 (LiveCore) 4k – ASC3204",
-  "status": "community",
+  "status": "verified",
   "description": "Puissant Mélangeur Seamless pour écrans multiples, basé sur la plateforme LiveCore™ d’Analog Way, offrant un processing en temps réel de dernière génération, des applications Soft-Edge et 4K, pour des présentations qualitatives. Carte Link, Shot-box et onduleur inclus.",
   "aliases": [
     "ASCENDER32",
@@ -71,6 +71,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_ascender16_livecore-unit-user-manual-uk.pdf",
       "document": "Analog Way LiveCore Unit User Manual (Ascender 16/32/48), via Novelty",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/analog-way_ascender16_livecore-unit-user-manual-uk.pdf",
+      "document": "Analog Way (constructeur), LiveCore Unit User Manual (Ascender 16/32/48), copie hébergée par Novelty : p. 31 (face arrière : entrées HDMI/DVI/DisplayPort/SDI/analogique, sorties, secteur, Ethernet, Device sync, 3 « link cables ») et p. 111 (schéma des 3 liaisons LiveCore Link, câbles OPT-LINK) ; aucune désignation du connecteur Link",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -573,30 +578,6 @@
       "connector": "dsub9"
     },
     {
-      "id": "link1",
-      "name": "LiveCore Link 1",
-      "direction": "bidir",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "Câble LiveCore Link (modularité additive), connecteur non nommé par le constructeur"
-    },
-    {
-      "id": "link2",
-      "name": "LiveCore Link 2",
-      "direction": "bidir",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "Câble LiveCore Link (modularité additive), connecteur non nommé par le constructeur"
-    },
-    {
-      "id": "link3",
-      "name": "LiveCore Link 3",
-      "direction": "bidir",
-      "signal": "video",
-      "connector": "unspecified",
-      "format": "Câble LiveCore Link (modularité additive), connecteur non nommé par le constructeur"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -608,5 +589,6 @@
   "weightKg": 19,
   "powerW": 345,
   "rackU": 4,
-  "depthMm": 544
+  "depthMm": 544,
+  "notes": "Non saisi : 3 ports LiveCore Link (liaison entre deux châssis en modularité additive, câbles OPT-LINK ; connecteur non publié par le constructeur)."
 }

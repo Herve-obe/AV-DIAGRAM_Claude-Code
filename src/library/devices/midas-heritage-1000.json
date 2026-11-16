@@ -4,7 +4,7 @@
   "manufacturer": "Midas",
   "model": "Heritage 1000",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.evansstaging.co.uk/midas-h1000-32ch-psu-5000vat/",
@@ -20,6 +20,11 @@
       "url": "https://www.bestecaudio.com/wp-content/uploads/Heritage1000OperatorsManual_mcj.pdf",
       "document": "Midas, Heritage 1000 Operators Manual (copie distributeur Bestec, texte en partie chinois), page 6 \"Heritage 1000 Connectors\" : XLR entrée/sortie (1 masse, 2 chaud, 3 froid), MIDI DIN 5, RS-232 D-Sub 9, Midas CAN Bus XLR 5, jack insert send/return TRS ; nombres de prises non lisibles",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "http://pdf.textfiles.com/manuals/STARINMANUALS/Bosch%20-%20Midas/Manual/Heritage%201000.pdf",
+      "document": "Midas, Heritage 1000 Operator's Manual (copie anglaise, pdf.textfiles.com), p. 6 connecteurs, p. 38 face arrière « 32 Input channel », p. 42-43 statistiques : 10 groupes, 10 aux, 8 matrices, 3 masters en XLR, MIDI, RS-232, CAN Bus ; cadre 32 entrées",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -667,5 +672,6 @@
       "connector": "xlr5",
       "format": "XLR 5 : 1 +18 V (100 mA max), 2 CAN low, 3 0 V, 4 CAN high, 5 -18 V"
     }
-  ]
+  ],
+  "notes": "Fiche de la version à cadre 32 entrées (manuel p. 38 ; cadres de 24 à 56 entrées existent). Non saisis : entrées B XLR (une par voie), inserts send/return jack TRS (une paire par voie, groupe, aux, matrice, master), entrées ligne et sorties directes jack par voie, entrées d'injection de bus, entrées/sorties solo, talk et 2-track, sorties locales, casque."
 }

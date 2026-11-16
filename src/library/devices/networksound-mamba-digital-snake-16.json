@@ -5,7 +5,7 @@
   "pictogram": "stagebox",
   "manufacturer": "Networksound",
   "model": "Mamba Digital Snake 16x16",
-  "status": "community",
+  "status": "verified",
   "description": "Boîtier de multipaire numérique Mamba Line Level 16 x 16 (LLP, point à point) : 16 entrées et 16 sorties ligne symétriques sur 4 DB25 Tascam, liaison Medianet sur CAT-5/6 (etherCON, 140 m, redondante), RS-232, deux Aux à paires libres. Utilisé par paire (scène et régie) ; 2 U.",
   "aliases": [
     "Mamba 16LLP",
@@ -95,22 +95,6 @@
       "format": "DB9 femelle, transfert RS-232 entre boîtiers, 19 200 bit/s"
     },
     {
-      "id": "aux1",
-      "name": "Aux 1",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "2 paires libres passées dans le câble Link 1 (intercom, analogique ou LAN) ; embase en option : etherCON, combo XLR F / TRS ou XLR M selon commande"
-    },
-    {
-      "id": "aux2",
-      "name": "Aux 2",
-      "direction": "bidir",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "2 paires libres passées dans le câble Link 2 ; embase en option : etherCON, combo XLR F / TRS ou XLR M selon commande"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
@@ -119,5 +103,6 @@
       "format": "Embase IEC avec fusible externe, 110-240 V, 50-60 Hz"
     }
   ],
-  "powerW": 20
+  "powerW": 20,
+  "notes": "Non saisies : Aux 1 et Aux 2 (2 paires libres portées par les câbles Link 1 et Link 2 ; embase en option selon la commande : etherCON, combo XLR F / TRS ou XLR M, donc pas de connecteur unique publié)."
 }

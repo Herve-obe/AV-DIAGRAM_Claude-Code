@@ -4,11 +4,26 @@
   "manufacturer": "Panasonic",
   "model": "AG-HPX371E",
   "pictogram": "camera",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Panasonic, AG-HPX370 / AG-HPX371E Mode d'emploi VQT2T24-4 (F)",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.hannu-pro.com/all_products/pro/all_docs/AG-HPX371E.pdf",
+      "document": "Panasonic, brochure et spécifications AG-HPX370 series (AG-HPX370/371/372/374), PDF hébergé par un distributeur : Audio Out pin jack ×2 316 mV 600 ohms, USB 2.0 Device Type-B, USB 2.0 Host Type-A, Remote 10 pin, DC In XLR 4 broches",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.csportal.panasonic-la.com//descargaspla/PLA/VIDEO%20PRO//P2//CAMARA/AG-HPX370P/DOCUMENTO/MANUAL%20DE%20USUARIO//AG-HPX370_User_Esp.pdf",
+      "document": "Panasonic, instrucciones de funcionamiento AG-HPX370 (série, en espagnol) : connecteurs AUDIO OUT, USB 2.0 (DEVICE) et (HOST), REMOTE relié à l'AJ-RC10G ou à l'AG-EC4G",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://manualslib.com/manual/895531/Panasonic-Ag-Ec4g.html?page=8",
+      "document": "Manuel Panasonic AG-EC4G hébergé par ManualsLib, page « Connection cable » : câble 10 points, fiche côté caméra Hirose HR10A-10P-10P (câble branché sur la prise REMOTE, selon le manuel HPX370)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -105,10 +120,10 @@
       "name": "AUDIO OUT",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
+      "connector": "rca",
       "channels": 2,
-      "format": "Canaux 1/2 ou 3/4 (MONITOR SELECT) ; connecteur non précisé",
-      "level": "line+4"
+      "format": "Prises RCA (« pin jack » ×2, CH1/CH2), 316 mV sur 600 ohms (soit -10 dBV) ; canaux 1/2 ou 3/4 (MONITOR SELECT)",
+      "level": "line-10"
     },
     {
       "id": "dv",
@@ -123,22 +138,24 @@
       "name": "USB 2.0 DEVICE",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-b",
+      "format": "USB 2.0 Device, type B"
     },
     {
       "id": "usbh",
       "name": "USB 2.0 HOST",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "usb-a",
+      "format": "USB 2.0 Host, type A"
     },
     {
       "id": "remote",
       "name": "REMOTE",
       "direction": "in",
       "signal": "control",
-      "connector": "unspecified",
-      "format": "Télécommande AJ-RC10G ou unité d'extension AG-EC4G"
+      "connector": "hirose10",
+      "format": "Rond 10 points (Hirose HR10, fiche HR10A-10P-10P du câble 10 points côté caméra) ; télécommande AJ-RC10G ou unité d'extension AG-EC4G"
     },
     {
       "id": "dc",
@@ -148,5 +165,6 @@
       "connector": "xlr4",
       "format": "Alimentation externe, XLR 4 broches"
     }
-  ]
+  ],
+  "notes": "Non saisies : sortie DC OUT 12 V (4 broches), entrée WIRELESS (D-Sub 25 broches), prise casque (mini-jack stéréo 3,5 mm) et objectif (12 broches). Niveau ligne des entrées AUDIO IN : 0 dBu publié par Panasonic, approché ici par la valeur ligne +4 dBu du catalogue."
 }

@@ -4,23 +4,34 @@
   "domain": "image",
   "pictogram": "router",
   "manufacturer": "Extron",
-  "model": "DA4",
-  "status": "community",
+  "model": "P/2 DA4xi",
+  "status": "verified",
   "description": "Distributeur VGA 1 x 4",
   "aliases": [
+    "DA4",
     "DA4VGA",
     "EXTRON DA4"
   ],
   "sources": [
     {
       "url": "https://www.novelty.fr/produits/video/peripherique/distributeur-vga/da4/",
-      "document": "Novelty — DA4",
+      "document": "Novelty (loueur), page « DA4 » : distributeur VGA 1 x 4, fiche technique du P/2 DA4xi jointe",
       "accessed": "2026-10-19"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1672.pdf",
       "document": "Novelty — DA4 : Document",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://media.extron.com/public/download/files/userman/68-991-01_P2DA4xi_P2DA6xi_RevD.pdf",
+      "document": "Extron (constructeur), guide d'utilisation P/2 DA4xi / P/2 DA6xi Rev. D, p. 5 : schéma de la face arrière (entrée HD15 femelle, sortie moniteur local et 3 sorties HD15, embase secteur IEC 100-240 V 0,2 A) ; p. 11 : « IEC power cord » parmi les pièces incluses",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/1672.pdf",
+      "document": "Extron (constructeur), fiche technique française P/2 DA4xi (copie Novelty) : 1 HD15 femelle en entrée, 4 HD15 femelle en sortie, alimentation interne 100-240 V, 0,9 kg, 15,2 cm de profondeur",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -65,10 +76,11 @@
       "name": "AC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Internal universal 100-240 V AC"
+      "connector": "iec-c13",
+      "format": "100-240 V CA, 50/60 Hz, 0,2 A, alimentation interne universelle ; embase IEC lue sur le schéma de la face arrière (manuel, p. 5) ; cordon IEC fourni"
     }
   ],
   "weightKg": 0.9,
-  "depthMm": 152
+  "depthMm": 152,
+  "notes": "Désignation : la page du loueur dit « DA4 » mais joint la fiche du P/2 DA4xi, dont proviennent toutes les valeurs ; la référence constructeur est donc P/2 DA4xi."
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Panasonic",
   "model": "AV-HS60U2 (unité principale AV-HS6000)",
   "pictogram": "switcher",
-  "status": "community",
+  "status": "verified",
   "powerW": 110,
   "weightKg": 13.5,
   "sources": [
@@ -15,7 +15,18 @@
     },
     {
       "url": "https://www.novelty.fr/produits/video/peripherique/melangeur/av-hs6000/",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "document": "Novelty (loueur), page produit AV-HS6000"
+    },
+    {
+      "url": "https://www.avbroadcast.fr/media/productfile/p/a/panasonic-av-hs6000-manual.pdf",
+      "document": "Panasonic, Operating Guide AV-HS6000 series VQT5J51A(E) (PDF hébergé par un revendeur), p. 19-20 : face arrière de l'unité principale (BNC, DVI-D, RJ-45, D-sub, <AC IN 1>/<AC IN 2>) et p. 21 : AC cable fourni (AV-HS60U2P : 2 cordons)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://pro-av.panasonic.net/en/products/av-hs6000/pdf/hs6000_spec.pdf",
+      "document": "Panasonic, spécifications AV-HS6000 : AC 100-240 V, 110 W, 13,5 kg, AC cable AV-HS60U2P : 2 cordons, genlock black burst ou tri-level",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -644,11 +655,20 @@
     },
     {
       "id": "ac",
-      "name": "Secteur",
+      "name": "Secteur 1 (AC IN 1)",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V ; alimentation redondante possible"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni (fiche 3 broches avec terre côté prise murale), forme de l'embase non publiée par le constructeur"
+    },
+    {
+      "id": "ac2",
+      "name": "Secteur 2 (AC IN 2)",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; alimentation redondante du AV-HS60U2 ; second cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
-  ]
+  ],
+  "notes": "Non saisies : borne SIGNAL GND et porte-fusibles F1/F2. Cordons fournis : 2 pour l'AV-HS60U2P, 4 pour l'AV-HS60U2E (manuel p. 21)."
 }

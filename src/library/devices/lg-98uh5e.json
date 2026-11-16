@@ -4,7 +4,7 @@
   "manufacturer": "LG",
   "model": "98UH5E (98\")",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "powerW": 560,
   "weightKg": 88,
   "sources": [
@@ -15,8 +15,8 @@
     },
     {
       "url": "https://www.lg.com/us/support/products/documents/LG_SPEC-SHEET_UH5E_121825_PR.pdf",
-      "document": "LG, fiche 98/86/75UH5E : Connectivity, Specifications",
-      "accessed": "2026-11-08"
+      "document": "LG, fiche 98/86/75UH5E, p. 10 : colonne 98UH5E, Power Supply 100-240V~ 50/60Hz, Built-In Power, accessoires de base : Power Cord ; Connectivity",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -130,17 +130,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
-    },
-    {
-      "id": "spk",
-      "name": "External Speaker Out",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Sortie haut-parleurs externes (98\" seulement, haut-parleur SP-2200 en option) ; deux embases rondes au dessin LG, type non nommé",
-      "level": "speaker"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "rs232-out",
@@ -150,5 +141,6 @@
       "connector": "minijack",
       "format": "RS232C OUT, jack 3,5 mm 4 points"
     }
-  ]
+  ],
+  "notes": "Non saisie : sortie haut-parleurs externes (deux embases rondes sur le dessin LG, haut-parleur SP-2200 en option) (connecteur non publié par le constructeur)."
 }

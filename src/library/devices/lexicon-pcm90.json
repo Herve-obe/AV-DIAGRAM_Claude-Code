@@ -4,7 +4,7 @@
   "manufacturer": "Lexicon",
   "model": "PCM90",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -20,6 +20,11 @@
       "url": "https://www.soundonsound.com/reviews/lexicon-pcm90",
       "document": "Sound On Sound, essai Lexicon PCM90 : panneau arrière",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.soundonsound.com/reviews/lexicon-pcm90",
+      "document": "Sound On Sound (presse), essai Lexicon PCM90, relu : entrées hybrides XLR/jack, sorties jack et XLR, entrées/sorties S/PDIF sur prises phono, MIDI In/Out/Thru, « standard IEC mains lead »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -97,20 +102,13 @@
       "connector": "din5"
     },
     {
-      "id": "fs",
-      "name": "Footswitch",
-      "direction": "in",
-      "signal": "control",
-      "connector": "jack-trs",
-      "format": "2 interrupteurs momentanés"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
       "connector": "iec-c13",
-      "format": "Cordon IEC standard (essai Sound On Sound) ; consommation non publiée"
+      "format": "« standard IEC mains lead » (essai Sound On Sound) ; tension et consommation non publiées"
     }
-  ]
+  ],
+  "notes": "Non saisies : prise de la pédale double / pédale de volume en option (connecteur non publié par le constructeur). Niveaux : Sound On Sound indique un commutateur « 0 dBu symétrique ou -20 dBu asymétrique » ; le niveau ligne +4 par défaut du projet est conservé, le 0 dBu n'étant pas un niveau de la bibliothèque."
 }

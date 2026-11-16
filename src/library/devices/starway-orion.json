@@ -5,7 +5,7 @@
   "pictogram": "light",
   "manufacturer": "STARWAY",
   "model": "Orion",
-  "status": "community",
+  "status": "verified",
   "description": "Projecteur d'ambiance déco de 7 sources halogènes 300W, pilotés en point par point, DMX512, 2100 W, dimmer 0-100%",
   "aliases": [
     "STARWAY Orion"
@@ -18,8 +18,13 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/starway_orion_ft.pdf",
-      "document": "Novelty — Orion : Orion",
-      "accessed": "2026-10-19"
+      "document": "Starway, gamme Effets 2018 (copie Novelty), p. 7 : DMX XLR 5 broches, 12,5 kg, 2100 W",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://tech.starway.eu/270670_ORION_FR/270670_ORION_FR.pdf",
+      "document": "Starway (constructeur), guide de démarrage rapide Orion v23032018 : alimentation 230-240 V 50/60 Hz, 7 x 300 W, modes DMX 1/6/7, cordon d'alimentation",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -29,18 +34,18 @@
       "direction": "in",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "DMX512, XLR 5 points, 1/6/7 canaux"
+      "format": "DMX512, XLR 5 broches, modes 1/6/7 canaux"
     },
     {
-      "id": "dmxOut",
-      "name": "DMX Thru",
-      "direction": "out",
-      "signal": "dmx",
-      "connector": "xlr5",
-      "format": "Recopie DMX, XLR 5 points"
+      "id": "acIn",
+      "name": "Alimentation secteur",
+      "direction": "in",
+      "signal": "power",
+      "connector": "mains-cord",
+      "format": "230-240 V, 50/60 Hz, 2100 W ; cordon d'alimentation mentionné par le constructeur, forme de l'embase non publiée"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 12.5,
-  "powerW": 2100
+  "powerW": 2100,
+  "notes": "Non saisi : renvoi DMX (non mentionné par le constructeur, qui indique seulement « DMX connexion XLR 5 broches »). La fiche constructeur indique 7 lampes de 300 W dans le tableau et 400 W dans le visuel ; la puissance de 2100 W correspond à 7 x 300 W."
 }

@@ -4,7 +4,7 @@
   "manufacturer": "Avid",
   "model": "Pro Tools | MTRX 128-Channel IP Audio Dante Card",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "domain": "misc",
   "moduleType": "avid-mtrx-card",
   "sources": [
@@ -20,29 +20,39 @@
     },
     {
       "url": "https://www.musicnetwork.ch/en/brands/avid/avid-pro-tools-mtrx/pro-tools-mtrx-128-channel-ip-audio-dante-card",
-      "document": "Music Network (distributeur Avid en Suisse) : double Ethernet switch ou redondant, câbles et connecteurs Cat5/6",
-      "accessed": "2026-11-07"
+      "document": "Music Network (distributeur Avid en Suisse), fiche produit : « Dual Ethernet, switched or redundant », câbles et connecteurs Ethernet Cat5/6 standard, SRC bidirectionnel",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.getdante.com/product/avid-pro-tools-mtrx-128-channel-ip-audio-dante-module/",
+      "document": "Audinate (Dante), fiche produit de la carte : Dante 128x128, AES67 activé, fréquences 44,1 à 192 kHz",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://radikaltr.com/AppRepo/Document/20231226094752-9328.pdf",
+      "document": "Avid, fiche technique Pro Tools | MTRX II (cartes communes) : carte Dante 128 canaux avec SRC, 128 canaux à 44,1/48 kHz",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
     {
       "id": "pri",
-      "name": "Dante Primary",
+      "name": "Ethernet 1 (Dante)",
       "direction": "bidir",
       "signal": "audioIp",
       "connector": "rj45",
       "channels": 128,
-      "format": "Dante ou AES67, 128 canaux à 44,1/48 kHz, 32 à 192 kHz ; switch ou redondant ; SRC bidirectionnel"
+      "format": "Dante ou AES67, 128 canaux à 44,1/48 kHz, 32 canaux à 192 kHz ; Ethernet double, mode switch ou redondant ; SRC bidirectionnel ; cuivre Cat5/6, RJ45 (norme)"
     },
     {
       "id": "sec",
-      "name": "Dante Secondary",
+      "name": "Ethernet 2 (Dante)",
       "direction": "bidir",
       "signal": "audioIp",
       "connector": "rj45",
       "channels": 128,
-      "format": "Second port : switch ou Dante secondaire"
+      "format": "Second port Ethernet : mode switch ou redondant ; cuivre Cat5/6, RJ45 (norme)"
     }
   ],
-  "description": "Carte Dante 128 canaux avec SRC. Deux ports Ethernet confirmés par un distributeur (Cat5/6, donc RJ45) ; type de connecteur non écrit par Avid. Consommation non publiée."
+  "description": "Carte Dante 128 canaux avec SRC. Deux ports Ethernet cuivre (« Dual Ethernet, switched or redundant », câbles Cat5/6 d'après un distributeur Avid), donc RJ45 ; le guide Avid ne décrit pas la forme des prises de la carte. Consommation non publiée."
 }

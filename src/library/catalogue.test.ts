@@ -45,8 +45,6 @@ describe('références précisées : CCU Sony et Scarlett 2i2', () => {
   it('sépare les liaisons caméra et les sorties différentes des deux CCU', () => {
     const fb = template('sony-hxcu-fb70'), tx = template('sony-hxcu-tx70')
     for (const t of [fb, tx]) {
-      // Embase secteur non identifiée (site constructeur inaccessible) : repassées en Communauté le 7 novembre 2026
-      expect(t.status).toBe('community')
       expect(t.family).toBe('control')
       expect(t.domain).toBe('image')
       expect(t.ports.filter(p => p.name.startsWith('SDI OUTPUT'))).toHaveLength(4)
@@ -117,9 +115,8 @@ describe('catalogue Novelty hors Structure', () => {
     expect(quik.ports).toHaveLength(4)
     expect(quik.weightKg).toBe(6.567)
     expect(quik.powerW).toBe(100)
-    const inconsistent = template('novelty-ap63compt')
-    expect(inconsistent.weightKg).toBeUndefined()
-    expect(inconsistent.ports).toEqual([])
+    // Fiche incohérente (page de comptage décrivant une lyre) : écartée de la bibliothèque le 16 novembre 2026
+    expect(LIBRARY_INDEX.has('novelty-ap63compt')).toBe(false)
   })
 
   it('ajoute puis sauvegarde et recharge un appareil sans connectique documentée sans inventer de port', () => {
@@ -190,7 +187,8 @@ describe('audit intégral du périmètre et du classement du catalogue', () => {
   })
 
   it('range les appareils par fonction réelle', () => {
-    expect(template('akai-apc40')).toMatchObject({ family: 'control', domain: 'sound' })
+    // akai-apc40 : en attente de preuve depuis le 16 novembre 2026 (forme de la prise USB non documentée)
+    expect(LIBRARY_INDEX.has('akai-apc40')).toBe(false)
     expect(template('yamaha-d5000').family).toBe('processing')
     expect(template('taiden-tmx-0808-sdi')).toMatchObject({ family: 'videoRouting', domain: 'image' })
     expect(template('panasonic-aw-rp50')).toMatchObject({ family: 'control', domain: 'image' })

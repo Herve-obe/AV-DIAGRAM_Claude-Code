@@ -4,7 +4,7 @@
   "manufacturer": "iiyama",
   "model": "ProLite B2280HS",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.scan.co.uk/products/215-iiyama-prolite-b2280hs-monitor-1920x1080-5ms-250cd-m-brightness-integrated-speakers-hdmi-dvi-vga",
@@ -25,6 +25,11 @@
       "url": "https://iiyama.com/pdf/Product/244/en.pdf",
       "document": "iiyama (constructeur), fiche produit ProLite B2280HS-B1 : alimentation interne, 100-240 V, 21 W, 5,2 kg",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/iiyama_b2280hs_manuel.pdf",
+      "document": "iiyama (constructeur), manuel ProLite B2280HS-B1/W1 (copie Novelty), relu le 2026-11-16 : « Vérification du contenu de l'emballage » p.4, câble d'alimentation fourni ; p.8, « Connecteur d'alimentation secteur (AC IN) » sans forme nommée",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -63,11 +68,15 @@
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Connecteur d'alimentation secteur intégré ; type d'embase non nommé"
+      "connector": "mains-cord",
+      "format": "AC IN, alimentation interne, 100-240 V ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
   "powerW": 21,
   "weightKg": 5.2,
-  "depthMm": 244.5
+  "depthMm": 244.5,
+  "aliases": [
+    "B2280HS",
+    "IIYAMA B2280HS"
+  ]
 }

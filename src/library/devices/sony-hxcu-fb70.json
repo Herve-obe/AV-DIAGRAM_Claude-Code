@@ -5,7 +5,7 @@
   "manufacturer": "Sony",
   "model": "HXCU-FB70 (CCU fibre opticalCON DUO)",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "rackU": 1.5,
   "weightKg": 6.5,
   "description": "CCU pour HXC-D70 via CA-FB70. Montage standard opticalCON DUO ; le kit HKC-LC02 remplace cette prise par une LEMO. Hauteur physique 1,5 U ; deux U entières réservées dans la vue baies.",
@@ -29,6 +29,11 @@
       "url": "https://www.fullcompass.com/common/files/19866-DigitalTriaxBrochurewithSpecifications.pdf",
       "document": "Sony, brochure Digital Triax / Fiber HXC-D70, HXCU-FB70, HXCU-TX70 avec caractéristiques (via Full Compass)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://refurbished.sonypencoed.com/app/uploads/2019/03/HXCU-FB70.pdf",
+      "document": "Sony, HXCU-FB70 HD Camera Control Unit, mode d'emploi 4-445-032-11 (copie hébergée par Sony UK, refurbished.sonypencoed.com), p. 33 et pages « Connectors » : AC IN 100-240 V 50/60 Hz 2,2 A max., « specified power cord (optional) », accessoires en option : power cord set 1-551-812-XX (États-Unis, Canada) et 1-782-929-XX (autres zones) ; entrées/sorties (opticalCON DUO, BNC, XLR 5, D-sub 25 et 9, REMOTE 8 broches, LAN, HDMI, S-VIDEO)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -272,8 +277,8 @@
       "name": "AC IN",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100–240 V CA, 50/60 Hz ; 2,2 A max. Puissance en watts non déclarée."
+      "connector": "mains-cord",
+      "format": "100–240 V CA, 50/60 Hz ; 2,2 A max. ; cordon secteur prévu (accessoire en option, non fourni), forme de l'embase non publiée par le constructeur. Puissance en watts non déclarée."
     }
   ]
 }

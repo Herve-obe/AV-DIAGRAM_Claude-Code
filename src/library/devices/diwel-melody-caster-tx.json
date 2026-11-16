@@ -5,7 +5,7 @@
   "pictogram": "wireless",
   "manufacturer": "Diwel",
   "model": "MELODYcaster TX",
-  "status": "community",
+  "status": "verified",
   "description": "Émetteur audio sans fil MELODYcaster 5 GHz, deux canaux, versions rack 1 U ou boîtier. Niveaux nominaux non publiés (maxima seulement), connecteur d'alimentation et d'antenne non nommés.",
   "aliases": [
     "Melody Caster TX"
@@ -25,6 +25,16 @@
     {
       "url": "https://www.novelty.fr/produits/sonorisation/cablage-modulation/divers-cablage-modulation/melody-caster-kit/",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/diwel_melody-caster_ft.pdf",
+      "document": "Diwel (constructeur), fiche MELODYcaster (copie Novelty) : XLR-3 analogique, RCA, XLR-3 AES stéréo, jack 6,35 mm casque, LAN ; alimentation 100-240 V AC (version rack) ou 15-20 V AC (version boîtier), 20 W",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/diwel_melody-caster_manuel.pdf",
+      "document": "Diwel (constructeur), manuel MELODYcaster (copie Novelty), p. 9-10 : « DELIVERY INCLUDES 1 power cable » ; « Power supply in » en face arrière ; consigne de raccordement à un cordon 100/120 ou 220/240 V 50/60 Hz avec terre",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -101,8 +111,9 @@
       "name": "Alimentation",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-240 V CA (version rack) ou 15-20 V CA (version boîtier) ; connecteur non nommé"
+      "connector": "mains-cord",
+      "format": "100-240 V CA (version rack) ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
-  ]
+  ],
+  "notes": "Version boîtier : alimentation 15-20 V CA, connecteur non publié, non saisie (la prise « Alimentation » décrit la version rack)."
 }

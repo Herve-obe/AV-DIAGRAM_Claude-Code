@@ -1,6 +1,17 @@
 # État d’avancement (mise à jour du 2026-11-06)
 
-## Situation actuelle — 0.5.37
+## Situation actuelle — 0.5.38
+
+Bibliothèque, 16 novembre 2026 : Hervé a demandé une bibliothèque entièrement au statut « Vérifié », en me confiant les décisions. Deux passes supplémentaires d'agents sur les 409 fiches restantes et sur 17 fiches déjà vérifiées qui gardaient un connecteur non précisé.
+
+- **1 519 fiches livrées, toutes « Vérifié ».** Sur 426 fiches examinées : 272 vérifiées sur preuve, 32 fusionnées (doublons), 46 écartées (fabrication de loueur, référence introuvable, accessoire sans signal), 76 mises en attente de preuve. Les 154 fiches sorties restent dans `src/library/devices/` et sont listées dans `src/library/excluded.json` avec leur motif.
+- **Rien d'inventé, aucun site contourné.** Une prise principale sans preuve après trois passes met la fiche en attente ; elle ne devient pas vérifiée.
+- **Modélisation de ce que le constructeur ne publie pas.** Connecteur `mains-cord` (cordon secteur détachable, embase non publiée) sur 130 fiches ; prises secondaires non publiées retirées et citées dans `notes` ; Ethernet cuivre en `rj45` et MIDI en DIN 5 par la norme. Onze connecteurs ajoutés au catalogue (`src/model/connectors.ts`). Règles inscrites dans `CLAUDE.md`.
+- **Tests** : les assertions qui figeaient le statut communauté de fiches précises (Aramis, Arcaline 2, CCU Sony, SmartPack) suivent les nouvelles règles.
+- **Reste à faire par Hervé** : désigner la référence des ETC SmartPack du parc ; fournir une photo de la face arrière pour les fiches en attente qu'il veut retrouver.
+- **Rapport** : `docs/inventaire/verification-communaute-2026-11-16.md` et son fichier `.json`.
+
+## Version 0.5.37
 
 Bibliothèque, 15 novembre 2026 : vérification des 464 fiches « Communauté » par une équipe de 21 agents, puis relecture. Hervé a élargi les sources admises : après les documents du constructeur, une photo ou un schéma du constructeur, puis une page de revendeur ou de loueur, à condition de noter la nature de la source (règle ajoutée à `CLAUDE.md`).
 

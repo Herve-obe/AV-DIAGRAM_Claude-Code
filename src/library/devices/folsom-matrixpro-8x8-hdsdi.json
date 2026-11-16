@@ -4,13 +4,18 @@
   "manufacturer": "Folsom (Barco)",
   "model": "MatrixPRO 8x8 HD-SDI",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "weightKg": 7.7,
   "sources": [
     {
       "url": "https://www.usedlighting.com/46753/barco-matrixpro-8x8-hd-sdi-router",
       "document": "UsedLighting, MatrixPRO 8x8 HD-SDI (occasion)",
       "accessed": "2026-10-08"
+    },
+    {
+      "url": "https://www.cpl.tech/wp-content/uploads/2018/10/Barco_MatrixPro_16x16_HDSDI_User_Guide.pdf",
+      "document": "Barco Folsom (constructeur), MatrixPRO 16x16 and 8x8 HD/SD-SDI Router User's Guide 26-0401000-00 (copie CPL), p. 9 : schéma arrière du 8x8 HD-SDI (8 BNC en entrée, 8 en sortie, Ethernet, DB-25, embase IEC) ; annexe, tableau A-3 : RS-232/485 D 25 broches femelle, RJ-45 femelle, IEC avec fusible et interrupteur, 100-240 V, 35 W, 7,6 kg (17 lb)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -147,21 +152,25 @@
       "name": "RS-232",
       "direction": "bidir",
       "signal": "control",
-      "connector": "unspecified"
+      "connector": "dsub25",
+      "format": "RS-232 / RS-485, D-sub 25 broches femelle"
     },
     {
       "id": "eth",
       "name": "Ethernet",
       "direction": "bidir",
       "signal": "network",
-      "connector": "rj45"
+      "connector": "rj45",
+      "format": "RJ-45 femelle 10/100Base-T, monté dans un boîtier de type XLR (« XLR Ethernet Connector » selon le manuel)"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "100-240 V CA, 47-63 Hz, 3 A ; embase IEC avec fusible et interrupteur intégrés"
     }
-  ]
+  ],
+  "powerW": 35
 }

@@ -4,8 +4,7 @@
   "manufacturer": "Beyerdynamic",
   "model": "DT 108",
   "pictogram": "intercom",
-  "status": "community",
-  "portStatus": "pending",
+  "status": "verified",
   "description": "Casque une oreille avec micro dynamique hypercardioïde 200 ohms, câble amovible K 109 vendu à part (terminaison selon le câble).",
   "sources": [
     {
@@ -14,8 +13,8 @@
     },
     {
       "url": "https://www.hhb.co.uk/wp-content/uploads/DAT_DT108_EN_A4.pdf",
-      "document": "beyerdynamic, DT 108 fiche technique (copie distributeur HHB)",
-      "accessed": "2026-11-07"
+      "document": "beyerdynamic (constructeur), fiche technique DT 108 (copie distributeur HHB) : câbles optionnels K 109.00 (bout nu), K 109.28 (XLR 4 broches femelle), K 109.38 (XLR 5 broches mâle), K 109.40 (XLR 3 broches + jack 6,35 mm) ; micro dynamique hypercardioïde 200 Ω, écouteur 400 Ω, 283 g sans câble",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -24,8 +23,24 @@
       "name": "Casque (câble)",
       "direction": "bidir",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Câble amovible vendu à part : K 109.00 sans connecteur, K 109.28 XLR 4 femelle, K 109.38 XLR 5 mâle, K 109.40 XLR 3 mâle + jack 6,35 ; micro dynamique hypercardioïde 200 Ω, écouteur 50 ou 400 Ω"
+      "connector": "xlr4",
+      "format": "Câble amovible K 109 vendu à part, au choix : K 109.28 prise XLR 4 broches (3 m, retenu par défaut), K 109.38 fiche XLR 5 broches (1,5 m), K 109.40 fiche XLR 3 broches + jack 6,35 mm (1,5 m), K 109.00 bout nu (1,5 m) ; micro dynamique hypercardioïde 200 Ω, écouteur 50 ou 400 Ω selon la version",
+      "modes": [
+        {
+          "connector": "xlr5",
+          "level": "none"
+        },
+        {
+          "connector": "xlr3",
+          "level": "none"
+        },
+        {
+          "connector": "bare-wire",
+          "level": "none"
+        }
+      ]
     }
-  ]
+  ],
+  "weightKg": 0.283,
+  "notes": "Le casque lui-même n'a pas de prise publiée : il se raccorde par un câble amovible K 109 vendu à part, dont la terminaison fait la prise (XLR 4 par défaut, XLR 5, XLR 3 + jack 6,35 ou bout nu en modes). Poids 283 g sans câble. Versions 200/50 Ω (réf. 402.958) et 200/400 Ω (réf. 402.966)."
 }

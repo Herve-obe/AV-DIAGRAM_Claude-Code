@@ -4,7 +4,7 @@
   "manufacturer": "MA Lighting",
   "model": "dot2 XL-F",
   "pictogram": "console",
-  "status": "community",
+  "status": "verified",
   "weightKg": 9.1,
   "sources": [
     {
@@ -35,7 +35,7 @@
     {
       "url": "https://www.malighting.com/product-archive/product/dot2-xl-f-120212/",
       "document": "MA Lighting (constructeur), page archive dot2 XL-F : connecteurs (IEC 60320 C13/C14, etherCON, 4 XLR 5 DMX out, XLR 5 DMX in, XLR 3 SMPTE, 2 DIN MIDI, Sub-D 15, DVI-D, 3 USB, XLR 4 lampe), 9,1 kg, 100 VA",
-      "accessed": "2026-11-15"
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -86,15 +86,6 @@
       "signal": "dmx",
       "connector": "xlr5",
       "format": "XLR 5 points"
-    },
-    {
-      "id": "audioIn",
-      "name": "Audio In",
-      "direction": "in",
-      "signal": "audioAnalog",
-      "connector": "xlr3",
-      "format": "Entrée audio mono symétrique (son vers lumière), XLR 3 femelle, sensibilité min. 20 mV",
-      "level": "line+4"
     },
     {
       "id": "dmx-in",
@@ -171,5 +162,6 @@
     "DOT2XLF",
     "MA LIGHTING Dot2 XL-F"
   ],
-  "powerW": 100
+  "powerW": 100,
+  "notes": "Non saisies : entrée audio (connecteur non publié par le constructeur), lampe de pupitre XLR 4. Consommation donnée en VA par le constructeur (100 VA), reprise telle quelle dans powerW."
 }

@@ -5,7 +5,7 @@
   "pictogram": "console",
   "manufacturer": "ChamSys",
   "model": "MQ70",
-  "status": "community",
+  "status": "verified",
   "description": "Console ChamSys MagicQ MQ70 : 24 univers, 4 sorties DMX XLR 5, 3 Ethernet RJ45, HDMI, 5 USB, MIDI, LTC, entrée remote ; écran tactile 10,1 pouces, onduleur intégré ; 525 × 350 × 60 mm max., 7 kg max.",
   "aliases": [
     "ChamSys MQ70"
@@ -35,6 +35,16 @@
       "url": "https://secure.chamsys.co.uk/bugtracker/download_file.php?file_id=203&type=doc",
       "document": "ChamSys, MagicQ MQ70 Specifications Sheet : Rear Panel Connections",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://sonovente.com/en-gb/chamsys-magicq-mq70-compact-console-p96445.html",
+      "document": "Sonovente (revendeur), fiche MQ70 : MIDI In/Out 5-pin DIN, LTC In XLR 3 points, remote DIN 4 broches, DMX 5-pin XLR, 5 USB-A, 3 RJ45, HDMI, powerCON",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://secure.chamsys.co.uk/bugtracker/download_file.php?file_id=203&type=doc",
+      "document": "ChamSys (constructeur), MQ70 Specifications Sheet, Hardware Connections : liste des connexions arrière (powerCON TRUE1, 4 DMX XLR 5, 3 RJ45, 5 USB, lampe XLR 3, HDMI, audio in/out, MIDI, LTC In, Remote)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -167,9 +177,17 @@
       "signal": "control",
       "connector": "minidin4",
       "format": "Mini-DIN 4 broches, entrée optoisolée ou contact sec (alimentation 5 V)"
+    },
+    {
+      "id": "ltc",
+      "name": "LTC In",
+      "direction": "in",
+      "signal": "sync",
+      "connector": "xlr3",
+      "format": "Timecode linéaire (LTC), XLR 3 points (lu chez le revendeur Sonovente)"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 7,
-  "powerW": 35
+  "powerW": 35,
+  "notes": "Non saisies : lampe de pupitre XLR 3, entrée audio et sortie audio (jacks 3,5 mm selon un revendeur, niveaux non publiés par le constructeur)."
 }

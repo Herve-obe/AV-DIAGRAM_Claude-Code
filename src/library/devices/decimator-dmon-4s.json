@@ -4,7 +4,7 @@
   "manufacturer": "Decimator Design",
   "model": "DMON-4S (DD-4S)",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.scan.co.uk/products/decimator-design-dmon-4s-quad-(3g-hd-sd)-sdi-to-hdmi-multi-viewer-and-converter",
@@ -20,6 +20,16 @@
       "url": "https://decimator.com/specs/DMON-4S_HARDWARE_MANUAL_FV2.0.pdf",
       "document": "Decimator DMON-4S hardware manual V2.0 pp.1,3; brochure",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://decimator.com/specs/DMON-4S_HARDWARE_MANUAL_FV2.0.pdf",
+      "document": "Decimator Design (constructeur), manuel DMON-4S V2.0, p. 1 : 4 entrées SDI 3G/HD/SD, 4 sorties mini HDMI, entrées 2 et 4 convertibles en recopie active, prise DC à verrouillage fileté, port USB de contrôle et de mise à jour sans type précisé",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://decimator.com/brochures/DMON-4S_brochure.pdf",
+      "document": "Decimator Design (constructeur), brochure DMON-4S : 4 x mini HDMI type C, +5 à +32 V CC 6 W centre positif, dimensions 79,5 x 123 x 29,5 mm",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -88,14 +98,6 @@
       "format": "HDMI type C ; entrée ou multiview"
     },
     {
-      "id": "usb",
-      "name": "USB",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Contrôle et mise à jour"
-    },
-    {
       "id": "dc",
       "name": "DC In",
       "direction": "in",
@@ -105,5 +107,6 @@
     }
   ],
   "powerW": 6,
-  "depthMm": 123
+  "depthMm": 123,
+  "notes": "Non saisie : USB (connecteur non publié par le constructeur ; « USB port for control and firmware updates »)."
 }

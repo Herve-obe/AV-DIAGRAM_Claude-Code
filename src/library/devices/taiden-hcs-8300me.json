@@ -5,7 +5,7 @@
   "pictogram": "intercom",
   "manufacturer": "Taiden",
   "model": "HCS-8300ME",
-  "status": "community",
+  "status": "verified",
   "description": "Unité d'extension d'alimentation 4 canaux",
   "aliases": [
     "HCS8300ME",
@@ -19,8 +19,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/taiden_HCS-8300M_Series_Congress_Main_Unit_Datasheet.pdf",
-      "document": "Novelty — HCS-8300ME : HCS-8300ME",
-      "accessed": "2026-10-19"
+      "document": "Taiden (constructeur, via Novelty), fiche HCS-8300M Series, page HCS-8300ME, relue le 2026-11-16 : 4 sorties 6P-DIN, 2 RJ45 entrée, 1 RJ45 sortie, 100-120 V 60 Hz ou 220-240 V 50 Hz, 450 W, 10 kg ; embase secteur lue sur la photo de la face arrière",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -84,11 +84,10 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "100-120 V 60 Hz ou 220-240 V 50 Hz ; embase non précisée"
+      "connector": "iec-c13",
+      "format": "Embase IEC avec interrupteur (lue sur la photo de la face arrière, fiche Taiden), 100-120 V 60 Hz ou 220-240 V 50 Hz, 450 W"
     }
   ],
-  "portStatus": "pending",
   "weightKg": 10,
   "powerW": 450
 }

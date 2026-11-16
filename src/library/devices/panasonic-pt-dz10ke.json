@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Panasonic",
   "model": "PT-DZ10KE",
-  "status": "community",
+  "status": "verified",
   "description": "Vidéoprojecteur 10600 lumens, Full HD, WUXGA 1920x1200",
   "aliases": [
     "PANASONIC PT-DZ10KE"
@@ -35,6 +35,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/abaques/panasonic_pt-dz10ke_commandes.pdf",
       "document": "Novelty — PT-DZ10KE : Control commands",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://euro-trend.pl/pdf/PROJEKTORY/PANASONIC/PT-DZ10K_sf.pdf",
+      "document": "Panasonic, Spec File PT-DZ10K (copie hébergée par un revendeur) : AC 120 V 9 A ou 220-240 V 4,7 A, 900 W sous 220-240 V, 24 kg sans objectif, 548,5 mm, accessoire « Power cord (×1) (×2 pour PT-DZ10KE) », SDI IN BNC, HDMI, DVI-D, RGB 1 BNC ×5, RGB 2 D-sub 15, VIDEO IN BNC, D-sub 9, REMOTE 1 M3, REMOTE 2 D-sub 9, LAN RJ-45",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -105,7 +110,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C"
+      "format": "D-Sub 9 broches femelle, RS-232C, commande externe"
     },
     {
       "id": "serialOut",
@@ -113,7 +118,7 @@
       "direction": "out",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C link"
+      "format": "D-Sub 9 broches mâle, RS-232C, liaison de commande"
     },
     {
       "id": "remoteIn",
@@ -137,15 +142,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "Commande parallèle"
+      "format": "D-Sub 9 broches, commande externe parallèle"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+      "connector": "mains-cord",
+      "format": "AC 120 V (9 A) ou 220-240 V (4,7 A), 50/60 Hz ; cordon secteur fourni (3,0 m ; 2 cordons pour le PT-DZ10KE), forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "sdi1",
@@ -169,7 +174,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "100BASE-TX, PJLink"
+      "format": "RJ-45, 100Base-TX/10Base-T, PJLink (classe 1)"
     }
   ],
   "powerW": 900,

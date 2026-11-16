@@ -4,7 +4,7 @@
   "manufacturer": "Empirical Labs",
   "model": "Distressor EL8-X",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "rackU": 1,
   "sources": [
     {
@@ -49,6 +49,11 @@
     {
       "document": "Complément utilisateur du 29 octobre 2026, tableau lot audio 01, révision 156 : Dimensions H × L × P : 4,4 × 48,3 × 25,4 cm ; profondeur retenue 254 mm.",
       "accessed": "2026-10-29"
+    },
+    {
+      "url": "https://www.empiricallabs.com/wp-content/uploads/distressor_manual.pdf",
+      "document": "Empirical Labs (constructeur), manuel Distressor, relu : « Switchable 115/230 volt operation », consommation 10 W typique / 14 W max, « Connect AC line cord to 3 prong jack », entrées XLR ou jack, sortie jack en phase avec la broche 2 de la XLR",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -109,16 +114,17 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "iec-c13",
-      "format": "IEC C14 confirmée par l’utilisateur ; secteur 115/230 V commutable selon manuel"
+      "connector": "mains-cord",
+      "format": "115/230 V commutable (« Switchable 115/230 volt operation ») ; 10 W typiques, 14 W max ; cordon secteur à brancher sur une prise à 3 broches (« Connect AC line cord to 3 prong jack »), forme de l'embase non publiée par le constructeur"
     }
   ],
   "aliases": [
     "DISTRESSOR",
     "Empirical Labs Distressor EL8-X"
   ],
-  "description": "Compresseur mono Distressor EL8-X. Entrée XLR/TRS symétrique ; sorties XLR symétrique et jack asymétrique parallèles ; deux Link TRS. Consommation constructeur : 10 W typiques / 14 W maximum. Poids unitaire 3,6 kg corroboré par WRD ; IEC C14 confirmée par l’utilisateur. Dimensions H × L × P retenues : 44 × 483 × 254 mm d’après le complément utilisateur et son lien Funky Junk, inaccessible HTTP 503 lors du contrôle. WRD indiquait 216 mm de profondeur : divergence non résolue.",
+  "description": "Compresseur mono Distressor EL8-X. Entrée XLR/TRS symétrique ; sorties XLR symétrique et jack asymétrique parallèles ; deux Link TRS. Consommation constructeur : 10 W typiques / 14 W maximum. Poids unitaire 3,6 kg corroboré par WRD ; forme de l'embase secteur non publiée. Dimensions H × L × P retenues : 44 × 483 × 254 mm d’après le complément utilisateur et son lien Funky Junk, inaccessible HTTP 503 lors du contrôle. WRD indiquait 216 mm de profondeur : divergence non résolue.",
   "powerW": 14,
   "weightKg": 3.6,
-  "depthMm": 254
+  "depthMm": 254,
+  "notes": "Profondeur 254 mm retenue sur décision utilisateur (WRD indique 216 mm) : divergence non tranchée par le constructeur."
 }

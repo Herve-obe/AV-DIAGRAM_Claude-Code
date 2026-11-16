@@ -5,8 +5,8 @@
   "pictogram": "power",
   "manufacturer": "Eaton",
   "model": "5P 650i",
-  "status": "community",
-  "description": "Onduleur line-interactive 650 VA / 420 W en tour : entrée IEC C14, quatre prises IEC C13, USB (HID) et RS-232, bornier de marche/arrêt à distance. Type de prise USB non précisé par la page (à relever) ; le kit loueur peut contenir la version rack 5P 650iR, distincte.",
+  "status": "verified",
+  "description": "Onduleur line-interactive 650 VA / 420 W en tour : entrée IEC C14, quatre prises IEC C13, bornier de marche/arrêt à distance. Ports de communication USB (HID) et RS-232 non saisis (forme du connecteur non publiée) ; le kit loueur peut contenir la version rack 5P 650iR, distincte.",
   "aliases": [
     "Eaton 5P 650",
     "5P650I"
@@ -17,6 +17,16 @@
       "url": "https://www.eaton.com/dk/da-dk/skuPage.5P650I.html",
       "document": "Eaton, page produit 5P650I : 650 VA, 420 W, entrée C14, sorties (4) C13, USB et RS-232, 7,84 kg",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://nonprod.docs.rs-online.com/2a94/0900766b8131745b.pdf",
+      "document": "Eaton (constructeur), manuel d'installation et d'utilisation 5P 620-00082-02, copie RS Components, p. 5 : face arrière du 5P 650i (USB, RS232, carte de communication, connecteur ROO/RPO, sorties, prise secteur)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.comx-computers.co.za/5P650i-specifications-99182.htm",
+      "document": "Comx (revendeur), spécifications 5P650i : IEC-320-C14 en entrée, (4) IEC-320-C13, mini terminal block pour Remote ON/OFF et Remote Power Off, poids 7,8 kg",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -61,21 +71,6 @@
       "format": "IEC C13, secourue"
     },
     {
-      "id": "usb",
-      "name": "USB",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "HID ; type de prise non précisé"
-    },
-    {
-      "id": "rs232",
-      "name": "RS-232",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "dsub9"
-    },
-    {
       "id": "rpo",
       "name": "Remote ON/OFF / RPO",
       "direction": "in",
@@ -83,5 +78,6 @@
       "connector": "terminal",
       "format": "Mini-bornier"
     }
-  ]
+  ],
+  "notes": "Non saisies : USB (HID) et RS-232 (connecteurs non publiés par le constructeur), emplacement pour carte de communication optionnelle, vis de terre. USB et RS-232 ne peuvent pas fonctionner simultanément (manuel)."
 }

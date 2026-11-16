@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Panasonic",
   "model": "PT-RZ970BE",
-  "status": "community",
+  "status": "verified",
   "description": "Panasonic PT-RZ970BE Vidéoprojecteur Laser DLP 10 000 lumens Full HD (1920x1200)",
   "aliases": [
     "PANASONIC PT-RZ970BE"
@@ -18,8 +18,8 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
-      "document": "Novelty — PT-RZ970BE : Panasonic PT-RZ970BE 10 000_1.7-2.4",
-      "accessed": "2026-10-19"
+      "document": "Panasonic, brochure PT-RZ970/RZ770/RZ660 series (copie hébergée par le loueur Novelty), tableau Specifications : AC 100-240 V, 1 050 W, 23,2 kg, 581 mm, accessoire fourni « Power cord », SDI IN BNC, HDMI, DVI-D, RGB 1 BNC ×5, RGB 2 D-sub 15, D-sub 9, REMOTE 1 M3, REMOTE 2 D-sub 9, LAN/DIGITAL LINK RJ-45 100Base-TX Art-Net PJLink",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -90,7 +90,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C"
+      "format": "D-Sub 9 broches femelle, RS-232C (SERIAL/MULTI PROJECTOR SYNC IN)"
     },
     {
       "id": "serialOut",
@@ -98,7 +98,7 @@
       "direction": "out",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C link"
+      "format": "D-Sub 9 broches mâle, RS-232C (SERIAL/MULTI PROJECTOR SYNC OUT)"
     },
     {
       "id": "remoteIn",
@@ -122,15 +122,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "Commande parallèle"
+      "format": "D-Sub 9 broches femelle, commande externe parallèle"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "sdi1",

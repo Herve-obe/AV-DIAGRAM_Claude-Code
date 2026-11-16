@@ -4,7 +4,7 @@
   "manufacturer": "Avid (Digidesign)",
   "model": "C|24",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "powerW": 450,
   "weightKg": 20.4,
   "sources": [
@@ -24,6 +24,11 @@
       "url": "https://www.manualslib.com/manual/591726/Digidesign-C24.html?page=19",
       "document": "Digidesign, C|24 Guide (copie ManualsLib), C|24 Back Panel",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://resources.avid.com/SupportFiles/attach/Pro_Tools/10.0/ENGLISH/C_24_Guide.pdf",
+      "document": "Avid, C|24 Guide (constructeur), p. 11 « C|24 Back Panel » : prise « To Ext PSU » (embase circulaire à bride carrée, lue sur le dessin), DB-25 femelles, jacks TRS, XLR, RJ45 ; p. 19 « C|24 includes an external power supply auto power-selecting (90-250V, 50-60 Hz) »",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -285,8 +290,8 @@
       "name": "To Ext PSU",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc d'alimentation externe fourni, 90-250 V 50-60 Hz, embase IEC sur le bloc"
+      "connector": "multipin",
+      "format": "Embase circulaire multibroche à bride carrée (4 vis), repère « To Ext PSU », vers le bloc d'alimentation externe fourni (90-250 V, 50-60 Hz, embase IEC sur le bloc) ; forme lue sur le dessin p. 11 du guide, nombre de broches non lisible"
     }
   ]
 }

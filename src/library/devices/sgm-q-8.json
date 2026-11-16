@@ -4,7 +4,7 @@
   "manufacturer": "SGM",
   "model": "Q-8",
   "pictogram": "light",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "document": "Catalogues Novelty / Audio Pro 2025 (docs/inventaire), désignation et description",
@@ -17,13 +17,18 @@
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_manuels/3032-4653-sgm-q-8-user-manual.pdf",
-      "document": "SGM — Q-8 manual rev.E, 31 janvier 2023, p.8,11–12 : connectique standard et puissance",
-      "accessed": "2026-10-27"
+      "document": "SGM, manuel Q-8 (copie Novelty), p. 8 : alimentation 100-277 V, 630 W, « 2 m IP66 power cable pigtail » fourni, connecteur « powercon twist-lock » côté appareil",
+      "accessed": "2026-11-16"
     },
     {
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/7674-4653-q-8-fiche-technique.pdf",
-      "document": "SGM — Q-8 specifications, p.4–5 : 630 W, 13,5 kg, DMX et secteur entrée/sortie",
-      "accessed": "2026-10-27"
+      "document": "SGM, fiche technique Q-8 (copie Novelty) : DMX XLR 5 points IP67 in/out, « Power input connector & link-thru », 2 m IP66 power cable pigtail, 13,5 kg",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.sgmlighting.com/products/q%C2%B78",
+      "document": "SGM (constructeur), page produit Q-8 : 630 W, 13,5 kg, DMX XLR 5 points IP67, câble d'alimentation 2 m fourni, renvoi secteur",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -48,16 +53,8 @@
       "name": "Alimentation secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "powerCON verrouillable IP, référence à confirmer ; 100–277 V"
-    },
-    {
-      "id": "acOut",
-      "name": "Renvoi secteur",
-      "direction": "out",
-      "signal": "power",
-      "connector": "unspecified",
-      "format": "Renvoi secteur IP, type exact à confirmer, 13 A maximum"
+      "connector": "mains-cord",
+      "format": "100-277 V, 50/60 Hz; cordon secteur fourni (« 2 m IP66 power cable pigtail »), connecteur côté appareil de type « powercon twist-lock » selon le manuel, génération non précisée par le constructeur ; embase non publiée"
     }
   ],
   "aliases": [
@@ -67,5 +64,6 @@
   "powerW": 630,
   "weightKg": 13.5,
   "depthMm": 166,
-  "description": "Q-8 standard, flood/strobe/blinder IP66 RGBW à huit segments, 630 W maximum, 13,5 kg. Dimensions nominales 520 × 320 × 166 mm. Entrée/sortie DMX XLR 5 points et entrée/sortie secteur verrouillable. La notice décrit un powerCON sans préciser sa référence ; la génération de connecteur doit être confirmée avant câblage."
+  "description": "Q-8 standard, flood/strobe/blinder IP66 RGBW à huit segments, 630 W maximum, 13,5 kg. Dimensions nominales 520 × 320 × 166 mm. Entrée/sortie DMX XLR 5 points et entrée/sortie secteur verrouillable. La notice décrit un powerCON sans préciser sa référence ; la génération de connecteur doit être confirmée avant câblage.",
+  "notes": "Non saisie : renvoi secteur (« power input connector & link-thru », connecteur non publié par le constructeur)."
 }

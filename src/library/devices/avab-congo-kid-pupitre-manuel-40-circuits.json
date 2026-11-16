@@ -5,7 +5,7 @@
   "pictogram": "console",
   "manufacturer": "AVAB",
   "model": "Congo Kid",
-  "status": "community",
+  "status": "verified",
   "description": "Console Congo Kid seule ; les écrans externes ne sont pas inclus dans ce bloc.",
   "aliases": [
     "AVAB Congo Kid"
@@ -30,6 +30,21 @@
       "url": "https://www.fullcompass.com/common/files/14477-SpecSheet.pdf",
       "document": "ETC, Congo Kid datasheet 4340L1001 rev. A (2011, copie revendeur Full Compass) : 2 × DVI + 1 × VGA",
       "accessed": "2026-11-08"
+    },
+    {
+      "url": "https://www.manualsdir.com/manuals/559093/etc-congo-kid-setup-guide.html",
+      "document": "ETC (constructeur), Congo Kid Setup Guide p. 1, relu : DMX XLR 5 broches, câble Ethernet Cat 5, 2 ports MIDI (In et Out), cordon IEC fourni, sorties vidéo, audio out, prise téléphone",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://media.musson.com/mti/docs/4/3/4340l1001_congo_kid_datasheet_revc.pdf",
+      "document": "ETC (constructeur), datasheet Congo Kid 4340L1001 rev C, relu : 2 univers DMX512, MIDI In/Out, Ethernet, 2 sorties moniteur (2 DVI ou 1 DVI + 1 DisplayPort)",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/14477-SpecSheet.pdf",
+      "document": "ETC (constructeur), datasheet Congo Kid rev. A, relu : 2 ports DMX512, Ethernet, MIDI In/Out, 2 DVI + 1 VGA",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -39,7 +54,7 @@
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "DMX512-A / RDM, XLR 5 points"
+      "format": "DMX512 (2 ports, RDM Ready) ; « 5 pin XLR DMX Cables plug into the DMX ports » (guide d'installation ETC, p. 1)"
     },
     {
       "id": "dmx2",
@@ -47,7 +62,7 @@
       "direction": "out",
       "signal": "dmx",
       "connector": "xlr5",
-      "format": "DMX512-A / RDM, XLR 5 points"
+      "format": "DMX512 (2 ports, RDM Ready) ; « 5 pin XLR DMX Cables plug into the DMX ports » (guide d'installation ETC, p. 1)"
     },
     {
       "id": "eth",
@@ -55,7 +70,7 @@
       "direction": "bidir",
       "signal": "network",
       "connector": "rj45",
-      "format": "Net3/ACN, ETCNet2, Avab IPX, Art-Net ; câble Cat 5 (embase RJ45 supposée par le guide, etherCON non mentionné)"
+      "format": "Net3/ACN, ETCNet2, Avab IPX, Art-Net ; câble Cat 5 ; RJ45 (interface cuivre imposée par la norme Ethernet ; etherCON non mentionné)"
     },
     {
       "id": "midiIn",
@@ -63,54 +78,32 @@
       "direction": "in",
       "signal": "control",
       "connector": "din5",
-      "format": "MIDI Timecode, MIDI Show Control"
+      "format": "MIDI Timecode, MIDI Show Control ; DIN 5 (connecteur fixé par la norme MIDI)"
     },
     {
       "id": "midiOut",
       "name": "MIDI Out",
       "direction": "out",
       "signal": "control",
-      "connector": "din5"
+      "connector": "din5",
+      "format": "DIN 5 (connecteur fixé par la norme MIDI)"
     },
     {
       "id": "dvi",
-      "name": "Moniteur DVI",
+      "name": "Sortie moniteur DVI",
       "direction": "out",
       "signal": "video",
       "connector": "dvi",
-      "format": "DVI-D ; seconde sortie selon génération (DVI ou DisplayPort / VGA)"
-    },
-    {
-      "id": "usb1",
-      "name": "USB arrière 1",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-a",
-      "format": "Clés, souris, clavier"
-    },
-    {
-      "id": "usb2",
-      "name": "USB arrière 2",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-a",
-      "format": "Clés, souris, clavier"
-    },
-    {
-      "id": "usbFront",
-      "name": "USB face avant",
-      "direction": "bidir",
-      "signal": "control",
-      "connector": "usb-a"
+      "format": "DVI ; la seconde sortie moniteur varie selon la génération (2 x DVI + 1 x VGA, ou 2 x DVI, ou 1 x DVI + 1 x DisplayPort) et n'est pas saisie"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "iec-c13",
-      "format": "Embase IEC, cordon fourni"
+      "connector": "mains-cord",
+      "format": "« IEC Power Cable (1 ships with Congo Kid) plugs into the IEC Receptacle » (guide d'installation ETC, p. 1) ; cordon secteur fourni, forme exacte de l'embase non publiée par le constructeur"
     }
   ],
-  "portStatus": "pending"
+  "notes": "Non saisis : second moniteur (DVI, DisplayPort ou VGA selon la génération), ports USB (nombre non établi : les documents ne le donnent pas), sortie audio, prise téléphone de télécommande, contacts D-Sub (connecteurs ou nombre non publiés ou variables). Désignation AVAB / Novelty « Congo Kid pupitre manuel 40 circuits » : identifiée à l'ETC Congo Kid par son nom (la page Novelty ne cite pas ETC)."
 }

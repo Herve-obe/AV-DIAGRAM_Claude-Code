@@ -4,7 +4,7 @@
   "manufacturer": "Sierra Video",
   "model": "Aspen RCP-3232",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "description": "Panneau de commande déporté 32x32 pour grille Aspen 3232HD-3G, 2U, liaison Ethernet",
   "sources": [
     {
@@ -15,6 +15,16 @@
       "url": "https://files.hdtvsupply.com/kramer-rcp-3232-ds.pdf",
       "document": "Kramer (Sierra Video), RCP-3232 fiche technique (copie HDTV Supply)",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://cdn.kramerav.com/web/images/products/zoom/aspen-rcp-3232_back.jpg",
+      "document": "Kramer (Sierra Video), photo constructeur de la face arrière du RCP-3232 : RJ45 « ETHERNET » et embase d'alimentation « PS » rectangulaire à 4 points (2x2) à verrouillage",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://cdn.kramerav.com/web/downloads/manuals/aspen_1616_and_3232_control_panels_v4.pdf",
+      "document": "Kramer (Sierra Video), manuel Aspen 1616 et 3232 RCP v4, p. 4 : alimentation par bloc AC/DC externe, Ethernet 10/100 à l'arrière",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -31,8 +41,8 @@
       "name": "Alimentation 12 V CC",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "12 V CC par bloc secteur 100-240 V ; type de prise non précisé"
+      "connector": "power-molex",
+      "format": "12 V CC par bloc secteur externe 100-240 V ; embase « PS » à 4 points (2x2) à verrouillage, lue sur la photo arrière du constructeur"
     }
   ],
   "domain": "image",

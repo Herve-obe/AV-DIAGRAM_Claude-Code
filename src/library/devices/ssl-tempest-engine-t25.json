@@ -4,7 +4,7 @@
   "manufacturer": "Solid State Logic",
   "model": "Tempest Engine T25 (Dante HC 512)",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "powerW": 400,
   "weightKg": 20,
   "rackU": 4,
@@ -12,6 +12,11 @@
     {
       "document": "SSL, System T Installation Guide Rev H",
       "accessed": "2026-09-25"
+    },
+    {
+      "url": "https://www.cablateam.com/wp-content/uploads/2021/02/System-T-Installation-Guide-Rev-H.pdf",
+      "document": "SSL, System T Installation Guide Rev H (copie Cablateam) : p. 42 photo du dos du T25 (deux embases IEC C14 sur alimentations redondantes, carte sync BNC) ; p. 46 carte sync : « 75Ω AES DARS BNC input » ; p. 44-45 cartes GPIO D-Sub 25 (mâle sortie, femelle entrée) ; spécifications p. 41 : 4U, ~20 kg, < 400 W, PSU 600 W 100-240 V",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -68,8 +73,8 @@
       "name": "AES (DARS) In",
       "direction": "in",
       "signal": "sync",
-      "connector": "unspecified",
-      "format": "Référence AES asymétrique ; connecteur non précisé"
+      "connector": "bnc",
+      "format": "Référence DARS AES asymétrique 75 Ω, BNC"
     },
     {
       "id": "madi",
@@ -100,15 +105,16 @@
       "name": "Secteur A",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentations redondantes 600 W max, 100-240 VAC ; < 400 W typique"
+      "connector": "iec-c13",
+      "format": "Alimentations redondantes 600 W max, 100-240 VAC ; < 400 W typique ; embase IEC C14 (lue sur la photo p. 42 du guide), cordon détachable non fourni par SSL"
     },
     {
       "id": "acB",
       "name": "Secteur B",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified"
+      "connector": "iec-c13",
+      "format": "Seconde alimentation redondante ; embase IEC C14 (photo p. 42)"
     }
   ]
 }

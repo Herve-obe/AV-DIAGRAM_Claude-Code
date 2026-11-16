@@ -4,7 +4,7 @@
   "manufacturer": "Lilliput",
   "model": "PVM220S",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://videoguys.com.au/a/p/products/lilliput-pvm220s-21-5-3g-sdi-hdmi-quad-split-broadcast-monitor",
@@ -20,6 +20,16 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/4520-4682-pvm220s.pdf",
       "document": "Novelty — PVM220S : PVM220S",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://greentoe.com/product/LILLIPUT_PVM220S_21-5_3G-SDI-HDMI_Quad-Split_Broadcast_Monitor_PVM220S",
+      "document": "Greentoe (revendeur), fiche PVM220S : 2 BNC 3G-SDI in, 2 BNC 3G-SDI out, 2 HDMI type A in, 1 USB Type-C in, 1 prise Barrel DC 12-24 V, 1 sortie casque 3,5 mm, 33 W",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.markertek.com/product/lil-pvm220s/lilliput-pvm220s-21-5-inch-1920x1080-live-stream-quad-split-multi-view-ips-monitor",
+      "document": "Markertek (revendeur), fiche PVM220S : 2 SDI in, 2 HDMI in, USB-C in, 2 SDI out, DC 12-24 V, prise écouteurs 3,5 mm",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -68,13 +78,6 @@
       "connector": "bnc"
     },
     {
-      "id": "hdmiOut",
-      "name": "HDMI PGM Out",
-      "direction": "out",
-      "signal": "video",
-      "connector": "hdmi"
-    },
-    {
       "id": "usbc",
       "name": "USB-C In",
       "direction": "in",
@@ -86,20 +89,21 @@
       "name": "DC In",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "DC 12-24 V ; connecteur non nommé"
+      "connector": "dc-barrel",
+      "format": "DC 12-24 V ; embase « Barrel » lue chez le revendeur Greentoe"
     },
     {
       "id": "phones",
       "name": "Earplug Jack",
       "direction": "out",
       "signal": "audioAnalog",
-      "connector": "unspecified",
-      "format": "Sortie écouteurs ; connecteur non nommé"
+      "connector": "minijack",
+      "format": "Sortie écouteurs, jack 3,5 mm (1/8\")"
     }
   ],
   "aliases": [
     "Lilliput PVM220S"
   ],
-  "powerW": 33
+  "powerW": 33,
+  "notes": "Non saisie : sortie PGM (HDMI ou SDI selon Markertek, « BNC monitor output » selon Greentoe : connecteur contradictoire entre revendeurs)."
 }

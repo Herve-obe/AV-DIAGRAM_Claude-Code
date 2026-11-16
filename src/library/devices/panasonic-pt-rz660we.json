@@ -5,7 +5,7 @@
   "pictogram": "projector",
   "manufacturer": "Panasonic",
   "model": "PT-RZ660WE",
-  "status": "community",
+  "status": "verified",
   "description": "Panasonic PT-RZ660WE Projecteur DLP 6200 lumens WUXGA (1920 x 1200) 16:10 HD 1080p LAN",
   "aliases": [
     "PANASONIC PT-RZ660WE"
@@ -20,6 +20,11 @@
       "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/8272-4635-panasonic-pt-rz970be-10-000-1-7-2-4.pdf",
       "document": "Panasonic PT-RZ970/RZ770/RZ660 series brochure September 2016 pp.6,8",
       "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://bizpartner.panasonic.net/public/ppr/file_view/105314",
+      "document": "Panasonic, Operating Instructions Functional Manual DPQP1064ZD (PT-RZ770 / RW730 / RZ660 / RW620, commun à tous les suffixes), p. 26 (cordon fourni), p. 32 et 206 (prises : BNC ×5, D-Sub 15, DVI-D, HDMI, SDI BNC, D-Sub 9, M3, RJ-45 100Base-TX HDBaseT PJLink Art-Net), p. 58 (cordon à languettes), p. 205-206 (AC 100-240 V, 700 W, 23,1 kg, 581 mm)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -90,7 +95,7 @@
       "direction": "bidir",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C"
+      "format": "D-Sub 9 broches, RS-232C (SERIAL/MULTI PROJECTOR SYNC IN)"
     },
     {
       "id": "serialOut",
@@ -98,7 +103,7 @@
       "direction": "out",
       "signal": "control",
       "connector": "dsub9",
-      "format": "RS-232C link"
+      "format": "D-Sub 9 broches, RS-232C (SERIAL/MULTI PROJECTOR SYNC OUT)"
     },
     {
       "id": "remoteIn",
@@ -122,15 +127,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "dsub9",
-      "format": "Commande parallèle"
+      "format": "D-Sub 9 broches, commande par contacts"
     },
     {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; borne <AC IN> avec cordon verrouillable fourni, type d'embase non nommé par Panasonic"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni (3,0 m, connecteur verrouillé par languettes latérales), forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "sdi1",

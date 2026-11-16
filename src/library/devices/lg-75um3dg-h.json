@@ -4,12 +4,12 @@
   "manufacturer": "LG",
   "model": "75UM3DG-H (75\")",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.lg.com/hk_en/business/information-display/digital-signage/standard-digital-signage/75um3dg-h/",
-      "document": "LG, page 75UM3DG-H (lue via l'index de recherche)",
-      "accessed": "2026-10-08"
+      "document": "LG Hong Kong, page 75UM3DG-H, spécifications : HDMI 3, USB 2.0 type A, RJ45, RS232C In/Out, IR In, Audio Out ; Power Type Built-in Power, AC 100-240V~ 50/60Hz ; accessoires : Power Cord, Phone to RS232C Gender (adaptateur jack)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -38,15 +38,6 @@
       "format": "HDMI, HDCP 2.2 / 1.4"
     },
     {
-      "id": "aout",
-      "name": "Audio Out",
-      "direction": "out",
-      "signal": "audioAnalog",
-      "connector": "minijack",
-      "format": "Mini-jack",
-      "level": "line+4"
-    },
-    {
       "id": "usb1",
       "name": "USB",
       "direction": "bidir",
@@ -63,14 +54,6 @@
       "format": "RS232C IN (adaptateur « phone to RS232C » fourni) ; connecteur jack d'après l'adaptateur"
     },
     {
-      "id": "rs232-out",
-      "name": "RS-232C Out",
-      "direction": "out",
-      "signal": "control",
-      "connector": "minijack",
-      "format": "Jack 3,5 mm 4 points"
-    },
-    {
       "id": "lan",
       "name": "LAN",
       "direction": "bidir",
@@ -78,21 +61,14 @@
       "connector": "rj45"
     },
     {
-      "id": "ir",
-      "name": "IR / capteur",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "IR In : connecteur non nommé sur la page LG"
-    },
-    {
       "id": "ac",
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Alimentation intégrée 100-240 V, 50/60 Hz ; cordon fourni, type d'embase non indiqué par LG"
+      "connector": "mains-cord",
+      "format": "Alimentation intégrée 100-240 V, 50/60 Hz; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     }
   ],
-  "powerW": 260
+  "powerW": 260,
+  "notes": "Non saisie : IR In (connecteur non publié par le constructeur). Non saisie : Audio Out (connecteur non publié par le constructeur). Non saisie : RS-232C Out (connecteur non publié par le constructeur)."
 }

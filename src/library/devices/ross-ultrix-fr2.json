@@ -4,7 +4,7 @@
   "manufacturer": "Ross Video",
   "model": "Ultrix FR2",
   "pictogram": "router",
-  "status": "community",
+  "status": "verified",
   "weightKg": 5.44,
   "rackU": 2,
   "sources": [
@@ -16,6 +16,11 @@
     {
       "url": "https://www.novelty.fr/produits/video/peripherique/grille/ultrix-fr2/",
       "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://documentation.rossvideo.com/files/Manuals/Routers/Ultrix/Ultripower%20User%20Guide%20(2101DR-304).pdf",
+      "document": "Ross Video, Ultripower User Guide 2101DR-304 : câble d'alimentation DC de l'Ultrix FR2 terminé par un connecteur Molex côté routeur (lecture rapportée par la passe 2, décision D9 du superviseur ; URL non rouverte le 2026-11-16, réponse 404)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -303,16 +308,16 @@
       "name": "Alimentation 1",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc externe"
+      "connector": "power-molex",
+      "format": "Bloc externe ; 15 V CC, câble Ultripower à connecteur Molex côté routeur (guide Ultripower)"
     },
     {
       "id": "dc2",
       "name": "Alimentation 2",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Bloc externe redondant"
+      "connector": "power-molex",
+      "format": "Bloc externe redondant ; 15 V CC, câble Ultripower à connecteur Molex côté routeur (guide Ultripower)"
     }
   ],
   "slots": [
@@ -331,5 +336,6 @@
       "name": "Slot 3",
       "type": "ross-ultrix-fr2-option"
     }
-  ]
+  ],
+  "notes": "Alimentation redondante : le guide Ultripower mentionne au moins deux liaisons d'alimentation pour le FR2 ; seules deux prises (dc1, dc2) sont saisies, les autres prises PS ne le sont pas. Série et nombre de positions du connecteur Molex non publiés."
 }

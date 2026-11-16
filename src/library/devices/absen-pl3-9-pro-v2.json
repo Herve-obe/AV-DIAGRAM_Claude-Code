@@ -4,7 +4,7 @@
   "manufacturer": "Absen",
   "model": "Polaris PL3.9 Pro V2",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://lang-iberia.com/product/absen-polaris-3-9pro-in-outdoor-led-cabinet/",
@@ -15,6 +15,11 @@
       "url": "https://www.novelty.fr/produits/video/mur-d-images-led/plein-jour-led/pl-3-9-pro-v2/",
       "document": "Novelty (loueur), page Absen PL 3.9 pro V2 : propriétés techniques, Neutrik powerCON TRUE1 et etherCON, consommation",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://www.novelty.fr/produits/video/mur-d-images-led/plein-jour-led/pl-3-9-pro-v2/",
+      "document": "Novelty (loueur), page Absen PL 3.9 pro V2 relue : mention « Neutrik powerCON TRUE1 » et « Neutrik etherCON » dans les caractéristiques ; consommation 800 W/m² max, 267 W/m² moyenne",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -27,29 +32,18 @@
       "format": "Données de la carte de réception (etherCON), pas 3,9 mm intérieur / extérieur"
     },
     {
-      "id": "dataOut",
-      "name": "Data Out",
-      "direction": "out",
-      "signal": "network",
-      "connector": "ethercon",
-      "format": "Chaînage vers la dalle suivante"
-    },
-    {
       "id": "acIn",
       "name": "Power In",
       "direction": "in",
       "signal": "power",
       "connector": "powercon-true1",
       "format": "Secteur, Neutrik powerCON TRUE1"
-    },
-    {
-      "id": "acOut",
-      "name": "Power Out",
-      "direction": "out",
-      "signal": "power",
-      "connector": "powercon-true1",
-      "format": "Recopie secteur vers la dalle suivante"
     }
   ],
-  "powerW": 120
+  "notes": "Non saisis : recopie secteur et chaînage des données vers la dalle suivante (connecteurs de sortie non publiés par les documents lus). Consommation par dalle non saisie : les sources donnent 800 W/m² max et 267 W/m² moyenne (soit 200 W et 67 W pour une dalle 500x500), non une valeur par dalle.",
+  "aliases": [
+    "PL 3.9 pro V2",
+    "PL39",
+    "Absen PL 3.9 pro V2"
+  ]
 }

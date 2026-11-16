@@ -4,7 +4,7 @@
   "manufacturer": "Lexicon",
   "model": "PCM70",
   "pictogram": "processor",
-  "status": "community",
+  "status": "verified",
   "weightKg": 4.9,
   "rackU": 2,
   "sources": [
@@ -27,6 +27,16 @@
       "url": "https://archive.org/stream/lexicon_lexicon_pcm-70_sm/lexicon_pcm-70_sm_djvu.txt",
       "document": "Lexicon, PCM 70 Service Packet (texte archive.org) : § 2.1.1 Rear Panel Connections et § 2.2 Specifications",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://archive.org/stream/lexicon_lexicon_pcm-70_sm/lexicon_pcm-70_sm_djvu.txt",
+      "document": "Lexicon (constructeur), PCM 70 Service Packet, liste de pièces, relue : « CONN, AC, SWCT #EAC 309 » (J10) et « CORD, POWER, PHILLIP #13E37-1 » ; prouve l'embase secteur amovible",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.digikey.fr/en/products/detail/switchcraft-inc/EAC309X/416266",
+      "document": "DigiKey (distributeur), Switchcraft EAC309X : « IEC 320-C14 Panel Mount » ; sert à lire la désignation EAC309 de la liste de pièces",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -108,8 +118,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "Secteur 100 / 120 / 220 / 240 V commutable, 25 W max ; type de cordon ou d'embase non décrit par le Service Packet"
+      "connector": "iec-c13",
+      "format": "Secteur 100 / 120 / 220 / 240 V commutable, 25 W max ; embase IEC C14 : liste de pièces du Service Packet « CONN, AC, SWCT #EAC 309 » (Switchcraft EAC309, embase IEC 320 C14 selon DigiKey) et cordon « CORD, POWER » fourni séparément"
     }
   ],
   "aliases": [

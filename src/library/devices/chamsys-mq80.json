@@ -4,7 +4,7 @@
   "manufacturer": "ChamSys",
   "model": "MagicQ MQ80",
   "pictogram": "control",
-  "status": "community",
+  "status": "verified",
   "sources": [
     {
       "url": "https://www.pssl.com/ChamSys-MagicQ-MQ80-24-Universe-Compact-Console-1",
@@ -50,6 +50,16 @@
       "url": "https://chamsyslighting.com/?p=5300",
       "document": "ChamSys (constructeur), page MQ80 Spec Sheet : alimentation Neutrik powerCON TRUE1 110-240 V CA, 1 sortie HDMI moniteur externe, 4 ports réseau, 4 sorties DMX, 6 USB",
       "accessed": "2026-11-15"
+    },
+    {
+      "url": "https://www.novelty.fr/wp-content/uploads/downloaded/downloads/materiel_fiches_techniques/chamsys_magic-q-mq80_ft.pdf",
+      "document": "ChamSys (constructeur), fiche technique MagicQ MQ80 (copie Novelty) : « Neutrik Ethercon locking connectors for networking », alimentation et onduleur sur powerCON",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://goknight.com/content/documentation/MagicQ%20MQ500M%20User%20Manual.pdf",
+      "document": "ChamSys, MagicQ User Manual (constructeur), ch. 38 : MIDI « rear input and output DIN sockets » ; ch. 40.1 : remote input sur « standard 4 pin mini DIN connector » (consoles MagicQ ; MQ80 cité dans le manuel)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -165,14 +175,15 @@
       "direction": "in",
       "signal": "control",
       "connector": "din5",
-      "format": "MIDI notes, MIDI timecode"
+      "format": "MIDI notes, MIDI timecode ; connecteur DIN 5 broches fixé par la norme MIDI"
     },
     {
       "id": "midiOut",
       "name": "MIDI Out",
       "direction": "out",
       "signal": "control",
-      "connector": "din5"
+      "connector": "din5",
+      "format": "connecteur DIN 5 broches fixé par la norme MIDI"
     },
     {
       "id": "hdmi",
@@ -188,7 +199,7 @@
       "direction": "in",
       "signal": "control",
       "connector": "minidin4",
-      "format": "Mini-DIN 4 broches, entrée optoisolée ou contact sec (alimentation 5 V)"
+      "format": "Mini-DIN 4 broches, entrée optoisolée ou contact sec (alimentation 5 V) ; « standard 4 pin mini DIN connector » (manuel MagicQ, ch. 40, consoles MagicQ)"
     },
     {
       "id": "ac",
@@ -203,5 +214,6 @@
     "Magic Q MQ80",
     "ChamSys Magic Q MQ80"
   ],
-  "description": "Console ChamSys MagicQ MQ80 : 24 univers, 4 sorties DMX, switch Ethernet 4 ports etherCON, 6 USB, MIDI, LTC, entrée audio, moniteur externe 1920 × 1200 ; alimentation interne avec onduleur ; 570 × 405 × 110 mm, 8 kg."
+  "description": "Console ChamSys MagicQ MQ80 : 24 univers, 4 sorties DMX, switch Ethernet 4 ports etherCON, 6 USB, MIDI, LTC, entrée audio, moniteur externe 1920 × 1200 ; alimentation interne avec onduleur ; 570 × 405 × 110 mm, 8 kg.",
+  "notes": "Non saisies : entrée LTC (1 port annoncé par ChamSys, connecteur non publié) et entrée audio."
 }

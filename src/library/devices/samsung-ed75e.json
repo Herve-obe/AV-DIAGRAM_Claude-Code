@@ -4,7 +4,7 @@
   "manufacturer": "Samsung",
   "model": "ED75E (75\")",
   "pictogram": "display",
-  "status": "community",
+  "status": "verified",
   "powerW": 275,
   "sources": [
     {
@@ -16,6 +16,16 @@
       "url": "https://fullcompass.com/common/files/30533-SamsungEDESeriesCommericalLEDLCDDisplaysCutSheet.pdf",
       "document": "Samsung, ED-E Series cut sheet ED65E/ED75E (copie revendeur Full Compass) : Connectivity, liste des prises, Power Consumption",
       "accessed": "2026-11-07"
+    },
+    {
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_UK&OriginYN=N&ModelType=N&ModelName=ED75E&CttFileID=7969878&CDCttType=UM&VPath=UM%2F202102%2F20210215123533084%2FBN81-20491A-01_WEB_DCE_DCE-M_DCE-H_EDE_EME_EU_ENG_210205.0.pdf",
+      "document": "Samsung, manuel utilisateur ED65E/ED75E (Europe, février 2021) : p. 14 composants (Power cord) ; p. 17 panneau arrière (schéma et liste des prises) ; p. 124 Power Supply 100 à 240 V",
+      "accessed": "2026-11-16"
+    },
+    {
+      "url": "https://www.fullcompass.com/common/files/30533-SamsungEDESeriesCommericalLEDLCDDisplaysCutSheet.pdf",
+      "document": "Samsung, ED-E Series cut sheet ED65E/ED75E (copie revendeur Full Compass) : Connectivity, Power Supply AC 100-240 V~ 50/60 Hz, Accessories Included (Power Cord)",
+      "accessed": "2026-11-16"
     }
   ],
   "ports": [
@@ -48,8 +58,8 @@
       "name": "AV In / Video / Component In",
       "direction": "in",
       "signal": "video",
-      "connector": "unspecified",
-      "format": "Composite ou composante (adaptateur requis) ; connecteur non nommé dans la fiche"
+      "connector": "minijack",
+      "format": "AV IN / COMPONENT IN : composite ou composante via l'adaptateur AV/Component Samsung ; prise ronde de type jack lue sur le schéma du panneau arrière (manuel p. 17)"
     },
     {
       "id": "ain",
@@ -90,8 +100,8 @@
       "name": "Secteur",
       "direction": "in",
       "signal": "power",
-      "connector": "unspecified",
-      "format": "AC 100-240 V, 50/60 Hz ; cordon secteur fourni, type d'embase non indiqué par Samsung"
+      "connector": "mains-cord",
+      "format": "AC 100-240 V, 50/60 Hz, alimentation interne ; cordon secteur fourni, forme de l'embase non publiée par le constructeur"
     },
     {
       "id": "usb1",
@@ -100,14 +110,7 @@
       "signal": "control",
       "connector": "usb-a",
       "format": "Lecteur USB"
-    },
-    {
-      "id": "ir",
-      "name": "IR / Ambient Sensor In",
-      "direction": "in",
-      "signal": "control",
-      "connector": "unspecified",
-      "format": "Capteur externe ; connecteur non nommé dans la fiche"
     }
-  ]
+  ],
+  "notes": "Non saisie : IR / AMBIENT SENSOR IN, entrée du capteur externe (connecteur non publié par le constructeur)."
 }
